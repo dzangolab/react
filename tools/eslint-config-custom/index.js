@@ -4,15 +4,18 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:prettier/recommended",
-    "react-app",
-    "react-app/jest",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
   parserOptions: {
+    ecmaVersion: "latest",
     parser: "@typescript-eslint/parser",
+    sourceType: "module",
   },
-  plugins: ["prettier", "unicorn"],
+  plugins: ["import", "prettier", "unicorn"],
   root: true,
   rules: {
     "import/order": [
