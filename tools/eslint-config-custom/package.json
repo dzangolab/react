@@ -1,8 +1,8 @@
 {
   "name": "eslint-config-custom",
   "version": "0.0.1",
-  "main": "index.js",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "sort-package": "npx sort-package-json"
   },
@@ -16,8 +16,8 @@
     "eslint-import-resolver-typescript": "3.5.2",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.31.8",
     "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-react": "7.31.8",
     "eslint-plugin-unicorn": "45.0.1",
     "eslint-plugin-vue": "9.8.0",
     "vue-eslint-parser": "9.1.0"
