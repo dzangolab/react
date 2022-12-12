@@ -8,6 +8,33 @@
     "lint": {
       "outputs": []
     },
+    "lint:fix": {
+      "outputs": []
+    },
+    "outdated": {
+      "outputs": []
+    },
+    "publish": {
+      "outputs": []
+    },
+    "release": {
+      "outputs": []
+    },
+    "sort-package": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": []
+    },
+    "test:ci": {
+      "outputs": []
+    },
+    "test:integration": {
+      "outputs": []
+    },
+    "test:unit": {
+      "outputs": []
+    },
     "typecheck": {
       "outputs": []
     }
