@@ -51,7 +51,7 @@ importers:
       eslint-plugin-import: 2.26.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-promise: 6.1.1
-      eslint-plugin-react: 7.31.8
+      eslint-plugin-react: 7.31.11
       eslint-plugin-unicorn: 45.0.1
       eslint-plugin-vue: 9.8.0
       prettier: 2.8.0
@@ -68,7 +68,7 @@ importers:
       eslint-plugin-import: 2.26.0_qfsg7upu5e4dqco5ntekgyqxwu
       eslint-plugin-prettier: 4.2.1_nrhoyyjffvfyk4vtlt5destxgm
       eslint-plugin-promise: 6.1.1_eslint@8.29.0
-      eslint-plugin-react: 7.31.8_eslint@8.29.0
+      eslint-plugin-react: 7.31.11_eslint@8.29.0
       eslint-plugin-unicorn: 45.0.1_eslint@8.29.0
       eslint-plugin-vue: 9.8.0_eslint@8.29.0
       vue-eslint-parser: 9.1.0_eslint@8.29.0
@@ -1152,6 +1152,16 @@ packages:
       es-shim-unscopables: 1.0.0
     dev: false
 
+  /array.prototype.tosorted/1.1.1:
+    resolution: {integrity: sha512-pZYPXPRl2PqWcsUs6LOMn+1f1532nEoPTYowBtqLwAW+W8vSVhkIGnmOX1t/UQjD6YGI0vcD2B1U7ZFGQH9jnQ==}
+    dependencies:
+      call-bind: 1.0.2
+      define-properties: 1.1.4
+      es-abstract: 1.20.5
+      es-shim-unscopables: 1.0.0
+      get-intrinsic: 1.1.3
+    dev: false
+
   /arrify/1.0.1:
     resolution: {integrity: sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==}
     engines: {node: '>=0.10.0'}
@@ -2042,7 +2052,7 @@ packages:
       eslint-import-resolver-typescript: 2.7.1_lt3hqehuojhfcbzgzqfngbtmrq
       eslint-plugin-import: 2.26.0_eiyzgmxwjh2ju4h2i7ihxlay3i
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.29.0
-      eslint-plugin-react: 7.31.8_eslint@8.29.0
+      eslint-plugin-react: 7.31.11_eslint@8.29.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.29.0
       typescript: 4.9.3
     transitivePeerDependencies:
@@ -2303,14 +2313,15 @@ packages:
       eslint: 8.29.0
     dev: false
 
-  /eslint-plugin-react/7.31.8_eslint@8.29.0:
-    resolution: {integrity: sha512-5lBTZmgQmARLLSYiwI71tiGVTLUuqXantZM6vlSY39OaDSV0M7+32K5DnLkmFrwTe+Ksz0ffuLUC91RUviVZfw==}
+  /eslint-plugin-react/7.31.11_eslint@8.29.0:
+    resolution: {integrity: sha512-TTvq5JsT5v56wPa9OYHzsrOlHzKZKjV+aLgS+55NJP/cuzdiQPC7PfYoUjMoxlffKtvijpk7vA/jmuqRb9nohw==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
       array-includes: 3.1.6
       array.prototype.flatmap: 1.3.1
+      array.prototype.tosorted: 1.1.1
       doctrine: 2.1.0
       eslint: 8.29.0
       estraverse: 5.3.0
