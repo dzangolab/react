@@ -22,7 +22,7 @@ importers:
 
   packages/config:
     specifiers:
-      '@types/node': 18.8.5
+      '@types/node': 18.11.17
       eslint: 8.25.0
       eslint-config-custom: 0.0.4
       prettier: 2.7.1
@@ -30,7 +30,7 @@ importers:
       typescript: 4.8.4
       vite: 3.1.7
     devDependencies:
-      '@types/node': 18.8.5
+      '@types/node': 18.11.17
       eslint: 8.25.0
       eslint-config-custom: link:../../tools/eslint-config-custom
       prettier: 2.7.1
@@ -709,13 +709,13 @@ packages:
   /@octokit/types/4.1.10:
     resolution: {integrity: sha512-/wbFy1cUIE5eICcg0wTKGXMlKSbaAxEr00qaBXzscLXpqhcwgXeS6P8O0pkysBhRfyjkKjJaYrvR1ExMO5eOXQ==}
     dependencies:
-      '@types/node': 18.8.5
+      '@types/node': 18.11.17
     dev: true
 
   /@octokit/types/5.5.0:
     resolution: {integrity: sha512-UZ1pErDue6bZNjYOotCNveTXArOMZQFG6hKJfOnGnulVCMcVVi7YIIuuR4WfBhjo7zgpmzn/BkPDnUXtNx+PcQ==}
     dependencies:
-      '@types/node': 18.8.5
+      '@types/node': 18.11.17
     dev: true
 
   /@octokit/types/6.41.0:
@@ -750,7 +750,7 @@ packages:
     engines: {node: '>= 8.9.0', npm: '>= 5.5.1'}
     dependencies:
       '@slack/types': 1.10.0
-      '@types/node': 18.8.5
+      '@types/node': 18.11.17
       axios: 0.21.4
     transitivePeerDependencies:
       - debug
@@ -776,7 +776,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.8.5
+      '@types/node': 18.11.17
     dev: true
 
   /@types/is-ci/3.0.0:
@@ -809,8 +809,8 @@ packages:
     resolution: {integrity: sha512-hcU9AIQVHmPnmjRK+XUUYlILlr9pQrsqSrwov/JK1pnf3GTQowVBhx54FbvM0AU/VXGH4i3+vgXS5EguR7fysA==}
     dev: true
 
-  /@types/node/18.8.5:
-    resolution: {integrity: sha512-Bq7G3AErwe5A/Zki5fdD3O6+0zDChhg671NfPjtIcbtzDNZTv4NPKMRFr7gtYPG7y+B8uTiNK4Ngd9T0FTar6Q==}
+  /@types/node/18.11.17:
+    resolution: {integrity: sha512-HJSUJmni4BeDHhfzn6nF0sVmd1SMezP7/4F0Lq+aXzmp2xm9O7WXrUtHW/CHlYVtZUbByEvWidHqRtcJXGF2Ng==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
