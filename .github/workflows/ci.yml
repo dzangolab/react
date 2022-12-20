@@ -1,4 +1,4 @@
-name: "@dzangolab/react CI"
+name: "@dzangolab/react Test"
 
 on:
   push
