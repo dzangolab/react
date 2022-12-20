@@ -4,7 +4,7 @@ on:
   push
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,7 +16,6 @@ jobs:
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
-          node-version: ${{ matrix.node-version }}
           version: 7
     
       - name: Install Dependencies
