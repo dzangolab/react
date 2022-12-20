@@ -1,8 +1,7 @@
 name: "@dzangolab/react CI"
 
 on:
-  push:
-    branches: ['*']
+  push
 
 jobs:
   build:
