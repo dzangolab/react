@@ -1,0 +1,22 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div>
+  <nav
+    className="locale-switcher "
+  >
+    <div
+      className="locale truncated"
+      onClick={[Function]}
+    >
+      locales.en
+    </div>
+    <span
+      className="truncated"
+      onClick={[Function]}
+    >
+      ▾
+    </span>
+  </nav>
+</div>
+`;

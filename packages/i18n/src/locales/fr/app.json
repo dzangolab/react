@@ -1,0 +1,15 @@
+{
+  "header": {
+    "menu": {
+      "about": "A propos de nous",
+      "home": "Accueil",
+      "profile": "Profil",
+      "login": "Connexion",
+      "logout": "Déconnexion"
+    }
+  },
+  "footer": {
+    "copyright": "Tous droits réservés."
+  },
+  "loading": "Loading[fr] ..."
+}

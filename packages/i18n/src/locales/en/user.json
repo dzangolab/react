@@ -1,0 +1,112 @@
+{
+  "forgetPassword": {
+    "messages": {
+      "success": "Email sent sucessfully",
+      "validation": {
+        "email": "Email is required"
+      }
+    },
+    "form": {
+      "actions": {
+        "submit": "Email me"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": "john.doe.at.example.com"
+      }
+    },
+    "title": "Forget Password"
+  },
+  "login": {
+    "form": {
+      "actions": {
+        "submit": "Sign in"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "password": {
+        "label": "Your password"
+      }
+    },
+    "instructions": "Enter your credentials to continue.",
+    "links": {
+      "forgotPassword": "Forgot password",
+      "signup": "Sign up"
+    },
+    "messages": {
+      "success": "Logged in successfully.",
+      "validation": {
+        "email": "Email is required",
+        "password": "Password is required"
+      }
+    },
+    "title": "Login"
+  },
+  "logout": {
+    "message": "Successfully logged out"
+  },
+  "signup": {
+    "form": {
+      "actions": {
+        "submit": "Create my account"
+      },
+      "confirmation": {
+        "label": "Confirm your password"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "password": {
+        "label": "Your password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password"
+      }
+    },
+    "links": {
+      "forgotPassword": "Forgot password",
+      "login": "Login"
+    },
+    "messages": {
+      "success": "Signed up successfully.",
+      "validation": {
+        "email": "Email is required",
+        "password": "Password is required",
+        "confirmPassword": "ConfirmPassword is required"
+      }
+    },
+    "title": "Register"
+  },
+  "menu": {
+    "signin": "Signin",
+    "signup": "Signup"
+  },
+  "resetPassword": {
+    "form": {
+      "actions": {
+        "submit": "Reset password"
+      },
+      "newPassword": {
+        "label": "New password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password is required"
+      }
+    },
+    "messages": {
+      "success": "Reset password successfully",
+      "validation": {
+        "newPassword": "New password is required",
+        "confirmPassword": "Confirm password is required"
+      }
+    },
+    "title": "Reset Password"
+  },
+  "userMenu": {
+    "profile": "Profile",
+    "logout": "Logout"
+  }
+}

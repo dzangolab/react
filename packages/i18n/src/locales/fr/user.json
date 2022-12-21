@@ -1,0 +1,111 @@
+{
+  "forgetPassword": {
+    "messages": {
+      "success": "Email sent sucessfully [fr]",
+      "validation": {
+        "email": "Email is required [fr]"
+      }
+    },
+    "form": {
+      "actions": {
+        "submit": "Email me [fr]"
+      },
+      "email": {
+        "label": "Your email [fr]",
+        "placeholder": "john.doe.at.example.com [fr]"
+      }
+    },
+    "title": "Forget Password [fr]"
+  },
+  "login": {
+    "form": {
+      "actions": {
+        "submit": "Connexion"
+      },
+      "email": {
+        "label": "Votre adresse mail",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "password": {
+        "label": "votre mot de passe"
+      }
+    },
+    "links": {
+      "forgotPassword": "Mot de passe oublié",
+      "signup": "Inscription"
+    },
+    "messages": {
+      "success": "Logged in successfully.",
+      "validation": {
+        "email": "Email is required [fr]",
+        "password": "Password is required [fr]"
+      }
+    },
+    "title": "Connexion"
+  },
+  "logout": {
+    "message": "Successfully logged out[fr]"
+  },
+  "resetPassword": {
+    "form": {
+      "actions": {
+        "submit": "Reset password[fr]"
+      },
+      "newPassword": {
+        "label": "New password[fr]"
+      },
+      "confirmPassword": {
+        "label": "Confirm password is required[fr]"
+      }
+    },
+    "messages": {
+      "success": "Reset password successfully[fr]",
+      "validation": {
+        "newPassword": "New password is required[fr]",
+        "confirmPassword": "Confirm password is required[fr]"
+      }
+    },
+    "title": "Reset Password[fr]"
+  },
+  "signup": {
+    "form": {
+      "actions": {
+        "submit": "M'inscrire"
+      },
+      "confirmation": {
+        "label": "Confirmez votre mot de passe"
+      },
+      "email": {
+        "label": "Votre adresse e-mail",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "password": {
+        "label": "Votre mot de passe"
+      },
+      "confirmPassword": {
+        "label": "Confirm password [fr]"
+      }
+    },
+    "links": {
+      "forgotPassword": "Mot de passe oublié",
+      "login": "Connexion"
+    },
+    "messages": {
+      "success": "Signed up successfully.",
+      "validation": {
+        "email": "Email is required[fr]",
+        "password": "Password is required[fr]",
+        "confirmPassword": "ConfirmPassword is required[fr]"
+      }
+    },
+    "title": "Inscription"
+  },
+  "menu": {
+    "signin": "Connexion",
+    "signup": "Inscription"
+  },
+  "userMenu": {
+    "profile": "Profile[fr]",
+    "logout": "Logout[fr]"
+  }
+}
