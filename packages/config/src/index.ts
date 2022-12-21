@@ -2,7 +2,7 @@ import type { AppConfig, AppFeatures } from "./types";
 
 const parse = (
   value: string | boolean | undefined | number,
-  fallback: bigint | string | null | boolean
+  fallback: bigint | number | string | null | boolean
 ) => {
   if (typeof value === "undefined") {
     return fallback;
