@@ -20,7 +20,7 @@
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
   },
   "devDependencies": {
-    "@types/node": "18.8.5",
+    "@types/node": "18.11.17",
     "eslint": "8.25.0",
     "eslint-config-custom": "0.0.4",
     "prettier": "2.8.1",
