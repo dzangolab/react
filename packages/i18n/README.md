@@ -4,7 +4,7 @@ Adds internationalization to a react app.
 
 ## Requirements
 
-* `@dzangolab/react-config: 0.0.4`
+* `@dzangolab/react-config: 0.1.0`
 
 ## Installation
 

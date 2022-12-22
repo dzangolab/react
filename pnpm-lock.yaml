@@ -103,7 +103,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@dzangolab/react-config': 0.0.4
+      '@dzangolab/react-config': 0.1.0
       '@testing-library/react': 13.4.0
       '@types/node': 18.8.5
       '@types/react': 18.0.21
@@ -112,14 +112,14 @@ importers:
       '@vitejs/plugin-react': 2.1.0
       '@vitest/coverage-c8': 0.24.1
       eslint: 8.25.0
-      eslint-config-custom: 0.0.4
+      eslint-config-custom: 0.1.0
       eslint-plugin-react: 7.31.10
       jsdom: ^20.0.3
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
       react-test-renderer: 18.2.0
-      tsconfig: 0.0.4
+      tsconfig: 0.1.0
       typescript: 4.8.4
       vite: 3.1.7
       vitest: ^0.25.8
