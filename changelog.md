@@ -1,3 +1,19 @@
+# [0.1.0](https://github.com/dzangolab/react/compare/v0.0.4...v0.1.0) (2022-12-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-config-next to v13.0.7 ([#12](https://github.com/dzangolab/react/issues/12)) ([43fea6a](https://github.com/dzangolab/react/commit/43fea6ad55bf1988aa31c10ccaab5d2507a0fc37))
+* **deps:** update dependency eslint-plugin-react to v7.31.11 ([#14](https://github.com/dzangolab/react/issues/14)) ([ed08497](https://github.com/dzangolab/react/commit/ed08497a1c237ed6d8cb1c9b2cba89ab0791d7a4))
+* **deps:** update dependency eslint-plugin-unicorn to v45.0.2 ([#15](https://github.com/dzangolab/react/issues/15)) ([72e2fa7](https://github.com/dzangolab/react/commit/72e2fa737f890886bafefc8f6a0bb64ea0f2ca68))
+
+
+### Features
+
+* add react-i18n package to monorepo ([#24](https://github.com/dzangolab/react/issues/24)) ([6ee7b42](https://github.com/dzangolab/react/commit/6ee7b42ba91630b246230acd41f0563559875f11))
+
+
+
 ## 0.0.4 (2022-12-13)
 
 
