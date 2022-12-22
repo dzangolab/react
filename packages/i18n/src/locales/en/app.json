@@ -1,0 +1,15 @@
+{
+  "header": {
+    "menu": {
+      "about": "About",
+      "home": "Home",
+      "profile": "Profile",
+      "login": "Login",
+      "logout": "Logout"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "loading": "Loading ..."
+}
