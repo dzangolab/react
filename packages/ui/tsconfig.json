@@ -1,26 +1,10 @@
 {
+  "extends": "tsconfig/base.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "isolatedModules": true,
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "types": ["vite/client"],
-    "esModuleInterop": true,
+    "outDir": "./dist",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "skipLibCheck": true,
-    "outDir": "dist",
-    "declaration": true
   },
-  "include": ["vite.config.*", "src/**/*", "src/**/*.tsx"]
+  "include": ["vite.config.*", "src/**/*", "src/**/*.tsx"],
 }
-
-
