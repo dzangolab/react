@@ -1,0 +1,22 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="page"
+>
+  <h1>
+    This is the title
+    <small>
+      This is the subtitle
+    </small>
+  </h1>
+  <div
+    className="content"
+    data-testid="page-content"
+  >
+    <p>
+      This is the content
+    </p>
+  </div>
+</div>
+`;
