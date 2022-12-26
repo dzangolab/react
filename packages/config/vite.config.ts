@@ -32,12 +32,5 @@ export default defineConfig(({ mode }) => {
     server: {
       port: Number(process.env.VITE_APP_PORT) || 8889,
     },
-    test: {
-      coverage: {
-        reporter: ["text", "json", "html"],
-      },
-      environment: "jsdom",
-      globals: true,
-    },
   };
 });

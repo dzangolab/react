@@ -74,4 +74,11 @@ module.exports = {
       },
     ],
   },
+  settings: {
+    "import/resolver": {
+      typescript: {
+        extensions: [".ts", ".tsx", ".d.ts", ".js", ".jsx", ".json", ".node"],
+      },
+    },
+  },
 };
