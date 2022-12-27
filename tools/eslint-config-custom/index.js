@@ -18,6 +18,7 @@ module.exports = {
   plugins: ["import", "prettier", "unicorn"],
   root: true,
   rules: {
+    "import/default": "off",
     "import/order": [
       1,
       {
