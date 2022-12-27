@@ -1,0 +1,23 @@
+footer, .footer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: var(--footer-font-size, 0.8rem);
+  gap: var(--footer-column-gap, 0.25rem) var(--footer-row-gap, 0.25rem);
+  line-height: 1.25rem;
+  padding: var(--footer-padding-v, 0.8rem) 0;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  footer, .footer {
+    align-items: top;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.version {
+  font-size: var(--version-font-size, 0.8rem);
+}

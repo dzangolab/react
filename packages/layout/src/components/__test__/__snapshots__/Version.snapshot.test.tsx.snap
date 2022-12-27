@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="version"
+>
+  0.0.1-local
+</div>
+`;
