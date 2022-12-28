@@ -1,0 +1,18 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="page-title"
+>
+  <h1>
+    Test title
+  </h1>
+  <div
+    className="toolbar"
+  >
+    <div>
+      Toolbar content
+    </div>
+  </div>
+</div>
+`;
