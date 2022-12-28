@@ -1,3 +1,12 @@
+## [0.3.2](https://github.com/dzangolab/react/compare/v0.2.0...v0.3.2) (2022-12-28)
+
+
+### Features
+
+* add react user to the monorepo ([#39](https://github.com/dzangolab/react/issues/39)) ([e23fad4](https://github.com/dzangolab/react/commit/e23fad41382ef04294257b4df4256786eddb5f53))
+
+
+
 # [0.2.0](https://github.com/dzangolab/react/compare/v0.1.0...v0.2.0) (2022-12-22)
 
 
