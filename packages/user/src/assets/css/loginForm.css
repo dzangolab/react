@@ -1,0 +1,40 @@
+.actions > button {
+  background-color: #1c4786;
+  border: none;
+  border-radius: 0.4rem;
+  color: #fff;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-gap, 1rem);
+  margin: 1.5rem auto 0.5rem auto;
+  width: 90%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+}
+
+.field > label {
+  text-align: start;
+}
+
+.field > input {
+  border: 0.1rem solid #eeeeee;
+  border-radius: 0.4rem;
+  height: 2.5rem;
+  padding: 0.4rem;
+}
+
+.field > p {
+  color: red;
+  font-size: 0.9rem;
+  text-align: start;
+}

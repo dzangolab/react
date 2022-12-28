@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<li
+  className="option"
+>
+  test
+</li>
+`;
