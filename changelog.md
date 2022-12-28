@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/dzangolab/react/compare/v0.3.2...v0.4.0) (2022-12-28)
+
+
+### Features
+
+* add react-layout to monorepo ([#40](https://github.com/dzangolab/react/issues/40)) ([720a0e9](https://github.com/dzangolab/react/commit/720a0e97b19532ca39eb4880b8c0010172786305))
+
+
+
 ## [0.3.2](https://github.com/dzangolab/react/compare/v0.2.0...v0.3.2) (2022-12-28)
 
 
