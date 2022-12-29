@@ -1,4 +1,4 @@
-import { AppConfig, configContext } from "@dzangolab/react-config";
+import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useContext, useState } from "react";
@@ -14,11 +14,7 @@ import type { LoginCredentials, UserContextType } from "@/types";
 
 import "../assets/css/login.css";
 
-interface Properties {
-  config: AppConfig;
-}
-
-const Login = (properties: Properties) => {
+const Login = () => {
   const { t } = useTranslation("user");
   const { setUser } = useContext(userContext) as UserContextType;
   const [loading, setLoading] = useState<boolean>(false);
