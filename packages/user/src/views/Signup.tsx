@@ -31,7 +31,7 @@ const Signup = () => {
   return (
     <div className="signup">
       <Page title={t("signup.title")}>
-        <SignupForm handleSubmit={handleSubmit} loading={true} />
+        <SignupForm handleSubmit={handleSubmit} loading={loading} />
 
         <div className="links">
           <a href="/login">{t("signup.links.login")}</a>
