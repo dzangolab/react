@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { sendPasswordResetEmail } from "supertokens-web-js/recipe/emailpassword";
+import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 interface IPromise {
   status: string | undefined;
