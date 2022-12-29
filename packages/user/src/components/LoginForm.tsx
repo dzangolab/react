@@ -1,9 +1,9 @@
-import { LoginCredentials } from "@/types";
-
 import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingButton } from "@dzangolab/react-ui";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
+
+import { LoginCredentials } from "@/types";
 
 import "../assets/css/loginForm.css";
 import ErrorMessage from "./ErrorMessage";
