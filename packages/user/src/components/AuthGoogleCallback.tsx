@@ -17,7 +17,7 @@ const AuthGoogleCallback = () => {
         setUser(response.user);
         toast.success(`${t("authGoogleCallback.email.success")}`);
       } else {
-        toast.error(`${t("authGoogleCallback.email.error.")}`);
+        toast.error(`${t("authGoogleCallback.email.error")}`);
         window.location.assign("/login");
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,7 +25,7 @@ const AuthGoogleCallback = () => {
       if (err.isSuperTokensGeneralError === true) {
         toast.error(err.message);
       } else {
-        toast.error(`${t("authGoogleCallback.message.error.")}`);
+        toast.error(`${t("authGoogleCallback.message.error")}`);
       }
     }
   };

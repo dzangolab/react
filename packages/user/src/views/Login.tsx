@@ -1,4 +1,4 @@
-import { AppConfig } from "@dzangolab/react-config";
+import { AppConfig, configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useContext } from "react";
@@ -21,6 +21,7 @@ interface Properties {
 const Login = (properties: Properties) => {
   const { t } = useTranslation("user");
   const { setUser } = useContext(userContext) as UserContextType;
+  const appConfig = useContext(configContext);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     const result = await login(credentials);
@@ -39,7 +40,7 @@ const Login = (properties: Properties) => {
         <GoogleLogin
           className="google-button"
           label={t("login.button.googleLoginLabel")}
-          redirectUrl={`${properties.config.websiteDomain}/auth/callback/google`}
+          redirectUrl={`${appConfig?.websiteDomain}/auth/callback/google`}
         />
         <div className="links">
           <a href="/signup">{t("login.links.signup")}</a>
