@@ -63,7 +63,7 @@ test("Component matches snapshot", () => {
 
   const component = renderer.create(
     <userContext.Provider value={user}>
-      <AppHeader config={appConfig} />
+      <AppHeader />
     </userContext.Provider>
   );
 

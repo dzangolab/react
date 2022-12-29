@@ -4,7 +4,7 @@ import { AppConfig } from "..";
 
 interface Properties {
   children: React.ReactNode;
-  appConfig?: AppConfig;
+  appConfig: AppConfig;
 }
 
 const configContext = React.createContext<AppConfig | undefined>(undefined);
