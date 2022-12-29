@@ -1,11 +1,10 @@
+import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
 import { userContext } from "@dzangolab/react-user";
 import renderer from "react-test-renderer";
 import { expect, test } from "vitest";
 
 import AppHeader from "../AppHeader";
-
-import type { AppConfig } from "@dzangolab/react-config";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();
@@ -63,7 +62,9 @@ test("Component matches snapshot", () => {
 
   const component = renderer.create(
     <userContext.Provider value={user}>
-      <AppHeader />
+      <configContext.Provider value={appConfig}>
+        <AppHeader />
+      </configContext.Provider>
     </userContext.Provider>
   );
 
