@@ -61,6 +61,7 @@ exports[`Component matches snapshot 1`] = `
     className="actions"
   >
     <button
+      className="loading-button"
       type="submit"
     >
       signup.form.actions.submit

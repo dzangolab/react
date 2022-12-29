@@ -1,5 +1,7 @@
 import { LoginCredentials } from "@/types";
+
 import { useTranslation } from "@dzangolab/react-i18n";
+import { LoadingButton } from "@dzangolab/react-ui";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 
@@ -8,9 +10,10 @@ import ErrorMessage from "./ErrorMessage";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
+  loading?: boolean;
 }
 
-const LoginForm = ({ handleSubmit }: Properties) => {
+const LoginForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const LoginFormSchema = Yup.object({
@@ -60,7 +63,10 @@ const LoginForm = ({ handleSubmit }: Properties) => {
           </div>
 
           <div className="actions">
-            <button type="submit">{t("login.form.actions.submit")}</button>
+            <LoadingButton
+              label={`${t("login.form.actions.submit")}`}
+              loading={loading}
+            />
           </div>
         </form>
       )}
