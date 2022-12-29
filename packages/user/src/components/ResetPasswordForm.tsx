@@ -1,4 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { LoadingButton } from "@dzangolab/react-ui";
 import { Field, Formik } from "formik";
 import React from "react";
 import * as Yup from "yup";
@@ -7,9 +8,10 @@ import ErrorMessage from "./ErrorMessage";
 
 interface Properties {
   handleSubmit: (email: string) => void;
+  loading?: boolean;
 }
 
-const ResetPasswordForm = ({ handleSubmit }: Properties) => {
+const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const ResetPasswordFormSchema = Yup.object({
@@ -69,9 +71,10 @@ const ResetPasswordForm = ({ handleSubmit }: Properties) => {
           </div>
 
           <div className="actions">
-            <button type="submit">
-              {t("resetPassword.form.actions.submit")}
-            </button>
+            <LoadingButton
+              label={t("resetPassword.form.actions.submit")}
+              loading={loading}
+            />
           </div>
         </form>
       )}

@@ -1,7 +1,7 @@
 import { AppConfig, configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 
 import GoogleLogin from "@/components/GoogleLogin";
@@ -21,11 +21,13 @@ interface Properties {
 const Login = (properties: Properties) => {
   const { t } = useTranslation("user");
   const { setUser } = useContext(userContext) as UserContextType;
+  const [loading, setLoading] = useState<boolean>(false);
   const appConfig = useContext(configContext);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
+    setLoading(true);
     const result = await login(credentials);
-
+    setLoading(false);
     setUser(result?.user);
 
     if (result && result.user) {
@@ -36,7 +38,7 @@ const Login = (properties: Properties) => {
   return (
     <div className="login">
       <Page title={t("login.title")}>
-        <LoginForm handleSubmit={handleSubmit} />
+        <LoginForm handleSubmit={handleSubmit} loading={loading} />
         <GoogleLogin
           className="google-button"
           label={t("login.button.googleLoginLabel")}
