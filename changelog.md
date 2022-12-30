@@ -1,3 +1,15 @@
+## [0.4.1](https://github.com/dzangolab/react/compare/v0.4.0...v0.4.1) (2022-12-30)
+
+
+### Features
+
+* add app config provider ([#46](https://github.com/dzangolab/react/issues/46)) ([be6c597](https://github.com/dzangolab/react/commit/be6c5975bc1db9e2e4c9049623d9c8ef4dcd2b64))
+* add global readme ([#44](https://github.com/dzangolab/react/issues/44)) ([027bad6](https://github.com/dzangolab/react/commit/027bad671297903141b29962a45270973654b878))
+* **react-config:** add supported login providers option in config ([#45](https://github.com/dzangolab/react/issues/45)) ([2455080](https://github.com/dzangolab/react/commit/24550809b8a146ae7c0d6e1c878dda13fc636208))
+* **react-ui:** add loading button ([#43](https://github.com/dzangolab/react/issues/43)) ([b11e51d](https://github.com/dzangolab/react/commit/b11e51d5e3b82c4b119973914f433fa23eb518a8))
+
+
+
 # [0.4.0](https://github.com/dzangolab/react/compare/v0.3.2...v0.4.0) (2022-12-28)
 
 
