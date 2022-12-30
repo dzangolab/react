@@ -1,18 +1,20 @@
 import { toast } from "react-toastify";
-import { signIn } from "supertokens-web-js/recipe/emailpassword";
+import {
+  EmailPasswordUserType,
+  emailPasswordSignIn,
+} from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import type { LoginCredentials } from "../types";
-import type { UserType } from "supertokens-web-js/recipe/emailpassword";
 
 interface IPromise {
-  user: UserType | undefined;
+  user: EmailPasswordUserType | undefined;
   status: string | undefined;
 }
 
 const login = async (
   credentials: LoginCredentials
 ): Promise<IPromise | undefined> => {
-  let user: UserType | undefined;
+  let user: EmailPasswordUserType | undefined;
   let status: string | undefined;
 
   const data = {
@@ -29,7 +31,7 @@ const login = async (
   };
 
   try {
-    const response = await signIn(data);
+    const response = await emailPasswordSignIn(data);
     if (response.status === "OK") {
       user = response.user;
       status = response.status;
