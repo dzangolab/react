@@ -1,29 +1,28 @@
-import React from "react";
+import { configContext } from "@dzangolab/react-config";
+
+import React, { useContext } from "react";
 
 import Copyright from "./Copyright";
 import Version from "./Version";
 
-import type { AppConfig } from "@dzangolab/react-config";
-
 import "../css/components/app-footer.css";
 
 interface Properties {
-  config: AppConfig;
   copyright?: React.ReactNode;
   version?: React.ReactNode;
 }
 
 const AppFooter: React.FC<Properties> = (properties: Properties) => {
-  const { config } = properties;
+  const appConfig = useContext(configContext);
 
   const {
     copyright = (
       <Copyright
-        holder={config?.copyright?.holder}
-        url={config?.copyright?.url}
+        holder={appConfig?.copyright?.holder}
+        url={appConfig?.copyright?.url}
       />
     ),
-    version = <Version version={config.appVersion} />,
+    version = <Version version={appConfig?.appVersion} />,
   } = properties;
 
   return (

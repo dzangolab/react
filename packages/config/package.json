@@ -20,11 +20,13 @@
   },
   "devDependencies": {
     "@types/node": "18.11.17",
+    "@types/react": "18.0.21",
     "@vitest/coverage-c8": "0.26.0",
     "eslint": "8.30.0",
     "eslint-config-custom": "0.4.0",
     "jsdom": "20.0.3",
     "prettier": "2.8.1",
+    "react": "18.2.0",
     "tsconfig": "0.4.0",
     "typescript": "4.9.4",
     "vite": "3.2.5",
