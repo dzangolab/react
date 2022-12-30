@@ -35,11 +35,16 @@ const Login = () => {
     <div className="login">
       <Page title={t("login.title")}>
         <LoginForm handleSubmit={handleSubmit} loading={loading} />
-        <GoogleLogin
-          className="google-button"
-          label={t("login.button.googleLoginLabel")}
-          redirectUrl={`${appConfig?.websiteDomain}/auth/callback/google`}
-        />
+        {appConfig?.supportedLoginProviders &&
+        appConfig.supportedLoginProviders.includes("google") ? (
+          <GoogleLogin
+            className="google-button"
+            label={t("login.button.googleLoginLabel")}
+            redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+          />
+        ) : (
+          <></>
+        )}
         <div className="links">
           <a href="/signup">{t("login.links.signup")}</a>
           <a href="/forget-password">{t("login.links.forgotPassword")}</a>
