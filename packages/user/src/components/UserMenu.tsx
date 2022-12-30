@@ -1,10 +1,10 @@
 import { useContext } from "react";
 
+import { UserContextType } from "@/types";
+
 import { userContext } from "../context/UserProvider";
 import DropdownUserMenu from "./DropdownUserMenu";
 import SignInUpMenu from "./SignInUpMenu";
-
-import { UserContextType } from "@/types";
 
 interface Properties {
   authenticatedUserMenu?: React.ReactNode;

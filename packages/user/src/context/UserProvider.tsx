@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 import Session from "supertokens-web-js/recipe/session";
+import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import type { UserContextType } from "@/types";
-import type { UserType } from "supertokens-web-js/recipe/emailpassword";
 
 interface Properties {
   children: React.ReactNode;
@@ -11,7 +11,9 @@ interface Properties {
 const userContext = createContext<UserContextType | undefined>(undefined);
 
 const UserProvider = ({ children }: Properties) => {
-  const [user, setUser] = useState<UserType | undefined>(undefined);
+  const [user, setUser] = useState<EmailPasswordUserType | undefined>(
+    undefined
+  );
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {

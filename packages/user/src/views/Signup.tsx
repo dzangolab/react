@@ -3,12 +3,12 @@ import { Page } from "@dzangolab/react-ui";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 
+import SignupForm from "@/components/SignupForm";
+
 import { userContext } from "../context/UserProvider";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials, UserContextType } from "@/types";
-
-import SignupForm from "@/components/SignupForm";
 
 import "../assets/css/signup.css";
 
