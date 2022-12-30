@@ -20,6 +20,7 @@ interface AppConfig {
   locales: string;
   localStorageNamespace: string;
   websiteDomain: string;
+  supportedLoginProviders?: string[];
 }
 
 interface AppFeatures {

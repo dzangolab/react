@@ -1,3 +1,5 @@
+import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
+
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
@@ -11,7 +13,6 @@ import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
 
 import type { UserContextType } from "./types";
-import type { UserType } from "supertokens-web-js/recipe/emailpassword";
 
 export {
   AuthGoogleCallback,
@@ -28,4 +29,4 @@ export {
   UserToastContainer,
 };
 
-export type { UserContextType, UserType };
+export type { UserContextType, EmailPasswordUserType };

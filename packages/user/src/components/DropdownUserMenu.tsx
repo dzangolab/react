@@ -4,10 +4,11 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
 import Session from "supertokens-web-js/recipe/session";
 
+import { UserContextType } from "@/types";
+
 import { userContext } from "../context/UserProvider";
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
 
-import { UserContextType } from "@/types";
 import "../assets/css/dropdownUserMenu.css";
 
 interface Properties {

@@ -1,3 +1,5 @@
+import ConfigProvider, { configContext } from "./context/ConfigProvider";
+
 import type { AppConfig, AppFeatures } from "./types";
 
 const parse = (
@@ -24,6 +26,6 @@ const parse = (
   }
 };
 
-export { parse };
+export { configContext, ConfigProvider, parse };
 
 export type { AppConfig, AppFeatures };
