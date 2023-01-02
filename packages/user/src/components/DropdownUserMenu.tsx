@@ -19,7 +19,7 @@ interface Properties {
   }[];
 }
 
-const DropdownUserMenu: React.FC = ({ userMenuList }: Properties) => {
+const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
   const id = useId();
   const { user, setUser } = useContext(userContext) as UserContextType;
   const [expanded, setExpanded] = useState(false);
