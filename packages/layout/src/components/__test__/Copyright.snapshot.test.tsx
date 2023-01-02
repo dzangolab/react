@@ -17,6 +17,7 @@ test("Component matches snapshot", () => {
     <Copyright
       holder={"Dzango technologies"}
       url={"https://www.dzangolab.com"}
+      year={2022}
     />
   );
   const tree = toJson(component);
