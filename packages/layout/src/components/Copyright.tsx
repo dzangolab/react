@@ -3,11 +3,10 @@ import { useTranslation } from "@dzangolab/react-i18n";
 interface Properties {
   holder?: string;
   url?: string;
+  year: number;
 }
 
-const year = new Date().getFullYear();
-
-const Copyright = ({ holder, url }: Properties) => {
+const Copyright = ({ holder, url, year }: Properties) => {
   const { t } = useTranslation("app");
 
   if (holder) {
