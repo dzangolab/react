@@ -6,6 +6,7 @@ import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
 import superTokens from "./supertokens";
 import UserToastContainer from "./toastify";
+import ChangePassword from "./views/ChangePassword";
 import ForgetPassword from "./views/ForgetPassword";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
@@ -16,17 +17,18 @@ import type { UserContextType } from "./types";
 
 export {
   AuthGoogleCallback,
+  ChangePassword,
   DropdownUserMenu,
   ForgetPassword,
   Login,
-  ResetPassword,
   Profile,
+  ResetPassword,
   Signup,
-  superTokens,
-  userContext,
   UserMenu,
   UserProvider,
   UserToastContainer,
+  superTokens,
+  userContext,
 };
 
 export type { UserContextType, EmailPasswordUserType };
