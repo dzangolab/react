@@ -11,8 +11,7 @@ const ChangePassword = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = () => {
-    console.log("submited");
-    setLoading(true);
+    //[SM:01/01/2023] to do.
   };
 
   return (

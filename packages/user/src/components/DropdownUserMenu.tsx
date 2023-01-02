@@ -41,11 +41,11 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
 
   const fallbackItems = [
     {
-      name: t("userMenu.profile"),
+      name: "userMenu.profile",
       route: "/profile",
     },
     {
-      name: t("userMenu.logout"),
+      name: "userMenu.logout",
       onClick: signout,
     },
   ];
@@ -80,7 +80,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
                 route={route}
                 key={`${id}__${name}`}
               >
-                {name}
+                {t(name)}
               </DropdownUserMenuItem>
             ))}
           </ul>
