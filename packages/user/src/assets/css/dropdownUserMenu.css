@@ -49,6 +49,7 @@ nav > ul.dropdown > li {
 nav > ul.dropdown > li > a {
   color: inherit;
   text-decoration: none;
+  display: flex;
 }
 
 nav > .dropdown > li:hover {
