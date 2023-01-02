@@ -10,8 +10,10 @@ interface Properties {
 const DropdownUserMenuItem = ({ children, onClick, route }: Properties) => {
   if (route) {
     return (
-      <li className="option" onClick={onClick}>
-        <Link to={route}>{children}</Link>
+      <li className="option">
+        <Link to={route} onClick={onClick}>
+          {children}
+        </Link>
       </li>
     );
   }
