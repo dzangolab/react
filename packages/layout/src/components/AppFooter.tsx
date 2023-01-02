@@ -1,5 +1,4 @@
 import { configContext } from "@dzangolab/react-config";
-
 import React, { useContext } from "react";
 
 import Copyright from "./Copyright";
@@ -12,6 +11,8 @@ interface Properties {
   version?: React.ReactNode;
 }
 
+const year = new Date().getFullYear();
+
 const AppFooter: React.FC<Properties> = (properties: Properties) => {
   const appConfig = useContext(configContext);
 
@@ -20,6 +21,7 @@ const AppFooter: React.FC<Properties> = (properties: Properties) => {
       <Copyright
         holder={appConfig?.copyright?.holder}
         url={appConfig?.copyright?.url}
+        year={year}
       />
     ),
     version = <Version version={appConfig?.appVersion} />,

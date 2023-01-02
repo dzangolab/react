@@ -1,7 +1,6 @@
 import { configContext } from "@dzangolab/react-config";
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
 import { UserMenu } from "@dzangolab/react-user";
-
 import React, { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
