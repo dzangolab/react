@@ -23,6 +23,7 @@ function BaseTable() {
     fixedHeader,
     hideScrollBar,
     paginated,
+    paginationIcons,
     rowsPerPageOptions,
     showPageControl,
     showTotalNumber,
@@ -137,22 +138,22 @@ function BaseTable() {
           <Pagination
             config={[
               {
-                icon: "<<",
+                icon: paginationIcons?.start,
                 isDisabled: !table.getCanPreviousPage(),
                 onClick: () => table.setPageIndex(0),
               },
               {
-                icon: "<",
+                icon: paginationIcons?.previous,
                 isDisabled: !table.getCanPreviousPage(),
                 onClick: () => table.previousPage(),
               },
               {
-                icon: ">",
+                icon: paginationIcons?.next,
                 isDisabled: !table.getCanNextPage(),
                 onClick: () => table.nextPage(),
               },
               {
-                icon: ">>",
+                icon: paginationIcons?.end,
                 isDisabled: !table.getCanNextPage(),
                 onClick: () => table.setPageIndex(table.getPageCount() - 1),
               },

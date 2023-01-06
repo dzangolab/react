@@ -49,6 +49,12 @@ export interface TableProviderProperties<T> {
   fixedHeader?: boolean;
   hideScrollBar?: boolean;
   paginated?: boolean;
+  paginationIcons?: {
+    start: ReactNode;
+    previous: ReactNode;
+    next: ReactNode;
+    end: ReactNode;
+  };
   rowsPerPageOptions?: number[];
   showLoading?: boolean;
   showPageControl?: boolean;

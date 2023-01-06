@@ -64,6 +64,12 @@ TableProvider.defaultProps = {
   fixedHeader: true,
   hideScrollBar: true,
   paginated: true,
+  paginationIcons: {
+    start: "<<",
+    previous: "<",
+    next: ">",
+    end: ">>",
+  },
   rowsPerPageOptions: [10, 20, 30],
   showLoading: true,
   showPageControl: true,
