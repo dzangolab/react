@@ -1,6 +1,6 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-export interface UserContextType {
+interface UserContextType {
   user: EmailPasswordUserType | undefined;
   setUser: React.Dispatch<
     React.SetStateAction<EmailPasswordUserType | undefined>
@@ -8,7 +8,9 @@ export interface UserContextType {
   loading: boolean;
 }
 
-export interface LoginCredentials {
+interface LoginCredentials {
   email: string;
   password: string;
 }
+
+export type { UserContextType, LoginCredentials };

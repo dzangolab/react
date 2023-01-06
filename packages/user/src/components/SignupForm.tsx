@@ -25,13 +25,13 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/,
         "signup.messages.validation.validationMessage"
       )
-      .required(t("signup.messages.validation.password")),
+      .required("signup.messages.validation.password"),
     confirmPassword: Yup.string()
       .oneOf(
         [Yup.ref("password"), null],
         "signup.messages.validation.mustMatch"
       )
-      .required(t("signup.messages.validation.confirmPassword")),
+      .required("signup.messages.validation.confirmPassword"),
   });
 
   const initialValue = {

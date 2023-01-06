@@ -12,7 +12,7 @@ import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
 
-import type { UserContextType } from "./types";
+import { UserContextType } from "./types";
 
 export {
   AuthGoogleCallback,

@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 import SignupForm from "@/components/SignupForm";
 
@@ -34,8 +35,8 @@ const Signup = () => {
         <SignupForm handleSubmit={handleSubmit} loading={loading} />
 
         <div className="links">
-          <a href="/login">{t("signup.links.login")}</a>
-          <a href="/forget-password">{t("signup.links.forgotPassword")}</a>
+          <Link to="/login">{t("signup.links.login")}</Link>
+          <Link to="/forget-password">{t("signup.links.forgotPassword")}</Link>
         </div>
       </Page>
     </div>
