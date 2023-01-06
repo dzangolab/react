@@ -2,7 +2,7 @@ import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
 import { userContext } from "@dzangolab/react-user";
 import renderer from "react-test-renderer";
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 
 import AppHeader from "../AppHeader";
 
@@ -59,9 +59,14 @@ test("Component matches snapshot", () => {
     email: "test@gmail.com",
     timeJoined: 320,
   };
+  const values = {
+    user,
+    setUser: vi.fn(),
+    loading: false,
+  };
 
   const component = renderer.create(
-    <userContext.Provider value={user}>
+    <userContext.Provider value={values}>
       <configContext.Provider value={appConfig}>
         <AppHeader />
       </configContext.Provider>

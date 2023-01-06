@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import Session from "supertokens-web-js/recipe/session";
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import type { UserContextType } from "@/types";
+import { UserContextType } from "../types";
 
 interface Properties {
   children: React.ReactNode;
