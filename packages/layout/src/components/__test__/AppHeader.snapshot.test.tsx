@@ -54,11 +54,7 @@ const appConfig: AppConfig = {
 test("Component matches snapshot", () => {
   i18n(appConfig.i18n);
 
-  const user = {
-    id: "5",
-    email: "test@gmail.com",
-    timeJoined: 320,
-  };
+  const user = undefined;
   const values = {
     user,
     setUser: vi.fn(),
