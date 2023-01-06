@@ -60,6 +60,11 @@ export interface TableProviderProperties<T> {
   showPageControl?: boolean;
   showTotalNumber?: boolean;
   sortable?: boolean;
+  sortIcons?: {
+    asc: ReactNode;
+    desc: ReactNode;
+    default: ReactNode;
+  };
   title?: string;
 }
 
@@ -92,6 +97,5 @@ export interface TableBodyProperties<T> {
 }
 
 export interface TableHeaderProperties<T> {
-  sortable?: boolean;
   table: ReactTable<T>;
 }

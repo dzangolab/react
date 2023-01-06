@@ -1,22 +1,25 @@
 import { flexRender, SortDirection } from "@tanstack/react-table";
-import React from "react";
+import React, { useContext } from "react";
 
 import Filter from "./Filter";
+import { TableContext } from "./TableProvider";
 
 import type { TableHeaderProperties } from "./types";
 
-function TableHeader<T>({ sortable, table }: TableHeaderProperties<T>) {
+function TableHeader<T>({ table }: TableHeaderProperties<T>) {
+  const { sortable, sortIcons } = useContext(TableContext);
+
   const renderSortButton = (
     direction: SortDirection | false,
     canSort: boolean
   ) => {
     switch (direction) {
       case "asc":
-        return "🔼";
+        return sortIcons?.asc;
       case "desc":
-        return "🔽";
+        return sortIcons?.desc;
       default:
-        if (canSort) return "↕️";
+        if (canSort) return sortIcons?.default;
         return "";
     }
   };

@@ -75,6 +75,11 @@ TableProvider.defaultProps = {
   showPageControl: true,
   showTotalNumber: true,
   sortable: true,
+  sortIcons: {
+    asc: "🔼",
+    desc: "🔽",
+    default: "↕️",
+  },
 };
 
 export default TableProvider;

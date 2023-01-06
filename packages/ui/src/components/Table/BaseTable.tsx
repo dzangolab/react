@@ -85,7 +85,7 @@ function BaseTable() {
       <div className="table-wrapper">
         <table>
           {title ? <caption>{title}</caption> : null}
-          <TableHeader table={table} sortable={sortable} />
+          <TableHeader table={table} />
           <TableBody rowModel={() => table.getRowModel()} />
         </table>
       </div>
