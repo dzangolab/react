@@ -1,15 +1,15 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useContext, useId, useState } from "react";
+import { useId, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
 import Session from "supertokens-web-js/recipe/session";
 
-import { UserContextType } from "@/types";
-
-import { userContext } from "../context/UserProvider";
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
 
 import "../assets/css/dropdownUserMenu.css";
+import { useDispatch, useSelector } from "react-redux";
+
+import { logout } from "@/redux/reducer/AuthSlice";
 
 interface Properties {
   userMenuList?: {
@@ -21,14 +21,15 @@ interface Properties {
 
 const DropdownUserMenu: React.FC = ({ userMenuList }: Properties) => {
   const id = useId();
-  const { user, setUser } = useContext(userContext) as UserContextType;
+  const dispatch = useDispatch();
+  const { user } = useSelector((state: any) => state.auth);
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation("user");
 
   const signout = async () => {
     try {
       await Session.signOut();
-      setUser(undefined);
+      dispatch(logout() as any);
       toast.success(`${t("logout.message")}`);
     } catch (error: any) {
       toast.error(error.message);

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Session from "supertokens-web-js/recipe/session";
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
@@ -7,6 +7,7 @@ import { AuthState } from "@/types";
 enum ActionTypeEnum {
   Auth = "auth",
   GetUser = "auth/getUser",
+  Logout = "auth/logout",
 }
 
 export const getUser = createAsyncThunk(
@@ -26,6 +27,8 @@ export const getUser = createAsyncThunk(
     }
   }
 );
+
+export const logout = createAction(ActionTypeEnum.Logout);
 
 const initialState: AuthState = {
   loading: false,
@@ -50,6 +53,10 @@ const authSlice = createSlice({
     builder.addCase(getUser.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload as string;
+    });
+
+    builder.addCase(logout, () => {
+      return initialState;
     });
   },
 });
