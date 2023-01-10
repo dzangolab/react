@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { userContext } from "../context/UserProvider";
 import "../assets/css/profileInformation.css";
 
-import type { UserContextType } from "@/types";
+import { useSelector } from "react-redux";
 
 const ProfileInformation = () => {
-  const { user } = useContext(userContext) as UserContextType;
+  const { user } = useSelector((state: any) => state.auth);
 
   return (
     <div className="profile">

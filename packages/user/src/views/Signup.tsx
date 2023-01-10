@@ -1,27 +1,28 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "@/components/SignupForm";
 
-import { userContext } from "../context/UserProvider";
+import { getUser } from "../redux/reducer/AuthSlice";
 import signup from "../supertokens/signup";
 
-import type { LoginCredentials, UserContextType } from "@/types";
+import type { LoginCredentials } from "@/types";
 
 import "../assets/css/signup.css";
 
 const Signup = () => {
   const { t } = useTranslation("user");
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState<boolean>(false);
-  const { setUser } = useContext(userContext) as UserContextType;
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
     const result = await signup(credentials);
-    setUser(result?.user);
+    dispatch(getUser() as any);
     setLoading(false);
 
     if (result && result.user) {

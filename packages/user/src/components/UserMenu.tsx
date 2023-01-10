@@ -1,8 +1,5 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 
-import { UserContextType } from "@/types";
-
-import { userContext } from "../context/UserProvider";
 import DropdownUserMenu from "./DropdownUserMenu";
 import SignInUpMenu from "./SignInUpMenu";
 
@@ -17,7 +14,7 @@ const UserMenu = (properties: Properties) => {
     anonymousUserMenu = <SignInUpMenu />,
   } = properties;
 
-  const { user } = useContext(userContext) as UserContextType;
+  const { user } = useSelector((state: any) => state.auth);
 
   return <>{user ? authenticatedUserMenu : anonymousUserMenu}</>;
 };

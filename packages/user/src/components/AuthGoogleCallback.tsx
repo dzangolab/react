@@ -1,14 +1,15 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { userContext, UserContextType } from "..";
+import { getUser } from "@/redux/reducer/AuthSlice";
 
 const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
-  const { setUser } = useContext(userContext) as UserContextType;
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const authCallback = async () => {
@@ -16,7 +17,7 @@ const AuthGoogleCallback = () => {
       const response = await thirdPartySignInAndUp();
 
       if (response.status === "OK") {
-        setUser(response.user);
+        dispatch(getUser() as any);
         toast.success(`${t("authGoogleCallback.email.success")}`);
       } else {
         toast.error(`${t("authGoogleCallback.email.error")}`);
