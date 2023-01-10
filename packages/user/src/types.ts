@@ -13,4 +13,10 @@ interface LoginCredentials {
   password: string;
 }
 
-export type { UserContextType, LoginCredentials };
+interface AuthState {
+  loading: boolean;
+  user: EmailPasswordUserType | undefined;
+  error: string | null;
+}
+
+export type { AuthState, UserContextType, LoginCredentials };

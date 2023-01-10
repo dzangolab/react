@@ -2,11 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Session from "supertokens-web-js/recipe/session";
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-export interface AuthState {
-  loading: boolean;
-  user: EmailPasswordUserType | undefined;
-  error: string | null;
-}
+import { AuthState } from "@/types";
 
 enum ActionTypeEnum {
   Auth = "auth",
@@ -58,4 +54,6 @@ const authSlice = createSlice({
   },
 });
 
-export default authSlice.reducer;
+const authReducer = authSlice.reducer;
+
+export { authReducer as default };
