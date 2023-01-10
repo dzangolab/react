@@ -43,11 +43,10 @@ const LocaleSwitcher = () => {
           onClick={() => setExpanded(!expanded)}
         >
           {t(`locales.${i18n.language}`)}
+          <span className={`truncated ${expanded ? "expanded" : ""}`}>
+            &#9662;
+          </span>
         </div>
-
-        <span className="truncated" onClick={() => setExpanded(!expanded)}>
-          ▾
-        </span>
 
         {expanded && <ul>{locales}</ul>}
       </nav>

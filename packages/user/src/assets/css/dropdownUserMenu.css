@@ -11,6 +11,11 @@ nav {
 
 .email {
   cursor: pointer;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav > span.toggle {
@@ -19,6 +24,7 @@ nav > span.toggle {
   font-size: 1.5rem;
   line-height: 1.25rem;
   text-align: center;
+  padding: 0 0.3rem;
   width: 1.25rem;
 }
 
@@ -53,4 +59,23 @@ nav > ul.dropdown > li > a {
 
 nav > .dropdown > li:hover {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
+}
+
+@media screen and (max-width: 576px) {
+  nav > ul.dropdown {
+    left: 0;
+    top: 50%;
+  }
+
+  nav.user-menu > div.email:hover {
+    background-color: #dbe9fa;
+  }
+
+  .email {
+    padding: 0.8rem;
+  }
+
+  span.toggle.expanded {
+    transform: rotate(180deg);
+  }
 }

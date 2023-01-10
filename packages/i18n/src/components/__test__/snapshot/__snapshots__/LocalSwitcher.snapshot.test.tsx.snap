@@ -10,13 +10,12 @@ exports[`Component matches snapshot 1`] = `
       onClick={[Function]}
     >
       locales.en
+      <span
+        className="truncated "
+      >
+        ▾
+      </span>
     </div>
-    <span
-      className="truncated"
-      onClick={[Function]}
-    >
-      ▾
-    </span>
   </nav>
 </div>
 `;
