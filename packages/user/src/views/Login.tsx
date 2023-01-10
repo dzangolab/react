@@ -2,8 +2,8 @@ import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useContext, useState } from "react";
-import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import GoogleLogin from "@/components/GoogleLogin";
 import LoginForm from "@/components/LoginForm";
