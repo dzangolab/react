@@ -72,6 +72,10 @@ span.truncated.expanded {
     margin: 0;
     width: 100%;
   }
+
+  nav.locale-switcher:hover {
+    background-color: #dbe9fa;
+  }
 }
 
 @media screen and (min-width: 576px) {

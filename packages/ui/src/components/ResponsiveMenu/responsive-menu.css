@@ -21,11 +21,16 @@ nav.menu > ul > li > a {
 @media screen and (max-width: 576px) {
   nav.menu > ul > li {
     display: flex;
+    padding: 0;
   }
 
   nav.menu > ul > li > a {
     flex: 1;
-    padding: 1rem 0 0 0.8rem;
+    padding: 0.8rem 0 0.8rem 0.8rem;
+  }
+
+  nav.menu > ul > li :hover {
+    background-color: #dbe9fa;
   }
 }
 
