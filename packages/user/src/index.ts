@@ -4,7 +4,7 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
-import authReducer, { getUser } from "@/redux/reducer/authslice";
+import AuthReducer, { getUser } from "./redux/reducer/AuthSlice";
 import superTokens from "./supertokens";
 import UserToastContainer from "./toastify";
 import { UserContextType } from "./types";
@@ -16,7 +16,7 @@ import Signup from "./views/Signup";
 
 export {
   AuthGoogleCallback,
-  authReducer,
+  AuthReducer,
   DropdownUserMenu,
   ForgetPassword,
   getUser,
