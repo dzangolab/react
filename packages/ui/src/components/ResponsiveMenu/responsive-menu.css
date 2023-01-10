@@ -1,25 +1,37 @@
 nav.menu > ul {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: var(--grid-gap, );
-    justify-content: flex-start;
-    list-style: none;
-    padding: 0;
-  }
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--grid-gap);
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+nav.menu > ul > li {
+  padding: 0.25rem 0;
+}
+
+nav.menu > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 576px) {
   nav.menu > ul > li {
-    padding: 0.25rem 0;
+    display: flex;
   }
 
   nav.menu > ul > li > a {
-    color: inherit;
-    text-decoration: none;
+    flex: 1;
+    padding: 1rem 0 0 0.8rem;
   }
+}
 
-  @media screen and (min-width: 576px) {
-    nav.menu > ul {
-      flex-direction: row;
-      gap: var(--responsive-menu-gap, 1rem);
-    }
+@media screen and (min-width: 576px) {
+  nav.menu > ul {
+    flex-direction: row;
+    gap: var(--responsive-menu-gap, 1rem);
   }
+}
