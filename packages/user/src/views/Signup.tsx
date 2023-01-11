@@ -1,11 +1,11 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "@/components/SignupForm";
+import { useUserAppDispatch } from "@/redux/hooks";
 
 import { getUser } from "../redux/reducer/AuthSlice";
 import signup from "../supertokens/signup";
@@ -16,13 +16,13 @@ import "../assets/css/signup.css";
 
 const Signup = () => {
   const { t } = useTranslation("user");
-  const dispatch = useDispatch();
+  const dispatch = useUserAppDispatch();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
     const result = await signup(credentials);
-    dispatch(getUser() as any);
+    dispatch(getUser());
     setLoading(false);
 
     if (result && result.user) {

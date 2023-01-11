@@ -2,12 +2,12 @@ import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useContext, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import GoogleLogin from "@/components/GoogleLogin";
 import LoginForm from "@/components/LoginForm";
+import { useUserAppDispatch } from "@/redux/hooks";
 import login from "@/supertokens/login";
 
 import type { LoginCredentials } from "@/types";
@@ -17,7 +17,7 @@ import { getUser } from "../redux/reducer/AuthSlice";
 
 const Login = () => {
   const { t } = useTranslation("user");
-  const dispatch = useDispatch();
+  const dispatch = useUserAppDispatch();
   const [loading, setLoading] = useState<boolean>(false);
   const appConfig = useContext(configContext);
 
@@ -25,7 +25,7 @@ const Login = () => {
     setLoading(true);
     const result = await login(credentials);
     setLoading(false);
-    dispatch(getUser() as any);
+    dispatch(getUser());
     if (result && result.user) {
       toast.success(`${t("login.messages.success")}`);
     }

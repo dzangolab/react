@@ -7,9 +7,9 @@ import Session from "supertokens-web-js/recipe/session";
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
 
 import "../assets/css/dropdownUserMenu.css";
-import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "@/redux/reducer/AuthSlice";
+import { useUserAppDispatch, useUserAppSelector } from "@/redux/hooks";
 
 interface Properties {
   userMenuList?: {
@@ -21,15 +21,15 @@ interface Properties {
 
 const DropdownUserMenu: React.FC = ({ userMenuList }: Properties) => {
   const id = useId();
-  const dispatch = useDispatch();
-  const { user } = useSelector((state: any) => state.auth);
+  const dispatch = useUserAppDispatch();
+  const { user } = useUserAppSelector((state) => state.auth);
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation("user");
 
   const signout = async () => {
     try {
       await Session.signOut();
-      dispatch(logout() as any);
+      dispatch(logout());
       toast.success(`${t("logout.message")}`);
     } catch (error: any) {
       toast.error(error.message);
