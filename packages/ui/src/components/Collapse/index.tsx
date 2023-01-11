@@ -5,7 +5,6 @@ import "./collapse.css";
 
 interface Properties {
   children: ReactNode;
-  label: string;
   isOpen: boolean;
 }
 
