@@ -1,0 +1,11 @@
+.collapse-content {
+  border: 1px solid var(--collapse-border-color, grey);
+  padding: var(--collapse-padding, 0.5rem);
+  border-radius: var(--collapse-border-radius, 5px);
+}
+
+.collapse-content-parent {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.2s ease-in-out;
+}
