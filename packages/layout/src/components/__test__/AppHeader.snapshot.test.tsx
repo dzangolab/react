@@ -1,7 +1,6 @@
 import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
-import { store } from "@dzangolab/react-user";
-import { Provider } from "react-redux";
+import { AuthProvider } from "@dzangolab/react-user";
 import renderer from "react-test-renderer";
 import { expect, test } from "vitest";
 
@@ -56,11 +55,11 @@ test("Component matches snapshot", () => {
   i18n(appConfig.i18n);
 
   const component = renderer.create(
-    <Provider store={store}>
+    <AuthProvider>
       <configContext.Provider value={appConfig}>
         <AppHeader />
       </configContext.Provider>
-    </Provider>
+    </AuthProvider>
   );
 
   const tree = toJson(component);
