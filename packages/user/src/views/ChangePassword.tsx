@@ -1,17 +1,28 @@
+import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import ChangePasswordForm from "@/components/ChangePasswordForm";
+import changePassword from "@/supertokens/change-password";
 
 import "../assets/css/changePassword.css";
 
 const ChangePassword = () => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
+  const appConfig = useContext(configContext);
 
-  const handleSubmit = () => {
-    //[SM:01/01/2023] to do.
+  const handleSubmit = async (oldPassword: string, newPassword: string) => {
+    setLoading(true);
+
+    const result = await changePassword(
+      oldPassword,
+      newPassword,
+      appConfig?.apiBaseUrl || ""
+    );
+
+    setLoading(false);
   };
 
   return (
