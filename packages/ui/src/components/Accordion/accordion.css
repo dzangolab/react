@@ -94,7 +94,7 @@
   position: absolute;
   right: 1.5rem;
   top: 50%;
-  transform: translateY(-60%) rotate(0deg);
+  transform: translateY(-55%) rotate(0deg);
   width: 1.5rem;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .accordion-trigger.expanded .accordion-icon {
-  transform: translateY(-50%) rotate(-180deg);
+  transform: translateY(-55%) rotate(-180deg);
 }
 
 .accordion-panel {
