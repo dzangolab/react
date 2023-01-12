@@ -9,7 +9,7 @@ nav {
   min-width: var(--dropdown-width, 6rem);
 }
 
-.email {
+nav.user-menu > div.email {
   cursor: pointer;
   display: flex;
   flex: 1;
@@ -71,7 +71,7 @@ nav > .dropdown > li:hover {
     background-color: #dbe9fa;
   }
 
-  .email {
+  nav.user-menu > div.email {
     padding: 0.8rem;
   }
 
