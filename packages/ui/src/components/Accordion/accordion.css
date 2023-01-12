@@ -1,15 +1,29 @@
-.accordion {
+.accordion-list {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  border: 2px solid hsl(0deg 0% 52%);
+}
+
+.accordion-list>li {
+  width: 100%;
+}
+
+.accordion {
   border-radius: 7px;
+  border: 2px solid hsl(0deg 0% 52%);
+  margin: 0;
+  padding: 0;
 }
 
 .accordion:focus-within {
   border-color: hsl(216deg 94% 43%);
 }
 
-.accordion > * + * {
+.accordion>*+* {
   border-top: 1px solid hsl(0deg 0% 52%);
 }
 
@@ -20,11 +34,11 @@
   font-size: 1rem;
   font-weight: normal;
   margin: 0;
+  outline: none;
   padding: 1em 1.5em;
   position: relative;
   text-align: left;
   width: 100%;
-  outline: none;
 }
 
 .accordion-trigger:focus,
@@ -36,13 +50,13 @@
   outline: 4px solid transparent;
 }
 
-.accordion > *:first-child .accordion-trigger,
-.accordion > *:first-child {
+.accordion>*:first-child .accordion-trigger,
+.accordion>*:first-child {
   border-radius: 5px 5px 0 0;
 }
 
-.accordion > *:last-child .accordion-trigger,
-.accordion > *:last-child {
+.accordion>*:last-child .accordion-trigger,
+.accordion>*:last-child {
   border-radius: 0 0 5px 5px;
 }
 
@@ -56,38 +70,37 @@
 }
 
 .accordion-title {
+  align-items: center;
+  border-radius: 5px;
+  border: transparent 2px solid;
   display: flex;
   flex-direction: row;
   font-size: 1rem;
-  align-items: center;
   justify-content: space-between;
-  pointer-events: none;
-  border: transparent 2px solid;
-  border-radius: 5px;
-  padding: 0.25em;
   outline: none;
+  padding: 0.25em;
+  pointer-events: none;
   width: 100%;
 }
 
 .accordion-icon {
-  border: solid currentcolor;
-  border-width: 0 2px 2px 0;
-  height: 0.5rem;
+  border: 0;
+  height: 2rem;
   pointer-events: none;
   position: absolute;
-  right: 2em;
+  right: 2rem;
   top: 50%;
-  transform: translateY(-60%) rotate(45deg);
-  width: 0.5rem;
+  transform: translateY(-60%) rotate(0deg);
+  width: 2rem;
 }
 
-.accordion-trigger:focus .accordion-icon,
-.accordion-trigger:hover .accordion-icon {
-  border-color: hsl(216deg 94% 43%);
+.accordion-trigger:focus .accordion-icon path,
+.accordion-trigger:hover .accordion-icon path {
+  fill: none;
 }
 
-.accordion-trigger[aria-expanded="true"] .accordion-icon {
-  transform: translateY(-50%) rotate(-135deg);
+.accordion-trigger.expanded .accordion-icon {
+  transform: translateY(-50%) rotate(-180deg);
 }
 
 .accordion-panel {

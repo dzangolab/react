@@ -1,4 +1,4 @@
-import { AccordionItem } from "./components/Accordion";
+import { Accordion, Accordions, AccordionTitle } from "./components/Accordion";
 import { LoadingButton } from "./components/Buttons";
 import Collapse from "./components/Collapse";
 import { LoadingIcon } from "./components/Loading";
@@ -7,7 +7,9 @@ import ResponsiveMenu from "./components/ResponsiveMenu";
 import { ToggleContentProvider } from "./components/ToggleContent";
 
 export {
-  AccordionItem,
+  Accordion,
+  Accordions,
+  AccordionTitle,
   Collapse,
   LoadingButton,
   LoadingIcon,

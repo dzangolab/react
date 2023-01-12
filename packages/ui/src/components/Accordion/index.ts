@@ -1,3 +1,5 @@
-import AccordionItem from "./AccordionItem";
+import Accordion from "./Accordion";
+import Accordions from "./Accordions";
+import AccordionTitle from "./AccordionTitle";
 
-export { AccordionItem };
+export { Accordion, Accordions, AccordionTitle };
