@@ -1,3 +1,13 @@
+## [0.4.2](https://github.com/dzangolab/react/compare/v0.4.1...v0.4.2) (2023-01-06)
+
+
+### Bug Fixes
+
+* double tap issue ([#54](https://github.com/dzangolab/react/issues/54)) ([9036a5c](https://github.com/dzangolab/react/commit/9036a5c856f526af079271e2ac24c21778c8ef0f))
+* user-context-type aliasing to any ([#57](https://github.com/dzangolab/react/issues/57)) ([3ff84ad](https://github.com/dzangolab/react/commit/3ff84ad36cf96d753e01f1604d05f23046626811))
+
+
+
 ## [0.4.1](https://github.com/dzangolab/react/compare/v0.4.0...v0.4.1) (2022-12-30)
 
 

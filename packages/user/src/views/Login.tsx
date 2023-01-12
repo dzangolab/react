@@ -2,6 +2,7 @@ import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import GoogleLogin from "@/components/GoogleLogin";
@@ -46,8 +47,8 @@ const Login = () => {
           <></>
         )}
         <div className="links">
-          <a href="/signup">{t("login.links.signup")}</a>
-          <a href="/forget-password">{t("login.links.forgotPassword")}</a>
+          <Link to="/signup">{t("login.links.signup")}</Link>
+          <Link to="/forget-password">{t("login.links.forgotPassword")}</Link>
         </div>
       </Page>
     </div>

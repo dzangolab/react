@@ -8,13 +8,13 @@ exports[`Component matches snapshot 1`] = `
     <div
       className="email"
       onClick={[Function]}
-    />
-    <span
-      className="toggle"
-      onClick={[Function]}
     >
-      ▾
-    </span>
+      <span
+        className="toggle "
+      >
+        ▾
+      </span>
+    </div>
   </nav>
 </div>
 `;
