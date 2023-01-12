@@ -60,7 +60,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1
       eslint: 8.30.0
       eslint-config-custom: 0.4.3
-      eslint-plugin-react: 7.31.10
+      eslint-plugin-react: 7.32.0
       i18next: 21.8.13
       i18next-browser-languagedetector: 6.1.5
       i18next-chained-backend: ^4.0.0
@@ -95,7 +95,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1
       eslint: 8.30.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      eslint-plugin-react: 7.31.10_eslint@8.30.0
+      eslint-plugin-react: 7.32.0_eslint@8.30.0
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -120,7 +120,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1
       eslint: 8.25.0
       eslint-config-custom: 0.4.3
-      eslint-plugin-react: 7.31.10
+      eslint-plugin-react: 7.32.0
       jsdom: 20.0.3
       prettier: 2.7.1
       react: 18.2.0
@@ -147,7 +147,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1_jsdom@20.0.3
       eslint: 8.25.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      eslint-plugin-react: 7.31.10_eslint@8.25.0
+      eslint-plugin-react: 7.32.0_eslint@8.25.0
       jsdom: 20.0.3
       prettier: 2.7.1
       react-test-renderer: 18.2.0_react@18.2.0
@@ -168,7 +168,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1
       eslint: 8.30.0
       eslint-config-custom: 0.4.3
-      eslint-plugin-react: 7.31.10
+      eslint-plugin-react: 7.32.0
       jsdom: ^20.0.3
       prettier: 2.7.1
       react: 18.2.0
@@ -192,7 +192,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1_jsdom@20.0.3
       eslint: 8.30.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      eslint-plugin-react: 7.31.10_eslint@8.30.0
+      eslint-plugin-react: 7.32.0_eslint@8.30.0
       jsdom: 20.0.3
       prettier: 2.7.1
       react-test-renderer: 18.2.0_react@18.2.0
@@ -217,7 +217,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1
       eslint: 8.25.0
       eslint-config-custom: 0.4.3
-      eslint-plugin-react: 7.31.10
+      eslint-plugin-react: 7.32.0
       formik: 2.2.9
       jsdom: 20.0.1
       prettier: 2.7.1
@@ -254,7 +254,7 @@ importers:
       '@vitest/coverage-c8': 0.24.1_jsdom@20.0.1
       eslint: 8.25.0
       eslint-config-custom: link:../../tools/eslint-config-custom
-      eslint-plugin-react: 7.31.10_eslint@8.25.0
+      eslint-plugin-react: 7.32.0_eslint@8.25.0
       jsdom: 20.0.1
       prettier: 2.7.1
       react: 18.2.0
@@ -279,7 +279,7 @@ importers:
       eslint-plugin-import: 2.26.0
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-promise: 6.1.1
-      eslint-plugin-react: 7.31.11
+      eslint-plugin-react: 7.32.0
       eslint-plugin-unicorn: 45.0.2
       eslint-plugin-vue: 9.8.0
       prettier: 2.8.1
@@ -296,7 +296,7 @@ importers:
       eslint-plugin-import: 2.26.0_s2yv6rz7babq2spzzicckddf6m
       eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
       eslint-plugin-promise: 6.1.1_eslint@8.30.0
-      eslint-plugin-react: 7.31.11_eslint@8.30.0
+      eslint-plugin-react: 7.32.0_eslint@8.30.0
       eslint-plugin-unicorn: 45.0.2_eslint@8.30.0
       eslint-plugin-vue: 9.8.0_eslint@8.30.0
       vue-eslint-parser: 9.1.0_eslint@8.30.0
@@ -1671,7 +1671,6 @@ packages:
       es-abstract: 1.20.5
       es-shim-unscopables: 1.0.0
       get-intrinsic: 1.1.3
-    dev: false
 
   /arrify/1.0.1:
     resolution: {integrity: sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==}
@@ -2705,7 +2704,7 @@ packages:
       eslint-import-resolver-typescript: 3.5.2_2lbwmhbr7bncddqbzzpg77o75m
       eslint-plugin-import: 2.26.0_s2yv6rz7babq2spzzicckddf6m
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.30.0
-      eslint-plugin-react: 7.31.11_eslint@8.30.0
+      eslint-plugin-react: 7.32.0_eslint@8.30.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.30.0
       typescript: 4.9.4
     transitivePeerDependencies:
@@ -2887,14 +2886,15 @@ packages:
       eslint: 8.30.0
     dev: false
 
-  /eslint-plugin-react/7.31.10_eslint@8.25.0:
-    resolution: {integrity: sha512-e4N/nc6AAlg4UKW/mXeYWd3R++qUano5/o+t+wnWxIf+bLsOaH3a4q74kX3nDjYym3VBN4HyO9nEn1GcAqgQOA==}
+  /eslint-plugin-react/7.32.0_eslint@8.25.0:
+    resolution: {integrity: sha512-vSBi1+SrPiLZCGvxpiZIa28fMEUaMjXtCplrvxcIxGzmFiYdsXQDwInEjuv5/i/2CTTxbkS87tE8lsQ0Qxinbw==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
       array-includes: 3.1.6
       array.prototype.flatmap: 1.3.1
+      array.prototype.tosorted: 1.1.1
       doctrine: 2.1.0
       eslint: 8.25.0
       estraverse: 5.3.0
@@ -2910,31 +2910,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-react/7.31.10_eslint@8.30.0:
-    resolution: {integrity: sha512-e4N/nc6AAlg4UKW/mXeYWd3R++qUano5/o+t+wnWxIf+bLsOaH3a4q74kX3nDjYym3VBN4HyO9nEn1GcAqgQOA==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-    dependencies:
-      array-includes: 3.1.6
-      array.prototype.flatmap: 1.3.1
-      doctrine: 2.1.0
-      eslint: 8.30.0
-      estraverse: 5.3.0
-      jsx-ast-utils: 3.3.3
-      minimatch: 3.1.2
-      object.entries: 1.1.6
-      object.fromentries: 2.0.6
-      object.hasown: 1.1.2
-      object.values: 1.1.6
-      prop-types: 15.8.1
-      resolve: 2.0.0-next.4
-      semver: 6.3.0
-      string.prototype.matchall: 4.0.8
-    dev: true
-
-  /eslint-plugin-react/7.31.11_eslint@8.30.0:
-    resolution: {integrity: sha512-TTvq5JsT5v56wPa9OYHzsrOlHzKZKjV+aLgS+55NJP/cuzdiQPC7PfYoUjMoxlffKtvijpk7vA/jmuqRb9nohw==}
+  /eslint-plugin-react/7.32.0_eslint@8.30.0:
+    resolution: {integrity: sha512-vSBi1+SrPiLZCGvxpiZIa28fMEUaMjXtCplrvxcIxGzmFiYdsXQDwInEjuv5/i/2CTTxbkS87tE8lsQ0Qxinbw==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
@@ -2955,7 +2932,6 @@ packages:
       resolve: 2.0.0-next.4
       semver: 6.3.0
       string.prototype.matchall: 4.0.8
-    dev: false
 
   /eslint-plugin-turbo/0.0.7_eslint@8.30.0:
     resolution: {integrity: sha512-iajOH8eD4jha3duztGVBD1BEmvNrQBaA/y3HFHf91vMDRYRwH7BpHSDFtxydDpk5ghlhRxG299SFxz7D6z4MBQ==}
