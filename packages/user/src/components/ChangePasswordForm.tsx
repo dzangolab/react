@@ -18,9 +18,12 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
     oldPassword: Yup.string().required(
       "changePassword.messages.validation.oldPassword"
     ),
-    newPassword: Yup.string().required(
-      "changePassword.messages.validation.newPassword"
-    ),
+    newPassword: Yup.string()
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/,
+        "changePassword.messages.validation.mustContain"
+      )
+      .required("changePassword.messages.validation.newPassword"),
     confirmPassword: Yup.string()
       .oneOf(
         [Yup.ref("newPassword"), null],
