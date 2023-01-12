@@ -1,6 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import AccordionIcon from "./AccordionIcon";
+
+import type { ReactNode } from "react";
 
 type Properties = {
   title: string;

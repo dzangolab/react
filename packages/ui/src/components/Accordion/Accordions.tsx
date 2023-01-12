@@ -1,7 +1,11 @@
-import React, { ReactElement, ReactNode, useState } from "react";
+import React, { useId, useState } from "react";
 
 import AccordionTitle from "./AccordionTitle";
+
+import type { ReactElement, ReactNode } from "react";
+
 import "./accordion.css";
+import Collapse from "../Collapse";
 
 type Properties = {
   icon?: ReactNode;
@@ -9,13 +13,14 @@ type Properties = {
 };
 
 const Accordions: React.FC<Properties> = ({ icon, children }) => {
+  const id = useId();
   const [selected, setSelected] = useState(0);
 
   return (
     <ul className="accordion-list">
       {children.map((item, index) => (
-        <li key={index}>
-          <div className="accordion">
+        <li key={`${id}-${index}`}>
+          <div className={`accordion ${selected === index ? "active" : ""}`}>
             <AccordionTitle
               title={item.props.title}
               eventKey={index}
@@ -23,7 +28,9 @@ const Accordions: React.FC<Properties> = ({ icon, children }) => {
               setSelected={setSelected}
               icon={icon}
             />
-            {selected === index ? children[selected] : null}
+            <Collapse isOpen={selected === index}>
+              {children[selected]}
+            </Collapse>
           </div>
         </li>
       ))}

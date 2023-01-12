@@ -2,7 +2,7 @@ import React from "react";
 
 type Properties = {
   title: string;
-  index: number;
+  eventKey: number;
   selected: number;
   setSelectedTab: (index: number) => void;
 };
@@ -11,13 +11,13 @@ const TabTitle: React.FC<Properties> = ({
   title,
   selected,
   setSelectedTab,
-  index,
+  eventKey,
 }) => {
   return (
     <li>
       <button
-        className={`tab-title ${selected === index ? "active" : ""}`}
-        onClick={() => setSelectedTab(index)}
+        className={`tab-title ${selected === eventKey ? "active" : ""}`}
+        onClick={() => setSelectedTab(eventKey)}
       >
         {title}
       </button>
