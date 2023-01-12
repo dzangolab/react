@@ -1,4 +1,30 @@
 {
+    "changePassword": {
+    "form": {
+      "actions": {
+        "submit": "Change password"
+      },
+      "oldPassword": {
+        "label": "Old password"
+      },
+      "newPassword": {
+        "label": "New password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password is required"
+      }
+    },
+    "messages": {
+      "success": "Change password successfully",
+      "validation": {
+        "oldPassword": "Old password is required",
+        "newPassword": "New password is required",
+        "confirmPassword": "Confirm password",
+        "mustMatch": "Passwords must match"
+      }
+    },
+    "title": "Change Password"
+  },
   "forgetPassword": {
     "messages": {
       "success": "Email sent sucessfully",

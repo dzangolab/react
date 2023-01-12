@@ -19,7 +19,7 @@ interface Properties {
   }[];
 }
 
-const DropdownUserMenu: React.FC = ({ userMenuList }: Properties) => {
+const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
   const id = useId();
   const { user, setUser } = useContext(userContext) as UserContextType;
   const [expanded, setExpanded] = useState(false);
@@ -41,11 +41,11 @@ const DropdownUserMenu: React.FC = ({ userMenuList }: Properties) => {
 
   const fallbackItems = [
     {
-      name: t("userMenu.profile"),
+      name: "userMenu.profile",
       route: "/profile",
     },
     {
-      name: t("userMenu.logout"),
+      name: "userMenu.logout",
       onClick: signout,
     },
   ];
@@ -79,7 +79,7 @@ const DropdownUserMenu: React.FC = ({ userMenuList }: Properties) => {
                 route={route}
                 key={`${id}__${name}`}
               >
-                {name}
+                {t(name)}
               </DropdownUserMenuItem>
             ))}
           </ul>
