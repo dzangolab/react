@@ -20,7 +20,7 @@
 }
 
 .accordion:focus-within {
-  border-color: #7ec319;
+  border-color: #1c4786;
 }
 
 .accordion>*+* {
