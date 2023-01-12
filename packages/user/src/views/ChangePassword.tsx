@@ -7,6 +7,7 @@ import ChangePasswordForm from "@/components/ChangePasswordForm";
 import changePassword from "@/supertokens/change-password";
 
 import "../assets/css/changePassword.css";
+import { toast } from "react-toastify";
 
 const ChangePassword = () => {
   const { t } = useTranslation("user");
@@ -16,11 +17,15 @@ const ChangePassword = () => {
   const handleSubmit = async (oldPassword: string, newPassword: string) => {
     setLoading(true);
 
-    const result = await changePassword(
+    const success = await changePassword(
       oldPassword,
       newPassword,
       appConfig?.apiBaseUrl || ""
     );
+
+    if (success) {
+      toast.success(t("changePassword.messages.success"));
+    }
 
     setLoading(false);
   };
