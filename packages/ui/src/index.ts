@@ -5,7 +5,6 @@ import { LoadingIcon } from "./components/Loading";
 import Page from "./components/Page";
 import ResponsiveMenu from "./components/ResponsiveMenu";
 import { Tab, Tabs, TabTitle } from "./components/Tab";
-import { ToggleContentProvider } from "./components/ToggleContent";
 
 export {
   Accordion,
@@ -19,5 +18,4 @@ export {
   Tab,
   Tabs,
   TabTitle,
-  ToggleContentProvider,
 };
