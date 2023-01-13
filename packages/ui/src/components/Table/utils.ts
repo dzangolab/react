@@ -41,19 +41,19 @@ export const getRequestJSON = (
   const getSort = () => {
     if (!sortingState || sortingState.length === 0) return null;
 
-    if (sortingState.length === 1) {
-      return [
-        {
-          key: sortingState[0].id,
-          direction: getSortDirection(sortingState[0].desc),
-        },
-      ];
+    if (sortingState.length > 1) {
+      return sortingState.map((state) => ({
+        key: state.id,
+        direction: getSortDirection(state.desc),
+      }));
     }
 
-    return sortingState.map((state) => ({
-      key: state.id,
-      direction: getSortDirection(state.desc),
-    }));
+    return [
+      {
+        key: sortingState[0].id,
+        direction: getSortDirection(sortingState[0].desc),
+      },
+    ];
   };
 
   return {

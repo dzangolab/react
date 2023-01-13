@@ -24,8 +24,7 @@ type TSingleSort = {
   direction: TSortDirection;
 };
 
-type TMultiSort = TSingleSort[];
-type TSortRequest = TSingleSort | TMultiSort | null;
+type TSortRequest = TSingleSort[] | null;
 
 export type TRequestJSON = {
   filter: TFilterRequest;
@@ -45,6 +44,7 @@ export interface TableProviderProperties<T> {
   fetcher: (
     requestJSON: TRequestJSON
   ) => Promise<{ data: T[]; totalItems: number }>;
+  enableMultiSort?: boolean;
   filterDebounceTime?: number;
   fixedHeader?: boolean;
   filterIcons?: {

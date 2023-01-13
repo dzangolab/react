@@ -17,8 +17,9 @@ import type {
 
 function BaseTable() {
   const {
-    data,
     columns,
+    data,
+    enableMultiSort,
     fetchCallback,
     fixedHeader,
     hideScrollBar,
@@ -27,7 +28,6 @@ function BaseTable() {
     rowsPerPageOptions,
     showPageControl,
     showTotalNumber,
-    sortable,
     totalItems,
     title,
   } = useContext(TableContext);
@@ -65,7 +65,7 @@ function BaseTable() {
     manualPagination: true,
     manualSorting: true,
     manualFiltering: true,
-    isMultiSortEvent: () => true,
+    isMultiSortEvent: () => enableMultiSort || false,
     onColumnFiltersChange: setColumnFilters,
     onPaginationChange: setPagination,
     onSortingChange: setSorting,

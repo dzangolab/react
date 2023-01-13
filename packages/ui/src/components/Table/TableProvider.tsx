@@ -23,7 +23,7 @@ function TableProvider<T>({
   children,
   ...rest
 }: TableProviderProperties<T>) {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState<string>();
   const [loading, setLoading] = useState(false);
   const [totalItems, setTotalItems] = useState<number>(0);
@@ -60,7 +60,12 @@ function TableProvider<T>({
 }
 
 TableProvider.defaultProps = {
+  enableMultiSort: false,
   filterDebounceTime: 300,
+  filterIcons: {
+    expanded: "🙉",
+    notExpanded: "🙈",
+  },
   fixedHeader: true,
   hideScrollBar: true,
   paginated: true,
@@ -79,10 +84,6 @@ TableProvider.defaultProps = {
     asc: "🔼",
     desc: "🔽",
     default: "↕️",
-  },
-  filterIcons: {
-    expanded: "🙉",
-    notExpanded: "🙈",
   },
 };
 
