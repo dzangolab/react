@@ -7,7 +7,10 @@ import ResponsiveMenu from "./components/ResponsiveMenu";
 import { Tab, Tabs, TabTitle } from "./components/Tab";
 import { BaseTable, Table } from "./components/Table";
 
-import type { TableColumnDefinition } from "./components/Table/types";
+import type {
+  TableColumnDefinition,
+  TRequestJSON,
+} from "./components/Table/types";
 
 export {
   Accordion,
@@ -25,4 +28,4 @@ export {
   Table,
 };
 
-export type { TableColumnDefinition };
+export type { TableColumnDefinition, TRequestJSON };
