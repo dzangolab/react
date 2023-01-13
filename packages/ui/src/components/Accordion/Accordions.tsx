@@ -13,7 +13,11 @@ type Properties = {
   children: ReactElement[];
 };
 
-const Accordions: React.FC<Properties> = ({ icon, defaultActiveKey, children }) => {
+const Accordions: React.FC<Properties> = ({
+  icon,
+  defaultActiveKey,
+  children,
+}) => {
   const id = useId();
   const [selected, setSelected] = useState(defaultActiveKey || 0);
 
