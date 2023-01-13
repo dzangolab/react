@@ -1,5 +1,5 @@
 {
-    "changePassword": {
+  "changePassword": {
     "form": {
       "actions": {
         "submit": "Change password [fr]"
@@ -15,7 +15,7 @@
       }
     },
     "messages": {
-      "success": "Change password successfully [fr]",
+      "success": "Your password was successfully changed. [fr]",
       "validation": {
         "oldPassword": "Old password is required [fr]",
         "newPassword": "New password is required [fr]",
