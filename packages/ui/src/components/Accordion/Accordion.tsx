@@ -7,7 +7,7 @@ type Properties = {
 
 const Accordion: React.FC<Properties> = ({ children }) => {
   return (
-    <div role="region" className={`accordion-panel`}>
+    <div role="region" className="accordion-panel">
       {children}
     </div>
   );
