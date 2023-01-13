@@ -47,6 +47,10 @@ export interface TableProviderProperties<T> {
   ) => Promise<{ data: T[]; totalItems: number }>;
   filterDebounceTime?: number;
   fixedHeader?: boolean;
+  filterIcons?: {
+    expanded: ReactNode;
+    notExpanded: ReactNode;
+  };
   hideScrollBar?: boolean;
   paginated?: boolean;
   paginationIcons?: {

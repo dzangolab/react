@@ -80,6 +80,10 @@ TableProvider.defaultProps = {
     desc: "🔽",
     default: "↕️",
   },
+  filterIcons: {
+    expanded: "🙉",
+    notExpanded: "🙈",
+  },
 };
 
 export default TableProvider;

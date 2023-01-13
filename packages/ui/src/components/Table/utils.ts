@@ -19,12 +19,13 @@ export const getRequestJSON = (
   const getFilter = () => {
     if (!filterState || filterState.length === 0) return null;
 
-    if (filterState.length === 1)
+    if (filterState.length === 1) {
       return {
         key: filterState[0].id,
         operator: "ct",
         value: filterState[0].value as string,
       };
+    }
 
     return {
       AND: filterState.map((filter) => {
@@ -40,13 +41,14 @@ export const getRequestJSON = (
   const getSort = () => {
     if (!sortingState || sortingState.length === 0) return null;
 
-    if (sortingState.length === 1)
+    if (sortingState.length === 1) {
       return [
         {
           key: sortingState[0].id,
           direction: getSortDirection(sortingState[0].desc),
         },
       ];
+    }
 
     return sortingState.map((state) => ({
       key: state.id,
@@ -55,7 +57,7 @@ export const getRequestJSON = (
   };
 
   return {
-    filter: getFilter() ? getFilter() : null,
-    sort: getSort() ? getSort() : null,
+    filter: getFilter(),
+    sort: getSort(),
   };
 };

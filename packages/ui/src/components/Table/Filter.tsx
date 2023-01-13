@@ -7,7 +7,7 @@ import { TableContext } from "./TableProvider";
 import type { FilterProperties } from "./types";
 
 function Filter({ column, table }: FilterProperties) {
-  const { filterDebounceTime } = useContext(TableContext);
+  const { filterDebounceTime, filterIcons } = useContext(TableContext);
 
   const [expanded, setExpanded] = useState(false);
 
@@ -26,7 +26,11 @@ function Filter({ column, table }: FilterProperties) {
       className="filter-wrapper"
       onClick={(event_) => event_.stopPropagation()}
     >
-      {<button onClick={toggleExpand}>{expanded ? "🙉" : "🙈"}</button>}
+      {
+        <button onClick={toggleExpand}>
+          {expanded ? filterIcons?.expanded : filterIcons?.notExpanded}
+        </button>
+      }
       {expanded ? (
         <OutsideClickHandler
           onOutsideClick={() => {
