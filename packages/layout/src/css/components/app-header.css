@@ -56,6 +56,8 @@ header > .toggle {
 
   header > nav.left-slider {
     align-items: flex-start;
+    background-color: var(--locale-switcher-bg-color, #fff);
+    border: var(--locale-switcher-border, 1px solid grey);
     bottom: 0;
     left: 0;
     margin: 0;
