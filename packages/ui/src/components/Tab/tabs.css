@@ -1,0 +1,47 @@
+.tab-list {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-list li {
+  flex: 1;
+}
+
+.tab-list button {
+  background-color: hsl(0deg 0% 90%);
+  border-bottom: 2px solid #1c4786;
+  border-radius: 0;
+  border: 1px solid hsl(0deg 0% 13%);
+  color: hsl(0deg 0% 13%);
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+}
+
+.tab-list .tab-title.active {
+  background-color: #1c4786;
+  color: #fff;
+}
+
+.tab-list .tab-title:focus {
+  outline: 1px solid #1c4786;
+}
+
+.tab {
+  padding: 1rem 0;
+}
+
+@media screen and (max-width: 576px) {
+  .tab-list  {
+    flex-direction: column;
+  }
+
+  .tab-list li {
+    flex: 1;
+    width: 100%;
+  }
+}
