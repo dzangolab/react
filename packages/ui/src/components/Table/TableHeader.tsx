@@ -19,8 +19,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
       case "desc":
         return sortIcons?.desc;
       default:
-        if (canSort) return sortIcons?.default;
-        return "";
+        return canSort ? sortIcons?.default : "";
     }
   };
 
