@@ -9,12 +9,13 @@ import Collapse from "../Collapse";
 
 type Properties = {
   icon?: ReactNode;
+  defaultActiveKey?: number;
   children: ReactElement[];
 };
 
-const Accordions: React.FC<Properties> = ({ icon, children }) => {
+const Accordions: React.FC<Properties> = ({ icon, defaultActiveKey, children }) => {
   const id = useId();
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(defaultActiveKey || 0);
 
   return (
     <ul className="accordion-list">
