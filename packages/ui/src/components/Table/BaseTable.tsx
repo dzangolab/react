@@ -95,9 +95,10 @@ function BaseTable() {
           {showTotalNumber ? (
             <span className="current-page-info">
               <strong>
-                {table.getState().pagination.pageIndex + 1} of{" "}
-                {table.getPageCount()}
-              </strong>{" "}
+                {`${
+                  table.getState().pagination.pageIndex + 1
+                } of ${table.getPageCount()} `}
+              </strong>
               |
             </span>
           ) : null}
