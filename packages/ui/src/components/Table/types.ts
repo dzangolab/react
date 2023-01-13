@@ -5,6 +5,8 @@ import type {
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
+export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
+
 export type TSortDirection = "ASC" | "DESC" | "";
 
 type TSingleFilter = {
