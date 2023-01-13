@@ -21,6 +21,8 @@ function Filter({ column, table }: FilterProperties) {
     expanded ? setExpanded(false) : setExpanded(true);
   };
 
+  if (typeof firstValue === "number") return null;
+
   return (
     <div
       className="filter-wrapper"
@@ -38,51 +40,17 @@ function Filter({ column, table }: FilterProperties) {
           }}
         >
           <div className="filter-form-wrapper">
-            {typeof firstValue === "number" ? (
-              <div className="number-filter-form">
-                <DebounceInput
-                  type="number"
-                  value={(columnFilterValue as [number, number])?.[0] ?? ""}
-                  debounceTimeout={filterDebounceTime}
-                  onChange={(event_) => {
-                    column.setFilterValue((old: [number, number]) => [
-                      event_.target.value,
-                      old?.[1],
-                    ]);
-                  }}
-                  placeholder={`Min`}
-                  className=""
-                  size={2}
-                />
-
-                <DebounceInput
-                  type="number"
-                  value={(columnFilterValue as [number, number])?.[1] ?? ""}
-                  debounceTimeout={filterDebounceTime}
-                  onChange={(event_) => {
-                    column.setFilterValue((old: [number, number]) => [
-                      event_.target.value,
-                      old?.[0],
-                    ]);
-                  }}
-                  placeholder={`Max`}
-                  className=""
-                  size={2}
-                />
-              </div>
-            ) : (
-              <DebounceInput
-                type="text"
-                value={(columnFilterValue ?? "") as string}
-                debounceTimeout={filterDebounceTime}
-                onChange={(event_) => {
-                  column.setFilterValue(event_.target.value);
-                }}
-                placeholder={`Search...`}
-                className=""
-                size={10}
-              />
-            )}
+            <DebounceInput
+              type="text"
+              value={(columnFilterValue ?? "") as string}
+              debounceTimeout={filterDebounceTime}
+              onChange={(event_) => {
+                column.setFilterValue(event_.target.value);
+              }}
+              placeholder={`Search...`}
+              className=""
+              size={10}
+            />
           </div>
         </OutsideClickHandler>
       ) : null}
