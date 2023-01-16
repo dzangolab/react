@@ -1,10 +1,9 @@
-import { createContext } from "react";
+import React, { createContext } from "react";
 
 import { AppConfig } from "..";
 
-import type { ReactNode } from "react";
 interface Properties {
-  children: ReactNode;
+  children: React.ReactNode;
   appConfig: AppConfig;
 }
 
