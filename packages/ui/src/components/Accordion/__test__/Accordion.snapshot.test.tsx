@@ -2,8 +2,8 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import Accordions from "../Accordions";
 import Accordion from "../Accordion";
+import Accordions from "../Accordions";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();

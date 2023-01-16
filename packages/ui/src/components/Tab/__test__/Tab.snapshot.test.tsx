@@ -2,8 +2,8 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import Tabs from "../Tabs";
 import Tab from "../Tab";
+import Tabs from "../Tabs";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();
