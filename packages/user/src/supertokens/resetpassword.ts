@@ -28,12 +28,12 @@ const resetPassword = async (
       status = response.status;
       toast.error(status);
     }
-  } catch (err: any) {
-    if (err.isSuperTokensGeneralError === true) {
-      toast.error(err.message);
-    } else {
-      toast.error("Oops! Something went wrong.");
+  } catch (err) {
+    let errorMessage = "Oops! Something went wrong.";
+    if (err instanceof Error) {
+      errorMessage = err.message;
     }
+    toast.error(errorMessage);
   }
 
   return { status };
