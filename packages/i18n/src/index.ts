@@ -1,4 +1,4 @@
-import i18n from "i18next";
+import { use } from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import ChainedBackend from "i18next-chained-backend";
 import resourcesToBackend from "i18next-resources-to-backend";
@@ -11,8 +11,7 @@ import type { AppConfig } from "@dzangolab/react-config";
 import type { InitOptions } from "i18next";
 
 const plugin = (options: InitOptions) => {
-  i18n
-    .use(LanguageDetector)
+  use(LanguageDetector)
     .use(initReactI18next)
     .use(ChainedBackend)
     .init({
