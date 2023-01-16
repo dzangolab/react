@@ -39,7 +39,7 @@
     "@vitest/coverage-c8": "0.24.1",
     "eslint": "8.25.0",
     "eslint-config-custom": "0.4.4",
-    "eslint-plugin-react": "7.31.10",
+    "eslint-plugin-react": "7.32.1",
     "jsdom": "20.0.3",
     "prettier": "2.7.1",
     "react-test-renderer": "18.2.0",
