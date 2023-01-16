@@ -23,10 +23,9 @@ const changePassword = async (
     } else {
       toast.error(response.data.message);
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (err: any) {
+  } catch (err) {
     let errorMessage = "Oops! Something went wrong.";
-    if (err.isSuperTokensGeneralError === true) {
+    if (err instanceof Error) {
       errorMessage = err.message;
     }
     toast.error(errorMessage);
