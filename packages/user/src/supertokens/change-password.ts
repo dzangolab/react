@@ -1,5 +1,6 @@
-import client from "@/api/axios";
 import { toast } from "react-toastify";
+
+import client from "@/api/axios";
 
 const changePassword = async (
   oldPassword: string,
