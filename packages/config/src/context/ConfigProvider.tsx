@@ -1,13 +1,14 @@
-import React from "react";
+import { createContext } from "react";
 
 import { AppConfig } from "..";
 
+import type { ReactNode } from "react";
 interface Properties {
-  children: React.ReactNode;
+  children: ReactNode;
   appConfig: AppConfig;
 }
 
-const configContext = React.createContext<AppConfig | undefined>(undefined);
+const configContext = createContext<AppConfig | undefined>(undefined);
 
 const ConfigProvider = ({ children, appConfig }: Properties) => {
   return (
