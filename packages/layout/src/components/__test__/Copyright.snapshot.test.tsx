@@ -1,19 +1,24 @@
-import renderer from "react-test-renderer";
+import { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
 import Copyright from "../Copyright";
 
-function toJson(component: renderer.ReactTestRenderer) {
+import type {
+  ReactTestRenderer,
+  ReactTestRendererJSON,
+} from "react-test-renderer";
+
+function toJson(component: ReactTestRenderer) {
   const result = component.toJSON();
 
   expect(result).toBeDefined();
   expect(result).not.toBeInstanceOf(Array);
 
-  return result as renderer.ReactTestRendererJSON;
+  return result as ReactTestRendererJSON;
 }
 
 test("Component matches snapshot", () => {
-  const component = renderer.create(
+  const component = create(
     <Copyright
       holder={"Dzango technologies"}
       url={"https://www.dzangolab.com"}
