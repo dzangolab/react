@@ -26,12 +26,13 @@ const forgetpassword = async (email: string): Promise<IPromise | undefined> => {
       status = response.status;
       toast.error(status);
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
+    let errorMessage = "Oops! Something went wrong.";
     if (err.isSuperTokensGeneralError === true) {
-      toast.error(err.message);
-    } else {
-      toast.error("Oops! Something went wrong.");
+      errorMessage = err.message;
     }
+    toast.error(errorMessage);
   }
 
   return { status };
