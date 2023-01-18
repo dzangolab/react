@@ -12,7 +12,7 @@ const values = {
   bodyTwo: "Body text two",
 };
 
-test("accordion is rendered", async () => {
+test("accordions are rendered", async () => {
   render(
     <Accordions>
       <Accordion title={values.titleOne}>
