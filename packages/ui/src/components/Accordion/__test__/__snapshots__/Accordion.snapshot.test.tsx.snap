@@ -3,6 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <ul
   className="accordion-list"
+  data-testid="accordions"
 >
   <li>
     <div
