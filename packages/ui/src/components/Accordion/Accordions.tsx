@@ -32,7 +32,7 @@ const Accordions: React.FC<Properties> = ({
               setSelected={setSelected}
               icon={icon}
             />
-            <Collapse isOpen={selected === index}>{children[index]}</Collapse>
+            <Collapse isOpen={selected === index}>{item}</Collapse>
           </div>
         </li>
       ))}
