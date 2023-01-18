@@ -8,7 +8,7 @@ type Properties = {
   title: string;
   eventKey: number;
   selected: number;
-  icon: ReactNode;
+  icon?: ReactNode;
   setSelected: (eventKey: number) => void;
 };
 
