@@ -1,18 +1,23 @@
 import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
 import { userContext } from "@dzangolab/react-user";
-import renderer from "react-test-renderer";
+import { create } from "react-test-renderer";
 import { expect, test, vi } from "vitest";
 
 import AppHeader from "../AppHeader";
 
-function toJson(component: renderer.ReactTestRenderer) {
+import type {
+  ReactTestRenderer,
+  ReactTestRendererJSON,
+} from "react-test-renderer";
+
+function toJson(component: ReactTestRenderer) {
   const result = component.toJSON();
 
   expect(result).toBeDefined();
   expect(result).not.toBeInstanceOf(Array);
 
-  return result as renderer.ReactTestRendererJSON;
+  return result as ReactTestRendererJSON;
 }
 
 const appConfig: AppConfig = {
@@ -61,7 +66,7 @@ test("Component matches snapshot", () => {
     loading: false,
   };
 
-  const component = renderer.create(
+  const component = create(
     <userContext.Provider value={values}>
       <configContext.Provider value={appConfig}>
         <AppHeader />

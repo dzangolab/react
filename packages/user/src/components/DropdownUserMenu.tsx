@@ -30,8 +30,12 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
       await Session.signOut();
       setUser(undefined);
       toast.success(`${t("logout.message")}`);
-    } catch (error: any) {
-      toast.error(error.message);
+    } catch (err) {
+      let errorMessage = "Oops! Something went wrong.";
+      if (err instanceof Error) {
+        errorMessage = err.message;
+      }
+      toast.error(errorMessage);
     }
   };
 

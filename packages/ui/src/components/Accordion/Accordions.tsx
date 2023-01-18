@@ -1,11 +1,10 @@
 import React, { useId, useState } from "react";
 
+import Collapse from "../Collapse";
 import AccordionTitle from "./AccordionTitle";
+import "./accordion.css";
 
 import type { ReactElement, ReactNode } from "react";
-
-import "./accordion.css";
-import Collapse from "../Collapse";
 
 type Properties = {
   icon?: ReactNode;

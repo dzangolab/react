@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 
 import { AppConfig } from "..";
 
@@ -7,7 +7,7 @@ interface Properties {
   appConfig: AppConfig;
 }
 
-const configContext = React.createContext<AppConfig | undefined>(undefined);
+const configContext = createContext<AppConfig | undefined>(undefined);
 
 const ConfigProvider = ({ children, appConfig }: Properties) => {
   return (
