@@ -21,7 +21,7 @@ const Accordions: React.FC<Properties> = ({
   const [selected, setSelected] = useState(defaultActiveKey || 0);
 
   return (
-    <ul className="accordion-list">
+    <ul className="accordion-list" data-testid="accordions">
       {children.map((item, index) => (
         <li key={`${id}-${index}`}>
           <div className={`accordion ${selected === index ? "active" : ""}`}>
@@ -32,9 +32,7 @@ const Accordions: React.FC<Properties> = ({
               setSelected={setSelected}
               icon={icon}
             />
-            <Collapse isOpen={selected === index}>
-              {children[selected]}
-            </Collapse>
+            <Collapse isOpen={selected === index}>{item}</Collapse>
           </div>
         </li>
       ))}

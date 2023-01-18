@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="tab"
+>
+  <p>
+    tab body
+  </p>
+</div>
+`;

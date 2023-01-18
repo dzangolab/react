@@ -1,0 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="accordion-panel"
+  role="region"
+>
+  <p>
+    accordion body
+  </p>
+</div>
+`;
