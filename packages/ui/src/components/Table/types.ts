@@ -85,11 +85,10 @@ export interface TableContextProperties<T>
   totalItems: number;
 }
 
-export interface FilterProperties {
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  column: Column<any, any>;
-  table: ReactTable<any>;
-  /* eslint-enable @typescript-eslint/no-explicit-any */
+export interface FilterProperties<T> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  column: Column<T, any>;
+  table: ReactTable<T>;
 }
 
 export interface PaginationProperties {

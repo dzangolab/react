@@ -6,7 +6,7 @@ import { TableContext } from "./TableProvider";
 
 import type { FilterProperties } from "./types";
 
-function Filter({ column, table }: FilterProperties) {
+function Filter<T>({ column, table }: FilterProperties<T>) {
   const { filterDebounceTime, filterIcons } = useContext(TableContext);
 
   const [expanded, setExpanded] = useState(false);
