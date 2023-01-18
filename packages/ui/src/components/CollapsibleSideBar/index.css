@@ -3,7 +3,7 @@
   position: fixed;
   left: 0;
   width: 250px;
-  margin-top: 60px;
+  padding-top: 60px;
   transform: translateX(-250px);
   transition: transform 250ms ease-in-out;
   background: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%);
