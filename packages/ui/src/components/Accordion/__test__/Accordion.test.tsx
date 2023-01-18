@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { expect, test } from "vitest";
 
@@ -50,4 +50,9 @@ test("correct accordion is open/active", async () => {
 
   expect(firstAccordionDiv.classList.contains("active")).toBe(false);
   expect(lastAccordionDiv.classList.contains("active")).toBe(true);
+
+  fireEvent.click(screen.getByText(values.titleOne));
+
+  expect(firstAccordionDiv.classList.contains("active")).toBe(true);
+  expect(lastAccordionDiv.classList.contains("active")).toBe(false);
 });
