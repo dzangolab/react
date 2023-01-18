@@ -5,6 +5,7 @@ import Filter from "./Filter";
 import { TableContext } from "./TableProvider";
 
 import type { TableHeaderProperties } from "./types";
+import type { SyntheticEvent } from "react";
 
 function TableHeader<T>({ table }: TableHeaderProperties<T>) {
   const { sortable, sortIcons } = useContext(TableContext);
@@ -28,7 +29,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
       {table.getHeaderGroups().map((headerGroup, index) => (
         <tr key={headerGroup.id} className={`table-header-${index + 1}`}>
           {headerGroup.headers.map((header) => {
-            const sortFunction = (event: any) => {
+            const sortFunction = (event: SyntheticEvent) => {
               event.stopPropagation();
               const sortHandler = header.column.getToggleSortingHandler();
               if (sortHandler) {

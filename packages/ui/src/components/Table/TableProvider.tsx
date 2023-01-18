@@ -8,6 +8,7 @@ import type {
   TRequestJSON,
 } from "./types";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const TableContext = createContext<TableContextProperties<any>>({
   columns: [],
   data: [],
@@ -24,7 +25,8 @@ function TableProvider<T>({
   ...rest
 }: TableProviderProperties<T>) {
   const [data, setData] = useState<T[]>([]);
-  const [error, setError] = useState<string>();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [errorMessage, setErrorMessage] = useState<string>();
   const [loading, setLoading] = useState(false);
   const [totalItems, setTotalItems] = useState<number>(0);
   const fetchIdReference = useRef(0);
@@ -42,7 +44,7 @@ function TableProvider<T>({
       } catch (error) {
         let message = "Unknown Error";
         if (error instanceof Error) message = error.message;
-        setError(message);
+        setErrorMessage(message);
       } finally {
         setLoading(false);
       }

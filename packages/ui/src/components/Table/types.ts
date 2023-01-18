@@ -86,8 +86,10 @@ export interface TableContextProperties<T>
 }
 
 export interface FilterProperties {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   column: Column<any, any>;
   table: ReactTable<any>;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 }
 
 export interface PaginationProperties {
