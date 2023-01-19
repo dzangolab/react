@@ -14,7 +14,7 @@ const Sidebar: React.FC<Properties> = ({ children, open, customStyle }) => {
       className={open ? "sidebarMenu openSidebarMenu" : "sidebarMenu"}
       style={customStyle}
     >
-      {children}
+      {open ? children : null}
     </div>
   );
 };

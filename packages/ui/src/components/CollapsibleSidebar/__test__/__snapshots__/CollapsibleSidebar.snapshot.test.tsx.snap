@@ -3,16 +3,7 @@
 exports[`Component matches snapshot sidebar closed 1`] = `
 <div
   className="sidebarMenu"
->
-  <ul>
-    <li>
-      Home
-    </li>
-    <li>
-      About
-    </li>
-  </ul>
-</div>
+/>
 `;
 
 exports[`Component matches snapshot sidebar open 1`] = `
