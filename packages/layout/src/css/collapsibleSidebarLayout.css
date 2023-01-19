@@ -1,0 +1,26 @@
+.basic-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--basic-layout-gap, 0.8rem);
+  z-index: 0;
+}
+
+.basic-layout :is(footer, header) {
+  max-width: var(--max-width, 100%);
+  padding: var(--padding-v, 0.8rem) var(--padding-h, 0.8rem);
+  width: 100%;
+}
+
+.basic-layout > footer {
+  z-index: var(--basic-layout-footer-z-index, 100);
+}
+
+.basic-layout > header {
+  z-index: var(--basic-layout-header-z-index, 200);
+}
+
+.basic-layout > main {
+  flex: 1;
+  display: flex;
+}

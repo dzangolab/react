@@ -1,4 +1,4 @@
-import BasicLayout from "./BasicLayout";
+import BasicLayout from "./CollapsibleSidebarLayout";
 import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
 import Copyright from "./components/Copyright";
