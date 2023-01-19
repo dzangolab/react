@@ -2,7 +2,8 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import Tab from "../Tab";
+import { SubPane } from "../../SubPane";
+import TabbedPanel from "../TabbedPanel";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();
@@ -15,9 +16,14 @@ function toJson(component: renderer.ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const component = create(
-    <Tab title="tab title">
-      <p>tab body</p>
-    </Tab>
+    <TabbedPanel>
+      <SubPane icon="icon1.jpg" title="Topic 1">
+        Pane 1 content
+      </SubPane>
+      <SubPane icon="icon2.jpg" title="Topic 2">
+        Pane 2 content
+      </SubPane>
+    </TabbedPanel>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

@@ -2,26 +2,28 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { expect, test } from "vitest";
 
-import Tab from "../Tab";
-import Tabs from "../Tabs";
+import { SubPane } from "../../SubPane";
+import TabbedPanel from "../TabbedPanel";
 
 const values = {
-  titleOne: "Tab one",
-  bodyOne: "Body text one",
-  titleTwo: "Tab two",
-  bodyTwo: "Body text two",
+  titleOne: "Topic 1",
+  bodyOne: "Pane 1 content",
+  iconOne: "icon1.jpg",
+  titleTwo: "Topic 2",
+  bodyTwo: "Pane 2 content",
+  iconTwo: "icon2.jpg",
 };
 
 test("tabs are rendered", async () => {
   render(
-    <Tabs>
-      <Tab title={values.titleOne}>
+    <TabbedPanel>
+      <SubPane title={values.titleOne} icon={values.iconOne}>
         <p>{values.bodyOne}</p>
-      </Tab>
-      <Tab title={values.titleTwo}>
+      </SubPane>
+      <SubPane title={values.titleTwo} icon={values.iconTwo}>
         <p>{values.bodyTwo}</p>
-      </Tab>
-    </Tabs>
+      </SubPane>
+    </TabbedPanel>
   );
 
   expect(screen.getByText(values.titleOne)).toBeDefined();
@@ -30,19 +32,19 @@ test("tabs are rendered", async () => {
 
 test("correct tab is rendered", async () => {
   render(
-    <Tabs>
-      <Tab title={values.titleOne}>
+    <TabbedPanel>
+      <SubPane title={values.titleOne} icon={values.iconOne}>
         <p>{values.bodyOne}</p>
-      </Tab>
-      <Tab title={values.titleTwo}>
+      </SubPane>
+      <SubPane title={values.titleTwo} icon={values.iconTwo}>
         <p>{values.bodyTwo}</p>
-      </Tab>
-    </Tabs>
+      </SubPane>
+    </TabbedPanel>
   );
 
+  fireEvent.click(screen.getByText(values.titleOne));
   expect(screen.getByText(values.bodyOne)).toBeDefined();
 
   fireEvent.click(screen.getByText(values.titleTwo));
-
   expect(screen.getByText(values.bodyTwo)).toBeDefined();
 });

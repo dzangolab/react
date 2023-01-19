@@ -1,0 +1,30 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="tabbed-panel"
+>
+  <ul
+    className="tab-list"
+  >
+    <li
+      className="tab selected"
+      onClick={[Function]}
+    >
+      Topic 1
+    </li>
+    <li
+      className="tab "
+      onClick={[Function]}
+    >
+      Topic 2
+    </li>
+  </ul>
+  <div
+    className="sub-pane"
+    role="region"
+  >
+    Pane 1 content
+  </div>
+</div>
+`;

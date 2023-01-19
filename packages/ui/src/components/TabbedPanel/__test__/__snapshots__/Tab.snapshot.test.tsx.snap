@@ -1,11 +1,10 @@
 // Vitest Snapshot v1
 
 exports[`Component matches snapshot 1`] = `
-<div
-  className="tab"
+<li
+  className="tab selected"
+  onClick={[Function]}
 >
-  <p>
-    tab body
-  </p>
-</div>
+  Topic 1
+</li>
 `;

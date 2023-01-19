@@ -1,0 +1,23 @@
+.tab-list {
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.tab {
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  cursor: pointer;
+  display: inline-block;
+  list-style: none;
+  padding: 6px 12px;
+  position: relative;
+}
+
+.tab.selected {
+  background: #fff;
+  border-color: #aaa;
+  border-radius: 5px 5px 0 0;
+  color: #000;
+}

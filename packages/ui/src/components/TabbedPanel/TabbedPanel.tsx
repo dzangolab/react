@@ -1,6 +1,6 @@
 import React, { ReactElement, useId, useState } from "react";
 
-import TabTitle from "./TabTitle";
+import Tab from "./Tab";
 
 import "./tabs.css";
 
@@ -8,20 +8,20 @@ type Properties = {
   children: ReactElement[];
 };
 
-const Tabs: React.FC<Properties> = ({ children }) => {
+const TabbedPanel: React.FC<Properties> = ({ children }) => {
   const id = useId();
   const [selected, setSelected] = useState(0);
 
   return (
-    <div className="tabs">
+    <div className="tabbed-panel">
       <ul className="tab-list">
         {children.map((item, index) => (
-          <TabTitle
+          <Tab
             key={`${id}-${index}`}
             title={item.props.title}
-            eventKey={index}
-            selected={selected}
-            setSelectedTab={setSelected}
+            index={index}
+            isActive={selected === index}
+            handleClick={setSelected}
           />
         ))}
       </ul>
@@ -30,4 +30,4 @@ const Tabs: React.FC<Properties> = ({ children }) => {
   );
 };
 
-export default Tabs;
+export default TabbedPanel;
