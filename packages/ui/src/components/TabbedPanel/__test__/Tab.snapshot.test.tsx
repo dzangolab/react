@@ -17,6 +17,7 @@ test("Component matches snapshot", () => {
   const component = create(
     <Tab
       title="Topic 1"
+      icon="icon1.jpg"
       index={1}
       isActive={true}
       // eslint-disable-next-line @typescript-eslint/no-empty-function

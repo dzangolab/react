@@ -19,6 +19,7 @@ const TabbedPanel: React.FC<Properties> = ({ children }) => {
           <Tab
             key={`${id}-${index}`}
             title={item.props.title}
+            icon={item.props.icon}
             index={index}
             isActive={active === index}
             handleClick={setActive}

@@ -1,4 +1,5 @@
 .tab-list {
+  display: flex;
   border-bottom: 1px solid #aaa;
   margin: 0 0 10px;
   padding: 0;
@@ -9,7 +10,8 @@
   border-bottom: none;
   bottom: -1px;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   list-style: none;
   padding: 6px 12px;
   position: relative;
@@ -20,4 +22,11 @@
   border-color: #aaa;
   border-radius: 5px 5px 0 0;
   color: #000;
+}
+
+.tab-icon {
+  height: 16px;
+  width: 16px;
+  object-fit: contain;
+  margin-right: 5px;
 }
