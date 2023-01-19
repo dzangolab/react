@@ -8,7 +8,7 @@ exports[`Component matches snapshot 1`] = `
     className="tab-list"
   >
     <li
-      className="tab selected"
+      className="tab active"
       onClick={[Function]}
     >
       Topic 1

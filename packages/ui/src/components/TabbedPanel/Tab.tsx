@@ -10,7 +10,7 @@ type Properties = {
 const Tab: React.FC<Properties> = ({ title, index, isActive, handleClick }) => {
   return (
     <li
-      className={`tab ${isActive ? "selected" : ""}`}
+      className={`tab ${isActive ? "active" : ""}`}
       onClick={() => handleClick(index)}
     >
       {title}

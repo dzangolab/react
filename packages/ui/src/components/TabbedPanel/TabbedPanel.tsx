@@ -10,7 +10,7 @@ type Properties = {
 
 const TabbedPanel: React.FC<Properties> = ({ children }) => {
   const id = useId();
-  const [selected, setSelected] = useState(0);
+  const [active, setActive] = useState(0);
 
   return (
     <div className="tabbed-panel">
@@ -20,12 +20,12 @@ const TabbedPanel: React.FC<Properties> = ({ children }) => {
             key={`${id}-${index}`}
             title={item.props.title}
             index={index}
-            isActive={selected === index}
-            handleClick={setSelected}
+            isActive={active === index}
+            handleClick={setActive}
           />
         ))}
       </ul>
-      {children[selected]}
+      {children[active]}
     </div>
   );
 };

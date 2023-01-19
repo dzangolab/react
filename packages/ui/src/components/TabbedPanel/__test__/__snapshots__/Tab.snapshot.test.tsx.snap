@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <li
-  className="tab selected"
+  className="tab active"
   onClick={[Function]}
 >
   Topic 1
