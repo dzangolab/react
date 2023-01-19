@@ -27,10 +27,20 @@ const BasicLayout: React.FC<Properties> = (properties) => {
 
       <main>
         <div style={{ display: "flex", flex: 1 }}>
-          {open ? (
-            <Sidebar open={open} customStyle={{ position: "relative" }} />
-          ) : null}
-          <div style={{ flex: 1, padding: "0 1rem" }}>{children}</div>
+          <Sidebar
+            open={open}
+            customStyle={{
+              position: "relative",
+            }}
+          />
+          <div
+            style={{
+              flex: 1,
+              padding: "0 1rem",
+            }}
+          >
+            {children}
+          </div>
         </div>
       </main>
 
