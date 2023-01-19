@@ -1,17 +1,18 @@
 .tab-list {
-  display: flex;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 0 10px;
   padding: 0;
 }
 
 .tab {
-  border: 1px solid transparent;
+  align-items: center;
   border-bottom: none;
+  border: 1px solid transparent;
   bottom: -1px;
   cursor: pointer;
   display: flex;
-  align-items: center;
   list-style: none;
   padding: 6px 12px;
   position: relative;
@@ -26,7 +27,7 @@
 
 .tab-icon {
   height: 16px;
-  width: 16px;
-  object-fit: contain;
   margin-right: 5px;
+  object-fit: contain;
+  width: 16px;
 }
