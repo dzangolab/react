@@ -12,16 +12,14 @@
   width: 100%;
 }
 
-.basic-layout > sidebar {
+.basic-layout > main {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.basic-layout > main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.basic-layout > .sidebar {
+  padding: 0.8rem 0;
 }
 
 .basic-layout > footer {

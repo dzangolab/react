@@ -15,11 +15,9 @@ const SidebarHeader: React.FC<Properties> = ({
   logo = <img src={"/logo.png"} alt="logo" />,
 }) => {
   return (
-    <header>
-      <MenuItem handelIconClick={toggle} icon={toggleIcon} isHeader>
-        <div className="logo">{logo}</div>
-      </MenuItem>
-    </header>
+    <MenuItem handelIconClick={toggle} icon={toggleIcon} isHeader>
+      <div className="logo">{logo}</div>
+    </MenuItem>
   );
 };
 

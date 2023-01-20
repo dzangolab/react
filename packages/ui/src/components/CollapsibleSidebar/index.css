@@ -2,9 +2,8 @@
   height: 100%;
   position: fixed;
   left: 0;
-  min-width: 40px;
+  min-width: 70px;
   width: 1.5rem;
-  padding: 0.8rem 0;
   transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s,
     all 300ms ease 0s;
   border-right: 1px solid rgb(239, 239, 239);
@@ -15,35 +14,39 @@
   width: 250px;
 }
 
-.menuItem {
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
+.menu {
+  margin-top: 1rem;
 }
 
-.menuItem:hover {
+.menuItem {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 70px 180px;
+}
+
+.menuItem:not(.header) {
+  cursor: pointer;
+}
+
+.menuItem:hover:not(.header) {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
 .menuItem.header {
-  height: 5rem;
+  border-bottom: 1px solid rgb(239, 239, 239);
+  border-color: rgb(239, 239, 239);
 }
 
 .menuItem > .toggleIcon {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  flex: 0.2;
-  min-width: 1.5rem;
+  padding: 0.8rem;
+  cursor: pointer;
 }
 
 .menuItem > .toggleContent {
-  flex: 0.8;
-}
-
-.menu {
-  margin-top: 1rem;
+  margin: 0.8rem;
 }
 
 header {
