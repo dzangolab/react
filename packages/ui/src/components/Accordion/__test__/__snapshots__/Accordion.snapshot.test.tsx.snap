@@ -8,24 +8,22 @@ exports[`Component matches snapshot 1`] = `
   <li
     className="accordion "
   >
-    <div>
-      <button
-        className="accordion-trigger"
-        onClick={[Function]}
-        type="button"
+    <button
+      className="accordion-trigger"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="accordion-title"
       >
-        <span
-          className="accordion-title"
-        >
-          Topic 1
-          <img
-            alt="Topic 1"
-            className="accordion-icon"
-            src="icon1.jpg"
-          />
-        </span>
-      </button>
-    </div>
+        Topic 1
+        <img
+          alt="Topic 1"
+          className="accordion-icon"
+          src="icon1.jpg"
+        />
+      </span>
+    </button>
     <div
       className="collapse-content-parent"
       style={
@@ -49,24 +47,22 @@ exports[`Component matches snapshot 1`] = `
   <li
     className="accordion "
   >
-    <div>
-      <button
-        className="accordion-trigger"
-        onClick={[Function]}
-        type="button"
+    <button
+      className="accordion-trigger"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="accordion-title"
       >
-        <span
-          className="accordion-title"
-        >
-          Topic 2
-          <img
-            alt="Topic 2"
-            className="accordion-icon"
-            src="icon2.jpg"
-          />
-        </span>
-      </button>
-    </div>
+        Topic 2
+        <img
+          alt="Topic 2"
+          className="accordion-icon"
+          src="icon2.jpg"
+        />
+      </span>
+    </button>
     <div
       className="collapse-content-parent"
       style={

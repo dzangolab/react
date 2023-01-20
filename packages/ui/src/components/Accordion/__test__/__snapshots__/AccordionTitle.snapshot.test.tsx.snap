@@ -1,22 +1,20 @@
 // Vitest Snapshot v1
 
 exports[`Component matches snapshot 1`] = `
-<div>
-  <button
-    className="accordion-trigger"
-    onClick={[Function]}
-    type="button"
+<button
+  className="accordion-trigger"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="accordion-title"
   >
-    <span
-      className="accordion-title"
-    >
-      accordion title
-      <img
-        alt="accordion title"
-        className="accordion-icon"
-        src="icon1.jpg"
-      />
-    </span>
-  </button>
-</div>
+    accordion title
+    <img
+      alt="accordion title"
+      className="accordion-icon"
+      src="icon1.jpg"
+    />
+  </span>
+</button>
 `;
