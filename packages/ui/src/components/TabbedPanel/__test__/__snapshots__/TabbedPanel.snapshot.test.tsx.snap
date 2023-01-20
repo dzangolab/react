@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <div
-  className="tabbed-panel"
+  className="tabbed-panel top"
 >
   <ul
     className="tab-list"
