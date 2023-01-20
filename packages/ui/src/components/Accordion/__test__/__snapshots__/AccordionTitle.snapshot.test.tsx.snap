@@ -1,29 +1,22 @@
 // Vitest Snapshot v1
 
 exports[`Component matches snapshot 1`] = `
-<button
-  className="accordion-trigger expanded"
-  onClick={[Function]}
-  type="button"
->
-  <span
-    className="accordion-title"
+<div>
+  <button
+    className="accordion-trigger"
+    onClick={[Function]}
+    type="button"
   >
-    accordion title
-    <svg
-      className="accordion-icon"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
+    <span
+      className="accordion-title"
     >
-      <path
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      accordion title
+      <img
+        alt="accordion title"
+        className="accordion-icon"
+        src="icon1.jpg"
       />
-    </svg>
-  </span>
-</button>
+    </span>
+  </button>
+</div>
 `;

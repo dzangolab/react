@@ -1,35 +1,31 @@
 import React from "react";
 
-import AccordionIcon from "./AccordionIcon";
-
-import type { ReactNode } from "react";
-
 type Properties = {
   title: string;
-  eventKey: number;
-  selected: number;
-  icon?: ReactNode;
-  setSelected: (eventKey: number) => void;
+  icon: string;
+  index: number;
+  handleClick: (eventKey: number) => void;
 };
 
 const TabTitle: React.FC<Properties> = ({
   title,
-  selected,
-  setSelected,
-  eventKey,
+  index,
   icon,
+  handleClick,
 }) => {
   return (
-    <button
-      onClick={() => setSelected(eventKey)}
-      type="button"
-      className={`accordion-trigger ${selected === eventKey ? "expanded" : ""}`}
-    >
-      <span className="accordion-title">
-        {title}
-        {icon || <AccordionIcon />}
-      </span>
-    </button>
+    <div>
+      <button
+        onClick={() => handleClick(index)}
+        type="button"
+        className="accordion-trigger"
+      >
+        <span className="accordion-title">
+          {title}
+          <img src={icon} className="accordion-icon" alt={title} />
+        </span>
+      </button>
+    </div>
   );
 };
 

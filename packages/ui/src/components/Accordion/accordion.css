@@ -103,7 +103,7 @@
   fill: none;
 }
 
-.accordion-trigger.expanded .accordion-icon {
+.accordion.active .accordion-icon {
   transform: translateY(-55%) rotate(-180deg);
 }
 
