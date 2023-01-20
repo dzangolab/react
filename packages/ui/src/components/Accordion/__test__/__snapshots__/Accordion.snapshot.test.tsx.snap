@@ -25,7 +25,7 @@ exports[`Component matches snapshot 1`] = `
       </span>
     </button>
     <div
-      className="collapse-content-parent"
+      className="collapse"
       style={
         {
           "height": "0px",
@@ -33,14 +33,10 @@ exports[`Component matches snapshot 1`] = `
       }
     >
       <div
-        className="collapse-content"
+        className="sub-pane"
+        role="region"
       >
-        <div
-          className="sub-pane"
-          role="region"
-        >
-          Pane 1 content
-        </div>
+        Pane 1 content
       </div>
     </div>
   </li>
@@ -64,7 +60,7 @@ exports[`Component matches snapshot 1`] = `
       </span>
     </button>
     <div
-      className="collapse-content-parent"
+      className="collapse"
       style={
         {
           "height": "0px",
@@ -72,14 +68,10 @@ exports[`Component matches snapshot 1`] = `
       }
     >
       <div
-        className="collapse-content"
+        className="sub-pane"
+        role="region"
       >
-        <div
-          className="sub-pane"
-          role="region"
-        >
-          Pane 2 content
-        </div>
+        Pane 2 content
       </div>
     </div>
   </li>

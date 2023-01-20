@@ -1,4 +1,4 @@
-.collapse-content-parent {
+.collapse {
   height: 0px;
   overflow: hidden;
   transition: height 0.2s ease-in-out;
