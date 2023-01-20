@@ -23,6 +23,10 @@
   border-bottom: var(--top-transparent, 1px solid transparent);
 }
 
+.tabbed-panel.right .tab.active button {
+  border-left: var(--bottom-transparent, 1px solid transparent);
+}
+
 .tabbed-panel.bottom .tab.active button {
   border-top: var(--bottom-transparent, 1px solid transparent);
 }
@@ -52,7 +56,7 @@
   padding: 0;
 }
 
-.tab-list .tab:not(:last-child) button {
+.tabbed-panel:not(.right) .tab-list .tab:not(:last-child) button {
   border-right-width: 0;
 }
 
@@ -69,10 +73,20 @@
   flex-direction: column-reverse;
 }
 
-.tabbed-panel.left {
-  flex-direction: row;
+.tabbed-panel.left .tab-list {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .tabbed-panel.right {
   flex-direction: row-reverse;
+}
+
+.tabbed-panel.right .tab-list{
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.tabbed-panel.right .sub-pane {
+  flex-grow: 1;
 }
