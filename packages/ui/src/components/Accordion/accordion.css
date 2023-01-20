@@ -59,6 +59,10 @@
   border-radius: 5px 5px 0 0;
 }
 
+.accordion:not(.active)>*:first-child .accordion-trigger:not(:focus):hover {
+  border-radius: 5px;
+}
+
 .accordion>*:last-child .accordion-trigger,
 .accordion>*:last-child {
   border-radius: 0 0 5px 5px;
@@ -98,20 +102,11 @@
   width: 1.5rem;
 }
 
-.accordion-trigger:focus .accordion-icon path,
-.accordion-trigger:hover .accordion-icon path {
-  fill: none;
+.accordion-trigger:focus .accordion-icon,
+.accordion-trigger:hover .accordion-icon {
+  filter: brightness(0.75);
 }
 
 .accordion.active .accordion-icon {
   transform: translateY(-55%) rotate(-180deg);
-}
-
-.accordion-panel {
-  margin: 0;
-  padding: 0 1.5em;
-}
-
-.accordion-panel.hidden {
-  border: 0;
 }
