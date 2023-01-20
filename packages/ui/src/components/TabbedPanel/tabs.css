@@ -1,28 +1,32 @@
-.tab-list {
-  border-bottom: 1px solid #aaa;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0 10px;
-  padding: 0;
+.tab {
+  color: #444;
 }
 
-.tab {
+.tab button {
   align-items: center;
-  border-bottom: none;
-  border: 1px solid transparent;
-  bottom: -1px;
+  background: var(--tab-background, #eee);
+  border-bottom: 0;
+  border: 0;
+  border: var(--tab-border, 1px solid #ddd);
   cursor: pointer;
   display: flex;
-  list-style: none;
-  padding: 6px 12px;
-  position: relative;
+  outline: 0;
+  padding: 15px 25px;
+  transition: background-color 0.25s ease-in-out;
 }
 
-.tab.active {
-  background: #fff;
-  border-color: #aaa;
-  border-radius: 5px 5px 0 0;
-  color: #000;
+.tab.active button {
+  background: var(--tab-background-active, #fff);
+  border-bottom: none;
+}
+
+.tab button:focus-visible {
+  outline-offset: -1px;
+  outline: var(--tab-focus-outline, 1px solid #1c4786);
+}
+
+.tab:not(.active) button:hover {
+  background: var(--tab-background-hover, #ddd);
 }
 
 .tab-icon {
@@ -30,4 +34,16 @@
   margin-right: 5px;
   object-fit: contain;
   width: 16px;
+}
+
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.tab-list .tab:not(:last-child) button {
+  border-right-width: 0;
 }
