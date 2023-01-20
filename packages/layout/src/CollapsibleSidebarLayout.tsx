@@ -23,28 +23,26 @@ const BasicLayout: React.FC<Properties> = (properties) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="basic-layout">
-      <div onClick={() => setOpen(!open)}>{header}</div>
+      <div className="sidebar">
+        <Sidebar
+          open={open}
+          customStyle={{
+            position: "relative",
+          }}
+        />
+      </div>
 
       <main>
-        <div style={{ display: "flex", flex: 1 }}>
-          <Sidebar
-            open={open}
-            customStyle={{
-              position: "relative",
-            }}
-          />
-          <div
-            style={{
-              flex: 1,
-              padding: "0 1rem",
-            }}
-          >
-            {children}
-          </div>
+        <div onClick={() => setOpen(!open)}>{header}</div>
+        <div
+          style={{
+            flex: 1,
+          }}
+        >
+          {children}
         </div>
+        {footer}
       </main>
-
-      {footer}
     </div>
   );
 };
