@@ -17,7 +17,14 @@
 
 .tab.active button {
   background: var(--tab-background-active, #fff);
-  border-bottom: none;
+}
+
+.tabbed-panel.top .tab.active button {
+  border-bottom: var(--top-transparent, 1px solid transparent);
+}
+
+.tabbed-panel.bottom .tab.active button {
+  border-top: var(--bottom-transparent, 1px solid transparent);
 }
 
 .tab button:focus-visible {
@@ -37,6 +44,7 @@
 }
 
 .tab-list {
+  align-items: baseline;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -46,4 +54,25 @@
 
 .tab-list .tab:not(:last-child) button {
   border-right-width: 0;
+}
+
+.tabbed-panel {
+  display: flex;
+  width: 100%;
+}
+
+.tabbed-panel.top {
+  flex-direction: column;
+}
+
+.tabbed-panel.bottom {
+  flex-direction: column-reverse;
+}
+
+.tabbed-panel.left {
+  flex-direction: row;
+}
+
+.tabbed-panel.right {
+  flex-direction: row-reverse;
 }
