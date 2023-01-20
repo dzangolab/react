@@ -1,7 +1,13 @@
 import { Accordion, Accordions, AccordionTitle } from "./components/Accordion";
 import { LoadingButton } from "./components/Buttons";
 import Collapse from "./components/Collapse";
-import Sidebar from "./components/CollapsibleSidebar";
+import {
+  Sidebar,
+  SidebarHeader,
+  Menu,
+  MenuItem,
+} from "./components/CollapsibleSidebar";
+
 import { LoadingIcon } from "./components/Loading";
 import Page from "./components/Page";
 import ResponsiveMenu from "./components/ResponsiveMenu";
@@ -20,4 +26,7 @@ export {
   Tab,
   Tabs,
   TabTitle,
+  SidebarHeader,
+  Menu,
+  MenuItem,
 };

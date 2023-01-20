@@ -173,6 +173,7 @@ importers:
       prettier: 2.7.1
       react: 18.2.0
       react-dom: 18.2.0
+      react-icons: 4.4.0
       react-test-renderer: 18.2.0
       tsconfig: 0.4.4
       typescript: 4.8.4
@@ -182,6 +183,7 @@ importers:
       '@dzangolab/react-config': link:../config
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-icons: 4.4.0_react@18.2.0
     devDependencies:
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/node': 18.8.5

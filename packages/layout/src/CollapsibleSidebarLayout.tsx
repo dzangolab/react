@@ -5,7 +5,8 @@ import AppHeader from "./components/AppHeader";
 
 import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
 import "./css/collapsibleSidebarLayout.css";
-import { Sidebar } from "@dzangolab/react-ui";
+import { Sidebar, SidebarHeader, Menu } from "@dzangolab/react-ui";
+import { MenuItem } from "@dzangolab/react-ui";
 
 interface Properties {
   children: React.ReactNode;
@@ -19,21 +20,25 @@ const BasicLayout: React.FC<Properties> = (properties) => {
     footer = <AppFooter />,
     header = <AppHeader navStyle="left-slider" />,
   } = properties;
-
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   return (
     <div className="basic-layout">
       <div className="sidebar">
         <Sidebar
-          open={open}
           customStyle={{
             position: "relative",
           }}
-        />
+          open={open}
+        >
+          <SidebarHeader toggle={() => setOpen(!open)} />
+          <Menu>
+            <MenuItem>sdada da das</MenuItem>
+          </Menu>
+        </Sidebar>
       </div>
 
       <main>
-        <div onClick={() => setOpen(!open)}>{header}</div>
+        {header}
         <div
           style={{
             flex: 1,

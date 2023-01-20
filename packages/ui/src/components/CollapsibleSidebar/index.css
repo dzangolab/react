@@ -2,12 +2,50 @@
   height: 100%;
   position: fixed;
   left: 0;
-  width: 0px;
-  padding-top: 60px;
-  transition: width 0.25s ease-in-out;
-  background: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%);
+  min-width: 40px;
+  width: 1.5rem;
+  padding: 0.8rem 0;
+  transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s,
+    all 300ms ease 0s;
+  border-right: 1px solid rgb(239, 239, 239);
+  border-color: rgb(239, 239, 239);
 }
 
 .openSidebarMenu {
   width: 250px;
+}
+
+.menuItem {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.menuItem:hover {
+  background-color: var(--dropdown-bg-color-hover, #dbe9fa);
+}
+
+.menuItem.header {
+  height: 5rem;
+}
+
+.menuItem > .toggleIcon {
+  align-items: center;
+  flex: 0.2;
+  min-width: 1.5rem;
+}
+
+.menuItem > .toggleContent {
+  flex: 0.8;
+}
+
+.menu {
+  margin-top: 1rem;
+}
+
+header {
+  overflow: hidden;
 }
