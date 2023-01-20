@@ -31,9 +31,26 @@
   border-top: 1px solid hsl(0deg 0% 52%);
 }
 
+.accordion>*:first-child .accordion-trigger,
+.accordion>*:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.accordion:not(.active) .accordion-trigger:focus,
+.accordion:not(.active) .accordion-trigger:hover {
+  border-radius: 5px;
+}
+
+.accordion>*:last-child .accordion-trigger,
+.accordion>*:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
 .accordion-trigger {
   background: none;
+  border-style: none;
   color: hsl(0deg 0% 13%);
+  cursor: pointer;
   display: block;
   font-size: 1rem;
   font-weight: normal;
@@ -54,27 +71,9 @@
   outline: 4px solid transparent;
 }
 
-.accordion>*:first-child .accordion-trigger,
-.accordion>*:first-child {
-  border-radius: 5px 5px 0 0;
-}
-
-.accordion:not(.active)>*:first-child .accordion-trigger:not(:focus):hover {
-  border-radius: 5px;
-}
-
-.accordion>*:last-child .accordion-trigger,
-.accordion>*:last-child {
-  border-radius: 0 0 5px 5px;
-}
-
-.accordion button {
-  border-style: none;
-  cursor: pointer;
-}
-
-.accordion button::-moz-focus-inner {
-  border: 0;
+.accordion-trigger:focus .accordion-icon,
+.accordion-trigger:hover .accordion-icon {
+  filter: brightness(0.75);
 }
 
 .accordion-title {
@@ -100,11 +99,6 @@
   top: 50%;
   transform: translateY(-55%) rotate(0deg);
   width: 1.5rem;
-}
-
-.accordion-trigger:focus .accordion-icon,
-.accordion-trigger:hover .accordion-icon {
-  filter: brightness(0.75);
 }
 
 .accordion.active .accordion-icon {

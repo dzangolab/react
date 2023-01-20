@@ -14,18 +14,16 @@ const TabTitle: React.FC<Properties> = ({
   handleClick,
 }) => {
   return (
-    <div>
-      <button
-        onClick={() => handleClick(index)}
-        type="button"
-        className="accordion-trigger"
-      >
-        <span className="accordion-title">
-          {title}
-          <img src={icon} className="accordion-icon" alt={title} />
-        </span>
-      </button>
-    </div>
+    <button
+      onClick={() => handleClick(index)}
+      type="button"
+      className="accordion-trigger"
+    >
+      <span className="accordion-title">
+        {title}
+        <img src={icon} className="accordion-icon" alt={title} />
+      </span>
+    </button>
   );
 };
 
