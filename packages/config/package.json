@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "18.11.17",
-    "@types/react": "18.0.21",
+    "@types/react": "18.0.27",
     "@vitest/coverage-c8": "0.27.3",
     "eslint": "8.30.0",
     "eslint-config-custom": "0.4.4",
