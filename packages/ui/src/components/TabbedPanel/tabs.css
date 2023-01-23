@@ -19,6 +19,24 @@
   background: var(--tab-background-active, #fff);
 }
 
+.tabbed-panel.left .tab,
+.tabbed-panel.right .tab {
+  width: 100%;
+}
+
+.tabbed-panel.left .tab button,
+.tabbed-panel.right .tab button {
+  width: 100%;
+}
+
+.tabbed-panel.right .tab button {
+  justify-content: flex-end;
+}
+
+.tabbed-panel.left .tab.active button {
+  border-right: var(--bottom-transparent, 1px solid transparent);
+}
+
 .tabbed-panel.top .tab.active button {
   border-bottom: var(--top-transparent, 1px solid transparent);
 }
@@ -48,7 +66,6 @@
 }
 
 .tab-list {
-  align-items: baseline;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
