@@ -14,6 +14,8 @@ interface Properties {
   navStyle?: "dropdown" | "left-slider";
   toggle?: React.ReactNode;
   userMenu?: React.ReactNode;
+  logo?: React.ReactNode;
+  title?: React.ReactNode;
 }
 
 const AppHeader: React.FC<Properties> = (properties: Properties) => {
@@ -25,6 +27,12 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     navStyle = "dropdown",
     toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
     userMenu = <UserMenu />,
+    logo = (
+      <a href={appConfig?.home.anon}>
+        <img src={appConfig?.app.logo} alt="logo" />
+      </a>
+    ),
+    title = "Hi, User",
   } = properties;
 
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -37,11 +45,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      <div className="logo">
-        <a href={appConfig?.home.anon}>
-          <img src={appConfig?.app.logo} alt="logo" />
-        </a>
-      </div>
+      {logo ? <div className="logo">{logo}</div> : <h1>{title}</h1>}
       <nav className={navClass}>
         {mainMenu}
         {userMenu}

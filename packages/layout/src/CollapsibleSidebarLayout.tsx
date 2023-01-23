@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
 
 import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
 import "./css/collapsibleSidebarLayout.css";
-import { Sidebar, SidebarHeader, Menu } from "@dzangolab/react-ui";
-import { MenuItem } from "@dzangolab/react-ui";
 
 interface Properties {
   children: React.ReactNode;
@@ -27,7 +25,7 @@ const BasicLayout: React.FC<Properties> = (properties) => {
       <div className="sidebar">{sidebar}</div>
 
       <main>
-        {/* {header}*/}
+        {header}
         <div
           style={{
             flex: 1,
