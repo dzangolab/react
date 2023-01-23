@@ -1,4 +1,4 @@
-import { Accordion, Accordions, AccordionTitle } from "./components/Accordion";
+import { Accordion } from "./components/Accordion";
 import { LoadingButton } from "./components/Buttons";
 import Collapse from "./components/Collapse";
 import { LoadingIcon } from "./components/Loading";
@@ -9,8 +9,6 @@ import { TabbedPanel } from "./components/TabbedPanel";
 
 export {
   Accordion,
-  Accordions,
-  AccordionTitle,
   Collapse,
   LoadingButton,
   LoadingIcon,
