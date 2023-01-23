@@ -69,7 +69,7 @@ function BaseTable() {
     onColumnFiltersChange: setColumnFilters,
     onPaginationChange: setPagination,
     onSortingChange: setSorting,
-    pageCount: Math.round(totalItems / pageSize),
+    pageCount: Math.ceil(totalItems / pageSize),
     debugTable: false,
   });
 
