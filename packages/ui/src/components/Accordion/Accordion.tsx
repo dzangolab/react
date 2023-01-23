@@ -16,6 +16,11 @@ const Accordion: React.FC<Properties> = ({ defaultActiveKey, children }) => {
   const [active, setActive] = useState(defaultActiveKey);
   const childNodes = Array.isArray(children) ? children : [children];
 
+  const handleClick = (index: number) => {
+    if (active !== index) setActive(index);
+    else setActive(undefined);
+  };
+
   if (!children) {
     throw new Error("Accordion needs at least one children");
   }
@@ -28,7 +33,7 @@ const Accordion: React.FC<Properties> = ({ defaultActiveKey, children }) => {
           key={`${id}-${index}`}
         >
           <AccordionTitle
-            handleClick={setActive}
+            handleClick={() => handleClick(index)}
             icon={item.props.icon}
             index={index}
             title={item.props.title}
