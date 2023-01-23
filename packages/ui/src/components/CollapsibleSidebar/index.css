@@ -6,8 +6,6 @@
   width: 1.5rem;
   transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s,
     all 300ms ease 0s;
-  border-right: 1px solid rgb(239, 239, 239);
-  border-color: rgb(239, 239, 239);
 }
 
 .openSidebarMenu {
@@ -16,6 +14,10 @@
 
 .menu {
   margin-top: 1rem;
+}
+
+.menu > p {
+  padding-left: 0.8rem;
 }
 
 .menuItem {

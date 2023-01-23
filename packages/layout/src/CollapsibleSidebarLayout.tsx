@@ -12,33 +12,22 @@ interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
   header?: React.ReactNode;
+  sidebar?: React.ReactNode;
 }
 
 const BasicLayout: React.FC<Properties> = (properties) => {
   const {
+    sidebar,
     children,
     footer = <AppFooter />,
     header = <AppHeader navStyle="left-slider" />,
   } = properties;
-  const [open, setOpen] = useState(true);
   return (
-    <div className="basic-layout">
-      <div className="sidebar">
-        <Sidebar
-          customStyle={{
-            position: "relative",
-          }}
-          open={open}
-        >
-          <SidebarHeader toggle={() => setOpen(!open)} />
-          <Menu>
-            <MenuItem>sdada da das</MenuItem>
-          </Menu>
-        </Sidebar>
-      </div>
+    <div className="collapsible-layout">
+      <div className="sidebar">{sidebar}</div>
 
       <main>
-        {header}
+        {/* {header}*/}
         <div
           style={{
             flex: 1,

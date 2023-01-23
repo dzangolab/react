@@ -1,4 +1,4 @@
-.basic-layout {
+.collapsible-layout {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -6,26 +6,25 @@
   z-index: 0;
 }
 
-.basic-layout :is(main) {
+.collapsible-layout :is(main) {
   max-width: var(--max-width, 100%);
   padding: var(--padding-v, 0.8rem) var(--padding-h, 0.8rem);
   width: 100%;
-}
-
-.basic-layout > main {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.basic-layout > .sidebar {
+.collapsible-layout > .sidebar {
   padding: 0.8rem 0;
+  border-right: 1px solid rgb(239, 239, 239);
+  border-color: rgb(239, 239, 239);
 }
 
-.basic-layout > footer {
+.collapsible-layout > footer {
   z-index: var(--basic-layout-footer-z-index, 0);
 }
 
-.basic-layout > header {
+.collapsible-layout > header {
   z-index: var(--basic-layout-header-z-index, 0);
 }

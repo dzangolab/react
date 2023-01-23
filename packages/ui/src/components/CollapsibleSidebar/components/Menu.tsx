@@ -8,7 +8,7 @@ interface Properties {
 const Menu: React.FC<Properties> = ({ label, children }) => {
   return (
     <div className="menu">
-      {label ? <h1>{label}</h1> : null}
+      {label ? <p>{label}</p> : null}
       {children}
     </div>
   );

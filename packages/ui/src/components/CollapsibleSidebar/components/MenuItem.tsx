@@ -15,7 +15,7 @@ const MenuItem: React.FC<Properties> = ({
   isHeader = false,
 }) => {
   return (
-    <div className={`menuItem ${isHeader ? "header" : ""}`}>
+    <div className={`menuItem ${isHeader ? "header" : ""}`} title="description">
       <div className="toggleIcon" onClick={handelIconClick}>
         {icon}
       </div>
