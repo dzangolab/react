@@ -7,8 +7,8 @@
     "sort-package": "npx sort-package-json"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "5.45.1",
-    "@typescript-eslint/parser": "5.45.1",
+    "@typescript-eslint/eslint-plugin": "5.48.2",
+    "@typescript-eslint/parser": "5.48.2",
     "eslint-config-next": "13.1.4",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-turbo": "0.0.7",
