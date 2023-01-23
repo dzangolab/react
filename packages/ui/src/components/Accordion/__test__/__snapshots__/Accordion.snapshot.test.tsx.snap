@@ -1,0 +1,79 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<ul
+  className="accordion-list"
+  data-testid="accordion-list"
+>
+  <li
+    className="accordion "
+  >
+    <button
+      className="accordion-trigger"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="accordion-title"
+      >
+        Topic 1
+        <img
+          alt="Topic 1"
+          className="accordion-icon"
+          src="icon1.jpg"
+        />
+      </span>
+    </button>
+    <div
+      className="collapse"
+      style={
+        {
+          "height": "0px",
+        }
+      }
+    >
+      <div
+        className="sub-pane"
+        role="region"
+      >
+        Pane 1 content
+      </div>
+    </div>
+  </li>
+  <li
+    className="accordion "
+  >
+    <button
+      className="accordion-trigger"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="accordion-title"
+      >
+        Topic 2
+        <img
+          alt="Topic 2"
+          className="accordion-icon"
+          src="icon2.jpg"
+        />
+      </span>
+    </button>
+    <div
+      className="collapse"
+      style={
+        {
+          "height": "0px",
+        }
+      }
+    >
+      <div
+        className="sub-pane"
+        role="region"
+      >
+        Pane 2 content
+      </div>
+    </div>
+  </li>
+</ul>
+`;

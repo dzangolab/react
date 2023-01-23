@@ -49,7 +49,7 @@ pnpm link ./<path_to_libraries_monorepo>/packages/<library_name>
 
 To unlink the linked library
 ```
-pnpm link ./<path_to_libraries_monorepo>/packages/<library_name>
+pnpm unlink ./<path_to_libraries_monorepo>/packages/<library_name>
 ```
 ## Troubleshooting
   - Make sure that `package.json` and `pnpm-lock.yml` are synchronized.

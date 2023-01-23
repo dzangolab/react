@@ -1,0 +1,133 @@
+.tab {
+  color: #444;
+}
+
+.tab button {
+  align-items: center;
+  background: var(--tab-background, #eee);
+  border-bottom: 0;
+  border: 0;
+  border: var(--tab-border, 1px solid #ddd);
+  cursor: pointer;
+  display: flex;
+  outline: 0;
+  padding: 15px 25px;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.tab.active button {
+  background: var(--tab-background-active, #fff);
+}
+
+.tabbed-panel.left .tab,
+.tabbed-panel.right .tab {
+  width: 100%;
+}
+
+.tabbed-panel.left .tab button,
+.tabbed-panel.right .tab button {
+  width: 100%;
+}
+
+.tab button:focus-visible {
+  outline-offset: -1px;
+  outline: var(--tab-focus-outline, 1px solid #1c4786);
+}
+
+.tab:not(.active) button:hover {
+  background: var(--tab-background-hover, #ddd);
+}
+
+.tab-icon {
+  height: 16px;
+  margin-right: 5px;
+  object-fit: contain;
+  width: 16px;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.tab-list button {
+  width: 100%;
+  justify-content: center;
+}
+
+.tabbed-panel {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.tabbed-panel.bottom {
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 576px) {
+
+  .tab {
+    width: max-content;
+  }
+
+  .tab-list {
+    flex-wrap: wrap;
+  }
+
+  .tabbed-panel:not(.right) .tab-list .tab:not(:last-child) button {
+    border-right-width: 0;
+  }
+
+  .tabbed-panel.right {
+    flex-direction: row-reverse;
+  }
+
+  .tabbed-panel.right .sub-pane {
+    flex-grow: 1;
+  }
+
+  .tabbed-panel.right .tab-list {
+    align-items: flex-end;
+  }
+
+  .tab-list button {
+    justify-content: flex-start;
+  }
+
+  .tabbed-panel.right .tab-list button {
+    justify-content: flex-end;
+  }
+
+  .tabbed-panel.left {
+    flex-direction: row;
+  }
+
+  .tabbed-panel.left .tab-list {
+    align-items: flex-start;
+  }
+
+  .tabbed-panel.top .tab-list,
+  .tabbed-panel.bottom .tab-list {
+    flex-direction: row;
+  }
+
+  .tabbed-panel.left .tab.active button {
+    border-right: var(--bottom-transparent, 1px solid transparent);
+  }
+
+  .tabbed-panel.top .tab.active button {
+    border-bottom: var(--top-transparent, 1px solid transparent);
+  }
+
+  .tabbed-panel.right .tab.active button {
+    border-left: var(--bottom-transparent, 1px solid transparent);
+  }
+
+  .tabbed-panel.bottom .tab.active button {
+    border-top: var(--bottom-transparent, 1px solid transparent);
+  }
+}
