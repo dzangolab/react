@@ -20,7 +20,7 @@ const Tab: React.FC<Properties> = ({
       className={`tab ${isActive ? "active" : ""}`}
       onClick={() => handleClick(index)}
     >
-      <img src={icon} className="tab-icon" alt={title} />
+      {icon ? <img src={icon} className="tab-icon" alt={title} /> : null}
       {title}
     </li>
   );
