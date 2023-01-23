@@ -21,7 +21,9 @@ const TabTitle: React.FC<Properties> = ({
     >
       <span className="accordion-title">
         {title}
-        <img src={icon} className="accordion-icon" alt={title} />
+        {icon ? (
+          <img src={icon} className="accordion-icon" alt={title} />
+        ) : null}
       </span>
     </button>
   );

@@ -14,10 +14,15 @@ type Properties = {
 const Accordion: React.FC<Properties> = ({ defaultActiveKey, children }) => {
   const id = useId();
   const [active, setActive] = useState(defaultActiveKey);
+  const childNodes = Array.isArray(children) ? children : [children];
+
+  if (!children) {
+    throw new Error("Accordion needs at least one children");
+  }
 
   return (
     <ul className="accordion-list" data-testid="accordion-list">
-      {children.map((item, index) => (
+      {childNodes.map((item, index) => (
         <li
           className={`accordion ${active === index ? "active" : ""}`}
           key={`${id}-${index}`}
