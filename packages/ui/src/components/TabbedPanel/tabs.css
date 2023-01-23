@@ -29,26 +29,6 @@
   width: 100%;
 }
 
-.tabbed-panel.right .tab button {
-  justify-content: flex-end;
-}
-
-.tabbed-panel.left .tab.active button {
-  border-right: var(--bottom-transparent, 1px solid transparent);
-}
-
-.tabbed-panel.top .tab.active button {
-  border-bottom: var(--top-transparent, 1px solid transparent);
-}
-
-.tabbed-panel.right .tab.active button {
-  border-left: var(--bottom-transparent, 1px solid transparent);
-}
-
-.tabbed-panel.bottom .tab.active button {
-  border-top: var(--bottom-transparent, 1px solid transparent);
-}
-
 .tab button:focus-visible {
   outline-offset: -1px;
   outline: var(--tab-focus-outline, 1px solid #1c4786);
@@ -73,8 +53,9 @@
   padding: 0;
 }
 
-.tabbed-panel:not(.right) .tab-list .tab:not(:last-child) button {
-  border-right-width: 0;
+.tab-list button {
+  width: 100%;
+  justify-content: center;
 }
 
 .tabbed-panel {
@@ -83,40 +64,22 @@
   flex-direction: column;
 }
 
-.tabbed-panel.top {
-  flex-direction: column;
+.tabbed-panel.bottom {
+  flex-direction: column-reverse;
 }
 
-/* .tabbed-panel.bottom {
-  flex-direction: column-reverse;
-} */
-
-/* .tabbed-panel.left .tab-list {
-  flex-direction: column;
-  align-items: flex-start;
-} */
-
-/* .tabbed-panel.right {
-  flex-direction: row-reverse;
-} */
-
-/* .tabbed-panel.right .tab-list {
-  flex-direction: column;
-  align-items: flex-end;
-} */
-
 @media (min-width: 576px) {
-
-  .tab-list {
-    flex-wrap: wrap;
-  }
 
   .tab {
     width: max-content;
   }
 
-  .tabbed-panel.bottom {
-    flex-direction: column-reverse;
+  .tab-list {
+    flex-wrap: wrap;
+  }
+
+  .tabbed-panel:not(.right) .tab-list .tab:not(:last-child) button {
+    border-right-width: 0;
   }
 
   .tabbed-panel.right {
@@ -131,11 +94,40 @@
     align-items: flex-end;
   }
 
+  .tab-list button {
+    justify-content: flex-start;
+  }
+
+  .tabbed-panel.right .tab-list button {
+    justify-content: flex-end;
+  }
+
   .tabbed-panel.left {
     flex-direction: row;
   }
 
   .tabbed-panel.left .tab-list {
     align-items: flex-start;
+  }
+
+  .tabbed-panel.top .tab-list,
+  .tabbed-panel.bottom .tab-list {
+    flex-direction: row;
+  }
+
+  .tabbed-panel.left .tab.active button {
+    border-right: var(--bottom-transparent, 1px solid transparent);
+  }
+
+  .tabbed-panel.top .tab.active button {
+    border-bottom: var(--top-transparent, 1px solid transparent);
+  }
+
+  .tabbed-panel.right .tab.active button {
+    border-left: var(--bottom-transparent, 1px solid transparent);
+  }
+
+  .tabbed-panel.bottom .tab.active button {
+    border-top: var(--bottom-transparent, 1px solid transparent);
   }
 }
