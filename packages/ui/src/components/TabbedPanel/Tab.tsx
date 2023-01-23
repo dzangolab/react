@@ -16,12 +16,11 @@ const Tab: React.FC<Properties> = ({
   handleClick,
 }) => {
   return (
-    <li
-      className={`tab ${isActive ? "active" : ""}`}
-      onClick={() => handleClick(index)}
-    >
-      <img src={icon} className="tab-icon" alt={title} />
-      {title}
+    <li className={`tab ${isActive ? "active" : ""}`}>
+      <button onClick={() => handleClick(index)}>
+        <img src={icon} className="tab-icon" alt={title} />
+        {title}
+      </button>
     </li>
   );
 };
