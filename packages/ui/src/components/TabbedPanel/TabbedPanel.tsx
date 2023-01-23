@@ -14,6 +14,10 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
   const [active, setActive] = useState(0);
   const childNodes = Array.isArray(children) ? children : [children];
 
+  if (!children) {
+    throw new Error("TabbedPanel needs at least one children");
+  }
+
   return (
     <div className={`tabbed-panel ${position}`}>
       <ul className="tab-list">
