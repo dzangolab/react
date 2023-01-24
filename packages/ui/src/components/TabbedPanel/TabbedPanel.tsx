@@ -5,17 +5,23 @@ import Tab from "./Tab";
 import "./tabs.css";
 
 type Properties = {
-  children: ReactElement[];
+  children: ReactElement | ReactElement[];
+  position?: "top" | "left" | "bottom" | "right";
 };
 
-const TabbedPanel: React.FC<Properties> = ({ children }) => {
+const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
   const id = useId();
   const [active, setActive] = useState(0);
+  const childNodes = Array.isArray(children) ? children : [children];
+
+  if (!children) {
+    throw new Error("TabbedPanel needs at least one children");
+  }
 
   return (
-    <div className="tabbed-panel">
+    <div className={`tabbed-panel ${position}`}>
       <ul className="tab-list">
-        {children.map((item, index) => (
+        {childNodes.map((item, index) => (
           <Tab
             key={`${id}-${index}`}
             title={item.props.title}
@@ -26,7 +32,7 @@ const TabbedPanel: React.FC<Properties> = ({ children }) => {
           />
         ))}
       </ul>
-      {children[active]}
+      {childNodes[active]}
     </div>
   );
 };
