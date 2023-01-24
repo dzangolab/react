@@ -7,26 +7,29 @@ import {
   Menu,
   MenuItem,
 } from "./components/CollapsibleSidebar";
-
 import { LoadingIcon } from "./components/Loading";
 import Page from "./components/Page";
 import ResponsiveMenu from "./components/ResponsiveMenu";
 import { Tab, Tabs, TabTitle } from "./components/Tab";
+import SidebarProvider from "./context/SidebarProvider";
+import { useSidebar } from "./hooks/useSidebar";
 
 export {
   Accordion,
-  Accordions,
   AccordionTitle,
+  Accordions,
   Collapse,
   LoadingButton,
   LoadingIcon,
+  Menu,
+  MenuItem,
   Page,
   ResponsiveMenu,
   Sidebar,
-  Tab,
-  Tabs,
-  TabTitle,
   SidebarHeader,
-  Menu,
-  MenuItem,
+  SidebarProvider,
+  Tab,
+  TabTitle,
+  Tabs,
+  useSidebar,
 };

@@ -1,14 +1,18 @@
 import React from "react";
 
+import { useSidebar } from "@/hooks/useSidebar";
+
 interface Properties {
   label?: string;
   children?: React.ReactNode;
 }
 
 const Menu: React.FC<Properties> = ({ label, children }) => {
+  const { open } = useSidebar();
+
   return (
     <div className="menu">
-      {label ? <p>{label}</p> : null}
+      {open && label ? <p>{label}</p> : null}
       {children}
     </div>
   );
