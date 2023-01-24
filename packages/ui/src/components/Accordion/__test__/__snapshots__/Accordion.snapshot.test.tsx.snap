@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <ul
-  className="accordion-list"
+  className="accordion-list vertical"
   data-testid="accordion-list"
 >
   <li
@@ -13,32 +13,21 @@ exports[`Component matches snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <span
+      <div
         className="accordion-title"
       >
-        Topic 1
+        <span
+          className="accordion-title-text"
+        >
+          Topic 1
+        </span>
         <img
           alt="Topic 1"
           className="accordion-icon"
           src="icon1.jpg"
         />
-      </span>
-    </button>
-    <div
-      className="collapse"
-      style={
-        {
-          "height": "0px",
-        }
-      }
-    >
-      <div
-        className="sub-pane"
-        role="region"
-      >
-        Pane 1 content
       </div>
-    </div>
+    </button>
   </li>
   <li
     className="accordion "
@@ -48,32 +37,21 @@ exports[`Component matches snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <span
+      <div
         className="accordion-title"
       >
-        Topic 2
+        <span
+          className="accordion-title-text"
+        >
+          Topic 2
+        </span>
         <img
           alt="Topic 2"
           className="accordion-icon"
           src="icon2.jpg"
         />
-      </span>
-    </button>
-    <div
-      className="collapse"
-      style={
-        {
-          "height": "0px",
-        }
-      }
-    >
-      <div
-        className="sub-pane"
-        role="region"
-      >
-        Pane 2 content
       </div>
-    </div>
+    </button>
   </li>
 </ul>
 `;
