@@ -38,6 +38,10 @@ header > .toggle {
   display: none;
 }
 
+header > h1 {
+  margin: 0.8rem 0;
+}
+
 @media screen and (max-width: 576px) {
   header {
     align-items: start;

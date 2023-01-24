@@ -3,7 +3,6 @@ import React from "react";
 import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
 
-import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
 import "./css/collapsibleSidebarLayout.css";
 
 interface Properties {
@@ -13,7 +12,7 @@ interface Properties {
   sidebar?: React.ReactNode;
 }
 
-const BasicLayout: React.FC<Properties> = (properties) => {
+const AdminLayout: React.FC<Properties> = (properties) => {
   const {
     sidebar,
     children,
@@ -39,4 +38,4 @@ const BasicLayout: React.FC<Properties> = (properties) => {
   );
 };
 
-export default BasicLayout;
+export default AdminLayout;
