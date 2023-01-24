@@ -16,9 +16,7 @@ exports[`Component matches snapshot 1`] = `
       <div
         className="accordion-title"
       >
-        <span
-          className="accordion-title-text"
-        >
+        <span>
           Topic 1
         </span>
         <img
@@ -40,9 +38,7 @@ exports[`Component matches snapshot 1`] = `
       <div
         className="accordion-title"
       >
-        <span
-          className="accordion-title-text"
-        >
+        <span>
           Topic 2
         </span>
         <img

@@ -20,7 +20,7 @@ const TabTitle: React.FC<Properties> = ({
       className="accordion-trigger"
     >
       <div className="accordion-title">
-        <span className="accordion-title-text">{title}</span>
+        <span>{title}</span>
         {icon ? (
           <img src={icon} className="accordion-icon" alt={title} />
         ) : null}
