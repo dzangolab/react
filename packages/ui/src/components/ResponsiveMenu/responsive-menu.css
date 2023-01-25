@@ -1,8 +1,8 @@
 nav.menu > ul {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: var(--grid-gap);
+  flex-direction: row;
+  gap: var(--responsive-menu-gap, 1rem);
   justify-content: flex-start;
   list-style: none;
   margin: 0;
@@ -19,6 +19,13 @@ nav.menu > ul > li > a {
 }
 
 @media screen and (max-width: 576px) {
+  nav.menu > ul {
+    flex: 1;
+    flex-direction: column;
+    gap: var(--grid-gap);
+    align-items: normal;
+  }
+
   nav.menu > ul > li {
     display: flex;
     padding: 0;
@@ -31,12 +38,5 @@ nav.menu > ul > li > a {
 
   nav.menu > ul > li :hover {
     background-color: #dbe9fa;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  nav.menu > ul {
-    flex-direction: row;
-    gap: var(--responsive-menu-gap, 1rem);
   }
 }

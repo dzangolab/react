@@ -38,7 +38,7 @@ nav.locale-switcher ul {
   z-index: var(--locale-switcher-z-index, 9999);
 }
 
-nav.expanded ul {
+nav.expanded ul.dropdown {
   display: block;
 }
 

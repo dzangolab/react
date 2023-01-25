@@ -63,3 +63,9 @@
 .menuItem.header > .toggleContent {
   padding: 0;
 }
+
+@media screen and (max-width: 576px) {
+  .sidebarMenu {
+    display: none;
+  }
+}

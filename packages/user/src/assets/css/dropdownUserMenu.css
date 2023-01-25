@@ -66,12 +66,14 @@ nav > .dropdown > li:hover {
     top: 50%;
   }
 
-  nav.user-menu > div.email:hover {
-    background-color: #dbe9fa;
-  }
-
   nav.user-menu > div.email {
     padding: 0.8rem;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  nav.user-menu > div.email:hover {
+    background-color: #dbe9fa;
   }
 
   span.toggle.expanded {
