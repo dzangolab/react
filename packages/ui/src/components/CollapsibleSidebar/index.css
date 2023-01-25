@@ -12,11 +12,11 @@
   width: 250px;
 }
 
-.menu {
+.sidebarMenu > .menu {
   margin-top: 1rem;
 }
 
-.menu > p {
+.sidebarMenu > .menu > p {
   padding-left: 1.5rem;
 }
 
