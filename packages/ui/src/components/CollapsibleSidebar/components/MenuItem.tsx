@@ -1,5 +1,5 @@
 import React from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiUncertainty } from "react-icons/gi";
 
 interface Properties {
   handelIconClick?: () => void;
@@ -12,7 +12,7 @@ interface Properties {
 const MenuItem: React.FC<Properties> = ({
   handelIconClick,
   description,
-  icon = <GiHamburgerMenu style={{ height: "1.5rem", width: "1.5rem" }} />,
+  icon = <GiUncertainty style={{ height: "1.5rem", width: "1.5rem" }} />,
   children,
   isHeader = false,
 }) => {

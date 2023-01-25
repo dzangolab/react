@@ -13,7 +13,7 @@ const SidebarHeader: React.FC<Properties> = ({
   toggleIcon = (
     <GiHamburgerMenu style={{ height: "1.5rem", width: "1.5rem" }} />
   ),
-  logo = <img src={"/logo.png"} alt="logo" />,
+  logo,
 }) => {
   const { toggleSidebar } = useSidebar();
 
