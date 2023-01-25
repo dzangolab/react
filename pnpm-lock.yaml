@@ -138,7 +138,7 @@ importers:
       react: 18.2.0
       react-icons: 4.4.0_react@18.2.0
     devDependencies:
-      '@testing-library/react': 13.4.0_react@18.2.0
+      '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/node': 18.8.5
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
@@ -159,10 +159,12 @@ importers:
   packages/ui:
     specifiers:
       '@dzangolab/react-config': 0.4.4
+      '@tanstack/react-table': 8.7.4
       '@testing-library/react': 13.4.0
       '@types/node': 18.8.5
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
+      '@types/react-outside-click-handler': 1.3.0
       '@types/react-test-renderer': 18.0.0
       '@vitejs/plugin-react': 3.0.0
       '@vitest/coverage-c8': 0.27.3
@@ -172,7 +174,9 @@ importers:
       jsdom: ^20.0.3
       prettier: 2.7.1
       react: 18.2.0
+      react-debounce-input: 3.3.0
       react-dom: 18.2.0
+      react-outside-click-handler: 1.3.0
       react-test-renderer: 18.2.0
       tsconfig: 0.4.4
       typescript: 4.8.4
@@ -180,13 +184,17 @@ importers:
       vitest: ^0.27.0
     dependencies:
       '@dzangolab/react-config': link:../config
+      '@tanstack/react-table': 8.7.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
+      react-debounce-input: 3.3.0_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/node': 18.8.5
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
+      '@types/react-outside-click-handler': 1.3.0
       '@types/react-test-renderer': 18.0.0
       '@vitejs/plugin-react': 3.0.0_vite@3.2.5
       '@vitest/coverage-c8': 0.27.3_jsdom@20.0.3
@@ -245,7 +253,7 @@ importers:
       yup: 0.32.11
     devDependencies:
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
-      '@testing-library/user-event': 14.4.3
+      '@testing-library/user-event': 14.4.3_aaq3sbffpfe3jnxzm2zngsddei
       '@types/node': 18.8.5
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
@@ -1073,6 +1081,23 @@ packages:
       - debug
     dev: true
 
+  /@tanstack/react-table/8.7.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-4Q1OV3kUSxbtekclS3sqjCyCDowqCPruUCfHm1nGoPSmVLRCHoQ1E2rmzTVGeocEKgV9TDnj39tOgGwcADPuPA==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.7.4
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@tanstack/table-core/8.7.4:
+    resolution: {integrity: sha512-OPhzca7e83KGukxLpZ+4F9OBp9CZXi9b/OGJBH8dlC3wpffcSSDczYGUGJKG7wirXQ6cUVYL+9G6UrrdnblKNQ==}
+    engines: {node: '>=12'}
+    dev: false
+
   /@testing-library/dom/8.19.0:
     resolution: {integrity: sha512-6YWYPPpxG3e/xOo6HIWwB/58HukkwIVTOaZ0VwdMVjhRUX/01E4FtQbck9GazOOj7MXHc5RBzMrU86iBJHbI+A==}
     engines: {node: '>=12'}
@@ -1101,24 +1126,13 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: true
 
-  /@testing-library/react/13.4.0_react@18.2.0:
-    resolution: {integrity: sha512-sXOGON+WNTh3MLE9rve97ftaZukN3oNf2KjDy7YTx6hcTO2uuLHuCGynMDhFwGw/jYf4OJ2Qk0i4i79qMNNkyw==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    dependencies:
-      '@babel/runtime': 7.20.7
-      '@testing-library/dom': 8.19.0
-      '@types/react-dom': 18.0.10
-      react: 18.2.0
-    dev: true
-
-  /@testing-library/user-event/14.4.3:
+  /@testing-library/user-event/14.4.3_aaq3sbffpfe3jnxzm2zngsddei:
     resolution: {integrity: sha512-kCUc5MEwaEMakkO5x7aoD+DLi02ehmEM2QCGWvNqAS1dV/fAvORWEjnjsEIvml59M7Y5kCkWN6fCCyPOe8OL6Q==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
+    dependencies:
+      '@testing-library/dom': 8.19.0
     dev: true
 
   /@tootallnate/once/2.0.0:
@@ -1216,6 +1230,12 @@ packages:
 
   /@types/react-dom/18.0.10:
     resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
+    dependencies:
+      '@types/react': 18.0.27
+    dev: true
+
+  /@types/react-outside-click-handler/1.3.0:
+    resolution: {integrity: sha512-BxQpd5GsbA9rjqLcM4lYp70VnvahgjMUeJ4OKi0A7QOsDLD2yUPswOVixtDpmvCu0PkRTfvMoStIR3gKC/L3XQ==}
     dependencies:
       '@types/react': 18.0.27
     dev: true
@@ -4199,6 +4219,10 @@ packages:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
 
+  /lodash.debounce/4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+    dev: false
+
   /lodash.isfunction/3.0.9:
     resolution: {integrity: sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==}
     dev: true
@@ -4943,6 +4967,16 @@ packages:
     dependencies:
       safe-buffer: 5.2.1
     dev: true
+
+  /react-debounce-input/3.3.0_react@18.2.0:
+    resolution: {integrity: sha512-VEqkvs8JvY/IIZvh71Z0TC+mdbxERvYF33RcebnodlsUZ8RSgyKe2VWaHXv4+/8aoOgXLxWrdsYs2hDhcwbUgA==}
+    peerDependencies:
+      react: ^15.3.0 || 16 || 17 || 18
+    dependencies:
+      lodash.debounce: 4.0.8
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
