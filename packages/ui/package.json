@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-ui",
-  "version": "0.0.4",
+  "version": "0.4.4",
   "description": "React UI Component Library",
   "exports": {
     ".": {
@@ -22,28 +22,28 @@
     "test": "vitest --environment jsdom run --coverage"
   },
   "dependencies": {
-    "@dzangolab/react-config": "0.0.4",
+    "@dzangolab/react-config": "0.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@testing-library/react": "13.4.0",
     "@types/node": "18.8.5",
-    "@types/react": "18.0.21",
-    "@types/react-dom": "18.0.6",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
     "@types/react-test-renderer": "18.0.0",
-    "@vitejs/plugin-react": "2.1.0",
-    "@vitest/coverage-c8": "0.24.1",
-    "eslint": "8.25.0",
-    "eslint-config-custom": "0.0.4",
-    "eslint-plugin-react": "7.31.10",
+    "@vitejs/plugin-react": "3.0.0",
+    "@vitest/coverage-c8": "0.27.3",
+    "eslint": "8.30.0",
+    "eslint-config-custom": "0.4.4",
+    "eslint-plugin-react": "7.32.1",
     "jsdom": "^20.0.3",
     "prettier": "2.7.1",
     "react-test-renderer": "18.2.0",
-    "tsconfig": "0.0.4",
+    "tsconfig": "0.4.4",
     "typescript": "4.8.4",
-    "vite": "3.1.7",
-    "vitest": "^0.25.8"
+    "vite": "3.2.5",
+    "vitest": "^0.27.0"
   },
   "engines": {
     "node": ">=16",

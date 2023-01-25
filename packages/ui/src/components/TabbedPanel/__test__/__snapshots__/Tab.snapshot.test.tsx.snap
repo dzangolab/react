@@ -1,0 +1,18 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<li
+  className="tab active"
+>
+  <button
+    onClick={[Function]}
+  >
+    <img
+      alt="Topic 1"
+      className="tab-icon"
+      src="icon1.jpg"
+    />
+    Topic 1
+  </button>
+</li>
+`;

@@ -18,6 +18,7 @@ module.exports = {
   plugins: ["import", "prettier", "unicorn"],
   root: true,
   rules: {
+    "import/default": "off",
     "import/order": [
       1,
       {
@@ -73,5 +74,12 @@ module.exports = {
         },
       },
     ],
+  },
+  settings: {
+    "import/resolver": {
+      typescript: {
+        extensions: [".ts", ".tsx", ".d.ts", ".js", ".jsx", ".json", ".node"],
+      },
+    },
   },
 };

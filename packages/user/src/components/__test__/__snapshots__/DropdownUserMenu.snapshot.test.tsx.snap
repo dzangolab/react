@@ -1,0 +1,20 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div>
+  <nav
+    className="user-menu "
+  >
+    <div
+      className="email"
+      onClick={[Function]}
+    >
+      <span
+        className="toggle "
+      >
+        ▾
+      </span>
+    </div>
+  </nav>
+</div>
+`;

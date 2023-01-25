@@ -1,0 +1,25 @@
+.google-button {
+  background-color: #dd4b39;
+  border: none;
+  border-radius: 0.4rem;
+  color: #fff;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 90%;
+  margin-bottom: 0.6rem;
+}
+
+.login {
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 20rem;
+}
+
+.login .links {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 90%;
+}

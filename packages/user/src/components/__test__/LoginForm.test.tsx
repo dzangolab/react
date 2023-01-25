@@ -1,0 +1,59 @@
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import React from "react";
+import { expect, test, vi } from "vitest";
+
+import LoginForm from "../LoginForm";
+
+test("validation error messages are displayed", async () => {
+  const handleSubmit = vi.fn();
+  render(<LoginForm handleSubmit={handleSubmit} />);
+
+  expect(screen.getByLabelText("login.form.email.label")).toBeDefined();
+  expect(screen.getByLabelText("login.form.password.label")).toBeDefined();
+  expect(screen.getByText("login.form.actions.submit")).toBeDefined();
+
+  fireEvent.click(screen.getByText("login.form.actions.submit"));
+
+  await waitFor(() => {
+    expect(screen.getByText("validation.messages.email")).toBeDefined();
+  });
+
+  await waitFor(() => {
+    expect(
+      screen.getByText("login.messages.validation.password")
+    ).toBeDefined();
+  });
+
+  expect(handleSubmit).toHaveBeenCalledTimes(0);
+});
+
+test("form is successfully submitted", async () => {
+  const handleSubmit = vi.fn();
+
+  render(<LoginForm handleSubmit={handleSubmit} />);
+
+  expect(screen.getByLabelText("login.form.email.label")).toBeDefined();
+  expect(screen.getByLabelText("login.form.password.label")).toBeDefined();
+  expect(screen.getByText("login.form.actions.submit")).toBeDefined();
+
+  fireEvent.change(screen.getByLabelText("login.form.email.label"), {
+    target: { value: "test@test.com" },
+  });
+
+  fireEvent.change(screen.getByLabelText("login.form.password.label"), {
+    target: { value: "Test@12345" },
+  });
+
+  fireEvent.click(screen.getByText("login.form.actions.submit"));
+
+  await waitFor(() => {
+    expect(handleSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  await waitFor(() => {
+    expect(handleSubmit).toHaveBeenCalledWith({
+      email: "test@test.com",
+      password: "Test@12345",
+    });
+  });
+});

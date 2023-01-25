@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<button
+  className="loading-button"
+  type="submit"
+>
+  Submit
+</button>
+`;

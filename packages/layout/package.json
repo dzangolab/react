@@ -1,0 +1,55 @@
+{
+  "name": "@dzangolab/react-layout",
+  "version": "0.4.4",
+  "description": "React Layout Component Library",
+  "exports": {
+    ".": {
+      "import": "./dist/DzangolabReactLayout.es.js",
+      "require": "./dist/DzangolabReactLayout.umd.js"
+    },
+    "./dist/DzangolabReactLayout.css": "./dist/style.css"
+  },
+  "main": "dist//DzangolabReactLayout.umd.js",
+  "module": "dist//DzangolabReactLayout.es.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
+    "lint:fix": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "test": "vitest --environment jsdom run --coverage"
+  },
+  "dependencies": {
+    "@dzangolab/react-config": "0.4.4",
+    "@dzangolab/react-i18n": "0.4.4",
+    "@dzangolab/react-ui": "0.4.4",
+    "@dzangolab/react-user": "0.4.4",
+    "react": "18.2.0",
+    "react-icons": "4.4.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "13.4.0",
+    "@types/node": "18.8.5",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "@types/react-test-renderer": "18.0.0",
+    "@vitejs/plugin-react": "2.1.0",
+    "@vitest/coverage-c8": "0.27.3",
+    "eslint": "8.25.0",
+    "eslint-config-custom": "0.4.4",
+    "eslint-plugin-react": "7.32.1",
+    "jsdom": "20.0.3",
+    "prettier": "2.7.1",
+    "react-test-renderer": "18.2.0",
+    "typescript": "4.8.4",
+    "tsconfig": "0.4.4",
+    "vite": "3.2.5",
+    "vitest": "0.27.3"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  }
+}

@@ -1,0 +1,105 @@
+.accordion-list {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion-list>li {
+  width: 100%;
+}
+
+.accordion {
+  border-radius: 7px;
+  border: 2px solid hsl(0deg 0% 52%);
+  margin: 0;
+  padding: 0;
+}
+
+.accordion:focus-within {
+  border-color: #1c4786;
+}
+
+.accordion>*+* {
+  border-top: 0;
+}
+
+.accordion.active>*+* {
+  border-top: 1px solid hsl(0deg 0% 52%);
+}
+
+.accordion>*:first-child .accordion-trigger,
+.accordion>*:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.accordion:not(.active) .accordion-trigger:focus,
+.accordion:not(.active) .accordion-trigger:hover {
+  border-radius: 5px;
+}
+
+.accordion>*:last-child .accordion-trigger,
+.accordion>*:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.accordion-trigger {
+  background: none;
+  border-style: none;
+  color: hsl(0deg 0% 13%);
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  outline: none;
+  padding: 1em 1.5em;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.accordion-trigger:focus,
+.accordion-trigger:hover {
+  background: hsl(216deg 94% 94%);
+}
+
+.accordion-trigger:focus {
+  outline: 4px solid transparent;
+}
+
+.accordion-trigger:focus .accordion-icon,
+.accordion-trigger:hover .accordion-icon {
+  filter: brightness(0.75);
+}
+
+.accordion-title {
+  align-items: center;
+  border-radius: 5px;
+  border: transparent 2px solid;
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  justify-content: space-between;
+  outline: none;
+  padding: 0.25em;
+  pointer-events: none;
+  width: 100%;
+}
+
+.accordion-icon {
+  border: 0;
+  height: 1.5rem;
+  pointer-events: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-55%) rotate(0deg);
+  width: 1.5rem;
+}
+
+.accordion.active .accordion-icon {
+  transform: translateY(-55%) rotate(-180deg);
+}

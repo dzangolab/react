@@ -1,0 +1,38 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="profile"
+>
+  <div
+    className="profile-group"
+  >
+    <label>
+      Id
+    </label>
+    <p>
+      5
+    </p>
+  </div>
+  <div
+    className="profile-group"
+  >
+    <label>
+      Email
+    </label>
+    <p>
+      test@gmail.com
+    </p>
+  </div>
+  <div
+    className="profile-group"
+  >
+    <label>
+      Time Joined
+    </label>
+    <p>
+      320
+    </p>
+  </div>
+</div>
+`;
