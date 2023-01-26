@@ -32,7 +32,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
         <img src={appConfig?.app.logo} alt="logo" />
       </a>
     ),
-    title = "Hi, User",
+    title,
   } = properties;
 
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -45,7 +45,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      {logo ? <div className="logo">{logo}</div> : <h1>{title}</h1>}
+      {logo ? <div className="logo">{logo}</div> : title}
       <nav className={navClass}>
         {mainMenu}
         {userMenu}
