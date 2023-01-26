@@ -1,6 +1,5 @@
 import React, { useId, useState } from "react";
 
-import Collapse from "../Collapse";
 import AccordionTitle from "./AccordionTitle";
 import "./accordion.css";
 
