@@ -1,15 +1,23 @@
 .sidebarMenu {
   height: 100%;
-  position: fixed;
+  position: relative;
   left: 0;
   min-width: 70px;
   width: 1.5rem;
   transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s,
     all 300ms ease 0s;
+  z-index: 1;
+  backface-visibility: hidden;
+  background-color: white;
 }
 
 .openSidebarMenu {
   width: 250px;
+}
+
+.sidebarMenuFixed {
+  border-right: 1px solid rgb(239, 239, 239);
+  border-color: rgb(239, 239, 239);
 }
 
 .sidebarMenu > .menu {
@@ -67,5 +75,13 @@
 @media screen and (max-width: 576px) {
   .sidebarMenu {
     display: none;
+  }
+}
+
+@media screen and (max-width: 756px) {
+  .openSidebarMenu {
+    position: fixed;
+    border-right: 1px solid rgb(239, 239, 239);
+    border-color: rgb(239, 239, 239);
   }
 }

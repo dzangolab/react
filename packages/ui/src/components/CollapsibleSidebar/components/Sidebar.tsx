@@ -10,13 +10,22 @@ interface Properties {
 
 const Sidebar: React.FC<Properties> = ({ children, customStyle }) => {
   const { open } = useSidebar();
+  let classNames = "sidebarMenu";
+
+  if (customStyle?.position === "fixed") {
+    classNames += " sidebarMenuFixed";
+    customStyle = { ...customStyle, position: open ? "fixed" : "relative" };
+  }
+
+  if (open) {
+    classNames += " openSidebarMenu";
+  }
 
   return (
-    <div
-      className={`sidebarMenu ${open ? "openSidebarMenu" : ""}`}
-      style={customStyle}
-    >
-      {children}
+    <div className="sidebar">
+      <div className={classNames} style={customStyle}>
+        {children}
+      </div>
     </div>
   );
 };

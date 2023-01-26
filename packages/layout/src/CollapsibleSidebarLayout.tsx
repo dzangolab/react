@@ -21,8 +21,7 @@ const AdminLayout: React.FC<Properties> = (properties) => {
   } = properties;
   return (
     <div className="collapsible-layout">
-      <div className="sidebar">{sidebar}</div>
-
+      {sidebar}
       <main>
         {header}
         <div
