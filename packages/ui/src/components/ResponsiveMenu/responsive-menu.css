@@ -9,6 +9,10 @@ nav.menu > ul {
   padding: 0;
 }
 
+nav.menu.column > ul {
+  flex-direction: column;
+}
+
 nav.menu > ul > li {
   padding: 0.25rem 0;
 }
