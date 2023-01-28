@@ -281,7 +281,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.48.2
       '@typescript-eslint/parser': 5.48.2
       eslint: 8.30.0
-      eslint-config-next: 13.1.4
+      eslint-config-next: 13.1.6
       eslint-config-prettier: 8.5.0
       eslint-config-turbo: 0.0.7
       eslint-import-resolver-alias: 1.1.2
@@ -298,7 +298,7 @@ importers:
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.48.2_4ea4xraq3p3bjoh5tdha5b3gmq
       '@typescript-eslint/parser': 5.48.2_lzzuuodtsqwxnvqeq4g4likcqa
-      eslint-config-next: 13.1.4_lzzuuodtsqwxnvqeq4g4likcqa
+      eslint-config-next: 13.1.6_lzzuuodtsqwxnvqeq4g4likcqa
       eslint-config-prettier: 8.5.0_eslint@8.30.0
       eslint-config-turbo: 0.0.7_eslint@8.30.0
       eslint-import-resolver-alias: 1.1.2_fkfqfehjtk7sk2efaqbgxsuasa
@@ -905,8 +905,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@next/eslint-plugin-next/13.1.4:
-    resolution: {integrity: sha512-a/T30+7Q1scom5t3L+wEBkYzCa+bhT/3DTxzxlNy4Xckw2InzcckQGeIi/larDgh5r2fSSJswhYAZEcKtuJiig==}
+  /@next/eslint-plugin-next/13.1.6:
+    resolution: {integrity: sha512-o7cauUYsXjzSJkay8wKjpKJf2uLzlggCsGUkPu3lP09Pv97jYlekTC20KJrjQKmSv5DXV0R/uks2ZXhqjNkqAw==}
     dependencies:
       glob: 7.1.7
     dev: false
@@ -2697,8 +2697,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-next/13.1.4_lzzuuodtsqwxnvqeq4g4likcqa:
-    resolution: {integrity: sha512-r7n9V4/kkiDDVFfBwI3tviGUV/jUzGI0lY3JefxceYaU18gdk2kMgNPyhHobowu1+yHZpZi8iEzRtzeTrtGRLg==}
+  /eslint-config-next/13.1.6_lzzuuodtsqwxnvqeq4g4likcqa:
+    resolution: {integrity: sha512-0cg7h5wztg/SoLAlxljZ0ZPUQ7i6QKqRiP4M2+MgTZtxWwNKb2JSwNc18nJ6/kXBI6xYvPraTbQSIhAuVw6czw==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
       typescript: '>=3.3.1'
@@ -2706,7 +2706,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@next/eslint-plugin-next': 13.1.4
+      '@next/eslint-plugin-next': 13.1.6
       '@rushstack/eslint-patch': 1.2.0
       '@typescript-eslint/parser': 5.48.2_lzzuuodtsqwxnvqeq4g4likcqa
       eslint: 8.30.0
