@@ -37,7 +37,7 @@
     "@types/react-test-renderer": "18.0.0",
     "@vitejs/plugin-react": "2.1.0",
     "@vitest/coverage-c8": "0.27.3",
-    "eslint": "8.25.0",
+    "eslint": "8.33.0",
     "eslint-config-custom": "0.4.5",
     "eslint-plugin-react": "7.32.1",
     "jsdom": "20.0.3",
