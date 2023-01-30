@@ -1,39 +1,30 @@
-.basic-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: var(--basic-layout-gap, 0.8rem);
-  z-index: 0;
+.collapsible-layout > header {
+  grid-area: header;
+}
+.collapsible-layout > .sidebarMenu {
+  grid-area: menu;
+}
+.collapsible-layout > main {
+  grid-area: main;
+}
+.collapsible-layout > footer {
+  grid-area: footer;
 }
 
-.basic-layout :is(footer, header, main) {
-  margin: 0;
+.collapsible-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "menu main main main "
+    "menu footer footer footer ";
+  gap: var(--basic-layout-gap, 0.8rem);
+  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-columns: max-content 1fr;
+}
+
+.collapsible-layout :is(footer, header, main) {
   max-width: var(--max-width, 100%);
   padding: var(--padding-v, 0.8rem) var(--padding-h, 0.8rem);
   width: 100%;
-}
-
-.basic-layout > footer {
-  z-index: var(--basic-layout-footer-z-index, 100);
-}
-
-.basic-layout > header {
-  z-index: var(--basic-layout-header-z-index, 200);
-}
-
-.basic-layout > main {
-  flex: 1;
-}
-
-.basic-layout > .bodyContainer {
-  display: flex;
-  flex: 1;
-}
-
-.basic-layout > .bodyContainer > .mainContainer {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
-  padding: 0 2rem;
 }

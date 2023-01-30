@@ -23,15 +23,11 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (
   } = properties;
 
   return (
-    <div className="basic-layout">
+    <div className="collapsible-layout">
       {header}
-      <div className="bodyContainer">
-        {sidebar}
-        <div className="mainContainer">
-          <main>{children}</main>
-          {footer}
-        </div>
-      </div>
+      {sidebar}
+      <main>{children}</main>
+      {footer}
     </div>
   );
 };
