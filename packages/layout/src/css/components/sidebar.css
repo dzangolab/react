@@ -10,7 +10,7 @@
   border-color: rgb(239, 239, 239);
 }
 
-.sidebarMenu > span {
+.sidebarMenu > .toggleButton > span {
   align-items: center;
   background-color: #dbe9fa;
   border-radius: 100%;
@@ -29,15 +29,14 @@
   width: 250px;
 }
 
-.sidebarMenu.openSidebarMenu > span {
+.sidebarMenu.openSidebarMenu > .toggleButton > span {
   left: auto;
   opacity: 1;
-  position: absolute;
-  right: 10px;
+  position: relative;
   transform: rotate(180deg);
 }
 
-.sidebarMenu > span:hover {
+.sidebarMenu > .toggleButton > span:hover {
   opacity: 1;
 }
 
@@ -45,4 +44,18 @@
   .sidebarMenu {
     display: none;
   }
+}
+
+.sidebarMenu > .toggleButton {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.8rem;
+}
+
+.sidebarMenu > :not(:first-child) {
+  display: none;
+}
+
+.sidebarMenu.openSidebarMenu > :not(:first-child) {
+  display: flex;
 }

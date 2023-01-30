@@ -14,7 +14,9 @@ const Sidebar: React.FC<Properties> = ({ children, customStyle }) => {
       className={open ? "sidebarMenu openSidebarMenu" : "sidebarMenu"}
       style={customStyle}
     >
-      <span onClick={() => setOpen(!open)}>&gt;</span>
+      <div className="toggleButton">
+        <span onClick={() => setOpen(!open)}>&gt;</span>
+      </div>
       {children}
     </div>
   );

@@ -25,17 +25,9 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (
   return (
     <div className="basic-layout">
       {header}
-      <div style={{ display: "flex", flex: 1 }}>
+      <div className="bodyContainer">
         {sidebar}
-        <div
-          style={{
-            display: "flex",
-            flex: 1,
-            flexDirection: "column",
-            justifyContent: "space-between",
-            paddingLeft: "0 2rem",
-          }}
-        >
+        <div className="mainContainer">
           <main>{children}</main>
           {footer}
         </div>
