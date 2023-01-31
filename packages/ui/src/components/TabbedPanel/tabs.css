@@ -19,14 +19,8 @@
   background: var(--tab-background-active, #fff);
 }
 
-.tabbed-panel.left .tab,
-.tabbed-panel.right .tab {
-  width: 100%;
-}
-
-.tabbed-panel.left .tab button,
-.tabbed-panel.right .tab button {
-  width: 100%;
+.tabbed-panel {
+  display: flex;
 }
 
 .tab button:focus-visible {
@@ -68,66 +62,69 @@
   flex-direction: column-reverse;
 }
 
-@media (min-width: 576px) {
+.tab span {
+  font-size: 1rem;
+  width: max-content;
+}
 
-  .tab {
-    width: max-content;
-  }
+.tab {
+  width: max-content;
+}
 
-  .tab-list {
-    flex-wrap: wrap;
-  }
+.tabbed-panel:not(.right) .tab-list .tab:not(:last-child) button {
+  border-right-width: 0;
+}
 
-  .tabbed-panel:not(.right) .tab-list .tab:not(:last-child) button {
-    border-right-width: 0;
-  }
+.tabbed-panel.right {
+  flex-direction: row-reverse;
+}
 
-  .tabbed-panel.right {
-    flex-direction: row-reverse;
-  }
+.tabbed-panel.right .sub-pane {
+  flex-grow: 1;
+}
 
-  .tabbed-panel.right .sub-pane {
-    flex-grow: 1;
-  }
+.tabbed-panel.right .tab-list {
+  align-items: flex-end;
+}
 
-  .tabbed-panel.right .tab-list {
-    align-items: flex-end;
-  }
+.tabbed-panel.right .tab,
+.tabbed-panel.left .tab {
+  width: 100%;
+}
 
-  .tab-list button {
-    justify-content: flex-start;
-  }
+.tab-list button {
+  justify-content: flex-start;
+}
 
-  .tabbed-panel.right .tab-list button {
-    justify-content: flex-end;
-  }
+.tabbed-panel.right .tab-list button {
+  justify-content: flex-end;
+}
 
-  .tabbed-panel.left {
-    flex-direction: row;
-  }
+.tabbed-panel.left {
+  flex-direction: row;
+}
 
-  .tabbed-panel.left .tab-list {
-    align-items: flex-start;
-  }
+.tabbed-panel.left .tab-list {
+  align-items: flex-start;
+}
 
-  .tabbed-panel.top .tab-list,
-  .tabbed-panel.bottom .tab-list {
-    flex-direction: row;
-  }
+.tabbed-panel.top .tab-list,
+.tabbed-panel.bottom .tab-list {
+  flex-direction: row;
+}
 
-  .tabbed-panel.left .tab.active button {
-    border-right: var(--bottom-transparent, 1px solid transparent);
-  }
+.tabbed-panel.left .tab.active button {
+  border-right: var(--bottom-transparent, 1px solid transparent);
+}
 
-  .tabbed-panel.top .tab.active button {
-    border-bottom: var(--top-transparent, 1px solid transparent);
-  }
+.tabbed-panel.top .tab.active button {
+  border-bottom: var(--top-transparent, 1px solid transparent);
+}
 
-  .tabbed-panel.right .tab.active button {
-    border-left: var(--bottom-transparent, 1px solid transparent);
-  }
+.tabbed-panel.right .tab.active button {
+  border-left: var(--bottom-transparent, 1px solid transparent);
+}
 
-  .tabbed-panel.bottom .tab.active button {
-    border-top: var(--bottom-transparent, 1px solid transparent);
-  }
+.tabbed-panel.bottom .tab.active button {
+  border-top: var(--bottom-transparent, 1px solid transparent);
 }
