@@ -5,8 +5,8 @@ type Properties = {
   icon: string;
   index: number;
   isActive: boolean;
-  activeIcon: string;
-  inactiveIcon: string;
+  activeIcon?: string;
+  inactiveIcon?: string;
   handleClick: (eventKey: number) => void;
 };
 
@@ -23,10 +23,12 @@ const AccordionTitle: React.FC<Properties> = ({
     <button onClick={() => handleClick(index)} type="button">
       <div>
         <div>
-          <img src={icon} alt={title} />
+          {icon ? <img src={icon} alt={title} /> : null}
           <span>{title}</span>
         </div>
-        {icon ? <img src={isActive ? activeIcon : inactiveIcon} /> : null}
+        {activeIcon && inactiveIcon ? (
+          <img src={isActive ? activeIcon : inactiveIcon} />
+        ) : null}
       </div>
     </button>
   );

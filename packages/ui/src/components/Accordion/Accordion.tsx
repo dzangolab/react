@@ -9,8 +9,8 @@ type Properties = {
   children: ReactElement[];
   defaultActiveKey?: number;
   direction?: "horizontal" | "vertical";
-  activeIcon: string;
-  inactiveIcon: string;
+  activeIcon?: string;
+  inactiveIcon?: string;
 };
 
 const Accordion: React.FC<Properties> = ({
