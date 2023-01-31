@@ -6,57 +6,56 @@
 }
 
 .accordion-list>li {
-  border: 1px solid hsl(0deg 0% 52%);
+  border: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
   margin: 0;
   padding: 0;
 }
 
 .accordion-list>li:focus-within {
-  border-color: #1c4786;
+  border-color: var(--accordion-border-focus, #1c4786);
 }
 
-.accordion-list>li>*+* {
+/* .accordion-list>li>*+* {
   border-top: 0;
-}
+} */
 
 .accordion-list>li>button {
   background: none;
   border-style: none;
-  color: hsl(0deg 0% 13%);
   cursor: pointer;
   display: block;
-  font-size: 1rem;
+  /* font-size: 1rem; */
   font-weight: normal;
   margin: 0;
   outline: none;
-  padding: 1em 1.5em;
+  padding: var(--accordion-header-padding, 1em 1.5em);
   text-align: left;
   width: 100%;
 }
 
-.accordion-list>li>button:focus,
+.accordion-list>li>button:focus {
+  background: var(--accordion-focus-background, hsl(216deg 94% 94%));
+}
+
 .accordion-list>li>button:hover {
-  background: hsl(216deg 94% 94%);
+  background: var(--accordion-hover-background, hsl(216deg 94% 94%));
 }
 
 .accordion-list>li>button>div {
   align-items: center;
-  border: transparent 2px solid;
   display: flex;
   flex-direction: row;
-  font-size: 1rem;
   justify-content: space-between;
   outline: none;
-  padding: 0.25em;
   pointer-events: none;
   width: 100%;
 }
 
 .accordion-list>li>button>div>img {
   border: 0;
-  height: 1.5rem;
+  height: var(--icon-height, 1.5rem);
   pointer-events: none;
-  width: 1.5rem;
+  width: var(--icon-width, 1.5rem);
 }
 
 .accordion-list.horizontal>li>button>div>div {
@@ -93,7 +92,7 @@
 }
 
 .accordion-list.horizontal>li>button>div>img {
-  margin-top: var(--accordion-title-gap, 2rem);
+  margin: var(--accordion-title-gap, 2rem 0 0 0);
 }
 
 .accordion-list>li>button>div>div {
@@ -134,5 +133,9 @@
 }
 
 .accordion-list.vertical>li.active>*+* {
-  border-top: 1px solid hsl(0deg 0% 52%);
+  border-top: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
+}
+
+.accordion-list.horizontal>li.active>*+* {
+  border-left: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
 }
