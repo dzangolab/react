@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <nav
-  className="menu "
+  className="menu"
 >
   <ul>
     <li>

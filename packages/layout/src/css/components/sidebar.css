@@ -1,4 +1,4 @@
-.sidebarMenu {
+.sidebar-menu {
   position: relative;
   left: 0;
   min-width: 10px;
@@ -11,7 +11,7 @@
   border-color: rgb(239, 239, 239);
 }
 
-.sidebarMenu > .toggleButton > span {
+.sidebar-menu > .toggle-button > span {
   align-items: center;
   background-color: #dbe9fa;
   border-radius: 100%;
@@ -26,37 +26,37 @@
   width: 3rem;
 }
 
-.openSidebarMenu {
+.open {
   width: 250px;
 }
 
-.sidebarMenu.openSidebarMenu > .toggleButton > span {
+.sidebar-menu.open > .toggle-button > span {
   left: auto;
   opacity: 1;
   position: relative;
   transform: rotate(180deg);
 }
 
-.sidebarMenu > .toggleButton > span:hover {
+.sidebar-menu > .toggle-button > span:hover {
   opacity: 1;
 }
 
 @media screen and (max-width: 576px) {
-  .sidebarMenu {
+  .sidebar-menu {
     display: none;
   }
 }
 
-.sidebarMenu > .toggleButton {
+.sidebar-menu > .toggle-button {
   display: flex;
   justify-content: flex-end;
   padding: 0.8rem;
 }
 
-.sidebarMenu > :not(:first-child) {
+.sidebar-menu > :not(:first-child) {
   display: none;
 }
 
-.sidebarMenu.openSidebarMenu > :not(:first-child) {
+.sidebar-menu.open > :not(:first-child) {
   display: flex;
 }
