@@ -1,0 +1,62 @@
+.sidebar-menu {
+  position: relative;
+  left: 0;
+  min-width: 10px;
+  width: 2rem;
+  transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s,
+    all 300ms ease 0s;
+  z-index: 1;
+  background-color: white;
+  border-right: 1px solid rgb(239, 239, 239);
+  border-color: rgb(239, 239, 239);
+}
+
+.sidebar-menu > .toggle-button > span {
+  align-items: center;
+  background-color: #dbe9fa;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  left: 0;
+  opacity: 0.3;
+  padding: 1rem;
+  position: fixed;
+  width: 3rem;
+}
+
+.open {
+  width: 250px;
+}
+
+.sidebar-menu.open > .toggle-button > span {
+  left: auto;
+  opacity: 1;
+  position: relative;
+  transform: rotate(180deg);
+}
+
+.sidebar-menu > .toggle-button > span:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 576px) {
+  .sidebar-menu {
+    display: none;
+  }
+}
+
+.sidebar-menu > .toggle-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.8rem;
+}
+
+.sidebar-menu > :not(:first-child) {
+  display: none;
+}
+
+.sidebar-menu.open > :not(:first-child) {
+  display: flex;
+}
