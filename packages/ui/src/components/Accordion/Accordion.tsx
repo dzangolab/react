@@ -1,7 +1,7 @@
 import React, { useId, useState } from "react";
 
 import AccordionTitle from "./AccordionTitle";
-import "./accordion.css";
+import "./accordions.css";
 
 import type { ReactElement } from "react";
 
@@ -32,10 +32,7 @@ const Accordion: React.FC<Properties> = ({
   return (
     <ul className={`accordion-list ${direction}`} data-testid="accordion-list">
       {childNodes.map((item, index) => (
-        <li
-          className={`accordion ${active === index ? "active" : ""}`}
-          key={`${id}-${index}`}
-        >
+        <li className={active === index ? "active" : ""} key={`${id}-${index}`}>
           <AccordionTitle
             handleClick={() => handleClick(index)}
             icon={item.props.icon}

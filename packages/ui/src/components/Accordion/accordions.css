@@ -1,0 +1,152 @@
+.accordion-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.accordion-list>li {
+  border-radius: 7px;
+  border: 2px solid hsl(0deg 0% 52%);
+  margin: 0;
+  padding: 0;
+}
+
+.accordion-list>li:focus-within {
+  border-color: #1c4786;
+}
+
+.accordion-list>li>*+* {
+  border-top: 0;
+}
+
+.accordion-list>li>button {
+  background: none;
+  border-style: none;
+  color: hsl(0deg 0% 13%);
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  outline: none;
+  padding: 1em 1.5em;
+  text-align: left;
+  width: 100%;
+}
+
+.accordion-list>li>button:focus,
+.accordion-list>li>button:hover {
+  background: hsl(216deg 94% 94%);
+}
+
+.accordion-list>li>button>div {
+  align-items: center;
+  border-radius: 5px;
+  border: transparent 2px solid;
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  justify-content: space-between;
+  outline: none;
+  padding: 0.25em;
+  pointer-events: none;
+  width: 100%;
+}
+
+.accordion-list>li>button>div>img {
+  border: 0;
+  height: 1.5rem;
+  pointer-events: none;
+  width: 1.5rem;
+}
+
+/* TODO: remove */
+
+.accordion-list.horizontal>li>button>div>img {
+  transform: rotate(270deg);
+}
+
+.accordion-list.horizontal>li.active>button>div>img {
+  transform: rotate(90deg);
+}
+
+.accordion-list.vertical>li>button>div>img {
+  transform: rotate(0deg);
+}
+
+.accordion-list.vertical>li.active>button>div>img {
+  transform: rotate(-180deg);
+}
+
+/* ------------ */
+
+.accordion-list.horizontal {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.accordion-list.horizontal>li {
+  display: flex;
+  flex-direction: row;
+}
+
+.accordion-list.horizontal>li>button {
+  width: min-content;
+  display: flex;
+  justify-content: space-between;
+  transform: rotate(-180deg);
+}
+
+.accordion-list.horizontal>li>button>div {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: min-content;
+}
+
+.accordion-list.horizontal>li>button>div>img {
+  margin-top: var(--accordion-title-gap, 2rem);
+}
+
+.accordion-list>li>button>div>span {
+  font-size: var(--accordion-title-size, 1rem);
+}
+
+.accordion-list.horizontal>li>button>div>span {
+  writing-mode: vertical-lr;
+  text-orientation: sideways-right;
+  width: min-content;
+}
+
+.accordion-list.vertical {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.accordion-list.vertical>li {
+  width: 100%;
+}
+
+.accordion-list.vertical>li>button>div>span {
+  width: max-content;
+}
+
+.accordion-list.vertical>li.active>*+* {
+  border-top: 1px solid hsl(0deg 0% 52%);
+}
+
+.accordion-list.vertical>li>*:first-child>button,
+.accordion>*:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.accordion-list.vertical>li>*:last-child>button,
+.accordion-list.vertical>li>*:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.accordion-list.vertical>li:not(.active)>button:focus,
+.accordion-list.vertical>li:not(.active)>button:hover {
+  border-radius: 5px;
+}
