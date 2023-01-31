@@ -5,48 +5,33 @@ import "./collapse.css";
 
 interface Properties {
   children: ReactNode;
-  direction?: "horizontal" | "vertical";
   isOpen: boolean;
 }
 
-const Collapse = ({ children, direction, isOpen }: Properties) => {
+const Collapse = ({ children, isOpen }: Properties) => {
   const contentReference = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState({});
+  const [height, setHeight] = useState("0px");
 
   useEffect(() => {
     switch (isOpen) {
       case true: {
         const { current } = contentReference;
-        if (!current) return;
-        if (direction === "vertical") {
-          setStyle({ height: `${current.scrollHeight}px` });
-        } else {
-          setStyle({ width: `100%` });
-        }
-
+        if (current) setHeight(`${current.scrollHeight}px`);
         break;
       }
 
       default: {
-        if (direction === "vertical") {
-          setStyle({ height: "0px" });
-        } else {
-          setStyle({ width: "0px" });
-        }
+        setHeight("0px");
         break;
       }
     }
-  }, [isOpen, direction]);
+  }, [isOpen]);
 
   return (
-    <div className="collapse" ref={contentReference} style={style}>
+    <div className="collapse" ref={contentReference} style={{ height }}>
       {children}
     </div>
   );
-};
-
-Collapse.defaultProps = {
-  direction: "vertical",
 };
 
 export default Collapse;
