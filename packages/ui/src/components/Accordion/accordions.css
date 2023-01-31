@@ -6,39 +6,31 @@
 }
 
 .accordion-list>li {
-  border: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
+  border: var(--accordion-border);
+  background: var(--accordion-background);
   margin: 0;
   padding: 0;
 }
-
-.accordion-list>li:focus-within {
-  border-color: var(--accordion-border-focus, #1c4786);
-}
-
-/* .accordion-list>li>*+* {
-  border-top: 0;
-} */
 
 .accordion-list>li>button {
   background: none;
   border-style: none;
   cursor: pointer;
   display: block;
-  /* font-size: 1rem; */
   font-weight: normal;
   margin: 0;
   outline: none;
-  padding: var(--accordion-header-padding, 1em 1.5em);
+  padding: var(--accordion-header-padding);
   text-align: left;
   width: 100%;
 }
 
 .accordion-list>li>button:focus {
-  background: var(--accordion-focus-background, hsl(216deg 94% 94%));
+  background: var(--accordion-focus-background);
 }
 
 .accordion-list>li>button:hover {
-  background: var(--accordion-hover-background, hsl(216deg 94% 94%));
+  background: var(--accordion-hover-background);
 }
 
 .accordion-list>li>button>div {
@@ -53,9 +45,9 @@
 
 .accordion-list>li>button>div>img {
   border: 0;
-  height: var(--icon-height, 1.5rem);
+  height: var(--accordion-icon-height);
   pointer-events: none;
-  width: var(--icon-width, 1.5rem);
+  width: var(--accordion-icon-width);
 }
 
 .accordion-list.horizontal>li>button>div>div {
@@ -92,7 +84,7 @@
 }
 
 .accordion-list.horizontal>li>button>div>img {
-  margin: var(--accordion-title-gap, 2rem 0 0 0);
+  margin: var(--accordion-title-gap);
 }
 
 .accordion-list>li>button>div>div {
@@ -103,14 +95,15 @@
 }
 
 .accordion-list>li>button>div>div>img {
-  height: var(--accordion-icon-height, 16px);
-  margin-right: var(--accordion-icon-margin, 5px);
+  height: var(--accordion-title-icon-height);
+  margin: var(--accordion-title-icon-margin);
   object-fit: contain;
-  width: var(--accordion-icon-width, 16px);
+  width: var(--accordion-title-icon-width);
 }
 
 .accordion-list>li>button>div>div>span {
-  font-size: var(--accordion-title-size, 1rem);
+  font-size: var(--accordion-title-size);
+  color: var(--accordion-title-color);
 }
 
 .accordion-list.horizontal>li>button>div>div>span {
@@ -133,9 +126,9 @@
 }
 
 .accordion-list.vertical>li.active>*+* {
-  border-top: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
+  border-top: var(--accordion-border);
 }
 
 .accordion-list.horizontal>li.active>*+* {
-  border-left: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
+  border-left: var(--accordion-border);
 }
