@@ -2,8 +2,9 @@ import React from "react";
 
 import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
-import "./css/collapsible-sidebar-layout.css";
 import Sidebar from "./components/Sidebar";
+
+import "./css/collapsible-sidebar-layout.css";
 
 interface Properties {
   children: React.ReactNode;
@@ -12,9 +13,7 @@ interface Properties {
   sidebar?: React.ReactNode;
 }
 
-const CollapsibleSidebarLayout: React.FC<Properties> = (
-  properties: Properties
-) => {
+const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
   const {
     sidebar = <Sidebar />,
     children,

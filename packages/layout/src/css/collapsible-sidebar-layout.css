@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
 }
-.collapsible-layout > .sidebarMenu {
+.collapsible-layout > .sidebar-menu {
   grid-area: menu;
 }
 .collapsible-layout > main {

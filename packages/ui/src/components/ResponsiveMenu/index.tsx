@@ -3,7 +3,7 @@ import "./responsive-menu.css";
 
 interface Properties {
   cssClass: string;
-  displayColumn?: boolean;
+  horizontal?: boolean;
   routes: {
     name: string;
     route: string;
@@ -13,10 +13,20 @@ interface Properties {
 const ResponsiveMenu = ({
   routes,
   cssClass = "",
-  displayColumn = false,
+  horizontal = false,
 }: Properties) => {
+  let classNames = "menu";
+
+  if (horizontal) {
+    classNames += " column";
+  }
+
+  if (cssClass) {
+    classNames += " " + cssClass;
+  }
+
   return (
-    <nav className={`menu ${displayColumn ? "column" : ""} ${cssClass}`}>
+    <nav className={classNames}>
       <ul>
         {routes.map((route, index) => (
           <li key={index}>

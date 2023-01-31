@@ -9,12 +9,13 @@ interface Properties {
 
 const Sidebar: React.FC<Properties> = ({ children, customStyle }) => {
   const [open, setOpen] = useState(true);
+
   return (
     <div
-      className={open ? "sidebarMenu openSidebarMenu" : "sidebarMenu"}
+      className={open ? "sidebar-menu open" : "sidebar-menu"}
       style={customStyle}
     >
-      <div className="toggleButton">
+      <div className="toggle-button">
         <span onClick={() => setOpen(!open)}>&gt;</span>
       </div>
       {children}
