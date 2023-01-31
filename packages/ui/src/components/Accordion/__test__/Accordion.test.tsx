@@ -27,9 +27,7 @@ test("accordions are rendered", async () => {
   );
 
   expect(screen.getByText(values.titleOne)).toBeDefined();
-  expect(screen.getByText(values.bodyOne)).toBeDefined();
   expect(screen.getByText(values.titleTwo)).toBeDefined();
-  expect(screen.getByText(values.bodyTwo)).toBeDefined();
 });
 
 test("correct accordion is open/active", async () => {

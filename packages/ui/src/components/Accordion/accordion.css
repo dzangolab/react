@@ -1,14 +1,8 @@
 .accordion-list {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-.accordion-list>li {
-  width: 100%;
+  display: flex;
 }
 
 .accordion {
@@ -26,22 +20,73 @@
   border-top: 0;
 }
 
-.accordion.active>*+* {
+.accordion-list.horizontal {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.accordion-list.horizontal .accordion {
+  display: flex;
+  flex-direction: row;
+}
+
+.accordion-list.horizontal .accordion-trigger {
+  width: min-content;
+  display: flex;
+  justify-content: space-between;
+  transform: rotate(-180deg);
+}
+
+.accordion-list.horizontal .accordion-title {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: min-content;
+}
+
+.accordion-list.horizontal .accordion-icon {
+  margin-top: var(--accordion-title-gap, 2rem);
+}
+
+.accordion-title span {
+  font-size: var(--accordion-title-size, 1rem);
+}
+
+.accordion-list.horizontal .accordion-title span {
+  writing-mode: vertical-lr;
+  text-orientation: sideways-right;
+  width: min-content;
+}
+
+.accordion-list.vertical .accordion-title span {
+  width: max-content;
+}
+
+.accordion-list.vertical {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.accordion-list.vertical>li {
+  width: 100%;
+}
+
+.accordion-list.vertical .accordion.active>*+* {
   border-top: 1px solid hsl(0deg 0% 52%);
 }
 
-.accordion>*:first-child .accordion-trigger,
+.accordion-list.vertical .accordion>*:first-child .accordion-trigger,
 .accordion>*:first-child {
   border-radius: 5px 5px 0 0;
 }
 
-.accordion:not(.active) .accordion-trigger:focus,
-.accordion:not(.active) .accordion-trigger:hover {
+.accordion-list.vertical .accordion:not(.active) .accordion-trigger:focus,
+.accordion-list.vertical .accordion:not(.active) .accordion-trigger:hover {
   border-radius: 5px;
 }
 
-.accordion>*:last-child .accordion-trigger,
-.accordion>*:last-child {
+.accordion-list.vertical .accordion>*:last-child .accordion-trigger,
+.accordion-list.vertical .accordion>*:last-child {
   border-radius: 0 0 5px 5px;
 }
 
@@ -56,7 +101,6 @@
   margin: 0;
   outline: none;
   padding: 1em 1.5em;
-  position: relative;
   text-align: left;
   width: 100%;
 }
@@ -64,10 +108,6 @@
 .accordion-trigger:focus,
 .accordion-trigger:hover {
   background: hsl(216deg 94% 94%);
-}
-
-.accordion-trigger:focus {
-  outline: 4px solid transparent;
 }
 
 .accordion-trigger:focus .accordion-icon,
@@ -93,13 +133,21 @@
   border: 0;
   height: 1.5rem;
   pointer-events: none;
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-55%) rotate(0deg);
   width: 1.5rem;
 }
 
-.accordion.active .accordion-icon {
-  transform: translateY(-55%) rotate(-180deg);
+.accordion-list.horizontal .accordion-icon {
+  transform: rotate(270deg);
+}
+
+.accordion-list.horizontal .accordion.active .accordion-icon {
+  transform: rotate(90deg);
+}
+
+.accordion-list.vertical .accordion-icon {
+  transform: rotate(0deg);
+}
+
+.accordion-list.vertical .accordion.active .accordion-icon {
+  transform: rotate(-180deg);
 }

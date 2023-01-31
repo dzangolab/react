@@ -1,6 +1,5 @@
 import React, { useId, useState } from "react";
 
-import Collapse from "../Collapse";
 import AccordionTitle from "./AccordionTitle";
 import "./accordion.css";
 
@@ -8,10 +7,15 @@ import type { ReactElement } from "react";
 
 type Properties = {
   defaultActiveKey?: number;
+  direction?: "horizontal" | "vertical";
   children: ReactElement[];
 };
 
-const Accordion: React.FC<Properties> = ({ defaultActiveKey, children }) => {
+const Accordion: React.FC<Properties> = ({
+  defaultActiveKey,
+  direction,
+  children,
+}) => {
   const id = useId();
   const [active, setActive] = useState(defaultActiveKey);
   const childNodes = Array.isArray(children) ? children : [children];
@@ -26,7 +30,7 @@ const Accordion: React.FC<Properties> = ({ defaultActiveKey, children }) => {
   }
 
   return (
-    <ul className="accordion-list" data-testid="accordion-list">
+    <ul className={`accordion-list ${direction}`} data-testid="accordion-list">
       {childNodes.map((item, index) => (
         <li
           className={`accordion ${active === index ? "active" : ""}`}
@@ -38,11 +42,15 @@ const Accordion: React.FC<Properties> = ({ defaultActiveKey, children }) => {
             index={index}
             title={item.props.title}
           />
-          <Collapse isOpen={active === index}>{item}</Collapse>
+          {active === index ? childNodes[active] : null}
         </li>
       ))}
     </ul>
   );
+};
+
+Accordion.defaultProps = {
+  direction: "vertical",
 };
 
 export default Accordion;
