@@ -3,12 +3,15 @@
   display: flex;
   justify-content: space-between;
 }
+
 .collapsible-layout > .sidebar-menu {
   grid-area: menu;
 }
+
 .collapsible-layout > main {
   grid-area: main;
 }
+
 .collapsible-layout > footer {
   grid-area: footer;
 }
