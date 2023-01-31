@@ -69,7 +69,7 @@
 
 .tabbed-panel>ul>li img {
   height: var(--tab-icon-height);
-  margin-right: var(--tab-icon-margin);
+  margin: var(--tab-icon-margin);
   object-fit: contain;
   width: var(--tab-icon-width);
 }

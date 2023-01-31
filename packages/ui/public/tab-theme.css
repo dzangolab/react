@@ -8,7 +8,7 @@
   --tab-focus-outline: 1px solid #1c4786;
   --tab-font-size: 1rem;
   --tab-icon-height: 16px;
-  --tab-icon-margin: 5px;
+  --tab-icon-margin: 0 0 0 5px;
   --tab-icon-width: 16px;
   --tab-padding: 15px 25px;
 }
