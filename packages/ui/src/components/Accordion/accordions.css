@@ -6,8 +6,7 @@
 }
 
 .accordion-list>li {
-  border-radius: 7px;
-  border: 2px solid hsl(0deg 0% 52%);
+  border: 1px solid hsl(0deg 0% 52%);
   margin: 0;
   padding: 0;
 }
@@ -42,7 +41,6 @@
 
 .accordion-list>li>button>div {
   align-items: center;
-  border-radius: 5px;
   border: transparent 2px solid;
   display: flex;
   flex-direction: row;
@@ -61,25 +59,14 @@
   width: 1.5rem;
 }
 
-/* TODO: remove */
-
-.accordion-list.horizontal>li>button>div>img {
-  transform: rotate(270deg);
+.accordion-list.horizontal>li>button>div>div {
+  flex-direction: column;
 }
 
-.accordion-list.horizontal>li.active>button>div>img {
+.accordion-list.horizontal>li>button>div>img,
+.accordion-list.horizontal>li>button>div>div>img {
   transform: rotate(90deg);
 }
-
-.accordion-list.vertical>li>button>div>img {
-  transform: rotate(0deg);
-}
-
-.accordion-list.vertical>li.active>button>div>img {
-  transform: rotate(-180deg);
-}
-
-/* ------------ */
 
 .accordion-list.horizontal {
   flex-direction: row;
@@ -109,11 +96,25 @@
   margin-top: var(--accordion-title-gap, 2rem);
 }
 
-.accordion-list>li>button>div>span {
+.accordion-list>li>button>div>div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.accordion-list>li>button>div>div>img {
+  height: var(--accordion-icon-height, 16px);
+  margin-right: var(--accordion-icon-margin, 5px);
+  object-fit: contain;
+  width: var(--accordion-icon-width, 16px);
+}
+
+.accordion-list>li>button>div>div>span {
   font-size: var(--accordion-title-size, 1rem);
 }
 
-.accordion-list.horizontal>li>button>div>span {
+.accordion-list.horizontal>li>button>div>div>span {
   writing-mode: vertical-lr;
   text-orientation: sideways-right;
   width: min-content;
@@ -128,25 +129,10 @@
   width: 100%;
 }
 
-.accordion-list.vertical>li>button>div>span {
+.accordion-list.vertical>li>button>div>div>span {
   width: max-content;
 }
 
 .accordion-list.vertical>li.active>*+* {
   border-top: 1px solid hsl(0deg 0% 52%);
-}
-
-.accordion-list.vertical>li>*:first-child>button,
-.accordion>*:first-child {
-  border-radius: 5px 5px 0 0;
-}
-
-.accordion-list.vertical>li>*:last-child>button,
-.accordion-list.vertical>li>*:last-child {
-  border-radius: 0 0 5px 5px;
-}
-
-.accordion-list.vertical>li:not(.active)>button:focus,
-.accordion-list.vertical>li:not(.active)>button:hover {
-  border-radius: 5px;
 }

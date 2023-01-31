@@ -16,7 +16,7 @@ const values = {
 
 test("accordions are rendered", async () => {
   render(
-    <Accordion>
+    <Accordion activeIcon="arrow-down.jpg" inactiveIcon="arrow-up.jpg">
       <SubPane title={values.titleOne} icon={values.iconOne}>
         <p>{values.bodyOne}</p>
       </SubPane>
@@ -32,7 +32,11 @@ test("accordions are rendered", async () => {
 
 test("correct accordion is open/active", async () => {
   render(
-    <Accordion defaultActiveKey={1}>
+    <Accordion
+      defaultActiveKey={1}
+      activeIcon="arrow-down.jpg"
+      inactiveIcon="arrow-up.jpg"
+    >
       <SubPane title={values.titleOne} icon={values.iconOne}>
         <p>{values.bodyOne}</p>
       </SubPane>

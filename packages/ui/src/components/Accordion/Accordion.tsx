@@ -6,15 +6,19 @@ import "./accordions.css";
 import type { ReactElement } from "react";
 
 type Properties = {
+  children: ReactElement[];
   defaultActiveKey?: number;
   direction?: "horizontal" | "vertical";
-  children: ReactElement[];
+  activeIcon: string;
+  inactiveIcon: string;
 };
 
 const Accordion: React.FC<Properties> = ({
+  children,
   defaultActiveKey,
   direction,
-  children,
+  activeIcon,
+  inactiveIcon,
 }) => {
   const id = useId();
   const [active, setActive] = useState(defaultActiveKey);
@@ -37,7 +41,10 @@ const Accordion: React.FC<Properties> = ({
             handleClick={() => handleClick(index)}
             icon={item.props.icon}
             index={index}
+            isActive={active === index}
             title={item.props.title}
+            activeIcon={activeIcon}
+            inactiveIcon={inactiveIcon}
           />
           {active === index ? childNodes[active] : null}
         </li>
