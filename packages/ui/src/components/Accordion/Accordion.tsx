@@ -1,7 +1,7 @@
 import React, { useId, useState } from "react";
 
 import AccordionTitle from "./AccordionTitle";
-import "./accordions.css";
+import "./accordion.css";
 
 import type { ReactElement } from "react";
 
