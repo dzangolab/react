@@ -18,7 +18,7 @@ exports[`Component matches snapshot 1`] = `
     className="dropdown"
   >
     <nav
-      className="menu  mainMenu"
+      className="menu mainMenu"
     >
       <ul>
         <li>
@@ -38,7 +38,7 @@ exports[`Component matches snapshot 1`] = `
       </ul>
     </nav>
     <nav
-      className="menu  "
+      className="menu"
     >
       <ul>
         <li>
