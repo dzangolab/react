@@ -81,7 +81,7 @@ test("confirm password must match the password", async () => {
   });
 });
 
-test("validation error is displayed when an uppercase character is not included on password field.", async () => {
+test("validation error is displayed when an uppercase character is not included in password field.", async () => {
   const email = "test@test.com";
   const handleSubmit = vi.fn();
 
