@@ -50,10 +50,6 @@
   width: var(--accordion-icon-width);
 }
 
-.accordion.horizontal>li:not(:last-child) {
-  border-right: 0;
-}
-
 .accordion.horizontal>li>button>div>div {
   flex-direction: column;
 }
@@ -123,10 +119,6 @@
 
 .accordion.vertical>li {
   width: 100%;
-}
-
-.accordion.vertical>li:not(:last-child) {
-  border-bottom: 0;
 }
 
 .accordion.vertical>li>button>div>div>span {
