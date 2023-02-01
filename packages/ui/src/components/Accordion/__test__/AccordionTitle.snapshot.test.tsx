@@ -19,6 +19,9 @@ test("Component matches snapshot", () => {
       title="accordion title"
       index={1}
       icon="icon1.jpg"
+      isActive={false}
+      activeIcon="arrow-down.jpg"
+      inactiveIcon="arrow-up.jpg"
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       handleClick={() => {}}
     />

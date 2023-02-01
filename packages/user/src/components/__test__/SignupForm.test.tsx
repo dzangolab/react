@@ -81,6 +81,31 @@ test("confirm password must match the password", async () => {
   });
 });
 
+test("validation error is displayed when an uppercase character is not included in password field.", async () => {
+  const email = "test@test.com";
+  const handleSubmit = vi.fn();
+
+  const { user } = setup(<SignupForm handleSubmit={handleSubmit} />);
+
+  const emailInput = screen.getByLabelText("signup.form.email.label");
+  const passwordInput = screen.getByLabelText("signup.form.password.label");
+  const submitButton = screen.getByText("signup.form.actions.submit");
+
+  expect(emailInput).toBeDefined();
+  expect(passwordInput).toBeDefined();
+  expect(submitButton).toBeDefined();
+
+  await user.type(emailInput, email);
+  await user.type(passwordInput, "test123456");
+  await user.tab();
+
+  await waitFor(() => {
+    expect(
+      screen.getByText("signup.messages.validation.validationMessage")
+    ).toBeDefined();
+  });
+});
+
 test("form is successfully submitted", async () => {
   const email = "test@test.com";
   const password = "Test@12345";

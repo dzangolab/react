@@ -1,133 +1,105 @@
-.tab {
-  color: #444;
-}
-
-.tab button {
-  align-items: center;
-  background: var(--tab-background, #eee);
-  border-bottom: 0;
-  border: 0;
-  border: var(--tab-border, 1px solid #ddd);
-  cursor: pointer;
-  display: flex;
-  outline: 0;
-  padding: 15px 25px;
-  transition: background-color 0.25s ease-in-out;
-}
-
-.tab.active button {
-  background: var(--tab-background-active, #fff);
-}
-
-.tabbed-panel.left .tab,
-.tabbed-panel.right .tab {
-  width: 100%;
-}
-
-.tabbed-panel.left .tab button,
-.tabbed-panel.right .tab button {
-  width: 100%;
-}
-
-.tab button:focus-visible {
-  outline-offset: -1px;
-  outline: var(--tab-focus-outline, 1px solid #1c4786);
-}
-
-.tab:not(.active) button:hover {
-  background: var(--tab-background-hover, #ddd);
-}
-
-.tab-icon {
-  height: 16px;
-  margin-right: 5px;
-  object-fit: contain;
-  width: 16px;
-}
-
-.tab-list {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0 0 10px;
-  padding: 0;
-}
-
-.tab-list button {
-  width: 100%;
-  justify-content: center;
-}
-
 .tabbed-panel {
   display: flex;
-  width: 100%;
   flex-direction: column;
+  width: 100%;
 }
 
 .tabbed-panel.bottom {
   flex-direction: column-reverse;
 }
 
-@media (min-width: 576px) {
+.tabbed-panel>ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height: max-content;
+  padding: 0;
+  margin: 0;
+}
 
-  .tab {
-    width: max-content;
-  }
+.tabbed-panel.bottom>ul,
+.tabbed-panel.top>ul {
+  flex-direction: row;
+}
 
-  .tab-list {
-    flex-wrap: wrap;
-  }
+.tabbed-panel.bottom>ul>li.active button {
+  border-top: var(--tab-active-border);
+}
 
-  .tabbed-panel:not(.right) .tab-list .tab:not(:last-child) button {
-    border-right-width: 0;
-  }
+.tabbed-panel.left {
+  flex-direction: row;
+}
 
-  .tabbed-panel.right {
-    flex-direction: row-reverse;
-  }
+.tabbed-panel>ul>li {
+  width: max-content;
+}
 
-  .tabbed-panel.right .sub-pane {
-    flex-grow: 1;
-  }
+.tabbed-panel>ul>li button {
+  align-items: center;
+  background: var(--tab-background);
+  border-bottom: 0;
+  border: 0;
+  border: var(--tab-border);
+  cursor: pointer;
+  display: flex;
+  outline: 0;
+  padding: var(--tab-padding);
+  width: 100%;
+  transition: background-color 0.25s ease-in-out;
+}
 
-  .tabbed-panel.right .tab-list {
-    align-items: flex-end;
-  }
+.tabbed-panel>ul>li button:focus-visible {
+  outline-offset: -1px;
+  outline: var(--tab-focus-outline);
+}
 
-  .tab-list button {
-    justify-content: flex-start;
-  }
+.tabbed-panel>ul>li:not(.active) button:hover {
+  background: var(--tab-background-hover);
+}
 
-  .tabbed-panel.right .tab-list button {
-    justify-content: flex-end;
-  }
+.tabbed-panel>ul>li.active button {
+  background: var(--tab-background-active);
+}
 
-  .tabbed-panel.left {
-    flex-direction: row;
-  }
+.tabbed-panel>ul>li span {
+  color: var(--tab-font-color);
+  font-size: var(--tab-font-size);
+  width: max-content;
+}
 
-  .tabbed-panel.left .tab-list {
-    align-items: flex-start;
-  }
+.tabbed-panel>ul>li img {
+  height: var(--tab-icon-height);
+  margin: var(--tab-icon-margin);
+  object-fit: contain;
+  width: var(--tab-icon-width);
+}
 
-  .tabbed-panel.top .tab-list,
-  .tabbed-panel.bottom .tab-list {
-    flex-direction: row;
-  }
+.tabbed-panel.left>ul {
+  align-items: flex-start;
+}
 
-  .tabbed-panel.left .tab.active button {
-    border-right: var(--bottom-transparent, 1px solid transparent);
-  }
+.tabbed-panel.left>ul>li.active button {
+  border-right: var(--tab-active-border);
+}
 
-  .tabbed-panel.top .tab.active button {
-    border-bottom: var(--top-transparent, 1px solid transparent);
-  }
+.tabbed-panel.right {
+  flex-direction: row-reverse;
+}
 
-  .tabbed-panel.right .tab.active button {
-    border-left: var(--bottom-transparent, 1px solid transparent);
-  }
+.tabbed-panel.right>ul>li.active button {
+  border-left: var(--tab-active-border);
+}
 
-  .tabbed-panel.bottom .tab.active button {
-    border-top: var(--bottom-transparent, 1px solid transparent);
-  }
+.tabbed-panel.left .sub-pane,
+.tabbed-panel.right .sub-pane {
+  flex-grow: 1;
+}
+
+.tabbed-panel.left>ul>li,
+.tabbed-panel.right>ul>li {
+  width: 100%;
+}
+
+.tabbed-panel.top>ul>li.active button {
+  border-bottom: var(--tab-active-border);
 }

@@ -20,7 +20,7 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
 
   return (
     <div className={`tabbed-panel ${position}`}>
-      <ul className="tab-list">
+      <ul>
         {childNodes.map((item, index) => (
           <Tab
             key={`${id}-${index}`}

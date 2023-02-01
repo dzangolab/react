@@ -1,3 +1,12 @@
+## [0.4.6](https://github.com/dzangolab/react/compare/v0.4.5...v0.4.6) (2023-02-01)
+
+
+### Features
+
+* collapsible sidebar layout ([#98](https://github.com/dzangolab/react/issues/98)) ([841517e](https://github.com/dzangolab/react/commit/841517eebb0560d45087ae72e6b431a04d2c4660)), closes [#100](https://github.com/dzangolab/react/issues/100)
+
+
+
 ## [0.4.5](https://github.com/dzangolab/react/compare/v0.4.4...v0.4.5) (2023-01-25)
 
 
