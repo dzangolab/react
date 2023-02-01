@@ -48,7 +48,7 @@ const LocaleSwitcher = () => {
           </span>
         </div>
 
-        {expanded && <ul>{locales}</ul>}
+        {expanded && <ul className="dropdown">{locales}</ul>}
       </nav>
     </OutsideClickHandler>
   );
