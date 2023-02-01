@@ -2,8 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <ul
-  className="accordion-list vertical"
-  data-testid="accordion-list"
+  className="accordion vertical"
 >
   <li
     className=""

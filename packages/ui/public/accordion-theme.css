@@ -14,6 +14,6 @@
   --accordion-icon-width: 1.5rem;
 }
 
-.accordion-list.horizontal {
+.accordion.horizontal {
   --accordion-title-icon-margin: 0 0 5px 0;
 }

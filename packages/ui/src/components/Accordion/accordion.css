@@ -1,18 +1,18 @@
-.accordion-list {
+.accordion {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-.accordion-list>li {
+.accordion>li {
   border: var(--accordion-border);
   background: var(--accordion-background);
   margin: 0;
   padding: 0;
 }
 
-.accordion-list>li>button {
+.accordion>li>button {
   background: none;
   border-style: none;
   cursor: pointer;
@@ -25,15 +25,15 @@
   width: 100%;
 }
 
-.accordion-list>li>button:focus {
+.accordion>li>button:focus {
   background: var(--accordion-focus-background);
 }
 
-.accordion-list>li>button:hover {
+.accordion>li>button:hover {
   background: var(--accordion-hover-background);
 }
 
-.accordion-list>li>button>div {
+.accordion>li>button>div {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -43,92 +43,100 @@
   width: 100%;
 }
 
-.accordion-list>li>button>div>img {
+.accordion>li>button>div>img {
   border: 0;
   height: var(--accordion-icon-height);
   pointer-events: none;
   width: var(--accordion-icon-width);
 }
 
-.accordion-list.horizontal>li>button>div>div {
+.accordion.horizontal>li:not(:last-child) {
+  border-right: 0;
+}
+
+.accordion.horizontal>li>button>div>div {
   flex-direction: column;
 }
 
-.accordion-list.horizontal>li>button>div>img,
-.accordion-list.horizontal>li>button>div>div>img {
+.accordion.horizontal>li>button>div>img,
+.accordion.horizontal>li>button>div>div>img {
   transform: rotate(90deg);
 }
 
-.accordion-list.horizontal {
+.accordion.horizontal {
   flex-direction: row;
   align-items: stretch;
 }
 
-.accordion-list.horizontal>li {
+.accordion.horizontal>li {
   display: flex;
   flex-direction: row;
 }
 
-.accordion-list.horizontal>li>button {
+.accordion.horizontal>li>button {
   width: min-content;
   display: flex;
   justify-content: space-between;
   transform: rotate(-180deg);
 }
 
-.accordion-list.horizontal>li>button>div {
+.accordion.horizontal>li>button>div {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: min-content;
 }
 
-.accordion-list.horizontal>li>button>div>img {
+.accordion.horizontal>li>button>div>img {
   margin: var(--accordion-title-gap);
 }
 
-.accordion-list>li>button>div>div {
+.accordion>li>button>div>div {
   display: flex;
   flex-direction: row;
   align-items: center;
   flex-grow: 1;
 }
 
-.accordion-list>li>button>div>div>img {
+.accordion>li>button>div>div>img {
   height: var(--accordion-title-icon-height);
   margin: var(--accordion-title-icon-margin);
   object-fit: contain;
   width: var(--accordion-title-icon-width);
 }
 
-.accordion-list>li>button>div>div>span {
+.accordion>li>button>div>div>span {
   font-size: var(--accordion-title-size);
   color: var(--accordion-title-color);
 }
 
-.accordion-list.horizontal>li>button>div>div>span {
+.accordion.horizontal>li>button>div>div>span {
   writing-mode: vertical-lr;
   text-orientation: sideways-right;
   width: min-content;
 }
 
-.accordion-list.vertical {
+.accordion.vertical {
   align-items: flex-start;
   flex-direction: column;
 }
 
-.accordion-list.vertical>li {
+.accordion.vertical>li {
   width: 100%;
 }
 
-.accordion-list.vertical>li>button>div>div>span {
+.accordion.vertical>li:not(:last-child) {
+  border-bottom: 0;
+}
+
+.accordion.vertical>li>button>div>div>span {
   width: max-content;
 }
 
-.accordion-list.vertical>li.active>*+* {
+.accordion.vertical>li.active>*+* {
   border-top: var(--accordion-border);
 }
 
-.accordion-list.horizontal>li.active>*+* {
+.accordion.horizontal>li.active>*+* {
   border-left: var(--accordion-border);
 }

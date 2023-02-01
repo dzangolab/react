@@ -34,7 +34,7 @@ const Accordion: React.FC<Properties> = ({
   }
 
   return (
-    <ul className={`accordion-list ${direction}`} data-testid="accordion-list">
+    <ul className={`accordion ${direction}`}>
       {childNodes.map((item, index) => (
         <li className={active === index ? "active" : ""} key={`${id}-${index}`}>
           <AccordionTitle
