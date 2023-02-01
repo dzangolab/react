@@ -159,7 +159,7 @@ importers:
   packages/ui:
     specifiers:
       '@dzangolab/react-config': 0.4.6
-      '@tanstack/react-table': 8.7.4
+      '@tanstack/react-table': 8.7.9
       '@testing-library/react': 13.4.0
       '@types/node': 18.11.18
       '@types/react': 18.0.27
@@ -184,7 +184,7 @@ importers:
       vitest: ^0.27.0
     dependencies:
       '@dzangolab/react-config': link:../config
-      '@tanstack/react-table': 8.7.4_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-table': 8.7.9_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-debounce-input: 3.3.0_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -1070,20 +1070,20 @@ packages:
       - debug
     dev: true
 
-  /@tanstack/react-table/8.7.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-4Q1OV3kUSxbtekclS3sqjCyCDowqCPruUCfHm1nGoPSmVLRCHoQ1E2rmzTVGeocEKgV9TDnj39tOgGwcADPuPA==}
+  /@tanstack/react-table/8.7.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-6MbbQn5AupSOkek1+6IYu+1yZNthAKTRZw9tW92Vi6++iRrD1GbI3lKTjJalf8lEEKOqapPzQPE20nywu0PjCA==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
-      '@tanstack/table-core': 8.7.4
+      '@tanstack/table-core': 8.7.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@tanstack/table-core/8.7.4:
-    resolution: {integrity: sha512-OPhzca7e83KGukxLpZ+4F9OBp9CZXi9b/OGJBH8dlC3wpffcSSDczYGUGJKG7wirXQ6cUVYL+9G6UrrdnblKNQ==}
+  /@tanstack/table-core/8.7.9:
+    resolution: {integrity: sha512-4RkayPMV1oS2SKDXfQbFoct1w5k+pvGpmX18tCXMofK/VDRdA2hhxfsQlMvsJ4oTX8b0CI4Y3GDKn5T425jBCw==}
     engines: {node: '>=12'}
     dev: false
 
