@@ -33,4 +33,5 @@ const Collapse = ({ children, isOpen }: Properties) => {
     </div>
   );
 };
+
 export default Collapse;

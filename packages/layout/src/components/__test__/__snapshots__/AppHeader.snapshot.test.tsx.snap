@@ -38,7 +38,7 @@ exports[`Component matches snapshot 1`] = `
       </ul>
     </nav>
     <nav
-      className="menu "
+      className="menu"
     >
       <ul>
         <li>

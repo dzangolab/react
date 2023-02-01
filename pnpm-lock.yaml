@@ -16,7 +16,7 @@ importers:
       eslint-config-custom: link:tools/eslint-config-custom
       husky: 8.0.3
       shipjs: 0.25.0
-      turbo: 1.7.0
+      turbo: 1.7.1
 
   packages/config:
     specifiers:
@@ -24,11 +24,11 @@ importers:
       '@types/react': 18.0.27
       '@vitest/coverage-c8': 0.27.3
       eslint: 8.33.0
-      eslint-config-custom: 0.4.5
+      eslint-config-custom: 0.4.6
       jsdom: 20.0.3
       prettier: 2.8.1
       react: 18.2.0
-      tsconfig: 0.4.5
+      tsconfig: 0.4.6
       typescript: 4.9.4
       vite: 3.2.5
       vitest: 0.27.3
@@ -48,7 +48,7 @@ importers:
 
   packages/i18n:
     specifiers:
-      '@dzangolab/react-config': 0.4.5
+      '@dzangolab/react-config': 0.4.6
       '@testing-library/react': 13.4.0
       '@types/i18n': 0.13.6
       '@types/node': 18.8.5
@@ -59,7 +59,7 @@ importers:
       '@vitejs/plugin-react': 3.0.0
       '@vitest/coverage-c8': 0.27.3
       eslint: 8.33.0
-      eslint-config-custom: 0.4.5
+      eslint-config-custom: 0.4.6
       eslint-plugin-react: 7.32.1
       i18next: 21.8.13
       i18next-browser-languagedetector: 6.1.5
@@ -71,7 +71,7 @@ importers:
       react-i18next: 11.18.6
       react-outside-click-handler: 1.3.0
       react-test-renderer: 18.2.0
-      tsconfig: 0.4.5
+      tsconfig: 0.4.6
       typescript: 4.8.4
       vite: 3.2.5
       vitest: 0.27.3
@@ -107,10 +107,10 @@ importers:
 
   packages/layout:
     specifiers:
-      '@dzangolab/react-config': 0.4.5
-      '@dzangolab/react-i18n': 0.4.5
-      '@dzangolab/react-ui': 0.4.5
-      '@dzangolab/react-user': 0.4.5
+      '@dzangolab/react-config': 0.4.6
+      '@dzangolab/react-i18n': 0.4.6
+      '@dzangolab/react-ui': 0.4.6
+      '@dzangolab/react-user': 0.4.6
       '@testing-library/react': 13.4.0
       '@types/node': 18.8.5
       '@types/react': 18.0.27
@@ -119,14 +119,14 @@ importers:
       '@vitejs/plugin-react': 2.1.0
       '@vitest/coverage-c8': 0.27.3
       eslint: 8.33.0
-      eslint-config-custom: 0.4.5
+      eslint-config-custom: 0.4.6
       eslint-plugin-react: 7.32.1
       jsdom: 20.0.3
       prettier: 2.7.1
       react: 18.2.0
       react-icons: 4.4.0
       react-test-renderer: 18.2.0
-      tsconfig: 0.4.5
+      tsconfig: 0.4.6
       typescript: 4.8.4
       vite: 3.2.5
       vitest: 0.27.3
@@ -158,7 +158,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@dzangolab/react-config': 0.4.5
+      '@dzangolab/react-config': 0.4.6
       '@tanstack/react-table': 8.7.4
       '@testing-library/react': 13.4.0
       '@types/node': 18.8.5
@@ -169,7 +169,7 @@ importers:
       '@vitejs/plugin-react': 3.0.0
       '@vitest/coverage-c8': 0.27.3
       eslint: 8.33.0
-      eslint-config-custom: 0.4.5
+      eslint-config-custom: 0.4.6
       eslint-plugin-react: 7.32.1
       jsdom: ^20.0.3
       prettier: 2.7.1
@@ -178,7 +178,7 @@ importers:
       react-dom: 18.2.0
       react-outside-click-handler: 1.3.0
       react-test-renderer: 18.2.0
-      tsconfig: 0.4.5
+      tsconfig: 0.4.6
       typescript: 4.8.4
       vite: 3.2.5
       vitest: ^0.27.0
@@ -211,9 +211,9 @@ importers:
 
   packages/user:
     specifiers:
-      '@dzangolab/react-config': 0.4.5
-      '@dzangolab/react-i18n': 0.4.5
-      '@dzangolab/react-ui': 0.4.5
+      '@dzangolab/react-config': 0.4.6
+      '@dzangolab/react-i18n': 0.4.6
+      '@dzangolab/react-ui': 0.4.6
       '@testing-library/react': 13.4.0
       '@testing-library/user-event': 14.4.3
       '@types/node': 18.8.5
@@ -225,7 +225,7 @@ importers:
       '@vitest/coverage-c8': 0.27.3
       axios: 1.1.3
       eslint: 8.33.0
-      eslint-config-custom: 0.4.5
+      eslint-config-custom: 0.4.6
       eslint-plugin-react: 7.32.1
       formik: 2.2.9
       jsdom: 20.0.3
@@ -237,7 +237,7 @@ importers:
       react-test-renderer: 18.2.0
       react-toastify: 9.0.5
       supertokens-web-js: 0.1.5
-      tsconfig: 0.4.5
+      tsconfig: 0.4.6
       typescript: 4.8.4
       vite: 3.2.5
       vitest: ^0.27.0
@@ -5793,65 +5793,65 @@ packages:
       typescript: 4.9.4
     dev: false
 
-  /turbo-darwin-64/1.7.0:
-    resolution: {integrity: sha512-hSGAueSf5Ko8J67mpqjpt9FsP6ePn1nMcl7IVPoJq5dHsgX3anCP/BPlexJ502bNK+87DDyhQhJ/LPSJXKrSYQ==}
+  /turbo-darwin-64/1.7.1:
+    resolution: {integrity: sha512-H2txI1gkCQpav+5qGVxB4RzPTTqgDmzbXaJXbjYDR8cS0X/Oq5STea6fRTfumYR2x86Gr3co0V4fQfwILnfvYg==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64/1.7.0:
-    resolution: {integrity: sha512-BLLOW5W6VZxk5+0ZOj5AO1qjM0P5isIgjbEuyAl8lHZ4s9antUbY4CtFrspT32XxPTYoDl4UjviPMcSsbcl3WQ==}
+  /turbo-darwin-arm64/1.7.1:
+    resolution: {integrity: sha512-T7yLTMAdnwfaF9H3uBizztLld1aK/gYiNubpl4HCbMsE/aYEbITtNx1dAFQnjRiPHS4dNYK4gIKc9nnAsnfkxg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64/1.7.0:
-    resolution: {integrity: sha512-aw2qxmfZa+kT87SB3GNUoFimqEPzTlzlRqhPgHuAAT6Uf0JHnmebPt4K+ZPtDNl5yfVmtB05bhHPqw+5QV97Yg==}
+  /turbo-linux-64/1.7.1:
+    resolution: {integrity: sha512-kQw+jEpEVUskfPy+7rMF5x6e9Za9AbdD9P7bSo1JuV+tZgUOaFc5iC9Zyj26qhc0Zzl4qZecZ9YccNbZKZ9yCQ==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64/1.7.0:
-    resolution: {integrity: sha512-AJEx2jX+zO5fQtJpO3r6uhTabj4oSA5ZhB7zTs/rwu/XqoydsvStA4X8NDW4poTbOjF7DcSHizqwi04tSMzpJw==}
+  /turbo-linux-arm64/1.7.1:
+    resolution: {integrity: sha512-PLe0XBJ/YEmiQh+jDcmTRZlxVtkY0CerAu/AKE/c9hCnp6shYqG+peyyuCEzIssUCij2A5yhVd7SIOTQGDzFrQ==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64/1.7.0:
-    resolution: {integrity: sha512-ewj7PPv2uxqv0r31hgnBa3E5qwUu7eyVRP5M1gB/TJXfSHduU79gbxpKCyxIZv2fL/N2/3U7EPOQPSZxBAoljA==}
+  /turbo-windows-64/1.7.1:
+    resolution: {integrity: sha512-70ndrkQomG4JlAAaflVL+Io1msItHiZUq/zf88Nk4z30QSqqC0Zl4rOpUPE3v1IYSO48bUabshySZa9/aTPHhw==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64/1.7.0:
-    resolution: {integrity: sha512-LzjOUzveWkvTD0jP8DBMYiAnYemmydsvqxdSmsUapHHJkl6wKZIOQNSO7pxsy+9XM/1/+0f9Y9F9ZNl5lePTEA==}
+  /turbo-windows-arm64/1.7.1:
+    resolution: {integrity: sha512-344XY2SrugfHtIe06Vbi17yZ4SRkPvWghvO/gUgUkgSZN06oYj0SHN2+z8pnLkBTfgkt2zBm2cqFFpVFwa8F2A==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo/1.7.0:
-    resolution: {integrity: sha512-cwympNwQNnQZ/TffBd8yT0i0O10Cf/hlxccCYgUcwhcGEb9rDjE5thDbHoHw1hlJQUF/5ua7ERJe7Zr0lNE/ww==}
+  /turbo/1.7.1:
+    resolution: {integrity: sha512-0ngDU5+2/wLuvTKpc2ZyDtO6aPeHTa6ASlQGySCx+lwSDiE4fCkRVvNINDtT1HgdO/bEo2CQkLoen/Qjf7wWiQ==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.7.0
-      turbo-darwin-arm64: 1.7.0
-      turbo-linux-64: 1.7.0
-      turbo-linux-arm64: 1.7.0
-      turbo-windows-64: 1.7.0
-      turbo-windows-arm64: 1.7.0
+      turbo-darwin-64: 1.7.1
+      turbo-darwin-arm64: 1.7.1
+      turbo-linux-64: 1.7.1
+      turbo-linux-arm64: 1.7.1
+      turbo-windows-64: 1.7.1
+      turbo-windows-arm64: 1.7.1
     dev: true
 
   /type-check/0.3.2:

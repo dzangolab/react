@@ -6,15 +6,17 @@ exports[`Component matches snapshot 1`] = `
   onClick={[Function]}
   type="button"
 >
-  <span
+  <div
     className="accordion-title"
   >
-    accordion title
+    <span>
+      accordion title
+    </span>
     <img
       alt="accordion title"
       className="accordion-icon"
       src="icon1.jpg"
     />
-  </span>
+  </div>
 </button>
 `;

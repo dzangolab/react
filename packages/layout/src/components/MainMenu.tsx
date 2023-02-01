@@ -2,6 +2,7 @@ import { ResponsiveMenu } from "@dzangolab/react-ui";
 import React from "react";
 
 interface Properties {
+  horizontal?: boolean;
   routes?: {
     name: string;
     route: string;
@@ -20,9 +21,15 @@ const DEFAULT_ROUTES = [
 ];
 
 const MainMenu = (properties: Properties) => {
-  const { routes = DEFAULT_ROUTES } = properties;
+  const { routes = DEFAULT_ROUTES, horizontal } = properties;
 
-  return <ResponsiveMenu cssClass="mainMenu" routes={routes} />;
+  return (
+    <ResponsiveMenu
+      cssClass="mainMenu"
+      routes={routes}
+      horizontal={horizontal}
+    />
+  );
 };
 
 export default MainMenu;
