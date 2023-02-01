@@ -2,6 +2,7 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
+import { SubPane } from "../../SubPane";
 import Accordion from "../Accordion";
 
 function toJson(component: renderer.ReactTestRenderer) {
@@ -15,8 +16,13 @@ function toJson(component: renderer.ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const component = create(
-    <Accordion title="accordion title">
-      <p>accordion body</p>
+    <Accordion>
+      <SubPane icon="icon1.jpg" title="Topic 1">
+        Pane 1 content
+      </SubPane>
+      <SubPane icon="icon2.jpg" title="Topic 2">
+        Pane 2 content
+      </SubPane>
     </Accordion>
   );
   const tree = toJson(component);

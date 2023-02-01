@@ -17,10 +17,10 @@ test("Component matches snapshot", () => {
   const component = create(
     <AccordionTitle
       title="accordion title"
-      eventKey={1}
-      selected={1}
+      index={1}
+      icon="icon1.jpg"
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      setSelected={() => {}}
+      handleClick={() => {}}
     />
   );
   const tree = toJson(component);

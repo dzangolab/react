@@ -3,7 +3,6 @@ import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
 import Tab from "../Tab";
-import Tabs from "../Tabs";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();
@@ -16,14 +15,14 @@ function toJson(component: renderer.ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const component = create(
-    <Tabs>
-      <Tab title="Tab one">
-        <p>Some text</p>
-      </Tab>
-      <Tab title="Tab two">
-        <p>Some text</p>
-      </Tab>
-    </Tabs>
+    <Tab
+      title="Topic 1"
+      icon="icon1.jpg"
+      index={1}
+      isActive={true}
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      handleClick={() => {}}
+    />
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

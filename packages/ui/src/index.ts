@@ -1,21 +1,29 @@
-import { Accordion, Accordions, AccordionTitle } from "./components/Accordion";
+import { Accordion } from "./components/Accordion";
 import { LoadingButton } from "./components/Buttons";
 import Collapse from "./components/Collapse";
 import { LoadingIcon } from "./components/Loading";
 import Page from "./components/Page";
 import ResponsiveMenu from "./components/ResponsiveMenu";
-import { Tab, Tabs, TabTitle } from "./components/Tab";
+import { SubPane } from "./components/SubPane";
+import { TabbedPanel } from "./components/TabbedPanel";
+import { BaseTable, Table } from "./components/Table";
+
+import type {
+  TableColumnDefinition,
+  TRequestJSON,
+} from "./components/Table/types";
 
 export {
   Accordion,
-  Accordions,
-  AccordionTitle,
+  BaseTable,
   Collapse,
   LoadingButton,
   LoadingIcon,
   Page,
   ResponsiveMenu,
-  Tab,
-  Tabs,
-  TabTitle,
+  SubPane,
+  Table,
+  TabbedPanel,
 };
+
+export type { TableColumnDefinition, TRequestJSON };
