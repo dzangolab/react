@@ -62,7 +62,7 @@ importers:
       eslint-config-custom: 0.4.6
       eslint-plugin-react: 7.32.1
       i18next: 21.8.13
-      i18next-browser-languagedetector: 6.1.5
+      i18next-browser-languagedetector: 6.1.8
       i18next-chained-backend: ^4.0.0
       i18next-resources-to-backend: ^1.0.0
       prettier: 2.8.3
@@ -77,7 +77,7 @@ importers:
       vitest: 0.27.3
     dependencies:
       i18next: 21.8.13
-      i18next-browser-languagedetector: 6.1.5
+      i18next-browser-languagedetector: 6.1.8
       i18next-chained-backend: 4.2.0
       i18next-resources-to-backend: 1.1.1
       react-i18next: 11.18.6_zqwsj3zkvc6lj2if6vhvnllc7u
@@ -3592,8 +3592,8 @@ packages:
     hasBin: true
     dev: true
 
-  /i18next-browser-languagedetector/6.1.5:
-    resolution: {integrity: sha512-11t7b39oKeZe4uyMxLSPnfw28BCPNLZgUk7zyufex0zKXZ+Bv+JnmJgoB+IfQLZwDt1d71PM8vwBX1NCgliY3g==}
+  /i18next-browser-languagedetector/6.1.8:
+    resolution: {integrity: sha512-Svm+MduCElO0Meqpj1kJAriTC6OhI41VhlT/A0UPjGoPZBhAHIaGE5EfsHlTpgdH09UVX7rcc72pSDDBeKSQQA==}
     dependencies:
       '@babel/runtime': 7.20.7
     dev: false
