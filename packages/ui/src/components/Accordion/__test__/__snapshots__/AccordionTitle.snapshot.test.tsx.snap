@@ -2,20 +2,21 @@
 
 exports[`Component matches snapshot 1`] = `
 <button
-  className="accordion-trigger"
   onClick={[Function]}
   type="button"
 >
-  <div
-    className="accordion-title"
-  >
-    <span>
-      accordion title
-    </span>
+  <div>
+    <div>
+      <img
+        alt="accordion title"
+        src="icon1.jpg"
+      />
+      <span>
+        accordion title
+      </span>
+    </div>
     <img
-      alt="accordion title"
-      className="accordion-icon"
-      src="icon1.jpg"
+      src="arrow-up.jpg"
     />
   </div>
 </button>

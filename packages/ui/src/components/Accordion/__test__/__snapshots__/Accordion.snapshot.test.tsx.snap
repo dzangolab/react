@@ -2,49 +2,50 @@
 
 exports[`Component matches snapshot 1`] = `
 <ul
-  className="accordion-list vertical"
-  data-testid="accordion-list"
+  className="accordion vertical"
 >
   <li
-    className="accordion "
+    className=""
   >
     <button
-      className="accordion-trigger"
       onClick={[Function]}
       type="button"
     >
-      <div
-        className="accordion-title"
-      >
-        <span>
-          Topic 1
-        </span>
+      <div>
+        <div>
+          <img
+            alt="Topic 1"
+            src="icon1.jpg"
+          />
+          <span>
+            Topic 1
+          </span>
+        </div>
         <img
-          alt="Topic 1"
-          className="accordion-icon"
-          src="icon1.jpg"
+          src="arrow-up.jpg"
         />
       </div>
     </button>
   </li>
   <li
-    className="accordion "
+    className=""
   >
     <button
-      className="accordion-trigger"
       onClick={[Function]}
       type="button"
     >
-      <div
-        className="accordion-title"
-      >
-        <span>
-          Topic 2
-        </span>
+      <div>
+        <div>
+          <img
+            alt="Topic 2"
+            src="icon2.jpg"
+          />
+          <span>
+            Topic 2
+          </span>
+        </div>
         <img
-          alt="Topic 2"
-          className="accordion-icon"
-          src="icon2.jpg"
+          src="arrow-up.jpg"
         />
       </div>
     </button>

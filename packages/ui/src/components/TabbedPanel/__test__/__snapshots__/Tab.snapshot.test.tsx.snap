@@ -2,17 +2,18 @@
 
 exports[`Component matches snapshot 1`] = `
 <li
-  className="tab active"
+  className="active"
 >
   <button
     onClick={[Function]}
   >
     <img
       alt="Topic 1"
-      className="tab-icon"
       src="icon1.jpg"
     />
-    Topic 1
+    <span>
+      Topic 1
+    </span>
   </button>
 </li>
 `;

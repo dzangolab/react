@@ -4,35 +4,35 @@ exports[`Component matches snapshot 1`] = `
 <div
   className="tabbed-panel top"
 >
-  <ul
-    className="tab-list"
-  >
+  <ul>
     <li
-      className="tab active"
+      className="active"
     >
       <button
         onClick={[Function]}
       >
         <img
           alt="Topic 1"
-          className="tab-icon"
           src="icon1.jpg"
         />
-        Topic 1
+        <span>
+          Topic 1
+        </span>
       </button>
     </li>
     <li
-      className="tab "
+      className=""
     >
       <button
         onClick={[Function]}
       >
         <img
           alt="Topic 2"
-          className="tab-icon"
           src="icon2.jpg"
         />
-        Topic 2
+        <span>
+          Topic 2
+        </span>
       </button>
     </li>
   </ul>

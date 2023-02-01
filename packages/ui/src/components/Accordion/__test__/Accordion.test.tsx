@@ -5,52 +5,72 @@ import { expect, test } from "vitest";
 import { SubPane } from "../../SubPane";
 import Accordion from "../Accordion";
 
-const values = {
-  titleOne: "Topic 1",
-  bodyOne: "Pane 1 content",
-  iconOne: "icon1.jpg",
-  titleTwo: "Topic 2",
-  bodyTwo: "Pane 2 content",
-  iconTwo: "icon2.jpg",
+const accordionValues = {
+  activeIcon: "arrow-down.jpg",
+  inactiveIcon: "arrow-up.jpg",
 };
 
-test("accordions are rendered", async () => {
+const paneValues = {
+  pane1: {
+    icon: "icon1.jpg",
+    content: "Pane 1 content",
+    title: "Topic 1",
+  },
+  pane2: {
+    icon: "icon2.jpg",
+    content: "Pane 2 content",
+    title: "Topic 2",
+  },
+};
+
+test("no subpane is active when defaultActiveKey prop is not passed", async () => {
   render(
-    <Accordion>
-      <SubPane title={values.titleOne} icon={values.iconOne}>
-        <p>{values.bodyOne}</p>
+    <Accordion
+      activeIcon={accordionValues.activeIcon}
+      inactiveIcon={accordionValues.inactiveIcon}
+    >
+      <SubPane title={paneValues.pane1.title} icon={paneValues.pane1.icon}>
+        <p>{paneValues.pane1.content}</p>
       </SubPane>
-      <SubPane title={values.titleTwo} icon={values.iconTwo}>
-        <p>{values.bodyTwo}</p>
+      <SubPane title={paneValues.pane2.title} icon={paneValues.pane2.icon}>
+        <p>{paneValues.pane2.content}</p>
       </SubPane>
     </Accordion>
   );
 
-  expect(screen.getByText(values.titleOne)).toBeDefined();
-  expect(screen.getByText(values.titleTwo)).toBeDefined();
+  const subpanes = screen.getAllByRole("listitem");
+  const firstSubpane = subpanes[0];
+  const lastSubpane = subpanes[1];
+
+  expect(firstSubpane.classList.contains("active")).toBe(false);
+  expect(lastSubpane.classList.contains("active")).toBe(false);
 });
 
-test("correct accordion is open/active", async () => {
+test("correct subpane is active", async () => {
   render(
-    <Accordion defaultActiveKey={1}>
-      <SubPane title={values.titleOne} icon={values.iconOne}>
-        <p>{values.bodyOne}</p>
+    <Accordion
+      defaultActiveKey={1}
+      activeIcon={accordionValues.activeIcon}
+      inactiveIcon={accordionValues.inactiveIcon}
+    >
+      <SubPane title={paneValues.pane1.title} icon={paneValues.pane1.icon}>
+        <p>{paneValues.pane1.content}</p>
       </SubPane>
-      <SubPane title={values.titleTwo} icon={values.iconTwo}>
-        <p>{values.bodyTwo}</p>
+      <SubPane title={paneValues.pane2.title} icon={paneValues.pane2.icon}>
+        <p>{paneValues.pane2.content}</p>
       </SubPane>
     </Accordion>
   );
 
-  const accordionList = screen.getByTestId("accordion-list");
-  const firstAccordion = accordionList.firstChild as HTMLLIElement;
-  const lastAccordion = accordionList.lastChild as HTMLLIElement;
+  const subpanes = screen.getAllByRole("listitem");
+  const firstSubpane = subpanes[0];
+  const lastSubpane = subpanes[1];
 
-  expect(firstAccordion.classList.contains("active")).toBe(false);
-  expect(lastAccordion.classList.contains("active")).toBe(true);
+  expect(firstSubpane.classList.contains("active")).toBe(false);
+  expect(lastSubpane.classList.contains("active")).toBe(true);
 
-  fireEvent.click(screen.getByText(values.titleOne));
+  fireEvent.click(screen.getByText(paneValues.pane1.title));
 
-  expect(firstAccordion.classList.contains("active")).toBe(true);
-  expect(lastAccordion.classList.contains("active")).toBe(false);
+  expect(firstSubpane.classList.contains("active")).toBe(true);
+  expect(lastSubpane.classList.contains("active")).toBe(false);
 });

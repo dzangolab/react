@@ -7,7 +7,9 @@
       "import": "./dist/DzangolabReactUI.es.js",
       "require": "./dist/DzangolabReactUI.umd.js"
     },
-    "./dist/DzangolabReactUI.css": "./dist/style.css"
+    "./dist/DzangolabReactUI.css": "./dist/style.css",
+    "./dist/TabTheme.css": "./dist/tab-theme.css",
+    "./dist/AccordionTheme.css": "./dist/accordion-theme.css"
   },
   "main": "dist//DzangolabReactUI.umd.js",
   "module": "dist//DzangolabReactUI.es.js",

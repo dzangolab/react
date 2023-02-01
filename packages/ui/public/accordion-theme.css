@@ -1,0 +1,19 @@
+:root {
+  --accordion-border: 1px solid hsl(0deg 0% 52%);
+  --accordion-background: #fff;
+  --accordion-focus-background: hsl(216deg 94% 94%);
+  --accordion-header-padding: 1em 1.5em;
+  --accordion-hover-background: hsl(216deg 94% 94%);
+  --accordion-title-icon-height: 16px;
+  --accordion-title-icon-margin: 0 5px 0 0;
+  --accordion-title-color: #000;
+  --accordion-title-icon-width: 16px;
+  --accordion-title-gap: 2rem 0 0 0;
+  --accordion-title-size: 1rem;
+  --accordion-icon-height: 1.5rem;
+  --accordion-icon-width: 1.5rem;
+}
+
+.accordion.horizontal {
+  --accordion-title-icon-margin: 0 0 5px 0;
+}
