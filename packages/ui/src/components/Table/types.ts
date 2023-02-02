@@ -26,6 +26,8 @@ type TSingleSort = {
   direction: TSortDirection;
 };
 
+type TLimit = number | null;
+
 type TOffset = number | null;
 
 type TSortRequest = TSingleSort[] | null;
@@ -34,6 +36,7 @@ export type TRequestJSON = {
   filter: TFilterRequest;
   sort: TSortRequest;
   offset: TOffset;
+  limit: TLimit;
 };
 
 export type TFetchDataOptions = {

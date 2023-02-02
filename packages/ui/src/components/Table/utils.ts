@@ -43,6 +43,16 @@ export const getRequestJSON = (
     };
   };
 
+  const getLimit = () => {
+    if (
+      !paginationState ||
+      (paginationState && Object.keys(paginationState).length === 0)
+    )
+      return null;
+
+    return paginationState.pageSize;
+  };
+
   const getOffset = () => {
     if (
       !paginationState ||
@@ -73,6 +83,7 @@ export const getRequestJSON = (
 
   return {
     filter: getFilter(),
+    limit: getLimit(),
     sort: getSort(),
     offset: getOffset(),
   };
