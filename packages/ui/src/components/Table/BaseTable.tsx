@@ -120,7 +120,9 @@ function BaseTable() {
                   const page = event_.target.value
                     ? Number(event_.target.value) - 1
                     : 0;
-                  table.setPageIndex(page);
+                  if (pageIndex !== page) {
+                    table.setPageIndex(page);
+                  }
                 }}
                 size={1}
               />
@@ -128,7 +130,10 @@ function BaseTable() {
               <select
                 value={table.getState().pagination.pageSize}
                 onChange={(event_) => {
-                  table.setPageSize(Number(event_.target.value));
+                  const limit = Number(event_.target.value);
+                  if (pageSize !== limit) {
+                    table.setPageSize(limit);
+                  }
                 }}
               >
                 {rowsPerPageOptions?.map((pageSize) => (
