@@ -30,8 +30,8 @@ header > nav .locales {
   grid-area: locales;
 }
 
-header > nav .userMenu {
-  grid-area: userMenu;
+header > nav .user-menu {
+  grid-area: user-menu;
 }
 
 header > .toggle {
