@@ -1,5 +1,9 @@
 import type { TRequestJSON, TSortDirection } from "./types";
-import type { ColumnFiltersState, SortingState } from "@tanstack/react-table";
+import type {
+  ColumnFiltersState,
+  PaginationState,
+  SortingState,
+} from "@tanstack/react-table";
 
 const getSortDirection = (desc: boolean): TSortDirection => {
   switch (desc) {
@@ -14,7 +18,8 @@ const getSortDirection = (desc: boolean): TSortDirection => {
 
 export const getRequestJSON = (
   sortingState?: SortingState,
-  filterState?: ColumnFiltersState
+  filterState?: ColumnFiltersState,
+  paginationState?: PaginationState
 ): TRequestJSON => {
   const getFilter = () => {
     if (!filterState || filterState.length === 0) return null;
@@ -38,6 +43,26 @@ export const getRequestJSON = (
     };
   };
 
+  const getLimit = () => {
+    if (
+      !paginationState ||
+      (paginationState && Object.keys(paginationState).length === 0)
+    )
+      return null;
+
+    return paginationState.pageSize;
+  };
+
+  const getOffset = () => {
+    if (
+      !paginationState ||
+      (paginationState && Object.keys(paginationState).length === 0)
+    )
+      return null;
+
+    return paginationState.pageIndex * paginationState.pageSize;
+  };
+
   const getSort = () => {
     if (!sortingState || sortingState.length === 0) return null;
 
@@ -58,6 +83,8 @@ export const getRequestJSON = (
 
   return {
     filter: getFilter(),
+    limit: getLimit(),
     sort: getSort(),
+    offset: getOffset(),
   };
 };

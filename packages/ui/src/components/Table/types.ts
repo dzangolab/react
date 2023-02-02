@@ -26,11 +26,17 @@ type TSingleSort = {
   direction: TSortDirection;
 };
 
+type TLimit = number | null;
+
+type TOffset = number | null;
+
 type TSortRequest = TSingleSort[] | null;
 
 export type TRequestJSON = {
   filter: TFilterRequest;
   sort: TSortRequest;
+  offset: TOffset;
+  limit: TLimit;
 };
 
 export type TFetchDataOptions = {
@@ -46,7 +52,7 @@ export interface TableProviderProperties<T> {
   data?: T[];
   fetcher: (requestJSON: TRequestJSON) => void;
   enableMultiSort?: boolean;
-  filterDebounceTime?: number;
+  inputDebounceTime?: number;
   fixedHeader?: boolean;
   filterIcons?: {
     expanded: ReactNode;

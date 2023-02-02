@@ -45,13 +45,13 @@ function TableProvider<T>({
 
 TableProvider.defaultProps = {
   enableMultiSort: false,
-  filterDebounceTime: 300,
   filterIcons: {
     expanded: "🙉",
     notExpanded: "🙈",
   },
   fixedHeader: true,
   hideScrollBar: true,
+  inputDebounceTime: 300,
   paginated: true,
   paginationIcons: {
     start: "<<",
