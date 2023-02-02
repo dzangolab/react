@@ -18,12 +18,12 @@ header > nav {
   display: none;
   grid-area: nav;
   gap: var(--header-nav-column-gap, 0.25rem) var(--header-nav-row-gap, 1rem);
-  grid-template-areas: "mainMenu userMenu locales";
+  grid-template-areas: "main-menu user-menu locales";
   grid-template-columns: 1fr auto auto;
 }
 
-header > nav .mainMenu {
-  grid-area: mainMenu;
+header > nav .main-menu {
+  grid-area: main-menu;
 }
 
 header > nav .locales {

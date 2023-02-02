@@ -22,7 +22,7 @@ const DEFAULT_ROUTES = [
 const MainMenu = (properties: Properties) => {
   const { routes = DEFAULT_ROUTES } = properties;
 
-  return <ResponsiveMenu cssClass="mainMenu" routes={routes} />;
+  return <ResponsiveMenu cssClass="main-menu" routes={routes} />;
 };
 
 export default MainMenu;
