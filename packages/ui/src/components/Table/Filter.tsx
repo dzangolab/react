@@ -7,7 +7,7 @@ import { TableContext } from "./TableProvider";
 import type { FilterProperties } from "./types";
 
 function Filter<T>({ column, table }: FilterProperties<T>) {
-  const { filterDebounceTime, filterIcons } = useContext(TableContext);
+  const { inputDebounceTime, filterIcons } = useContext(TableContext);
 
   const [expanded, setExpanded] = useState(false);
 
@@ -43,7 +43,7 @@ function Filter<T>({ column, table }: FilterProperties<T>) {
             <DebounceInput
               type="text"
               value={(columnFilterValue ?? "") as string}
-              debounceTimeout={filterDebounceTime}
+              debounceTimeout={inputDebounceTime}
               onChange={(event_) => {
                 column.setFilterValue(event_.target.value);
               }}

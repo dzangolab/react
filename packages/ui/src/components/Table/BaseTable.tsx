@@ -2,6 +2,7 @@ import "./BaseTable.css";
 
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useContext, useEffect, useMemo, useState } from "react";
+import { DebounceInput } from "react-debounce-input";
 
 import Pagination from "./Pagination";
 import TableBody from "./TableBody";
@@ -21,6 +22,7 @@ function BaseTable() {
     data,
     enableMultiSort,
     fetchCallback,
+    inputDebounceTime,
     fixedHeader,
     hideScrollBar,
     paginated,
@@ -109,8 +111,9 @@ function BaseTable() {
           {showPageControl ? (
             <div className="page-controller">
               <span> Go to page:</span>
-              <input
+              <DebounceInput
                 type="number"
+                debounceTimeout={inputDebounceTime}
                 defaultValue={table.getState().pagination.pageIndex + 1}
                 disabled={!table.getCanNextPage()}
                 onChange={(event_) => {

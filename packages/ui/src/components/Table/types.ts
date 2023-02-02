@@ -50,7 +50,7 @@ export interface TableProviderProperties<T> {
     requestJSON: TRequestJSON
   ) => Promise<{ data: T[]; totalItems: number }>;
   enableMultiSort?: boolean;
-  filterDebounceTime?: number;
+  inputDebounceTime?: number;
   fixedHeader?: boolean;
   filterIcons?: {
     expanded: ReactNode;
