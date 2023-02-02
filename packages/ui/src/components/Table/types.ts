@@ -26,11 +26,14 @@ type TSingleSort = {
   direction: TSortDirection;
 };
 
+type TOffset = number | null;
+
 type TSortRequest = TSingleSort[] | null;
 
 export type TRequestJSON = {
   filter: TFilterRequest;
   sort: TSortRequest;
+  offset: TOffset;
 };
 
 export type TFetchDataOptions = {

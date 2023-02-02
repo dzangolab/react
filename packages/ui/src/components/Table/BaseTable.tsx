@@ -41,7 +41,10 @@ function BaseTable() {
   });
 
   useEffect(() => {
-    const requestJSON = getRequestJSON(sorting, columnFilters);
+    const requestJSON = getRequestJSON(sorting, columnFilters, {
+      pageIndex,
+      pageSize,
+    });
     fetchCallback && fetchCallback(requestJSON);
   }, [columnFilters, fetchCallback, pageIndex, pageSize, sorting]);
 
