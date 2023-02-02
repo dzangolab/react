@@ -2,6 +2,7 @@ import "./BaseTable.css";
 
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useContext, useEffect, useMemo, useState } from "react";
+import { DebounceInput } from "react-debounce-input";
 
 import Pagination from "./Pagination";
 import TableBody from "./TableBody";
@@ -21,6 +22,7 @@ function BaseTable() {
     data,
     enableMultiSort,
     fetchCallback,
+    inputDebounceTime,
     fixedHeader,
     hideScrollBar,
     paginated,
@@ -41,7 +43,10 @@ function BaseTable() {
   });
 
   useEffect(() => {
-    const requestJSON = getRequestJSON(sorting, columnFilters);
+    const requestJSON = getRequestJSON(sorting, columnFilters, {
+      pageIndex,
+      pageSize,
+    });
     fetchCallback && fetchCallback(requestJSON);
   }, [columnFilters, fetchCallback, pageIndex, pageSize, sorting]);
 
@@ -106,15 +111,18 @@ function BaseTable() {
           {showPageControl ? (
             <div className="page-controller">
               <span> Go to page:</span>
-              <input
+              <DebounceInput
                 type="number"
-                defaultValue={table.getState().pagination.pageIndex + 1}
+                debounceTimeout={inputDebounceTime}
+                value={table.getState().pagination.pageIndex + 1}
                 disabled={!table.getCanNextPage()}
                 onChange={(event_) => {
                   const page = event_.target.value
                     ? Number(event_.target.value) - 1
                     : 0;
-                  table.setPageIndex(page);
+                  if (pageIndex !== page) {
+                    table.setPageIndex(page);
+                  }
                 }}
                 size={1}
               />
@@ -122,7 +130,10 @@ function BaseTable() {
               <select
                 value={table.getState().pagination.pageSize}
                 onChange={(event_) => {
-                  table.setPageSize(Number(event_.target.value));
+                  const limit = Number(event_.target.value);
+                  if (pageSize !== limit) {
+                    table.setPageSize(limit);
+                  }
                 }}
               >
                 {rowsPerPageOptions?.map((pageSize) => (
