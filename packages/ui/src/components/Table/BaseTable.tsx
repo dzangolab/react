@@ -114,7 +114,7 @@ function BaseTable() {
               <DebounceInput
                 type="number"
                 debounceTimeout={inputDebounceTime}
-                defaultValue={table.getState().pagination.pageIndex + 1}
+                value={table.getState().pagination.pageIndex + 1}
                 disabled={!table.getCanNextPage()}
                 onChange={(event_) => {
                   const page = event_.target.value
