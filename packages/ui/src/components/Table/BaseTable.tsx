@@ -43,7 +43,7 @@ function BaseTable() {
   useEffect(() => {
     const requestJSON = getRequestJSON(sorting, columnFilters);
     fetchCallback && fetchCallback(requestJSON);
-  }, [columnFilters, fetchCallback, pageIndex, pageSize, sorting]);
+  }, [columnFilters, pageIndex, pageSize, sorting]);
 
   const pagination = useMemo(
     () => ({
@@ -54,7 +54,7 @@ function BaseTable() {
   );
 
   const table = useReactTable({
-    data,
+    data: data || [],
     columns,
     state: {
       sorting,
