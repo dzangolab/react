@@ -1,3 +1,21 @@
+## [0.4.7](https://github.com/dzangolab/react/compare/v0.4.6...v0.4.7) (2023-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-table to v8.7.9 ([#107](https://github.com/dzangolab/react/issues/107)) ([d6934cf](https://github.com/dzangolab/react/commit/d6934cfbb236dd9d285b5b5ab642c12607e83598))
+* **deps:** update dependency eslint-config-next to v13.1.6 ([#94](https://github.com/dzangolab/react/issues/94)) ([98bba92](https://github.com/dzangolab/react/commit/98bba9274decf0564d36c012b43617797fff9ee3))
+* **deps:** update dependency eslint-import-resolver-typescript to v3.5.3 ([#90](https://github.com/dzangolab/react/issues/90)) ([06da860](https://github.com/dzangolab/react/commit/06da860a86ddbe54ef52e14dcb69ccb1e04e970d))
+* **deps:** update dependency eslint-plugin-react to v7.32.2 ([#108](https://github.com/dzangolab/react/issues/108)) ([41d0ca5](https://github.com/dzangolab/react/commit/41d0ca5065d3c775057c14ecce79a037998abe8d))
+* **deps:** update dependency i18next-browser-languagedetector to v6.1.8 ([#33](https://github.com/dzangolab/react/issues/33)) ([8e2c061](https://github.com/dzangolab/react/commit/8e2c061d113cce425f681e95cde194d70998bcdb))
+
+
+### Features
+
+* **ui:** make isLoading optional ([#121](https://github.com/dzangolab/react/issues/121)) ([8c91dc8](https://github.com/dzangolab/react/commit/8c91dc86231bc8d91191ee7641dfe55b21295bf5))
+
+
+
 ## [0.4.6](https://github.com/dzangolab/react/compare/v0.4.5...v0.4.6) (2023-02-01)
 
 
