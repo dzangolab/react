@@ -12,7 +12,7 @@ import type {
 export const TableContext = createContext<TableContextProperties<any>>({
   columns: [],
   data: [],
-  loading: false,
+  isLoading: false,
   totalItems: 0,
   fetchCallback: () => {
     return;

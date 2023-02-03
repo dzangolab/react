@@ -6,7 +6,7 @@ import type { PaginationProperties } from "./types";
 
 const Pagination = (properties: PaginationProperties) => {
   const id = useId();
-  const { loading } = useContext(TableContext);
+  const { isLoading } = useContext(TableContext);
 
   return (
     <div className="pagination-container">
@@ -15,7 +15,7 @@ const Pagination = (properties: PaginationProperties) => {
           key={id + index}
           className="pagination-button"
           onClick={onClick}
-          disabled={isDisabled || loading}
+          disabled={isDisabled || isLoading}
         >
           {icon}
         </button>
