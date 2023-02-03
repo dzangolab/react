@@ -59,7 +59,7 @@ export interface TableProviderProperties<T> {
     notExpanded: ReactNode;
   };
   hideScrollBar?: boolean;
-  isLoading: boolean;
+  isLoading?: boolean;
   paginated?: boolean;
   paginationIcons?: {
     start: ReactNode;
