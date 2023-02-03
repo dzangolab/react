@@ -6,7 +6,7 @@ import "./accordion.css";
 import type { ReactElement } from "react";
 
 type Properties = {
-  children: ReactElement[];
+  children: ReactElement | ReactElement[];
   defaultActiveKey?: number;
   direction?: "horizontal" | "vertical";
   activeIcon?: string;

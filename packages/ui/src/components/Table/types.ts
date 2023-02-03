@@ -49,9 +49,8 @@ export type TFetchDataOptions = {
 export interface TableProviderProperties<T> {
   children?: ReactNode;
   columns: ColumnDef<T>[];
-  fetcher: (
-    requestJSON: TRequestJSON
-  ) => Promise<{ data: T[]; totalItems: number }>;
+  data?: T[];
+  fetcher: (requestJSON: TRequestJSON) => void;
   enableMultiSort?: boolean;
   inputDebounceTime?: number;
   fixedHeader?: boolean;
@@ -60,6 +59,7 @@ export interface TableProviderProperties<T> {
     notExpanded: ReactNode;
   };
   hideScrollBar?: boolean;
+  isLoading: boolean;
   paginated?: boolean;
   paginationIcons?: {
     start: ReactNode;
@@ -78,6 +78,7 @@ export interface TableProviderProperties<T> {
     default: ReactNode;
   };
   title?: string;
+  totalItems: number;
 }
 
 export interface TableContextProperties<T>
@@ -85,10 +86,7 @@ export interface TableContextProperties<T>
     TableProviderProperties<T>,
     Exclude<keyof TableProviderProperties<T>, "fetcher">
   > {
-  data: T[];
   fetchCallback: (requestJSON: TRequestJSON) => void;
-  loading: boolean;
-  totalItems: number;
 }
 
 export interface FilterProperties<T> {

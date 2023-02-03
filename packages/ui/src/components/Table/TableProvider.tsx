@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useRef, useState } from "react";
+import React, { createContext, useCallback, useRef } from "react";
 
 import BaseTable from "./BaseTable";
 
@@ -12,7 +12,7 @@ import type {
 export const TableContext = createContext<TableContextProperties<any>>({
   columns: [],
   data: [],
-  loading: false,
+  isLoading: false,
   totalItems: 0,
   fetchCallback: () => {
     return;
@@ -24,38 +24,20 @@ function TableProvider<T>({
   children,
   ...rest
 }: TableProviderProperties<T>) {
-  const [data, setData] = useState<T[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [errorMessage, setErrorMessage] = useState<string>();
-  const [loading, setLoading] = useState(false);
-  const [totalItems, setTotalItems] = useState<number>(0);
   const fetchIdReference = useRef(0);
 
   const fetchCallback = useCallback(
     async (requestJSON: TRequestJSON) => {
       const fetchId = ++fetchIdReference.current;
-      try {
-        if (fetchId === fetchIdReference.current) {
-          setLoading(true);
-          const data = await fetcher(requestJSON);
-          setTotalItems(data.totalItems);
-          setData(data.data);
-        }
-      } catch (error) {
-        let message = "Unknown Error";
-        if (error instanceof Error) message = error.message;
-        setErrorMessage(message);
-      } finally {
-        setLoading(false);
+      if (fetchId === fetchIdReference.current) {
+        fetcher(requestJSON);
       }
     },
     [fetcher]
   );
 
   return (
-    <TableContext.Provider
-      value={{ loading, data, totalItems, fetchCallback, ...rest }}
-    >
+    <TableContext.Provider value={{ fetchCallback, ...rest }}>
       {children ? children : <BaseTable />}
     </TableContext.Provider>
   );
