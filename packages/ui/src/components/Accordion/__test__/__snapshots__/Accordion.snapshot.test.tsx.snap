@@ -11,20 +11,16 @@ exports[`Component matches snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <div>
-        <div>
-          <img
-            alt="Topic 1"
-            src="icon1.jpg"
-          />
-          <span>
-            Topic 1
-          </span>
-        </div>
-        <img
-          src="arrow-up.jpg"
-        />
-      </div>
+      <img
+        alt="Topic 1"
+        src="icon1.jpg"
+      />
+      <span>
+        Topic 1
+      </span>
+      <img
+        src="arrow-up.jpg"
+      />
     </button>
   </li>
   <li
@@ -34,20 +30,16 @@ exports[`Component matches snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <div>
-        <div>
-          <img
-            alt="Topic 2"
-            src="icon2.jpg"
-          />
-          <span>
-            Topic 2
-          </span>
-        </div>
-        <img
-          src="arrow-up.jpg"
-        />
-      </div>
+      <img
+        alt="Topic 2"
+        src="icon2.jpg"
+      />
+      <span>
+        Topic 2
+      </span>
+      <img
+        src="arrow-up.jpg"
+      />
     </button>
   </li>
 </ul>
