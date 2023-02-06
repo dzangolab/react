@@ -1,7 +1,7 @@
 import { Accordion } from "./components/Accordion";
 import { LoadingButton } from "./components/Buttons";
 import Collapse from "./components/Collapse";
-import { LoadingIcon } from "./components/Loading";
+import { LoadingIcon, LoadingPage } from "./components/Loading";
 import Page from "./components/Page";
 import ResponsiveMenu from "./components/ResponsiveMenu";
 import { SubPane } from "./components/SubPane";
@@ -19,6 +19,7 @@ export {
   Collapse,
   LoadingButton,
   LoadingIcon,
+  LoadingPage,
   Page,
   ResponsiveMenu,
   SubPane,

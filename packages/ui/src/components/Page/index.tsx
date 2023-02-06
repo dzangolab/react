@@ -7,6 +7,7 @@ import "./page.css";
 interface Properties {
   children?: React.ReactNode;
   loading?: boolean;
+  loadingComponent?: React.ReactElement;
   subtitle?: string;
   title?: string;
   toolbar?: React.ReactNode;
@@ -15,12 +16,13 @@ interface Properties {
 const Page: React.FC<Properties> = ({
   children,
   loading = false,
+  loadingComponent = <LoadingPage />,
   subtitle,
   title,
   toolbar,
 }: Properties) => {
   return loading ? (
-    <LoadingPage />
+    loadingComponent
   ) : (
     <div className="page">
       {title && (
