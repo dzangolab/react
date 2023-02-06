@@ -1,19 +1,71 @@
-:root {
-  --accordion-border: 1px solid hsl(0deg 0% 52%);
-  --accordion-background: #fff;
-  --accordion-focus-background: hsl(216deg 94% 94%);
-  --accordion-header-padding: 1em 1.5em;
-  --accordion-hover-background: hsl(216deg 94% 94%);
-  --accordion-title-icon-height: 16px;
-  --accordion-title-icon-margin: 0 5px 0 0;
-  --accordion-title-color: #000;
-  --accordion-title-icon-width: 16px;
-  --accordion-title-gap: 2rem 0 0 0;
-  --accordion-title-size: 1rem;
-  --accordion-icon-height: 1.5rem;
-  --accordion-icon-width: 1.5rem;
+.accordion > li {
+  background: var(--accordion-background, #fff);
+  border: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
+  margin: 0;
+  padding: 0;
 }
 
-.accordion.horizontal {
-  --accordion-title-icon-margin: 0 0 5px 0;
+.accordion > li > button {
+  background-color: var(--accordion-header-background, #f0f0f0);
+  border-style: none;
+  margin: 0;
+  outline: none;
+  padding: var(--accordion-header-padding, 1em 1.5em);
+}
+
+.accordion > li > button:focus {
+  background: var(--accordion-focus-background, hsl(216deg 94% 94%));
+}
+
+.accordion > li > button:hover {
+  background: var(--accordion-hover-background, hsl(216deg 94% 94%));
+}
+
+.accordion > li > button > img:first-child {
+  height: var(--accordion-title-icon-height, 16px);
+  object-fit: contain;
+  width: var(--accordion-title-icon-width, 16px);
+}
+
+.accordion > li > button > img:last-child {
+  border: 0;
+  height: var(--accordion-icon-height, 1.5rem);
+  width: var(--accordion-icon-width, 1.5rem);
+}
+
+.accordion > li > button > span {
+  color: var(--accordion-title-color, #000);
+  flex-grow: 1;
+  font-size: var(--accordion-title-size, 1rem);
+  text-align: left;
+}
+
+.accordion.horizontal > li {
+  height: var(--accordion-height, 30rem);
+}
+
+.accordion > li > .sub-pane {
+  height: var(--accordion-height, 30rem);
+  overflow-y: scroll;
+}
+
+.accordion.horizontal > li > button,
+.accordion.horizontal > li > button > span {
+  width: min-content;
+}
+
+.accordion.horizontal > li > button > img:first-child {
+  margin: var(--accordion-title-icon-margin, 0 0 5px 0);
+}
+
+.accordion.vertical > li > button > img:first-child {
+  margin: var(--accordion-title-icon-margin, 0 5px 0 0);
+}
+
+.accordion.vertical > li.active > * + * {
+  border-top: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
+}
+
+.accordion.horizontal > li.active > * + * {
+  border-left: var(--accordion-border, 1px solid hsl(0deg 0% 52%));
 }

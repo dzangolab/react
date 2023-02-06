@@ -21,15 +21,11 @@ const AccordionTitle: React.FC<Properties> = ({
 }) => {
   return (
     <button onClick={() => handleClick(index)} type="button">
-      <div>
-        <div>
-          {icon ? <img src={icon} alt={title} /> : null}
-          <span>{title}</span>
-        </div>
-        {activeIcon && inactiveIcon ? (
-          <img src={isActive ? activeIcon : inactiveIcon} />
-        ) : null}
-      </div>
+      {icon ? <img src={icon} alt={title} /> : null}
+      <span>{title}</span>
+      {activeIcon && inactiveIcon ? (
+        <img src={isActive ? activeIcon : inactiveIcon} />
+      ) : null}
     </button>
   );
 };
