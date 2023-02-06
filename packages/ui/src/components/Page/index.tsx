@@ -1,9 +1,12 @@
 import React from "react";
 
+import { LoadingPage } from "../Loading";
+
 import "./page.css";
 
 interface Properties {
   children?: React.ReactNode;
+  loading?: boolean;
   subtitle?: string;
   title?: string;
   toolbar?: React.ReactNode;
@@ -11,11 +14,14 @@ interface Properties {
 
 const Page: React.FC<Properties> = ({
   children,
+  loading = false,
   subtitle,
   title,
   toolbar,
 }: Properties) => {
-  return (
+  return loading ? (
+    <LoadingPage />
+  ) : (
     <div className="page">
       {title && (
         <h1>
