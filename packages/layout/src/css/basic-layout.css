@@ -23,4 +23,5 @@
 
 .basic-layout > main {
   flex: 1;
+  display: inherit;
 }
