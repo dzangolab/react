@@ -6,11 +6,14 @@ exports[`Component matches snapshot 1`] = `
 >
   <div
     aria-label="tabs"
+    aria-orientation="horizontal"
     role="tablist"
   >
     <button
+      aria-selected={true}
       className="active"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
       tabIndex={0}
     >
@@ -23,8 +26,10 @@ exports[`Component matches snapshot 1`] = `
       </span>
     </button>
     <button
+      aria-selected={false}
       className=""
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="tab"
       tabIndex={-1}
     >
@@ -39,6 +44,7 @@ exports[`Component matches snapshot 1`] = `
   </div>
   <section
     role="tabpanel"
+    tabIndex={0}
   >
     <div
       className="sub-pane"
