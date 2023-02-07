@@ -19,6 +19,7 @@ test("Component matches snapshot", () => {
       title="Topic 1"
       icon="icon1.jpg"
       index={1}
+      tabIndex={0}
       isActive={true}
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       handleClick={() => {}}

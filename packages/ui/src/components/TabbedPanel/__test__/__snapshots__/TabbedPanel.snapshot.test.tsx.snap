@@ -4,43 +4,47 @@ exports[`Component matches snapshot 1`] = `
 <div
   className="tabbed-panel top"
 >
-  <ul>
-    <li
-      className="active"
-    >
-      <button
-        onClick={[Function]}
-      >
-        <img
-          alt="Topic 1"
-          src="icon1.jpg"
-        />
-        <span>
-          Topic 1
-        </span>
-      </button>
-    </li>
-    <li
-      className=""
-    >
-      <button
-        onClick={[Function]}
-      >
-        <img
-          alt="Topic 2"
-          src="icon2.jpg"
-        />
-        <span>
-          Topic 2
-        </span>
-      </button>
-    </li>
-  </ul>
   <div
-    className="sub-pane"
-    role="region"
+    aria-label="tabs"
+    role="tablist"
   >
-    Pane 1 content
+    <button
+      className="active"
+      onClick={[Function]}
+      role="tab"
+      tabIndex={0}
+    >
+      <img
+        alt="title icon"
+        src="icon1.jpg"
+      />
+      <span>
+        Topic 1
+      </span>
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+      role="tab"
+      tabIndex={-1}
+    >
+      <img
+        alt="title icon"
+        src="icon2.jpg"
+      />
+      <span>
+        Topic 2
+      </span>
+    </button>
   </div>
+  <section
+    role="tabpanel"
+  >
+    <div
+      className="sub-pane"
+    >
+      Pane 1 content
+    </div>
+  </section>
 </div>
 `;

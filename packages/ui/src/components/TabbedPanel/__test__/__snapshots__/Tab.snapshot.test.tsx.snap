@@ -1,19 +1,18 @@
 // Vitest Snapshot v1
 
 exports[`Component matches snapshot 1`] = `
-<li
+<button
   className="active"
+  onClick={[Function]}
+  role="tab"
+  tabIndex={0}
 >
-  <button
-    onClick={[Function]}
-  >
-    <img
-      alt="Topic 1"
-      src="icon1.jpg"
-    />
-    <span>
-      Topic 1
-    </span>
-  </button>
-</li>
+  <img
+    alt="title icon"
+    src="icon1.jpg"
+  />
+  <span>
+    Topic 1
+  </span>
+</button>
 `;

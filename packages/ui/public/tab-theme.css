@@ -1,8 +1,8 @@
-.tabbed-panel.bottom>ul>li.active button {
+.tabbed-panel.bottom > div > button.active {
   border-top: var(--tab-active-border, 1px solid transparent);
 }
 
-.tabbed-panel>ul>li button {
+.tabbed-panel > div > button {
   align-items: center;
   background: var(--tab-background, #eee);
   border-bottom: 0;
@@ -16,32 +16,32 @@
   transition: background-color 0.25s ease-in-out;
 }
 
-.tabbed-panel>ul>li button:focus-visible {
+.tabbed-panel > div > button:focus-visible {
   outline-offset: -1px;
   outline: var(--tab-focus-outline, 1px solid #1c4786);
 }
 
-.tabbed-panel>ul>li:not(.active) button:hover {
+.tabbed-panel > div > button:not(.active):hover {
   background: var(--tab-background-hover, #ddd);
 }
 
-.tabbed-panel>ul>li.active button {
+.tabbed-panel > div > button.active {
   background: var(--tab-background-active, #fff);
 }
 
-.tabbed-panel>ul>li span {
+.tabbed-panel > div > button span {
   color: var(--tab-font-color, #000);
   font-size: var(--tab-font-size, 1rem);
   width: max-content;
 }
 
-.tabbed-panel>ul>li img {
+.tabbed-panel > div > button img {
   height: var(--tab-icon-height, 16px);
   margin: var(--tab-icon-margin, 0 5px 0 0);
   object-fit: contain;
   width: var(--tab-icon-width, 16px);
 }
 
-.tabbed-panel.top>ul>li.active button {
+.tabbed-panel.top > div > button.active {
   border-bottom: var(--tab-active-border, 1px solid transparent);
 }

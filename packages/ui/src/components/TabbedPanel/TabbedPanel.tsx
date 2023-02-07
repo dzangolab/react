@@ -20,19 +20,20 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
 
   return (
     <div className={`tabbed-panel ${position}`}>
-      <ul>
+      <div aria-label="tabs" role="tablist">
         {childNodes.map((item, index) => (
           <Tab
             key={`${id}-${index}`}
             title={item.props.title}
             icon={item.props.icon}
             index={index}
+            tabIndex={index === active ? 0 : -1}
             isActive={active === index}
             handleClick={setActive}
           />
         ))}
-      </ul>
-      {childNodes[active]}
+      </div>
+      <section role="tabpanel">{childNodes[active]}</section>
     </div>
   );
 };
