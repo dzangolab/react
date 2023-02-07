@@ -45,7 +45,7 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
             className={active === index ? "active" : ""}
           >
             {item.props.icon ? (
-              <img src={item.props.icon} alt="title icon" />
+              <img src={item.props.icon} alt="title icon" aria-hidden="true" />
             ) : null}
             <span>{item.props.title}</span>
           </button>

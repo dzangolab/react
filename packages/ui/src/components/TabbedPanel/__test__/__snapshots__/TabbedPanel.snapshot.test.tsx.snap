@@ -19,6 +19,7 @@ exports[`Component matches snapshot 1`] = `
     >
       <img
         alt="title icon"
+        aria-hidden="true"
         src="icon1.jpg"
       />
       <span>
@@ -35,6 +36,7 @@ exports[`Component matches snapshot 1`] = `
     >
       <img
         alt="title icon"
+        aria-hidden="true"
         src="icon2.jpg"
       />
       <span>
