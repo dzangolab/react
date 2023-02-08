@@ -61,9 +61,7 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
           );
         })}
       </div>
-      <div role="tabpanel">
-        {childNodes[active]}
-      </div>
+      <div role="tabpanel">{childNodes[active]}</div>
     </div>
   );
 };
