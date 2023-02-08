@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react";
+import React, { useId, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./helper";
 
@@ -9,10 +9,14 @@ import type { Properties } from "./types";
 const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
   const id = useId();
   const [active, setActive] = useState(0);
+  const tabReferences = useRef<any>({});
   const childNodes = Array.isArray(children) ? children : [children];
 
   const handleIndex = (index: number) => {
-    setActive(index);
+    const tab = tabReferences.current[index];
+    if (tab) {
+      tab.focus();
+    }
   };
 
   if (!children) {
@@ -37,6 +41,8 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
                 getOrientation(position)
               );
             }}
+            onFocus={() => setActive(index)}
+            ref={(element) => (tabReferences.current[index] = element)}
             onClick={() => handleIndex(index)}
             key={`${id}-${index}`}
             role="tab"
