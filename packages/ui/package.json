@@ -21,7 +21,9 @@
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "test": "vitest --environment jsdom run --coverage"
+    "test": "vitest --environment jsdom run --coverage",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@dzangolab/react-config": "0.4.7",
@@ -32,6 +34,14 @@
     "react-outside-click-handler": "1.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-vite": "^0.4.0",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "0.0.13",
     "@testing-library/react": "13.4.0",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
@@ -40,6 +50,7 @@
     "@types/react-test-renderer": "18.0.0",
     "@vitejs/plugin-react": "3.0.0",
     "@vitest/coverage-c8": "0.27.3",
+    "babel-loader": "^8.3.0",
     "eslint": "8.33.0",
     "eslint-config-custom": "0.4.7",
     "eslint-plugin-react": "7.32.2",
