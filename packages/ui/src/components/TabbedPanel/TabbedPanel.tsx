@@ -9,7 +9,7 @@ import type { Properties } from "./types";
 const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
   const id = useId();
   const [active, setActive] = useState(0);
-  const tabReferences = useRef<any>({});
+  const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
 
   const handleIndex = (index: number) => {
