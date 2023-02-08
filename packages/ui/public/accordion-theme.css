@@ -43,6 +43,12 @@
 .accordion > li > div[role="region"] {
   max-height: var(--accordion-height, 30rem);
   overflow-y: scroll;
+  width: 100%;
+}
+
+.accordion > li.active,
+.accordion > li.active > div[role="region"] {
+  width: 100%;
 }
 
 .accordion.horizontal > li {
