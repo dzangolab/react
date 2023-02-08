@@ -54,6 +54,9 @@ const login = async (
 
 async function verifySession(claim: string): Promise<boolean> {
   if (await Session.doesSessionExist()) {
+    //todo [SM: 08-02-2023] remove this hack
+    if (claim === "user") return true;
+
     const validationErrors = await Session.validateClaims({
       overrideGlobalClaimValidators: (globalValidators) => [
         ...globalValidators,
