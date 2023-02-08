@@ -27,13 +27,13 @@ const onTabDown = (
   active: number,
   event: KeyboardEvent<HTMLButtonElement>,
   count: number,
-  handleIndex: (value: number) => void,
+  handleFocus: (value: number) => void,
   orientation: TOrientation
 ) => {
-  const nextTab = () => handleIndex((active + 1) % count);
-  const previousTab = () => handleIndex((active - 1 + count) % count);
-  const firstTab = () => handleIndex(0);
-  const lastTab = () => handleIndex(count - 1);
+  const nextTab = () => handleFocus((active + 1) % count);
+  const previousTab = () => handleFocus((active - 1 + count) % count);
+  const firstTab = () => handleFocus(0);
+  const lastTab = () => handleFocus(count - 1);
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   const doNothing = () => {};
 

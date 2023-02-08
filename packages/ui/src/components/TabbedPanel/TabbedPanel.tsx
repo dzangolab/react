@@ -12,7 +12,7 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
 
-  const handleIndex = (index: number) => {
+  const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];
     if (tab) {
       tab.focus();
@@ -37,13 +37,13 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
                 active,
                 event,
                 childNodes.length,
-                handleIndex,
+                handleFocus,
                 getOrientation(position)
               );
             }}
             onFocus={() => setActive(index)}
             ref={(element) => (tabReferences.current[index] = element)}
-            onClick={() => handleIndex(index)}
+            onClick={() => setActive(index)}
             key={`${id}-${index}`}
             role="tab"
             aria-selected={active === index}
