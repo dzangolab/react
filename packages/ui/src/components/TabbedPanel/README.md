@@ -52,13 +52,13 @@ export default Page
 
 ### Accordion
 
-| Prop     | Type                                   | Description                                           | Default |
-| -------- | -------------------------------------- | ----------------------------------------------------- | ------- |
-| position | `top` \| `left` \| `bottom` \| `right` | The position of the tabs relative to the tabbed pane. | `top`   |
+| Prop     | Type                                   | Description                                           | Default | Required |
+| -------- | -------------------------------------- | ----------------------------------------------------- | ------- | -------- |
+| position | `top` \| `left` \| `bottom` \| `right` | The position of the tabs relative to the tabbed pane. | `top`   | No       |
 
 ### SubPane
 
-| Prop  | Type     | Description                                     | Default |
-| ----- | -------- | ----------------------------------------------- | ------- |
-| icon  | `string` | The icon to display in the subpane's title area | None    |
-| title | `string` | The text to display in the subpan'es title area | None    |
+| Prop  | Type     | Description                                     | Default | Required |
+| ----- | -------- | ----------------------------------------------- | ------- | -------- |
+| icon  | `string` | The icon to display in the subpane's title area | None    | No       |
+| title | `string` | The text to display in the subpan'es title area | None    | Yes      |

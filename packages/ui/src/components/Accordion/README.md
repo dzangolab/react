@@ -54,16 +54,16 @@ export default Page
 
 | Prop             | Type                       | Description                                      | Default    | Required |
 | ---------------- | -------------------------- | ------------------------------------------------ | ---------- | -------- |
-| activeIcon       | `string`                   | The toggler icon for expanded state              | None       | no       |
-| canSelfCollapse  | `boolean`                  | If set to true, panes can collapse themselves    | false      | no       |
-| defaultActiveKey | `number`                   | Index of pane that should be expanded initially  | None       | no       |
-| direction        | `horizontal` \| `vertical` | The direction ui which the accordion is laid out | `vertical` | no       |
+| activeIcon       | `string`                   | The toggler icon for expanded state              | None       | No       |
+| canSelfCollapse  | `boolean`                  | If set to true, panes can collapse themselves    | false      | No       |
+| defaultActiveKey | `number`                   | Index of pane that should be expanded initially  | None       | No       |
+| direction        | `horizontal` \| `vertical` | The direction ui which the accordion is laid out | `vertical` | No       |
 | id               | `string`                   | An unique identifier for accordion               | None       | yes      |
-| inactiveIcon     | `string`                   | The toggler icon for collapsed state             | None       | no       |
+| inactiveIcon     | `string`                   | The toggler icon for collapsed state             | None       | No       |
 
 ### SubPane
 
-| Prop  | Type     | Description                                     | Default |
-| ----- | -------- | ----------------------------------------------- | ------- |
-| icon  | `string` | The icon to display in the subpane's title area | None    |
-| title | `string` | The text to display in the subpan'es title area | None    |
+| Prop  | Type     | Description                                     | Default | Required |
+| ----- | -------- | ----------------------------------------------- | ------- | -------- |
+| icon  | `string` | The icon to display in the subpane's title area | None    | No       |
+| title | `string` | The text to display in the subpan'es title area | None    | yes      |
