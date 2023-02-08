@@ -29,13 +29,15 @@ const Page: React.FC<Properties> = ({
     child = loadingComponent;
   } else if (errorMessage) {
     child = (
-      <div className="error-message" role="alert">
-        <span>{errorMessage}</span>
+      <div className="page">
+        <div role="alert">
+          <span>{errorMessage}</span>
+        </div>
       </div>
     );
   } else {
     child = (
-      <>
+      <div className="page">
         {title && (
           <h1>
             {title}
@@ -46,10 +48,10 @@ const Page: React.FC<Properties> = ({
         <div data-testid="page-content" className="content">
           {children}
         </div>
-      </>
+      </div>
     );
   }
-  return <div className="page">{child}</div>;
+  return child;
 };
 
 export default Page;
