@@ -43,9 +43,12 @@
   writing-mode: vertical-rl;
 }
 
-.accordion.horizontal > li > button > img:first-child,
-.accordion.horizontal > li > button > img:last-child {
+.accordion.horizontal > li > button > img:first-child {
   transform: rotate(90deg);
+}
+
+.accordion.horizontal > li > button > img:last-child {
+  transform: rotate(270deg);
 }
 
 .accordion.vertical,

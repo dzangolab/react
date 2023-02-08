@@ -10,7 +10,7 @@
   border-style: none;
   margin: 0;
   outline: none;
-  padding: var(--accordion-header-padding, 1em 1.5em);
+  padding: var(--accordion-header-padding, 1rem 1.5rem);
 }
 
 .accordion > li > button:focus {
@@ -40,18 +40,24 @@
   text-align: left;
 }
 
-.accordion.horizontal > li {
-  height: var(--accordion-height, 30rem);
-}
-
-.accordion > li > div {
-  height: var(--accordion-height, 30rem);
+.accordion > li > div[role="region"] {
+  max-height: var(--accordion-height, 30rem);
   overflow-y: scroll;
 }
 
-.accordion.horizontal > li > button,
-.accordion.horizontal > li > button > span {
+.accordion.horizontal > li {
+  min-height: var(--accordion-horizontal-height, 30rem);
+}
+
+.accordion.horizontal > li > button {
+  padding: var(--accordion-header-padding, 1.5rem 1rem);
   width: min-content;
+}
+
+.accordion.horizontal > li > button > span {
+  line-height: normal;
+  padding: 0;
+  width: fit-content;
 }
 
 .accordion.horizontal > li > button > img:first-child {

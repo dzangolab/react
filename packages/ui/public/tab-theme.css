@@ -1,3 +1,7 @@
+.tabbed-panel > div[role="tabpanel"] {
+  width: 100%;
+}
+
 .tabbed-panel.bottom > div > button.active {
   border-top: var(--tab-active-border, 1px solid transparent);
 }
@@ -12,8 +16,8 @@
   display: flex;
   outline: 0;
   padding: var(--tab-padding, 15px 25px);
-  width: 100%;
   transition: background-color 0.25s ease-in-out;
+  width: 100%;
 }
 
 .tabbed-panel > div > button:focus-visible {

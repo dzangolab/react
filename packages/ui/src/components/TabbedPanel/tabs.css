@@ -46,11 +46,6 @@
   border-left: var(--tab-active-border);
 }
 
-.tabbed-panel.left .sub-pane,
-.tabbed-panel.right .sub-pane {
-  flex-grow: 1;
-}
-
 .tabbed-panel.left > div > button,
 .tabbed-panel.right > div > button {
   width: 100%;
