@@ -25,11 +25,7 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
 
   return (
     <div className={`tabbed-panel ${position}`}>
-      <div
-        aria-label="tabs"
-        role="tablist"
-        aria-orientation={getOrientation(position)}
-      >
+      <div role="tablist" aria-orientation={getOrientation(position)}>
         {childNodes.map((item, index) => {
           const isActive = active === index;
           const title = item.props.title;
@@ -52,6 +48,7 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
               key={`${id}-${index}`}
               role="tab"
               aria-label={title}
+              aria-disabled={isActive}
               aria-selected={isActive}
               tabIndex={isActive ? 0 : -1}
               className={isActive ? "active" : ""}

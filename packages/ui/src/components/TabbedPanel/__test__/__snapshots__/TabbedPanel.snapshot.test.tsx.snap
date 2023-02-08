@@ -5,11 +5,11 @@ exports[`Component matches snapshot 1`] = `
   className="tabbed-panel top"
 >
   <div
-    aria-label="tabs"
     aria-orientation="horizontal"
     role="tablist"
   >
     <button
+      aria-disabled={true}
       aria-label="Topic 1"
       aria-selected={true}
       className="active"
@@ -29,6 +29,7 @@ exports[`Component matches snapshot 1`] = `
       </span>
     </button>
     <button
+      aria-disabled={false}
       aria-label="Topic 2"
       aria-selected={false}
       className=""
