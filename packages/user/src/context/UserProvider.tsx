@@ -1,3 +1,4 @@
+import { verifySession } from "@/supertokens/login";
 import React, { createContext, useEffect, useState } from "react";
 import Session from "supertokens-web-js/recipe/session";
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
@@ -5,12 +6,13 @@ import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemail
 import { UserContextType } from "../types";
 
 interface Properties {
+  appContext: "user" | "admin";
   children: React.ReactNode;
 }
 
 const userContext = createContext<UserContextType | undefined>(undefined);
 
-const UserProvider = ({ children }: Properties) => {
+const UserProvider = ({ appContext, children }: Properties) => {
   const [user, setUser] = useState<EmailPasswordUserType | undefined>(
     undefined
   );
@@ -19,7 +21,7 @@ const UserProvider = ({ children }: Properties) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        if (await Session.doesSessionExist()) {
+        if (await verifySession(appContext)) {
           const userInfo = await Session.getAccessTokenPayloadSecurely();
 
           if (userInfo) {

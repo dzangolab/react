@@ -21,7 +21,7 @@ function toJson(component: ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const component = create(
-    <UserProvider>
+    <UserProvider appContext="user">
       <DropdownUserMenu />
     </UserProvider>
   );
