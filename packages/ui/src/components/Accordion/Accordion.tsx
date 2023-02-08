@@ -9,7 +9,7 @@ type Properties = {
   defaultActiveKey?: number;
   direction?: "horizontal" | "vertical";
   activeIcon?: string;
-  allowMultipleExpanded?: boolean;
+  canSelfCollapse?: boolean;
   id: string;
   inactiveIcon?: string;
 };
@@ -17,9 +17,9 @@ type Properties = {
 const Accordion: React.FC<Properties> = ({
   children,
   defaultActiveKey,
-  direction,
+  direction = "vertical",
   activeIcon,
-  allowMultipleExpanded,
+  canSelfCollapse = false,
   id,
   inactiveIcon,
 }) => {
@@ -27,7 +27,7 @@ const Accordion: React.FC<Properties> = ({
   const childNodes = Array.isArray(children) ? children : [children];
 
   const handleClick = (index: number) => {
-    if (!allowMultipleExpanded || active !== index) setActive(index);
+    if (!canSelfCollapse || active !== index) setActive(index);
     else setActive(undefined);
   };
 
@@ -51,7 +51,7 @@ const Accordion: React.FC<Properties> = ({
               aria-label={title}
               onClick={() => handleClick(index)}
               type="button"
-              aria-disabled={!allowMultipleExpanded && isActive}
+              aria-disabled={!canSelfCollapse && isActive}
               aria-expanded={isActive}
             >
               {icon ? (
@@ -75,11 +75,6 @@ const Accordion: React.FC<Properties> = ({
       })}
     </ul>
   );
-};
-
-Accordion.defaultProps = {
-  direction: "vertical",
-  allowMultipleExpanded: false,
 };
 
 export default Accordion;
