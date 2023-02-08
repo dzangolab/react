@@ -1,17 +1,22 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { create } from "react-test-renderer";
 import { expect, test, vi } from "vitest";
 
 import { userContext } from "../../context/UserProvider";
 import ProfileInformation from "../ProfileInformation";
 
-function toJson(component: renderer.ReactTestRenderer) {
+import type {
+  ReactTestRenderer,
+  ReactTestRendererJSON,
+} from "react-test-renderer";
+
+function toJson(component: ReactTestRenderer) {
   const result = component.toJSON();
 
   expect(result).toBeDefined();
   expect(result).not.toBeInstanceOf(Array);
 
-  return result as renderer.ReactTestRendererJSON;
+  return result as ReactTestRendererJSON;
 }
 
 test("Component matches snapshot", () => {
@@ -21,7 +26,7 @@ test("Component matches snapshot", () => {
     setUser: vi.fn(),
   };
 
-  const component = renderer.create(
+  const component = create(
     <userContext.Provider value={values}>
       <ProfileInformation />
     </userContext.Provider>

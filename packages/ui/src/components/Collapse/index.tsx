@@ -28,13 +28,10 @@ const Collapse = ({ children, isOpen }: Properties) => {
   }, [isOpen]);
 
   return (
-    <div
-      className="collapse-content-parent"
-      ref={contentReference}
-      style={{ height }}
-    >
-      <div className="collapse-content">{children}</div>
+    <div className="collapse" ref={contentReference} style={{ height }}>
+      {children}
     </div>
   );
 };
+
 export default Collapse;

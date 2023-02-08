@@ -1,117 +1,58 @@
-.accordion-list {
-  align-items: flex-start;
+.accordion {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.accordion-list>li {
-  width: 100%;
+.accordion > li {
+  display: flex;
 }
 
-.accordion {
-  border-radius: 7px;
-  border: 2px solid hsl(0deg 0% 52%);
-  margin: 0;
-  padding: 0;
-}
-
-.accordion:focus-within {
-  border-color: #1c4786;
-}
-
-.accordion>*+* {
-  border-top: 0;
-}
-
-.accordion.active>*+* {
-  border-top: 1px solid hsl(0deg 0% 52%);
-}
-
-.accordion-trigger {
-  background: none;
-  color: hsl(0deg 0% 13%);
-  display: block;
-  font-size: 1rem;
-  font-weight: normal;
-  margin: 0;
-  outline: none;
-  padding: 1em 1.5em;
-  position: relative;
-  text-align: left;
-  width: 100%;
-}
-
-.accordion-trigger:focus,
-.accordion-trigger:hover {
-  background: hsl(216deg 94% 94%);
-}
-
-.accordion-trigger:focus {
-  outline: 4px solid transparent;
-}
-
-.accordion>*:first-child .accordion-trigger,
-.accordion>*:first-child {
-  border-radius: 5px 5px 0 0;
-}
-
-.accordion>*:last-child .accordion-trigger,
-.accordion>*:last-child {
-  border-radius: 0 0 5px 5px;
-}
-
-.accordion button {
-  border-style: none;
-  cursor: pointer;
-}
-
-.accordion button::-moz-focus-inner {
-  border: 0;
-}
-
-.accordion-title {
+.accordion > li > button {
   align-items: center;
-  border-radius: 5px;
-  border: transparent 2px solid;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
-  font-size: 1rem;
   justify-content: space-between;
-  outline: none;
-  padding: 0.25em;
-  pointer-events: none;
   width: 100%;
 }
 
-.accordion-icon {
-  border: 0;
-  height: 1.5rem;
-  pointer-events: none;
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-55%) rotate(0deg);
-  width: 1.5rem;
+.accordion.horizontal > li > button {
+  flex-direction: column;
 }
 
-.accordion-trigger:focus .accordion-icon path,
-.accordion-trigger:hover .accordion-icon path {
-  fill: none;
+.accordion.horizontal {
+  align-items: stretch;
+  flex-direction: row;
 }
 
-.accordion-trigger.expanded .accordion-icon {
-  transform: translateY(-55%) rotate(-180deg);
+.accordion.horizontal > li {
+  flex-direction: row;
 }
 
-.accordion-panel {
-  margin: 0;
-  padding: 0 1.5em;
+.accordion.horizontal > li > button {
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(180deg);
 }
 
-.accordion-panel.hidden {
-  border: 0;
+.accordion.horizontal > li > button > span {
+  text-orientation: sideways-right;
+  writing-mode: vertical-rl;
+}
+
+.accordion.horizontal > li > button > img:first-child {
+  transform: rotate(90deg);
+}
+
+.accordion.horizontal > li > button > img:last-child {
+  transform: rotate(270deg);
+}
+
+.accordion.vertical,
+.accordion.vertical > li {
+  flex-direction: column;
+  width: 100%;
 }

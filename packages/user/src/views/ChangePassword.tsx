@@ -2,12 +2,12 @@ import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 import ChangePasswordForm from "@/components/ChangePasswordForm";
 import changePassword from "@/supertokens/change-password";
 
 import "../assets/css/changePassword.css";
-import { toast } from "react-toastify";
 
 const ChangePassword = () => {
   const { t } = useTranslation("user");

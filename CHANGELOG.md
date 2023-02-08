@@ -1,3 +1,43 @@
+## [0.4.7](https://github.com/dzangolab/react/compare/v0.4.6...v0.4.7) (2023-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-table to v8.7.9 ([#107](https://github.com/dzangolab/react/issues/107)) ([d6934cf](https://github.com/dzangolab/react/commit/d6934cfbb236dd9d285b5b5ab642c12607e83598))
+* **deps:** update dependency eslint-config-next to v13.1.6 ([#94](https://github.com/dzangolab/react/issues/94)) ([98bba92](https://github.com/dzangolab/react/commit/98bba9274decf0564d36c012b43617797fff9ee3))
+* **deps:** update dependency eslint-import-resolver-typescript to v3.5.3 ([#90](https://github.com/dzangolab/react/issues/90)) ([06da860](https://github.com/dzangolab/react/commit/06da860a86ddbe54ef52e14dcb69ccb1e04e970d))
+* **deps:** update dependency eslint-plugin-react to v7.32.2 ([#108](https://github.com/dzangolab/react/issues/108)) ([41d0ca5](https://github.com/dzangolab/react/commit/41d0ca5065d3c775057c14ecce79a037998abe8d))
+* **deps:** update dependency i18next-browser-languagedetector to v6.1.8 ([#33](https://github.com/dzangolab/react/issues/33)) ([8e2c061](https://github.com/dzangolab/react/commit/8e2c061d113cce425f681e95cde194d70998bcdb))
+
+
+### Features
+
+* **ui:** make isLoading optional ([#121](https://github.com/dzangolab/react/issues/121)) ([8c91dc8](https://github.com/dzangolab/react/commit/8c91dc86231bc8d91191ee7641dfe55b21295bf5))
+
+
+
+## [0.4.6](https://github.com/dzangolab/react/compare/v0.4.5...v0.4.6) (2023-02-01)
+
+
+### Features
+
+* collapsible sidebar layout ([#98](https://github.com/dzangolab/react/issues/98)) ([841517e](https://github.com/dzangolab/react/commit/841517eebb0560d45087ae72e6b431a04d2c4660)), closes [#100](https://github.com/dzangolab/react/issues/100)
+
+
+
+## [0.4.5](https://github.com/dzangolab/react/compare/v0.4.4...v0.4.5) (2023-01-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-config-next to v13.1.4 ([#38](https://github.com/dzangolab/react/issues/38)) ([fb61054](https://github.com/dzangolab/react/commit/fb61054cfe3f0440e388635c12a9945a5b1fa8d2))
+* **deps:** update dependency eslint-plugin-react to v7.32.1 ([#32](https://github.com/dzangolab/react/issues/32)) ([43c3439](https://github.com/dzangolab/react/commit/43c343922b5fad23601d25bf01fb771a2fc31e06))
+* **deps:** update typescript-eslint monorepo to v5.48.2 ([#19](https://github.com/dzangolab/react/issues/19)) ([1ad9ee5](https://github.com/dzangolab/react/commit/1ad9ee5e369faf0611c8adf8c5bc4a53ef0d31d6))
+* **layout:** fix console warnings ([#73](https://github.com/dzangolab/react/issues/73)) ([2ea471b](https://github.com/dzangolab/react/commit/2ea471baef199fe80feac550690691e54684c7d9))
+* react undefined error ([#76](https://github.com/dzangolab/react/issues/76)) ([8d1918a](https://github.com/dzangolab/react/commit/8d1918a288da435d60cb793ff48444ddc2f1110e))
+
+
+
 ## [0.4.4](https://github.com/dzangolab/react/compare/v0.4.3...v0.4.4) (2023-01-13)
 
 

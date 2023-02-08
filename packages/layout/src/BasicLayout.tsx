@@ -12,7 +12,7 @@ interface Properties {
   header?: React.ReactNode;
 }
 
-const BasicLayout: React.FC<Properties> = (properties: Properties) => {
+const BasicLayout: React.FC<Properties> = (properties) => {
   const {
     children,
     footer = <AppFooter />,
