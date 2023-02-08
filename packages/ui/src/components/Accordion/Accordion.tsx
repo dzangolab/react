@@ -1,6 +1,5 @@
-import React, { useId, useState } from "react";
+import React, { useState } from "react";
 
-import AccordionTitle from "./AccordionTitle";
 import "./accordion.css";
 
 import type { ReactElement } from "react";
@@ -10,6 +9,8 @@ type Properties = {
   defaultActiveKey?: number;
   direction?: "horizontal" | "vertical";
   activeIcon?: string;
+  allowMultipleExpanded?: boolean;
+  id: string;
   inactiveIcon?: string;
 };
 
@@ -18,14 +19,15 @@ const Accordion: React.FC<Properties> = ({
   defaultActiveKey,
   direction,
   activeIcon,
+  allowMultipleExpanded,
+  id,
   inactiveIcon,
 }) => {
-  const id = useId();
   const [active, setActive] = useState(defaultActiveKey);
   const childNodes = Array.isArray(children) ? children : [children];
 
   const handleClick = (index: number) => {
-    if (active !== index) setActive(index);
+    if (!allowMultipleExpanded || active !== index) setActive(index);
     else setActive(undefined);
   };
 
@@ -34,27 +36,50 @@ const Accordion: React.FC<Properties> = ({
   }
 
   return (
-    <ul className={`accordion ${direction}`}>
-      {childNodes.map((item, index) => (
-        <li className={active === index ? "active" : ""} key={`${id}-${index}`}>
-          <AccordionTitle
-            handleClick={() => handleClick(index)}
-            icon={item.props.icon}
-            index={index}
-            isActive={active === index}
-            title={item.props.title}
-            activeIcon={activeIcon}
-            inactiveIcon={inactiveIcon}
-          />
-          {active === index ? childNodes[active] : null}
-        </li>
-      ))}
+    <ul className={`accordion ${direction}`} aria-orientation={direction}>
+      {childNodes.map((item, index) => {
+        const isActive = active === index;
+        const key = `${id}-${index}`;
+        const bodyId = `pane-body-${key}`;
+        const title = item.props.title;
+        const icon = item.props.icon;
+
+        return (
+          <li className={isActive ? "active" : ""} key={key}>
+            <button
+              aria-controls={bodyId}
+              aria-label={title}
+              onClick={() => handleClick(index)}
+              type="button"
+              aria-disabled={!allowMultipleExpanded && isActive}
+              aria-expanded={isActive}
+            >
+              {icon ? (
+                <img src={icon} alt="title icon" aria-hidden="true" />
+              ) : null}
+              <span>{title}</span>
+              {activeIcon && inactiveIcon ? (
+                <img
+                  src={isActive ? activeIcon : inactiveIcon}
+                  alt="toggle icon"
+                  aria-hidden="true"
+                />
+              ) : null}
+            </button>
+
+            <div role="region" id={bodyId} hidden={!isActive}>
+              {isActive ? childNodes[active] : null}
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 };
 
 Accordion.defaultProps = {
   direction: "vertical",
+  allowMultipleExpanded: false,
 };
 
 export default Accordion;

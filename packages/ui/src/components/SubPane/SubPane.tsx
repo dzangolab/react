@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import "./subpane.css";
 
 type Properties = {
   children: ReactNode;
@@ -7,11 +8,7 @@ type Properties = {
 };
 
 const SubPane: React.FC<Properties> = ({ children }) => {
-  return (
-    <div role="region" className="sub-pane">
-      {children}
-    </div>
-  );
+  return <div className="sub-pane">{children}</div>;
 };
 
 export default SubPane;

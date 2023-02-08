@@ -8,7 +8,7 @@
   flex-direction: column-reverse;
 }
 
-.tabbed-panel>ul {
+.tabbed-panel > div {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -17,68 +17,24 @@
   margin: 0;
 }
 
-.tabbed-panel.bottom>ul,
-.tabbed-panel.top>ul {
+.tabbed-panel.bottom > div,
+.tabbed-panel.top > div {
   flex-direction: row;
-}
-
-.tabbed-panel.bottom>ul>li.active button {
-  border-top: var(--tab-active-border);
 }
 
 .tabbed-panel.left {
   flex-direction: row;
 }
 
-.tabbed-panel>ul>li {
+.tabbed-panel > div > button {
   width: max-content;
 }
 
-.tabbed-panel>ul>li button {
-  align-items: center;
-  background: var(--tab-background);
-  border-bottom: 0;
-  border: 0;
-  border: var(--tab-border);
-  cursor: pointer;
-  display: flex;
-  outline: 0;
-  padding: var(--tab-padding);
-  width: 100%;
-  transition: background-color 0.25s ease-in-out;
-}
-
-.tabbed-panel>ul>li button:focus-visible {
-  outline-offset: -1px;
-  outline: var(--tab-focus-outline);
-}
-
-.tabbed-panel>ul>li:not(.active) button:hover {
-  background: var(--tab-background-hover);
-}
-
-.tabbed-panel>ul>li.active button {
-  background: var(--tab-background-active);
-}
-
-.tabbed-panel>ul>li span {
-  color: var(--tab-font-color);
-  font-size: var(--tab-font-size);
-  width: max-content;
-}
-
-.tabbed-panel>ul>li img {
-  height: var(--tab-icon-height);
-  margin: var(--tab-icon-margin);
-  object-fit: contain;
-  width: var(--tab-icon-width);
-}
-
-.tabbed-panel.left>ul {
+.tabbed-panel.left > div {
   align-items: flex-start;
 }
 
-.tabbed-panel.left>ul>li.active button {
+.tabbed-panel.left > div > button.active {
   border-right: var(--tab-active-border);
 }
 
@@ -86,20 +42,11 @@
   flex-direction: row-reverse;
 }
 
-.tabbed-panel.right>ul>li.active button {
+.tabbed-panel.right > div > button.active {
   border-left: var(--tab-active-border);
 }
 
-.tabbed-panel.left .sub-pane,
-.tabbed-panel.right .sub-pane {
-  flex-grow: 1;
-}
-
-.tabbed-panel.left>ul>li,
-.tabbed-panel.right>ul>li {
+.tabbed-panel.left > div > button,
+.tabbed-panel.right > div > button {
   width: 100%;
-}
-
-.tabbed-panel.top>ul>li.active button {
-  border-bottom: var(--tab-active-border);
 }

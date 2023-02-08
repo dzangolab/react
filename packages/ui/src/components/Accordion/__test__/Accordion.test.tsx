@@ -8,6 +8,8 @@ import Accordion from "../Accordion";
 const accordionValues = {
   activeIcon: "arrow-down.jpg",
   inactiveIcon: "arrow-up.jpg",
+  accordionId1: "test-accordion-1",
+  accordionId2: "test-accordion-2",
 };
 
 const paneValues = {
@@ -28,6 +30,7 @@ test("no subpane is active when defaultActiveKey prop is not passed", async () =
     <Accordion
       activeIcon={accordionValues.activeIcon}
       inactiveIcon={accordionValues.inactiveIcon}
+      id={accordionValues.accordionId1}
     >
       <SubPane title={paneValues.pane1.title} icon={paneValues.pane1.icon}>
         <p>{paneValues.pane1.content}</p>
@@ -52,6 +55,7 @@ test("correct subpane is active", async () => {
       defaultActiveKey={1}
       activeIcon={accordionValues.activeIcon}
       inactiveIcon={accordionValues.inactiveIcon}
+      id={accordionValues.accordionId2}
     >
       <SubPane title={paneValues.pane1.title} icon={paneValues.pane1.icon}>
         <p>{paneValues.pane1.content}</p>

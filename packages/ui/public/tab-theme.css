@@ -1,14 +1,51 @@
-:root {
-  --tab-active-border: 1px solid transparent;
-  --tab-background: #eee;
-  --tab-background-active: #fff;
-  --tab-background-hover: #ddd;
-  --tab-border: 1px solid #ddd;
-  --tab-font-color: #000;
-  --tab-focus-outline: 1px solid #1c4786;
-  --tab-font-size: 1rem;
-  --tab-icon-height: 16px;
-  --tab-icon-margin: 0 5px 0 0;
-  --tab-icon-width: 16px;
-  --tab-padding: 15px 25px;
+.tabbed-panel > div[role="tabpanel"] {
+  width: 100%;
+}
+
+.tabbed-panel.bottom > div > button.active {
+  border-top: var(--tab-active-border, 1px solid transparent);
+}
+
+.tabbed-panel > div > button {
+  align-items: center;
+  background: var(--tab-background, #eee);
+  border-bottom: 0;
+  border: 0;
+  border: var(--tab-border, 1px solid #ddd);
+  cursor: pointer;
+  display: flex;
+  outline: 0;
+  padding: var(--tab-padding, 15px 25px);
+  transition: background-color 0.25s ease-in-out;
+  width: 100%;
+}
+
+.tabbed-panel > div > button:focus-visible {
+  outline-offset: -1px;
+  outline: var(--tab-focus-outline, 1px solid #1c4786);
+}
+
+.tabbed-panel > div > button:not(.active):hover {
+  background: var(--tab-background-hover, #ddd);
+}
+
+.tabbed-panel > div > button.active {
+  background: var(--tab-background-active, #fff);
+}
+
+.tabbed-panel > div > button span {
+  color: var(--tab-font-color, #000);
+  font-size: var(--tab-font-size, 1rem);
+  width: max-content;
+}
+
+.tabbed-panel > div > button img {
+  height: var(--tab-icon-height, 16px);
+  margin: var(--tab-icon-margin, 0 5px 0 0);
+  object-fit: contain;
+  width: var(--tab-icon-width, 16px);
+}
+
+.tabbed-panel.top > div > button.active {
+  border-bottom: var(--tab-active-border, 1px solid transparent);
 }

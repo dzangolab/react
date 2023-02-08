@@ -2,53 +2,70 @@
 
 exports[`Component matches snapshot 1`] = `
 <ul
+  aria-orientation="vertical"
   className="accordion vertical"
 >
   <li
     className=""
   >
     <button
+      aria-controls="pane-body-accordion-test-1-0"
+      aria-disabled={false}
+      aria-expanded={false}
+      aria-label="Topic 1"
       onClick={[Function]}
       type="button"
     >
-      <div>
-        <div>
-          <img
-            alt="Topic 1"
-            src="icon1.jpg"
-          />
-          <span>
-            Topic 1
-          </span>
-        </div>
-        <img
-          src="arrow-up.jpg"
-        />
-      </div>
+      <img
+        alt="title icon"
+        aria-hidden="true"
+        src="icon1.jpg"
+      />
+      <span>
+        Topic 1
+      </span>
+      <img
+        alt="toggle icon"
+        aria-hidden="true"
+        src="arrow-up.jpg"
+      />
     </button>
+    <div
+      hidden={true}
+      id="pane-body-accordion-test-1-0"
+      role="region"
+    />
   </li>
   <li
     className=""
   >
     <button
+      aria-controls="pane-body-accordion-test-1-1"
+      aria-disabled={false}
+      aria-expanded={false}
+      aria-label="Topic 2"
       onClick={[Function]}
       type="button"
     >
-      <div>
-        <div>
-          <img
-            alt="Topic 2"
-            src="icon2.jpg"
-          />
-          <span>
-            Topic 2
-          </span>
-        </div>
-        <img
-          src="arrow-up.jpg"
-        />
-      </div>
+      <img
+        alt="title icon"
+        aria-hidden="true"
+        src="icon2.jpg"
+      />
+      <span>
+        Topic 2
+      </span>
+      <img
+        alt="toggle icon"
+        aria-hidden="true"
+        src="arrow-up.jpg"
+      />
     </button>
+    <div
+      hidden={true}
+      id="pane-body-accordion-test-1-1"
+      role="region"
+    />
   </li>
 </ul>
 `;

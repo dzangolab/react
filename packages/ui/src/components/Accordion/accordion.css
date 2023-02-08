@@ -1,134 +1,58 @@
 .accordion {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.accordion > li {
   display: flex;
 }
 
-.accordion>li {
-  border: var(--accordion-border);
-  background: var(--accordion-background);
-  margin: 0;
-  padding: 0;
-}
-
-.accordion>li>button {
-  background: none;
-  border-style: none;
-  cursor: pointer;
-  display: block;
-  font-weight: normal;
-  margin: 0;
-  outline: none;
-  padding: var(--accordion-header-padding);
-  text-align: left;
-  width: 100%;
-}
-
-.accordion>li>button:focus {
-  background: var(--accordion-focus-background);
-}
-
-.accordion>li>button:hover {
-  background: var(--accordion-hover-background);
-}
-
-.accordion>li>button>div {
+.accordion > li > button {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  outline: none;
-  pointer-events: none;
   width: 100%;
 }
 
-.accordion>li>button>div>img {
-  border: 0;
-  height: var(--accordion-icon-height);
-  pointer-events: none;
-  width: var(--accordion-icon-width);
-}
-
-.accordion.horizontal>li>button>div>div {
+.accordion.horizontal > li > button {
   flex-direction: column;
-}
-
-.accordion.horizontal>li>button>div>img,
-.accordion.horizontal>li>button>div>div>img {
-  transform: rotate(90deg);
 }
 
 .accordion.horizontal {
-  flex-direction: row;
   align-items: stretch;
-}
-
-.accordion.horizontal>li {
-  display: flex;
   flex-direction: row;
 }
 
-.accordion.horizontal>li>button {
-  width: min-content;
-  display: flex;
-  justify-content: space-between;
-  transform: rotate(-180deg);
+.accordion.horizontal > li {
+  flex-direction: row;
 }
 
-.accordion.horizontal>li>button>div {
+.accordion.horizontal > li > button {
+  align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: min-content;
+  transform: rotate(180deg);
 }
 
-.accordion.horizontal>li>button>div>img {
-  margin: var(--accordion-title-gap);
-}
-
-.accordion>li>button>div>div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.accordion>li>button>div>div>img {
-  height: var(--accordion-title-icon-height);
-  margin: var(--accordion-title-icon-margin);
-  object-fit: contain;
-  width: var(--accordion-title-icon-width);
-}
-
-.accordion>li>button>div>div>span {
-  font-size: var(--accordion-title-size);
-  color: var(--accordion-title-color);
-}
-
-.accordion.horizontal>li>button>div>div>span {
-  writing-mode: vertical-lr;
+.accordion.horizontal > li > button > span {
   text-orientation: sideways-right;
-  width: min-content;
+  writing-mode: vertical-rl;
 }
 
-.accordion.vertical {
-  align-items: flex-start;
+.accordion.horizontal > li > button > img:first-child {
+  transform: rotate(90deg);
+}
+
+.accordion.horizontal > li > button > img:last-child {
+  transform: rotate(270deg);
+}
+
+.accordion.vertical,
+.accordion.vertical > li {
   flex-direction: column;
-}
-
-.accordion.vertical>li {
   width: 100%;
-}
-
-.accordion.vertical>li>button>div>div>span {
-  width: max-content;
-}
-
-.accordion.vertical>li.active>*+* {
-  border-top: var(--accordion-border);
-}
-
-.accordion.horizontal>li.active>*+* {
-  border-left: var(--accordion-border);
 }
