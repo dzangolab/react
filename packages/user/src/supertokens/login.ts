@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
+import Session from "supertokens-web-js/recipe/session";
 import {
   EmailPasswordUserType,
   emailPasswordSignIn,
 } from "supertokens-web-js/recipe/thirdpartyemailpassword";
-import Session from "supertokens-web-js/recipe/session";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
 import type { LoginCredentials } from "../types";
@@ -54,7 +54,7 @@ const login = async (
 
 async function verifySession(claim: string): Promise<boolean> {
   if (await Session.doesSessionExist()) {
-    let validationErrors = await Session.validateClaims({
+    const validationErrors = await Session.validateClaims({
       overrideGlobalClaimValidators: (globalValidators) => [
         ...globalValidators,
         UserRoleClaim.validators.includes(claim),
