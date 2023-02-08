@@ -30,36 +30,43 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
         role="tablist"
         aria-orientation={getOrientation(position)}
       >
-        {childNodes.map((item, index) => (
-          <button
-            onKeyDown={(event) => {
-              onTabDown(
-                active,
-                event,
-                childNodes.length,
-                handleFocus,
-                getOrientation(position)
-              );
-            }}
-            onFocus={() => setActive(index)}
-            ref={(element) => (tabReferences.current[index] = element)}
-            onClick={() => setActive(index)}
-            key={`${id}-${index}`}
-            role="tab"
-            aria-selected={active === index}
-            tabIndex={index === active ? 0 : -1}
-            className={active === index ? "active" : ""}
-          >
-            {item.props.icon ? (
-              <img src={item.props.icon} alt="title icon" aria-hidden="true" />
-            ) : null}
-            <span>{item.props.title}</span>
-          </button>
-        ))}
+        {childNodes.map((item, index) => {
+          const isActive = active === index;
+          const title = item.props.title;
+          const icon = item.props.icon;
+
+          return (
+            <button
+              onKeyDown={(event) => {
+                onTabDown(
+                  active,
+                  event,
+                  childNodes.length,
+                  handleFocus,
+                  getOrientation(position)
+                );
+              }}
+              onFocus={() => setActive(index)}
+              ref={(element) => (tabReferences.current[index] = element)}
+              onClick={() => setActive(index)}
+              key={`${id}-${index}`}
+              role="tab"
+              aria-label={title}
+              aria-selected={isActive}
+              tabIndex={isActive ? 0 : -1}
+              className={isActive ? "active" : ""}
+            >
+              {icon ? (
+                <img src={icon} alt="title icon" aria-hidden="true" />
+              ) : null}
+              <span>{title}</span>
+            </button>
+          );
+        })}
       </div>
-      <section role="tabpanel" tabIndex={0}>
+      <div role="tabpanel" tabIndex={0}>
         {childNodes[active]}
-      </section>
+      </div>
     </div>
   );
 };
