@@ -23,22 +23,22 @@ pnpm add @dzangolab/react-ui
 ## Usage
 
 ```
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { Accordion, SubPane } from "@dzangolab/react-ui";
 
 
 const Page: React.FC<Properties> = ({ children }) => {
   return (
-    <Accordion>
-      <SubPane
-        icon="icon1.jpg"
-        title="Topic 1">
+    <Accordion
+      activeIcon="chevron-down.jpg"
+      inactiveIcon="chevron-up.jpg"
+      id="accordion-one"
+    >
+      <SubPane icon="icon1.jpg" title="Topic 1">
         Pane 1 content
       </SubPane>
-      <SubPane
-        icon="icon2.jpg"
-        title="Topic 2">
+      <SubPane icon="icon2.jpg" title="Topic 2">
         Pane 2content
       </SubPane>
     </Accordion>
@@ -52,13 +52,18 @@ export default Page
 
 ### Accordion
 
-| Prop      | Type                       | Description                                      | Default      |
-|-----------|----------------------------|--------------------------------------------------|--------------|
-| direction | `horizontal` \| `vertical` | The direction ui which the accordion is laid out | `vertical`   |
+| Prop             | Type                       | Description                                      | Default    | Required |
+| ---------------- | -------------------------- | ------------------------------------------------ | ---------- | -------- |
+| activeIcon       | `string`                   | The toggler icon for expanded state              | None       | no       |
+| canSelfCollapse  | `boolean`                  | If set to true, panes can collapse themselves    | false      | no       |
+| defaultActiveKey | `number`                   | Index of pane that should be expanded initially  | None       | no       |
+| direction        | `horizontal` \| `vertical` | The direction ui which the accordion is laid out | `vertical` | no       |
+| id               | `string`                   | An unique identifier for accordion               | None       | yes      |
+| inactiveIcon     | `string`                   | The toggler icon for collapsed state             | None       | no       |
 
 ### SubPane
 
-| Prop  | Type     | Description                                     | Default      |
-|-------|----------|-------------------------------------------------|--------------|
-| icon  | `string` | The icon to display in the subpane's title area | None         |
-| title | `string` | The text to display in the subpan'es title area | None         |
+| Prop  | Type     | Description                                     | Default |
+| ----- | -------- | ----------------------------------------------- | ------- |
+| icon  | `string` | The icon to display in the subpane's title area | None    |
+| title | `string` | The text to display in the subpan'es title area | None    |
