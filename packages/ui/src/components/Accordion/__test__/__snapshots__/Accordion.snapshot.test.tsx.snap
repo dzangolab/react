@@ -9,7 +9,7 @@ exports[`Component matches snapshot 1`] = `
     className=""
   >
     <button
-      aria-controls="pane-body-accordion-test-1-0"
+      aria-controls="pane-body-:r0:-0"
       aria-disabled={false}
       aria-expanded={false}
       aria-label="Topic 1"
@@ -32,7 +32,7 @@ exports[`Component matches snapshot 1`] = `
     </button>
     <div
       hidden={true}
-      id="pane-body-accordion-test-1-0"
+      id="pane-body-:r0:-0"
       role="region"
     />
   </li>
@@ -40,7 +40,7 @@ exports[`Component matches snapshot 1`] = `
     className=""
   >
     <button
-      aria-controls="pane-body-accordion-test-1-1"
+      aria-controls="pane-body-:r0:-1"
       aria-disabled={false}
       aria-expanded={false}
       aria-label="Topic 2"
@@ -63,7 +63,7 @@ exports[`Component matches snapshot 1`] = `
     </button>
     <div
       hidden={true}
-      id="pane-body-accordion-test-1-1"
+      id="pane-body-:r0:-1"
       role="region"
     />
   </li>
