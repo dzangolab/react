@@ -20,6 +20,7 @@ importers:
 
   packages/config:
     specifiers:
+      '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.27
       '@vitest/coverage-c8': 0.27.3
@@ -33,6 +34,7 @@ importers:
       vite: 3.2.5
       vitest: 0.27.3
     devDependencies:
+      '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.27
       '@vitest/coverage-c8': 0.27.3_jsdom@20.0.3
