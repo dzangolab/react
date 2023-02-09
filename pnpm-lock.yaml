@@ -112,6 +112,7 @@ importers:
       '@dzangolab/react-ui': 0.4.7
       '@dzangolab/react-user': 0.4.7
       '@testing-library/react': 13.4.0
+      '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
@@ -138,7 +139,8 @@ importers:
       react: 18.2.0
       react-icons: 4.4.0_react@18.2.0
     devDependencies:
-      '@testing-library/react': 13.4.0_react@18.2.0
+      '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
+      '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
@@ -1115,19 +1117,6 @@ packages:
       '@types/react-dom': 18.0.10
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: true
-
-  /@testing-library/react/13.4.0_react@18.2.0:
-    resolution: {integrity: sha512-sXOGON+WNTh3MLE9rve97ftaZukN3oNf2KjDy7YTx6hcTO2uuLHuCGynMDhFwGw/jYf4OJ2Qk0i4i79qMNNkyw==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    dependencies:
-      '@babel/runtime': 7.20.7
-      '@testing-library/dom': 8.19.0
-      '@types/react-dom': 18.0.10
-      react: 18.2.0
     dev: true
 
   /@testing-library/user-event/14.4.3:
