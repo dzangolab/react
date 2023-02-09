@@ -16,9 +16,7 @@ const Sidebar: React.FC<Properties> = ({ children, customStyle }) => {
       style={customStyle}
     >
       <div className="toggle-button">
-        <button data-testid="toggle-button" onClick={() => setOpen(!open)}>
-          &gt;
-        </button>
+        <button onClick={() => setOpen(!open)}>&gt;</button>
       </div>
       {children}
     </div>

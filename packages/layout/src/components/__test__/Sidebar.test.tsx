@@ -7,12 +7,15 @@ import Sidebar from "../Sidebar";
 test("Sidebar toggle test", async () => {
   const { container } = render(<Sidebar />);
 
-  const toggleButton = await screen.getByTestId("toggle-button");
+  const toggleButton = await screen.getByRole("button");
 
   expect(toggleButton).toBeDefined();
   expect(container.firstChild).toHaveProperty("className", "sidebar-menu open");
 
   fireEvent.click(toggleButton);
 
-  expect(container.firstChild).toHaveProperty("className", "sidebar-menu");
+  expect(container.firstChild).toHaveProperty(
+    "className",
+    "sidebar-menu close"
+  );
 });
