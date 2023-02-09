@@ -56,7 +56,7 @@ export default Page
 | activeIcon       | `string`                   | The toggler icon for expanded state              | None       | No       |
 | canSelfCollapse  | `boolean`                  | If set to true, panes can collapse themselves    | false      | No       |
 | defaultActiveKey | `number`                   | Index of pane that should be expanded initially  | None       | No       |
-| direction        | `horizontal` \| `vertical` | The direction ui which the accordion is laid out | `vertical` | No       |
+| direction        | `horizontal` \| `vertical` | The direction in which the accordion is laid out | `vertical` | No       |
 | inactiveIcon     | `string`                   | The toggler icon for collapsed state             | None       | No       |
 
 ### SubPane
@@ -64,4 +64,4 @@ export default Page
 | Prop  | Type     | Description                                     | Default | Required |
 | ----- | -------- | ----------------------------------------------- | ------- | -------- |
 | icon  | `string` | The icon to display in the subpane's title area | None    | No       |
-| title | `string` | The text to display in the subpan'es title area | None    | Yes      |
+| title | `string` | The text to display in the subpane's title area | None    | Yes      |
