@@ -33,7 +33,6 @@ const Page: React.FC<Properties> = ({ children }) => {
     <Accordion
       activeIcon="chevron-down.jpg"
       inactiveIcon="chevron-up.jpg"
-      id="accordion-one"
     >
       <SubPane icon="icon1.jpg" title="Topic 1">
         Pane 1 content
@@ -58,7 +57,6 @@ export default Page
 | canSelfCollapse  | `boolean`                  | If set to true, panes can collapse themselves    | false      | No       |
 | defaultActiveKey | `number`                   | Index of pane that should be expanded initially  | None       | No       |
 | direction        | `horizontal` \| `vertical` | The direction ui which the accordion is laid out | `vertical` | No       |
-| id               | `string`                   | An unique identifier for accordion               | None       | Yes      |
 | inactiveIcon     | `string`                   | The toggler icon for collapsed state             | None       | No       |
 
 ### SubPane
