@@ -51,6 +51,7 @@ importers:
       '@dzangolab/react-config': 0.4.7
       '@testing-library/react': 13.4.0
       '@types/i18n': 0.13.6
+      '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
@@ -86,6 +87,7 @@ importers:
       '@dzangolab/react-config': link:../config
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/i18n': 0.13.6
+      '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
