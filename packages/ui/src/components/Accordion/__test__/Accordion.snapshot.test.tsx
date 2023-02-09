@@ -16,11 +16,7 @@ function toJson(component: renderer.ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const component = create(
-    <Accordion
-      id="accordion-test-1"
-      activeIcon="arrow-down.jpg"
-      inactiveIcon="arrow-up.jpg"
-    >
+    <Accordion activeIcon="arrow-down.jpg" inactiveIcon="arrow-up.jpg">
       <SubPane icon="icon1.jpg" title="Topic 1">
         Pane 1 content
       </SubPane>
