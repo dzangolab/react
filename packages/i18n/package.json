@@ -19,7 +19,8 @@
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "test": "vitest --environment jsdom run --coverage"
+    "test": "vitest --environment jsdom run --coverage",
+    "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
     "i18next": "21.8.13",
@@ -33,6 +34,7 @@
     "@dzangolab/react-config": "0.4.7",
     "@testing-library/react": "13.4.0",
     "@types/i18n": "0.13.6",
+    "@types/jsdom": "20.0.0",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
