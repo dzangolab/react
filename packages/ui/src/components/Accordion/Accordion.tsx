@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 
 import "./accordion.css";
 
@@ -10,7 +10,6 @@ type Properties = {
   direction?: "horizontal" | "vertical";
   activeIcon?: string;
   canSelfCollapse?: boolean;
-  id: string;
   inactiveIcon?: string;
 };
 
@@ -20,9 +19,9 @@ const Accordion: React.FC<Properties> = ({
   direction = "vertical",
   activeIcon,
   canSelfCollapse = false,
-  id,
   inactiveIcon,
 }) => {
+  const id = useId();
   const [active, setActive] = useState(defaultActiveKey);
   const childNodes = Array.isArray(children) ? children : [children];
 
