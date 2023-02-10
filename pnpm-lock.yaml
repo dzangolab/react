@@ -6,16 +6,45 @@ importers:
     specifiers:
       '@commitlint/cli': 17.4.2
       '@commitlint/config-conventional': 17.4.2
+      '@storybook/addon-actions': 7.0.0-beta.45
+      '@storybook/addon-docs': 6.5.16
+      '@storybook/addon-essentials': 7.0.0-beta.45
+      '@storybook/addon-interactions': 7.0.0-beta.45
+      '@storybook/addon-links': 7.0.0-beta.45
+      '@storybook/react': 7.0.0-beta.45
+      '@storybook/react-vite': 7.0.0-beta.45
+      '@storybook/testing-library': 0.0.14-next.1
+      babel-loader: 8.3.0
       eslint-config-custom: workspace:*
+      eslint-plugin-storybook: 0.6.10
       husky: 8.0.3
+      jsdom: 20.0.3
+      react: 18.2.0
+      react-dom: 18.2.0
       shipjs: 0.25.1
+      storybook: 7.0.0-beta.45
       turbo: latest
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@commitlint/cli': 17.4.2
       '@commitlint/config-conventional': 17.4.2
+      '@storybook/addon-actions': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-docs': 6.5.16_biealiyrkrdtuaqq2o7uqgui2e
+      '@storybook/addon-essentials': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-interactions': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
+      '@storybook/addon-links': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
+      '@storybook/react': 7.0.0-beta.45_ygqkwb4gg3aean7xjfdauovyqq
+      '@storybook/react-vite': 7.0.0-beta.45_jpauyvbrjmqmlxhfgzv45zaizm
+      '@storybook/testing-library': 0.0.14-next.1
+      babel-loader: 8.3.0_la66t7xldg4uecmyawueag5wkm
       eslint-config-custom: link:tools/eslint-config-custom
+      eslint-plugin-storybook: 0.6.10_4vsywjlpuriuw3tl5oq6zy5a64
       husky: 8.0.3
+      jsdom: 20.0.3
       shipjs: 0.25.1
+      storybook: 7.0.0-beta.45
       turbo: 1.7.4
 
   packages/config:
@@ -164,16 +193,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@babel/core': 7.20.12
       '@dzangolab/react-config': 0.4.7
-      '@storybook/addon-actions': 7.0.0-beta.45
-      '@storybook/addon-docs': 6.5.16
-      '@storybook/addon-essentials': 7.0.0-beta.45
-      '@storybook/addon-interactions': 7.0.0-beta.45
-      '@storybook/addon-links': 7.0.0-beta.45
-      '@storybook/react': 7.0.0-beta.45
-      '@storybook/react-vite': 7.0.0-beta.45
-      '@storybook/testing-library': 0.0.14-next.1
       '@tanstack/react-table': 8.7.9
       '@testing-library/react': 13.4.0
       '@types/jsdom': 20.0.0
@@ -184,11 +204,9 @@ importers:
       '@types/react-test-renderer': 18.0.0
       '@vitejs/plugin-react': 3.0.0
       '@vitest/coverage-c8': 0.27.3
-      babel-loader: 8.3.0
       eslint: 8.33.0
       eslint-config-custom: 0.4.7
       eslint-plugin-react: 7.32.2
-      eslint-plugin-storybook: 0.6.10
       jsdom: 20.0.3
       prettier: 2.8.3
       react: 18.2.0
@@ -196,7 +214,6 @@ importers:
       react-dom: 18.2.0
       react-outside-click-handler: 1.3.0
       react-test-renderer: 18.2.0
-      storybook: 7.0.0-beta.45
       tsconfig: 0.4.7
       typescript: 4.9.5
       vite: 3.2.5
@@ -209,15 +226,6 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
-      '@babel/core': 7.20.12
-      '@storybook/addon-actions': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-docs': 6.5.16_biealiyrkrdtuaqq2o7uqgui2e
-      '@storybook/addon-essentials': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-interactions': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
-      '@storybook/addon-links': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
-      '@storybook/react': 7.0.0-beta.45_ygqkwb4gg3aean7xjfdauovyqq
-      '@storybook/react-vite': 7.0.0-beta.45_squocsrvdb74tgyf5op3elbwgq
-      '@storybook/testing-library': 0.0.14-next.1
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
@@ -227,15 +235,12 @@ importers:
       '@types/react-test-renderer': 18.0.0
       '@vitejs/plugin-react': 3.0.0_vite@3.2.5
       '@vitest/coverage-c8': 0.27.3_jsdom@20.0.3
-      babel-loader: 8.3.0_la66t7xldg4uecmyawueag5wkm
       eslint: 8.33.0
       eslint-config-custom: link:../../tools/eslint-config-custom
       eslint-plugin-react: 7.32.2_eslint@8.33.0
-      eslint-plugin-storybook: 0.6.10_4vsywjlpuriuw3tl5oq6zy5a64
       jsdom: 20.0.3
       prettier: 2.8.3
       react-test-renderer: 18.2.0_react@18.2.0
-      storybook: 7.0.0-beta.45
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.5
       vite: 3.2.5_@types+node@18.11.18
@@ -2541,7 +2546,7 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@joshwooding/vite-plugin-react-docgen-typescript/0.2.1_mmfldfnusamjexuwtlvii3fpxu:
+  /@joshwooding/vite-plugin-react-docgen-typescript/0.2.1_ggo5j25brebqqko7hdmvawpmuy:
     resolution: {integrity: sha512-ou4ZJSXMMWHqGS4g8uNRbC5TiTWxAgQZiVucoUrOCWuPrTbkpJbmVyIi9jU72SBry7gQtuMEDp4YR8EEXAg7VQ==}
     peerDependencies:
       typescript: '>= 4.3.x'
@@ -2555,7 +2560,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2_typescript@4.9.5
       typescript: 4.9.5
-      vite: 3.2.5_@types+node@18.11.18
+      vite: 4.1.1_@types+node@18.11.18
     dev: true
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -3325,7 +3330,7 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/builder-vite/7.0.0-beta.45_mmfldfnusamjexuwtlvii3fpxu:
+  /@storybook/builder-vite/7.0.0-beta.45_ggo5j25brebqqko7hdmvawpmuy:
     resolution: {integrity: sha512-FTJ8vcAqi0OdHlCDKlkkRTbzmcD2HwL5bMfC5MP7hJ0zuhWCNwycGEoJJEHSrbmBwF0RgWvrntuQfByCHr6WsQ==}
     peerDependencies:
       '@preact/preset-vite': '*'
@@ -3360,7 +3365,7 @@ packages:
       rollup: 2.79.1
       slash: 3.0.0
       typescript: 4.9.5
-      vite: 3.2.5_@types+node@18.11.18
+      vite: 4.1.1_@types+node@18.11.18
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3929,7 +3934,7 @@ packages:
     resolution: {integrity: sha512-fofDdHtkj7dSSzrtuetBZe4QcSG/igzN+ZponBOBq09okFG5kdFeSBuMcwNRsyFByFwSTa95QHVEfvIdoZulGQ==}
     dev: true
 
-  /@storybook/react-vite/7.0.0-beta.45_squocsrvdb74tgyf5op3elbwgq:
+  /@storybook/react-vite/7.0.0-beta.45_jpauyvbrjmqmlxhfgzv45zaizm:
     resolution: {integrity: sha512-Y2lSA74u8MtrdcBvQ4f40iHSRqM8nLAnOs8NzC87qHzf5zjWYfNEnklyxEhMMUjdu8Jc4PF16fLyyEOByCYc9g==}
     engines: {node: '>=16'}
     peerDependencies:
@@ -3937,17 +3942,17 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
       vite: ^3.0.0 || ^4.0.0
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.2.1_mmfldfnusamjexuwtlvii3fpxu
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.2.1_ggo5j25brebqqko7hdmvawpmuy
       '@rollup/pluginutils': 4.2.1
-      '@storybook/builder-vite': 7.0.0-beta.45_mmfldfnusamjexuwtlvii3fpxu
+      '@storybook/builder-vite': 7.0.0-beta.45_ggo5j25brebqqko7hdmvawpmuy
       '@storybook/react': 7.0.0-beta.45_ygqkwb4gg3aean7xjfdauovyqq
-      '@vitejs/plugin-react': 3.1.0_vite@3.2.5
+      '@vitejs/plugin-react': 3.1.0_vite@4.1.1
       ast-types: 0.14.2
       magic-string: 0.27.0
       react: 18.2.0
       react-docgen: 6.0.0-alpha.3
       react-dom: 18.2.0_react@18.2.0
-      vite: 3.2.5_@types+node@18.11.18
+      vite: 4.1.1_@types+node@18.11.18
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - supports-color
@@ -4713,7 +4718,7 @@ packages:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-react/3.1.0_vite@3.2.5:
+  /@vitejs/plugin-react/3.1.0_vite@4.1.1:
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -4724,7 +4729,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 3.2.5_@types+node@18.11.18
+      vite: 4.1.1_@types+node@18.11.18
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -11209,6 +11214,15 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /postcss/8.4.21:
+    resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.4
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: true
+
   /prelude-ls/1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
     engines: {node: '>= 0.8.0'}
@@ -12023,6 +12037,14 @@ packages:
   /rollup/2.79.1:
     resolution: {integrity: sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==}
     engines: {node: '>=10.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /rollup/3.15.0:
+    resolution: {integrity: sha512-F9hrCAhnp5/zx/7HYmftvsNBkMfLfk/dXUh73hPSM2E3CRgap65orDNJbLetoiUFwSAk6iHPLvBrZ5iHYvzqsg==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
@@ -13692,6 +13714,40 @@ packages:
       postcss: 8.4.20
       resolve: 1.22.1
       rollup: 2.79.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite/4.1.1_@types+node@18.11.18:
+    resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 18.11.18
+      esbuild: 0.16.17
+      postcss: 8.4.21
+      resolve: 1.22.1
+      rollup: 3.15.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
