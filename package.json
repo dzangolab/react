@@ -7,37 +7,19 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build-storybook": "storybook build",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "prepare": "husky install",
     "sort-package": "npx sort-package-json && turbo run sort-package",
-    "storybook": "storybook dev -p 6006",
     "test": "turbo run test --parallel",
     "typecheck": "turbo run typecheck"
-  },
-  "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.4.2",
     "@commitlint/config-conventional": "17.4.2",
-    "@storybook/addon-actions": "7.0.0-beta.45",
-    "@storybook/addon-docs": "6.5.16",
-    "@storybook/addon-essentials": "7.0.0-beta.45",
-    "@storybook/addon-interactions": "7.0.0-beta.45",
-    "@storybook/addon-links": "7.0.0-beta.45",
-    "@storybook/react": "7.0.0-beta.45",
-    "@storybook/react-vite": "7.0.0-beta.45",
-    "@storybook/testing-library": "0.0.14-next.1",
-    "babel-loader": "8.3.0",
     "eslint-config-custom": "workspace:*",
-    "eslint-plugin-storybook": "0.6.10",
     "husky": "8.0.3",
-    "jsdom": "20.0.3",
     "shipjs": "0.25.1",
-    "storybook": "7.0.0-beta.45",
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.25.1",
