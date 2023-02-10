@@ -175,11 +175,9 @@ importers:
       babel-loader: 8.3.0
       eslint-plugin-storybook: 0.6.10
       react: 18.2.0
-      react-dom: 18.2.0
       storybook: 7.0.0-beta.45
     dependencies:
       react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@storybook/addon-actions': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-docs': 6.5.16_biealiyrkrdtuaqq2o7uqgui2e
