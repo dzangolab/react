@@ -174,7 +174,6 @@ importers:
       '@storybook/testing-library': 0.0.14-next.1
       babel-loader: 8.3.0
       eslint-plugin-storybook: 0.6.10
-      jsdom: 20.0.3
       react: 18.2.0
       react-dom: 18.2.0
       storybook: 7.0.0-beta.45
@@ -192,7 +191,6 @@ importers:
       '@storybook/testing-library': 0.0.14-next.1
       babel-loader: 8.3.0_la66t7xldg4uecmyawueag5wkm
       eslint-plugin-storybook: 0.6.10_4vsywjlpuriuw3tl5oq6zy5a64
-      jsdom: 20.0.3
       storybook: 7.0.0-beta.45
 
   packages/ui:
