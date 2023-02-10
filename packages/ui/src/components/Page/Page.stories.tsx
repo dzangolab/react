@@ -9,9 +9,6 @@ type PageProperties = Meta<PageType>;
 const PageStory: PageProperties = {
   title: "UI/Page",
   component: Page,
-  parameters: {
-    loading: true,
-  },
 };
 
 const Template: StoryFn<PageType> = (arguments_) => <Page {...arguments_} />;
