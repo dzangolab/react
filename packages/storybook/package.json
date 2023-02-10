@@ -1,8 +1,7 @@
 {
   "name": "storybook",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "storybook for @dzangolab/react components",
   "scripts": {
     "build": "storybook build",
     "storybook": "storybook dev -p 6006"
