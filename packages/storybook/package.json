@@ -1,0 +1,29 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "description": "storybook for @dzangolab/react components",
+  "scripts": {
+    "build": "storybook build",
+    "storybook": "storybook dev -p 6006"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "7.0.0-beta.45",
+    "@storybook/addon-docs": "6.5.16",
+    "@storybook/addon-essentials": "7.0.0-beta.45",
+    "@storybook/addon-interactions": "7.0.0-beta.45",
+    "@storybook/addon-links": "7.0.0-beta.45",
+    "@storybook/react": "7.0.0-beta.45",
+    "@storybook/react-vite": "7.0.0-beta.45",
+    "@storybook/testing-library": "0.0.14-next.1",
+    "babel-loader": "8.3.0",
+    "eslint-plugin-storybook": "0.6.10",
+    "storybook": "7.0.0-beta.45"
+  },
+  "keywords": [],
+  "author": "Kiran Ojha",
+  "license": "MIT"
+}
