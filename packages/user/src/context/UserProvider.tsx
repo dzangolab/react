@@ -2,7 +2,7 @@ import { configContext } from "@dzangolab/react-config";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import Session from "supertokens-web-js/recipe/session";
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
-import { verifySession } from "@/supertokens/login";
+import { verifySession } from "../supertokens/login";
 
 import { UserContextType } from "../types";
 

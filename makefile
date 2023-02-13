@@ -33,6 +33,10 @@ sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
 	pnpm sort-package
 
+storybook:
+	@printf "\033[0;32m>>> Running storybook\033[0m\n"
+	cd packages/storybook && pnpm storybook
+
 test:
 	@printf "\033[0;32m>>> Running tests\033[0m\n"
 	pnpm test

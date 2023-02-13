@@ -51,6 +51,12 @@ To unlink the linked library
 ```
 pnpm unlink ./<path_to_libraries_monorepo>/packages/<library_name>
 ```
+
+## Running storybook
+```
+make storybook
+```
+
 ## Troubleshooting
   - Make sure that `package.json` and `pnpm-lock.yml` are synchronized.
   - You may need to restart your react-app before link and unlink to see the changes.

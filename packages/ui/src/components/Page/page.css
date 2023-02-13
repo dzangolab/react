@@ -8,6 +8,11 @@
   grid-template-rows: auto 1fr auto;
 }
 
+.page > div[role="alert"].error > span {
+  color: var(--error-text-color, red);
+  font-size: var(--error-font-size, 1rem);
+}
+
 @media (min-width: 576px) {
   .page {
     grid-template-areas:
