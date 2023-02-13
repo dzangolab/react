@@ -63,13 +63,13 @@ async function verifySession(claim: string): Promise<boolean> {
     });
 
     if (validationErrors.length === 0) {
-      // user is an admin
       return true;
     }
 
     for (const err of validationErrors) {
       if (err.validatorId === UserRoleClaim.id) {
         // user roles claim check failed
+        toast.error("You don't have permission for the app");
       } else {
         // some other claim check failed (from the global validators list)
       }
