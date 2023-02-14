@@ -11,7 +11,7 @@ function TableBody<T>(properties: TableBodyProperties<T>) {
           <tr key={row.id}>
             {row.getVisibleCells().map((cell: Cell<T, unknown>) => {
               return (
-                <td key={cell.id}>
+                <td key={cell.id} style={{ width: cell.column.getSize() }}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               );

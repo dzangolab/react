@@ -38,7 +38,11 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
             };
 
             return (
-              <th key={header.id} colSpan={header.colSpan}>
+              <th
+                key={header.id}
+                colSpan={header.colSpan}
+                style={{ width: header.getSize() }}
+              >
                 {header.isPlaceholder ? null : (
                   <div
                     {...{
