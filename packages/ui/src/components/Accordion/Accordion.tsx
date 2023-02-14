@@ -6,7 +6,7 @@ import type { ReactElement } from "react";
 
 type Properties = {
   children: ReactElement | ReactElement[];
-  defaultActiveKey?: number;
+  defaultActiveIndex?: number;
   direction?: "horizontal" | "vertical";
   activeIcon?: string;
   canSelfCollapse?: boolean;
@@ -15,14 +15,14 @@ type Properties = {
 
 const Accordion: React.FC<Properties> = ({
   children,
-  defaultActiveKey,
+  defaultActiveIndex,
   direction = "vertical",
   activeIcon,
   canSelfCollapse = false,
   inactiveIcon,
 }) => {
   const id = useId();
-  const [active, setActive] = useState(defaultActiveKey);
+  const [active, setActive] = useState(defaultActiveIndex);
   const childNodes = Array.isArray(children) ? children : [children];
 
   const handleClick = (index: number) => {

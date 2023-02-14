@@ -51,7 +51,7 @@ test("no subpane is active when defaultActiveKey prop is not passed", async () =
 test("correct subpane is active", async () => {
   render(
     <Accordion
-      defaultActiveKey={1}
+      defaultActiveIndex={1}
       activeIcon={accordionValues.activeIcon}
       inactiveIcon={accordionValues.inactiveIcon}
     >
