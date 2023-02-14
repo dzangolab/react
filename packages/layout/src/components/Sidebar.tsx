@@ -12,11 +12,11 @@ const Sidebar: React.FC<Properties> = ({ children, customStyle }) => {
 
   return (
     <div
-      className={open ? "sidebar-menu open" : "sidebar-menu"}
+      className={`sidebar-menu ${open ? "open" : "close"}`}
       style={customStyle}
     >
       <div className="toggle-button">
-        <span onClick={() => setOpen(!open)}>&gt;</span>
+        <button onClick={() => setOpen(!open)}>&gt;</button>
       </div>
       {children}
     </div>
