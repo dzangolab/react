@@ -1,6 +1,6 @@
 {
-  "name": "storybook",
-  "version": "1.0.0",
+  "name": "app-storybook",
+  "version": "0.4.8",
   "description": "storybook for @dzangolab/react components",
   "scripts": {
     "build": "storybook build",
