@@ -1,6 +1,5 @@
 import { Accordion } from "./Accordion";
 import { LoadingButton } from "./Buttons";
-import Collapse from "./Collapse";
 import { SubPane } from "./components/SubPane";
 import { LoadingIcon, LoadingPage } from "./Loading";
 import Page from "./Page";
@@ -13,7 +12,6 @@ import type { TableColumnDefinition, TRequestJSON } from "./Table/types";
 export {
   Accordion,
   BaseTable,
-  Collapse,
   LoadingButton,
   LoadingIcon,
   LoadingPage,
