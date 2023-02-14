@@ -1,8 +1,6 @@
 .sidebar-menu {
   position: relative;
   left: 0;
-  min-width: 10px;
-  width: 2rem;
   transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s,
     all 300ms ease 0s;
   z-index: 1;
@@ -11,33 +9,40 @@
   border-color: rgb(239, 239, 239);
 }
 
-.sidebar-menu > .toggle-button > span {
+.sidebar-menu > .toggle-button > button {
   align-items: center;
   background-color: #dbe9fa;
   border-radius: 100%;
   cursor: pointer;
   display: flex;
-  font-size: 2rem;
   justify-content: center;
-  left: 0;
-  opacity: 0.3;
   padding: 1rem;
-  position: fixed;
-  width: 3rem;
+  border: none;
 }
 
 .open {
   width: 250px;
 }
 
-.sidebar-menu.open > .toggle-button > span {
+.close {
+  min-width: 10px;
+  width: 1.5rem;
+}
+
+.sidebar-menu.open > .toggle-button > button {
   left: auto;
   opacity: 1;
   position: relative;
   transform: rotate(180deg);
 }
 
-.sidebar-menu > .toggle-button > span:hover {
+.sidebar-menu.close > .toggle-button > button {
+  left: 0;
+  opacity: 0.3;
+  position: fixed;
+}
+
+.sidebar-menu > .toggle-button > button:hover {
   opacity: 1;
 }
 
