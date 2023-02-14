@@ -1,3 +1,12 @@
+## [0.4.9](https://github.com/dzangolab/react/compare/v0.4.8...v0.4.9) (2023-02-14)
+
+
+### Features
+
+* **ui:** fix table width to prevent content  jump ([#141](https://github.com/dzangolab/react/issues/141)) ([53c466c](https://github.com/dzangolab/react/commit/53c466c986626ccbcdd4d6afaf6f8785eff3d15d))
+
+
+
 ## [0.4.8](https://github.com/dzangolab/react/compare/v0.4.7...v0.4.8) (2023-02-14)
 
 
