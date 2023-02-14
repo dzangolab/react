@@ -51,13 +51,13 @@ export default Page
 
 ### Accordion
 
-| Prop             | Type                       | Description                                      | Default    | Required |
-| ---------------- | -------------------------- | ------------------------------------------------ | ---------- | -------- |
-| activeIcon       | `string`                   | The toggler icon for expanded state              | None       | No       |
-| canSelfCollapse  | `boolean`                  | If set to true, panes can collapse themselves    | false      | No       |
-| defaultActiveKey | `number`                   | Index of pane that should be expanded initially  | None       | No       |
-| direction        | `horizontal` \| `vertical` | The direction in which the accordion is laid out | `vertical` | No       |
-| inactiveIcon     | `string`                   | The toggler icon for collapsed state             | None       | No       |
+| Prop               | Type                       | Description                                      | Default    | Required |
+| ------------------ | -------------------------- | ------------------------------------------------ | ---------- | -------- |
+| activeIcon         | `string`                   | The toggler icon for expanded state              | None       | No       |
+| canSelfCollapse    | `boolean`                  | If set to true, panes can collapse themselves    | false      | No       |
+| defaultActiveIndex | `number`                   | Index of pane that should be expanded initially  | None       | No       |
+| direction          | `horizontal` \| `vertical` | The direction in which the accordion is laid out | `vertical` | No       |
+| inactiveIcon       | `string`                   | The toggler icon for collapsed state             | None       | No       |
 
 ### SubPane
 
