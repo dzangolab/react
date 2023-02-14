@@ -278,7 +278,7 @@ importers:
       react-router-dom: 6.4.2
       react-test-renderer: 18.2.0
       react-toastify: 9.0.5
-      supertokens-web-js: 0.1.5
+      supertokens-web-js: 0.5.0
       tsconfig: 0.4.7
       typescript: 4.9.5
       vite: 3.2.5
@@ -291,7 +291,7 @@ importers:
       formik: 2.2.9_react@18.2.0
       react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
       react-toastify: 9.0.5_biqbaboplfbrettd7655fr4n2y
-      supertokens-web-js: 0.1.5
+      supertokens-web-js: 0.5.0
       yup: 0.32.11
     devDependencies:
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -12731,15 +12731,15 @@ packages:
     resolution: {integrity: sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==}
     dev: false
 
-  /supertokens-web-js/0.1.5:
-    resolution: {integrity: sha512-xvGIjnSNwEbJ6DearwzKz3GNaU8bnQihJGHiMiXFVzARKXdpKOSj3sZIASr0mHxmwmF4gSXtnIm1TalZunxDNw==}
+  /supertokens-web-js/0.5.0:
+    resolution: {integrity: sha512-qlpgWLnHBor98k5wY97vzG7ouVOb/eeWOCKgaid055MUVPQr2gTEDrlKJN9I+Z4Vj6Dmblg1vC/cUbR/cx1TGw==}
     dependencies:
       supertokens-js-override: 0.0.4
-      supertokens-website: 13.1.1
+      supertokens-website: 16.0.1
     dev: false
 
-  /supertokens-website/13.1.1:
-    resolution: {integrity: sha512-gnIBGyoq7Tx+eHGNajcso0UNxOBuOKr1EqIgQuoiBVQV/9b9SPBmtGtQh8Mv9e+Ivtr/G2OTE9RQ4iZOSOO/2Q==}
+  /supertokens-website/16.0.1:
+    resolution: {integrity: sha512-IOiMVABP9d95lGoCKuZPQxx6hJCaETFIpLsspULbqwDpgSj7K2UkBWTTZeAxdKkEpaOJW9i2GcF2AgNTuYOjWw==}
     dependencies:
       browser-tabs-lock: 1.2.15
       supertokens-js-override: 0.0.4
