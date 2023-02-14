@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 import GoogleLogin from "@/components/GoogleLogin";
 import LoginForm from "@/components/LoginForm";
-import login from "@/supertokens/login";
+import login, { verifySession } from "@/supertokens/login";
 
 import { userContext } from "../context/UserProvider";
 
@@ -24,12 +24,16 @@ const Login = () => {
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
     const result = await login(credentials);
-    setLoading(false);
-    setUser(result?.user);
 
-    if (result && result.user) {
+    if (
+      result?.user &&
+      appConfig?.appContext &&
+      (await verifySession(appConfig.appContext))
+    ) {
+      setUser(result?.user);
       toast.success(`${t("login.messages.success")}`);
     }
+    setLoading(false);
   };
 
   return (

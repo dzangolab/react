@@ -27,6 +27,7 @@ const appConfig: AppConfig = {
     name: "Dzango Skeletons",
     version: "0.0.1-local",
   },
+  appContext: "ADMIN",
   appPort: "20072",
   appTitle: "Dzango Skeletons",
   appVersion: "0.0.1",

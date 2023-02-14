@@ -1,3 +1,21 @@
+## [0.4.8](https://github.com/dzangolab/react/compare/v0.4.7...v0.4.8) (2023-02-14)
+
+
+### Bug Fixes
+
+* **ui:** fix no name for dependencies warning ([#123](https://github.com/dzangolab/react/issues/123)) ([bca386b](https://github.com/dzangolab/react/commit/bca386b079688511854f503d6b0473462326c473))
+
+
+### Features
+
+* admin auth validator ([#132](https://github.com/dzangolab/react/issues/132)) ([1448681](https://github.com/dzangolab/react/commit/1448681553b63fac0ce95a99f635f64c0161a948))
+* display loading in page component ([#124](https://github.com/dzangolab/react/issues/124)) ([6f0a6e3](https://github.com/dzangolab/react/commit/6f0a6e3b1d74184a416cc5566e8db6e20a43d30b))
+* **ui:** add error component ([#131](https://github.com/dzangolab/react/issues/131)) ([528d103](https://github.com/dzangolab/react/commit/528d103f8b59bcb913485814f1bab3294f6b015a))
+* **ui:** add stories for tabbedpanel component ([#140](https://github.com/dzangolab/react/issues/140)) ([d6a3ca5](https://github.com/dzangolab/react/commit/d6a3ca53a51b939c8de190e4ad82a96b3be52227))
+* **ui:** use more appropriate prop name ([#130](https://github.com/dzangolab/react/issues/130)) ([7ce276c](https://github.com/dzangolab/react/commit/7ce276cd0981443bfbf03637ee01cdf1125dbad4))
+
+
+
 ## [0.4.7](https://github.com/dzangolab/react/compare/v0.4.6...v0.4.7) (2023-02-03)
 
 
