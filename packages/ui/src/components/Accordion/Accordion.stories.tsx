@@ -44,7 +44,7 @@ VerticalDirection.args = {
 };
 
 CanSelfCollapse.args = {
-  canSelfCollapse: false,
+  canSelfCollapse: true,
 };
 
 ActiveIcon.args = {
