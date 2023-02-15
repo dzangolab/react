@@ -29,11 +29,10 @@ export const ActiveIndex: AccordionProperties = Template.bind({});
 export const HorizontalDirection: AccordionProperties = Template.bind({});
 export const VerticalDirection: AccordionProperties = Template.bind({});
 export const CanSelfCollapse: AccordionProperties = Template.bind({});
-export const ActiveIcon: AccordionProperties = Template.bind({});
-export const InactiveIcon: AccordionProperties = Template.bind({});
+export const CustomToggleIcons: AccordionProperties = Template.bind({});
 
 ActiveIndex.args = {
-  defaultActiveIndex: 10,
+  defaultActiveIndex: 1,
 };
 
 HorizontalDirection.args = {
@@ -45,14 +44,11 @@ VerticalDirection.args = {
 };
 
 CanSelfCollapse.args = {
-  canSelfCollapse: false,
+  canSelfCollapse: true,
 };
 
-ActiveIcon.args = {
+CustomToggleIcons.args = {
   activeIcon: "icon1.jpg",
-};
-
-InactiveIcon.args = {
   inactiveIcon: "icon2.jpg",
 };
 
