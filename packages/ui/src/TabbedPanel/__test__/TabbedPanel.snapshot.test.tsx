@@ -2,7 +2,7 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import { SubPane } from "../../SubPane";
+import { SubPane } from "../../components/SubPane";
 import TabbedPanel from "../TabbedPanel";
 
 function toJson(component: renderer.ReactTestRenderer) {
