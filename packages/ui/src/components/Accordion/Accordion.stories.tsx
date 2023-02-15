@@ -32,7 +32,7 @@ export const ActiveIcon: AccordionProperties = Template.bind({});
 export const InactiveIcon: AccordionProperties = Template.bind({});
 
 ActiveIndex.args = {
-  defaultActiveIndex: 10,
+  defaultActiveIndex: 1,
 };
 
 HorizontalDirection.args = {
