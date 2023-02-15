@@ -1,7 +1,8 @@
-import "../../../public/tab-theme.css";
+import "../../public/tab-theme.css";
 import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
-import SubPane from "../SubPane/SubPane";
+
+import { SubPane } from "../index";
 
 import { Accordion } from "./index";
 
