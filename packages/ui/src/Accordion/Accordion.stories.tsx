@@ -16,10 +16,10 @@ const AccordionStory: AccordionProperties = {
 
 const Template: StoryFn<AccordionType> = (arguments_) => (
   <Accordion {...arguments_}>
-    <SubPane icon="icon1.jpg" title="Topic 1">
+    <SubPane icon="https://tinyurl.com/yw5ack2m" title="Topic 1">
       Pane 1 content
     </SubPane>
-    <SubPane icon="icon2.jpg" title="Topic 2">
+    <SubPane icon="https://tinyurl.com/5cjtm2y7" title="Topic 2">
       Pane 2content
     </SubPane>
   </Accordion>
@@ -48,8 +48,8 @@ CanSelfCollapse.args = {
 };
 
 CustomToggleIcons.args = {
-  activeIcon: "icon1.jpg",
-  inactiveIcon: "icon2.jpg",
+  activeIcon: "https://tinyurl.com/2p8n4ee2",
+  inactiveIcon: "https://tinyurl.com/6weej9xx",
 };
 
 export default AccordionStory;
