@@ -36,7 +36,6 @@ const config: AppConfig = {
     debug: true,
     defaultNS: "app",
     fallbackLng: "en",
-    resources: {},
     supportedLngs: ["en", "fr"],
   },
   locales: (import.meta.env.VITE_LOCALES || "en:English,fr:Français") as string,
