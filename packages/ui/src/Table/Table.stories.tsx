@@ -17,25 +17,33 @@ const Template: StoryFn<TableType> = (arguments_) => (
   </Table>
 );
 
-export const Columns: TableProperties = Template.bind({});
-export const Data: TableProperties = Template.bind({});
-export const IsLoading: TableProperties = Template.bind({});
-export const TotalItems: TableProperties = Template.bind({});
-export const FetchCallback: TableProperties = Template.bind({});
+export const BasicTable: TableProperties = Template.bind({});
 
-Columns.args = {
-  columns: [],
-};
-
-Data.args = {
-  data: [],
-};
-
-IsLoading.args = {
-  isLoading: false,
-};
-
-TotalItems.args = {
+BasicTable.args = {
+  columns: [
+    {
+      accessorKey: "id",
+      header: () => <span>ID</span>,
+    },
+    {
+      accessorKey: "givenName",
+      header: () => <span>givenName</span>,
+    },
+    {
+      accessorKey: "middleNames",
+      header: () => <span>middleNames</span>,
+    },
+    {
+      accessorKey: "surname",
+      header: () => <span>surname</span>,
+    },
+  ],
+  data: [
+    { id: 1, givenName: "jone", middleNames: "abcd", surname: "doe" },
+    { id: 2, givenName: "jone", middleNames: "abcd", surname: "doe" },
+    { id: 3, givenName: "jone", middleNames: "abcd", surname: "doe" },
+    { id: 4, givenName: "jone", middleNames: "abcd", surname: "doe" },
+  ],
   totalItems: 1,
 };
 
