@@ -18,6 +18,12 @@ interface AppConfig {
     anon: string;
     auth: string;
   };
+  layout?: {
+    mainMenu: {
+      name: string;
+      route: string;
+    }[];
+  };
   locales: string;
   localStorageNamespace: string;
   websiteDomain: string;
