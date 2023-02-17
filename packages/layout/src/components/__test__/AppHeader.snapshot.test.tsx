@@ -47,10 +47,7 @@ const appConfig: AppConfig = {
     react: {
       useSuspense: false,
     },
-    resources: {
-      en: {},
-      fr: {},
-    },
+    resources: { en: {}, fr: {} },
   },
   locales: "en:English,fr:Français",
   localStorageNamespace: "__app_",

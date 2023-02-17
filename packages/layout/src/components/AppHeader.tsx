@@ -21,7 +21,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   const {
     localeSwitcher = <LocaleSwitcher />,
-    mainMenu = <MainMenu />,
+    mainMenu = <MainMenu routes={appConfig?.layout?.mainMenu} />,
     navStyle = "dropdown",
     toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
     userMenu = <UserMenu />,
