@@ -52,6 +52,13 @@ export const NoPaginationTable: TableProperties = Template.bind({});
 export const ShowScrollBarTable: TableProperties = Template.bind({});
 export const LoadingTable: TableProperties = Template.bind({});
 export const PaginationIcons: TableProperties = Template.bind({});
+export const RowsPerPageOptions: TableProperties = Template.bind({});
+export const ShowLoading: TableProperties = Template.bind({});
+export const HidePageControl: TableProperties = Template.bind({});
+export const HideTotalNumber: TableProperties = Template.bind({});
+export const UnSortable: TableProperties = Template.bind({});
+export const SortIcons: TableProperties = Template.bind({});
+export const TableTitle: TableProperties = Template.bind({});
 
 BasicTable.args = {
   columns,
@@ -95,6 +102,66 @@ PaginationIcons.args = {
     next: "nxt",
     end: "end",
   },
+};
+
+RowsPerPageOptions.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  rowsPerPageOptions: [20],
+};
+
+ShowLoading.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  showLoading: false,
+};
+
+HidePageControl.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  showPageControl: false,
+};
+
+HideTotalNumber.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  showTotalNumber: false,
+};
+
+UnSortable.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  sortable: false,
+};
+
+SortIcons.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  sortIcons: {
+    asc: "a",
+    desc: "a",
+    default: "a",
+  },
+};
+
+TableTitle.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  title: "table title",
 };
 
 export default TableStory;
