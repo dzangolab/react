@@ -9,7 +9,8 @@ import type { SyntheticEvent } from "react";
 
 function TableHeader<T>({ table }: TableHeaderProperties<T>) {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const { sortable, sortIcons, filterMenuToggleIcon } = useContext(TableContext);
+  const { sortable, sortIcons, filterMenuToggleIcon } =
+    useContext(TableContext);
 
   const renderSortButton = (
     direction: SortDirection | false,
@@ -26,7 +27,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
   };
 
   return (
-    <thead className={`${isCollapsed ? 'active' : ''}`}>
+    <thead className={`${isCollapsed ? "active" : ""}`}>
       <button onClick={() => setIsCollapsed(!isCollapsed)}>
         <img src={filterMenuToggleIcon} alt="toggle filter and sort menu" />
       </button>
@@ -53,8 +54,8 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
                       className: !sortable
                         ? ""
                         : header.column.getCanSort()
-                          ? "disable-select"
-                          : "",
+                        ? "disable-select"
+                        : "",
                     }}
                     onClick={sortFunction}
                   >
