@@ -97,10 +97,10 @@ PaginationIcons.args = {
   totalItems: 50,
   fetcher,
   paginationIcons: {
-    start: "strt",
-    previous: "privs",
-    next: "nxt",
-    end: "end",
+    start: "<",
+    previous: "<",
+    next: "<",
+    end: "<",
   },
 };
 
@@ -150,9 +150,9 @@ SortIcons.args = {
   totalItems: 50,
   fetcher,
   sortIcons: {
-    asc: "https://tinyurl.com/2p8n4ee2",
-    desc: "https://tinyurl.com/5cjtm2y7",
-    default: "https://tinyurl.com/2p8n4ee2",
+    asc: "<",
+    desc: "<",
+    default: "<",
   },
 };
 
