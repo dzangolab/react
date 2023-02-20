@@ -1,5 +1,4 @@
 interface RouteOverride {
-  component?: React.ReactNode;
   path?: string;
   disabled?: boolean;
 }
@@ -9,11 +8,9 @@ interface RouteOverrides {
     public: string;
     private: string;
   };
-  login?: RouteOverride;
-  signup?: RouteOverride;
-  passwordReset?: RouteOverride;
-  passwordResetRequest?: RouteOverride;
-  passwordResetRequestAcknowledge?: RouteOverride;
+  login: RouteOverride;
+  signup: RouteOverride;
+  forgetPassword?: RouteOverride;
   profile?: RouteOverride;
 }
 

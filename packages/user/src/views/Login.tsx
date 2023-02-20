@@ -36,6 +36,28 @@ const Login = () => {
     setLoading(false);
   };
 
+  const getLinks = () => {
+    return (
+      <>
+        {appConfig?.user?.routes?.signup?.disabled ? null : (
+          <Link to={appConfig?.user?.routes?.signup?.path || "/signup"}>
+            {t("login.links.signup")}
+          </Link>
+        )}
+        {appConfig?.user?.routes?.forgetPassword?.disabled ? null : (
+          <Link
+            to={
+              appConfig?.user?.routes?.forgetPassword?.path ||
+              "/forget-password"
+            }
+          >
+            {t("login.links.forgotPassword")}
+          </Link>
+        )}
+      </>
+    );
+  };
+
   return (
     <div className="login">
       <Page title={t("login.title")}>
@@ -50,10 +72,7 @@ const Login = () => {
         ) : (
           <></>
         )}
-        <div className="links">
-          <Link to="/signup">{t("login.links.signup")}</Link>
-          <Link to="/forget-password">{t("login.links.forgotPassword")}</Link>
-        </div>
+        <div className="links">{getLinks()}</div>
       </Page>
     </div>
   );
