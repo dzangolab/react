@@ -5,9 +5,8 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
 import Session from "supertokens-web-js/recipe/session";
 
-import useUser from "@/hooks/useUser";
-
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
+import useUser from "../hooks/useUser";
 
 import "../assets/css/dropdownUserMenu.css";
 
