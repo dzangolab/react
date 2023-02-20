@@ -49,6 +49,7 @@ const Template: StoryFn<TableType> = (arguments_) => (
 
 export const BasicTable: TableProperties = Template.bind({});
 export const NoPaginationTable: TableProperties = Template.bind({});
+export const ShowScrollBarTable: TableProperties = Template.bind({});
 
 BasicTable.args = {
   columns,
@@ -63,6 +64,14 @@ NoPaginationTable.args = {
   totalItems: 1,
   fetcher,
   paginated: false,
+};
+
+ShowScrollBarTable.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  hideScrollBar: false,
 };
 
 export default TableStory;
