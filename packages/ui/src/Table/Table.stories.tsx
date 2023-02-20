@@ -51,6 +51,7 @@ export const BasicTable: TableProperties = Template.bind({});
 export const NoPaginationTable: TableProperties = Template.bind({});
 export const ShowScrollBarTable: TableProperties = Template.bind({});
 export const LoadingTable: TableProperties = Template.bind({});
+export const PaginationIcons: TableProperties = Template.bind({});
 
 BasicTable.args = {
   columns,
@@ -81,6 +82,19 @@ LoadingTable.args = {
   totalItems: 50,
   fetcher,
   isLoading: true,
+};
+
+PaginationIcons.args = {
+  columns,
+  data,
+  totalItems: 50,
+  fetcher,
+  paginationIcons: {
+    start: "strt",
+    previous: "privs",
+    next: "nxt",
+    end: "end",
+  },
 };
 
 export default TableStory;
