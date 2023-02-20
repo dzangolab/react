@@ -3,7 +3,7 @@ import { LoadingButton } from "@dzangolab/react-ui";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 
-import { LoginCredentials } from "@/types";
+import { LoginCredentials } from "@/types/types";
 
 import "../assets/css/loginForm.css";
 import ErrorMessage from "./ErrorMessage";

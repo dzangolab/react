@@ -4,7 +4,7 @@ import {
   EmailPasswordUserType,
 } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import type { LoginCredentials } from "../types";
+import type { LoginCredentials } from "../types/types";
 
 interface IPromise {
   user: EmailPasswordUserType | undefined;

@@ -9,7 +9,7 @@ import SignupForm from "@/components/SignupForm";
 import { userContext } from "../context/UserProvider";
 import signup from "../supertokens/signup";
 
-import type { LoginCredentials, UserContextType } from "@/types";
+import type { LoginCredentials, UserContextType } from "@/types/types";
 
 import "../assets/css/signup.css";
 
