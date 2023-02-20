@@ -237,12 +237,12 @@ tfoot th {
   table > thead > tr {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--table-cards-gap, 0.6rem);
   }
 
   table > thead > tr > th,
   table > tbody > tr > td
    {
+    margin-bottom: var(--table-cards-gap, 0.6rem);
     width: 100% !important; /* override column size from props */
   }
 
