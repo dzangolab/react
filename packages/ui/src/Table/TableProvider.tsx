@@ -1,5 +1,9 @@
 import React, { createContext, useCallback, useRef } from "react";
 
+import arrowDownIcon from "../../assets/images/arrow-down.png";
+import arrowUpDownIcon from "../../assets/images/arrow-up-down.png";
+import arrowUpIcon from "../../assets/images/arrow-up.png";
+import filterIcon from "../../assets/images/filter.png";
 import BaseTable from "./BaseTable";
 
 import type {
@@ -46,8 +50,8 @@ function TableProvider<T>({
 TableProvider.defaultProps = {
   enableMultiSort: false,
   filterIcons: {
-    expanded: "🙉",
-    notExpanded: "🙈",
+    expanded: filterIcon,
+    notExpanded: filterIcon,
   },
   fixedHeader: true,
   hideScrollBar: true,
@@ -65,9 +69,9 @@ TableProvider.defaultProps = {
   showTotalNumber: true,
   sortable: true,
   sortIcons: {
-    asc: "🔼",
-    desc: "🔽",
-    default: "↕️",
+    asc: arrowUpIcon,
+    desc: arrowDownIcon,
+    default: arrowUpDownIcon,
   },
 };
 

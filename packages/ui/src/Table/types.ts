@@ -55,8 +55,8 @@ export interface TableProviderProperties<T> {
   inputDebounceTime?: number;
   fixedHeader?: boolean;
   filterIcons?: {
-    expanded: ReactNode;
-    notExpanded: ReactNode;
+    expanded: string;
+    notExpanded: string;
   };
   hideScrollBar?: boolean;
   isLoading?: boolean;
@@ -73,9 +73,9 @@ export interface TableProviderProperties<T> {
   showTotalNumber?: boolean;
   sortable?: boolean;
   sortIcons?: {
-    asc: ReactNode;
-    desc: ReactNode;
-    default: ReactNode;
+    asc: string;
+    desc: string;
+    default: string;
   };
   title?: string;
   totalItems: number;

@@ -16,11 +16,11 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
   ) => {
     switch (direction) {
       case "asc":
-        return sortIcons?.asc;
+        return <img src={sortIcons?.asc} />;
       case "desc":
-        return sortIcons?.desc;
+        return <img src={sortIcons?.desc} />;
       default:
-        return canSort ? sortIcons?.default : "";
+        return canSort ? <img src={sortIcons?.default} /> : "";
     }
   };
 

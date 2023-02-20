@@ -71,15 +71,18 @@ tfoot th {
   cursor: pointer;
   display: flex;
   user-select: none;
-}
-
-.disable-select>*:not(:last-child) {
-  margin-right: 4px;
+  align-items: center;
 }
 
 .disable-select>button,
 .filter-wrapper>button {
   opacity: 0;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  height: 1rem;
+  width: 1rem;
   transition: visibility 0s linear 300ms, opacity 300ms;
   visibility: hidden;
 }
@@ -89,6 +92,15 @@ tfoot th {
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 300ms;
   visibility: visible;
+}
+
+.disable-select>button,
+.disable-select>button>img,
+.filter-wrapper,
+.filter-wrapper>button,
+.filter-wrapper>button > img {
+  width: 1rem;
+  height: 1rem;
 }
 
 .filter-form-wrapper {
@@ -158,13 +170,6 @@ tfoot th {
 
 .pagination-container>*:not(:last-child) {
   margin-right: 4px;
-}
-
-.sort-button {
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  padding: 0;
 }
 
 .table-header-1 {
