@@ -234,13 +234,21 @@ tfoot th {
 }
 
 @media screen and (max-width: 600px) {
-  table thead {
-    display: none;
+  table > thead {
+    display: flex;
   }
 
-  table tr {
-    display: block;
+  table > thead > tr {
+    display: flex;
+    flex-direction: column;
     margin-bottom: var(--table-cards-gap, 0.6rem);
+    width: 100%;
+  }
+
+  table > thead > tr > th,
+  table > tbody > tr > td
+   {
+    width: 100% !important; /* override column size from props */
   }
 
   table td {
@@ -249,7 +257,6 @@ tfoot th {
     display: block;
     font-size: var(--td-font-size, 0.8rem);
     text-align: right;
-    width: 100% !important; /* override column size from props */
   }
 
   table td::before {
