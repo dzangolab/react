@@ -51,6 +51,7 @@ export interface TableProviderProperties<T> {
   columns: ColumnDef<T>[];
   data?: T[];
   fetcher: (requestJSON: TRequestJSON) => void;
+  filterMenuToggleIcon?: string;
   enableMultiSort?: boolean;
   inputDebounceTime?: number;
   fixedHeader?: boolean;

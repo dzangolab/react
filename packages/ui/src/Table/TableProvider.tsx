@@ -8,6 +8,7 @@ import chevronRight from "../../assets/images/chevron-right.svg";
 import doubleChevronLeft from "../../assets/images/double-chevron-left.svg";
 import doubleChevronRight from "../../assets/images/double-chevron-right.svg";
 import filterIcon from "../../assets/images/filter.svg";
+import adjustmentsIcon from "../../assets/images/adjustments.svg";
 import BaseTable from "./BaseTable";
 
 import type {
@@ -57,6 +58,7 @@ TableProvider.defaultProps = {
     expanded: filterIcon,
     notExpanded: filterIcon,
   },
+  filterMenuToggleIcon: adjustmentsIcon,
   fixedHeader: true,
   hideScrollBar: true,
   inputDebounceTime: 300,

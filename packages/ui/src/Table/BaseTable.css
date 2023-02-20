@@ -21,8 +21,8 @@ table caption {
   text-align: left;
 }
 
-tbody {
-  border-bottom: 1px solid lightgray;
+table > thead > button {
+  display: none;
 }
 
 tbody tr:nth-child(even) {
@@ -234,16 +234,37 @@ tfoot th {
 }
 
 @media screen and (max-width: 600px) {
+  table > thead {
+    background-color: #fff;
+  }
+
+  table > thead > button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: rgb(58, 58, 58);
+    margin-bottom: 0.5rem;
+  }
+
   table > thead > tr {
+    display: none;
+  }
+
+  table > thead.active > tr {
     display: flex;
     flex-direction: column;
   }
 
   table > thead > tr > th,
-  table > tbody > tr > td
-   {
-    margin-bottom: var(--table-cards-gap, 0.6rem);
+  table > tbody > tr > td {
     width: 100% !important; /* override column size from props */
+  }
+
+  table > tbody > tr {
+    display: block;
+    margin-bottom: var(--table-cards-gap, 0.6rem);
   }
 
   table td {

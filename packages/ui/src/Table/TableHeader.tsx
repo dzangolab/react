@@ -1,5 +1,5 @@
 import { flexRender, SortDirection } from "@tanstack/react-table";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import Filter from "./Filter";
 import { TableContext } from "./TableProvider";
@@ -8,7 +8,8 @@ import type { TableHeaderProperties } from "./types";
 import type { SyntheticEvent } from "react";
 
 function TableHeader<T>({ table }: TableHeaderProperties<T>) {
-  const { sortable, sortIcons } = useContext(TableContext);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const { sortable, sortIcons, filterMenuToggleIcon } = useContext(TableContext);
 
   const renderSortButton = (
     direction: SortDirection | false,
@@ -25,7 +26,10 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
   };
 
   return (
-    <thead>
+    <thead className={`${isCollapsed ? 'active' : ''}`}>
+      <button onClick={() => setIsCollapsed(!isCollapsed)}>
+        <img src={filterMenuToggleIcon} alt="toggle filter and sort menu" />
+      </button>
       {table.getHeaderGroups().map((headerGroup, index) => (
         <tr key={headerGroup.id} className={`table-header-${index + 1}`}>
           {headerGroup.headers.map((header) => {
@@ -49,8 +53,8 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
                       className: !sortable
                         ? ""
                         : header.column.getCanSort()
-                        ? "disable-select"
-                        : "",
+                          ? "disable-select"
+                          : "",
                     }}
                     onClick={sortFunction}
                   >
