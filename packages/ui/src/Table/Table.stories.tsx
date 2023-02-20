@@ -150,9 +150,9 @@ SortIcons.args = {
   totalItems: 50,
   fetcher,
   sortIcons: {
-    asc: "a",
-    desc: "a",
-    default: "a",
+    asc: "https://tinyurl.com/2p8n4ee2",
+    desc: "https://tinyurl.com/5cjtm2y7",
+    default: "https://tinyurl.com/2p8n4ee2",
   },
 };
 
