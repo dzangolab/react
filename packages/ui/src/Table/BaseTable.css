@@ -234,15 +234,10 @@ tfoot th {
 }
 
 @media screen and (max-width: 600px) {
-  table > thead {
-    display: flex;
-  }
-
   table > thead > tr {
     display: flex;
     flex-direction: column;
     margin-bottom: var(--table-cards-gap, 0.6rem);
-    width: 100%;
   }
 
   table > thead > tr > th,
