@@ -62,10 +62,10 @@ export interface TableProviderProperties<T> {
   isLoading?: boolean;
   paginated?: boolean;
   paginationIcons?: {
-    start: ReactNode;
-    previous: ReactNode;
-    next: ReactNode;
-    end: ReactNode;
+    start: string;
+    previous: string;
+    next: string;
+    end: string;
   };
   rowsPerPageOptions?: number[];
   showLoading?: boolean;
@@ -97,7 +97,7 @@ export interface FilterProperties<T> {
 
 export interface PaginationProperties {
   config: {
-    icon?: ReactNode;
+    icon?: string;
     isDisabled: boolean;
     onClick: () => void;
   }[];

@@ -3,6 +3,10 @@ import React, { createContext, useCallback, useRef } from "react";
 import arrowDownIcon from "../../assets/images/arrow-down.svg";
 import arrowUpDownIcon from "../../assets/images/arrow-up-down.svg";
 import arrowUpIcon from "../../assets/images/arrow-up.svg";
+import chevronLeft from "../../assets/images/chevron-left.svg";
+import chevronRight from "../../assets/images/chevron-right.svg";
+import doubleChevronLeft from "../../assets/images/double-chevron-left.svg";
+import doubleChevronRight from "../../assets/images/double-chevron-right.svg";
 import filterIcon from "../../assets/images/filter.svg";
 import BaseTable from "./BaseTable";
 
@@ -58,10 +62,10 @@ TableProvider.defaultProps = {
   inputDebounceTime: 300,
   paginated: true,
   paginationIcons: {
-    start: "<<",
-    previous: "<",
-    next: ">",
-    end: ">>",
+    start: doubleChevronLeft,
+    previous: chevronLeft,
+    next: chevronRight,
+    end: doubleChevronRight,
   },
   rowsPerPageOptions: [10, 20, 30],
   showLoading: true,
