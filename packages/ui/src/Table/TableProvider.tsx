@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useRef } from "react";
 
-import arrowDownIcon from "../../assets/images/arrow-down.png";
-import arrowUpDownIcon from "../../assets/images/arrow-up-down.png";
-import arrowUpIcon from "../../assets/images/arrow-up.png";
-import filterIcon from "../../assets/images/filter.png";
+import arrowDownIcon from "../../assets/images/arrow-down.svg";
+import arrowUpDownIcon from "../../assets/images/arrow-up-down.svg";
+import arrowUpIcon from "../../assets/images/arrow-up.svg";
+import filterIcon from "../../assets/images/filter.svg";
 import BaseTable from "./BaseTable";
 
 import type {
