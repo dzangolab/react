@@ -5,6 +5,10 @@ build:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	pnpm build
 
+build.packages:
+	@printf "\033[0;32m>>> Build packages\033[0m\n"
+	cd packages/ && pnpm build
+
 install:
 	@printf "\033[0;32m>>> Installing dependencies\033[0m\n"
 	pnpm -r install

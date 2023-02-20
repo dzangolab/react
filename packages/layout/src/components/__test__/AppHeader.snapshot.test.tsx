@@ -33,10 +33,6 @@ const appConfig: AppConfig = {
   features: {
     showVersion: true,
   },
-  home: {
-    anon: "/",
-    auth: "/",
-  },
   i18n: {
     appendNamespaceToCIMode: true,
     debug: true,
