@@ -4,6 +4,7 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
+import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import superTokens from "./supertokens";
 import UserToastContainer from "./toastify";
 import { UserContextType } from "./types";
@@ -23,6 +24,7 @@ export {
   Profile,
   ResetPassword,
   Signup,
+  UserEnabledBasicLayout,
   UserMenu,
   UserProvider,
   UserToastContainer,
