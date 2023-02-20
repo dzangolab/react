@@ -1,6 +1,5 @@
 import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
-import { userContext } from "@dzangolab/react-user";
 import { create } from "react-test-renderer";
 import { expect, test, vi } from "vitest";
 
@@ -65,11 +64,9 @@ test("Component matches snapshot", () => {
   };
 
   const component = create(
-    <userContext.Provider value={values}>
-      <configContext.Provider value={appConfig}>
-        <AppHeader />
-      </configContext.Provider>
-    </userContext.Provider>
+    <configContext.Provider value={appConfig}>
+      <AppHeader />
+    </configContext.Provider>
   );
 
   const tree = toJson(component);

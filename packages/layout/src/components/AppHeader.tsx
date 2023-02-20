@@ -1,6 +1,5 @@
 import { configContext } from "@dzangolab/react-config";
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import { UserMenu } from "@dzangolab/react-user";
 import React, { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -24,7 +23,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     mainMenu = <MainMenu routes={appConfig?.layout?.mainMenu} />,
     navStyle = "dropdown",
     toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
-    userMenu = <UserMenu />,
+    userMenu,
   } = properties;
 
   const [expanded, setExpanded] = useState<boolean>(false);
