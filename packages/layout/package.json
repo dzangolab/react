@@ -28,7 +28,7 @@
     "@dzangolab/react-ui": "0.4.9",
     "@dzangolab/react-user": "0.4.9",
     "react": "18.2.0",
-    "react-icons": "4.4.0"
+    "react-icons": "4.7.1"
   },
   "devDependencies": {
     "@testing-library/react": "13.4.0",
