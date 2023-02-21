@@ -1,7 +1,0 @@
-.dockerignore
-.gitignore
-.gitlab-ci.yml
-dist/
-docker/Dockerfile*
-node_modules/
-README.md
