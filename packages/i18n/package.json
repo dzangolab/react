@@ -23,7 +23,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "i18next": "21.8.13",
+    "i18next": "21.10.0",
     "i18next-browser-languagedetector": "6.1.8",
     "i18next-chained-backend": "^4.0.0",
     "i18next-resources-to-backend": "^1.0.0",
