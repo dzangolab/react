@@ -11,18 +11,18 @@ COPY package.json package.json
 COPY pnpm-lock.yaml pnpm-lock.yaml
 COPY pnpm-workspace.yaml pnpm-workspace.yaml
 COPY turbo.json turbo.json
-COPY apps/app-reactjs/package.json apps/app-reactjs/package.json
-COPY libs/core/package.json libs/core/package.json
+COPY apps/demo/package.json apps/demo/package.json
+# COPY libs/core/package.json libs/core/package.json
 
 RUN pnpm install --frozen-lockfile
 
 FROM base as build
 ARG api_base_url=''
 ARG app_build=''
-ARG app_title='Dzangolab Monorepo React Demo'
-ARG app_version='0.8.0'
+ARG app_title='Dzangolab React Demo'
+ARG app_version='0.1.0'
 ARG feature_show_version=1
-ARG locale_storage_namespace='monorepo-react__'
+ARG locale_storage_namespace='demo-react__'
 
 ENV VITE_API_BASE_URL $api_base_url
 ENV VITE_APP_BUILD $app_build
@@ -33,13 +33,13 @@ ENV VITE_LOCALE_STORAGE_NAMESPACE $locale_storage_namespace
 
 WORKDIR /var/workspace
 
-COPY apps/app-reactjs apps/app-reactjs
-COPY libs/core libs/core
+COPY apps/ apps/
+# COPY libs/core libs/core
 
 RUN pnpm install -r --frozen-lockfile --ignore-scripts \
-  && pnpm --filter "@dzangolab/monorepo-app-reactjs..." build
+  && pnpm --filter "@dzangolab/demo-..." build
 
 FROM nginx:1.23-alpine as production
 
-COPY apps/app-reactjs/docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /var/workspace/apps/app-reactjs/dist /usr/share/nginx/html
+COPY apps/demo/docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /var/workspace/apps/demo/dist /usr/share/nginx/html
