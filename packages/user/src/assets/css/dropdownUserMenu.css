@@ -38,7 +38,7 @@ nav > ul.dropdown {
   padding: 0.15rem 0;
   position: absolute;
   right: 0;
-  top: 100%;
+  top: 55%;
   z-index: var(--dropdown-z-index, 9999);
 }
 
