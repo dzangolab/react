@@ -6,22 +6,20 @@ import { TableContext } from "./TableProvider";
 
 import type { FilterProperties } from "./types";
 
-function Filter<T>({ column, table }: FilterProperties<T>) {
+function Filter({
+  columnFilterValue,
+  columnType,
+  handleChange,
+}: FilterProperties) {
   const { inputDebounceTime, filterIcons } = useContext(TableContext);
 
   const [expanded, setExpanded] = useState(false);
-
-  const firstValue = table
-    .getPreFilteredRowModel()
-    .flatRows[0]?.getValue(column.id);
-
-  const columnFilterValue = column.getFilterValue();
 
   const toggleExpand = () => {
     expanded ? setExpanded(false) : setExpanded(true);
   };
 
-  if (typeof firstValue === "number") return null;
+  if (typeof columnType === "number") return null;
 
   return (
     <div
@@ -45,7 +43,7 @@ function Filter<T>({ column, table }: FilterProperties<T>) {
               value={(columnFilterValue ?? "") as string}
               debounceTimeout={inputDebounceTime}
               onChange={(event_) => {
-                column.setFilterValue(event_.target.value);
+                handleChange(event_.target.value);
               }}
               placeholder={`Search...`}
               className=""

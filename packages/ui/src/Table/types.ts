@@ -1,8 +1,4 @@
-import type {
-  Column,
-  ColumnDef,
-  Table as ReactTable,
-} from "@tanstack/react-table";
+import type { ColumnDef, Table as ReactTable } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
 export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
@@ -89,10 +85,10 @@ export interface TableContextProperties<T>
   fetchCallback: (requestJSON: TRequestJSON) => void;
 }
 
-export interface FilterProperties<T> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  column: Column<T, any>;
-  table: ReactTable<T>;
+export interface FilterProperties {
+  columnFilterValue: string;
+  columnType: string;
+  handleChange: (value: string) => void;
 }
 
 export interface PaginationProperties {

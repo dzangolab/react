@@ -29,6 +29,9 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
       {table.getHeaderGroups().map((headerGroup, index) => (
         <tr key={headerGroup.id} className={`table-header-${index + 1}`}>
           {headerGroup.headers.map((header) => {
+            const { column, colSpan, getSize, id, isPlaceholder, getContext } =
+              header;
+
             const sortFunction = (event: SyntheticEvent) => {
               event.stopPropagation();
               const sortHandler = header.column.getToggleSortingHandler();
@@ -38,37 +41,38 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
             };
 
             return (
-              <th
-                key={header.id}
-                colSpan={header.colSpan}
-                style={{ width: header.getSize() }}
-              >
-                {header.isPlaceholder ? null : (
+              <th key={id} colSpan={colSpan} style={{ width: getSize() }}>
+                {isPlaceholder ? null : (
                   <div
                     {...{
                       className: !sortable
                         ? ""
-                        : header.column.getCanSort()
+                        : column.getCanSort()
                         ? "disable-select"
                         : "",
                     }}
                     onClick={sortFunction}
                   >
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
+                    {flexRender(column.columnDef.header, getContext())}
                     {sortable ? (
                       <button className="sort-button">
                         {renderSortButton(
-                          header.column.getIsSorted(),
-                          header.column.getCanSort()
+                          column.getIsSorted(),
+                          column.getCanSort()
                         )}
                       </button>
                     ) : null}
 
-                    {header.column.getCanFilter() ? (
-                      <Filter column={header.column} table={table} />
+                    {column.getCanFilter() ? (
+                      <Filter
+                        columnFilterValue={column.getFilterValue() as string}
+                        columnType={table
+                          .getPreFilteredRowModel()
+                          .flatRows[0]?.getValue(column.id)}
+                        handleChange={(value) => {
+                          column.setFilterValue(value);
+                        }}
+                      />
                     ) : null}
                   </div>
                 )}
