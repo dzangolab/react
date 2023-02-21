@@ -1,0 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="filter-wrapper"
+  onClick={[Function]}
+>
+  <button
+    onClick={[Function]}
+  />
+</div>
+`;
