@@ -1,0 +1,36 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="pagination-container"
+>
+  <button
+    className="pagination-button"
+    disabled={true}
+    onClick={[MockFunction spy]}
+  >
+    start.png
+  </button>
+  <button
+    className="pagination-button"
+    disabled={true}
+    onClick={[MockFunction spy]}
+  >
+    previous.png
+  </button>
+  <button
+    className="pagination-button"
+    disabled={false}
+    onClick={[MockFunction spy]}
+  >
+    next.png
+  </button>
+  <button
+    className="pagination-button"
+    disabled={false}
+    onClick={[MockFunction spy]}
+  >
+    end.png
+  </button>
+</div>
+`;
