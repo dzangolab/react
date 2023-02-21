@@ -35,10 +35,8 @@ const Page: React.FC<Properties> = ({
     );
   } else if (errorMessage) {
     child = (
-      <div className="page">
-        <div className="error" role="alert">
-          <span>{errorMessage}</span>
-        </div>
+      <div className="error" role="alert">
+        <span>{errorMessage}</span>
       </div>
     );
   }
