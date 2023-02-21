@@ -38,9 +38,9 @@ td {
   border: 1px solid lightgray;
   padding: 8px;
   text-align: left;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 th > div > span {
@@ -54,37 +54,29 @@ th > div > span {
   top: 0;
 }
 
-tfoot {
-  color: gray;
-}
-
-tfoot th {
-  font-weight: normal;
-}
-
 .current-page-info {
   font-size: 18px;
   width: max-content;
 }
 
 .disable-select {
+  align-items: center;
   cursor: pointer;
   display: flex;
   user-select: none;
-  align-items: center;
 }
 
 .disable-select > button,
 .filter-wrapper > button {
-  opacity: 0;
   background-color: transparent;
   border: 0;
+  height: 1rem;
+  opacity: 0;
   outline: 0;
   padding: 0;
-  height: 1rem;
-  width: 1rem;
   transition: visibility 0s linear 300ms, opacity 300ms;
   visibility: hidden;
+  width: 1rem;
 }
 
 .disable-select:hover > button,
@@ -99,8 +91,8 @@ tfoot th {
 .filter-wrapper,
 .filter-wrapper > button,
 .filter-wrapper > button > img {
-  width: 1rem;
   height: 1rem;
+  width: 1rem;
 }
 
 .filter-form-wrapper {
@@ -148,20 +140,20 @@ tfoot th {
 }
 
 .pagination-button {
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-color: #fff;
-  border-radius: 50%;
   border: solid 1px gray;
+  border-radius: 50%;
+  display: flex;
   height: 32px;
+  justify-content: center;
   transition: 0.3s;
   width: 32px;
 }
 
 .pagination-button[disabled] {
-  cursor: not-allowed;
   background-color: #e7e7e7;
+  cursor: not-allowed;
 }
 
 .pagination-button:not[disabled]:hover {
@@ -241,11 +233,11 @@ table > thead > tr:first-child {
 
   table > thead > tr:first-child > th > button {
     all: unset;
+    background-color: rgb(58, 58, 58);
     cursor: pointer;
     display: flex;
     width: 1.5rem;
     height: 1.5rem;
-    background-color: rgb(58, 58, 58);
     margin-bottom: 0.5rem;
   }
 
