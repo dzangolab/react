@@ -1,3 +1,5 @@
+import "./assets/css/index.css";
+
 import { Accordion } from "./Accordion";
 import { LoadingButton } from "./Buttons";
 import { SubPane } from "./components/SubPane";
