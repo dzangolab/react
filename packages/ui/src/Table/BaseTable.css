@@ -182,21 +182,6 @@ tfoot th {
   margin-right: 4px;
 }
 
-.table-header-1 {
-  background-color: rgb(58, 58, 58);
-  color: #fff;
-}
-
-.table-header-2 {
-  background-color: rgb(240, 238, 229);
-  color: #000;
-}
-
-.table-header-3 {
-  background-color: rgb(240, 238, 229);
-  position: relative;
-}
-
 .table-info-container {
   align-items: center;
   display: flex;
@@ -233,12 +218,28 @@ tfoot th {
   display: none;
 }
 
+table > thead > tr:first-child {
+  display: none;
+}
+
+table > thead > tr:first-child {
+  background-color: rgb(58, 58, 58);
+  color: #fff;
+}
+
 @media screen and (max-width: 600px) {
-  table > thead {
+
+  table > thead > tr:first-child {
+    display: block;
     background-color: #fff;
   }
 
-  table > thead > button {
+  table > thead > tr:first-child > th {
+    border: 0;
+    padding: 0;
+  }
+
+  table > thead > tr:first-child > th > button {
     all: unset;
     cursor: pointer;
     display: flex;
@@ -248,11 +249,11 @@ tfoot th {
     margin-bottom: 0.5rem;
   }
 
-  table > thead > tr {
+  table > thead > tr:not(:first-child) {
     display: none;
   }
 
-  table > thead.active > tr {
+  table > thead.active > tr:last-child {
     display: flex;
     flex-direction: column;
   }

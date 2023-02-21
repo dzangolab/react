@@ -28,11 +28,15 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
 
   return (
     <thead className={`${isCollapsed ? "active" : ""}`}>
-      <button onClick={() => setIsCollapsed(!isCollapsed)}>
-        <img src={filterMenuToggleIcon} alt="toggle filter and sort menu" />
-      </button>
-      {table.getHeaderGroups().map((headerGroup, index) => (
-        <tr key={headerGroup.id} className={`table-header-${index + 1}`}>
+      <tr>
+        <th>
+          <button onClick={() => setIsCollapsed(!isCollapsed)}>
+            <img src={filterMenuToggleIcon} />
+          </button>
+        </th>
+      </tr>
+      {table.getHeaderGroups().map((headerGroup) => (
+        <tr key={headerGroup.id}>
           {headerGroup.headers.map((header) => {
             const sortFunction = (event: SyntheticEvent) => {
               event.stopPropagation();
