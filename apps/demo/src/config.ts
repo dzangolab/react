@@ -12,7 +12,7 @@ const config: AppConfig = {
     }` as string,
   },
   appContext: "USER",
-  appPort: parse(import.meta.env.VITE_APP_PORT, "20072") as string,
+  appPort: parse(import.meta.env.VITE_APP_PORT, "20083") as string,
   appTitle: import.meta.env.VITE_APP_TITLE as string,
   appVersion: `${import.meta.env.VITE_APP_VERSION}-${
     import.meta.env.VITE_APP_BUILD

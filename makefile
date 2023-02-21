@@ -5,6 +5,10 @@ build:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	pnpm build
 
+demo:
+	@printf "\033[0;32m>>> Running demo-app\033[0m\n"
+	cd apps/demo && make run
+
 build.packages:
 	@printf "\033[0;32m>>> Build packages\033[0m\n"
 	cd packages/ && pnpm build
@@ -43,7 +47,7 @@ sort-package:
 
 storybook:
 	@printf "\033[0;32m>>> Running storybook\033[0m\n"
-	cd packages/storybook && pnpm storybook
+	cd apps/storybook && pnpm storybook
 
 test:
 	@printf "\033[0;32m>>> Running tests\033[0m\n"
