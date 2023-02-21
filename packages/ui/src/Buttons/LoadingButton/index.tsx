@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LoadingIcon } from "../../Loading";
+import LoadingIcon from "../../LoadingIcon";
 
 import "./loadingButton.css";
 
