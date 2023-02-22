@@ -44,7 +44,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
             const sortFunction = (event: SyntheticEvent) => {
               if (!sortable) return;
               event.stopPropagation();
-              const sortHandler = header.column.getToggleSortingHandler();
+              const sortHandler = column.getToggleSortingHandler();
               if (sortHandler) {
                 sortHandler(event);
               }
@@ -57,17 +57,10 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
             };
 
             return (
-              <th
-                key={header.id}
-                colSpan={header.colSpan}
-                style={{ width: header.getSize() }}
-              >
-                {header.isPlaceholder ? null : (
+              <th key={id} colSpan={colSpan} style={{ width: getSize() }}>
+                {isPlaceholder ? null : (
                   <div className={getColumnTitleClass()} onClick={sortFunction}>
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
+                    {flexRender(column.columnDef.header, getContext())}
                     {sortable ? (
                       <button className="sort-button">
                         {renderSortButton(

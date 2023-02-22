@@ -2,7 +2,8 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import Table from "../TableProvider";
+import BaseTable from "../BaseTable";
+import TableProvider from "../TableProvider";
 
 const columns = [
   {
@@ -37,12 +38,14 @@ function toJson(component: renderer.ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const component = create(
-    <Table
+    <TableProvider
       columns={columns}
       data={data}
       fetcher={fetcher}
       totalItems={data.length}
-    />
+    >
+      <BaseTable />
+    </TableProvider>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();
