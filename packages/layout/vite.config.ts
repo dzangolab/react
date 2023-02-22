@@ -23,6 +23,9 @@ export default defineConfig(({ mode }) => {
           exports: "named",
           globals: {
             "@dzangolab/react-i18n": "DzangolabReactI18n",
+            "@dzangolab/react-config": "DzangolabReactConfig",
+            "@dzangolab/react-ui": "DzangolabReactUi",
+            "@dzangolab/react-user": "DzangolabReactUser",
             react: "React",
             "react-dom": "ReactDom",
           },

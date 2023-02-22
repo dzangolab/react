@@ -6,7 +6,7 @@ import {
 } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
-import type { LoginCredentials } from "../types";
+import type { LoginCredentials } from "../types/types";
 
 interface IPromise {
   user: EmailPasswordUserType | undefined;

@@ -1,13 +1,12 @@
+import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useContext, useId, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
 import Session from "supertokens-web-js/recipe/session";
 
-import { UserContextType } from "@/types";
-
-import { userContext } from "../context/UserProvider";
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
+import useUser from "../hooks/useUser";
 
 import "../assets/css/dropdownUserMenu.css";
 
@@ -21,9 +20,10 @@ interface Properties {
 
 const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
   const id = useId();
-  const { user, setUser } = useContext(userContext) as UserContextType;
+  const { user, setUser } = useUser();
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation("user");
+  const appConfig = useContext(configContext);
 
   const signout = async () => {
     try {
@@ -43,16 +43,20 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
     setExpanded(!expanded);
   };
 
-  const fallbackItems = [
-    {
-      name: "userMenu.profile",
-      route: "/profile",
-    },
-    {
-      name: "userMenu.logout",
-      onClick: signout,
-    },
-  ];
+  const signoutRoute = {
+    name: "userMenu.logout",
+    onClick: signout,
+    route: undefined,
+  };
+  const profileRoute = {
+    name: "userMenu.profile",
+    route: "/profile",
+    onClick: undefined,
+  };
+
+  const fallbackItems = appConfig?.user?.routes?.profile?.disabled
+    ? [signoutRoute]
+    : [profileRoute, signoutRoute];
 
   const menuItems = userMenuList
     ? [...userMenuList, ...fallbackItems]

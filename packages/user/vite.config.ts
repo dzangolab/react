@@ -25,11 +25,16 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
+            "@dzangolab/react-config": "DzangolabReactConfig",
             "@dzangolab/react-i18n": "DzangolabReactI18n",
             "@dzangolab/react-ui": "DzangolabReactUi",
+            formik: "formik",
+            yup: "Yup",
             react: "React",
             "react-dom": "ReactDom",
             "react-router-dom": "ReactRouterDom",
+            "react-toastify": "ReactToastify",
+            "react-outside-click-handler": "ReactOutsideClickHandler",
             "supertokens-web-js": "SuperTokensWebJs",
           },
         },

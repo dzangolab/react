@@ -4,15 +4,22 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
+import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import superTokens from "./supertokens";
 import UserToastContainer from "./toastify";
-import { UserContextType } from "./types";
+import { DzangolabReactUserConfig, UserContextType } from "./types";
 import ChangePassword from "./views/ChangePassword";
 import ForgetPassword from "./views/ForgetPassword";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
+
+declare module "@dzangolab/react-config" {
+  export interface AppConfig {
+    user?: DzangolabReactUserConfig;
+  }
+}
 
 export {
   AuthGoogleCallback,
@@ -23,6 +30,7 @@ export {
   Profile,
   ResetPassword,
   Signup,
+  UserEnabledBasicLayout,
   UserMenu,
   UserProvider,
   UserToastContainer,

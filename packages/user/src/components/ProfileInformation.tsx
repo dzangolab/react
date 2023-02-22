@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { userContext } from "../context/UserProvider";
 import "../assets/css/profileInformation.css";
 
-import type { UserContextType } from "@/types";
+import type { UserContextType } from "@/types/types";
 
 const ProfileInformation = () => {
   const { user } = useContext(userContext) as UserContextType;

@@ -29,9 +29,12 @@ export default defineConfig(({ mode }) => {
             i18next: "I18next",
             "i18next-browser-languagedetector":
               "I18nextBrowserLanguagedetector",
+            "i18next-chained-backend": "I18nextChainedBackend",
+            "i18next-resources-to-backend": "I18nextResourcesToBackend",
             react: "React",
             "react-dom": "ReactDom",
             "react-i18next": "ReactI18next",
+            "react-outside-click-handler": "ReactOutsideClickHandler",
           },
         },
       },
