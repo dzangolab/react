@@ -18,7 +18,7 @@ function toJson(component: renderer.ReactTestRenderer) {
 test("Component matches snapshot", () => {
   const component = create(
     <Filter
-      columnType="number"
+      columnType="string"
       columnFilterValue=""
       handleChange={mockFunction}
     />

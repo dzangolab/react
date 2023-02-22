@@ -87,7 +87,7 @@ export interface TableContextProperties<T>
 
 export interface FilterProperties {
   columnFilterValue: string;
-  columnType: string;
+  columnType: number | string;
   handleChange: (value: string) => void;
 }
 

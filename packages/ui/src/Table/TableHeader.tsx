@@ -66,9 +66,11 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
                     {column.getCanFilter() ? (
                       <Filter
                         columnFilterValue={column.getFilterValue() as string}
-                        columnType={table
-                          .getPreFilteredRowModel()
-                          .flatRows[0]?.getValue(column.id)}
+                        columnType={
+                          typeof table
+                            .getPreFilteredRowModel()
+                            .flatRows[0]?.getValue(column.id)
+                        }
                         handleChange={(value) => {
                           column.setFilterValue(value);
                         }}

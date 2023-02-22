@@ -19,7 +19,7 @@ function Filter({
     expanded ? setExpanded(false) : setExpanded(true);
   };
 
-  if (typeof columnType === "number") return null;
+  if (columnType === "number") return null;
 
   return (
     <div
