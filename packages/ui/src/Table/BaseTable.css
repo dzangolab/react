@@ -214,7 +214,7 @@ table > thead > tr:first-child {
   display: none;
 }
 
-table > thead > tr:first-child {
+table > thead > tr:last-child {
   background-color: rgb(58, 58, 58);
   color: #fff;
 }
