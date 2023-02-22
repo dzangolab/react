@@ -21,8 +21,8 @@ table caption {
   text-align: left;
 }
 
-tbody {
-  border-bottom: 1px solid lightgray;
+table > thead > button {
+  display: none;
 }
 
 tbody tr:nth-child(even) {
@@ -38,12 +38,12 @@ td {
   border: 1px solid lightgray;
   padding: 8px;
   text-align: left;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-th>div>span {
+th > div > span {
   font-size: 1rem;
   font-weight: 600;
   width: max-content;
@@ -54,41 +54,45 @@ th>div>span {
   top: 0;
 }
 
-tfoot {
-  color: gray;
-}
-
-tfoot th {
-  font-weight: normal;
-}
-
 .current-page-info {
   font-size: 18px;
   width: max-content;
 }
 
 .disable-select {
+  align-items: center;
   cursor: pointer;
   display: flex;
   user-select: none;
 }
 
-.disable-select>*:not(:last-child) {
-  margin-right: 4px;
-}
-
-.disable-select>button,
-.filter-wrapper>button {
+.disable-select > button,
+.filter-wrapper > button {
+  background-color: transparent;
+  border: 0;
+  height: 1rem;
   opacity: 0;
+  outline: 0;
+  padding: 0;
   transition: visibility 0s linear 300ms, opacity 300ms;
   visibility: hidden;
+  width: 1rem;
 }
 
-.disable-select:hover>button,
-.disable-select:hover>.filter-wrapper>button {
+.disable-select:hover > button,
+.disable-select:hover > .filter-wrapper > button {
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 300ms;
   visibility: visible;
+}
+
+.disable-select > button,
+.disable-select > button > img,
+.filter-wrapper,
+.filter-wrapper > button,
+.filter-wrapper > button > img {
+  height: 1rem;
+  width: 1rem;
 }
 
 .filter-form-wrapper {
@@ -106,7 +110,7 @@ tfoot th {
   flex-direction: column;
 }
 
-.number-filter-form>*:not(:last-child) {
+.number-filter-form > *:not(:last-child) {
   margin-bottom: 4px;
 }
 
@@ -116,7 +120,7 @@ tfoot th {
   flex-wrap: wrap;
 }
 
-.page-details>*:not(:last-child) {
+.page-details > *:not(:last-child) {
   margin-right: 16px;
 }
 
@@ -126,7 +130,7 @@ tfoot th {
   flex-wrap: wrap;
 }
 
-.page-controller>*:not(:last-child) {
+.page-controller > *:not(:last-child) {
   margin-right: 8px;
 }
 
@@ -136,14 +140,19 @@ tfoot th {
 }
 
 .pagination-button {
-  border-radius: 50%;
+  align-items: center;
+  background-color: #fff;
   border: solid 1px gray;
+  border-radius: 50%;
+  display: flex;
   height: 32px;
+  justify-content: center;
   transition: 0.3s;
   width: 32px;
 }
 
 .pagination-button[disabled] {
+  background-color: #e7e7e7;
   cursor: not-allowed;
 }
 
@@ -151,35 +160,18 @@ tfoot th {
   background-color: rgb(222, 222, 222);
 }
 
+.pagination-button > img {
+  height: 1rem;
+  width: 1rem;
+}
+
 .pagination-container {
   align-items: center;
   display: flex;
 }
 
-.pagination-container>*:not(:last-child) {
+.pagination-container > *:not(:last-child) {
   margin-right: 4px;
-}
-
-.sort-button {
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  padding: 0;
-}
-
-.table-header-1 {
-  background-color: rgb(58, 58, 58);
-  color: #fff;
-}
-
-.table-header-2 {
-  background-color: rgb(240, 238, 229);
-  color: #000;
-}
-
-.table-header-3 {
-  background-color: rgb(240, 238, 229);
-  position: relative;
 }
 
 .table-info-container {
@@ -189,11 +181,11 @@ tfoot th {
   justify-content: space-between;
 }
 
-.table-info-container>* {
+.table-info-container > * {
   margin-top: 16px;
 }
 
-.table-info-container>*:not(:last-child) {
+.table-info-container > *:not(:last-child) {
   margin-right: 16px;
 }
 
@@ -216,4 +208,74 @@ tfoot th {
 
 .hide-scrollbar .table-wrapper::-webkit-scrollbar {
   display: none;
+}
+
+table > thead > tr:first-child {
+  display: none;
+}
+
+table > thead > tr:first-child {
+  background-color: rgb(58, 58, 58);
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+
+  table > thead > tr:first-child {
+    display: block;
+    background-color: #fff;
+  }
+
+  table > thead > tr:first-child > th {
+    border: 0;
+    padding: 0;
+  }
+
+  table > thead > tr:first-child > th > button {
+    all: unset;
+    background-color: rgb(58, 58, 58);
+    cursor: pointer;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  table > thead > tr:not(:first-child) {
+    display: none;
+  }
+
+  table > thead.active > tr:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+
+  table > thead > tr > th,
+  table > tbody > tr > td {
+    width: 100% !important; /* override column size from props */
+  }
+
+  table > tbody > tr {
+    display: block;
+    margin-bottom: var(--table-cards-gap, 0.6rem);
+  }
+
+  table td {
+    border: 1px solid #222;
+    border-bottom: none;
+    display: block;
+    font-size: var(--td-font-size, 0.8rem);
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: var(--td-border-bottom, 1px solid #222);
+  }
 }

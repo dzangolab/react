@@ -30,7 +30,11 @@ function Filter<T>({ column, table }: FilterProperties<T>) {
     >
       {
         <button onClick={toggleExpand}>
-          {expanded ? filterIcons?.expanded : filterIcons?.notExpanded}
+          {expanded ? (
+            <img src={filterIcons?.expanded} />
+          ) : (
+            <img src={filterIcons?.notExpanded} />
+          )}
         </button>
       }
       {expanded ? (
