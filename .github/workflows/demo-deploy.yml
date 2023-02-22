@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - "apps/demo/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/demo/**"
 
   workflow_dispatch:
 
@@ -25,18 +29,15 @@ jobs:
         with:
           version: 7
 
-      - name: Setup turbo
-        run: npm i -g turbo
-
       - name: Install Dependencies
-        run: turbo prune --scope=@dzangolab/demo-app && cd out && pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build packages
-        run: cd out && pnpm build
+        run: pnpm build --filter=@dzangolab/demo-app
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           clean: true
-          folder: out/dist
+          folder: apps/demo/dist
           token: ${{ secrets.GITHUB_TOKEN }}
