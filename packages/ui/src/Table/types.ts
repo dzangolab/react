@@ -51,21 +51,22 @@ export interface TableProviderProperties<T> {
   columns: ColumnDef<T>[];
   data?: T[];
   fetcher: (requestJSON: TRequestJSON) => void;
+  filterMenuToggleIcon?: string;
   enableMultiSort?: boolean;
   inputDebounceTime?: number;
   fixedHeader?: boolean;
   filterIcons?: {
-    expanded: ReactNode;
-    notExpanded: ReactNode;
+    expanded: string;
+    notExpanded: string;
   };
   hideScrollBar?: boolean;
   isLoading?: boolean;
   paginated?: boolean;
   paginationIcons?: {
-    start: ReactNode;
-    previous: ReactNode;
-    next: ReactNode;
-    end: ReactNode;
+    start: string;
+    previous: string;
+    next: string;
+    end: string;
   };
   rowsPerPageOptions?: number[];
   showLoading?: boolean;
@@ -73,9 +74,9 @@ export interface TableProviderProperties<T> {
   showTotalNumber?: boolean;
   sortable?: boolean;
   sortIcons?: {
-    asc: ReactNode;
-    desc: ReactNode;
-    default: ReactNode;
+    asc: string;
+    desc: string;
+    default: string;
   };
   title?: string;
   totalItems: number;
@@ -97,7 +98,7 @@ export interface FilterProperties<T> {
 
 export interface PaginationProperties {
   config: {
-    icon?: ReactNode;
+    icon?: string;
     isDisabled: boolean;
     onClick: () => void;
   }[];
