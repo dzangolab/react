@@ -1,0 +1,46 @@
+name: demo-cd
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/demo/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/demo/**"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+        name: Use node ${{ matrix.node-version }}
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 7
+
+      - name: Setup turbo
+        run: npm i -g turbo
+
+      - name: Install Dependencies
+        run: turbo prune --scope=demo && cd out && pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: cd out && pnpm build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          clean: true
+          folder: out/dist
+          token: ${{ secrets.GITHUB_TOKEN }}
