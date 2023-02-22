@@ -1,5 +1,5 @@
 import { flexRender, SortDirection } from "@tanstack/react-table";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import Filter from "./Filter";
 import { TableContext } from "./TableProvider";
@@ -8,7 +8,9 @@ import type { TableHeaderProperties } from "./types";
 import type { SyntheticEvent } from "react";
 
 function TableHeader<T>({ table }: TableHeaderProperties<T>) {
-  const { sortable, sortIcons } = useContext(TableContext);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const { sortable, sortIcons, filterMenuToggleIcon } =
+    useContext(TableContext);
 
   const renderSortButton = (
     direction: SortDirection | false,
@@ -16,18 +18,25 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
   ) => {
     switch (direction) {
       case "asc":
-        return sortIcons?.asc;
+        return <img src={sortIcons?.asc} />;
       case "desc":
-        return sortIcons?.desc;
+        return <img src={sortIcons?.desc} />;
       default:
-        return canSort ? sortIcons?.default : "";
+        return canSort ? <img src={sortIcons?.default} /> : "";
     }
   };
 
   return (
-    <thead>
-      {table.getHeaderGroups().map((headerGroup, index) => (
-        <tr key={headerGroup.id} className={`table-header-${index + 1}`}>
+    <thead className={`${isCollapsed ? "active" : ""}`}>
+      <tr>
+        <th>
+          <button onClick={() => setIsCollapsed(!isCollapsed)}>
+            <img src={filterMenuToggleIcon} />
+          </button>
+        </th>
+      </tr>
+      {table.getHeaderGroups().map((headerGroup) => (
+        <tr key={headerGroup.id}>
           {headerGroup.headers.map((header) => {
             const { column, colSpan, getSize, id, isPlaceholder, getContext } =
               header;
