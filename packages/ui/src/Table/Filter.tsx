@@ -37,7 +37,7 @@ function Filter({
             setExpanded(false);
           }}
         >
-          <div className="filter-form-wrapper">
+          <div role="dialog" className="filter-form-wrapper">
             <DebounceInput
               type="text"
               value={(columnFilterValue ?? "") as string}
