@@ -1,14 +1,15 @@
 import { configContext } from "@dzangolab/react-config";
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import { UserMenu } from "@dzangolab/react-user";
 import React, { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import MainMenu from "./MainMenu";
+import Logo from "./Logo";
 
 import "../css/components/app-header.css";
 
 interface Properties {
+  route?: string;
   localeSwitcher?: React.ReactNode;
   mainMenu?: React.ReactNode;
   navStyle?: "dropdown" | "left-slider";
@@ -20,11 +21,12 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
   const appConfig = useContext(configContext);
 
   const {
+    route = "/",
     localeSwitcher = <LocaleSwitcher />,
     mainMenu = <MainMenu routes={appConfig?.layout?.mainMenu} />,
     navStyle = "dropdown",
     toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
-    userMenu = <UserMenu />,
+    userMenu,
   } = properties;
 
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -37,11 +39,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      <div className="logo">
-        <a href={appConfig?.home.anon}>
-          <img src={appConfig?.app.logo} alt="logo" />
-        </a>
-      </div>
+      <Logo src={appConfig?.app.logo} route={route} />
       <nav className={navClass}>
         {mainMenu}
         {userMenu}
