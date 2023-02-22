@@ -33,7 +33,7 @@ jobs:
         run: npm i -g turbo
 
       - name: Install Dependencies
-        run: turbo prune --scope=demo && cd out && pnpm install --frozen-lockfile
+        run: turbo prune --scope=@dzangolab/demo-app && cd out && pnpm install --frozen-lockfile
 
       - name: Build packages
         run: cd out && pnpm build
