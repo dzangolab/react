@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { UserContextType } from "@/types/types";
+import { UserContextType } from "@/types";
 
 import { userContext } from "../context/UserProvider";
 import DropdownUserMenu from "./DropdownUserMenu";

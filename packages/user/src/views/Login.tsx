@@ -11,7 +11,7 @@ import login, { verifySession } from "@/supertokens/login";
 
 import { userContext } from "../context/UserProvider";
 
-import type { LoginCredentials, UserContextType } from "@/types/types";
+import type { LoginCredentials, UserContextType } from "@/types";
 
 import "../assets/css/login.css";
 
