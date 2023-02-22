@@ -1,10 +1,10 @@
 import React from "react";
 
-import AppFooter from "./components/AppFooter";
-import AppHeader from "./components/AppHeader";
-import Sidebar from "./components/Sidebar";
+import AppFooter from "../components/AppFooter";
+import AppHeader from "../components/AppHeader";
+import Sidebar from "../components/Sidebar";
 
-import "./css/collapsible-sidebar-layout.css";
+import "../css/layouts/collapsible-sidebar-layout.css";
 
 interface Properties {
   children: React.ReactNode;
