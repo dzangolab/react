@@ -1,10 +1,26 @@
 import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
 
-import { BaseTable, Table } from "./index";
+import arrowDownIcon from "../../assets/images/arrow-down.svg";
+import arrowUpDownIcon from "../../assets/images/arrow-up-down.svg";
+import arrowUpIcon from "../../assets/images/arrow-up.svg";
+import chevronLeft from "../../assets/images/chevron-left.svg";
+import chevronRight from "../../assets/images/chevron-right.svg";
+import doubleChevronLeft from "../../assets/images/double-chevron-left.svg";
+import doubleChevronRight from "../../assets/images/double-chevron-right.svg";
+import filterIcon from "../../assets/images/filter.svg";
+
+import { Table } from "./index";
 
 type TableType = typeof Table;
 type TableProperties = Meta<TableType>;
+
+type TData = {
+  id: number;
+  givenName: string;
+  middleNames: string;
+  surname: string;
+};
 
 const columns = [
   {
@@ -13,24 +29,32 @@ const columns = [
   },
   {
     accessorKey: "givenName",
-    header: () => <span>givenName</span>,
+    header: () => <span>Given Name</span>,
   },
   {
     accessorKey: "middleNames",
-    header: () => <span>middleNames</span>,
+    header: () => <span>Middle Names</span>,
   },
   {
     accessorKey: "surname",
-    header: () => <span>surname</span>,
+    header: () => <span>Surname</span>,
   },
 ];
 
-const data = [
-  { id: 1, givenName: "jone", middleNames: "abcd", surname: "doe" },
-  { id: 2, givenName: "abhi", middleNames: "abcd", surname: "duwal" },
-  { id: 3, givenName: "mike", middleNames: "abcd", surname: "doe" },
-  { id: 4, givenName: "tony", middleNames: "abcd", surname: "doe" },
-];
+const makeData = (count: number) => {
+  const data: TData[] = [];
+  for (let i = 0; i < count; i++) {
+    data[i] = {
+      id: i + 1,
+      givenName: "jone",
+      middleNames: "abcd",
+      surname: "doe",
+    };
+  }
+  return data;
+};
+
+const data = makeData(4);
 
 const fetcher = () => {
   return data;
@@ -39,18 +63,22 @@ const fetcher = () => {
 const TableStory: TableProperties = {
   title: "UI/Table",
   component: Table,
+  args: {
+    columns,
+    data,
+    totalItems: 50,
+    fetcher,
+  },
 };
 
-const Template: StoryFn<TableType> = (arguments_) => (
-  <Table {...arguments_}>
-    <BaseTable></BaseTable>
-  </Table>
-);
+const Template: StoryFn<TableType> = (arguments_) => <Table {...arguments_} />;
 
 export const BasicTable: TableProperties = Template.bind({});
 export const NoPaginationTable: TableProperties = Template.bind({});
 export const ShowScrollBarTable: TableProperties = Template.bind({});
+export const HideScrollBarTable: TableProperties = Template.bind({});
 export const LoadingTable: TableProperties = Template.bind({});
+export const FilterIcons: TableProperties = Template.bind({});
 export const PaginationIcons: TableProperties = Template.bind({});
 export const RowsPerPageOptions: TableProperties = Template.bind({});
 export const ShowLoading: TableProperties = Template.bind({});
@@ -60,108 +88,70 @@ export const UnSortable: TableProperties = Template.bind({});
 export const SortIcons: TableProperties = Template.bind({});
 export const TableTitle: TableProperties = Template.bind({});
 
-BasicTable.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
-};
-
 NoPaginationTable.args = {
-  columns,
-  data,
-  totalItems: 1,
-  fetcher,
   paginated: false,
 };
 
 ShowScrollBarTable.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
+  data: makeData(20),
   hideScrollBar: false,
 };
 
+HideScrollBarTable.args = {
+  data: makeData(20),
+  hideScrollBar: true,
+};
+
 LoadingTable.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
   isLoading: true,
 };
 
+FilterIcons.args = {
+  filterIcons: {
+    expanded: filterIcon,
+    notExpanded: filterIcon,
+  },
+};
+
 PaginationIcons.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
   paginationIcons: {
-    start: "strt",
-    previous: "privs",
-    next: "nxt",
-    end: "end",
+    start: doubleChevronLeft,
+    previous: chevronLeft,
+    next: chevronRight,
+    end: doubleChevronRight,
   },
 };
 
 RowsPerPageOptions.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
-  rowsPerPageOptions: [20],
+  rowsPerPageOptions: [20, 30, 40],
 };
 
 ShowLoading.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
   showLoading: false,
 };
 
 HidePageControl.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
   showPageControl: false,
 };
 
 HideTotalNumber.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
   showTotalNumber: false,
 };
 
 UnSortable.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
   sortable: false,
 };
 
 SortIcons.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
   sortIcons: {
-    asc: "a",
-    desc: "a",
-    default: "a",
+    asc: arrowUpIcon,
+    desc: arrowDownIcon,
+    default: arrowUpDownIcon,
   },
 };
 
 TableTitle.args = {
-  columns,
-  data,
-  totalItems: 50,
-  fetcher,
-  title: "table title",
+  title: "This is a custom table title",
 };
 
 export default TableStory;
