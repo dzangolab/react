@@ -39,11 +39,18 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
         <tr key={headerGroup.id}>
           {headerGroup.headers.map((header) => {
             const sortFunction = (event: SyntheticEvent) => {
+              if (!sortable) return;
               event.stopPropagation();
               const sortHandler = header.column.getToggleSortingHandler();
               if (sortHandler) {
                 sortHandler(event);
               }
+            };
+
+            const getColumnTitleClass = () => {
+              let className = "";
+              if (!sortable) className = " disable-sort";
+              return "column-title" + className;
             };
 
             return (
@@ -53,16 +60,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
                 style={{ width: header.getSize() }}
               >
                 {header.isPlaceholder ? null : (
-                  <div
-                    {...{
-                      className: !sortable
-                        ? ""
-                        : header.column.getCanSort()
-                        ? "disable-select"
-                        : "",
-                    }}
-                    onClick={sortFunction}
-                  >
+                  <div className={getColumnTitleClass()} onClick={sortFunction}>
                     {flexRender(
                       header.column.columnDef.header,
                       header.getContext()
