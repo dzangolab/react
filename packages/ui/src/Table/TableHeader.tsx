@@ -42,6 +42,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
               header;
 
             const sortFunction = (event: SyntheticEvent) => {
+              if (!sortable) return;
               event.stopPropagation();
               const sortHandler = header.column.getToggleSortingHandler();
               if (sortHandler) {
@@ -49,20 +50,24 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
               }
             };
 
+            const getColumnTitleClass = () => {
+              let className = "";
+              if (!sortable) className = " disable-sort";
+              return "column-title" + className;
+            };
+
             return (
-              <th key={id} colSpan={colSpan} style={{ width: getSize() }}>
-                {isPlaceholder ? null : (
-                  <div
-                    {...{
-                      className: !sortable
-                        ? ""
-                        : column.getCanSort()
-                        ? "disable-select"
-                        : "",
-                    }}
-                    onClick={sortFunction}
-                  >
-                    {flexRender(column.columnDef.header, getContext())}
+              <th
+                key={header.id}
+                colSpan={header.colSpan}
+                style={{ width: header.getSize() }}
+              >
+                {header.isPlaceholder ? null : (
+                  <div className={getColumnTitleClass()} onClick={sortFunction}>
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
                     {sortable ? (
                       <button className="sort-button">
                         {renderSortButton(

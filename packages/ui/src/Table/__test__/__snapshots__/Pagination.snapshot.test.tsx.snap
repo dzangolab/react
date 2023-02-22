@@ -9,28 +9,36 @@ exports[`Component matches snapshot 1`] = `
     disabled={true}
     onClick={[MockFunction spy]}
   >
-    start.png
+    <img
+      src="start.png"
+    />
   </button>
   <button
     className="pagination-button"
     disabled={true}
     onClick={[MockFunction spy]}
   >
-    previous.png
+    <img
+      src="previous.png"
+    />
   </button>
   <button
     className="pagination-button"
     disabled={false}
     onClick={[MockFunction spy]}
   >
-    next.png
+    <img
+      src="next.png"
+    />
   </button>
   <button
     className="pagination-button"
     disabled={false}
     onClick={[MockFunction spy]}
   >
-    end.png
+    <img
+      src="end.png"
+    />
   </button>
 </div>
 `;

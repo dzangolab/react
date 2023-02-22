@@ -8,10 +8,21 @@ exports[`Component matches snapshot 1`] = `
     className="table-wrapper"
   >
     <table>
-      <thead>
-        <tr
-          className="table-header-1"
-        >
+      <thead
+        className=""
+      >
+        <tr>
+          <th>
+            <button
+              onClick={[Function]}
+            >
+              <img
+                src="/assets/images/adjustments.svg"
+              />
+            </button>
+          </th>
+        </tr>
+        <tr>
           <th
             colSpan={1}
             style={
@@ -21,7 +32,7 @@ exports[`Component matches snapshot 1`] = `
             }
           >
             <div
-              className="disable-select"
+              className="column-title"
               onClick={[Function]}
             >
               <span>
@@ -30,7 +41,9 @@ exports[`Component matches snapshot 1`] = `
               <button
                 className="sort-button"
               >
-                ↕️
+                <img
+                  src="/assets/images/arrow-up-down.svg"
+                />
               </button>
             </div>
           </th>
@@ -43,7 +56,7 @@ exports[`Component matches snapshot 1`] = `
             }
           >
             <div
-              className="disable-select"
+              className="column-title"
               onClick={[Function]}
             >
               <span>
@@ -52,7 +65,9 @@ exports[`Component matches snapshot 1`] = `
               <button
                 className="sort-button"
               >
-                ↕️
+                <img
+                  src="/assets/images/arrow-up-down.svg"
+                />
               </button>
               <div
                 className="filter-wrapper"
@@ -61,7 +76,9 @@ exports[`Component matches snapshot 1`] = `
                 <button
                   onClick={[Function]}
                 >
-                  🙈
+                  <img
+                    src="/assets/images/filter.svg"
+                  />
                 </button>
               </div>
             </div>
@@ -71,6 +88,7 @@ exports[`Component matches snapshot 1`] = `
       <tbody>
         <tr>
           <td
+            data-label="id"
             style={
               {
                 "width": 150,
@@ -80,6 +98,7 @@ exports[`Component matches snapshot 1`] = `
             1
           </td>
           <td
+            data-label="name"
             style={
               {
                 "width": 150,
@@ -91,6 +110,7 @@ exports[`Component matches snapshot 1`] = `
         </tr>
         <tr>
           <td
+            data-label="id"
             style={
               {
                 "width": 150,
@@ -100,6 +120,7 @@ exports[`Component matches snapshot 1`] = `
             2
           </td>
           <td
+            data-label="name"
             style={
               {
                 "width": 150,
@@ -111,6 +132,7 @@ exports[`Component matches snapshot 1`] = `
         </tr>
         <tr>
           <td
+            data-label="id"
             style={
               {
                 "width": 150,
@@ -120,6 +142,7 @@ exports[`Component matches snapshot 1`] = `
             3
           </td>
           <td
+            data-label="name"
             style={
               {
                 "width": 150,
@@ -131,6 +154,7 @@ exports[`Component matches snapshot 1`] = `
         </tr>
         <tr>
           <td
+            data-label="id"
             style={
               {
                 "width": 150,
@@ -140,6 +164,7 @@ exports[`Component matches snapshot 1`] = `
             4
           </td>
           <td
+            data-label="name"
             style={
               {
                 "width": 150,
@@ -214,28 +239,36 @@ exports[`Component matches snapshot 1`] = `
         disabled={true}
         onClick={[Function]}
       >
-        &lt;&lt;
+        <img
+          src="/assets/images/double-chevron-left.svg"
+        />
       </button>
       <button
         className="pagination-button"
         disabled={true}
         onClick={[Function]}
       >
-        &lt;
+        <img
+          src="/assets/images/chevron-left.svg"
+        />
       </button>
       <button
         className="pagination-button"
         disabled={true}
         onClick={[Function]}
       >
-        &gt;
+        <img
+          src="/assets/images/chevron-right.svg"
+        />
       </button>
       <button
         className="pagination-button"
         disabled={true}
         onClick={[Function]}
       >
-        &gt;&gt;
+        <img
+          src="/assets/images/double-chevron-right.svg"
+        />
       </button>
     </div>
   </div>
