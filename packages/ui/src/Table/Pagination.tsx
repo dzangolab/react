@@ -17,7 +17,7 @@ const Pagination = (properties: PaginationProperties) => {
           onClick={onClick}
           disabled={isDisabled || isLoading}
         >
-          {icon}
+          <img src={icon} />
         </button>
       ))}
     </div>

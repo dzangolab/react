@@ -14,10 +14,6 @@ interface AppConfig {
     url: string;
   };
   features: AppFeatures;
-  home: {
-    anon: string;
-    auth: string;
-  };
   locales: string;
   localStorageNamespace: string;
   websiteDomain: string;

@@ -1,5 +1,6 @@
 header {
   align-items: center;
+  border-bottom: 1px solid var(--header-border-color, var(--border-color, #000));
   display: grid;
   font-size: var(--header-font-size, 1rem);
   grid-gap: 0 var(--header-gap, 1.5rem);
@@ -16,8 +17,8 @@ header .logo {
 
 header > nav {
   display: none;
-  grid-area: nav;
   gap: var(--header-nav-column-gap, 0.25rem) var(--header-nav-row-gap, 1rem);
+  grid-area: nav;
   grid-template-areas: "main-menu user-menu locales";
   grid-template-columns: 1fr auto auto;
 }
@@ -78,10 +79,35 @@ header > .toggle {
     display: block;
     grid-area: toggle;
   }
+
+  header::before {
+    background-color: var(--header-bg-color, transparent);
+    box-shadow: 0 0 0 100vmax var(--header-bg-color, transparent);
+    clip-path: inset(
+      calc(-1 * var(--header-padding-top, 1em)) -100vmax calc(
+          -1 * var(--header-padding-bottom, 1em)
+        ) -100vmax
+    );
+    content: "";
+    grid-column: 1 / span 2;
+    grid-row: 1 / 1;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
 }
 
 @media screen and (min-width: 576px) {
   header > nav {
-    display: grid;
+    align-items: center;
+    background-color: var(--header-bg-color, transparent);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
   }
 }
