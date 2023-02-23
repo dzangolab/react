@@ -30,9 +30,11 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
 
   return (
     <>
-      {lastHeaderGroup?.headers.map(({ getSize, id }) => (
-        <col key={id} width={getSize()} />
-      ))}
+      <colgroup>
+        {lastHeaderGroup?.headers.map(({ getSize, id }) => (
+          <col key={id} width={getSize()} />
+        ))}
+      </colgroup>
       <thead className={`${isCollapsed ? "active" : ""}`}>
         <tr>
           <th>

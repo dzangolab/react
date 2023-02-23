@@ -224,7 +224,7 @@ table > thead > tr:last-child {
 
 @media screen and (max-width: 600px) {
 
-  table > col:not(:first-child) {
+  table > colgroup > col:not(:first-child) {
     display: none;
   }
 
