@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 
 import GoogleLogin from "@/components/GoogleLogin";
 import LoginForm from "@/components/LoginForm";
+import RedirectionMessage from "@/components/RedirectionMessage";
 import login, { verifySession } from "@/supertokens/login";
 
 import { userContext } from "../context/UserProvider";
@@ -19,19 +20,26 @@ const Login = () => {
   const { t } = useTranslation("user");
   const { setUser } = useContext(userContext) as UserContextType;
   const [loading, setLoading] = useState<boolean>(false);
+  const [showRedirectionMessage, setShowRedirectionMessage] =
+    useState<boolean>(false);
+
   const appConfig = useContext(configContext);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
     const result = await login(credentials);
 
-    if (
-      result?.user &&
-      appConfig?.appContext &&
-      (await verifySession(appConfig.appContext))
-    ) {
-      setUser(result?.user);
-      toast.success(`${t("login.messages.success")}`);
+    if (result?.user) {
+      if (
+        appConfig?.appContext &&
+        (await verifySession(appConfig.appContext))
+      ) {
+        setUser(result?.user);
+        setShowRedirectionMessage(false);
+        toast.success(`${t("login.messages.success")}`);
+      } else {
+        setShowRedirectionMessage(true);
+      }
     }
     setLoading(false);
   };
@@ -61,6 +69,13 @@ const Login = () => {
   return (
     <div className="login">
       <Page title={t("login.title")}>
+        {showRedirectionMessage ? (
+          <RedirectionMessage
+            appLink={appConfig?.user.redirectTo.appURL || ""}
+            appName={appConfig?.user.redirectTo.appName || ""}
+            hideRedirectionMessage={() => setShowRedirectionMessage(false)}
+          />
+        ) : null}
         <LoginForm handleSubmit={handleSubmit} loading={loading} />
         {appConfig?.supportedLoginProviders &&
         appConfig.supportedLoginProviders.includes("google") ? (

@@ -5,11 +5,15 @@ import "../assets/css/redirectMessage.css";
 interface IProperties {
   appLink: string;
   appName: string;
+  hideRedirectionMessage: () => void;
 }
 
-const RedirectionMessage: React.FC<IProperties> = ({ appLink, appName }) => {
+const RedirectionMessage: React.FC<IProperties> = ({
+  appLink,
+  appName,
+  hideRedirectionMessage,
+}) => {
   const [countDown, setCountDown] = useState(10);
-  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -22,25 +26,23 @@ const RedirectionMessage: React.FC<IProperties> = ({ appLink, appName }) => {
   }, []);
 
   if (countDown < 0) {
-    return null;
+    hideRedirectionMessage();
   }
 
   return (
     <div className="redirect-message" role="alert">
       <p>
-        Permission denied, did you mean to login into {appName} app?
-        <br /> If yes, Please click the link below to goto the {appName} app.
-        <br />
+        Permission denied, did you mean to login into {appName} app? If yes,
+        Please click the link below to goto the {appName} app.
       </p>
       <button
         onClick={() => {
           window.location.href = appLink;
-          setRedirect(true);
         }}
       >
         {appName}
       </button>
-      <p>You will be logged out in {countDown}</p>
+      <p>This message will disappear in {countDown}</p>
     </div>
   );
 };
