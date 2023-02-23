@@ -232,7 +232,7 @@ importers:
       jsdom: 20.0.3
       prettier: 2.8.3
       react: 18.2.0
-      react-icons: 4.4.0
+      react-icons: 4.7.1
       react-test-renderer: 18.2.0
       tsconfig: 0.4.9
       typescript: 4.9.5
@@ -243,7 +243,7 @@ importers:
       '@dzangolab/react-i18n': link:../i18n
       '@dzangolab/react-ui': link:../ui
       react: 18.2.0
-      react-icons: 4.4.0_react@18.2.0
+      react-icons: 4.7.1_react@18.2.0
     devDependencies:
       '@testing-library/react': 13.4.0_react@18.2.0
       '@types/jsdom': 20.0.0
@@ -13304,8 +13304,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-icons/4.4.0_react@18.2.0:
-    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
+  /react-icons/4.7.1_react@18.2.0:
+    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
     peerDependencies:
       react: '*'
     dependencies:
