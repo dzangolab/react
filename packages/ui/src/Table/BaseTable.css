@@ -5,7 +5,6 @@ button {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  table-layout: fixed;
   width: 100%;
 }
 
@@ -224,6 +223,10 @@ table > thead > tr:last-child {
 }
 
 @media screen and (max-width: 600px) {
+
+  table > col:not(:first-child) {
+    display: none;
+  }
 
   table > thead > tr:first-child {
     display: block;
