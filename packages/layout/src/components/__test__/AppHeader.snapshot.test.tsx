@@ -1,7 +1,7 @@
 import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
 import { create } from "react-test-renderer";
-import { expect, test, vi } from "vitest";
+import { expect, test } from "vitest";
 
 import AppHeader from "../AppHeader";
 
@@ -51,13 +51,6 @@ const appConfig: AppConfig = {
 
 test("Component matches snapshot", () => {
   i18n(appConfig.i18n);
-
-  const user = undefined;
-  const values = {
-    user,
-    setUser: vi.fn(),
-    loading: false,
-  };
 
   const component = create(
     <configContext.Provider value={appConfig}>

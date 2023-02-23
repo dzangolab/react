@@ -3,8 +3,8 @@ import { LocaleSwitcher } from "@dzangolab/react-i18n";
 import React, { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import MainMenu from "./MainMenu";
 import Logo from "./Logo";
+import MainMenu from "./MainMenu";
 
 import "../css/components/app-header.css";
 
