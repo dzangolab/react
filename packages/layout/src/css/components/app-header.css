@@ -10,6 +10,22 @@ header {
   position: relative;
 }
 
+header::before {
+  background-color: var(--header-bg-color, transparent);
+  box-shadow: 0 0 0 100vmax var(--header-bg-color, transparent);
+  clip-path: inset(
+    calc(-1 * var(--header-padding-top, 1em)) -100vmax calc(
+        -1 * var(--header-padding-bottom, 1em)
+      ) -100vmax
+  );
+  content: "";
+  grid-column: 1 / span 2;
+  grid-row: 1 / 1;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
 header .logo {
   grid-area: logo;
   max-width: var(--header-logo-width, 200px);
@@ -78,22 +94,6 @@ header > .toggle {
     cursor: pointer;
     display: block;
     grid-area: toggle;
-  }
-
-  header::before {
-    background-color: var(--header-bg-color, transparent);
-    box-shadow: 0 0 0 100vmax var(--header-bg-color, transparent);
-    clip-path: inset(
-      calc(-1 * var(--header-padding-top, 1em)) -100vmax calc(
-          -1 * var(--header-padding-bottom, 1em)
-        ) -100vmax
-    );
-    content: "";
-    grid-column: 1 / span 2;
-    grid-row: 1 / 1;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
   }
 }
 
