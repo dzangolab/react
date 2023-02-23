@@ -1,14 +1,14 @@
 import React, { createContext, useCallback, useRef } from "react";
 
-import adjustmentsIcon from "../../assets/images/adjustments.svg";
-import arrowDownIcon from "../../assets/images/arrow-down.svg";
-import arrowUpDownIcon from "../../assets/images/arrow-up-down.svg";
-import arrowUpIcon from "../../assets/images/arrow-up.svg";
-import chevronLeft from "../../assets/images/chevron-left.svg";
-import chevronRight from "../../assets/images/chevron-right.svg";
-import doubleChevronLeft from "../../assets/images/double-chevron-left.svg";
-import doubleChevronRight from "../../assets/images/double-chevron-right.svg";
-import filterIcon from "../../assets/images/filter.svg";
+import adjustmentsIcon from "../assets/images/adjustments.svg";
+import arrowDownIcon from "../assets/images/arrow-down.svg";
+import arrowUpDownIcon from "../assets/images/arrow-up-down.svg";
+import arrowUpIcon from "../assets/images/arrow-up.svg";
+import chevronLeft from "../assets/images/chevron-left.svg";
+import chevronRight from "../assets/images/chevron-right.svg";
+import doubleChevronLeft from "../assets/images/double-chevron-left.svg";
+import doubleChevronRight from "../assets/images/double-chevron-right.svg";
+import filterIcon from "../assets/images/filter.svg";
 import BaseTable from "./BaseTable";
 
 import type {
