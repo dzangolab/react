@@ -31,14 +31,6 @@ header .logo {
   max-width: var(--header-logo-width, 200px);
 }
 
-header > nav {
-  display: none;
-  gap: var(--header-nav-column-gap, 0.25rem) var(--header-nav-row-gap, 1rem);
-  grid-area: nav;
-  grid-template-areas: "main-menu user-menu locales";
-  grid-template-columns: 1fr auto auto;
-}
-
 header > nav .main-menu {
   grid-area: main-menu;
 }
@@ -53,6 +45,15 @@ header > nav .user-menu {
 
 header > .toggle {
   display: none;
+}
+
+header > nav {
+  display: none;
+  gap: var(--header-nav-column-gap, 0.25rem) var(--header-nav-row-gap, 1rem);
+  grid-area: nav;
+  grid-template-areas: "main-menu user-menu locales";
+  grid-template-columns: auto;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 576px) {
@@ -99,15 +100,10 @@ header > .toggle {
 
 @media screen and (min-width: 576px) {
   header > nav {
-    align-items: center;
-    background-color: var(--header-bg-color, transparent);
-    border: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 0;
+    display: grid;
+  }
+
+  header > nav.main-menu {
+    grid-template-columns: 1fr auto auto;
   }
 }
