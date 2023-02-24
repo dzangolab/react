@@ -279,6 +279,7 @@ table > thead > tr:last-child {
     content: attr(data-label);
     float: left;
     font-weight: bold;
+    margin-right: var(--responsive-td-gap, 1rem);
     text-transform: uppercase;
   }
 
