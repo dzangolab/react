@@ -9,11 +9,10 @@ const Pagination = (properties: PaginationProperties) => {
   const { isLoading } = useContext(TableContext);
 
   return (
-    <div className="pagination-container">
+    <div>
       {properties.config.map(({ icon, isDisabled, onClick }, index) => (
         <button
           key={id + index}
-          className="pagination-button"
           onClick={onClick}
           disabled={isDisabled || isLoading}
         >

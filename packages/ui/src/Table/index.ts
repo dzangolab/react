@@ -1,3 +1,5 @@
+import "./table.css";
+
 import BaseTable from "./BaseTable";
 import TableProvider from "./TableProvider";
 

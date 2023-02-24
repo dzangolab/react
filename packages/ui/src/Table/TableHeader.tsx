@@ -7,6 +7,10 @@ import { TableContext } from "./TableProvider";
 import type { TableHeaderProperties, TSortIcons } from "./types";
 import type { SyntheticEvent } from "react";
 
+// https://github.com/TanStack/table/blob/33169d3c2459215c5601b3ea062103c5ffda1548/packages/table-core/src/features/ColumnSizing.ts#L80
+// TODO(24 Feb 2023): update with better solution in future
+const DEFAULT_COL_SIZE = 150;
+
 const renderSortButton = (
   canSort: boolean,
   direction: SortDirection | false,
@@ -45,7 +49,10 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
     <>
       <colgroup>
         {lastHeaderGroup?.headers.map(({ getSize, id }) => (
-          <col key={id} width={getSize()} />
+          <col
+            key={id}
+            width={getSize() === DEFAULT_COL_SIZE ? "" : getSize()}
+          />
         ))}
       </colgroup>
       <thead className={`${isCollapsed ? "active" : ""}`}>
@@ -63,7 +70,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
                 const getColumnTitleClass = () => {
                   let className = "";
                   if (!sortable) className = " disable-sort";
-                  return "column-title" + className;
+                  return className;
                 };
 
                 return (
@@ -81,7 +88,7 @@ function TableHeader<T>({ table }: TableHeaderProperties<T>) {
                       >
                         {flexRender(column.columnDef.header, getContext())}
                         {sortable ? (
-                          <button className="sort-button">
+                          <button>
                             {renderSortButton(
                               column.getCanSort(),
                               column.getIsSorted(),

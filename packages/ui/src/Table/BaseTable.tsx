@@ -1,5 +1,3 @@
-import "./BaseTable.css";
-
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { DebounceInput } from "react-debounce-input";
@@ -86,8 +84,8 @@ function BaseTable() {
   };
 
   return (
-    <div className={getTableWrapperStyle()}>
-      <div className="table-wrapper">
+    <div className={`table-wrapper ${getTableWrapperStyle()}`}>
+      <div>
         <table>
           {title ? <caption>{title}</caption> : null}
           <TableHeader table={table} />
@@ -95,21 +93,20 @@ function BaseTable() {
         </table>
       </div>
 
-      <div className="table-info-container">
-        <div className="page-details">
+      <div>
+        <div>
           {showTotalNumber ? (
-            <span className="current-page-info">
+            <span>
               <strong>
                 {`${
                   table.getState().pagination.pageIndex + 1
                 } of ${table.getPageCount()} `}
               </strong>
-              |
             </span>
           ) : null}
 
           {showPageControl ? (
-            <div className="page-controller">
+            <div>
               <span> Go to page:</span>
               <DebounceInput
                 type="number"
@@ -124,7 +121,6 @@ function BaseTable() {
                     table.setPageIndex(page);
                   }
                 }}
-                size={1}
               />
 
               <select

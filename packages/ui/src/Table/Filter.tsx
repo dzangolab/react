@@ -26,10 +26,7 @@ function Filter<T>({ column, table }: FilterProperties<T>) {
   };
 
   return (
-    <div
-      className="filter-wrapper"
-      onClick={(event_) => event_.stopPropagation()}
-    >
+    <div onClick={(event_) => event_.stopPropagation()}>
       {
         <button onClick={toggleExpand}>
           {expanded
