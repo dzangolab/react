@@ -21,7 +21,7 @@ function BaseTable() {
     columns,
     data,
     enableMultiSort,
-    fetchCallback,
+    fetcher,
     inputDebounceTime,
     fixedHeader,
     hideScrollBar,
@@ -47,7 +47,7 @@ function BaseTable() {
       pageIndex,
       pageSize,
     });
-    fetchCallback && fetchCallback(requestJSON);
+    fetcher(requestJSON);
   }, [columnFilters, pageIndex, pageSize, sorting]);
 
   const pagination = useMemo(

@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useRef } from "react";
+import React, { createContext } from "react";
 
 import adjustmentsIcon from "../assets/images/adjustments.svg";
 import arrowDownIcon from "../assets/images/arrow-down.svg";
@@ -11,11 +11,7 @@ import doubleChevronRight from "../assets/images/double-chevron-right.svg";
 import filterIcon from "../assets/images/filter.svg";
 import BaseTable from "./BaseTable";
 
-import type {
-  TableContextProperties,
-  TableProviderProperties,
-  TRequestJSON,
-} from "./types";
+import type { TableContextProperties, TableProviderProperties } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const TableContext = createContext<TableContextProperties<any>>({
@@ -23,30 +19,14 @@ export const TableContext = createContext<TableContextProperties<any>>({
   data: [],
   isLoading: false,
   totalItems: 0,
-  fetchCallback: () => {
+  fetcher: () => {
     return;
   },
 });
 
-function TableProvider<T>({
-  fetcher,
-  children,
-  ...rest
-}: TableProviderProperties<T>) {
-  const fetchIdReference = useRef(0);
-
-  const fetchCallback = useCallback(
-    async (requestJSON: TRequestJSON) => {
-      const fetchId = ++fetchIdReference.current;
-      if (fetchId === fetchIdReference.current) {
-        fetcher(requestJSON);
-      }
-    },
-    [fetcher]
-  );
-
+function TableProvider<T>({ children, ...rest }: TableProviderProperties<T>) {
   return (
-    <TableContext.Provider value={{ fetchCallback, ...rest }}>
+    <TableContext.Provider value={{ ...rest }}>
       {children ? children : <BaseTable />}
     </TableContext.Provider>
   );

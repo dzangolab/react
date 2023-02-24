@@ -82,13 +82,7 @@ export interface TableProviderProperties<T> {
   totalItems: number;
 }
 
-export interface TableContextProperties<T>
-  extends Pick<
-    TableProviderProperties<T>,
-    Exclude<keyof TableProviderProperties<T>, "fetcher">
-  > {
-  fetchCallback: (requestJSON: TRequestJSON) => void;
-}
+export type TableContextProperties<T> = TableProviderProperties<T>;
 
 export interface FilterProperties<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
