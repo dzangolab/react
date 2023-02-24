@@ -225,6 +225,10 @@ table > thead > tr:last-child {
 
 @media screen and (max-width: 600px) {
 
+  table > colgroup > col:not(:first-child) {
+    display: none;
+  }
+
   table > thead > tr:first-child {
     display: block;
     background-color: #fff;
@@ -276,6 +280,7 @@ table > thead > tr:last-child {
     content: attr(data-label);
     float: left;
     font-weight: bold;
+    margin-right: var(--responsive-td-gap, 1rem);
     text-transform: uppercase;
   }
 

@@ -6,22 +6,24 @@ import { TableContext } from "./TableProvider";
 
 import type { FilterProperties } from "./types";
 
+const renderImage = (source?: string) => {
+  return <img src={source} />;
+};
+
 function Filter<T>({ column, table }: FilterProperties<T>) {
-  const { inputDebounceTime, filterIcons } = useContext(TableContext);
-
-  const [expanded, setExpanded] = useState(false);
-
   const firstValue = table
     .getPreFilteredRowModel()
     .flatRows[0]?.getValue(column.id);
 
+  if (typeof firstValue === "number") return null;
+
+  const { inputDebounceTime, filterIcons } = useContext(TableContext);
+  const [expanded, setExpanded] = useState(false);
   const columnFilterValue = column.getFilterValue();
 
   const toggleExpand = () => {
     expanded ? setExpanded(false) : setExpanded(true);
   };
-
-  if (typeof firstValue === "number") return null;
 
   return (
     <div
@@ -30,11 +32,9 @@ function Filter<T>({ column, table }: FilterProperties<T>) {
     >
       {
         <button onClick={toggleExpand}>
-          {expanded ? (
-            <img src={filterIcons?.expanded} />
-          ) : (
-            <img src={filterIcons?.notExpanded} />
-          )}
+          {expanded
+            ? renderImage(filterIcons?.expanded)
+            : renderImage(filterIcons?.notExpanded)}
         </button>
       }
       {expanded ? (

@@ -46,6 +46,12 @@ export type TFetchDataOptions = {
   sorts?: string;
 };
 
+export type TSortIcons = {
+  asc: string;
+  desc: string;
+  default: string;
+};
+
 export interface TableProviderProperties<T> {
   children?: ReactNode;
   columns: ColumnDef<T>[];
@@ -73,11 +79,7 @@ export interface TableProviderProperties<T> {
   showPageControl?: boolean;
   showTotalNumber?: boolean;
   sortable?: boolean;
-  sortIcons?: {
-    asc: string;
-    desc: string;
-    default: string;
-  };
+  sortIcons?: TSortIcons;
   title?: string;
   totalItems: number;
 }
