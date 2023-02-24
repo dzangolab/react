@@ -1,0 +1,39 @@
+name: demo-cd
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/demo/**"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+        name: Use node ${{ matrix.node-version }}
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 7
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build packages
+        run: pnpm build --filter=@dzangolab/demo-app
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          clean: true
+          folder: apps/demo/dist
+          token: ${{ secrets.GITHUB_TOKEN }}
