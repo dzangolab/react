@@ -37,6 +37,10 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     navClass += " expanded";
   }
 
+  if (mainMenu) {
+    navClass += " main-menu";
+  }
+
   return (
     <header>
       <Logo src={appConfig?.app.logo} route={route} />
