@@ -59,14 +59,18 @@ th > div > span {
   width: max-content;
 }
 
-.disable-select {
+.column-title {
   align-items: center;
   cursor: pointer;
   display: flex;
   user-select: none;
 }
 
-.disable-select > button,
+.column-title.disable-sort {
+  cursor: auto;
+}
+
+.column-title > button,
 .filter-wrapper > button {
   background-color: transparent;
   border: 0;
@@ -79,15 +83,15 @@ th > div > span {
   width: 1rem;
 }
 
-.disable-select:hover > button,
-.disable-select:hover > .filter-wrapper > button {
+.column-title:hover > button,
+.column-title:hover > .filter-wrapper > button {
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 300ms;
   visibility: visible;
 }
 
-.disable-select > button,
-.disable-select > button > img,
+.column-title > button,
+.column-title > button > img,
 .filter-wrapper,
 .filter-wrapper > button,
 .filter-wrapper > button > img {
@@ -214,12 +218,16 @@ table > thead > tr:first-child {
   display: none;
 }
 
-table > thead > tr:first-child {
+table > thead > tr:last-child {
   background-color: rgb(58, 58, 58);
   color: #fff;
 }
 
 @media screen and (max-width: 600px) {
+
+  table > colgroup > col:not(:first-child) {
+    display: none;
+  }
 
   table > thead > tr:first-child {
     display: block;
@@ -272,6 +280,7 @@ table > thead > tr:first-child {
     content: attr(data-label);
     float: left;
     font-weight: bold;
+    margin-right: var(--responsive-td-gap, 1rem);
     text-transform: uppercase;
   }
 
