@@ -96,6 +96,11 @@ export interface FilterProperties<T> {
   table: ReactTable<T>;
 }
 
+export interface TFooterProperties {
+  paginationComponent?: ReactNode;
+  detailComponent?: ReactNode;
+}
+
 export interface PaginationProperties {
   config: {
     icon?: string;

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import Footer from "./Footer";
 import TableBody from "./TableBody";
+import TableFooter from "./TableFooter";
 import TableHeader from "./TableHeader";
 import { TableContext } from "./TableProvider";
 
@@ -25,7 +25,7 @@ function BaseTable() {
         </table>
       </div>
 
-      <Footer />
+      <TableFooter />
     </div>
   );
 }

@@ -8,7 +8,7 @@ import type { TSortIcons } from "./types";
 import type { SyntheticEvent } from "react";
 
 // https://github.com/TanStack/table/blob/33169d3c2459215c5601b3ea062103c5ffda1548/packages/table-core/src/features/ColumnSizing.ts#L80
-// TODO(24 Feb 2023): update with better solution in future
+// TODO(24 Feb 2023): update with better solution
 const DEFAULT_COL_SIZE = 150;
 
 const renderSortButton = (
