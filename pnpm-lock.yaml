@@ -55,11 +55,11 @@ importers:
       vite-plugin-html: 3.2.0
       vitest: 0.28.5
     dependencies:
-      '@dzangolab/react-config': link:../../packages/config
-      '@dzangolab/react-i18n': link:../../packages/i18n
-      '@dzangolab/react-layout': link:../../packages/layout
-      '@dzangolab/react-ui': link:../../packages/ui
-      '@dzangolab/react-user': link:../../packages/user
+      '@dzangolab/react-config': 0.4.9
+      '@dzangolab/react-i18n': 0.4.9_flcfcb7ifp6pkftyz2yk5jueju
+      '@dzangolab/react-layout': 0.4.9_cblrombbo6l3is5uften2t73da
+      '@dzangolab/react-ui': 0.4.9
+      '@dzangolab/react-user': 0.4.9_oho5qx72kfwxttzsjk4pzmnwbq
       '@reduxjs/toolkit': 1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
       normalize.css: 8.0.1
       react: 18.2.0
@@ -129,11 +129,11 @@ importers:
       '@types/react': 18.0.27
       '@vitest/coverage-c8': 0.28.5
       eslint: 8.33.0
-      eslint-config-custom: 0.4.9
+      eslint-config-custom: 0.5.0
       jsdom: 20.0.3
       prettier: 2.8.3
       react: 18.2.0
-      tsconfig: 0.4.9
+      tsconfig: 0.5.0
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -154,7 +154,7 @@ importers:
 
   packages/i18n:
     specifiers:
-      '@dzangolab/react-config': 0.4.9
+      '@dzangolab/react-config': 0.5.0
       '@testing-library/react': 13.4.0
       '@types/i18n': 0.13.6
       '@types/jsdom': 20.0.0
@@ -166,7 +166,7 @@ importers:
       '@vitejs/plugin-react': 3.0.0
       '@vitest/coverage-c8': 0.28.5
       eslint: 8.33.0
-      eslint-config-custom: 0.4.9
+      eslint-config-custom: 0.5.0
       eslint-plugin-react: 7.32.2
       i18next: 21.10.0
       i18next-browser-languagedetector: 6.1.8
@@ -178,7 +178,7 @@ importers:
       react-i18next: 11.18.6
       react-outside-click-handler: 1.3.0
       react-test-renderer: 18.2.0
-      tsconfig: 0.4.9
+      tsconfig: 0.5.0
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -215,9 +215,9 @@ importers:
 
   packages/layout:
     specifiers:
-      '@dzangolab/react-config': 0.4.9
-      '@dzangolab/react-i18n': 0.4.9
-      '@dzangolab/react-ui': 0.4.9
+      '@dzangolab/react-config': 0.5.0
+      '@dzangolab/react-i18n': 0.5.0
+      '@dzangolab/react-ui': 0.5.0
       '@testing-library/react': 13.4.0
       '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
@@ -227,14 +227,14 @@ importers:
       '@vitejs/plugin-react': 2.1.0
       '@vitest/coverage-c8': 0.28.5
       eslint: 8.33.0
-      eslint-config-custom: 0.4.9
+      eslint-config-custom: 0.5.0
       eslint-plugin-react: 7.32.2
       jsdom: 20.0.3
       prettier: 2.8.3
       react: 18.2.0
       react-icons: 4.7.1
       react-test-renderer: 18.2.0
-      tsconfig: 0.4.9
+      tsconfig: 0.5.0
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -266,7 +266,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@dzangolab/react-config': 0.4.9
+      '@dzangolab/react-config': 0.5.0
       '@storybook/react': 7.0.0-beta.45
       '@tanstack/react-table': 8.7.9
       '@testing-library/react': 13.4.0
@@ -279,7 +279,7 @@ importers:
       '@vitejs/plugin-react': 3.0.0
       '@vitest/coverage-c8': 0.28.5
       eslint: 8.33.0
-      eslint-config-custom: 0.4.9
+      eslint-config-custom: 0.5.0
       eslint-plugin-react: 7.32.2
       jsdom: 20.0.3
       prettier: 2.8.3
@@ -288,7 +288,7 @@ importers:
       react-dom: 18.2.0
       react-outside-click-handler: 1.3.0
       react-test-renderer: 18.2.0
-      tsconfig: 0.4.9
+      tsconfig: 0.5.0
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -323,10 +323,10 @@ importers:
 
   packages/user:
     specifiers:
-      '@dzangolab/react-config': 0.4.9
-      '@dzangolab/react-i18n': 0.4.9
-      '@dzangolab/react-layout': 0.4.9
-      '@dzangolab/react-ui': 0.4.9
+      '@dzangolab/react-config': 0.5.0
+      '@dzangolab/react-i18n': 0.5.0
+      '@dzangolab/react-layout': 0.5.0
+      '@dzangolab/react-ui': 0.5.0
       '@testing-library/react': 13.4.0
       '@testing-library/user-event': 14.4.3
       '@types/jsdom': 20.0.0
@@ -339,7 +339,7 @@ importers:
       '@vitest/coverage-c8': 0.28.5
       axios: 1.3.4
       eslint: 8.33.0
-      eslint-config-custom: 0.4.9
+      eslint-config-custom: 0.5.0
       eslint-plugin-react: 7.32.2
       formik: 2.2.9
       jsdom: 20.0.3
@@ -351,7 +351,7 @@ importers:
       react-test-renderer: 18.2.0
       react-toastify: 9.0.5
       supertokens-web-js: 0.4.0
-      tsconfig: 0.4.9
+      tsconfig: 0.5.0
       typescript: 4.9.5
       vite: 3.2.5
       vitest: ^0.28.0
@@ -3067,6 +3067,81 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
+  /@dzangolab/react-config/0.4.9:
+    resolution: {integrity: sha512-lt1inWT3GL6x9XUGu5SORKRihyrQ50AU4rs4SIjkqF3f7Q/CtCKQQwo3uIRy1KcpFwkHo+TWymL3rsUPauy7nA==}
+    dev: false
+
+  /@dzangolab/react-i18n/0.4.9_flcfcb7ifp6pkftyz2yk5jueju:
+    resolution: {integrity: sha512-FcO9gMyA3eiBqUYPXS8xNvfHs/+32bNife4o5nDLEDcaGoMe9JQasCzeJb4qTSVHv8uKvcVobvDhGoiUGvVbmw==}
+    peerDependencies:
+      '@dzangolab/react-config': 0.4.9
+      react: '>=18.2'
+      react-dom: '>=18.2'
+    dependencies:
+      '@dzangolab/react-config': 0.4.9
+      i18next: 21.8.13
+      i18next-browser-languagedetector: 6.1.8
+      i18next-chained-backend: 4.2.0
+      i18next-resources-to-backend: 1.1.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-i18next: 11.18.6_zqwsj3zkvc6lj2if6vhvnllc7u
+      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - react-native
+    dev: false
+
+  /@dzangolab/react-layout/0.4.9_cblrombbo6l3is5uften2t73da:
+    resolution: {integrity: sha512-iICcNeTR4c1YlFzWmh55/f/xmRfn8qAMS+w0PoT68hyBKv9RWbkYpxMlb9IyGJcpyqQtGciOcZtWKqKYCr9eBQ==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    dependencies:
+      '@dzangolab/react-config': 0.4.9
+      '@dzangolab/react-i18n': 0.4.9_flcfcb7ifp6pkftyz2yk5jueju
+      '@dzangolab/react-ui': 0.4.9
+      '@dzangolab/react-user': 0.4.9_oho5qx72kfwxttzsjk4pzmnwbq
+      react: 18.2.0
+      react-icons: 4.4.0_react@18.2.0
+    transitivePeerDependencies:
+      - react-dom
+      - react-native
+      - react-router-dom
+    dev: false
+
+  /@dzangolab/react-ui/0.4.9:
+    resolution: {integrity: sha512-Rlc24IrZrw5Blwj8LIXw08Ba7QKtpWtJwRIsimhEgghhzZRX1Wl5Mc5VaxzVSHd8+HEegp+bM39TN2wMtknDrw==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    dependencies:
+      '@dzangolab/react-config': 0.4.9
+      '@tanstack/react-table': 8.7.9_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-debounce-input: 3.3.0_react@18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
+  /@dzangolab/react-user/0.4.9_oho5qx72kfwxttzsjk4pzmnwbq:
+    resolution: {integrity: sha512-uukFMcWln2LlvUYJw2TXxUU8nLra+IvhOH96Zk77IAI47XBhxq1yBfl2UAtVEoODqUjO9NW4T5U7SkJTkVTERw==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      '@dzangolab/react-i18n': 0.4.9
+      '@dzangolab/react-ui': 0.4.9
+      react: '>=18.2'
+      react-dom: '>=18.2'
+      react-router-dom: 6.4.2
+    dependencies:
+      '@dzangolab/react-config': 0.4.9
+      '@dzangolab/react-i18n': 0.4.9_flcfcb7ifp6pkftyz2yk5jueju
+      '@dzangolab/react-ui': 0.4.9
+      formik: 2.2.9_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
+      react-toastify: 9.0.5_biqbaboplfbrettd7655fr4n2y
+      supertokens-web-js: 0.4.0
+      yup: 0.32.11
+    dev: false
+
   /@emotion/use-insertion-effect-with-fallbacks/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-1eEgUGmkaljiBnRMTdksDV1W4kUnmwgp7X9G8B++9GYwl1lUdqSndSriIrTJ0N7LQaoauY9JJ2yhiOYK5+NI4A==}
     peerDependencies:
@@ -4323,12 +4398,12 @@ packages:
       telejson: 7.0.4
     dev: true
 
-  /@storybook/channel-postmessage/7.0.0-beta.53:
-    resolution: {integrity: sha512-uul+krJ9BNoCc4HhedYDIrhVgLgzZqvus0QEBgomwDbF9nmd4pKdU7Ri8zmNx8KCG6G7iGc8+XDGd2VVuGHgvw==}
+  /@storybook/channel-postmessage/7.0.0-beta.54:
+    resolution: {integrity: sha512-oipGp65i2D6vidZ6xBTEvXtmOstyc2pvjduz7iKGksfz06vEuev5U3pJCMXbtVM3Sch18FeF6MZ7OBc/udNdFQ==}
     dependencies:
-      '@storybook/channels': 7.0.0-beta.53
-      '@storybook/client-logger': 7.0.0-beta.53
-      '@storybook/core-events': 7.0.0-beta.53
+      '@storybook/channels': 7.0.0-beta.54
+      '@storybook/client-logger': 7.0.0-beta.54
+      '@storybook/core-events': 7.0.0-beta.54
       '@storybook/global': 5.0.0
       qs: 6.11.0
       telejson: 7.0.4
@@ -4355,8 +4430,8 @@ packages:
     resolution: {integrity: sha512-wu497OYFmeD+0WQKxAMieaD1SfohvKa+IOocnNRQKGxbYWcKjjnKhoxN7JRoc6xG+GFS+x3Y48CiedtW0x0aqw==}
     dev: true
 
-  /@storybook/channels/7.0.0-beta.53:
-    resolution: {integrity: sha512-UnMRoVzUe1jUnlcbraSLjFA3B+Nmui6S2ShNr/9Hc7vcOyFisJuFK7HDqTRS8Z6kvHFa7mVMoZ+LHTPJd5WkEA==}
+  /@storybook/channels/7.0.0-beta.54:
+    resolution: {integrity: sha512-CXV3koGjshDZvRrQ4Ck44vBbarMVtiFW9MeBrXaCW7/dElKTYEH8WBiGkqHuna9Pio5ZlVDGVzxn9JqN5J6bKA==}
     dev: true
 
   /@storybook/cli/7.0.0-beta.45:
@@ -4418,8 +4493,8 @@ packages:
       '@storybook/global': 5.0.0
     dev: true
 
-  /@storybook/client-logger/7.0.0-beta.53:
-    resolution: {integrity: sha512-xxtbL64oyvwro104VYH9O03MnLkSYJCcWPkSLKlywVYH3E4SveVyGvwU3rRKOpo3mYxnUB5dVQYqTzh1YuBJzg==}
+  /@storybook/client-logger/7.0.0-beta.54:
+    resolution: {integrity: sha512-X5AB31btMsgmmwmC+RyR65b9qR2RZka5Ki+9lY9E4LdJg021iW39i7CQs5vHAmUGQwmUzixd2lfRop6rX/4Ykw==}
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
@@ -4603,8 +4678,8 @@ packages:
     resolution: {integrity: sha512-nS1MX1fGHkMdAkbmRZrsU5RV1G3y/43YqJ51L6D2KmUkCam8oC2br0EgGoKsHtzcdgdsbElCATqa9XqtxVFbDg==}
     dev: true
 
-  /@storybook/core-events/7.0.0-beta.53:
-    resolution: {integrity: sha512-ODFto8BXVenukVrEfOHvlqBP0YjWoC/OSO2lOmkgJeOApa66wsgwzNDeGn9938Nc6n1fyQg8sOPm4n9Pd90pCA==}
+  /@storybook/core-events/7.0.0-beta.54:
+    resolution: {integrity: sha512-/YDjgPHKqdkbB9+jTv3zKjNDRy0gZnVeFfXyS9jCXj4D0K1pYwzkttHAT/xEu6qFeCI8A8wwEgIh6+0t3xfL9g==}
     dev: true
 
   /@storybook/core-server/7.0.0-beta.45:
@@ -4750,14 +4825,14 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/instrumenter/7.0.0-beta.53:
-    resolution: {integrity: sha512-HZKKtbMFyoVVq4c1R5Pj0X/Xe+TEDUlwPyer+5xPFvgmYgxJ9tQ2qxzRmgJyARdFrYRMI1cKNiq8dM2UD/eUfw==}
+  /@storybook/instrumenter/7.0.0-beta.54:
+    resolution: {integrity: sha512-qVLNVtOL77PlX7lzu25ssPBSQiN4BIxMwDhqlmvt5phOvc7F96ToN4BzIuGM69aFKubDOAp+0ppUJjPAFpvcNQ==}
     dependencies:
-      '@storybook/channels': 7.0.0-beta.53
-      '@storybook/client-logger': 7.0.0-beta.53
-      '@storybook/core-events': 7.0.0-beta.53
+      '@storybook/channels': 7.0.0-beta.54
+      '@storybook/client-logger': 7.0.0-beta.54
+      '@storybook/core-events': 7.0.0-beta.54
       '@storybook/global': 5.0.0
-      '@storybook/preview-api': 7.0.0-beta.53
+      '@storybook/preview-api': 7.0.0-beta.54
     dev: true
 
   /@storybook/manager-api/7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y:
@@ -4866,16 +4941,16 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/preview-api/7.0.0-beta.53:
-    resolution: {integrity: sha512-oLRRJ+xHzJNPDd7E18YUlrYL+AT6TvUbbDBpESlPa/eYrKp/jQ8HAceDQRhVi32K09HmnP2YTYxxQ9bB8euSKQ==}
+  /@storybook/preview-api/7.0.0-beta.54:
+    resolution: {integrity: sha512-rVtKocB4oslUK7wBmNMIhFOxvRsfNSFMFSeVLR0nT+ZKNzMvWHIi4URJC8pWYtinoC9/5jC1M9dsTGVv9O+cKg==}
     dependencies:
-      '@storybook/channel-postmessage': 7.0.0-beta.53
-      '@storybook/channels': 7.0.0-beta.53
-      '@storybook/client-logger': 7.0.0-beta.53
-      '@storybook/core-events': 7.0.0-beta.53
+      '@storybook/channel-postmessage': 7.0.0-beta.54
+      '@storybook/channels': 7.0.0-beta.54
+      '@storybook/client-logger': 7.0.0-beta.54
+      '@storybook/core-events': 7.0.0-beta.54
       '@storybook/csf': 0.0.2-next.10
       '@storybook/global': 5.0.0
-      '@storybook/types': 7.0.0-beta.53
+      '@storybook/types': 7.0.0-beta.54
       '@types/qs': 6.9.7
       dequal: 2.0.3
       lodash: 4.17.21
@@ -5119,8 +5194,8 @@ packages:
   /@storybook/testing-library/0.0.14-next.1:
     resolution: {integrity: sha512-1CAl40IKIhcPaCC4pYCG0b9IiYNymktfV/jTrX7ctquRY3akaN7f4A1SippVHosksft0M+rQTFE0ccfWW581fw==}
     dependencies:
-      '@storybook/client-logger': 7.0.0-beta.53
-      '@storybook/instrumenter': 7.0.0-beta.53
+      '@storybook/client-logger': 7.0.0-beta.54
+      '@storybook/instrumenter': 7.0.0-beta.54
       '@testing-library/dom': 8.19.0
       '@testing-library/user-event': 13.5.0_aaq3sbffpfe3jnxzm2zngsddei
       ts-dedent: 2.2.0
@@ -5167,10 +5242,10 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/types/7.0.0-beta.53:
-    resolution: {integrity: sha512-io3d06PZvUCIpSf3owYuNwBWoXc9SFrIAT5khexSG+FVqhPkSzIKZYwc9RkqLNll2f7ruufXuq5TOtSzTdrMnQ==}
+  /@storybook/types/7.0.0-beta.54:
+    resolution: {integrity: sha512-+iTRHBETN+AXYHpgLzydIf6ONf0VktKaVwkgUE4uFgq/IRlEMNSdSbmbeqeY76Q7A2ll+0bPMtVm7w+UkH1rBg==}
     dependencies:
-      '@storybook/channels': 7.0.0-beta.53
+      '@storybook/channels': 7.0.0-beta.54
       '@types/babel__core': 7.20.0
       '@types/express': 4.17.17
       file-system-cache: 2.0.2
@@ -10790,6 +10865,12 @@ packages:
       '@babel/runtime': 7.20.7
     dev: false
 
+  /i18next/21.8.13:
+    resolution: {integrity: sha512-DpzwrJq7Y8tjUHxx6ByOkUIjrGYdQI5Mfv4XEI7q2RWdknQ7TaO9bKi8hS/LqYD6pBV5YGxJLReyLkOCxIpouA==}
+    dependencies:
+      '@babel/runtime': 7.20.7
+    dev: false
+
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -13357,6 +13438,34 @@ packages:
       i18next: 21.10.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-i18next/11.18.6_zqwsj3zkvc6lj2if6vhvnllc7u:
+    resolution: {integrity: sha512-yHb2F9BiT0lqoQDt8loZ5gWP331GwctHz9tYQ8A2EIEUu+CcEdjBLQWli1USG3RdWQt3W+jqQLg/d4rrQR96LA==}
+    peerDependencies:
+      i18next: '>= 19.0.0'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.7
+      html-parse-stringify: 3.0.1
+      i18next: 21.8.13
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-icons/4.4.0_react@18.2.0:
+    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-icons/4.7.1_react@18.2.0:
