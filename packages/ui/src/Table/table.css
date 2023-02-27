@@ -52,6 +52,7 @@
   > div
   > div
   > button {
+  all: unset;
   opacity: 0;
   transition: var(
     --column-btn-fade-in-transition,
@@ -71,6 +72,7 @@
   > div
   > div
   > button {
+  all: unset;
   opacity: 1;
   transition: var(
     --column-btn-fade-out-transition,
@@ -104,7 +106,7 @@
   > div
   > div
   > div {
-  margin: var(--filter-margin-last-item, 0 0 0 -150px);
+  margin: var(--filter-margin-last-item, 0 0 0 -100px);
 }
 
 .table-wrapper > div:last-child > div:first-child,
