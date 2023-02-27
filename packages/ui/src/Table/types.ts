@@ -1,6 +1,7 @@
 import type {
   Column,
   ColumnDef,
+  PaginationState,
   Table as ReactTable,
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
@@ -84,11 +85,14 @@ export interface TableProviderProperties<T> {
   totalItems: number;
 }
 
-export type TableContextProperties<T> = TableProviderProperties<T>;
+export interface TableContextProperties<T>
+  extends Partial<TableProviderProperties<T>> {
+  table?: ReactTable<T>;
+  paginationState?: PaginationState;
+}
 
 export interface FilterProperties<T> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  column: Column<T, any>;
+  column: Column<T>;
   table: ReactTable<T>;
 }
 

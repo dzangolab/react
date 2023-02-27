@@ -4,7 +4,7 @@ import React, { useContext, useMemo, useState } from "react";
 import Filter from "./Filter";
 import { TableContext } from "./TableProvider";
 
-import type { TableHeaderProperties, TSortIcons } from "./types";
+import type { TSortIcons } from "./types";
 import type { SyntheticEvent } from "react";
 
 // https://github.com/TanStack/table/blob/33169d3c2459215c5601b3ea062103c5ffda1548/packages/table-core/src/features/ColumnSizing.ts#L80
@@ -38,11 +38,12 @@ const sortFunction = (
   }
 };
 
-function TableHeader<T>({ table }: TableHeaderProperties<T>) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const { sortable, sortIcons, filterMenuToggleIcon } =
+function TableHeader() {
+  const { sortable, sortIcons, table, filterMenuToggleIcon } =
     useContext(TableContext);
+  if (!table) return null;
 
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const lastHeaderGroup = useMemo(() => [...table.getHeaderGroups()].pop(), []);
 
   return (

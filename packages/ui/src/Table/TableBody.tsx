@@ -1,15 +1,17 @@
-import { Cell, flexRender } from "@tanstack/react-table";
-import React from "react";
+import { flexRender } from "@tanstack/react-table";
+import React, { useContext } from "react";
 
-import type { TableBodyProperties } from "./types";
+import { TableContext } from "./TableProvider";
 
-function TableBody<T>(properties: TableBodyProperties<T>) {
+function TableBody() {
+  const { table } = useContext(TableContext);
+
   return (
     <tbody>
-      {properties.rowModel().rows.map((row) => {
+      {table?.getRowModel().rows.map((row) => {
         return (
           <tr key={row.id}>
-            {row.getVisibleCells().map((cell: Cell<T, unknown>) => {
+            {row.getVisibleCells().map((cell) => {
               return (
                 <td key={cell.id} data-label={cell.column.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
