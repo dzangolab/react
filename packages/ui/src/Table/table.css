@@ -195,6 +195,18 @@ table > thead > tr:first-child {
     display: flex;
   }
 
+  .table-wrapper
+  > div:first-child
+  > table
+  > thead
+  > tr:last-child
+  > th:last-child
+  > div
+  > div
+  > div {
+  margin: var(--filter-margin-last-item, 0);
+}
+
   .table-wrapper > div:first-child > table > thead > tr:not(:first-child) {
     display: none;
   }
