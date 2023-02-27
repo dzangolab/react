@@ -53,7 +53,11 @@
   > div
   > button {
   opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 300ms;
+  transition: var(
+    --column-btn-fade-in-transition,
+    visibility 0s linear 300ms,
+    opacity 300ms
+  );
   visibility: hidden;
 }
 
@@ -68,27 +72,42 @@
   > div
   > button {
   opacity: 1;
-  transition: visibility 0s linear 0s, opacity 300ms;
+  transition: var(
+    --column-btn-fade-out-transition,
+    visibility 0s linear 0s,
+    opacity 300ms
+  );
   visibility: visible;
 }
 
-.table-wrapper > div:first-child > table > thead > tr:last-child > th > div > div > div {
-  margin-top: 5px;
-  padding: 8px;
+.table-wrapper
+  > div:first-child
+  > table
+  > thead
+  > tr:last-child
+  > th
+  > div
+  > div
+  > div {
+  margin: var(--filter-margin, 5px 0 0 0);
+  padding: var(--filter-padding, 8px);
   position: absolute;
-  z-index: 1000;
+  z-index: var(--filter-z-index, 1000);
 }
 
-.table-wrapper > div:first-child > table > thead > tr:last-child > th:last-child > div > div > div {
-  margin-left: -150px;
+.table-wrapper
+  > div:first-child
+  > table
+  > thead
+  > tr:last-child
+  > th:last-child
+  > div
+  > div
+  > div {
+  margin: var(--filter-margin-last-item, 0 0 0 -150px);
 }
 
-.table-wrapper > div:last-child > div:first-child {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
+.table-wrapper > div:last-child > div:first-child,
 .table-wrapper > div:last-child > div:first-child > div {
   align-items: center;
   display: flex;
@@ -103,7 +122,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  transition: 0.3s;
+  transition: var(--pagination-btn-transition, 0.3s);
 }
 
 .table-wrapper > div:last-child > div:last-child > button[disabled] {
