@@ -1,6 +1,7 @@
 import type {
   Column,
   ColumnDef,
+  PaginationState,
   Table as ReactTable,
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
@@ -37,13 +38,6 @@ export type TRequestJSON = {
   sort: TSortRequest;
   offset: TOffset;
   limit: TLimit;
-};
-
-export type TFetchDataOptions = {
-  currentPage?: string;
-  filters?: string;
-  size?: string;
-  sorts?: string;
 };
 
 export type TSortIcons = {
@@ -85,31 +79,28 @@ export interface TableProviderProperties<T> {
 }
 
 export interface TableContextProperties<T>
-  extends Pick<
-    TableProviderProperties<T>,
-    Exclude<keyof TableProviderProperties<T>, "fetcher">
-  > {
-  fetchCallback: (requestJSON: TRequestJSON) => void;
+  extends Partial<TableProviderProperties<T>> {
+  table?: ReactTable<T>;
+  paginationState?: PaginationState;
+}
+
+export interface TBaseTable {
+  tableHeaderComponent: ReactNode;
+  tableBodyComponent: ReactNode;
+  tableFooterComponent: ReactNode;
 }
 
 export interface FilterProperties<T> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  column: Column<T, any>;
+  column: Column<T>;
   table: ReactTable<T>;
 }
 
-export interface PaginationProperties {
-  config: {
-    icon?: string;
-    isDisabled: boolean;
-    onClick: () => void;
-  }[];
+export interface TFooterProperties {
+  paginationComponent?: ReactNode;
+  detailComponent?: ReactNode;
 }
 
-export interface TableBodyProperties<T> {
-  rowModel: ReactTable<T>["getRowModel"];
-}
-
-export interface TableHeaderProperties<T> {
-  table: ReactTable<T>;
+export interface TTableDetail {
+  detail: string;
+  showPrefix: string;
 }

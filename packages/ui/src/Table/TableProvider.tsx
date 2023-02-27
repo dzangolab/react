@@ -1,5 +1,8 @@
-import React, { createContext, useCallback, useRef } from "react";
+import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import React, { createContext, useEffect, useMemo, useState } from "react";
 
+import BaseTable from "./BaseTable";
+import { getRequestJSON } from "./utils";
 import adjustmentsIcon from "../assets/images/adjustments.svg";
 import arrowDownIcon from "../assets/images/arrow-down.svg";
 import arrowUpDownIcon from "../assets/images/arrow-up-down.svg";
@@ -9,13 +12,13 @@ import chevronRight from "../assets/images/chevron-right.svg";
 import doubleChevronLeft from "../assets/images/double-chevron-left.svg";
 import doubleChevronRight from "../assets/images/double-chevron-right.svg";
 import filterIcon from "../assets/images/filter.svg";
-import BaseTable from "./BaseTable";
 
+import type { TableContextProperties, TableProviderProperties } from "./types";
 import type {
-  TableContextProperties,
-  TableProviderProperties,
-  TRequestJSON,
-} from "./types";
+  ColumnFiltersState,
+  PaginationState,
+  SortingState,
+} from "@tanstack/react-table";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const TableContext = createContext<TableContextProperties<any>>({
@@ -23,30 +26,73 @@ export const TableContext = createContext<TableContextProperties<any>>({
   data: [],
   isLoading: false,
   totalItems: 0,
-  fetchCallback: () => {
+  fetcher: () => {
     return;
   },
 });
 
-function TableProvider<T>({
-  fetcher,
-  children,
-  ...rest
-}: TableProviderProperties<T>) {
-  const fetchIdReference = useRef(0);
+function TableProvider<T>(properties: TableProviderProperties<T>) {
+  const {
+    children,
+    columns,
+    data,
+    enableMultiSort,
+    fetcher,
+    rowsPerPageOptions,
+    totalItems,
+    ...rest
+  } = properties;
 
-  const fetchCallback = useCallback(
-    async (requestJSON: TRequestJSON) => {
-      const fetchId = ++fetchIdReference.current;
-      if (fetchId === fetchIdReference.current) {
-        fetcher(requestJSON);
-      }
-    },
-    [fetcher]
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+
+  const [paginationState, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: rowsPerPageOptions ? rowsPerPageOptions[0] : 10,
+  });
+
+  const { pageIndex, pageSize } = paginationState;
+
+  useEffect(() => {
+    const requestJSON = getRequestJSON(sorting, columnFilters, {
+      pageIndex,
+      pageSize,
+    });
+    fetcher(requestJSON);
+  }, [columnFilters, pageIndex, pageSize, sorting]);
+
+  const pagination = useMemo(
+    () => ({
+      pageIndex,
+      pageSize,
+    }),
+    [pageIndex, pageSize]
   );
 
+  const table = useReactTable({
+    data: data || [],
+    columns,
+    state: {
+      sorting,
+      pagination,
+      columnFilters,
+    },
+    getCoreRowModel: getCoreRowModel(),
+    manualPagination: true,
+    manualSorting: true,
+    manualFiltering: true,
+    isMultiSortEvent: () => enableMultiSort || false,
+    onColumnFiltersChange: setColumnFilters,
+    onPaginationChange: setPagination,
+    onSortingChange: setSorting,
+    pageCount: Math.ceil(totalItems / pageSize),
+    debugTable: false,
+  });
+
   return (
-    <TableContext.Provider value={{ fetchCallback, ...rest }}>
+    <TableContext.Provider
+      value={{ table, paginationState, rowsPerPageOptions, ...rest }}
+    >
       {children ? children : <BaseTable />}
     </TableContext.Provider>
   );
