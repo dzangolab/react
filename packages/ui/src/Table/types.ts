@@ -40,13 +40,6 @@ export type TRequestJSON = {
   limit: TLimit;
 };
 
-export type TFetchDataOptions = {
-  currentPage?: string;
-  filters?: string;
-  size?: string;
-  sorts?: string;
-};
-
 export type TSortIcons = {
   asc: string;
   desc: string;
@@ -91,6 +84,12 @@ export interface TableContextProperties<T>
   paginationState?: PaginationState;
 }
 
+export interface TBaseTable {
+  tableHeaderComponent: ReactNode;
+  tableBodyComponent: ReactNode;
+  tableFooterComponent: ReactNode;
+}
+
 export interface FilterProperties<T> {
   column: Column<T>;
   table: ReactTable<T>;
@@ -101,18 +100,7 @@ export interface TFooterProperties {
   detailComponent?: ReactNode;
 }
 
-export interface PaginationProperties {
-  config: {
-    icon?: string;
-    isDisabled: boolean;
-    onClick: () => void;
-  }[];
-}
-
-export interface TableBodyProperties<T> {
-  rowModel: ReactTable<T>["getRowModel"];
-}
-
-export interface TableHeaderProperties<T> {
-  table: ReactTable<T>;
+export interface TTableDetail {
+  detail: string;
+  showPrefix: string;
 }

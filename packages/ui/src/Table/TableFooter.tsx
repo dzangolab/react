@@ -21,7 +21,7 @@ const Footer = ({
 
 Footer.defaultProps = {
   paginationComponent: <Pagination />,
-  detailComponent: <TableDetail />,
+  detailComponent: <TableDetail detail="Go to page:" showPrefix="Show" />,
 };
 
 export default Footer;

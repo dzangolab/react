@@ -3,7 +3,9 @@ import { DebounceInput } from "react-debounce-input";
 
 import { TableContext } from "./TableProvider";
 
-const TableDetail = () => {
+import type { TTableDetail } from "./types";
+
+const TableDetail = ({ detail, showPrefix }: TTableDetail) => {
   const {
     inputDebounceTime,
     paginationState,
@@ -25,7 +27,7 @@ const TableDetail = () => {
 
       {showPageControl ? (
         <div>
-          <span> Go to page:</span>
+          <span>{detail}</span>
           <DebounceInput
             type="number"
             debounceTimeout={inputDebounceTime}
@@ -53,7 +55,7 @@ const TableDetail = () => {
           >
             {rowsPerPageOptions?.map((pageSize) => (
               <option key={pageSize} value={pageSize}>
-                Show {pageSize}
+                {showPrefix} {pageSize}
               </option>
             ))}
           </select>

@@ -5,7 +5,13 @@ import TableFooter from "./TableFooter";
 import TableHeader from "./TableHeader";
 import { TableContext } from "./TableProvider";
 
-function BaseTable() {
+import type { TBaseTable } from "./types";
+
+function BaseTable({
+  tableHeaderComponent,
+  tableBodyComponent,
+  tableFooterComponent,
+}: TBaseTable) {
   const { fixedHeader, hideScrollBar, title } = useContext(TableContext);
 
   const getTableWrapperStyle = () => {
@@ -20,14 +26,19 @@ function BaseTable() {
       <div>
         <table>
           {title ? <caption>{title}</caption> : null}
-          <TableHeader />
-          <TableBody />
+          {tableHeaderComponent}
+          {tableBodyComponent}
         </table>
       </div>
-
-      <TableFooter />
+      {tableFooterComponent}
     </div>
   );
 }
+
+BaseTable.defaultProps = {
+  tableHeaderComponent: <TableHeader />,
+  tableBodyComponent: <TableBody />,
+  tableFooterComponent: <TableFooter />,
+};
 
 export default BaseTable;
