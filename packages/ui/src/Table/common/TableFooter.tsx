@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 
 import Pagination from "./Pagination";
+import { TableContext } from "./TableContext";
 import TableDetail from "./TableDetail";
-import { TableContext } from "./TableProvider";
 import { TFooterProperties } from "./types";
 
 const Footer = ({

@@ -1,15 +1,12 @@
 import { flexRender, SortDirection } from "@tanstack/react-table";
 import React, { useContext, useMemo, useState } from "react";
 
+import { DEFAULT_COL_SIZE } from "./constants";
 import Filter from "./Filter";
-import { TableContext } from "./TableProvider";
+import { TableContext } from "./TableContext";
 
 import type { TSortIcons } from "./types";
 import type { SyntheticEvent } from "react";
-
-// https://github.com/TanStack/table/blob/33169d3c2459215c5601b3ea062103c5ffda1548/packages/table-core/src/features/ColumnSizing.ts#L80
-// TODO(24 Feb 2023): update with better solution
-const DEFAULT_COL_SIZE = 150;
 
 const renderSortButton = (
   canSort: boolean,

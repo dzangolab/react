@@ -1,8 +1,16 @@
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import React, { createContext, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
-import BaseTable from "./BaseTable";
-import { getRequestJSON } from "./utils";
+import BaseTable from "./common/BaseTable";
+import {
+  DEFAULT_INPUT_DEBOUNCE_TIME,
+  DEFAULT_PAGE_INDEX,
+  DEFAULT_PAGE_PER_OPTIONS,
+  DEFAULT_PAGE_SIZE,
+  DEFAULT_TABLE_DATA,
+} from "./common/constants";
+import { TableContext } from "./common/TableContext";
+import { getRequestJSON } from "./common/utils";
 import adjustmentsIcon from "../assets/images/adjustments.svg";
 import arrowDownIcon from "../assets/images/arrow-down.svg";
 import arrowUpDownIcon from "../assets/images/arrow-up-down.svg";
@@ -13,23 +21,12 @@ import doubleChevronLeft from "../assets/images/double-chevron-left.svg";
 import doubleChevronRight from "../assets/images/double-chevron-right.svg";
 import filterIcon from "../assets/images/filter.svg";
 
-import type { TableContextProperties, TableProviderProperties } from "./types";
+import type { TableProviderProperties } from "./common/types";
 import type {
   ColumnFiltersState,
   PaginationState,
   SortingState,
 } from "@tanstack/react-table";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const TableContext = createContext<TableContextProperties<any>>({
-  columns: [],
-  data: [],
-  isLoading: false,
-  totalItems: 0,
-  fetcher: () => {
-    return;
-  },
-});
 
 function TableProvider<T>(properties: TableProviderProperties<T>) {
   const {
@@ -47,8 +44,8 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const [paginationState, setPagination] = useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: rowsPerPageOptions ? rowsPerPageOptions[0] : 10,
+    pageIndex: DEFAULT_PAGE_INDEX,
+    pageSize: rowsPerPageOptions ? rowsPerPageOptions[0] : DEFAULT_PAGE_SIZE,
   });
 
   const { pageIndex, pageSize } = paginationState;
@@ -70,7 +67,7 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
   );
 
   const table = useReactTable({
-    data: data || [],
+    data: data || DEFAULT_TABLE_DATA,
     columns,
     state: {
       sorting,
@@ -107,7 +104,7 @@ TableProvider.defaultProps = {
   filterMenuToggleIcon: adjustmentsIcon,
   fixedHeader: true,
   hideScrollBar: true,
-  inputDebounceTime: 300,
+  inputDebounceTime: DEFAULT_INPUT_DEBOUNCE_TIME,
   paginated: true,
   paginationIcons: {
     start: doubleChevronLeft,
@@ -115,7 +112,7 @@ TableProvider.defaultProps = {
     next: chevronRight,
     end: doubleChevronRight,
   },
-  rowsPerPageOptions: [10, 20, 30],
+  rowsPerPageOptions: DEFAULT_PAGE_PER_OPTIONS,
   showLoading: true,
   showPageControl: true,
   showTotalNumber: true,

@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
 import TableBody from "./TableBody";
+import { TableContext } from "./TableContext";
 import TableFooter from "./TableFooter";
 import TableHeader from "./TableHeader";
-import { TableContext } from "./TableProvider";
 
 import type { TBaseTable } from "./types";
 
