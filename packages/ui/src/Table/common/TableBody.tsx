@@ -1,7 +1,7 @@
 import { flexRender } from "@tanstack/react-table";
 import React, { useContext } from "react";
 
-import { TableContext } from "./TableProvider";
+import { TableContext } from "./TableContext";
 
 function TableBody() {
   const { table } = useContext(TableContext);

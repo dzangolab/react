@@ -81,7 +81,6 @@ export const LoadingTable: TableProperties = Template.bind({});
 export const FilterIcons: TableProperties = Template.bind({});
 export const PaginationIcons: TableProperties = Template.bind({});
 export const RowsPerPageOptions: TableProperties = Template.bind({});
-export const ShowLoading: TableProperties = Template.bind({});
 export const HidePageControl: TableProperties = Template.bind({});
 export const HideTotalNumber: TableProperties = Template.bind({});
 export const UnSortable: TableProperties = Template.bind({});
@@ -124,10 +123,6 @@ PaginationIcons.args = {
 
 RowsPerPageOptions.args = {
   rowsPerPageOptions: [20, 30, 40],
-};
-
-ShowLoading.args = {
-  showLoading: false,
 };
 
 HidePageControl.args = {

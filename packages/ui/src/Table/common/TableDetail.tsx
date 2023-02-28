@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { DebounceInput } from "react-debounce-input";
 
-import { TableContext } from "./TableProvider";
+import { TableContext } from "./TableContext";
 
 import type { TTableDetail } from "./types";
 

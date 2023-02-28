@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import OutsideClickHandler from "react-outside-click-handler";
 
-import { TableContext } from "./TableProvider";
+import { TableContext } from "./TableContext";
 
 import type { FilterProperties } from "./types";
 

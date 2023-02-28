@@ -1,6 +1,6 @@
 import { useContext, useId } from "react";
 
-import { TableContext } from "./TableProvider";
+import { TableContext } from "./TableContext";
 
 const Pagination = () => {
   const id = useId();

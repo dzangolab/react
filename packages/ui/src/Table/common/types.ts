@@ -49,7 +49,7 @@ export type TSortIcons = {
 export interface TableProviderProperties<T> {
   children?: ReactNode;
   columns: ColumnDef<T>[];
-  data?: T[];
+  data: T[];
   fetcher: (requestJSON: TRequestJSON) => void;
   filterMenuToggleIcon?: string;
   enableMultiSort?: boolean;
@@ -69,7 +69,6 @@ export interface TableProviderProperties<T> {
     end: string;
   };
   rowsPerPageOptions?: number[];
-  showLoading?: boolean;
   showPageControl?: boolean;
   showTotalNumber?: boolean;
   sortable?: boolean;
@@ -85,9 +84,9 @@ export interface TableContextProperties<T>
 }
 
 export interface TBaseTable {
-  tableHeaderComponent: ReactNode;
-  tableBodyComponent: ReactNode;
-  tableFooterComponent: ReactNode;
+  header: ReactNode;
+  body: ReactNode;
+  footer: ReactNode;
 }
 
 export interface FilterProperties<T> {
