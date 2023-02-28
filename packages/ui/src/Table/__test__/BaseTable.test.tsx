@@ -2,26 +2,27 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { expect, test } from "vitest";
 
-import { columns, data, fetcher } from "./TestTableData";
+import { biggerData, columns, fetcher } from "./TestTableData";
 import { BaseTable, Table } from "../index";
 
 const component = (
   <Table
     columns={columns}
-    data={data}
+    data={biggerData}
     fetcher={fetcher}
-    totalItems={data.length}
+    totalItems={biggerData.length}
     rowsPerPageOptions={[10]}
   >
     <BaseTable />
   </Table>
 );
 
-test("pagination works correctly", async () => {
+test("correct page is shown relative to pagination", async () => {
   render(component);
 
-  expect(screen.queryByText("4")).not.toBeNull();
-  expect(screen.queryByText("5")).toBeNull();
+  const pageCount = Math.ceil(biggerData.length / 10);
+  expect(screen.queryByText(`1 of ${pageCount}`)).not.toBeNull();
+  expect(screen.queryByText(`2 of ${pageCount}`)).toBeNull();
 
   const buttons = screen.getAllByRole("button") as HTMLButtonElement[];
   const startButton = buttons.at(-4);
@@ -32,4 +33,25 @@ test("pagination works correctly", async () => {
   if (nextPageButton) {
     fireEvent.click(nextPageButton);
   }
+  expect(screen.queryByText(`1 of ${pageCount}`)).toBeNull();
+  expect(screen.queryByText(`2 of ${pageCount}`)).not.toBeNull();
+
+  if (previousPageButton) {
+    fireEvent.click(previousPageButton);
+  }
+
+  expect(screen.queryByText(`1 of ${pageCount}`)).not.toBeNull();
+  expect(screen.queryByText(`2 of ${pageCount}`)).toBeNull();
+
+  if (endPageButton) {
+    fireEvent.click(endPageButton);
+  }
+  expect(screen.queryByText(`1 of ${pageCount}`)).toBeNull();
+  expect(screen.queryByText(`2 of ${pageCount}`)).not.toBeNull();
+
+  if (startButton) {
+    fireEvent.click(startButton);
+  }
+  expect(screen.queryByText(`1 of ${pageCount}`)).not.toBeNull();
+  expect(screen.queryByText(`2 of ${pageCount}`)).toBeNull();
 });
