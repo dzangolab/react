@@ -113,7 +113,6 @@ TableProvider.defaultProps = {
     end: doubleChevronRight,
   },
   rowsPerPageOptions: DEFAULT_PAGE_PER_OPTIONS,
-  showLoading: true,
   showPageControl: true,
   showTotalNumber: true,
   sortable: true,
