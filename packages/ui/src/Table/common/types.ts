@@ -85,9 +85,9 @@ export interface TableContextProperties<T>
 }
 
 export interface TBaseTable {
-  tableHeaderComponent: ReactNode;
-  tableBodyComponent: ReactNode;
-  tableFooterComponent: ReactNode;
+  header: ReactNode;
+  body: ReactNode;
+  footer: ReactNode;
 }
 
 export interface FilterProperties<T> {

@@ -7,11 +7,7 @@ import TableHeader from "./TableHeader";
 
 import type { TBaseTable } from "./types";
 
-function BaseTable({
-  tableHeaderComponent,
-  tableBodyComponent,
-  tableFooterComponent,
-}: TBaseTable) {
+function BaseTable({ header, body, footer }: TBaseTable) {
   const { fixedHeader, hideScrollBar, title } = useContext(TableContext);
 
   const getTableWrapperStyle = () => {
@@ -26,19 +22,19 @@ function BaseTable({
       <div>
         <table>
           {title ? <caption>{title}</caption> : null}
-          {tableHeaderComponent}
-          {tableBodyComponent}
+          {header}
+          {body}
         </table>
       </div>
-      {tableFooterComponent}
+      {footer}
     </div>
   );
 }
 
 BaseTable.defaultProps = {
-  tableHeaderComponent: <TableHeader />,
-  tableBodyComponent: <TableBody />,
-  tableFooterComponent: <TableFooter />,
+  header: <TableHeader />,
+  body: <TableBody />,
+  footer: <TableFooter />,
 };
 
 export default BaseTable;
