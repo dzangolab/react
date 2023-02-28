@@ -12,7 +12,7 @@ test("correct buttons are disabled", async () => {
       columns={columns}
       data={biggerData}
       fetcher={fetcher}
-      totalItems={data.length}
+      totalItems={biggerData.length}
     >
       <Pagination />
     </Table>
@@ -22,6 +22,6 @@ test("correct buttons are disabled", async () => {
 
   expect(paginationButton[0].disabled).toBe(true);
   expect(paginationButton[1].disabled).toBe(true);
-  // expect(paginationButton[2].disabled).toBe(false);
-  // expect(paginationButton[3].disabled).toBe(false);
+  expect(paginationButton[2].disabled).toBe(false);
+  expect(paginationButton[3].disabled).toBe(false);
 });

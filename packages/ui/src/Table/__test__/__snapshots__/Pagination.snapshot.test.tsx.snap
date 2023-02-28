@@ -19,7 +19,6 @@ exports[`Component matches snapshot 1`] = `
     />
   </button>
   <button
-    disabled={true}
     onClick={[Function]}
   >
     <img
@@ -27,7 +26,6 @@ exports[`Component matches snapshot 1`] = `
     />
   </button>
   <button
-    disabled={true}
     onClick={[Function]}
   >
     <img

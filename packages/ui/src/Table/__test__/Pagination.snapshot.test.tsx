@@ -2,7 +2,7 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import { columns, data, fetcher } from "./TestTableData";
+import { biggerData, columns, fetcher } from "./TestTableData";
 import Pagination from "../common/Pagination";
 import { Table } from "../index";
 
@@ -19,9 +19,9 @@ test("Component matches snapshot", () => {
   const component = create(
     <Table
       columns={columns}
-      data={data}
+      data={biggerData}
       fetcher={fetcher}
-      totalItems={data.length}
+      totalItems={biggerData.length}
     >
       <Pagination />
     </Table>
