@@ -25,6 +25,8 @@ pnpm add @dzangolab/react-ui
 ```
 import React from "react";
 
+import "@dzangolab/react-ui/dist/TableTheme.css";
+
 import { Table, TRequestJSON } from "@dzangolab/react-ui";
 import { getData } from "./services";
 
