@@ -5,15 +5,10 @@
   },
   "header": {
     "menu": {
-      "about": "About",
-      "home": "Home",
-      "things": "Things",
-      "profile": "Profile",
-      "login": "Login",
-      "logout": "Logout"
-    },
-    "thingsTable": {
-      "title": "Things Table"
+      "i18n": "I18n",
+      "layout": "Layout",
+      "ui": "UI",
+      "user": "User"
     }
   },
   "footer": {

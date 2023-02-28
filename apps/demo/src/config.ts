@@ -47,20 +47,20 @@ const config: AppConfig = {
   layout: {
     mainMenu: [
       {
-        name: "I18n",
+        name: "header.menu.i18n",
         route: "/i18n",
       },
       {
-        name: "Layout",
+        name: "header.menu.layout",
         route: "/layout",
       },
 
       {
-        name: "UI",
+        name: "header.menu.ui",
         route: "/ui",
       },
       {
-        name: "User",
+        name: "header.menu.user",
         route: "/user",
       },
     ],

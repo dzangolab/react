@@ -5,12 +5,10 @@
   },
   "header": {
     "menu": {
-      "about": "A propos de nous",
-      "home": "Accueil",
-      "things": "Things(fr)",
-      "profile": "Profil",
-      "login": "Connexion",
-      "logout": "Déconnexion"
+      "i18n": "I18n [fr]",
+      "layout": "Layout [fr]",
+      "ui": "UI [fr]",
+      "user": "User [fr]"
     }
   },
   "footer": {
