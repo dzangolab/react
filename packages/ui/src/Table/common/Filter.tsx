@@ -10,17 +10,15 @@ const renderImage = (source?: string) => {
   return <img src={source} />;
 };
 
-function Filter<T>({ column }: FilterProperties<T>) {
-  const { inputDebounceTime, filterIcons, table } = useContext(TableContext);
-
-  const columnType = table
-    ?.getPreFilteredRowModel()
-    .flatRows[0]?.getValue(column.id);
-
+function Filter({
+  columnFilterValue,
+  columnType,
+  handleChange,
+}: FilterProperties) {
+  const { inputDebounceTime, filterIcons } = useContext(TableContext);
   if (typeof columnType === "number") return null;
 
   const [expanded, setExpanded] = useState(false);
-  const columnFilterValue = column.getFilterValue();
 
   const toggleExpand = () => {
     expanded ? setExpanded(false) : setExpanded(true);
@@ -47,7 +45,7 @@ function Filter<T>({ column }: FilterProperties<T>) {
               value={(columnFilterValue ?? "") as string}
               debounceTimeout={inputDebounceTime}
               onChange={(event_) => {
-                column.setFilterValue(event_.target.value);
+                handleChange(event_.target.value);
               }}
               placeholder={`Search...`}
               className=""

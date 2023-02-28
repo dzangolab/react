@@ -44,6 +44,17 @@ exports[`Component matches snapshot 1`] = `
                   src="/src/assets/images/arrow-up-down.svg"
                 />
               </button>
+              <div
+                onClick={[Function]}
+              >
+                <button
+                  onClick={[Function]}
+                >
+                  <img
+                    src="/src/assets/images/filter.svg"
+                  />
+                </button>
+              </div>
             </div>
           </th>
           <th

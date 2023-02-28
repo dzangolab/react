@@ -1,5 +1,4 @@
 import type {
-  Column,
   ColumnDef,
   PaginationState,
   Table as ReactTable,
@@ -79,7 +78,6 @@ export interface TableProviderProperties<T> {
 
 export interface TableContextProperties<T>
   extends Partial<TableProviderProperties<T>> {
-  // column?: Column<T>;
   table?: ReactTable<T>;
   paginationState?: PaginationState;
 }
@@ -90,8 +88,10 @@ export interface TBaseTable {
   footer: ReactNode;
 }
 
-export interface FilterProperties<T> {
-  column: Column<T>;
+export interface FilterProperties {
+  columnFilterValue: string;
+  columnType: number | string;
+  handleChange: (value: string) => void;
 }
 
 export interface TFooterProperties {

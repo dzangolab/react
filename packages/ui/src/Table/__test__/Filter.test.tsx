@@ -7,19 +7,17 @@ import Filter from "../common/Filter";
 const mockFunction = vi.fn();
 
 test("filter button expands filter menu when clicked", async () => {
-  // render(
-  //   <Filter
-  //     columnType="string"
-  //     columnFilterValue=""
-  //     handleChange={mockFunction}
-  //   />
-  // );
+  render(
+    <Filter
+      columnType="string"
+      columnFilterValue=""
+      handleChange={mockFunction}
+    />
+  );
 
-  render(<p>Test</p>);
+  const filterButton = screen.getByRole("button");
+  expect(screen.queryByRole("dialog")).toBeNull();
 
-  // const filterButton = screen.getByRole("button");
-  // expect(screen.queryByRole("dialog")).toBeNull();
-
-  // fireEvent.click(filterButton);
-  // expect(screen.queryByRole("dialog")).toBeDefined();
+  fireEvent.click(filterButton);
+  expect(screen.queryByRole("dialog")).toBeDefined();
 });
