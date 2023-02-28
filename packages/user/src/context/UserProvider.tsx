@@ -26,7 +26,7 @@ const UserProvider = ({ children }: Properties) => {
           appConfig?.appContext &&
           (await verifySession(
             appConfig.appContext,
-            appConfig.user.redirectTo.appURL
+            appConfig.user.redirectTo?.appURL
           ))
         ) {
           const userInfo = await Session.getAccessTokenPayloadSecurely();

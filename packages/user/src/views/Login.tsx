@@ -71,8 +71,8 @@ const Login = () => {
       <Page title={t("login.title")}>
         {showRedirectionMessage ? (
           <RedirectionMessage
-            appLink={appConfig?.user.redirectTo.appURL || ""}
-            appName={appConfig?.user.redirectTo.appName || ""}
+            appLink={appConfig?.user.redirectTo?.appURL || ""}
+            appName={appConfig?.user.redirectTo?.appName || ""}
             hideRedirectionMessage={() => setShowRedirectionMessage(false)}
           />
         ) : null}
