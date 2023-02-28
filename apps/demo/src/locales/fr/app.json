@@ -1,0 +1,20 @@
+{
+  "errorBoundary": {
+    "title": "Oops! [Fr]",
+    "subtitle": "Sorry, an unexpected error has occurred. [Fr]"
+  },
+  "header": {
+    "menu": {
+      "about": "A propos de nous",
+      "home": "Accueil",
+      "things": "Things(fr)",
+      "profile": "Profil",
+      "login": "Connexion",
+      "logout": "Déconnexion"
+    }
+  },
+  "footer": {
+    "copyright": "Tous droits réservés."
+  },
+  "loading": "Loading[fr] ..."
+}

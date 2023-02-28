@@ -1,5 +1,8 @@
 import { parse } from "@dzangolab/react-config";
 
+import en from "./locales/en";
+import fr from "./locales/fr";
+
 import type { AppConfig, AppFeatures } from "@dzangolab/react-config";
 
 const config: AppConfig = {
@@ -27,20 +30,47 @@ const config: AppConfig = {
       true
     ) as boolean,
   } as AppFeatures,
-  home: {
-    anon: "/",
-    auth: "/",
-  },
   i18n: {
     appendNamespaceToCIMode: true,
     debug: true,
     defaultNS: "app",
     fallbackLng: "en",
     supportedLngs: ["en", "fr"],
+    resources: {
+      en: en,
+      fr: fr,
+    },
   },
   locales: (import.meta.env.VITE_LOCALES || "en:English,fr:Français") as string,
   localStorageNamespace: (import.meta.env.VITE_LOCALE_STORAGE_NAMESPACE ||
     "__app_") as string,
+  layout: {
+    mainMenu: [
+      {
+        name: "I18n",
+        route: "/i18n",
+      },
+      {
+        name: "Layout",
+        route: "/layout",
+      },
+
+      {
+        name: "UI",
+        route: "/ui",
+      },
+      {
+        name: "User",
+        route: "/user",
+      },
+    ],
+  },
+  user: {
+    redirectTo: {
+      appName: "",
+      appURL: "",
+    },
+  },
   websiteDomain: (window.location.protocol +
     "//" +
     window.location.host) as string,

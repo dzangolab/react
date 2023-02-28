@@ -1,0 +1,28 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="content"
+    data-testid="page-content"
+  >
+    <div
+      className="error-page"
+    >
+      <h1>
+        errorBoundary.title
+      </h1>
+      <p>
+        errorBoundary.subtitle
+      </p>
+      <p>
+        <i>
+          404
+        </i>
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,73 +1,30 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouteObject,
+  RouterProvider,
+} from "react-router-dom";
 
 import { BasicLayout } from "./layouts/BasicLayout";
-import Home from "./Views/Home";
+import ErrorBoundary from "./Views/ErrorBoundary";
+import ListPage from "./Views/ListPage";
+import config from "./config";
 
 const routes = () => {
-  // const publicRouteHandler = async () => {
-  //   if (user) {
-  //     return redirect("/");
-  //   }
-  // };
-
-  // const authRouteHandler = async () => {
-  //   if (!user) {
-  //     return redirect("/login");
-  //   }
-  // };
+  const childrenRoutes: RouteObject[] = config.layout?.mainMenu
+    ? config.layout.mainMenu.map((route) => {
+        return {
+          path: route.route,
+          element: <ListPage pageTitle={route.name} />,
+        };
+      })
+    : [];
 
   return createBrowserRouter([
     {
       path: "/",
       element: <BasicLayout />,
-      // errorElement: <ErrorBoundary />,
-      children: [
-        { index: true, element: <Home /> },
-        // {
-        //   path: "/about",
-        //   element: <About />,
-        // },
-        // {
-        //   path: "/auth/callback/google",
-        //   element: <AuthGoogleCallback />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/change-password",
-        //   element: <ChangePassword />,
-        //   loader: authRouteHandler,
-        // },
-        // {
-        //   path: "/forget-password",
-        //   element: <ForgetPassword />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/profile",
-        //   element: <Profile />,
-        //   loader: authRouteHandler,
-        // },
-        // {
-        //   path: "/reset-password",
-        //   element: <ResetPassword />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/login",
-        //   element: <Login />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/signup",
-        //   element: <Signup />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/things",
-        //   element: <Things />,
-        //   loader: authRouteHandler,
-        // },
-      ],
+      errorElement: <ErrorBoundary />,
+      children: childrenRoutes,
     },
   ]);
 };

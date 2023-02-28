@@ -1,0 +1,23 @@
+{
+  "errorBoundary": {
+    "title": "Oops!",
+    "subtitle": "Sorry, an unexpected error has occurred."
+  },
+  "header": {
+    "menu": {
+      "about": "About",
+      "home": "Home",
+      "things": "Things",
+      "profile": "Profile",
+      "login": "Login",
+      "logout": "Logout"
+    },
+    "thingsTable": {
+      "title": "Things Table"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "loading": "Loading ..."
+}
