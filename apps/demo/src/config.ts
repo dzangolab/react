@@ -27,6 +27,10 @@ const config: AppConfig = {
       true
     ) as boolean,
   } as AppFeatures,
+  home: {
+    anon: "/",
+    auth: "/",
+  },
   i18n: {
     appendNamespaceToCIMode: true,
     debug: true,

@@ -1,14 +1,14 @@
 import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
 
-import arrowDownIcon from "../../assets/images/arrow-down.svg";
-import arrowUpDownIcon from "../../assets/images/arrow-up-down.svg";
-import arrowUpIcon from "../../assets/images/arrow-up.svg";
-import chevronLeft from "../../assets/images/chevron-left.svg";
-import chevronRight from "../../assets/images/chevron-right.svg";
-import doubleChevronLeft from "../../assets/images/double-chevron-left.svg";
-import doubleChevronRight from "../../assets/images/double-chevron-right.svg";
-import filterIcon from "../../assets/images/filter.svg";
+import arrowDownIcon from "../assets/images/arrow-down.svg";
+import arrowUpDownIcon from "../assets/images/arrow-up-down.svg";
+import arrowUpIcon from "../assets/images/arrow-up.svg";
+import chevronLeft from "../assets/images/chevron-left.svg";
+import chevronRight from "../assets/images/chevron-right.svg";
+import doubleChevronLeft from "../assets/images/double-chevron-left.svg";
+import doubleChevronRight from "../assets/images/double-chevron-right.svg";
+import filterIcon from "../assets/images/filter.svg";
 
 import { Table } from "./index";
 
@@ -81,7 +81,6 @@ export const LoadingTable: TableProperties = Template.bind({});
 export const FilterIcons: TableProperties = Template.bind({});
 export const PaginationIcons: TableProperties = Template.bind({});
 export const RowsPerPageOptions: TableProperties = Template.bind({});
-export const ShowLoading: TableProperties = Template.bind({});
 export const HidePageControl: TableProperties = Template.bind({});
 export const HideTotalNumber: TableProperties = Template.bind({});
 export const UnSortable: TableProperties = Template.bind({});
@@ -124,10 +123,6 @@ PaginationIcons.args = {
 
 RowsPerPageOptions.args = {
   rowsPerPageOptions: [20, 30, 40],
-};
-
-ShowLoading.args = {
-  showLoading: false,
 };
 
 HidePageControl.args = {

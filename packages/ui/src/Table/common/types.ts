@@ -1,4 +1,9 @@
-import type { ColumnDef, Table as ReactTable } from "@tanstack/react-table";
+import type {
+  Column,
+  ColumnDef,
+  PaginationState,
+  Table as ReactTable,
+} from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
 export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
@@ -35,17 +40,16 @@ export type TRequestJSON = {
   limit: TLimit;
 };
 
-export type TFetchDataOptions = {
-  currentPage?: string;
-  filters?: string;
-  size?: string;
-  sorts?: string;
+export type TSortIcons = {
+  asc: string;
+  desc: string;
+  default: string;
 };
 
 export interface TableProviderProperties<T> {
   children?: ReactNode;
   columns: ColumnDef<T>[];
-  data?: T[];
+  data: T[];
   fetcher: (requestJSON: TRequestJSON) => void;
   filterMenuToggleIcon?: string;
   enableMultiSort?: boolean;
@@ -65,45 +69,37 @@ export interface TableProviderProperties<T> {
     end: string;
   };
   rowsPerPageOptions?: number[];
-  showLoading?: boolean;
   showPageControl?: boolean;
   showTotalNumber?: boolean;
   sortable?: boolean;
-  sortIcons?: {
-    asc: string;
-    desc: string;
-    default: string;
-  };
+  sortIcons?: TSortIcons;
   title?: string;
   totalItems: number;
 }
 
 export interface TableContextProperties<T>
-  extends Pick<
-    TableProviderProperties<T>,
-    Exclude<keyof TableProviderProperties<T>, "fetcher">
-  > {
-  fetchCallback: (requestJSON: TRequestJSON) => void;
+  extends Partial<TableProviderProperties<T>> {
+  // column?: Column<T>;
+  table?: ReactTable<T>;
+  paginationState?: PaginationState;
 }
 
-export interface FilterProperties {
-  columnFilterValue: string;
-  columnType: number | string;
-  handleChange: (value: string) => void;
+export interface TBaseTable {
+  header: ReactNode;
+  body: ReactNode;
+  footer: ReactNode;
 }
 
-export interface PaginationProperties {
-  config: {
-    icon?: string;
-    isDisabled: boolean;
-    onClick: () => void;
-  }[];
+export interface FilterProperties<T> {
+  column: Column<T>;
 }
 
-export interface TableBodyProperties<T> {
-  rowModel: ReactTable<T>["getRowModel"];
+export interface TFooterProperties {
+  paginationComponent?: ReactNode;
+  detailComponent?: ReactNode;
 }
 
-export interface TableHeaderProperties<T> {
-  table: ReactTable<T>;
+export interface TTableDetail {
+  detail: string;
+  showPrefix: string;
 }

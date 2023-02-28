@@ -24,7 +24,10 @@ const UserProvider = ({ children }: Properties) => {
       try {
         if (
           appConfig?.appContext &&
-          (await verifySession(appConfig.appContext))
+          (await verifySession(
+            appConfig.appContext,
+            appConfig.user.redirectTo.appURL
+          ))
         ) {
           const userInfo = await Session.getAccessTokenPayloadSecurely();
 

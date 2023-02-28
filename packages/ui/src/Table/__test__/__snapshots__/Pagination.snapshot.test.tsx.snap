@@ -1,43 +1,37 @@
 // Vitest Snapshot v1
 
 exports[`Component matches snapshot 1`] = `
-<div
-  className="pagination-container"
->
+<div>
   <button
-    className="pagination-button"
     disabled={true}
-    onClick={[MockFunction spy]}
+    onClick={[Function]}
   >
     <img
-      src="start.png"
+      src="/src/assets/images/double-chevron-left.svg"
     />
   </button>
   <button
-    className="pagination-button"
     disabled={true}
-    onClick={[MockFunction spy]}
+    onClick={[Function]}
   >
     <img
-      src="previous.png"
+      src="/src/assets/images/chevron-left.svg"
     />
   </button>
   <button
-    className="pagination-button"
-    disabled={false}
-    onClick={[MockFunction spy]}
+    disabled={true}
+    onClick={[Function]}
   >
     <img
-      src="next.png"
+      src="/src/assets/images/chevron-right.svg"
     />
   </button>
   <button
-    className="pagination-button"
-    disabled={false}
-    onClick={[MockFunction spy]}
+    disabled={true}
+    onClick={[Function]}
   >
     <img
-      src="end.png"
+      src="/src/assets/images/double-chevron-right.svg"
     />
   </button>
 </div>

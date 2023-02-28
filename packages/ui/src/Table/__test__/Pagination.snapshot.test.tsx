@@ -1,33 +1,10 @@
 import React from "react";
 import renderer, { create } from "react-test-renderer";
-import { expect, test, vi } from "vitest";
+import { expect, test } from "vitest";
 
-import Pagination from "../Pagination";
-
-const mockFunction = vi.fn();
-
-const config = [
-  {
-    onClick: mockFunction,
-    isDisabled: true,
-    icon: "start.png",
-  },
-  {
-    onClick: mockFunction,
-    isDisabled: true,
-    icon: "previous.png",
-  },
-  {
-    onClick: mockFunction,
-    isDisabled: false,
-    icon: "next.png",
-  },
-  {
-    onClick: mockFunction,
-    isDisabled: false,
-    icon: "end.png",
-  },
-];
+import { columns, data, fetcher } from "./TestTableData";
+import Pagination from "../common/Pagination";
+import { Table } from "../index";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();
@@ -39,7 +16,16 @@ function toJson(component: renderer.ReactTestRenderer) {
 }
 
 test("Component matches snapshot", () => {
-  const component = create(<Pagination config={config} />);
+  const component = create(
+    <Table
+      columns={columns}
+      data={data}
+      fetcher={fetcher}
+      totalItems={data.length}
+    >
+      <Pagination />
+    </Table>
+  );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();
 });

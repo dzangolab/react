@@ -2,37 +2,37 @@ import React, { useContext, useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import OutsideClickHandler from "react-outside-click-handler";
 
-import { TableContext } from "./TableProvider";
+import { TableContext } from "./TableContext";
 
 import type { FilterProperties } from "./types";
 
-function Filter({
-  columnFilterValue,
-  columnType,
-  handleChange,
-}: FilterProperties) {
-  const { inputDebounceTime, filterIcons } = useContext(TableContext);
+const renderImage = (source?: string) => {
+  return <img src={source} />;
+};
+
+function Filter<T>({ column }: FilterProperties<T>) {
+  const { inputDebounceTime, filterIcons, table } = useContext(TableContext);
+
+  const columnType = table
+    ?.getPreFilteredRowModel()
+    .flatRows[0]?.getValue(column.id);
+
+  if (typeof columnType === "number") return null;
 
   const [expanded, setExpanded] = useState(false);
+  const columnFilterValue = column.getFilterValue();
 
   const toggleExpand = () => {
     expanded ? setExpanded(false) : setExpanded(true);
   };
 
-  if (columnType === "number") return null;
-
   return (
-    <div
-      className="filter-wrapper"
-      onClick={(event_) => event_.stopPropagation()}
-    >
+    <div onClick={(event_) => event_.stopPropagation()}>
       {
         <button onClick={toggleExpand}>
-          {expanded ? (
-            <img src={filterIcons?.expanded} />
-          ) : (
-            <img src={filterIcons?.notExpanded} />
-          )}
+          {expanded
+            ? renderImage(filterIcons?.expanded)
+            : renderImage(filterIcons?.notExpanded)}
         </button>
       }
       {expanded ? (
@@ -47,7 +47,7 @@ function Filter({
               value={(columnFilterValue ?? "") as string}
               debounceTimeout={inputDebounceTime}
               onChange={(event_) => {
-                handleChange(event_.target.value);
+                column.setFilterValue(event_.target.value);
               }}
               placeholder={`Search...`}
               className=""
