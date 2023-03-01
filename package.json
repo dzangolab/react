@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",
@@ -11,14 +11,14 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.2",
-    "@commitlint/config-conventional": "17.4.2",
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-conventional": "17.4.4",
     "eslint-config-custom": "workspace:*",
     "husky": "8.0.3",
     "shipjs": "0.25.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@7.25.1",
+  "packageManager": "pnpm@7.27.1",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"

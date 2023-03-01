@@ -2,39 +2,36 @@ import React, { useContext, useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import OutsideClickHandler from "react-outside-click-handler";
 
-import { TableContext } from "./TableProvider";
+import { TableContext } from "./TableContext";
 
 import type { FilterProperties } from "./types";
 
+const renderImage = (source?: string) => {
+  return <img src={source} />;
+};
+
 function Filter<T>({ column, table }: FilterProperties<T>) {
-  const { inputDebounceTime, filterIcons } = useContext(TableContext);
-
-  const [expanded, setExpanded] = useState(false);
-
   const firstValue = table
     .getPreFilteredRowModel()
     .flatRows[0]?.getValue(column.id);
 
+  if (typeof firstValue === "number") return null;
+
+  const { inputDebounceTime, filterIcons } = useContext(TableContext);
+  const [expanded, setExpanded] = useState(false);
   const columnFilterValue = column.getFilterValue();
 
   const toggleExpand = () => {
     expanded ? setExpanded(false) : setExpanded(true);
   };
 
-  if (typeof firstValue === "number") return null;
-
   return (
-    <div
-      className="filter-wrapper"
-      onClick={(event_) => event_.stopPropagation()}
-    >
+    <div onClick={(event_) => event_.stopPropagation()}>
       {
         <button onClick={toggleExpand}>
-          {expanded ? (
-            <img src={filterIcons?.expanded} />
-          ) : (
-            <img src={filterIcons?.notExpanded} />
-          )}
+          {expanded
+            ? renderImage(filterIcons?.expanded)
+            : renderImage(filterIcons?.notExpanded)}
         </button>
       }
       {expanded ? (

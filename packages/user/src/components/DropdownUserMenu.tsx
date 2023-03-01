@@ -3,10 +3,10 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { useContext, useId, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
-import Session from "supertokens-web-js/recipe/session";
 
-import DropdownUserMenuItem from "./DropdownUserMenuItem";
+import logout from "../supertokens/logout";
 import useUser from "../hooks/useUser";
+import DropdownUserMenuItem from "./DropdownUserMenuItem";
 
 import "../assets/css/dropdownUserMenu.css";
 
@@ -26,16 +26,9 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
   const appConfig = useContext(configContext);
 
   const signout = async () => {
-    try {
-      await Session.signOut();
+    if (await logout()) {
       setUser(undefined);
-      toast.success(`${t("logout.message")}`);
-    } catch (err) {
-      let errorMessage = "Oops! Something went wrong.";
-      if (err instanceof Error) {
-        errorMessage = err.message;
-      }
-      toast.error(errorMessage);
+      toast.success(t("logout.message"));
     }
   };
 

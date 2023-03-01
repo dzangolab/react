@@ -37,6 +37,12 @@ const config: AppConfig = {
   locales: (import.meta.env.VITE_LOCALES || "en:English,fr:Français") as string,
   localStorageNamespace: (import.meta.env.VITE_LOCALE_STORAGE_NAMESPACE ||
     "__app_") as string,
+  user: {
+    redirectTo: {
+      appName: "",
+      appURL: "",
+    },
+  },
   websiteDomain: (window.location.protocol +
     "//" +
     window.location.host) as string,

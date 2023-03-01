@@ -18,7 +18,7 @@ import Signup from "./views/Signup";
 
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
-    user?: DzangolabReactUserConfig;
+    user: DzangolabReactUserConfig;
   }
 }
 
