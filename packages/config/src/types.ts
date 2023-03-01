@@ -5,7 +5,6 @@ interface AppConfig {
     name: string;
     version: string;
   };
-  appContext: "USER" | "ADMIN";
   appPort: string;
   appTitle: string;
   appVersion: string;

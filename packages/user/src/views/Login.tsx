@@ -31,8 +31,8 @@ const Login = () => {
 
     if (result?.user) {
       if (
-        appConfig?.appContext &&
-        (await verifySession(appConfig.appContext))
+        appConfig?.user?.appContext &&
+        (await verifySession(appConfig?.user?.appContext))
       ) {
         setUser(result?.user);
         setShowRedirectionMessage(false);

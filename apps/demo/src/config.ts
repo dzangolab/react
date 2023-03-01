@@ -11,7 +11,6 @@ const config: AppConfig = {
       import.meta.env.VITE_APP_BUILD
     }` as string,
   },
-  appContext: "USER",
   appPort: parse(import.meta.env.VITE_APP_PORT, "20083") as string,
   appTitle: import.meta.env.VITE_APP_TITLE as string,
   appVersion: `${import.meta.env.VITE_APP_VERSION}-${
@@ -38,6 +37,7 @@ const config: AppConfig = {
   localStorageNamespace: (import.meta.env.VITE_LOCALE_STORAGE_NAMESPACE ||
     "__app_") as string,
   user: {
+    appContext: "USER",
     redirectTo: {
       appName: "",
       appURL: "",
