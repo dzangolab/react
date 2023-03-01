@@ -30,10 +30,7 @@ const Login = () => {
     const result = await login(credentials);
 
     if (result?.user) {
-      if (
-        appConfig?.appContext &&
-        (await verifySession(appConfig.appContext))
-      ) {
+      if (appConfig && (await verifySession(appConfig.user.appContext))) {
         setUser(result?.user);
         setShowRedirectionMessage(false);
         toast.success(`${t("login.messages.success")}`);

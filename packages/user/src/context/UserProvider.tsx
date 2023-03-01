@@ -23,9 +23,9 @@ const UserProvider = ({ children }: Properties) => {
     const getUser = async () => {
       try {
         if (
-          appConfig?.appContext &&
+          appConfig &&
           (await verifySession(
-            appConfig.appContext,
+            appConfig.user.appContext,
             appConfig.user.redirectTo.appURL
           ))
         ) {
