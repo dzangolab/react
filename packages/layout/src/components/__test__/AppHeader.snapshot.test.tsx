@@ -1,8 +1,7 @@
 import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
-import { userContext } from "@dzangolab/react-user";
 import { create } from "react-test-renderer";
-import { expect, test, vi } from "vitest";
+import { expect, test } from "vitest";
 
 import AppHeader from "../AppHeader";
 
@@ -34,10 +33,6 @@ const appConfig: AppConfig = {
   features: {
     showVersion: true,
   },
-  home: {
-    anon: "/",
-    auth: "/",
-  },
   i18n: {
     appendNamespaceToCIMode: true,
     debug: true,
@@ -47,10 +42,7 @@ const appConfig: AppConfig = {
     react: {
       useSuspense: false,
     },
-    resources: {
-      en: {},
-      fr: {},
-    },
+    resources: { en: {}, fr: {} },
   },
   locales: "en:English,fr:Français",
   localStorageNamespace: "__app_",
@@ -60,19 +52,10 @@ const appConfig: AppConfig = {
 test("Component matches snapshot", () => {
   i18n(appConfig.i18n);
 
-  const user = undefined;
-  const values = {
-    user,
-    setUser: vi.fn(),
-    loading: false,
-  };
-
   const component = create(
-    <userContext.Provider value={values}>
-      <configContext.Provider value={appConfig}>
-        <AppHeader />
-      </configContext.Provider>
-    </userContext.Provider>
+    <configContext.Provider value={appConfig}>
+      <AppHeader />
+    </configContext.Provider>
   );
 
   const tree = toJson(component);

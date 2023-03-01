@@ -23,9 +23,9 @@ export default defineConfig(({ mode }) => {
           exports: "named",
           globals: {
             react: "React",
-            "@tanstack/react-table": "reactTable",
-            "react-debounce-input": "reactDebounceInput",
-            "react-outside-click-handler": "OutsideClickHandler",
+            "@tanstack/react-table": "ReactTable",
+            "react-debounce-input": "ReactDebounceInput",
+            "react-outside-click-handler": "ReactOutsideClickHandler",
           },
         },
       },

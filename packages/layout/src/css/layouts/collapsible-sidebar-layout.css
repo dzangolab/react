@@ -1,0 +1,33 @@
+.collapsible-layout > header {
+  grid-area: header;
+}
+
+.collapsible-layout > .sidebar-menu {
+  grid-area: menu;
+}
+
+.collapsible-layout > main {
+  grid-area: main;
+}
+
+.collapsible-layout > footer {
+  grid-area: footer;
+}
+
+.collapsible-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "menu main main main "
+    "footer footer footer footer ";
+  gap: var(--basic-layout-gap, 0.8rem);
+  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-columns: max-content 1fr;
+}
+
+.collapsible-layout :is(footer, header, main) {
+  max-width: var(--max-width, 100%);
+  padding: var(--padding-v, 0.8rem) var(--padding-h, 0.8rem);
+  width: 100%;
+}

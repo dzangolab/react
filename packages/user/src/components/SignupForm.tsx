@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 import ErrorMessage from "./ErrorMessage";
 
-import type { LoginCredentials } from "@/types";
+import type { LoginCredentials } from "@/types/types";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;

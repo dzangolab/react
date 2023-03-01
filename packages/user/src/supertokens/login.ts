@@ -6,7 +6,9 @@ import {
 } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
-import type { LoginCredentials } from "../types";
+import logout from "./logout";
+
+import type { LoginCredentials } from "../types/types";
 
 interface IPromise {
   user: EmailPasswordUserType | undefined;
@@ -52,7 +54,10 @@ const login = async (
   return { user, status };
 };
 
-async function verifySession(claim: string): Promise<boolean> {
+async function verifySession(
+  claim: string,
+  redirectURL?: string
+): Promise<boolean> {
   if (await Session.doesSessionExist()) {
     const validationErrors = await Session.validateClaims({
       overrideGlobalClaimValidators: (globalValidators) => [
@@ -69,7 +74,12 @@ async function verifySession(claim: string): Promise<boolean> {
     for (const err of validationErrors) {
       if (err.validatorId === UserRoleClaim.id) {
         // user roles claim check failed
-        toast.error("You don't have permission for the app");
+        if (redirectURL) {
+          window.location.href = redirectURL;
+        } else {
+          await logout();
+        }
+        // toast.error("You don't have permission for the app");
       } else {
         // some other claim check failed (from the global validators list)
       }

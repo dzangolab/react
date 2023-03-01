@@ -1,3 +1,28 @@
+# [0.5.0](https://github.com/dzangolab/react/compare/v0.4.9...v0.5.0) (2023-02-27)
+
+
+### Bug Fixes
+
+* app header style ([#163](https://github.com/dzangolab/react/issues/163)) ([bb92c23](https://github.com/dzangolab/react/commit/bb92c23b10c806b3248dba1dcfd199c24c23a104))
+* **deps:** update dependency eslint-config-prettier to v8.6.0 ([#112](https://github.com/dzangolab/react/issues/112)) ([b6192e7](https://github.com/dzangolab/react/commit/b6192e78c22c9910f2c515e8323317a660188274))
+* **deps:** update dependency eslint-plugin-import to v2.27.5 ([#113](https://github.com/dzangolab/react/issues/113)) ([acb0708](https://github.com/dzangolab/react/commit/acb0708898ad2788184121f23b89bae610e150eb))
+* **deps:** update dependency eslint-plugin-vue to v9.9.0 ([#114](https://github.com/dzangolab/react/issues/114)) ([f7dd931](https://github.com/dzangolab/react/commit/f7dd9315fbea07ff665917520d7899d8e95409d3))
+* **deps:** update dependency i18next to v21.10.0 ([#115](https://github.com/dzangolab/react/issues/115)) ([012a779](https://github.com/dzangolab/react/commit/012a77947a292be647480fa241773ae6bf145186))
+* **deps:** update dependency react-icons to v4.7.1 ([#116](https://github.com/dzangolab/react/issues/116)) ([9fb1a24](https://github.com/dzangolab/react/commit/9fb1a24c4a4b2449a0535ddce56148c29521d254))
+* **storybook:** fix css import issue ([#152](https://github.com/dzangolab/react/issues/152)) ([3f5cc88](https://github.com/dzangolab/react/commit/3f5cc88365f785c742c4187367196503e594430e))
+
+
+### Features
+
+* demo app ([#148](https://github.com/dzangolab/react/issues/148)) ([49a1633](https://github.com/dzangolab/react/commit/49a1633d503a554281f00a5738a4958bec187514))
+* **demo:** add cd pipeline ([#161](https://github.com/dzangolab/react/issues/161)) ([da756aa](https://github.com/dzangolab/react/commit/da756aaa1d1d8bae89fdda9ca1772a59c5f7f92b))
+* **storybook:** restructure storybook ([#156](https://github.com/dzangolab/react/issues/156)) ([a278881](https://github.com/dzangolab/react/commit/a278881c81d2bf4c7fe6d80e1456bc7f897b7bc3))
+* **ui:** add accordion stories ([#146](https://github.com/dzangolab/react/issues/146)) ([2dc721a](https://github.com/dzangolab/react/commit/2dc721acc40a17050c05b9653840988b5c1c8029))
+* **ui:** implement storybook on datatable component ([#153](https://github.com/dzangolab/react/issues/153)) ([b493a0f](https://github.com/dzangolab/react/commit/b493a0f98960e6a53082be310ed7d5c99cc8c204))
+* **ui:** show cards view in responsive mode ([#149](https://github.com/dzangolab/react/issues/149)) ([86c635b](https://github.com/dzangolab/react/commit/86c635b57f8bf0a3739d7b244ce78e5741867a72))
+
+
+
 ## [0.4.9](https://github.com/dzangolab/react/compare/v0.4.8...v0.4.9) (2023-02-14)
 
 

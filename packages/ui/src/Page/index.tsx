@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LoadingPage } from "../Loading";
+import LoadingPage, { LoadingPageProperties } from "../LoadingPage";
 
 import "./page.css";
 
@@ -9,6 +9,7 @@ interface Properties {
   errorMessage?: string;
   loading?: boolean;
   loadingComponent?: React.ReactElement;
+  loadingPageStyle?: LoadingPageProperties;
   subtitle?: string;
   title?: string;
   toolbar?: React.ReactNode;
@@ -18,7 +19,8 @@ const Page: React.FC<Properties> = ({
   children,
   errorMessage,
   loading = false,
-  loadingComponent = <LoadingPage />,
+  loadingComponent,
+  loadingPageStyle,
   subtitle,
   title,
   toolbar,
@@ -26,32 +28,33 @@ const Page: React.FC<Properties> = ({
   let child = null;
 
   if (loading) {
-    child = loadingComponent;
+    child = loadingComponent ? (
+      loadingComponent
+    ) : (
+      <LoadingPage {...loadingPageStyle} />
+    );
   } else if (errorMessage) {
     child = (
-      <div className="page">
-        <div className="error" role="alert">
-          <span>{errorMessage}</span>
-        </div>
-      </div>
-    );
-  } else {
-    child = (
-      <div className="page">
-        {title && (
-          <h1>
-            {title}
-            {subtitle && <small>{subtitle}</small>}
-          </h1>
-        )}
-        {toolbar && <div className="toolbar">{toolbar}</div>}
-        <div data-testid="page-content" className="content">
-          {children}
-        </div>
+      <div className="error" role="alert">
+        <span>{errorMessage}</span>
       </div>
     );
   }
-  return child;
+
+  return (
+    <div className="page">
+      {title && (
+        <h1>
+          {title}
+          {subtitle && <small>{subtitle}</small>}
+        </h1>
+      )}
+      {toolbar && <div className="toolbar">{toolbar}</div>}
+      <div data-testid="page-content" className="content">
+        {child ? child : children}
+      </div>
+    </div>
+  );
 };
 
 export default Page;

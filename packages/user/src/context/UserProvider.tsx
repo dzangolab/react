@@ -4,7 +4,7 @@ import Session from "supertokens-web-js/recipe/session";
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { verifySession } from "../supertokens/login";
-import { UserContextType } from "../types";
+import { UserContextType } from "../types/types";
 
 interface Properties {
   children: React.ReactNode;
@@ -24,7 +24,10 @@ const UserProvider = ({ children }: Properties) => {
       try {
         if (
           appConfig?.appContext &&
-          (await verifySession(appConfig.appContext))
+          (await verifySession(
+            appConfig.appContext,
+            appConfig.user.redirectTo.appURL
+          ))
         ) {
           const userInfo = await Session.getAccessTokenPayloadSecurely();
 
