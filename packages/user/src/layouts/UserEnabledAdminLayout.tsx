@@ -10,6 +10,7 @@ interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
   header?: React.ReactNode;
+  sidebar?: React.ReactNode;
 }
 
 const UserEnabledAdminLayout: React.FC<Properties> = (properties) => {
@@ -24,13 +25,15 @@ const UserEnabledAdminLayout: React.FC<Properties> = (properties) => {
     children,
     header = <AppHeader userMenu={<UserMenu />} route={route} />,
     footer,
+    sidebar,
   } = properties;
 
   return (
     <CollapsibleSidebarLayout
-      header={header}
-      footer={footer}
       children={children}
+      footer={footer}
+      header={header}
+      sidebar={user ? sidebar : null}
     />
   );
 };
