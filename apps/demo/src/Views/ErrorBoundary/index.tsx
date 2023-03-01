@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-
 import { useRouteError } from "react-router-dom";
 import "./ErrorBoundary.css";
 

@@ -1,15 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-
 import {
   createBrowserRouter,
   RouteObject,
   RouterProvider,
 } from "react-router-dom";
 
+import config from "./config";
 import { BasicLayout } from "./layouts/BasicLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
 import ListPage from "./Views/ListPage";
-import config from "./config";
 
 const routes = (childrenRoutes: RouteObject[]) => {
   return createBrowserRouter([
