@@ -17,15 +17,9 @@ importers:
       husky: 8.0.3
       shipjs: 0.25.1
       turbo: 1.8.3
-      turbo: 1.8.3
 
   apps/demo:
     specifiers:
-      '@dzangolab/react-config': 0.5.0
-      '@dzangolab/react-i18n': 0.5.0
-      '@dzangolab/react-layout': 0.5.0
-      '@dzangolab/react-ui': 0.5.0
-      '@dzangolab/react-user': 0.5.0
       '@dzangolab/react-config': 0.5.0
       '@dzangolab/react-i18n': 0.5.0
       '@dzangolab/react-layout': 0.5.0
