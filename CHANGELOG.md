@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/dzangolab/react/compare/v0.5.0...v0.5.1) (2023-03-01)
+
+
+### Features
+
+* **user:** move userContext config from config to user library ([#191](https://github.com/dzangolab/react/issues/191)) ([1ca1975](https://github.com/dzangolab/react/commit/1ca1975f5095c104e27b4eb28c12bc42634c1167))
+
+
+
 # [0.5.0](https://github.com/dzangolab/react/compare/v0.4.9...v0.5.0) (2023-02-27)
 
 
