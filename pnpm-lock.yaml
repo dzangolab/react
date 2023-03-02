@@ -102,7 +102,7 @@ importers:
       '@storybook/react-vite': 7.0.0-beta.45
       '@storybook/testing-library': 0.0.14-next.1
       babel-loader: 8.3.0
-      eslint-plugin-storybook: 0.6.10
+      eslint-plugin-storybook: 0.6.11
       react: 18.2.0
       react-dom: 18.2.0
       storybook: 7.0.0-beta.45
@@ -119,7 +119,7 @@ importers:
       '@storybook/react-vite': 7.0.0-beta.45_biqbaboplfbrettd7655fr4n2y
       '@storybook/testing-library': 0.0.14-next.1
       babel-loader: 8.3.0
-      eslint-plugin-storybook: 0.6.10
+      eslint-plugin-storybook: 0.6.11
       storybook: 7.0.0-beta.45
 
   packages/config:
@@ -9368,8 +9368,8 @@ packages:
       semver: 6.3.0
       string.prototype.matchall: 4.0.8
 
-  /eslint-plugin-storybook/0.6.10:
-    resolution: {integrity: sha512-3DKXRey06EhwnTKaG6fgMqGTy4C3z6Ikyv6VVixO5BvaExWQe3yGWIAufrC2Et0OaAMIaMwx9KWjqb/Wq+JxPg==}
+  /eslint-plugin-storybook/0.6.11:
+    resolution: {integrity: sha512-lIVmCqQgA0bhcuS1yWYBFrnPHBKPEQI+LHPDtlN81UE1/17onCqgwUW7Nyt7gS2OHjCAiOR4npjTGEoe0hssKw==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'
