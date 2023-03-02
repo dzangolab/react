@@ -16,6 +16,7 @@ nav.user-menu > div.email {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5rem 0.8rem;
 }
 
 nav > span.toggle {
@@ -38,7 +39,7 @@ nav > ul.dropdown {
   padding: 0.15rem 0;
   position: absolute;
   right: 0;
-  top: 55%;
+  top: 100%;
   z-index: var(--dropdown-z-index, 9999);
 }
 
