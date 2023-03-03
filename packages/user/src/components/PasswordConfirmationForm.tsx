@@ -17,16 +17,18 @@ const PasswordConfirmationForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const PasswordConfirmationFormSchema = Yup.object({
-    email: Yup.string().email("Email validation").required("Email is required"),
     password: Yup.string()
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/,
-        "Password must include a number ,uppercase letter,lowercase letter"
+        "passwordConfirmation.messages.validation.validationMessage"
       )
       .required("password is required"),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "password must match")
-      .required("confirm password is required"),
+      .oneOf(
+        [Yup.ref("password"), null],
+        "passwordConfirmation.messages.validation.password"
+      )
+      .required("passwordConfirmation.messages.validation.confirmPassword"),
   });
 
   const initialValue = {
@@ -48,16 +50,21 @@ const PasswordConfirmationForm = ({ handleSubmit, loading }: Properties) => {
       {({ errors, handleSubmit, touched }) => (
         <form className="form" onSubmit={handleSubmit}>
           <div className="field password">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              {t("passwordConfirmation.form.password.label")}
+            </label>
             <Field id="password" type="password" name="password" />
             <ErrorMessage
               touched={touched.password}
-              error={errors.password ? errors.password : undefined}
+              error={errors.password ? t(errors.password) : undefined}
             />
           </div>
 
           <div className="field password">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label htmlFor="confirmPassword">
+              {" "}
+              {t("passwordConfirmation.form.confirmPassword.label")}
+            </label>
             <Field
               id="confirmPassword"
               type="password"
@@ -66,13 +73,16 @@ const PasswordConfirmationForm = ({ handleSubmit, loading }: Properties) => {
             <ErrorMessage
               touched={touched.confirmPassword}
               error={
-                errors.confirmPassword ? errors.confirmPassword : undefined
+                errors.confirmPassword ? t(errors.confirmPassword) : undefined
               }
             />
           </div>
 
           <div className="actions">
-            <LoadingButton label="submit" loading={loading} />
+            <LoadingButton
+              label={t("passwordConfirmation.form.actions.submit")}
+              loading={loading}
+            />
           </div>
         </form>
       )}
