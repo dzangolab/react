@@ -18,8 +18,8 @@ const config: AppConfig = {
   }` as string,
   appContext: "USER",
   copyright: {
-    holder: import.meta.env.VITE_COPYRIGHT_HOLDER as string,
-    url: import.meta.env.VITE_COPYRIGHT_HOLDER_URL as string,
+    holder: import.meta.env.VITE_APP_COPYRIGHT_HOLDER as string,
+    url: import.meta.env.VITE_APP_COPYRIGHT_HOLDER_URL as string,
   },
   features: {
     showVersion: parse(
