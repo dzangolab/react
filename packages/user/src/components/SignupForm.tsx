@@ -67,32 +67,6 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
             />
           </div>
 
-          {/* <div className="field password">
-            <label htmlFor="password">{t("signup.form.password.label")}</label>
-            <Field id="password" type="password" name="password" />
-            <ErrorMessage
-              touched={touched.password}
-              error={errors.password ? t(errors.password) : undefined}
-            />
-          </div> */}
-
-          {/* <div className="field password">
-            <label htmlFor="confirmPassword">
-              {t("signup.form.confirmPassword.label")}
-            </label>
-            <Field
-              id="confirmPassword"
-              type="password"
-              name="confirmPassword"
-            />
-            <ErrorMessage
-              touched={touched.confirmPassword}
-              error={
-                errors.confirmPassword ? t(errors.confirmPassword) : undefined
-              }
-            />
-          </div> */}
-
           <PasswordConfirmationWidget errors={errors} touched={touched} />
 
           <div className="actions">
