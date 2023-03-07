@@ -57,6 +57,12 @@ pnpm unlink ./<path_to_libraries_monorepo>/packages/<library_name>
 make storybook
 ```
 
+## Running demo app
+
+```
+make demo
+```
+
 ## Troubleshooting
   - Make sure that `package.json` and `pnpm-lock.yml` are synchronized.
   - You may need to restart your react-app before link and unlink to see the changes.

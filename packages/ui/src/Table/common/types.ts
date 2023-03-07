@@ -1,5 +1,4 @@
 import type {
-  Column,
   ColumnDef,
   PaginationState,
   Table as ReactTable,
@@ -89,9 +88,10 @@ export interface TBaseTable {
   footer: ReactNode;
 }
 
-export interface FilterProperties<T> {
-  column: Column<T>;
-  table: ReactTable<T>;
+export interface FilterProperties {
+  columnFilterValue: string;
+  columnType: number | string;
+  handleChange: (value: string) => void;
 }
 
 export interface TFooterProperties {
