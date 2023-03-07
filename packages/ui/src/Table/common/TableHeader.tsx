@@ -96,7 +96,19 @@ function TableHeader() {
                         ) : null}
 
                         {column.getCanFilter() ? (
-                          <Filter column={column} table={table} />
+                          <Filter
+                            columnFilterValue={
+                              column.getFilterValue() as string
+                            }
+                            columnType={
+                              typeof table
+                                .getPreFilteredRowModel()
+                                .flatRows[0]?.getValue(column.id)
+                            }
+                            handleChange={(value) => {
+                              column.setFilterValue(value);
+                            }}
+                          />
                         ) : null}
                       </div>
                     )}

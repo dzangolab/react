@@ -10,16 +10,15 @@ const renderImage = (source?: string) => {
   return <img src={source} />;
 };
 
-function Filter<T>({ column, table }: FilterProperties<T>) {
-  const firstValue = table
-    .getPreFilteredRowModel()
-    .flatRows[0]?.getValue(column.id);
-
-  if (typeof firstValue === "number") return null;
-
+function Filter({
+  columnFilterValue,
+  columnType,
+  handleChange,
+}: FilterProperties) {
   const { inputDebounceTime, filterIcons } = useContext(TableContext);
+  if (typeof columnType === "number") return null;
+
   const [expanded, setExpanded] = useState(false);
-  const columnFilterValue = column.getFilterValue();
 
   const toggleExpand = () => {
     expanded ? setExpanded(false) : setExpanded(true);
@@ -40,13 +39,13 @@ function Filter<T>({ column, table }: FilterProperties<T>) {
             setExpanded(false);
           }}
         >
-          <div className="filter-form-wrapper">
+          <div role="dialog" className="filter-form-wrapper">
             <DebounceInput
               type="text"
               value={(columnFilterValue ?? "") as string}
               debounceTimeout={inputDebounceTime}
               onChange={(event_) => {
-                column.setFilterValue(event_.target.value);
+                handleChange(event_.target.value);
               }}
               placeholder={`Search...`}
               className=""

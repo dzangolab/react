@@ -1,0 +1,54 @@
+// Vitest Snapshot v1
+
+exports[`Component matches snapshot 1`] = `
+<tbody>
+  <tr>
+    <td
+      data-label="id"
+    >
+      1
+    </td>
+    <td
+      data-label="name"
+    >
+      jone
+    </td>
+  </tr>
+  <tr>
+    <td
+      data-label="id"
+    >
+      2
+    </td>
+    <td
+      data-label="name"
+    >
+      abhi
+    </td>
+  </tr>
+  <tr>
+    <td
+      data-label="id"
+    >
+      3
+    </td>
+    <td
+      data-label="name"
+    >
+      mike
+    </td>
+  </tr>
+  <tr>
+    <td
+      data-label="id"
+    >
+      4
+    </td>
+    <td
+      data-label="name"
+    >
+      tony
+    </td>
+  </tr>
+</tbody>
+`;
