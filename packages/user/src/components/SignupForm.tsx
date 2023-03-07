@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import ErrorMessage from "./ErrorMessage";
 
 import type { LoginCredentials } from "@/types/types";
+import PasswordConfirmationWidget from "./PasswordConfirmationWidget";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
@@ -66,16 +67,16 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
             />
           </div>
 
-          <div className="field password">
+          {/* <div className="field password">
             <label htmlFor="password">{t("signup.form.password.label")}</label>
             <Field id="password" type="password" name="password" />
             <ErrorMessage
               touched={touched.password}
               error={errors.password ? t(errors.password) : undefined}
             />
-          </div>
+          </div> */}
 
-          <div className="field password">
+          {/* <div className="field password">
             <label htmlFor="confirmPassword">
               {t("signup.form.confirmPassword.label")}
             </label>
@@ -90,7 +91,9 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
                 errors.confirmPassword ? t(errors.confirmPassword) : undefined
               }
             />
-          </div>
+          </div> */}
+
+          <PasswordConfirmationWidget errors={errors} touched={touched} />
 
           <div className="actions">
             <LoadingButton

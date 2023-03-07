@@ -5,8 +5,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-// import SignupForm from "@/components/SignupForm";
-import PasswordConfirmationForm from "@/components/PasswordConfirmationForm";
+import SignupForm from "@/components/SignupForm";
 import useUser from "@/hooks/useUser";
 
 import signup from "../supertokens/signup";
@@ -53,11 +52,7 @@ const Signup = () => {
   return (
     <div className="signup">
       <Page title={t("signup.title")}>
-        {/* <SignupForm handleSubmit={handleSubmit} loading={loading} /> */}
-        <PasswordConfirmationForm
-          handleSubmit={handleSubmit}
-          loading={loading}
-        />
+        <SignupForm handleSubmit={handleSubmit} loading={loading} />
         <div className="links">{getLinks()}</div>
       </Page>
     </div>
