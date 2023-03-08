@@ -43,7 +43,7 @@
     "@vitejs/plugin-react": "3.0.0",
     "@vitest/coverage-c8": "0.28.5",
     "eslint": "8.35.0",
-    "eslint-config-custom": "0.0.0",
+    "eslint-config-custom": "0.5.1",
     "eslint-plugin-react": "7.32.2",
     "prettier": "2.8.4",
     "react": "18.2.0",
