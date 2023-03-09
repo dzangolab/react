@@ -33,22 +33,15 @@
 
 .accordion.horizontal > li > button {
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: space-between;
-  transform: rotate(180deg);
 }
 
 .accordion.horizontal > li > button > span {
+  margin: var(--accordion-title-margin, 0 0 4px 0);
   text-orientation: sideways-right;
+  transform: rotate(180deg);
   writing-mode: vertical-rl;
-}
-
-.accordion.horizontal > li > button > img:first-child {
-  transform: rotate(90deg);
-}
-
-.accordion.horizontal > li > button > img:last-child {
-  transform: rotate(270deg);
 }
 
 .accordion.vertical,
