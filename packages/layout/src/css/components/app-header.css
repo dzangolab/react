@@ -12,6 +12,7 @@ header {
 
 header::before {
   background-color: var(--header-bg-color, transparent);
+  bottom: 0;
   box-shadow: 0 0 0 100vmax var(--header-bg-color, transparent);
   clip-path: inset(
     calc(-1 * var(--header-padding-top, 1em)) -100vmax calc(
@@ -21,7 +22,8 @@ header::before {
   content: "";
   grid-column: 1 / span 2;
   grid-row: 1 / 1;
-  height: 100%;
+  position: absolute;
+  top: 0;
   width: 100%;
   z-index: -1;
 }
