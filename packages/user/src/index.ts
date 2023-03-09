@@ -4,7 +4,7 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
-import UserEnabledSidebarLayout from "./layouts/user-enabled-sidebarlayout";
+import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarlayout";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import superTokens from "./supertokens";
 import UserToastContainer from "./toastify";
