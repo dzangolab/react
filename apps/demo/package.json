@@ -16,11 +16,11 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@dzangolab/react-config": "0.5.0",
-    "@dzangolab/react-i18n": "0.5.0",
-    "@dzangolab/react-layout": "0.5.0",
-    "@dzangolab/react-ui": "0.5.0",
-    "@dzangolab/react-user": "0.5.0",
+    "@dzangolab/react-config": "link:../../packages/config",
+    "@dzangolab/react-i18n": "link:../../packages/i18n",
+    "@dzangolab/react-layout": "link:../../packages/layout",
+    "@dzangolab/react-ui": "link:../../packages/ui",
+    "@dzangolab/react-user": "link:../../packages/user",
     "@reduxjs/toolkit": "1.9.1",
     "normalize.css": "8.0.1",
     "react": "18.2.0",
