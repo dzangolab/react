@@ -26,6 +26,7 @@ export default defineConfig(({ mode }) => {
             "@tanstack/react-table": "ReactTable",
             "react-debounce-input": "ReactDebounceInput",
             "react-outside-click-handler": "ReactOutsideClickHandler",
+            "react-router-dom": "ReactRouterDom",
           },
         },
       },
