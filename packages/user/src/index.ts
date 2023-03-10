@@ -15,6 +15,7 @@ import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
+import UsersPage from "./views/UsersPage";
 
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
@@ -34,6 +35,7 @@ export {
   UserEnabledAdminLayout,
   UserEnabledBasicLayout,
   UserMenu,
+  UsersPage,
   UserProvider,
   UserToastContainer,
   superTokens,
