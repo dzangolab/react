@@ -1,6 +1,6 @@
 import { ConfigProvider } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
-import { UserProvider, superTokens } from "@dzangolab/react-user";
+import { UserProvider } from "@dzangolab/react-user";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
