@@ -25,9 +25,11 @@ const RedirectionMessage: React.FC<IProperties> = ({
     };
   }, []);
 
-  if (countDown < 0) {
-    hideRedirectionMessage();
-  }
+  useEffect(() => {
+    if (countDown < 0) {
+      hideRedirectionMessage();
+    }
+  }, [countDown]);
 
   return (
     <div className="redirect-message" role="alert">
