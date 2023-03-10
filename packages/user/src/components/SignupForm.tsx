@@ -8,6 +8,7 @@ import ErrorMessage from "./ErrorMessage";
 
 import type { LoginCredentials } from "@/types/types";
 import PasswordConfirmationWidget from "./PasswordConfirmationWidget";
+import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
@@ -21,18 +22,7 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
     email: Yup.string()
       .email("validation.messages.validEmail")
       .required("validation.messages.email"),
-    password: Yup.string()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/,
-        "signup.messages.validation.validationMessage"
-      )
-      .required("signup.messages.validation.password"),
-    confirmPassword: Yup.string()
-      .oneOf(
-        [Yup.ref("password"), null],
-        "signup.messages.validation.mustMatch"
-      )
-      .required("signup.messages.validation.confirmPassword"),
+    ...PasswordConfirmationSchema,
   });
 
   const initialValue = {
