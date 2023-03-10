@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
           globals: {
             "@dzangolab/react-config": "DzangolabReactConfig",
             "@dzangolab/react-i18n": "DzangolabReactI18n",
+            "@dzangolab/react-layout": "DzangolabReactLayout",
             "@dzangolab/react-ui": "DzangolabReactUi",
             formik: "formik",
             yup: "Yup",
