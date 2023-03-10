@@ -3,11 +3,9 @@ import i18n from "@dzangolab/react-i18n";
 import { UserProvider, superTokens } from "@dzangolab/react-user";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
 
 import App from "./App";
 import config from "./config";
-import { store } from "./redux/store";
 
 import "normalize.css";
 
@@ -22,11 +20,9 @@ superTokens(config);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ConfigProvider appConfig={config}>
     <UserProvider>
-      <Provider store={store}>
-        <React.Suspense>
-          <App />
-        </React.Suspense>
-      </Provider>
+      <React.Suspense>
+        <App />
+      </React.Suspense>
     </UserProvider>
   </ConfigProvider>
 );
