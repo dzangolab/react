@@ -19,7 +19,6 @@ const config: AppConfig = {
   appVersion: `${import.meta.env.VITE_APP_VERSION}-${
     import.meta.env.VITE_APP_BUILD
   }` as string,
-  appContext: "USER",
   copyright: {
     holder: import.meta.env.VITE_APP_COPYRIGHT_HOLDER as string,
     url: import.meta.env.VITE_APP_COPYRIGHT_HOLDER_URL as string,
@@ -66,6 +65,7 @@ const config: AppConfig = {
     ],
   },
   user: {
+    appContext: "",
     redirectTo: {
       appName: "",
       appURL: "",
