@@ -1,3 +1,22 @@
+## [0.5.2](https://github.com/dzangolab/react/compare/v0.5.1...v0.5.2) (2023-03-10)
+
+
+### Bug Fixes
+
+* eslint parser not found error ([#202](https://github.com/dzangolab/react/issues/202)) ([ecdfa6a](https://github.com/dzangolab/react/commit/ecdfa6ad4b7d71b5e4c3e35e5bc2fc12d4069ad0))
+* key for copyright holder ([#204](https://github.com/dzangolab/react/issues/204)) ([74b9c6e](https://github.com/dzangolab/react/commit/74b9c6e0db2ed1dfd4dabb3a4683722057047439))
+* **user:** solve lint warnings ([#216](https://github.com/dzangolab/react/issues/216)) ([212b3d2](https://github.com/dzangolab/react/commit/212b3d2bc0dcb40ea1ce11f1599c6f082d74e9d3))
+
+
+### Features
+
+* add main-menu to app header ([#186](https://github.com/dzangolab/react/issues/186)) ([34056a8](https://github.com/dzangolab/react/commit/34056a8da7201f813a44b85583acbcbfbe3a319a))
+* add react-router dependency ([#208](https://github.com/dzangolab/react/issues/208)) ([5d83d30](https://github.com/dzangolab/react/commit/5d83d30436622dc54d90b0255755a8667d4057ba))
+* **layout:** fix toggle bug ([#211](https://github.com/dzangolab/react/issues/211)) ([a3dd0d5](https://github.com/dzangolab/react/commit/a3dd0d589f7ae2a53cec337253ba874e0d032a4d))
+* users page ([#215](https://github.com/dzangolab/react/issues/215)) ([4de9ae9](https://github.com/dzangolab/react/commit/4de9ae91380d3f8b5ccd75f0c09e4846def62ef2))
+
+
+
 ## [0.5.1](https://github.com/dzangolab/react/compare/v0.5.0...v0.5.1) (2023-03-01)
 
 
