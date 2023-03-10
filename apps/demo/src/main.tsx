@@ -15,7 +15,7 @@ import "@dzangolab/react-user/dist/DzangolabReactUser.css";
 
 i18n(config.i18n);
 
-superTokens(config);
+// superTokens(config);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ConfigProvider appConfig={config}>
