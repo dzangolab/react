@@ -8,7 +8,7 @@ import type { AppConfig, AppFeatures } from "@dzangolab/react-config";
 const config: AppConfig = {
   apiBaseUrl: import.meta.env.VITE_API_BASE_URL as string,
   app: {
-    logo: "/logo.png",
+    logo: "/react/logo.png",
     name: import.meta.env.VITE_APP_TITLE as string,
     version: `${import.meta.env.VITE_APP_VERSION}-${
       import.meta.env.VITE_APP_BUILD
