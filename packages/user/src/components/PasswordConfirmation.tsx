@@ -2,7 +2,6 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import { Field } from "formik";
 import ErrorMessage from "./ErrorMessage";
-import * as Yup from "yup";
 
 const PasswordConfirmation = ({ touched, errors }: any) => {
   const { t } = useTranslation("user");
