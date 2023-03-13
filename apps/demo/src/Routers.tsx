@@ -11,14 +11,19 @@ import ErrorBoundary from "./Views/ErrorBoundary";
 import ListPage from "./Views/ListPage";
 
 const routes = (childrenRoutes: RouteObject[]) => {
-  return createBrowserRouter([
+  return createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <BasicLayout />,
+        errorElement: <ErrorBoundary />,
+        children: childrenRoutes,
+      },
+    ],
     {
-      path: "/",
-      element: <BasicLayout />,
-      errorElement: <ErrorBoundary />,
-      children: childrenRoutes,
-    },
-  ]);
+      basename: "/react",
+    }
+  );
 };
 
 const Routers = () => {
