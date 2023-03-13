@@ -34,23 +34,13 @@ const login = async (
     ],
   };
 
-  try {
-    const response = await emailPasswordSignIn(data);
-    if (response.status === "OK") {
-      user = response.user;
-      status = response.status;
-    } else {
-      status = response.status;
-      toast.error(status);
-    }
-  } catch (err) {
-    let errorMessage = "Oops! Something went wrong.";
-    if (err instanceof Error) {
-      errorMessage = err.message;
-    }
-    toast.error(errorMessage);
+  const response = await emailPasswordSignIn(data);
+  if (response.status === "OK") {
+    user = response.user;
+    status = response.status;
+  } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
+    throw new Error("401");
   }
-
   return { user, status };
 };
 

@@ -17,7 +17,7 @@ import type { LoginCredentials, UserContextType } from "@/types";
 import "../assets/css/login.css";
 
 const Login = () => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useContext(userContext) as UserContextType;
   const [loading, setLoading] = useState<boolean>(false);
   const [showRedirectionMessage, setShowRedirectionMessage] =
@@ -27,7 +27,15 @@ const Login = () => {
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
-    const result = await login(credentials);
+    // const result = await login(credentials);
+
+    const result = await login(credentials).catch((err) => {
+      let errorMessage = "Oops! Something went wrong.";
+      if (err instanceof Error) {
+        errorMessage = t("errors.401", { ns: "errors" });
+      }
+      toast.error(errorMessage);
+    });
 
     if (result?.user) {
       if (appConfig && (await verifySession(appConfig.user.appContext))) {
