@@ -1,6 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouteObject,
   RouterProvider,
 } from "react-router-dom";
@@ -11,19 +11,14 @@ import ErrorBoundary from "./Views/ErrorBoundary";
 import ListPage from "./Views/ListPage";
 
 const routes = (childrenRoutes: RouteObject[]) => {
-  return createBrowserRouter(
-    [
-      {
-        path: "/",
-        element: <BasicLayout />,
-        errorElement: <ErrorBoundary />,
-        children: childrenRoutes,
-      },
-    ],
+  return createHashRouter([
     {
-      basename: "/react",
-    }
-  );
+      path: "/",
+      element: <BasicLayout />,
+      errorElement: <ErrorBoundary />,
+      children: childrenRoutes,
+    },
+  ]);
 };
 
 const Routers = () => {
