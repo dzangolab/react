@@ -4,7 +4,7 @@ import { Field } from "formik";
 import ErrorMessage from "./ErrorMessage";
 import * as Yup from "yup";
 
-const PasswordConfirmationWidget = ({ touched, errors }: any) => {
+const PasswordConfirmation = ({ touched, errors }: any) => {
   const { t } = useTranslation("user");
 
   return (
@@ -32,4 +32,4 @@ const PasswordConfirmationWidget = ({ touched, errors }: any) => {
   );
 };
 
-export default PasswordConfirmationWidget;
+export default PasswordConfirmation;

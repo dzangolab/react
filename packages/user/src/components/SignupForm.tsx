@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import ErrorMessage from "./ErrorMessage";
 
 import type { LoginCredentials } from "@/types/types";
-import PasswordConfirmationWidget from "./PasswordConfirmationWidget";
+import PasswordConfirmation from "./PasswordConfirmation";
 import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
@@ -57,7 +57,7 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
             />
           </div>
 
-          <PasswordConfirmationWidget errors={errors} touched={touched} />
+          <PasswordConfirmation errors={errors} touched={touched} />
 
           <div className="actions">
             <LoadingButton
