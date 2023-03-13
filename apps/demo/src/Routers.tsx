@@ -11,14 +11,16 @@ import ErrorBoundary from "./Views/ErrorBoundary";
 import ListPage from "./Views/ListPage";
 
 const routes = (childrenRoutes: RouteObject[]) => {
-  return createHashRouter([
-    {
-      path: "/",
-      element: <BasicLayout />,
-      errorElement: <ErrorBoundary />,
-      children: childrenRoutes,
-    },
-  ]);
+  return createHashRouter(
+    [
+      {
+        path: "/",
+        element: <BasicLayout />,
+        errorElement: <ErrorBoundary />,
+        children: childrenRoutes,
+      },
+    ],
+  );
 };
 
 const Routers = () => {
