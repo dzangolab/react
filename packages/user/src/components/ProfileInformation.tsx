@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { userContext } from "../context/UserProvider";
+import { useUser } from "../hooks";
+
 import "../assets/css/profileInformation.css";
 
-import type { UserContextType } from "@/types/types";
-
 const ProfileInformation = () => {
-  const { user } = useContext(userContext) as UserContextType;
+  const { user } = useUser();
 
   return (
     <div className="profile">

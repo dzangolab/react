@@ -1,29 +1,26 @@
-import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import GoogleLogin from "@/components/GoogleLogin";
-import LoginForm from "@/components/LoginForm";
-import RedirectionMessage from "@/components/RedirectionMessage";
-import login, { verifySession } from "@/supertokens/login";
+import GoogleLogin from "../components/GoogleLogin";
+import LoginForm from "../components/LoginForm";
+import RedirectionMessage from "../components/RedirectionMessage";
+import { useConfig, useUser } from "../hooks";
+import login, { verifySession } from "../supertokens/login";
 
-import { userContext } from "../context/UserProvider";
-
-import type { LoginCredentials, UserContextType } from "@/types";
+import type { LoginCredentials } from "../types";
 
 import "../assets/css/login.css";
 
 const Login = () => {
   const { t } = useTranslation("user");
-  const { setUser } = useContext(userContext) as UserContextType;
+  const { setUser } = useUser();
+  const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
   const [showRedirectionMessage, setShowRedirectionMessage] =
     useState<boolean>(false);
-
-  const appConfig = useContext(configContext);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);

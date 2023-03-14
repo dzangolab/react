@@ -1,14 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { userContext, UserContextType } from "..";
+import { useUser } from "../hooks";
 
 const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
-  const { setUser } = useContext(userContext) as UserContextType;
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const authCallback = async () => {

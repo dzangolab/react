@@ -1,13 +1,11 @@
-import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import SignupForm from "@/components/SignupForm";
-import useUser from "@/hooks/useUser";
-
+import SignupForm from "../components/SignupForm";
+import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials } from "@/types/types";
@@ -18,7 +16,7 @@ const Signup = () => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
-  const appConfig = useContext(configContext);
+  const appConfig = useConfig();
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);

@@ -1,10 +1,6 @@
-import { useContext } from "react";
-
-import { UserContextType } from "@/types";
-
 import DropdownUserMenu from "./DropdownUserMenu";
 import SignInUpMenu from "./SignInUpMenu";
-import { userContext } from "../context/UserProvider";
+import { useUser } from "../hooks";
 
 interface Properties {
   authenticatedUserMenu?: React.ReactNode;
@@ -17,7 +13,7 @@ const UserMenu = (properties: Properties) => {
     anonymousUserMenu = <SignInUpMenu />,
   } = properties;
 
-  const { user } = useContext(userContext) as UserContextType;
+  const { user } = useUser();
 
   return <>{user ? authenticatedUserMenu : anonymousUserMenu}</>;
 };
