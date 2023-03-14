@@ -5,9 +5,11 @@ import React from "react";
 import * as Yup from "yup";
 
 import ErrorMessage from "./ErrorMessage";
+import PasswordConfirmation from "./PasswordConfirmation";
+import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
-  handleSubmit: (oldPassword: string, newPassword: string) => void;
+  handleSubmit: (oldPassword: string, password: string) => void;
   loading?: boolean;
 }
 
@@ -18,24 +20,23 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
     oldPassword: Yup.string().required(
       "changePassword.messages.validation.oldPassword"
     ),
-    newPassword: Yup.string()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/,
-        "changePassword.messages.validation.mustContain"
-      )
-      .required("changePassword.messages.validation.newPassword"),
-    confirmPassword: Yup.string()
-      .oneOf(
-        [Yup.ref("newPassword"), null],
-        "changePassword.messages.validation.mustMatch"
-      )
-      .required("changePassword.messages.validation.confirmPassword"),
+    ...PasswordConfirmationSchema(
+      "changePassword.messages.validation.mustContain",
+      "changePassword.messages.validation.newPassword",
+      "changePassword.messages.validation.mustMatch",
+      "changePassword.messages.validation.confirmPassword"
+    ),
   });
 
   const initialValue = {
     oldPassword: "",
-    newPassword: "",
+    password: "",
     confirmPassword: "",
+  };
+
+  const label = {
+    passwordLabel: t("changePassword.form.newPassword.label"),
+    confirmPasswordLabel: t("changePassword.form.confirmPassword.label"),
   };
 
   return (
@@ -44,7 +45,7 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
       validationSchema={ChangePasswordFormSchema}
       onSubmit={(values, action) => {
         const oldPassword = values.oldPassword;
-        const newPassword = values.newPassword;
+        const newPassword = values.password;
         handleSubmit(oldPassword, newPassword);
         action.resetForm();
       }}
@@ -61,32 +62,11 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
               error={errors.oldPassword ? t(errors.oldPassword) : undefined}
             />
           </div>
-          <div className="field newPassword">
-            <label htmlFor="newPassword">
-              {t("changePassword.form.newPassword.label")}
-            </label>
-            <Field id="newPassword" type="password" name="newPassword" />
-            <ErrorMessage
-              touched={touched.newPassword}
-              error={errors.newPassword ? t(errors.newPassword) : undefined}
-            />
-          </div>
-          <div className="field confirmPassword">
-            <label htmlFor="confirmPassword">
-              {t("changePassword.form.confirmPassword.label")}
-            </label>
-            <Field
-              id="confirmPassword"
-              type="password"
-              name="confirmPassword"
-            />
-            <ErrorMessage
-              touched={touched.confirmPassword}
-              error={
-                errors.confirmPassword ? t(errors.confirmPassword) : undefined
-              }
-            />
-          </div>
+          <PasswordConfirmation
+            errors={errors}
+            touched={touched}
+            label={label}
+          />
 
           <div className="actions">
             <LoadingButton
