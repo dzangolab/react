@@ -1,15 +1,14 @@
-import { configContext } from "@dzangolab/react-config";
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+import useConfig from "../hooks/useConfig";
 import Logo from "./Logo";
 import MainMenu from "./MainMenu";
 
-import "../css/components/app-header.css";
+import "../assets/css/components/app-header.css";
 
 interface Properties {
-  route?: string;
   localeSwitcher?: React.ReactNode;
   mainMenu?: React.ReactNode;
   navStyle?: "dropdown" | "left-slider";
@@ -18,18 +17,22 @@ interface Properties {
 }
 
 const AppHeader: React.FC<Properties> = (properties: Properties) => {
-  const appConfig = useContext(configContext);
+  const { layout: layoutConfig } = useConfig();
 
   const {
-    route = "/",
     localeSwitcher = <LocaleSwitcher />,
-    mainMenu = <MainMenu routes={appConfig?.layout?.mainMenu} />,
+    mainMenu = <MainMenu routes={layoutConfig?.mainMenu} />,
     navStyle = "dropdown",
     toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
     userMenu,
   } = properties;
 
   const [expanded, setExpanded] = useState<boolean>(false);
+
+  const home =
+    layoutConfig && layoutConfig?.homeRoute
+      ? layoutConfig.homeRoute
+      : undefined;
 
   let navClass = navStyle;
 
@@ -43,7 +46,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      <Logo src={appConfig?.app.logo} route={route} />
+      <Logo src={layoutConfig?.logo} route={home} />
       <nav className={navClass}>
         {mainMenu}
         {userMenu}

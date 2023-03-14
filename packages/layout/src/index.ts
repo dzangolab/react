@@ -8,11 +8,11 @@ import BasicLayout from "./layouts/BasicLayout";
 import CollapsibleSidebarLayout from "./layouts/CollapsibleSidebarLayout";
 import Layout from "./layouts/Layout";
 import NullLayout from "./layouts/NullLayout";
-import { LayoutConfig } from "./types/config";
+import { DzangolabReactLayoutConfig } from "./types/config";
 
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
-    layout?: LayoutConfig;
+    layout?: DzangolabReactLayoutConfig;
   }
 }
 

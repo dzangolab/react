@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import Copyright from "./Copyright";
 import Version from "./Version";
 
-import "../css/components/app-footer.css";
+import "../assets/css/components/app-footer.css";
 
 interface Properties {
   copyright?: React.ReactNode;

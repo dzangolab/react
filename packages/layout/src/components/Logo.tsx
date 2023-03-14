@@ -5,7 +5,7 @@ interface Properties {
   src?: string;
 }
 
-const Logo = ({ route, src }: Properties) => {
+const Logo = ({ route = "/", src = "/logo.png" }: Properties) => {
   return (
     <div className="logo">
       <a href={route}>
