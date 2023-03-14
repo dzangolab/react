@@ -10,6 +10,7 @@ import "../assets/css/components/app-header.css";
 
 interface Properties {
   localeSwitcher?: React.ReactNode;
+  logo?: React.ReactNode;
   mainMenu?: React.ReactNode;
   navStyle?: "dropdown" | "left-slider";
   toggle?: React.ReactNode;
@@ -17,22 +18,22 @@ interface Properties {
 }
 
 const AppHeader: React.FC<Properties> = (properties: Properties) => {
-  const { layout: layoutConfig } = useConfig();
-
-  const {
-    localeSwitcher = <LocaleSwitcher />,
-    mainMenu = <MainMenu routes={layoutConfig?.mainMenu} />,
-    navStyle = "dropdown",
-    toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
-    userMenu,
-  } = properties;
-
   const [expanded, setExpanded] = useState<boolean>(false);
+  const { layout: layoutConfig } = useConfig();
 
   const home =
     layoutConfig && layoutConfig?.homeRoute
       ? layoutConfig.homeRoute
       : undefined;
+
+  const {
+    localeSwitcher = <LocaleSwitcher />,
+    logo = <Logo source={layoutConfig?.logo} route={home} />,
+    mainMenu = <MainMenu routes={layoutConfig?.mainMenu} />,
+    navStyle = "dropdown",
+    toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
+    userMenu,
+  } = properties;
 
   let navClass = navStyle;
 
@@ -46,7 +47,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      <Logo source={layoutConfig?.logo} route={home} />
+      {logo}
       <nav className={navClass}>
         {mainMenu}
         {userMenu}
