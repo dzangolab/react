@@ -1,16 +1,12 @@
 interface RouteOverride {
   path?: string;
-  disabled?: boolean;
 }
 
 interface RouteOverrides {
-  home?: {
-    public: string;
-    private: string;
-  };
+  home?: string;
   login: RouteOverride;
-  signup: RouteOverride;
-  forgetPassword?: RouteOverride;
+  signup: RouteOverride & { disabled?: boolean };
+  forgetPassword?: RouteOverride & { disabled?: boolean };
   profile?: RouteOverride;
 }
 
