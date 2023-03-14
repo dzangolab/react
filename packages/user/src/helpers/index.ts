@@ -7,9 +7,17 @@ const getHomeRoute = (
   layoutConfig: DzangolabReactLayoutConfig | undefined,
   userConfig: DzangolabReactUserConfig
 ) => {
+  const getRoute = (home: string | ((userRole: string) => string)) => {
+    if (typeof home === "function") {
+      return home("");
+    }
+
+    return home;
+  };
+
   return user
     ? userConfig && userConfig?.routes?.home
-      ? userConfig.routes.home
+      ? getRoute(userConfig.routes.home)
       : "profile"
     : layoutConfig && layoutConfig?.homeRoute
     ? layoutConfig.homeRoute
