@@ -3,13 +3,13 @@ import React from "react";
 import { Field } from "formik";
 import ErrorMessage from "./ErrorMessage";
 
-const PasswordConfirmation = ({ touched, errors }: any) => {
+const PasswordConfirmation = ({ touched, errors, label }: any) => {
   const { t } = useTranslation("user");
 
   return (
     <>
       <div className="field password">
-        <label htmlFor="password">{t("signup.form.password.label")}</label>
+        <label htmlFor="password">{label.passwordLabel}</label>
         <Field id="password" type="password" name="password" />
         <ErrorMessage
           touched={touched.password}
@@ -18,9 +18,7 @@ const PasswordConfirmation = ({ touched, errors }: any) => {
       </div>
 
       <div className="field password">
-        <label htmlFor="confirmPassword">
-          {t("signup.form.confirmPassword.label")}
-        </label>
+        <label htmlFor="confirmPassword">{label.confirmPasswordLabel}</label>
         <Field id="confirmPassword" type="password" name="confirmPassword" />
         <ErrorMessage
           touched={touched.confirmPassword}

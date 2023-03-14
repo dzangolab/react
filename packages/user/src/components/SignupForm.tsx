@@ -22,13 +22,23 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
     email: Yup.string()
       .email("validation.messages.validEmail")
       .required("validation.messages.email"),
-    ...PasswordConfirmationSchema,
+    ...PasswordConfirmationSchema(
+      "signup.messages.validation.validationMessage",
+      "signup.messages.validation.password",
+      "signup.messages.validation.mustMatch",
+      "signup.messages.validation.confirmPassword"
+    ),
   });
 
   const initialValue = {
     email: "",
     password: "",
     confirmPassword: "",
+  };
+
+  const label = {
+    passwordLabel: t("signup.form.password.label"),
+    confirmPasswordLabel: t("signup.form.confirmPassword.label"),
   };
 
   return (
@@ -57,7 +67,11 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
             />
           </div>
 
-          <PasswordConfirmation errors={errors} touched={touched} />
+          <PasswordConfirmation
+            errors={errors}
+            touched={touched}
+            label={label}
+          />
 
           <div className="actions">
             <LoadingButton

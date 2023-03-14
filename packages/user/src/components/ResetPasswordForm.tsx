@@ -1,10 +1,11 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingButton } from "@dzangolab/react-ui";
-import { Field, Formik } from "formik";
+import { Formik } from "formik";
 import React from "react";
 import * as Yup from "yup";
 
-import ErrorMessage from "./ErrorMessage";
+import PasswordConfirmation from "./PasswordConfirmation";
+import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
   handleSubmit: (email: string) => void;
@@ -15,20 +16,22 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const ResetPasswordFormSchema = Yup.object({
-    newPassword: Yup.string().required(
-      "resetPassword.messages.validation.newPassword"
+    ...PasswordConfirmationSchema(
+      "resetPassword.messages.validation.validationMessage",
+      "resetPassword.messages.validation.newPassword",
+      "resetPassword.messages.validation.mustMatch",
+      "resetPassword.messages.validation.confirmPassword"
     ),
-    confirmPassword: Yup.string()
-      .oneOf(
-        [Yup.ref("newPassword"), null],
-        "resetPassword.messages.validation.mustMatch"
-      )
-      .required("resetPassword.messages.validation.confirmPassword"),
   });
 
   const initialValue = {
-    newPassword: "",
+    password: "",
     confirmPassword: "",
+  };
+
+  const label = {
+    passwordLabel: t("resetPassword.form.newPassword.label"),
+    confirmPasswordLabel: t("resetPassword.form.confirmPassword.label"),
   };
 
   return (
@@ -36,40 +39,18 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
       initialValues={initialValue}
       validationSchema={ResetPasswordFormSchema}
       onSubmit={(values, action) => {
-        const newPassword = values.newPassword;
+        const newPassword = values.password;
         handleSubmit(newPassword);
         action.resetForm();
       }}
     >
       {({ errors, handleSubmit, touched }) => (
         <form className="form" onSubmit={handleSubmit}>
-          <div className="field newPassword">
-            <label htmlFor="newPassword">
-              {t("resetPassword.form.newPassword.label")}
-            </label>
-            <Field id="newPassword" type="password" name="newPassword" />
-            <ErrorMessage
-              touched={touched.newPassword}
-              error={errors.newPassword ? t(errors.newPassword) : undefined}
-            />
-          </div>
-          <div className="field confirmPassword">
-            <label htmlFor="confirmPassword">
-              {t("resetPassword.form.confirmPassword.label")}
-            </label>
-            <Field
-              id="confirmPassword"
-              type="password"
-              name="confirmPassword"
-            />
-            <ErrorMessage
-              touched={touched.confirmPassword}
-              error={
-                errors.confirmPassword ? t(errors.confirmPassword) : undefined
-              }
-            />
-          </div>
-
+          <PasswordConfirmation
+            errors={errors}
+            touched={touched}
+            label={label}
+          />
           <div className="actions">
             <LoadingButton
               label={t("resetPassword.form.actions.submit")}
