@@ -2,14 +2,14 @@ import React from "react";
 
 interface Properties {
   route?: string;
-  src?: string;
+  source?: string;
 }
 
-const Logo = ({ route = "/", src = "/logo.png" }: Properties) => {
+const Logo = ({ route = "/", source = "/logo.png" }: Properties) => {
   return (
     <div className="logo">
       <a href={route}>
-        <img src={src} alt="logo" />
+        <img src={source} alt="logo" />
       </a>
     </div>
   );

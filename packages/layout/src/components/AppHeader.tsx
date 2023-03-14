@@ -2,9 +2,9 @@ import { LocaleSwitcher } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import useConfig from "../hooks/useConfig";
 import Logo from "./Logo";
 import MainMenu from "./MainMenu";
+import useConfig from "../hooks/useConfig";
 
 import "../assets/css/components/app-header.css";
 
@@ -46,7 +46,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      <Logo src={layoutConfig?.logo} route={home} />
+      <Logo source={layoutConfig?.logo} route={home} />
       <nav className={navClass}>
         {mainMenu}
         {userMenu}
