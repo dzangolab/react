@@ -1,16 +1,15 @@
-import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import SignupForm from "@/components/SignupForm";
-import useUser from "@/hooks/useUser";
-
+import SignupForm from "../components/SignupForm";
+import { setUserData } from "../helpers";
+import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
-import type { LoginCredentials } from "@/types/types";
+import type { LoginCredentials } from "../types";
 
 import "../assets/css/signup.css";
 
@@ -18,17 +17,20 @@ const Signup = () => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
-  const appConfig = useContext(configContext);
+  const appConfig = useConfig();
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
-    const result = await signup(credentials);
-    setUser(result?.user);
-    setLoading(false);
 
-    if (result && result.user) {
+    const result = await signup(credentials);
+
+    if (result?.user) {
+      await setUserData(result.user);
+      setUser(result.user);
       toast.success(`${t("signup.messages.success")}`);
     }
+
+    setLoading(false);
   };
 
   const getLinks = () => {

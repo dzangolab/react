@@ -1,9 +1,15 @@
 import { DzangolabReactUserConfig } from "./config";
-import { AuthState, UserContextType, LoginCredentials } from "./types";
+import {
+  AuthState,
+  LoginCredentials,
+  UserContextType,
+  UserType,
+} from "./types";
 
 export type {
   AuthState,
   DzangolabReactUserConfig,
   LoginCredentials,
   UserContextType,
+  UserType,
 };

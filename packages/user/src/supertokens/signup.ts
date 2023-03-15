@@ -1,20 +1,17 @@
 import { toast } from "react-toastify";
-import {
-  emailPasswordSignUp as register,
-  EmailPasswordUserType,
-} from "supertokens-web-js/recipe/thirdpartyemailpassword";
+import { emailPasswordSignUp as register } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import type { LoginCredentials } from "../types/types";
+import type { LoginCredentials, UserType } from "../types";
 
 interface IPromise {
-  user: EmailPasswordUserType | undefined;
+  user: UserType | undefined;
   status: string | undefined;
 }
 
 const signup = async (
   credentials: LoginCredentials
 ): Promise<IPromise | undefined> => {
-  let user: EmailPasswordUserType | undefined;
+  let user: UserType | undefined;
   let status: string | undefined;
 
   const data = {
@@ -33,7 +30,7 @@ const signup = async (
   try {
     const response = await register(data);
     if (response.status !== "FIELD_ERROR") {
-      user = response.user;
+      user = response.user as UserType;
       status = response.status;
     } else status = response.status;
   } catch (err) {

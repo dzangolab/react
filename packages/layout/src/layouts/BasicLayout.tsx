@@ -4,7 +4,7 @@ import AppFooter from "../components/AppFooter";
 import AppHeader from "../components/AppHeader";
 
 import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
-import "../css/layouts/basic-layout.css";
+import "../assets/css/layouts/basic-layout.css";
 
 interface Properties {
   children: React.ReactNode;

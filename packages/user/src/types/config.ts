@@ -7,6 +7,7 @@ interface DzangolabReactUserConfig {
     appURL: string;
   };
   routes?: RouteOverrides;
+  supportedLoginProviders?: string[];
 }
 
 export type { DzangolabReactUserConfig };

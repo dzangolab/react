@@ -21,7 +21,13 @@ function toJson(component: ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const values = {
-    user: { id: "5", email: "test@gmail.com", timeJoined: 320 },
+    user: {
+      id: "5",
+      email: "test@gmail.com",
+      timeJoined: 320,
+      profile: null,
+      role: ["USER"],
+    },
     loading: false,
     setUser: vi.fn(),
   };

@@ -4,7 +4,7 @@ import AppFooter from "../components/AppFooter";
 import AppHeader from "../components/AppHeader";
 import Sidebar from "../components/Sidebar";
 
-import "../css/layouts/collapsible-sidebar-layout.css";
+import "../assets/css/layouts/collapsible-sidebar-layout.css";
 
 interface Properties {
   children: React.ReactNode;

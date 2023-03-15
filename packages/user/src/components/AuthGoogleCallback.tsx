@@ -1,14 +1,16 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { userContext, UserContextType } from "..";
+import { setUserData } from "../helpers";
+import { useUser } from "../hooks";
+import { UserType } from "../types";
 
 const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
-  const { setUser } = useContext(userContext) as UserContextType;
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const authCallback = async () => {
@@ -16,7 +18,9 @@ const AuthGoogleCallback = () => {
       const response = await thirdPartySignInAndUp();
 
       if (response.status === "OK") {
-        setUser(response.user);
+        const user: unknown = response.user;
+        await setUserData(user as UserType);
+        setUser(user as UserType);
         toast.success(`${t("authGoogleCallback.email.success")}`);
       } else {
         toast.error(`${t("authGoogleCallback.email.error")}`);

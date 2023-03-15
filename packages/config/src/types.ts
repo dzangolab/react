@@ -1,10 +1,5 @@
 interface AppConfig {
   apiBaseUrl: string;
-  app: {
-    logo: string;
-    name: string;
-    version: string;
-  };
   appPort: string;
   appTitle: string;
   appVersion: string;
@@ -13,10 +8,7 @@ interface AppConfig {
     url: string;
   };
   features: AppFeatures;
-  locales: string;
-  localStorageNamespace: string;
   websiteDomain: string;
-  supportedLoginProviders?: string[];
 }
 
 interface AppFeatures {

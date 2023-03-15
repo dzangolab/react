@@ -6,7 +6,7 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 const superTokens = (config: AppConfig) => {
   SuperTokens.init({
     appInfo: {
-      appName: config.app.name,
+      appName: config.appTitle,
       apiDomain: config.apiBaseUrl,
       apiBasePath: "/auth",
     },

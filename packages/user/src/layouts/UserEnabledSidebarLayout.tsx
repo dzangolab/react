@@ -1,10 +1,12 @@
-import { configContext } from "@dzangolab/react-config";
-import { AppHeader, CollapsibleSidebarLayout } from "@dzangolab/react-layout";
-import { useContext } from "react";
-
-import useUser from "@/hooks/useUser";
+import {
+  AppHeader,
+  CollapsibleSidebarLayout,
+  Logo,
+} from "@dzangolab/react-layout";
 
 import UserMenu from "../components/UserMenu";
+import { getHomeRoute } from "../helpers";
+import { useConfig, useUser } from "../hooks";
 
 interface Properties {
   children: React.ReactNode;
@@ -14,16 +16,19 @@ interface Properties {
 }
 
 const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
-  const appConfig = useContext(configContext);
+  const { layout: layoutConfig, user: userConfig } = useConfig();
   const { user } = useUser();
 
-  const route = user
-    ? appConfig?.user?.routes?.home?.private
-    : appConfig?.user?.routes?.home?.public;
+  const home = getHomeRoute(user, layoutConfig, userConfig);
 
   const {
     children,
-    header = <AppHeader userMenu={<UserMenu />} route={route} />,
+    header = (
+      <AppHeader
+        userMenu={<UserMenu />}
+        logo={<Logo source={layoutConfig?.logo} route={home} />}
+      />
+    ),
     footer,
     sidebar,
   } = properties;

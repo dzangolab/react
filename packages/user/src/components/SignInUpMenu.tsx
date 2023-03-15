@@ -1,11 +1,11 @@
-import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { ResponsiveMenu } from "@dzangolab/react-ui";
-import { useContext } from "react";
+
+import { useConfig } from "../hooks";
 
 const SignInUpMenu = () => {
   const { t } = useTranslation("user");
-  const appConfig = useContext(configContext);
+  const { user: userConfig } = useConfig();
 
   const loginRoute = {
     name: t("menu.signin"),
@@ -17,7 +17,7 @@ const SignInUpMenu = () => {
     route: "/signup",
   };
 
-  const routes = appConfig?.user?.routes?.signup?.disabled
+  const routes = userConfig?.routes?.signup?.disabled
     ? [loginRoute]
     : [loginRoute, signUpRoute];
 
