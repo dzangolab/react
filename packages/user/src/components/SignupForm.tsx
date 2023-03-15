@@ -22,23 +22,19 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
     email: Yup.string()
       .email("validation.messages.validEmail")
       .required("validation.messages.email"),
-    ...PasswordConfirmationSchema(
-      "signup.messages.validation.validationMessage",
-      "signup.messages.validation.password",
-      "signup.messages.validation.mustMatch",
-      "signup.messages.validation.confirmPassword"
-    ),
+    ...PasswordConfirmationSchema({
+      passwordValidationMessage: "signup.messages.validation.validationMessage",
+      passwordRequiredMessage: "signup.messages.validation.password",
+      confirmPasswordValidationMessage: "signup.messages.validation.mustMatch",
+      confirmPasswordRequiredMessage:
+        "signup.messages.validation.confirmPassword",
+    }),
   });
 
   const initialValue = {
     email: "",
     password: "",
     confirmPassword: "",
-  };
-
-  const label = {
-    passwordLabel: t("signup.form.password.label"),
-    confirmPasswordLabel: t("signup.form.confirmPassword.label"),
   };
 
   return (
@@ -70,7 +66,8 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
           <PasswordConfirmation
             errors={errors}
             touched={touched}
-            label={label}
+            passwordLabel={t("signup.form.password.label")}
+            confirmPasswordLabel={t("signup.form.confirmPassword.label")}
           />
 
           <div className="actions">

@@ -20,23 +20,21 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
     oldPassword: Yup.string().required(
       "changePassword.messages.validation.oldPassword"
     ),
-    ...PasswordConfirmationSchema(
-      "changePassword.messages.validation.mustContain",
-      "changePassword.messages.validation.newPassword",
-      "changePassword.messages.validation.mustMatch",
-      "changePassword.messages.validation.confirmPassword"
-    ),
+    ...PasswordConfirmationSchema({
+      passwordValidationMessage:
+        "changePassword.messages.validation.mustContain",
+      passwordRequiredMessage: "changePassword.messages.validation.newPassword",
+      confirmPasswordValidationMessage:
+        "changePassword.messages.validation.mustMatch",
+      confirmPasswordRequiredMessage:
+        "changePassword.messages.validation.confirmPassword",
+    }),
   });
 
   const initialValue = {
     oldPassword: "",
     password: "",
     confirmPassword: "",
-  };
-
-  const label = {
-    passwordLabel: t("changePassword.form.newPassword.label"),
-    confirmPasswordLabel: t("changePassword.form.confirmPassword.label"),
   };
 
   return (
@@ -65,7 +63,10 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
           <PasswordConfirmation
             errors={errors}
             touched={touched}
-            label={label}
+            passwordLabel={t("changePassword.form.newPassword.label")}
+            confirmPasswordLabel={t(
+              "changePassword.form.confirmPassword.label"
+            )}
           />
 
           <div className="actions">

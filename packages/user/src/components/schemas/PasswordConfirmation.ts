@@ -1,11 +1,18 @@
 import * as Yup from "yup";
 
-const schema = (
-  passwordValidationMessage: string,
-  passwordRequiredMessage: string,
-  confirmPasswordValidationMessage: string,
-  confirmPasswordRequiredMessage: string
-) => {
+interface PasswordConfirmationSchema {
+  passwordValidationMessage: string;
+  passwordRequiredMessage: string;
+  confirmPasswordValidationMessage: string;
+  confirmPasswordRequiredMessage: string;
+}
+
+const schema = ({
+  passwordValidationMessage,
+  passwordRequiredMessage,
+  confirmPasswordValidationMessage,
+  confirmPasswordRequiredMessage,
+}: PasswordConfirmationSchema) => {
   return {
     password: Yup.string()
       .matches(

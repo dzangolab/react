@@ -16,22 +16,20 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const ResetPasswordFormSchema = Yup.object({
-    ...PasswordConfirmationSchema(
-      "resetPassword.messages.validation.validationMessage",
-      "resetPassword.messages.validation.newPassword",
-      "resetPassword.messages.validation.mustMatch",
-      "resetPassword.messages.validation.confirmPassword"
-    ),
+    ...PasswordConfirmationSchema({
+      passwordValidationMessage:
+        "resetPassword.messages.validation.validationMessage",
+      passwordRequiredMessage: "resetPassword.messages.validation.newPassword",
+      confirmPasswordValidationMessage:
+        "resetPassword.messages.validation.mustMatch",
+      confirmPasswordRequiredMessage:
+        "resetPassword.messages.validation.confirmPassword",
+    }),
   });
 
   const initialValue = {
     password: "",
     confirmPassword: "",
-  };
-
-  const label = {
-    passwordLabel: t("resetPassword.form.newPassword.label"),
-    confirmPasswordLabel: t("resetPassword.form.confirmPassword.label"),
   };
 
   return (
@@ -49,7 +47,8 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
           <PasswordConfirmation
             errors={errors}
             touched={touched}
-            label={label}
+            passwordLabel={t("resetPassword.form.newPassword.label")}
+            confirmPasswordLabel={t("resetPassword.form.confirmPassword.label")}
           />
           <div className="actions">
             <LoadingButton
