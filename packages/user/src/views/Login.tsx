@@ -71,8 +71,8 @@ const Login = () => {
           />
         ) : null}
         <LoginForm handleSubmit={handleSubmit} loading={loading} />
-        {appConfig?.supportedLoginProviders &&
-        appConfig.supportedLoginProviders.includes("google") ? (
+        {appConfig?.user.supportedLoginProviders &&
+        appConfig.user.supportedLoginProviders.includes("google") ? (
           <GoogleLogin
             className="google-button"
             label={t("login.button.googleLoginLabel")}
