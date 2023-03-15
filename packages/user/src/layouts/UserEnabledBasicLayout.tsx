@@ -2,9 +2,8 @@ import { configContext } from "@dzangolab/react-config";
 import { AppHeader, BasicLayout } from "@dzangolab/react-layout";
 import { useContext } from "react";
 
-import useUser from "@/hooks/useUser";
-
 import UserMenu from "../components/UserMenu";
+import useUser from "../hooks/useUser";
 
 interface Properties {
   children: React.ReactNode;
@@ -22,7 +21,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
 
   const {
     children,
-    header = <AppHeader userMenu={<UserMenu />} route={route} />,
+    header = <AppHeader userMenu={<UserMenu />} />,
     footer,
   } = properties;
 
