@@ -134,5 +134,14 @@
   "userMenu": {
     "profile": "Profile",
     "logout": "Logout"
+  },
+  "validation": {
+    "messages": {
+      "email": "Email is required",
+      "validEmail": "Email must be a valid email",
+      "requiredField": "This field is required",
+      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
+      "mustMatch": "Passwords must match"
+    }
   }
 }
