@@ -30,8 +30,8 @@ const Login = () => {
 
     const result = await login(credentials).catch((err) => {
       let errorMessage = "Oops! Something went wrong.";
-      if (err instanceof Error) {
-        errorMessage = t("errors.401", { ns: "errors" });
+      if (err.message) {
+        errorMessage = t(`errors.${err.message}`, { ns: "errors" });
       }
       toast.error(errorMessage);
     });
