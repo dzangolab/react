@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import Session from "supertokens-web-js/recipe/session";
 import {
   EmailPasswordUserType,
