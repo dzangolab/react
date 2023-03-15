@@ -1,17 +1,17 @@
 import * as Yup from "yup";
 
 interface PasswordConfirmationSchema {
-  passwordValidationMessage: string;
-  passwordRequiredMessage: string;
-  confirmPasswordValidationMessage: string;
-  confirmPasswordRequiredMessage: string;
+  passwordValidationMessage?: string;
+  passwordRequiredMessage?: string;
+  confirmPasswordValidationMessage?: string;
+  confirmPasswordRequiredMessage?: string;
 }
 
 const schema = ({
-  passwordValidationMessage,
-  passwordRequiredMessage,
-  confirmPasswordValidationMessage,
-  confirmPasswordRequiredMessage,
+  passwordValidationMessage = "validation.messages.passwordValidation",
+  passwordRequiredMessage = "validation.messages.requiredField",
+  confirmPasswordValidationMessage = "validation.messages.mustMatch",
+  confirmPasswordRequiredMessage = "validation.messages.requiredField",
 }: PasswordConfirmationSchema) => {
   return {
     password: Yup.string()
