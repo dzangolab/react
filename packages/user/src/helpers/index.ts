@@ -1,15 +1,14 @@
-import type { DzangolabReactUserConfig } from "../types";
+import type { DzangolabReactUserConfig, UserType } from "../types";
 import type { DzangolabReactLayoutConfig } from "@dzangolab/react-layout";
-import type { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 const getHomeRoute = (
-  user: EmailPasswordUserType | undefined,
+  user: UserType | undefined,
   layoutConfig: DzangolabReactLayoutConfig | undefined,
   userConfig: DzangolabReactUserConfig
 ) => {
-  const getRoute = (home: string | ((userRole: string) => string)) => {
+  const getRoute = (home: string | ((userRole: string[]) => string)) => {
     if (typeof home === "function") {
-      return home("");
+      return home(user?.role || []);
     }
 
     return home;

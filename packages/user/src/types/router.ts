@@ -3,7 +3,7 @@ interface RouteOverride {
 }
 
 interface RouteOverrides {
-  home?: ((userRole: string) => string) | string;
+  home?: ((userRole: string[]) => string) | string;
   login: RouteOverride;
   signup: RouteOverride & { disabled?: boolean };
   forgetPassword?: RouteOverride & { disabled?: boolean };

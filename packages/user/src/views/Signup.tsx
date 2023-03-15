@@ -8,7 +8,7 @@ import SignupForm from "../components/SignupForm";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
-import type { LoginCredentials } from "@/types/types";
+import type { LoginCredentials, UserType } from "@/types/types";
 
 import "../assets/css/signup.css";
 
@@ -21,7 +21,7 @@ const Signup = () => {
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
     const result = await signup(credentials);
-    setUser(result?.user);
+    setUser(result?.user as UserType);
     setLoading(false);
 
     if (result && result.user) {
