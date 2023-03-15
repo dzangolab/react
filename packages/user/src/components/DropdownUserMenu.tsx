@@ -4,9 +4,9 @@ import { useContext, useId, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
 
-import logout from "../supertokens/logout";
-import useUser from "../hooks/useUser";
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
+import useUser from "../hooks/useUser";
+import logout from "../supertokens/logout";
 
 import "../assets/css/dropdownUserMenu.css";
 

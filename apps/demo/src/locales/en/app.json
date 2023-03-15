@@ -1,0 +1,18 @@
+{
+  "errorBoundary": {
+    "title": "Oops!",
+    "subtitle": "Sorry, an unexpected error has occurred."
+  },
+  "header": {
+    "menu": {
+      "i18n": "I18n",
+      "layout": "Layout",
+      "ui": "UI",
+      "user": "User"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "loading": "Loading ..."
+}

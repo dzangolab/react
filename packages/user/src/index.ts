@@ -4,8 +4,8 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
-import UserEnabledAdminLayout from "./layouts/UserEnabledAdminLayout";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
+import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import superTokens from "./supertokens";
 import UserToastContainer from "./toastify";
 import { DzangolabReactUserConfig, UserContextType } from "./types";
@@ -15,6 +15,7 @@ import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
+import UsersPage from "./views/UsersPage";
 
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
@@ -31,9 +32,10 @@ export {
   Profile,
   ResetPassword,
   Signup,
-  UserEnabledAdminLayout,
+  UserEnabledSidebarLayout,
   UserEnabledBasicLayout,
   UserMenu,
+  UsersPage,
   UserProvider,
   UserToastContainer,
   superTokens,

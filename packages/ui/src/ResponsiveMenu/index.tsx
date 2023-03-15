@@ -1,4 +1,6 @@
 import React from "react";
+import { Link, useInRouterContext } from "react-router-dom";
+
 import "./responsive-menu.css";
 
 interface Properties {
@@ -15,6 +17,8 @@ const ResponsiveMenu = ({
   cssClass = "",
   horizontal = false,
 }: Properties) => {
+  const hasRouterContext = useInRouterContext();
+
   let classNames = "menu";
 
   if (horizontal) {
@@ -30,7 +34,11 @@ const ResponsiveMenu = ({
       <ul>
         {routes.map((route, index) => (
           <li key={index}>
-            <a href={route.route}>{route.name}</a>
+            {hasRouterContext ? (
+              <Link to={route.route}>{route.name}</Link>
+            ) : (
+              <a href={route.route}>{route.name}</a>
+            )}
           </li>
         ))}
       </ul>

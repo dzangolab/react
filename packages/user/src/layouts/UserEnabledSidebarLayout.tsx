@@ -13,7 +13,7 @@ interface Properties {
   sidebar?: React.ReactNode;
 }
 
-const UserEnabledAdminLayout: React.FC<Properties> = (properties) => {
+const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
   const appConfig = useContext(configContext);
   const { user } = useUser();
 
@@ -38,4 +38,4 @@ const UserEnabledAdminLayout: React.FC<Properties> = (properties) => {
   );
 };
 
-export default UserEnabledAdminLayout;
+export default UserEnabledSidebarLayout;

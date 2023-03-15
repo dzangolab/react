@@ -18,7 +18,7 @@ interface Properties {
 const SignupForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
-  const SingUpFormSchema = Yup.object({
+  const SignUpFormSchema = Yup.object({
     email: Yup.string()
       .email("validation.messages.validEmail")
       .required("validation.messages.email"),
@@ -44,7 +44,7 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
   return (
     <Formik
       initialValues={initialValue}
-      validationSchema={SingUpFormSchema}
+      validationSchema={SignUpFormSchema}
       onSubmit={(values, action) => {
         const data = { email: values.email, password: values.password };
         handleSubmit(data);

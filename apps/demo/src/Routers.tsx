@@ -1,79 +1,39 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useTranslation } from "@dzangolab/react-i18n";
+import {
+  createHashRouter,
+  RouteObject,
+  RouterProvider,
+} from "react-router-dom";
 
+import config from "./config";
 import { BasicLayout } from "./layouts/BasicLayout";
-import Home from "./Views/Home";
+import ErrorBoundary from "./Views/ErrorBoundary";
+import ListPage from "./Views/ListPage";
 
-const routes = () => {
-  // const publicRouteHandler = async () => {
-  //   if (user) {
-  //     return redirect("/");
-  //   }
-  // };
-
-  // const authRouteHandler = async () => {
-  //   if (!user) {
-  //     return redirect("/login");
-  //   }
-  // };
-
-  return createBrowserRouter([
+const routes = (childrenRoutes: RouteObject[]) => {
+  return createHashRouter([
     {
       path: "/",
       element: <BasicLayout />,
-      // errorElement: <ErrorBoundary />,
-      children: [
-        { index: true, element: <Home /> },
-        // {
-        //   path: "/about",
-        //   element: <About />,
-        // },
-        // {
-        //   path: "/auth/callback/google",
-        //   element: <AuthGoogleCallback />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/change-password",
-        //   element: <ChangePassword />,
-        //   loader: authRouteHandler,
-        // },
-        // {
-        //   path: "/forget-password",
-        //   element: <ForgetPassword />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/profile",
-        //   element: <Profile />,
-        //   loader: authRouteHandler,
-        // },
-        // {
-        //   path: "/reset-password",
-        //   element: <ResetPassword />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/login",
-        //   element: <Login />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/signup",
-        //   element: <Signup />,
-        //   loader: publicRouteHandler,
-        // },
-        // {
-        //   path: "/things",
-        //   element: <Things />,
-        //   loader: authRouteHandler,
-        // },
-      ],
+      errorElement: <ErrorBoundary />,
+      children: childrenRoutes,
     },
   ]);
 };
 
 const Routers = () => {
-  return <RouterProvider router={routes()} />;
+  const { t } = useTranslation();
+
+  const childrenRoutes: RouteObject[] = config.layout?.mainMenu
+    ? config.layout.mainMenu.map((route) => {
+        return {
+          path: route.route,
+          element: <ListPage pageTitle={t(route.name)} />,
+        };
+      })
+    : [];
+
+  return <RouterProvider router={routes(childrenRoutes)} />;
 };
 
 export default Routers;

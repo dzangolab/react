@@ -1,0 +1,155 @@
+{
+  "authGoogleCallback": {
+    "email": {
+      "error": "No email provided by social login. Please use another form of login",
+      "success": "Logged in successfully."
+    },
+    "message": {
+      "error": "Oops! Something went wrong."
+    }
+  },
+  "changePassword": {
+    "form": {
+      "actions": {
+        "submit": "Change password"
+      },
+      "oldPassword": {
+        "label": "Old password"
+      },
+      "newPassword": {
+        "label": "New password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password"
+      }
+    },
+    "messages": {
+      "success": "Your password was successfully changed.",
+      "validation": {
+        "oldPassword": "Old password is required",
+        "newPassword": "New password is required",
+        "confirmPassword": "Confirm password is required",
+        "mustContain": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
+        "mustMatch": "Passwords must match"
+      }
+    },
+    "title": "Change Password"
+  },
+  "forgetPassword": {
+    "messages": {
+      "success": "Email sent successfully"
+    },
+    "form": {
+      "actions": {
+        "submit": "Email me"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": "john.doe.at.example.com"
+      }
+    },
+    "title": "Forget Password"
+  },
+  "login": {
+    "form": {
+      "actions": {
+        "submit": "Sign in"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "password": {
+        "label": "Your password"
+      }
+    },
+    "instructions": "Enter your credentials to continue.",
+    "links": {
+      "forgotPassword": "Forgot password",
+      "signup": "Sign up"
+    },
+    "button": {
+      "googleLoginLabel": "Continue with Google"
+    },
+    "messages": {
+      "success": "Logged in successfully.",
+      "validation": {
+        "password": "Password is required"
+      }
+    },
+    "title": "Login"
+  },
+  "logout": {
+    "message": "Successfully logged out"
+  },
+  "signup": {
+    "form": {
+      "actions": {
+        "submit": "Create my account"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "password": {
+        "label": "Your password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password"
+      }
+    },
+    "links": {
+      "forgotPassword": "Forgot password",
+      "login": "Login"
+    },
+    "messages": {
+      "success": "Signed up successfully.",
+      "validation": {
+        "password": "Password is required",
+        "validationMessage": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
+        "confirmPassword": "Confirm password is required",
+        "mustMatch": "Passwords must match"
+      }
+    },
+    "title": "Register"
+  },
+  "menu": {
+    "signin": "Signin",
+    "signup": "Signup"
+  },
+  "resetPassword": {
+    "form": {
+      "actions": {
+        "submit": "Reset password"
+      },
+      "newPassword": {
+        "label": "New password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password"
+      }
+    },
+    "messages": {
+      "success": "Reset password successfully",
+      "validation": {
+        "newPassword": "New password is required",
+        "confirmPassword": "Confirm password is required",
+        "mustMatch": "Passwords must match"
+      }
+    },
+    "title": "Reset Password"
+  },
+  "profile": {
+    "title": "Profile"
+  },
+  "userMenu": {
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "validation": {
+    "messages": {
+      "email": "Email is required",
+      "validEmail": "Email must be a valid email"
+    }
+  }
+}
