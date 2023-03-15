@@ -1,10 +1,9 @@
 import { configContext } from "@dzangolab/react-config";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import Session from "supertokens-web-js/recipe/session";
-import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import { getUserData } from "../helpers";
 import { verifySession } from "../supertokens/login";
-import { UserContextType } from "../types/types";
+import { UserContextType, UserType } from "../types/types";
 
 interface Properties {
   children: React.ReactNode;
@@ -13,9 +12,7 @@ interface Properties {
 const userContext = createContext<UserContextType | undefined>(undefined);
 
 const UserProvider = ({ children }: Properties) => {
-  const [user, setUser] = useState<EmailPasswordUserType | undefined>(
-    undefined
-  );
+  const [user, setUser] = useState<UserType | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const appConfig = useContext(configContext);
 
@@ -29,10 +26,10 @@ const UserProvider = ({ children }: Properties) => {
             appConfig.user.redirectTo.appURL
           ))
         ) {
-          const userInfo = await Session.getAccessTokenPayloadSecurely();
+          const userInfo = await getUserData();
 
           if (userInfo) {
-            setUser(userInfo.user);
+            setUser(userInfo);
           }
         }
       } catch (error) {

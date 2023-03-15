@@ -1,10 +1,10 @@
-import { configContext } from "@dzangolab/react-config";
-import React, { useContext } from "react";
+import React from "react";
 
 import Copyright from "./Copyright";
 import Version from "./Version";
+import useConfig from "../hooks/useConfig";
 
-import "../css/components/app-footer.css";
+import "../assets/css/components/app-footer.css";
 
 interface Properties {
   copyright?: React.ReactNode;
@@ -14,7 +14,7 @@ interface Properties {
 const year = new Date().getFullYear();
 
 const AppFooter: React.FC<Properties> = (properties: Properties) => {
-  const appConfig = useContext(configContext);
+  const appConfig = useConfig();
 
   const {
     copyright = (

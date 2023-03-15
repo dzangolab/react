@@ -1,5 +1,3 @@
-import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
-
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
@@ -8,7 +6,7 @@ import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import superTokens from "./supertokens";
 import UserToastContainer from "./toastify";
-import { DzangolabReactUserConfig, UserContextType } from "./types";
+import { DzangolabReactUserConfig, UserContextType, UserType } from "./types";
 import ChangePassword from "./views/ChangePassword";
 import ForgetPassword from "./views/ForgetPassword";
 import Login from "./views/Login";
@@ -42,4 +40,4 @@ export {
   userContext,
 };
 
-export type { UserContextType, EmailPasswordUserType };
+export type { UserContextType, UserType };

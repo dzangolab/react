@@ -1,29 +1,27 @@
-import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import GoogleLogin from "@/components/GoogleLogin";
-import LoginForm from "@/components/LoginForm";
-import RedirectionMessage from "@/components/RedirectionMessage";
-import login, { verifySession } from "@/supertokens/login";
+import GoogleLogin from "../components/GoogleLogin";
+import LoginForm from "../components/LoginForm";
+import RedirectionMessage from "../components/RedirectionMessage";
+import { setUserData } from "../helpers";
+import { useConfig, useUser } from "../hooks";
+import login, { verifySession } from "../supertokens/login";
 
-import { userContext } from "../context/UserProvider";
-
-import type { LoginCredentials, UserContextType } from "@/types";
+import type { LoginCredentials } from "../types";
 
 import "../assets/css/login.css";
 
 const Login = () => {
   const { t } = useTranslation(["user", "errors"]);
-  const { setUser } = useContext(userContext) as UserContextType;
+  const { setUser } = useUser();
+  const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
   const [showRedirectionMessage, setShowRedirectionMessage] =
     useState<boolean>(false);
-
-  const appConfig = useContext(configContext);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
@@ -38,7 +36,8 @@ const Login = () => {
 
     if (result?.user) {
       if (appConfig && (await verifySession(appConfig.user.appContext))) {
-        setUser(result?.user);
+        await setUserData(result.user);
+        setUser(result.user);
         setShowRedirectionMessage(false);
         toast.success(`${t("login.messages.success")}`);
       } else {
@@ -81,8 +80,8 @@ const Login = () => {
           />
         ) : null}
         <LoginForm handleSubmit={handleSubmit} loading={loading} />
-        {appConfig?.supportedLoginProviders &&
-        appConfig.supportedLoginProviders.includes("google") ? (
+        {appConfig?.user.supportedLoginProviders &&
+        appConfig.user.supportedLoginProviders.includes("google") ? (
           <GoogleLogin
             className="google-button"
             label={t("login.button.googleLoginLabel")}

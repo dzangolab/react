@@ -1,23 +1,20 @@
 import Session from "supertokens-web-js/recipe/session";
-import {
-  EmailPasswordUserType,
-  emailPasswordSignIn,
-} from "supertokens-web-js/recipe/thirdpartyemailpassword";
+import { emailPasswordSignIn } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
 import logout from "./logout";
 
-import type { LoginCredentials } from "../types/types";
+import type { LoginCredentials, UserType } from "../types/types";
 
 interface IPromise {
-  user: EmailPasswordUserType | undefined;
+  user: UserType | undefined;
   status: string | undefined;
 }
 
 const login = async (
   credentials: LoginCredentials
 ): Promise<IPromise | undefined> => {
-  let user: EmailPasswordUserType | undefined;
+  let user: UserType | undefined;
   let status: string | undefined;
 
   const data = {
@@ -35,7 +32,7 @@ const login = async (
 
   const response = await emailPasswordSignIn(data);
   if (response.status === "OK") {
-    user = response.user;
+    user = response.user as UserType;
     status = response.status;
   } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
     throw new Error("401");

@@ -21,11 +21,6 @@ function toJson(component: ReactTestRenderer) {
 
 const appConfig: AppConfig = {
   apiBaseUrl: "/",
-  app: {
-    logo: "/logo.png",
-    name: "Dzango Skeletons",
-    version: "0.0.1-local",
-  },
   appPort: "20072",
   appTitle: "Dzango Skeletons",
   appVersion: "0.0.1",
@@ -43,8 +38,6 @@ const appConfig: AppConfig = {
     },
     resources: { en: {}, fr: {} },
   },
-  locales: "en:English,fr:Français",
-  localStorageNamespace: "__app_",
   websiteDomain: "//",
 };
 
