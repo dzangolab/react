@@ -53,7 +53,6 @@ const Signup = () => {
     <div className="signup">
       <Page title={t("signup.title")}>
         <SignupForm handleSubmit={handleSubmit} loading={loading} />
-
         <div className="links">{getLinks()}</div>
       </Page>
     </div>

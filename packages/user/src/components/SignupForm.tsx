@@ -7,6 +7,8 @@ import * as Yup from "yup";
 import ErrorMessage from "./ErrorMessage";
 
 import type { LoginCredentials } from "@/types/types";
+import PasswordConfirmation from "./PasswordConfirmation";
+import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
@@ -20,18 +22,13 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
     email: Yup.string()
       .email("validation.messages.validEmail")
       .required("validation.messages.email"),
-    password: Yup.string()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/,
-        "signup.messages.validation.validationMessage"
-      )
-      .required("signup.messages.validation.password"),
-    confirmPassword: Yup.string()
-      .oneOf(
-        [Yup.ref("password"), null],
-        "signup.messages.validation.mustMatch"
-      )
-      .required("signup.messages.validation.confirmPassword"),
+    ...PasswordConfirmationSchema({
+      passwordValidationMessage: "signup.messages.validation.validationMessage",
+      passwordRequiredMessage: "signup.messages.validation.password",
+      confirmPasswordValidationMessage: "signup.messages.validation.mustMatch",
+      confirmPasswordRequiredMessage:
+        "signup.messages.validation.confirmPassword",
+    }),
   });
 
   const initialValue = {
@@ -66,31 +63,12 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
             />
           </div>
 
-          <div className="field password">
-            <label htmlFor="password">{t("signup.form.password.label")}</label>
-            <Field id="password" type="password" name="password" />
-            <ErrorMessage
-              touched={touched.password}
-              error={errors.password ? t(errors.password) : undefined}
-            />
-          </div>
-
-          <div className="field password">
-            <label htmlFor="confirmPassword">
-              {t("signup.form.confirmPassword.label")}
-            </label>
-            <Field
-              id="confirmPassword"
-              type="password"
-              name="confirmPassword"
-            />
-            <ErrorMessage
-              touched={touched.confirmPassword}
-              error={
-                errors.confirmPassword ? t(errors.confirmPassword) : undefined
-              }
-            />
-          </div>
+          <PasswordConfirmation
+            errors={errors}
+            touched={touched}
+            passwordLabel={t("signup.form.password.label")}
+            confirmPasswordLabel={t("signup.form.confirmPassword.label")}
+          />
 
           <div className="actions">
             <LoadingButton

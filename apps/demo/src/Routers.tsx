@@ -1,6 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouteObject,
   RouterProvider,
 } from "react-router-dom";
@@ -11,7 +11,7 @@ import ErrorBoundary from "./Views/ErrorBoundary";
 import ListPage from "./Views/ListPage";
 
 const routes = (childrenRoutes: RouteObject[]) => {
-  return createBrowserRouter([
+  return createHashRouter([
     {
       path: "/",
       element: <BasicLayout />,
