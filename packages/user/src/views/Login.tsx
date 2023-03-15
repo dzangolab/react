@@ -29,7 +29,7 @@ const Login = () => {
     setLoading(true);
 
     const result = await login(credentials).catch((err) => {
-      let errorMessage = "Oops! Something went wrong.";
+      let errorMessage = t("errors.otherErrors", { ns: "errors" });
       if (err.message) {
         errorMessage = t(`errors.${err.message}`, { ns: "errors" });
       }
