@@ -27,7 +27,6 @@ const Login = () => {
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
-    // const result = await login(credentials);
 
     const result = await login(credentials).catch((err) => {
       let errorMessage = "Oops! Something went wrong.";
