@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",

@@ -1,3 +1,17 @@
+## [0.5.3](https://github.com/dzangolab/react/compare/v0.5.2...v0.5.3) (2023-03-15)
+
+
+### Bug Fixes
+
+* **user:** lint warning ([#227](https://github.com/dzangolab/react/issues/227)) ([c4a1e1e](https://github.com/dzangolab/react/commit/c4a1e1ebc41b358bfc015740f7aa0f800869649d))
+
+
+### Features
+
+* store and fetch user data from local storage ([#226](https://github.com/dzangolab/react/issues/226)) ([1550fdc](https://github.com/dzangolab/react/commit/1550fdcd86474247454de03232e7f71c8f4ae02f))
+
+
+
 ## [0.5.2](https://github.com/dzangolab/react/compare/v0.5.1...v0.5.2) (2023-03-10)
 
 
