@@ -5,10 +5,10 @@ import React from "react";
 import * as Yup from "yup";
 
 import ErrorMessage from "./ErrorMessage";
-
-import type { LoginCredentials } from "@/types/types";
 import PasswordConfirmation from "./PasswordConfirmation";
 import { PasswordConfirmationSchema } from "./schemas";
+
+import type { LoginCredentials } from "../types";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;

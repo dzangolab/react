@@ -1,14 +1,28 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Field, FormikErrors, FormikTouched } from "formik";
 import React from "react";
-import { Field } from "formik";
+
 import ErrorMessage from "./ErrorMessage";
 
-const PasswordConfirmation = ({
+interface IProperties {
+  touched: FormikTouched<{
+    password: string;
+    confirmPassword: string;
+  }>;
+  errors: FormikErrors<{
+    password: string;
+    confirmPassword: string;
+  }>;
+  passwordLabel: string;
+  confirmPasswordLabel: string;
+}
+
+const PasswordConfirmation: React.FC<IProperties> = ({
   touched,
   errors,
   passwordLabel,
   confirmPasswordLabel,
-}: any) => {
+}) => {
   const { t } = useTranslation("user");
 
   return (
