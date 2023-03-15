@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import GoogleLogin from "../components/GoogleLogin";
 import LoginForm from "../components/LoginForm";
 import RedirectionMessage from "../components/RedirectionMessage";
+import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import login, { verifySession } from "../supertokens/login";
 
@@ -28,7 +29,8 @@ const Login = () => {
 
     if (result?.user) {
       if (appConfig && (await verifySession(appConfig.user.appContext))) {
-        setUser(result?.user);
+        await setUserData(result.user);
+        setUser(result.user);
         setShowRedirectionMessage(false);
         toast.success(`${t("login.messages.success")}`);
       } else {

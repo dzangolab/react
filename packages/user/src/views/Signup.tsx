@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "../components/SignupForm";
+import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
-import type { LoginCredentials, UserType } from "@/types/types";
+import type { LoginCredentials } from "../types";
 
 import "../assets/css/signup.css";
 
@@ -20,13 +21,16 @@ const Signup = () => {
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
-    const result = await signup(credentials);
-    setUser(result?.user as UserType);
-    setLoading(false);
 
-    if (result && result.user) {
+    const result = await signup(credentials);
+
+    if (result?.user) {
+      await setUserData(result.user);
+      setUser(result.user);
       toast.success(`${t("signup.messages.success")}`);
     }
+
+    setLoading(false);
   };
 
   const getLinks = () => {

@@ -1,7 +1,7 @@
 import { configContext } from "@dzangolab/react-config";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import Session from "supertokens-web-js/recipe/session";
 
+import { getUserData } from "../helpers";
 import { verifySession } from "../supertokens/login";
 import { UserContextType, UserType } from "../types/types";
 
@@ -26,10 +26,10 @@ const UserProvider = ({ children }: Properties) => {
             appConfig.user.redirectTo.appURL
           ))
         ) {
-          const userInfo = await Session.getAccessTokenPayloadSecurely();
+          const userInfo = await getUserData();
 
           if (userInfo) {
-            setUser(userInfo.user);
+            setUser(userInfo);
           }
         }
       } catch (error) {

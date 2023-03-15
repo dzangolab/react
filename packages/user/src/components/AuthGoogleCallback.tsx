@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { UserType } from "@/types/types";
-
+import { setUserData } from "../helpers";
 import { useUser } from "../hooks";
+import { UserType } from "../types";
 
 const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
@@ -19,6 +19,7 @@ const AuthGoogleCallback = () => {
 
       if (response.status === "OK") {
         const user: unknown = response.user;
+        await setUserData(user as UserType);
         setUser(user as UserType);
         toast.success(`${t("authGoogleCallback.email.success")}`);
       } else {

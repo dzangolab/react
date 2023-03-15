@@ -1,6 +1,8 @@
 import type { DzangolabReactUserConfig, UserType } from "../types";
 import type { DzangolabReactLayoutConfig } from "@dzangolab/react-layout";
 
+const USER_KEY = "user";
+
 const getHomeRoute = (
   user: UserType | undefined,
   layoutConfig: DzangolabReactLayoutConfig | undefined,
@@ -23,4 +25,15 @@ const getHomeRoute = (
     : undefined;
 };
 
-export { getHomeRoute };
+const setUserData = (data: UserType) => {
+  localStorage.setItem(USER_KEY, JSON.stringify(data));
+};
+
+const getUserData = () => {
+  return JSON.parse(localStorage.getItem(USER_KEY) || "");
+};
+
+const removeUserData = () => {
+  localStorage.removeItem(USER_KEY);
+};
+export { getHomeRoute, setUserData, getUserData, removeUserData };

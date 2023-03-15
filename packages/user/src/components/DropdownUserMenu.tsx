@@ -4,6 +4,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { toast } from "react-toastify";
 
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
+import { removeUserData } from "../helpers";
 import useUser from "../hooks/useUser";
 import logout from "../supertokens/logout";
 
@@ -25,6 +26,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
 
   const signout = async () => {
     if (await logout()) {
+      await removeUserData();
       setUser(undefined);
       toast.success(t("logout.message"));
     }
