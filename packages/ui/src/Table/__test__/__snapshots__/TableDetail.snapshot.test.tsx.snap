@@ -12,6 +12,7 @@ exports[`Component matches snapshot 1`] = `
       Go to page:
     </span>
     <input
+      disabled={true}
       max={1}
       min={1}
       onBlur={[Function]}
@@ -25,6 +26,7 @@ exports[`Component matches snapshot 1`] = `
       value={10}
     >
       <option
+        disabled={true}
         value={10}
       >
         Show
@@ -32,6 +34,7 @@ exports[`Component matches snapshot 1`] = `
         10
       </option>
       <option
+        disabled={true}
         value={20}
       >
         Show
@@ -39,6 +42,7 @@ exports[`Component matches snapshot 1`] = `
         20
       </option>
       <option
+        disabled={true}
         value={30}
       >
         Show
