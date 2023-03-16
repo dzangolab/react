@@ -42,7 +42,7 @@ const TableDetail = ({ detail, showPrefix }: TTableDetail) => {
                 table?.setPageIndex(page);
               }
             }}
-            disabled={table?.getPageCount() === 1 ? true : false}
+            disabled={table?.getPageCount() === 1}
           />
 
           <select
@@ -58,7 +58,7 @@ const TableDetail = ({ detail, showPrefix }: TTableDetail) => {
               <option
                 key={pageSize}
                 value={pageSize}
-                disabled={table?.getPageCount() === 1 ? true : false}
+                disabled={table?.getPageCount() === 1}
               >
                 {showPrefix} {pageSize}
               </option>
