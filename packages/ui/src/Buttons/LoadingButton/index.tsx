@@ -10,7 +10,7 @@ interface Properties {
   loading?: boolean;
 }
 
-const LoadingButton = ({ disabled, label, loading }: Properties) => {
+const SubmitButton = ({ disabled, label, loading }: Properties) => {
   return (
     <button
       type="submit"
@@ -24,4 +24,4 @@ const LoadingButton = ({ disabled, label, loading }: Properties) => {
   );
 };
 
-export default LoadingButton;
+export default SubmitButton;
