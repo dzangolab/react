@@ -1,9 +1,9 @@
-.loading-button {
+.button-submit {
   align-items: center;
-  background: var(--loading-button-bg-color, #1c4786);
+  background: var(--submit-button-bg-color, #1c4786);
   border-radius: 6px;
   border: none;
-  color: var(--loading-button-color, #ffffff);
+  color: var(--submit-button-color, #ffffff);
   cursor: pointer;
   display: flex;
   font-size: 1rem;
@@ -11,6 +11,6 @@
   padding: 1rem 0.625rem;
 }
 
-.loading-button:disabled {
+.button-submit:disabled {
   background: #dddddd;
 }

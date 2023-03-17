@@ -9,6 +9,7 @@ exports[`Component matches snapshot 1`] = `
       className="email"
       onClick={[Function]}
     >
+      test@gmail.com
       <span
         className="toggle "
       >

@@ -28,8 +28,7 @@ const Pagination = () => {
       onClick: () => table?.setPageIndex(table.getPageCount() - 1),
     },
   ];
-
-  return (
+  return table?.getPageCount() === 1 ? null : (
     <div>
       {config.map(({ icon, isDisabled, onClick }, index) => (
         <button

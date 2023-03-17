@@ -1,12 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { LoadingButton } from "@dzangolab/react-ui";
+import { SubmitButton } from "@dzangolab/react-ui";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 
-import { LoginCredentials } from "@/types/types";
+import ErrorMessage from "./ErrorMessage";
+import { LoginCredentials } from "../types";
 
 import "../assets/css/loginForm.css";
-import ErrorMessage from "./ErrorMessage";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
@@ -63,7 +63,7 @@ const LoginForm = ({ handleSubmit, loading }: Properties) => {
           </div>
 
           <div className="actions">
-            <LoadingButton
+            <SubmitButton
               label={`${t("login.form.actions.submit")}`}
               loading={loading}
             />
