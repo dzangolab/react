@@ -1,0 +1,11 @@
+{
+  "table": {
+    "title": "users table",
+    "defaultColumns": {
+      "id": "Id",
+      "givenName": "Given Name",
+      "middleNames": "Middle Names",
+      "surname": "Surname"
+    }
+  }
+}
