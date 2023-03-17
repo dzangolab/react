@@ -8,21 +8,17 @@ const getHomeRoute = (
   layoutConfig: DzangolabReactLayoutConfig | undefined,
   userConfig: DzangolabReactUserConfig
 ) => {
-  const getRoute = (home: string | ((userRole: string[]) => string)) => {
-    if (typeof home === "function") {
-      return home(user?.role || []);
+  const getUserHomeRoute = (user: UserType) => {
+    if (userConfig.routes?.home) {
+      return typeof userConfig.routes.home === "function"
+        ? userConfig.routes?.home(user)
+        : userConfig.routes.home;
     }
 
-    return home;
+    return "profile";
   };
 
-  return user
-    ? userConfig && userConfig?.routes?.home
-      ? getRoute(userConfig.routes.home)
-      : "profile"
-    : layoutConfig && layoutConfig?.homeRoute
-    ? layoutConfig.homeRoute
-    : undefined;
+  return user ? getUserHomeRoute(user) : layoutConfig?.homeRoute;
 };
 
 const setUserData = (data: UserType) => {

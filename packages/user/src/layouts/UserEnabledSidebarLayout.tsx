@@ -4,15 +4,17 @@ import {
   Logo,
 } from "@dzangolab/react-layout";
 
+import DropdownUserMenu from "../components/DropdownUserMenu";
 import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
+import { UserMenuItemType } from "../types";
 
 interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
-  header?: React.ReactNode;
   sidebar?: React.ReactNode;
+  userMenu?: UserMenuItemType[];
 }
 
 const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
@@ -21,23 +23,23 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
-  const {
-    children,
-    header = (
-      <AppHeader
-        userMenu={<UserMenu />}
-        logo={<Logo source={layoutConfig?.logo} route={home} />}
-      />
-    ),
-    footer,
-    sidebar,
-  } = properties;
+  const { children, footer, sidebar, userMenu } = properties;
 
   return (
     <CollapsibleSidebarLayout
       children={children}
       footer={footer}
-      header={header}
+      header={
+        <AppHeader
+          mainMenu={null}
+          userMenu={
+            <UserMenu
+              authenticatedUserMenu={<DropdownUserMenu userMenu={userMenu} />}
+            />
+          }
+          logo={<Logo source={layoutConfig?.logo} route={home} />}
+        />
+      }
       sidebar={user ? sidebar : null}
     />
   );

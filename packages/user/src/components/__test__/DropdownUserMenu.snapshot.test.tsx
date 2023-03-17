@@ -1,8 +1,8 @@
 import React from "react";
 import { create } from "react-test-renderer";
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 
-import UserProvider from "../../context/UserProvider";
+import { userContext } from "../../context/UserProvider";
 import DropdownUserMenu from "../DropdownUserMenu";
 
 import type {
@@ -20,10 +20,22 @@ function toJson(component: ReactTestRenderer) {
 }
 
 test("Component matches snapshot", () => {
+  const values = {
+    setUser: vi.fn(),
+    user: {
+      id: "5",
+      email: "test@gmail.com",
+      timeJoined: 320,
+      profile: null,
+      roles: ["USER"],
+    },
+    loading: false,
+  };
+
   const component = create(
-    <UserProvider>
+    <userContext.Provider value={values}>
       <DropdownUserMenu />
-    </UserProvider>
+    </userContext.Provider>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

@@ -1,9 +1,9 @@
-import { configContext } from "@dzangolab/react-config";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 import { getUserData } from "../helpers";
+import { useConfig } from "../hooks";
 import { verifySession } from "../supertokens/login";
-import { UserContextType, UserType } from "../types/types";
+import { UserContextType, UserType } from "../types";
 
 interface Properties {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ const userContext = createContext<UserContextType | undefined>(undefined);
 const UserProvider = ({ children }: Properties) => {
   const [user, setUser] = useState<UserType | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
-  const appConfig = useContext(configContext);
+  const appConfig = useConfig();
 
   useEffect(() => {
     const getUser = async () => {
@@ -44,7 +44,7 @@ const UserProvider = ({ children }: Properties) => {
 
   return (
     <userContext.Provider value={{ user, setUser, loading }}>
-      {children}
+      {loading ? null : children}
     </userContext.Provider>
   );
 };
