@@ -7,15 +7,15 @@ import DropdownUserMenuItem from "./DropdownUserMenuItem";
 import { removeUserData } from "../helpers";
 import { useUser } from "../hooks";
 import logout from "../supertokens/logout";
-import { UserMenuType } from "../types";
+import { UserMenuItemType } from "../types";
 
 import "../assets/css/dropdownUserMenu.css";
 
 interface Properties {
-  userMenuList?: UserMenuType[];
+  userMenu?: UserMenuItemType[];
 }
 
-const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
+const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
   const id = useId();
   const { user, setUser } = useUser();
   const [expanded, setExpanded] = useState(false);
@@ -46,9 +46,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
 
   const fallbackItems = [profileRoute, signoutRoute];
 
-  const menuItems = userMenuList
-    ? [...userMenuList, ...fallbackItems]
-    : fallbackItems;
+  const menuItems = userMenu ? [...userMenu, ...fallbackItems] : fallbackItems;
 
   return (
     <OutsideClickHandler

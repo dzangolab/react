@@ -5,7 +5,7 @@ interface UserType extends EmailPasswordUserType {
   roles: string[];
 }
 
-interface UserMenuType {
+interface UserMenuItemType {
   name: string;
   onClick?: () => void;
   route?: string;
@@ -40,5 +40,5 @@ export type {
   UserContextType,
   LoginCredentials,
   UserType,
-  UserMenuType,
+  UserMenuItemType,
 };

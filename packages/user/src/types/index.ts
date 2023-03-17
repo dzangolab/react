@@ -4,7 +4,7 @@ import {
   LoginCredentials,
   UserContextType,
   UserType,
-  UserMenuType,
+  UserMenuItemType,
 } from "./types";
 
 export type {
@@ -13,5 +13,5 @@ export type {
   LoginCredentials,
   UserContextType,
   UserType,
-  UserMenuType,
+  UserMenuItemType,
 };

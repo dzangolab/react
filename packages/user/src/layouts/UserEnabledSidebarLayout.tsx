@@ -8,13 +8,13 @@ import DropdownUserMenu from "../components/DropdownUserMenu";
 import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
-import { UserMenuType } from "../types";
+import { UserMenuItemType } from "../types";
 
 interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
   sidebar?: React.ReactNode;
-  userMenuList?: UserMenuType[];
+  userMenu?: UserMenuItemType[];
 }
 
 const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
@@ -23,7 +23,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
-  const { children, footer, sidebar, userMenuList } = properties;
+  const { children, footer, sidebar, userMenu } = properties;
 
   return (
     <CollapsibleSidebarLayout
@@ -34,9 +34,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
           mainMenu={null}
           userMenu={
             <UserMenu
-              authenticatedUserMenu={
-                <DropdownUserMenu userMenuList={userMenuList} />
-              }
+              authenticatedUserMenu={<DropdownUserMenu userMenu={userMenu} />}
             />
           }
           logo={<Logo source={layoutConfig?.logo} route={home} />}

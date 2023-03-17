@@ -4,12 +4,12 @@ import DropdownUserMenu from "../components/DropdownUserMenu";
 import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
-import { UserMenuType } from "../types";
+import { UserMenuItemType } from "../types";
 
 interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
-  userMenuList?: UserMenuType[];
+  userMenu?: UserMenuItemType[];
 }
 
 const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
@@ -18,7 +18,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
-  const { children, footer, userMenuList } = properties;
+  const { children, footer, userMenu } = properties;
 
   return (
     <BasicLayout
@@ -28,9 +28,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
         <AppHeader
           userMenu={
             <UserMenu
-              authenticatedUserMenu={
-                <DropdownUserMenu userMenuList={userMenuList} />
-              }
+              authenticatedUserMenu={<DropdownUserMenu userMenu={userMenu} />}
             />
           }
           logo={<Logo source={layoutConfig?.logo} route={home} />}
