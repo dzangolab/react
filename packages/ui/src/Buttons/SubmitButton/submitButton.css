@@ -1,9 +1,9 @@
 .button-submit {
   align-items: center;
-  background: var(--loading-button-bg-color, #1c4786);
+  background: var(--button-submit-bg-color, #1c4786);
   border-radius: 6px;
   border: none;
-  color: var(--loading-button-color, #ffffff);
+  color: var(--button-submit-color-color, #ffffff);
   cursor: pointer;
   display: flex;
   font-size: 1rem;
