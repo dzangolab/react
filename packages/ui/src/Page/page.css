@@ -29,6 +29,7 @@
 
 .page > h1 {
   grid-area: title;
+  margin-bottom: 0.5em;
 }
 
 .page > h1 > small {
