@@ -3,7 +3,7 @@
   background: var(--button-submit-bg-color, #1c4786);
   border-radius: 6px;
   border: none;
-  color: var(--button-submit-color-color, #ffffff);
+  color: var(--button-submit-color, #ffffff);
   cursor: pointer;
   display: flex;
   font-size: 1rem;
