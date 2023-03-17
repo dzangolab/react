@@ -1,13 +1,15 @@
 import { AppHeader, BasicLayout, Logo } from "@dzangolab/react-layout";
 
+import DropdownUserMenu from "../components/DropdownUserMenu";
 import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
+import { UserMenuType } from "../types";
 
 interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
-  header?: React.ReactNode;
+  userMenuList?: UserMenuType[];
 }
 
 const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
@@ -16,18 +18,26 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
-  const {
-    children,
-    header = (
-      <AppHeader
-        userMenu={<UserMenu />}
-        logo={<Logo source={layoutConfig?.logo} route={home} />}
-      />
-    ),
-    footer,
-  } = properties;
+  const { children, footer, userMenuList } = properties;
 
-  return <BasicLayout header={header} footer={footer} children={children} />;
+  return (
+    <BasicLayout
+      children={children}
+      footer={footer}
+      header={
+        <AppHeader
+          userMenu={
+            <UserMenu
+              authenticatedUserMenu={
+                <DropdownUserMenu userMenuList={userMenuList} />
+              }
+            />
+          }
+          logo={<Logo source={layoutConfig?.logo} route={home} />}
+        />
+      }
+    />
+  );
 };
 
 export default UserEnabledBasicLayout;

@@ -4,8 +4,8 @@ import {
   Logo,
 } from "@dzangolab/react-layout";
 
-import UserMenu from "../components/UserMenu";
 import DropdownUserMenu from "../components/DropdownUserMenu";
+import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import { UserMenuType } from "../types";

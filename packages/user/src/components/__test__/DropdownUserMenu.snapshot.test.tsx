@@ -9,7 +9,6 @@ import type {
   ReactTestRenderer,
   ReactTestRendererJSON,
 } from "react-test-renderer";
-import { MemoryRouter } from "react-router-dom";
 
 function toJson(component: ReactTestRenderer) {
   const result = component.toJSON();
@@ -34,11 +33,9 @@ test("Component matches snapshot", () => {
   };
 
   const component = create(
-    <MemoryRouter>
-      <userContext.Provider value={values}>
-        <DropdownUserMenu />
-      </userContext.Provider>
-    </MemoryRouter>
+    <userContext.Provider value={values}>
+      <DropdownUserMenu />
+    </userContext.Provider>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();
