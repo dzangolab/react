@@ -31,19 +31,19 @@ const UsersTable: React.FC<IProperties> = ({
   const defaultColumns: TableColumnDefinition<unknown, unknown>[] = [
     {
       accessorKey: "id",
-      header: () => <span>{t("table.defaultColumn.id")}</span>,
+      header: () => <span>{t("table.defaultColumns.id")}</span>,
     },
     {
       accessorKey: "givenName",
-      header: () => <span>{t("table.defaultColumn.givenName")}</span>,
+      header: () => <span>{t("table.defaultColumns.givenName")}</span>,
     },
     {
       accessorKey: "middleNames",
-      header: () => <span>{t("table.defaultColumn.middleNames")}</span>,
+      header: () => <span>{t("table.defaultColumns.middleNames")}</span>,
     },
     {
       accessorKey: "surname",
-      header: () => <span>{t("table.defaultColumn.surname")}</span>,
+      header: () => <span>{t("table.defaultColumns.surname")}</span>,
     },
   ];
 
