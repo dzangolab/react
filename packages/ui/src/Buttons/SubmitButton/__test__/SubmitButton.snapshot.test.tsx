@@ -2,7 +2,7 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import LoadingButton from "..";
+import SubmitButton from "..";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();
@@ -14,7 +14,7 @@ function toJson(component: renderer.ReactTestRenderer) {
 }
 
 test("Component matches snapshot", () => {
-  const component = create(<LoadingButton label="Submit" />);
+  const component = create(<SubmitButton label="Submit" />);
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();
 });
