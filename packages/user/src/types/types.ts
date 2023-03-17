@@ -2,7 +2,13 @@ import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemail
 
 interface UserType extends EmailPasswordUserType {
   profile: Profile | null;
-  role: string[];
+  roles: string[];
+}
+
+interface UserMenuType {
+  name: string;
+  onClick?: () => void;
+  route?: string;
 }
 
 interface Profile {
@@ -29,4 +35,10 @@ interface AuthState {
   user: UserType | undefined;
 }
 
-export type { AuthState, UserContextType, LoginCredentials, UserType };
+export type {
+  AuthState,
+  UserContextType,
+  LoginCredentials,
+  UserType,
+  UserMenuType,
+};

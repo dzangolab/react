@@ -15,7 +15,7 @@ const setup = () => {
       email: "test@gmail.com",
       timeJoined: 320,
       profile: null,
-      role: ["USER"],
+      roles: ["USER"],
     },
     loading: false,
   };

@@ -10,7 +10,7 @@ const getHomeRoute = (
 ) => {
   const getRoute = (home: string | ((userRole: string[]) => string)) => {
     if (typeof home === "function") {
-      return home(user?.role || []);
+      return home(user?.roles || []);
     }
 
     return home;

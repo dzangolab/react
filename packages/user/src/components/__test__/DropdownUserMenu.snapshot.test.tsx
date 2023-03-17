@@ -1,14 +1,15 @@
 import React from "react";
 import { create } from "react-test-renderer";
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 
-import UserProvider from "../../context/UserProvider";
+import { userContext } from "../../context/UserProvider";
 import DropdownUserMenu from "../DropdownUserMenu";
 
 import type {
   ReactTestRenderer,
   ReactTestRendererJSON,
 } from "react-test-renderer";
+import { MemoryRouter } from "react-router-dom";
 
 function toJson(component: ReactTestRenderer) {
   const result = component.toJSON();
@@ -20,10 +21,24 @@ function toJson(component: ReactTestRenderer) {
 }
 
 test("Component matches snapshot", () => {
+  const values = {
+    setUser: vi.fn(),
+    user: {
+      id: "5",
+      email: "test@gmail.com",
+      timeJoined: 320,
+      profile: null,
+      roles: ["USER"],
+    },
+    loading: false,
+  };
+
   const component = create(
-    <UserProvider>
-      <DropdownUserMenu />
-    </UserProvider>
+    <MemoryRouter>
+      <userContext.Provider value={values}>
+        <DropdownUserMenu />
+      </userContext.Provider>
+    </MemoryRouter>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

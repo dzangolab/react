@@ -5,17 +5,14 @@ import { toast } from "react-toastify";
 
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
 import { removeUserData } from "../helpers";
-import useUser from "../hooks/useUser";
+import { useUser } from "../hooks";
 import logout from "../supertokens/logout";
+import { UserMenuType } from "../types";
 
 import "../assets/css/dropdownUserMenu.css";
 
 interface Properties {
-  userMenuList?: {
-    name: string;
-    onClick?: () => void;
-    route?: string;
-  }[];
+  userMenuList?: UserMenuType[];
 }
 
 const DropdownUserMenu: React.FC<Properties> = ({ userMenuList }) => {
