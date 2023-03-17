@@ -1,3 +1,3 @@
-import LoadingButton from "./LoadingButton";
+import LoadingButton from "./SubmitButton";
 
 export { LoadingButton };
