@@ -14,7 +14,7 @@ const SubmitButton = ({ disabled, label, loading }: Properties) => {
   return (
     <button
       type="submit"
-      className="loading-button"
+      className="button-submit"
       disabled={disabled || loading}
     >
       {label}
