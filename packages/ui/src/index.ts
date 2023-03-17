@@ -1,7 +1,7 @@
 import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
-import { LoadingButton } from "./Buttons";
+import { SubmitButton } from "./Buttons";
 import { SubPane } from "./components/SubPane";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
@@ -12,7 +12,7 @@ export * from "./Table";
 
 export {
   Accordion,
-  LoadingButton,
+  SubmitButton,
   LoadingIcon,
   LoadingPage,
   Page,

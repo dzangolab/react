@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { LoadingButton } from "@dzangolab/react-ui";
+import { SubmitButton } from "@dzangolab/react-ui";
 import { Field, Formik } from "formik";
 import React from "react";
 import * as Yup from "yup";
@@ -53,7 +53,7 @@ const ForgetPasswordForm = ({ handleSubmit, loading }: Properties) => {
           </div>
 
           <div className="actions">
-            <LoadingButton
+            <SubmitButton
               label={t("forgetPassword.form.actions.submit")}
               loading={loading}
             />

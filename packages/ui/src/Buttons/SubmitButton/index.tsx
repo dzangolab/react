@@ -2,7 +2,7 @@ import React from "react";
 
 import LoadingIcon from "../../LoadingIcon";
 
-import "./loadingButton.css";
+import "./submitButton.css";
 
 interface Properties {
   disabled?: boolean;
@@ -10,11 +10,11 @@ interface Properties {
   loading?: boolean;
 }
 
-const LoadingButton = ({ disabled, label, loading }: Properties) => {
+const SubmitButton = ({ disabled, label, loading }: Properties) => {
   return (
     <button
       type="submit"
-      className="loading-button"
+      className="button-submit"
       disabled={disabled || loading}
     >
       {label}
@@ -24,4 +24,4 @@ const LoadingButton = ({ disabled, label, loading }: Properties) => {
   );
 };
 
-export default LoadingButton;
+export default SubmitButton;
