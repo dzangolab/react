@@ -28,9 +28,11 @@ const Login = () => {
 
     const result = await login(credentials).catch((err) => {
       let errorMessage = t("errors.otherErrors", { ns: "errors" });
+
       if (err.message) {
         errorMessage = t(`errors.${err.message}`, { ns: "errors" });
       }
+
       toast.error(errorMessage);
     });
 
