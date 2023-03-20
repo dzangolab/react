@@ -31,6 +31,7 @@ const login = async (
   };
 
   const response = await emailPasswordSignIn(data);
+
   if (response.status === "OK") {
     user = response.user as UserType;
     status = response.status;
