@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useInRouterContext } from "react-router-dom";
 
 interface Properties {
   route?: string;
@@ -6,11 +7,19 @@ interface Properties {
 }
 
 const Logo = ({ route = "/", source = "/logo.png" }: Properties) => {
+  const hasRouterContext = useInRouterContext();
+
   return (
     <div className="logo">
-      <a href={route}>
-        <img src={source} alt="logo" />
-      </a>
+      {hasRouterContext ? (
+        <Link to={route}>
+          <img src={source} alt="logo" />
+        </Link>
+      ) : (
+        <a href={route}>
+          <img src={source} alt="logo" />
+        </a>
+      )}
     </div>
   );
 };
