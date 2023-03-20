@@ -26,7 +26,7 @@
 
 .close {
   min-width: 10px;
-  width: 1.5rem;
+  width: 3.2rem;
 }
 
 .sidebar-menu.open > .toggle-button > button {
@@ -37,7 +37,7 @@
 }
 
 .sidebar-menu.close > .toggle-button > button {
-  left: 0;
+  left: 0.2rem;
   opacity: 0.3;
   position: fixed;
 }
