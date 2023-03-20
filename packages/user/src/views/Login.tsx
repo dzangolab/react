@@ -27,13 +27,13 @@ const Login = () => {
     setLoading(true);
 
     const result = await login(credentials).catch((err) => {
-      let errorMessage = t("errors.otherErrors", { ns: "errors" });
+      let errorMessage = "errors.otherErrors";
 
       if (err.message) {
-        errorMessage = t(`errors.${err.message}`, { ns: "errors" });
+        errorMessage = `errors.${err.message}`;
       }
 
-      toast.error(errorMessage);
+      toast.error(t(errorMessage, { ns: "errors" }));
     });
 
     if (result?.user) {
