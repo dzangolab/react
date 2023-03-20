@@ -31,7 +31,7 @@
 
 .sidebar-menu.open > .toggle-button > button {
   left: auto;
-  opacity: 1;
+  opacity: 0.3;
   position: relative;
   transform: rotate(180deg);
 }
