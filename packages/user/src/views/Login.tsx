@@ -16,7 +16,7 @@ import type { LoginCredentials } from "../types";
 import "../assets/css/login.css";
 
 const Login = () => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
@@ -25,7 +25,16 @@ const Login = () => {
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
-    const result = await login(credentials);
+
+    const result = await login(credentials).catch((err) => {
+      let errorMessage = "errors.otherErrors";
+
+      if (err.message) {
+        errorMessage = `errors.${err.message}`;
+      }
+
+      toast.error(t(errorMessage, { ns: "errors" }));
+    });
 
     if (result?.user) {
       if (appConfig && (await verifySession(appConfig.user.appContext))) {

@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import Session from "supertokens-web-js/recipe/session";
 import { emailPasswordSignIn } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
@@ -31,24 +30,14 @@ const login = async (
     ],
   };
 
-  try {
-    const response = await emailPasswordSignIn(data);
+  const response = await emailPasswordSignIn(data);
 
-    if (response.status === "OK") {
-      user = response.user as UserType;
-      status = response.status;
-    } else {
-      status = response.status;
-      toast.error(status);
-    }
-  } catch (err) {
-    let errorMessage = "Oops! Something went wrong.";
-    if (err instanceof Error) {
-      errorMessage = err.message;
-    }
-    toast.error(errorMessage);
+  if (response.status === "OK") {
+    user = response.user as UserType;
+    status = response.status;
+  } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
+    throw new Error("401");
   }
-
   return { user, status };
 };
 
