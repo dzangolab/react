@@ -66,7 +66,14 @@
   width: var(--tfooter-page-input-width, 3rem);
 }
 
-.table-wrapper > div:first-of-type > table > thead > tr:last-of-type > th > div > div,
+.table-wrapper
+  > div:first-of-type
+  > table
+  > thead
+  > tr:last-of-type
+  > th
+  > div
+  > div,
 .table-wrapper
   > div:first-of-type
   > table
