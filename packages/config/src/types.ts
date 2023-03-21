@@ -13,6 +13,7 @@ interface AppConfig {
 
 interface AppFeatures {
   showVersion: boolean;
+  [feature: string]: boolean;
 }
 
 export type { AppConfig, AppFeatures };
