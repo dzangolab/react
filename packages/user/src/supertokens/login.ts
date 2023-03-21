@@ -2,9 +2,10 @@ import Session from "supertokens-web-js/recipe/session";
 import { emailPasswordSignIn } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
+import { removeUserData } from "../helpers";
 import logout from "./logout";
 
-import type { LoginCredentials, UserType } from "../types/types";
+import type { LoginCredentials, UserType } from "../types";
 
 interface IPromise {
   user: UserType | undefined;
@@ -64,6 +65,7 @@ async function verifySession(
         if (redirectURL) {
           window.location.href = redirectURL;
         } else {
+          await removeUserData();
           await logout();
         }
         // toast.error("You don't have permission for the app");
