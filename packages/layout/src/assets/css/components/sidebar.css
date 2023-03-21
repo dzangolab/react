@@ -48,10 +48,6 @@
   opacity: 1;
 }
 
-.sidebar-menu a {
-  text-align: left !important;
-}
-
 @media screen and (max-width: 576px) {
   .sidebar-menu {
     display: none;
