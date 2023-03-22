@@ -6,7 +6,7 @@ import "./page.css";
 
 interface Properties {
   children?: React.ReactNode;
-  cssClass?: string;
+  className?: string;
   errorMessage?: string;
   loading?: boolean;
   loadingComponent?: React.ReactElement;
@@ -18,7 +18,7 @@ interface Properties {
 
 const Page: React.FC<Properties> = ({
   children,
-  cssClass,
+  className,
   errorMessage,
   loading = false,
   loadingComponent,
@@ -28,7 +28,6 @@ const Page: React.FC<Properties> = ({
   toolbar,
 }: Properties) => {
   let child = null;
-  let classNames = "page";
 
   if (loading) {
     child = loadingComponent ? (
@@ -44,12 +43,14 @@ const Page: React.FC<Properties> = ({
     );
   }
 
-  if (cssClass) {
-    classNames += " " + cssClass;
+  if (className) {
+    className = "page" + ` ${className}`;
+  } else {
+    className = "page";
   }
 
   return (
-    <div className={classNames}>
+    <div className={className}>
       {title && (
         <h1>
           {title}
