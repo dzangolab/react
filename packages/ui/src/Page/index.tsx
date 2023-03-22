@@ -28,6 +28,7 @@ const Page: React.FC<Properties> = ({
   toolbar,
 }: Properties) => {
   let child = null;
+  let _className = "page";
 
   if (loading) {
     child = loadingComponent ? (
@@ -44,13 +45,11 @@ const Page: React.FC<Properties> = ({
   }
 
   if (className) {
-    className = "page" + ` ${className}`;
-  } else {
-    className = "page";
+    _className += ` ${className}`;
   }
 
   return (
-    <div className={className}>
+    <div className={_className}>
       {title && (
         <h1>
           {title}

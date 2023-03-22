@@ -19,18 +19,18 @@ const ResponsiveMenu = ({
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
 
+  let _className = "menu";
+
   if (className) {
-    className = "menu" + " " + className;
-  } else {
-    className = "menu";
+    _className += " " + className;
   }
 
   if (horizontal) {
-    className += " column";
+    _className += " column";
   }
 
   return (
-    <nav className={className}>
+    <nav className={_className}>
       <ul>
         {routes.map((route, index) => (
           <li key={index}>
