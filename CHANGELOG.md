@@ -1,3 +1,23 @@
+## [0.5.4](https://github.com/dzangolab/react/compare/v0.5.3...v0.5.4) (2023-03-22)
+
+
+### Bug Fixes
+
+* private home route to support function or string ([#237](https://github.com/dzangolab/react/issues/237)) ([f216938](https://github.com/dzangolab/react/commit/f21693883bfc97f24f9db9b117c12557adf6a199))
+* stop page from refreshing on clicking the logo ([#241](https://github.com/dzangolab/react/issues/241)) ([acc4365](https://github.com/dzangolab/react/commit/acc4365cb72ed8b2b5b15e175db43221ef6b8670))
+* table header column padding ([#243](https://github.com/dzangolab/react/issues/243)) ([dfa97e3](https://github.com/dzangolab/react/commit/dfa97e3299618715974ee75e3dbe6ba80c41408d))
+* **ui/table:** hide pagination buttons when only single page available on table ([#234](https://github.com/dzangolab/react/issues/234)) ([ad3048b](https://github.com/dzangolab/react/commit/ad3048b1175fd5c71cfbda5189175864e3e7368b))
+* **user:** lint warning ([#247](https://github.com/dzangolab/react/issues/247)) ([5b947ed](https://github.com/dzangolab/react/commit/5b947ed3f9cb46115a218f1a66bb32a13ebd001e))
+
+
+### Features
+
+* add users table and remove users page ([#239](https://github.com/dzangolab/react/issues/239)) ([5c7594d](https://github.com/dzangolab/react/commit/5c7594d2454a83d06c9d4c32cdb65e25b5c7729d))
+* **config:** generic type on feature flag ([#242](https://github.com/dzangolab/react/issues/242)) ([fb1fa13](https://github.com/dzangolab/react/commit/fb1fa1314359e7e37bc9be282fc0d9c4bfcff7bc))
+* support custom css class for page component ([#245](https://github.com/dzangolab/react/issues/245)) ([90e800a](https://github.com/dzangolab/react/commit/90e800ad0ef6f46751f108c6dd2bcb0d49e9a077))
+
+
+
 ## [0.5.3](https://github.com/dzangolab/react/compare/v0.5.2...v0.5.3) (2023-03-15)
 
 
