@@ -4,7 +4,7 @@ import { Link, useInRouterContext } from "react-router-dom";
 import "./responsive-menu.css";
 
 interface Properties {
-  cssClass: string;
+  className: string;
   horizontal?: boolean;
   routes: {
     name: string;
@@ -14,23 +14,23 @@ interface Properties {
 
 const ResponsiveMenu = ({
   routes,
-  cssClass = "",
+  className,
   horizontal = false,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
 
-  let classNames = "menu";
+  let _className = "menu";
 
-  if (horizontal) {
-    classNames += " column";
+  if (className) {
+    _className += " " + className;
   }
 
-  if (cssClass) {
-    classNames += " " + cssClass;
+  if (horizontal) {
+    _className += " column";
   }
 
   return (
-    <nav className={classNames}>
+    <nav className={_className}>
       <ul>
         {routes.map((route, index) => (
           <li key={index}>
@@ -47,7 +47,7 @@ const ResponsiveMenu = ({
 };
 
 ResponsiveMenu.defaultProps = {
-  cssClass: undefined,
+  className: undefined,
 };
 
 export default ResponsiveMenu;

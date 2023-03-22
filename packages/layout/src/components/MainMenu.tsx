@@ -37,7 +37,7 @@ const MainMenu = (properties: Properties) => {
 
   return (
     <ResponsiveMenu
-      cssClass="main-menu"
+      className="main-menu"
       routes={getTranslatedRoutes()}
       horizontal={horizontal}
     />
