@@ -2,8 +2,8 @@ import Session from "supertokens-web-js/recipe/session";
 import { emailPasswordSignIn } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
-import { removeUserData } from "../helpers";
 import logout from "./logout";
+import { removeUserData } from "../helpers";
 
 import type { LoginCredentials, UserType } from "../types";
 
