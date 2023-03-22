@@ -34,6 +34,7 @@ const config: AppConfig = {
     },
   },
   layout: {
+    logo: "/react/logo.png",
     mainMenu: [
       {
         name: "header.menu.i18n",

@@ -30,6 +30,13 @@ jobs:
 
       - name: Build packages
         run: pnpm build --filter=@dzangolab/demo-app
+        env:
+          VITE_API_BASE_URL: "https://api.monorepo.dzangolab.org"
+          VITE_APP_TITLE: 'React Demo'
+          VITE_APP_VERSION: '0.5.3'
+          VITE_APP_BUILD: 'develop'
+          VITE_APP_COPYRIGHT_HOLDER: 'Dzango Technologies Limited'
+          VITE_APP_COPYRIGHT_HOLDER_URL: 'https://dzango.com'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
