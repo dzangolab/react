@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
           data: {
             themeColorDark: process.env.VITE_THEME_COLOR || "#000000",
             themeColorLight: process.env.VITE_THEME_COLOR || "#ffffff",
-            title: process.env.VITE_APP_TITLE || "My app",
+            title: process.env.VITE_APP_TITLE || "React Demo",
           },
         },
         minify: true,
