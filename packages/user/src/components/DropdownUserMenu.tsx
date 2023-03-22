@@ -57,9 +57,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
       <nav className={`user-menu ${expanded ? "expanded" : ""}`}>
         <div className="email" onClick={() => setExpanded(!expanded)}>
           {user?.email}
-          <span className={`toggle ${expanded ? "expanded" : ""}`}>
-            &#9662;
-          </span>
+          <span className={"toggle"}>&#9662;</span>
         </div>
 
         {expanded && (

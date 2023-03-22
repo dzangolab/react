@@ -88,7 +88,9 @@ exports[`Component matches snapshot 1`] = `
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr
+          data-id={1}
+        >
           <td
             data-label="id"
           >
@@ -100,7 +102,9 @@ exports[`Component matches snapshot 1`] = `
             jone
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={2}
+        >
           <td
             data-label="id"
           >
@@ -112,7 +116,9 @@ exports[`Component matches snapshot 1`] = `
             abhi
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={3}
+        >
           <td
             data-label="id"
           >
@@ -124,7 +130,9 @@ exports[`Component matches snapshot 1`] = `
             mike
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={4}
+        >
           <td
             data-label="id"
           >
@@ -136,7 +144,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={5}
+        >
           <td
             data-label="id"
           >
@@ -148,7 +158,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={6}
+        >
           <td
             data-label="id"
           >
@@ -160,7 +172,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={7}
+        >
           <td
             data-label="id"
           >
@@ -172,7 +186,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={8}
+        >
           <td
             data-label="id"
           >
@@ -184,7 +200,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={9}
+        >
           <td
             data-label="id"
           >
@@ -196,7 +214,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={10}
+        >
           <td
             data-label="id"
           >
@@ -208,7 +228,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={11}
+        >
           <td
             data-label="id"
           >
@@ -220,7 +242,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={12}
+        >
           <td
             data-label="id"
           >
@@ -232,7 +256,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={13}
+        >
           <td
             data-label="id"
           >
@@ -244,7 +270,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={14}
+        >
           <td
             data-label="id"
           >
@@ -256,7 +284,9 @@ exports[`Component matches snapshot 1`] = `
             tony
           </td>
         </tr>
-        <tr>
+        <tr
+          data-id={15}
+        >
           <td
             data-label="id"
           >

@@ -2,7 +2,9 @@
 
 exports[`Component matches snapshot 1`] = `
 <tbody>
-  <tr>
+  <tr
+    data-id={1}
+  >
     <td
       data-label="id"
     >
@@ -14,7 +16,9 @@ exports[`Component matches snapshot 1`] = `
       jone
     </td>
   </tr>
-  <tr>
+  <tr
+    data-id={2}
+  >
     <td
       data-label="id"
     >
@@ -26,7 +30,9 @@ exports[`Component matches snapshot 1`] = `
       abhi
     </td>
   </tr>
-  <tr>
+  <tr
+    data-id={3}
+  >
     <td
       data-label="id"
     >
@@ -38,7 +44,9 @@ exports[`Component matches snapshot 1`] = `
       mike
     </td>
   </tr>
-  <tr>
+  <tr
+    data-id={4}
+  >
     <td
       data-label="id"
     >

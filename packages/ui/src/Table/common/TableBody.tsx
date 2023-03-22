@@ -9,8 +9,10 @@ function TableBody() {
   return (
     <tbody>
       {table?.getRowModel().rows.map((row) => {
+        const id = row.original.id ? row.original.id : row.id;
+
         return (
-          <tr key={row.id}>
+          <tr key={id} data-id={id}>
             {row.getVisibleCells().map((cell) => {
               return (
                 <td key={cell.id} data-label={cell.column.id}>

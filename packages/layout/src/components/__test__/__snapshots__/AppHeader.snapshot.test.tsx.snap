@@ -47,7 +47,7 @@ exports[`Component matches snapshot 1`] = `
         >
           locales.en
           <span
-            className="truncated "
+            className="truncated"
           >
             ▾
           </span>

@@ -9,19 +9,16 @@ nav {
   min-width: var(--dropdown-width, 6rem);
 }
 
-nav.user-menu > div.email {
+nav.user-menu > .email {
   cursor: pointer;
-  display: flex;
   flex: 1;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  overflow: hidden;
   padding: 0.5rem 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-nav > span.toggle {
-  align-self: start;
-  cursor: pointer;
+nav.user-menu > .email > span.toggle {
   font-size: 1.5rem;
   line-height: 1.25rem;
   text-align: center;
@@ -69,15 +66,11 @@ nav > .dropdown > li:hover {
     top: 50%;
   }
 
-  nav.user-menu > div.email:hover {
+  nav.user-menu > .email:hover {
     background-color: #dbe9fa;
   }
 
-  nav.user-menu > div.email {
+  nav.user-menu > .email {
     padding: 0.8rem;
-  }
-
-  span.toggle.expanded {
-    transform: rotate(180deg);
   }
 }
