@@ -8,6 +8,7 @@ import {
 import config from "./config";
 import { BasicLayout } from "./layouts/BasicLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
+import Home from "./Views/Home";
 import ListPage from "./Views/ListPage";
 
 const routes = (childrenRoutes: RouteObject[]) => {
@@ -16,7 +17,17 @@ const routes = (childrenRoutes: RouteObject[]) => {
       path: "/",
       element: <BasicLayout />,
       errorElement: <ErrorBoundary />,
-      children: childrenRoutes,
+      children: [
+        {
+          index: true,
+          element: (
+            <Home
+              routes={config.layout?.mainMenu ? config.layout.mainMenu : []}
+            />
+          ),
+        },
+        ...childrenRoutes,
+      ],
     },
   ]);
 };

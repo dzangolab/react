@@ -1,0 +1,25 @@
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  margin: 5px 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+button.icon {
+  font-size: xx-large;
+  border: unset;
+  background-color: unset;
+  border-radius: 100%;
+  padding: 0.3rem;
+  width: 3rem;
+}
+
+button.icon:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+}
