@@ -9,7 +9,7 @@ const config: AppConfig = {
   apiBaseUrl: import.meta.env.VITE_API_BASE_URL as string,
   appPort: parse(import.meta.env.VITE_APP_PORT, "20083") as string,
   appTitle: import.meta.env.VITE_APP_TITLE as string,
-  appVersion: `${import.meta.env.VITE_APP_VERSION}-${
+  appVersion: `${import.meta.env.VITE_APP_VERSION}+${
     import.meta.env.VITE_APP_BUILD
   }` as string,
   copyright: {
