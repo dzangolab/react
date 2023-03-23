@@ -19,20 +19,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Use node ${{ matrix.node-version }}
-        
-      - uses: actions/checkout@v1
-
-      - name: Read package.json version
-        uses: dutscher/read-package-json-endpoint-actions@v1.3.37
-        id: package-json-endpoint
-
-      - name: Show version number
-        run: echo "${{ steps.package-json-endpoint.outputs.endpoint }}"
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
           version: 7
+          
+      - name: Get current package version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.2.3
+        with:
+          path: "apps/demo"
 
       - name: Install Dependencies
         run: pnpm install
@@ -42,7 +39,7 @@ jobs:
         env:
           VITE_API_BASE_URL: "https://api.monorepo.dzangolab.org"
           VITE_APP_TITLE: 'React Demo'
-          VITE_APP_VERSION: ${{ steps.package-json-endpoint.outputs.endpoint }}
+          VITE_APP_VERSION: ${{ steps.package-version.outputs.current-version}}
           VITE_APP_BUILD: 'develop'
           VITE_APP_COPYRIGHT_HOLDER: 'Dzango Technologies Limited'
           VITE_APP_COPYRIGHT_HOLDER_URL: 'https://dzango.com'
