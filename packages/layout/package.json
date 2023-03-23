@@ -27,7 +27,7 @@
     "@dzangolab/react-i18n": "0.5.5",
     "@dzangolab/react-ui": "0.5.5",
     "react": "18.2.0",
-    "react-router-dom": "6.8.1",
+    "react-router-dom": "6.9.0",
     "react-icons": "4.7.1"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "@vitest/coverage-c8": "0.28.5",
     "eslint": "8.35.0",
     "eslint-config-custom": "0.5.5",
-    "react-router-dom": "6.8.1",
+    "react-router-dom": "6.9.0",
     "eslint-plugin-react": "7.32.2",
     "jsdom": "20.0.3",
     "prettier": "2.8.3",
@@ -52,7 +52,7 @@
     "vitest": "0.28.5"
   },
   "peerDependencies": {
-    "react-router-dom": "6.8.1"
+    "react-router-dom": "6.9.0"
   },
   "engines": {
     "node": ">=16",
