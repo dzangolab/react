@@ -14,5 +14,10 @@
   "footer": {
     "copyright": "All rights reserved."
   },
+  "pages": {
+    "home": {
+      "title": "Demo"
+    }
+  },
   "loading": "Loading ..."
 }
