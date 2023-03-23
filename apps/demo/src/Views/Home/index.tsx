@@ -14,7 +14,7 @@ const Home: React.FC<IProperties> = ({ routes }) => {
   const { t } = useTranslation();
 
   return (
-    <Page title={t("demo")}>
+    <Page title={t("pages.home.title")}>
       {routes.map((route) => {
         return (
           <Card
