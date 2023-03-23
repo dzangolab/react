@@ -353,7 +353,7 @@ importers:
       react-outside-click-handler: 1.3.0
       react-router-dom: 6.9.0
       react-test-renderer: 18.2.0
-      react-toastify: 9.0.5
+      react-toastify: 9.1.2
       supertokens-web-js: 0.4.0
       tsconfig: 0.5.5
       typescript: 4.9.5
@@ -368,7 +368,7 @@ importers:
       formik: 2.2.9_react@18.2.0
       react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
       react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
-      react-toastify: 9.0.5_biqbaboplfbrettd7655fr4n2y
+      react-toastify: 9.1.2_biqbaboplfbrettd7655fr4n2y
       supertokens-web-js: 0.4.0
       yup: 0.32.11
     devDependencies:
@@ -14376,8 +14376,8 @@ packages:
       scheduler: 0.23.0
     dev: true
 
-  /react-toastify/9.0.5_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-dszPCeQINY+Nm6HmsiAXT/7wsazPqv0S/RuhIYLAW+fTKcd3T1iRjZG0XqrN9nvAzqaE5J6uxMaiBrOevxjY8g==}
+  /react-toastify/9.1.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-PBfzXO5jMGEtdYR5jxrORlNZZe/EuOkwvwKijMatsZZm8IZwLj01YvobeJYNjFcA6uy6CVrx2fzL9GWbhWPTDA==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'

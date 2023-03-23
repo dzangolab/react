@@ -29,7 +29,7 @@
     "@dzangolab/react-ui": "0.5.5",
     "formik": "2.2.9",
     "react-outside-click-handler": "1.3.0",
-    "react-toastify": "9.0.5",
+    "react-toastify": "9.1.2",
     "react-router-dom": "6.9.0",
     "supertokens-web-js": "0.4.0",
     "yup": "0.32.11"
