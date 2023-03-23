@@ -25,7 +25,7 @@ importers:
       '@dzangolab/react-layout': 0.5.5
       '@dzangolab/react-ui': 0.5.5
       '@dzangolab/react-user': 0.5.5
-      '@reduxjs/toolkit': 1.9.1
+      '@reduxjs/toolkit': 1.9.3
       '@testing-library/react': 13.4.0
       '@types/jsdom': 20.0.0
       '@types/node': 18.8.5
@@ -60,7 +60,7 @@ importers:
       '@dzangolab/react-layout': link:../../packages/layout
       '@dzangolab/react-ui': link:../../packages/ui
       '@dzangolab/react-user': link:../../packages/user
-      '@reduxjs/toolkit': 1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
+      '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
       normalize.css: 8.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4698,8 +4698,8 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@reduxjs/toolkit/1.9.1_k4ae6lp43ej6mezo3ztvx6pykq:
-    resolution: {integrity: sha512-HikrdY+IDgRfRYlCTGUQaiCxxDDgM1mQrRbZ6S1HFZX5ZYuJ4o8EstNmhTwHdPl2rTmLxzwSu0b3AyeyTlR+RA==}
+  /@reduxjs/toolkit/1.9.3_k4ae6lp43ej6mezo3ztvx6pykq:
+    resolution: {integrity: sha512-GU2TNBQVofL09VGmuSioNPQIu6Ml0YLf4EJhgj0AvBadRlCGzUWet8372LjvO4fqKZF2vH1xU0htAa7BrK9pZg==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
       react-redux: ^7.2.1 || ^8.0.2
