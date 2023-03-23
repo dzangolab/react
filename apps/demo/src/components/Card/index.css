@@ -8,18 +8,25 @@
   margin: 5px 0;
   border-radius: 7px;
   cursor: pointer;
+  color: #535353;
 }
 
-button.icon {
+.card:hover {
+  color: unset;
+}
+
+.card > button {
   font-size: xx-large;
   border: unset;
   background-color: unset;
   border-radius: 100%;
   padding: 0.3rem;
   width: 3rem;
+  color: #535353;
 }
 
-button.icon:hover {
+.card > button:hover {
   cursor: pointer;
+  color: unset;
   background-color: aliceblue;
 }
