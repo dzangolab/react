@@ -20,11 +20,11 @@ importers:
 
   apps/demo:
     specifiers:
-      '@dzangolab/react-config': 0.5.4
-      '@dzangolab/react-i18n': 0.5.4
-      '@dzangolab/react-layout': 0.5.4
-      '@dzangolab/react-ui': 0.5.4
-      '@dzangolab/react-user': 0.5.4
+      '@dzangolab/react-config': 0.5.5
+      '@dzangolab/react-i18n': 0.5.5
+      '@dzangolab/react-layout': 0.5.5
+      '@dzangolab/react-ui': 0.5.5
+      '@dzangolab/react-user': 0.5.5
       '@reduxjs/toolkit': 1.9.1
       '@testing-library/react': 13.4.0
       '@types/jsdom': 20.0.0
@@ -55,11 +55,11 @@ importers:
       vite-plugin-html: 3.2.0
       vitest: 0.28.5
     dependencies:
-      '@dzangolab/react-config': 0.5.4
-      '@dzangolab/react-i18n': 0.5.4_c76r6obot7b5nxnqua3gde4uyq
-      '@dzangolab/react-layout': 0.5.4_react-dom@18.2.0
-      '@dzangolab/react-ui': 0.5.4_react-router-dom@6.8.1
-      '@dzangolab/react-user': 0.5.4_gbu7v5m2bfxekrvxbzexwwmu2q
+      '@dzangolab/react-config': 0.5.5
+      '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
+      '@dzangolab/react-layout': 0.5.5_cblrombbo6l3is5uften2t73da
+      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.8.1
+      '@dzangolab/react-user': 0.5.5_zwyn4qctltwppdf7saksbf5h7a
       '@reduxjs/toolkit': 1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
       normalize.css: 8.0.1
       react: 18.2.0
@@ -4037,18 +4037,18 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /@dzangolab/react-config/0.5.4:
-    resolution: {integrity: sha512-COIvHF/rHgFMw+BzbGFu6+kw5nlKt6nqsJCQ15reCfNhXEjGmasUvLXbW4U2dKGnJgzeD4VPk7M2qH/HRB1vPQ==}
+  /@dzangolab/react-config/0.5.5:
+    resolution: {integrity: sha512-8WiPTZm5tISQ1e/9FzndwB2RXDaPoIgwximfMLavlXMg8epQ2IDtLvv9pydSkVUGepYNXjOS4ulyp6EiKUs+hg==}
     dev: false
 
-  /@dzangolab/react-i18n/0.5.4_c76r6obot7b5nxnqua3gde4uyq:
-    resolution: {integrity: sha512-RLuuIOs9Tlxo2qP8u1B/ZNVOo+NLSzDZG3gKbvKsmqV4IJVJk2Jjcwj7zANIUV733gukreEjXNCM2SLAivwkYQ==}
+  /@dzangolab/react-i18n/0.5.5_ayiwowkt3u3pygl5brpjm4wn4u:
+    resolution: {integrity: sha512-SFZ5f0UkayprWiOpx0vRzXnIhni1NMTSQmtwGOVIswc11wR9q2FXqk9juUQ16lNt6mrs5mkcUf1AtT6tpaqr5A==}
     peerDependencies:
-      '@dzangolab/react-config': 0.5.4
+      '@dzangolab/react-config': 0.5.5
       react: '>=18.2'
       react-dom: '>=18.2'
     dependencies:
-      '@dzangolab/react-config': 0.5.4
+      '@dzangolab/react-config': 0.5.5
       i18next: 21.10.0
       i18next-browser-languagedetector: 6.1.8
       i18next-chained-backend: 4.2.0
@@ -4061,13 +4061,15 @@ packages:
       - react-native
     dev: false
 
-  /@dzangolab/react-layout/0.5.4_react-dom@18.2.0:
-    resolution: {integrity: sha512-55kr6CU/laSOS0qOjdosVxTfyXkn8p5WmPRQz6jzplKEALn8jYAxsve+JeliuQ52NnGsuN2FcDIbZo4fXg2TiA==}
+  /@dzangolab/react-layout/0.5.5_cblrombbo6l3is5uften2t73da:
+    resolution: {integrity: sha512-qhMwe9hZ2IwY+UXRdw6LoIzunk3wuheN51idvQuJKEu1dyLQleLRibd4VeWtoGrjTSECbrDrdFJn9Lg1A+/xxg==}
     engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      react-router-dom: 6.8.1
     dependencies:
-      '@dzangolab/react-config': 0.5.4
-      '@dzangolab/react-i18n': 0.5.4_c76r6obot7b5nxnqua3gde4uyq
-      '@dzangolab/react-ui': 0.5.4_react-router-dom@6.8.1
+      '@dzangolab/react-config': 0.5.5
+      '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
+      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.8.1
       react: 18.2.0
       react-icons: 4.7.1_react@18.2.0
       react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
@@ -4076,13 +4078,13 @@ packages:
       - react-native
     dev: false
 
-  /@dzangolab/react-ui/0.5.4_react-router-dom@6.8.1:
-    resolution: {integrity: sha512-JmfIBQI4gDUeH0S08aYC/r20xbsHtizztbzOLBM/GddG3Vrv8wJ3joFYmXjNuDWJT3VZDZSqzWaP4UbwwLZQag==}
+  /@dzangolab/react-ui/0.5.5_react-router-dom@6.8.1:
+    resolution: {integrity: sha512-PsSfMTy9phQejfoj3X9CkrOkuTa7TQrhxgzb8UVMYbD6FzC5NE0lMSSxgs/nwTdgayK/8aDWrJ0tzT+GrzvfiQ==}
     engines: {node: '>=16', pnpm: '>=7'}
     peerDependencies:
       react-router-dom: 6.8.1
     dependencies:
-      '@dzangolab/react-config': 0.5.4
+      '@dzangolab/react-config': 0.5.5
       '@tanstack/react-table': 8.7.9_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-debounce-input: 3.3.0_react@18.2.0
@@ -4091,20 +4093,20 @@ packages:
       react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
     dev: false
 
-  /@dzangolab/react-user/0.5.4_gbu7v5m2bfxekrvxbzexwwmu2q:
-    resolution: {integrity: sha512-8VEojbwUfLsGBFBkFjn4AB0oEVy2Y83RqKAyttJQPG5RMB09W4aar7VUjDPVjAx8dbq/+61juour74CaxQoJWQ==}
+  /@dzangolab/react-user/0.5.5_zwyn4qctltwppdf7saksbf5h7a:
+    resolution: {integrity: sha512-CHdb2hO4Mafk8OeNQ8i32EXOxB4OteHjO9jzlTk8V3VqfcUMVEmzdGRcyr9NADA/kQ+jbuuxfEX2Kv2YJdaleg==}
     engines: {node: '>=16', pnpm: '>=7'}
     peerDependencies:
-      '@dzangolab/react-i18n': 0.5.4
-      '@dzangolab/react-ui': 0.5.4
+      '@dzangolab/react-i18n': 0.5.5
+      '@dzangolab/react-ui': 0.5.5
       react: '>=18.2'
       react-dom: '>=18.2'
       react-router-dom: 6.8.1
     dependencies:
-      '@dzangolab/react-config': 0.5.4
-      '@dzangolab/react-i18n': 0.5.4_c76r6obot7b5nxnqua3gde4uyq
-      '@dzangolab/react-layout': 0.5.4_react-dom@18.2.0
-      '@dzangolab/react-ui': 0.5.4_react-router-dom@6.8.1
+      '@dzangolab/react-config': 0.5.5
+      '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
+      '@dzangolab/react-layout': 0.5.5_cblrombbo6l3is5uften2t73da
+      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.8.1
       formik: 2.2.9_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
