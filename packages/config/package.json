@@ -26,7 +26,7 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.28",
     "@vitest/coverage-c8": "0.28.5",
-    "eslint": "8.35.0",
+    "eslint": "8.36.0",
     "eslint-config-custom": "0.5.5",
     "jsdom": "20.0.3",
     "prettier": "2.8.3",
