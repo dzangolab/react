@@ -1,7 +1,7 @@
 {
   "name": "@dzangolab/demo-app",
   "homepage": "https://dzangolab.github.io/react",
-  "version": "0.1.0",
+  "version": "0.5.5",
   "private": true,
   "type": "module",
   "scripts": {

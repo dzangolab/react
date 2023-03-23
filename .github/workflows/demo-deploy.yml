@@ -17,6 +17,15 @@ jobs:
         node-version: [16.x]
 
     steps:
+      - uses: actions/checkout@v1
+
+      - name: Read package.json version
+        uses: dutscher/read-package-json-endpoint-actions@v1.3.37
+        id: package-json-endpoint
+
+      - name: Show version number
+        run: echo "${{ steps.package-json-endpoint.outputs.endpoint }}"
+
       - uses: actions/checkout@v3
         name: Use node ${{ matrix.node-version }}
 
@@ -33,7 +42,7 @@ jobs:
         env:
           VITE_API_BASE_URL: "https://api.monorepo.dzangolab.org"
           VITE_APP_TITLE: 'React Demo'
-          VITE_APP_VERSION: '0.5.3'
+          VITE_APP_VERSION: ${{ steps.package-json-endpoint.outputs.endpoint }}
           VITE_APP_BUILD: 'develop'
           VITE_APP_COPYRIGHT_HOLDER: 'Dzango Technologies Limited'
           VITE_APP_COPYRIGHT_HOLDER_URL: 'https://dzango.com'
