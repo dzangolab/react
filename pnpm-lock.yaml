@@ -133,7 +133,7 @@ importers:
       jsdom: 20.0.3
       prettier: 2.8.3
       react: 18.2.0
-      tsconfig: 0.5.5
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -147,7 +147,7 @@ importers:
       jsdom: 20.0.3
       prettier: 2.8.3
       react: 18.2.0
-      tsconfig: link:../../tools/tsconfig
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5_@types+node@18.11.18
       vitest: 0.28.5_jsdom@20.0.3
@@ -178,7 +178,7 @@ importers:
       react-i18next: 11.18.6
       react-outside-click-handler: 1.3.0
       react-test-renderer: 18.2.0
-      tsconfig: 0.5.5
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -208,7 +208,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-test-renderer: 18.2.0_react@18.2.0
-      tsconfig: link:../../tools/tsconfig
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5_@types+node@18.11.18
       vitest: 0.28.5
@@ -235,7 +235,7 @@ importers:
       react-icons: 4.7.1
       react-router-dom: 6.8.1
       react-test-renderer: 18.2.0
-      tsconfig: 0.5.5
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -261,7 +261,7 @@ importers:
       jsdom: 20.0.3
       prettier: 2.8.3
       react-test-renderer: 18.2.0_react@18.2.0
-      tsconfig: link:../../tools/tsconfig
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5_@types+node@18.11.18
       vitest: 0.28.5_jsdom@20.0.3
@@ -291,7 +291,7 @@ importers:
       react-outside-click-handler: 1.3.0
       react-router-dom: 6.8.1
       react-test-renderer: 18.2.0
-      tsconfig: 0.5.5
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5
       vitest: 0.28.5
@@ -320,7 +320,7 @@ importers:
       jsdom: 20.0.3
       prettier: 2.8.3
       react-test-renderer: 18.2.0_react@18.2.0
-      tsconfig: link:../../tools/tsconfig
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5_@types+node@18.11.18
       vitest: 0.28.5_jsdom@20.0.3
@@ -355,7 +355,7 @@ importers:
       react-test-renderer: 18.2.0
       react-toastify: 9.0.5
       supertokens-web-js: 0.4.0
-      tsconfig: 0.5.5
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5
       vitest: ^0.28.0
@@ -391,7 +391,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-test-renderer: 18.2.0_react@18.2.0
-      tsconfig: link:../../tools/tsconfig
+      tsconfig: 0.0.3
       typescript: 4.9.5
       vite: 3.2.5_@types+node@18.11.18
       vitest: 0.28.5_jsdom@20.0.3
@@ -11274,6 +11274,13 @@ packages:
     resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
     dev: true
 
+  /glob-expand/0.0.2:
+    resolution: {integrity: sha512-V7T7b7xanrS2mXnvCc4KyakQLV2G7wrtBVjf+IePWskZukv3DejEM6wYyJwIidFJKePXOxQN0B6EYpODDmLNZw==}
+    dependencies:
+      glob: 3.1.21
+      lodash: 1.2.1
+    dev: true
+
   /glob-parent/3.1.0:
     resolution: {integrity: sha512-E8Ak/2+dZY6fnzlR7+ueWvhsH1SjHr4jjss4YS/h4py44jY9MhK/VFdaZJAWDz6BbL21KeteKxFSFpq8OS5gVA==}
     dependencies:
@@ -11316,6 +11323,14 @@ packages:
 
   /glob-to-regexp/0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
+    dev: true
+
+  /glob/3.1.21:
+    resolution: {integrity: sha512-ANhy2V2+tFpRajE3wN4DhkNQ08KDr0Ir1qL12/cUe5+a7STEK8jkW4onUYuY8/06qAFuT5je7mjAqzx0eKI2tQ==}
+    dependencies:
+      graceful-fs: 1.2.3
+      inherits: 1.0.2
+      minimatch: 0.2.14
     dev: true
 
   /glob/7.2.3:
@@ -11412,6 +11427,12 @@ packages:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
       get-intrinsic: 1.1.3
+
+  /graceful-fs/1.2.3:
+    resolution: {integrity: sha512-iiTUZ5vZ+2ZV+h71XAgwCSu6+NAizhFU3Yw8aC/hH5SQ3SnISqEqAek40imAFGtDcwJKNhXvSY+hzIolnLwcdQ==}
+    engines: {node: '>=0.4.0'}
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+    dev: true
 
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
@@ -11805,6 +11826,10 @@ packages:
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
+
+  /inherits/1.0.2:
+    resolution: {integrity: sha512-Al67oatbRSo3RV5hRqIoln6Y5yMVbJSIn4jEJNL7VCImzq/kLr7vvb6sFRJXqr8rpHc/2kJOM+y0sPKN47VdzA==}
+    dev: true
 
   /inherits/2.0.1:
     resolution: {integrity: sha512-8nWq2nLTAwd02jTqJExUYFSD/fKq6VH9Y/oG2accc/kdI0V98Bag8d5a4gi3XHz73rDWa2PvTtvcWYquKqSENA==}
@@ -12856,6 +12881,11 @@ packages:
     resolution: {integrity: sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==}
     dev: true
 
+  /lodash/1.2.1:
+    resolution: {integrity: sha512-EKI82Edm8glH3FUu17sQIF+Ly1cW2ROPc0qgf1L4DBUysBlQVL+/b+WtufJw0O8FtMo7Vq9KTrzUboyWSgW/tg==}
+    engines: {'0': node, '1': rhino}
+    dev: true
+
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -12875,6 +12905,10 @@ packages:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
       tslib: 2.4.1
+    dev: true
+
+  /lru-cache/2.7.3:
+    resolution: {integrity: sha512-WpibWJ60c3AgAz8a2iYErDrcT2C7OmKnsWhIcHOjkUHFjkXncJhtLxNSqUmxRxRunpb5I8Vprd7aNSd2NtksJQ==}
     dev: true
 
   /lru-cache/5.1.1:
@@ -13166,6 +13200,14 @@ packages:
 
   /minimalistic-crypto-utils/1.0.1:
     resolution: {integrity: sha512-JIYlbt6g8i5jKfJ3xz7rF0LXmv2TkDxBLUkiBeZ7bAx4GnnNMr8xFpGnOxn6GhTEHx3SjRrZEoU+j04prX1ktg==}
+    dev: true
+
+  /minimatch/0.2.14:
+    resolution: {integrity: sha512-zZ+Jy8lVWlvqqeM8iZB7w7KmQkoJn8djM585z88rywrEbzoqawVa9FR5p2hwD+y74nfuKOjmNvi9gtWJNLqHvA==}
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
     dev: true
 
   /minimatch/3.1.2:
@@ -15237,6 +15279,10 @@ packages:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
     dev: true
 
+  /sigmund/1.0.1:
+    resolution: {integrity: sha512-fCvEXfh6NWpm+YSuY2bpXb/VIihqWA6hLsgboC+0nl71Q7N7o2eaCW8mJa/NLvQhs6jpd3VZV4UiUQlV6+lc8g==}
+    dev: true
+
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
     dev: true
@@ -16001,6 +16047,13 @@ packages:
       json5: 1.0.1
       minimist: 1.2.7
       strip-bom: 3.0.0
+
+  /tsconfig/0.0.3:
+    resolution: {integrity: sha512-KDCuEmEDpSgqOKiv+Ztv4y98vMqgjfwckiobMWgbgdJlFFxJwEqWHNohEcfzEAorGUQIgC8Gy/RgFuf3wWE72Q==}
+    dependencies:
+      glob-expand: 0.0.2
+      js-yaml: 3.14.1
+    dev: true
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
