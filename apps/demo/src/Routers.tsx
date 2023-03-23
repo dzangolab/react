@@ -1,17 +1,15 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import {
-  createHashRouter,
-  RouteObject,
-  RouterProvider,
-} from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import config from "./config";
 import { BasicLayout } from "./layouts/BasicLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
 import Home from "./Views/Home";
-import ListPage from "./Views/ListPage";
+import I18n from "./Views/I18n";
+import Layout from "./Views/Layout";
+import Ui from "./Views/Ui";
+import User from "./Views/User";
 
-const routes = (childrenRoutes: RouteObject[]) => {
+const routes = () => {
   return createHashRouter([
     {
       path: "/",
@@ -26,25 +24,29 @@ const routes = (childrenRoutes: RouteObject[]) => {
             />
           ),
         },
-        ...childrenRoutes,
+        {
+          path: "/i18n",
+          element: <I18n />,
+        },
+        {
+          path: "/layout",
+          element: <Layout />,
+        },
+        {
+          path: "/ui",
+          element: <Ui />,
+        },
+        {
+          path: "/user",
+          element: <User />,
+        },
       ],
     },
   ]);
 };
 
 const Routers = () => {
-  const { t } = useTranslation();
-
-  const childrenRoutes: RouteObject[] = config.layout?.mainMenu
-    ? config.layout.mainMenu.map((route) => {
-        return {
-          path: route.route,
-          element: <ListPage pageTitle={t(route.name)} />,
-        };
-      })
-    : [];
-
-  return <RouterProvider router={routes(childrenRoutes)} />;
+  return <RouterProvider router={routes()} />;
 };
 
 export default Routers;
