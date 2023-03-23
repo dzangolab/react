@@ -1,0 +1,15 @@
+button.btn-back {
+  font-size: xx-large;
+  border: unset;
+  background-color: unset;
+  border-radius: 100%;
+  padding: 0.3rem;
+  width: 3rem;
+  margin-right: 0.7rem;
+}
+
+button.btn-back:hover {
+  cursor: pointer;
+  color: unset;
+  background-color: aliceblue;
+}

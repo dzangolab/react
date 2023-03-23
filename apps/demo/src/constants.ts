@@ -1,0 +1,9 @@
+enum UI_COMPONENTS_MAPPING {
+  LOADING_ICON = 1,
+}
+
+const UI_COMPONENTS = [
+  { key: UI_COMPONENTS_MAPPING.LOADING_ICON, value: "Loading Icon" },
+];
+
+export { UI_COMPONENTS, UI_COMPONENTS_MAPPING };
