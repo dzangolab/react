@@ -36,8 +36,8 @@
     "@types/react-dom": "18.0.11",
     "@types/react-test-renderer": "18.0.0",
     "@vitejs/plugin-react": "2.1.0",
-    "@vitest/coverage-c8": "0.28.5",
-    "eslint": "8.35.0",
+    "@vitest/coverage-c8": "0.29.7",
+    "eslint": "8.36.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-cypress": "^2.12.1",
@@ -51,6 +51,6 @@
     "vite": "3.1.7",
     "vite-plugin-compression": "0.5.1",
     "vite-plugin-html": "3.2.0",
-    "vitest": "0.28.5"
+    "vitest": "0.29.7"
   }
 }
