@@ -9,7 +9,6 @@ const Card = ({ title, onClick }: Properties) => {
   return (
     <div className="card" onClick={onClick}>
       <h1>{title}</h1>
-      <button>&gt;</button>
     </div>
   );
 };
