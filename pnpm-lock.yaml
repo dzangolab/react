@@ -35,7 +35,7 @@ importers:
       '@vitejs/plugin-react': 2.1.0
       '@vitest/coverage-c8': 0.29.7
       eslint: 8.36.0
-      eslint-config-prettier: 8.6.0
+      eslint-config-prettier: 8.8.0
       eslint-config-react-app: 7.0.1
       eslint-plugin-cypress: ^2.12.1
       eslint-plugin-import: 2.27.5
@@ -76,11 +76,11 @@ importers:
       '@vitejs/plugin-react': 2.1.0_vite@3.1.7
       '@vitest/coverage-c8': 0.29.7_vitest@0.29.7
       eslint: 8.36.0
-      eslint-config-prettier: 8.6.0_eslint@8.36.0
+      eslint-config-prettier: 8.8.0_eslint@8.36.0
       eslint-config-react-app: 7.0.1_oetr3kuzbjncgm24ninkrag7ya
       eslint-plugin-cypress: 2.12.1_eslint@8.36.0
       eslint-plugin-import: 2.27.5_eslint@8.36.0
-      eslint-plugin-prettier: 4.2.1_ragj3jbpu3iubty44yuqyysk3a
+      eslint-plugin-prettier: 4.2.1_ose2zoovovx4ulolhifz3tfzx4
       eslint-plugin-unicorn: 44.0.2_eslint@8.36.0
       jsdom: 20.0.1
       prettier: 2.8.6
@@ -401,7 +401,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.48.2
       '@typescript-eslint/parser': 5.48.2
       eslint: 8.36.0
-      eslint-config-prettier: 8.6.0
+      eslint-config-prettier: 8.8.0
       eslint-config-turbo: 0.0.10
       eslint-import-resolver-alias: 1.1.2
       eslint-import-resolver-typescript: 3.5.3
@@ -415,12 +415,12 @@ importers:
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.48.2_7ywdfwkmzyedbdluuyuhbhjy6m
       '@typescript-eslint/parser': 5.48.2_vgl77cfdswitgr47lm5swmv43m
-      eslint-config-prettier: 8.6.0_eslint@8.36.0
+      eslint-config-prettier: 8.8.0_eslint@8.36.0
       eslint-config-turbo: 0.0.10_eslint@8.36.0
       eslint-import-resolver-alias: 1.1.2_5rfvta7qn57kxm7ir36ta6fixq
       eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
       eslint-plugin-import: 2.27.5_dqwds25wucaav6yq2kspbzly6u
-      eslint-plugin-prettier: 4.2.1_ragj3jbpu3iubty44yuqyysk3a
+      eslint-plugin-prettier: 4.2.1_ose2zoovovx4ulolhifz3tfzx4
       eslint-plugin-promise: 6.1.1_eslint@8.36.0
       eslint-plugin-react: 7.32.2_eslint@8.36.0
       eslint-plugin-unicorn: 45.0.2_eslint@8.36.0
@@ -8824,8 +8824,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-prettier/8.6.0_eslint@8.36.0:
-    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
+  /eslint-config-prettier/8.8.0_eslint@8.36.0:
+    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -9164,7 +9164,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_ragj3jbpu3iubty44yuqyysk3a:
+  /eslint-plugin-prettier/4.2.1_ose2zoovovx4ulolhifz3tfzx4:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -9176,7 +9176,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.36.0
-      eslint-config-prettier: 8.6.0_eslint@8.36.0
+      eslint-config-prettier: 8.8.0_eslint@8.36.0
       prettier: 2.8.6
       prettier-linter-helpers: 1.0.0
 
