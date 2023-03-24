@@ -7,9 +7,9 @@ interface Properties {
 
 const Card = ({ title, onClick }: Properties) => {
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       <h1>{title}</h1>
-      <button onClick={onClick}>&gt;</button>
+      <button>&gt;</button>
     </div>
   );
 };
