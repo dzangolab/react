@@ -2,9 +2,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 import Card from "../../components/Card";
+import PageWrapper from "../../components/PageWrapper";
 import { UI_COMPONENTS, UI_COMPONENTS_MAPPING } from "../../constants";
-
-import "./index.css";
 
 const Ui = () => {
   const { t } = useTranslation();
@@ -30,22 +29,10 @@ const Ui = () => {
       switch (selectedComponent.key) {
         case 1:
           return (
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <button
-                  className="btn-back"
-                  onClick={() => setSelectedComponent(null)}
-                >
-                  &lt;-
-                </button>
-                <h2>{selectedComponent.value}</h2>
-              </div>
+            <PageWrapper
+              onBack={() => setSelectedComponent(null)}
+              title={selectedComponent.value}
+            >
               <div
                 style={{
                   display: "flex",
@@ -56,7 +43,7 @@ const Ui = () => {
               >
                 <LoadingIcon color={"black"} fontSize={"0.5rem"} />
               </div>
-            </div>
+            </PageWrapper>
           );
         default:
           return null;

@@ -1,0 +1,20 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper > .page-header {
+  display: flex;
+  align-items: center;
+}
+
+button.btn-back {
+  font-size: xx-large;
+  border: unset;
+  border-radius: 100%;
+  padding: 0.3rem;
+  width: 3rem;
+  margin-right: 0.7rem;
+  cursor: pointer;
+  background-color: rgb(206, 226, 242);
+}
