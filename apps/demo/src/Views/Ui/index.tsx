@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
+
 import Card from "../../components/Card";
 import PageWrapper from "../../components/PageWrapper";
 import { UI_COMPONENTS, UI_COMPONENTS_MAPPING } from "../../constants";
