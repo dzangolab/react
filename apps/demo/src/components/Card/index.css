@@ -1,32 +1,32 @@
 .card {
+  align-items: center;
+  border-radius: 7px;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #535353;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
   margin: 5px 0;
-  border-radius: 7px;
-  cursor: pointer;
-  color: #535353;
+  padding: 10px 30px;
 }
 
 .card:hover {
   color: unset;
+  scale: 1.01;
+}
+
+.card:hover > button {
+  background-color: aliceblue;
+  color: unset;
 }
 
 .card > button {
-  font-size: xx-large;
-  border: unset;
   background-color: unset;
   border-radius: 100%;
+  border: unset;
+  color: #535353;
+  font-size: xx-large;
   padding: 0.3rem;
   width: 3rem;
-  color: #535353;
-}
-
-.card > button:hover {
-  cursor: pointer;
-  color: unset;
-  background-color: aliceblue;
 }
