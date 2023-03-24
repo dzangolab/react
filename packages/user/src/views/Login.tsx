@@ -37,7 +37,7 @@ const Login = () => {
     });
 
     if (result?.user) {
-      if (appConfig && (await verifySession(appConfig.user.appContext))) {
+      if (appConfig && (await verifySession(appConfig.user.supportedRoles))) {
         await setUserData(result.user);
         setUser(result.user);
         setShowRedirectionMessage(false);
