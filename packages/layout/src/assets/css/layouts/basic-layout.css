@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: var(--basic-layout-gap, 0.8rem);
+  gap: var(--basic-layout-gap, 0);
   z-index: 0;
 }
 

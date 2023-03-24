@@ -21,7 +21,7 @@
     "header header header header"
     "menu main main main "
     "footer footer footer footer ";
-  gap: var(--basic-layout-gap, 0.8rem);
+  gap: var(--basic-layout-gap, 0);
   grid-template-rows: 5rem 1fr 5rem;
   grid-template-columns: max-content 1fr;
 }
