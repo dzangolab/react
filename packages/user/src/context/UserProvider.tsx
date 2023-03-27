@@ -22,7 +22,7 @@ const UserProvider = ({ children }: Properties) => {
         if (
           appConfig &&
           (await verifySession(
-            appConfig.user.appContext,
+            appConfig.user.supportedRoles,
             appConfig.user.redirectTo.appURL
           ))
         ) {

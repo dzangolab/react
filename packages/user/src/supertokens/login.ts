@@ -43,16 +43,24 @@ const login = async (
 };
 
 async function verifySession(
-  claim: string,
+  claims: string[],
   redirectURL?: string
 ): Promise<boolean> {
   if (await Session.doesSessionExist()) {
+    let errorCount = 0;
+
     const validationErrors = await Session.validateClaims({
-      overrideGlobalClaimValidators: (globalValidators) => [
-        ...globalValidators,
-        UserRoleClaim.validators.includes(claim),
-        /* PermissionClaim.validators.includes("modify") */
-      ],
+      overrideGlobalClaimValidators: (globalValidators) => {
+        const validators = claims.map((claim) =>
+          UserRoleClaim.validators.includes(claim)
+        );
+
+        return [
+          ...globalValidators,
+          ...validators,
+          /* PermissionClaim.validators.includes("modify") */
+        ];
+      },
     });
 
     if (validationErrors.length === 0) {
@@ -62,15 +70,22 @@ async function verifySession(
     for (const err of validationErrors) {
       if (err.validatorId === UserRoleClaim.id) {
         // user roles claim check failed
-        if (redirectURL) {
-          window.location.href = redirectURL;
-        } else {
-          await removeUserData();
-          await logout();
-        }
-        // toast.error("You don't have permission for the app");
+        errorCount += 1;
       } else {
         // some other claim check failed (from the global validators list)
+      }
+    }
+
+    if (errorCount < claims.length) {
+      // some user roles claim check passed
+      return true;
+    } else {
+      // all user roles claim check failed
+      if (redirectURL) {
+        window.location.href = redirectURL;
+      } else {
+        await removeUserData();
+        await logout();
       }
     }
   }

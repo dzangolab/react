@@ -5,6 +5,7 @@ import UserProvider, { userContext } from "./context/UserProvider";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import superTokens from "./supertokens";
+import { verifySession } from "./supertokens/login";
 import UserToastContainer from "./toastify";
 import { DzangolabReactUserConfig, UserContextType, UserType } from "./types";
 import ChangePassword from "./views/ChangePassword";
@@ -30,14 +31,15 @@ export {
   Profile,
   ResetPassword,
   Signup,
-  UserEnabledSidebarLayout,
   UserEnabledBasicLayout,
+  UserEnabledSidebarLayout,
   UserMenu,
-  UsersTable,
   UserProvider,
   UserToastContainer,
+  UsersTable,
   superTokens,
   userContext,
+  verifySession,
 };
 
 export type { UserContextType, UserType };

@@ -1,7 +1,7 @@
 import type { RouteOverrides } from "./router";
 
 interface DzangolabReactUserConfig {
-  appContext: string;
+  supportedRoles: string[];
   redirectTo: {
     appName: string;
     appURL: string;

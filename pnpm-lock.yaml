@@ -55,11 +55,11 @@ importers:
       vite-plugin-html: 3.2.0
       vitest: 0.29.7
     dependencies:
-      '@dzangolab/react-config': link:../../packages/config
-      '@dzangolab/react-i18n': link:../../packages/i18n
-      '@dzangolab/react-layout': link:../../packages/layout
-      '@dzangolab/react-ui': link:../../packages/ui
-      '@dzangolab/react-user': link:../../packages/user
+      '@dzangolab/react-config': 0.5.5
+      '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
+      '@dzangolab/react-layout': 0.5.5_psp6wfgzuhv3mqltzeittmvqe4
+      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.9.0
+      '@dzangolab/react-user': 0.5.5_w4bgv3u5z3xlibec7wp7oxbvva
       '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
       normalize.css: 8.0.1
       react: 18.2.0
@@ -3173,6 +3173,88 @@ packages:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
     dev: true
+
+  /@dzangolab/react-config/0.5.5:
+    resolution: {integrity: sha512-8WiPTZm5tISQ1e/9FzndwB2RXDaPoIgwximfMLavlXMg8epQ2IDtLvv9pydSkVUGepYNXjOS4ulyp6EiKUs+hg==}
+    dev: false
+
+  /@dzangolab/react-i18n/0.5.5_ayiwowkt3u3pygl5brpjm4wn4u:
+    resolution: {integrity: sha512-SFZ5f0UkayprWiOpx0vRzXnIhni1NMTSQmtwGOVIswc11wR9q2FXqk9juUQ16lNt6mrs5mkcUf1AtT6tpaqr5A==}
+    peerDependencies:
+      '@dzangolab/react-config': 0.5.5
+      react: '>=18.2'
+      react-dom: '>=18.2'
+    dependencies:
+      '@dzangolab/react-config': 0.5.5
+      i18next: 21.10.0
+      i18next-browser-languagedetector: 6.1.8
+      i18next-chained-backend: 4.2.0
+      i18next-resources-to-backend: 1.1.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-i18next: 11.18.6_vfm63zmruocgezzfl2v26zlzpy
+      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - react-native
+    dev: false
+
+  /@dzangolab/react-layout/0.5.5_psp6wfgzuhv3mqltzeittmvqe4:
+    resolution: {integrity: sha512-qhMwe9hZ2IwY+UXRdw6LoIzunk3wuheN51idvQuJKEu1dyLQleLRibd4VeWtoGrjTSECbrDrdFJn9Lg1A+/xxg==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      react-router-dom: 6.8.1
+    dependencies:
+      '@dzangolab/react-config': 0.5.5
+      '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
+      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.9.0
+      react: 18.2.0
+      react-icons: 4.7.1_react@18.2.0
+      react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - react-dom
+      - react-native
+    dev: false
+
+  /@dzangolab/react-ui/0.5.5_react-router-dom@6.9.0:
+    resolution: {integrity: sha512-PsSfMTy9phQejfoj3X9CkrOkuTa7TQrhxgzb8UVMYbD6FzC5NE0lMSSxgs/nwTdgayK/8aDWrJ0tzT+GrzvfiQ==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      react-router-dom: 6.8.1
+    dependencies:
+      '@dzangolab/react-config': 0.5.5
+      '@tanstack/react-table': 8.7.9_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-debounce-input: 3.3.0_react@18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
+  /@dzangolab/react-user/0.5.5_w4bgv3u5z3xlibec7wp7oxbvva:
+    resolution: {integrity: sha512-CHdb2hO4Mafk8OeNQ8i32EXOxB4OteHjO9jzlTk8V3VqfcUMVEmzdGRcyr9NADA/kQ+jbuuxfEX2Kv2YJdaleg==}
+    engines: {node: '>=16', pnpm: '>=7'}
+    peerDependencies:
+      '@dzangolab/react-i18n': 0.5.5
+      '@dzangolab/react-ui': 0.5.5
+      react: '>=18.2'
+      react-dom: '>=18.2'
+      react-router-dom: 6.8.1
+    dependencies:
+      '@dzangolab/react-config': 0.5.5
+      '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
+      '@dzangolab/react-layout': 0.5.5_psp6wfgzuhv3mqltzeittmvqe4
+      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.9.0
+      formik: 2.2.9_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
+      react-toastify: 9.0.5_biqbaboplfbrettd7655fr4n2y
+      supertokens-web-js: 0.4.0
+      yup: 0.32.11
+    transitivePeerDependencies:
+      - react-native
+    dev: false
 
   /@emotion/use-insertion-effect-with-fallbacks/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-1eEgUGmkaljiBnRMTdksDV1W4kUnmwgp7X9G8B++9GYwl1lUdqSndSriIrTJ0N7LQaoauY9JJ2yhiOYK5+NI4A==}
