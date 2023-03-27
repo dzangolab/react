@@ -34,7 +34,6 @@ export default defineConfig(({ mode }) => {
             react: "React",
             "react-dom": "ReactDom",
             "react-i18next": "ReactI18next",
-            "react-outside-click-handler": "ReactOutsideClickHandler",
           },
         },
       },

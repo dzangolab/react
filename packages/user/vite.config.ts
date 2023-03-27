@@ -35,7 +35,6 @@ export default defineConfig(({ mode }) => {
             "react-dom": "ReactDom",
             "react-router-dom": "ReactRouterDom",
             "react-toastify": "ReactToastify",
-            "react-outside-click-handler": "ReactOutsideClickHandler",
             "supertokens-web-js": "SuperTokensWebJs",
           },
         },

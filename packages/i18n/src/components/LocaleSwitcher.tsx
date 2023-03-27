@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import OutsideClickHandler from "react-outside-click-handler";
 
 import "../css/locale-switcher.css";
 
 const LocaleSwitcher = () => {
   const [expanded, setExpanded] = useState(false);
+  const navBarReference = useRef<HTMLElement | null>(null);
 
   const { i18n, t } = useTranslation("locales");
 
@@ -31,24 +31,36 @@ const LocaleSwitcher = () => {
         );
       });
 
-  return (
-    <OutsideClickHandler
-      onOutsideClick={() => {
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        expanded &&
+        navBarReference.current &&
+        !navBarReference.current.contains(event.target as Node)
+      ) {
         setExpanded(false);
-      }}
-    >
-      <nav className={`locale-switcher ${expanded ? "expanded" : ""}`}>
-        <div
-          className="locale truncated"
-          onClick={() => setExpanded(!expanded)}
-        >
-          {t(`locales.${i18n.language}`)}
-          <span className={"truncated"}>&#9662;</span>
-        </div>
+      }
+    }
 
-        {expanded && <ul className="dropdown">{locales}</ul>}
-      </nav>
-    </OutsideClickHandler>
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [expanded, navBarReference]);
+
+  return (
+    <nav
+      ref={navBarReference}
+      className={`locale-switcher ${expanded ? "expanded" : ""}`}
+    >
+      <div className="locale truncated" onClick={() => setExpanded(!expanded)}>
+        {t(`locales.${i18n.language}`)}
+        <span className={"truncated"}>&#9662;</span>
+      </div>
+
+      {expanded && <ul className="dropdown">{locales}</ul>}
+    </nav>
   );
 };
 

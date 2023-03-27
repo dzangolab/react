@@ -1,21 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div>
-  <nav
-    className="user-menu "
+<nav
+  className="user-menu "
+>
+  <div
+    className="email"
+    onClick={[Function]}
   >
-    <div
-      className="email"
-      onClick={[Function]}
+    test@gmail.com
+    <span
+      className="toggle"
     >
-      test@gmail.com
-      <span
-        className="toggle"
-      >
-        ▾
-      </span>
-    </div>
-  </nav>
-</div>
+      ▾
+    </span>
+  </div>
+</nav>
 `;

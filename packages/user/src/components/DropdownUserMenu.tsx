@@ -19,7 +19,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
   const { user, setUser } = useUser();
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation("user");
-  const navBar = useRef<HTMLElement | null>(null);
+  const navBarReference = useRef<HTMLElement | null>(null);
 
   const signout = async () => {
     if (await logout()) {
@@ -51,8 +51,8 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
     function handleClickOutside(event: MouseEvent) {
       if (
         expanded &&
-        navBar.current &&
-        !navBar.current.contains(event.target as Node)
+        navBarReference.current &&
+        !navBarReference.current.contains(event.target as Node)
       ) {
         setExpanded(false);
       }
@@ -63,10 +63,13 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [expanded, navBar]);
+  }, [expanded, navBarReference]);
 
   return (
-    <nav ref={navBar} className={`user-menu ${expanded ? "expanded" : ""}`}>
+    <nav
+      ref={navBarReference}
+      className={`user-menu ${expanded ? "expanded" : ""}`}
+    >
       <div className="email" onClick={() => setExpanded(!expanded)}>
         {user?.email}
         <span className={"toggle"}>&#9662;</span>

@@ -1,21 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div>
-  <nav
-    className="locale-switcher "
+<nav
+  className="locale-switcher "
+>
+  <div
+    className="locale truncated"
+    onClick={[Function]}
   >
-    <div
-      className="locale truncated"
-      onClick={[Function]}
+    locales.en
+    <span
+      className="truncated"
     >
-      locales.en
-      <span
-        className="truncated"
-      >
-        ▾
-      </span>
-    </div>
-  </nav>
-</div>
+      ▾
+    </span>
+  </div>
+</nav>
 `;
