@@ -1,3 +1,23 @@
+# [0.6.0](https://github.com/dzangolab/react/compare/v0.5.5...v0.6.0) (2023-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @reduxjs/toolkit to v1.9.3 ([#189](https://github.com/dzangolab/react/issues/189)) ([b447ecb](https://github.com/dzangolab/react/commit/b447ecb3f990d495c4e81ad4548a8d81882d45a6))
+* **deps:** update dependency eslint-config-prettier to v8.8.0 ([#259](https://github.com/dzangolab/react/issues/259)) ([eecff48](https://github.com/dzangolab/react/commit/eecff48d950f1448dbe99a943f9b2277e1a8b7f6))
+* **deps:** update dependency eslint-config-turbo to v0.0.10 ([#230](https://github.com/dzangolab/react/issues/230)) ([015de80](https://github.com/dzangolab/react/commit/015de809744c9175a82a351e5ef78057764af2f5))
+* **deps:** update dependency react-icons to v4.8.0 ([#260](https://github.com/dzangolab/react/issues/260)) ([7f7f162](https://github.com/dzangolab/react/commit/7f7f1626d04cb2aecc952df8a3e5c601e380384a))
+* **layout:** edit sidebar style ([#240](https://github.com/dzangolab/react/issues/240)) ([a7d32f0](https://github.com/dzangolab/react/commit/a7d32f067536b8e4088181e9d7b12ca4175bc023))
+
+
+### Features
+
+* add home page ([#251](https://github.com/dzangolab/react/issues/251)) ([a40f0c7](https://github.com/dzangolab/react/commit/a40f0c7dc7f601dc9bfe6fdbb5806f9796ea20d2))
+* **demo:** show loading component in ui page ([#261](https://github.com/dzangolab/react/issues/261)) ([221e53b](https://github.com/dzangolab/react/commit/221e53b1c03171a58ba31d0228a5a571906184d6))
+* support multiple user roles ([#274](https://github.com/dzangolab/react/issues/274)) ([6060bfe](https://github.com/dzangolab/react/commit/6060bfef5dc831556abb62c6db8436e8017c09cb))
+
+
+
 ## [0.5.5](https://github.com/dzangolab/react/compare/v0.5.4...v0.5.5) (2023-03-23)
 
 
