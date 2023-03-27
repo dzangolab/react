@@ -18,7 +18,7 @@
   "dependencies": {
     "@dzangolab/react-config": "0.5.5",
     "@dzangolab/react-i18n": "0.5.5",
-    "@dzangolab/react-layout": "0.5.5",
+    "@dzangolab/react-layout": "0.6.0",
     "@dzangolab/react-ui": "0.5.5",
     "@dzangolab/react-user": "0.5.5",
     "@reduxjs/toolkit": "1.9.3",

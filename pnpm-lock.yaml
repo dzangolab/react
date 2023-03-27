@@ -22,7 +22,7 @@ importers:
     specifiers:
       '@dzangolab/react-config': 0.5.5
       '@dzangolab/react-i18n': 0.5.5
-      '@dzangolab/react-layout': 0.5.5
+      '@dzangolab/react-layout': 0.6.0
       '@dzangolab/react-ui': 0.5.5
       '@dzangolab/react-user': 0.5.5
       '@reduxjs/toolkit': 1.9.3
@@ -57,7 +57,7 @@ importers:
     dependencies:
       '@dzangolab/react-config': 0.5.5
       '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
-      '@dzangolab/react-layout': 0.5.5_psp6wfgzuhv3mqltzeittmvqe4
+      '@dzangolab/react-layout': link:../../packages/layout
       '@dzangolab/react-ui': 0.5.5_react-router-dom@6.9.0
       '@dzangolab/react-user': 0.5.5_w4bgv3u5z3xlibec7wp7oxbvva
       '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
@@ -6204,7 +6204,7 @@ packages:
       c8: 7.13.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.29.7_jsdom@20.0.3
+      vitest: 0.29.7_jsdom@20.0.1
     dev: true
 
   /@vitest/expect/0.29.7:
