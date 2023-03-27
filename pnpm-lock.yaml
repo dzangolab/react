@@ -23,7 +23,7 @@ importers:
       '@dzangolab/react-config': 0.5.5
       '@dzangolab/react-i18n': 0.5.5
       '@dzangolab/react-layout': 0.5.5
-      '@dzangolab/react-ui': 0.5.5
+      '@dzangolab/react-ui': 0.6.0
       '@dzangolab/react-user': 0.5.5
       '@reduxjs/toolkit': 1.9.3
       '@testing-library/react': 13.4.0
@@ -58,8 +58,8 @@ importers:
       '@dzangolab/react-config': 0.5.5
       '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
       '@dzangolab/react-layout': 0.5.5_psp6wfgzuhv3mqltzeittmvqe4
-      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.9.0
-      '@dzangolab/react-user': 0.5.5_w4bgv3u5z3xlibec7wp7oxbvva
+      '@dzangolab/react-ui': link:../../packages/ui
+      '@dzangolab/react-user': 0.5.5_v3abx62f5nyhd2mab7du42qbx4
       '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
       normalize.css: 8.0.1
       react: 18.2.0
@@ -3230,7 +3230,7 @@ packages:
       react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
     dev: false
 
-  /@dzangolab/react-user/0.5.5_w4bgv3u5z3xlibec7wp7oxbvva:
+  /@dzangolab/react-user/0.5.5_v3abx62f5nyhd2mab7du42qbx4:
     resolution: {integrity: sha512-CHdb2hO4Mafk8OeNQ8i32EXOxB4OteHjO9jzlTk8V3VqfcUMVEmzdGRcyr9NADA/kQ+jbuuxfEX2Kv2YJdaleg==}
     engines: {node: '>=16', pnpm: '>=7'}
     peerDependencies:
@@ -3243,7 +3243,7 @@ packages:
       '@dzangolab/react-config': 0.5.5
       '@dzangolab/react-i18n': 0.5.5_ayiwowkt3u3pygl5brpjm4wn4u
       '@dzangolab/react-layout': 0.5.5_psp6wfgzuhv3mqltzeittmvqe4
-      '@dzangolab/react-ui': 0.5.5_react-router-dom@6.9.0
+      '@dzangolab/react-ui': link:packages/ui
       formik: 2.2.9_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -6204,7 +6204,7 @@ packages:
       c8: 7.13.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.29.7_jsdom@20.0.3
+      vitest: 0.29.7_jsdom@20.0.1
     dev: true
 
   /@vitest/expect/0.29.7:
