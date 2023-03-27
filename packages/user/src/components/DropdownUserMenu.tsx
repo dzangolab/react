@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useId, useState } from "react";
-import OutsideClickHandler from "react-outside-click-handler";
+import { useId, useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
@@ -20,6 +19,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
   const { user, setUser } = useUser();
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation("user");
+  const navBar = useRef<HTMLElement | null>(null);
 
   const signout = async () => {
     if (await logout()) {
@@ -45,39 +45,50 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
   };
 
   const fallbackItems = [profileRoute, signoutRoute];
-
   const menuItems = userMenu ? [...userMenu, ...fallbackItems] : fallbackItems;
 
-  return (
-    <OutsideClickHandler
-      onOutsideClick={() => {
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        expanded &&
+        navBar.current &&
+        !navBar.current.contains(event.target as Node)
+      ) {
         setExpanded(false);
-      }}
-    >
-      <nav className={`user-menu ${expanded ? "expanded" : ""}`}>
-        <div className="email" onClick={() => setExpanded(!expanded)}>
-          {user?.email}
-          <span className={"toggle"}>&#9662;</span>
-        </div>
+      }
+    }
 
-        {expanded && (
-          <ul className="dropdown">
-            {menuItems.map(({ name, onClick, route }) => (
-              <DropdownUserMenuItem
-                onClick={() => {
-                  onClick && onClick();
-                  collapseItems();
-                }}
-                route={route}
-                key={`${id}__${name}`}
-              >
-                {t(name)}
-              </DropdownUserMenuItem>
-            ))}
-          </ul>
-        )}
-      </nav>
-    </OutsideClickHandler>
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [expanded, navBar]);
+
+  return (
+    <nav ref={navBar} className={`user-menu ${expanded ? "expanded" : ""}`}>
+      <div className="email" onClick={() => setExpanded(!expanded)}>
+        {user?.email}
+        <span className={"toggle"}>&#9662;</span>
+      </div>
+
+      {expanded && (
+        <ul className="dropdown">
+          {menuItems.map(({ name, onClick, route }) => (
+            <DropdownUserMenuItem
+              onClick={() => {
+                onClick && onClick();
+                collapseItems();
+              }}
+              route={route}
+              key={`${id}__${name}`}
+            >
+              {t(name)}
+            </DropdownUserMenuItem>
+          ))}
+        </ul>
+      )}
+    </nav>
   );
 };
 
