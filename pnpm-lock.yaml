@@ -270,7 +270,7 @@ importers:
     specifiers:
       '@dzangolab/react-config': 0.6.0
       '@storybook/react': 7.0.0-rc.7
-      '@tanstack/react-table': 8.7.9
+      '@tanstack/react-table': 8.8.4
       '@testing-library/react': 13.4.0
       '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
@@ -297,7 +297,7 @@ importers:
       vitest: 0.29.7
     dependencies:
       '@dzangolab/react-config': link:../config
-      '@tanstack/react-table': 8.7.9_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-table': 8.8.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-debounce-input: 3.3.0_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -5376,8 +5376,25 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /@tanstack/react-table/8.8.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-5w2AoBnDBJYuUa80sLOqelcG/eJdGwIPFBRnEiU3RCAEeZ1QIhYse/0vzhTY8VAcTXa2sjWhXNDWci4VlktNmg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.8.4
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@tanstack/table-core/8.7.9:
     resolution: {integrity: sha512-4RkayPMV1oS2SKDXfQbFoct1w5k+pvGpmX18tCXMofK/VDRdA2hhxfsQlMvsJ4oTX8b0CI4Y3GDKn5T425jBCw==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /@tanstack/table-core/8.8.4:
+    resolution: {integrity: sha512-4gq0A/Qz/JFuclxPd1UnNi5P57vbVF10mPK743Iuv2ORLLgF/O/XkaYjYDGw5SHMof8CgiT/nfdJdlgHsOfRIg==}
     engines: {node: '>=12'}
     dev: false
 
@@ -6204,7 +6221,7 @@ packages:
       c8: 7.13.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.29.7_jsdom@20.0.3
+      vitest: 0.29.7_jsdom@20.0.1
     dev: true
 
   /@vitest/expect/0.29.7:
