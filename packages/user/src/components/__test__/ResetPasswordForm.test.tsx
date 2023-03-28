@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { expect, test, vi } from "vitest";
@@ -25,7 +25,9 @@ test("validation error messages are displayed", async () => {
     screen.getByLabelText("resetPassword.form.confirmPassword.label")
   ).toBeDefined();
 
-  await user.click(submitButton);
+  await act(() => {
+    user.click(submitButton);
+  });
 
   await waitFor(() => {
     expect(
@@ -61,11 +63,12 @@ test("validation error message when two password is not matched is displayed", a
     screen.getByLabelText("resetPassword.form.confirmPassword.label")
   ).toBeDefined();
 
-  await user.type(passwordInput, "Test@12345");
+  await act(async () => {
+    await user.type(passwordInput, "Test@12345");
+    await user.type(confirmPasswordInput, "Test@12");
 
-  await user.type(confirmPasswordInput, "Test@12");
-
-  await user.click(submitButton);
+    await user.click(submitButton);
+  });
 
   await waitFor(() => {
     expect(
@@ -103,11 +106,12 @@ test("form is successfully submitted", async () => {
     screen.getByLabelText("resetPassword.form.confirmPassword.label")
   ).toBeDefined();
 
-  await user.type(passwordInput, "Test@12345");
+  await act(async () => {
+    await user.type(passwordInput, "Test@12345");
+    await user.type(confirmPasswordInput, "Test@12345");
 
-  await user.type(confirmPasswordInput, "Test@12345");
-
-  await user.click(submitButton);
+    await user.click(submitButton);
+  });
 
   await waitFor(() => {
     expect(

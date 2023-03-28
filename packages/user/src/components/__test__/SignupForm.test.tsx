@@ -1,4 +1,10 @@
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  screen,
+  waitFor,
+  act,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { expect, test, vi } from "vitest";
@@ -59,10 +65,13 @@ test("confirm password must match the password", async () => {
   expect(passwordInput).toBeDefined();
   expect(submitButton).toBeDefined();
 
-  await user.type(emailInput, email);
-  await user.type(passwordInput, password);
-  await user.type(confirmPasswordInput, "Test@123456");
-  await user.tab();
+  await act(async () => {
+    await user.type(emailInput, email);
+    await user.type(passwordInput, password);
+    await user.type(confirmPasswordInput, "Test@123456");
+
+    await user.tab();
+  });
 
   await waitFor(() => {
     expect(
@@ -70,7 +79,9 @@ test("confirm password must match the password", async () => {
     ).toBeDefined();
   });
 
-  await user.type(confirmPasswordInput, "Test@12345");
+  await act(async () => {
+    await user.type(confirmPasswordInput, "Test@12345");
+  });
 
   await waitFor(() => {
     expect(
@@ -95,9 +106,12 @@ test("validation error is displayed when an uppercase character is not included 
   expect(passwordInput).toBeDefined();
   expect(submitButton).toBeDefined();
 
-  await user.type(emailInput, email);
-  await user.type(passwordInput, "test123456");
-  await user.tab();
+  await act(async () => {
+    await user.type(emailInput, email);
+    await user.type(passwordInput, "test123456");
+
+    await user.tab();
+  });
 
   await waitFor(() => {
     expect(
