@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@dzangolab/react-config": "0.6.0",
-    "@testing-library/react": "13.4.0",
+    "@testing-library/react": "14.0.0",
     "@types/i18n": "0.13.6",
     "@types/jsdom": "20.0.0",
     "@types/node": "18.11.18",
