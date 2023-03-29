@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import ResetPasswordForm from "@/components/ResetPasswordForm";
-import resetPassword from "@/supertokens/resetpassword";
+import resetPassword from "@/supertokens/reset-password";
 
 import "../assets/css/resetPassword.css";
 
