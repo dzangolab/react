@@ -37,7 +37,7 @@ header > nav .main-menu {
   grid-area: main-menu;
 }
 
-header > nav .locales {
+header > nav .locale-switcher {
   grid-area: locales;
 }
 

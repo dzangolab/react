@@ -1,5 +1,5 @@
 nav {
-  align-items: center;
+  align-items: baseline;
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -71,6 +71,9 @@ nav > .dropdown > li:hover {
   }
 
   nav.user-menu > .email {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 0.8rem;
   }
 }

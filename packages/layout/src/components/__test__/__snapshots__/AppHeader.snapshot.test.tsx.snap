@@ -37,23 +37,21 @@ exports[`Component matches snapshot 1`] = `
         </li>
       </ul>
     </nav>
-    <div>
-      <nav
-        className="locale-switcher "
+    <nav
+      className="locale-switcher "
+    >
+      <div
+        className="locale truncated"
+        onClick={[Function]}
       >
-        <div
-          className="locale truncated"
-          onClick={[Function]}
+        locales.en
+        <span
+          className="truncated"
         >
-          locales.en
-          <span
-            className="truncated"
-          >
-            ▾
-          </span>
-        </div>
-      </nav>
-    </div>
+          ▾
+        </span>
+      </div>
+    </nav>
   </nav>
   <div
     className="toggle"
