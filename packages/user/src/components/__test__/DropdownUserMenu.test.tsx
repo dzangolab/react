@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
@@ -44,11 +44,15 @@ test("test dropdown on clicking user email", async () => {
 
   expect(screen.getByText(user.email)).toBeDefined();
 
-  userEvent.click(screen.getByText(user.email));
+  act(() => {
+    userEvent.click(screen.getByText(user.email));
+  });
 
   expect(await screen.findByText("userMenu.profile")).toBeDefined();
 
-  await userEvent.click(screen.getByText(user.email));
+  await act(async () => {
+    await userEvent.click(screen.getByText(user.email));
+  });
 
   expect(screen.queryByText("userMenu.profile")).toBe(null);
 });
@@ -58,11 +62,15 @@ test("test dropdown items", async () => {
 
   expect(screen.getByText(user.email)).toBeDefined();
 
-  userEvent.click(screen.getByText(user.email));
+  act(() => {
+    userEvent.click(screen.getByText(user.email));
+  });
 
   expect(await screen.findByText("userMenu.profile")).toBeDefined();
 
-  await userEvent.click(screen.getByText("userMenu.profile"));
+  await act(async () => {
+    await userEvent.click(screen.getByText("userMenu.profile"));
+  });
 
   expect(screen.queryByText("userMenu.profile")).toBe(null);
 });

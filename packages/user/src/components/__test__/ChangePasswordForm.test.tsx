@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { expect, test, vi } from "vitest";
@@ -18,7 +18,9 @@ test("validation error message is displayed when input field is empty", async ()
 
   const submitButton = screen.getByText("changePassword.form.actions.submit");
 
-  await user.click(submitButton);
+  act(() => {
+    user.click(submitButton);
+  });
 
   await waitFor(() => {
     expect(
@@ -54,11 +56,13 @@ test("validation error message is displayed for unmatched confirm password", asy
   );
   const submitButton = screen.getByText("changePassword.form.actions.submit");
 
-  await user.type(oldPassword, "Test@123");
-  await user.type(newPassword, "Test@12345");
-  await user.type(confirmPassword, "Test@12");
+  await act(async () => {
+    await user.type(oldPassword, "Test@123");
+    await user.type(newPassword, "Test@12345");
+    await user.type(confirmPassword, "Test@12");
 
-  await user.tab();
+    await user.tab();
+  });
 
   await waitFor(() => {
     expect(
@@ -66,7 +70,9 @@ test("validation error message is displayed for unmatched confirm password", asy
     ).toBeDefined();
   });
 
-  await user.click(submitButton);
+  act(() => {
+    user.click(submitButton);
+  });
 
   expect(handleSubmit).toHaveBeenCalledTimes(0);
 });
@@ -86,11 +92,13 @@ test("form is successfully submitted", async () => {
   );
   const submitButton = screen.getByText("changePassword.form.actions.submit");
 
-  await user.type(oldPassword, "Test@123");
-  await user.type(newPassword, "Test@12345");
-  await user.type(confirmPassword, "Test@12345");
+  await act(async () => {
+    await user.type(oldPassword, "Test@123");
+    await user.type(newPassword, "Test@12345");
+    await user.type(confirmPassword, "Test@12345");
 
-  await user.click(submitButton);
+    await user.click(submitButton);
+  });
 
   await waitFor(() => {
     expect(screen.queryAllByRole("alert").length).toBe(0);

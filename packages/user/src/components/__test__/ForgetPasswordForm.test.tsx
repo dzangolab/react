@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { expect, test, vi } from "vitest";
@@ -22,7 +22,9 @@ test("validation error message is displayed when input field is empty", async ()
     screen.getByLabelText("forgetPassword.form.email.label")
   ).toBeDefined();
 
-  await user.click(submitButton);
+  act(() => {
+    user.click(submitButton);
+  });
 
   await waitFor(() => {
     expect(screen.getByText("validation.messages.email")).toBeDefined();
@@ -42,15 +44,19 @@ test("validation error message is displayed for invalid email", async () => {
     screen.getByLabelText("forgetPassword.form.email.label")
   ).toBeDefined();
 
-  await user.type(emailInput, "test.com");
+  await act(async () => {
+    await user.type(emailInput, "test.com");
 
-  await user.tab();
+    await user.tab();
+  });
 
   await waitFor(() => {
     expect(screen.getByText("validation.messages.validEmail")).toBeDefined();
   });
 
-  await user.click(submitButton);
+  act(() => {
+    user.click(submitButton);
+  });
 
   expect(handleSubmit).toHaveBeenCalledTimes(0);
 });
@@ -66,9 +72,11 @@ test("form is successfully submitted", async () => {
     screen.getByLabelText("forgetPassword.form.email.label")
   ).toBeDefined();
 
-  await user.type(emailInput, "test@test.com");
+  await act(async () => {
+    await user.type(emailInput, "test@test.com");
 
-  await user.click(submitButton);
+    await user.click(submitButton);
+  });
 
   await waitFor(() => {
     expect(screen.queryByText("validation.messages.email")).toBeNull();
