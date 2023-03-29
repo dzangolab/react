@@ -2,6 +2,8 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
+import { getUserData, removeUserData, setUserData } from "./helpers";
+import { useUser } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import superTokens from "./supertokens";
@@ -45,12 +47,16 @@ export {
   UsersTable,
   changePassword,
   forgetPassword,
+  getUserData,
   googleLogin,
   login,
   logout,
+  removeUserData,
   resetPassword,
+  setUserData,
   signup,
   superTokens,
+  useUser,
   userContext,
   verifySession,
 };
