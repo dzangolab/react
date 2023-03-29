@@ -50,7 +50,6 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
-        expanded &&
         navBarReference.current &&
         !navBarReference.current.contains(event.target as Node)
       ) {
@@ -63,7 +62,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [expanded, navBarReference]);
+  }, []);
 
   return (
     <nav

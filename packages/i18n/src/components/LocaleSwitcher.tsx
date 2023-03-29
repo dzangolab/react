@@ -34,7 +34,6 @@ const LocaleSwitcher = () => {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
-        expanded &&
         navBarReference.current &&
         !navBarReference.current.contains(event.target as Node)
       ) {
@@ -47,7 +46,7 @@ const LocaleSwitcher = () => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [expanded, navBarReference]);
+  }, []);
 
   return (
     <nav
