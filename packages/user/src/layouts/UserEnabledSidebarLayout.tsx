@@ -13,6 +13,7 @@ import { UserMenuItemType } from "../types";
 interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
+  onLogout?: () => void;
   sidebar?: React.ReactNode;
   userMenu?: UserMenuItemType[];
 }
@@ -23,7 +24,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
-  const { children, footer, sidebar, userMenu } = properties;
+  const { children, footer, onLogout, sidebar, userMenu } = properties;
 
   return (
     <CollapsibleSidebarLayout
@@ -34,7 +35,9 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
           mainMenu={null}
           userMenu={
             <UserMenu
-              authenticatedUserMenu={<DropdownUserMenu userMenu={userMenu} />}
+              authenticatedUserMenu={
+                <DropdownUserMenu userMenu={userMenu} onLogout={onLogout} />
+              }
             />
           }
           logo={<Logo source={layoutConfig?.logo} route={home} />}
