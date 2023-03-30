@@ -56,7 +56,7 @@ const config: AppConfig = {
     ],
   },
   user: {
-    appContext: "",
+    supportedRoles: [],
     redirectTo: {
       appName: "",
       appURL: "",
