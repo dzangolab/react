@@ -2,10 +2,18 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
+import { getUserData, removeUserData, setUserData } from "./helpers";
+import { useUser } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import superTokens from "./supertokens";
-import { verifySession } from "./supertokens/login";
+import changePassword from "./supertokens/change-password";
+import forgetPassword from "./supertokens/forget-password";
+import googleLogin from "./supertokens/google-login";
+import login, { verifySession } from "./supertokens/login";
+import logout from "./supertokens/logout";
+import resetPassword from "./supertokens/reset-password";
+import signup from "./supertokens/signup";
 import UserToastContainer from "./toastify";
 import { DzangolabReactUserConfig, UserContextType, UserType } from "./types";
 import ChangePassword from "./views/ChangePassword";
@@ -37,7 +45,18 @@ export {
   UserProvider,
   UserToastContainer,
   UsersTable,
+  changePassword,
+  forgetPassword,
+  getUserData,
+  googleLogin,
+  login,
+  logout,
+  removeUserData,
+  resetPassword,
+  setUserData,
+  signup,
   superTokens,
+  useUser,
   userContext,
   verifySession,
 };

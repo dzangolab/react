@@ -25,7 +25,7 @@ const setUserData = (data: UserType) => {
   localStorage.setItem(USER_KEY, JSON.stringify(data));
 };
 
-const getUserData = () => {
+const getUserData = (): UserType => {
   return JSON.parse(localStorage.getItem(USER_KEY) || "");
 };
 
