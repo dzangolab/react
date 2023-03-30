@@ -6,6 +6,7 @@
 .page-wrapper > .page-header {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 button.btn-back {
