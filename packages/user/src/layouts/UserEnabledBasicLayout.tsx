@@ -9,6 +9,7 @@ import { UserMenuItemType } from "../types";
 interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
+  onLogout?: () => void;
   userMenu?: UserMenuItemType[];
 }
 
@@ -18,7 +19,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
-  const { children, footer, userMenu } = properties;
+  const { children, footer, onLogout, userMenu } = properties;
 
   return (
     <BasicLayout
@@ -28,7 +29,9 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
         <AppHeader
           userMenu={
             <UserMenu
-              authenticatedUserMenu={<DropdownUserMenu userMenu={userMenu} />}
+              authenticatedUserMenu={
+                <DropdownUserMenu userMenu={userMenu} onLogout={onLogout} />
+              }
             />
           }
           logo={<Logo source={layoutConfig?.logo} route={home} />}
