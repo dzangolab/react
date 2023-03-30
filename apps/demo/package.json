@@ -1,7 +1,7 @@
 {
   "name": "@dzangolab/demo-app",
   "homepage": "https://dzangolab.github.io/react",
-  "version": "0.5.5",
+  "version": "0.6.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,11 +16,11 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@dzangolab/react-config": "0.5.5",
-    "@dzangolab/react-i18n": "0.5.5",
-    "@dzangolab/react-layout": "0.5.5",
-    "@dzangolab/react-ui": "0.5.5",
-    "@dzangolab/react-user": "0.5.5",
+    "@dzangolab/react-config": "0.6.1",
+    "@dzangolab/react-i18n": "0.6.1",
+    "@dzangolab/react-layout": "0.6.1",
+    "@dzangolab/react-ui": "0.6.1",
+    "@dzangolab/react-user": "0.6.1",
     "@reduxjs/toolkit": "1.9.3",
     "normalize.css": "8.0.1",
     "react": "18.2.0",
@@ -35,7 +35,7 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@types/react-test-renderer": "18.0.0",
-    "@vitejs/plugin-react": "2.1.0",
+    "@vitejs/plugin-react": "3.1.0",
     "@vitest/coverage-c8": "0.29.7",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.8.0",

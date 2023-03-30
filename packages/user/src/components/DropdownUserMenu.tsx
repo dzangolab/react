@@ -11,10 +11,11 @@ import { UserMenuItemType } from "../types";
 import "../assets/css/dropdownUserMenu.css";
 
 interface Properties {
+  onLogout?: () => void;
   userMenu?: UserMenuItemType[];
 }
 
-const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
+const DropdownUserMenu: React.FC<Properties> = ({ onLogout, userMenu }) => {
   const id = useId();
   const { user, setUser } = useUser();
   const [expanded, setExpanded] = useState(false);
@@ -25,6 +26,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ userMenu }) => {
     if (await logout()) {
       await removeUserData();
       setUser(undefined);
+      onLogout && (await onLogout());
       toast.success(t("logout.message"));
     }
   };
