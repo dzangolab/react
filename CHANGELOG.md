@@ -1,3 +1,20 @@
+## [0.6.1](https://github.com/dzangolab/react/compare/v0.6.0...v0.6.1) (2023-03-30)
+
+
+### Bug Fixes
+
+* console warnings while running test ([#283](https://github.com/dzangolab/react/issues/283)) ([b3ecb9b](https://github.com/dzangolab/react/commit/b3ecb9b56e48235f63466a11800bf3178b2e8d3e))
+* **deps:** update dependency @tanstack/react-table to v8.8.4 ([#265](https://github.com/dzangolab/react/issues/265)) ([d5f13ae](https://github.com/dzangolab/react/commit/d5f13ae391177ce9d0cbec51f07fc679b7388d2a))
+* **deps:** update typescript-eslint monorepo to v5.56.0 ([#264](https://github.com/dzangolab/react/issues/264)) ([026d7eb](https://github.com/dzangolab/react/commit/026d7ebb3b053ce5569a62b4a5f43a62630a8b20))
+* nav menu alignment and remove outside-click handler from nav. ([#277](https://github.com/dzangolab/react/issues/277)) ([f51c293](https://github.com/dzangolab/react/commit/f51c2938a0a62b21a0742bbbcf562dd21b14946b))
+
+
+### Features
+
+* add callback onLogout for cleanup ([#284](https://github.com/dzangolab/react/issues/284)) ([1e27cb0](https://github.com/dzangolab/react/commit/1e27cb0ef3477a14374e733cd7fd84375a9bb121))
+
+
+
 # [0.6.0](https://github.com/dzangolab/react/compare/v0.5.5...v0.6.0) (2023-03-27)
 
 
