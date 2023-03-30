@@ -1,14 +1,37 @@
-.TCard {
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--footer-column-gap, 0.25rem) var(--footer-row-gap, 0.25rem);
+}
+
+.t-card {
   border-radius: 7px;
   border: 1px solid #535353;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  margin: 5px 0;
 }
 
 .card-body {
   flex: 1;
   display: flex;
   padding: 0.8rem;
+}
+
+.t-card > header {
+  all: unset;
+}
+
+.t-card > footer {
+  border-top: unset;
+}
+
+.t-card :is(footer, header, .card-body) {
+  margin: 0 auto;
+  padding: var(--padding-v, 0.8rem) var(--padding-h, 0.8rem);
+  width: 100%;
+}
+
+.t-card :is(h4) {
+  color: #b9b3b3;
 }
