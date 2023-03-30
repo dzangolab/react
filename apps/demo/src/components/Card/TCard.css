@@ -1,0 +1,14 @@
+.TCard {
+  border-radius: 7px;
+  border: 1px solid #535353;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  padding: 0.8rem;
+}
