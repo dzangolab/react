@@ -1,23 +1,19 @@
 import React from "react";
 
 import googleLogin from "@/supertokens/google-login";
+import { GoogleButton } from "@dzangolab/react-ui";
 
 interface Properties {
-  className?: string;
   label: string;
   redirectUrl: string;
 }
 
-const GoogleLogin = ({ className, label, redirectUrl }: Properties) => {
+const GoogleLogin = ({ label, redirectUrl }: Properties) => {
   const onGoogleSignin = async () => {
     await googleLogin(redirectUrl);
   };
 
-  return (
-    <button className={className} onClick={onGoogleSignin}>
-      {label}
-    </button>
-  );
+  return <GoogleButton handleClick={onGoogleSignin} title={label} />;
 };
 
 export default GoogleLogin;

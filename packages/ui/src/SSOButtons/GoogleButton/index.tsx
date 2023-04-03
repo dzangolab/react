@@ -1,5 +1,7 @@
 import React from "react";
 
+import GoogleIcon from "../../assets/images/google-icon.svg";
+
 import "./index.css";
 
 interface IProperties {
@@ -15,7 +17,7 @@ const GoogleButton: React.FC<IProperties> = ({
 }) => {
   return (
     <button onClick={handleClick} className={`google-button-${variant}`}>
-      <img src="../../assets/images/google-icon.png" alt="Google logo" />
+      <img src={GoogleIcon} alt="Google logo" />
       <span>{title}</span>
     </button>
   );
