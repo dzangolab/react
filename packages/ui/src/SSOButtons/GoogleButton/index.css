@@ -1,0 +1,56 @@
+.google-button-light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #757575;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.google-button-dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4285f4;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #757575;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 40px;
+  padding-left: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.google-button-light:hover {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.google-button-dark > img,
+.google-button-light > img {
+  margin-right: 16px;
+  background-color: #ffffff;
+  height: 38px;
+  width: 38px;
+  border-radius: 1px;
+}
+
+.google-button-dark > span {
+  padding-right: 8px;
+  color: #ffffff;
+}
+
+.google-button-light > span {
+  padding-right: 8px;
+}
