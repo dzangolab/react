@@ -84,17 +84,18 @@ const Login = () => {
         <LoginForm handleSubmit={handleSubmit} loading={loading} />
         <div className="links">{getLinks()}</div>
 
-        <div className="divider">- - - - - OR - - - - -</div>
-
         {appConfig?.user.supportedLoginProviders ? (
-          <div className="social-login-wrapper">
-            {appConfig.user.supportedLoginProviders.includes("google") ? (
-              <GoogleLogin
-                label={t("login.button.googleLoginLabel")}
-                redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
-              />
-            ) : null}
-          </div>
+          <>
+            <div className="divider">- - - - - OR - - - - -</div>
+            <div className="social-login-wrapper">
+              {appConfig.user.supportedLoginProviders.includes("google") ? (
+                <GoogleLogin
+                  label={t("login.button.googleLoginLabel")}
+                  redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+                />
+              ) : null}
+            </div>
+          </>
         ) : null}
       </Page>
     </div>
