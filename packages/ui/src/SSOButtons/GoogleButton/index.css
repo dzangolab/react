@@ -1,11 +1,9 @@
-.google-button-light {
+.google-button {
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
-  background-color: #ffffff;
   border-radius: var(--button-border-radius, 0.4rem);
-  border: 1px solid #0000001a;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   color: #757575;
   opacity: 1;
@@ -17,46 +15,35 @@
   transition: all 0.2s ease-in-out;
 }
 
-.google-button-dark {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1;
-  background-color: #4285f4;
-  border-radius: var(--button-border-radius, 0.4rem);
-  border: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  color: #757575;
-  opacity: 1;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  height: 40px;
-  padding-left: 1px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.google-button-light:hover,
-.google-button-dark:hover {
+.google-button:hover {
   opacity: 0.8;
 }
 
-.google-button-dark > img,
-.google-button-light > img {
+.google-button > img {
   margin-right: 16px;
   background-color: #ffffff;
   height: 38px;
   width: 38px;
-  border-radius: inherit;
+  border-radius: calc(var(--button-border-radius) - 0.1rem);
 }
 
-.google-button-dark > span {
+.google-button > span {
   padding-right: 8px;
+}
+
+.google-button.light {
+  background-color: #ffffff;
+  border: 1px solid #0000001a;
+}
+
+.google-button.dark {
+  justify-content: flex-start;
+  background-color: #4285f4;
+  border: none;
+  padding-left: 1px;
+}
+
+.google-button.dark > span {
   color: #ffffff;
   flex: 1;
-}
-
-.google-button-light > span {
-  padding-right: 8px;
 }

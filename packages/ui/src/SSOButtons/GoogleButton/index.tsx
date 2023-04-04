@@ -16,7 +16,7 @@ const GoogleButton: React.FC<IProperties> = ({
   handleClick,
 }) => {
   return (
-    <button onClick={handleClick} className={`google-button-${variant}`}>
+    <button onClick={handleClick} className={`google-button ${variant}`}>
       <img src={GoogleIcon} alt="Google logo" />
       <span>{title}</span>
     </button>
