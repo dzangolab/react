@@ -32,11 +32,12 @@ const DropdownNavMenu: React.FC<IProperties> = ({ label, dropdownMenu }) => {
     <nav
       ref={navBarReference}
       className={`dropdown-nav-menu ${expanded ? "expanded" : ""}`}
+      onClick={() => setExpanded(!expanded)}
     >
-      <div className="label" onClick={() => setExpanded(!expanded)}>
+      <div className="label">
         {label}
         <span className={"truncated"}>
-          {expanded ? <>&#9650;</> : <>&#9662;</>}
+          {expanded ? <>&#9652;</> : <>&#9662;</>}
         </span>
       </div>
 
