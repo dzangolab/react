@@ -13,7 +13,9 @@ const GoogleLogin = ({ label, redirectUrl }: Properties) => {
     await googleLogin(redirectUrl);
   };
 
-  return <GoogleButton handleClick={onGoogleSignin} title={label} />;
+  return (
+    <GoogleButton handleClick={onGoogleSignin} title={label} variant="dark" />
+  );
 };
 
 export default GoogleLogin;
