@@ -2,18 +2,26 @@
 
 exports[`Component matches snapshot 1`] = `
 <nav
-  className="user-menu "
+  className="user-menu"
 >
   <div
-    className="email"
+    className="dropdown-container "
     onClick={[Function]}
   >
-    test@gmail.com
-    <span
-      className="toggle"
+    <div
+      className="dropdown-button"
     >
-      ▾
-    </span>
+      <span
+        className="label"
+      >
+        test@gmail.com
+      </span>
+      <span
+        className="icon"
+      >
+        ▾
+      </span>
+    </div>
   </div>
 </nav>
 `;

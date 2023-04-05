@@ -35,14 +35,10 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     userMenu,
   } = properties;
 
-  let navClass = navStyle;
+  let navClass = `menu-container ${navStyle}`;
 
   if (expanded) {
     navClass += " expanded";
-  }
-
-  if (mainMenu) {
-    navClass += " main-menu";
   }
 
   return (

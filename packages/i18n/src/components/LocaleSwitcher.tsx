@@ -27,10 +27,12 @@ const LocaleSwitcher = () => {
       });
 
   return (
-    <DropdownNavMenu
-      label={t(`locales.${i18n.language}`)}
-      dropdownMenu={locales}
-    />
+    <nav className="locale-switcher">
+      <DropdownNavMenu
+        label={t(`locales.${i18n.language}`)}
+        dropdownMenu={locales}
+      />
+    </nav>
   );
 };
 

@@ -28,6 +28,17 @@ header::before {
   z-index: -1;
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 0;
+  position: relative;
+  min-width: var(--dropdown-width, 6rem);
+}
+
 header .logo {
   grid-area: logo;
   max-width: var(--header-logo-width, 200px);
@@ -45,6 +56,10 @@ header > nav .user-menu {
   grid-area: user-menu;
 }
 
+header > nav .sign-in-up-menu {
+  grid-area: user-menu;
+}
+
 header > .toggle {
   display: none;
 }
@@ -58,7 +73,7 @@ header > nav {
   justify-content: flex-end;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
   header {
     align-items: start;
     grid-template-areas:
@@ -105,7 +120,7 @@ header > nav {
     display: grid;
   }
 
-  header > nav.main-menu {
+  header > nav.menu-container {
     grid-template-columns: 1fr auto auto;
   }
 }

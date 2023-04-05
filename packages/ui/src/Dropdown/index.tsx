@@ -3,13 +3,20 @@ import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
 
 interface IProperties {
-  label: string;
+  collapseIcon?: React.ReactNode;
   dropdownMenu: React.ReactNode;
+  expandIcon?: React.ReactNode;
+  label: React.ReactNode;
 }
 
-const DropdownNavMenu: React.FC<IProperties> = ({ label, dropdownMenu }) => {
+const DropdownNavMenu: React.FC<IProperties> = ({
+  collapseIcon = <>&#9652;</>,
+  dropdownMenu,
+  expandIcon = <>&#9662;</>,
+  label,
+}) => {
   const [expanded, setExpanded] = useState(false);
-  const navBarReference = useRef<HTMLElement | null>(null);
+  const navBarReference = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -29,20 +36,21 @@ const DropdownNavMenu: React.FC<IProperties> = ({ label, dropdownMenu }) => {
   }, []);
 
   return (
-    <nav
+    <div
       ref={navBarReference}
-      className={`dropdown-nav-menu ${expanded ? "expanded" : ""}`}
+      className={`dropdown-container ${expanded ? "expanded" : ""}`}
       onClick={() => setExpanded(!expanded)}
     >
-      <div className="label">
-        {label}
-        <span className={"truncated"}>
-          {expanded ? <>&#9652;</> : <>&#9662;</>}
-        </span>
+      <div className="dropdown-button">
+        {typeof label === "string" ? (
+          <span className="label">{label}</span>
+        ) : (
+          label
+        )}
+        <span className="icon">{expanded ? collapseIcon : expandIcon}</span>
       </div>
-
-      {expanded && <ul className="dropdown">{dropdownMenu}</ul>}
-    </nav>
+      {expanded && <ul>{dropdownMenu}</ul>}
+    </div>
   );
 };
 export default DropdownNavMenu;

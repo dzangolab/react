@@ -1,4 +1,4 @@
-nav.menu > ul {
+.responsive-menu > ul {
   flex: 1;
   flex-direction: column;
   gap: var(--grid-gap);
@@ -8,50 +8,54 @@ nav.menu > ul {
   display: flex;
 }
 
-nav.menu > ul > li {
+.responsive-menu > ul > li {
   display: flex;
 }
 
-nav.menu > ul > li > a {
+.responsive-menu > ul > li > a {
   padding: 1rem 0.5rem;
   color: inherit;
   text-decoration: none;
   flex: 1;
 }
 
-nav.menu.column > ul {
+.responsive-menu.column > ul {
   flex-direction: column;
   gap: var(--responsive-menu-gap, 0.5rem);
   flex: 1;
 }
 
-nav.menu.column > ul > li {
+.responsive-menu.column > ul > li {
   width: 100%;
 }
 
-nav.menu.column > ul > li:hover {
+.responsive-menu.column > ul > li:hover {
   background-color: #dbe9fa;
 }
 
 @media screen and (max-width: 576px) {
-  nav.menu > ul > li {
+  .responsive-menu {
+    flex: 1;
+  }
+
+  .responsive-menu > ul > li {
     display: flex;
     padding: 0;
   }
 
-  nav.menu > ul > li > a {
+  .responsive-menu > ul > li > a {
     flex: 1;
     padding: 0.8rem 0 0.8rem 0.8rem;
     text-align: left;
   }
 
-  nav.menu > ul > li :hover {
+  .responsive-menu > ul > li :hover {
     background-color: #dbe9fa;
   }
 }
 
 @media screen and (min-width: 576px) {
-  nav.menu > ul {
+  .responsive-menu > ul {
     flex-direction: row;
     gap: var(--responsive-menu-gap, 1rem);
   }

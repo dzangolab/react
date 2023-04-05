@@ -1,68 +1,63 @@
-nav .dropdown-nav-menu {
-  align-items: center;
+.dropdown-container {
   cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  justify-content: space-between;
-  padding: 0;
-  position: relative;
-  min-width: var(--dropdown-width, 6rem);
+  padding: 1rem 0.5rem;
 }
 
-.label {
-  flex: 1;
-  padding: 0.5rem 0.8rem;
-}
-
-nav.dropdown-nav-menu > div.label > span.truncated {
-  font-size: 1.5rem;
-  line-height: 1.25rem;
-  text-align: center;
-  padding: 0 0.3rem;
-}
-
-nav.dropdown-nav-menu ul {
+.dropdown-container > ul {
+  display: block;
   background-color: var(--dropdown-bg-color, #fff);
   border: var(--dropdown-border, 1px solid grey);
-  border-radius: 5px;
-  display: none;
-  left: 0;
+  border-radius: var(--dropdown-border-radius, 5px);
   list-style: none;
   padding-inline-start: 0;
   padding: 0.15rem 0;
   position: absolute;
   right: 0;
-  top: 50%;
-  z-index: var(--dropdown-z-index, 9999);
+  top: 100%;
+  z-index: var(--dropdown-z-index, 999);
 }
 
-nav.expanded ul.dropdown {
-  display: block;
-}
-
-nav.dropdown-nav-menu li {
+.dropdown-container > ul li {
   padding: 0.25rem 0.5rem;
 }
 
-nav.dropdown-nav-menu.expanded li:hover {
+.dropdown-container > ul li > a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+}
+
+span.icon {
+  padding: 0 0.25rem;
+}
+
+ul li:hover {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
-.truncated {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 @media screen and (max-width: 576px) {
-  nav.dropdown-nav-menu > div.label:hover {
-    background-color: #dbe9fa;
+  .dropdown-container {
+    display: flex;
+    flex: 1;
+    padding: 0.8rem 0 0.8rem 0.8rem;
   }
 
-  .label {
-    display: flex;
+  .dropdown-button {
+    flex: 1;
     justify-content: space-between;
-    padding: 0.8rem;
+    display: flex;
+  }
+
+  .dropdown-container:active {
+    background-color: var(--dropdown-bg-color-hover, #dbe9fa);
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .dropdown-container > ul {
+    left: 0;
+  }
+
+  ul li:active {
+    background-color: var(--dropdown-bg-color-hover, #dbe9fa);
   }
 }

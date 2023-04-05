@@ -21,7 +21,11 @@ const SignInUpMenu = () => {
     ? [loginRoute]
     : [loginRoute, signUpRoute];
 
-  return <ResponsiveMenu routes={routes} />;
+  return (
+    <nav className="sign-in-up-menu">
+      <ResponsiveMenu routes={routes} />
+    </nav>
+  );
 };
 
 export default SignInUpMenu;
