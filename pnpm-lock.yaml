@@ -143,6 +143,7 @@ importers:
       '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.28
+      '@vitejs/plugin-react': 3.1.0
       '@vitest/coverage-c8': 0.29.7
       eslint: 8.36.0
       eslint-config-custom: 0.6.1
@@ -157,6 +158,7 @@ importers:
       '@types/jsdom': 20.0.0
       '@types/node': 18.11.18
       '@types/react': 18.0.28
+      '@vitejs/plugin-react': 3.1.0_vite@4.2.1
       '@vitest/coverage-c8': 0.29.7_vitest@0.29.7
       eslint: 8.36.0
       eslint-config-custom: link:../../tools/eslint-config-custom

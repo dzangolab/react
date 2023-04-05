@@ -1,6 +1,7 @@
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, loadEnv } from "vite";
+import react from "@vitejs/plugin-react";
 
 import { peerDependencies } from "./package.json";
 
@@ -26,7 +27,7 @@ export default defineConfig(({ mode }) => {
       },
       target: "esnext",
     },
-    plugins: [],
+    plugins: [react()],
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
