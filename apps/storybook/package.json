@@ -11,6 +11,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "7.21.4",
     "@storybook/addon-actions": "7.0.0-rc.7",
     "@storybook/addon-docs": "6.5.16",
     "@storybook/addon-essentials": "7.0.0-rc.7",
@@ -20,8 +21,12 @@
     "@storybook/react-vite": "7.0.0-rc.7",
     "@storybook/testing-library": "0.0.14-next.1",
     "babel-loader": "9.1.2",
+    "eslint": "8.37.0",
     "eslint-plugin-storybook": "0.6.10",
-    "storybook": "7.0.0-rc.7"
+    "storybook": "7.0.0-rc.7",
+    "typescript": "5.0.3",
+    "vite": "4.2.1",
+    "webpack": "5.77.0"
   },
   "keywords": [],
   "author": "Kiran Ojha",

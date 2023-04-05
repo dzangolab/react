@@ -1,7 +1,8 @@
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-
 import { defineConfig, loadEnv } from "vite";
+
+import { peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -15,10 +16,12 @@ export default defineConfig(({ mode }) => {
         name: "@dzangolab/react-config",
       },
       rollupOptions: {
-        external: [],
+        external: [...Object.keys(peerDependencies)],
         output: {
           exports: "named",
-          globals: {},
+          globals: {
+            react: "React",
+          },
         },
       },
       target: "esnext",
