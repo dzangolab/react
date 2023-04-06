@@ -5,9 +5,9 @@ import Logo from "./components/Logo";
 import MainMenu from "./components/MainMenu";
 import Sidebar from "./components/Sidebar";
 import Version from "./components/Version";
+import Layout from "./Layout";
 import BasicLayout from "./layouts/BasicLayout";
 import CollapsibleSidebarLayout from "./layouts/CollapsibleSidebarLayout";
-import Layout from "./Layout";
 import NullLayout from "./NullLayout";
 
 import type { DzangolabReactLayoutConfig } from "./types";

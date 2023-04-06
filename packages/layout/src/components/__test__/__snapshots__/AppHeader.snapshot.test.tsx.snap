@@ -48,20 +48,16 @@ exports[`Component matches snapshot 1`] = `
         className="dropdown-container "
         onClick={[Function]}
       >
-        <div
-          className="dropdown-button"
+        <span
+          className="label"
         >
-          <span
-            className="label"
-          >
-            locales.en
-          </span>
-          <span
-            className="icon"
-          >
-            ▾
-          </span>
-        </div>
+          locales.en
+        </span>
+        <span
+          className="icon"
+        >
+          ▾
+        </span>
       </div>
     </nav>
   </nav>
