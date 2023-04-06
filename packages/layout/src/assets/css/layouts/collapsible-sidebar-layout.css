@@ -39,4 +39,8 @@
     flex-direction: column;
     gap: var(--basic-layout-gap, 0);
   }
+
+  .collapsible-layout > main {
+    flex: 1;
+  }
 }
