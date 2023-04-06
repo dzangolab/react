@@ -1,4 +1,4 @@
-import { DropdownNavMenu } from "@dzangolab/react-ui";
+import { DropdownMenu } from "@dzangolab/react-ui";
 import { useTranslation } from "react-i18next";
 
 import "../css/locale-switcher.css";
@@ -28,7 +28,7 @@ const LocaleSwitcher = () => {
 
   return (
     <nav className="locale-switcher">
-      <DropdownNavMenu
+      <DropdownMenu
         label={t(`locales.${i18n.language}`)}
         dropdownMenu={locales}
       />

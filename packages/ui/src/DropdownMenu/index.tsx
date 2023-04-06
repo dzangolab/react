@@ -9,7 +9,7 @@ interface IProperties {
   label: React.ReactNode;
 }
 
-const DropdownNavMenu: React.FC<IProperties> = ({
+const DropdownMenu: React.FC<IProperties> = ({
   collapseIcon = <>&#9652;</>,
   dropdownMenu,
   expandIcon = <>&#9662;</>,
@@ -53,4 +53,4 @@ const DropdownNavMenu: React.FC<IProperties> = ({
     </div>
   );
 };
-export default DropdownNavMenu;
+export default DropdownMenu;

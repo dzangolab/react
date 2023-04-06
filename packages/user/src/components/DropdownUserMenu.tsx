@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DropdownNavMenu } from "@dzangolab/react-ui";
+import { DropdownMenu } from "@dzangolab/react-ui";
 import { useId } from "react";
 import { toast } from "react-toastify";
 
@@ -54,7 +54,7 @@ const DropdownUserMenu: React.FC<Properties> = ({ onLogout, userMenu }) => {
 
   return (
     <nav className="user-menu">
-      <DropdownNavMenu
+      <DropdownMenu
         label={user?.email || "Guest"}
         dropdownMenu={dropdownUserMenu}
       />
