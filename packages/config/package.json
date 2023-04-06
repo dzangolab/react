@@ -2,6 +2,8 @@
   "name": "@dzangolab/react-config",
   "version": "0.6.1",
   "description": "React config",
+  "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabReactConfig.es.js",
@@ -18,7 +20,11 @@
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "test": "vitest --environment jsdom run --coverage",
+    "sort-package": "npx sort-package-json",
+    "test": "vitest --environment jsdom run --coverage --passWithNoTests",
+    "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
+    "test:snapshot": "vitest --environment jsdom run snapshot/ --passWithNoTests",
+    "test:unit": "vitest --environment jsdom run unit/ --passWithNoTests",
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "devDependencies": {
@@ -39,5 +45,9 @@
   },
   "peerDependencies": {
     "react": ">=18.2"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
   }
 }
