@@ -47,7 +47,7 @@ const DropdownMenu: React.FC<IProperties> = ({
         label
       )}
       <span className="icon">{expanded ? collapseIcon : expandIcon}</span>
-      {expanded && <ul className="dropdown">{dropdownMenu}</ul>}
+      {expanded && <ul className="dropdown-menu">{dropdownMenu}</ul>}
     </div>
   );
 };
