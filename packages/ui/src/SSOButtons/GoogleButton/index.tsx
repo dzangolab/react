@@ -1,25 +1,15 @@
 import React from "react";
 
 import GoogleIcon from "../../assets/images/google-icon.svg";
+import BaseButton, { BaseButtonProperties } from "../BaseButton";
 
 import "./index.css";
 
-interface IProperties {
-  title?: string;
-  variant?: "light" | "dark";
-  handleClick?: () => void;
-}
+type IProperties = Omit<BaseButtonProperties, "imageSource" | "className">;
 
-const GoogleButton: React.FC<IProperties> = ({
-  title,
-  variant = "light",
-  handleClick,
-}) => {
+const GoogleButton: React.FC<IProperties> = (properties) => {
   return (
-    <button onClick={handleClick} className={`google-button ${variant}`}>
-      <img src={GoogleIcon} alt="Google logo" />
-      <span>{title}</span>
-    </button>
+    <BaseButton className="google" imageSource={GoogleIcon} {...properties} />
   );
 };
 

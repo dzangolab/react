@@ -1,0 +1,74 @@
+.sso-button {
+  background-color: #ffffff;
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid #dadce0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+  transition: all 0.218s ease-in-out;
+  vertical-align: middle;
+  width: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.sso-button.light.center {
+  justify-content: center;
+}
+
+.sso-button.dark:hover,
+.sso-button.dark:focus,
+.sso-button.dark:active {
+  box-shadow: none;
+  border-color: #d2e3fc;
+  opacity: 0.9;
+}
+
+.sso-button.light:active,
+.sso-button.light:focus,
+.sso-button.light:hover {
+  background-color: rgba(66, 133, 244, 0.04);
+}
+
+.sso-button.pill {
+  border-radius: 20px;
+}
+
+.sso-button > img {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  height: 36px;
+  margin-left: -10px;
+  margin-right: 12px;
+  min-width: 36px;
+  width: 36px;
+}
+
+.sso-button.pill > img {
+  border-radius: 18px;
+}
+
+.sso-button > span {
+  flex-grow: 1;
+  font-weight: 500;
+  overflow: inherit;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
