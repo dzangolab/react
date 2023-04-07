@@ -1,18 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { DropdownMenu } from "@dzangolab/react-ui";
 import { useTranslation } from "react-i18next";
 
 import "../css/locale-switcher.css";
 
 const LocaleSwitcher = () => {
-  const [expanded, setExpanded] = useState(false);
-  const navBarReference = useRef<HTMLElement | null>(null);
-
   const { i18n, t } = useTranslation("locales");
 
   const changeLocale = (newLocale: string) => {
     i18n.changeLanguage(newLocale);
-
-    setExpanded(!expanded);
   };
 
   const locales =
@@ -31,34 +26,12 @@ const LocaleSwitcher = () => {
         );
       });
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        navBarReference.current &&
-        !navBarReference.current.contains(event.target as Node)
-      ) {
-        setExpanded(false);
-      }
-    }
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
   return (
-    <nav
-      ref={navBarReference}
-      className={`locale-switcher ${expanded ? "expanded" : ""}`}
-    >
-      <div className="locale truncated" onClick={() => setExpanded(!expanded)}>
-        {t(`locales.${i18n.language}`)}
-        <span className={"truncated"}>&#9662;</span>
-      </div>
-
-      {expanded && <ul className="dropdown">{locales}</ul>}
+    <nav className="locale-switcher">
+      <DropdownMenu
+        label={t(`locales.${i18n.language}`)}
+        dropdownMenu={locales}
+      />
     </nav>
   );
 };

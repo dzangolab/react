@@ -15,38 +15,46 @@ exports[`Component matches snapshot 1`] = `
     </a>
   </div>
   <nav
-    className="dropdown main-menu"
+    className="menu-container dropdown"
   >
     <nav
-      className="menu main-menu"
-    >
-      <ul>
-        <li>
-          <a
-            href="/"
-          >
-            header.menu.home
-          </a>
-        </li>
-        <li>
-          <a
-            href="/about"
-          >
-            header.menu.about
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <nav
-      className="locale-switcher "
+      className="main-menu"
     >
       <div
-        className="locale truncated"
+        className="responsive-menu"
+      >
+        <ul>
+          <li>
+            <a
+              href="/"
+            >
+              header.menu.home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+            >
+              header.menu.about
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <nav
+      className="locale-switcher"
+    >
+      <div
+        className="dropdown-container "
         onClick={[Function]}
       >
-        locales.en
         <span
-          className="truncated"
+          className="label"
+        >
+          locales.en
+        </span>
+        <span
+          className="icon"
         >
           ▾
         </span>

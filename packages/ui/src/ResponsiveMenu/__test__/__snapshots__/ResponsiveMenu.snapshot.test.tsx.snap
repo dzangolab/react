@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<nav
-  className="menu"
+<div
+  className="responsive-menu"
 >
   <ul>
     <li>
@@ -20,5 +20,5 @@ exports[`Component matches snapshot 1`] = `
       </a>
     </li>
   </ul>
-</nav>
+</div>
 `;

@@ -5,10 +5,10 @@ import Logo from "./components/Logo";
 import MainMenu from "./components/MainMenu";
 import Sidebar from "./components/Sidebar";
 import Version from "./components/Version";
+import Layout from "./Layout";
 import BasicLayout from "./layouts/BasicLayout";
 import CollapsibleSidebarLayout from "./layouts/CollapsibleSidebarLayout";
-import Layout from "./layouts/Layout";
-import NullLayout from "./layouts/NullLayout";
+import NullLayout from "./NullLayout";
 
 import type { DzangolabReactLayoutConfig } from "./types";
 

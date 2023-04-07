@@ -2,15 +2,19 @@
 
 exports[`Component matches snapshot 1`] = `
 <nav
-  className="locale-switcher "
+  className="locale-switcher"
 >
   <div
-    className="locale truncated"
+    className="dropdown-container "
     onClick={[Function]}
   >
-    locales.en
     <span
-      className="truncated"
+      className="label"
+    >
+      locales.en
+    </span>
+    <span
+      className="icon"
     >
       ▾
     </span>

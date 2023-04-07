@@ -19,7 +19,7 @@ const ResponsiveMenu = ({
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
 
-  let _className = "menu";
+  let _className = "responsive-menu";
 
   if (className) {
     _className += " " + className;
@@ -30,7 +30,7 @@ const ResponsiveMenu = ({
   }
 
   return (
-    <nav className={_className}>
+    <div className={_className}>
       <ul>
         {routes.map((route, index) => (
           <li key={index}>
@@ -42,7 +42,7 @@ const ResponsiveMenu = ({
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   );
 };
 

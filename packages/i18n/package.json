@@ -28,6 +28,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
+    "@dzangolab/react-ui": "0.6.1",
     "i18next": "21.10.0",
     "i18next-browser-languagedetector": "6.1.8",
     "i18next-chained-backend": "^4.0.0",
