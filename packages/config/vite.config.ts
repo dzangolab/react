@@ -1,6 +1,8 @@
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import react from "@vitejs/plugin-react";
+
 import { defineConfig, loadEnv } from "vite";
 
 // https://vitejs.dev/config/
@@ -15,18 +17,20 @@ export default defineConfig(({ mode }) => {
         name: "@dzangolab/react-config",
       },
       rollupOptions: {
-        external: [],
+        external: ["react"],
         output: {
           exports: "named",
-          globals: {},
+          globals: {
+            react: "React",
+          },
         },
       },
       target: "esnext",
     },
-    plugins: [],
+    plugins: [react()],
     resolve: {
       alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "@": new URL("./src/", import.meta.url).pathname,
       },
     },
     server: {

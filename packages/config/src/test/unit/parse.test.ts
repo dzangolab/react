@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { parse } from "../..";
+import { parse } from "../../utils";
 
 describe("react-config >> parse", () => {
   it("Returns fallback value if value is undefined", () => {

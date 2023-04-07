@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite";
 
-import { dependencies } from "./package.json";
+import { dependencies, peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -18,7 +18,10 @@ export default defineConfig(({ mode }) => {
         name: "@dzangolab/react-layout",
       },
       rollupOptions: {
-        external: [...Object.keys(dependencies)],
+        external: [
+          ...Object.keys(peerDependencies),
+          ...Object.keys(dependencies),
+        ],
         output: {
           exports: "named",
           globals: {
@@ -28,6 +31,7 @@ export default defineConfig(({ mode }) => {
             "@dzangolab/react-user": "DzangolabReactUser",
             react: "React",
             "react-dom": "ReactDom",
+            "react-router-dom": "ReactRouterDom",
           },
         },
       },
@@ -36,7 +40,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     resolve: {
       alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "@/": new URL("./src/", import.meta.url).pathname,
       },
     },
     server: {
