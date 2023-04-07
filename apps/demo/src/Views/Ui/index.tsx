@@ -1,10 +1,15 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { LoadingIcon, Page } from "@dzangolab/react-ui";
+import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import Card from "../../components/Card";
 import PageWrapper from "../../components/PageWrapper";
-import { UI_COMPONENTS, UI_COMPONENTS_MAPPING } from "../../constants";
+import {
+  MENU_ROUTES,
+  UI_COMPONENTS,
+  UI_COMPONENTS_MAPPING,
+} from "../../constants";
+import { SubmitButton } from "./SubmitButton";
 
 const Ui = () => {
   const { t } = useTranslation();
@@ -27,28 +32,50 @@ const Ui = () => {
         </Page>
       );
     } else {
+      let component = null;
+
       switch (selectedComponent.key) {
         case 1:
-          return (
-            <PageWrapper
-              onBack={() => setSelectedComponent(null)}
-              title={selectedComponent.value}
+          component = (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flex: 1,
+              }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flex: 1,
-                }}
-              >
-                <LoadingIcon color={"black"} fontSize={"0.5rem"} />
-              </div>
-            </PageWrapper>
+              <LoadingIcon color={"black"} fontSize={"0.5rem"} />
+            </div>
           );
+          break;
+        case 2:
+          component = <SubmitButton />;
+          break;
+        case 3:
+          component = (
+            <>
+              <Page title="Horizontal menu">
+                <ResponsiveMenu routes={MENU_ROUTES} />
+              </Page>
+              <Page title="Vertical menu">
+                <ResponsiveMenu routes={MENU_ROUTES} horizontal />
+              </Page>
+            </>
+          );
+          break;
         default:
           return null;
       }
+
+      return (
+        <PageWrapper
+          onBack={() => setSelectedComponent(null)}
+          title={selectedComponent.value}
+        >
+          {component}
+        </PageWrapper>
+      );
     }
   };
 
