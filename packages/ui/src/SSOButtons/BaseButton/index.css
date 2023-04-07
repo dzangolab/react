@@ -72,3 +72,7 @@
   text-overflow: ellipsis;
   vertical-align: top;
 }
+
+.sso-button.light.center > span {
+  flex-grow: unset;
+}
