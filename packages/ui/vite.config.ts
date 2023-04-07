@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite";
 
-import { dependencies } from "./package.json";
+import { dependencies, peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -18,7 +18,10 @@ export default defineConfig(({ mode }) => {
         name: "@dzangolab/react-ui",
       },
       rollupOptions: {
-        external: [...Object.keys(dependencies)],
+        external: [
+          ...Object.keys(peerDependencies),
+          ...Object.keys(dependencies),
+        ],
         output: {
           exports: "named",
           globals: {
@@ -35,18 +38,11 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     resolve: {
       alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "@/": new URL("./src/", import.meta.url).pathname,
       },
     },
     server: {
       port: Number(process.env.VITE_APP_PORT) || 8889,
-    },
-    test: {
-      coverage: {
-        reporter: ["text", "json", "html"],
-      },
-      environment: "jsdom",
-      globals: true,
     },
     optimizeDeps: {
       include: ["react/jsx-runtime"],

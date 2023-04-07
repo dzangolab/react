@@ -29,6 +29,7 @@ export default defineConfig(({ mode }) => {
             "@dzangolab/react-i18n": "DzangolabReactI18n",
             "@dzangolab/react-layout": "DzangolabReactLayout",
             "@dzangolab/react-ui": "DzangolabReactUi",
+            axios: "Axios",
             formik: "formik",
             yup: "Yup",
             react: "React",
@@ -44,7 +45,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     resolve: {
       alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "@/": new URL("./src/", import.meta.url).pathname,
       },
     },
     server: {
