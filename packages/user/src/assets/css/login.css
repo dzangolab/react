@@ -1,12 +1,15 @@
-.google-button {
-  background-color: #dd4b39;
-  border: none;
-  border-radius: 0.4rem;
-  color: #fff;
-  cursor: pointer;
-  height: 2.5rem;
+.social-login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 0px;
   width: 90%;
-  margin-bottom: 0.6rem;
+}
+
+.divider {
+  margin: 2rem auto;
+  width: 90%;
 }
 
 .login {
