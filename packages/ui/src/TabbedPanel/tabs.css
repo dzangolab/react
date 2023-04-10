@@ -20,7 +20,7 @@
 .tabbed-panel.bottom > div[role="tablist"],
 .tabbed-panel.top > div[role="tablist"] {
   flex-direction: row;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .tabbed-panel.left {
