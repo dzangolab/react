@@ -2,7 +2,6 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import react from "@vitejs/plugin-react";
-
 import { defineConfig, loadEnv } from "vite";
 
 // https://vitejs.dev/config/
