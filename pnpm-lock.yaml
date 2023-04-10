@@ -23,11 +23,12 @@ importers:
       '@babel/core': 7.21.4
       '@babel/plugin-syntax-flow': 7.21.4
       '@babel/plugin-transform-react-jsx': ^7.21.0
-      '@dzangolab/react-config': 0.6.1
-      '@dzangolab/react-i18n': 0.6.1
-      '@dzangolab/react-layout': 0.6.1
-      '@dzangolab/react-ui': 0.6.1
-      '@dzangolab/react-user': 0.6.1
+      '@dzangolab/react-config': workspace:*
+      '@dzangolab/react-form': workspace:*
+      '@dzangolab/react-i18n': workspace:*
+      '@dzangolab/react-layout': workspace:*
+      '@dzangolab/react-ui': workspace:*
+      '@dzangolab/react-user': workspace:*
       '@reduxjs/toolkit': 1.9.3
       '@testing-library/react': 14.0.0
       '@types/jsdom': 21.1.1
@@ -58,11 +59,12 @@ importers:
       vite-plugin-html: 3.2.0
       vitest: 0.29.7
     dependencies:
-      '@dzangolab/react-config': 0.6.1
-      '@dzangolab/react-i18n': 0.6.1_nqh5pg3fkdfbj2d5bblcyajy4i
-      '@dzangolab/react-layout': 0.6.1_psp6wfgzuhv3mqltzeittmvqe4
-      '@dzangolab/react-ui': 0.6.1_react-router-dom@6.9.0
-      '@dzangolab/react-user': 0.6.1_aptbz4hplttm3k3nzxl2sbincq
+      '@dzangolab/react-config': link:../../packages/config
+      '@dzangolab/react-form': link:../../packages/form
+      '@dzangolab/react-i18n': link:../../packages/i18n
+      '@dzangolab/react-layout': link:../../packages/layout
+      '@dzangolab/react-ui': link:../../packages/ui
+      '@dzangolab/react-user': link:../../packages/user
       '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
       normalize.css: 8.0.1
       react: 18.2.0
@@ -169,6 +171,71 @@ importers:
       typescript: 4.9.5
       vite: 4.2.1_@types+node@18.11.18
       vitest: 0.29.7_jsdom@21.1.1
+
+  packages/form:
+    specifiers:
+      '@dzangolab/react-config': 0.6.1
+      '@hookform/error-message': ^2.0.1
+      '@hookform/resolvers': ^3.0.0
+      '@storybook/react': 7.0.0-rc.7
+      '@testing-library/react': 14.0.0
+      '@types/jsdom': 20.0.0
+      '@types/node': 18.11.18
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      '@types/react-test-renderer': 18.0.0
+      '@types/validator': ^13.7.14
+      '@vitejs/plugin-react': 3.1.0
+      '@vitest/coverage-c8': 0.29.7
+      eslint: 8.36.0
+      eslint-config-custom: 0.6.1
+      eslint-plugin-react: 7.32.2
+      jsdom: 20.0.3
+      prettier: 2.8.7
+      react: 18.2.0
+      react-debounce-input: 3.3.0
+      react-dom: 18.2.0
+      react-hook-form: ^7.43.9
+      react-router-dom: 6.9.0
+      react-test-renderer: 18.2.0
+      tsconfig: 0.6.1
+      typescript: 4.9.5
+      validator: ^13.9.0
+      vite: 4.2.1
+      vitest: 0.29.7
+      zod: ^3.21.4
+    dependencies:
+      '@hookform/error-message': 2.0.1_3vs6kel7arqr4fuhyz2geipx74
+      react-debounce-input: 3.3.0_react@18.2.0
+      validator: 13.9.0
+    devDependencies:
+      '@dzangolab/react-config': link:../config
+      '@hookform/resolvers': 3.0.1_react-hook-form@7.43.9
+      '@storybook/react': 7.0.0-rc.7_ygqkwb4gg3aean7xjfdauovyqq
+      '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
+      '@types/jsdom': 20.0.0
+      '@types/node': 18.11.18
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      '@types/react-test-renderer': 18.0.0
+      '@types/validator': 13.7.14
+      '@vitejs/plugin-react': 3.1.0_vite@4.2.1
+      '@vitest/coverage-c8': 0.29.7_vitest@0.29.7
+      eslint: 8.36.0
+      eslint-config-custom: link:../../tools/eslint-config-custom
+      eslint-plugin-react: 7.32.2_eslint@8.36.0
+      jsdom: 20.0.3
+      prettier: 2.8.7
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-hook-form: 7.43.9_react@18.2.0
+      react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
+      react-test-renderer: 18.2.0_react@18.2.0
+      tsconfig: link:../../tools/tsconfig
+      typescript: 4.9.5
+      vite: 4.2.1_@types+node@18.11.18
+      vitest: 0.29.7_jsdom@20.0.3
+      zod: 3.21.4
 
   packages/i18n:
     specifiers:
@@ -2166,86 +2233,6 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /@dzangolab/react-config/0.6.1:
-    resolution: {integrity: sha512-oxo6GhhPlR5Efc5sRHkd8W8PQliqM9pfO0IeYn5VDT3e1IewtZIUKDugAvDV06jnlvEyaH0Yt4hM2RJfuXge3w==}
-    dev: false
-
-  /@dzangolab/react-i18n/0.6.1_nqh5pg3fkdfbj2d5bblcyajy4i:
-    resolution: {integrity: sha512-pdMYENUOm4cYDlNasebrI/PJpnqzz+4ysf04hQX/nBNWvOdaknOHN2QM94SHXS6hGzk8jMU/lslGpWKzhPKhcg==}
-    peerDependencies:
-      '@dzangolab/react-config': 0.6.1
-      react: '>=18.2'
-      react-dom: '>=18.2'
-    dependencies:
-      '@dzangolab/react-config': 0.6.1
-      i18next: 21.10.0
-      i18next-browser-languagedetector: 6.1.8
-      i18next-chained-backend: 4.2.0
-      i18next-resources-to-backend: 1.1.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-i18next: 11.18.6_vfm63zmruocgezzfl2v26zlzpy
-    transitivePeerDependencies:
-      - react-native
-    dev: false
-
-  /@dzangolab/react-layout/0.6.1_psp6wfgzuhv3mqltzeittmvqe4:
-    resolution: {integrity: sha512-g5LqIWUdQ0sA2qrDb3oCgLOzxbGVfFGZivcZoavtRnLe3qv0M+C7ikzV6shW8zbl9DqMUTcUHrGsZUOm7lVHZg==}
-    engines: {node: '>=16', pnpm: '>=7'}
-    peerDependencies:
-      react-router-dom: 6.9.0
-    dependencies:
-      '@dzangolab/react-config': 0.6.1
-      '@dzangolab/react-i18n': 0.6.1_nqh5pg3fkdfbj2d5bblcyajy4i
-      '@dzangolab/react-ui': 0.6.1_react-router-dom@6.9.0
-      react: 18.2.0
-      react-icons: 4.8.0_react@18.2.0
-      react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
-    transitivePeerDependencies:
-      - react-dom
-      - react-native
-    dev: false
-
-  /@dzangolab/react-ui/0.6.1_react-router-dom@6.9.0:
-    resolution: {integrity: sha512-QquOSjIKqX8Gm4OpovQEnmKgg4UxAtSYnJ3hgHnYrxIsgF+fi0jRik7Kgp4slKytuCBImVhfe6178vCSkXAwzg==}
-    engines: {node: '>=16', pnpm: '>=7'}
-    peerDependencies:
-      react-router-dom: 6.9.0
-    dependencies:
-      '@dzangolab/react-config': 0.6.1
-      '@tanstack/react-table': 8.8.4_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-debounce-input: 3.3.0_react@18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-outside-click-handler: 1.3.0_biqbaboplfbrettd7655fr4n2y
-      react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
-    dev: false
-
-  /@dzangolab/react-user/0.6.1_aptbz4hplttm3k3nzxl2sbincq:
-    resolution: {integrity: sha512-Hgyn6JmdZeW2BK4V/qoyBuQ6CzBeGkPhlw3wbtTaCCckSvl5GSN49If2j/J0d9zGzECkm6pAwlY0Vf3FXttOPg==}
-    engines: {node: '>=16', pnpm: '>=7'}
-    peerDependencies:
-      '@dzangolab/react-i18n': 0.6.1
-      '@dzangolab/react-ui': 0.6.1
-      react: '>=18.2'
-      react-dom: '>=18.2'
-      react-router-dom: 6.9.0
-    dependencies:
-      '@dzangolab/react-config': 0.6.1
-      '@dzangolab/react-i18n': 0.6.1_nqh5pg3fkdfbj2d5bblcyajy4i
-      '@dzangolab/react-layout': 0.6.1_psp6wfgzuhv3mqltzeittmvqe4
-      '@dzangolab/react-ui': 0.6.1_react-router-dom@6.9.0
-      formik: 2.2.9_react@18.2.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
-      react-toastify: 9.0.5_biqbaboplfbrettd7655fr4n2y
-      supertokens-web-js: 0.4.0
-      yup: 0.32.11
-    transitivePeerDependencies:
-      - react-native
-    dev: false
-
   /@emotion/use-insertion-effect-with-fallbacks/1.0.0_react@18.2.0:
     resolution: {integrity: sha512-1eEgUGmkaljiBnRMTdksDV1W4kUnmwgp7X9G8B++9GYwl1lUdqSndSriIrTJ0N7LQaoauY9JJ2yhiOYK5+NI4A==}
     peerDependencies:
@@ -2485,22 +2472,6 @@ packages:
     resolution: {integrity: sha512-BISJ6ZE4xQsuL/FmsyRaiffpq977bMlsKfGHTQrOGFErfByxIe6iZTxPf/00Zon9b9a7iUykfQwejN3s2ZW/Bw==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  /@eslint/eslintrc/2.0.1:
-    resolution: {integrity: sha512-eFRmABvW2E5Ho6f5fHLqgena46rOj7r7OKHYfLElqcBfGFHHpjBhivyi5+jOEQuSpdc/1phIZJlbC2te+tZNIw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      ajv: 6.12.6
-      debug: 4.3.4
-      espree: 9.5.0
-      globals: 13.19.0
-      ignore: 5.2.4
-      import-fresh: 3.3.0
-      js-yaml: 4.1.0
-      minimatch: 3.1.2
-      strip-json-comments: 3.1.1
-    transitivePeerDependencies:
-      - supports-color
-
   /@eslint/eslintrc/2.0.2:
     resolution: {integrity: sha512-3W4f5tDUra+pA+FzgugqL2pRimUTDJWKr7BINqOpkZrC0uYI0NIc0/JFgBROCU07HR6GieA5m3/rsPIhDmCXTQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -2516,7 +2487,6 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@eslint/js/8.36.0:
     resolution: {integrity: sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==}
@@ -2529,6 +2499,26 @@ packages:
 
   /@fal-works/esbuild-plugin-global-externals/2.1.2:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
+    dev: true
+
+  /@hookform/error-message/2.0.1_3vs6kel7arqr4fuhyz2geipx74:
+    resolution: {integrity: sha512-U410sAr92xgxT1idlu9WWOVjndxLdgPUHEB8Schr27C9eh7/xUnITWpCMF93s+lGiG++D4JnbSnrb5A21AdSNg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+      react-hook-form: ^7.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-hook-form: 7.43.9_react@18.2.0
+    dev: false
+
+  /@hookform/resolvers/3.0.1_react-hook-form@7.43.9:
+    resolution: {integrity: sha512-n5oOt0cLw9mQNW3/k9zWaPsNWQcc0k6Jpc7XUrg2Q/AqqsHp3IVa1juqHCxczXI6uXHBa69ILc4pdtsRGyuzsw==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.43.9_react@18.2.0
     dev: true
 
   /@humanwhocodes/config-array/0.11.8:
@@ -4650,6 +4640,14 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
+  /@types/jsdom/20.0.0:
+    resolution: {integrity: sha512-YfAchFs0yM1QPDrLm2VHe+WHGtqms3NXnXAMolrgrVP6fgBHHXy1ozAbo/dFtPNtZC/m66bPiCTWYmqp1F14gA==}
+    dependencies:
+      '@types/node': 18.11.18
+      '@types/tough-cookie': 4.0.2
+      parse5: 7.1.2
+    dev: true
+
   /@types/jsdom/21.1.1:
     resolution: {integrity: sha512-cZFuoVLtzKP3gmq9eNosUL1R50U+USkbLtUQ1bYVgl/lKp0FZM7Cq4aIHAL8oIvQ17uSHi7jXPtfDOdjPwBE7A==}
     dependencies:
@@ -4790,6 +4788,10 @@ packages:
   /@types/use-sync-external-store/0.0.3:
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
     dev: false
+
+  /@types/validator/13.7.14:
+    resolution: {integrity: sha512-J6OAed6rhN6zyqL9Of6ZMamhlsOEU/poBVvbHr/dKOYKTeuYYMlDkMv+b6UUV0o2i0tw73cgyv/97WTWaUl0/g==}
+    dev: true
 
   /@types/webpack-env/1.18.0:
     resolution: {integrity: sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==}
@@ -7258,6 +7260,21 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  /cssom/0.3.8:
+    resolution: {integrity: sha512-b0tGHbfegbhPJpxpiBPU2sCkigAqtM9O121le6bbOlgyV+NyGyCmVfJ6QW9eRjz8CpNfWEOYBIMIGRYkLwsIYg==}
+    dev: true
+
+  /cssom/0.5.0:
+    resolution: {integrity: sha512-iKuQcq+NdHqlAcwUY0o/HL69XQrUaQdMjmStJ8JFmUaiiQErlhrmuigkg/CU4E2J0IyUKUrMAgl36TvN67MqTw==}
+    dev: true
+
+  /cssstyle/2.3.0:
+    resolution: {integrity: sha512-AZL67abkUzIuvcHqk7c09cezpGNcxUxU4Ioi/05xHk4DQeTkWmGYftIE6ctU6AEt+Gn4n1lDStOtj7FKycP71A==}
+    engines: {node: '>=8'}
+    dependencies:
+      cssom: 0.3.8
+    dev: true
+
   /cssstyle/3.0.0:
     resolution: {integrity: sha512-N4u2ABATi3Qplzf0hWbVCdjenim8F3ojEXpBDF5hBpjzW182MjNGLqfmQ0SkSPeQ+V86ZXgeH8aXj6kayd4jgg==}
     engines: {node: '>=14'}
@@ -7279,6 +7296,15 @@ packages:
   /dargs/7.0.0:
     resolution: {integrity: sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==}
     engines: {node: '>=8'}
+    dev: true
+
+  /data-urls/3.0.2:
+    resolution: {integrity: sha512-Jy/tj3ldjZJo63sVAvg6LHt2mHvl4V6AgRAmNDtLdm7faqtsx+aJG42rsyCo9JCoRVKwPFzKlIPx3DIibwSIaQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      abab: 2.0.6
+      whatwg-mimetype: 3.0.0
+      whatwg-url: 11.0.0
     dev: true
 
   /data-urls/4.0.0:
@@ -8430,7 +8456,7 @@ packages:
     dependencies:
       '@eslint-community/eslint-utils': 4.3.0_eslint@8.36.0
       '@eslint-community/regexpp': 4.4.1
-      '@eslint/eslintrc': 2.0.1
+      '@eslint/eslintrc': 2.0.2
       '@eslint/js': 8.36.0
       '@humanwhocodes/config-array': 0.11.8
       '@humanwhocodes/module-importer': 1.0.1
@@ -8442,8 +8468,8 @@ packages:
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.1.1
-      eslint-visitor-keys: 3.3.0
-      espree: 9.5.0
+      eslint-visitor-keys: 3.4.0
+      espree: 9.5.1
       esquery: 1.4.2
       esutils: 2.0.3
       fast-deep-equal: 3.1.3
@@ -8525,14 +8551,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /espree/9.5.0:
-    resolution: {integrity: sha512-JPbJGhKc47++oo4JkEoTe2wjy4fmMwvFpgJT9cQzmfXKp22Dr6Hf1tdCteLz1h0P3t+mGvWZ+4Uankvh8+c6zw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      acorn: 8.8.2
-      acorn-jsx: 5.3.2_acorn@8.8.2
-      eslint-visitor-keys: 3.3.0
-
   /espree/9.5.1:
     resolution: {integrity: sha512-5yxtHSZXRSW5pvv3hAlXM5+/Oswi1AUFqBmbibKb5s6bp3rGIDkyXU6xCoyuuLhijr4SFwPrXRoZjz0AZDN9tg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -8540,7 +8558,6 @@ packages:
       acorn: 8.8.2
       acorn-jsx: 5.3.2_acorn@8.8.2
       eslint-visitor-keys: 3.4.0
-    dev: true
 
   /esprima/4.0.1:
     resolution: {integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==}
@@ -10527,6 +10544,47 @@ packages:
       - supports-color
     dev: true
 
+  /jsdom/20.0.3:
+    resolution: {integrity: sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      canvas: ^2.5.0
+    peerDependenciesMeta:
+      canvas:
+        optional: true
+    dependencies:
+      abab: 2.0.6
+      acorn: 8.8.2
+      acorn-globals: 7.0.1
+      cssom: 0.5.0
+      cssstyle: 2.3.0
+      data-urls: 3.0.2
+      decimal.js: 10.4.3
+      domexception: 4.0.0
+      escodegen: 2.0.0
+      form-data: 4.0.0
+      html-encoding-sniffer: 3.0.0
+      http-proxy-agent: 5.0.0
+      https-proxy-agent: 5.0.1
+      is-potential-custom-element-name: 1.0.1
+      nwsapi: 2.2.2
+      parse5: 7.1.2
+      saxes: 6.0.0
+      symbol-tree: 3.2.4
+      tough-cookie: 4.1.2
+      w3c-xmlserializer: 4.0.0
+      webidl-conversions: 7.0.0
+      whatwg-encoding: 2.0.0
+      whatwg-mimetype: 3.0.0
+      whatwg-url: 11.0.0
+      ws: 8.13.0
+      xml-name-validator: 4.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
+
   /jsdom/21.1.1:
     resolution: {integrity: sha512-Jjgdmw48RKcdAIQyUD1UdBh2ecH7VqwaXPN3ehoZN6MqgVbMn+lRm1aAT1AsdJRAJpwfa4IpwgzySn61h2qu3w==}
     engines: {node: '>=14'}
@@ -12309,6 +12367,14 @@ packages:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
     dev: false
 
+  /react-hook-form/7.43.9_react@18.2.0:
+    resolution: {integrity: sha512-AUDN3Pz2NSeoxQ7Hs6OhQhDr6gtF9YRuutGDwPQqhSUAHJSgGl2VeY3qN19MG0SucpjgDiuMJ4iC5T5uB+eaNQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+
   /react-i18next/11.18.6_vfm63zmruocgezzfl2v26zlzpy:
     resolution: {integrity: sha512-yHb2F9BiT0lqoQDt8loZ5gWP331GwctHz9tYQ8A2EIEUu+CcEdjBLQWli1USG3RdWQt3W+jqQLg/d4rrQR96LA==}
     peerDependencies:
@@ -13953,6 +14019,13 @@ packages:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: true
 
+  /tr46/3.0.0:
+    resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
+    engines: {node: '>=12'}
+    dependencies:
+      punycode: 2.3.0
+    dev: true
+
   /tr46/4.1.1:
     resolution: {integrity: sha512-2lv/66T7e5yNyhAAC4NaKe5nVavzuGJQVVtRYLyQ2OI8tsJ61PMLlelehb0wi2Hx6+hT/OJUWZcw8MjlSRnxvw==}
     engines: {node: '>=14'}
@@ -14535,6 +14608,11 @@ packages:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
 
+  /validator/13.9.0:
+    resolution: {integrity: sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==}
+    engines: {node: '>= 0.10'}
+    dev: false
+
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
@@ -14750,11 +14828,73 @@ packages:
       '@vitest/runner': 0.29.7
       '@vitest/spy': 0.29.7
       '@vitest/utils': 0.29.7
-      acorn: 8.8.1
+      acorn: 8.8.2
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
+      local-pkg: 0.4.2
+      pathe: 1.1.0
+      picocolors: 1.0.0
+      source-map: 0.6.1
+      std-env: 3.3.1
+      strip-literal: 1.0.0
+      tinybench: 2.3.1
+      tinypool: 0.4.0
+      tinyspy: 1.0.2
+      vite: 4.2.1_@types+node@18.11.18
+      vite-node: 0.29.7_@types+node@18.11.18
+      why-is-node-running: 2.2.2
+    transitivePeerDependencies:
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vitest/0.29.7_jsdom@20.0.3:
+    resolution: {integrity: sha512-aWinOSOu4jwTuZHkb+cCyrqQ116Q9TXaJrNKTHudKBknIpR0VplzeaOUuDF9jeZcrbtQKZQt6yrtd+eakbaxHg==}
+    engines: {node: '>=v14.16.0'}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
+      '@vitest/ui': '*'
+      happy-dom: '*'
+      jsdom: '*'
+      safaridriver: '*'
+      webdriverio: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+      safaridriver:
+        optional: true
+      webdriverio:
+        optional: true
+    dependencies:
+      '@types/chai': 4.3.4
+      '@types/chai-subset': 1.3.3
+      '@types/node': 18.11.18
+      '@vitest/expect': 0.29.7
+      '@vitest/runner': 0.29.7
+      '@vitest/spy': 0.29.7
+      '@vitest/utils': 0.29.7
+      acorn: 8.8.2
+      acorn-walk: 8.2.0
+      cac: 6.7.14
+      chai: 4.3.7
+      debug: 4.3.4
+      jsdom: 20.0.3
       local-pkg: 0.4.2
       pathe: 1.1.0
       picocolors: 1.0.0
@@ -14811,7 +14951,7 @@ packages:
       '@vitest/runner': 0.29.7
       '@vitest/spy': 0.29.7
       '@vitest/utils': 0.29.7
-      acorn: 8.8.1
+      acorn: 8.8.2
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
@@ -15009,6 +15149,14 @@ packages:
   /whatwg-mimetype/3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
     engines: {node: '>=12'}
+    dev: true
+
+  /whatwg-url/11.0.0:
+    resolution: {integrity: sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      tr46: 3.0.0
+      webidl-conversions: 7.0.0
     dev: true
 
   /whatwg-url/12.0.1:
@@ -15281,6 +15429,10 @@ packages:
       property-expr: 2.0.5
       toposort: 2.0.2
     dev: false
+
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: true
 
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}

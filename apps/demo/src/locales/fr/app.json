@@ -5,6 +5,7 @@
   },
   "header": {
     "menu": {
+      "form": "Form [fr]",
       "i18n": "I18n [fr]",
       "layout": "Layout [fr]",
       "ui": "UI [fr]",
