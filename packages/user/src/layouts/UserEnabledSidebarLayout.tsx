@@ -16,6 +16,9 @@ interface Properties {
   onLogout?: () => void;
   sidebar?: React.ReactNode;
   userMenu?: UserMenuItemType[];
+  userMenuCollapsedIcon?: React.ReactNode;
+  userMenuExpandIcon?: React.ReactNode;
+  userMenuLabel?: React.ReactNode;
 }
 
 const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
@@ -24,7 +27,16 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
-  const { children, footer, onLogout, sidebar, userMenu } = properties;
+  const {
+    children,
+    footer,
+    onLogout,
+    sidebar,
+    userMenu,
+    userMenuCollapsedIcon,
+    userMenuExpandIcon,
+    userMenuLabel,
+  } = properties;
 
   return (
     <CollapsibleSidebarLayout
@@ -36,7 +48,13 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
           userMenu={
             <UserMenu
               authenticatedUserMenu={
-                <DropdownUserMenu userMenu={userMenu} onLogout={onLogout} />
+                <DropdownUserMenu
+                  collapseIcon={userMenuCollapsedIcon}
+                  expandIcon={userMenuExpandIcon}
+                  label={userMenuLabel}
+                  onLogout={onLogout}
+                  userMenu={userMenu}
+                />
               }
             />
           }

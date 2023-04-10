@@ -11,7 +11,7 @@ exports[`Component matches snapshot 1`] = `
     <span
       className="label"
     >
-      test@gmail.com
+      test
     </span>
     <span
       className="icon"

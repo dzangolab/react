@@ -2,14 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 
 import "./index.css";
 
-interface IProperties {
+export interface DropdownMenuProperties {
   collapseIcon?: React.ReactNode;
   dropdownMenu: React.ReactNode;
   expandIcon?: React.ReactNode;
   label: React.ReactNode;
 }
 
-const DropdownMenu: React.FC<IProperties> = ({
+const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   collapseIcon = <>&#9652;</>,
   dropdownMenu,
   expandIcon = <>&#9662;</>,
@@ -51,4 +51,5 @@ const DropdownMenu: React.FC<IProperties> = ({
     </div>
   );
 };
+
 export default DropdownMenu;
