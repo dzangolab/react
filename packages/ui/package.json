@@ -30,7 +30,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@tanstack/react-table": "8.8.4",
+    "@tanstack/react-table": "8.8.5",
     "react-debounce-input": "3.3.0",
     "react-outside-click-handler": "1.3.0"
   },
