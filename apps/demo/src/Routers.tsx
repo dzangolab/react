@@ -3,6 +3,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import config from "./config";
 import { BasicLayout } from "./layouts/BasicLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
+import Form from "./Views/Form";
 import Home from "./Views/Home";
 import I18n from "./Views/I18n";
 import Layout from "./Views/Layout";
@@ -23,6 +24,10 @@ const routes = () => {
               routes={config.layout?.mainMenu ? config.layout.mainMenu : []}
             />
           ),
+        },
+        {
+          path: "/form",
+          element: <Form />,
         },
         {
           path: "/i18n",
