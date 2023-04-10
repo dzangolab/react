@@ -175,8 +175,8 @@ importers:
   packages/form:
     specifiers:
       '@dzangolab/react-config': 0.6.1
-      '@hookform/error-message': ^2.0.1
-      '@hookform/resolvers': ^3.0.0
+      '@hookform/error-message': 2.0.1
+      '@hookform/resolvers': 3.0.0
       '@storybook/react': 7.0.2
       '@testing-library/react': 14.0.0
       '@types/jsdom': 20.0.0
@@ -184,7 +184,7 @@ importers:
       '@types/react': 18.0.33
       '@types/react-dom': 18.0.11
       '@types/react-test-renderer': 18.0.0
-      '@types/validator': ^13.7.14
+      '@types/validator': 13.7.14
       '@vitejs/plugin-react': 3.1.0
       '@vitest/coverage-c8': 0.29.7
       eslint: 8.36.0
@@ -195,22 +195,22 @@ importers:
       react: 18.2.0
       react-debounce-input: 3.3.0
       react-dom: 18.2.0
-      react-hook-form: ^7.43.9
+      react-hook-form: 7.43.9
       react-router-dom: 6.9.0
       react-test-renderer: 18.2.0
       tsconfig: 0.6.1
       typescript: 4.9.5
-      validator: ^13.9.0
+      validator: 13.9.0
       vite: 4.2.1
       vitest: 0.29.7
-      zod: ^3.21.4
+      zod: 3.21.4
     dependencies:
       '@hookform/error-message': 2.0.1_3vs6kel7arqr4fuhyz2geipx74
       react-debounce-input: 3.3.0_react@18.2.0
       validator: 13.9.0
     devDependencies:
       '@dzangolab/react-config': link:../config
-      '@hookform/resolvers': 3.0.1_react-hook-form@7.43.9
+      '@hookform/resolvers': 3.0.0_react-hook-form@7.43.9
       '@storybook/react': 7.0.2_ygqkwb4gg3aean7xjfdauovyqq
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/jsdom': 20.0.0
@@ -2651,8 +2651,8 @@ packages:
       react-hook-form: 7.43.9_react@18.2.0
     dev: false
 
-  /@hookform/resolvers/3.0.1_react-hook-form@7.43.9:
-    resolution: {integrity: sha512-n5oOt0cLw9mQNW3/k9zWaPsNWQcc0k6Jpc7XUrg2Q/AqqsHp3IVa1juqHCxczXI6uXHBa69ILc4pdtsRGyuzsw==}
+  /@hookform/resolvers/3.0.0_react-hook-form@7.43.9:
+    resolution: {integrity: sha512-SQPefakODpyq25b/phHXDKCdRrEfPcCXV7B4nAa139wE1DxufYbbNAjeo0T04ZXBokRxZ+wD8iA1kkVMa3QwjQ==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
