@@ -5,16 +5,11 @@ import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 import logout from "./logout";
 import { removeUserData } from "../helpers";
 
-import type { LoginCredentials, UserType } from "../types";
-
-interface IPromise {
-  user: UserType;
-  status: string;
-}
+import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
 
 const login = async (
   credentials: LoginCredentials
-): Promise<IPromise | undefined> => {
+): Promise<SignInUpPromise | undefined> => {
   let user: UserType;
   let status: string;
 

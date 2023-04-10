@@ -11,13 +11,13 @@ import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import login, { verifySession } from "../supertokens/login";
 
-import type { LoginCredentials } from "../types";
+import type { LoginCredentials, SignInUpPromise } from "../types";
 
 import "../assets/css/login.css";
 
 interface IProperties {
-  onLoginFailed?: () => void;
-  onLoginSuccess?: () => void;
+  onLoginFailed?: (error: Error) => void;
+  onLoginSuccess?: (user: SignInUpPromise) => void;
 }
 
 const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
@@ -41,7 +41,7 @@ const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
             await setUserData(result.user);
             setUser(result.user);
             setShowRedirectionMessage(false);
-            onLoginSuccess && (await onLoginSuccess());
+            onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
           } else {
@@ -49,14 +49,14 @@ const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
           }
         }
       })
-      .catch(async (err) => {
+      .catch(async (error) => {
         let errorMessage = "errors.otherErrors";
 
-        if (err.message) {
-          errorMessage = `errors.${err.message}`;
+        if (error.message) {
+          errorMessage = `errors.${error.message}`;
         }
 
-        onLoginFailed && (await onLoginFailed());
+        onLoginFailed && (await onLoginFailed(error));
 
         toast.error(t(errorMessage, { ns: "errors" }));
       });

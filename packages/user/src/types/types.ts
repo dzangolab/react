@@ -35,10 +35,16 @@ interface AuthState {
   user: UserType | undefined;
 }
 
+interface SignInUpPromise {
+  user: UserType;
+  status: string;
+}
+
 export type {
   AuthState,
-  UserContextType,
   LoginCredentials,
-  UserType,
+  SignInUpPromise,
+  UserContextType,
   UserMenuItemType,
+  UserType,
 };

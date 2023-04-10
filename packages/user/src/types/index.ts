@@ -2,6 +2,7 @@ import { DzangolabReactUserConfig } from "./config";
 import {
   AuthState,
   LoginCredentials,
+  SignInUpPromise,
   UserContextType,
   UserType,
   UserMenuItemType,
@@ -11,6 +12,7 @@ export type {
   AuthState,
   DzangolabReactUserConfig,
   LoginCredentials,
+  SignInUpPromise,
   UserContextType,
   UserType,
   UserMenuItemType,
