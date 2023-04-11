@@ -102,9 +102,8 @@ function TableHeader() {
                               column.columnDef.meta?.filterPlaceholder
                             }
                             selectOptions={column.columnDef.meta?.selectOptions}
-                            columnFilterValue={
-                              column.getFilterValue() as string
-                            }
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            columnFilterValue={column.getFilterValue() as any}
                             columnType={
                               typeof table
                                 .getPreFilteredRowModel()

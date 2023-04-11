@@ -1,9 +1,37 @@
-import type { TRequestJSON, TSortDirection } from "./types";
 import type {
-  ColumnFiltersState,
-  PaginationState,
-  SortingState,
-} from "@tanstack/react-table";
+  TCustomColumnFilter,
+  TFilterFn as TFilterFunction,
+  TRequestJSON,
+  TSortDirection,
+} from "./types";
+import type { PaginationState, SortingState } from "@tanstack/react-table";
+
+const getFilterOperator = (filterFunction: TFilterFunction): string => {
+  switch (filterFunction) {
+    case "contains":
+      return "ct";
+    case "startsWith":
+      return "sw";
+    case "endsWith":
+      return "ew";
+    case "equals":
+      return "eq";
+    case "greaterThan":
+      return "gt";
+    case "greaterThanOrEqual":
+      return "gte";
+    case "lessThanOrEqual":
+      return "lte";
+    case "lessThan":
+      return "lt";
+    case "in":
+      return "in";
+    case "between":
+      return "bt";
+    default:
+      return "ct";
+  }
+};
 
 const getSortDirection = (desc: boolean): TSortDirection => {
   switch (desc) {
@@ -18,7 +46,7 @@ const getSortDirection = (desc: boolean): TSortDirection => {
 
 export const getRequestJSON = (
   sortingState?: SortingState,
-  filterState?: ColumnFiltersState,
+  filterState?: TCustomColumnFilter[],
   paginationState?: PaginationState
 ): TRequestJSON => {
   const getFilter = () => {
@@ -27,8 +55,8 @@ export const getRequestJSON = (
     if (filterState.length === 1) {
       return {
         key: filterState[0].id,
-        operator: "ct",
-        value: filterState[0].value as string,
+        operator: getFilterOperator(filterState[0].value.filterFn),
+        value: filterState[0].value.value,
       };
     }
 
@@ -36,8 +64,8 @@ export const getRequestJSON = (
       AND: filterState.map((filter) => {
         return {
           key: filter.id,
-          operator: "ct",
-          value: filter.value as string,
+          operator: getFilterOperator(filter.value.filterFn),
+          value: filter.value.value,
         };
       }),
     };

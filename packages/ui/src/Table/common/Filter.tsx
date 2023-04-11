@@ -50,23 +50,24 @@ function Filter({
             {filterVariant === "text" ? (
               <DebounceInput
                 type="text"
-                value={(columnFilterValue ?? "") as string}
+                value={(columnFilterValue?.value ?? "") as string}
                 debounceTimeout={inputDebounceTime}
                 onChange={(event_) => {
-                  handleChange(event_.target.value);
+                  handleChange({ value: event_.target.value, filterFn });
                 }}
                 placeholder={`Search...`}
-                className=""
+                className="filter-text-input"
                 size={10}
               />
             ) : null}
 
             {filterVariant === "select" && selectOptions ? (
               <select
-                value={(columnFilterValue ?? "") as string}
+                value={(columnFilterValue?.value ?? "") as string}
                 onChange={(event_) => {
-                  handleChange(event_.target.value);
+                  handleChange({ value: event_.target.value, filterFn });
                 }}
+                className="filter-select-input"
               >
                 {placeholder ? (
                   <option value="" disabled selected>
