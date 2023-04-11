@@ -60,14 +60,13 @@ const DropdownUserMenu: React.FC<Properties> = ({
   ));
 
   return (
-    <nav className="user-menu">
-      <DropdownMenu
-        collapseIcon={collapseIcon}
-        dropdownMenu={dropdownUserMenu}
-        expandIcon={expandIcon}
-        label={label || user?.profile?.givenName}
-      />
-    </nav>
+    <DropdownMenu
+      className="user-menu"
+      collapseIcon={collapseIcon}
+      dropdownMenu={dropdownUserMenu}
+      expandIcon={expandIcon}
+      label={label || user?.profile?.givenName}
+    />
   );
 };
 
