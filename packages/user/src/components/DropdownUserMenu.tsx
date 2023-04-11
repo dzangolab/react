@@ -40,14 +40,8 @@ const DropdownUserMenu: React.FC<Properties> = ({
     onClick: signout,
     route: undefined,
   };
-  const profileRoute = {
-    name: "userMenu.profile",
-    route: "/profile",
-    onClick: undefined,
-  };
 
-  const fallbackItems = [profileRoute, signoutRoute];
-  const menuItems = userMenu ? [...userMenu, ...fallbackItems] : fallbackItems;
+  const menuItems = userMenu ? [...userMenu, signoutRoute] : [signoutRoute];
 
   const dropdownUserMenu = menuItems.map(({ name, onClick, route }) => (
     <DropdownUserMenuItem
