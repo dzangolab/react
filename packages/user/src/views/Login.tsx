@@ -1,6 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -11,11 +11,16 @@ import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import login, { verifySession } from "../supertokens/login";
 
-import type { LoginCredentials } from "../types";
+import type { LoginCredentials, SignInUpPromise } from "../types";
 
 import "../assets/css/login.css";
 
-const Login = () => {
+interface IProperties {
+  onLoginFailed?: (error: Error) => void;
+  onLoginSuccess?: (user: SignInUpPromise) => void;
+}
+
+const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
@@ -26,26 +31,36 @@ const Login = () => {
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
 
-    const result = await login(credentials).catch((err) => {
-      let errorMessage = "errors.otherErrors";
+    await login(credentials)
+      .then(async (result) => {
+        if (result?.user) {
+          if (
+            appConfig &&
+            (await verifySession(appConfig.user.supportedRoles))
+          ) {
+            await setUserData(result.user);
+            setUser(result.user);
+            setShowRedirectionMessage(false);
+            onLoginSuccess && (await onLoginSuccess(result));
 
-      if (err.message) {
-        errorMessage = `errors.${err.message}`;
-      }
+            toast.success(`${t("login.messages.success")}`);
+          } else {
+            setShowRedirectionMessage(true);
+          }
+        }
+      })
+      .catch(async (error) => {
+        let errorMessage = "errors.otherErrors";
 
-      toast.error(t(errorMessage, { ns: "errors" }));
-    });
+        if (error.message) {
+          errorMessage = `errors.${error.message}`;
+        }
 
-    if (result?.user) {
-      if (appConfig && (await verifySession(appConfig.user.supportedRoles))) {
-        await setUserData(result.user);
-        setUser(result.user);
-        setShowRedirectionMessage(false);
-        toast.success(`${t("login.messages.success")}`);
-      } else {
-        setShowRedirectionMessage(true);
-      }
-    }
+        onLoginFailed && (await onLoginFailed(error));
+
+        toast.error(t(errorMessage, { ns: "errors" }));
+      });
+
     setLoading(false);
   };
 

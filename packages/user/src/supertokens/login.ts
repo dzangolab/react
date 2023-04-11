@@ -5,18 +5,13 @@ import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 import logout from "./logout";
 import { removeUserData } from "../helpers";
 
-import type { LoginCredentials, UserType } from "../types";
-
-interface IPromise {
-  user: UserType | undefined;
-  status: string | undefined;
-}
+import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
 
 const login = async (
   credentials: LoginCredentials
-): Promise<IPromise | undefined> => {
-  let user: UserType | undefined;
-  let status: string | undefined;
+): Promise<SignInUpPromise | undefined> => {
+  let user: UserType;
+  let status: string;
 
   const data = {
     formFields: [
@@ -36,10 +31,11 @@ const login = async (
   if (response.status === "OK") {
     user = response.user as UserType;
     status = response.status;
+
+    return { user, status };
   } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
     throw new Error("401");
   }
-  return { user, status };
 };
 
 async function verifySession(
