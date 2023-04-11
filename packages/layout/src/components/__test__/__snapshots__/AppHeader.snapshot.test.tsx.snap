@@ -14,8 +14,9 @@ exports[`Component matches snapshot 1`] = `
       />
     </a>
   </div>
-  <nav
+  <div
     className="menu-container dropdown"
+    data-aria-expanded={false}
   >
     <nav
       className="main-menu"
@@ -56,7 +57,7 @@ exports[`Component matches snapshot 1`] = `
         ▾
       </span>
     </div>
-  </nav>
+  </div>
   <div
     className="toggle"
     onClick={[Function]}
