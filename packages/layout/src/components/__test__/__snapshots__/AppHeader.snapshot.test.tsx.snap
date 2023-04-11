@@ -41,25 +41,21 @@ exports[`Component matches snapshot 1`] = `
         </ul>
       </div>
     </nav>
-    <nav
-      className="locale-switcher"
+    <div
+      className="locale-switcher dropdown-container "
+      onClick={[Function]}
     >
-      <div
-        className="dropdown-container "
-        onClick={[Function]}
+      <span
+        className="label"
       >
-        <span
-          className="label"
-        >
-          locales.en
-        </span>
-        <span
-          className="icon"
-        >
-          ▾
-        </span>
-      </div>
-    </nav>
+        locales.en
+      </span>
+      <span
+        className="icon"
+      >
+        ▾
+      </span>
+    </div>
   </nav>
   <div
     className="toggle"

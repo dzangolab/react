@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
 
 export interface DropdownMenuProperties {
+  className?: string;
   collapseIcon?: React.ReactNode;
   dropdownMenu: React.ReactNode;
   expandIcon?: React.ReactNode;
@@ -10,6 +11,7 @@ export interface DropdownMenuProperties {
 }
 
 const DropdownMenu: React.FC<DropdownMenuProperties> = ({
+  className = "",
   collapseIcon = <>&#9652;</>,
   dropdownMenu,
   expandIcon = <>&#9662;</>,
@@ -17,6 +19,8 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
 }) => {
   const [expanded, setExpanded] = useState(false);
   const navBarReference = useRef<HTMLDivElement | null>(null);
+
+  let _className = "dropdown-container";
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -35,10 +39,14 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
     };
   }, []);
 
+  if (className) {
+    _className = className + " " + _className;
+  }
+
   return (
     <div
       ref={navBarReference}
-      className={`dropdown-container ${expanded ? "expanded" : ""}`}
+      className={`${_className} ${expanded ? "expanded" : ""}`}
       onClick={() => setExpanded(!expanded)}
     >
       {typeof label === "string" ? (

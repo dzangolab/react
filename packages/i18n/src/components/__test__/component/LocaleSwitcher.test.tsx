@@ -27,7 +27,6 @@ test("Local switcher dropdown is displayed and locale is changed", async () => {
   render(<LocaleSwitcher />);
 
   expect(screen.getByText("locales.en")).toBeDefined();
-  expect(screen.getByRole("navigation").textContent).toEqual("locales.en▾");
 
   fireEvent.click(screen.getByText("locales.en"));
 
@@ -39,5 +38,5 @@ test("Local switcher dropdown is displayed and locale is changed", async () => {
 
   fireEvent.click(fr);
 
-  expect(screen.getByRole("navigation").textContent).toEqual("locales.fr▾");
+  expect(screen.getByText("locales.fr")).toBeDefined();
 });
