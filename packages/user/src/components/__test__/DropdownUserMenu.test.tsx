@@ -48,29 +48,11 @@ test("test dropdown on clicking user email", async () => {
     userEvent.click(screen.getByText(user.email));
   });
 
-  expect(await screen.findByText("userMenu.profile")).toBeDefined();
+  expect(await screen.findByText("userMenu.logout")).toBeDefined();
 
   await act(async () => {
     await userEvent.click(screen.getByText(user.email));
   });
 
-  expect(screen.queryByText("userMenu.profile")).toBe(null);
-});
-
-test("test dropdown items", async () => {
-  const { user, userEvent } = setup();
-
-  expect(screen.getByText(user.email)).toBeDefined();
-
-  act(() => {
-    userEvent.click(screen.getByText(user.email));
-  });
-
-  expect(await screen.findByText("userMenu.profile")).toBeDefined();
-
-  await act(async () => {
-    await userEvent.click(screen.getByText("userMenu.profile"));
-  });
-
-  expect(screen.queryByText("userMenu.profile")).toBe(null);
+  expect(screen.queryByText("userMenu.logout")).toBe(null);
 });

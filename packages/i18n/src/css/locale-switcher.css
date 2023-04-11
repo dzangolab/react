@@ -1,3 +1,3 @@
-nav.locale-switcher li.current {
+.locale-switcher li.current {
   display: none;
 }
