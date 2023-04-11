@@ -26,7 +26,7 @@ const setup = () => {
     ...render(
       <MemoryRouter>
         <userContext.Provider value={values}>
-          <DropdownUserMenu />
+          <DropdownUserMenu label={values.user.email} />
         </userContext.Provider>
       </MemoryRouter>
     ),

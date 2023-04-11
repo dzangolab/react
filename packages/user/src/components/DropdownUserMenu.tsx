@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DropdownMenu } from "@dzangolab/react-ui";
+import { DropdownMenu, DropdownMenuProperties } from "@dzangolab/react-ui";
 import { useId } from "react";
 import { toast } from "react-toastify";
 
@@ -9,12 +9,19 @@ import { useUser } from "../hooks";
 import logout from "../supertokens/logout";
 import { UserMenuItemType } from "../types";
 
-interface Properties {
+interface Properties
+  extends Partial<Omit<DropdownMenuProperties, "dropdownMenu">> {
   onLogout?: () => void;
   userMenu?: UserMenuItemType[];
 }
 
-const DropdownUserMenu: React.FC<Properties> = ({ onLogout, userMenu }) => {
+const DropdownUserMenu: React.FC<Properties> = ({
+  collapseIcon,
+  expandIcon,
+  label,
+  onLogout,
+  userMenu,
+}) => {
   const id = useId();
   const { user, setUser } = useUser();
   const { t } = useTranslation("user");
@@ -53,12 +60,13 @@ const DropdownUserMenu: React.FC<Properties> = ({ onLogout, userMenu }) => {
   ));
 
   return (
-    <nav className="user-menu">
-      <DropdownMenu
-        label={user?.email || "Guest"}
-        dropdownMenu={dropdownUserMenu}
-      />
-    </nav>
+    <DropdownMenu
+      className="user-menu"
+      collapseIcon={collapseIcon}
+      dropdownMenu={dropdownUserMenu}
+      expandIcon={expandIcon}
+      label={label || user?.profile?.givenName}
+    />
   );
 };
 
