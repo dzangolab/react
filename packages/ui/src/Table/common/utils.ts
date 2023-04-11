@@ -56,7 +56,7 @@ export const getRequestJSON = (
       return {
         key: filterState[0].id,
         operator: getFilterOperator(filterState[0].value.filterFn),
-        value: filterState[0].value.value,
+        value: String(filterState[0].value.value),
       };
     }
 
@@ -65,7 +65,7 @@ export const getRequestJSON = (
         return {
           key: filter.id,
           operator: getFilterOperator(filter.value.filterFn),
-          value: filter.value.value,
+          value: String(filter.value.value),
         };
       }),
     };

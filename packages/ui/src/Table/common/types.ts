@@ -108,13 +108,10 @@ export interface FilterProperties {
   filterVariant?: TFilterVariant;
   placeholder?: string;
   selectOptions?: TSelectOption[];
-  columnFilterValue?: {
-    filterFn: TFilterFn;
-    value: string;
-  };
+  columnFilterValue?: TFilterValue;
   columnType: number | string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  handleChange: ({ value, filterFn }: { value: string; filterFn: any }) => void;
+  handleChange: ({ value, filterFn }: TFilterValue) => void;
 }
 
 export interface TFooterProperties {
@@ -151,11 +148,13 @@ export type TFilterVariant =
 
 export type TSelectOption = { label: string; value: string };
 
+export type TFilterValue = {
+  filterFn: TFilterFn;
+  value: boolean | string | number;
+};
+
 export type TCustomColumnFilter = ChangeTypeOfKeys<
   ColumnFilter,
   "value",
-  {
-    filterFn: TFilterFn;
-    value: string;
-  }
+  TFilterValue
 >;

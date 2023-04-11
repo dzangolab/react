@@ -13,7 +13,7 @@ const renderImage = (source?: string) => {
 function Filter({
   filterVariant = "text",
   /* eslint-disable-next-line unicorn/prevent-abbreviations */
-  filterFn = "contains",
+  filterFn,
   placeholder,
   selectOptions,
   columnFilterValue,
@@ -23,7 +23,6 @@ function Filter({
   if (!filterVariant) return null;
 
   const { inputDebounceTime, filterIcons } = useContext(TableContext);
-  if (typeof columnType === "number") return null;
 
   const [expanded, setExpanded] = useState(false);
 
@@ -53,9 +52,12 @@ function Filter({
                 value={(columnFilterValue?.value ?? "") as string}
                 debounceTimeout={inputDebounceTime}
                 onChange={(event_) => {
-                  handleChange({ value: event_.target.value, filterFn });
+                  handleChange({
+                    value: event_.target.value,
+                    filterFn: filterFn || "contains",
+                  });
                 }}
-                placeholder={`Search...`}
+                placeholder={placeholder || `Search...`}
                 className="filter-text-input"
                 size={10}
               />
@@ -65,7 +67,10 @@ function Filter({
               <select
                 value={(columnFilterValue?.value ?? "") as string}
                 onChange={(event_) => {
-                  handleChange({ value: event_.target.value, filterFn });
+                  handleChange({
+                    value: event_.target.value,
+                    filterFn: filterFn || "equals",
+                  });
                 }}
                 className="filter-select-input"
               >
@@ -81,6 +86,22 @@ function Filter({
                   </option>
                 ))}
               </select>
+            ) : null}
+
+            {filterVariant === "checkBox" ? (
+              <div className="filter-checkbox-input">
+                <label>{placeholder}</label>
+                <input
+                  type="checkbox"
+                  value={String(columnFilterValue?.value ?? true)}
+                  onChange={(event_) => {
+                    handleChange({
+                      value: event_.target.checked,
+                      filterFn: filterFn || "equals",
+                    });
+                  }}
+                />
+              </div>
             ) : null}
           </div>
         </OutsideClickHandler>
