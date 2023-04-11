@@ -51,10 +51,14 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
       onClick={() => setExpanded(!expanded)}
     >
       <div className="label-container">
-        {typeof label === "string" ? (
-          <span className="label">{label}</span>
+        {label ? (
+          typeof label === "string" ? (
+            <span className="label">{label}</span>
+          ) : (
+            label
+          )
         ) : (
-          label
+          "Unknown"
         )}
         <span className="icon">{expanded ? collapseIcon : expandIcon}</span>
       </div>

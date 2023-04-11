@@ -59,7 +59,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
       collapseIcon={collapseIcon}
       dropdownMenu={dropdownUserMenu}
       expandIcon={expandIcon}
-      label={label || user?.profile?.givenName}
+      label={label || user?.profile?.givenName || user?.email}
     />
   );
 };
