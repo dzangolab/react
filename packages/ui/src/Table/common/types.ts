@@ -89,6 +89,10 @@ export interface TBaseTable {
 }
 
 export interface FilterProperties {
+  filterFn?: TFilterFn;
+  filterVariant?: TFilterVariant;
+  placeholder?: string;
+  selectOptions?: TSelectOption[];
   columnFilterValue: string;
   columnType: number | string;
   handleChange: (value: string) => void;
@@ -103,3 +107,27 @@ export interface TTableDetail {
   detail: string;
   showPrefix: string;
 }
+
+/* eslint-disable-next-line unicorn/prevent-abbreviations */
+export type TFilterFn =
+  | "contains"
+  | "equals"
+  | "startsWith"
+  | "endsWith"
+  | "greaterThan"
+  | "lessThan"
+  | "greaterThanOrEqual"
+  | "lessThanOrEqual"
+  | "in"
+  | "between";
+
+export type TFilterVariant =
+  | "text"
+  | "select"
+  | "multiSelect"
+  | "date"
+  | "dateRange"
+  | "range"
+  | "checkBox";
+
+export type TSelectOption = { label: string; value: string };

@@ -11,10 +11,17 @@ const renderImage = (source?: string) => {
 };
 
 function Filter({
+  filterVariant = "text",
+  /* eslint-disable-next-line unicorn/prevent-abbreviations */
+  filterFn = "contains",
+  placeholder,
+  selectOptions,
   columnFilterValue,
   columnType,
   handleChange,
 }: FilterProperties) {
+  if (!filterVariant) return null;
+
   const { inputDebounceTime, filterIcons } = useContext(TableContext);
   if (typeof columnType === "number") return null;
 
@@ -40,17 +47,40 @@ function Filter({
           }}
         >
           <div role="dialog" className="filter-form-wrapper">
-            <DebounceInput
-              type="text"
-              value={(columnFilterValue ?? "") as string}
-              debounceTimeout={inputDebounceTime}
-              onChange={(event_) => {
-                handleChange(event_.target.value);
-              }}
-              placeholder={`Search...`}
-              className=""
-              size={10}
-            />
+            {filterVariant === "text" ? (
+              <DebounceInput
+                type="text"
+                value={(columnFilterValue ?? "") as string}
+                debounceTimeout={inputDebounceTime}
+                onChange={(event_) => {
+                  handleChange(event_.target.value);
+                }}
+                placeholder={`Search...`}
+                className=""
+                size={10}
+              />
+            ) : null}
+
+            {filterVariant === "select" && selectOptions ? (
+              <select
+                value={(columnFilterValue ?? "") as string}
+                onChange={(event_) => {
+                  handleChange(event_.target.value);
+                }}
+              >
+                {placeholder ? (
+                  <option value="" disabled selected>
+                    {placeholder}
+                  </option>
+                ) : null}
+
+                {selectOptions.map(({ label, value }) => (
+                  <option key={label + value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            ) : null}
           </div>
         </OutsideClickHandler>
       ) : null}

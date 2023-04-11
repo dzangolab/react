@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 import { useState } from "react";
 
+import { SubmitButton } from "./SubmitButton";
 import Card from "../../components/Card";
 import PageWrapper from "../../components/PageWrapper";
 import {
@@ -9,7 +10,6 @@ import {
   UI_COMPONENTS,
   UI_COMPONENTS_MAPPING,
 } from "../../constants";
-import { SubmitButton } from "./SubmitButton";
 
 const Ui = () => {
   const { t } = useTranslation();
