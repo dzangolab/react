@@ -43,21 +43,24 @@ const DropdownUserMenu: React.FC<Properties> = ({
 
   const menuItems = userMenu ? [...userMenu, signoutRoute] : [signoutRoute];
 
-  const dropdownUserMenu = menuItems.map(({ name, onClick, route }) => (
-    <DropdownUserMenuItem
-      onClick={onClick}
-      route={route}
-      key={`${id}__${name}`}
-    >
-      {t(name)}
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  const dropdownUserMenu = (item: any) => (
+    <DropdownUserMenuItem route={item.route}>
+      {t(item.name)}
     </DropdownUserMenuItem>
-  ));
+  );
 
   return (
     <DropdownMenu
       className="user-menu"
       collapseIcon={collapseIcon}
-      dropdownMenu={dropdownUserMenu}
+      dropdownMenu={{
+        values: menuItems,
+        renderOption: dropdownUserMenu,
+        keyExtractor: ({ name }) => {
+          return `${id}__${name}`;
+        },
+      }}
       expandIcon={expandIcon}
       label={label || user?.profile?.givenName || user?.email}
     />

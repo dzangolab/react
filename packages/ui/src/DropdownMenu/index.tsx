@@ -2,10 +2,25 @@ import React, { useEffect, useRef, useState } from "react";
 
 import "./index.css";
 
+interface Value {
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  [key: string]: any;
+  children?: string;
+  onClick?: () => void;
+  key?: string;
+  className?: string;
+}
+
+interface DropdownMenu {
+  values: Value[];
+  keyExtractor?: (value: Value) => string;
+  renderOption?: (value: Value) => JSX.Element;
+}
+
 export interface DropdownMenuProperties {
   className?: string;
   collapseIcon?: React.ReactNode;
-  dropdownMenu: React.ReactNode;
+  dropdownMenu: DropdownMenu;
   expandIcon?: React.ReactNode;
   label: React.ReactNode;
 }
@@ -62,7 +77,33 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
         )}
         <span className="icon">{expanded ? collapseIcon : expandIcon}</span>
       </div>
-      {expanded && <ul className="dropdown-menu">{dropdownMenu}</ul>}
+      {expanded && (
+        <ul className="dropdown-menu">
+          {
+            /* eslint-disable  @typescript-eslint/no-unused-vars */
+            dropdownMenu.values.map(
+              ({ onClick, key, className, style, ...item }, index) => {
+                return (
+                  <li
+                    onClick={onClick}
+                    key={
+                      dropdownMenu.keyExtractor
+                        ? dropdownMenu.keyExtractor(item)
+                        : key || `menu-item-${index}`
+                    }
+                    className={"option" + (className ? className : "")}
+                    {...item}
+                  >
+                    {dropdownMenu.renderOption
+                      ? dropdownMenu.renderOption(item)
+                      : item.children}
+                  </li>
+                );
+              }
+            )
+          }
+        </ul>
+      )}
     </div>
   );
 };

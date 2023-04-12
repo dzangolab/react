@@ -15,21 +15,18 @@ const LocaleSwitcher = () => {
     i18n.options.supportedLngs
       .filter((locale) => locale !== "cimode" && i18n.options.debug) // Filter out cimode from options. The mode shows key e.g. locale.english as value.
       .map((locale) => {
-        return (
-          <li
-            className={`truncated ${i18n.language === locale ? "current" : ""}`}
-            key={locale}
-            onClick={() => changeLocale(locale)}
-          >
-            {t(`locales.${locale}`)}
-          </li>
-        );
+        return {
+          "data-aria-current": i18n.language === locale,
+          key: locale,
+          onClick: () => changeLocale(locale),
+          children: t(`locales.${locale}`),
+        };
       });
 
   return (
     <DropdownMenu
       className="locale-switcher"
-      dropdownMenu={locales}
+      dropdownMenu={{ values: locales || [] }}
       label={t(`locales.${i18n.language}`)}
     />
   );

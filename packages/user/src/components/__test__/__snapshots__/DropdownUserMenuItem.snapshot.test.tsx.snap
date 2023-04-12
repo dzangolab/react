@@ -1,9 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Component matches snapshot 1`] = `
-<li
-  className="option"
->
-  test
-</li>
-`;
+exports[`Component matches snapshot 1`] = `"test"`;
