@@ -8,14 +8,14 @@ importers:
       '@commitlint/config-conventional': 17.4.4
       eslint-config-custom: workspace:*
       husky: 8.0.3
-      shipjs: 0.26.1
+      shipjs: 0.26.2
       turbo: latest
     devDependencies:
       '@commitlint/cli': 17.5.1
       '@commitlint/config-conventional': 17.4.4
       eslint-config-custom: link:tools/eslint-config-custom
       husky: 8.0.3
-      shipjs: 0.26.1
+      shipjs: 0.26.2
       turbo: 1.9.0
 
   apps/demo:
@@ -13437,8 +13437,8 @@ packages:
       rechoir: 0.6.2
     dev: true
 
-  /shipjs-lib/0.26.1:
-    resolution: {integrity: sha512-XSYc/BS80SWY/8f2sy5S8irNPlzGi/3Xt8y+wn9pjAiTop9Fhe0doJnyMJf5U2KTrpukil3fA5gVIgTydpZnxQ==}
+  /shipjs-lib/0.26.2:
+    resolution: {integrity: sha512-R4X/YCH6yrppSjsH8uU4RbrM9nOk2TJhq0x98l+6z+UTAx9rtvgrftkIVdTiO+7doED/vzZGkwaKLwQV9fz/6Q==}
     dependencies:
       deepmerge: 4.2.2
       dotenv: 8.6.0
@@ -13447,8 +13447,8 @@ packages:
       shelljs: 0.8.5
     dev: true
 
-  /shipjs/0.26.1:
-    resolution: {integrity: sha512-+8EvOdMKDIEo7k1nc8HB1WvxdARa6rFK2RxaU2X88zH2o7LG5T/lw6O1C2IebDAwE7NTGbXzU0aWqGeX2mvINA==}
+  /shipjs/0.26.2:
+    resolution: {integrity: sha512-k3UEgDJYj/V13H2h6u6yYdGwH5VfPCwLlK+IKGLbFuw4wN/p6jAaOxR7gnjRNV7ltLkOAsvyQc/sSc/I9RTfkw==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
@@ -13474,7 +13474,7 @@ packages:
       prettier: 2.8.7
       serialize-javascript: 3.1.0
       shell-quote: 1.7.4
-      shipjs-lib: 0.26.1
+      shipjs-lib: 0.26.2
       temp-write: 4.0.0
       tempfile: 3.0.0
     transitivePeerDependencies:
