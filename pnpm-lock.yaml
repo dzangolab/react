@@ -179,7 +179,7 @@ importers:
       '@hookform/resolvers': 3.0.0
       '@storybook/react': 7.0.2
       '@testing-library/react': 14.0.0
-      '@types/jsdom': 20.0.0
+      '@types/jsdom': 20.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.33
       '@types/react-dom': 18.0.11
@@ -213,7 +213,7 @@ importers:
       '@hookform/resolvers': 3.0.0_react-hook-form@7.43.9
       '@storybook/react': 7.0.2_ygqkwb4gg3aean7xjfdauovyqq
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
-      '@types/jsdom': 20.0.0
+      '@types/jsdom': 20.0.1
       '@types/node': 18.11.18
       '@types/react': 18.0.33
       '@types/react-dom': 18.0.11
@@ -4769,8 +4769,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jsdom/20.0.0:
-    resolution: {integrity: sha512-YfAchFs0yM1QPDrLm2VHe+WHGtqms3NXnXAMolrgrVP6fgBHHXy1ozAbo/dFtPNtZC/m66bPiCTWYmqp1F14gA==}
+  /@types/jsdom/20.0.1:
+    resolution: {integrity: sha512-d0r18sZPmMQr1eG35u12FZfhIXNrnsPU/g5wvRKCUf/tOGilKKwYMYGqh33BNR6ba+2gkHw1EUiHoN3mn7E5IQ==}
     dependencies:
       '@types/node': 18.11.18
       '@types/tough-cookie': 4.0.2
