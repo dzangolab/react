@@ -1,11 +1,26 @@
 import type {
   ColumnDef,
+  ColumnFilter,
   PaginationState,
   Table as ReactTable,
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
 export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
+
+/**
+ * Change the type of Keys of T from NewType
+ */
+export type ChangeTypeOfKeys<
+  T extends object,
+  Keys extends keyof T,
+  NewType
+> = {
+  // Loop to every key. We gonna check if the key
+  // is assignable to Keys. If yes, change the type.
+  // Else, retain the type.
+  [key in keyof T]: key extends Keys ? NewType : T[key];
+};
 
 export type TSortDirection = "ASC" | "DESC" | "";
 
@@ -89,9 +104,14 @@ export interface TBaseTable {
 }
 
 export interface FilterProperties {
-  columnFilterValue: string;
+  filterFn?: TFilterFn;
+  filterVariant?: TFilterVariant;
+  placeholder?: string;
+  selectOptions?: TSelectOption[];
+  columnFilterValue?: TFilterValue;
   columnType: number | string;
-  handleChange: (value: string) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  handleChange: ({ value, filterFn }: TFilterValue) => void;
 }
 
 export interface TFooterProperties {
@@ -103,3 +123,38 @@ export interface TTableDetail {
   detail: string;
   showPrefix: string;
 }
+
+/* eslint-disable-next-line unicorn/prevent-abbreviations */
+export type TFilterFn =
+  | "contains"
+  | "equals"
+  | "startsWith"
+  | "endsWith"
+  | "greaterThan"
+  | "lessThan"
+  | "greaterThanOrEqual"
+  | "lessThanOrEqual"
+  | "in"
+  | "between";
+
+export type TFilterVariant =
+  | "text"
+  | "select"
+  | "multiSelect"
+  | "date"
+  | "dateRange"
+  | "range"
+  | "checkBox";
+
+export type TSelectOption = { label: string; value: string };
+
+export type TFilterValue = {
+  filterFn: TFilterFn;
+  value: boolean | string | number;
+};
+
+export type TCustomColumnFilter = ChangeTypeOfKeys<
+  ColumnFilter,
+  "value",
+  TFilterValue
+>;
