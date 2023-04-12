@@ -3,6 +3,7 @@ import "./assets/css/index.css";
 import { Accordion } from "./Accordion";
 import { SubmitButton } from "./Buttons";
 import { SubPane } from "./components/SubPane";
+import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
@@ -14,6 +15,7 @@ export * from "./Table";
 
 export {
   Accordion,
+  Divider,
   DropdownMenu,
   GoogleButton,
   LoadingIcon,
