@@ -46,15 +46,22 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   return (
     <div
       ref={navBarReference}
-      className={`${_className} ${expanded ? "expanded" : ""}`}
+      className={_className}
+      data-aria-expanded={expanded}
       onClick={() => setExpanded(!expanded)}
     >
-      {typeof label === "string" ? (
-        <span className="label">{label}</span>
-      ) : (
-        label
-      )}
-      <span className="icon">{expanded ? collapseIcon : expandIcon}</span>
+      <div className="label-container">
+        {label ? (
+          typeof label === "string" ? (
+            <span className="label">{label}</span>
+          ) : (
+            label
+          )
+        ) : (
+          "Unknown"
+        )}
+        <span className="icon">{expanded ? collapseIcon : expandIcon}</span>
+      </div>
       {expanded && <ul className="dropdown-menu">{dropdownMenu}</ul>}
     </div>
   );

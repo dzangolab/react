@@ -24,10 +24,10 @@ const DEFAULT_ROUTES = [
 const MainMenu = (properties: Properties) => {
   const { t } = useTranslation("app");
 
-  const { routes = DEFAULT_ROUTES, horizontal = false } = properties;
+  const { routes, horizontal = false } = properties;
 
-  const getTranslatedRoutes = () => {
-    return routes.map(({ name, route }) => {
+  const getDefaultRoutes = () => {
+    return DEFAULT_ROUTES.map(({ name, route }) => {
       return {
         name: t(name),
         route,
@@ -37,7 +37,10 @@ const MainMenu = (properties: Properties) => {
 
   return (
     <nav className="main-menu">
-      <ResponsiveMenu routes={getTranslatedRoutes()} horizontal={horizontal} />
+      <ResponsiveMenu
+        routes={routes ? routes : getDefaultRoutes()}
+        horizontal={horizontal}
+      />
     </nav>
   );
 };
