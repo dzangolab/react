@@ -48,11 +48,11 @@ header > nav .main-menu {
   grid-area: main-menu;
 }
 
-header > nav .locale-switcher {
+header > .menu-container > .locale-switcher {
   grid-area: locales;
 }
 
-header > nav .user-menu {
+header > .menu-container > .user-menu {
   grid-area: user-menu;
 }
 
@@ -64,7 +64,7 @@ header > .toggle {
   display: none;
 }
 
-header > nav {
+header > .menu-container {
   display: none;
   gap: var(--header-nav-column-gap, 0.25rem) var(--header-nav-row-gap, 1rem);
   grid-area: nav;
@@ -82,14 +82,14 @@ header > nav {
     grid-template-columns: 1fr auto;
   }
 
-  header > nav.dropdown {
+  header > .menu-container.dropdown {
     align-items: stretch;
     left: 0;
     position: relative;
     right: 0;
   }
 
-  header > nav.left-slider {
+  header > .menu-container.left-slider {
     align-items: flex-start;
     background-color: var(--locale-switcher-bg-color, #fff);
     border: var(--locale-switcher-border, 1px solid grey);
@@ -101,7 +101,7 @@ header > nav {
     top: 0;
   }
 
-  header > nav.expanded {
+  header > .menu-container[data-aria-expanded="true"] {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -116,11 +116,11 @@ header > nav {
 }
 
 @media screen and (min-width: 576px) {
-  header > nav {
+  header > .menu-container {
     display: grid;
   }
 
-  header > nav.menu-container {
+  header > .menu-container {
     grid-template-columns: 1fr auto auto;
   }
 }

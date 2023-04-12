@@ -11,12 +11,18 @@ const renderImage = (source?: string) => {
 };
 
 function Filter({
+  filterVariant = "text",
+  /* eslint-disable-next-line unicorn/prevent-abbreviations */
+  filterFn,
+  placeholder,
+  selectOptions,
   columnFilterValue,
   columnType,
   handleChange,
 }: FilterProperties) {
+  if (!filterVariant) return null;
+
   const { inputDebounceTime, filterIcons } = useContext(TableContext);
-  if (typeof columnType === "number") return null;
 
   const [expanded, setExpanded] = useState(false);
 
@@ -40,17 +46,63 @@ function Filter({
           }}
         >
           <div role="dialog" className="filter-form-wrapper">
-            <DebounceInput
-              type="text"
-              value={(columnFilterValue ?? "") as string}
-              debounceTimeout={inputDebounceTime}
-              onChange={(event_) => {
-                handleChange(event_.target.value);
-              }}
-              placeholder={`Search...`}
-              className=""
-              size={10}
-            />
+            {filterVariant === "text" ? (
+              <DebounceInput
+                type="text"
+                value={(columnFilterValue?.value ?? "") as string}
+                debounceTimeout={inputDebounceTime}
+                onChange={(event_) => {
+                  handleChange({
+                    value: event_.target.value,
+                    filterFn: filterFn || "contains",
+                  });
+                }}
+                placeholder={placeholder || `Search...`}
+                className="filter-text-input"
+                size={10}
+              />
+            ) : null}
+
+            {filterVariant === "select" && selectOptions ? (
+              <select
+                value={(columnFilterValue?.value ?? "") as string}
+                onChange={(event_) => {
+                  handleChange({
+                    value: event_.target.value,
+                    filterFn: filterFn || "equals",
+                  });
+                }}
+                className="filter-select-input"
+              >
+                {placeholder ? (
+                  <option value="" disabled selected>
+                    {placeholder}
+                  </option>
+                ) : null}
+
+                {selectOptions.map(({ label, value }) => (
+                  <option key={label + value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            ) : null}
+
+            {filterVariant === "checkBox" ? (
+              <div className="filter-checkbox-input">
+                <label>{placeholder}</label>
+                <input
+                  type="checkbox"
+                  value={String(columnFilterValue?.value ?? true)}
+                  onChange={(event_) => {
+                    handleChange({
+                      value: event_.target.checked,
+                      filterFn: filterFn || "equals",
+                    });
+                  }}
+                />
+              </div>
+            ) : null}
           </div>
         </OutsideClickHandler>
       ) : null}

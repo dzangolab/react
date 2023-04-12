@@ -35,20 +35,17 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     userMenu,
   } = properties;
 
-  let navClass = `menu-container ${navStyle}`;
-
-  if (expanded) {
-    navClass += " expanded";
-  }
-
   return (
     <header>
       {logo}
-      <nav className={navClass}>
+      <div
+        className={`menu-container ${navStyle}`}
+        data-aria-expanded={expanded}
+      >
         {mainMenu}
         {userMenu}
         {localeSwitcher}
-      </nav>
+      </div>
       <div className="toggle" onClick={() => setExpanded(!expanded)}>
         {toggle}
       </div>

@@ -14,8 +14,9 @@ exports[`Component matches snapshot 1`] = `
       />
     </a>
   </div>
-  <nav
+  <div
     className="menu-container dropdown"
+    data-aria-expanded={false}
   >
     <nav
       className="main-menu"
@@ -41,26 +42,22 @@ exports[`Component matches snapshot 1`] = `
         </ul>
       </div>
     </nav>
-    <nav
-      className="locale-switcher"
+    <div
+      className="locale-switcher dropdown-container "
+      onClick={[Function]}
     >
-      <div
-        className="dropdown-container "
-        onClick={[Function]}
+      <span
+        className="label"
       >
-        <span
-          className="label"
-        >
-          locales.en
-        </span>
-        <span
-          className="icon"
-        >
-          ▾
-        </span>
-      </div>
-    </nav>
-  </nav>
+        locales.en
+      </span>
+      <span
+        className="icon"
+      >
+        ▾
+      </span>
+    </div>
+  </div>
   <div
     className="toggle"
     onClick={[Function]}
