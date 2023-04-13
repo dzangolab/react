@@ -1,28 +1,46 @@
-.social-login-wrapper {
+.page.login {
+  justify-items: center;
+}
+
+.login > .content > .social-login-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 0px;
   width: 90%;
 }
 
-.divider {
-  margin: 2rem auto;
+.login > .content > .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 90%;
 }
 
-.login {
+.login > .content > form {
+  grid-area: form;
+}
+
+.login > .content > .links {
+  grid-area: links;
+}
+
+.login > .content > .divider {
+  grid-area: divider;
+}
+
+.login > .content > .social-login-wrapper {
+  grid-area: sso-wrapper;
+}
+
+.login > .content {
   align-items: center;
   text-align: center;
-  margin: 0 auto;
   width: 20rem;
-}
-
-.login .links {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 90%;
+  display: grid;
+  grid-template-areas:
+    "form"
+    "links"
+    "divider"
+    "sso-wrapper";
+  grid-auto-rows: max-content;
+  gap: 0.5rem;
+  justify-items: center;
 }

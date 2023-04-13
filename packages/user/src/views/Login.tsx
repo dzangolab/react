@@ -18,6 +18,9 @@ import "../assets/css/login.css";
 interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
+  orientation?: "horizontal" | "vertical";
+  socialLoginFirst?: boolean;
+  divider?: boolean;
 }
 
 const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
@@ -87,33 +90,30 @@ const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
   };
 
   return (
-    <div className="login">
-      <Page title={t("login.title")}>
-        {showRedirectionMessage ? (
-          <RedirectionMessage
-            appLink={appConfig?.user.redirectTo.appURL || ""}
-            appName={appConfig?.user.redirectTo.appName || ""}
-            hideRedirectionMessage={() => setShowRedirectionMessage(false)}
-          />
-        ) : null}
-        <LoginForm handleSubmit={handleSubmit} loading={loading} />
-        <div className="links">{getLinks()}</div>
-
-        {appConfig?.user.supportedLoginProviders ? (
-          <>
-            <div className="divider">- - - - - OR - - - - -</div>
-            <div className="social-login-wrapper">
-              {appConfig.user.supportedLoginProviders.includes("google") ? (
-                <GoogleLogin
-                  label={t("login.button.googleLoginLabel")}
-                  redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
-                />
-              ) : null}
-            </div>
-          </>
-        ) : null}
-      </Page>
-    </div>
+    <Page title={t("login.title")} className="login">
+      {showRedirectionMessage ? (
+        <RedirectionMessage
+          appLink={appConfig?.user.redirectTo.appURL || ""}
+          appName={appConfig?.user.redirectTo.appName || ""}
+          hideRedirectionMessage={() => setShowRedirectionMessage(false)}
+        />
+      ) : null}
+      <LoginForm handleSubmit={handleSubmit} loading={loading} />
+      <div className="links">{getLinks()}</div>
+      {appConfig?.user.supportedLoginProviders ? (
+        <>
+          <div className="divider">- - - - - OR - - - - -</div>
+          <div className="social-login-wrapper">
+            {appConfig.user.supportedLoginProviders.includes("google") ? (
+              <GoogleLogin
+                label={t("login.button.googleLoginLabel")}
+                redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+              />
+            ) : null}
+          </div>
+        </>
+      ) : null}
+    </Page>
   );
 };
 
