@@ -16,14 +16,22 @@ import type { LoginCredentials, SignInUpPromise } from "../types";
 import "../assets/css/login.css";
 
 interface IProperties {
+  customDivider?: React.ReactNode;
+  divider?: boolean;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
   socialLoginFirst?: boolean;
-  divider?: boolean;
 }
 
-const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
+const Login: React.FC<IProperties> = ({
+  customDivider,
+  divider = true,
+  onLoginFailed,
+  onLoginSuccess,
+  orientation = "vertical",
+  socialLoginFirst = false,
+}) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
@@ -90,7 +98,11 @@ const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
   };
 
   return (
-    <Page title={t("login.title")} className="login">
+    <Page
+      title={t("login.title")}
+      className={`login ${socialLoginFirst ? "sso-first" : "sso-last"}`}
+      data-aria-orientation={orientation}
+    >
       {showRedirectionMessage ? (
         <RedirectionMessage
           appLink={appConfig?.user.redirectTo.appURL || ""}
@@ -105,11 +117,17 @@ const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
 
       {appConfig?.user.supportedLoginProviders ? (
         <>
-          <div className="divider-with-text">
-            <Divider />
-            <span>OR</span>
-            <Divider />
-          </div>
+          {divider ? (
+            customDivider ? (
+              customDivider
+            ) : (
+              <div className="divider-with-text">
+                <Divider />
+                <span>OR</span>
+                <Divider />
+              </div>
+            )
+          ) : null}
 
           <div className="social-login-wrapper">
             {appConfig.user.supportedLoginProviders.includes("google") ? (

@@ -21,7 +21,8 @@
 .login > .content {
   align-items: center;
   text-align: center;
-  width: 20rem;
+  min-width: 20rem;
+  width: max-content;
   display: grid;
   grid-template-areas:
     "form"
@@ -31,6 +32,20 @@
   grid-auto-rows: max-content;
   gap: 0.5rem;
   justify-items: center;
+}
+
+.login.sso-first > .content[data-aria-orientation="vertical"] {
+  grid-template-areas:
+    "sso-wrapper"
+    "divider"
+    "form"
+    "links";
+}
+
+.login > .content[data-aria-orientation="Horizontal"] {
+  grid-template-areas:
+    "sso-wrapper divider form "
+    "sso-wrapper divider links";
 }
 
 .login > .content > .links {
