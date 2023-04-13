@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -98,11 +98,19 @@ const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
           hideRedirectionMessage={() => setShowRedirectionMessage(false)}
         />
       ) : null}
+
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
+
       <div className="links">{getLinks()}</div>
+
       {appConfig?.user.supportedLoginProviders ? (
         <>
-          <div className="divider">- - - - - OR - - - - -</div>
+          <div className="divider-with-text">
+            <Divider />
+            <span>OR</span>
+            <Divider />
+          </div>
+
           <div className="social-login-wrapper">
             {appConfig.user.supportedLoginProviders.includes("google") ? (
               <GoogleLogin

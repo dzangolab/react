@@ -2,18 +2,6 @@
   justify-items: center;
 }
 
-.login > .content > .social-login-wrapper {
-  display: flex;
-  width: 90%;
-}
-
-.login > .content > .links {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-}
-
 .login > .content > form {
   grid-area: form;
 }
@@ -22,7 +10,7 @@
   grid-area: links;
 }
 
-.login > .content > .divider {
+.login > .content > .divider-with-text {
   grid-area: divider;
 }
 
@@ -43,4 +31,27 @@
   grid-auto-rows: max-content;
   gap: 0.5rem;
   justify-items: center;
+}
+
+.login > .content > .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.login > .content > .divider-with-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.login > .content > .divider-with-text > span {
+  padding: 0 0.5rem;
+}
+
+.login > .content > .social-login-wrapper {
+  display: flex;
+  width: 100%;
 }
