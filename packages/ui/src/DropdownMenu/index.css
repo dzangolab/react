@@ -18,7 +18,7 @@
 
 .dropdown-container[data-aria-expanded="true"]
   > ul.dropdown-menu[data-aria-hidden="false"] {
-  display: flex;
+  display: block;
 }
 
 .dropdown-container > ul.dropdown-menu li {
