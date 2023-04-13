@@ -1,3 +1,3 @@
-.locale-switcher li[data-aria-current="true"] {
+.locale-switcher li[data-aria-selected="true"] {
   display: none;
 }
