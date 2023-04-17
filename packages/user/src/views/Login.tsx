@@ -122,9 +122,17 @@ const Login: React.FC<IProperties> = ({
               customDivider
             ) : (
               <div className="divider-with-text">
-                <Divider />
+                <Divider
+                  orientation={
+                    orientation === "vertical" ? "horizontal" : "vertical"
+                  }
+                />
                 <span>OR</span>
-                <Divider />
+                <Divider
+                  orientation={
+                    orientation === "vertical" ? "horizontal" : "vertical"
+                  }
+                />
               </div>
             )
           ) : null}

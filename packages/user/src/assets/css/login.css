@@ -42,7 +42,14 @@
     "links";
 }
 
-.login > .content[data-aria-orientation="Horizontal"] {
+.login > .content[data-aria-orientation="horizontal"] {
+  grid-template-areas:
+    "form  divider sso-wrapper"
+    "links divider sso-wrapper";
+  align-items: flex-start;
+}
+
+.login.sso-first > .content[data-aria-orientation="horizontal"] {
   grid-template-areas:
     "sso-wrapper divider form "
     "sso-wrapper divider links";
@@ -60,6 +67,11 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
+}
+
+.login > .content[data-aria-orientation="horizontal"] > .divider-with-text {
+  flex-direction: column;
+  height: 100%;
 }
 
 .login > .content > .divider-with-text > span {
