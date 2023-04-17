@@ -43,20 +43,6 @@
     "links";
 }
 
-.login > .content[data-aria-orientation="horizontal"] {
-  grid-template-areas:
-    "form  divider sso-wrapper"
-    "links divider sso-wrapper";
-  align-items: flex-start;
-  min-width: 40rem;
-}
-
-.login.sso-first > .content[data-aria-orientation="horizontal"] {
-  grid-template-areas:
-    "sso-wrapper divider form "
-    "sso-wrapper divider links";
-}
-
 .login > .content > .links {
   display: flex;
   flex-direction: row;
@@ -71,11 +57,6 @@
   width: 100%;
 }
 
-.login > .content[data-aria-orientation="horizontal"] > .divider-with-text {
-  flex-direction: column;
-  height: 100%;
-}
-
 .login > .content > .divider-with-text > span {
   padding: 0 0.5rem;
 }
@@ -83,4 +64,25 @@
 .login > .content > .social-login-wrapper {
   display: flex;
   width: 100%;
+}
+
+@media (min-width: 576px) {
+  .login > .content[data-aria-orientation="horizontal"] {
+    grid-template-areas:
+      "form  divider sso-wrapper"
+      "links divider sso-wrapper";
+    align-items: flex-start;
+    min-width: 40rem;
+  }
+
+  .login.sso-first > .content[data-aria-orientation="horizontal"] {
+    grid-template-areas:
+      "sso-wrapper divider form "
+      "sso-wrapper divider links";
+  }
+
+  .login > .content[data-aria-orientation="horizontal"] > .divider-with-text {
+    flex-direction: column;
+    height: 100%;
+  }
 }
