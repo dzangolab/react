@@ -83,4 +83,8 @@ span.icon {
   .dropdown-container > ul.dropdown-menu li:active {
     background-color: var(--dropdown-bg-color-hover, #dbe9fa);
   }
+
+  .dropdown-container > ul.dropdown-menu li:hover {
+    background-color: inherit;
+  }
 }
