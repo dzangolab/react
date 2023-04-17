@@ -4,12 +4,12 @@
 
 .divider[role="separator"][data-aria-orientation="horizontal"] {
   height: 0;
-  margin: 1rem 0;
+  margin: 2rem 0;
   width: 100%;
 }
 
 .divider[role="separator"][data-aria-orientation="vertical"] {
   height: 100%;
-  margin: 0 1rem;
+  margin: 0 2rem;
   width: 0;
 }
