@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Divider, Page } from "@dzangolab/react-ui";
+import { Divider, Page, useMediaQuery } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -35,6 +35,7 @@ const Login: React.FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
+  const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const [loading, setLoading] = useState<boolean>(false);
   const [showRedirectionMessage, setShowRedirectionMessage] =
     useState<boolean>(false);
@@ -96,6 +97,10 @@ const Login: React.FC<IProperties> = ({
       </>
     );
   };
+
+  if (isSmallScreen) {
+    orientation = "vertical";
+  }
 
   return (
     <Page
