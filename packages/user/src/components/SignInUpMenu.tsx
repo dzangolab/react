@@ -9,12 +9,16 @@ const SignInUpMenu = () => {
 
   const loginRoute = {
     name: t("menu.signin"),
-    route: "/login",
+    route: userConfig?.routes?.login?.path
+      ? userConfig.routes.login.path
+      : "/login",
   };
 
   const signUpRoute = {
     name: t("menu.signup"),
-    route: "/signup",
+    route: userConfig?.routes?.signup?.path
+      ? userConfig.routes.signup.path
+      : "/signup",
   };
 
   const routes = userConfig?.routes?.signup?.disabled
