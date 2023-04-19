@@ -4,11 +4,11 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface IEmail {
-  register: UseFormRegister<any>;
-  getFieldState: UseFormGetFieldState<any>;
   label?: string;
+  name: string;
   placeholder?: string;
-  name?: string;
+  getFieldState?: UseFormGetFieldState<any>;
+  register?: UseFormRegister<any>;
 }
 
 export const Email: React.FC<IEmail> = ({
@@ -16,8 +16,10 @@ export const Email: React.FC<IEmail> = ({
   getFieldState,
   label = "",
   placeholder = "",
-  name = "email",
+  name,
 }) => {
+  if (!register || !getFieldState) return null;
+
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
@@ -25,7 +27,7 @@ export const Email: React.FC<IEmail> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className="field email">
+    <div className={`field email ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register("email")}

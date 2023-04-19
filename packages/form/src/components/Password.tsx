@@ -4,11 +4,11 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface IPassword {
-  register: UseFormRegister<any>;
-  getFieldState: UseFormGetFieldState<any>;
   label?: string;
   placeholder?: string;
-  name?: string;
+  name: string;
+  getFieldState?: UseFormGetFieldState<any>;
+  register?: UseFormRegister<any>;
 }
 
 export const Password: React.FC<IPassword> = ({
@@ -16,8 +16,10 @@ export const Password: React.FC<IPassword> = ({
   getFieldState,
   label = "",
   placeholder = "",
-  name = "password",
+  name,
 }) => {
+  if (!register || !getFieldState) return null;
+
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
@@ -25,7 +27,7 @@ export const Password: React.FC<IPassword> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className="field password">
+    <div className={`field password ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register("password")}

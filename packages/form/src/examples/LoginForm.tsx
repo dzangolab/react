@@ -1,8 +1,6 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { Email, Password } from "..";
+import { Email, Form, Password } from "..";
 import { emailSchema, passwordSchema } from "../schemas";
 
 const schema = z.object({
@@ -11,24 +9,15 @@ const schema = z.object({
 });
 
 export const LoginForm = () => {
-  const {
-    register,
-    handleSubmit,
-    getFieldState,
-    formState: { errors, isDirty, isValid, touchedFields }, // eslint-disable no-unused-vars
-  } = useForm({
-    resolver: zodResolver(schema),
-  });
-
   return (
-    <form
+    <Form
       className="form login-form"
-      onSubmit={handleSubmit((data) => console.log(data))}
-      noValidate // disable default html5 validations; don't worry, form validation is still there with zod schema
+      onSubmit={(data) => console.log(data)}
+      validationSchema={schema}
     >
-      <Email register={register} getFieldState={getFieldState} />
-      <Password register={register} getFieldState={getFieldState} />
-      <input type="submit" value="Log in" />
-    </form>
+      <Email name="email" />
+      <Password name="password" />
+      <input type="submit" value="Log in 2" />
+    </Form>
   );
 };

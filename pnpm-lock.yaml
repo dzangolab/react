@@ -176,7 +176,7 @@ importers:
     specifiers:
       '@dzangolab/react-config': 0.7.1
       '@hookform/error-message': 2.0.1
-      '@hookform/resolvers': 3.0.0
+      '@hookform/resolvers': 3.1.0
       '@storybook/react': 7.0.2
       '@testing-library/react': 14.0.0
       '@types/jsdom': 20.0.1
@@ -206,11 +206,13 @@ importers:
       zod: 3.21.4
     dependencies:
       '@hookform/error-message': 2.0.1_3vs6kel7arqr4fuhyz2geipx74
+      '@hookform/resolvers': 3.1.0_react-hook-form@7.43.9
       react-debounce-input: 3.3.0_react@18.2.0
+      react-hook-form: 7.43.9_react@18.2.0
       validator: 13.9.0
+      zod: 3.21.4
     devDependencies:
       '@dzangolab/react-config': link:../config
-      '@hookform/resolvers': 3.0.0_react-hook-form@7.43.9
       '@storybook/react': 7.0.2_ygqkwb4gg3aean7xjfdauovyqq
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/jsdom': 20.0.1
@@ -228,14 +230,12 @@ importers:
       prettier: 2.8.7
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-hook-form: 7.43.9_react@18.2.0
       react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
       react-test-renderer: 18.2.0_react@18.2.0
       tsconfig: link:../../tools/tsconfig
       typescript: 4.9.5
       vite: 4.2.1_@types+node@18.11.18
       vitest: 0.30.1_jsdom@20.0.3
-      zod: 3.21.4
 
   packages/i18n:
     specifiers:
@@ -2651,13 +2651,13 @@ packages:
       react-hook-form: 7.43.9_react@18.2.0
     dev: false
 
-  /@hookform/resolvers/3.0.0_react-hook-form@7.43.9:
-    resolution: {integrity: sha512-SQPefakODpyq25b/phHXDKCdRrEfPcCXV7B4nAa139wE1DxufYbbNAjeo0T04ZXBokRxZ+wD8iA1kkVMa3QwjQ==}
+  /@hookform/resolvers/3.1.0_react-hook-form@7.43.9:
+    resolution: {integrity: sha512-z0A8K+Nxq+f83Whm/ajlwE6VtQlp/yPHZnXw7XWVPIGm1Vx0QV8KThU3BpbBRfAZ7/dYqCKKBNnQh85BkmBKkA==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
       react-hook-form: 7.43.9_react@18.2.0
-    dev: true
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -12615,6 +12615,7 @@ packages:
       react: ^16.8.0 || ^17 || ^18
     dependencies:
       react: 18.2.0
+    dev: false
 
   /react-i18next/11.18.6_vfm63zmruocgezzfl2v26zlzpy:
     resolution: {integrity: sha512-yHb2F9BiT0lqoQDt8loZ5gWP331GwctHz9tYQ8A2EIEUu+CcEdjBLQWli1USG3RdWQt3W+jqQLg/d4rrQR96LA==}
@@ -15670,7 +15671,7 @@ packages:
 
   /zod/3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-    dev: true
+    dev: false
 
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
