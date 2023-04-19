@@ -4,7 +4,14 @@ import LoadingPage, { LoadingPageProperties } from "../LoadingPage";
 
 import "./page.css";
 
-interface Properties {
+interface Properties
+  extends Pick<
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLDivElement>,
+      HTMLDivElement
+    >,
+    "aria-orientation"
+  > {
   children?: React.ReactNode;
   className?: string;
   errorMessage?: string;
@@ -26,6 +33,7 @@ const Page: React.FC<Properties> = ({
   subtitle,
   title,
   toolbar,
+  ...others
 }: Properties) => {
   let child = null;
   let _className = "page";
@@ -57,7 +65,7 @@ const Page: React.FC<Properties> = ({
         </h1>
       )}
       {toolbar && <div className="toolbar">{toolbar}</div>}
-      <div data-testid="page-content" className="content">
+      <div data-testid="page-content" className="content" {...others}>
         {child ? child : children}
       </div>
     </div>

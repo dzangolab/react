@@ -168,6 +168,11 @@ table > thead > tr:first-child {
   display: none;
 }
 
+.filter-form-wrapper {
+  color: var(--filter-wrapper-color, #000);
+  background-color: var(--filter-wrapper-background-color, #fff);
+}
+
 @media screen and (max-width: 600px) {
   .table-wrapper > div:first-child > table > thead > tr:first-child {
     display: block;

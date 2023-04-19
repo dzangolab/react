@@ -1,0 +1,15 @@
+.divider[role="separator"] {
+  border: 1px solid #d0d0d0;
+}
+
+.divider[role="separator"][data-aria-orientation="horizontal"] {
+  height: 0;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.divider[role="separator"][data-aria-orientation="vertical"] {
+  height: 100%;
+  margin: 0 2rem;
+  width: 0;
+}

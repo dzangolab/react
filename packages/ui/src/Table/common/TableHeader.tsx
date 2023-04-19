@@ -1,5 +1,5 @@
 import { flexRender, SortDirection } from "@tanstack/react-table";
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { DEFAULT_COL_SIZE } from "./constants";
 import Filter from "./Filter";
@@ -41,12 +41,11 @@ function TableHeader() {
   if (!table) return null;
 
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const lastHeaderGroup = useMemo(() => [...table.getHeaderGroups()].pop(), []);
 
   return (
     <>
       <colgroup>
-        {lastHeaderGroup?.headers.map(({ getSize, id }) => (
+        {table.getAllLeafColumns()?.map(({ getSize, id }) => (
           <col
             key={id}
             width={getSize() === DEFAULT_COL_SIZE ? "" : getSize()}
@@ -97,9 +96,14 @@ function TableHeader() {
 
                         {column.getCanFilter() ? (
                           <Filter
-                            columnFilterValue={
-                              column.getFilterValue() as string
+                            filterVariant={column.columnDef.meta?.filterVariant}
+                            filterFn={column.columnDef.meta?.filterFn}
+                            placeholder={
+                              column.columnDef.meta?.filterPlaceholder
                             }
+                            selectOptions={column.columnDef.meta?.selectOptions}
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            columnFilterValue={column.getFilterValue() as any}
                             columnType={
                               typeof table
                                 .getPreFilteredRowModel()

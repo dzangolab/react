@@ -1,4 +1,4 @@
-import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { Updater, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import React, { useEffect, useMemo, useState } from "react";
 
 import BaseTable from "./common/BaseTable";
@@ -21,7 +21,10 @@ import doubleChevronLeft from "../assets/images/double-chevron-left.svg";
 import doubleChevronRight from "../assets/images/double-chevron-right.svg";
 import filterIcon from "../assets/images/filter.svg";
 
-import type { TableProviderProperties } from "./common/types";
+import type {
+  TCustomColumnFilter,
+  TableProviderProperties,
+} from "./common/types";
 import type {
   ColumnFiltersState,
   PaginationState,
@@ -41,7 +44,12 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
   } = properties;
 
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>([]);
+
+  const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setColumnFilters(event_ as any);
+  };
 
   const [paginationState, setPagination] = useState<PaginationState>({
     pageIndex: DEFAULT_PAGE_INDEX,
@@ -79,7 +87,7 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
     manualSorting: true,
     manualFiltering: true,
     isMultiSortEvent: () => enableMultiSort || false,
-    onColumnFiltersChange: setColumnFilters,
+    onColumnFiltersChange: handleColumnFilterChange,
     onPaginationChange: setPagination,
     onSortingChange: setSorting,
     pageCount: Math.ceil(totalItems / pageSize),

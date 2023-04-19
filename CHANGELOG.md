@@ -1,3 +1,24 @@
+# [0.7.0](https://github.com/dzangolab/react/compare/v0.6.1...v0.7.0) (2023-04-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-table to v8.8.5 ([#294](https://github.com/dzangolab/react/issues/294)) ([2ed9a2e](https://github.com/dzangolab/react/commit/2ed9a2e7d6a20fad5d9a0cd843322c81844bea65))
+* **deps:** update dependency eslint-import-resolver-typescript to v3.5.5 ([#305](https://github.com/dzangolab/react/issues/305)) ([cae99b9](https://github.com/dzangolab/react/commit/cae99b906c8bbeb1a6ab3033a83c32768991acde))
+* **deps:** update typescript-eslint monorepo to v5.58.0 ([#280](https://github.com/dzangolab/react/issues/280)) ([a501d7b](https://github.com/dzangolab/react/commit/a501d7b2ca8aae10145f9e0dbf27c985d9ac2ff7))
+
+
+### Features
+
+* add post login callback function ([#301](https://github.com/dzangolab/react/issues/301)) ([06293f0](https://github.com/dzangolab/react/commit/06293f0390928cb1e67f2d19685fdfd5acabfa26))
+* add reusable dropdown menu component ([#295](https://github.com/dzangolab/react/issues/295)) ([b673db4](https://github.com/dzangolab/react/commit/b673db4e8eb0ad238f49c01b4522ef31ebd8f659))
+* add submit button and responsive menu ([#286](https://github.com/dzangolab/react/issues/286)) ([00aa84e](https://github.com/dzangolab/react/commit/00aa84e8482aa66030548a8d54fada713dcd98a5))
+* divider ([#302](https://github.com/dzangolab/react/issues/302)) ([dc3244f](https://github.com/dzangolab/react/commit/dc3244fa6f5201d5acb86725d862081c90c2de01))
+* google button ui ([#292](https://github.com/dzangolab/react/issues/292)) ([7a47705](https://github.com/dzangolab/react/commit/7a477056b91d969061f56609e5c3b6ef186ca0da))
+* setup form package ([#298](https://github.com/dzangolab/react/issues/298)) ([0abeb5e](https://github.com/dzangolab/react/commit/0abeb5e45aaaf26a78feec3f2a88bb84224b08d5))
+
+
+
 ## [0.6.1](https://github.com/dzangolab/react/compare/v0.6.0...v0.6.1) (2023-03-30)
 
 
