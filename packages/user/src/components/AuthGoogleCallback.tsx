@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import { ROUTES } from "../constants";
 import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import { UserType } from "../types";
@@ -13,7 +14,7 @@ const AuthGoogleCallback = () => {
   const { user: userConfig } = useConfig();
   const { setUser } = useUser();
   const navigate = useNavigate();
-  const loginPath = userConfig.routes?.login?.path || "/login";
+  const loginPath = userConfig.routes?.login?.path || ROUTES.LOGIN;
 
   const authCallback = async () => {
     try {

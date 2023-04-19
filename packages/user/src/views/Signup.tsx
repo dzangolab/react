@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "../components/SignupForm";
+import { ROUTES } from "../constants";
 import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
@@ -55,12 +56,14 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
   const getLinks = () => {
     return (
       <>
-        <Link to={userConfig.routes?.login?.path || "/login"}>
+        <Link to={userConfig.routes?.login?.path || ROUTES.LOGIN}>
           {t("signup.links.login")}
         </Link>
         {userConfig?.routes?.forgetPassword?.disabled ? null : (
           <Link
-            to={userConfig.routes?.forgetPassword?.path || "/forget-password"}
+            to={
+              userConfig.routes?.forgetPassword?.path || ROUTES.FORGET_PASSWORD
+            }
           >
             {t("signup.links.forgotPassword")}
           </Link>
