@@ -65,21 +65,25 @@ header > .toggle {
 }
 
 header > .menu-container {
-  display: none;
+  display: grid;
   gap: var(--header-nav-column-gap, 0.25rem) var(--header-nav-row-gap, 1rem);
   grid-area: nav;
+  grid-template-columns: 1fr auto auto;
   grid-template-areas: "main-menu user-menu locales";
-  grid-template-columns: auto;
   justify-content: flex-end;
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 576px) {
   header {
     align-items: start;
     grid-template-areas:
       "logo toggle"
       "nav nav";
     grid-template-columns: 1fr auto;
+  }
+
+  header > .menu-container {
+    display: none;
   }
 
   header > .menu-container.dropdown {
@@ -112,15 +116,5 @@ header > .menu-container {
     cursor: pointer;
     display: block;
     grid-area: toggle;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  header > .menu-container {
-    display: grid;
-  }
-
-  header > .menu-container {
-    grid-template-columns: 1fr auto auto;
   }
 }

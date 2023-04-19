@@ -3,26 +3,15 @@ import { Link } from "react-router-dom";
 
 interface Properties {
   children: React.ReactNode;
-  onClick?: () => void;
   route?: string;
 }
 
-const DropdownUserMenuItem = ({ children, onClick, route }: Properties) => {
+const DropdownUserMenuItem = ({ children, route }: Properties) => {
   if (route) {
-    return (
-      <li className="option">
-        <Link to={route} onClick={onClick}>
-          {children}
-        </Link>
-      </li>
-    );
+    return <Link to={route}>{children}</Link>;
   }
 
-  return (
-    <li className="option" onClick={onClick}>
-      {children}
-    </li>
-  );
+  return <>{children}</>;
 };
 
 export default DropdownUserMenuItem;

@@ -40,19 +40,23 @@ test("user email is displayed", async () => {
 });
 
 test("test dropdown on clicking user email", async () => {
-  const { user, userEvent } = setup();
+  const { user, userEvent, getByRole } = setup();
+
+  const ul = getByRole("list");
 
   expect(screen.getByText(user.email)).toBeDefined();
+  expect(ul.getAttribute("data-aria-hidden")).toBe("true");
 
-  act(() => {
-    userEvent.click(screen.getByText(user.email));
+  await act(async () => {
+    await userEvent.click(screen.getByText(user.email));
   });
 
+  expect(ul.getAttribute("data-aria-hidden")).toBe("false");
   expect(await screen.findByText("userMenu.logout")).toBeDefined();
 
   await act(async () => {
     await userEvent.click(screen.getByText(user.email));
   });
 
-  expect(screen.queryByText("userMenu.logout")).toBe(null);
+  expect(ul.getAttribute("data-aria-hidden")).toBe("true");
 });

@@ -2,10 +2,26 @@ import React, { useEffect, useRef, useState } from "react";
 
 import "./index.css";
 
+interface Item {
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  [key: string]: any;
+  label?: string;
+  onClick?: () => void;
+  key?: string;
+  className?: string;
+  selected?: boolean;
+}
+
+interface DropdownMenu {
+  menuItems: Item[];
+  keyExtractor?: (value: Item) => string;
+  renderOption?: (value: Item) => JSX.Element;
+}
+
 export interface DropdownMenuProperties {
   className?: string;
   collapseIcon?: React.ReactNode;
-  dropdownMenu: React.ReactNode;
+  dropdownMenu: DropdownMenu;
   expandIcon?: React.ReactNode;
   label: React.ReactNode;
 }
@@ -62,7 +78,35 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
         )}
         <span className="icon">{expanded ? collapseIcon : expandIcon}</span>
       </div>
-      {expanded && <ul className="dropdown-menu">{dropdownMenu}</ul>}
+
+      <ul className="dropdown-menu" data-aria-hidden={!expanded}>
+        {
+          /* eslint-disable  @typescript-eslint/no-unused-vars */
+          dropdownMenu.menuItems.map(
+            ({ onClick, key, className, selected, style, ...item }, index) => {
+              return (
+                <li
+                  onClick={onClick}
+                  key={
+                    dropdownMenu.keyExtractor
+                      ? dropdownMenu.keyExtractor(item)
+                      : key || `menu-item-${index}`
+                  }
+                  className={"option" + (className ? className : "")}
+                  {...(selected !== undefined
+                    ? { "data-aria-selected": selected }
+                    : undefined)}
+                  {...item}
+                >
+                  {dropdownMenu.renderOption
+                    ? dropdownMenu.renderOption(item)
+                    : item.label}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
     </div>
   );
 };
