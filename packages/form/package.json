@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@dzangolab/react-config": "0.7.1",
-    "@hookform/resolvers": "3.0.0",
+    "@hookform/resolvers": "3.1.0",
     "@storybook/react": "7.0.2",
     "@testing-library/react": "14.0.0",
     "@types/jsdom": "20.0.1",

@@ -176,7 +176,7 @@ importers:
     specifiers:
       '@dzangolab/react-config': 0.7.1
       '@hookform/error-message': 2.0.1
-      '@hookform/resolvers': 3.0.0
+      '@hookform/resolvers': 3.1.0
       '@storybook/react': 7.0.2
       '@testing-library/react': 14.0.0
       '@types/jsdom': 20.0.1
@@ -210,7 +210,7 @@ importers:
       validator: 13.9.0
     devDependencies:
       '@dzangolab/react-config': link:../config
-      '@hookform/resolvers': 3.0.0_react-hook-form@7.43.9
+      '@hookform/resolvers': 3.1.0_react-hook-form@7.43.9
       '@storybook/react': 7.0.2_ygqkwb4gg3aean7xjfdauovyqq
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/jsdom': 20.0.1
@@ -2651,8 +2651,8 @@ packages:
       react-hook-form: 7.43.9_react@18.2.0
     dev: false
 
-  /@hookform/resolvers/3.0.0_react-hook-form@7.43.9:
-    resolution: {integrity: sha512-SQPefakODpyq25b/phHXDKCdRrEfPcCXV7B4nAa139wE1DxufYbbNAjeo0T04ZXBokRxZ+wD8iA1kkVMa3QwjQ==}
+  /@hookform/resolvers/3.1.0_react-hook-form@7.43.9:
+    resolution: {integrity: sha512-z0A8K+Nxq+f83Whm/ajlwE6VtQlp/yPHZnXw7XWVPIGm1Vx0QV8KThU3BpbBRfAZ7/dYqCKKBNnQh85BkmBKkA==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
