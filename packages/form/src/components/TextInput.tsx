@@ -4,11 +4,11 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ITextInput {
-  register: UseFormRegister<any>;
-  getFieldState: UseFormGetFieldState<any>;
   label?: string;
   placeholder?: string;
-  name?: string;
+  name: string;
+  getFieldState?: UseFormGetFieldState<any>;
+  register?: UseFormRegister<any>;
 }
 
 export const TextInput: React.FC<ITextInput> = ({
@@ -16,8 +16,10 @@ export const TextInput: React.FC<ITextInput> = ({
   getFieldState,
   label = "",
   placeholder = "",
-  name = "textInput",
+  name,
 }) => {
+  if (!register || !getFieldState) return null;
+
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
@@ -25,7 +27,7 @@ export const TextInput: React.FC<ITextInput> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className="field text-input">
+    <div className={`field text-input ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register(name)}

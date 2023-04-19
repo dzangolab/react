@@ -4,11 +4,11 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ITextArea {
-  register: UseFormRegister<any>;
-  getFieldState: UseFormGetFieldState<any>;
   label?: string;
+  name: string;
   placeholder?: string;
-  name?: string;
+  getFieldState?: UseFormGetFieldState<any>;
+  register?: UseFormRegister<any>;
 }
 
 export const TextArea: React.FC<ITextArea> = ({
@@ -16,8 +16,10 @@ export const TextArea: React.FC<ITextArea> = ({
   getFieldState,
   label = "",
   placeholder = "",
-  name = "textarea",
+  name,
 }) => {
+  if (!register || !getFieldState) return null;
+
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let textareaClassName = "";
@@ -25,7 +27,7 @@ export const TextArea: React.FC<ITextArea> = ({
   if (isTouched && invalid) textareaClassName = "invalid";
 
   return (
-    <div className="field textarea-input">
+    <div className={`field textarea-input ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <textarea
         {...register(name)}
