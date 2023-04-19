@@ -32,6 +32,10 @@
   width: 100%;
 }
 
+.collapsible-layout > header > .menu-container {
+  grid-template-columns: auto;
+}
+
 @media screen and (max-width: 575px) {
   .collapsible-layout {
     min-height: 100vh;
