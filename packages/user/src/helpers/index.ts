@@ -21,17 +21,6 @@ const getHomeRoute = (
   return user ? getUserHomeRoute(user) : layoutConfig?.homeRoute;
 };
 
-const getComputedRoute = (
-  userConfig: DzangolabReactUserConfig,
-  routeName: string
-): string | undefined => {
-  const object = userConfig.routes
-    ? Object.create(userConfig.routes)
-    : undefined;
-
-  return object ? object[routeName]?.path : undefined;
-};
-
 const setUserData = (data: UserType) => {
   localStorage.setItem(USER_KEY, JSON.stringify(data));
 };
@@ -43,10 +32,4 @@ const getUserData = (): UserType => {
 const removeUserData = () => {
   localStorage.removeItem(USER_KEY);
 };
-export {
-  getComputedRoute,
-  getHomeRoute,
-  getUserData,
-  removeUserData,
-  setUserData,
-};
+export { getHomeRoute, getUserData, removeUserData, setUserData };

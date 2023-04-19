@@ -1,7 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { ResponsiveMenu } from "@dzangolab/react-ui";
 
-import { getComputedRoute } from "../helpers";
 import { useConfig } from "../hooks";
 
 const SignInUpMenu = () => {
@@ -10,12 +9,12 @@ const SignInUpMenu = () => {
 
   const loginRoute = {
     name: t("menu.signin"),
-    route: getComputedRoute(userConfig, "login") || "/login",
+    route: userConfig.routes?.login?.path || "/login",
   };
 
   const signUpRoute = {
     name: t("menu.signup"),
-    route: getComputedRoute(userConfig, "signup") || "/signup",
+    route: userConfig.routes?.signup?.path || "/signup",
   };
 
   const routes = userConfig?.routes?.signup?.disabled
