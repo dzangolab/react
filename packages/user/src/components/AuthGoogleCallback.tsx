@@ -4,14 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { setUserData } from "../helpers";
-import { useUser } from "../hooks";
+import { getComputedRoute, setUserData } from "../helpers";
+import { useConfig, useUser } from "../hooks";
 import { UserType } from "../types";
 
 const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
+  const { user: userConfig } = useConfig();
   const { setUser } = useUser();
   const navigate = useNavigate();
+  const loginRoute = getComputedRoute(userConfig, "login") || "/login";
 
   const authCallback = async () => {
     try {
@@ -24,7 +26,7 @@ const AuthGoogleCallback = () => {
         toast.success(`${t("authGoogleCallback.email.success")}`);
       } else {
         toast.error(`${t("authGoogleCallback.email.error")}`);
-        navigate("/login");
+        navigate(loginRoute);
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -34,7 +36,7 @@ const AuthGoogleCallback = () => {
         toast.error(`${t("authGoogleCallback.message.error")}`);
       }
 
-      navigate("/login");
+      navigate(loginRoute);
     }
   };
 

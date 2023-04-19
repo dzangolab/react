@@ -7,12 +7,17 @@ import { toast } from "react-toastify";
 import ResetPasswordForm from "@/components/ResetPasswordForm";
 import resetPassword from "@/supertokens/reset-password";
 
+import { getComputedRoute } from "../helpers";
+import { useConfig } from "../hooks";
+
 import "../assets/css/resetPassword.css";
 
 const ResetPassword = () => {
   const { t } = useTranslation("user");
+  const { user: userConfig } = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+  const loginRoute = getComputedRoute(userConfig, "login") || "/login";
 
   const handleSubmit = async (newPassword: string) => {
     setLoading(true);
@@ -20,7 +25,7 @@ const ResetPassword = () => {
     setLoading(false);
     if (result?.status === "OK") {
       toast.success(`${t("resetPassword.messages.success")}`);
-      navigate("/login");
+      navigate(loginRoute);
     }
   };
 

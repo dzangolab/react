@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import GoogleLogin from "../components/GoogleLogin";
 import LoginForm from "../components/LoginForm";
 import RedirectionMessage from "../components/RedirectionMessage";
-import { setUserData } from "../helpers";
+import { getComputedRoute, setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import login, { verifySession } from "../supertokens/login";
 
@@ -80,14 +80,14 @@ const Login: React.FC<IProperties> = ({
     return (
       <>
         {appConfig?.user?.routes?.signup?.disabled ? null : (
-          <Link to={appConfig?.user?.routes?.signup?.path || "/signup"}>
+          <Link to={getComputedRoute(appConfig.user, "signup") || "/signup"}>
             {t("login.links.signup")}
           </Link>
         )}
         {appConfig?.user?.routes?.forgetPassword?.disabled ? null : (
           <Link
             to={
-              appConfig?.user?.routes?.forgetPassword?.path ||
+              getComputedRoute(appConfig.user, "forgetPassword") ||
               "/forget-password"
             }
           >
