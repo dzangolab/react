@@ -1,3 +1,18 @@
+## [0.7.1](https://github.com/dzangolab/react/compare/v0.7.0...v0.7.1) (2023-04-19)
+
+
+### Bug Fixes
+
+* admin layout for responsive view  ([#324](https://github.com/dzangolab/react/issues/324)) ([244e71e](https://github.com/dzangolab/react/commit/244e71e4bb4e47cab965b6ceb3f8c3af1827340f))
+* nav menu style ([#327](https://github.com/dzangolab/react/issues/327)) ([3624ca3](https://github.com/dzangolab/react/commit/3624ca37a0acd10a28f2af5e7491b3f10f0a67d7))
+
+
+### Features
+
+* configurable login layout ([#323](https://github.com/dzangolab/react/issues/323)) ([2f4060a](https://github.com/dzangolab/react/commit/2f4060af91010395ddd6f151bd9486db5e97da86))
+
+
+
 # [0.7.0](https://github.com/dzangolab/react/compare/v0.6.1...v0.7.0) (2023-04-12)
 
 
