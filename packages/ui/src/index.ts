@@ -12,6 +12,7 @@ import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { TabbedPanel } from "./TabbedPanel";
 export * from "./Table";
+export * from "./Utils";
 
 export {
   Accordion,

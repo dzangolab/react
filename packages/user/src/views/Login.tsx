@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { Divider, Page, useMediaQuery } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -16,14 +16,26 @@ import type { LoginCredentials, SignInUpPromise } from "../types";
 import "../assets/css/login.css";
 
 interface IProperties {
+  customDivider?: React.ReactNode;
+  divider?: boolean;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
+  orientation?: "horizontal" | "vertical";
+  socialLoginFirst?: boolean;
 }
 
-const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
+const Login: React.FC<IProperties> = ({
+  customDivider,
+  divider = true,
+  onLoginFailed,
+  onLoginSuccess,
+  orientation = "vertical",
+  socialLoginFirst = false,
+}) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
+  const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const [loading, setLoading] = useState<boolean>(false);
   const [showRedirectionMessage, setShowRedirectionMessage] =
     useState<boolean>(false);
@@ -86,34 +98,61 @@ const Login: React.FC<IProperties> = ({ onLoginFailed, onLoginSuccess }) => {
     );
   };
 
-  return (
-    <div className="login">
-      <Page title={t("login.title")}>
-        {showRedirectionMessage ? (
-          <RedirectionMessage
-            appLink={appConfig?.user.redirectTo.appURL || ""}
-            appName={appConfig?.user.redirectTo.appName || ""}
-            hideRedirectionMessage={() => setShowRedirectionMessage(false)}
-          />
-        ) : null}
-        <LoginForm handleSubmit={handleSubmit} loading={loading} />
-        <div className="links">{getLinks()}</div>
+  if (isSmallScreen) {
+    orientation = "vertical";
+  }
 
-        {appConfig?.user.supportedLoginProviders ? (
-          <>
-            <div className="divider">- - - - - OR - - - - -</div>
-            <div className="social-login-wrapper">
-              {appConfig.user.supportedLoginProviders.includes("google") ? (
-                <GoogleLogin
-                  label={t("login.button.googleLoginLabel")}
-                  redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+  return (
+    <Page
+      title={t("login.title")}
+      className={`login ${socialLoginFirst ? "sso-first" : "sso-last"}`}
+      data-aria-orientation={orientation}
+    >
+      {showRedirectionMessage ? (
+        <RedirectionMessage
+          appLink={appConfig?.user.redirectTo.appURL || ""}
+          appName={appConfig?.user.redirectTo.appName || ""}
+          hideRedirectionMessage={() => setShowRedirectionMessage(false)}
+        />
+      ) : null}
+
+      <LoginForm handleSubmit={handleSubmit} loading={loading} />
+
+      <div className="links">{getLinks()}</div>
+
+      {appConfig?.user.supportedLoginProviders ? (
+        <>
+          {divider ? (
+            customDivider ? (
+              customDivider
+            ) : (
+              <div className="divider-with-text">
+                <Divider
+                  orientation={
+                    orientation === "vertical" ? "horizontal" : "vertical"
+                  }
                 />
-              ) : null}
-            </div>
-          </>
-        ) : null}
-      </Page>
-    </div>
+                <span>OR</span>
+                <Divider
+                  orientation={
+                    orientation === "vertical" ? "horizontal" : "vertical"
+                  }
+                />
+              </div>
+            )
+          ) : null}
+
+          <div className="social-login-wrapper">
+            {appConfig.user.supportedLoginProviders.includes("google") ? (
+              <GoogleLogin
+                label={t("login.button.googleLoginLabel")}
+                redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+              />
+            ) : null}
+          </div>
+        </>
+      ) : null}
+    </Page>
   );
 };
 
