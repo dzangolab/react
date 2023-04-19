@@ -20,5 +20,17 @@ exports[`Component matches snapshot 1`] = `
       ▾
     </span>
   </div>
+  <ul
+    className="dropdown-menu"
+    data-aria-hidden={true}
+  >
+    <li
+      className="option"
+      name="userMenu.logout"
+      onClick={[Function]}
+    >
+      userMenu.logout
+    </li>
+  </ul>
 </div>
 `;
