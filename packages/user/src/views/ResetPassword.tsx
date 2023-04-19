@@ -16,7 +16,7 @@ const ResetPassword = () => {
   const { user: userConfig } = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
-  const loginRoute = userConfig.routes?.login?.path || "/login";
+  const loginPath = userConfig.routes?.login?.path || "/login";
 
   const handleSubmit = async (newPassword: string) => {
     setLoading(true);
@@ -24,7 +24,7 @@ const ResetPassword = () => {
     setLoading(false);
     if (result?.status === "OK") {
       toast.success(`${t("resetPassword.messages.success")}`);
-      navigate(loginRoute);
+      navigate(loginPath);
     }
   };
 
