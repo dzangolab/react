@@ -32,4 +32,4 @@ const getUserData = (): UserType => {
 const removeUserData = () => {
   localStorage.removeItem(USER_KEY);
 };
-export { getHomeRoute, setUserData, getUserData, removeUserData };
+export { getHomeRoute, getUserData, removeUserData, setUserData };

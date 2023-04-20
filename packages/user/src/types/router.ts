@@ -9,7 +9,6 @@ interface RouteOverrides {
   login?: RouteOverride;
   signup?: RouteOverride & { disabled?: boolean };
   forgetPassword?: RouteOverride & { disabled?: boolean };
-  profile?: RouteOverride;
 }
 
 export type { RouteOverride, RouteOverrides };

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "../components/SignupForm";
+import { ROUTES } from "../constants";
 import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
@@ -22,7 +23,7 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
-  const appConfig = useConfig();
+  const { user: userConfig } = useConfig();
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
@@ -55,12 +56,13 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
   const getLinks = () => {
     return (
       <>
-        <Link to="/login">{t("signup.links.login")}</Link>
-        {appConfig?.user?.routes?.forgetPassword?.disabled ? null : (
+        <Link to={userConfig.routes?.login?.path || ROUTES.LOGIN}>
+          {t("signup.links.login")}
+        </Link>
+        {userConfig?.routes?.forgetPassword?.disabled ? null : (
           <Link
             to={
-              appConfig?.user?.routes?.forgetPassword?.path ||
-              "/forget-password"
+              userConfig.routes?.forgetPassword?.path || ROUTES.FORGET_PASSWORD
             }
           >
             {t("signup.links.forgotPassword")}
