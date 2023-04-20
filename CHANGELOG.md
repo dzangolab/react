@@ -1,3 +1,14 @@
+## [0.7.2](https://github.com/dzangolab/react/compare/v0.7.1...v0.7.2) (2023-04-20)
+
+
+### Features
+
+* configurable default routes from config ([#331](https://github.com/dzangolab/react/issues/331)) ([bbf6a6d](https://github.com/dzangolab/react/commit/bbf6a6d498c8965674f74b10609bcdf3f8ee21f8))
+* **form:** add smart Form component ([#329](https://github.com/dzangolab/react/issues/329)) ([fbf86f3](https://github.com/dzangolab/react/commit/fbf86f34378a63c88d5eba120bf1ce7413dbba13))
+* **form:** added form widget for Select, TextArea and TextInput ([#325](https://github.com/dzangolab/react/issues/325)) ([353d3d7](https://github.com/dzangolab/react/commit/353d3d79ce4b260377283dbcacc4d57105456f9e))
+
+
+
 ## [0.7.1](https://github.com/dzangolab/react/compare/v0.7.0...v0.7.1) (2023-04-19)
 
 
