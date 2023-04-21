@@ -41,6 +41,8 @@ const Login: React.FC<IProperties> = ({
   const [showRedirectionMessage, setShowRedirectionMessage] =
     useState<boolean>(false);
 
+  let className = "login";
+
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
 
@@ -99,14 +101,18 @@ const Login: React.FC<IProperties> = ({
     );
   };
 
-  if (isSmallScreen) {
+  if (!appConfig?.user.supportedLoginProviders || isSmallScreen) {
     orientation = "vertical";
+  }
+
+  if (appConfig?.user.supportedLoginProviders) {
+    className = className + (socialLoginFirst ? " sso-first" : " sso-last");
   }
 
   return (
     <Page
       title={t("login.title")}
-      className={`login ${socialLoginFirst ? "sso-first" : "sso-last"}`}
+      className={className}
       data-aria-orientation={orientation}
     >
       {showRedirectionMessage ? (
@@ -127,19 +133,11 @@ const Login: React.FC<IProperties> = ({
             customDivider ? (
               customDivider
             ) : (
-              <div className="divider-with-text">
-                <Divider
-                  orientation={
-                    orientation === "vertical" ? "horizontal" : "vertical"
-                  }
-                />
-                <span>OR</span>
-                <Divider
-                  orientation={
-                    orientation === "vertical" ? "horizontal" : "vertical"
-                  }
-                />
-              </div>
+              <Divider
+                orientation={
+                  orientation === "vertical" ? "horizontal" : "vertical"
+                }
+              />
             )
           ) : null}
 
