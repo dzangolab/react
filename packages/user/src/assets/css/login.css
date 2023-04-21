@@ -10,7 +10,7 @@
   grid-area: links;
 }
 
-.login > .content > .divider-with-text {
+.login > .content > .divider {
   grid-area: divider;
 }
 
@@ -51,17 +51,6 @@
   width: 100%;
 }
 
-.login > .content > .divider-with-text {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-}
-
-.login > .content > .divider-with-text > span {
-  padding: 0 0.5rem;
-}
-
 .login > .content > .social-login-wrapper {
   display: flex;
   width: 100%;
@@ -80,10 +69,5 @@
     grid-template-areas:
       "sso-wrapper divider form "
       "sso-wrapper divider links";
-  }
-
-  .login > .content[data-aria-orientation="horizontal"] > .divider-with-text {
-    flex-direction: column;
-    height: 100%;
   }
 }

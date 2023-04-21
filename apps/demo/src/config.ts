@@ -65,6 +65,7 @@ const config: AppConfig = {
       appName: "",
       appURL: "",
     },
+    supportedLoginProviders: ["google"],
   },
   websiteDomain: (window.location.protocol +
     "//" +
