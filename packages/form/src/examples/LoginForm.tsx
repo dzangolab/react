@@ -15,8 +15,8 @@ export const LoginForm = () => {
       onSubmit={(data) => console.log(data)}
       validationSchema={schema}
     >
-      <Email name="email" />
-      <Password name="password" />
+      <Email name="email" label="Email" />
+      <Password name="password" label="Password" />
       <input type="submit" value="Log in 2" />
     </Form>
   );

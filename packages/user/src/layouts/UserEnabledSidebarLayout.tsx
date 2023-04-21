@@ -57,7 +57,9 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
       footer={footer}
       header={
         <AppHeader
-          mainMenu={isSmallScreen ? <MainMenu routes={mainMenuRoutes} /> : null}
+          mainMenu={
+            isSmallScreen && user ? <MainMenu routes={mainMenuRoutes} /> : null
+          }
           userMenu={
             <UserMenu
               authenticatedUserMenu={
