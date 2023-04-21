@@ -7,7 +7,7 @@ const Form = () => {
 
   return (
     <Page title={t("header.menu.form")}>
-      <LoginForm></LoginForm>
+      <LoginForm />
     </Page>
   );
 };
