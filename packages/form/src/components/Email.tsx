@@ -30,7 +30,7 @@ export const Email: React.FC<IEmail> = ({
     <div className={`field email ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
-        {...register("email")}
+        {...register(name)}
         className={inputClassName}
         type="email"
         placeholder={placeholder}

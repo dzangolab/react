@@ -1,12 +1,12 @@
 import React from "react";
 import { FieldValues, UseFormProps, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ZodObject } from "zod";
+import { ZodEffects, ZodObject } from "zod";
 
 interface IForm extends UseFormProps {
   className?: string;
   children: any;
-  validationSchema?: ZodObject<any>;
+  validationSchema?: ZodObject<any> | ZodEffects<any>;
   html5Validation?: boolean;
   onSubmit: (data: FieldValues) => void;
 }

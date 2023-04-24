@@ -3,20 +3,21 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
 
-interface IPassword {
-  label?: string;
-  placeholder?: string;
-  name: string;
+export interface IInputField {
   getFieldState?: UseFormGetFieldState<any>;
+  label?: string;
+  name: string;
+  placeholder?: string;
   register?: UseFormRegister<any>;
+  type?: React.HTMLInputTypeAttribute;
 }
-
-export const Password: React.FC<IPassword> = ({
-  register,
+const InputField: React.FC<IInputField> = ({
   getFieldState,
   label = "",
-  placeholder = "",
   name,
+  placeholder,
+  register,
+  type,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -27,15 +28,17 @@ export const Password: React.FC<IPassword> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className={`field password ${name}`}>
+    <div className={`field ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register(name)}
         className={inputClassName}
-        type="password"
+        type={type}
         placeholder={placeholder}
-      ></input>
+      />
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );
 };
+
+export default InputField;
