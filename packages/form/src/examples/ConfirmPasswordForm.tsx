@@ -1,8 +1,8 @@
 import * as z from "zod";
 
 import { Form } from "..";
-import { passwordSchema } from "../schemas";
 import InputField from "../components/InputField";
+import { passwordSchema } from "../schemas";
 
 const schema = z
   .object({
