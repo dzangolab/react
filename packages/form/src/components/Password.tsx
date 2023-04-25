@@ -31,6 +31,8 @@ export const Password: React.FC<IPassword> = ({
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register("password")}
+        id={name}
+        name={name}
         className={inputClassName}
         type="password"
         placeholder={placeholder}
