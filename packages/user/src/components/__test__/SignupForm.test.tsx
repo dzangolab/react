@@ -111,9 +111,9 @@ test("validation error is displayed when an uppercase character is not included 
   await act(async () => {
     await user.type(emailInput, email);
     await user.type(passwordInput, "test123456");
-
-    await user.tab();
   });
+
+  user.click(submitButton);
 
   await waitFor(() => {
     expect(
@@ -122,7 +122,7 @@ test("validation error is displayed when an uppercase character is not included 
   });
 });
 
-test.only("form is successfully submitted", async () => {
+test("form is successfully submitted", async () => {
   const email = "test@test.com";
   const password = "Test@12345";
   const handleSubmit = vi.fn();
