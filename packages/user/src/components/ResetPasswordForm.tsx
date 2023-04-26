@@ -1,8 +1,10 @@
-import { Form, Password, passwordSchema } from "@dzangolab/react-form";
+import { Form, Password } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
+
+import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
   handleSubmit: (newPassword: string) => void;
@@ -14,26 +16,21 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
 
   const ResetPasswordFormSchema = zod
     .object({
-      newPassword: passwordSchema(
-        {
-          weak: t("resetPassword.messages.validation.validationMessage"),
-          required: t("resetPassword.messages.validation.newPassword"),
-        },
-        {
-          minLength: 8,
-          minLowercase: 1,
-          minNumbers: 1,
-          minSymbols: 1,
-          minUppercase: 1,
-        }
-      ),
-      confirmPassword: zod
-        .string()
-        .nonempty(t("resetPassword.messages.validation.confirmPassword")),
+      ...PasswordConfirmationSchema({
+        passwordRequiredMessage: t(
+          "resetPassword.messages.validation.newPassword"
+        ),
+        passwordValidationMessage: t(
+          "resetPassword.messages.validation.validationMessage"
+        ),
+        confirmPasswordRequiredMessage: t(
+          "resetPassword.messages.validation.confirmPassword"
+        ),
+      }),
     })
     .refine(
       (data) => {
-        return data.newPassword === data.confirmPassword;
+        return data.password === data.confirmPassword;
       },
       {
         message: t("resetPassword.messages.validation.mustMatch"),
@@ -48,7 +45,7 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
     >
       <Password
         label={t("resetPassword.form.newPassword.label")}
-        name="newPassword"
+        name="password"
       />
       <Password
         label={t("resetPassword.form.confirmPassword.label")}

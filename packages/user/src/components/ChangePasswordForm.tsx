@@ -1,11 +1,9 @@
+import { Form, Password } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
-import { Field, Formik } from "formik";
 import React from "react";
-import * as Yup from "yup";
+import * as zod from "zod";
 
-import ErrorMessage from "./ErrorMessage";
-import PasswordConfirmation from "./PasswordConfirmation";
 import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
@@ -16,68 +14,56 @@ interface Properties {
 const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
-  const ChangePasswordFormSchema = Yup.object({
-    oldPassword: Yup.string().required(
-      "changePassword.messages.validation.oldPassword"
-    ),
-    ...PasswordConfirmationSchema({
-      passwordValidationMessage:
-        "changePassword.messages.validation.mustContain",
-      passwordRequiredMessage: "changePassword.messages.validation.newPassword",
-      confirmPasswordValidationMessage:
-        "changePassword.messages.validation.mustMatch",
-      confirmPasswordRequiredMessage:
-        "changePassword.messages.validation.confirmPassword",
-    }),
-  });
-
-  const initialValue = {
-    oldPassword: "",
-    password: "",
-    confirmPassword: "",
-  };
+  const ChangePasswordFormSchema = zod
+    .object({
+      oldPassword: zod
+        .string()
+        .nonempty(t("changePassword.messages.validation.oldPassword")),
+      ...PasswordConfirmationSchema({
+        passwordValidationMessage: t(
+          "changePassword.messages.validation.mustContain"
+        ),
+        passwordRequiredMessage: t(
+          "changePassword.messages.validation.newPassword"
+        ),
+        confirmPasswordRequiredMessage: t(
+          "changePassword.messages.validation.confirmPassword"
+        ),
+      }),
+    })
+    .refine(
+      (data) => {
+        return data.password === data.confirmPassword;
+      },
+      {
+        message: t("changePassword.messages.validation.mustMatch"),
+        path: ["confirmPassword"],
+      }
+    );
 
   return (
-    <Formik
-      initialValues={initialValue}
+    <Form
       validationSchema={ChangePasswordFormSchema}
-      onSubmit={(values, action) => {
-        const oldPassword = values.oldPassword;
-        const newPassword = values.password;
-        handleSubmit(oldPassword, newPassword);
-        action.resetForm();
-      }}
+      onSubmit={(data) => handleSubmit(data.oldPassword, data.password)}
     >
-      {({ errors, handleSubmit, touched }) => (
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="field oldPassword">
-            <label htmlFor="oldPassword">
-              {t("changePassword.form.oldPassword.label")}
-            </label>
-            <Field id="oldPassword" type="password" name="oldPassword" />
-            <ErrorMessage
-              touched={touched.oldPassword}
-              error={errors.oldPassword ? t(errors.oldPassword) : undefined}
-            />
-          </div>
-          <PasswordConfirmation
-            errors={errors}
-            touched={touched}
-            passwordLabel={t("changePassword.form.newPassword.label")}
-            confirmPasswordLabel={t(
-              "changePassword.form.confirmPassword.label"
-            )}
-          />
+      <Password
+        label={t("changePassword.form.oldPassword.label")}
+        name="oldPassword"
+      />
+      <Password
+        label={t("changePassword.form.newPassword.label")}
+        name="password"
+      />
+      <Password
+        label={t("changePassword.form.confirmPassword.label")}
+        name="confirmPassword"
+      />
 
-          <div className="actions">
-            <SubmitButton
-              label={t("changePassword.form.actions.submit")}
-              loading={loading}
-            />
-          </div>
-        </form>
-      )}
-    </Formik>
+      <SubmitButton
+        label={t("changePassword.form.actions.submit")}
+        loading={loading}
+      />
+    </Form>
   );
 };
 

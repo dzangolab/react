@@ -27,10 +27,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "formik": "2.2.9",
     "react-toastify": "9.0.5",
     "supertokens-web-js": "0.4.0",
-    "yup": "0.32.11",
     "zod": "3.21.4"
   },
   "devDependencies": {

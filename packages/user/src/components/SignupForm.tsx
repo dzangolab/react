@@ -1,16 +1,11 @@
-import {
-  Email,
-  Form,
-  Password,
-  emailSchema,
-  passwordSchema,
-} from "@dzangolab/react-form";
+import { Email, Form, Password, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
 
 import type { LoginCredentials } from "../types";
+import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
@@ -26,22 +21,15 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
         invalid: t("validation.messages.validEmail"),
         required: t("validation.messages.email"),
       }),
-      password: passwordSchema(
-        {
-          required: t("signup.messages.validation.password"),
-          weak: t("signup.messages.validation.validationMessage"),
-        },
-        {
-          minLength: 8,
-          minLowercase: 1,
-          minNumbers: 1,
-          minSymbols: 1,
-          minUppercase: 1,
-        }
-      ),
-      confirmPassword: zod
-        .string()
-        .nonempty(t("signup.messages.validation.confirmPassword")),
+      ...PasswordConfirmationSchema({
+        passwordRequiredMessage: t("signup.messages.validation.password"),
+        passwordValidationMessage: t(
+          "signup.messages.validation.validationMessage"
+        ),
+        confirmPasswordRequiredMessage: t(
+          "signup.messages.validation.confirmPassword"
+        ),
+      }),
     })
     .refine(
       (data) => {
