@@ -5,7 +5,7 @@ form {
   width: 100%;
 }
 
-form > .actions > button {
+form > button {
   background-color: #1c4786;
   border: none;
   border-radius: 0.4rem;
@@ -32,8 +32,8 @@ form > .field > input {
   padding: 0.4rem;
 }
 
-form > .field > p {
+form > .field > span {
   color: red;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   text-align: start;
 }

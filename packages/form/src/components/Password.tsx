@@ -27,12 +27,11 @@ export const Password: React.FC<IPassword> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className={`field password ${name}`}>
+    <div className={`field ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
-        {...register("password")}
+        {...register(name)}
         id={name}
-        name={name}
         className={inputClassName}
         type="password"
         placeholder={placeholder}

@@ -1,9 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
-import { Field, Formik } from "formik";
-import * as Yup from "yup";
+import {
+  Email,
+  Form,
+  Password,
+  emailSchema,
+  passwordSchema,
+} from "@dzangolab/react-form";
+import * as zod from "zod";
 
-import ErrorMessage from "./ErrorMessage";
 import { LoginCredentials } from "../types";
 
 import "../assets/css/loginForm.css";
@@ -16,61 +21,35 @@ interface Properties {
 const LoginForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
-  const LoginFormSchema = Yup.object({
-    email: Yup.string()
-      .email("validation.messages.validEmail")
-      .required("validation.messages.email"),
-    password: Yup.string().required("login.messages.validation.password"),
+  const LoginFormSchema = zod.object({
+    email: emailSchema({
+      invalid: t("validation.messages.validEmail"),
+      required: t("validation.messages.email"),
+    }),
+    password: passwordSchema(
+      {
+        required: t("login.messages.validation.password"),
+        weak: "",
+      },
+      {
+        minLength: 0,
+      }
+    ),
   });
 
-  const initialValue = {
-    email: "",
-    password: "",
-  };
-
   return (
-    <Formik
-      initialValues={initialValue}
-      validationSchema={LoginFormSchema}
-      onSubmit={(values, action) => {
-        handleSubmit(values);
-        action.resetForm();
-      }}
-    >
-      {({ errors, handleSubmit, touched }) => (
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="field email">
-            <label htmlFor="email">{t("login.form.email.label")}</label>
-            <Field
-              id="email"
-              type="email"
-              name="email"
-              placeholder={t("login.form.email.placeholder")}
-            />
-            <ErrorMessage
-              touched={touched.email}
-              error={errors.email ? t(errors.email) : undefined}
-            />
-          </div>
-
-          <div className="field password">
-            <label htmlFor="password">{t("login.form.password.label")}</label>
-            <Field id="password" type="password" name="password" />
-            <ErrorMessage
-              touched={touched.password}
-              error={errors.password ? t(errors.password) : undefined}
-            />
-          </div>
-
-          <div className="actions">
-            <SubmitButton
-              label={`${t("login.form.actions.submit")}`}
-              loading={loading}
-            />
-          </div>
-        </form>
-      )}
-    </Formik>
+    <Form validationSchema={LoginFormSchema} onSubmit={handleSubmit}>
+      <Email
+        label={t("login.form.email.label")}
+        name="email"
+        placeholder={t("login.form.email.placeholder")}
+      />
+      <Password label={t("login.form.password.label")} name="password" />
+      <SubmitButton
+        label={`${t("login.form.actions.submit")}`}
+        loading={loading}
+      />
+    </Form>
   );
 };
 
