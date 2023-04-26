@@ -1,64 +1,64 @@
+import { Form, Password, passwordSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
-import { Formik } from "formik";
 import React from "react";
-import * as Yup from "yup";
-
-import PasswordConfirmation from "./PasswordConfirmation";
-import { PasswordConfirmationSchema } from "./schemas";
+import * as zod from "zod";
 
 interface Properties {
-  handleSubmit: (email: string) => void;
+  handleSubmit: (newPassword: string) => void;
   loading?: boolean;
 }
 
 const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
-  const ResetPasswordFormSchema = Yup.object({
-    ...PasswordConfirmationSchema({
-      passwordValidationMessage:
-        "resetPassword.messages.validation.validationMessage",
-      passwordRequiredMessage: "resetPassword.messages.validation.newPassword",
-      confirmPasswordValidationMessage:
-        "resetPassword.messages.validation.mustMatch",
-      confirmPasswordRequiredMessage:
-        "resetPassword.messages.validation.confirmPassword",
-    }),
-  });
-
-  const initialValue = {
-    password: "",
-    confirmPassword: "",
-  };
+  const ResetPasswordFormSchema = zod
+    .object({
+      newPassword: passwordSchema(
+        {
+          weak: t("resetPassword.messages.validation.validationMessage"),
+          required: t("resetPassword.messages.validation.newPassword"),
+        },
+        {
+          minLength: 8,
+          minLowercase: 1,
+          minNumbers: 1,
+          minSymbols: 1,
+          minUppercase: 1,
+        }
+      ),
+      confirmPassword: zod
+        .string()
+        .nonempty(t("resetPassword.messages.validation.confirmPassword")),
+    })
+    .refine(
+      (data) => {
+        return data.newPassword === data.confirmPassword;
+      },
+      {
+        message: t("resetPassword.messages.validation.mustMatch"),
+        path: ["confirmPassword"],
+      }
+    );
 
   return (
-    <Formik
-      initialValues={initialValue}
+    <Form
       validationSchema={ResetPasswordFormSchema}
-      onSubmit={(values, action) => {
-        const newPassword = values.password;
-        handleSubmit(newPassword);
-        action.resetForm();
-      }}
+      onSubmit={(data) => handleSubmit(data.newPassword)}
     >
-      {({ errors, handleSubmit, touched }) => (
-        <form className="form" onSubmit={handleSubmit}>
-          <PasswordConfirmation
-            errors={errors}
-            touched={touched}
-            passwordLabel={t("resetPassword.form.newPassword.label")}
-            confirmPasswordLabel={t("resetPassword.form.confirmPassword.label")}
-          />
-          <div className="actions">
-            <SubmitButton
-              label={t("resetPassword.form.actions.submit")}
-              loading={loading}
-            />
-          </div>
-        </form>
-      )}
-    </Formik>
+      <Password
+        label={t("resetPassword.form.newPassword.label")}
+        name="newPassword"
+      />
+      <Password
+        label={t("resetPassword.form.confirmPassword.label")}
+        name="confirmPassword"
+      />
+      <SubmitButton
+        label={t("resetPassword.form.actions.submit")}
+        loading={loading}
+      />
+    </Form>
   );
 };
 

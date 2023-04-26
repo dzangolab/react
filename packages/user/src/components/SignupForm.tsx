@@ -54,7 +54,10 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
     );
 
   return (
-    <Form validationSchema={SignUpFormSchema} onSubmit={handleSubmit}>
+    <Form
+      validationSchema={SignUpFormSchema}
+      onSubmit={(data) => handleSubmit({ ...data })}
+    >
       <Email
         label={t("signup.form.email.label")}
         name="email"

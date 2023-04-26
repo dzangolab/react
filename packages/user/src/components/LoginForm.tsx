@@ -45,10 +45,7 @@ const LoginForm = ({ handleSubmit, loading }: Properties) => {
         placeholder={t("login.form.email.placeholder")}
       />
       <Password label={t("login.form.password.label")} name="password" />
-      <SubmitButton
-        label={`${t("login.form.actions.submit")}`}
-        loading={loading}
-      />
+      <SubmitButton label={t("login.form.actions.submit")} loading={loading} />
     </Form>
   );
 };
