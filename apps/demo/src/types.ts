@@ -1,7 +1,7 @@
-interface ComponentRoute {
+interface Component {
   key: number;
   title: string;
   component: JSX.Element;
 }
 
-export type { ComponentRoute };
+export type { Component };

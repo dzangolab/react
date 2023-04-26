@@ -1,22 +1,23 @@
-import { FC, useState } from "react";
-import Card from "../Card";
-import PageWrapper from "../PageWrapper";
 import { Page } from "@dzangolab/react-ui";
-import { ComponentRoute } from "../../types";
+import { FC, useState } from "react";
+
+import Card from "../Card";
+import ComponentWrapper from "../ComponentWrapper";
+import { Component } from "../../types";
 
 interface IProperties {
-  componentRoutes: ComponentRoute[];
+  componentList: Component[];
   title: string;
 }
 
-const ComponentRenderer: FC<IProperties> = ({ componentRoutes, title }) => {
+const DisplayComponents: FC<IProperties> = ({ componentList, title }) => {
   const [selectedComponentIndex, setSelectedComponentIndex] = useState<
     null | number
   >(null);
 
   const renderComponent = () => {
     if (selectedComponentIndex === null) {
-      return componentRoutes.map((component, index) => (
+      return componentList.map((component, index) => (
         <Card
           key={component.key}
           title={component.title}
@@ -25,12 +26,12 @@ const ComponentRenderer: FC<IProperties> = ({ componentRoutes, title }) => {
       ));
     } else {
       return (
-        <PageWrapper
+        <ComponentWrapper
           onBack={() => setSelectedComponentIndex(null)}
-          title={componentRoutes[selectedComponentIndex].title}
+          title={componentList[selectedComponentIndex].title}
         >
-          {componentRoutes[selectedComponentIndex].component}
-        </PageWrapper>
+          {componentList[selectedComponentIndex].component}
+        </ComponentWrapper>
       );
     }
   };
@@ -38,4 +39,4 @@ const ComponentRenderer: FC<IProperties> = ({ componentRoutes, title }) => {
   return <Page title={title}>{renderComponent()}</Page>;
 };
 
-export default ComponentRenderer;
+export default DisplayComponents;

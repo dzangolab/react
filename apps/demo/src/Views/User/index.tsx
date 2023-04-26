@@ -1,9 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Login } from "@dzangolab/react-user";
 
-import ComponentRenderer from "../../components/ComponentRenderer";
+import DisplayComponents from "../../components/DisplayComponents";
 
-const ROUTES = [
+const componentList = [
   {
     key: 1,
     title: "Login Page",
@@ -15,7 +15,10 @@ const User = () => {
   const { t } = useTranslation();
 
   return (
-    <ComponentRenderer componentRoutes={ROUTES} title={t("header.menu.user")} />
+    <DisplayComponents
+      componentList={componentList}
+      title={t("header.menu.user")}
+    />
   );
 };
 

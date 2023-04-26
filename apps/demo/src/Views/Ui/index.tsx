@@ -4,9 +4,9 @@ import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 import { SubmitButton } from "./SubmitButton";
 
 import { MENU_ROUTES } from "../../constants";
-import ComponentRenderer from "../../components/ComponentRenderer";
+import DisplayComponents from "../../components/DisplayComponents";
 
-const ROUTES = [
+const componentList = [
   {
     key: 1,
     title: "Loading",
@@ -48,7 +48,10 @@ const Ui = () => {
   const { t } = useTranslation();
 
   return (
-    <ComponentRenderer componentRoutes={ROUTES} title={t("header.menu.ui")} />
+    <DisplayComponents
+      componentList={componentList}
+      title={t("header.menu.ui")}
+    />
   );
 };
 

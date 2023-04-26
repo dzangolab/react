@@ -1,9 +1,9 @@
 import { ConfirmPasswordForm, LoginForm } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 
-import ComponentRenderer from "../../components/ComponentRenderer";
+import DisplayComponents from "../../components/DisplayComponents";
 
-const ROUTES = [
+const componentList = [
   {
     key: 1,
     title: "Login Form",
@@ -20,7 +20,10 @@ const Form = () => {
   const { t } = useTranslation();
 
   return (
-    <ComponentRenderer componentRoutes={ROUTES} title={t("header.menu.form")} />
+    <DisplayComponents
+      componentList={componentList}
+      title={t("header.menu.form")}
+    />
   );
 };
 

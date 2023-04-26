@@ -8,10 +8,14 @@ interface IProperties {
   title: string;
 }
 
-const PageWrapper: React.FC<IProperties> = ({ children, onBack, title }) => {
+const ComponentWrapper: React.FC<IProperties> = ({
+  children,
+  onBack,
+  title,
+}) => {
   return (
-    <div className="page-wrapper">
-      <div className="page-header">
+    <div className="component-wrapper">
+      <div className="wrapper-header">
         <button className="btn-back" onClick={onBack}>
           &lt;
         </button>
@@ -22,4 +26,4 @@ const PageWrapper: React.FC<IProperties> = ({ children, onBack, title }) => {
   );
 };
 
-export default PageWrapper;
+export default ComponentWrapper;
