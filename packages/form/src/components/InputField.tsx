@@ -29,9 +29,10 @@ const InputField: React.FC<IInputField> = ({
 
   return (
     <div className={`field ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
+      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}
+        id={`input-field-${name}`}
         className={inputClassName}
         type={type}
         placeholder={placeholder}

@@ -12,7 +12,7 @@ interface IForm extends UseFormProps {
 }
 
 export const Form: React.FC<IForm> = ({
-  className,
+  className = "",
   children,
   onSubmit,
   validationSchema,

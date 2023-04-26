@@ -27,10 +27,11 @@ export const Email: React.FC<IEmail> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className={`field email ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
+    <div className={`field ${name}`}>
+      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}
+        id={`input-field-${name}`}
         className={inputClassName}
         type="email"
         placeholder={placeholder}
