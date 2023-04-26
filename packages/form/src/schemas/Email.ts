@@ -12,8 +12,9 @@ const schema = (
   options?: IsEmailOptions
 ) => {
   return z
-    .string({
-      required_error: errorMessages.required,
+    .string()
+    .nonempty({
+      message: errorMessages.required,
     })
     .refine(
       (value) => validator.isEmail(value, options || {}),

@@ -31,8 +31,9 @@ const schema = (
   };
 
   return z
-    .string({
-      required_error: errorMessages.required,
+    .string()
+    .nonempty({
+      message: errorMessages.required,
     })
     .refine(
       (value): boolean => {

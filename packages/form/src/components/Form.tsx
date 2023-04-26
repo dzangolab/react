@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { Children, createElement } from "react";
-import { FieldValues, UseFormProps, useForm } from "react-hook-form";
+import { UseFormProps, useForm } from "react-hook-form";
 import { ZodEffects, ZodObject } from "zod";
 
 interface IForm extends UseFormProps {
@@ -8,7 +8,7 @@ interface IForm extends UseFormProps {
   children: any;
   validationSchema?: ZodObject<any> | ZodEffects<any>;
   html5Validation?: boolean;
-  onSubmit: (data: FieldValues) => void;
+  onSubmit: (data: any) => void;
 }
 
 export const Form: React.FC<IForm> = ({
