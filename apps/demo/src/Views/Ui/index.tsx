@@ -4,7 +4,7 @@ import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 import { SubmitButton } from "./SubmitButton";
 
 import { MENU_ROUTES } from "../../constants";
-import DisplayComponents from "../../components/DisplayComponents";
+import ComponentList from "../../components/ComponentList";
 
 const componentList = [
   {
@@ -48,10 +48,7 @@ const Ui = () => {
   const { t } = useTranslation();
 
   return (
-    <DisplayComponents
-      componentList={componentList}
-      title={t("header.menu.ui")}
-    />
+    <ComponentList componentList={componentList} title={t("header.menu.ui")} />
   );
 };
 

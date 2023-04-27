@@ -10,7 +10,7 @@ interface IProperties {
   title: string;
 }
 
-const DisplayComponents: FC<IProperties> = ({ componentList, title }) => {
+const ComponentList: FC<IProperties> = ({ componentList, title }) => {
   const [selectedComponentIndex, setSelectedComponentIndex] = useState<
     null | number
   >(null);
@@ -39,4 +39,4 @@ const DisplayComponents: FC<IProperties> = ({ componentList, title }) => {
   return <Page title={title}>{renderComponent()}</Page>;
 };
 
-export default DisplayComponents;
+export default ComponentList;

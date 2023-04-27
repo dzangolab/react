@@ -11,7 +11,7 @@ export interface IInputField {
   register?: UseFormRegister<any>;
   type?: React.HTMLInputTypeAttribute;
 }
-const InputField: React.FC<IInputField> = ({
+const Input: React.FC<IInputField> = ({
   getFieldState,
   label = "",
   name,
@@ -42,4 +42,4 @@ const InputField: React.FC<IInputField> = ({
   );
 };
 
-export default InputField;
+export default Input;

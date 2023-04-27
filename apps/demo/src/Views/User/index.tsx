@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Login } from "@dzangolab/react-user";
 
-import DisplayComponents from "../../components/DisplayComponents";
+import ComponentList from "../../components/ComponentList";
 
 const componentList = [
   {
@@ -15,7 +15,7 @@ const User = () => {
   const { t } = useTranslation();
 
   return (
-    <DisplayComponents
+    <ComponentList
       componentList={componentList}
       title={t("header.menu.user")}
     />

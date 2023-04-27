@@ -1,7 +1,7 @@
 import { ConfirmPasswordForm, LoginForm } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 
-import DisplayComponents from "../../components/DisplayComponents";
+import ComponentList from "../../components/ComponentList";
 
 const componentList = [
   {
@@ -20,7 +20,7 @@ const Form = () => {
   const { t } = useTranslation();
 
   return (
-    <DisplayComponents
+    <ComponentList
       componentList={componentList}
       title={t("header.menu.form")}
     />
