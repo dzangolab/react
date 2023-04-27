@@ -17,7 +17,6 @@ function Filter({
   placeholder,
   selectOptions,
   columnFilterValue,
-  columnType,
   handleChange,
 }: FilterProperties) {
   if (!filterVariant) return null;

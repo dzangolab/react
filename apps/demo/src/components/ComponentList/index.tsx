@@ -3,7 +3,8 @@ import { FC, useState } from "react";
 
 import Card from "../Card";
 import ComponentWrapper from "../ComponentWrapper";
-import { Component } from "../../types";
+
+import type { Component } from "../../types";
 
 interface IProperties {
   componentList: Component[];
