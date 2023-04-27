@@ -109,7 +109,7 @@ importers:
       '@storybook/addon-links': 7.0.2
       '@storybook/react': 7.0.2
       '@storybook/react-vite': 7.0.2
-      '@storybook/testing-library': 0.0.14-next.1
+      '@storybook/testing-library': 0.1.0
       babel-loader: 9.1.2
       eslint: 8.37.0
       eslint-plugin-storybook: 0.6.10
@@ -131,7 +131,7 @@ importers:
       '@storybook/addon-links': 7.0.2_biqbaboplfbrettd7655fr4n2y
       '@storybook/react': 7.0.2_uhtpkmw4islv4eik2krbyemjmy
       '@storybook/react-vite': 7.0.2_kmnoq6yp7j67mtwtg3ca5p5zii
-      '@storybook/testing-library': 0.0.14-next.1
+      '@storybook/testing-library': 0.1.0
       babel-loader: 9.1.2_kh7tlia7ljiqfn7rrvxklxkh5i
       eslint: 8.37.0
       eslint-plugin-storybook: 0.6.10_vwh6htx42aidho2qgfca5u5rwm
@@ -4442,8 +4442,8 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/testing-library/0.0.14-next.1:
-    resolution: {integrity: sha512-1CAl40IKIhcPaCC4pYCG0b9IiYNymktfV/jTrX7ctquRY3akaN7f4A1SippVHosksft0M+rQTFE0ccfWW581fw==}
+  /@storybook/testing-library/0.1.0:
+    resolution: {integrity: sha512-g947f4LJZw3IluBhysMKLJXByAFiSxnGuooENqU+ZPt/GTrz1I9GDBlhmoTJahuFkVbwHvziAl/8riY2Re921g==}
     dependencies:
       '@storybook/client-logger': 7.0.7
       '@storybook/instrumenter': 7.0.7
