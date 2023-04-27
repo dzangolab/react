@@ -4,8 +4,9 @@ import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
 
-import type { LoginCredentials } from "../types";
 import { PasswordConfirmationSchema } from "./schemas";
+
+import type { LoginCredentials } from "../types";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;

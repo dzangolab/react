@@ -1,5 +1,3 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
 import {
   Email,
   Form,
@@ -7,6 +5,8 @@ import {
   emailSchema,
   passwordSchema,
 } from "@dzangolab/react-form";
+import { useTranslation } from "@dzangolab/react-i18n";
+import { SubmitButton } from "@dzangolab/react-ui";
 import * as zod from "zod";
 
 import { LoginCredentials } from "../types";

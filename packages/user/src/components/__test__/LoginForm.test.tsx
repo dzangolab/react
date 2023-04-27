@@ -26,12 +26,8 @@ test("validation error messages are displayed", async () => {
 
 test("form is successfully submitted", async () => {
   const handleSubmit = vi.fn();
-  const value = {
-    email: "test@test.com",
-    password: "Test@12345",
-  };
 
-  const { debug } = render(<LoginForm handleSubmit={handleSubmit} />);
+  render(<LoginForm handleSubmit={handleSubmit} />);
 
   expect(screen.getByLabelText("login.form.email.label")).toBeDefined();
   expect(screen.getByLabelText("login.form.password.label")).toBeDefined();
