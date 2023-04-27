@@ -1,14 +1,29 @@
-import { LoginForm } from "@dzangolab/react-form";
+import { ConfirmPasswordForm, LoginForm } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+
+import ComponentList from "../../components/ComponentList";
+
+const componentList = [
+  {
+    key: 1,
+    title: "Login Form",
+    component: <LoginForm />,
+  },
+  {
+    key: 2,
+    title: "Confirm Password Form",
+    component: <ConfirmPasswordForm />,
+  },
+];
 
 const Form = () => {
   const { t } = useTranslation();
 
   return (
-    <Page title={t("header.menu.form")}>
-      <LoginForm />
-    </Page>
+    <ComponentList
+      componentList={componentList}
+      title={t("header.menu.form")}
+    />
   );
 };
 

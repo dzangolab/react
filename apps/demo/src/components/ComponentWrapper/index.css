@@ -1,9 +1,9 @@
-.page-wrapper {
+.component-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.page-wrapper > .page-header {
+.component-wrapper > .wrapper-header {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
