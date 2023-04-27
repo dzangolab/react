@@ -3,20 +3,21 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
 
-interface IEmail {
+export interface IInputField {
+  getFieldState?: UseFormGetFieldState<any>;
   label?: string;
   name: string;
   placeholder?: string;
-  getFieldState?: UseFormGetFieldState<any>;
   register?: UseFormRegister<any>;
+  type?: React.HTMLInputTypeAttribute;
 }
-
-export const Email: React.FC<IEmail> = ({
-  register,
+const Input: React.FC<IInputField> = ({
   getFieldState,
   label = "",
-  placeholder = "",
   name,
+  placeholder,
+  register,
+  type,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -33,10 +34,12 @@ export const Email: React.FC<IEmail> = ({
         {...register(name)}
         id={`input-field-${name}`}
         className={inputClassName}
-        type="email"
+        type={type}
         placeholder={placeholder}
-      ></input>
+      />
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );
 };
+
+export default Input;

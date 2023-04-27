@@ -28,10 +28,10 @@ export const Password: React.FC<IPassword> = ({
 
   return (
     <div className={`field ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
+      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}
-        id={name}
+        id={`input-field-${name}`}
         className={inputClassName}
         type="password"
         placeholder={placeholder}

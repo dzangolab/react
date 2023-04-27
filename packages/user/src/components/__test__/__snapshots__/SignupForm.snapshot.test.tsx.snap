@@ -10,13 +10,13 @@ exports[`Component matches snapshot 1`] = `
     className="field email"
   >
     <label
-      htmlFor="email"
+      htmlFor="input-field-email"
     >
       signup.form.email.label
     </label>
     <input
       className=""
-      id="email"
+      id="input-field-email"
       name="email"
       onBlur={[Function]}
       onChange={[Function]}
@@ -28,13 +28,13 @@ exports[`Component matches snapshot 1`] = `
     className="field password"
   >
     <label
-      htmlFor="password"
+      htmlFor="input-field-password"
     >
       signup.form.password.label
     </label>
     <input
       className=""
-      id="password"
+      id="input-field-password"
       name="password"
       onBlur={[Function]}
       onChange={[Function]}
@@ -46,13 +46,13 @@ exports[`Component matches snapshot 1`] = `
     className="field confirmPassword"
   >
     <label
-      htmlFor="confirmPassword"
+      htmlFor="input-field-confirmPassword"
     >
       signup.form.confirmPassword.label
     </label>
     <input
       className=""
-      id="confirmPassword"
+      id="input-field-confirmPassword"
       name="confirmPassword"
       onBlur={[Function]}
       onChange={[Function]}

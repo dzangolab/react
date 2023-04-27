@@ -25,7 +25,7 @@
     "eslint-plugin-storybook": "0.6.10",
     "storybook": "7.0.2",
     "typescript": "5.0.3",
-    "vite": "4.2.1",
+    "vite": "4.3.1",
     "webpack": "5.77.0"
   },
   "keywords": [],
