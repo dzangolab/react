@@ -1,3 +1,17 @@
+## [0.7.3](https://github.com/dzangolab/react/compare/v0.7.2...v0.7.3) (2023-04-27)
+
+
+### Bug Fixes
+
+* form example ([#333](https://github.com/dzangolab/react/issues/333)) ([bc08fcd](https://github.com/dzangolab/react/commit/bc08fcd61ffee8a09e91844b60a263b24dec41fb))
+
+
+### Features
+
+* confirm password form ([#337](https://github.com/dzangolab/react/issues/337)) ([79865ba](https://github.com/dzangolab/react/commit/79865bac41b8fe352c252005c62fdc8fe9cdd60a))
+
+
+
 ## [0.7.2](https://github.com/dzangolab/react/compare/v0.7.1...v0.7.2) (2023-04-20)
 
 
