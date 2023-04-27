@@ -2,70 +2,69 @@
 
 exports[`Component matches snapshot 1`] = `
 <form
-  className="form"
+  className="form "
+  noValidate={true}
   onSubmit={[Function]}
 >
   <div
     className="field email"
   >
     <label
-      htmlFor="email"
+      htmlFor="input-field-email"
     >
       signup.form.email.label
     </label>
     <input
-      id="email"
+      className=""
+      id="input-field-email"
       name="email"
       onBlur={[Function]}
       onChange={[Function]}
       placeholder="signup.form.email.placeholder"
       type="email"
-      value=""
     />
   </div>
   <div
     className="field password"
   >
     <label
-      htmlFor="password"
+      htmlFor="input-field-password"
     >
       signup.form.password.label
     </label>
     <input
-      id="password"
+      className=""
+      id="input-field-password"
       name="password"
       onBlur={[Function]}
       onChange={[Function]}
+      placeholder=""
       type="password"
-      value=""
     />
   </div>
   <div
-    className="field password"
+    className="field confirmPassword"
   >
     <label
-      htmlFor="confirmPassword"
+      htmlFor="input-field-confirmPassword"
     >
       signup.form.confirmPassword.label
     </label>
     <input
-      id="confirmPassword"
+      className=""
+      id="input-field-confirmPassword"
       name="confirmPassword"
       onBlur={[Function]}
       onChange={[Function]}
+      placeholder=""
       type="password"
-      value=""
     />
   </div>
-  <div
-    className="actions"
+  <button
+    className="button-submit"
+    type="submit"
   >
-    <button
-      className="button-submit"
-      type="submit"
-    >
-      signup.form.actions.submit
-    </button>
-  </div>
+    signup.form.actions.submit
+  </button>
 </form>
 `;

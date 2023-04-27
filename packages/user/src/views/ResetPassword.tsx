@@ -21,8 +21,11 @@ const ResetPassword = () => {
 
   const handleSubmit = async (newPassword: string) => {
     setLoading(true);
+
     const result = await resetPassword(newPassword);
+
     setLoading(false);
+
     if (result?.status === "OK") {
       toast.success(`${t("resetPassword.messages.success")}`);
       navigate(loginPath);

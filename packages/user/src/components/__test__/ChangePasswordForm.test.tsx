@@ -60,9 +60,9 @@ test("validation error message is displayed for unmatched confirm password", asy
     await user.type(oldPassword, "Test@123");
     await user.type(newPassword, "Test@12345");
     await user.type(confirmPassword, "Test@12");
-
-    await user.tab();
   });
+
+  user.click(submitButton);
 
   await waitFor(() => {
     expect(

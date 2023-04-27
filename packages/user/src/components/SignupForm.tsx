@@ -1,11 +1,9 @@
+import { Email, Form, Password, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
-import { Field, Formik } from "formik";
 import React from "react";
-import * as Yup from "yup";
+import * as zod from "zod";
 
-import ErrorMessage from "./ErrorMessage";
-import PasswordConfirmation from "./PasswordConfirmation";
 import { PasswordConfirmationSchema } from "./schemas";
 
 import type { LoginCredentials } from "../types";
@@ -18,67 +16,52 @@ interface Properties {
 const SignupForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
-  const SignUpFormSchema = Yup.object({
-    email: Yup.string()
-      .email("validation.messages.validEmail")
-      .required("validation.messages.email"),
-    ...PasswordConfirmationSchema({
-      passwordValidationMessage: "signup.messages.validation.validationMessage",
-      passwordRequiredMessage: "signup.messages.validation.password",
-      confirmPasswordValidationMessage: "signup.messages.validation.mustMatch",
-      confirmPasswordRequiredMessage:
-        "signup.messages.validation.confirmPassword",
-    }),
-  });
-
-  const initialValue = {
-    email: "",
-    password: "",
-    confirmPassword: "",
-  };
+  const SignUpFormSchema = zod
+    .object({
+      email: emailSchema({
+        invalid: t("validation.messages.validEmail"),
+        required: t("validation.messages.email"),
+      }),
+      ...PasswordConfirmationSchema({
+        passwordRequiredMessage: t("signup.messages.validation.password"),
+        passwordValidationMessage: t(
+          "signup.messages.validation.validationMessage"
+        ),
+        confirmPasswordRequiredMessage: t(
+          "signup.messages.validation.confirmPassword"
+        ),
+      }),
+    })
+    .refine(
+      (data) => {
+        return data.password === data.confirmPassword;
+      },
+      {
+        message: t("signup.messages.validation.mustMatch"),
+        path: ["confirmPassword"],
+      }
+    );
 
   return (
-    <Formik
-      initialValues={initialValue}
+    <Form
       validationSchema={SignUpFormSchema}
-      onSubmit={(values, action) => {
-        const data = { email: values.email, password: values.password };
-        handleSubmit(data);
-        action.resetForm();
-      }}
+      onSubmit={(data) => handleSubmit({ ...data })}
     >
-      {({ errors, handleSubmit, touched }) => (
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="field email">
-            <label htmlFor="email">{t("signup.form.email.label")}</label>
-            <Field
-              id="email"
-              type="email"
-              name="email"
-              placeholder={t("signup.form.email.placeholder")}
-            />
-            <ErrorMessage
-              touched={touched.email}
-              error={errors.email ? t(errors.email) : undefined}
-            />
-          </div>
-
-          <PasswordConfirmation
-            errors={errors}
-            touched={touched}
-            passwordLabel={t("signup.form.password.label")}
-            confirmPasswordLabel={t("signup.form.confirmPassword.label")}
-          />
-
-          <div className="actions">
-            <SubmitButton
-              label={t("signup.form.actions.submit")}
-              loading={loading}
-            />
-          </div>
-        </form>
-      )}
-    </Formik>
+      <Email
+        label={t("signup.form.email.label")}
+        name="email"
+        placeholder={t("signup.form.email.placeholder")}
+      />
+      <Password label={t("signup.form.password.label")} name="password" />
+      <Password
+        label={t("signup.form.confirmPassword.label")}
+        name="confirmPassword"
+      />
+      <SubmitButton
+        label={`${t("signup.form.actions.submit")}`}
+        loading={loading}
+      />
+    </Form>
   );
 };
 

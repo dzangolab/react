@@ -1,28 +1,32 @@
-import * as Yup from "yup";
+import { passwordSchema } from "@dzangolab/react-form";
+import * as zod from "zod";
 
 interface PasswordConfirmationSchema {
   passwordValidationMessage?: string;
   passwordRequiredMessage?: string;
-  confirmPasswordValidationMessage?: string;
   confirmPasswordRequiredMessage?: string;
 }
 
 const schema = ({
   passwordValidationMessage = "validation.messages.passwordValidation",
   passwordRequiredMessage = "validation.messages.requiredField",
-  confirmPasswordValidationMessage = "validation.messages.mustMatch",
   confirmPasswordRequiredMessage = "validation.messages.requiredField",
 }: PasswordConfirmationSchema) => {
   return {
-    password: Yup.string()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/,
-        passwordValidationMessage
-      )
-      .required(passwordRequiredMessage),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], confirmPasswordValidationMessage)
-      .required(confirmPasswordRequiredMessage),
+    password: passwordSchema(
+      {
+        required: passwordRequiredMessage,
+        weak: passwordValidationMessage,
+      },
+      {
+        minLength: 8,
+        minLowercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+        minUppercase: 1,
+      }
+    ),
+    confirmPassword: zod.string().nonempty(confirmPasswordRequiredMessage),
   };
 };
 

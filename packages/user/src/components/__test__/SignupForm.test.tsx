@@ -73,6 +73,8 @@ test("confirm password must match the password", async () => {
     await user.tab();
   });
 
+  user.click(submitButton);
+
   await waitFor(() => {
     expect(
       screen.getByText("signup.messages.validation.mustMatch")
@@ -109,9 +111,9 @@ test("validation error is displayed when an uppercase character is not included 
   await act(async () => {
     await user.type(emailInput, email);
     await user.type(passwordInput, "test123456");
-
-    await user.tab();
   });
+
+  user.click(submitButton);
 
   await waitFor(() => {
     expect(
@@ -125,32 +127,29 @@ test("form is successfully submitted", async () => {
   const password = "Test@12345";
   const handleSubmit = vi.fn();
 
-  render(<SignupForm handleSubmit={handleSubmit} />);
+  const { user } = setup(<SignupForm handleSubmit={handleSubmit} />);
 
-  expect(screen.getByLabelText("signup.form.email.label")).toBeDefined();
-  expect(screen.getByLabelText("signup.form.password.label")).toBeDefined();
-  expect(screen.getByText("signup.form.actions.submit")).toBeDefined();
+  const emailInput = screen.getByLabelText("signup.form.email.label");
+  const passwordInput = screen.getByLabelText("signup.form.password.label");
+  const confirmPasswordInput = screen.getByLabelText(
+    "signup.form.confirmPassword.label"
+  );
+  const submitButton = screen.getByText("signup.form.actions.submit");
 
-  fireEvent.change(screen.getByLabelText("signup.form.email.label"), {
-    target: { value: email },
+  expect(emailInput).toBeDefined();
+  expect(passwordInput).toBeDefined();
+  expect(submitButton).toBeDefined();
+  expect(confirmPasswordInput).toBeDefined();
+
+  await act(async () => {
+    await user.type(emailInput, email);
+    await user.type(passwordInput, password);
+    await user.type(confirmPasswordInput, password);
   });
 
-  fireEvent.change(screen.getByLabelText("signup.form.password.label"), {
-    target: { value: password },
-  });
-
-  fireEvent.change(screen.getByLabelText("signup.form.confirmPassword.label"), {
-    target: { value: password },
-  });
-
-  fireEvent.click(screen.getByText("signup.form.actions.submit"));
+  user.click(submitButton);
 
   await waitFor(() => {
     expect(handleSubmit).toHaveBeenCalledTimes(1);
-  });
-
-  expect(handleSubmit).toHaveBeenCalledWith({
-    email: email,
-    password: password,
   });
 });

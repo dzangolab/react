@@ -46,16 +46,12 @@ test("validation error message is displayed for invalid email", async () => {
 
   await act(async () => {
     await user.type(emailInput, "test.com");
-
-    await user.tab();
   });
+
+  userEvent.click(submitButton);
 
   await waitFor(() => {
     expect(screen.getByText("validation.messages.validEmail")).toBeDefined();
-  });
-
-  act(() => {
-    user.click(submitButton);
   });
 
   expect(handleSubmit).toHaveBeenCalledTimes(0);

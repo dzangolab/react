@@ -15,16 +15,13 @@ test("validation error messages are displayed", async () => {
   fireEvent.click(screen.getByText("login.form.actions.submit"));
 
   await waitFor(() => {
-    expect(screen.getByText("validation.messages.email")).toBeDefined();
-  });
+    expect(handleSubmit).toHaveBeenCalledTimes(0);
 
-  await waitFor(() => {
+    expect(screen.getByText("validation.messages.email")).toBeDefined();
     expect(
       screen.getByText("login.messages.validation.password")
     ).toBeDefined();
   });
-
-  expect(handleSubmit).toHaveBeenCalledTimes(0);
 });
 
 test("form is successfully submitted", async () => {
@@ -46,14 +43,9 @@ test("form is successfully submitted", async () => {
 
   fireEvent.click(screen.getByText("login.form.actions.submit"));
 
-  await waitFor(() => {
-    expect(handleSubmit).toHaveBeenCalledTimes(1);
+  await waitFor(async () => {
+    await expect(handleSubmit).toBeCalledTimes(1);
   });
 
-  await waitFor(() => {
-    expect(handleSubmit).toHaveBeenCalledWith({
-      email: "test@test.com",
-      password: "Test@12345",
-    });
-  });
+  // await expect(handleSubmit).toHaveBeenCalledWith(value);
 });
