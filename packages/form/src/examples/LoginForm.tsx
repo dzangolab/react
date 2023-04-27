@@ -12,6 +12,7 @@ export const LoginForm = () => {
   return (
     <Form
       className="form login-form"
+      // eslint-disable-next-line no-console
       onSubmit={(data) => console.log(data)}
       validationSchema={schema}
     >

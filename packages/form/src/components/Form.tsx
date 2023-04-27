@@ -23,7 +23,8 @@ export const Form: React.FC<IForm> = ({
     register,
     handleSubmit,
     getFieldState,
-    formState: { errors, isDirty, isValid, touchedFields }, // eslint-disable no-unused-vars
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    formState: { errors, isDirty, isValid, touchedFields },
   } = useForm({
     resolver: validationSchema ? zodResolver(validationSchema) : undefined,
     ...useFormOptions,

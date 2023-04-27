@@ -2,9 +2,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 
 import { SubmitButton } from "./SubmitButton";
-
-import { MENU_ROUTES } from "../../constants";
 import ComponentList from "../../components/ComponentList";
+import { MENU_ROUTES } from "../../constants";
 
 const componentList = [
   {
