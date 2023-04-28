@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Divider, Page, useMediaQuery } from "@dzangolab/react-ui";
+import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -36,7 +36,6 @@ const Login: React.FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
-  const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const [loading, setLoading] = useState<boolean>(false);
   const [showRedirectionMessage, setShowRedirectionMessage] =
     useState<boolean>(false);
@@ -101,7 +100,7 @@ const Login: React.FC<IProperties> = ({
     );
   };
 
-  if (!appConfig?.user.supportedLoginProviders || isSmallScreen) {
+  if (!appConfig?.user.supportedLoginProviders) {
     orientation = "vertical";
   }
 
@@ -133,11 +132,10 @@ const Login: React.FC<IProperties> = ({
             customDivider ? (
               customDivider
             ) : (
-              <Divider
-                orientation={
-                  orientation === "vertical" ? "horizontal" : "vertical"
-                }
-              />
+              <>
+                <Divider orientation="horizontal" />
+                <Divider orientation="vertical" />
+              </>
             )
           ) : null}
 
