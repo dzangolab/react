@@ -31,6 +31,10 @@
   width: 100%;
 }
 
+.login > .content > .redirect-message {
+  grid-area: message;
+}
+
 .login > .content {
   align-items: center;
   text-align: center;
@@ -38,6 +42,7 @@
   width: max-content;
   display: grid;
   grid-template-areas:
+    "message"
     "form"
     "links"
     "divider"
@@ -51,6 +56,7 @@
 
 .login.sso-first > .content {
   grid-template-areas:
+    "message"
     "sso-wrapper"
     "divider"
     "form"
@@ -64,14 +70,20 @@
 @media (min-width: 576px) {
   .login > .content[data-aria-orientation="horizontal"] {
     grid-template-areas:
+      "message message message"
       "form  divider sso-wrapper"
       "links divider sso-wrapper";
     align-items: flex-start;
     min-width: 40rem;
   }
 
+  .login > .content[data-aria-orientation="horizontal"] > .redirect-message {
+    max-width: 30rem;
+  }
+
   .login.sso-first > .content[data-aria-orientation="horizontal"] {
     grid-template-areas:
+      "message message message"
       "sso-wrapper divider form "
       "sso-wrapper divider links";
   }
