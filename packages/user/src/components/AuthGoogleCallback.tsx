@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { ROUTES } from "../constants";
-import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import { UserType } from "../types";
 
@@ -22,8 +21,7 @@ const AuthGoogleCallback = () => {
 
       if (response.status === "OK") {
         const user: unknown = response.user;
-        await setUserData(user as UserType);
-        setUser(user as UserType);
+        await setUser(user as UserType);
         toast.success(`${t("authGoogleCallback.email.success")}`);
       } else {
         toast.error(`${t("authGoogleCallback.email.error")}`);

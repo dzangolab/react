@@ -1,8 +1,12 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 interface UserType extends EmailPasswordUserType {
-  profile: Profile | null;
+  givenName: string | null;
+  lastLoginAt: number;
+  middleNames: string | null;
   roles: string[];
+  signedUpAt: number;
+  surname: string | null;
 }
 
 interface UserMenuItemType {
@@ -11,16 +15,9 @@ interface UserMenuItemType {
   route?: string;
 }
 
-interface Profile {
-  givenName: string;
-  id: string;
-  middleNames: string | null;
-  surname: string;
-}
-
 interface UserContextType {
   loading: boolean;
-  setUser: React.Dispatch<React.SetStateAction<UserType | undefined>>;
+  setUser: (user: UserType | undefined) => void;
   user: UserType | undefined;
 }
 

@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 
 import SignupForm from "../components/SignupForm";
 import { ROUTES } from "../constants";
-import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
@@ -31,8 +30,7 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
     await signup(credentials)
       .then(async (result) => {
         if (result?.user) {
-          await setUserData(result.user);
-          setUser(result.user);
+          await setUser(result.user);
           onSignupSuccess && (await onSignupSuccess(result));
 
           toast.success(`${t("signup.messages.success")}`);

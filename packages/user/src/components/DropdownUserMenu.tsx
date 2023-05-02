@@ -29,7 +29,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
   const signout = async () => {
     if (await logout()) {
       await removeUserData();
-      setUser(undefined);
+      await setUser(undefined);
       onLogout && (await onLogout());
       toast.success(t("logout.message"));
     }
@@ -62,7 +62,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
         },
       }}
       expandIcon={expandIcon}
-      label={label || user?.profile?.givenName || user?.email}
+      label={label || user?.givenName || user?.email}
     />
   );
 };
