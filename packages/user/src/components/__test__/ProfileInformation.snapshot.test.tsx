@@ -24,8 +24,12 @@ test("Component matches snapshot", () => {
     user: {
       id: "5",
       email: "test@gmail.com",
+      middleNames: null,
+      lastLoginAt: 0,
+      signedUpAt: 320,
+      surname: null,
+      givenName: null,
       timeJoined: 320,
-      profile: null,
       roles: ["USER"],
     },
     loading: false,

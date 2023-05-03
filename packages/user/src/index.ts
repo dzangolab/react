@@ -10,7 +10,8 @@ import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import forgetPassword from "./supertokens/forget-password";
 import googleLogin from "./supertokens/google-login";
-import login, { verifySession } from "./supertokens/login";
+import { verifySessionRoles } from "./supertokens/helpers";
+import login from "./supertokens/login";
 import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
@@ -58,7 +59,7 @@ export {
   superTokens,
   useUser,
   userContext,
-  verifySession,
+  verifySessionRoles,
 };
 
 export type { UserContextType, UserType };

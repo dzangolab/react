@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 
-import { getUserData } from "../helpers";
+import { getUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
-import { verifySession } from "../supertokens/login";
+import { getUserRoles, verifySessionRoles } from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
 
 interface Properties {
@@ -21,7 +21,7 @@ const UserProvider = ({ children }: Properties) => {
       try {
         if (
           appConfig &&
-          (await verifySession(
+          (await verifySessionRoles(
             appConfig.user.supportedRoles,
             appConfig.user.redirectTo.appURL
           ))
@@ -42,8 +42,21 @@ const UserProvider = ({ children }: Properties) => {
     getUser();
   }, []);
 
+  const setUserWithRoles = async (user: UserType | undefined) => {
+    let roles;
+
+    if (user) {
+      roles = await getUserRoles();
+
+      await setUserData({ ...user, roles: roles });
+      setUser({ ...user, roles: roles });
+    } else {
+      setUser(undefined);
+    }
+  };
+
   return (
-    <userContext.Provider value={{ user, setUser, loading }}>
+    <userContext.Provider value={{ user, loading, setUser: setUserWithRoles }}>
       {loading ? null : children}
     </userContext.Provider>
   );

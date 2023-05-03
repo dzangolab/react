@@ -19,7 +19,7 @@ const ProfileInformation = () => {
       </div>
       <div className="profile-group">
         <label>Time Joined</label>
-        <p>{user?.timeJoined}</p>
+        <p>{user?.signedUpAt}</p>
       </div>
     </div>
   );

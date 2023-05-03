@@ -8,9 +8,9 @@ import GoogleLogin from "../components/GoogleLogin";
 import LoginForm from "../components/LoginForm";
 import RedirectionMessage from "../components/RedirectionMessage";
 import { ROUTES } from "../constants";
-import { setUserData } from "../helpers";
 import { useConfig, useUser } from "../hooks";
-import login, { verifySession } from "../supertokens/login";
+import { verifySessionRoles } from "../supertokens/helpers";
+import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
@@ -50,10 +50,9 @@ const Login: React.FC<IProperties> = ({
         if (result?.user) {
           if (
             appConfig &&
-            (await verifySession(appConfig.user.supportedRoles))
+            (await verifySessionRoles(appConfig.user.supportedRoles))
           ) {
-            await setUserData(result.user);
-            setUser(result.user);
+            await setUser(result.user);
             setShowRedirectionMessage(false);
             onLoginSuccess && (await onLoginSuccess(result));
 
