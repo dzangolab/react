@@ -11,7 +11,7 @@ import * as zod from "zod";
 
 import { LoginCredentials } from "../types";
 
-import "../assets/css/loginForm.css";
+import "../assets/css/form.css";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;

@@ -22,11 +22,9 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="forget-password">
-      <Page title={t("forgetPassword.title")}>
-        <ForgetPasswordForm handleSubmit={handleSubmit} loading={loading} />
-      </Page>
-    </div>
+    <Page className="forget-password" title={t("forgetPassword.title")}>
+      <ForgetPasswordForm handleSubmit={handleSubmit} loading={loading} />
+    </Page>
   );
 };
 

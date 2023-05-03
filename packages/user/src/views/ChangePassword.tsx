@@ -31,11 +31,9 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="change-password">
-      <Page title={t("changePassword.title")}>
-        <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
-      </Page>
-    </div>
+    <Page className="change-password" title={t("changePassword.title")}>
+      <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
+    </Page>
   );
 };
 

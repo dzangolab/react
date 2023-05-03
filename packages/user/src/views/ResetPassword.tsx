@@ -33,11 +33,9 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="reset-password">
-      <Page title={t("resetPassword.title")}>
-        <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
-      </Page>
-    </div>
+    <Page className="reset-password" title={t("resetPassword.title")}>
+      <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
+    </Page>
   );
 };
 
