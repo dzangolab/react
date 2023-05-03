@@ -6,8 +6,6 @@ import { toast } from "react-toastify";
 import ForgetPasswordForm from "@/components/ForgetPasswordForm";
 import forgetPassword from "@/supertokens/forget-password";
 
-import "../assets/css/forgetPassword.css";
-
 const ForgetPassword = () => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);

@@ -10,8 +10,6 @@ import resetPassword from "@/supertokens/reset-password";
 import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
 
-import "../assets/css/resetPassword.css";
-
 const ResetPassword = () => {
   const { t } = useTranslation("user");
   const { user: userConfig } = useConfig();

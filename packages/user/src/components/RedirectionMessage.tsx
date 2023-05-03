@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import "../assets/css/redirectMessage.css";
-
 interface IProperties {
   appLink: string;
   appName: string;

@@ -7,8 +7,6 @@ import ChangePasswordForm from "../components/ChangePasswordForm";
 import { useConfig } from "../hooks";
 import changePassword from "../supertokens/change-password";
 
-import "../assets/css/changePassword.css";
-
 const ChangePassword = () => {
   const { t } = useTranslation("user");
   const appConfig = useConfig();

@@ -11,8 +11,6 @@ import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
-import "../assets/css/signup.css";
-
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
