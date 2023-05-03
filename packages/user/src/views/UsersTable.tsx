@@ -5,8 +5,6 @@ import {
   TableColumnDefinition,
 } from "@dzangolab/react-ui";
 
-import "@dzangolab/react-ui/dist/TableTheme.css";
-
 interface IProperties {
   columns?: TableColumnDefinition<unknown, unknown>[];
   data: unknown[];
