@@ -20,6 +20,7 @@ import { DzangolabReactUserConfig, UserContextType, UserType } from "./types";
 import ChangePassword from "./views/ChangePassword";
 import ForgetPassword from "./views/ForgetPassword";
 import Login from "./views/Login";
+import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
 import UsersTable from "./views/UsersTable";
@@ -38,6 +39,7 @@ export {
   DropdownUserMenu,
   ForgetPassword,
   Login,
+  Profile,
   ResetPassword,
   Signup,
   UserEnabledBasicLayout,
