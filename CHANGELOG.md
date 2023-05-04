@@ -1,3 +1,18 @@
+## [0.7.4](https://github.com/dzangolab/react/compare/v0.7.3...v0.7.4) (2023-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency supertokens-web-js to v0.5.0 ([#263](https://github.com/dzangolab/react/issues/263)) ([14d29d8](https://github.com/dzangolab/react/commit/14d29d8570f28f8cd95fb3b50ec3d6d92493361f))
+* show more options disable state toggle logic ([#349](https://github.com/dzangolab/react/issues/349)) ([a937713](https://github.com/dzangolab/react/commit/a937713731a409a92db1ab332234da5c942cd534))
+
+
+### Reverts
+
+* Revert "refactor: remove profile page from user  (#347)" (#348) ([8e3c6fb](https://github.com/dzangolab/react/commit/8e3c6fb7ca86373cd01e16069e1c35cfd299889f)), closes [#347](https://github.com/dzangolab/react/issues/347) [#348](https://github.com/dzangolab/react/issues/348)
+
+
+
 ## [0.7.3](https://github.com/dzangolab/react/compare/v0.7.2...v0.7.3) (2023-04-27)
 
 
