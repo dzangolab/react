@@ -26,7 +26,7 @@ exports[`Component matches snapshot 1`] = `
       value={10}
     >
       <option
-        disabled={true}
+        disabled={false}
         value={10}
       >
         Show
