@@ -96,7 +96,13 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
 
   return (
     <TableContext.Provider
-      value={{ table, paginationState, rowsPerPageOptions, ...rest }}
+      value={{
+        table,
+        paginationState,
+        rowsPerPageOptions,
+        totalItems,
+        ...rest,
+      }}
     >
       {children ? children : <BaseTable />}
     </TableContext.Provider>
