@@ -14,8 +14,6 @@ import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
-import "../assets/css/login.css";
-
 interface IProperties {
   customDivider?: React.ReactNode;
   divider?: boolean;

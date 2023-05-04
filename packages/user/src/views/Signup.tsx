@@ -11,8 +11,6 @@ import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
-import "../assets/css/signup.css";
-
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
@@ -71,12 +69,10 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
   };
 
   return (
-    <div className="signup">
-      <Page title={t("signup.title")}>
-        <SignupForm handleSubmit={handleSubmit} loading={loading} />
-        <div className="links">{getLinks()}</div>
-      </Page>
-    </div>
+    <Page className="signup" title={t("signup.title")}>
+      <SignupForm handleSubmit={handleSubmit} loading={loading} />
+      <div className="links">{getLinks()}</div>
+    </Page>
   );
 };
 

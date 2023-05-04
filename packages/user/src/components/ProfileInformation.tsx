@@ -2,8 +2,6 @@ import React from "react";
 
 import { useUser } from "../hooks";
 
-import "../assets/css/profileInformation.css";
-
 const ProfileInformation = () => {
   const { user } = useUser();
 

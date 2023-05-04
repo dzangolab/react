@@ -10,8 +10,6 @@ import resetPassword from "@/supertokens/reset-password";
 import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
 
-import "../assets/css/resetPassword.css";
-
 const ResetPassword = () => {
   const { t } = useTranslation("user");
   const { user: userConfig } = useConfig();
@@ -33,11 +31,9 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="reset-password">
-      <Page title={t("resetPassword.title")}>
-        <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
-      </Page>
-    </div>
+    <Page className="reset-password" title={t("resetPassword.title")}>
+      <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
+    </Page>
   );
 };
 

@@ -25,6 +25,8 @@ import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
 import UsersTable from "./views/UsersTable";
 
+import "./assets/css/index.css";
+
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
     user: DzangolabReactUserConfig;

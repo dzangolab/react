@@ -1,7 +1,7 @@
 import { GoogleButton } from "@dzangolab/react-ui";
 import React from "react";
 
-import googleLogin from "@/supertokens/google-login";
+import googleLogin from "../supertokens/google-login";
 
 interface Properties {
   label: string;

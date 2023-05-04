@@ -1,0 +1,11 @@
+@import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
+@import "@dzangolab/react-ui/dist/TableTheme.css";
+@import "@dzangolab/react-form/dist/DzangolabReactForm.css";
+@import "./changePassword.css";
+@import "./forgetPassword.css";
+@import "./form.css";
+@import "./login.css";
+@import "./profileInformation.css";
+@import "./redirectMessage.css";
+@import "./resetPassword.css";
+@import "./signup.css";

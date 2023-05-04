@@ -1,14 +1,13 @@
 .signup {
-  align-items: center;
-  text-align: center;
-  margin: 0 auto;
-  width: 20rem;
+  justify-items: center;
+}
+
+.signup > .content {
+  min-width: 20rem;
+  width: max-content;
 }
 
 .signup .links {
-  align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  width: 100%;
 }
