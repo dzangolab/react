@@ -57,15 +57,7 @@ const TableDetail = ({ detail, showPrefix }: TTableDetail) => {
             }}
           >
             {rowsPerPageOptions?.map((pageSize) => (
-              <option
-                key={pageSize}
-                value={pageSize}
-                disabled={
-                  !(totalItems
-                    ? totalItems > pageSize - DEFAULT_PAGE_SIZE
-                    : false)
-                }
-              >
+              <option key={pageSize} value={pageSize}>
                 {showPrefix} {pageSize}
               </option>
             ))}
