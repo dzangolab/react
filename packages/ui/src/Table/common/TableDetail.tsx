@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { DebounceInput } from "react-debounce-input";
 
-import { DEFAULT_PAGE_SIZE } from "./constants";
 import { TableContext } from "./TableContext";
 
 import type { TTableDetail } from "./types";
@@ -14,7 +13,6 @@ const TableDetail = ({ detail, showPrefix }: TTableDetail) => {
     showPageControl,
     showTotalNumber,
     table,
-    totalItems,
   } = useContext(TableContext);
 
   const pageIndex = table?.getState().pagination.pageIndex || 0;
