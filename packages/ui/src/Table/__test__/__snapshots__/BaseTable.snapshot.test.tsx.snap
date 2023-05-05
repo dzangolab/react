@@ -327,7 +327,6 @@ exports[`Component matches snapshot 1`] = `
           value={5}
         >
           <option
-            disabled={false}
             value={5}
           >
             Show
@@ -335,7 +334,6 @@ exports[`Component matches snapshot 1`] = `
             5
           </option>
           <option
-            disabled={false}
             value={10}
           >
             Show
