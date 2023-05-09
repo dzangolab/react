@@ -1,25 +1,24 @@
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ISelect {
   label?: string;
-  name: string;
+  name?: string;
   options: { value: string; label: string; disabled?: boolean }[];
-  getFieldState?: UseFormGetFieldState<any>;
-  register?: UseFormRegister<any>;
+  viewMode?: boolean;
 }
 
 export const Select: React.FC<ISelect> = ({
-  register,
-  getFieldState,
   label = "",
-  name,
+  name = "select",
   options,
+  viewMode = false,
 }) => {
-  if (!register || !getFieldState) return null;
+  const { register, getFieldState, getValues } = useFormContext();
 
+  const value = getValues(name);
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let selectClassName = "";
@@ -27,16 +26,22 @@ export const Select: React.FC<ISelect> = ({
   if (isTouched && invalid) selectClassName = "invalid";
 
   return (
-    <div className={`field select-input ${name}`}>
+    <div className={`${viewMode ? "info" : "field select-input"} ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <select {...register(name)} className={selectClassName}>
-        {options.map(({ value, label, disabled }) => (
-          <option key={value} value={value} disabled={disabled}>
-            {label}
-          </option>
-        ))}
-      </select>
-      {error?.message && <ErrorMessage message={error.message} />}
+      {viewMode ? (
+        <span>{value}</span>
+      ) : (
+        <>
+          <select {...register(name)} className={selectClassName}>
+            {options.map(({ value, label, disabled }) => (
+              <option key={value} value={value} disabled={disabled}>
+                {label}
+              </option>
+            ))}
+          </select>
+          {error?.message && <ErrorMessage message={error.message} />}
+        </>
+      )}
     </div>
   );
 };

@@ -1,25 +1,24 @@
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ITextArea {
   label?: string;
-  name: string;
   placeholder?: string;
-  getFieldState?: UseFormGetFieldState<any>;
-  register?: UseFormRegister<any>;
+  name?: string;
+  viewMode?: boolean;
 }
 
 export const TextArea: React.FC<ITextArea> = ({
-  register,
-  getFieldState,
   label = "",
   placeholder = "",
-  name,
+  name = "textarea",
+  viewMode = false,
 }) => {
-  if (!register || !getFieldState) return null;
+  const { register, getFieldState, getValues } = useFormContext();
 
+  const value = getValues(name);
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let textareaClassName = "";
@@ -27,14 +26,20 @@ export const TextArea: React.FC<ITextArea> = ({
   if (isTouched && invalid) textareaClassName = "invalid";
 
   return (
-    <div className={`field textarea-input ${name}`}>
+    <div className={`${viewMode ? "info" : "field textarea-input"} ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <textarea
-        {...register(name)}
-        className={textareaClassName}
-        placeholder={placeholder}
-      ></textarea>
-      {error?.message && <ErrorMessage message={error.message} />}
+      {viewMode ? (
+        <span>{value}</span>
+      ) : (
+        <>
+          <textarea
+            {...register(name)}
+            className={textareaClassName}
+            placeholder={placeholder}
+          ></textarea>
+          {error?.message && <ErrorMessage message={error.message} />}
+        </>
+      )}
     </div>
   );
 };

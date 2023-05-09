@@ -1,25 +1,24 @@
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ITextInput {
   label?: string;
   placeholder?: string;
-  name: string;
-  getFieldState?: UseFormGetFieldState<any>;
-  register?: UseFormRegister<any>;
+  name?: string;
+  viewMode?: boolean;
 }
 
 export const TextInput: React.FC<ITextInput> = ({
-  register,
-  getFieldState,
   label = "",
   placeholder = "",
-  name,
+  name = "textInput",
+  viewMode = false,
 }) => {
-  if (!register || !getFieldState) return null;
+  const { register, getFieldState, getValues } = useFormContext();
 
+  const value = getValues(name);
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
@@ -27,15 +26,21 @@ export const TextInput: React.FC<ITextInput> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className={`field text-input ${name}`}>
+    <div className={`${viewMode ? "info" : "field text-input"} ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <input
-        {...register(name)}
-        className={inputClassName}
-        type="text"
-        placeholder={placeholder}
-      ></input>
-      {error?.message && <ErrorMessage message={error.message} />}
+      {viewMode ? (
+        <span>{value}</span>
+      ) : (
+        <>
+          <input
+            {...register(name)}
+            className={inputClassName}
+            type="text"
+            placeholder={placeholder}
+          ></input>
+          {error?.message && <ErrorMessage message={error.message} />}
+        </>
+      )}
     </div>
   );
 };
