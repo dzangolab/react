@@ -1,6 +1,7 @@
 .dropdown-container {
   cursor: pointer;
-  padding: 1rem 0.5rem;
+  align-items: center;
+  display: grid;
 }
 
 .dropdown-container > ul.dropdown-menu {
@@ -53,6 +54,7 @@ span.icon {
     flex-direction: column;
     flex: 1;
     padding: 0.8rem;
+    align-items: unset;
   }
 
   .dropdown-container[data-aria-expanded="true"] {
