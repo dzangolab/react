@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import "./index.css";
-
 interface Item {
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   [key: string]: any;

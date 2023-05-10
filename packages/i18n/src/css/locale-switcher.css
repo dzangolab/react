@@ -1,3 +1,9 @@
 .locale-switcher > ul.dropdown-menu li[data-aria-selected="true"] {
   display: none;
 }
+
+@media screen and (min-width: 576px) {
+  .locale-switcher > ul.dropdown-menu {
+    right: 1%;
+  }
+}

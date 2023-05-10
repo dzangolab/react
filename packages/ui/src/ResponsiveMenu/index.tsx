@@ -1,8 +1,6 @@
 import React from "react";
 import { Link, useInRouterContext } from "react-router-dom";
 
-import "./responsive-menu.css";
-
 interface Properties {
   className: string;
   horizontal?: boolean;

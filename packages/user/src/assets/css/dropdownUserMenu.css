@@ -1,0 +1,5 @@
+@media screen and (min-width: 576px) {
+  .user-menu > ul.dropdown-menu {
+    right: 7%;
+  }
+}
