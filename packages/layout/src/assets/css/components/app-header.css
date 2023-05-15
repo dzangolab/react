@@ -5,7 +5,7 @@ header {
   font-size: var(--header-font-size, 1rem);
   grid-gap: 0 var(--header-gap, 1.5rem);
   grid-template-areas: "logo nav";
-  grid-template-columns: var(--header-logo-width, 200px) 1fr;
+  grid-template-columns: var(--header-logo-width, auto) 1fr;
   grid-template-rows: auto;
   position: relative;
 }
@@ -38,9 +38,13 @@ nav {
   position: relative;
 }
 
-header .logo {
+header > .logo {
   grid-area: logo;
-  max-width: var(--header-logo-width, 200px);
+  max-width: var(--header-logo-width, auto);
+}
+
+header > .logo img {
+  height: 4em;
 }
 
 header > nav .main-menu {
