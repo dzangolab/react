@@ -4,7 +4,7 @@ import AppFooter from "../components/AppFooter";
 import AppHeader from "../components/AppHeader";
 
 import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
-import "../assets/css/layouts/basic-layout.css";
+import "../assets/css/layouts/basic.css";
 
 interface Properties {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ const BasicLayout: React.FC<Properties> = (properties) => {
   } = properties;
 
   return (
-    <div className="basic-layout">
+    <div className="layout basic">
       {header}
 
       <main>{children}</main>
