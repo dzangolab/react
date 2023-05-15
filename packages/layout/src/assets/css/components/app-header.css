@@ -74,6 +74,7 @@ header > .menu-container {
   grid-template-columns: 1fr auto auto;
   grid-template-areas: "main-menu user-menu locales";
   justify-content: flex-end;
+  min-height: 40px;
 }
 
 @media screen and (max-width: 576px) {
