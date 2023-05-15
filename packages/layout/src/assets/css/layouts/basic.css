@@ -21,7 +21,7 @@
   flex: 1;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 60rem) {
   .layout.basic > :is(footer, header, main) {
     padding-left: 0;
     padding-right: 0;

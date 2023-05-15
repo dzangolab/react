@@ -14,7 +14,7 @@
   grid-template-areas:
     "logo toggle"
     "nav nav";
-  grid-template-columns: var(--header-logo-max-width) 1fr;
+  grid-template-columns: var(--logo-width, 150px) 1fr;
   grid-template-rows: auto auto;
   justify-items: center;
   padding-bottom: var(--header-padding-v);
@@ -64,7 +64,6 @@
 
 .layout > header .logo {
   grid-area: logo;
-  max-width: var(--header-logo-max-width, 150px);
 }
 
 .layout > header .toggle {

@@ -4,7 +4,7 @@ import Copyright from "./Copyright";
 import Version from "./Version";
 import useConfig from "../hooks/useConfig";
 
-import "../assets/css/components/app-footer.css";
+import "../assets/css/components/footer.css";
 
 interface Properties {
   copyright?: React.ReactNode;
