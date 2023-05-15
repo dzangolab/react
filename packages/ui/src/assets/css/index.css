@@ -1,2 +1,4 @@
-@import "reset.css";
-@import "vars.css"
+@import "./reset.css";
+@import "./vars.css";
+@import "./dropdownMenu.css";
+@import "./responsive-menu.css";
