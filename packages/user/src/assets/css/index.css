@@ -1,7 +1,6 @@
 @import "@dzangolab/react-ui/dist/TableTheme.css";
 @import "@dzangolab/react-form/dist/DzangolabReactForm.css";
 @import "./changePassword.css";
-@import "./dropdownUserMenu.css";
 @import "./forgetPassword.css";
 @import "./form.css";
 @import "./login.css";
