@@ -1,3 +1,17 @@
+## [0.7.6](https://github.com/dzangolab/react/compare/v0.7.5...v0.7.6) (2023-05-15)
+
+
+### Bug Fixes
+
+* header logo size to auto adjust ([#362](https://github.com/dzangolab/react/issues/362)) ([ecfe5f3](https://github.com/dzangolab/react/commit/ecfe5f331162bfbc523498cdd867072839398648))
+
+
+### Reverts
+
+* supertokens-web-js to v0.4.0 ([#359](https://github.com/dzangolab/react/issues/359)) ([09c3866](https://github.com/dzangolab/react/commit/09c38668df2bc78e32893c1597e252f494d87a82))
+
+
+
 ## [0.7.5](https://github.com/dzangolab/react/compare/v0.7.4...v0.7.5) (2023-05-05)
 
 
