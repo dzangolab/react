@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import MainMenu from "./MainMenu";
 import useConfig from "../hooks/useConfig";
 
-import "../assets/css/components/app-header.css";
+import "../assets/css/components/header.css";
 
 interface Properties {
   localeSwitcher?: React.ReactNode;
@@ -38,14 +38,11 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
   return (
     <header>
       {logo}
-      <div
-        className={`menu-container ${navStyle}`}
-        data-aria-expanded={expanded}
-      >
+      <nav className={`menu ${navStyle}`} data-expanded={expanded}>
         {mainMenu}
         {userMenu}
         {localeSwitcher}
-      </div>
+      </nav>
       <div className="toggle" onClick={() => setExpanded(!expanded)}>
         {toggle}
       </div>

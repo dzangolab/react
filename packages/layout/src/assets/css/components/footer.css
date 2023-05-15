@@ -1,0 +1,32 @@
+.layout > footer {
+  --footer-bg-color: transparent;
+  --footer-border-color: var(--border-color);
+  --footer-font-size: calc(0.75 * var(--font-size));
+  --footer-gap: 0.5em;
+  --footer-padding-v: 1em;
+
+  align-items: center;
+  background-color: var(--footer-bg-color);
+  border-top: 1px solid var(--footer-border-color);
+  box-shadow: 0 0 0 100vmax var(--footer-bg-color);
+  clip-path: inset(0 -100vmax);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--footer-font-size);
+  gap: var(--footer-gap);
+  justify-content: center;
+  padding-bottom: var(--footer-padding-v);
+  padding-top: var(--footer-padding-v);
+  text-align: center;
+}
+
+.layout > footer .version {
+  font-size: calc(0.8 * var(--footer-font-size));
+}
+
+@media screen and (min-width: 576px) {
+  .layout > footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
