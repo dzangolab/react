@@ -24,10 +24,11 @@
 .dropdown-container[data-aria-expanded="true"]
   > ul.dropdown-menu[data-aria-hidden="false"] {
   display: block;
+  margin-top: 1rem;
 }
 
 .dropdown-container > ul.dropdown-menu li {
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.5rem;
 }
 
 .dropdown-container > ul.dropdown-menu li > a {
@@ -64,6 +65,11 @@ span.icon {
   .dropdown-container[data-aria-expanded="true"] {
     background-color: #f7f7f7;
     padding-bottom: 0;
+  }
+
+  .dropdown-container[data-aria-expanded="true"]
+    > ul.dropdown-menu[data-aria-hidden="false"] {
+    margin-top: 0;
   }
 
   .dropdown-container:active,

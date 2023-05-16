@@ -26,7 +26,11 @@
   content: "";
   background-color: var(--header-bg-color);
   box-shadow: 0 0 0 100vmax var(--header-bg-color);
-  clip-path: inset(calc(-1 * var(--header-padding-top)) -100vmax calc(-1 * var(--header-padding-bottom, 1em)) -100vmax);
+  clip-path: inset(
+    calc(-1 * var(--header-padding-top)) -100vmax calc(
+        -1 * var(--header-padding-bottom, 1em)
+      ) -100vmax
+  );
   grid-column: 1 / span 2;
   grid-row: 1 / 1;
   height: 100%;
@@ -42,7 +46,7 @@
   opacity: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--menu-gap, 1em);
+  gap: 0;
   grid-area: nav;
   justify-content: flex-start;
   left: 0;
@@ -88,6 +92,7 @@
     border: none;
     display: flex;
     flex-direction: row;
+    gap: var(--menu-gap, 1em);
     justify-content: flex-end;
     margin: 0;
     padding: 0;
