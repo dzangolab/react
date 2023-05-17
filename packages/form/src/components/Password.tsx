@@ -1,30 +1,24 @@
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
+import { CustomInputProperties } from "../types";
 
-interface IPassword {
-  label?: string;
-  placeholder?: string;
-  name: string;
-  getFieldState?: UseFormGetFieldState<any>;
-  register?: UseFormRegister<any>;
-}
-
-export const Password: React.FC<IPassword> = ({
-  register,
+export const Password: React.FC<CustomInputProperties> = ({
   getFieldState,
   label = "",
-  placeholder = "",
   name,
+  placeholder = "",
+  register,
+  submitCount = 0,
 }) => {
   if (!register || !getFieldState) return null;
 
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
-  if (isDirty && !invalid) inputClassName = "valid";
-  if (isTouched && invalid) inputClassName = "invalid";
+  if (submitCount > 0) {
+    inputClassName = invalid ? "invalid" : "valid";
+  }
 
   return (
     <div className={`field ${name}`}>

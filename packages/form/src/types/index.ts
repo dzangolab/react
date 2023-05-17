@@ -1,3 +1,5 @@
+import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
+
 interface EmailErrorMessages {
   invalid?: string;
   required?: string;
@@ -8,6 +10,19 @@ interface PasswordErrorMessages {
   weak?: string;
 }
 
-export type { EmailErrorMessages, PasswordErrorMessages };
+interface CustomInputProperties {
+  getFieldState?: UseFormGetFieldState<any>;
+  label?: string;
+  name: string;
+  placeholder?: string;
+  register?: UseFormRegister<any>;
+  submitCount?: number;
+}
+
+export type {
+  CustomInputProperties,
+  EmailErrorMessages,
+  PasswordErrorMessages,
+};
 
 export type { IsEmailOptions, StrongPasswordOptions } from "./validator";

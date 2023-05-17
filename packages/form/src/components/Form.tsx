@@ -17,6 +17,7 @@ export const Form: React.FC<IForm> = ({
   onSubmit,
   validationSchema,
   html5Validation = false,
+  mode,
   ...useFormOptions
 }) => {
   const {
@@ -24,9 +25,10 @@ export const Form: React.FC<IForm> = ({
     handleSubmit,
     getFieldState,
     /* eslint-disable @typescript-eslint/no-unused-vars */
-    formState: { errors, isDirty, isValid, touchedFields },
+    formState: { errors, isDirty, isValid, touchedFields, submitCount },
   } = useForm({
     resolver: validationSchema ? zodResolver(validationSchema) : undefined,
+    mode: mode,
     ...useFormOptions,
   });
 
@@ -43,6 +45,7 @@ export const Form: React.FC<IForm> = ({
                 ...child.props,
                 register,
                 getFieldState,
+                submitCount,
                 key: child.props.name,
               },
             })
