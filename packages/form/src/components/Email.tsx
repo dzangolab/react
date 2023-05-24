@@ -1,30 +1,19 @@
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
+import { CustomInputProperties } from "../types";
 
-interface IEmail {
-  label?: string;
-  name: string;
-  placeholder?: string;
-  getFieldState?: UseFormGetFieldState<any>;
-  register?: UseFormRegister<any>;
-}
-
-export const Email: React.FC<IEmail> = ({
+export const Email: React.FC<CustomInputProperties> = ({
   register,
   getFieldState,
   label = "",
   placeholder = "",
   name,
+  submitCount = 0,
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
-
-  let inputClassName = "";
-  if (isDirty && !invalid) inputClassName = "valid";
-  if (isTouched && invalid) inputClassName = "invalid";
+  const { error, invalid } = getFieldState(name);
 
   return (
     <div className={`field ${name}`}>
@@ -32,9 +21,9 @@ export const Email: React.FC<IEmail> = ({
       <input
         {...register(name)}
         id={`input-field-${name}`}
-        className={inputClassName}
         type="email"
         placeholder={placeholder}
+        aria-invalid={submitCount > 0 ? invalid : undefined}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>

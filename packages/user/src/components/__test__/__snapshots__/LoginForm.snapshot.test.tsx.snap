@@ -15,7 +15,6 @@ exports[`Component matches snapshot 1`] = `
       login.form.email.label
     </label>
     <input
-      className=""
       id="input-field-email"
       name="email"
       onBlur={[Function]}
@@ -33,7 +32,6 @@ exports[`Component matches snapshot 1`] = `
       login.form.password.label
     </label>
     <input
-      className=""
       id="input-field-password"
       name="password"
       onBlur={[Function]}
