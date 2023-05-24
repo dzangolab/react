@@ -44,18 +44,22 @@ exports[`Component matches snapshot 1`] = `
                   src="/src/assets/images/arrow-up-down.svg"
                 />
               </button>
-              <div
-                onClick={[Function]}
-              >
-                <button
-                  onClick={[Function]}
-                >
-                  <img
-                    src="/src/assets/images/filter.svg"
-                  />
-                </button>
-              </div>
             </div>
+            <form
+              className="filter-form-wrapper"
+              role="dialog"
+            >
+              <input
+                className="filter-text-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Search..."
+                size={10}
+                type="text"
+                value=""
+              />
+            </form>
           </th>
           <th
             colSpan={1}
@@ -72,18 +76,22 @@ exports[`Component matches snapshot 1`] = `
                   src="/src/assets/images/arrow-up-down.svg"
                 />
               </button>
-              <div
-                onClick={[Function]}
-              >
-                <button
-                  onClick={[Function]}
-                >
-                  <img
-                    src="/src/assets/images/filter.svg"
-                  />
-                </button>
-              </div>
             </div>
+            <form
+              className="filter-form-wrapper"
+              role="dialog"
+            >
+              <input
+                className="filter-text-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Search..."
+                size={10}
+                type="text"
+                value=""
+              />
+            </form>
           </th>
         </tr>
       </thead>

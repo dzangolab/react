@@ -23,89 +23,67 @@ function Filter({
 
   const { inputDebounceTime, filterIcons } = useContext(TableContext);
 
-  const [expanded, setExpanded] = useState(false);
-
-  const toggleExpand = () => {
-    expanded ? setExpanded(false) : setExpanded(true);
-  };
-
   return (
-    <div onClick={(event_) => event_.stopPropagation()}>
-      {
-        <button onClick={toggleExpand}>
-          {expanded
-            ? renderImage(filterIcons?.expanded)
-            : renderImage(filterIcons?.notExpanded)}
-        </button>
-      }
-      {expanded ? (
-        <OutsideClickHandler
-          onOutsideClick={() => {
-            setExpanded(false);
+    <form role="dialog" className="filter-form-wrapper">
+      {filterVariant === "text" ? (
+        <DebounceInput
+          type="text"
+          value={(columnFilterValue?.value ?? "") as string}
+          debounceTimeout={inputDebounceTime}
+          onChange={(event_) => {
+            handleChange({
+              value: event_.target.value,
+              filterFn: filterFn || "contains",
+            });
           }}
-        >
-          <div role="dialog" className="filter-form-wrapper">
-            {filterVariant === "text" ? (
-              <DebounceInput
-                type="text"
-                value={(columnFilterValue?.value ?? "") as string}
-                debounceTimeout={inputDebounceTime}
-                onChange={(event_) => {
-                  handleChange({
-                    value: event_.target.value,
-                    filterFn: filterFn || "contains",
-                  });
-                }}
-                placeholder={placeholder || `Search...`}
-                className="filter-text-input"
-                size={10}
-              />
-            ) : null}
-
-            {filterVariant === "select" && selectOptions ? (
-              <select
-                value={(columnFilterValue?.value ?? "") as string}
-                onChange={(event_) => {
-                  handleChange({
-                    value: event_.target.value,
-                    filterFn: filterFn || "equals",
-                  });
-                }}
-                className="filter-select-input"
-              >
-                {placeholder ? (
-                  <option value="" disabled selected>
-                    {placeholder}
-                  </option>
-                ) : null}
-
-                {selectOptions.map(({ label, value }) => (
-                  <option key={label + value} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </select>
-            ) : null}
-
-            {filterVariant === "checkBox" ? (
-              <div className="filter-checkbox-input">
-                <label>{placeholder}</label>
-                <input
-                  type="checkbox"
-                  value={String(columnFilterValue?.value ?? true)}
-                  onChange={(event_) => {
-                    handleChange({
-                      value: event_.target.checked,
-                      filterFn: filterFn || "equals",
-                    });
-                  }}
-                />
-              </div>
-            ) : null}
-          </div>
-        </OutsideClickHandler>
+          placeholder={placeholder || `Search...`}
+          className="filter-text-input"
+          size={10}
+        />
       ) : null}
-    </div>
+
+      {filterVariant === "select" && selectOptions ? (
+        <select
+          value={(columnFilterValue?.value ?? "") as string}
+          onChange={(event_) => {
+            handleChange({
+              value: event_.target.value,
+              filterFn: filterFn || "equals",
+            });
+          }}
+          className="filter-select-input"
+        >
+          {placeholder ? (
+            <option value="" disabled selected>
+              {placeholder}
+            </option>
+          ) : null}
+
+          {selectOptions.map(({ label, value }) => (
+            <option key={label + value} value={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+      ) : null}
+
+      {filterVariant === "checkBox" ? (
+        <div className="filter-checkbox-input">
+          <label>{placeholder}</label>
+          <input
+            type="checkbox"
+            value={String(columnFilterValue?.value ?? true)}
+            onChange={(event_) => {
+              console.log(event_);
+              handleChange({
+                value: event_.target.checked ?? null,
+                filterFn: filterFn || "equals",
+              });
+            }}
+          />
+        </div>
+      ) : null}
+    </form>
   );
 }
 

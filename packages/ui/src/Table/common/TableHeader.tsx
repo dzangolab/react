@@ -73,27 +73,28 @@ function TableHeader() {
                 return (
                   <th key={id} colSpan={colSpan}>
                     {isPlaceholder ? null : (
-                      <div
-                        className={getColumnTitleClass()}
-                        onClick={(event_) =>
-                          sortFunction(
-                            event_,
-                            sortable,
-                            column.getToggleSortingHandler()
-                          )
-                        }
-                      >
-                        {flexRender(column.columnDef.header, getContext())}
-                        {sortable ? (
-                          <button>
-                            {renderSortButton(
-                              column.getCanSort(),
-                              column.getIsSorted(),
-                              sortIcons
-                            )}
-                          </button>
-                        ) : null}
-
+                      <>
+                        <div
+                          className={getColumnTitleClass()}
+                          onClick={(event_) =>
+                            sortFunction(
+                              event_,
+                              sortable,
+                              column.getToggleSortingHandler()
+                            )
+                          }
+                        >
+                          {flexRender(column.columnDef.header, getContext())}
+                          {sortable ? (
+                            <button>
+                              {renderSortButton(
+                                column.getCanSort(),
+                                column.getIsSorted(),
+                                sortIcons
+                              )}
+                            </button>
+                          ) : null}
+                        </div>
                         {column.getCanFilter() ? (
                           <Filter
                             filterVariant={column.columnDef.meta?.filterVariant}
@@ -114,7 +115,7 @@ function TableHeader() {
                             }}
                           />
                         ) : null}
-                      </div>
+                      </>
                     )}
                   </th>
                 );

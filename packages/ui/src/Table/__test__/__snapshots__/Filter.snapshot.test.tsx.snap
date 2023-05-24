@@ -1,13 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div
-  onClick={[Function]}
+<form
+  className="filter-form-wrapper"
+  role="dialog"
 >
-  <button
-    onClick={[Function]}
-  >
-    <img />
-  </button>
-</div>
+  <input
+    className="filter-text-input"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Search..."
+    size={10}
+    type="text"
+    value=""
+  />
+</form>
 `;
