@@ -15,20 +15,15 @@ export const Email: React.FC<CustomInputProperties> = ({
 
   const { error, invalid } = getFieldState(name);
 
-  let inputClassName = "";
-  if (submitCount > 0) {
-    inputClassName = invalid ? "invalid" : "valid";
-  }
-
   return (
     <div className={`field ${name}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}
         id={`input-field-${name}`}
-        className={inputClassName}
         type="email"
         placeholder={placeholder}
+        aria-invalid={submitCount > 0 ? invalid : undefined}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>

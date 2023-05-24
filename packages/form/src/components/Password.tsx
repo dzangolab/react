@@ -13,12 +13,7 @@ export const Password: React.FC<CustomInputProperties> = ({
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
-
-  let inputClassName = "";
-  if (submitCount > 0) {
-    inputClassName = invalid ? "invalid" : "valid";
-  }
+  const { error, invalid } = getFieldState(name);
 
   return (
     <div className={`field ${name}`}>
@@ -26,9 +21,9 @@ export const Password: React.FC<CustomInputProperties> = ({
       <input
         {...register(name)}
         id={`input-field-${name}`}
-        className={inputClassName}
         type="password"
         placeholder={placeholder}
+        aria-invalid={submitCount > 0 ? invalid : undefined}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
