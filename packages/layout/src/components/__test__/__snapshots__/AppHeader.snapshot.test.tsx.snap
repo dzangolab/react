@@ -29,14 +29,30 @@ exports[`Component matches snapshot 1`] = `
             <a
               href="/"
             >
-              header.menu.home
+              <span
+                role="icon"
+                title="header.menu.home"
+              />
+              <span
+                role="label"
+              >
+                header.menu.home
+              </span>
             </a>
           </li>
           <li>
             <a
               href="/about"
             >
-              header.menu.about
+              <span
+                role="icon"
+                title="header.menu.about"
+              />
+              <span
+                role="label"
+              >
+                header.menu.about
+              </span>
             </a>
           </li>
         </ul>

@@ -4,17 +4,13 @@ import "../assets/css/components/sidebar.css";
 
 interface Properties {
   children?: React.ReactNode;
-  customStyle?: React.CSSProperties;
 }
 
-const Sidebar: React.FC<Properties> = ({ children, customStyle }) => {
+const Sidebar: React.FC<Properties> = ({ children }) => {
   const [open, setOpen] = useState(true);
 
   return (
-    <div
-      className={`sidebar-menu ${open ? "open" : "close"}`}
-      style={customStyle}
-    >
+    <div className="sidebar" aria-expanded={open}>
       <div className="toggle-button">
         <button onClick={() => setOpen(!open)}>&gt;</button>
       </div>

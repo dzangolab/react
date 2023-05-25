@@ -1,69 +1,55 @@
-.sidebar-menu {
-  position: relative;
-  left: 0;
-  transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s,
-    all 300ms ease 0s;
-  z-index: 1;
-  background-color: white;
-  border-right: 1px solid rgb(239, 239, 239);
-  border-color: rgb(239, 239, 239);
-}
-
-.sidebar-menu > .toggle-button > button {
-  align-items: center;
-  background-color: #dbe9fa;
-  border-radius: 100%;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  border: none;
-  height: 3rem;
-  width: 3rem;
-}
-
-.open {
-  width: 250px;
-}
-
-.close {
-  min-width: 10px;
-  width: 3.5rem;
-}
-
-.sidebar-menu.open > .toggle-button > button {
-  left: auto;
-  opacity: 0.3;
-  position: relative;
-  transform: rotate(180deg);
-}
-
-.sidebar-menu.close > .toggle-button > button {
-  left: 0.2rem;
-  opacity: 0.3;
-  position: fixed;
-}
-
-.sidebar-menu > .toggle-button > button:hover {
-  opacity: 1;
-}
-
-@media screen and (max-width: 576px) {
-  .sidebar-menu {
-    display: none;
-  }
-}
-
-.sidebar-menu > .toggle-button {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.8rem;
-}
-
-.sidebar-menu > :not(:first-child) {
+.sidebar {
   display: none;
 }
 
-.sidebar-menu.open > :not(:first-child) {
-  display: flex;
+@media screen and (min-width: 576px) {
+  .sidebar {
+    position: relative;
+    left: 0;
+    min-width: 48px;
+    width: 3.5rem;
+    transition: var(--transition);
+    z-index: 1;
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .sidebar > .toggle-button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar > .toggle-button > button {
+    align-items: center;
+    background-color: #dbe9fa;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 1rem;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .sidebar[aria-expanded="true"] {
+    width: 250px;
+  }
+
+  .sidebar[aria-expanded="true"] > .toggle-button > button {
+    transform: rotate(180deg);
+  }
+
+  .sidebar > .sidebar-menu span[role="label"] {
+    width: 0;
+    font-weight: 700;
+    transition: var(--transition);
+  }
+
+  .sidebar[aria-expanded="true"] > .sidebar-menu span[role="label"] {
+    width: 100%;
+  }
 }
