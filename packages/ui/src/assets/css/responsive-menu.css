@@ -51,7 +51,11 @@
 }
 
 .responsive-menu.column > ul > li:hover {
-  background-color: #dbe9fa;
+  background-color: var(--dropdown-bg-color-hover, #dbe9fa);
+}
+
+.responsive-menu > ul > li[aria-selected="true"] {
+  background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
 @media screen and (max-width: 576px) {
@@ -72,9 +76,5 @@
   .responsive-menu > ul > li > a {
     flex: 1;
     text-align: left;
-  }
-
-  .responsive-menu > ul > li :active {
-    background-color: #dbe9fa;
   }
 }

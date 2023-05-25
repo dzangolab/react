@@ -29,6 +29,8 @@
 
 .dropdown-container > ul.dropdown-menu li {
   padding: 0.5rem 0.5rem;
+  background-color: white;
+  transition: var(--transition);
 }
 
 .dropdown-container > ul.dropdown-menu li > a {

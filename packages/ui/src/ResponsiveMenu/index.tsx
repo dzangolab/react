@@ -1,7 +1,8 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Link, useInRouterContext } from "react-router-dom";
 
 interface Properties {
+  initialActiveRoute?: string;
   className: string;
   horizontal?: boolean;
   routes: {
@@ -12,10 +13,14 @@ interface Properties {
 }
 
 const ResponsiveMenu = ({
+  initialActiveRoute,
   routes,
   className,
   horizontal = false,
 }: Properties) => {
+  const [activeItem, setActiveItem] = useState<string>(
+    initialActiveRoute || routes[0].name
+  );
   const hasRouterContext = useInRouterContext();
 
   let _className = "responsive-menu";
@@ -31,7 +36,11 @@ const ResponsiveMenu = ({
   const getItemList = useCallback(() => {
     if (hasRouterContext) {
       return routes.map((route) => (
-        <li key={route.name}>
+        <li
+          key={route.name}
+          onClick={() => setActiveItem(route.name)}
+          aria-selected={activeItem === route.name}
+        >
           <Link to={route.route}>
             <span role="icon" title={route.name}>
               {route.icon}
@@ -42,8 +51,12 @@ const ResponsiveMenu = ({
       ));
     }
 
-    return routes.map((route, index) => (
-      <li key={index}>
+    return routes.map((route) => (
+      <li
+        key={route.name}
+        onClick={() => setActiveItem(route.name)}
+        aria-selected={activeItem === route.name}
+      >
         <a href={route.route}>
           <span role="icon" title={route.name}>
             {route.icon}
@@ -52,7 +65,7 @@ const ResponsiveMenu = ({
         </a>
       </li>
     ));
-  }, [routes, hasRouterContext]);
+  }, [activeItem, routes, hasRouterContext]);
 
   return (
     <div className={_className}>
