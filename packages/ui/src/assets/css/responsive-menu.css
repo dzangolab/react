@@ -46,6 +46,8 @@
 
 .responsive-menu.column > ul > li {
   width: 100%;
+  background-color: white;
+  transition: var(--transition);
 }
 
 .responsive-menu.column > ul > li:hover {

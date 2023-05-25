@@ -4,6 +4,7 @@
 
 @media screen and (min-width: 576px) {
   .sidebar {
+    display: block;
     position: relative;
     left: 0;
     min-width: 48px;
