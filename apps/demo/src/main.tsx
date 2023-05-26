@@ -7,12 +7,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import config from "./config";
 
-import "normalize.css";
-
 import "@dzangolab/react-form/dist/DzangolabReactForm.css";
 import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
 import "@dzangolab/react-i18n/dist/DzangolabReactI18n.css";
 import "@dzangolab/react-user/dist/DzangolabReactUser.css";
+
+import "./assets/css/style.css";
 
 i18n(config.i18n);
 
