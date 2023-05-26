@@ -22,6 +22,7 @@ exports[`Component matches snapshot 1`] = `
       className="main-menu"
     >
       <div
+        aria-orientation="horizontal"
         className="responsive-menu"
       >
         <ul>

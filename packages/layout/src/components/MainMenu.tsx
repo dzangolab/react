@@ -3,7 +3,7 @@ import { ResponsiveMenu } from "@dzangolab/react-ui";
 import React from "react";
 
 interface Properties {
-  horizontal?: boolean;
+  orientation?: "horizontal" | "vertical";
   routes?: {
     name: string;
     route: string;
@@ -24,7 +24,7 @@ const DEFAULT_ROUTES = [
 const MainMenu = (properties: Properties) => {
   const { t } = useTranslation("app");
 
-  const { routes = DEFAULT_ROUTES, horizontal = false } = properties;
+  const { routes = DEFAULT_ROUTES, orientation = "horizontal" } = properties;
 
   const getTranslatedRoutes = () => {
     return routes.map(({ name, route }) => {
@@ -37,7 +37,10 @@ const MainMenu = (properties: Properties) => {
 
   return (
     <nav className="main-menu">
-      <ResponsiveMenu routes={getTranslatedRoutes()} horizontal={horizontal} />
+      <ResponsiveMenu
+        routes={getTranslatedRoutes()}
+        orientation={orientation}
+      />
     </nav>
   );
 };

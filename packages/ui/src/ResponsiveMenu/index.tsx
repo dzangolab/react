@@ -2,9 +2,9 @@ import React, { useCallback, useState } from "react";
 import { Link, useInRouterContext } from "react-router-dom";
 
 interface Properties {
-  initialActiveRoute?: string;
   className: string;
-  horizontal?: boolean;
+  initialActiveRoute?: string;
+  orientation?: "horizontal" | "vertical";
   routes: {
     name: string;
     route: string;
@@ -13,10 +13,10 @@ interface Properties {
 }
 
 const ResponsiveMenu = ({
-  initialActiveRoute,
-  routes,
   className,
-  horizontal = false,
+  initialActiveRoute,
+  orientation = "horizontal",
+  routes,
 }: Properties) => {
   const [activeItem, setActiveItem] = useState<string>(
     initialActiveRoute || routes[0].name
@@ -27,10 +27,6 @@ const ResponsiveMenu = ({
 
   if (className) {
     _className += " " + className;
-  }
-
-  if (horizontal) {
-    _className += " column";
   }
 
   const getItemList = useCallback(() => {
@@ -68,7 +64,7 @@ const ResponsiveMenu = ({
   }, [activeItem, routes, hasRouterContext]);
 
   return (
-    <div className={_className}>
+    <div className={_className} aria-orientation={orientation}>
       <ul>{getItemList()}</ul>
     </div>
   );

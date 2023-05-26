@@ -42,7 +42,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     onLogout,
     customSidebar = (
       <Sidebar>
-        <ResponsiveMenu routes={mainMenuRoutes} horizontal />
+        <ResponsiveMenu routes={mainMenuRoutes} orientation="vertical" />
       </Sidebar>
     ),
     userMenu,
