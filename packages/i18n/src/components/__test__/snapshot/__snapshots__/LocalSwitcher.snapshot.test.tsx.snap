@@ -4,6 +4,7 @@ exports[`Component matches snapshot 1`] = `
 <div
   className="locale-switcher dropdown-container"
   data-aria-expanded={false}
+  lang="en"
   onClick={[Function]}
 >
   <div

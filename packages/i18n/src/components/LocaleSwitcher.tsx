@@ -28,6 +28,7 @@ const LocaleSwitcher = () => {
       className="locale-switcher"
       dropdownMenu={{ menuItems: locales || [] }}
       label={t(`locales.${i18n.language}`)}
+      lang={i18n.language}
     />
   );
 };

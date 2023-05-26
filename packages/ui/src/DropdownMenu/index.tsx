@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { HTMLAttributes, useEffect, useRef, useState } from "react";
 
 interface Item {
   /* eslint-disable  @typescript-eslint/no-explicit-any */
@@ -16,7 +16,8 @@ interface DropdownMenu {
   renderOption?: (value: Item) => JSX.Element;
 }
 
-export interface DropdownMenuProperties {
+export interface DropdownMenuProperties
+  extends Pick<HTMLAttributes<HTMLDivElement>, "lang"> {
   className?: string;
   collapseIcon?: React.ReactNode;
   dropdownMenu: DropdownMenu;
@@ -30,6 +31,7 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   dropdownMenu,
   expandIcon = <>&#9662;</>,
   label,
+  lang,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const navBarReference = useRef<HTMLDivElement | null>(null);
@@ -63,6 +65,7 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
       className={_className}
       data-aria-expanded={expanded}
       onClick={() => setExpanded(!expanded)}
+      lang={lang}
     >
       <div className="label-container">
         {label ? (
