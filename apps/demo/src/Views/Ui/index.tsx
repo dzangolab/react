@@ -36,7 +36,7 @@ const componentList = [
           <ResponsiveMenu routes={MENU_ROUTES} />
         </Page>
         <Page title="Vertical menu">
-          <ResponsiveMenu routes={MENU_ROUTES} horizontal />
+          <ResponsiveMenu routes={MENU_ROUTES} orientation="vertical" />
         </Page>
       </>
     ),

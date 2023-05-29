@@ -1,19 +1,20 @@
-import React from "react";
-import { Link, useInRouterContext } from "react-router-dom";
+import React, { useCallback } from "react";
+import { NavLink, useInRouterContext } from "react-router-dom";
 
 interface Properties {
   className: string;
-  horizontal?: boolean;
+  orientation?: "horizontal" | "vertical";
   routes: {
     name: string;
     route: string;
+    icon?: React.ReactNode;
   }[];
 }
 
 const ResponsiveMenu = ({
-  routes,
   className,
-  horizontal = false,
+  orientation = "horizontal",
+  routes,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
 
@@ -23,24 +24,55 @@ const ResponsiveMenu = ({
     _className += " " + className;
   }
 
-  if (horizontal) {
-    _className += " column";
-  }
+  const getAnchorList = useCallback(() => {
+    const checkIsActive = (link: string) => {
+      const pathnameArray = window.location.pathname.split("/");
+      const isActive =
+        window.location.pathname.startsWith(link) ||
+        (pathnameArray.length && pathnameArray.includes(link));
+
+      return isActive;
+    };
+
+    return routes.map((route) => {
+      const isActive = checkIsActive(route.route);
+
+      return (
+        <li key={route.name}>
+          <a
+            href={route.route}
+            className={isActive ? "active" : undefined}
+            aria-current={isActive ? "page" : undefined}
+          >
+            <span role="icon" title={route.name}>
+              {route.icon}
+            </span>
+            <span role="label">{route.name}</span>
+          </a>
+        </li>
+      );
+    });
+  }, [routes]);
+
+  const getRouterList = useCallback(
+    () =>
+      routes.map((route) => (
+        <li key={route.name}>
+          <NavLink to={route.route}>
+            <span role="icon" title={route.name}>
+              {route.icon}
+            </span>
+            <span role="label">{route.name}</span>
+          </NavLink>
+        </li>
+      )),
+    [routes]
+  );
 
   return (
-    <div className={_className}>
-      <ul>
-        {routes.map((route, index) => (
-          <li key={index}>
-            {hasRouterContext ? (
-              <Link to={route.route}>{route.name}</Link>
-            ) : (
-              <a href={route.route}>{route.name}</a>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <nav className={_className} aria-orientation={orientation}>
+      <ul>{hasRouterContext ? getRouterList() : getAnchorList()}</ul>
+    </nav>
   );
 };
 

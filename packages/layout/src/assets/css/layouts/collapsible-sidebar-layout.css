@@ -1,7 +1,7 @@
 .layout.collapsible {
-  --_layout-collapsible-gap: var(--layout-gap, 1em);
+  --_layout-collapsible-gap: var(--layout-gap, 0);
   --_layout-collapsible-max-width: var(--layout-max-width, 100%);
-  --_layout-collapsible-padding-h: var(--layout-padding-h, 1em);
+  --_layout-collapsible-padding-h: var(--layout-padding-h, 0.5em);
 
   min-height: 100dvh;
   display: flex;
@@ -18,6 +18,8 @@
 
 .layout.collapsible > main {
   flex: 1;
+  padding-top: var(--_layout-collapsible-padding-h);
+  padding-bottom: var(--_layout-collapsible-padding-h);
 }
 
 @media screen and (min-width: 576px) {
@@ -25,7 +27,7 @@
     grid-area: header;
   }
 
-  .layout.collapsible > .sidebar-menu {
+  .layout.collapsible > .sidebar {
     grid-area: menu;
   }
 

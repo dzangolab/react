@@ -1,24 +1,43 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div
+<nav
+  aria-orientation="horizontal"
   className="responsive-menu"
 >
   <ul>
     <li>
       <a
+        aria-current="page"
+        className="active"
         href="/"
       >
-        Home
+        <span
+          role="icon"
+          title="Home"
+        />
+        <span
+          role="label"
+        >
+          Home
+        </span>
       </a>
     </li>
     <li>
       <a
         href="/about"
       >
-        About
+        <span
+          role="icon"
+          title="About"
+        />
+        <span
+          role="label"
+        >
+          About
+        </span>
       </a>
     </li>
   </ul>
-</div>
+</nav>
 `;
