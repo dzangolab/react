@@ -1,8 +1,6 @@
 import { DropdownMenu } from "@dzangolab/react-ui";
 import { useTranslation } from "react-i18next";
 
-import "../css/locale-switcher.css";
-
 const LocaleSwitcher = () => {
   const { i18n, t } = useTranslation("locales");
 

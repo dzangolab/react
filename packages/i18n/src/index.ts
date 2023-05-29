@@ -10,6 +10,8 @@ import LocaleSwitcher from "./components/LocaleSwitcher";
 import type { AppConfig } from "@dzangolab/react-config";
 import type { InitOptions } from "i18next";
 
+import "./css/locale-switcher.css";
+
 const plugin = (options: InitOptions) => {
   use(LanguageDetector)
     .use(initReactI18next)

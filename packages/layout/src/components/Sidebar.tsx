@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import "../assets/css/components/sidebar.css";
-
 interface Properties {
   children?: React.ReactNode;
 }

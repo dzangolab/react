@@ -4,11 +4,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import ResetPasswordForm from "@/components/ResetPasswordForm";
-import resetPassword from "@/supertokens/reset-password";
-
+import ResetPasswordForm from "../components/ResetPasswordForm";
 import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
+import resetPassword from "../supertokens/reset-password";
 
 const ResetPassword = () => {
   const { t } = useTranslation("user");
