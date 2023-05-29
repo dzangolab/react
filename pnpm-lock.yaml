@@ -17,8 +17,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       shipjs:
-        specifier: 0.26.2
-        version: 0.26.2
+        specifier: 0.26.3
+        version: 0.26.3
       turbo:
         specifier: latest
         version: 1.9.8
@@ -13284,8 +13284,8 @@ packages:
       rechoir: 0.6.2
     dev: true
 
-  /shipjs-lib@0.26.2:
-    resolution: {integrity: sha512-R4X/YCH6yrppSjsH8uU4RbrM9nOk2TJhq0x98l+6z+UTAx9rtvgrftkIVdTiO+7doED/vzZGkwaKLwQV9fz/6Q==}
+  /shipjs-lib@0.26.3:
+    resolution: {integrity: sha512-7fCZ64qiYGGOSn/8XIsteGq02TdwX0Y2clWIuxOUDjd+SxXyioD00xOvPcXSfoRgwncHq+xo6wxgHUf/q3v/Ow==}
     dependencies:
       deepmerge: 4.2.2
       dotenv: 8.6.0
@@ -13294,8 +13294,8 @@ packages:
       shelljs: 0.8.5
     dev: true
 
-  /shipjs@0.26.2:
-    resolution: {integrity: sha512-k3UEgDJYj/V13H2h6u6yYdGwH5VfPCwLlK+IKGLbFuw4wN/p6jAaOxR7gnjRNV7ltLkOAsvyQc/sSc/I9RTfkw==}
+  /shipjs@0.26.3:
+    resolution: {integrity: sha512-TA/JfbVegeHDUrf/GhyQ0VqxADh7btjfXr54U/9Om58V3MjR5jx47cmSWwQXx2Es2S0BMA3Oup4qzeKGSOXUdw==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
@@ -13315,13 +13315,12 @@ packages:
       esm: 3.2.25
       globby: 10.0.2
       inquirer: 7.1.0
-      mime-types: 2.1.35
       mkdirp: 1.0.4
       open: 7.4.2
       prettier: 2.8.8
       serialize-javascript: 3.1.0
       shell-quote: 1.7.4
-      shipjs-lib: 0.26.2
+      shipjs-lib: 0.26.3
       temp-write: 4.0.0
       tempfile: 3.0.0
     transitivePeerDependencies:
