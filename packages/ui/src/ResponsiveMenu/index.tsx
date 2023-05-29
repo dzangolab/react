@@ -1,9 +1,8 @@
-import React, { useCallback, useState } from "react";
-import { Link, useInRouterContext } from "react-router-dom";
+import React, { useCallback } from "react";
+import { NavLink, useInRouterContext } from "react-router-dom";
 
 interface Properties {
   className: string;
-  initialActiveRoute?: string;
   orientation?: "horizontal" | "vertical";
   routes: {
     name: string;
@@ -14,13 +13,9 @@ interface Properties {
 
 const ResponsiveMenu = ({
   className,
-  initialActiveRoute,
   orientation = "horizontal",
   routes,
 }: Properties) => {
-  const [activeItem, setActiveItem] = useState<string>(
-    initialActiveRoute || routes[0].name
-  );
   const hasRouterContext = useInRouterContext();
 
   let _className = "responsive-menu";
@@ -29,31 +24,19 @@ const ResponsiveMenu = ({
     _className += " " + className;
   }
 
-  const getItemList = useCallback(() => {
-    if (hasRouterContext) {
-      return routes.map((route) => (
-        <li
-          key={route.name}
-          onClick={() => setActiveItem(route.name)}
-          aria-selected={activeItem === route.name}
-        >
-          <Link to={route.route}>
-            <span role="icon" title={route.name}>
-              {route.icon}
-            </span>
-            <span role="label">{route.name}</span>
-          </Link>
-        </li>
-      ));
-    }
+  const getAnchorList = useCallback(() => {
+    const checkIsActive = (link: string) => {
+      const pathnameArray = window.location.pathname.split("/");
+      const isActive =
+        window.location.pathname.startsWith(link) ||
+        (pathnameArray.length && pathnameArray.includes(link));
+
+      return isActive ? "page" : undefined;
+    };
 
     return routes.map((route) => (
-      <li
-        key={route.name}
-        onClick={() => setActiveItem(route.name)}
-        aria-selected={activeItem === route.name}
-      >
-        <a href={route.route}>
+      <li key={route.name}>
+        <a href={route.route} aria-current={checkIsActive(route.route)}>
           <span role="icon" title={route.name}>
             {route.icon}
           </span>
@@ -61,12 +44,27 @@ const ResponsiveMenu = ({
         </a>
       </li>
     ));
-  }, [activeItem, routes, hasRouterContext]);
+  }, [routes]);
+
+  const getRouterList = useCallback(
+    () =>
+      routes.map((route) => (
+        <li key={route.name}>
+          <NavLink to={route.route}>
+            <span role="icon" title={route.name}>
+              {route.icon}
+            </span>
+            <span role="label">{route.name}</span>
+          </NavLink>
+        </li>
+      )),
+    [routes]
+  );
 
   return (
-    <div className={_className} aria-orientation={orientation}>
-      <ul>{getItemList()}</ul>
-    </div>
+    <nav className={_className} aria-orientation={orientation}>
+      <ul>{hasRouterContext ? getRouterList() : getAnchorList()}</ul>
+    </nav>
   );
 };
 

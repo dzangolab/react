@@ -54,7 +54,7 @@
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
-.responsive-menu[aria-orientation="vertical"] > ul > li[aria-selected="true"] {
+.responsive-menu[aria-orientation="vertical"] > ul > li a[aria-current="page"] {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
