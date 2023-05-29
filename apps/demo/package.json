@@ -49,7 +49,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-unicorn": "44.0.2",
     "jsdom": "21.1.1",
-    "prettier": "2.8.7",
+    "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
     "typescript": "4.8.4",
     "vite": "4.3.1",

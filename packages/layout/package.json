@@ -45,7 +45,7 @@
     "eslint-config-custom": "0.7.6",
     "eslint-plugin-react": "7.32.2",
     "jsdom": "21.1.1",
-    "prettier": "2.8.7",
+    "prettier": "2.8.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.11.1",
