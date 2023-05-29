@@ -31,19 +31,27 @@ const ResponsiveMenu = ({
         window.location.pathname.startsWith(link) ||
         (pathnameArray.length && pathnameArray.includes(link));
 
-      return isActive ? "page" : undefined;
+      return isActive;
     };
 
-    return routes.map((route) => (
-      <li key={route.name}>
-        <a href={route.route} aria-current={checkIsActive(route.route)}>
-          <span role="icon" title={route.name}>
-            {route.icon}
-          </span>
-          <span role="label">{route.name}</span>
-        </a>
-      </li>
-    ));
+    return routes.map((route) => {
+      const isActive = checkIsActive(route.route);
+
+      return (
+        <li key={route.name}>
+          <a
+            href={route.route}
+            className={isActive ? "active" : undefined}
+            aria-current={isActive ? "page" : undefined}
+          >
+            <span role="icon" title={route.name}>
+              {route.icon}
+            </span>
+            <span role="label">{route.name}</span>
+          </a>
+        </li>
+      );
+    });
   }, [routes]);
 
   const getRouterList = useCallback(
