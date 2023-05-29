@@ -29,6 +29,7 @@ exports[`Component matches snapshot 1`] = `
           <li>
             <a
               aria-current="page"
+              className="active"
               href="/"
             >
               <span
