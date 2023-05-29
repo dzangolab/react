@@ -1,0 +1,8 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  --logo-width: 150px;
+}
+
+* {
+  box-sizing: border-box;
+}
