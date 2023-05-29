@@ -22,7 +22,7 @@ const schema = ({
         minLength: 8,
         minLowercase: 1,
         minNumbers: 1,
-        minSymbols: 1,
+        minSymbols: 0,
         minUppercase: 1,
       }
     ),

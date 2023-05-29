@@ -1,7 +1,7 @@
 import * as z from "zod";
 
 import { Form } from "..";
-import Input from "../components/Input";
+import { Input } from "../components/Input";
 import { passwordSchema } from "../schemas";
 
 const schema = z
