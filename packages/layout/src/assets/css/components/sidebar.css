@@ -9,7 +9,7 @@
     left: 0;
     min-width: 48px;
     width: 3.5rem;
-    transition: var(--transition);
+    transition: all var(--transition-duration) ease 0s;
     z-index: 1;
     background-color: white;
     border-right: 1px solid var(--border-color);
@@ -52,7 +52,7 @@
   .sidebar > .sidebar-menu span[role="label"] {
     width: 0;
     font-weight: 700;
-    transition: var(--transition);
+    transition: all var(--transition-duration) ease 0s;
   }
 
   .sidebar[aria-expanded="true"] > .sidebar-menu span[role="label"] {

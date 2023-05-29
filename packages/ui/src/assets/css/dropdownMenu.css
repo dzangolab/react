@@ -30,7 +30,7 @@
 .dropdown-container > ul.dropdown-menu li {
   padding: 0.5rem 0.5rem;
   background-color: white;
-  transition: var(--transition);
+  transition: all var(--transition-duration) ease 0s;
 }
 
 .dropdown-container > ul.dropdown-menu li > a {
