@@ -2,3 +2,19 @@
 @import "./vars.css";
 @import "./dropdownMenu.css";
 @import "./responsive-menu.css";
+@import "./accordion.css";
+@import "./tabs.css";
+@import "./table.css";
+@import "./submitButton.css";
+@import "./subPane.css";
+@import "./divider.css";
+@import "./loadingIcon.css";
+@import "./page.css";
+@import "./loadingPage.css";
+@import "./ssoBaseButton.css";
+@import "./googleButton.css";
+
+/* Theme CSS */
+@import "./accordion-theme.css";
+@import "./table-theme.css";
+@import "./tab-theme.css";

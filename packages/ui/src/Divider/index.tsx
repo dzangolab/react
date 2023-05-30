@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./index.css";
-
 interface IProperties {
   orientation?: "horizontal" | "vertical";
 }

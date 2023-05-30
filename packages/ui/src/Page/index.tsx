@@ -2,8 +2,6 @@ import React from "react";
 
 import LoadingPage, { LoadingPageProperties } from "../LoadingPage";
 
-import "./page.css";
-
 interface Properties
   extends Pick<
     React.DetailedHTMLProps<

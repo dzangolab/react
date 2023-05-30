@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./loadingIcon.css";
-
 const LoadingIcon = (
   style: Pick<React.CSSProperties, "fontSize" | "color">
 ) => {
