@@ -1,3 +1,21 @@
+# [0.8.0](https://github.com/dzangolab/react/compare/v0.7.6...v0.8.0) (2023-05-30)
+
+
+### Bug Fixes
+
+* alignment of drop down ([#356](https://github.com/dzangolab/react/issues/356)) ([8442e84](https://github.com/dzangolab/react/commit/8442e84b79cccf39462e64d08d255d1742d960e0))
+* field validation calsses ([#366](https://github.com/dzangolab/react/issues/366)) ([ad872b3](https://github.com/dzangolab/react/commit/ad872b36d8a3bd6472a1ba5ba49afe6efd483a58))
+* layout styles ([#365](https://github.com/dzangolab/react/issues/365)) ([a6b2a10](https://github.com/dzangolab/react/commit/a6b2a10e63ea8dc2add6cb8b6638e7dbfff04a1c))
+
+
+### Features
+
+* add example for overriding styles ([#374](https://github.com/dzangolab/react/issues/374)) ([64ed2a1](https://github.com/dzangolab/react/commit/64ed2a133de8bff1a1ef110ebf67f95005db34e0))
+* add lang property to locale switcher ([#373](https://github.com/dzangolab/react/issues/373)) ([f71f943](https://github.com/dzangolab/react/commit/f71f943a3a983191cfb4537a0904218ca54536aa))
+* add left icon to responsive menu ([#372](https://github.com/dzangolab/react/issues/372)) ([0c9b53a](https://github.com/dzangolab/react/commit/0c9b53a5976d302dd869e90212a009af96655399))
+
+
+
 ## [0.7.6](https://github.com/dzangolab/react/compare/v0.7.5...v0.7.6) (2023-05-15)
 
 
