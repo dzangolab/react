@@ -1,5 +1,3 @@
-import "./table.css";
-
 import BaseTable from "./common/BaseTable";
 import { TableContext } from "./common/TableContext";
 import TableDetail from "./common/TableDetail";

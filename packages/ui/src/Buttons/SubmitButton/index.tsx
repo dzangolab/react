@@ -2,8 +2,6 @@ import React from "react";
 
 import LoadingIcon from "../../LoadingIcon";
 
-import "./submitButton.css";
-
 interface Properties {
   disabled?: boolean;
   label: string;

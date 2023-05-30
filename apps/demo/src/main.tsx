@@ -8,6 +8,7 @@ import App from "./App";
 import config from "./config";
 
 import "@dzangolab/react-form/dist/DzangolabReactForm.css";
+import "@dzangolab/react-layout/dist/DzangolabReactLayout.css";
 import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
 import "@dzangolab/react-i18n/dist/DzangolabReactI18n.css";
 import "@dzangolab/react-user/dist/DzangolabReactUser.css";

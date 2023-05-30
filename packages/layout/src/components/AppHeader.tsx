@@ -6,8 +6,6 @@ import Logo from "./Logo";
 import MainMenu from "./MainMenu";
 import useConfig from "../hooks/useConfig";
 
-import "../assets/css/components/header.css";
-
 interface Properties {
   localeSwitcher?: React.ReactNode;
   logo?: React.ReactNode;

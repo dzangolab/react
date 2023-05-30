@@ -12,6 +12,8 @@ import NullLayout from "./NullLayout";
 
 import type { DzangolabReactLayoutConfig } from "./types";
 
+import "./assets/css/index.css";
+
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
     layout?: DzangolabReactLayoutConfig;

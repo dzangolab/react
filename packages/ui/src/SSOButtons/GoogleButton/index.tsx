@@ -3,8 +3,6 @@ import React from "react";
 import GoogleIcon from "../../assets/images/google-icon.svg";
 import BaseButton, { BaseButtonProperties } from "../BaseButton";
 
-import "./index.css";
-
 type IProperties = Omit<BaseButtonProperties, "imageSource" | "className">;
 
 const GoogleButton: React.FC<IProperties> = (properties) => {

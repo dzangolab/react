@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./index.css";
-
 export interface BaseButtonProperties {
   alignCenter?: boolean;
   alternativeText?: string;

@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import "./subpane.css";
 
 type Properties = {
   children: ReactNode;

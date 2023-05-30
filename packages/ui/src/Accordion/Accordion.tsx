@@ -1,7 +1,5 @@
 import React, { useId, useState } from "react";
 
-import "./accordion.css";
-
 import type { ReactElement } from "react";
 
 type Properties = {

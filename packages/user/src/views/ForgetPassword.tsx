@@ -3,8 +3,8 @@ import { Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import ForgetPasswordForm from "@/components/ForgetPasswordForm";
-import forgetPassword from "@/supertokens/forget-password";
+import ForgetPasswordForm from "../components/ForgetPasswordForm";
+import forgetPassword from "../supertokens/forget-password";
 
 const ForgetPassword = () => {
   const { t } = useTranslation("user");

@@ -36,12 +36,11 @@ const MainMenu = (properties: Properties) => {
   };
 
   return (
-    <nav className="main-menu">
-      <ResponsiveMenu
-        routes={getTranslatedRoutes()}
-        orientation={orientation}
-      />
-    </nav>
+    <ResponsiveMenu
+      className="main-menu"
+      routes={getTranslatedRoutes()}
+      orientation={orientation}
+    />
   );
 };
 

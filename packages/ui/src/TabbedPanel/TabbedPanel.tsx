@@ -2,8 +2,6 @@ import React, { useId, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./helper";
 
-import "./tabs.css";
-
 import type { Properties } from "./types";
 
 const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
