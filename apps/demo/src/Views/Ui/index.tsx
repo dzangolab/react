@@ -4,7 +4,6 @@ import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import TermsAndCondition from "./TermsAndCondition";
 
 const componentList = [
   {
@@ -41,11 +40,6 @@ const componentList = [
         </Page>
       </>
     ),
-  },
-  {
-    key: 4,
-    title: "Terms and conditions",
-    component: <TermsAndCondition name="termsAndCondition" />,
   },
 ];
 
