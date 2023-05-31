@@ -74,7 +74,7 @@
       "form  divider sso-wrapper"
       "links divider sso-wrapper";
     align-items: flex-start;
-    min-width: 40rem;
+    min-width: 44rem;
   }
 
   .login > .content[data-aria-orientation="horizontal"] > .redirect-message {
