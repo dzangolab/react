@@ -2,11 +2,6 @@
   justify-items: center;
 }
 
-.signup > .content {
-  min-width: 20rem;
-  width: max-content;
-}
-
 .signup .links {
   display: flex;
   justify-content: space-between;

@@ -1,5 +1,8 @@
 form {
   gap: var(--form-gap, 1rem);
+  width: 100%;
+  min-width: 20rem;
+  max-width: 20rem;
 }
 
 form > button {
