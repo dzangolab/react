@@ -51,7 +51,6 @@
 
   .sidebar > .sidebar-menu span[role="label"] {
     width: 0;
-    font-weight: 700;
     transition: all var(--transition-duration) ease 0s;
   }
 
