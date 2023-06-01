@@ -9,12 +9,11 @@ import SignupFormFields from "./SignupFormFields";
 import type { LoginCredentials } from "../types";
 
 interface Properties {
-  hasTerms?: boolean;
   handleSubmit: (credentials: LoginCredentials) => void;
   loading?: boolean;
 }
 
-const SignupForm = ({ hasTerms, handleSubmit, loading }: Properties) => {
+const SignupForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const SignUpFormSchema = zod
@@ -50,11 +49,11 @@ const SignupForm = ({ hasTerms, handleSubmit, loading }: Properties) => {
         password: "",
         email: "",
         confirmPassword: "",
-        terms: false,
+        termsAndCondition: false,
       }}
       validationSchema={SignUpFormSchema}
     >
-      <SignupFormFields loading={loading} hasTerms={hasTerms} />
+      <SignupFormFields loading={loading} />
     </Provider>
   );
 };

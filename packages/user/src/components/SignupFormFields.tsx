@@ -9,17 +9,15 @@ import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 
 import TermsAndCondition from "./TermsAndCondition";
+import { useConfig } from "../hooks";
 
 interface IProperties {
-  hasTerms?: boolean;
   loading?: boolean;
 }
 
-const SignupFormFields: React.FC<IProperties> = ({
-  hasTerms = false,
-  loading,
-}) => {
+const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
   const { t } = useTranslation("user");
+  const { user } = useConfig();
   const {
     register,
     getFieldState,
@@ -27,10 +25,11 @@ const SignupFormFields: React.FC<IProperties> = ({
     control,
   } = useFormContext();
 
+  const hasTermsAndCondition = user.routes?.signup?.termsAndCondition;
   let isChecked = false;
 
-  if (hasTerms) {
-    isChecked = useWatch({ control: control, name: "terms" });
+  if (hasTermsAndCondition && user.routes?.signup?.checkbox) {
+    isChecked = useWatch({ control: control, name: "termsAndCondition" });
   }
 
   return (
@@ -54,9 +53,10 @@ const SignupFormFields: React.FC<IProperties> = ({
         register={register}
         getFieldState={getFieldState}
       />
-      {hasTerms ? (
+      {hasTermsAndCondition ? (
         <TermsAndCondition
-          label="I agree to terms"
+          hasCheckbox={user.routes?.signup?.checkbox}
+          label={user.routes?.signup?.label || ""}
           name="termsAndCondition"
           register={register}
         />
@@ -64,7 +64,10 @@ const SignupFormFields: React.FC<IProperties> = ({
       <SubmitButton
         label={`${t("signup.form.actions.submit")}`}
         loading={loading}
-        disabled={!!Object.values(errors).length || (hasTerms && !isChecked)}
+        disabled={
+          !!Object.values(errors).length ||
+          (hasTermsAndCondition && user.routes?.signup?.checkbox && !isChecked)
+        }
       />
     </>
   );

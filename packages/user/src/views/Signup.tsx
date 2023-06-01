@@ -12,16 +12,11 @@ import signup from "../supertokens/signup";
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
 interface IProperties {
-  hasTermsAndCondition?: boolean;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
 }
 
-const Signup: React.FC<IProperties> = ({
-  hasTermsAndCondition,
-  onSignupFailed,
-  onSignupSuccess,
-}) => {
+const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
@@ -76,11 +71,7 @@ const Signup: React.FC<IProperties> = ({
 
   return (
     <Page className="signup" title={t("signup.title")}>
-      <SignupForm
-        handleSubmit={handleSubmit}
-        hasTerms={hasTermsAndCondition}
-        loading={loading}
-      />
+      <SignupForm handleSubmit={handleSubmit} loading={loading} />
       <div className="links">{getLinks()}</div>
     </Page>
   );

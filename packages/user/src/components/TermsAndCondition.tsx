@@ -6,7 +6,7 @@ interface IProperties {
   checked?: boolean;
   handleChange?: () => void;
   hasCheckbox?: boolean;
-  label: string;
+  label: React.ReactNode;
   name: string;
 }
 
@@ -20,7 +20,7 @@ const TermsAndCondition: React.FC<IProperties> = ({
   return hasCheckbox ? (
     <label htmlFor={name}>
       <input
-        {...(!!register && register(name))}
+        {...(register ? register(name) : undefined)}
         id={name}
         type="checkbox"
         name={name}

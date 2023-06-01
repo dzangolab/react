@@ -1,3 +1,4 @@
+import { AppConfig, ConfigProvider } from "@dzangolab/react-config";
 import {
   render,
   fireEvent,
@@ -11,16 +12,27 @@ import { expect, test, vi } from "vitest";
 
 import SignupForm from "../SignupForm";
 
+const userConfig = {
+  user: {
+    supportedRoles: ["USER"],
+    supportedLoginProviders: ["google"],
+  },
+};
+
 const setup = (component: React.ReactElement) => {
   return {
     user: userEvent.setup(),
-    ...render(component),
+    ...render(
+      <ConfigProvider appConfig={userConfig as AppConfig}>
+        {component}
+      </ConfigProvider>
+    ),
   };
 };
 
 test("validation error messages are displayed", async () => {
   const handleSubmit = vi.fn();
-  render(<SignupForm handleSubmit={handleSubmit} />);
+  setup(<SignupForm handleSubmit={handleSubmit} />);
 
   expect(screen.getByLabelText("signup.form.email.label")).toBeDefined();
   expect(screen.getByLabelText("signup.form.password.label")).toBeDefined();

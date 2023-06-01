@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import { UserType } from "./types";
 
 interface RouteOverride {
@@ -7,7 +9,12 @@ interface RouteOverride {
 interface RouteOverrides {
   home?: ((user: UserType) => string) | string;
   login?: RouteOverride;
-  signup?: RouteOverride & { disabled?: boolean };
+  signup?: RouteOverride & {
+    disabled?: boolean;
+    termsAndCondition?: boolean;
+    label?: ReactNode;
+    checkbox?: boolean;
+  };
   forgetPassword?: RouteOverride & { disabled?: boolean };
 }
 
