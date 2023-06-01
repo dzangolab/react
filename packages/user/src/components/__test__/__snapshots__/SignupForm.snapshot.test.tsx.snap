@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <form
-  className="form "
+  className=""
   noValidate={true}
   onSubmit={[Function]}
 >

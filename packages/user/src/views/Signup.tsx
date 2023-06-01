@@ -12,11 +12,16 @@ import signup from "../supertokens/signup";
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
 interface IProperties {
+  hasTermsAndCondition?: boolean;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
 }
 
-const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
+const Signup: React.FC<IProperties> = ({
+  hasTermsAndCondition,
+  onSignupFailed,
+  onSignupSuccess,
+}) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
@@ -35,18 +40,19 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
         }
       })
       .catch(async (error) => {
-        let errorMessage = t("errors.otherErrors", { ns: "errors" });
-
-        if (error instanceof Error) {
-          errorMessage = error.message;
-        }
+        const errorMessage = t("errors.otherErrors", { ns: "errors" });
 
         onSignupFailed && (await onSignupFailed(error));
 
-        toast.error(errorMessage);
-      });
+        if (error.name) {
+          throw error as Error;
+        }
 
-    setLoading(false);
+        toast.error(error.message || errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const getLinks = () => {
@@ -70,7 +76,11 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
 
   return (
     <Page className="signup" title={t("signup.title")}>
-      <SignupForm handleSubmit={handleSubmit} loading={loading} />
+      <SignupForm
+        handleSubmit={handleSubmit}
+        hasTerms={hasTermsAndCondition}
+        loading={loading}
+      />
       <div className="links">{getLinks()}</div>
     </Page>
   );

@@ -23,6 +23,7 @@ export type {
   CustomInputProperties,
   EmailErrorMessages,
   PasswordErrorMessages,
+  UseFormRegister,
 };
 
 export type { IsEmailOptions, StrongPasswordOptions } from "./validator";
