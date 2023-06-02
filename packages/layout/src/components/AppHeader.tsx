@@ -1,6 +1,5 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 
 import Logo from "./Logo";
 import MainMenu from "./MainMenu";
@@ -29,7 +28,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     logo = <Logo source={layoutConfig?.logo} route={home} />,
     mainMenu = <MainMenu routes={layoutConfig?.mainMenu} />,
     navStyle = "dropdown",
-    toggle = <GiHamburgerMenu style={{ height: "1.5rem" }} />,
+    toggle = <i className="pi pi-align-justify"></i>,
     userMenu,
   } = properties;
 

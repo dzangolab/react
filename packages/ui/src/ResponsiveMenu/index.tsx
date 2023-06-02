@@ -9,10 +9,12 @@ interface Properties {
     route: string;
     icon?: React.ReactNode;
   }[];
+  displayIcon?: boolean;
 }
 
 const ResponsiveMenu = ({
   className,
+  displayIcon = false,
   orientation = "horizontal",
   routes,
 }: Properties) => {
@@ -44,9 +46,11 @@ const ResponsiveMenu = ({
             className={isActive ? "active" : undefined}
             aria-current={isActive ? "page" : undefined}
           >
-            <span role="icon" title={route.name}>
-              {route.icon}
-            </span>
+            {displayIcon ? (
+              <span role="icon" title={route.name}>
+                {route.icon}
+              </span>
+            ) : null}
             <span role="label">{route.name}</span>
           </a>
         </li>
@@ -59,9 +63,11 @@ const ResponsiveMenu = ({
       routes.map((route) => (
         <li key={route.name}>
           <NavLink to={route.route}>
-            <span role="icon" title={route.name}>
-              {route.icon}
-            </span>
+            {displayIcon ? (
+              <span role="icon" title={route.name}>
+                {route.icon}
+              </span>
+            ) : null}
             <span role="label">{route.name}</span>
           </NavLink>
         </li>

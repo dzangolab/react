@@ -13,10 +13,6 @@ exports[`Component matches snapshot 1`] = `
         href="/"
       >
         <span
-          role="icon"
-          title="Home"
-        />
-        <span
           role="label"
         >
           Home
@@ -27,10 +23,6 @@ exports[`Component matches snapshot 1`] = `
       <a
         href="/about"
       >
-        <span
-          role="icon"
-          title="About"
-        />
         <span
           role="label"
         >

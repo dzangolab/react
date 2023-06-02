@@ -44,17 +44,4 @@
   .sidebar[aria-expanded="true"] {
     width: 250px;
   }
-
-  .sidebar[aria-expanded="true"] > .toggle-button > button {
-    transform: rotate(180deg);
-  }
-
-  .sidebar > .sidebar-menu span[role="label"] {
-    width: 0;
-    transition: all var(--transition-duration) ease 0s;
-  }
-
-  .sidebar[aria-expanded="true"] > .sidebar-menu span[role="label"] {
-    width: 100%;
-  }
 }
