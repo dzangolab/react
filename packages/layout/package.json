@@ -26,9 +26,7 @@
     "test:unit": "vitest --environment jsdom run unit/",
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
-  "dependencies": {
-    "react-icons": "4.8.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@dzangolab/react-config": "0.8.0",
     "@dzangolab/react-i18n": "0.8.0",
@@ -46,6 +44,7 @@
     "eslint-plugin-react": "7.32.2",
     "jsdom": "21.1.1",
     "prettier": "2.8.8",
+    "primeicons": "6.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.11.1",
@@ -59,6 +58,7 @@
     "@dzangolab/react-config": "0.8.0",
     "@dzangolab/react-i18n": "0.8.0",
     "@dzangolab/react-ui": "0.8.0",
+    "primeicons": ">=6.0.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",
     "react-router-dom": ">=6.9"

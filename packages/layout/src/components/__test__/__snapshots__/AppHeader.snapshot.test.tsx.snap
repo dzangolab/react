@@ -30,10 +30,6 @@ exports[`Component matches snapshot 1`] = `
             href="/"
           >
             <span
-              role="icon"
-              title="header.menu.home"
-            />
-            <span
               role="label"
             >
               header.menu.home
@@ -44,10 +40,6 @@ exports[`Component matches snapshot 1`] = `
           <a
             href="/about"
           >
-            <span
-              role="icon"
-              title="header.menu.about"
-            />
             <span
               role="label"
             >
@@ -104,25 +96,9 @@ exports[`Component matches snapshot 1`] = `
     className="toggle"
     onClick={[Function]}
   >
-    <svg
-      fill="currentColor"
-      height="1em"
-      stroke="currentColor"
-      strokeWidth="0"
-      style={
-        {
-          "color": undefined,
-          "height": "1.5rem",
-        }
-      }
-      viewBox="0 0 512 512"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
-      />
-    </svg>
+    <i
+      className="pi pi-align-justify"
+    />
   </div>
 </header>
 `;

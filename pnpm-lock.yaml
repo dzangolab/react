@@ -424,10 +424,6 @@ importers:
         version: 0.30.1(jsdom@20.0.3)
 
   packages/layout:
-    dependencies:
-      react-icons:
-        specifier: 4.8.0
-        version: 4.8.0(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
         specifier: 0.8.0
@@ -477,6 +473,9 @@ importers:
       prettier:
         specifier: 2.8.8
         version: 2.8.8
+      primeicons:
+        specifier: 6.0.1
+        version: 6.0.1
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -12135,6 +12134,10 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
+  /primeicons@6.0.1:
+    resolution: {integrity: sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==}
+    dev: true
+
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
@@ -12442,14 +12445,6 @@ packages:
       i18next: 21.10.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /react-icons@4.8.0(react@18.2.0):
-    resolution: {integrity: sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==}
-    peerDependencies:
-      react: '*'
-    dependencies:
-      react: 18.2.0
     dev: false
 
   /react-inspector@6.0.1(react@18.2.0):
