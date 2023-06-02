@@ -11,7 +11,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "7.21.4",
+    "@babel/core": "7.22.1",
     "@storybook/addon-actions": "7.0.7",
     "@storybook/addon-docs": "6.5.16",
     "@storybook/addon-essentials": "7.0.7",
@@ -22,7 +22,7 @@
     "@storybook/testing-library": "0.1.0",
     "babel-loader": "9.1.2",
     "eslint": "8.40.0",
-    "eslint-plugin-storybook": "0.6.10",
+    "eslint-plugin-storybook": "0.6.12",
     "storybook": "7.0.7",
     "typescript": "5.0.3",
     "vite": "4.3.1",

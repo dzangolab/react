@@ -47,7 +47,7 @@
     "primeicons": "6.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.11.1",
+    "react-router-dom": "6.11.2",
     "react-test-renderer": "18.2.0",
     "tsconfig": "0.8.0",
     "typescript": "4.9.5",
