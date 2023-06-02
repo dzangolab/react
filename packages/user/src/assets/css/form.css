@@ -14,11 +14,6 @@ form > .field > label {
   text-align: start;
 }
 
-form > .field > input {
-  border: 0.1rem solid #eeeeee;
-  height: 2.5rem;
-}
-
 form > .field > span {
   text-align: start;
 }
