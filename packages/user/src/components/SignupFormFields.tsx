@@ -53,22 +53,27 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
         register={register}
         getFieldState={getFieldState}
       />
-      {hasTermsAndCondition ? (
-        <TermsAndCondition
-          hasCheckbox={user.routes?.signup?.checkbox}
-          label={user.routes?.signup?.label || ""}
-          name="termsAndCondition"
-          register={register}
+      <div className="field buttons">
+        {hasTermsAndCondition ? (
+          <TermsAndCondition
+            hasCheckbox={user.routes?.signup?.checkbox}
+            label={user.routes?.signup?.label || ""}
+            name="termsAndCondition"
+            register={register}
+          />
+        ) : null}
+
+        <SubmitButton
+          label={`${t("signup.form.actions.submit")}`}
+          loading={loading}
+          disabled={
+            !!Object.values(errors).length ||
+            (hasTermsAndCondition &&
+              user.routes?.signup?.checkbox &&
+              !isChecked)
+          }
         />
-      ) : null}
-      <SubmitButton
-        label={`${t("signup.form.actions.submit")}`}
-        loading={loading}
-        disabled={
-          !!Object.values(errors).length ||
-          (hasTermsAndCondition && user.routes?.signup?.checkbox && !isChecked)
-        }
-      />
+      </div>
     </>
   );
 };
