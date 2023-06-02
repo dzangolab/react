@@ -57,7 +57,7 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
         {hasTermsAndCondition ? (
           <TermsAndCondition
             hasCheckbox={user.routes?.signup?.checkbox}
-            label={user.routes?.signup?.label || ""}
+            label={user.routes?.signup?.label ? user.routes.signup.label() : ""}
             name="termsAndCondition"
             register={register}
           />

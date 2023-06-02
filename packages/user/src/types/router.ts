@@ -12,7 +12,7 @@ interface RouteOverrides {
   signup?: RouteOverride & {
     disabled?: boolean;
     termsAndCondition?: boolean;
-    label?: ReactNode;
+    label?: () => ReactNode;
     checkbox?: boolean;
   };
   forgetPassword?: RouteOverride & { disabled?: boolean };
