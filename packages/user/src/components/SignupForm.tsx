@@ -1,10 +1,10 @@
-import { Email, Form, Password, emailSchema } from "@dzangolab/react-form";
+import { Provider, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
 
 import { PasswordConfirmationSchema } from "./schemas";
+import SignupFormFields from "./SignupFormFields";
 
 import type { LoginCredentials } from "../types";
 
@@ -43,25 +43,18 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
     );
 
   return (
-    <Form
+    <Provider
+      onSubmit={handleSubmit}
+      defaultValues={{
+        password: "",
+        email: "",
+        confirmPassword: "",
+        termsAndConditions: false,
+      }}
       validationSchema={SignUpFormSchema}
-      onSubmit={(data) => handleSubmit({ ...data })}
     >
-      <Email
-        label={t("signup.form.email.label")}
-        name="email"
-        placeholder={t("signup.form.email.placeholder")}
-      />
-      <Password label={t("signup.form.password.label")} name="password" />
-      <Password
-        label={t("signup.form.confirmPassword.label")}
-        name="confirmPassword"
-      />
-      <SubmitButton
-        label={`${t("signup.form.actions.submit")}`}
-        loading={loading}
-      />
-    </Form>
+      <SignupFormFields loading={loading} />
+    </Provider>
   );
 };
 

@@ -35,18 +35,19 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
         }
       })
       .catch(async (error) => {
-        let errorMessage = t("errors.otherErrors", { ns: "errors" });
-
-        if (error instanceof Error) {
-          errorMessage = error.message;
-        }
+        const errorMessage = t("errors.otherErrors", { ns: "errors" });
 
         onSignupFailed && (await onSignupFailed(error));
 
-        toast.error(errorMessage);
-      });
+        if (error.name) {
+          throw error as Error;
+        }
 
-    setLoading(false);
+        toast.error(error.message || errorMessage);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const getLinks = () => {

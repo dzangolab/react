@@ -26,7 +26,11 @@ const signup = async (
   if (response.status !== "FIELD_ERROR") {
     user = response.user as UserType;
     status = response.status;
-  } else throw new Error(response.status);
+  } else
+    throw {
+      name: response.formFields[0].id,
+      message: response.formFields[0].error,
+    } as Error;
 
   return { user, status };
 };

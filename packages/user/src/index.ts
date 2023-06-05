@@ -1,5 +1,6 @@
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
+import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
@@ -42,6 +43,7 @@ export {
   Profile,
   ResetPassword,
   Signup,
+  TermsAndConditions,
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
   UserMenu,

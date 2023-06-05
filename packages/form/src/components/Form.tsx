@@ -34,7 +34,7 @@ export const Form: React.FC<IForm> = ({
 
   return (
     <form
-      className={`form ${className}`}
+      className={className}
       onSubmit={handleSubmit(onSubmit)}
       noValidate={!html5Validation} // enable/disable default html5 validations
     >

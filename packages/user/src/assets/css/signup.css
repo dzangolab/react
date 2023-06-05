@@ -6,3 +6,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.signup .buttons {
+  gap: 0.5em;
+}
+
+.signup .buttons > label {
+  cursor: pointer;
+}

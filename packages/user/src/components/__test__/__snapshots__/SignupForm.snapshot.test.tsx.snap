@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <form
-  className="form "
+  className=""
   noValidate={true}
   onSubmit={[Function]}
 >
@@ -57,11 +57,15 @@ exports[`Component matches snapshot 1`] = `
       type="password"
     />
   </div>
-  <button
-    className="button-submit"
-    type="submit"
+  <div
+    className="field buttons"
   >
-    signup.form.actions.submit
-  </button>
+    <button
+      className="button-submit"
+      type="submit"
+    >
+      signup.form.actions.submit
+    </button>
+  </div>
 </form>
 `;
