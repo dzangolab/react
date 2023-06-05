@@ -49,7 +49,7 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
         password: "",
         email: "",
         confirmPassword: "",
-        termsAndCondition: false,
+        termsAndConditions: false,
       }}
       validationSchema={SignUpFormSchema}
     >
