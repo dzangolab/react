@@ -1,3 +1,17 @@
+## [0.8.1](https://github.com/dzangolab/react/compare/v0.8.0...v0.8.1) (2023-06-05)
+
+
+### Bug Fixes
+
+* form width grow on  over-flow ([#381](https://github.com/dzangolab/react/issues/381)) ([af36300](https://github.com/dzangolab/react/commit/af3630013e8befe869c83cadc03ddab2150cbd7e))
+
+
+### Features
+
+* agree terms and condition component ([#380](https://github.com/dzangolab/react/issues/380)) ([a76c87a](https://github.com/dzangolab/react/commit/a76c87a529bcbf9dca7269e80779336a8a307ffd))
+
+
+
 # [0.8.0](https://github.com/dzangolab/react/compare/v0.7.6...v0.8.0) (2023-05-30)
 
 
