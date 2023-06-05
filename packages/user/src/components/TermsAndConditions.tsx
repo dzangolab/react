@@ -2,6 +2,7 @@ import { UseFormRegister } from "@dzangolab/react-form";
 import React from "react";
 
 interface IProperties {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
   checked?: boolean;
   handleChange?: () => void;
