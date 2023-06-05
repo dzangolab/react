@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import type { RouteOverrides } from "./router";
 
 interface DzangolabReactUserConfig {
@@ -8,6 +10,11 @@ interface DzangolabReactUserConfig {
   };
   routes?: RouteOverrides;
   supportedLoginProviders?: string[];
+  termsAndConditions?: {
+    display: boolean;
+    label: () => ReactNode;
+    showCheckbox?: boolean;
+  };
 }
 
 export type { DzangolabReactUserConfig };

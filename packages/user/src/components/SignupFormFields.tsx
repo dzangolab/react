@@ -25,11 +25,11 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
     control,
   } = useFormContext();
 
-  const hasTermsAndCondition = user.routes?.signup?.termsAndCondition;
+  const showTermsAndConditions = user.termsAndConditions?.display;
   let isChecked = false;
 
-  if (hasTermsAndCondition && user.routes?.signup?.checkbox) {
-    isChecked = useWatch({ control: control, name: "termsAndCondition" });
+  if (showTermsAndConditions && user.termsAndConditions?.showCheckbox) {
+    isChecked = useWatch({ control: control, name: "termsAndConditions" });
   }
 
   return (
@@ -57,11 +57,11 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
         submitCount={submitCount}
       />
       <div className="field buttons">
-        {hasTermsAndCondition ? (
+        {showTermsAndConditions ? (
           <TermsAndCondition
-            hasCheckbox={user.routes?.signup?.checkbox}
-            label={user.routes?.signup?.label ? user.routes.signup.label() : ""}
-            name="termsAndCondition"
+            hasCheckbox={user.termsAndConditions?.showCheckbox}
+            label={user.termsAndConditions?.label()}
+            name="termsAndConditions"
             register={register}
           />
         ) : null}
@@ -71,8 +71,8 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
           loading={loading}
           disabled={
             !!Object.values(errors).length ||
-            (hasTermsAndCondition &&
-              user.routes?.signup?.checkbox &&
+            (showTermsAndConditions &&
+              user.termsAndConditions?.showCheckbox &&
               !isChecked)
           }
         />
