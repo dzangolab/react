@@ -8,7 +8,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 
-import TermsAndCondition from "./TermsAndCondition";
+import TermsAndConditions from "./TermsAndConditions";
 import { useConfig } from "../hooks";
 
 interface IProperties {
@@ -58,7 +58,7 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
       />
       <div className="field buttons">
         {showTermsAndConditions ? (
-          <TermsAndCondition
+          <TermsAndConditions
             hasCheckbox={user.termsAndConditions?.showCheckbox}
             label={user.termsAndConditions?.label()}
             name="termsAndConditions"

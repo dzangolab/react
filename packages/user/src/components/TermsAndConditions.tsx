@@ -10,7 +10,7 @@ interface IProperties {
   name: string;
 }
 
-const TermsAndCondition: React.FC<IProperties> = ({
+const TermsAndConditions: React.FC<IProperties> = ({
   hasCheckbox = true,
   label,
   name,
@@ -33,4 +33,4 @@ const TermsAndCondition: React.FC<IProperties> = ({
   );
 };
 
-export default TermsAndCondition;
+export default TermsAndConditions;
