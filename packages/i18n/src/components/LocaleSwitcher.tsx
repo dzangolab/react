@@ -6,6 +6,8 @@ const LocaleSwitcher = () => {
 
   const changeLocale = (newLocale: string) => {
     i18n.changeLanguage(newLocale);
+
+    document.documentElement.lang = newLocale;
   };
 
   const locales =
