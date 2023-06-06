@@ -56,7 +56,7 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
         getFieldState={getFieldState}
         submitCount={submitCount}
       />
-      <div className="field buttons">
+      <div className="buttons">
         {showTermsAndConditions ? (
           <TermsAndConditions
             hasCheckbox={user.termsAndConditions?.showCheckbox}
