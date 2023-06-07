@@ -19,7 +19,7 @@ const TermsAndConditions: React.FC<IProperties> = ({
   ...others
 }) => {
   return hasCheckbox ? (
-    <label htmlFor={name}>
+    <div className={`field ${name}`}>
       <input
         {...(register ? register(name) : undefined)}
         id={name}
@@ -27,10 +27,12 @@ const TermsAndConditions: React.FC<IProperties> = ({
         name={name}
         {...others}
       />
-      {label}
-    </label>
+      <label htmlFor={name}>{label}</label>
+    </div>
   ) : (
-    <p aria-label={name}>{label}</p>
+    <p className={name} aria-label={name}>
+      {label}
+    </p>
   );
 };
 

@@ -53,7 +53,10 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
   const getLinks = () => {
     return (
       <>
-        <Link to={userConfig.routes?.login?.path || ROUTES.LOGIN}>
+        <Link
+          to={userConfig.routes?.login?.path || ROUTES.LOGIN}
+          className="native-link"
+        >
           {t("signup.links.login")}
         </Link>
         {userConfig?.routes?.forgetPassword?.disabled ? null : (
@@ -61,6 +64,7 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
             to={
               userConfig.routes?.forgetPassword?.path || ROUTES.FORGET_PASSWORD
             }
+            className="native-link"
           >
             {t("signup.links.forgotPassword")}
           </Link>

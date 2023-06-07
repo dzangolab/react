@@ -58,7 +58,7 @@ exports[`Component matches snapshot 1`] = `
     />
   </div>
   <div
-    className="field buttons"
+    className="buttons"
   >
     <button
       className="button-submit"
