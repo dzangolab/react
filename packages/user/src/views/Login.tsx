@@ -79,7 +79,10 @@ const Login: React.FC<IProperties> = ({
     return (
       <>
         {appConfig.user?.routes?.signup?.disabled ? null : (
-          <Link to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}>
+          <Link
+            to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
+            className="native-link"
+          >
             {t("login.links.signup")}
           </Link>
         )}
@@ -89,6 +92,7 @@ const Login: React.FC<IProperties> = ({
               appConfig.user.routes?.forgetPassword?.path ||
               ROUTES.FORGET_PASSWORD
             }
+            className="native-link"
           >
             {t("login.links.forgotPassword")}
           </Link>
