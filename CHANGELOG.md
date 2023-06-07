@@ -1,3 +1,12 @@
+## [0.8.2](https://github.com/dzangolab/react/compare/v0.8.1...v0.8.2) (2023-06-07)
+
+
+### Features
+
+* added lang attribute to html tag itself ([#392](https://github.com/dzangolab/react/issues/392)) ([20cd587](https://github.com/dzangolab/react/commit/20cd587da0798a02625dfb16900685c55d6949f6))
+
+
+
 ## [0.8.1](https://github.com/dzangolab/react/compare/v0.8.0...v0.8.1) (2023-06-05)
 
 
