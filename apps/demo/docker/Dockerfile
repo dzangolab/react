@@ -4,7 +4,7 @@ RUN apk add --update --no-cache git
 
 WORKDIR /var/workspace
 
-RUN npm install -g pnpm@7 \
+RUN npm install -g pnpm@8 \
   && pnpm config set store-dir .pnpm-store
 
 COPY package.json package.json
