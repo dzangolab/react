@@ -39,7 +39,7 @@ COPY apps/ apps/
 RUN pnpm install -r --frozen-lockfile --ignore-scripts \
   && pnpm --filter "@dzangolab/demo-..." build
 
-FROM nginx:1.24-alpine as production
+FROM nginx:1.25-alpine as production
 
 COPY apps/demo/docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /var/workspace/apps/demo/dist /usr/share/nginx/html
