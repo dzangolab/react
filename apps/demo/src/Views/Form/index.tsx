@@ -5,12 +5,12 @@ import ComponentList from "../../components/ComponentList";
 const componentList = [
   {
     key: 1,
-    title: "Login Form",
+    title: "pages.forms.login",
     component: <LoginForm />,
   },
   {
     key: 2,
-    title: "Confirm Password Form",
+    title: "pages.forms.confirmPassword",
     component: <ConfirmPasswordForm />,
   },
 ];

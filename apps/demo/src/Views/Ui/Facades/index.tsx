@@ -51,17 +51,18 @@ const YoutubeFacade: React.FC<IProperties> = ({
         aspectRatio: aspectRatio,
       }}
     >
-      <div className="" style={{ flex: 1 }}>
+      <div className="facade-thumbnail">
         <a
           href={videoLink}
           data-youtube-video-token={videoToken}
           title="Watch Video on YouTube"
           onClick={loadYoutubeVideo}
           target="_blank"
+          rel="noreferrer"
         >
           <img src={VideoImageLink} alt={alt} data-aspect-ratio={aspectRatio} />
         </a>
-        <a href={videoLink} target="_blank">
+        <a href={videoLink} target="_blank" rel="noreferrer">
           Watch On <b>YouTube</b>
         </a>
       </div>

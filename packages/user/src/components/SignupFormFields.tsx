@@ -40,21 +40,21 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
         placeholder={t("signup.form.email.placeholder")}
         register={register}
         getFieldState={getFieldState}
-        submitCount={submitCount}
+        submitcount={submitCount}
       />
       <Password
         label={t("signup.form.password.label")}
         name="password"
         register={register}
         getFieldState={getFieldState}
-        submitCount={submitCount}
+        submitcount={submitCount}
       />
       <Password
         label={t("signup.form.confirmPassword.label")}
         name="confirmPassword"
         register={register}
         getFieldState={getFieldState}
-        submitCount={submitCount}
+        submitcount={submitCount}
       />
       <div className="buttons">
         {showTermsAndConditions ? (

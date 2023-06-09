@@ -61,3 +61,7 @@
 .youTubeFacade span {
   display: none;
 }
+
+.facade-thumbnail {
+  flex: 1;
+}

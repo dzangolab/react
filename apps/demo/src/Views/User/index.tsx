@@ -1,5 +1,3 @@
-import { Login } from "@dzangolab/react-user";
-
 import ComponentList from "../../components/ComponentList";
 
 const User = () => {

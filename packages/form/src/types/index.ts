@@ -16,7 +16,7 @@ interface CustomInputProperties {
   name: string;
   placeholder?: string;
   register?: UseFormRegister<any>;
-  submitCount?: number;
+  submitcount?: number;
 }
 
 export type {

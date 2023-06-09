@@ -9,7 +9,7 @@ export const Password: React.FC<CustomInputProperties> = ({
   name,
   placeholder = "",
   register,
-  submitCount = 0,
+  submitcount = 0,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -23,7 +23,7 @@ export const Password: React.FC<CustomInputProperties> = ({
         id={`input-field-${name}`}
         type="password"
         placeholder={placeholder}
-        aria-invalid={submitCount > 0 ? invalid : undefined}
+        aria-invalid={submitcount > 0 ? invalid : undefined}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
