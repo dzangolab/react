@@ -1,6 +1,9 @@
 # @dzangolab/react
 A set of React libraries to be used in our monorepo apps.
 
+## Demo app
+Please find our [demo app](https://dzangolab.github.io/react/) for examples.
+
 ## Packages
   - @dzangolab/react-config (https://www.npmjs.com/package/@dzangolab/react-config)
   - @dzangolab/react-i18n (https://www.npmjs.com/package/@dzangolab/react-i18n)
