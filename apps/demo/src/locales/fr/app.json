@@ -1,15 +1,15 @@
 {
   "errorBoundary": {
-    "title": "Oops! [Fr]",
-    "subtitle": "Sorry, an unexpected error has occurred. [Fr]"
+    "title": "Oops! (fr)",
+    "subtitle": "Sorry, an unexpected error has occurred. (fr)"
   },
   "header": {
     "menu": {
-      "form": "Form [fr]",
-      "i18n": "I18n [fr]",
-      "layout": "Layout [fr]",
-      "ui": "UI [fr]",
-      "user": "User [fr]"
+      "form": "Form (fr)",
+      "i18n": "I18n (fr)",
+      "layout": "Layout (fr)",
+      "ui": "UI (fr)",
+      "user": "User (fr)"
     }
   },
   "footer": {
@@ -17,8 +17,12 @@
   },
   "pages": {
     "home": {
-      "title": "Demo[fr]"
+      "title": "Demo (fr)"
+    },
+    "forms": {
+      "login": "Login Form (fr)",
+      "confirmPassword": "Confirm Password Form (fr)"
     }
   },
-  "loading": "Loading[fr] ..."
+  "loading": "Loading (fr) ..."
 }

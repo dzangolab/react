@@ -1,18 +1,13 @@
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
+import { CustomInputProperties } from "../types";
 
-export interface IInputField
-  extends React.DetailedHTMLProps<
+export type IInputField = CustomInputProperties &
+  React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
-  > {
-  getFieldState?: UseFormGetFieldState<any>;
-  label?: string;
-  name: string;
-  register?: UseFormRegister<any>;
-}
+  >;
 
 export const Input: React.FC<IInputField> = ({
   getFieldState,

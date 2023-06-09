@@ -45,7 +45,7 @@ export const Form: React.FC<IForm> = ({
                 ...child.props,
                 register,
                 getFieldState,
-                submitCount,
+                submitcount: submitCount,
                 key: child.props.name,
               },
             })

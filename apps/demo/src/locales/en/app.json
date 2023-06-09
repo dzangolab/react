@@ -18,6 +18,10 @@
   "pages": {
     "home": {
       "title": "Demo"
+    },
+    "forms": {
+      "login": "Login Form",
+      "confirmPassword": "Confirm Password Form"
     }
   },
   "loading": "Loading ..."

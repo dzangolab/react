@@ -1,54 +1,54 @@
 {
   "authGoogleCallback": {
     "email": {
-      "error": "No email provided by social login. Please use another form of login [fr]",
-      "success": "Logged in successfully. [fr]"
+      "error": "No email provided by social login. Please use another form of login (fr)",
+      "success": "Logged in successfully. (fr)"
     },
     "message": {
-      "error": "Oops! Something went wrong. [fr]"
+      "error": "Oops! Something went wrong. (fr)"
     }
   },
   "changePassword": {
     "form": {
       "actions": {
-        "submit": "Change password [fr]"
+        "submit": "Change password (fr)"
       },
       "oldPassword": {
-        "label": "Old password [fr]"
+        "label": "Old password (fr)"
       },
       "newPassword": {
-        "label": "New password [fr]"
+        "label": "New password (fr)"
       },
       "confirmPassword": {
-        "label": "Confirm password [fr]"
+        "label": "Confirm password (fr)"
       }
     },
     "messages": {
-      "success": "Your password was successfully changed. [fr]",
+      "success": "Your password was successfully changed. (fr)",
       "validation": {
-        "oldPassword": "Old password is required [fr]",
-        "newPassword": "New password is required [fr]",
-        "confirmPassword": "Confirm password is required [fr]",
-        "mustContain": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase [fr]",
-        "mustMatch": "Passwords must match [fr]"
+        "oldPassword": "Old password is required (fr)",
+        "newPassword": "New password is required (fr)",
+        "confirmPassword": "Confirm password is required (fr)",
+        "mustContain": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
+        "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Change Password [fr]"
+    "title": "Change Password (fr)"
   },
   "forgetPassword": {
     "messages": {
-      "success": "Email sent successfully[fr]"
+      "success": "Email sent successfully (fr)"
     },
     "form": {
       "actions": {
-        "submit": "Email me[fr]"
+        "submit": "Email me (fr)"
       },
       "email": {
-        "label": "Your email[fr]",
-        "placeholder": "john.doe.at.example.com[fr]"
+        "label": "Your email (fr)",
+        "placeholder": "john.doe.at.example.com (fr)"
       }
     },
-    "title": "Forget Password[fr]"
+    "title": "Forget Password (fr)"
   },
   "login": {
     "form": {
@@ -68,40 +68,40 @@
       "signup": "Inscription"
     },
     "button": {
-      "googleLoginLabel": "Continue with Google [fr]"
+      "googleLoginLabel": "Continue with Google (fr)"
     },
     "messages": {
       "success": "Logged in successfully.",
       "validation": {
-        "password": "Password is required[fr]"
+        "password": "Password is required (fr)"
       }
     },
     "title": "Connexion"
   },
   "logout": {
-    "message": "Successfully logged out[fr]"
+    "message": "Successfully logged out (fr)"
   },
   "resetPassword": {
     "form": {
       "actions": {
-        "submit": "Reset password[fr]"
+        "submit": "Reset password (fr)"
       },
       "newPassword": {
-        "label": "New password[fr]"
+        "label": "New password (fr)"
       },
       "confirmPassword": {
-        "label": "Confirm password is required[fr]"
+        "label": "Confirm password is required (fr)"
       }
     },
     "messages": {
-      "success": "Reset password successfully[fr]",
+      "success": "Reset password successfully (fr)",
       "validation": {
-        "newPassword": "New password is required[fr]",
-        "confirmPassword": "Confirm password is required[fr]",
-        "mustMatch": "Passwords must match[fr]"
+        "newPassword": "New password is required (fr)",
+        "confirmPassword": "Confirm password is required (fr)",
+        "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Reset Password[fr]"
+    "title": "Reset Password (fr)"
   },
   "signup": {
     "form": {
@@ -119,7 +119,7 @@
         "label": "Votre mot de passe"
       },
       "confirmPassword": {
-        "label": "Confirm password[fr]"
+        "label": "Confirm password (fr)"
       }
     },
     "links": {
@@ -127,12 +127,12 @@
       "login": "Connexion"
     },
     "messages": {
-      "success": "Signed up successfully. [fr]",
+      "success": "Signed up successfully. (fr)",
       "validation": {
-        "password": "Password is required [fr]",
-        "validationMessage": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase [fr]",
-        "confirmPassword": "Confirm password is required [fr]",
-        "mustMatch": "Passwords must match [fr]"
+        "password": "Password is required (fr)",
+        "validationMessage": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
+        "confirmPassword": "Confirm password is required (fr)",
+        "mustMatch": "Passwords must match (fr)"
       }
     },
     "title": "Inscription"
@@ -142,16 +142,16 @@
     "signup": "Inscription"
   },
   "profile": {
-    "title": "Profile[fr]"
+    "title": "Profile (fr)"
   },
   "userMenu": {
-    "profile": "Profile[fr]",
-    "logout": "Logout[fr]"
+    "profile": "Profile (fr)",
+    "logout": "Logout (fr)"
   },
   "validation": {
     "messages": {
-      "email": "Email is required[fr]",
-      "validEmail": "Email must be a valid email[fr]"
+      "email": "Email is required (fr)",
+      "validEmail": "Email must be a valid email (fr)"
     }
   }
 }
