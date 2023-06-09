@@ -62,12 +62,8 @@ async function verifySessionRoles(
       return true;
     } else {
       // all user roles claim check failed
-      if (redirectURL) {
-        window.location.href = redirectURL;
-      } else {
-        await removeUserData();
-        await logout();
-      }
+      await removeUserData();
+      await logout();
     }
   }
   // either a session does not exist, or one of the validators failed.
