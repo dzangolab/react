@@ -1,3 +1,4 @@
+import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { FC, useState } from "react";
 
@@ -7,29 +8,40 @@ import ComponentWrapper from "../ComponentWrapper";
 import type { Component } from "../../types";
 
 interface IProperties {
-  componentList: Component[];
+  componentList: Component[] | [];
   title: string;
+  translationNameSpace?: string[];
 }
 
-const ComponentList: FC<IProperties> = ({ componentList, title }) => {
+const ComponentList: FC<IProperties> = ({
+  componentList,
+  title,
+  translationNameSpace = [],
+}) => {
   const [selectedComponentIndex, setSelectedComponentIndex] = useState<
     null | number
   >(null);
 
+  const { t } = useTranslation([...translationNameSpace, "app"]);
+
   const renderComponent = () => {
     if (selectedComponentIndex === null) {
-      return componentList.map((component, index) => (
-        <Card
-          key={component.key}
-          title={component.title}
-          onClick={() => setSelectedComponentIndex(index)}
-        />
-      ));
+      return (
+        <Page title={t(title, { ns: "app" })}>
+          {componentList.map((component, index) => (
+            <Card
+              key={component.key}
+              title={t(component.title)}
+              onClick={() => setSelectedComponentIndex(index)}
+            />
+          ))}
+        </Page>
+      );
     } else {
       return (
         <ComponentWrapper
           onBack={() => setSelectedComponentIndex(null)}
-          title={componentList[selectedComponentIndex].title}
+          title={t(componentList[selectedComponentIndex].title)}
         >
           {componentList[selectedComponentIndex].component}
         </ComponentWrapper>
@@ -37,7 +49,7 @@ const ComponentList: FC<IProperties> = ({ componentList, title }) => {
     }
   };
 
-  return <Page title={title}>{renderComponent()}</Page>;
+  return renderComponent();
 };
 
 export default ComponentList;

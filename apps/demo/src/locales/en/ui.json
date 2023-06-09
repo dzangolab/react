@@ -1,0 +1,11 @@
+{
+  "facades": {
+    "youtubeFacade": "Youtube facade",
+    "alt": "Sorry, unable to load video/image"
+  },
+  "loading": "Loading",
+  "buttons": {
+    "submit": "Submit Button"
+  },
+  "responsiveMenu": "Responsive Menu"
+}

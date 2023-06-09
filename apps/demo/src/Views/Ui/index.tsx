@@ -1,6 +1,6 @@
-import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 
+import FacadeExample from "./Facades/Example";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
@@ -8,7 +8,7 @@ import { MENU_ROUTES } from "../../constants";
 const componentList = [
   {
     key: 1,
-    title: "Loading",
+    title: "loading",
     component: (
       <div
         style={{
@@ -24,12 +24,12 @@ const componentList = [
   },
   {
     key: 2,
-    title: "Submit Button",
+    title: "buttons.submit",
     component: <SubmitButton />,
   },
   {
     key: 3,
-    title: "Responsive Menu",
+    title: "responsiveMenu",
     component: (
       <>
         <Page title="Horizontal menu">
@@ -41,13 +41,20 @@ const componentList = [
       </>
     ),
   },
+  {
+    key: 4,
+    title: "facades.youtubeFacade",
+    component: <FacadeExample />,
+  },
 ];
 
 const Ui = () => {
-  const { t } = useTranslation();
-
   return (
-    <ComponentList componentList={componentList} title={t("header.menu.ui")} />
+    <ComponentList
+      componentList={componentList}
+      title={"header.menu.ui"}
+      translationNameSpace={["ui"]}
+    />
   );
 };
 
