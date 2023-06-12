@@ -21,10 +21,7 @@ const UserProvider = ({ children }: Properties) => {
       try {
         if (
           appConfig &&
-          (await verifySessionRoles(
-            appConfig.user.supportedRoles,
-            appConfig.user.redirectTo.appURL
-          ))
+          (await verifySessionRoles(appConfig.user.supportedRoles))
         ) {
           const userInfo = await getUserData();
 

@@ -21,12 +21,8 @@ async function getUserRoles(): Promise<string[]> {
  * Verify if the user has at least one role from the given roles
  *
  * @param claims List of roles to be verified
- * @param redirectURL URL to redirect to if claims fail
  */
-async function verifySessionRoles(
-  claims: string[],
-  redirectURL?: string
-): Promise<boolean> {
+async function verifySessionRoles(claims: string[]): Promise<boolean> {
   if (await Session.doesSessionExist()) {
     let errorCount = 0;
 
