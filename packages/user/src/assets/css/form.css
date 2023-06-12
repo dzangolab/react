@@ -10,7 +10,7 @@ form > button {
 }
 
 form > .field {
-  row-gap: 0.2rem;
+  row-gap: 0.5em;
 }
 
 form > .field > label {
