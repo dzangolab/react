@@ -1,3 +1,21 @@
+## [0.8.3](https://github.com/dzangolab/react/compare/v0.8.2...v0.8.3) (2023-06-12)
+
+
+### Bug Fixes
+
+* **deps:** bump pnpm to 8 ([#402](https://github.com/dzangolab/react/issues/402)) ([75e6912](https://github.com/dzangolab/react/commit/75e6912a1169fbd2e9b1643a40a9963ac7428b5e))
+* **deps:** generate new lockfile ([#399](https://github.com/dzangolab/react/issues/399)) ([c17b6ac](https://github.com/dzangolab/react/commit/c17b6ac1a700348c471789589fdb47312d1f7231))
+* **deps:** update dependency @reduxjs/toolkit to v1.9.5 ([#376](https://github.com/dzangolab/react/issues/376)) ([9569eee](https://github.com/dzangolab/react/commit/9569eee0248c3dd62c5930c7c146eea54287e1d5))
+* **deps:** update dependency react-redux to v8.0.7 ([#383](https://github.com/dzangolab/react/issues/383)) ([e68c5dd](https://github.com/dzangolab/react/commit/e68c5dde6cdd8d7df73764eeaf7b6600206dee9c))
+* redirect issue in login page ([#404](https://github.com/dzangolab/react/issues/404)) ([ee76e40](https://github.com/dzangolab/react/commit/ee76e40bd45268d2ac686189a025d9411d8cada7))
+
+
+### Features
+
+* add youtube facade to demo app ([#403](https://github.com/dzangolab/react/issues/403)) ([73ea08c](https://github.com/dzangolab/react/commit/73ea08c86d6b641705e030935196ca8b2f5c4fb7))
+
+
+
 ## [0.8.2](https://github.com/dzangolab/react/compare/v0.8.1...v0.8.2) (2023-06-07)
 
 
