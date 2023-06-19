@@ -248,16 +248,16 @@ importers:
     dependencies:
       '@hookform/error-message':
         specifier: 2.0.1
-        version: 2.0.1(react-dom@18.2.0)(react-hook-form@7.43.9)(react@18.2.0)
+        version: 2.0.1(react-dom@18.2.0)(react-hook-form@7.45.0)(react@18.2.0)
       '@hookform/resolvers':
         specifier: 3.1.0
-        version: 3.1.0(react-hook-form@7.43.9)
+        version: 3.1.0(react-hook-form@7.45.0)
       react-debounce-input:
         specifier: 3.3.0
         version: 3.3.0(react@18.2.0)
       react-hook-form:
-        specifier: 7.43.9
-        version: 7.43.9(react@18.2.0)
+        specifier: 7.45.0
+        version: 7.45.0(react@18.2.0)
       validator:
         specifier: 13.9.0
         version: 13.9.0
@@ -3751,7 +3751,7 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
-  /@hookform/error-message@2.0.1(react-dom@18.2.0)(react-hook-form@7.43.9)(react@18.2.0):
+  /@hookform/error-message@2.0.1(react-dom@18.2.0)(react-hook-form@7.45.0)(react@18.2.0):
     resolution: {integrity: sha512-U410sAr92xgxT1idlu9WWOVjndxLdgPUHEB8Schr27C9eh7/xUnITWpCMF93s+lGiG++D4JnbSnrb5A21AdSNg==}
     peerDependencies:
       react: '>=16.8.0'
@@ -3760,15 +3760,15 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-hook-form: 7.43.9(react@18.2.0)
+      react-hook-form: 7.45.0(react@18.2.0)
     dev: false
 
-  /@hookform/resolvers@3.1.0(react-hook-form@7.43.9):
+  /@hookform/resolvers@3.1.0(react-hook-form@7.45.0):
     resolution: {integrity: sha512-z0A8K+Nxq+f83Whm/ajlwE6VtQlp/yPHZnXw7XWVPIGm1Vx0QV8KThU3BpbBRfAZ7/dYqCKKBNnQh85BkmBKkA==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.43.9(react@18.2.0)
+      react-hook-form: 7.45.0(react@18.2.0)
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:
@@ -13411,8 +13411,8 @@ packages:
       react-is: 18.1.0
     dev: true
 
-  /react-hook-form@7.43.9(react@18.2.0):
-    resolution: {integrity: sha512-AUDN3Pz2NSeoxQ7Hs6OhQhDr6gtF9YRuutGDwPQqhSUAHJSgGl2VeY3qN19MG0SucpjgDiuMJ4iC5T5uB+eaNQ==}
+  /react-hook-form@7.45.0(react@18.2.0):
+    resolution: {integrity: sha512-AbHeZ4ad+0dEIknSW9dBgIwcvRDfZ1O97sgj75WaMdOX0eg8TBiUf9wxzVkIjZbk76BBIE9lmFOzyD4PN80ZQg==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
