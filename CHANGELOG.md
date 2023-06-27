@@ -1,3 +1,14 @@
+## [0.8.4](https://github.com/dzangolab/react/compare/v0.8.3...v0.8.4) (2023-06-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.45.0 ([#412](https://github.com/dzangolab/react/issues/412)) ([c7fa165](https://github.com/dzangolab/react/commit/c7fa16589537ba7120ba9ce93420c5d69e03c0ed))
+* **deps:** update dependency supertokens-web-js to v0.6.0 ([#414](https://github.com/dzangolab/react/issues/414)) ([f2fca39](https://github.com/dzangolab/react/commit/f2fca39f1b8757ebbcc7a772321ef41f3f64cdd4))
+* **deps:** update typescript-eslint monorepo to v5.60.0 ([#415](https://github.com/dzangolab/react/issues/415)) ([4791ec7](https://github.com/dzangolab/react/commit/4791ec7c9494f1b657ccecf43ffb72cd1ce6aa27))
+
+
+
 ## [0.8.3](https://github.com/dzangolab/react/compare/v0.8.2...v0.8.3) (2023-06-12)
 
 
