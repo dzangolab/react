@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 
 import GoogleLogin from "../components/GoogleLogin";
 import LoginForm from "../components/LoginForm";
-import RedirectionMessage from "../components/RedirectionMessage";
 import { ROUTES } from "../constants";
 import { useConfig, useUser } from "../hooks";
 import { verifySessionRoles } from "../supertokens/helpers";
@@ -35,8 +34,6 @@ const Login: React.FC<IProperties> = ({
   const { setUser } = useUser();
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
-  const [showRedirectionMessage, setShowRedirectionMessage] =
-    useState<boolean>(false);
 
   let className = "login";
 
@@ -51,12 +48,11 @@ const Login: React.FC<IProperties> = ({
             (await verifySessionRoles(appConfig.user.supportedRoles))
           ) {
             await setUser(result.user);
-            setShowRedirectionMessage(false);
             onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
           } else {
-            setShowRedirectionMessage(true);
+            toast.error(t("login.messages.permissionDenied"));
           }
         }
       })
@@ -115,14 +111,6 @@ const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
     >
-      {showRedirectionMessage ? (
-        <RedirectionMessage
-          appLink={appConfig?.user.redirectTo.appURL || ""}
-          appName={appConfig?.user.redirectTo.appName || ""}
-          hideRedirectionMessage={() => setShowRedirectionMessage(false)}
-        />
-      ) : null}
-
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
 
       <div className="links">{getLinks()}</div>
