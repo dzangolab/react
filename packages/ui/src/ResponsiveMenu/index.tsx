@@ -62,7 +62,7 @@ const ResponsiveMenu = ({
     () =>
       routes.map((route) => (
         <li key={route.name}>
-          <NavLink to={route.route}>
+          <NavLink to={route.route} end={route.route === "/"}>
             {displayIcon ? (
               <span role="icon" title={route.name}>
                 {route.icon}

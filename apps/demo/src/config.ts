@@ -61,10 +61,6 @@ const config: AppConfig = {
   },
   user: {
     supportedRoles: [],
-    redirectTo: {
-      appName: "",
-      appURL: "",
-    },
     supportedLoginProviders: ["google"],
   },
   websiteDomain: (window.location.protocol +
