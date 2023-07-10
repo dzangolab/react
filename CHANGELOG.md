@@ -1,3 +1,12 @@
+# [0.9.0](https://github.com/dzangolab/react/compare/v0.8.6...v0.9.0) (2023-07-10)
+
+
+### Features
+
+* **user:** support authBasePath Config ([71b0d3f](https://github.com/dzangolab/react/commit/71b0d3fa05c27433dd0c57bdfa06b828b81aaddc))
+
+
+
 ## [0.8.6](https://github.com/dzangolab/react/compare/v0.8.5...v0.8.6) (2023-07-10)
 
 
