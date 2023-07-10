@@ -1,3 +1,4 @@
+import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
 import { AppConfig } from "@dzangolab/react-config";
 import SuperTokens from "supertokens-web-js";
 import Session from "supertokens-web-js/recipe/session";
@@ -8,7 +9,7 @@ const superTokens = (config: AppConfig) => {
     appInfo: {
       appName: config.appTitle,
       apiDomain: config.apiBaseUrl,
-      apiBasePath: "/auth",
+      apiBasePath: config.apiBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
     recipeList: [Session.init(), ThirdPartyEmailPassword.init()],
   });

@@ -1,4 +1,5 @@
 interface AppConfig {
+  apiBasePath?: string;
   apiBaseUrl: string;
   appPort: string;
   appTitle: string;
