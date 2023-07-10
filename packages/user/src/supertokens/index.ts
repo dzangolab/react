@@ -9,7 +9,7 @@ const superTokens = (config: AppConfig) => {
     appInfo: {
       appName: config.appTitle,
       apiDomain: config.apiBaseUrl,
-      apiBasePath: config.apiBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
+      apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
     recipeList: [Session.init(), ThirdPartyEmailPassword.init()],
   });

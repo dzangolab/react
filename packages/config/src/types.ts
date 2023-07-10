@@ -1,5 +1,5 @@
 interface AppConfig {
-  apiBasePath?: string;
+  authBasePath?: string;
   apiBaseUrl: string;
   appPort: string;
   appTitle: string;
