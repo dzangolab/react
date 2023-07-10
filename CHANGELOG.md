@@ -1,3 +1,18 @@
+## [0.8.6](https://github.com/dzangolab/react/compare/v0.8.5...v0.8.6) (2023-07-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hookform/resolvers to v3.1.1 ([#429](https://github.com/dzangolab/react/issues/429)) ([ddc444d](https://github.com/dzangolab/react/commit/ddc444dbe81b3355a74b8eeff69f62b6ca78287d))
+* **deps:** update dependency @tanstack/react-table to v8.9.3 ([#411](https://github.com/dzangolab/react/issues/411)) ([d917cc7](https://github.com/dzangolab/react/commit/d917cc79dff20527f48a6a1206e20e2d66baedb3))
+
+
+### Features
+
+* **user:** support apiBasePath config ([#427](https://github.com/dzangolab/react/issues/427)) ([8acf286](https://github.com/dzangolab/react/commit/8acf286a2b0dda0e09f6b501c34e740e1fcdda0f))
+
+
+
 ## [0.8.5](https://github.com/dzangolab/react/compare/v0.8.4...v0.8.5) (2023-06-27)
 
 
