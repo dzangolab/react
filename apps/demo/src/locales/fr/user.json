@@ -50,6 +50,23 @@
     },
     "title": "Forget Password (fr)"
   },
+  "invitation": {
+    "form": {
+      "actions": {
+        "cancel": "Cancel (fr)",
+        "submit": "Invite (fr)"
+      },
+      "email": {
+        "label": "Email (fr)",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "role": {
+        "label": "Role (fr)",
+        "placeholder": "Select role (fr)"
+      }
+    },
+    "title": "Invitation (fr)"
+  },
   "login": {
     "form": {
       "actions": {

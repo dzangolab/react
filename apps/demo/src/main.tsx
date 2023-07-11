@@ -7,6 +7,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import config from "./config";
 
+// PrimeReact CSS
+import "primereact/resources/primereact.min.css";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+
 import "@dzangolab/react-form/dist/DzangolabReactForm.css";
 import "@dzangolab/react-layout/dist/DzangolabReactLayout.css";
 import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
