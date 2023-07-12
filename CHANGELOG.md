@@ -1,3 +1,18 @@
+# [0.10.0](https://github.com/dzangolab/react/compare/v0.9.0...v0.10.0) (2023-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.45.1 ([#432](https://github.com/dzangolab/react/issues/432)) ([40722d6](https://github.com/dzangolab/react/commit/40722d68611b6ece110a9fa34b95a4799cb7edbb))
+* lint ([70c55af](https://github.com/dzangolab/react/commit/70c55afb4caccf2c1254e40213884cfe94f36ad5))
+
+
+### Features
+
+* **users:** add users table ([#440](https://github.com/dzangolab/react/issues/440)) ([6c6f425](https://github.com/dzangolab/react/commit/6c6f425feea7864672ddc23878da3a0dc664f63e))
+
+
+
 # [0.9.0](https://github.com/dzangolab/react/compare/v0.8.6...v0.9.0) (2023-07-10)
 
 
