@@ -1,0 +1,37 @@
+.p-datatable {
+  --_cell-padding-h: var(--datatable-cell-padding-h, 0.75rem);
+  --_cell-padding-v: var(--datatable-cell-padding-v, 0.75rem);
+  --_row-stripped-bg: var(--datatable-row-stripped-bg, #fafafa);
+  --_column-sort-highlight-bg: var(--datatable-column-sort-highlight-bg);
+  --_column-sort-highlight-color: var(--datatable-column-sort-highlight-color);
+  --_actions-justify: var(--datatable-actions-justify, flex-end);
+  --_actions-flex-gap: var(--datatable-actions-flex-gap, 0.5rem);
+}
+
+.p-datatable-table > thead > tr:first-child {
+  /* can be removed once we delete the other table from packages/ui */
+  display: table-row !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd {
+  background: var(--_row-stripped-bg);
+}
+
+.p-datatable .p-sortable-column.p-highlight,
+.p-datatable .p-sortable-column.p-highlight:not(.p-sortable-disabled):hover {
+  background: var(--_column-sort-highlight-bg);
+  color: var(--_column-sort-highlight-color);
+}
+
+.p-datatable .p-datatable-header,
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: var(--_cell-padding-v) var(--_cell-padding-h);
+}
+
+.p-datatable .table-actions {
+  display: flex;
+  justify-content: var(--_actions-justify);
+  gap: var(--_actions-flex-gap);
+}

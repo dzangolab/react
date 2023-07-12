@@ -13,6 +13,7 @@
 @import "./loadingPage.css";
 @import "./ssoBaseButton.css";
 @import "./googleButton.css";
+@import "./primereact-override/index.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";

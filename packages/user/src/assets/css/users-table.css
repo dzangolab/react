@@ -1,0 +1,21 @@
+.table-users .column-email {
+  min-width: 30rem;
+  width: 30rem;
+  max-width: 30rem;
+}
+
+.table-users .column-name {
+  min-width: 25rem;
+}
+
+.table-users .column-roles {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.table-users .column-signedUpAt {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}

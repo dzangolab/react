@@ -1,0 +1,8 @@
+.p-menu {
+  --_menu-item-danger-color: var(--menu-item-danger-color, red);
+}
+
+.p-menu .p-menuitem.danger .p-menuitem-link span,
+.p-menu .p-menuitem.danger .p-menuitem-link:not(.p-disabled):hover span {
+  color: var(--_menu-item-danger-color);
+}
