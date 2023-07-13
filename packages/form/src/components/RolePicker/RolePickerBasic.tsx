@@ -41,6 +41,7 @@ export const RolePickerBasic = ({
         focusInputRef={inputRef}
         onChange={(event) => onChange(event.value)}
         className={classNames({ "p-invalid": error })}
+        appendTo="self"
       />
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
