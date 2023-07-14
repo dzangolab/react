@@ -13,6 +13,7 @@ interface Properties {
 export const InvitationModal = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+
   return (
     <div className="flex justify-content-center">
       <Button

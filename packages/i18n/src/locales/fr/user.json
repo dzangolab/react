@@ -142,5 +142,30 @@
       "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase [fr]",
       "mustMatch": "Passwords must match [fr]"
     }
+  },
+  "invitation": {
+    "form": {
+      "actions": {
+        "cancel": "Cancel",
+        "submit": "Invite"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "role": {
+        "label": "Role",
+        "placeholder": "Select role"
+      }
+    },
+    "modal": {
+      "button": {
+        "label": "Invite"
+      },
+      "dialog": {
+        "header": "Invitation form"
+      }
+    },
+    "title": "Invitation"
   }
 }

@@ -159,14 +159,13 @@
         "placeholder": "Select role"
       }
     },
-    "modal":{
-      "button":{
-        "label":"Invite"
+    "modal": {
+      "button": {
+        "label": "Invite"
       },
-      "dialog":{
-        "header":"Invitation form"
+      "dialog": {
+        "header": "Invitation form"
       }
-
     },
     "title": "Invitation"
   }

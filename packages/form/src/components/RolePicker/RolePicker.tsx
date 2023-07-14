@@ -28,7 +28,7 @@ export const RolePicker = ({
   return (
     <>
       <Controller
-        name="city"
+        name={name}
         control={control}
         render={({ field }) => (
           <RolePickerBasic
