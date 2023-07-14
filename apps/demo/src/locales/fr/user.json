@@ -67,10 +67,10 @@
     },
     "modal": {
       "button": {
-        "label": "Invite"
+        "label": "Invite (fr)"
       },
       "dialog": {
-        "header": "Invitation form"
+        "header": "Invitation form (fr)"
       }
     },
     "title": "Invitation (fr)"

@@ -2,46 +2,46 @@
   "changePassword": {
     "form": {
       "actions": {
-        "submit": "Change password [fr]"
+        "submit": "Change password (fr)"
       },
       "oldPassword": {
-        "label": "Old password [fr]"
+        "label": "Old password (fr)"
       },
       "newPassword": {
-        "label": "New password [fr]"
+        "label": "New password (fr)"
       },
       "confirmPassword": {
-        "label": "Confirm password [fr]"
+        "label": "Confirm password (fr)"
       }
     },
     "messages": {
-      "success": "Your password was successfully changed. [fr]",
+      "success": "Your password was successfully changed. (fr)",
       "validation": {
-        "oldPassword": "Old password is required [fr]",
-        "newPassword": "New password is required [fr]",
-        "confirmPassword": "Confirm password is required [fr]",
-        "mustMatch": "Passwords must match [fr]"
+        "oldPassword": "Old password is required (fr)",
+        "newPassword": "New password is required (fr)",
+        "confirmPassword": "Confirm password is required (fr)",
+        "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Change Password [fr]"
+    "title": "Change Password (fr)"
   },
   "forgetPassword": {
     "messages": {
-      "success": "Email sent sucessfully [fr]",
+      "success": "Email sent sucessfully (fr)",
       "validation": {
-        "email": "Email is required [fr]"
+        "email": "Email is required (fr)"
       }
     },
     "form": {
       "actions": {
-        "submit": "Email me [fr]"
+        "submit": "Email me (fr)"
       },
       "email": {
-        "label": "Your email [fr]",
-        "placeholder": "john.doe.at.example.com [fr]"
+        "label": "Your email (fr)",
+        "placeholder": "john.doe.at.example.com (fr)"
       }
     },
-    "title": "Forget Password [fr]"
+    "title": "Forget Password (fr)"
   },
   "login": {
     "form": {
@@ -63,35 +63,35 @@
     "messages": {
       "success": "Logged in successfully.",
       "validation": {
-        "email": "Email is required [fr]",
-        "password": "Password is required [fr]"
+        "email": "Email is required (fr)",
+        "password": "Password is required (fr)"
       }
     },
     "title": "Connexion"
   },
   "logout": {
-    "message": "Successfully logged out[fr]"
+    "message": "Successfully logged out (fr)"
   },
   "resetPassword": {
     "form": {
       "actions": {
-        "submit": "Reset password[fr]"
+        "submit": "Reset password (fr)"
       },
       "newPassword": {
-        "label": "New password[fr]"
+        "label": "New password (fr)"
       },
       "confirmPassword": {
-        "label": "Confirm password is required[fr]"
+        "label": "Confirm password is required (fr)"
       }
     },
     "messages": {
-      "success": "Reset password successfully[fr]",
+      "success": "Reset password successfully (fr)",
       "validation": {
-        "newPassword": "New password is required[fr]",
-        "confirmPassword": "Confirm password is required[fr]"
+        "newPassword": "New password is required (fr)",
+        "confirmPassword": "Confirm password is required (fr)"
       }
     },
-    "title": "Reset Password[fr]"
+    "title": "Reset Password (fr)"
   },
   "signup": {
     "form": {
@@ -109,7 +109,7 @@
         "label": "Votre mot de passe"
       },
       "confirmPassword": {
-        "label": "Confirm password [fr]"
+        "label": "Confirm password (fr)"
       }
     },
     "links": {
@@ -119,9 +119,9 @@
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
-        "email": "Email is required[fr]",
-        "password": "Password is required[fr]",
-        "confirmPassword": "ConfirmPassword is required[fr]"
+        "email": "Email is required (fr)",
+        "password": "Password is required (fr)",
+        "confirmPassword": "ConfirmPassword is required (fr)"
       }
     },
     "title": "Inscription"
@@ -131,39 +131,39 @@
     "signup": "Inscription"
   },
   "userMenu": {
-    "profile": "Profile[fr]",
-    "logout": "Logout[fr]"
+    "profile": "Profile (fr)",
+    "logout": "Logout (fr)"
   },
   "validation": {
     "messages": {
-      "email": "Email is required[fr]",
-      "validEmail": "Email must be a valid email[fr]",
-      "requiredField": "This field is required [fr]",
-      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase [fr]",
-      "mustMatch": "Passwords must match [fr]"
+      "email": "Email is required (fr)",
+      "validEmail": "Email must be a valid email (fr)",
+      "requiredField": "This field is required (fr)",
+      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
+      "mustMatch": "Passwords must match (fr)"
     }
   },
   "invitation": {
     "form": {
       "actions": {
-        "cancel": "Cancel",
-        "submit": "Invite"
+        "cancel": "Cancel (fr)",
+        "submit": "Invite (fr)"
       },
       "email": {
-        "label": "Email",
+        "label": "Email (fr)",
         "placeholder": "john.doe.at.example.com"
       },
       "role": {
-        "label": "Role",
-        "placeholder": "Select role"
+        "label": "Role (fr)",
+        "placeholder": "Select role (fr)"
       }
     },
     "modal": {
       "button": {
-        "label": "Invite"
+        "label": "Invite (fr)"
       },
       "dialog": {
-        "header": "Invitation form"
+        "header": "Invitation form (fr)"
       }
     },
     "title": "Invitation"
