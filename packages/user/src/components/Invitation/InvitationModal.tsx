@@ -2,30 +2,39 @@ import React, { useState } from "react";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { InvitationForm } from "./InvitationForm";
+import { useTranslation } from "@dzangolab/react-i18n";
+import type { InvitationPayload } from "../../types";
 
-export const InvitationModal = () => {
+interface Properties {
+  handleSubmit: (data: InvitationPayload) => void;
+  loading?: boolean;
+}
+
+export const InvitationModal = ({ handleSubmit, loading }: Properties) => {
+  const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   return (
-    <div className="card flex justify-content-center">
+    <div className="flex justify-content-center">
       <Button
-        label="Invite"
+        label={t("Invite")}
         icon="pi pi-external-link"
         onClick={() => setModalVisible(true)}
       />
       <Dialog
-        header="Invitation Form"
+        blockScroll={false}
+        style={{ height: "22rem" }}
+        header={t("Invitation form")}
         visible={modalVisible}
         onHide={() => setModalVisible(false)}
         draggable={false}
         resizable={false}
       >
         <InvitationForm
-          handleSubmit={() => {
-            alert("Form is created");
-          }}
+          handleSubmit={handleSubmit}
           onCancel={() => {
             setModalVisible(false);
           }}
+          loading={loading}
         />
       </Dialog>
     </div>
