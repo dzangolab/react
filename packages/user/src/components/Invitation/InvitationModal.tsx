@@ -21,7 +21,6 @@ export const InvitationModal = ({ handleSubmit, loading }: Properties) => {
         onClick={() => setModalVisible(true)}
       />
       <Dialog
-        blockScroll={false}
         style={{ height: "22rem" }}
         header={t("Invitation form")}
         visible={modalVisible}
