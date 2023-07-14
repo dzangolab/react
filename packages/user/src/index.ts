@@ -25,6 +25,7 @@ import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
+import { InvitationForm, InvitationModal } from "./components/Invitation";
 
 import "./assets/css/index.css";
 
@@ -40,6 +41,8 @@ export {
   ChangePassword,
   DropdownUserMenu,
   ForgetPassword,
+  InvitationForm,
+  InvitationModal,
   Login,
   Profile,
   ResetPassword,

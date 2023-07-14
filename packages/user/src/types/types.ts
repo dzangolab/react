@@ -1,6 +1,6 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-interface UserType extends EmailPasswordUserType {
+export interface UserType extends EmailPasswordUserType {
   givenName: string | null;
   lastLoginAt: number;
   middleNames: string | null;
@@ -9,39 +9,35 @@ interface UserType extends EmailPasswordUserType {
   surname: string | null;
 }
 
-interface UserMenuItemType {
+export interface UserMenuItemType {
   name: string;
   onClick?: () => void;
   route?: string;
 }
 
-interface UserContextType {
+export interface UserContextType {
   loading: boolean;
   setUser: (user: UserType | undefined) => void;
   user: UserType | undefined;
 }
 
-interface LoginCredentials {
+export interface LoginCredentials {
   email: string;
   password: string;
 }
 
-interface AuthState {
+export interface AuthState {
   error: string | null;
   loading: boolean;
   user: UserType | undefined;
 }
 
-interface SignInUpPromise {
+export interface SignInUpPromise {
   user: UserType;
   status: string;
 }
 
-export type {
-  AuthState,
-  LoginCredentials,
-  SignInUpPromise,
-  UserContextType,
-  UserMenuItemType,
-  UserType,
-};
+export interface InvitationPayload {
+  email: string;
+  roles?: string[];
+}

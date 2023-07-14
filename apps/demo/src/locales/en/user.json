@@ -50,6 +50,31 @@
     },
     "title": "Forget Password"
   },
+  "invitation": {
+    "form": {
+      "actions": {
+        "cancel": "Cancel",
+        "submit": "Invite"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "john.doe.at.example.com"
+      },
+      "role": {
+        "label": "Role",
+        "placeholder": "Select role"
+      }
+    },
+    "modal": {
+      "button": {
+        "label": "Invite"
+      },
+      "dialog": {
+        "header": "Invitation form"
+      }
+    },
+    "title": "Invitation"
+  },
   "login": {
     "form": {
       "actions": {
