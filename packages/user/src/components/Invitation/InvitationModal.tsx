@@ -16,13 +16,13 @@ export const InvitationModal = ({ handleSubmit, loading }: Properties) => {
   return (
     <div className="flex justify-content-center">
       <Button
-        label={t("Invite")}
+        label={t("invitation.modal.button.label")}
         icon="pi pi-external-link"
         onClick={() => setModalVisible(true)}
       />
       <Dialog
         style={{ height: "22rem" }}
-        header={t("Invitation form")}
+        header={t("invitation.modal.dialog.header")}
         visible={modalVisible}
         onHide={() => setModalVisible(false)}
         draggable={false}

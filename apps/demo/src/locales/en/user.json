@@ -65,6 +65,15 @@
         "placeholder": "Select role"
       }
     },
+    "modal":{
+      "button":{
+        "label":"Invite"
+      },
+      "dialog":{
+        "header":"Invitation form"
+      }
+
+    },
     "title": "Invitation"
   },
   "login": {
