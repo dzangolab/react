@@ -15,12 +15,18 @@ export const InvitationModal = () => {
       <Dialog
         header="Invitation Form"
         visible={modalVisible}
-        style={{ width: "20vw" }}
         onHide={() => setModalVisible(false)}
         draggable={false}
         resizable={false}
       >
-        <InvitationForm handleSubmit={() => {}} onCancel={() => {}} />
+        <InvitationForm
+          handleSubmit={() => {
+            alert("Form is created");
+          }}
+          onCancel={() => {
+            setModalVisible(false);
+          }}
+        />
       </Dialog>
     </div>
   );
