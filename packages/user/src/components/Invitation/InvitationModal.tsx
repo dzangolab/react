@@ -7,15 +7,15 @@ import type { InvitationPayload } from "../../types";
 import { IconType } from "primereact/utils";
 
 interface Properties {
-  handleInvitationSubmit: (data: InvitationPayload) => void;
+  handleSubmit: (data: InvitationPayload) => void;
   loading?: boolean;
-  button?: IconType<ButtonProps>;
+  buttonIcon?: IconType<ButtonProps>;
 }
 
 export const InvitationModal = ({
-  handleInvitationSubmit,
+  handleSubmit,
   loading,
-  button,
+  buttonIcon,
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -24,7 +24,7 @@ export const InvitationModal = ({
     <div className="flex justify-content-center">
       <Button
         label={t("invitation.modal.button.label")}
-        icon={button}
+        icon={buttonIcon}
         onClick={() => setModalVisible(true)}
       />
       <Dialog
@@ -36,7 +36,7 @@ export const InvitationModal = ({
         resizable={false}
       >
         <InvitationForm
-          handleSubmit={handleInvitationSubmit}
+          handleSubmit={handleSubmit}
           onCancel={() => {
             setModalVisible(false);
           }}

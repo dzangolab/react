@@ -15,7 +15,7 @@ const componentList = [
   {
     key: 2,
     title: "Invitation Modal",
-    component: <InvitationModal handleInvitationSubmit={() => {}} />,
+    component: <InvitationModal handleSubmit={() => {}} />,
   },
   {
     key: 3,
