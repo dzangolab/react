@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import { Button } from "primereact/button";
+import { Button, ButtonProps } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { InvitationForm } from "./InvitationForm";
 import { useTranslation } from "@dzangolab/react-i18n";
 import type { InvitationPayload } from "../../types";
+import { IconType } from "primereact/utils";
 
 interface Properties {
-  handleSubmit: (data: InvitationPayload) => void;
+  handleInvitationSubmit: (data: InvitationPayload) => void;
   loading?: boolean;
+  button?: IconType<ButtonProps>;
 }
 
-export const InvitationModal = ({ handleSubmit, loading }: Properties) => {
+export const InvitationModal = ({
+  handleInvitationSubmit,
+  loading,
+  button,
+}: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -18,7 +24,7 @@ export const InvitationModal = ({ handleSubmit, loading }: Properties) => {
     <div className="flex justify-content-center">
       <Button
         label={t("invitation.modal.button.label")}
-        icon="pi pi-external-link"
+        icon={button}
         onClick={() => setModalVisible(true)}
       />
       <Dialog
@@ -30,7 +36,7 @@ export const InvitationModal = ({ handleSubmit, loading }: Properties) => {
         resizable={false}
       >
         <InvitationForm
-          handleSubmit={handleSubmit}
+          handleSubmit={handleInvitationSubmit}
           onCancel={() => {
             setModalVisible(false);
           }}

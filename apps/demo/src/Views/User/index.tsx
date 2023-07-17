@@ -15,13 +15,17 @@ const componentList = [
   {
     key: 2,
     title: "Invitation Modal",
-    component: <InvitationModal handleSubmit={() => {}} />,
+    component: <InvitationModal handleInvitationSubmit={() => {}} />,
   },
   {
     key: 3,
     title: "Users Table",
     component: (
-      <UsersTable users={[]} fetchUsers={() => {}} handleSubmit={() => {}} />
+      <UsersTable
+        users={[]}
+        fetchUsers={() => {}}
+        handleInvitationSubmit={() => {}}
+      />
     ),
   },
 ];
