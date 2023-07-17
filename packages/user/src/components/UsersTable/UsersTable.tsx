@@ -1,9 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
-import { Button } from "primereact/button";
+import { Button, ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
+import { InvitationModal } from "../Invitation";
+import type { InvitationPayload } from "../../types";
+import { IconType } from "primereact/utils";
 
 export type UsersTableProperties = {
   id?: string;
@@ -14,6 +17,8 @@ export type UsersTableProperties = {
   totalRecords?: number;
   users: Array<object>;
   fetchUsers: (arguments_?: any) => void;
+  handleInvitationSubmit: (data: InvitationPayload) => void;
+  inviteButtonIcon?: IconType<ButtonProps>;
 };
 
 export const UsersTable = ({
@@ -25,6 +30,8 @@ export const UsersTable = ({
   totalRecords = 0,
   users,
   fetchUsers,
+  handleInvitationSubmit,
+  inviteButtonIcon,
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -91,7 +98,11 @@ export const UsersTable = ({
     if (showInviteAction) {
       return (
         <div className="table-actions">
-          <Button icon="pi pi-user-plus" label={t("Add member")} size="small" />
+          <InvitationModal
+            handleSubmit={handleInvitationSubmit}
+            loading={loading}
+            buttonIcon={inviteButtonIcon}
+          />
         </div>
       );
     }
