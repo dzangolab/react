@@ -1,4 +1,8 @@
-import { InvitationForm, InvitationModal, UsersTable } from "@dzangolab/react-user";
+import {
+  InvitationForm,
+  InvitationModal,
+  UsersTable,
+} from "@dzangolab/react-user";
 
 import ComponentList from "../../components/ComponentList";
 
@@ -16,7 +20,9 @@ const componentList = [
   {
     key: 3,
     title: "Users Table",
-    component: <UsersTable users={[]} fetchUsers={()=>{}} handleSubmit={()=>{}}/>,
+    component: (
+      <UsersTable users={[]} fetchUsers={() => {}} handleSubmit={() => {}} />
+    ),
   },
 ];
 
