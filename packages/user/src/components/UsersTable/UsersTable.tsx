@@ -17,7 +17,7 @@ export type UsersTableProperties = {
   totalRecords?: number;
   users: Array<object>;
   fetchUsers: (arguments_?: any) => void;
-  handleInvitationSubmit: (data: InvitationPayload) => void;
+  handleInvitationSubmit?: (data: InvitationPayload) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
@@ -95,7 +95,7 @@ export const UsersTable = ({
   };
 
   const renderHeader = () => {
-    if (showInviteAction) {
+    if (showInviteAction && handleInvitationSubmit) {
       return (
         <div className="table-actions">
           <InvitationModal
