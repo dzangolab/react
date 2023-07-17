@@ -1,9 +1,8 @@
 import { Email, RolePicker, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
-import React from "react";
+import { SubmitButton, LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
-import { LoadingIcon } from "@dzangolab/react-ui";
+import React from "react";
 
 interface IProperties {
   onCancel?: () => void;

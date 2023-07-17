@@ -1,7 +1,8 @@
 import React from "react";
-import { ErrorMessage } from "../ErrorMessage";
 import { Controller, useFormContext } from "react-hook-form";
+
 import { RolePickerBasic } from "./RolePickerBasic";
+import { ErrorMessage } from "../ErrorMessage";
 
 interface Role {
   name: string;

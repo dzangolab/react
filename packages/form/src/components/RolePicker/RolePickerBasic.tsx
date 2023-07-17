@@ -1,6 +1,7 @@
-import React from "react";
 import { Dropdown } from "primereact/dropdown";
 import { classNames } from "primereact/utils";
+import React from "react";
+
 import { ErrorMessage } from "../ErrorMessage";
 
 interface Role {

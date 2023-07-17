@@ -4,9 +4,11 @@ import { FilterMatchMode } from "primereact/api";
 import { Button, ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
-import { InvitationModal } from "../Invitation";
-import type { InvitationPayload } from "../../types";
 import { IconType } from "primereact/utils";
+
+import { InvitationModal } from "../Invitation";
+
+import type { InvitationPayload } from "../../types";
 
 export type UsersTableProperties = {
   id?: string;

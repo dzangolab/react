@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, ButtonProps } from "primereact/button";
 import { Dialog } from "primereact/dialog";
-import { InvitationForm } from "./InvitationForm";
-import { useTranslation } from "@dzangolab/react-i18n";
-import type { InvitationPayload } from "../../types";
 import { IconType } from "primereact/utils";
+import React, { useState } from "react";
+
+import { InvitationForm } from "./InvitationForm";
+
+import type { InvitationPayload } from "../../types";
 
 interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
