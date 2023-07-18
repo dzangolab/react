@@ -73,7 +73,17 @@
         "header": "Invitation form"
       }
     },
-    "title": "Invitation"
+    "title": "Invitation",
+    "table": {
+      "placeholder": "john.doe.at.example.com",
+      "defaultColumns": {
+        "actions": "Actions",
+        "email": "Email",
+        "expiresAt": "Expires At",
+        "invitedBy": "Invited By",
+        "roles": "Role"
+      }
+    }
   },
   "login": {
     "form": {

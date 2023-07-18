@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
-import { Button, ButtonProps } from "primereact/button";
+import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
@@ -9,6 +9,7 @@ import { IconType } from "primereact/utils";
 import { InvitationModal } from "../Invitation";
 
 import type { InvitationPayload } from "../../types";
+import { ActionsMenu } from "@dzangolab/react-ui";
 
 export type InvitationTableProperties = {
   id?: string;
@@ -17,25 +18,25 @@ export type InvitationTableProperties = {
   loading?: boolean;
   showInviteAction?: boolean;
   totalRecords?: number;
-  users: Array<object>;
-  fetchUsers: (arguments_?: any) => void;
+  invitation: Array<object>;
+  fetchInvitation: (arguments_?: any) => void;
   handleInvitationSubmit?: (data: InvitationPayload) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
 export const InvitationTable = ({
-  id = "table-users",
-  className = "table-users",
+  id = "invitation-table",
+  className = "invitation-itable",
   columns,
   loading = false,
   showInviteAction = true,
   totalRecords = 0,
-  users,
-  fetchUsers,
+  invitation,
+  fetchInvitation,
   handleInvitationSubmit,
   inviteButtonIcon,
 }: InvitationTableProperties) => {
-  const { t } = useTranslation("users");
+  const { t } = useTranslation("user");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -43,30 +44,17 @@ export const InvitationTable = ({
 
   const defaultColumns: Array<ColumnProps> = [
     {
-      field: "name",
-      header: t("table.defaultColumns.name"),
-      sortable: false,
-      body: (data) => {
-        return (
-          (data.givenName ? data.givenName : "") +
-            (data.middleNames ? " " + data.middleNames : "") +
-            (data.surname ? " " + data.surname : "") || <code>&#8212;</code>
-        );
-      },
-    },
-    {
       field: "email",
-      header: t("table.defaultColumns.email"),
+      header: t("invitation.table.defaultColumns.email"),
       sortable: true,
       filter: true,
-      filterPlaceholder: t("table.searchPlaceholder"),
+      filterPlaceholder: t("invitation.table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
     },
-
     {
       field: "roles",
-      header: t("table.defaultColumns.roles"),
+      header: t("invitation.table.defaultColumns.roles"),
       body: (data) => {
         return data.roles.map((role: string, index: number) => (
           <Tag
@@ -82,12 +70,26 @@ export const InvitationTable = ({
       align: "center",
     },
     {
-      field: "signedUpAt",
-      header: t("table.defaultColumns.signedUpOn"),
+      field: "invitedBy",
+      header: t("invitation.table.defaultColumns.invitedBy"),
       body: (data) => {
-        const date = new Date(data.signedUpAt);
+        return data.invited_by;
+      },
+    },
+    {
+      field: "expiresAt",
+      header: t("invitation.table.defaultColumns.expiresAt"),
+      body: (data) => {
+        const date = new Date(data.expires_at);
 
         return date.toLocaleDateString("en-GB");
+      },
+    },
+    {
+      field: "actions",
+      header: t("invitation.table.defaultColumns.actions"),
+      body: () => {
+        return <ActionsMenu />;
       },
     },
   ];
@@ -114,9 +116,9 @@ export const InvitationTable = ({
     <DataTable
       className={className}
       columns={columns ? columns : defaultColumns}
-      data={users}
+      data={invitation}
       emptyMessage={t("app:table.emptyMessage")}
-      fetchData={fetchUsers}
+      fetchData={fetchInvitation}
       header={renderHeader}
       id={id}
       initialFilters={initialFilters}
