@@ -29,6 +29,8 @@ import Signup from "./views/Signup";
 
 import "./assets/css/index.css";
 
+import type { InvitationPayload } from "./types";
+
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
     user: DzangolabReactUserConfig;
@@ -72,4 +74,9 @@ export {
   verifySessionRoles,
 };
 
-export type { UserContextType, UserType, UsersTableProperties };
+export type {
+  UserContextType,
+  UserType,
+  UsersTableProperties,
+  InvitationPayload,
+};
