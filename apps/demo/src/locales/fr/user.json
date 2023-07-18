@@ -75,14 +75,14 @@
     },
     "title": "Invitation (fr)",
     "table": {
-      "placeholder": "john.doe.at.example.com",
       "defaultColumns": {
         "actions": "Actions (fr)",
         "email": "Email (fr)",
         "expiresAt": "Expires At (fr)",
         "invitedBy": "Invited By (fr)",
         "roles": "Role (fr)"
-      }
+      },
+      "placeholder": "john.doe.at.example.com"
     }
   },
   "login": {
