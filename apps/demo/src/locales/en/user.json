@@ -73,7 +73,9 @@
         "header": "Invitation form"
       }
     },
-    "title": "Invitation",
+    "title": "Invitation"
+  },
+  "invitations":{
     "table": {
       "defaultColumns": {
         "actions": "Actions",

@@ -73,7 +73,7 @@ export const InvitationsTable = ({
     },
     {
       field: "role",
-      header: t("invitation.table.defaultColumns.role"),
+      header: t("invitations.table.defaultColumns.role"),
       body: (data) => {
         return data.roles.map((role: string, index: number) => (
           <Tag
@@ -90,14 +90,14 @@ export const InvitationsTable = ({
     },
     {
       field: "invitedBy",
-      header: t("invitation.table.defaultColumns.invitedBy"),
+      header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
         return data.invited_by;
       },
     },
     {
       field: "expiresAt",
-      header: t("invitation.table.defaultColumns.expiresAt"),
+      header: t("invitations.table.defaultColumns.expiresAt"),
       body: (data) => {
         const date = new Date(data.expires_at);
 
@@ -106,7 +106,7 @@ export const InvitationsTable = ({
     },
     {
       field: "actions",
-      header: t("invitation.table.defaultColumns.actions"),
+      header: t("invitations.table.defaultColumns.actions"),
       body: () => {
         return <ActionsMenu actions={actionItems} />;
       },
@@ -136,7 +136,7 @@ export const InvitationsTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={invitations}
-      emptyMessage={t("app:invitation.table.emptyMessage")}
+      emptyMessage={t("app:invitations.table.emptyMessage")}
       fetchData={fetchInvitations}
       header={renderHeader}
       id={id}
