@@ -26,7 +26,7 @@ export type InvitationTableProperties = {
 
 export const InvitationTable = ({
   id = "invitation-table",
-  className = "invitation-itable",
+  className = "invitation-table",
   columns,
   loading = false,
   showInviteAction = true,
@@ -117,7 +117,7 @@ export const InvitationTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={invitation}
-      emptyMessage={t("app:table.emptyMessage")}
+      emptyMessage={t("app:invitation.table.emptyMessage")}
       fetchData={fetchInvitation}
       header={renderHeader}
       id={id}
