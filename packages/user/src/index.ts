@@ -1,6 +1,10 @@
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
-import { InvitationForm, InvitationModal } from "./components/Invitation";
+import {
+  InvitationForm,
+  InvitationModal,
+  InvitationsTable,
+} from "./components/Invitation";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import { UsersTable, UsersTableProperties } from "./components/UsersTable";
@@ -45,6 +49,7 @@ export {
   ForgetPassword,
   InvitationForm,
   InvitationModal,
+  InvitationsTable,
   Login,
   Profile,
   ResetPassword,

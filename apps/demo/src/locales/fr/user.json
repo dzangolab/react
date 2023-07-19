@@ -75,6 +75,20 @@
     },
     "title": "Invitation (fr)"
   },
+  "invitations": {
+    "table": {
+      "defaultColumns": {
+        "actions": "Actions (fr)",
+        "email": "Email (fr)",
+        "expiresAt": "Expires at (fr)",
+        "invitedBy": "Invited by (fr)",
+        "role": "Role (fr)"
+      },
+      "emptyMessage": "Table is empty (fr)",
+      "searchPlaceholder": "john.doe.at.example.com"
+    },
+    "title": "Invitations (fr)"
+  },
   "login": {
     "form": {
       "actions": {

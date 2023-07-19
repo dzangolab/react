@@ -75,6 +75,20 @@
     },
     "title": "Invitation"
   },
+  "invitations": {
+    "table": {
+      "defaultColumns": {
+        "actions": "Actions",
+        "email": "Email",
+        "expiresAt": "Expires at",
+        "invitedBy": "Invited by",
+        "role": "Role"
+      },
+      "emptyMessage":"Table is empty",
+      "searchPlaceholder": "john.doe.at.example.com"
+    },
+    "title": "Invitations"
+  },
   "login": {
     "form": {
       "actions": {

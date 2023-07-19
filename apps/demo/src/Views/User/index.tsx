@@ -1,6 +1,7 @@
 import {
   InvitationForm,
   InvitationModal,
+  InvitationsTable,
   UsersTable,
 } from "@dzangolab/react-user";
 
@@ -24,6 +25,17 @@ const componentList = [
       <UsersTable
         users={[]}
         fetchUsers={() => {}}
+        handleInvitationSubmit={() => {}}
+      />
+    ),
+  },
+  {
+    key: 4,
+    title: "Invitations Table",
+    component: (
+      <InvitationsTable
+        invitations={[]}
+        fetchInvitations={() => {}}
         handleInvitationSubmit={() => {}}
       />
     ),
