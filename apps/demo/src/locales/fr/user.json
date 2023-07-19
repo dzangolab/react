@@ -73,16 +73,18 @@
         "header": "Invitation form (fr)"
       }
     },
-    "title": "Invitation (fr)",
+    "title": "Invitation (fr)"
+  },
+  "invitations": {
     "table": {
       "defaultColumns": {
         "actions": "Actions (fr)",
         "email": "Email (fr)",
         "expiresAt": "Expires At (fr)",
         "invitedBy": "Invited By (fr)",
-        "roles": "Role (fr)"
+        "role": "Role (fr)"
       },
-      "placeholder": "john.doe.at.example.com"
+      "searchPlaceholder": "john.doe.at.example.com"
     }
   },
   "login": {
