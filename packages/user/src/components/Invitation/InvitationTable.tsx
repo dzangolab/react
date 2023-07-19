@@ -43,13 +43,17 @@ export const InvitationTable = ({
     {
       label: "Remove",
       icon: "pi pi-minus",
-      command: () => {},
+      command: () => {
+        console.log("Remove");
+      },
     },
     {
       label: "Revoke",
       icon: "pi pi-times",
       className: "danger",
-      command: () => {},
+      command: () => {
+        console.log("Revoke");
+      },
     },
   ];
 
