@@ -72,8 +72,8 @@ export const InvitationTable = ({
       showClearButton: false,
     },
     {
-      field: "roles",
-      header: t("invitation.table.defaultColumns.roles"),
+      field: "role",
+      header: t("invitation.table.defaultColumns.role"),
       body: (data) => {
         return data.roles.map((role: string, index: number) => (
           <Tag

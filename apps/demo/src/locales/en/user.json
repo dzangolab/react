@@ -80,7 +80,7 @@
         "email": "Email",
         "expiresAt": "Expires At",
         "invitedBy": "Invited By",
-        "roles": "Role"
+        "role": "Role"
       },
       "searchPlaceholder": "john.doe.at.example.com"
     }
