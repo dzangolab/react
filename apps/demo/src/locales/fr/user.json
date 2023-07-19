@@ -84,6 +84,7 @@
         "invitedBy": "Invited by (fr)",
         "role": "Role (fr)"
       },
+      "emptyMessage": "Table is empty (fr)",
       "searchPlaceholder": "john.doe.at.example.com"
     },
     "title": "Invitations (fr)"
