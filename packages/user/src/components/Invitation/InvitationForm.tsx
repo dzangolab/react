@@ -4,9 +4,9 @@ import React from "react";
 import * as zod from "zod";
 
 import { InvitationFormFields } from "./InvitationFormFields";
+import { ROLE_LIST } from "../../constants";
 
 import type { InvitationPayload } from "../../types";
-import { ROLE_LIST } from "@/constants";
 
 interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
