@@ -6,45 +6,45 @@ import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
-import { InvitationModal } from "../Invitation";
+import { InvitationModal } from ".";
 
 import type { InvitationPayload } from "../../types";
 import { ActionsMenu } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
 
-export type InvitationTableProperties = {
+export type InvitationsTableProperties = {
   id?: string;
   className?: string;
   columns?: Array<ColumnProps>;
   loading?: boolean;
   showInviteAction?: boolean;
   totalRecords?: number;
-  invitation: Array<object>;
-  fetchInvitation: (arguments_?: any) => void;
+  invitations: Array<object>;
+  fetchInvitations: (arguments_?: any) => void;
   handleInvitationSubmit?: (data: InvitationPayload) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
-export const InvitationTable = ({
-  id = "invitation-table",
-  className = "invitation-table",
+export const InvitationsTable = ({
+  id = "table-invitations",
+  className = "table-invitations",
   columns,
   loading = false,
   showInviteAction = true,
   totalRecords = 0,
-  invitation,
-  fetchInvitation,
+  invitations,
+  fetchInvitations,
   handleInvitationSubmit,
   inviteButtonIcon,
-}: InvitationTableProperties) => {
+}: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
   const actionItems: MenuItem[] = [
     {
-      label: "Remove",
-      icon: "pi pi-minus",
+      label: "Resend",
+      icon: "pi pi-replay",
       command: () => {
-        console.log("Remove");
+        console.log("Resend");
       },
     },
     {
@@ -64,10 +64,10 @@ export const InvitationTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "email",
-      header: t("invitation.table.defaultColumns.email"),
+      header: t("invitations.table.defaultColumns.email"),
       sortable: true,
       filter: true,
-      filterPlaceholder: t("invitation.table.searchPlaceholder"),
+      filterPlaceholder: t("invitations.table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
     },
@@ -114,7 +114,7 @@ export const InvitationTable = ({
   ];
 
   const rowClassNameCallback = (data: any) => {
-    return `user-${data.id}`;
+    return `invitations-${data.id}`;
   };
 
   const renderHeader = () => {
@@ -135,9 +135,9 @@ export const InvitationTable = ({
     <DataTable
       className={className}
       columns={columns ? columns : defaultColumns}
-      data={invitation}
+      data={invitations}
       emptyMessage={t("app:invitation.table.emptyMessage")}
-      fetchData={fetchInvitation}
+      fetchData={fetchInvitations}
       header={renderHeader}
       id={id}
       initialFilters={initialFilters}

@@ -3,7 +3,7 @@ import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
   InvitationForm,
   InvitationModal,
-  InvitationTable,
+  InvitationsTable,
 } from "./components/Invitation";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
@@ -47,7 +47,7 @@ export {
   ForgetPassword,
   InvitationForm,
   InvitationModal,
-  InvitationTable,
+  InvitationsTable,
   Login,
   Profile,
   ResetPassword,
