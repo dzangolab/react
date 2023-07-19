@@ -26,12 +26,13 @@ export const InvitationForm = ({
       invalid: t("validation.messages.validEmail"),
       required: t("validation.messages.email"),
     }),
-    role: zod.z
-      .object({
+    role: zod.z.object(
+      {
         id: zod.z.number(),
         name: zod.z.union([zod.z.literal("ADMIN"), zod.z.literal("USER")]),
-      })
-      .required(),
+      },
+      { required_error: t("validation.messages.role") }
+    ),
   });
 
   return (
