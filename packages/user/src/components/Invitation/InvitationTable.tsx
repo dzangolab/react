@@ -10,6 +10,7 @@ import { InvitationModal } from "../Invitation";
 
 import type { InvitationPayload } from "../../types";
 import { ActionsMenu } from "@dzangolab/react-ui";
+import { MenuItem } from "primereact/menuitem";
 
 export type InvitationTableProperties = {
   id?: string;
@@ -37,6 +38,20 @@ export const InvitationTable = ({
   inviteButtonIcon,
 }: InvitationTableProperties) => {
   const { t } = useTranslation("user");
+
+  const actionItems: MenuItem[] = [
+    {
+      label: "Remove",
+      icon: "pi pi-minus",
+      command: () => {},
+    },
+    {
+      label: "Revoke",
+      icon: "pi pi-times",
+      className: "danger",
+      command: () => {},
+    },
+  ];
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -89,7 +104,7 @@ export const InvitationTable = ({
       field: "actions",
       header: t("invitation.table.defaultColumns.actions"),
       body: () => {
-        return <ActionsMenu />;
+        return <ActionsMenu actions={actionItems} />;
       },
     },
   ];
