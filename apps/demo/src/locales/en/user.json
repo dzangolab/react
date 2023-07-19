@@ -82,7 +82,7 @@
         "invitedBy": "Invited By",
         "roles": "Role"
       },
-      "placeholder": "john.doe.at.example.com"
+      "searchPlaceholder": "john.doe.at.example.com"
     }
   },
   "login": {
