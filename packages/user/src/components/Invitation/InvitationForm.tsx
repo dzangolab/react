@@ -4,6 +4,7 @@ import React from "react";
 import * as zod from "zod";
 
 import { InvitationFormFields } from "./InvitationFormFields";
+import { ROLE_LIST } from "../../constants";
 
 import type { InvitationPayload } from "../../types";
 
@@ -25,14 +26,23 @@ export const InvitationForm = ({
       invalid: t("validation.messages.validEmail"),
       required: t("validation.messages.email"),
     }),
+    role: zod.z.object(
+      {
+        id: zod.z.number(),
+        name: zod.z.union([zod.z.literal("ADMIN"), zod.z.literal("USER")]),
+      },
+      { required_error: t("validation.messages.role") }
+    ),
   });
 
   return (
     <Provider
-      onSubmit={handleSubmit}
+      onSubmit={(data: { email: string; role: (typeof ROLE_LIST)[0] }) => {
+        handleSubmit({ ...data, role: data.role.name });
+      }}
       defaultValues={{
         email: "",
-        roles: [],
+        role: undefined,
       }}
       validationSchema={InvitationFormSchema}
     >

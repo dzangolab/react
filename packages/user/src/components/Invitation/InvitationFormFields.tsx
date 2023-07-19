@@ -4,6 +4,8 @@ import { SubmitButton, LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React from "react";
 
+import { ROLE_LIST } from "../../constants";
+
 interface IProperties {
   onCancel?: () => void;
   loading?: boolean;
@@ -34,10 +36,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         name="role"
         label={t("invitation.form.role.label")}
         placeholder={t("invitation.form.role.placeholder")}
-        options={[
-          { id: 1, name: "ADMIN" },
-          { id: 2, name: "USER" },
-        ]}
+        options={ROLE_LIST}
       />
 
       <div className="actions">

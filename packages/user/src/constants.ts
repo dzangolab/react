@@ -6,4 +6,9 @@ enum ROUTES {
   SIGNUP = "/signup",
 }
 
-export { SUPERTOKENS_API_BASE_PATH_DEFAULT, ROUTES };
+const ROLE_LIST = [
+  { id: 1, name: "ADMIN" },
+  { id: 2, name: "USER" },
+];
+
+export { SUPERTOKENS_API_BASE_PATH_DEFAULT, ROUTES, ROLE_LIST };
