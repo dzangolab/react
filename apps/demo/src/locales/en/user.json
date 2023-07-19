@@ -75,7 +75,7 @@
     },
     "title": "Invitation"
   },
-  "invitations":{
+  "invitations": {
     "table": {
       "defaultColumns": {
         "actions": "Actions",
@@ -85,7 +85,8 @@
         "role": "Role"
       },
       "searchPlaceholder": "john.doe.at.example.com"
-    }
+    },
+    "title": "Invitations"
   },
   "login": {
     "form": {

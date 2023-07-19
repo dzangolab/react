@@ -85,7 +85,8 @@
         "role": "Role (fr)"
       },
       "searchPlaceholder": "john.doe.at.example.com"
-    }
+    },
+    "title": "Invitations (fr)"
   },
   "login": {
     "form": {
