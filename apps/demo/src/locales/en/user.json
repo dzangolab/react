@@ -80,8 +80,8 @@
       "defaultColumns": {
         "actions": "Actions",
         "email": "Email",
-        "expiresAt": "Expires At",
-        "invitedBy": "Invited By",
+        "expiresAt": "Expires at",
+        "invitedBy": "Invited by",
         "role": "Role"
       },
       "searchPlaceholder": "john.doe.at.example.com"
