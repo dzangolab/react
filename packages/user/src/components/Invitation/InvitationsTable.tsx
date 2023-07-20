@@ -1,16 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable } from "@dzangolab/react-ui";
+import { DataTable, ActionsMenu } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
-
 import { InvitationModal } from ".";
-
 import type { InvitationPayload } from "../../types";
-
-import { MenuItem } from "primereact/menuitem";
 import { InvitationActions } from "./InvitationActions";
 
 export type InvitationsTableProperties = {

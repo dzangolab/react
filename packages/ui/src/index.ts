@@ -1,7 +1,6 @@
 import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
-import { SubmitButton } from "./Buttons";
 import { SubPane } from "./components/SubPane";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
@@ -11,9 +10,10 @@ import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { TabbedPanel } from "./TabbedPanel";
-export * from "./Table";
-export * from "./Utils";
+export * from "./Buttons";
 export * from "./DataTable";
+export * from "./Table";
+export * from "./utils";
 
 export {
   Accordion,
@@ -25,7 +25,6 @@ export {
   Page,
   ResponsiveMenu,
   SubPane,
-  SubmitButton,
   TabbedPanel,
 };
 
