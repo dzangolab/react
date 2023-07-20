@@ -48,7 +48,7 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
       onSubmit={handleSubmit}
       defaultValues={{
         password: "",
-        email: email,
+        email: email || "",
         confirmPassword: "",
         termsAndConditions: false,
       }}
