@@ -1,15 +1,13 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable, ActionsMenu } from "@dzangolab/react-ui";
+import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
-import { MenuItem } from "primereact/menuitem";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
-
 import { InvitationModal } from ".";
-
 import type { InvitationPayload } from "../../types";
+import { InvitationActions } from "./InvitationActions";
 
 export type InvitationsTableProperties = {
   id?: string;
@@ -21,6 +19,8 @@ export type InvitationsTableProperties = {
   invitations: Array<object>;
   fetchInvitations: (arguments_?: any) => void;
   handleInvitationSubmit?: (data: InvitationPayload) => void;
+  handleInvitationResend?: (data: any) => void;
+  handleInvitationRevoke?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
@@ -34,27 +34,11 @@ export const InvitationsTable = ({
   invitations,
   fetchInvitations,
   handleInvitationSubmit,
+  handleInvitationResend,
+  handleInvitationRevoke,
   inviteButtonIcon,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
-
-  const actionItems: MenuItem[] = [
-    {
-      label: "Resend",
-      icon: "pi pi-replay",
-      command: () => {
-        console.log("Resend");
-      },
-    },
-    {
-      label: "Revoke",
-      icon: "pi pi-times",
-      className: "danger",
-      command: () => {
-        console.log("Revoke");
-      },
-    },
-  ];
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -74,16 +58,20 @@ export const InvitationsTable = ({
       field: "role",
       header: t("invitations.table.defaultColumns.role"),
       body: (data) => {
-        return data.roles.map((role: string, index: number) => (
-          <Tag
-            key={role + index}
-            value={role}
-            style={{
-              background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-              width: "5rem",
-            }}
-          />
-        ));
+        return (
+          <>
+            {data.roles.map((role: string, index: number) => (
+              <Tag
+                key={role + index}
+                value={role}
+                style={{
+                  background: role === "ADMIN" ? "#6366F1" : "#22C55E",
+                  width: "5rem",
+                }}
+              />
+            ))}
+          </>
+        );
       },
       align: "center",
     },
@@ -106,8 +94,17 @@ export const InvitationsTable = ({
     {
       field: "actions",
       header: t("invitations.table.defaultColumns.actions"),
-      body: () => {
-        return <ActionsMenu actions={actionItems} />;
+      body: (data) => {
+        return (
+          <>
+            <InvitationActions
+              handleInvitationResend={handleInvitationResend}
+              handleInvitationRevoke={handleInvitationRevoke}
+              data={data}
+            />
+            ;
+          </>
+        );
       },
     },
   ];
