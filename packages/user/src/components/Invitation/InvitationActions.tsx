@@ -1,6 +1,6 @@
-import { MenuItem } from "primereact/menuitem";
-import { ActionsMenu } from "@dzangolab/react-ui";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { ActionsMenu } from "@dzangolab/react-ui";
+import { MenuItem } from "primereact/menuitem";
 
 type InvitationActionsProperites = {
   handleInvitationResend?: (data: any) => void;
