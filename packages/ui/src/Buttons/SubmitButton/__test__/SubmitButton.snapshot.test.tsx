@@ -2,7 +2,7 @@ import React from "react";
 import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import SubmitButton from "..";
+import { SubmitButton } from "..";
 
 function toJson(component: renderer.ReactTestRenderer) {
   const result = component.toJSON();
