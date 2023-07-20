@@ -68,16 +68,20 @@ export const UsersTable = ({
       field: "roles",
       header: t("table.defaultColumns.roles"),
       body: (data) => {
-        return data.roles.map((role: string, index: number) => (
-          <Tag
-            key={role + index}
-            value={role}
-            style={{
-              background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-              width: "5rem",
-            }}
-          />
-        ));
+        return (
+          <>
+            {data.roles.map((role: string, index: number) => (
+              <Tag
+                key={role + index}
+                value={role}
+                style={{
+                  background: role === "ADMIN" ? "#6366F1" : "#22C55E",
+                  width: "5rem",
+                }}
+              />
+            ))}
+          </>
+        );
       },
       align: "center",
     },

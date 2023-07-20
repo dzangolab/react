@@ -22,6 +22,8 @@ export type InvitationsTableProperties = {
   invitations: Array<object>;
   fetchInvitations: (arguments_?: any) => void;
   handleInvitationSubmit?: (data: InvitationPayload) => void;
+  handleInvitationResend?: (data: any) => void;
+  handleInvitationRevoke?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
@@ -35,6 +37,8 @@ export const InvitationsTable = ({
   invitations,
   fetchInvitations,
   handleInvitationSubmit,
+  handleInvitationResend,
+  handleInvitationRevoke,
   inviteButtonIcon,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
@@ -43,16 +47,16 @@ export const InvitationsTable = ({
     {
       label: "Resend",
       icon: "pi pi-replay",
-      command: () => {
-        console.log("Resend");
+      command: (data) => {
+        handleInvitationResend;
       },
     },
     {
       label: "Revoke",
       icon: "pi pi-times",
       className: "danger",
-      command: () => {
-        console.log("Revoke");
+      command: (data) => {
+        handleInvitationRevoke;
       },
     },
   ];
@@ -75,16 +79,20 @@ export const InvitationsTable = ({
       field: "role",
       header: t("invitations.table.defaultColumns.role"),
       body: (data) => {
-        return data.roles.map((role: string, index: number) => (
-          <Tag
-            key={role + index}
-            value={role}
-            style={{
-              background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-              width: "5rem",
-            }}
-          />
-        ));
+        return (
+          <>
+            {data.roles.map((role: string, index: number) => (
+              <Tag
+                key={role + index}
+                value={role}
+                style={{
+                  background: role === "ADMIN" ? "#6366F1" : "#22C55E",
+                  width: "5rem",
+                }}
+              />
+            ))}
+          </>
+        );
       },
       align: "center",
     },
