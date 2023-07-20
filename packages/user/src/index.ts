@@ -23,17 +23,23 @@ import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import UserToastContainer from "./toastify";
-import { DzangolabReactUserConfig, UserContextType, UserType } from "./types";
 import ChangePassword from "./views/ChangePassword";
 import ForgetPassword from "./views/ForgetPassword";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
+import SignupForm from "./components/SignupForm";
 
 import "./assets/css/index.css";
 
-import type { InvitationPayload } from "./types";
+import type {
+  InvitationPayload,
+  LoginCredentials,
+  DzangolabReactUserConfig,
+  UserContextType,
+  UserType,
+} from "./types";
 
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
@@ -61,6 +67,7 @@ export {
   UserProvider,
   UserToastContainer,
   UsersTable,
+  SignupForm,
 
   // utilities
   changePassword,
@@ -84,4 +91,5 @@ export type {
   UserType,
   UsersTableProperties,
   InvitationPayload,
+  LoginCredentials,
 };
