@@ -1,3 +1,19 @@
+# [0.12.0](https://github.com/dzangolab/react/compare/v0.11.0...v0.12.0) (2023-07-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-redux to v8.1.1 ([#441](https://github.com/dzangolab/react/issues/441)) ([ff53475](https://github.com/dzangolab/react/commit/ff53475ae424e8c4186e2b4882ba08cd260bf39e))
+* **users:** update invitations and users table ([e5ad568](https://github.com/dzangolab/react/commit/e5ad568b091cae1f2d45b50c3428bd6f92829d52))
+
+
+### Features
+
+* **ui:** add ExportButton and useExporter hook ([#454](https://github.com/dzangolab/react/issues/454)) ([3527afc](https://github.com/dzangolab/react/commit/3527afc6d5f4c45e29f0d8d79bed93141531cbe0))
+* **user:** add invitations table component ([#450](https://github.com/dzangolab/react/issues/450)) ([5c5e6b8](https://github.com/dzangolab/react/commit/5c5e6b885f48b3575d0585e34e5c56d3ec6cbd47))
+
+
+
 # [0.11.0](https://github.com/dzangolab/react/compare/v0.10.0...v0.11.0) (2023-07-17)
 
 
