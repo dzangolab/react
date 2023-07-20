@@ -9,8 +9,9 @@ import { IconType } from "primereact/utils";
 import { InvitationModal } from ".";
 
 import type { InvitationPayload } from "../../types";
-import { ActionsMenu } from "@dzangolab/react-ui";
+
 import { MenuItem } from "primereact/menuitem";
+import { InvitationActions } from "./InvitationActions";
 
 export type InvitationsTableProperties = {
   id?: string;
@@ -42,24 +43,6 @@ export const InvitationsTable = ({
   inviteButtonIcon,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
-
-  const actionItems: MenuItem[] = [
-    {
-      label: "Resend",
-      icon: "pi pi-replay",
-      command: (data) => {
-        handleInvitationResend;
-      },
-    },
-    {
-      label: "Revoke",
-      icon: "pi pi-times",
-      className: "danger",
-      command: (data) => {
-        handleInvitationRevoke;
-      },
-    },
-  ];
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -115,8 +98,17 @@ export const InvitationsTable = ({
     {
       field: "actions",
       header: t("invitations.table.defaultColumns.actions"),
-      body: () => {
-        return <ActionsMenu actions={actionItems} />;
+      body: (data) => {
+        return (
+          <>
+            <InvitationActions
+              handleInvitationResend={handleInvitationResend}
+              handleInvitationRevoke={handleInvitationRevoke}
+              data={data}
+            />
+            ;
+          </>
+        );
       },
     },
   ];
