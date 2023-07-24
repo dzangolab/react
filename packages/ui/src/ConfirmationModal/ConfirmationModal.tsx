@@ -1,9 +1,28 @@
 import React, { useState } from "react";
-import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
-import { Button } from "primereact/button";
+import { ConfirmDialog } from "primereact/confirmdialog";
 
-export const ConfirmationModal = ({ showConfirmation = true }: any) => {
-  const [visible, setVisible] = useState(showConfirmation);
+type InvitationActionsProperites = {
+  handleInvitationResend?: (data: any) => void;
+  handleInvitationRevoke?: (data: any) => void;
+  data?: object;
+};
+
+export const ConfirmationModal = ({
+  handleInvitationResend,
+  handleInvitationRevoke,
+  data,
+}: InvitationActionsProperites) => {
+  const [visible, setVisible] = useState(true);
+
+  const accept = () => {
+    if (handleInvitationResend) {
+      handleInvitationResend(data);
+    }
+
+    if (handleInvitationRevoke) {
+      handleInvitationRevoke(data);
+    }
+  };
 
   return (
     <>
@@ -11,7 +30,8 @@ export const ConfirmationModal = ({ showConfirmation = true }: any) => {
         visible={visible}
         draggable={false}
         resizable={false}
-        onHide={() => setVisible(showConfirmation)}
+        accept={accept}
+        onHide={() => setVisible((previous) => !previous)}
         message="Are you sure you want to proceed?"
         header="Confirmation"
         icon="pi pi-exclamation-triangle"

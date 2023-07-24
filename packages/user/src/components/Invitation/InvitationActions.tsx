@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { ActionsMenu } from "@dzangolab/react-ui";
+import { ActionsMenu, ConfirmationModal } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
 
 type InvitationActionsProperites = {
@@ -21,7 +21,10 @@ export const InvitationActions = ({
       label: t("invitation.actions.resend"),
       icon: "pi pi-replay",
       command: (event) => {
-        handleInvitationResend(data);
+        <ConfirmationModal
+          handleInvitationResend={handleInvitationResend}
+          data={data}
+        />;
       },
     });
   }
@@ -32,7 +35,10 @@ export const InvitationActions = ({
       icon: "pi pi-times",
       className: "danger",
       command: (event) => {
-        handleInvitationRevoke(data);
+        <ConfirmationModal
+          handleInvitationRevoke={handleInvitationRevoke}
+          data={data}
+        />;
       },
     });
   }
