@@ -9,11 +9,12 @@ import SignupFormFields from "./SignupFormFields";
 import type { LoginCredentials } from "../types";
 
 interface Properties {
+  email?: string;
   handleSubmit: (credentials: LoginCredentials) => void;
   loading?: boolean;
 }
 
-const SignupForm = ({ handleSubmit, loading }: Properties) => {
+const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const SignUpFormSchema = zod
@@ -47,13 +48,13 @@ const SignupForm = ({ handleSubmit, loading }: Properties) => {
       onSubmit={handleSubmit}
       defaultValues={{
         password: "",
-        email: "",
+        email: email || "",
         confirmPassword: "",
         termsAndConditions: false,
       }}
       validationSchema={SignUpFormSchema}
     >
-      <SignupFormFields loading={loading} />
+      <SignupFormFields readOnlyEmailField={!!email} loading={loading} />
     </Provider>
   );
 };

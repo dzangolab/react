@@ -3,12 +3,15 @@ import React from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
-export const Email: React.FC<CustomInputProperties> = ({
+export const Email: React.FC<
+  CustomInputProperties & { readOnly?: boolean }
+> = ({
   register,
   getFieldState,
   label = "",
   placeholder = "",
   name,
+  readOnly = false,
   submitcount = 0,
 }) => {
   if (!register || !getFieldState) return null;
@@ -24,6 +27,7 @@ export const Email: React.FC<CustomInputProperties> = ({
         type="email"
         placeholder={placeholder}
         aria-invalid={submitcount > 0 ? invalid : undefined}
+        readOnly={readOnly}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>

@@ -20,6 +20,7 @@ exports[`Component matches snapshot 1`] = `
       onBlur={[Function]}
       onChange={[Function]}
       placeholder="signup.form.email.placeholder"
+      readOnly={false}
       type="email"
     />
   </div>
