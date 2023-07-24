@@ -10,6 +10,7 @@ import config from "./config";
 // PrimeReact CSS
 import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primeicons/primeicons.css";
 
 import "@dzangolab/react-form/dist/DzangolabReactForm.css";
 import "@dzangolab/react-layout/dist/DzangolabReactLayout.css";
