@@ -31,7 +31,7 @@ export const ConfirmationModal = ({
         draggable={false}
         resizable={false}
         accept={accept}
-        onHide={() => setVisible((previous) => !previous)}
+        onHide={() => setVisible(false)}
         message="Are you sure you want to proceed?"
         header="Confirmation"
         icon="pi pi-exclamation-triangle"
