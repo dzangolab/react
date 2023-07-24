@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ConfirmDialog } from "primereact/confirmdialog";
 
-type InvitationActionsProperites = {
+type ConfirmationModalProperites = {
   handleInvitationResend?: (data: any) => void;
   handleInvitationRevoke?: (data: any) => void;
   data?: object;
@@ -11,10 +11,10 @@ export const ConfirmationModal = ({
   handleInvitationResend,
   handleInvitationRevoke,
   data,
-}: InvitationActionsProperites) => {
+}: ConfirmationModalProperites) => {
   const [visible, setVisible] = useState(true);
 
-  const accept = () => {
+  const handleInvitationAction = () => {
     if (handleInvitationResend) {
       handleInvitationResend(data);
     }
@@ -30,7 +30,7 @@ export const ConfirmationModal = ({
         visible={visible}
         draggable={false}
         resizable={false}
-        accept={accept}
+        accept={handleInvitationAction}
         onHide={() => setVisible(false)}
         message="Are you sure you want to proceed?"
         header="Confirmation"
