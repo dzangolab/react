@@ -14,6 +14,8 @@ export const ConfirmationModal = ({
 }: ConfirmationModalProperites) => {
   const [visible, setVisible] = useState(true);
 
+  console.log("Hello from the top of world");
+
   const handleInvitationAction = () => {
     if (handleInvitationResend) {
       handleInvitationResend(data);

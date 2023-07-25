@@ -105,7 +105,6 @@ export const InvitationsTable = ({
               handleInvitationRevoke={handleInvitationRevoke}
               data={data}
             />
-            ;
           </>
         );
       },
