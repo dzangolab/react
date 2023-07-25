@@ -47,18 +47,18 @@ export const InvitationActions = ({
     <>
       <ActionsMenu actions={actionItems} />
       <ConfirmationModal
-        message="Are you sure you want to resend?"
+        confirmMessage={t("invitation.resend.confirm.message")}
         data={data}
         handleInvitationResend={handleInvitationResend}
         visible={resendConfirmationDialog}
-        onCancel={() => setResendConfirmationDialog(false)}
+        onHideConfirmationDialog={() => setResendConfirmationDialog(false)}
       />
       <ConfirmationModal
-        message="Are you sure you want to revoke?"
+        confirmMessage={t("invitation.revoke.confirm.message")}
         data={data}
         handleInvitationRevoke={handleInvitationRevoke}
         visible={revokeConfirmationDialog}
-        onCancel={() => setRevokeConfirmationDialog(false)}
+        onHideConfirmationDialog={() => setRevokeConfirmationDialog(false)}
       />
     </>
   );
