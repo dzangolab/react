@@ -57,11 +57,6 @@ const componentList = [
     title: "buttons.export",
     component: <ExportButton />,
   },
-  {
-    key: 6,
-    title: "Confirmation Modal",
-    component: <ConfirmationModal />,
-  },
 ];
 
 const Ui = () => {
