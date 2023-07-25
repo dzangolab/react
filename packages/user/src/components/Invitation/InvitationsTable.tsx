@@ -62,18 +62,13 @@ export const InvitationsTable = ({
       header: t("invitations.table.defaultColumns.role"),
       body: (data) => {
         return (
-          <>
-            {data.roles.map((role: string, index: number) => (
-              <Tag
-                key={role + index}
-                value={role}
-                style={{
-                  background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-                  width: "5rem",
-                }}
-              />
-            ))}
-          </>
+          <Tag
+            value={data.role}
+            style={{
+              background: data.role === "ADMIN" ? "#6366F1" : "#22C55E",
+              width: "5rem",
+            }}
+          />
         );
       },
       align: "center",
@@ -84,6 +79,7 @@ export const InvitationsTable = ({
       body: (data) => {
         return data.invited_by;
       },
+      align: "center",
     },
     {
       field: "expiresAt",
@@ -93,6 +89,7 @@ export const InvitationsTable = ({
 
         return date.toLocaleDateString("en-GB");
       },
+      align: "center",
     },
     {
       field: "actions",
@@ -105,10 +102,10 @@ export const InvitationsTable = ({
               handleInvitationRevoke={handleInvitationRevoke}
               data={data}
             />
-            ;
           </>
         );
       },
+      align: "center",
     },
   ];
 
