@@ -77,7 +77,7 @@ export const InvitationsTable = ({
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
-        return data.invited_by;
+        return data.invitedBy;
       },
       align: "center",
     },
@@ -85,7 +85,7 @@ export const InvitationsTable = ({
       field: "expiresAt",
       header: t("invitations.table.defaultColumns.expiresAt"),
       body: (data) => {
-        const date = new Date(data.expires_at);
+        const date = new Date(data.expiresAt);
 
         return date.toLocaleDateString("en-GB");
       },
