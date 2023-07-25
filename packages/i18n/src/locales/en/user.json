@@ -167,6 +167,17 @@
         "header": "Invitation form"
       }
     },
-    "title": "Invitation"
+    "title": "Invitation",
+    "confirm": {
+      "resend": {
+        "message": "Are you sure you want to resend?"
+      },
+      "revoke": {
+        "message": "Are you sure you want to revoke?"
+      }
+    },
+    "confirmation": {
+      "header": "Confirmation"
+    }
   }
 }
