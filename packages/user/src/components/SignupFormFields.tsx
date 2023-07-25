@@ -13,9 +13,13 @@ import { useConfig } from "../hooks";
 
 interface IProperties {
   loading?: boolean;
+  readOnlyEmailField?: boolean;
 }
 
-const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
+const SignupFormFields: React.FC<IProperties> = ({
+  loading,
+  readOnlyEmailField = false,
+}) => {
   const { t } = useTranslation("user");
   const { user } = useConfig();
   const {
@@ -41,6 +45,7 @@ const SignupFormFields: React.FC<IProperties> = ({ loading }) => {
         register={register}
         getFieldState={getFieldState}
         submitcount={submitCount}
+        readOnly={readOnlyEmailField}
       />
       <Password
         label={t("signup.form.password.label")}
