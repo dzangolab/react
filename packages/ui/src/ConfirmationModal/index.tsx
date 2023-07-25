@@ -5,17 +5,19 @@ type ConfirmationModalProperites = {
   handleInvitationResend?: (data: any) => void;
   handleInvitationRevoke?: (data: any) => void;
   data?: object;
+  message?: string;
+  visible?: boolean;
+  onCancel?: () => void;
 };
 
 export const ConfirmationModal = ({
   handleInvitationResend,
   handleInvitationRevoke,
   data,
+  message,
+  visible,
+  onCancel,
 }: ConfirmationModalProperites) => {
-  const [visible, setVisible] = useState(true);
-
-  console.log("Hello from the top of world");
-
   const handleInvitationAction = () => {
     if (handleInvitationResend) {
       handleInvitationResend(data);
@@ -32,9 +34,9 @@ export const ConfirmationModal = ({
         visible={visible}
         draggable={false}
         resizable={false}
+        onHide={onCancel}
         accept={handleInvitationAction}
-        onHide={() => setVisible(false)}
-        message="Are you sure you want to proceed?"
+        message={message}
         header="Confirmation"
         icon="pi pi-exclamation-triangle"
       />
