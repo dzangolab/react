@@ -6,6 +6,7 @@ type ConfirmationModalProperties = {
   handleInvitationRevoke?: (data: any) => void;
   data?: object;
   confirmMessage?: string;
+  confirmHeader?: string;
   visible?: boolean;
   onHideConfirmationDialog?: () => void;
 };
@@ -15,6 +16,7 @@ export const ConfirmationModal = ({
   handleInvitationRevoke,
   data,
   confirmMessage,
+  confirmHeader,
   visible,
   onHideConfirmationDialog,
 }: ConfirmationModalProperties) => {
@@ -37,7 +39,7 @@ export const ConfirmationModal = ({
         onHide={onHideConfirmationDialog}
         accept={handleInvitationAction}
         message={confirmMessage}
-        header="Confirmation"
+        header={confirmHeader}
         icon="pi pi-exclamation-triangle"
       />
     </>

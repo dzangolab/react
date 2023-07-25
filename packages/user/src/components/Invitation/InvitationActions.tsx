@@ -63,6 +63,7 @@ export const InvitationActions = ({
         onHideConfirmationDialog={() =>
           setRevokeConfirmationDialogVisible(false)
         }
+        confirmHeader={t("invitation.confirmation.header")}
       />
     </>
   );
