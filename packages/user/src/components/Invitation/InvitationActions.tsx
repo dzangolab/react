@@ -47,23 +47,18 @@ export const InvitationActions = ({
     <>
       <ActionsMenu actions={actionItems} />
       <ConfirmationModal
-        confirmMessage={t("invitation.resend.confirm.message")}
-        data={data}
-        handleInvitationResend={handleInvitationResend}
+        message={t("invitation.resend.confirm.message")}
+        accept={() => handleInvitationResend?.(data)}
         visible={resendConfirmationDialogVisible}
-        onHideConfirmationDialog={() =>
-          setResendConfirmationDialogVisible(false)
-        }
+        onHide={() => setResendConfirmationDialogVisible(false)}
+        header={t("invitation.confirmation.header")}
       />
       <ConfirmationModal
-        confirmMessage={t("invitation.revoke.confirm.message")}
-        data={data}
-        handleInvitationRevoke={handleInvitationRevoke}
+        message={t("invitation.revoke.confirm.message")}
+        accept={() => handleInvitationRevoke?.(data)}
         visible={revokeConfirmationDialogVisible}
-        onHideConfirmationDialog={() =>
-          setRevokeConfirmationDialogVisible(false)
-        }
-        confirmHeader={t("invitation.confirmation.header")}
+        onHide={() => setRevokeConfirmationDialogVisible(false)}
+        header={t("invitation.confirmation.header")}
       />
     </>
   );

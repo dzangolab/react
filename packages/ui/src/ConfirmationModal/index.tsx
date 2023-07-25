@@ -1,46 +1,26 @@
 import React from "react";
-import { ConfirmDialog } from "primereact/confirmdialog";
-
-type ConfirmationModalProperties = {
-  handleInvitationResend?: (data: any) => void;
-  handleInvitationRevoke?: (data: any) => void;
-  data?: object;
-  confirmMessage?: string;
-  confirmHeader?: string;
-  visible?: boolean;
-  onHideConfirmationDialog?: () => void;
-};
+import { ConfirmDialog, ConfirmDialogProps } from "primereact/confirmdialog";
 
 export const ConfirmationModal = ({
-  handleInvitationResend,
-  handleInvitationRevoke,
-  data,
-  confirmMessage,
-  confirmHeader,
+  accept,
+  message,
+  header,
   visible,
-  onHideConfirmationDialog,
-}: ConfirmationModalProperties) => {
-  const handleInvitationAction = () => {
-    if (handleInvitationResend) {
-      handleInvitationResend(data);
-    }
-
-    if (handleInvitationRevoke) {
-      handleInvitationRevoke(data);
-    }
-  };
-
+  onHide,
+  ...confirmOptions
+}: ConfirmDialogProps) => {
   return (
     <>
       <ConfirmDialog
         visible={visible}
         draggable={false}
         resizable={false}
-        onHide={onHideConfirmationDialog}
-        accept={handleInvitationAction}
-        message={confirmMessage}
-        header={confirmHeader}
+        onHide={onHide}
+        accept={accept}
+        message={message}
+        header={header}
         icon="pi pi-exclamation-triangle"
+        {...confirmOptions}
       />
     </>
   );
