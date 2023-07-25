@@ -1,7 +1,7 @@
 import React from "react";
 import { ConfirmDialog } from "primereact/confirmdialog";
 
-type ConfirmationModalProperites = {
+type ConfirmationModalProperties = {
   handleInvitationResend?: (data: any) => void;
   handleInvitationRevoke?: (data: any) => void;
   data?: object;
@@ -17,7 +17,7 @@ export const ConfirmationModal = ({
   confirmMessage,
   visible,
   onHideConfirmationDialog,
-}: ConfirmationModalProperites) => {
+}: ConfirmationModalProperties) => {
   const handleInvitationAction = () => {
     if (handleInvitationResend) {
       handleInvitationResend(data);

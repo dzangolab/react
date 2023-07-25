@@ -16,9 +16,9 @@ export const InvitationActions = ({
   data,
 }: InvitationActionsProperites) => {
   const { t } = useTranslation("user");
-  const [resendConfirmationDialog, setResendConfirmationDialog] =
+  const [resendConfirmationDialogVisible, setResendConfirmationDialogVisible] =
     useState(false);
-  const [revokeConfirmationDialog, setRevokeConfirmationDialog] =
+  const [revokeConfirmationDialogVisible, setRevokeConfirmationDialogVisible] =
     useState(false);
 
   const actionItems: MenuItem[] = [];
@@ -27,7 +27,7 @@ export const InvitationActions = ({
       label: t("invitation.actions.resend"),
       icon: "pi pi-replay",
       command: (event) => {
-        setResendConfirmationDialog(true);
+        setResendConfirmationDialogVisible(true);
       },
     });
   }
@@ -38,7 +38,7 @@ export const InvitationActions = ({
       icon: "pi pi-times",
       className: "danger",
       command: (event) => {
-        setRevokeConfirmationDialog(true);
+        setRevokeConfirmationDialogVisible(true);
       },
     });
   }
@@ -50,15 +50,19 @@ export const InvitationActions = ({
         confirmMessage={t("invitation.resend.confirm.message")}
         data={data}
         handleInvitationResend={handleInvitationResend}
-        visible={resendConfirmationDialog}
-        onHideConfirmationDialog={() => setResendConfirmationDialog(false)}
+        visible={resendConfirmationDialogVisible}
+        onHideConfirmationDialog={() =>
+          setResendConfirmationDialogVisible(false)
+        }
       />
       <ConfirmationModal
         confirmMessage={t("invitation.revoke.confirm.message")}
         data={data}
         handleInvitationRevoke={handleInvitationRevoke}
-        visible={revokeConfirmationDialog}
-        onHideConfirmationDialog={() => setRevokeConfirmationDialog(false)}
+        visible={revokeConfirmationDialogVisible}
+        onHideConfirmationDialog={() =>
+          setRevokeConfirmationDialogVisible(false)
+        }
       />
     </>
   );
