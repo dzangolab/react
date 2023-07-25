@@ -1,9 +1,4 @@
-import {
-  LoadingIcon,
-  Page,
-  ResponsiveMenu,
-  ConfirmationModal,
-} from "@dzangolab/react-ui";
+import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
