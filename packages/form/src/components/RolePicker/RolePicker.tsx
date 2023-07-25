@@ -2,7 +2,6 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { RolePickerBasic } from "./RolePickerBasic";
-import { ErrorMessage } from "../ErrorMessage";
 
 interface Role {
   name: string;
@@ -40,10 +39,10 @@ export const RolePicker = ({
             options={options}
             inputRef={field.ref}
             onChange={(role) => field.onChange(role)}
+            error={error}
           />
         )}
       />
-      {error?.message && <ErrorMessage message={error.message} />}
     </>
   );
 };

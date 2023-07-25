@@ -1,6 +1,6 @@
 import { Email, RolePicker, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton, LoadingIcon } from "@dzangolab/react-ui";
+import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React from "react";
 
@@ -42,7 +42,10 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       <div className="actions">
         {onCancel && (
           <Button
-            onClick={onCancel}
+            onClick={(event) => {
+              event.preventDefault();
+              onCancel();
+            }}
             label={t("invitation.form.actions.cancel")}
             severity="secondary"
             outlined
