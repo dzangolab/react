@@ -96,8 +96,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.3.9)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -217,8 +217,8 @@ importers:
         specifier: 18.2.14
         version: 18.2.14
       '@vitejs/plugin-react':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.3.9)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -299,8 +299,8 @@ importers:
         specifier: 13.7.17
         version: 13.7.17
       '@vitejs/plugin-react':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.3.9)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -393,8 +393,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.3.9)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -462,8 +462,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.3.9)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -559,8 +559,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.3.9)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -659,8 +659,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.3.9)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -2543,8 +2543,8 @@ packages:
       '@babel/plugin-transform-react-jsx': 7.21.0(@babel/core@7.22.9)
     dev: true
 
-  /@babel/plugin-transform-react-jsx-self@7.18.6(@babel/core@7.22.9):
-    resolution: {integrity: sha512-A0LQGx4+4Jv7u/tWzoJF7alZwnBDQd6cGLh9P+Ttk4dpiL+J5p7NSNv/9tlEFFJDq3kjxOavWmbm6t0Gk+A3Ig==}
+  /@babel/plugin-transform-react-jsx-self@7.22.5(@babel/core@7.22.9):
+    resolution: {integrity: sha512-nTh2ogNUtxbiSbxaT4Ds6aXnXEipHweN9YRgOX/oNXdf0cCrGn/+2LozFa3lnPV5D90MkjhgckCPBrsoSc1a7g==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -2553,8 +2553,8 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
     dev: true
 
-  /@babel/plugin-transform-react-jsx-source@7.19.6(@babel/core@7.22.9):
-    resolution: {integrity: sha512-RpAi004QyMNisst/pvSanoRdJ4q+jMCWyk9zdw/CyLB9j8RXEahodR6l2GyttDRyEVWZtbN+TpLiHJ3t34LbsQ==}
+  /@babel/plugin-transform-react-jsx-source@7.22.5(@babel/core@7.22.9):
+    resolution: {integrity: sha512-yIiRO6yobeEIaI0RTbIr8iAK9FcBHLtZq0S89ZPjDLQXBA4xvghaKqI0etp/tF3htTM0sazJKKLz9oEiGRtu7w==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -5698,9 +5698,24 @@ packages:
       vite: ^4.1.0-beta.0
     dependencies:
       '@babel/core': 7.22.9
-      '@babel/plugin-transform-react-jsx-self': 7.18.6(@babel/core@7.22.9)
-      '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.22.9)
+      '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.9)
       magic-string: 0.27.0
+      react-refresh: 0.14.0
+      vite: 4.3.9(@types/node@18.11.18)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@vitejs/plugin-react@4.0.3(vite@4.3.9):
+    resolution: {integrity: sha512-pwXDog5nwwvSIzwrvYYmA2Ljcd/ZNlcsSG2Q9CNDBwnsd55UGAyr2doXtB5j+2uymRCnCfExlznzzSFbBRcoCg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^4.2.0
+    dependencies:
+      '@babel/core': 7.22.9
+      '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.9)
+      '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.9)
       react-refresh: 0.14.0
       vite: 4.3.9(@types/node@18.8.5)
     transitivePeerDependencies:
