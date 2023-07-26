@@ -1,3 +1,13 @@
+## [0.13.1](https://github.com/dzangolab/react/compare/v0.13.0...v0.13.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.45.2 ([#466](https://github.com/dzangolab/react/issues/466)) ([95dc315](https://github.com/dzangolab/react/commit/95dc315a1f9fe67753a86ec9dcd447a19ab3ea5d))
+* **exporter:** make default exporter synchronous and add separate async version ([#467](https://github.com/dzangolab/react/issues/467)) ([1885115](https://github.com/dzangolab/react/commit/1885115e7fe9b5c5841c1ea928efd642f580d2fa))
+
+
+
 # [0.13.0](https://github.com/dzangolab/react/compare/v0.12.0...v0.13.0) (2023-07-26)
 
 
