@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { ConfirmationModal } from "@dzangolab/react-ui";
-import { ActionsMenu } from "@dzangolab/react-ui";
+import { ConfirmationModal, ActionsMenu } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
 import { useState } from "react";
 

@@ -2,6 +2,7 @@ import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
 import { SubPane } from "./components/SubPane";
+import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import LoadingIcon from "./LoadingIcon";
@@ -10,7 +11,6 @@ import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { TabbedPanel } from "./TabbedPanel";
-import { ConfirmationModal } from "./ConfirmationModal";
 export * from "./Buttons";
 export * from "./DataTable";
 export * from "./Table";

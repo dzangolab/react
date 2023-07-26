@@ -5,6 +5,7 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
+import SignupForm from "./components/SignupForm";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import { UsersTable, UsersTableProperties } from "./components/UsersTable";
@@ -29,7 +30,6 @@ import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
-import SignupForm from "./components/SignupForm";
 
 import "./assets/css/index.css";
 

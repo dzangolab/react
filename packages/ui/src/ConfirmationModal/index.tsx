@@ -1,5 +1,5 @@
-import React from "react";
 import { ConfirmDialog, ConfirmDialogProps } from "primereact/confirmdialog";
+import React from "react";
 
 export const ConfirmationModal = ({
   accept,
