@@ -20,18 +20,18 @@ export const ExportButton: React.FC<ExportButtonProperties> = ({
   onExportEnd,
   ...buttonOptions
 }) => {
-  const [exporting, exportAsync] = useExporter({
+  const [exporting, triggerExport] = useExporter({
     filename,
     sheetName,
     onExportStart,
     onExportEnd,
   });
 
-  const onExportButtonClick = useCallback(async () => {
+  const onExportButtonClick = useCallback(() => {
     const data = getData();
 
-    await exportAsync(data);
-  }, [exportAsync, getData]);
+    triggerExport(data);
+  }, [triggerExport, getData]);
 
   return (
     <Button
