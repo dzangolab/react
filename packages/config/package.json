@@ -13,9 +13,7 @@
   "main": "dist//DzangolabReactConfig.umd.js",
   "module": "dist//DzangolabReactConfig.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
