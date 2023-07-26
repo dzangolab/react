@@ -2,6 +2,7 @@ import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
 import { SubPane } from "./components/SubPane";
+import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import LoadingIcon from "./LoadingIcon";
@@ -26,6 +27,7 @@ export {
   ResponsiveMenu,
   SubPane,
   TabbedPanel,
+  ConfirmationModal,
 };
 
 export type { DropdownMenuProperties };

@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { ActionsMenu } from "@dzangolab/react-ui";
+import { ConfirmationModal, ActionsMenu } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
+import { useState } from "react";
 
 type InvitationActionsProperites = {
   handleInvitationResend?: (data: any) => void;
@@ -14,6 +15,10 @@ export const InvitationActions = ({
   data,
 }: InvitationActionsProperites) => {
   const { t } = useTranslation("user");
+  const [resendConfirmationDialogVisible, setResendConfirmationDialogVisible] =
+    useState(false);
+  const [revokeConfirmationDialogVisible, setRevokeConfirmationDialogVisible] =
+    useState(false);
 
   const actionItems: MenuItem[] = [];
   if (handleInvitationResend) {
@@ -21,7 +26,7 @@ export const InvitationActions = ({
       label: t("invitation.actions.resend"),
       icon: "pi pi-replay",
       command: (event) => {
-        handleInvitationResend(data);
+        setResendConfirmationDialogVisible(true);
       },
     });
   }
@@ -32,10 +37,28 @@ export const InvitationActions = ({
       icon: "pi pi-times",
       className: "danger",
       command: (event) => {
-        handleInvitationRevoke(data);
+        setRevokeConfirmationDialogVisible(true);
       },
     });
   }
 
-  return <ActionsMenu actions={actionItems} />;
+  return (
+    <>
+      <ActionsMenu actions={actionItems} />
+      <ConfirmationModal
+        message={t("invitation.confirm.resend.message")}
+        accept={() => handleInvitationResend?.(data)}
+        visible={resendConfirmationDialogVisible}
+        onHide={() => setResendConfirmationDialogVisible(false)}
+        header={t("invitation.confirmation.header")}
+      />
+      <ConfirmationModal
+        message={t("invitation.confirm.revoke.message")}
+        accept={() => handleInvitationRevoke?.(data)}
+        visible={revokeConfirmationDialogVisible}
+        onHide={() => setRevokeConfirmationDialogVisible(false)}
+        header={t("invitation.confirmation.header")}
+      />
+    </>
+  );
 };
