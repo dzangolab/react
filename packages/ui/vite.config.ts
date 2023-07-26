@@ -27,7 +27,10 @@ export default defineConfig(({ mode }) => {
           globals: {
             react: "React",
             "@tanstack/react-table": "ReactTable",
+            "file-saver": "FileSaver",
+            "node-xlsx": "NodeXLSX",
             "react-debounce-input": "ReactDebounceInput",
+            "react-dom": "ReactDOM",
             "react-outside-click-handler": "ReactOutsideClickHandler",
             "react-router-dom": "ReactRouterDom",
           },
