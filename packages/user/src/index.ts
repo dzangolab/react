@@ -5,6 +5,7 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
+import SignupForm from "./components/SignupForm";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import { UsersTable, UsersTableProperties } from "./components/UsersTable";
@@ -13,6 +14,7 @@ import { getUserData, removeUserData, setUserData } from "./helpers";
 import { useUser } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
+import getInvitationApi from "./redux/invitationSlice";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import forgetPassword from "./supertokens/forget-password";
@@ -23,13 +25,13 @@ import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import UserToastContainer from "./toastify";
+import AcceptInvitation from "./views/AcceptInvitation";
 import ChangePassword from "./views/ChangePassword";
 import ForgetPassword from "./views/ForgetPassword";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
-import SignupForm from "./components/SignupForm";
 
 import "./assets/css/index.css";
 
@@ -49,6 +51,7 @@ declare module "@dzangolab/react-config" {
 
 export {
   // components
+  AcceptInvitation,
   AuthGoogleCallback,
   ChangePassword,
   DropdownUserMenu,
@@ -84,6 +87,9 @@ export {
   useUser,
   userContext,
   verifySessionRoles,
+
+  //redux
+  getInvitationApi,
 };
 
 export type {
