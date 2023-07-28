@@ -41,3 +41,23 @@ export interface InvitationPayload {
   email: string;
   role: string;
 }
+
+export interface UsersType {
+  id: number;
+  givenName: string;
+  middleNames: string;
+  surname: string;
+}
+
+export interface InvitationType {
+  id: number;
+  email: string;
+  invitedBy: UsersType;
+  expiresAt: string;
+  role: string;
+}
+
+export interface InvitationsResponse {
+  totalCount: number;
+  data: InvitationType[];
+}

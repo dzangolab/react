@@ -11,6 +11,14 @@ interface DzangolabReactUserConfig {
     label: () => ReactNode;
     showCheckbox?: boolean;
   };
+  invitations?: {
+    endpoints: {
+      invitations: string;
+      singleInvitation: string;
+      revokeInvitation: string;
+      resendInvitation: string;
+    };
+  };
 }
 
 export type { DzangolabReactUserConfig };

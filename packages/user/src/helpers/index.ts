@@ -33,4 +33,14 @@ const removeUserData = () => {
   localStorage.removeItem(USER_KEY);
 };
 
-export { getHomeRoute, getUserData, removeUserData, setUserData };
+const encodeURIParameter = <T>(argument: T) => {
+  return !argument ? undefined : JSON.stringify(argument);
+};
+
+export {
+  getHomeRoute,
+  getUserData,
+  removeUserData,
+  setUserData,
+  encodeURIParameter,
+};

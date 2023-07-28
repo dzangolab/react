@@ -10,11 +10,24 @@ import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import { UsersTable, UsersTableProperties } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
-import { getUserData, removeUserData, setUserData } from "./helpers";
+import {
+  getUserData,
+  removeUserData,
+  setUserData,
+  encodeURIParameter,
+} from "./helpers";
 import { useUser } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
-import getInvitationApi from "./redux/invitationSlice";
+import usersApi, {
+  useAcceptInvitationMutation,
+  useGetInvitationByTokenQuery,
+  useInviteUserMutation,
+  useLazyGetInvitationsQuery,
+  useResendInvitationMutation,
+  useRevokeInvitationMutation,
+} from "./redux/usersApi";
+import userBaseApi from "./redux/userBaseApi";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import forgetPassword from "./supertokens/forget-password";
@@ -74,6 +87,7 @@ export {
 
   // utilities
   changePassword,
+  encodeURIParameter,
   forgetPassword,
   getUserData,
   googleLogin,
@@ -89,7 +103,14 @@ export {
   verifySessionRoles,
 
   //redux
-  getInvitationApi,
+  usersApi,
+  userBaseApi,
+  useAcceptInvitationMutation,
+  useGetInvitationByTokenQuery,
+  useInviteUserMutation,
+  useResendInvitationMutation,
+  useLazyGetInvitationsQuery,
+  useRevokeInvitationMutation,
 };
 
 export type {
