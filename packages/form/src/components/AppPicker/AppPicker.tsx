@@ -9,11 +9,11 @@ export interface App {
   origin: string;
 }
 
-interface IProperties {
+export interface IProperties {
   name: string;
   label?: string;
   placeholder?: string;
-  options: App[];
+  options: App[] | undefined;
 }
 
 export const AppPicker = ({
@@ -37,7 +37,7 @@ export const AppPicker = ({
             value={field.value}
             label={label}
             placeholder={placeholder}
-            options={options}
+            options={options || []}
             inputRef={field.ref}
             onChange={(app) => field.onChange(app)}
             error={error}

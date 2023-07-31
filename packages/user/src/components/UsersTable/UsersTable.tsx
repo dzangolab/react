@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
-import { Button, ButtonProps } from "primereact/button";
+import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";

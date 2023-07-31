@@ -11,12 +11,19 @@ const componentList = [
   {
     key: 1,
     title: "Invitation Form",
-    component: <InvitationForm handleSubmit={() => {}} onCancel={() => {}} />,
+    component: (
+      <InvitationForm
+        handleSubmit={() => {}}
+        onCancel={() => {}}
+        roles={[]}
+        apps={[]}
+      />
+    ),
   },
   {
     key: 2,
     title: "Invitation Modal",
-    component: <InvitationModal handleSubmit={() => {}} />,
+    component: <InvitationModal handleSubmit={() => {}} roles={[]} />,
   },
   {
     key: 3,
@@ -26,6 +33,7 @@ const componentList = [
         users={[]}
         fetchUsers={() => {}}
         handleInvitationSubmit={() => {}}
+        roles={[]}
       />
     ),
   },
@@ -37,6 +45,7 @@ const componentList = [
         invitations={[]}
         fetchInvitations={() => {}}
         handleInvitationSubmit={() => {}}
+        roles={[]}
       />
     ),
   },

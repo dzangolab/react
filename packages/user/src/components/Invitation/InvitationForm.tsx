@@ -6,13 +6,14 @@ import * as zod from "zod";
 import { InvitationFormFields } from "./InvitationFormFields";
 
 import type { InvitationPayload } from "../../types";
-import type { Role } from "@dzangolab/react-form";
+import type { App, Role } from "@dzangolab/react-form";
 
 interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
   onCancel?: () => void;
   loading?: boolean;
   roles: Role[];
+  apps: App[] | undefined;
 }
 
 export const InvitationForm = ({
@@ -20,6 +21,7 @@ export const InvitationForm = ({
   onCancel,
   loading,
   roles,
+  apps,
 }: Properties) => {
   const { t } = useTranslation("user");
 
@@ -52,6 +54,7 @@ export const InvitationForm = ({
         onCancel={onCancel}
         loading={loading}
         roles={roles}
+        apps={apps}
       />
     </Provider>
   );

@@ -5,10 +5,11 @@ import { IconType } from "primereact/utils";
 import React, { useState } from "react";
 
 import { InvitationForm } from "./InvitationForm";
-
-import type { Role } from "@dzangolab/react-form";
+import client from "../../api/axios";
+import { useConfig } from "../../hooks";
 
 import type { InvitationPayload } from "../../types";
+import type { App, Role } from "@dzangolab/react-form";
 
 interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
@@ -25,6 +26,16 @@ export const InvitationModal = ({
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const config = useConfig();
+
+  const [apps, setApps] = useState<App[] | undefined>(undefined);
+
+  client(config.apiBaseUrl)
+    .get<App[]>("/")
+    .then((res) => {
+      setApps(res.data);
+    })
+    .catch((error) => console.log(error));
 
   return (
     <div className="flex justify-content-center">
@@ -48,6 +59,7 @@ export const InvitationModal = ({
           }}
           loading={loading}
           roles={roles}
+          apps={apps}
         />
       </Dialog>
     </div>

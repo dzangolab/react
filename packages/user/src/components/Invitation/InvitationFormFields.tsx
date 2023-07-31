@@ -1,21 +1,28 @@
-import { Email, RolePicker, useFormContext } from "@dzangolab/react-form";
+import {
+  AppPicker,
+  Email,
+  RolePicker,
+  useFormContext,
+} from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React from "react";
 
-import type { Role } from "@dzangolab/react-form";
+import type { App, Role } from "@dzangolab/react-form";
 
 interface IProperties {
   onCancel?: () => void;
   loading?: boolean;
   roles: Role[];
+  apps: App[] | undefined;
 }
 
 export const InvitationFormFields: React.FC<IProperties> = ({
   onCancel,
   loading,
   roles,
+  apps,
 }) => {
   const { t } = useTranslation("user");
   const {
@@ -39,6 +46,12 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         label={t("invitation.form.role.label")}
         placeholder={t("invitation.form.role.placeholder")}
         options={roles}
+      />
+      <AppPicker
+        name="app"
+        label={t("invitation.form.app.label")}
+        placeholder={t("invitation.form.app.placeholder")}
+        options={apps || []}
       />
 
       <div className="actions">
