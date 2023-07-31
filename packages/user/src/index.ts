@@ -19,15 +19,15 @@ import {
 import { useUser } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
-import usersApi, {
+import {
   useAcceptInvitationMutation,
   useGetInvitationByTokenQuery,
   useInviteUserMutation,
   useLazyGetInvitationsQuery,
   useResendInvitationMutation,
   useRevokeInvitationMutation,
+  createUsersApi,
 } from "./redux/usersApi";
-import userBaseApi from "./redux/userBaseApi";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import forgetPassword from "./supertokens/forget-password";
@@ -103,8 +103,7 @@ export {
   verifySessionRoles,
 
   //redux
-  usersApi,
-  userBaseApi,
+  createUsersApi,
   useAcceptInvitationMutation,
   useGetInvitationByTokenQuery,
   useInviteUserMutation,

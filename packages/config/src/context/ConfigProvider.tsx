@@ -9,7 +9,16 @@ interface Properties {
 
 const configContext = createContext<AppConfig | undefined>(undefined);
 
+let appConfig = {} as AppConfig;
+
+const setConfig = (config: AppConfig) => {
+  appConfig = config;
+};
+
+const getConfig = () => appConfig;
+
 const ConfigProvider = ({ children, appConfig }: Properties) => {
+  setConfig(appConfig);
   return (
     <configContext.Provider value={appConfig}>
       {children}
@@ -18,4 +27,4 @@ const ConfigProvider = ({ children, appConfig }: Properties) => {
 };
 
 export default ConfigProvider;
-export { configContext };
+export { configContext, getConfig };

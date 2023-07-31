@@ -1,9 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
+import { Card } from "primereact/card";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Card } from "primereact/card";
 
 import { SignupForm, login, useUser } from "..";
 import { useConfig } from "../hooks";
