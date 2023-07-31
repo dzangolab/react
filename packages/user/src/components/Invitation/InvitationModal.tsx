@@ -6,18 +6,22 @@ import React, { useState } from "react";
 
 import { InvitationForm } from "./InvitationForm";
 
+import type { Role } from "@dzangolab/react-form";
+
 import type { InvitationPayload } from "../../types";
 
 interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
   loading?: boolean;
   buttonIcon?: IconType<ButtonProps>;
+  roles: Role[];
 }
 
 export const InvitationModal = ({
   handleSubmit,
   loading,
   buttonIcon,
+  roles,
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -43,6 +47,7 @@ export const InvitationModal = ({
             setModalVisible(false);
           }}
           loading={loading}
+          roles={roles}
         />
       </Dialog>
     </div>

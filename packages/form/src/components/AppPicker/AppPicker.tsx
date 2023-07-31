@@ -1,21 +1,22 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { RolePickerBasic } from "./RolePickerBasic";
+import { AppPickerBasic } from "./AppPickerBasic";
 
-export interface Role {
+export interface App {
   name: string;
   id: number;
+  origin: string;
 }
 
 interface IProperties {
   name: string;
   label?: string;
   placeholder?: string;
-  options: Role[];
+  options: App[];
 }
 
-export const RolePicker = ({
+export const AppPicker = ({
   name,
   placeholder,
   options,
@@ -31,14 +32,14 @@ export const RolePicker = ({
         name={name}
         control={control}
         render={({ field }) => (
-          <RolePickerBasic
+          <AppPickerBasic
             name={field.name}
             value={field.value}
             label={label}
             placeholder={placeholder}
             options={options}
             inputRef={field.ref}
-            onChange={(role) => field.onChange(role)}
+            onChange={(app) => field.onChange(app)}
             error={error}
           />
         )}

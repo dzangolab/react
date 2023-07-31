@@ -11,6 +11,7 @@ import { InvitationActions } from "./InvitationActions";
 import { InvitationModal } from ".";
 
 import type { InvitationPayload } from "../../types";
+import type { Role } from "@dzangolab/react-form";
 
 export type InvitationsTableProperties = {
   id?: string;
@@ -25,6 +26,7 @@ export type InvitationsTableProperties = {
   handleInvitationResend?: (data: any) => void;
   handleInvitationRevoke?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
+  roles: Role[];
 };
 
 export const InvitationsTable = ({
@@ -40,6 +42,7 @@ export const InvitationsTable = ({
   handleInvitationResend,
   handleInvitationRevoke,
   inviteButtonIcon,
+  roles,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
@@ -121,6 +124,7 @@ export const InvitationsTable = ({
             handleSubmit={handleInvitationSubmit}
             loading={loading}
             buttonIcon={inviteButtonIcon}
+            roles={roles}
           />
         </div>
       );

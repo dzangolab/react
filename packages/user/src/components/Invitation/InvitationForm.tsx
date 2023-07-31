@@ -4,20 +4,22 @@ import React from "react";
 import * as zod from "zod";
 
 import { InvitationFormFields } from "./InvitationFormFields";
-import { ROLE_LIST } from "../../constants";
 
 import type { InvitationPayload } from "../../types";
+import type { Role } from "@dzangolab/react-form";
 
 interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
   onCancel?: () => void;
   loading?: boolean;
+  roles: Role[];
 }
 
 export const InvitationForm = ({
   handleSubmit,
   onCancel,
   loading,
+  roles,
 }: Properties) => {
   const { t } = useTranslation("user");
 
@@ -37,7 +39,7 @@ export const InvitationForm = ({
 
   return (
     <Provider
-      onSubmit={(data: { email: string; role: (typeof ROLE_LIST)[0] }) => {
+      onSubmit={(data: { email: string; role: Role }) => {
         handleSubmit({ ...data, role: data.role.name });
       }}
       defaultValues={{
@@ -46,7 +48,11 @@ export const InvitationForm = ({
       }}
       validationSchema={InvitationFormSchema}
     >
-      <InvitationFormFields onCancel={onCancel} loading={loading} />
+      <InvitationFormFields
+        onCancel={onCancel}
+        loading={loading}
+        roles={roles}
+      />
     </Provider>
   );
 };
