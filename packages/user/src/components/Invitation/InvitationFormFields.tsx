@@ -10,6 +10,7 @@ import { Button } from "primereact/button";
 import React from "react";
 
 import type { App, Role } from "@dzangolab/react-form";
+import { useConfig } from "@/hooks";
 
 interface IProperties {
   onCancel?: () => void;
@@ -28,6 +29,9 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 }) => {
   const { t } = useTranslation("user");
   const {
+    user: { invitations },
+  } = useConfig();
+  const {
     register,
     getFieldState,
     formState: { errors, submitCount },
@@ -43,13 +47,14 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
-
-      <AppPicker
-        name="app"
-        label={t("invitation.form.app.label")}
-        placeholder={t("invitation.form.app.placeholder")}
-        options={apps || []}
-      />
+      {invitations?.modal.displayAppField ? (
+        <AppPicker
+          name="app"
+          label={t("invitation.form.app.label")}
+          placeholder={t("invitation.form.app.placeholder")}
+          options={apps || []}
+        />
+      ) : null}
 
       <RolePicker
         name="role"
