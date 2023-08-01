@@ -28,7 +28,7 @@ export const UsersTable = ({
   className = "table-users",
   columns,
   loading = false,
-  showInviteAction = true,
+  showInviteAction = false,
   totalRecords = 0,
   users,
   fetchUsers,
@@ -111,6 +111,8 @@ export const UsersTable = ({
           />
         </div>
       );
+    } else {
+      return undefined;
     }
   };
 
