@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 import type { RouteOverrides } from "./router";
+import { Role } from "@dzangolab/react-form";
 
 interface DzangolabReactUserConfig {
   supportedRoles: string[];
@@ -14,6 +15,7 @@ interface DzangolabReactUserConfig {
   invitations?: {
     modal: {
       displayAppField?: boolean;
+      availableRoles: Role[];
     };
   };
 }

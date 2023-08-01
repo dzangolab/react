@@ -22,7 +22,6 @@ export type UsersTableProperties = {
   fetchUsers: (arguments_?: any) => void;
   handleInvitationSubmit?: (data: InvitationPayload) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
-  roles: Role[];
 };
 
 export const UsersTable = ({
@@ -36,7 +35,6 @@ export const UsersTable = ({
   fetchUsers,
   handleInvitationSubmit,
   inviteButtonIcon,
-  roles,
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -111,7 +109,6 @@ export const UsersTable = ({
             handleSubmit={handleInvitationSubmit}
             loading={loading}
             buttonIcon={inviteButtonIcon}
-            roles={roles}
           />
         </div>
       );

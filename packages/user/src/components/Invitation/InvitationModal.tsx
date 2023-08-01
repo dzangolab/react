@@ -15,7 +15,6 @@ interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
   loading?: boolean;
   buttonIcon?: IconType<ButtonProps>;
-  roles: Role[];
   filterRoles?: (apps: App, role: Role[]) => Role[];
 }
 
@@ -23,7 +22,6 @@ export const InvitationModal = ({
   handleSubmit,
   loading,
   buttonIcon,
-  roles,
   filterRoles,
 }: Properties) => {
   const { t } = useTranslation("user");
@@ -62,7 +60,7 @@ export const InvitationModal = ({
             setModalVisible(false);
           }}
           loading={loading}
-          roles={roles}
+          roles={config.user.invitations?.modal.availableRoles || []}
           apps={apps}
           filterRoles={filterRoles}
         />

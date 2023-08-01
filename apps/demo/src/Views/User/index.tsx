@@ -15,15 +15,15 @@ const componentList = [
       <InvitationForm
         handleSubmit={() => {}}
         onCancel={() => {}}
-        roles={[]}
         apps={[]}
+        roles={[]}
       />
     ),
   },
   {
     key: 2,
     title: "Invitation Modal",
-    component: <InvitationModal handleSubmit={() => {}} roles={[]} />,
+    component: <InvitationModal handleSubmit={() => {}} />,
   },
   {
     key: 3,
@@ -33,7 +33,6 @@ const componentList = [
         users={[]}
         fetchUsers={() => {}}
         handleInvitationSubmit={() => {}}
-        roles={[]}
       />
     ),
   },
@@ -45,7 +44,6 @@ const componentList = [
         invitations={[]}
         fetchInvitations={() => {}}
         handleInvitationSubmit={() => {}}
-        roles={[]}
       />
     ),
   },
