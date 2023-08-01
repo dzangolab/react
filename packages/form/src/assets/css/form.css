@@ -70,3 +70,7 @@ form span[role="alert"] {
   color: var(--color-alert-danger, red);
   font-size: var(--form-input-error-font-size, 0.8em);
 }
+
+.field .p-dropdown {
+  width: 100%;
+}

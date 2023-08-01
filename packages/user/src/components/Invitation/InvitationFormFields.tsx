@@ -45,7 +45,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         name="role"
         label={t("invitation.form.role.label")}
         placeholder={t("invitation.form.role.placeholder")}
-        options={roles}
+        options={roles || []}
       />
       <AppPicker
         name="app"

@@ -2,7 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, ButtonProps } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { IconType } from "primereact/utils";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { InvitationForm } from "./InvitationForm";
 import client from "../../api/axios";
@@ -30,12 +30,14 @@ export const InvitationModal = ({
 
   const [apps, setApps] = useState<App[] | undefined>(undefined);
 
-  client(config.apiBaseUrl)
-    .get<App[]>("/")
-    .then((res) => {
-      setApps(res.data);
-    })
-    .catch((error) => console.log(error));
+  useEffect(() => {
+    client(config.apiBaseUrl)
+      .get<{ apps: App[] }>("/")
+      .then((res) => {
+        setApps(res.data.apps);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className="flex justify-content-center">

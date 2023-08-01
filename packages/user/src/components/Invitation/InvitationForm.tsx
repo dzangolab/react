@@ -33,20 +33,29 @@ export const InvitationForm = ({
     role: zod.z.object(
       {
         id: zod.z.number(),
-        name: zod.z.union([zod.z.literal("ADMIN"), zod.z.literal("USER")]),
+        name: zod.z.string(),
       },
       { required_error: t("validation.messages.role") }
+    ),
+    app: zod.z.object(
+      {
+        id: zod.z.number(),
+        name: zod.z.string(),
+        origin: zod.z.string(),
+      },
+      { required_error: t("validation.messages.app") }
     ),
   });
 
   return (
     <Provider
-      onSubmit={(data: { email: string; role: Role }) => {
-        handleSubmit({ ...data, role: data.role.name });
+      onSubmit={(data: { email: string; role: Role; app: App }) => {
+        handleSubmit({ ...data, role: data.role.name, appId: data.app.id });
       }}
       defaultValues={{
         email: "",
         role: undefined,
+        app: undefined,
       }}
       validationSchema={InvitationFormSchema}
     >
