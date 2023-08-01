@@ -16,7 +16,7 @@ interface Properties {
   loading?: boolean;
   buttonIcon?: IconType<ButtonProps>;
   roles: Role[];
-  filterApps?: (apps: App[], role: Role) => App[];
+  filterRoles?: (apps: App, role: Role[]) => Role[];
 }
 
 export const InvitationModal = ({
@@ -24,7 +24,7 @@ export const InvitationModal = ({
   loading,
   buttonIcon,
   roles,
-  filterApps,
+  filterRoles,
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -64,7 +64,7 @@ export const InvitationModal = ({
           loading={loading}
           roles={roles}
           apps={apps}
-          filterApps={filterApps}
+          filterRoles={filterRoles}
         />
       </Dialog>
     </div>

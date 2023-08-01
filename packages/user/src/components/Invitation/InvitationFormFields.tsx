@@ -16,7 +16,7 @@ interface IProperties {
   loading?: boolean;
   roles: Role[];
   apps: App[] | undefined;
-  filterApps?: (apps: App[], role: Role) => App[];
+  filterRoles?: (apps: App, role: Role[]) => Role[];
 }
 
 export const InvitationFormFields: React.FC<IProperties> = ({
@@ -24,7 +24,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   loading,
   roles,
   apps,
-  filterApps,
+  filterRoles,
 }) => {
   const { t } = useTranslation("user");
   const {
@@ -43,18 +43,20 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
-      <RolePicker
-        name="role"
-        label={t("invitation.form.role.label")}
-        placeholder={t("invitation.form.role.placeholder")}
-        options={roles || []}
-      />
+
       <AppPicker
         name="app"
         label={t("invitation.form.app.label")}
         placeholder={t("invitation.form.app.placeholder")}
         options={apps || []}
-        filterApps={filterApps}
+      />
+
+      <RolePicker
+        name="role"
+        label={t("invitation.form.role.label")}
+        placeholder={t("invitation.form.role.placeholder")}
+        options={roles || []}
+        filterRoles={filterRoles}
       />
 
       <div className="actions">
