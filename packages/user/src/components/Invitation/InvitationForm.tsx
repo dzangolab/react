@@ -14,6 +14,7 @@ interface Properties {
   loading?: boolean;
   roles: Role[];
   apps: App[] | undefined;
+  filterApps?: (apps: App[], role: Role) => App[];
 }
 
 export const InvitationForm = ({
@@ -22,6 +23,7 @@ export const InvitationForm = ({
   loading,
   roles,
   apps,
+  filterApps,
 }: Properties) => {
   const { t } = useTranslation("user");
 
@@ -64,6 +66,7 @@ export const InvitationForm = ({
         loading={loading}
         roles={roles}
         apps={apps}
+        filterApps={filterApps}
       />
     </Provider>
   );

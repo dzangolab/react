@@ -16,6 +16,7 @@ interface IProperties {
   loading?: boolean;
   roles: Role[];
   apps: App[] | undefined;
+  filterApps?: (apps: App[], role: Role) => App[];
 }
 
 export const InvitationFormFields: React.FC<IProperties> = ({
@@ -23,6 +24,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   loading,
   roles,
   apps,
+  filterApps,
 }) => {
   const { t } = useTranslation("user");
   const {
@@ -52,6 +54,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         label={t("invitation.form.app.label")}
         placeholder={t("invitation.form.app.placeholder")}
         options={apps || []}
+        filterApps={filterApps}
       />
 
       <div className="actions">

@@ -1,7 +1,8 @@
-import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import React, { useMemo } from "react";
+import { Controller, useFormContext, useWatch } from "react-hook-form";
 
 import { AppPickerBasic } from "./AppPickerBasic";
+import type { Role } from "../RolePicker";
 
 export interface App {
   name: string;
@@ -14,17 +15,32 @@ export interface IProperties {
   label?: string;
   placeholder?: string;
   options: App[] | undefined;
+  filterApps?: (apps: App[], role: Role) => App[];
 }
 
 export const AppPicker = ({
   name,
   placeholder,
-  options,
+  options = [],
   label,
+  filterApps,
 }: IProperties) => {
   const { control, getFieldState } = useFormContext();
 
+  const role = useWatch({
+    control,
+    name: "role",
+  });
+
   const { error } = getFieldState(name);
+
+  const filteredApps = useMemo(() => {
+    if (filterApps) {
+      return filterApps(options, role);
+    }
+
+    return options;
+  }, [role, filterApps]);
 
   return (
     <>
@@ -37,7 +53,7 @@ export const AppPicker = ({
             value={field.value}
             label={label}
             placeholder={placeholder}
-            options={options || []}
+            options={filteredApps}
             inputRef={field.ref}
             onChange={(app) => field.onChange(app)}
             error={error}
