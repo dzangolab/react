@@ -11,6 +11,11 @@ interface DzangolabReactUserConfig {
     label: () => ReactNode;
     showCheckbox?: boolean;
   };
+  invitations?: {
+    modal: {
+      displayAppField?: boolean;
+    };
+  };
 }
 
 export type { DzangolabReactUserConfig };

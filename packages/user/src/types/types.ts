@@ -40,5 +40,5 @@ export interface SignInUpPromise {
 export interface InvitationPayload {
   email: string;
   role: string;
-  appId: number;
+  appId?: number;
 }

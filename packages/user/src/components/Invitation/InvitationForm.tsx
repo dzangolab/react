@@ -7,6 +7,7 @@ import { InvitationFormFields } from "./InvitationFormFields";
 
 import type { InvitationPayload } from "../../types";
 import type { App, Role } from "@dzangolab/react-form";
+import { useConfig } from "@/hooks";
 
 interface Properties {
   handleSubmit: (data: InvitationPayload) => void;
@@ -26,8 +27,22 @@ export const InvitationForm = ({
   filterRoles,
 }: Properties) => {
   const { t } = useTranslation("user");
+  const {
+    user: { invitations },
+  } = useConfig();
 
-  const InvitationFormSchema = zod.object({
+  const AppIdFormSchema = zod.object({
+    app: zod.z.object(
+      {
+        id: zod.z.number(),
+        name: zod.z.string(),
+        origin: zod.z.string(),
+      },
+      { required_error: t("validation.messages.app") }
+    ),
+  });
+
+  let InvitationFormSchema = zod.object({
     email: emailSchema({
       invalid: t("validation.messages.validEmail"),
       required: t("validation.messages.email"),
@@ -39,25 +54,25 @@ export const InvitationForm = ({
       },
       { required_error: t("validation.messages.role") }
     ),
-    app: zod.z.object(
-      {
-        id: zod.z.number(),
-        name: zod.z.string(),
-        origin: zod.z.string(),
-      },
-      { required_error: t("validation.messages.app") }
-    ),
   });
+
+  if (invitations?.modal.displayAppField) {
+    InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
+  }
 
   return (
     <Provider
       onSubmit={(data: { email: string; role: Role; app: App }) => {
-        handleSubmit({ ...data, role: data.role.name, appId: data.app.id });
+        handleSubmit({
+          ...data,
+          role: data.role.name,
+          ...(invitations?.modal.displayAppField && { appId: data.app.id }),
+        });
       }}
       defaultValues={{
         email: "",
         role: undefined,
-        app: undefined,
+        ...(invitations?.modal.displayAppField && { app: undefined }),
       }}
       validationSchema={InvitationFormSchema}
     >
