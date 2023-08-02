@@ -28,7 +28,7 @@ export const UsersTable = ({
   className = "table-users",
   columns,
   loading = false,
-  showInviteAction = false,
+  showInviteAction = true,
   totalRecords = 0,
   users,
   fetchUsers,
