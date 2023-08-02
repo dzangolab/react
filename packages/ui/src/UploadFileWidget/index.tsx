@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FileUpload, ItemTemplateOptions } from "primereact/fileupload";
 import { Button } from "primereact/button";
+import { Tag } from "primereact/tag";
 
 export const UploadFile = () => {
   const [customFileName, setCustomFileName] = useState("");
@@ -15,7 +16,7 @@ export const UploadFile = () => {
     const file = inFile as File;
     return (
       <div
-        className="flex p-jc-between"
+        className="flex align-items-center flex-wrap"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
         <div className="flex align-items-center" style={{ width: "40%" }}>
@@ -27,21 +28,27 @@ export const UploadFile = () => {
           />
           <span className="flex flex-column text-left ml-3">
             {customFileName ? customFileName : file.name}
-            <small>{new Date().toLocaleDateString()}</small>
           </span>
         </div>
+        <div>
+          <input
+            type="text"
+            value={customFileName}
+            onChange={(event) => setCustomFileName(event.target.value)}
+            placeholder="Enter custom file name"
+          />
+        </div>
 
-        <input
-          type="text"
-          value={customFileName}
-          onChange={(event) => setCustomFileName(event.target.value)}
-          placeholder="Enter custom file name"
+        <Tag
+          value={properties.formatSize}
+          severity="warning"
+          className="px-3 py-2"
         />
 
         <Button
           type="button"
           icon="pi pi-times"
-          className="p-button-outlined p-button-rounded p-button-danger ml-auto"
+          className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
           onClick={() => onTemplateRemove(file, properties.onRemove)}
         />
       </div>
