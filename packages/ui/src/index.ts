@@ -11,6 +11,7 @@ import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { TabbedPanel } from "./TabbedPanel";
+import { UploadFile } from "./UploadFileWidget";
 export * from "./Buttons";
 export * from "./DataTable";
 export * from "./Table";
@@ -28,6 +29,7 @@ export {
   SubPane,
   TabbedPanel,
   ConfirmationModal,
+  UploadFile,
 };
 
 export type { DropdownMenuProperties };

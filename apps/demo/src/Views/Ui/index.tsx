@@ -1,4 +1,9 @@
-import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
+import {
+  LoadingIcon,
+  Page,
+  ResponsiveMenu,
+  UploadFile,
+} from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
@@ -51,6 +56,11 @@ const componentList = [
     key: 5,
     title: "buttons.export",
     component: <ExportButton />,
+  },
+  {
+    key: 6,
+    title: "buttons.export",
+    component: <UploadFile />,
   },
 ];
 

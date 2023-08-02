@@ -1,9 +1,11 @@
+import React from "react";
 import { FileUpload } from "primereact/fileupload";
+
 export const UploadFile = () => {
   return (
     <div className="card">
       <FileUpload
-        name="file[]"
+        name="demo[]"
         url={"/api/upload"}
         multiple
         accept="image/*"
