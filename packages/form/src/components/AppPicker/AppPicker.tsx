@@ -3,10 +3,13 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { AppPickerBasic } from "./AppPickerBasic";
 
+import type { Role } from "../RolePicker";
+
 export interface App {
   name: string;
   id: number;
   origin: string;
+  supportedRoles?: Role[];
 }
 
 export interface IProperties {

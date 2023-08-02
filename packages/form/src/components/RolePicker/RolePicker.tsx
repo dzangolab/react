@@ -14,7 +14,7 @@ interface IProperties {
   name: string;
   label?: string;
   placeholder?: string;
-  options: Role[];
+  options?: Role[];
   filterRoles?: (apps: App, role: Role[]) => Role[];
 }
 
@@ -27,17 +27,19 @@ export const RolePicker = ({
 }: IProperties) => {
   const { control, getFieldState } = useFormContext();
 
-  const app = useWatch({
+  const app: App = useWatch({
     control,
     name: "app",
   });
 
   const filteredRoles = useMemo(() => {
-    if (filterRoles) {
+    if (app?.supportedRoles) {
+      return app.supportedRoles;
+    } else if (filterRoles && options && app) {
       return filterRoles(app, options);
     }
 
-    return options;
+    return options || [];
   }, [app, filterRoles]);
 
   const { error } = getFieldState(name);
