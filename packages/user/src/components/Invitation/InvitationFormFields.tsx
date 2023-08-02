@@ -9,8 +9,9 @@ import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React from "react";
 
-import type { App, Role } from "@dzangolab/react-form";
 import { useConfig } from "@/hooks";
+
+import type { App, Role } from "@dzangolab/react-form";
 
 interface IProperties {
   onCancel?: () => void;
@@ -18,6 +19,7 @@ interface IProperties {
   roles: Role[];
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
+  invitationPayloadField?: React.ReactNode;
 }
 
 export const InvitationFormFields: React.FC<IProperties> = ({
@@ -26,6 +28,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   roles,
   apps,
   filterRoles,
+  invitationPayloadField,
 }) => {
   const { t } = useTranslation("user");
   const {
@@ -63,6 +66,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         options={roles || []}
         filterRoles={filterRoles}
       />
+
+      {invitationPayloadField ? invitationPayloadField : null}
 
       <div className="actions">
         {onCancel && (

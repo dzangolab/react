@@ -16,6 +16,7 @@ interface Properties {
   roles: Role[];
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
+  invitationPayloadField: React.ReactNode;
 }
 
 export const InvitationForm = ({
@@ -25,6 +26,7 @@ export const InvitationForm = ({
   roles,
   apps,
   filterRoles,
+  invitationPayloadField,
 }: Properties) => {
   const { t } = useTranslation("user");
   const {
@@ -40,6 +42,10 @@ export const InvitationForm = ({
       },
       { required_error: t("validation.messages.app") }
     ),
+  });
+
+  const invitationPayloadSchema = zod.object({
+    payload: zod.z.any({ required_error: t("validation.messages.payload") }),
   });
 
   let InvitationFormSchema = zod.object({
@@ -60,6 +66,10 @@ export const InvitationForm = ({
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
   }
 
+  if (invitationPayloadField) {
+    InvitationFormSchema = InvitationFormSchema.merge(invitationPayloadSchema);
+  }
+
   return (
     <Provider
       onSubmit={(data: { email: string; role: Role; app: App }) => {
@@ -73,6 +83,7 @@ export const InvitationForm = ({
         email: "",
         role: undefined,
         ...(invitations?.modal.displayAppField && { app: undefined }),
+        ...(invitationPayloadField && { payload: undefined }),
       }}
       validationSchema={InvitationFormSchema}
     >
@@ -82,6 +93,7 @@ export const InvitationForm = ({
         roles={roles}
         apps={apps}
         filterRoles={filterRoles}
+        invitationPayloadField={invitationPayloadField}
       />
     </Provider>
   );
