@@ -112,7 +112,7 @@ export const UsersTable = ({
         </div>
       );
     } else {
-      return undefined;
+      return null;
     }
   };
 
