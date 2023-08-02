@@ -41,8 +41,6 @@ export const UsersTable = ({
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const showHeader = !!handleInvitationSubmit && !!showInviteAction;
-
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "name",
@@ -113,6 +111,8 @@ export const UsersTable = ({
           />
         </div>
       );
+    } else {
+      return undefined;
     }
   };
 
@@ -123,7 +123,7 @@ export const UsersTable = ({
       data={users}
       emptyMessage={t("app:table.emptyMessage")}
       fetchData={fetchUsers}
-      header={showHeader ? renderHeader : undefined}
+      header={renderHeader()}
       id={id}
       initialFilters={initialFilters}
       loading={loading}
