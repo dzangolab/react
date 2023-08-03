@@ -22,7 +22,7 @@ export const UploadFile = () => {
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
     const file = inFile as File;
     const index = properties.index;
-    const customFileName = customFileNames[index] || file.name;
+    const customFileName = file.name || customFileNames[index];
     return (
       <div
         className="flex align-items-center flex-wrap"
@@ -34,17 +34,17 @@ export const UploadFile = () => {
       >
         <div
           className="flex align-items-center"
-          style={{ width: "40%", display: "flex", alignItems: "center" }}
+          style={{ width: "60%", display: "flex", alignItems: "center" }}
         >
           <i
             className="pi pi-file"
             style={{ fontSize: "2rem", marginRight: "1rem" }}
           ></i>
           {renameFile ? (
-            <div>
+            <div className="flex" style={{ display: "flex" }}>
               <InputText
                 type="text"
-                value={customFileName}
+                value={customFileName ? customFileName : ""}
                 onChange={(event) => {
                   const updatedNames = [...customFileNames];
                   updatedNames[index] = event.target.value;
@@ -52,21 +52,24 @@ export const UploadFile = () => {
                 }}
                 placeholder="Enter custom file name"
               />
-              <Button
-                type="button"
-                icon="pi pi-times"
-                className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
-                onClick={() => {
-                  setRenameFile(false);
-                  setCustomFileNames(customFileNames);
-                }}
-              />
-              <Button
-                type="button"
-                icon="pi pi-check"
-                className="p-button-outlined p-button-rounded p-button-success ml-auto flex align-items-center"
-                onClick={() => handleRenameDone(index)}
-              />
+
+              <div>
+                <Button
+                  type="button"
+                  icon="pi pi-check"
+                  className="p-button-outlined p-button-rounded p-button-success ml-auto flex align-items-center"
+                  onClick={() => handleRenameDone(index)}
+                />
+                <Button
+                  type="button"
+                  icon="pi pi-times"
+                  className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
+                  onClick={() => {
+                    setRenameFile(false);
+                    setCustomFileNames(customFileNames);
+                  }}
+                />
+              </div>
             </div>
           ) : (
             <>
