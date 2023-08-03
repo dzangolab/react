@@ -19,7 +19,7 @@ interface Properties {
   invitationPayloads?: {
     invitationPayloadFields: React.ReactNode[];
     invitationPayloadSchema: zod.ZodObject<any>;
-    defaultValues: any;
+    defaultValues: Record<string, any>;
   };
 }
 
@@ -47,10 +47,6 @@ export const InvitationForm = ({
       { required_error: t("validation.messages.app") }
     ),
   });
-
-  // const invitationPayloadSchema = zod.object({
-  //   payload: zod.z.any({ required_error: t("validation.messages.payload") }),
-  // });
 
   let InvitationFormSchema: zod.AnyZodObject = zod.object({
     email: emailSchema({

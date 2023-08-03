@@ -20,7 +20,7 @@ interface Properties {
   invitationPayloads?: {
     invitationPayloadFields: React.ReactNode[];
     invitationPayloadSchema: Zod.ZodObject<any>;
-    defaultValues: any;
+    defaultValues: Record<string, any>;
   };
 }
 
