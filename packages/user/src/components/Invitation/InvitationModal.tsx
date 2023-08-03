@@ -18,7 +18,7 @@ interface Properties {
   buttonIcon?: IconType<ButtonProps>;
   filterRoles?: (apps: App, role: Role[]) => Role[];
   invitationPayloads?: {
-    invitationPayloadFields: React.ReactNode[];
+    invitationPayloadFields: React.ComponentType;
     invitationPayloadSchema: Zod.ZodObject<any>;
     defaultValues: Record<string, any>;
   };

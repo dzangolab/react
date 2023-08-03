@@ -17,7 +17,7 @@ interface Properties {
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
   invitationPayloads?: {
-    invitationPayloadFields: React.ReactNode[];
+    invitationPayloadFields: React.ComponentType;
     invitationPayloadSchema: zod.ZodObject<any>;
     defaultValues: Record<string, any>;
   };
@@ -96,7 +96,7 @@ export const InvitationForm = ({
         roles={roles}
         apps={apps}
         filterRoles={filterRoles}
-        invitationPayloadField={invitationPayloads?.invitationPayloadFields}
+        invitationPayloadFields={invitationPayloads?.invitationPayloadFields}
       />
     </Provider>
   );

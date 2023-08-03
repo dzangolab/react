@@ -19,16 +19,15 @@ interface IProperties {
   roles: Role[];
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
-  invitationPayloadField?: React.ReactNode[];
+  invitationPayloadFields?: React.ComponentType;
 }
-
 export const InvitationFormFields: React.FC<IProperties> = ({
   onCancel,
   loading,
   roles,
   apps,
   filterRoles,
-  invitationPayloadField,
+  invitationPayloadFields: InvitationPayloadFields,
 }) => {
   const { t } = useTranslation("user");
   const {
@@ -67,7 +66,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         filterRoles={filterRoles}
       />
 
-      {invitationPayloadField ? invitationPayloadField : null}
+      {InvitationPayloadFields ? <InvitationPayloadFields /> : null}
 
       <div className="actions">
         {onCancel && (
