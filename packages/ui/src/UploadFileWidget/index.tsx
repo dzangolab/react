@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { FileUpload, ItemTemplateOptions } from "primereact/fileupload";
 import { Button } from "primereact/button";
-import { Tag } from "primereact/tag";
+import { InputText } from "primereact/inputtext";
 
 export const UploadFile = () => {
-  const [customFileName, setCustomFileName] = useState("");
+  const [customFileNames, setCustomFileNames] = useState<string[]>([]);
+  const [renameFile, setRenameFile] = useState<boolean>(false);
   const [totalSize, setTotalSize] = useState(0);
 
   const onTemplateRemove = (file: File, callback: any) => {
@@ -12,38 +13,70 @@ export const UploadFile = () => {
     callback();
   };
 
+  const handleRenameDone = (index: number) => {
+    const updatedNames = [...customFileNames];
+    setCustomFileNames(updatedNames);
+    setRenameFile(false);
+  };
+
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
     const file = inFile as File;
+    const index = properties.index;
+    const customFileName = customFileNames[index] || file.name;
     return (
       <div
         className="flex align-items-center flex-wrap"
-        style={{ display: "flex", justifyContent: "space-between" }}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
       >
-        <div className="flex align-items-center" style={{ width: "40%" }}>
-          <img
-            alt="/"
-            role="presentation"
-            src={URL.createObjectURL(file)}
-            width={100}
-          />
-          <span className="flex flex-column text-left ml-3">
-            {customFileName ? customFileName : file.name}
-          </span>
+        <div
+          className="flex align-items-center"
+          style={{ width: "40%", display: "flex", alignItems: "center" }}
+        >
+          <i
+            className="pi pi-file"
+            style={{ fontSize: "2rem", marginRight: "1rem" }}
+          ></i>
+          {renameFile ? (
+            <div>
+              <InputText
+                type="text"
+                value={customFileName}
+                onChange={(event) => {
+                  const updatedNames = [...customFileNames];
+                  updatedNames[index] = event.target.value;
+                  setCustomFileNames(updatedNames);
+                }}
+                placeholder="Enter custom file name"
+              />
+              <Button
+                type="button"
+                icon="pi pi-times"
+                className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
+                onClick={() => {
+                  setRenameFile(false);
+                  setCustomFileNames(customFileNames);
+                }}
+              />
+              <Button
+                type="button"
+                icon="pi pi-check"
+                className="p-button-outlined p-button-rounded p-button-success ml-auto flex align-items-center"
+                onClick={() => handleRenameDone(index)}
+              />
+            </div>
+          ) : (
+            <>
+              <span className="flex flex-column text-left ml-3">
+                {customFileName ? customFileName : file.name}
+              </span>
+              <Button label="Rename" onClick={() => setRenameFile(true)} />
+            </>
+          )}
         </div>
-        <div>
-          <input
-            type="text"
-            value={customFileName}
-            onChange={(event) => setCustomFileName(event.target.value)}
-            placeholder="Enter custom file name"
-          />
-        </div>
-
-        <Tag
-          value={properties.formatSize}
-          severity="warning"
-          className="px-3 py-2"
-        />
 
         <Button
           type="button"
