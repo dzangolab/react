@@ -19,7 +19,7 @@ interface IProperties {
   roles: Role[];
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
-  invitationPayloadField?: React.ReactNode;
+  invitationPayloadField?: React.ReactNode[];
 }
 
 export const InvitationFormFields: React.FC<IProperties> = ({

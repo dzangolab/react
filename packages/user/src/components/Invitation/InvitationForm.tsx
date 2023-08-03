@@ -16,7 +16,11 @@ interface Properties {
   roles: Role[];
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
-  invitationPayloadField: React.ReactNode;
+  invitationPayloads?: {
+    invitationPayloadFields: React.ReactNode[];
+    invitationPayloadSchema: zod.ZodObject<any>;
+    defaultValues: any;
+  };
 }
 
 export const InvitationForm = ({
@@ -26,7 +30,7 @@ export const InvitationForm = ({
   roles,
   apps,
   filterRoles,
-  invitationPayloadField,
+  invitationPayloads,
 }: Properties) => {
   const { t } = useTranslation("user");
   const {
@@ -44,11 +48,11 @@ export const InvitationForm = ({
     ),
   });
 
-  const invitationPayloadSchema = zod.object({
-    payload: zod.z.any({ required_error: t("validation.messages.payload") }),
-  });
+  // const invitationPayloadSchema = zod.object({
+  //   payload: zod.z.any({ required_error: t("validation.messages.payload") }),
+  // });
 
-  let InvitationFormSchema = zod.object({
+  let InvitationFormSchema: zod.AnyZodObject = zod.object({
     email: emailSchema({
       invalid: t("validation.messages.validEmail"),
       required: t("validation.messages.email"),
@@ -66,8 +70,10 @@ export const InvitationForm = ({
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
   }
 
-  if (invitationPayloadField) {
-    InvitationFormSchema = InvitationFormSchema.merge(invitationPayloadSchema);
+  if (invitationPayloads?.invitationPayloadSchema) {
+    InvitationFormSchema = InvitationFormSchema.merge(
+      invitationPayloads.invitationPayloadSchema
+    );
   }
 
   return (
@@ -83,7 +89,8 @@ export const InvitationForm = ({
         email: "",
         role: undefined,
         ...(invitations?.modal.displayAppField && { app: undefined }),
-        ...(invitationPayloadField && { payload: undefined }),
+        ...(invitationPayloads?.defaultValues &&
+          invitationPayloads.defaultValues),
       }}
       validationSchema={InvitationFormSchema}
     >
@@ -93,7 +100,7 @@ export const InvitationForm = ({
         roles={roles}
         apps={apps}
         filterRoles={filterRoles}
-        invitationPayloadField={invitationPayloadField}
+        invitationPayloadField={invitationPayloads?.invitationPayloadFields}
       />
     </Provider>
   );
