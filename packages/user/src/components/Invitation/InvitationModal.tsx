@@ -8,7 +8,7 @@ import { InvitationForm } from "./InvitationForm";
 import client from "../../api/axios";
 import { useConfig } from "../../hooks";
 
-import type { App, Role } from "@dzangolab/react-form";
+import type { App, Role, useFormContext } from "@dzangolab/react-form";
 
 import type { InvitationPayload } from "../../types";
 
@@ -17,10 +17,12 @@ interface Properties {
   loading?: boolean;
   buttonIcon?: IconType<ButtonProps>;
   filterRoles?: (apps: App, role: Role[]) => Role[];
-  invitationPayloads?: {
-    invitationPayloadFields: React.ComponentType;
-    invitationPayloadSchema: Zod.ZodObject<any>;
-    defaultValues: Record<string, any>;
+  additionalInvitationFields?: {
+    fields: React.ComponentType<{
+      useFormContext: typeof useFormContext;
+    }>;
+    additionalInvitationSchema: Zod.ZodObject<any>;
+    defaultAdditionalValues: Record<string, any>;
   };
 }
 
@@ -29,7 +31,7 @@ export const InvitationModal = ({
   loading,
   buttonIcon,
   filterRoles,
-  invitationPayloads,
+  additionalInvitationFields,
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -70,7 +72,7 @@ export const InvitationModal = ({
           roles={config.user.invitations?.modal.availableRoles || []}
           apps={apps}
           filterRoles={filterRoles}
-          invitationPayloads={invitationPayloads}
+          additionalInvitationFields={additionalInvitationFields}
         />
       </Dialog>
     </div>

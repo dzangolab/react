@@ -6,7 +6,7 @@ import * as zod from "zod";
 import { InvitationFormFields } from "./InvitationFormFields";
 
 import type { InvitationPayload } from "../../types";
-import type { App, Role } from "@dzangolab/react-form";
+import type { App, Role, useFormContext } from "@dzangolab/react-form";
 import { useConfig } from "@/hooks";
 
 interface Properties {
@@ -16,10 +16,12 @@ interface Properties {
   roles: Role[];
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
-  invitationPayloads?: {
-    invitationPayloadFields: React.ComponentType;
-    invitationPayloadSchema: zod.ZodObject<any>;
-    defaultValues: Record<string, any>;
+  additionalInvitationFields?: {
+    fields: React.ComponentType<{
+      useFormContext: typeof useFormContext;
+    }>;
+    additionalInvitationSchema: Zod.ZodObject<any>;
+    defaultAdditionalValues: Record<string, any>;
   };
 }
 
@@ -30,7 +32,7 @@ export const InvitationForm = ({
   roles,
   apps,
   filterRoles,
-  invitationPayloads,
+  additionalInvitationFields,
 }: Properties) => {
   const { t } = useTranslation("user");
   const {
@@ -66,9 +68,9 @@ export const InvitationForm = ({
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
   }
 
-  if (invitationPayloads?.invitationPayloadSchema) {
+  if (additionalInvitationFields?.additionalInvitationSchema) {
     InvitationFormSchema = InvitationFormSchema.merge(
-      invitationPayloads.invitationPayloadSchema
+      additionalInvitationFields.additionalInvitationSchema
     );
   }
 
@@ -85,8 +87,8 @@ export const InvitationForm = ({
         email: "",
         role: undefined,
         ...(invitations?.modal.displayAppField && { app: undefined }),
-        ...(invitationPayloads?.defaultValues &&
-          invitationPayloads.defaultValues),
+        ...(additionalInvitationFields?.defaultAdditionalValues &&
+          additionalInvitationFields.defaultAdditionalValues),
       }}
       validationSchema={InvitationFormSchema}
     >
@@ -96,7 +98,7 @@ export const InvitationForm = ({
         roles={roles}
         apps={apps}
         filterRoles={filterRoles}
-        invitationPayloadFields={invitationPayloads?.invitationPayloadFields}
+        additionalFields={additionalInvitationFields?.fields}
       />
     </Provider>
   );

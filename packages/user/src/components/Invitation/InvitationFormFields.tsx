@@ -19,7 +19,9 @@ interface IProperties {
   roles: Role[];
   apps: App[] | undefined;
   filterRoles?: (apps: App, role: Role[]) => Role[];
-  invitationPayloadFields?: React.ComponentType;
+  additionalFields?: React.ComponentType<{
+    useFormContext: typeof useFormContext;
+  }>;
 }
 export const InvitationFormFields: React.FC<IProperties> = ({
   onCancel,
@@ -27,7 +29,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   roles,
   apps,
   filterRoles,
-  invitationPayloadFields: InvitationPayloadFields,
+  additionalFields: AdditionalFields,
 }) => {
   const { t } = useTranslation("user");
   const {
@@ -66,7 +68,9 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         filterRoles={filterRoles}
       />
 
-      {InvitationPayloadFields ? <InvitationPayloadFields /> : null}
+      {AdditionalFields ? (
+        <AdditionalFields useFormContext={useFormContext} />
+      ) : null}
 
       <div className="actions">
         {onCancel && (
