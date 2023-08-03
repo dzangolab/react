@@ -78,8 +78,8 @@ export const InvitationsTable = ({
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
         return (
-          (data.invitedBy.givenName ? data.invitedBy.givenName : "") +
-            (data.invitedBy.surname ? " " + data.invitedBy.surname : "") || (
+          (data.invitedBy ? data.invitedBy.givenName : "") +
+            (data.invitedBy ? " " + data.invitedBy.surname : "") || (
             <code>&#8212;</code>
           )
         );
