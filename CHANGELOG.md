@@ -1,3 +1,14 @@
+## [0.13.2](https://github.com/dzangolab/react/compare/v0.13.1...v0.13.2) (2023-08-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-react to v7.33.0 ([#471](https://github.com/dzangolab/react/issues/471)) ([2852c93](https://github.com/dzangolab/react/commit/2852c93c8bb18d4132a186fcc47bcc0943db48bc))
+* remove unnecessary space above the header in user table ([#478](https://github.com/dzangolab/react/issues/478)) ([ed63700](https://github.com/dzangolab/react/commit/ed637003a65f54183c778b6584164a7fe6ee2bf4))
+* update invited by column to match the backend response ([#481](https://github.com/dzangolab/react/issues/481)) ([c929601](https://github.com/dzangolab/react/commit/c929601b2c4f1ec08472cac591c295c070d2b12c))
+
+
+
 ## [0.13.1](https://github.com/dzangolab/react/compare/v0.13.0...v0.13.1) (2023-07-26)
 
 
