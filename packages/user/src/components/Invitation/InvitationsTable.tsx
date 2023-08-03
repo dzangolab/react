@@ -77,7 +77,11 @@ export const InvitationsTable = ({
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
-        return data.invitedBy;
+        return data.invitedBy ? (
+          `${data.invitedBy.givenName} ${data.invitedBy.surname}`
+        ) : (
+          <code>&#8212;</code>
+        );
       },
       align: "center",
     },
