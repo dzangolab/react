@@ -26,6 +26,7 @@ export type InvitationsTableProperties = {
   handleInvitationRevoke?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
   extraColumns?: Array<ColumnProps>;
+  showAppColumn?: boolean;
 };
 
 export const InvitationsTable = ({
@@ -42,12 +43,26 @@ export const InvitationsTable = ({
   handleInvitationRevoke,
   inviteButtonIcon,
   extraColumns = [],
+  showAppColumn = true,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
+
+  const appColumn: Array<ColumnProps> = showAppColumn
+    ? [
+        {
+          field: "app",
+          header: t("invitations.table.defaultColumns.app"),
+          body: (data: { appId: any }) => {
+            return <span>{data.appId || "-"} </span>;
+          },
+          align: "center",
+        },
+      ]
+    : [];
 
   const defaultColumns: Array<ColumnProps> = [
     {
@@ -59,6 +74,7 @@ export const InvitationsTable = ({
       showFilterMenu: false,
       showClearButton: false,
     },
+    ...appColumn,
     {
       field: "role",
       header: t("invitations.table.defaultColumns.role"),
