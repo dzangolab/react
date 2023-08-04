@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
-import { ButtonProps } from "primereact/button";
+import { Button, ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
@@ -11,6 +11,8 @@ import { InvitationActions } from "./InvitationActions";
 import { InvitationModalButton } from ".";
 
 import type { InvitationPayload } from "../../types";
+import { useState } from "react";
+import { InvitationModal } from "./InvitationModal";
 
 export type InvitationsTableProperties = {
   id?: string;
@@ -25,6 +27,8 @@ export type InvitationsTableProperties = {
   handleInvitationResend?: (data: any) => void;
   handleInvitationRevoke?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
+  modalVisible: boolean;
+  setModalVisible: (data: boolean) => void;
 };
 
 export const InvitationsTable = ({
@@ -40,6 +44,8 @@ export const InvitationsTable = ({
   handleInvitationResend,
   handleInvitationRevoke,
   inviteButtonIcon,
+  modalVisible,
+  setModalVisible,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
@@ -117,10 +123,10 @@ export const InvitationsTable = ({
     if (showInviteAction && handleInvitationSubmit) {
       return (
         <div className="table-actions">
-          <InvitationModalButton
-            handleSubmit={handleInvitationSubmit}
-            loading={loading}
-            buttonIcon={inviteButtonIcon}
+          <Button
+            label="Invite User"
+            icon={inviteButtonIcon}
+            onClick={() => setModalVisible(true)}
           />
         </div>
       );
@@ -128,20 +134,29 @@ export const InvitationsTable = ({
   };
 
   return (
-    <DataTable
-      className={className}
-      columns={columns ? columns : defaultColumns}
-      data={invitations}
-      emptyMessage={t("invitations.table.emptyMessage")}
-      fetchData={fetchInvitations}
-      header={renderHeader}
-      id={id}
-      initialFilters={initialFilters}
-      loading={loading}
-      rowClassName={rowClassNameCallback}
-      showGridlines
-      stripedRows={false}
-      totalRecords={totalRecords}
-    ></DataTable>
+    <>
+      <DataTable
+        className={className}
+        columns={columns ? columns : defaultColumns}
+        data={invitations}
+        emptyMessage={t("invitations.table.emptyMessage")}
+        fetchData={fetchInvitations}
+        header={renderHeader}
+        id={id}
+        initialFilters={initialFilters}
+        loading={loading}
+        rowClassName={rowClassNameCallback}
+        showGridlines
+        stripedRows={false}
+        totalRecords={totalRecords}
+      ></DataTable>
+      {modalVisible && handleInvitationSubmit && (
+        <InvitationModal
+          handleSubmit={handleInvitationSubmit}
+          visible={modalVisible}
+          setVisible={setModalVisible}
+        />
+      )}
+    </>
   );
 };
