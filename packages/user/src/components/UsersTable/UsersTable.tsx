@@ -8,7 +8,7 @@ import { IconType } from "primereact/utils";
 
 import { InvitationModal } from "../Invitation";
 
-import type { InvitationPayload } from "../../types";
+import type { AddInvitationResponse } from "@/types";
 
 export type UsersTableProperties = {
   id?: string;
@@ -19,7 +19,7 @@ export type UsersTableProperties = {
   totalRecords?: number;
   users: Array<object>;
   fetchUsers: (arguments_?: any) => void;
-  handleInvitationSubmit?: (data: InvitationPayload) => void;
+  onInvitationSubmitted?: (response: AddInvitationResponse) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
@@ -32,7 +32,7 @@ export const UsersTable = ({
   totalRecords = 0,
   users,
   fetchUsers,
-  handleInvitationSubmit,
+  onInvitationSubmitted,
   inviteButtonIcon,
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
@@ -101,12 +101,11 @@ export const UsersTable = ({
   };
 
   const renderHeader = () => {
-    if (showInviteAction && handleInvitationSubmit) {
+    if (showInviteAction) {
       return (
         <div className="table-actions">
           <InvitationModal
-            handleSubmit={handleInvitationSubmit}
-            loading={loading}
+            onSubmitted={onInvitationSubmitted}
             buttonIcon={inviteButtonIcon}
           />
         </div>

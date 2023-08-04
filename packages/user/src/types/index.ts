@@ -1,7 +1,11 @@
 import { DzangolabReactUserConfig } from "./config";
 import {
-  AuthState,
   InvitationPayload,
+  Invitation,
+  AddInvitationResponse,
+} from "./invitation";
+import {
+  AuthState,
   LoginCredentials,
   SignInUpPromise,
   UserContextType,
@@ -13,6 +17,8 @@ export type {
   AuthState,
   DzangolabReactUserConfig,
   InvitationPayload,
+  Invitation,
+  AddInvitationResponse,
   LoginCredentials,
   SignInUpPromise,
   UserContextType,

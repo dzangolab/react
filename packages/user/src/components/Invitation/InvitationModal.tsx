@@ -4,21 +4,16 @@ import { Dialog } from "primereact/dialog";
 import { IconType } from "primereact/utils";
 import React, { useState } from "react";
 
+import { AddInvitationResponse } from "@/types";
+
 import { InvitationForm } from "./InvitationForm";
 
-import type { InvitationPayload } from "../../types";
-
 interface Properties {
-  handleSubmit: (data: InvitationPayload) => void;
-  loading?: boolean;
+  onSubmitted?: (response: AddInvitationResponse) => void;
   buttonIcon?: IconType<ButtonProps>;
 }
 
-export const InvitationModal = ({
-  handleSubmit,
-  loading,
-  buttonIcon,
-}: Properties) => {
+export const InvitationModal = ({ onSubmitted, buttonIcon }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -38,11 +33,16 @@ export const InvitationModal = ({
         resizable={false}
       >
         <InvitationForm
-          handleSubmit={handleSubmit}
+          onSubmitted={(data) => {
+            if (onSubmitted) {
+              onSubmitted(data);
+            }
+
+            setModalVisible(false);
+          }}
           onCancel={() => {
             setModalVisible(false);
           }}
-          loading={loading}
         />
       </Dialog>
     </div>

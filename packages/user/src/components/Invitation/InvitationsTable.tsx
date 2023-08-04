@@ -10,7 +10,7 @@ import { InvitationActions } from "./InvitationActions";
 
 import { InvitationModal } from ".";
 
-import type { InvitationPayload } from "../../types";
+import type { AddInvitationResponse } from "@/types";
 
 export type InvitationsTableProperties = {
   id?: string;
@@ -21,7 +21,7 @@ export type InvitationsTableProperties = {
   totalRecords?: number;
   invitations: Array<object>;
   fetchInvitations: (arguments_?: any) => void;
-  handleInvitationSubmit?: (data: InvitationPayload) => void;
+  onInvitationSubmitted?: (response: AddInvitationResponse) => void;
   handleInvitationResend?: (data: any) => void;
   handleInvitationRevoke?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -36,7 +36,7 @@ export const InvitationsTable = ({
   totalRecords = 0,
   invitations,
   fetchInvitations,
-  handleInvitationSubmit,
+  onInvitationSubmitted,
   handleInvitationResend,
   handleInvitationRevoke,
   inviteButtonIcon,
@@ -118,12 +118,11 @@ export const InvitationsTable = ({
   };
 
   const renderHeader = () => {
-    if (showInviteAction && handleInvitationSubmit) {
+    if (showInviteAction) {
       return (
         <div className="table-actions">
           <InvitationModal
-            handleSubmit={handleInvitationSubmit}
-            loading={loading}
+            onSubmitted={onInvitationSubmitted}
             buttonIcon={inviteButtonIcon}
           />
         </div>
