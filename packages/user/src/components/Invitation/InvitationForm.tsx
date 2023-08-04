@@ -85,8 +85,11 @@ export const InvitationForm = ({
       }}
       defaultValues={{
         email: "",
-        role: undefined,
+        role: roles?.length === 1 ? roles[0] : undefined,
         ...(invitations?.modal.displayAppField && { app: undefined }),
+        ...(invitations?.modal.displayAppField && {
+          app: apps?.length === 1 ? apps[0] : undefined,
+        }),
         ...(additionalInvitationFields?.defaultAdditionalValues &&
           additionalInvitationFields.defaultAdditionalValues),
       }}
