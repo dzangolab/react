@@ -96,8 +96,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 4.0.3
-        version: 4.0.3(vite@4.3.9)
+        specifier: 4.0.4
+        version: 4.0.4(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -217,8 +217,8 @@ importers:
         specifier: 18.2.18
         version: 18.2.18
       '@vitejs/plugin-react':
-        specifier: 4.0.3
-        version: 4.0.3(vite@4.3.9)
+        specifier: 4.0.4
+        version: 4.0.4(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -299,8 +299,8 @@ importers:
         specifier: 13.7.17
         version: 13.7.17
       '@vitejs/plugin-react':
-        specifier: 4.0.3
-        version: 4.0.3(vite@4.3.9)
+        specifier: 4.0.4
+        version: 4.0.4(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -393,8 +393,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 4.0.3
-        version: 4.0.3(vite@4.3.9)
+        specifier: 4.0.4
+        version: 4.0.4(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -462,8 +462,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 4.0.3
-        version: 4.0.3(vite@4.3.9)
+        specifier: 4.0.4
+        version: 4.0.4(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -559,8 +559,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 4.0.3
-        version: 4.0.3(vite@4.3.9)
+        specifier: 4.0.4
+        version: 4.0.4(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -659,8 +659,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0
       '@vitejs/plugin-react':
-        specifier: 4.0.3
-        version: 4.0.3(vite@4.3.9)
+        specifier: 4.0.4
+        version: 4.0.4(vite@4.3.9)
       '@vitest/coverage-c8':
         specifier: 0.30.1
         version: 0.30.1(vitest@0.30.1)
@@ -855,16 +855,6 @@ packages:
 
   /@babel/generator@7.21.4:
     resolution: {integrity: sha512-NieM3pVIYW2SwGzKoqfPrQsf4xGs9M9AIG3ThppsSRmO+m7eQhmI6amajKMUeIO37wFfsvnvcxQFx6x6iqxDnA==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/types': 7.22.5
-      '@jridgewell/gen-mapping': 0.3.2
-      '@jridgewell/trace-mapping': 0.3.17
-      jsesc: 2.5.2
-    dev: true
-
-  /@babel/generator@7.22.7:
-    resolution: {integrity: sha512-p+jPjMG+SI8yvIaxGgeW24u7q9+5+TGpZh8/CuB7RhBKd7RCy8FayNEFNNKrNK/eUcY/4ExQqLmyrvBXKsIcwQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.22.5
@@ -5641,8 +5631,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-react@4.0.3(vite@4.3.9):
-    resolution: {integrity: sha512-pwXDog5nwwvSIzwrvYYmA2Ljcd/ZNlcsSG2Q9CNDBwnsd55UGAyr2doXtB5j+2uymRCnCfExlznzzSFbBRcoCg==}
+  /@vitejs/plugin-react@4.0.4(vite@4.3.9):
+    resolution: {integrity: sha512-7wU921ABnNYkETiMaZy7XqpueMnpu5VxvVps13MjmCo+utBdD79sZzrApHawHtVX66cCJQQTXFcjH0y9dSUK8g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.2.0
@@ -10960,7 +10950,7 @@ packages:
     hasBin: true
     dependencies:
       '@babel/core': 7.22.9
-      '@babel/generator': 7.22.7
+      '@babel/generator': 7.22.9
       ast-types: 0.14.2
       commander: 2.20.3
       doctrine: 3.0.0
