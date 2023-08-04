@@ -123,11 +123,19 @@ export const InvitationsTable = ({
     if (showInviteAction && handleInvitationSubmit) {
       return (
         <div className="table-actions">
-          <Button
-            label="Invite User"
-            icon={inviteButtonIcon}
-            onClick={() => setModalVisible(true)}
-          />
+          {modalVisible ? (
+            <InvitationModal
+              handleSubmit={handleInvitationSubmit}
+              visible={modalVisible}
+              setVisible={setModalVisible}
+            />
+          ) : (
+            <Button
+              label="Invite User"
+              icon={inviteButtonIcon}
+              onClick={() => setModalVisible(true)}
+            />
+          )}
         </div>
       );
     }
@@ -150,13 +158,6 @@ export const InvitationsTable = ({
         stripedRows={false}
         totalRecords={totalRecords}
       ></DataTable>
-      {modalVisible && handleInvitationSubmit && (
-        <InvitationModal
-          handleSubmit={handleInvitationSubmit}
-          visible={modalVisible}
-          setVisible={setModalVisible}
-        />
-      )}
     </>
   );
 };
