@@ -24,6 +24,7 @@ export type InvitationsTableProperties = {
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
   onInvitationRevoked?: (data: any) => void;
+  prepareInvitationData?: (data: any) => any;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
@@ -39,6 +40,7 @@ export const InvitationsTable = ({
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
+  prepareInvitationData,
   inviteButtonIcon,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
@@ -122,8 +124,9 @@ export const InvitationsTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
-            onSubmitted={onInvitationAdded}
             buttonIcon={inviteButtonIcon}
+            onSubmitted={onInvitationAdded}
+            prepareData={prepareInvitationData}
           />
         </div>
       );

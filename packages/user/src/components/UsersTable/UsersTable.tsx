@@ -20,6 +20,7 @@ export type UsersTableProperties = {
   users: Array<object>;
   fetchUsers: (arguments_?: any) => void;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  prepareInvitationData?: (data: any) => any;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
@@ -31,9 +32,10 @@ export const UsersTable = ({
   showInviteAction = true,
   totalRecords = 0,
   users,
+  inviteButtonIcon,
   fetchUsers,
   onInvitationAdded,
-  inviteButtonIcon,
+  prepareInvitationData,
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -105,8 +107,9 @@ export const UsersTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
-            onSubmitted={onInvitationAdded}
             buttonIcon={inviteButtonIcon}
+            onSubmitted={onInvitationAdded}
+            prepareData={prepareInvitationData}
           />
         </div>
       );

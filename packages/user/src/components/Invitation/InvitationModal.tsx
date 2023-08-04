@@ -10,10 +10,15 @@ import { InvitationForm } from "./InvitationForm";
 
 interface Properties {
   onSubmitted?: (response: AddInvitationResponse) => void;
+  prepareData?: (data: any) => any;
   buttonIcon?: IconType<ButtonProps>;
 }
 
-export const InvitationModal = ({ onSubmitted, buttonIcon }: Properties) => {
+export const InvitationModal = ({
+  buttonIcon,
+  onSubmitted,
+  prepareData,
+}: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -33,6 +38,9 @@ export const InvitationModal = ({ onSubmitted, buttonIcon }: Properties) => {
         resizable={false}
       >
         <InvitationForm
+          onCancel={() => {
+            setModalVisible(false);
+          }}
           onSubmitted={(data) => {
             if (onSubmitted) {
               onSubmitted(data);
@@ -40,9 +48,7 @@ export const InvitationModal = ({ onSubmitted, buttonIcon }: Properties) => {
 
             setModalVisible(false);
           }}
-          onCancel={() => {
-            setModalVisible(false);
-          }}
+          prepareData={prepareData}
         />
       </Dialog>
     </div>
