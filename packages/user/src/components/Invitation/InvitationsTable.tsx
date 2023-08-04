@@ -8,10 +8,8 @@ import { IconType } from "primereact/utils";
 
 import { InvitationActions } from "./InvitationActions";
 
-import { InvitationModalButton } from ".";
-
 import type { InvitationPayload } from "../../types";
-import { useState } from "react";
+
 import { InvitationModal } from "./InvitationModal";
 
 export type InvitationsTableProperties = {
