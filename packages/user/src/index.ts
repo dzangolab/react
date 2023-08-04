@@ -3,6 +3,7 @@ import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
   InvitationForm,
   InvitationModalButton,
+  InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
 import SignupForm from "./components/SignupForm";
@@ -55,6 +56,7 @@ export {
   ForgetPassword,
   InvitationForm,
   InvitationModalButton,
+  InvitationModal,
   InvitationsTable,
   Login,
   Profile,
