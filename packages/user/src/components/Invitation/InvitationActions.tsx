@@ -4,7 +4,7 @@ import { MenuItem } from "primereact/menuitem";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import { resendInvitation } from "@/api/invitation";
+import { resendInvitation, revokeInvitation } from "@/api/invitation";
 import { useConfig } from "@/hooks";
 import { Invitation, ResendInvitationResponse } from "@/types";
 
@@ -74,7 +74,7 @@ export const InvitationActions = ({
   const onRevokeConfirm = () => {
     setResendLoading(true);
 
-    resendInvitation(invitation.id, appConfig?.apiBaseUrl || "")
+    revokeInvitation(invitation.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors

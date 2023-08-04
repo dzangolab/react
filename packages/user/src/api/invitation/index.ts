@@ -1,10 +1,7 @@
-import { toast } from "react-toastify";
-
 import {
   AccpetInvitationResponse,
   AddInvitationResponse,
   GetInvitationResponse,
-  Invitation,
   LoginCredentials,
   ResendInvitationResponse,
   RevokeInvitationResponse,
@@ -73,13 +70,7 @@ export const getInvitationByToken = async (
   token: string,
   apiBaseUrl: string
 ): Promise<GetInvitationResponse> => {
-  const response = await client(apiBaseUrl).post(
-    `invitations/token/${token}`,
-    {},
-    {
-      withCredentials: true,
-    }
-  );
+  const response = await client(apiBaseUrl).get(`invitations/token/${token}`);
 
   if (response.data.status === "ERROR") {
     throw new Error(response.data.message);
@@ -93,7 +84,7 @@ export const acceptInvitation = async (
   credential: LoginCredentials,
   apiBaseUrl: string
 ): Promise<AccpetInvitationResponse> => {
-  const response = await client(apiBaseUrl).put(
+  const response = await client(apiBaseUrl).post(
     `invitations/token/${token}`,
     credential,
     {

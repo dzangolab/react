@@ -6,9 +6,18 @@ export interface InvitationPayload {
 }
 
 export interface Invitation {
-  id: number;
+  acceptedAt: number;
+  appId: number;
+  createdAt: number;
   email: string;
+  expiresAt: number;
+  id: number;
+  invitedById: string;
+  payload: any;
+  revokedAt: number;
   role: string;
+  token?: string;
+  updatedAt: number;
 }
 
 export type AddInvitationResponse = Invitation | ErrorResponse;
