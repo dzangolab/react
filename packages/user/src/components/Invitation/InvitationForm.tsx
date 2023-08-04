@@ -43,25 +43,30 @@ export const InvitationForm = ({
     ),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = (data: any) => {
     setSubmitting(true);
 
     const invitationData = prepareData ? prepareData(data) : data;
 
-    const response = await addInvitation(
-      invitationData,
-      appConfig?.apiBaseUrl || ""
-    );
+    addInvitation(invitationData, appConfig?.apiBaseUrl || "")
+      .then((response) => {
+        if ("data" in response && response.data.status === "ERROR") {
+          // TODO better handle errors
+          toast.error(t("invitation.messages.addError"));
+        } else {
+          toast.success(t("invitation.messages.addSuccess"));
 
-    if (response) {
-      toast.success(t("invitation.messages.addSuccess"));
-    }
-
-    setSubmitting(false);
-
-    if (onSubmitted) {
-      onSubmitted(response);
-    }
+          if (onSubmitted) {
+            onSubmitted(response);
+          }
+        }
+      })
+      .catch(() => {
+        toast.error(t("invitation.messages.addError"));
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
   };
 
   return (

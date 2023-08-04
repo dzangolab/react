@@ -21,9 +21,9 @@ export type InvitationsTableProperties = {
   totalRecords?: number;
   invitations: Array<object>;
   fetchInvitations: (arguments_?: any) => void;
-  onInvitationSubmitted?: (response: AddInvitationResponse) => void;
-  handleInvitationResend?: (data: any) => void;
-  handleInvitationRevoke?: (data: any) => void;
+  onInvitationAdded?: (response: AddInvitationResponse) => void;
+  onInvitationResent?: (data: any) => void;
+  onInvitationRevoked?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
 };
 
@@ -36,9 +36,9 @@ export const InvitationsTable = ({
   totalRecords = 0,
   invitations,
   fetchInvitations,
-  onInvitationSubmitted,
-  handleInvitationResend,
-  handleInvitationRevoke,
+  onInvitationAdded,
+  onInvitationResent,
+  onInvitationRevoked,
   inviteButtonIcon,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
@@ -102,9 +102,9 @@ export const InvitationsTable = ({
         return (
           <>
             <InvitationActions
-              handleInvitationResend={handleInvitationResend}
-              handleInvitationRevoke={handleInvitationRevoke}
-              data={data}
+              onInvitationResent={onInvitationResent}
+              onInvitationRevoked={onInvitationRevoked}
+              invitation={data}
             />
           </>
         );
@@ -122,7 +122,7 @@ export const InvitationsTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
-            onSubmitted={onInvitationSubmitted}
+            onSubmitted={onInvitationAdded}
             buttonIcon={inviteButtonIcon}
           />
         </div>

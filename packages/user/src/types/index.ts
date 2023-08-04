@@ -3,6 +3,10 @@ import {
   InvitationPayload,
   Invitation,
   AddInvitationResponse,
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
+  GetInvitationResponse,
+  AccpetInvitationResponse,
 } from "./invitation";
 import {
   AuthState,
@@ -11,17 +15,23 @@ import {
   UserContextType,
   UserType,
   UserMenuItemType,
+  ErrorResponse,
 } from "./types";
 
 export type {
+  AccpetInvitationResponse,
+  AddInvitationResponse,
   AuthState,
   DzangolabReactUserConfig,
-  InvitationPayload,
+  ErrorResponse,
+  GetInvitationResponse,
   Invitation,
-  AddInvitationResponse,
+  InvitationPayload,
   LoginCredentials,
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
   SignInUpPromise,
   UserContextType,
-  UserType,
   UserMenuItemType,
+  UserType,
 };

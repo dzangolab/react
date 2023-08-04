@@ -25,7 +25,7 @@ const componentList = [
       <UsersTable
         users={[]}
         fetchUsers={() => {}}
-        onInvitationSubmitted={() => {}}
+        onInvitationAdded={() => {}}
       />
     ),
   },
@@ -36,7 +36,7 @@ const componentList = [
       <InvitationsTable
         invitations={[]}
         fetchInvitations={() => {}}
-        onInvitationSubmitted={() => {}}
+        onInvitationAdded={() => {}}
       />
     ),
   },
