@@ -5,11 +5,8 @@ import { Button, ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
-
 import { InvitationActions } from "./InvitationActions";
-
 import type { InvitationPayload } from "../../types";
-
 import { InvitationModal } from "./InvitationModal";
 
 export type InvitationsTableProperties = {

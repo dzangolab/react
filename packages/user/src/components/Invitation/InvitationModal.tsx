@@ -1,8 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Dialog } from "primereact/dialog";
-
 import { InvitationForm } from "./InvitationForm";
-
 import type { InvitationPayload } from "../../types";
 
 interface Properties {
