@@ -128,11 +128,18 @@ export const InvitationsTable = ({
       return (
         <div className="table-actions">
           {modalVisible ? (
-            <InvitationModal
-              handleSubmit={handleInvitationSubmit}
-              visible={modalVisible}
-              setVisible={setModalVisible}
-            />
+            <>
+              <Button
+                label="Invite User"
+                icon={inviteButtonIcon}
+                onClick={() => setModalVisible(true)}
+              />
+              <InvitationModal
+                handleSubmit={handleInvitationSubmit}
+                visible={modalVisible}
+                setVisible={setModalVisible}
+              />
+            </>
           ) : (
             <Button
               label="Invite User"
