@@ -112,6 +112,8 @@ export const UsersTable = ({
           />
         </div>
       );
+    } else {
+      return null;
     }
   };
 
@@ -122,7 +124,7 @@ export const UsersTable = ({
       data={users}
       emptyMessage={t("app:table.emptyMessage")}
       fetchData={fetchUsers}
-      header={renderHeader}
+      header={renderHeader()}
       id={id}
       initialFilters={initialFilters}
       loading={loading}
