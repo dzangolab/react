@@ -1,9 +1,7 @@
-import React, { useMemo } from "react";
-import { Controller, useFormContext, useWatch } from "react-hook-form";
+import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 
 import { RolePickerBasic } from "./RolePickerBasic";
-
-import type { App } from "../AppPicker";
 
 export interface Role {
   name: string;
@@ -14,8 +12,7 @@ interface IProperties {
   name: string;
   label?: string;
   placeholder?: string;
-  options?: Role[];
-  filterRoles?: (apps: App, role: Role[]) => Role[];
+  options: Role[];
 }
 
 export const RolePicker = ({
@@ -23,24 +20,8 @@ export const RolePicker = ({
   placeholder,
   options,
   label,
-  filterRoles,
 }: IProperties) => {
   const { control, getFieldState } = useFormContext();
-
-  const app: App = useWatch({
-    control,
-    name: "app",
-  });
-
-  const filteredRoles = useMemo(() => {
-    if (app?.supportedRoles) {
-      return app.supportedRoles;
-    } else if (filterRoles && options && app) {
-      return filterRoles(app, options);
-    }
-
-    return options || [];
-  }, [app, filterRoles]);
 
   const { error } = getFieldState(name);
 
@@ -55,7 +36,7 @@ export const RolePicker = ({
             value={field.value}
             label={label}
             placeholder={placeholder}
-            options={filteredRoles}
+            options={options}
             inputRef={field.ref}
             onChange={(role) => field.onChange(role)}
             error={error}

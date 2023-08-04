@@ -1,14 +1,10 @@
-import {
-  AppPicker,
-  Email,
-  RolePicker,
-  useFormContext,
-} from "@dzangolab/react-form";
+import { Email, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React from "react";
 
+import { AppRolePicker } from "./AppRolePicker";
 import { useConfig } from "@/hooks";
 
 import type { App, Role } from "@dzangolab/react-form";
@@ -51,20 +47,10 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
-      {invitations?.modal.displayAppField ? (
-        <AppPicker
-          name="app"
-          label={t("invitation.form.app.label")}
-          placeholder={t("invitation.form.app.placeholder")}
-          options={apps || []}
-        />
-      ) : null}
-
-      <RolePicker
-        name="role"
-        label={t("invitation.form.role.label")}
-        placeholder={t("invitation.form.role.placeholder")}
-        options={roles || []}
+      <AppRolePicker
+        apps={apps}
+        roles={roles}
+        showAppFiled={invitations?.modal.displayAppField}
         filterRoles={filterRoles}
       />
 
