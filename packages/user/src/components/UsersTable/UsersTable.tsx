@@ -6,7 +6,7 @@ import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
-import { InvitationModal } from "../Invitation";
+import { InvitationModalButton } from "../Invitation";
 
 import type { InvitationPayload } from "../../types";
 
@@ -104,7 +104,7 @@ export const UsersTable = ({
     if (showInviteAction && handleInvitationSubmit) {
       return (
         <div className="table-actions">
-          <InvitationModal
+          <InvitationModalButton
             handleSubmit={handleInvitationSubmit}
             loading={loading}
             buttonIcon={inviteButtonIcon}

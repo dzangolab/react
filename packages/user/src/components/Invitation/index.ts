@@ -1,3 +1,3 @@
 export * from "./InvitationForm";
-export * from "./InvitationModal";
+export * from "./InvitationModalButton";
 export * from "./InvitationsTable";

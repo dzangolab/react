@@ -8,7 +8,7 @@ import { IconType } from "primereact/utils";
 
 import { InvitationActions } from "./InvitationActions";
 
-import { InvitationModal } from ".";
+import { InvitationModalButton } from ".";
 
 import type { InvitationPayload } from "../../types";
 
@@ -117,7 +117,7 @@ export const InvitationsTable = ({
     if (showInviteAction && handleInvitationSubmit) {
       return (
         <div className="table-actions">
-          <InvitationModal
+          <InvitationModalButton
             handleSubmit={handleInvitationSubmit}
             loading={loading}
             buttonIcon={inviteButtonIcon}

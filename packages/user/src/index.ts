@@ -2,7 +2,7 @@ import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
   InvitationForm,
-  InvitationModal,
+  InvitationModalButton,
   InvitationsTable,
 } from "./components/Invitation";
 import SignupForm from "./components/SignupForm";
@@ -54,7 +54,7 @@ export {
   DropdownUserMenu,
   ForgetPassword,
   InvitationForm,
-  InvitationModal,
+  InvitationModalButton,
   InvitationsTable,
   Login,
   Profile,
