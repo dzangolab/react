@@ -5,7 +5,7 @@ import { InputText } from "primereact/inputtext";
 
 export const UploadFile = () => {
   const [customFileNames, setCustomFileNames] = useState<string[]>([]);
-  const [renameFile, setRenameFile] = useState<boolean>(false);
+  const [renamingStatus, setRenamingStatus] = useState<boolean[]>([]);
   const [totalSize, setTotalSize] = useState(0);
 
   const onTemplateRemove = (file: File, callback: any) => {
@@ -14,15 +14,15 @@ export const UploadFile = () => {
   };
 
   const handleRenameDone = (index: number) => {
-    const updatedNames = [...customFileNames];
-    setCustomFileNames(updatedNames);
-    setRenameFile(false);
+    const updatedStatus = [...renamingStatus];
+    updatedStatus[index] = !updatedStatus[index];
+    setRenamingStatus(updatedStatus);
   };
 
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
     const file = inFile as File;
     const index = properties.index;
-    const customFileName = file.name || customFileNames[index];
+    const isRenaming = renamingStatus[index] || false;
     return (
       <div
         className="flex align-items-center flex-wrap"
@@ -40,11 +40,11 @@ export const UploadFile = () => {
             className="pi pi-file"
             style={{ fontSize: "2rem", marginRight: "1rem" }}
           ></i>
-          {renameFile ? (
+          {isRenaming ? (
             <div className="flex" style={{ display: "flex" }}>
               <InputText
                 type="text"
-                value={customFileName ? customFileName : ""}
+                value={customFileNames[index]}
                 onChange={(event) => {
                   const updatedNames = [...customFileNames];
                   updatedNames[index] = event.target.value;
@@ -65,7 +65,7 @@ export const UploadFile = () => {
                   icon="pi pi-times"
                   className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
                   onClick={() => {
-                    setRenameFile(false);
+                    handleRenameDone(index);
                     setCustomFileNames(customFileNames);
                   }}
                 />
@@ -74,9 +74,9 @@ export const UploadFile = () => {
           ) : (
             <>
               <span className="flex flex-column text-left ml-3">
-                {customFileName ? customFileName : file.name}
+                {customFileNames[index] ? customFileNames[index] : file.name}
               </span>
-              <Button label="Rename" onClick={() => setRenameFile(true)} />
+              <Button label="Rename" onClick={() => handleRenameDone(index)} />
             </>
           )}
         </div>
