@@ -25,6 +25,7 @@ export type InvitationsTableProperties = {
   handleInvitationResend?: (data: any) => void;
   handleInvitationRevoke?: (data: any) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
+  extraColumns?: Array<ColumnProps>;
 };
 
 export const InvitationsTable = ({
@@ -40,6 +41,7 @@ export const InvitationsTable = ({
   handleInvitationResend,
   handleInvitationRevoke,
   inviteButtonIcon,
+  extraColumns = [],
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
@@ -73,6 +75,7 @@ export const InvitationsTable = ({
       },
       align: "center",
     },
+    ...extraColumns,
     {
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
