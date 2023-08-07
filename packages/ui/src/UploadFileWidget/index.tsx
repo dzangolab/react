@@ -8,15 +8,28 @@ export const UploadFile = () => {
   const [renamingStatus, setRenamingStatus] = useState<boolean[]>([]);
   const [totalSize, setTotalSize] = useState(0);
 
-  const onTemplateRemove = (file: File, callback: any) => {
+  const onTemplateRemove = (index: number, file: File, callback: any) => {
     setTotalSize(totalSize - file.size);
+    handleResetFileName(file, index);
+    handleRenameChangeStatus(file, index);
     callback();
   };
 
-  const handleRenameDone = (index: number) => {
+  const handleRenameChangeStatus = (file: File, index: number) => {
     const updatedStatus = [...renamingStatus];
-    updatedStatus[index] = !updatedStatus[index];
+    updatedStatus[index] = !updatedStatus[index]; //change the status
     setRenamingStatus(updatedStatus);
+  };
+
+  const handleResetFileName = (file: File, index: number) => {
+    const updatedNames = [...customFileNames];
+    updatedNames[index] = file.name; // Reset to original file name
+    setCustomFileNames(updatedNames);
+  };
+
+  const handleRenameCancel = (file: File, index: number) => {
+    handleRenameChangeStatus(file, index);
+    handleResetFileName(file, index);
   };
 
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
@@ -58,34 +71,35 @@ export const UploadFile = () => {
                   type="button"
                   icon="pi pi-check"
                   className="p-button-outlined p-button-rounded p-button-success ml-auto flex align-items-center"
-                  onClick={() => handleRenameDone(index)}
+                  onClick={() => handleRenameChangeStatus(file, index)}
                 />
                 <Button
                   type="button"
                   icon="pi pi-times"
                   className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
                   onClick={() => {
-                    handleRenameDone(index);
-                    setCustomFileNames(customFileNames);
+                    handleRenameCancel(file, index);
                   }}
                 />
               </div>
             </div>
           ) : (
             <>
-              <span className="flex flex-column text-left ml-3">
+              <span
+                className="flex flex-column text-left ml-3"
+                onClick={() => handleRenameChangeStatus(file, index)}
+              >
                 {customFileNames[index] ? customFileNames[index] : file.name}
               </span>
-              <Button label="Rename" onClick={() => handleRenameDone(index)} />
             </>
           )}
         </div>
 
         <Button
           type="button"
-          icon="pi pi-times"
-          className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
-          onClick={() => onTemplateRemove(file, properties.onRemove)}
+          icon="pi pi-trash"
+          className=" p-button-danger ml-auto flex align-items-center"
+          onClick={() => onTemplateRemove(index, file, properties.onRemove)}
         />
       </div>
     );
