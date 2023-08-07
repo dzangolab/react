@@ -10,19 +10,15 @@ export const UploadFile = () => {
 
   const fileReference = useRef<FileUpload>();
 
-  const onTemplateRemove = (index: number, file: File, callback: any) => {
-    handleRenameChangeStatus(file, index);
+  const onTemplateRemove = (file: File, callback: any) => {
+    handleRenameChangeStatus();
     setTotalSize(totalSize - file.size);
     callback();
   };
 
-  const handleRenameChangeStatus = (file: File, index: number) => {
+  const handleRenameChangeStatus = () => {
     setRenamingStatus(-1);
     setCustomFileName(null);
-  };
-
-  const handleRenameCancel = (file: File, index: number) => {
-    handleRenameChangeStatus(file, index);
   };
 
   const changeFileName = (file: File, index: number) => {
@@ -38,7 +34,7 @@ export const UploadFile = () => {
         return file;
       });
       fileReference.current?.setFiles(updatedFiles as File[]);
-      handleRenameChangeStatus(file, index);
+      handleRenameChangeStatus();
     }
   };
 
@@ -87,7 +83,7 @@ export const UploadFile = () => {
                   icon="pi pi-times"
                   className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
                   onClick={() => {
-                    handleRenameCancel(file, index);
+                    handleRenameChangeStatus();
                   }}
                 />
               </div>
@@ -113,7 +109,7 @@ export const UploadFile = () => {
           type="button"
           icon="pi pi-trash"
           className=" p-button-danger ml-auto flex align-items-center"
-          onClick={() => onTemplateRemove(index, file, properties.onRemove)}
+          onClick={() => onTemplateRemove(file, properties.onRemove)}
         />
       </div>
     );
