@@ -54,9 +54,9 @@ export const InvitationActions = ({
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
-          toast.error(t("invitation.messages.resendError"));
+          toast.error(t("invitation.messages.resend.error"));
         } else {
-          toast.success(t("invitation.messages.resendSuccess"));
+          toast.success(t("invitation.messages.resend.success"));
 
           if (onInvitationResent) {
             onInvitationResent(response);
@@ -64,7 +64,7 @@ export const InvitationActions = ({
         }
       })
       .catch(() => {
-        toast.error(t("invitation.messages.addError"));
+        toast.error(t("invitation.messages.resend.error"));
       })
       .finally(() => {
         setResendLoading(false);
@@ -78,9 +78,9 @@ export const InvitationActions = ({
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
-          toast.error(t("invitation.messages.resendError"));
+          toast.error(t("invitation.messages.revoke.error"));
         } else {
-          toast.success(t("invitation.messages.resendSuccess"));
+          toast.success(t("invitation.messages.revoke.success"));
 
           if (onInvitationRevoked) {
             onInvitationRevoked(response);
@@ -88,7 +88,7 @@ export const InvitationActions = ({
         }
       })
       .catch(() => {
-        toast.error(t("invitation.messages.addError"));
+        toast.error(t("invitation.messages.revoke.error"));
       })
       .finally(() => {
         setRevokeLoading(false);
