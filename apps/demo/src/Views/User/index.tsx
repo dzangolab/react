@@ -11,12 +11,12 @@ const componentList = [
   {
     key: 1,
     title: "Invitation Form",
-    component: <InvitationForm handleSubmit={() => {}} onCancel={() => {}} />,
+    component: <InvitationForm onSubmitted={() => {}} onCancel={() => {}} />,
   },
   {
     key: 2,
     title: "Invitation Modal",
-    component: <InvitationModal handleSubmit={() => {}} />,
+    component: <InvitationModal onSubmitted={() => {}} />,
   },
   {
     key: 3,
@@ -25,7 +25,7 @@ const componentList = [
       <UsersTable
         users={[]}
         fetchUsers={() => {}}
-        handleInvitationSubmit={() => {}}
+        onInvitationAdded={() => {}}
       />
     ),
   },
@@ -36,7 +36,7 @@ const componentList = [
       <InvitationsTable
         invitations={[]}
         fetchInvitations={() => {}}
-        handleInvitationSubmit={() => {}}
+        onInvitationAdded={() => {}}
       />
     ),
   },

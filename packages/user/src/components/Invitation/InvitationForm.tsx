@@ -1,25 +1,33 @@
 import { Provider, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 import * as zod from "zod";
+
+import { addInvitation } from "@/api/invitation";
+import { useConfig } from "@/hooks";
 
 import { InvitationFormFields } from "./InvitationFormFields";
 import { ROLE_LIST } from "../../constants";
 
-import type { InvitationPayload } from "../../types";
+import type { AddInvitationResponse, InvitationPayload } from "@/types";
 
 interface Properties {
-  handleSubmit: (data: InvitationPayload) => void;
   onCancel?: () => void;
-  loading?: boolean;
+  onSubmitted?: (response: AddInvitationResponse) => void; // afterSubmit
+  prepareData?: (data: InvitationPayload) => InvitationPayload;
 }
 
 export const InvitationForm = ({
-  handleSubmit,
+  onSubmitted,
   onCancel,
-  loading,
+  prepareData,
 }: Properties) => {
   const { t } = useTranslation("user");
+
+  const appConfig = useConfig();
+
+  const [submitting, setSubmitting] = useState(false);
 
   const InvitationFormSchema = zod.object({
     email: emailSchema({
@@ -35,10 +43,36 @@ export const InvitationForm = ({
     ),
   });
 
+  const onSubmit = (data: any) => {
+    setSubmitting(true);
+
+    const invitationData = prepareData ? prepareData(data) : data;
+
+    addInvitation(invitationData, appConfig?.apiBaseUrl || "")
+      .then((response) => {
+        if ("data" in response && response.data.status === "ERROR") {
+          // TODO better handle errors
+          toast.error(t("invitation.messages.addError"));
+        } else {
+          toast.success(t("invitation.messages.addSuccess"));
+
+          if (onSubmitted) {
+            onSubmitted(response);
+          }
+        }
+      })
+      .catch(() => {
+        toast.error(t("invitation.messages.addError"));
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
+  };
+
   return (
     <Provider
       onSubmit={(data: { email: string; role: (typeof ROLE_LIST)[0] }) => {
-        handleSubmit({ ...data, role: data.role.name });
+        onSubmit({ ...data, role: data.role.name });
       }}
       defaultValues={{
         email: "",
@@ -46,7 +80,7 @@ export const InvitationForm = ({
       }}
       validationSchema={InvitationFormSchema}
     >
-      <InvitationFormFields onCancel={onCancel} loading={loading} />
+      <InvitationFormFields onCancel={onCancel} loading={submitting} />
     </Provider>
   );
 };
