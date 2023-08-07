@@ -57,7 +57,6 @@ const AppRolePicker = ({
         label={t("invitation.form.role.label")}
         placeholder={t("invitation.form.role.placeholder")}
         options={filteredRoles}
-        filterRoles={filterRoles}
       />
     </>
   );
