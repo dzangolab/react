@@ -1,6 +1,10 @@
 # [0.14.0](https://github.com/dzangolab/react/compare/v0.13.2...v0.14.0) (2023-08-07)
 
 
+### Breaking changes
+* **user:** handle invitation operations including add, resend, revoke and accept internally ([#488](https://github.com/dzangolab/react/issues/488))
+
+
 ### Features
 
 * **user:** add app support for invitations ([#489](https://github.com/dzangolab/react/issues/489)) ([63786d6](https://github.com/dzangolab/react/commit/63786d6863e317ab1b5a6f006e63f415b1765089))
