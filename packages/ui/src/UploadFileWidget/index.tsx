@@ -1,41 +1,54 @@
-import React, { useState } from "react";
+import React, { LegacyRef, useRef, useState } from "react";
 import { FileUpload, ItemTemplateOptions } from "primereact/fileupload";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 
 export const UploadFile = () => {
-  const [customFileNames, setCustomFileNames] = useState<string[]>([]);
-  const [renamingStatus, setRenamingStatus] = useState<boolean[]>([]);
+  const [renamingStatus, setRenamingStatus] = useState<number>(-1);
+  const [customFileName, setCustomFileName] = useState<string | null>(null);
   const [totalSize, setTotalSize] = useState(0);
 
+  const fileReference = useRef<FileUpload>();
+
   const onTemplateRemove = (index: number, file: File, callback: any) => {
-    setTotalSize(totalSize - file.size);
-    handleResetFileName(file, index);
     handleRenameChangeStatus(file, index);
+    setTotalSize(totalSize - file.size);
     callback();
   };
 
   const handleRenameChangeStatus = (file: File, index: number) => {
-    const updatedStatus = [...renamingStatus];
-    updatedStatus[index] = !updatedStatus[index]; //change the status
-    setRenamingStatus(updatedStatus);
-  };
-
-  const handleResetFileName = (file: File, index: number) => {
-    const updatedNames = [...customFileNames];
-    updatedNames[index] = file.name; // Reset to original file name
-    setCustomFileNames(updatedNames);
+    setRenamingStatus(-1);
+    setCustomFileName(null);
   };
 
   const handleRenameCancel = (file: File, index: number) => {
     handleRenameChangeStatus(file, index);
-    handleResetFileName(file, index);
+  };
+
+  const changeFileName = (file: File, index: number) => {
+    const files = fileReference.current?.getFiles();
+    if (files) {
+      const updatedFiles = files.map((file, i) => {
+        if (index === i && customFileName !== "") {
+          return new File([file], customFileName || file.name, {
+            type: file.type,
+            lastModified: file.lastModified,
+          });
+        }
+        return file;
+      });
+      fileReference.current?.setFiles(updatedFiles as File[]);
+      handleRenameChangeStatus(file, index);
+    }
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCustomFileName(event.target.value);
   };
 
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
     const file = inFile as File;
     const index = properties.index;
-    const isRenaming = renamingStatus[index] || false;
     return (
       <div
         className="flex align-items-center flex-wrap"
@@ -53,16 +66,12 @@ export const UploadFile = () => {
             className="pi pi-file"
             style={{ fontSize: "2rem", marginRight: "1rem" }}
           ></i>
-          {isRenaming ? (
+          {renamingStatus === index ? (
             <div className="flex" style={{ display: "flex" }}>
               <InputText
                 type="text"
-                value={customFileNames[index]}
-                onChange={(event) => {
-                  const updatedNames = [...customFileNames];
-                  updatedNames[index] = event.target.value;
-                  setCustomFileNames(updatedNames);
-                }}
+                value={customFileName !== null ? customFileName : file.name}
+                onChange={(event) => handleChange(event)}
                 placeholder="Enter custom file name"
               />
 
@@ -71,7 +80,7 @@ export const UploadFile = () => {
                   type="button"
                   icon="pi pi-check"
                   className="p-button-outlined p-button-rounded p-button-success ml-auto flex align-items-center"
-                  onClick={() => handleRenameChangeStatus(file, index)}
+                  onClick={() => changeFileName(file, index)}
                 />
                 <Button
                   type="button"
@@ -87,9 +96,14 @@ export const UploadFile = () => {
             <>
               <span
                 className="flex flex-column text-left ml-3"
-                onClick={() => handleRenameChangeStatus(file, index)}
+                onClick={() => {
+                  setCustomFileName(null);
+                  setRenamingStatus(index);
+                }}
               >
-                {customFileNames[index] ? customFileNames[index] : file.name}
+                {customFileName !== null && renamingStatus === index
+                  ? customFileName
+                  : file.name}
               </span>
             </>
           )}
@@ -108,6 +122,7 @@ export const UploadFile = () => {
   return (
     <div className="card">
       <FileUpload
+        ref={fileReference as LegacyRef<FileUpload> | undefined}
         style={{ width: "100%" }}
         name="demo[]"
         url={"/api/upload"}
