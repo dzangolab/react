@@ -1,8 +1,9 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import type { RoleOption } from "../RolePicker";
 import { AppPickerBasic } from "./AppPickerBasic";
+
+import type { RoleOption } from "../RolePicker";
 
 export interface App {
   id: number;

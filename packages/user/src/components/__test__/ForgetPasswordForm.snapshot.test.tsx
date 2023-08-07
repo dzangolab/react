@@ -21,7 +21,7 @@ function toJson(component: ReactTestRenderer) {
 test("Component matches snapshot", () => {
   const component = create(
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    <ForgetPasswordForm handleSubmit={() => {}} />
+    <ForgetPasswordForm handleSubmit={() => {}} />,
   );
 
   const tree = toJson(component);

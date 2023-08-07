@@ -26,10 +26,10 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
       ...PasswordConfirmationSchema({
         passwordRequiredMessage: t("signup.messages.validation.password"),
         passwordValidationMessage: t(
-          "signup.messages.validation.validationMessage"
+          "signup.messages.validation.validationMessage",
         ),
         confirmPasswordRequiredMessage: t(
-          "signup.messages.validation.confirmPassword"
+          "signup.messages.validation.confirmPassword",
         ),
       }),
     })
@@ -40,7 +40,7 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
       {
         message: t("signup.messages.validation.mustMatch"),
         path: ["confirmPassword"],
-      }
+      },
     );
 
   return (

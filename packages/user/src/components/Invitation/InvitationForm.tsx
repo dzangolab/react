@@ -104,7 +104,7 @@ export const InvitationForm = ({
         id: zod.z.number(),
         name: zod.z.string(),
       },
-      { required_error: t("validation.messages.role") }
+      { required_error: t("validation.messages.role") },
     ),
   });
 
@@ -116,7 +116,7 @@ export const InvitationForm = ({
           name: zod.z.string(),
           origin: zod.z.string(),
         },
-        { required_error: t("validation.messages.app") }
+        { required_error: t("validation.messages.app") },
       ),
     });
 

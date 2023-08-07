@@ -13,7 +13,7 @@ test("correct title, subtitle and content are displayed", async () => {
   render(
     <Page title={pageData.title} subtitle={pageData.subtitle}>
       <p>This is the content</p>
-    </Page>
+    </Page>,
   );
 
   const header = screen.getByRole("heading", { level: 1 });
