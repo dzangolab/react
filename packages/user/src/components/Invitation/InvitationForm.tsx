@@ -77,9 +77,9 @@ export const InvitationForm = ({
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
-          toast.error(t("invitation.messages.addError"));
+          toast.error(t("invitation.messages.invite.error"));
         } else {
-          toast.success(t("invitation.messages.addSuccess"));
+          toast.success(t("invitation.messages.invite.success"));
 
           if (onSubmitted) {
             onSubmitted(response);
@@ -87,7 +87,7 @@ export const InvitationForm = ({
         }
       })
       .catch(() => {
-        toast.error(t("invitation.messages.addError"));
+        toast.error(t("invitation.messages.invite.error"));
       })
       .finally(() => {
         setSubmitting(false);
