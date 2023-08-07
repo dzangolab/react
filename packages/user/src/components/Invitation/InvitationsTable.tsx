@@ -10,7 +10,11 @@ import { InvitationActions } from "./InvitationActions";
 
 import { InvitationModal } from ".";
 
-import type { AddInvitationResponse } from "@/types";
+import type {
+  AddInvitationResponse,
+  InvitationAppOption,
+  InvitationRoleOption,
+} from "@/types";
 
 export type InvitationsTableProperties = {
   id?: string;
@@ -20,6 +24,8 @@ export type InvitationsTableProperties = {
   showInviteAction?: boolean;
   totalRecords?: number;
   invitations: Array<object>;
+  apps?: Array<InvitationAppOption>;
+  roles?: Array<InvitationRoleOption>;
   fetchInvitations: (arguments_?: any) => void;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
@@ -36,6 +42,8 @@ export const InvitationsTable = ({
   showInviteAction = true,
   totalRecords = 0,
   invitations,
+  apps,
+  roles,
   fetchInvitations,
   onInvitationAdded,
   onInvitationResent,
@@ -124,6 +132,8 @@ export const InvitationsTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
+            apps={apps}
+            roles={roles}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
