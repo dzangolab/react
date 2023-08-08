@@ -1,3 +1,4 @@
+import { useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
@@ -8,34 +9,50 @@ import { IconType } from "primereact/utils";
 
 import { InvitationModal } from "../Invitation";
 
-import type { AddInvitationResponse } from "@/types";
+import type {
+  AddInvitationResponse,
+  InvitationAppOption,
+  InvitationRoleOption,
+} from "@/types";
 
 export type UsersTableProperties = {
-  id?: string;
+  additionalInvitationFields?: {
+    additionalDefaultValues: Record<string, any>;
+    additionalInvitationSchema: Zod.ZodObject<any>;
+    fields: React.ComponentType<{
+      useFormContext: typeof useFormContext;
+    }>;
+  };
+  apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
+  fetchUsers: (arguments_?: any) => void;
+  id?: string;
+  inviteButtonIcon?: IconType<ButtonProps>;
   loading?: boolean;
+  onInvitationAdded?: (response: AddInvitationResponse) => void;
+  prepareInvitationData?: (data: any) => any;
+  roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
   totalRecords?: number;
   users: Array<object>;
-  fetchUsers: (arguments_?: any) => void;
-  onInvitationAdded?: (response: AddInvitationResponse) => void;
-  prepareInvitationData?: (data: any) => any;
-  inviteButtonIcon?: IconType<ButtonProps>;
 };
 
 export const UsersTable = ({
-  id = "table-users",
+  additionalInvitationFields,
+  apps,
   className = "table-users",
   columns,
+  fetchUsers,
+  id = "table-users",
+  inviteButtonIcon,
   loading = false,
+  onInvitationAdded,
+  prepareInvitationData,
+  roles,
   showInviteAction = true,
   totalRecords = 0,
   users,
-  inviteButtonIcon,
-  fetchUsers,
-  onInvitationAdded,
-  prepareInvitationData,
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -107,9 +124,12 @@ export const UsersTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
+            additionalInvitationFields={additionalInvitationFields}
+            apps={apps}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
+            roles={roles}
           />
         </div>
       );
