@@ -14,6 +14,7 @@
 @import "./ssoBaseButton.css";
 @import "./googleButton.css";
 @import "./primereact-override/index.css";
+@import "./uploadFileWidget.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";

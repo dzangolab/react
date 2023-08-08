@@ -1,9 +1,13 @@
 import { Button } from "primereact/button";
-import { FileUpload, ItemTemplateOptions } from "primereact/fileupload";
+import {
+  FileUpload,
+  FileUploadProps,
+  ItemTemplateOptions,
+} from "primereact/fileupload";
 import { InputText } from "primereact/inputtext";
 import React, { LegacyRef, useRef, useState } from "react";
 
-export const UploadFile = () => {
+export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
   const [renamingStatus, setRenamingStatus] = useState<number>(-1);
   const [customFileName, setCustomFileName] = useState<string | null>(null);
   const [totalSize, setTotalSize] = useState(0);
@@ -21,7 +25,7 @@ export const UploadFile = () => {
     setCustomFileName(null);
   };
 
-  const handleChangeFileName = (file: File, index: number) => {
+  const handleChangeFileName = (index: number) => {
     const files = fileReference.current?.getFiles();
     if (files) {
       const updatedFiles = files.map((file, i) => {
@@ -44,44 +48,32 @@ export const UploadFile = () => {
 
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
     const file = inFile as File;
+    console.log(file);
     const index = properties.index;
+    console.log(fileReference);
     return (
-      <div
-        className="flex align-items-center flex-wrap"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div
-          className="flex align-items-center"
-          style={{ width: "60%", display: "flex", alignItems: "center" }}
-        >
-          <i
-            className="pi pi-file"
-            style={{ fontSize: "2rem", marginRight: "1rem" }}
-          ></i>
+      <div className="file_wrapper">
+        <div className="">
+          <i className="pi pi-file"></i>
           {renamingStatus === index ? (
-            <div className="flex" style={{ display: "flex" }}>
+            <div className="">
               <InputText
                 type="text"
                 value={customFileName !== null ? customFileName : file.name}
                 onChange={(event) => handleChange(event)}
                 placeholder="Enter custom file name"
               />
-
               <div>
                 <Button
                   type="button"
                   icon="pi pi-check"
-                  className="p-button-outlined p-button-rounded p-button-success ml-3"
-                  onClick={() => handleChangeFileName(file, index)}
+                  className="p-button-outlined p-button-rounded p-button-success"
+                  onClick={() => handleChangeFileName(index)}
                 />
                 <Button
                   type="button"
                   icon="pi pi-times"
-                  className="p-button-outlined p-button-rounded p-button-danger ml-3"
+                  className="p-button-outlined p-button-rounded p-button-danger"
                   onClick={() => {
                     handleRenameChangeStatus();
                   }}
@@ -90,7 +82,7 @@ export const UploadFile = () => {
             </div>
           ) : (
             <>
-              <span className="flex flex-column text-left ml-3">
+              <span className="">
                 {customFileName !== null && renamingStatus === index
                   ? customFileName
                   : file.name}
@@ -102,7 +94,7 @@ export const UploadFile = () => {
           <Button
             type="button"
             icon="pi pi-file-edit"
-            className=" p-button-warning ml-auto mr-2"
+            className=" p-button-warning"
             onClick={() => {
               setCustomFileName(null);
               setRenamingStatus(index);
@@ -112,7 +104,7 @@ export const UploadFile = () => {
           <Button
             type="button"
             icon="pi pi-trash"
-            className=" p-button-danger ml-auto ml-3"
+            className=" p-button-danger"
             onClick={() => onTemplateRemove(file, properties.onRemove)}
           />
         </div>
@@ -126,13 +118,14 @@ export const UploadFile = () => {
         ref={fileReference as LegacyRef<FileUpload> | undefined}
         style={{ width: "100%" }}
         name="demo[]"
-        url={"/api/upload"}
+        url={url}
         multiple
         accept="image/*"
         emptyTemplate={
           <p className="m-0">Drag and drop files to here to upload.</p>
         }
         itemTemplate={itemTemplate}
+        {...uploadFileOptions}
       />
     </div>
   );

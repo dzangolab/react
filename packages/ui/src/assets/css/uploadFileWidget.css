@@ -1,0 +1,21 @@
+.file_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file_wrapper > div:first-child {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.file_wrapper > div:first-child > i {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.file_wrapper > div:first-child > div {
+  display: flex;
+  justify-content: space-between;
+}
