@@ -24,17 +24,17 @@ test("validation error message is displayed when input field is empty", async ()
 
   await waitFor(() => {
     expect(
-      screen.getByText("changePassword.messages.validation.oldPassword")
+      screen.getByText("changePassword.messages.validation.oldPassword"),
     ).toBeDefined();
   });
   await waitFor(() => {
     expect(
-      screen.getByText("changePassword.messages.validation.newPassword")
+      screen.getByText("changePassword.messages.validation.newPassword"),
     ).toBeDefined();
   });
   await waitFor(() => {
     expect(
-      screen.getByText("changePassword.messages.validation.confirmPassword")
+      screen.getByText("changePassword.messages.validation.confirmPassword"),
     ).toBeDefined();
   });
 
@@ -46,13 +46,13 @@ test("validation error message is displayed for unmatched confirm password", asy
   const { user } = setup(<ChangePasswordForm handleSubmit={handleSubmit} />);
 
   const oldPassword = screen.getByLabelText(
-    "changePassword.form.oldPassword.label"
+    "changePassword.form.oldPassword.label",
   );
   const newPassword = screen.getByLabelText(
-    "changePassword.form.newPassword.label"
+    "changePassword.form.newPassword.label",
   );
   const confirmPassword = screen.getByLabelText(
-    "changePassword.form.confirmPassword.label"
+    "changePassword.form.confirmPassword.label",
   );
   const submitButton = screen.getByText("changePassword.form.actions.submit");
 
@@ -66,7 +66,7 @@ test("validation error message is displayed for unmatched confirm password", asy
 
   await waitFor(() => {
     expect(
-      screen.getByText("changePassword.messages.validation.mustMatch")
+      screen.getByText("changePassword.messages.validation.mustMatch"),
     ).toBeDefined();
   });
 
@@ -82,13 +82,13 @@ test("form is successfully submitted", async () => {
   const { user } = setup(<ChangePasswordForm handleSubmit={handleSubmit} />);
 
   const oldPassword = screen.getByLabelText(
-    "changePassword.form.oldPassword.label"
+    "changePassword.form.oldPassword.label",
   );
   const newPassword = screen.getByLabelText(
-    "changePassword.form.newPassword.label"
+    "changePassword.form.newPassword.label",
   );
   const confirmPassword = screen.getByLabelText(
-    "changePassword.form.confirmPassword.label"
+    "changePassword.form.confirmPassword.label",
   );
   const submitButton = screen.getByText("changePassword.form.actions.submit");
 

@@ -31,5 +31,5 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <App />
       </React.Suspense>
     </UserProvider>
-  </ConfigProvider>
+  </ConfigProvider>,
 );
