@@ -8,5 +8,6 @@
     "export": "Export XLSX",
     "submit": "Submit Button"
   },
-  "responsiveMenu": "Responsive Menu"
+  "responsiveMenu": "Responsive Menu",
+  "uploadFileWidget": "UploadFileWidget"
 }

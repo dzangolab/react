@@ -59,7 +59,7 @@ const componentList = [
   },
   {
     key: 6,
-    title: "buttons.export",
+    title: "uploadFileWidget",
     component: <UploadFile />,
   },
 ];

@@ -1,7 +1,7 @@
-import React, { LegacyRef, useRef, useState } from "react";
-import { FileUpload, ItemTemplateOptions } from "primereact/fileupload";
 import { Button } from "primereact/button";
+import { FileUpload, ItemTemplateOptions } from "primereact/fileupload";
 import { InputText } from "primereact/inputtext";
+import React, { LegacyRef, useRef, useState } from "react";
 
 export const UploadFile = () => {
   const [renamingStatus, setRenamingStatus] = useState<number>(-1);
@@ -75,13 +75,13 @@ export const UploadFile = () => {
                 <Button
                   type="button"
                   icon="pi pi-check"
-                  className="p-button-outlined p-button-rounded p-button-success ml-auto flex align-items-center"
+                  className="p-button-outlined p-button-rounded p-button-success ml-3"
                   onClick={() => handleChangeFileName(file, index)}
                 />
                 <Button
                   type="button"
                   icon="pi pi-times"
-                  className="p-button-outlined p-button-rounded p-button-danger ml-auto flex align-items-center"
+                  className="p-button-outlined p-button-rounded p-button-danger ml-3"
                   onClick={() => {
                     handleRenameChangeStatus();
                   }}
@@ -102,7 +102,7 @@ export const UploadFile = () => {
           <Button
             type="button"
             icon="pi pi-file-edit"
-            className=" p-button-warning ml-auto flex align-items-center"
+            className=" p-button-warning ml-auto mr-2"
             onClick={() => {
               setCustomFileName(null);
               setRenamingStatus(index);
@@ -112,7 +112,7 @@ export const UploadFile = () => {
           <Button
             type="button"
             icon="pi pi-trash"
-            className=" p-button-danger ml-auto flex align-items-center"
+            className=" p-button-danger ml-auto ml-3"
             onClick={() => onTemplateRemove(file, properties.onRemove)}
           />
         </div>
