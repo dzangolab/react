@@ -57,6 +57,20 @@ export const InvitationsTable = ({
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
+  const invitedByColumn = (data: any) => {
+    if (data.invitedBy) {
+      if (
+        data.invitedBy.givenName &&
+        data.invitedBy.middleNames &&
+        data.invitedBy.surname
+      ) {
+        return `${data.invitedBy.givenName} ${data.invitedBy.middleNames} ${data.invitedBy.surname}`;
+      }
+      return <code>&#8212;</code>;
+    }
+    return <code>&#8212;</code>;
+  };
+
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "email",
@@ -87,11 +101,18 @@ export const InvitationsTable = ({
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
-        return data.invitedBy ? (
-          `${data.invitedBy.givenName} ${data.invitedBy.surname}`
-        ) : (
-          <code>&#8212;</code>
-        );
+        // return data.invitedBy ? (
+        //   (data.invitedBy.givenName ? data.invitedBy.givenName : "") +
+        //     (data.invitedBy.middleNames
+        //       ? " " + data.invitedBy.middleNames
+        //       : "") +
+        //     (data.invitedBy.surname ? " " + data.invitedBy.surname : "") || (
+        //     <code>&#8212;</code>
+        //   )
+        // ) : (
+        //   <code>&#8212;</code>
+        // );
+        return invitedByColumn(data);
       },
       align: "center",
     },
