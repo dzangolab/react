@@ -39,7 +39,7 @@ test("Component matches snapshot", () => {
   const component = create(
     <userContext.Provider value={values}>
       <ProfileInformation />
-    </userContext.Provider>,
+    </userContext.Provider>
   );
 
   const tree = toJson(component);

@@ -47,7 +47,7 @@ test("Component matches snapshot", () => {
   const component = create(
     <configContext.Provider value={appConfig}>
       <AppHeader />
-    </configContext.Provider>,
+    </configContext.Provider>
   );
 
   const tree = toJson(component);

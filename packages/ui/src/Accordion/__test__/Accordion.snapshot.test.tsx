@@ -23,7 +23,7 @@ test("Component matches snapshot", () => {
       <SubPane icon="icon2.jpg" title="Topic 2">
         Pane 2 content
       </SubPane>
-    </Accordion>,
+    </Accordion>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

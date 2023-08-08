@@ -5,7 +5,7 @@ import client from "@/api/axios";
 const changePassword = async (
   oldPassword: string,
   newPassword: string,
-  apiBaseUrl: string,
+  apiBaseUrl: string
 ): Promise<boolean | undefined> => {
   let success = false;
 
@@ -15,7 +15,7 @@ const changePassword = async (
       { oldPassword, newPassword },
       {
         withCredentials: true,
-      },
+      }
     );
 
     if (response.data.status === "OK") {

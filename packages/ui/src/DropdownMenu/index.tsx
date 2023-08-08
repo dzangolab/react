@@ -104,7 +104,7 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
                     : item.label}
                 </li>
               );
-            },
+            }
           )
         }
       </ul>

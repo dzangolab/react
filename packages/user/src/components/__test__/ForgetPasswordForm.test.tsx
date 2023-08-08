@@ -19,7 +19,7 @@ test("validation error message is displayed when input field is empty", async ()
   const submitButton = screen.getByText("forgetPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("forgetPassword.form.email.label"),
+    screen.getByLabelText("forgetPassword.form.email.label")
   ).toBeDefined();
 
   act(() => {
@@ -41,7 +41,7 @@ test("validation error message is displayed for invalid email", async () => {
   const submitButton = screen.getByText("forgetPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("forgetPassword.form.email.label"),
+    screen.getByLabelText("forgetPassword.form.email.label")
   ).toBeDefined();
 
   await act(async () => {
@@ -65,7 +65,7 @@ test("form is successfully submitted", async () => {
   const submitButton = screen.getByText("forgetPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("forgetPassword.form.email.label"),
+    screen.getByLabelText("forgetPassword.form.email.label")
   ).toBeDefined();
 
   await act(async () => {

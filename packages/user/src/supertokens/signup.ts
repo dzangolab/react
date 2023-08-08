@@ -3,7 +3,7 @@ import { emailPasswordSignUp as register } from "supertokens-web-js/recipe/third
 import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
 
 const signup = async (
-  credentials: LoginCredentials,
+  credentials: LoginCredentials
 ): Promise<SignInUpPromise | undefined> => {
   let user: UserType;
   let status: string;

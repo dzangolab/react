@@ -37,7 +37,7 @@ test("no subpane is active when defaultActiveKey prop is not passed", async () =
       <SubPane title={paneValues.pane2.title} icon={paneValues.pane2.icon}>
         <p>{paneValues.pane2.content}</p>
       </SubPane>
-    </Accordion>,
+    </Accordion>
   );
 
   const subpanes = screen.getAllByRole("listitem");
@@ -61,7 +61,7 @@ test("correct subpane is active", async () => {
       <SubPane title={paneValues.pane2.title} icon={paneValues.pane2.icon}>
         <p>{paneValues.pane2.content}</p>
       </SubPane>
-    </Accordion>,
+    </Accordion>
   );
 
   const subpanes = screen.getAllByRole("listitem");

@@ -18,11 +18,11 @@ test("validation error messages are displayed", async () => {
   const submitButton = screen.getByText("resetPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("resetPassword.form.newPassword.label"),
+    screen.getByLabelText("resetPassword.form.newPassword.label")
   ).toBeDefined();
 
   expect(
-    screen.getByLabelText("resetPassword.form.confirmPassword.label"),
+    screen.getByLabelText("resetPassword.form.confirmPassword.label")
   ).toBeDefined();
 
   await act(() => {
@@ -31,13 +31,13 @@ test("validation error messages are displayed", async () => {
 
   await waitFor(() => {
     expect(
-      screen.getByText("resetPassword.messages.validation.newPassword"),
+      screen.getByText("resetPassword.messages.validation.newPassword")
     ).toBeDefined();
   });
 
   await waitFor(() => {
     expect(
-      screen.getByText("resetPassword.messages.validation.confirmPassword"),
+      screen.getByText("resetPassword.messages.validation.confirmPassword")
     ).toBeDefined();
   });
 
@@ -48,19 +48,19 @@ test("validation error message when two password is not matched is displayed", a
   const handleSubmit = vi.fn();
   const { user } = setup(<ResetPasswordForm handleSubmit={handleSubmit} />);
   const passwordInput = screen.getByLabelText(
-    "resetPassword.form.newPassword.label",
+    "resetPassword.form.newPassword.label"
   );
   const confirmPasswordInput = screen.getByLabelText(
-    "resetPassword.form.confirmPassword.label",
+    "resetPassword.form.confirmPassword.label"
   );
   const submitButton = screen.getByText("resetPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("resetPassword.form.newPassword.label"),
+    screen.getByLabelText("resetPassword.form.newPassword.label")
   ).toBeDefined();
 
   expect(
-    screen.getByLabelText("resetPassword.form.confirmPassword.label"),
+    screen.getByLabelText("resetPassword.form.confirmPassword.label")
   ).toBeDefined();
 
   await act(async () => {
@@ -72,13 +72,13 @@ test("validation error message when two password is not matched is displayed", a
 
   await waitFor(() => {
     expect(
-      screen.getByText("resetPassword.messages.validation.mustMatch"),
+      screen.getByText("resetPassword.messages.validation.mustMatch")
     ).toBeDefined();
   });
 
   await waitFor(() => {
     expect(
-      screen.queryByText("resetPassword.messages.validation.confirmPassword"),
+      screen.queryByText("resetPassword.messages.validation.confirmPassword")
     ).toBeNull();
   });
 
@@ -91,19 +91,19 @@ test("form is successfully submitted", async () => {
   const handleSubmit = vi.fn();
   const { user } = setup(<ResetPasswordForm handleSubmit={handleSubmit} />);
   const passwordInput = screen.getByLabelText(
-    "resetPassword.form.newPassword.label",
+    "resetPassword.form.newPassword.label"
   );
   const confirmPasswordInput = screen.getByLabelText(
-    "resetPassword.form.confirmPassword.label",
+    "resetPassword.form.confirmPassword.label"
   );
   const submitButton = screen.getByText("resetPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("resetPassword.form.newPassword.label"),
+    screen.getByLabelText("resetPassword.form.newPassword.label")
   ).toBeDefined();
 
   expect(
-    screen.getByLabelText("resetPassword.form.confirmPassword.label"),
+    screen.getByLabelText("resetPassword.form.confirmPassword.label")
   ).toBeDefined();
 
   await act(async () => {
@@ -115,13 +115,13 @@ test("form is successfully submitted", async () => {
 
   await waitFor(() => {
     expect(
-      screen.queryByText("resetPassword.messages.validation.newPassword"),
+      screen.queryByText("resetPassword.messages.validation.newPassword")
     ).toBeNull();
   });
 
   await waitFor(() => {
     expect(
-      screen.queryByText("resetPassword.messages.validation.confirmPassword"),
+      screen.queryByText("resetPassword.messages.validation.confirmPassword")
     ).toBeNull();
   });
 

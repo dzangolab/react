@@ -31,7 +31,7 @@ const exportXLSX = async ({
     new Blob([buffer], {
       type: "application/vnd.ms-excel",
     }),
-    `${filename}.xlsx`,
+    `${filename}.xlsx`
   );
 };
 
@@ -58,7 +58,7 @@ export const useExporterAsync = ({
         onExportEnd();
       }
     },
-    [filename, sheetName, onExportStart, onExportEnd],
+    [filename, sheetName, onExportStart, onExportEnd]
   );
 
   return [exporting, triggerExportAsync];

@@ -27,7 +27,7 @@ test("Component matches snapshot", () => {
   const component = create(
     <Page title={pageData.title} subtitle={pageData.subtitle}>
       <p>This is the content</p>
-    </Page>,
+    </Page>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

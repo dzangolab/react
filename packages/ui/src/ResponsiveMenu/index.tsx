@@ -72,7 +72,7 @@ const ResponsiveMenu = ({
           </NavLink>
         </li>
       )),
-    [routes],
+    [routes]
   );
 
   return (

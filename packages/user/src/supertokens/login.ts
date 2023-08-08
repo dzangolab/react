@@ -3,7 +3,7 @@ import { emailPasswordSignIn } from "supertokens-web-js/recipe/thirdpartyemailpa
 import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
 
 const login = async (
-  credentials: LoginCredentials,
+  credentials: LoginCredentials
 ): Promise<SignInUpPromise | undefined> => {
   let user: UserType;
   let status: string;

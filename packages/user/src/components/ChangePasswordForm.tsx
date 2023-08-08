@@ -21,13 +21,13 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
         .nonempty(t("changePassword.messages.validation.oldPassword")),
       ...PasswordConfirmationSchema({
         passwordValidationMessage: t(
-          "changePassword.messages.validation.mustContain",
+          "changePassword.messages.validation.mustContain"
         ),
         passwordRequiredMessage: t(
-          "changePassword.messages.validation.newPassword",
+          "changePassword.messages.validation.newPassword"
         ),
         confirmPasswordRequiredMessage: t(
-          "changePassword.messages.validation.confirmPassword",
+          "changePassword.messages.validation.confirmPassword"
         ),
       }),
     })
@@ -38,7 +38,7 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
       {
         message: t("changePassword.messages.validation.mustMatch"),
         path: ["confirmPassword"],
-      },
+      }
     );
 
   return (

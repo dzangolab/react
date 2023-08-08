@@ -6,7 +6,7 @@ interface IPromise {
 }
 
 const resetPassword = async (
-  newPassword: string,
+  newPassword: string
 ): Promise<IPromise | undefined> => {
   let status: string | undefined;
 

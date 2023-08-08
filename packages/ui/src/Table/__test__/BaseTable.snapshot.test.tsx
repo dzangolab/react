@@ -24,7 +24,7 @@ test("Component matches snapshot", () => {
       rowsPerPageOptions={[5, 10]}
     >
       <BaseTable />
-    </Table>,
+    </Table>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

@@ -28,7 +28,7 @@ const onTabDown = (
   event: KeyboardEvent<HTMLButtonElement>,
   count: number,
   handleFocus: (value: number) => void,
-  orientation: TOrientation,
+  orientation: TOrientation
 ) => {
   const nextTab = () => handleFocus((active + 1) % count);
   const previousTab = () => handleFocus((active - 1 + count) % count);

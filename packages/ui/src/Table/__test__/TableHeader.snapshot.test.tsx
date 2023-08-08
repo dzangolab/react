@@ -24,7 +24,7 @@ test("Component matches snapshot", () => {
       totalItems={data.length}
     >
       <TableHeader />
-    </Table>,
+    </Table>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

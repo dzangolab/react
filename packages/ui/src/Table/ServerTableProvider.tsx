@@ -71,7 +71,7 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
       pageIndex,
       pageSize,
     }),
-    [pageIndex, pageSize],
+    [pageIndex, pageSize]
   );
 
   const table = useReactTable({

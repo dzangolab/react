@@ -37,7 +37,7 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
                   event,
                   childNodes.length,
                   handleFocus,
-                  getOrientation(position),
+                  getOrientation(position)
                 );
               }}
               onFocus={() => setActive(index)}

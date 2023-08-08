@@ -25,7 +25,7 @@ const setup = (component: React.ReactElement) => {
     ...render(
       <ConfigProvider appConfig={userConfig as AppConfig}>
         {component}
-      </ConfigProvider>,
+      </ConfigProvider>
     ),
   };
 };
@@ -46,13 +46,13 @@ test("validation error messages are displayed", async () => {
 
   await waitFor(() => {
     expect(
-      screen.getByText("signup.messages.validation.password"),
+      screen.getByText("signup.messages.validation.password")
     ).toBeDefined();
   });
 
   await waitFor(() => {
     expect(
-      screen.getByText("signup.messages.validation.confirmPassword"),
+      screen.getByText("signup.messages.validation.confirmPassword")
     ).toBeDefined();
   });
 
@@ -69,7 +69,7 @@ test("confirm password must match the password", async () => {
   const emailInput = screen.getByLabelText("signup.form.email.label");
   const passwordInput = screen.getByLabelText("signup.form.password.label");
   const confirmPasswordInput = screen.getByLabelText(
-    "signup.form.confirmPassword.label",
+    "signup.form.confirmPassword.label"
   );
   const submitButton = screen.getByText("signup.form.actions.submit");
 
@@ -89,7 +89,7 @@ test("confirm password must match the password", async () => {
 
   await waitFor(() => {
     expect(
-      screen.getByText("signup.messages.validation.mustMatch"),
+      screen.getByText("signup.messages.validation.mustMatch")
     ).toBeDefined();
   });
 
@@ -100,8 +100,8 @@ test("confirm password must match the password", async () => {
   await waitFor(() => {
     expect(
       screen.queryByText(
-        "signup.messages.validation.confirmPasswordExtraValidationMessage",
-      ),
+        "signup.messages.validation.confirmPasswordExtraValidationMessage"
+      )
     ).toBeNull();
   });
 });
@@ -129,7 +129,7 @@ test("validation error is displayed when an uppercase character is not included 
 
   await waitFor(() => {
     expect(
-      screen.getByText("signup.messages.validation.validationMessage"),
+      screen.getByText("signup.messages.validation.validationMessage")
     ).toBeDefined();
   });
 });
@@ -144,7 +144,7 @@ test("form is successfully submitted", async () => {
   const emailInput = screen.getByLabelText("signup.form.email.label");
   const passwordInput = screen.getByLabelText("signup.form.password.label");
   const confirmPasswordInput = screen.getByLabelText(
-    "signup.form.confirmPassword.label",
+    "signup.form.confirmPassword.label"
   );
   const submitButton = screen.getByText("signup.form.actions.submit");
 

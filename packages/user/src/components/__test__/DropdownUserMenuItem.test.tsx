@@ -17,7 +17,7 @@ test("test DropdownUserMenuItem for link", async () => {
   render(
     <MemoryRouter>
       <DropdownUserMenuItem children={undefined} route={route} />
-    </MemoryRouter>,
+    </MemoryRouter>
   );
 
   const link = screen.getByRole("link");

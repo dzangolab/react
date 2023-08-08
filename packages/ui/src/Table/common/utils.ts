@@ -47,7 +47,7 @@ const getSortDirection = (desc: boolean): TSortDirection => {
 export const getRequestJSON = (
   sortingState?: SortingState,
   filterState?: TCustomColumnFilter[],
-  paginationState?: PaginationState,
+  paginationState?: PaginationState
 ): TRequestJSON => {
   const getFilter = () => {
     if (!filterState || filterState.length === 0) return null;

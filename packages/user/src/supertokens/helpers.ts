@@ -29,7 +29,7 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
     const validationErrors = await Session.validateClaims({
       overrideGlobalClaimValidators: (globalValidators) => {
         const validators = claims.map((claim) =>
-          UserRoleClaim.validators.includes(claim),
+          UserRoleClaim.validators.includes(claim)
         );
 
         return [

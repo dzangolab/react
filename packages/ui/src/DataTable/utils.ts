@@ -83,7 +83,7 @@ const getFilterOperator = (filter: DataTableFilterMetaData): string => {
 
 const parseOneFilter = (
   filterKey: string,
-  filter: DataTableFilterMetaData | DataTableOperatorFilterMetaData,
+  filter: DataTableFilterMetaData | DataTableOperatorFilterMetaData
 ) => {
   if ("value" in filter) {
     // DataTableFilterMetaData type filter
@@ -101,7 +101,7 @@ const parseOneFilter = (
   } else {
     // eslint-disable-next-line
     console.log(
-      "Advanced filter type 'DataTableOperatorFilterMetaData' not handled yet!!",
+      "Advanced filter type 'DataTableOperatorFilterMetaData' not handled yet!!"
     );
 
     return null;
@@ -110,7 +110,7 @@ const parseOneFilter = (
 
 export const getFilterParameters = (
   { filters }: LazyTableState,
-  options?: GetRequestJSONOptions,
+  options?: GetRequestJSONOptions
 ) => {
   if (!filters) return null;
 
@@ -121,7 +121,7 @@ export const getFilterParameters = (
   filterKeys.forEach((filterKey) => {
     const parsedFilter = parseOneFilter(
       options?.customColumnsMap?.[filterKey] || filterKey, // use filterKey from customColumnsMap if available
-      filters[filterKey],
+      filters[filterKey]
     );
 
     if (parsedFilter) {
@@ -142,7 +142,7 @@ export const getFilterParameters = (
 
 export const getSortParameters = (
   { sortField, sortOrder }: LazyTableState,
-  options?: GetRequestJSONOptions,
+  options?: GetRequestJSONOptions
 ) => {
   if (!sortField) return null;
 
@@ -156,7 +156,7 @@ export const getSortParameters = (
 
 export const getPaginationParameters = (
   { rows, first }: LazyTableState,
-  options?: GetRequestJSONOptions,
+  options?: GetRequestJSONOptions
 ) => {
   return {
     limit: rows,
@@ -166,7 +166,7 @@ export const getPaginationParameters = (
 
 export const getRequestJSON = (
   parameters: LazyTableState,
-  options?: GetRequestJSONOptions,
+  options?: GetRequestJSONOptions
 ): IRequestJSON => {
   return {
     ...getPaginationParameters(parameters),

@@ -24,7 +24,7 @@ test("Component matches snapshot", () => {
       totalItems={biggerData.length}
     >
       <Pagination />
-    </Table>,
+    </Table>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

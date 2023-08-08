@@ -23,7 +23,7 @@ test("Component matches snapshot", () => {
       totalItems={data.length}
     >
       <TableDetail detail="Go to page:" showPrefix="Show" />
-    </Table>,
+    </Table>
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

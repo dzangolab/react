@@ -11,14 +11,14 @@ import client from "../axios";
 
 export const addInvitation = async (
   invitationData: any,
-  apiBaseUrl: string,
+  apiBaseUrl: string
 ): Promise<AddInvitationResponse> => {
   const response = await client(apiBaseUrl).post(
     "/invitations",
     invitationData,
     {
       withCredentials: true,
-    },
+    }
   );
 
   if (response.data.status === "ERROR") {
@@ -30,14 +30,14 @@ export const addInvitation = async (
 
 export const resendInvitation = async (
   id: number,
-  apiBaseUrl: string,
+  apiBaseUrl: string
 ): Promise<ResendInvitationResponse> => {
   const response = await client(apiBaseUrl).post(
     `invitations/resend/${id}`,
     {},
     {
       withCredentials: true,
-    },
+    }
   );
 
   if (response.data.status === "ERROR") {
@@ -49,14 +49,14 @@ export const resendInvitation = async (
 
 export const revokeInvitation = async (
   id: number,
-  apiBaseUrl: string,
+  apiBaseUrl: string
 ): Promise<RevokeInvitationResponse> => {
   const response = await client(apiBaseUrl).put(
     `invitations/revoke/${id}`,
     {},
     {
       withCredentials: true,
-    },
+    }
   );
 
   if (response.data.status === "ERROR") {
@@ -68,7 +68,7 @@ export const revokeInvitation = async (
 
 export const getInvitationByToken = async (
   token: string,
-  apiBaseUrl: string,
+  apiBaseUrl: string
 ): Promise<GetInvitationResponse> => {
   const response = await client(apiBaseUrl).get(`invitations/token/${token}`);
 
@@ -82,14 +82,14 @@ export const getInvitationByToken = async (
 export const acceptInvitation = async (
   token: string,
   credential: LoginCredentials,
-  apiBaseUrl: string,
+  apiBaseUrl: string
 ): Promise<AccpetInvitationResponse> => {
   const response = await client(apiBaseUrl).post(
     `invitations/token/${token}`,
     credential,
     {
       withCredentials: true,
-    },
+    }
   );
 
   if (response.data.status === "ERROR") {

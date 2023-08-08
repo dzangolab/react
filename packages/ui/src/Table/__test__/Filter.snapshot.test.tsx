@@ -17,7 +17,7 @@ function toJson(component: renderer.ReactTestRenderer) {
 
 test("Component matches snapshot", () => {
   const component = create(
-    <Filter columnType="string" handleChange={mockFunction} />,
+    <Filter columnType="string" handleChange={mockFunction} />
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();
