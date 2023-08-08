@@ -3,33 +3,35 @@ import { classNames } from "primereact/utils";
 import React from "react";
 
 import { ErrorMessage } from "../ErrorMessage";
+import { RoleOption } from "../RolePicker";
 
-interface App {
-  name: string;
+export interface AppOption {
   id: number;
+  name: string;
   origin: string;
+  supportedRoles?: RoleOption[];
 }
 
 interface IProperties {
-  name: string;
-  value: App;
-  label?: string;
-  placeholder?: string;
-  onChange: (app: App) => void;
-  inputRef: React.Ref<HTMLInputElement>;
-  options: App[];
   error?: any;
+  inputRef: React.Ref<HTMLInputElement>;
+  label?: string;
+  name: string;
+  options: AppOption[];
+  placeholder?: string;
+  value: AppOption;
+  onChange: (app: AppOption) => void;
 }
 
 export const AppPickerBasic = ({
-  name,
-  value,
-  label,
-  placeholder,
-  onChange,
-  inputRef,
-  options,
   error,
+  inputRef,
+  label,
+  name,
+  options,
+  placeholder,
+  value,
+  onChange,
 }: IProperties) => {
   return (
     <div className={`field ${name}`}>

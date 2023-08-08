@@ -23,7 +23,7 @@ test("Component matches snapshot", () => {
       holder={"Dzango technologies"}
       url={"https://www.dzangolab.com"}
       year={2022}
-    />
+    />,
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

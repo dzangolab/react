@@ -1,41 +1,67 @@
-import { Email, useFormContext } from "@dzangolab/react-form";
+import {
+  AppPicker,
+  Email,
+  RolePicker,
+  useFormContext,
+  useWatch,
+} from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { AppRolePicker } from "./AppRolePicker";
-import { useConfig } from "@/hooks";
-
-import type { App, Role } from "@dzangolab/react-form";
+import { InvitationAppOption, InvitationRoleOption } from "@/types";
 
 interface IProperties {
-  onCancel?: () => void;
+  apps?: InvitationAppOption[];
   loading?: boolean;
-  roles: Role[];
-  apps: App[] | undefined;
-  filterRoles?: (apps: App, role: Role[]) => Role[];
+  filterRoles?: (
+    apps: InvitationAppOption,
+    role: InvitationRoleOption[],
+  ) => InvitationRoleOption[];
   additionalFields?: React.ComponentType<{
     useFormContext: typeof useFormContext;
   }>;
+  roles?: InvitationRoleOption[];
+  onCancel?: () => void;
 }
 export const InvitationFormFields: React.FC<IProperties> = ({
-  onCancel,
-  loading,
-  roles,
   apps,
+  roles,
+  loading,
   filterRoles,
   additionalFields: AdditionalFields,
+  onCancel,
 }) => {
   const { t } = useTranslation("user");
-  const {
-    user: { invitations },
-  } = useConfig();
+
   const {
     register,
     getFieldState,
+    setValue,
     formState: { errors, submitCount },
   } = useFormContext();
+
+  const [filteredRoles, setFilteredRoles] = useState(roles || []);
+
+  const selectedApp: InvitationAppOption = useWatch({
+    name: "app",
+  });
+
+  useEffect(() => {
+    if (selectedApp) {
+      setValue("role", undefined); // reset role value when app changes
+
+      setFilteredRoles(selectedApp.supportedRoles || []);
+    }
+  }, [selectedApp]);
+
+  useEffect(() => {
+    // if there's only one role, select it by default
+    if (filteredRoles?.length === 1) {
+      setValue("role", filteredRoles[0]);
+    }
+  }, [filteredRoles]);
 
   return (
     <>
@@ -47,12 +73,22 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
-      <AppRolePicker
-        apps={apps}
-        roles={roles}
-        showAppFiled={invitations?.modal.displayAppField}
-        filterRoles={filterRoles}
-      />
+      {apps?.length ? (
+        <AppPicker
+          name="app"
+          label={t("invitation.form.app.label")}
+          placeholder={t("invitation.form.app.placeholder")}
+          options={apps}
+        />
+      ) : null}
+      {filteredRoles?.length ? (
+        <RolePicker
+          name="role"
+          label={t("invitation.form.role.label")}
+          placeholder={t("invitation.form.role.placeholder")}
+          options={filteredRoles}
+        />
+      ) : null}
 
       {AdditionalFields ? (
         <AdditionalFields useFormContext={useFormContext} />

@@ -18,7 +18,7 @@ const ChangePassword = () => {
     const success = await changePassword(
       oldPassword,
       newPassword,
-      appConfig?.apiBaseUrl || ""
+      appConfig?.apiBaseUrl || "",
     );
 
     if (success) {

@@ -1,52 +1,48 @@
+import { useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, ButtonProps } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { IconType } from "primereact/utils";
 import React, { useEffect, useState } from "react";
 
+import {
+  AddInvitationResponse,
+  InvitationAppOption,
+  InvitationRoleOption,
+} from "@/types";
+
 import { InvitationForm } from "./InvitationForm";
-import client from "../../api/axios";
-import { useConfig } from "../../hooks";
-
-import type { App, Role, useFormContext } from "@dzangolab/react-form";
-
-import type { InvitationPayload } from "../../types";
 
 interface Properties {
-  handleSubmit: (data: InvitationPayload) => void;
-  loading?: boolean;
+  apps?: InvitationAppOption[];
+  roles?: InvitationRoleOption[];
   buttonIcon?: IconType<ButtonProps>;
-  filterRoles?: (apps: App, role: Role[]) => Role[];
+  filterRoles?: (
+    apps: InvitationAppOption,
+    role: InvitationRoleOption[],
+  ) => InvitationRoleOption[];
   additionalInvitationFields?: {
     fields: React.ComponentType<{
       useFormContext: typeof useFormContext;
     }>;
     additionalInvitationSchema: Zod.ZodObject<any>;
-    defaultAdditionalValues: Record<string, any>;
+    additionalDefaultValues: Record<string, any>;
   };
+  prepareData?: (data: any) => any;
+  onSubmitted?: (response: AddInvitationResponse) => void;
 }
 
 export const InvitationModal = ({
-  handleSubmit,
-  loading,
+  apps,
   buttonIcon,
   filterRoles,
   additionalInvitationFields,
+  roles,
+  prepareData,
+  onSubmitted,
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const config = useConfig();
-
-  const [apps, setApps] = useState<App[] | undefined>(undefined);
-
-  useEffect(() => {
-    client(config.apiBaseUrl)
-      .get<{ apps: App[] }>("/")
-      .then((res) => {
-        setApps(res.data.apps);
-      })
-      .catch((error) => console.log(error));
-  }, []);
 
   return (
     <div className="flex justify-content-center">
@@ -64,15 +60,21 @@ export const InvitationModal = ({
         resizable={false}
       >
         <InvitationForm
-          handleSubmit={handleSubmit}
+          apps={apps}
+          roles={roles}
+          additionalInvitationFields={additionalInvitationFields}
           onCancel={() => {
             setModalVisible(false);
           }}
-          loading={loading}
-          roles={config.user.invitations?.modal.availableRoles || []}
-          apps={apps}
           filterRoles={filterRoles}
-          additionalInvitationFields={additionalInvitationFields}
+          onSubmitted={(data) => {
+            if (onSubmitted) {
+              onSubmitted(data);
+            }
+
+            setModalVisible(false);
+          }}
+          prepareData={prepareData}
         />
       </Dialog>
     </div>

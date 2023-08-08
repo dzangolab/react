@@ -3,27 +3,27 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { AppPickerBasic } from "./AppPickerBasic";
 
-import type { Role } from "../RolePicker";
+import type { RoleOption } from "../RolePicker";
 
 export interface App {
-  name: string;
   id: number;
+  name: string;
   origin: string;
-  supportedRoles?: Role[];
+  supportedRoles?: RoleOption[];
 }
 
 export interface IProperties {
-  name: string;
   label?: string;
+  name: string;
+  options: App[];
   placeholder?: string;
-  options: App[] | undefined;
 }
 
 export const AppPicker = ({
-  name,
-  placeholder,
-  options = [],
   label,
+  name,
+  options,
+  placeholder,
 }: IProperties) => {
   const { control, getFieldState } = useFormContext();
   const { error } = getFieldState(name);

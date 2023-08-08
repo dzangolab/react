@@ -23,7 +23,7 @@ test("tabs are rendered", async () => {
       <SubPane title={values.titleTwo} icon={values.iconTwo}>
         <p>{values.bodyTwo}</p>
       </SubPane>
-    </TabbedPanel>
+    </TabbedPanel>,
   );
 
   expect(screen.getByText(values.titleOne)).toBeDefined();
@@ -39,7 +39,7 @@ test("correct tab is rendered", async () => {
       <SubPane title={values.titleTwo} icon={values.iconTwo}>
         <p>{values.bodyTwo}</p>
       </SubPane>
-    </TabbedPanel>
+    </TabbedPanel>,
   );
 
   fireEvent.click(screen.getByText(values.titleOne));

@@ -27,6 +27,10 @@ form .field {
   justify-content: flex-start;
 }
 
+form .field .p-dropdown {
+  width: 100%;
+}
+
 form input {
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);

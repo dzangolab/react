@@ -19,7 +19,7 @@ test("validation error messages are displayed", async () => {
 
     expect(screen.getByText("validation.messages.email")).toBeDefined();
     expect(
-      screen.getByText("login.messages.validation.password")
+      screen.getByText("login.messages.validation.password"),
     ).toBeDefined();
   });
 });

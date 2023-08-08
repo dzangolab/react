@@ -3,7 +3,7 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { RolePickerBasic } from "./RolePickerBasic";
 
-export interface Role {
+export interface RoleOption {
   name: string;
   id: number;
 }
@@ -12,7 +12,7 @@ interface IProperties {
   name: string;
   label?: string;
   placeholder?: string;
-  options: Role[];
+  options: RoleOption[];
 }
 
 export const RolePicker = ({

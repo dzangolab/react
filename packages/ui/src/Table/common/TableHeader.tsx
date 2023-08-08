@@ -11,7 +11,7 @@ import type { SyntheticEvent } from "react";
 const renderSortButton = (
   canSort: boolean,
   direction: SortDirection | false,
-  sortIcons?: TSortIcons
+  sortIcons?: TSortIcons,
 ) => {
   switch (direction) {
     case "asc":
@@ -26,7 +26,7 @@ const renderSortButton = (
 const sortFunction = (
   event: SyntheticEvent,
   sortable?: boolean,
-  sortHandler?: (event: unknown) => void
+  sortHandler?: (event: unknown) => void,
 ) => {
   if (!sortable) return;
   event.stopPropagation();
@@ -45,12 +45,14 @@ function TableHeader() {
   return (
     <>
       <colgroup>
-        {table.getAllLeafColumns()?.map(({ getSize, id }) => (
-          <col
-            key={id}
-            width={getSize() === DEFAULT_COL_SIZE ? "" : getSize()}
-          />
-        ))}
+        {table
+          .getAllLeafColumns()
+          ?.map(({ getSize, id }) => (
+            <col
+              key={id}
+              width={getSize() === DEFAULT_COL_SIZE ? "" : getSize()}
+            />
+          ))}
       </colgroup>
       <thead className={`${isCollapsed ? "active" : ""}`}>
         <tr>
@@ -79,7 +81,7 @@ function TableHeader() {
                           sortFunction(
                             event_,
                             sortable,
-                            column.getToggleSortingHandler()
+                            column.getToggleSortingHandler(),
                           )
                         }
                       >
@@ -89,7 +91,7 @@ function TableHeader() {
                             {renderSortButton(
                               column.getCanSort(),
                               column.getIsSorted(),
-                              sortIcons
+                              sortIcons,
                             )}
                           </button>
                         ) : null}
@@ -118,7 +120,7 @@ function TableHeader() {
                     )}
                   </th>
                 );
-              }
+              },
             )}
           </tr>
         ))}
