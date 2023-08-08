@@ -1,3 +1,4 @@
+import { useTranslation } from "@dzangolab/react-i18n";
 import { Button } from "primereact/button";
 import {
   FileUpload,
@@ -7,7 +8,14 @@ import {
 import { InputText } from "primereact/inputtext";
 import React, { LegacyRef, useRef, useState } from "react";
 
-export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
+export const UploadFile = ({
+  multiple = true,
+  accept = "image/*",
+  name = "demo[]",
+  url,
+  ...uploadFileOptions
+}: FileUploadProps) => {
+  const { t } = useTranslation("ui");
   const [renamingStatus, setRenamingStatus] = useState<number>(-1);
   const [customFileName, setCustomFileName] = useState<string | null>(null);
   const [totalSize, setTotalSize] = useState(0);
@@ -59,7 +67,7 @@ export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
                 type="text"
                 value={customFileName !== null ? customFileName : file.name}
                 onChange={(event) => handleChange(event)}
-                placeholder="Enter custom file name"
+                placeholder={t("file.input.placeHolder")}
               />
               <div>
                 <Button
@@ -110,11 +118,11 @@ export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
       <FileUpload
         ref={fileReference as LegacyRef<FileUpload> | undefined}
         style={{ width: "100%" }}
-        name="demo[]"
         url={url}
-        multiple
-        accept="image/*"
-        emptyTemplate={<p>Drag and drop files to here to upload.</p>}
+        multiple={multiple}
+        accept={accept}
+        name={name}
+        emptyTemplate={<p>{t("file.upload.emptyMessage")}</p>}
         itemTemplate={itemTemplate}
         {...uploadFileOptions}
       />
