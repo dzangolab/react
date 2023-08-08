@@ -3,7 +3,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, ButtonProps } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { IconType } from "primereact/utils";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import {
   AddInvitationResponse,
@@ -14,13 +14,6 @@ import {
 import { InvitationForm } from "./InvitationForm";
 
 interface Properties {
-  apps?: InvitationAppOption[];
-  roles?: InvitationRoleOption[];
-  buttonIcon?: IconType<ButtonProps>;
-  filterRoles?: (
-    apps: InvitationAppOption,
-    role: InvitationRoleOption[],
-  ) => InvitationRoleOption[];
   additionalInvitationFields?: {
     fields: React.ComponentType<{
       useFormContext: typeof useFormContext;
@@ -28,18 +21,20 @@ interface Properties {
     additionalInvitationSchema: Zod.ZodObject<any>;
     additionalDefaultValues: Record<string, any>;
   };
-  prepareData?: (data: any) => any;
+  apps?: InvitationAppOption[];
+  buttonIcon?: IconType<ButtonProps>;
   onSubmitted?: (response: AddInvitationResponse) => void;
+  prepareData?: (data: any) => any;
+  roles?: InvitationRoleOption[];
 }
 
 export const InvitationModal = ({
+  additionalInvitationFields,
   apps,
   buttonIcon,
-  filterRoles,
-  additionalInvitationFields,
-  roles,
-  prepareData,
   onSubmitted,
+  prepareData,
+  roles,
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -60,13 +55,11 @@ export const InvitationModal = ({
         resizable={false}
       >
         <InvitationForm
-          apps={apps}
-          roles={roles}
           additionalInvitationFields={additionalInvitationFields}
+          apps={apps}
           onCancel={() => {
             setModalVisible(false);
           }}
-          filterRoles={filterRoles}
           onSubmitted={(data) => {
             if (onSubmitted) {
               onSubmitted(data);
@@ -75,6 +68,7 @@ export const InvitationModal = ({
             setModalVisible(false);
           }}
           prepareData={prepareData}
+          roles={roles}
         />
       </Dialog>
     </div>

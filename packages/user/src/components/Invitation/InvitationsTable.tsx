@@ -1,3 +1,4 @@
+import { useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
@@ -17,39 +18,47 @@ import type {
 } from "@/types";
 
 export type InvitationsTableProperties = {
-  id?: string;
+  additionalInvitationFields?: {
+    additionalDefaultValues: Record<string, any>;
+    additionalInvitationSchema: Zod.ZodObject<any>;
+    fields: React.ComponentType<{
+      useFormContext: typeof useFormContext;
+    }>;
+  };
+  apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  loading?: boolean;
-  showInviteAction?: boolean;
-  totalRecords?: number;
-  invitations: Array<object>;
-  apps?: Array<InvitationAppOption>;
-  roles?: Array<InvitationRoleOption>;
   fetchInvitations: (arguments_?: any) => void;
+  id?: string;
+  inviteButtonIcon?: IconType<ButtonProps>;
+  invitations: Array<object>;
+  loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
   onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
-  inviteButtonIcon?: IconType<ButtonProps>;
+  roles?: Array<InvitationRoleOption>;
+  showInviteAction?: boolean;
+  totalRecords?: number;
 };
 
 export const InvitationsTable = ({
-  id = "table-invitations",
+  additionalInvitationFields,
+  apps,
   className = "table-invitations",
   columns,
-  loading = false,
-  showInviteAction = true,
-  totalRecords = 0,
-  invitations,
-  apps,
-  roles,
   fetchInvitations,
+  id = "table-invitations",
+  inviteButtonIcon,
+  invitations,
+  loading = false,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
   prepareInvitationData,
-  inviteButtonIcon,
+  roles,
+  showInviteAction = true,
+  totalRecords = 0,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
@@ -132,11 +141,12 @@ export const InvitationsTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
+            additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            roles={roles}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
+            roles={roles}
           />
         </div>
       );

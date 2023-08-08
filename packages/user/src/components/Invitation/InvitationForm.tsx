@@ -16,33 +16,27 @@ import type {
 } from "@/types";
 
 interface Properties {
-  apps?: InvitationAppOption[];
-  roles?: InvitationRoleOption[];
-  onCancel?: () => void;
-
-  filterRoles?: (
-    apps: InvitationAppOption,
-    role: InvitationRoleOption[],
-  ) => InvitationRoleOption[];
   additionalInvitationFields?: {
+    additionalDefaultValues: Record<string, any>;
+    additionalInvitationSchema: Zod.ZodObject<any>;
     fields: React.ComponentType<{
       useFormContext: typeof useFormContext;
     }>;
-    additionalInvitationSchema: Zod.ZodObject<any>;
-    additionalDefaultValues: Record<string, any>;
   };
+  apps?: InvitationAppOption[];
+  onCancel?: () => void;
   onSubmitted?: (response: AddInvitationResponse) => void; // afterSubmit
   prepareData?: (rawFormData: any) => any;
+  roles?: InvitationRoleOption[];
 }
 
 export const InvitationForm = ({
+  additionalInvitationFields,
   apps,
-  roles,
   onSubmitted,
   onCancel,
-  filterRoles,
-  additionalInvitationFields,
   prepareData,
+  roles,
 }: Properties) => {
   const { t } = useTranslation("user");
 
@@ -74,7 +68,7 @@ export const InvitationForm = ({
     }
 
     return defaultValues;
-  }, [apps, roles]);
+  }, [apps, roles, additionalInvitationFields?.additionalDefaultValues]);
 
   const getFormData = (data: any) => {
     const parsedData: { email: string; role: string; appId?: number } = {
@@ -157,12 +151,11 @@ export const InvitationForm = ({
       validationSchema={InvitationFormSchema}
     >
       <InvitationFormFields
+        additionalFields={additionalInvitationFields?.fields}
         apps={apps}
         loading={submitting}
-        roles={roles}
         onCancel={onCancel}
-        filterRoles={filterRoles}
-        additionalFields={additionalInvitationFields?.fields}
+        roles={roles}
       />
     </Provider>
   );

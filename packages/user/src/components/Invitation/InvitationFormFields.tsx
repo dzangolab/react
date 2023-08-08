@@ -13,24 +13,19 @@ import React, { useEffect, useState } from "react";
 import { InvitationAppOption, InvitationRoleOption } from "@/types";
 
 interface IProperties {
-  apps?: InvitationAppOption[];
-  loading?: boolean;
-  filterRoles?: (
-    apps: InvitationAppOption,
-    role: InvitationRoleOption[],
-  ) => InvitationRoleOption[];
   additionalFields?: React.ComponentType<{
     useFormContext: typeof useFormContext;
   }>;
-  roles?: InvitationRoleOption[];
+  apps?: InvitationAppOption[];
+  loading?: boolean;
   onCancel?: () => void;
+  roles?: InvitationRoleOption[];
 }
 export const InvitationFormFields: React.FC<IProperties> = ({
+  additionalFields: AdditionalFields,
   apps,
   roles,
   loading,
-  filterRoles,
-  additionalFields: AdditionalFields,
   onCancel,
 }) => {
   const { t } = useTranslation("user");
