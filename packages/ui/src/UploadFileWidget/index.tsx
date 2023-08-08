@@ -21,7 +21,7 @@ export const UploadFile = () => {
     setCustomFileName(null);
   };
 
-  const changeFileName = (file: File, index: number) => {
+  const handleChangeFileName = (file: File, index: number) => {
     const files = fileReference.current?.getFiles();
     if (files) {
       const updatedFiles = files.map((file, i) => {
@@ -76,7 +76,7 @@ export const UploadFile = () => {
                   type="button"
                   icon="pi pi-check"
                   className="p-button-outlined p-button-rounded p-button-success ml-auto flex align-items-center"
-                  onClick={() => changeFileName(file, index)}
+                  onClick={() => handleChangeFileName(file, index)}
                 />
                 <Button
                   type="button"
@@ -90,13 +90,7 @@ export const UploadFile = () => {
             </div>
           ) : (
             <>
-              <span
-                className="flex flex-column text-left ml-3"
-                onClick={() => {
-                  setCustomFileName(null);
-                  setRenamingStatus(index);
-                }}
-              >
+              <span className="flex flex-column text-left ml-3">
                 {customFileName !== null && renamingStatus === index
                   ? customFileName
                   : file.name}
@@ -104,13 +98,24 @@ export const UploadFile = () => {
             </>
           )}
         </div>
+        <div>
+          <Button
+            type="button"
+            icon="pi pi-file-edit"
+            className=" p-button-warning ml-auto flex align-items-center"
+            onClick={() => {
+              setCustomFileName(null);
+              setRenamingStatus(index);
+            }}
+          />
 
-        <Button
-          type="button"
-          icon="pi pi-trash"
-          className=" p-button-danger ml-auto flex align-items-center"
-          onClick={() => onTemplateRemove(file, properties.onRemove)}
-        />
+          <Button
+            type="button"
+            icon="pi pi-trash"
+            className=" p-button-danger ml-auto flex align-items-center"
+            onClick={() => onTemplateRemove(file, properties.onRemove)}
+          />
+        </div>
       </div>
     );
   };
