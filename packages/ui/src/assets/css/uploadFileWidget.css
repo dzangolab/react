@@ -1,21 +1,28 @@
-.file_wrapper {
+.file-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.file_wrapper > div:first-child {
+.file-wrapper > div:first-child {
   width: 60%;
   display: flex;
   align-items: center;
 }
 
-.file_wrapper > div:first-child > i {
+.file-wrapper > div:first-child > i {
   font-size: 2rem;
   margin-right: 1rem;
 }
 
-.file_wrapper > div:first-child > div {
+.input-button-wrapper {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-button-wrapper > div {
+  width: 30%;
   display: flex;
   justify-content: space-between;
 }

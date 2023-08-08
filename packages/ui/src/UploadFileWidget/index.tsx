@@ -48,15 +48,13 @@ export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
 
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
     const file = inFile as File;
-    console.log(file);
     const index = properties.index;
-    console.log(fileReference);
     return (
-      <div className="file_wrapper">
-        <div className="">
+      <div className="file-wrapper">
+        <div>
           <i className="pi pi-file"></i>
           {renamingStatus === index ? (
-            <div className="">
+            <div className="input-button-wrapper">
               <InputText
                 type="text"
                 value={customFileName !== null ? customFileName : file.name}
@@ -82,7 +80,12 @@ export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
             </div>
           ) : (
             <>
-              <span className="">
+              <span
+                onClick={() => {
+                  setCustomFileName(null);
+                  setRenamingStatus(index);
+                }}
+              >
                 {customFileName !== null && renamingStatus === index
                   ? customFileName
                   : file.name}
@@ -91,16 +94,6 @@ export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
           )}
         </div>
         <div>
-          <Button
-            type="button"
-            icon="pi pi-file-edit"
-            className=" p-button-warning"
-            onClick={() => {
-              setCustomFileName(null);
-              setRenamingStatus(index);
-            }}
-          />
-
           <Button
             type="button"
             icon="pi pi-trash"
@@ -121,9 +114,7 @@ export const UploadFile = ({ url, ...uploadFileOptions }: FileUploadProps) => {
         url={url}
         multiple
         accept="image/*"
-        emptyTemplate={
-          <p className="m-0">Drag and drop files to here to upload.</p>
-        }
+        emptyTemplate={<p>Drag and drop files to here to upload.</p>}
         itemTemplate={itemTemplate}
         {...uploadFileOptions}
       />
