@@ -21,7 +21,7 @@ test("correct buttons are disabled", async () => {
   render(component);
 
   const paginationButtons = screen.getAllByRole(
-    "button"
+    "button",
   ) as HTMLButtonElement[];
 
   expect(paginationButtons[0].disabled).toBe(true);

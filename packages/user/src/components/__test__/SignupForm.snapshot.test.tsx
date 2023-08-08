@@ -32,7 +32,7 @@ test("Component matches snapshot", () => {
   const component = create(
     <ConfigProvider appConfig={userConfig as AppConfig}>
       <SignupForm handleSubmit={handleSubmit} />
-    </ConfigProvider>
+    </ConfigProvider>,
   );
 
   const tree = toJson(component);

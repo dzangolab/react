@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-custom",
-  "version": "0.13.1",
+  "version": "0.14.0",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
@@ -14,14 +14,14 @@
     "eslint-import-resolver-alias": "1.1.2",
     "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-react": "7.33.0",
     "eslint-plugin-unicorn": "45.0.2"
   },
   "devDependencies": {
-    "eslint": "8.45.0",
-    "prettier": "2.8.8",
+    "eslint": "8.46.0",
+    "prettier": "3.0.1",
     "typescript": "5.1.6"
   },
   "peerDependencies": {

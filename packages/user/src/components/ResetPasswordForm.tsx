@@ -18,13 +18,13 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
     .object({
       ...PasswordConfirmationSchema({
         passwordRequiredMessage: t(
-          "resetPassword.messages.validation.newPassword"
+          "resetPassword.messages.validation.newPassword",
         ),
         passwordValidationMessage: t(
-          "resetPassword.messages.validation.validationMessage"
+          "resetPassword.messages.validation.validationMessage",
         ),
         confirmPasswordRequiredMessage: t(
-          "resetPassword.messages.validation.confirmPassword"
+          "resetPassword.messages.validation.confirmPassword",
         ),
       }),
     })
@@ -35,7 +35,7 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
       {
         message: t("resetPassword.messages.validation.mustMatch"),
         path: ["confirmPassword"],
-      }
+      },
     );
 
   return (

@@ -31,7 +31,7 @@ const LoginForm = ({ handleSubmit, loading }: Properties) => {
       },
       {
         minLength: 0,
-      }
+      },
     ),
   });
 

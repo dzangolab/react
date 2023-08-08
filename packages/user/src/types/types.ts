@@ -37,7 +37,6 @@ export interface SignInUpPromise {
   status: string;
 }
 
-export interface InvitationPayload {
-  email: string;
-  role: string;
+export interface ErrorResponse {
+  data: { message: string; status: "ERROR" };
 }
