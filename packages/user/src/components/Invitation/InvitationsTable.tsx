@@ -17,23 +17,23 @@ import type {
 } from "@/types";
 
 export type InvitationsTableProperties = {
-  id?: string;
+  apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  loading?: boolean;
-  showInviteAction?: boolean;
-  totalRecords?: number;
-  invitations: Array<object>;
-  apps?: Array<InvitationAppOption>;
-  roles?: Array<InvitationRoleOption>;
+  extraColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
+  id?: string;
+  inviteButtonIcon?: IconType<ButtonProps>;
+  invitations: Array<object>;
+  loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
   onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
-  inviteButtonIcon?: IconType<ButtonProps>;
-  extraColumns?: Array<ColumnProps>;
+  roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
+  showInviteAction?: boolean;
+  totalRecords?: number;
 };
 
 export const InvitationsTable = ({
