@@ -1,4 +1,3 @@
-import { useTranslation } from "@dzangolab/react-i18n";
 import { Button } from "primereact/button";
 import {
   FileUpload,
@@ -15,7 +14,6 @@ export const UploadFile = ({
   url,
   ...uploadFileOptions
 }: FileUploadProps) => {
-  const { t } = useTranslation("ui");
   const [renamingStatus, setRenamingStatus] = useState<number>(-1);
   const [customFileName, setCustomFileName] = useState<string | null>(null);
   const [totalSize, setTotalSize] = useState(0);
@@ -67,7 +65,7 @@ export const UploadFile = ({
                 type="text"
                 value={customFileName !== null ? customFileName : file.name}
                 onChange={(event) => handleChange(event)}
-                placeholder={t("file.input.placeHolder")}
+                placeholder="Select custom file name"
               />
               <div>
                 <Button
@@ -122,7 +120,7 @@ export const UploadFile = ({
         multiple={multiple}
         accept={accept}
         name={name}
-        emptyTemplate={<p>{t("file.upload.emptyMessage")}</p>}
+        emptyTemplate={<p>Select or drag a file</p>}
         itemTemplate={itemTemplate}
         {...uploadFileOptions}
       />
