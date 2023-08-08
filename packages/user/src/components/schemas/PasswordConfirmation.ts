@@ -24,7 +24,7 @@ const schema = ({
         minNumbers: 1,
         minSymbols: 0,
         minUppercase: 1,
-      }
+      },
     ),
     confirmPassword: zod.string().nonempty(confirmPasswordRequiredMessage),
   };

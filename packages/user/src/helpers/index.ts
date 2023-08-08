@@ -6,7 +6,7 @@ const USER_KEY = "user";
 const getHomeRoute = (
   user: UserType | undefined,
   layoutConfig: DzangolabReactLayoutConfig | undefined,
-  userConfig: DzangolabReactUserConfig
+  userConfig: DzangolabReactUserConfig,
 ) => {
   const getUserHomeRoute = (user: UserType) => {
     if (userConfig.routes?.home) {

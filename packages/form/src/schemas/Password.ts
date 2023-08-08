@@ -23,7 +23,7 @@ const schema = (
     required: "A password is required",
     weak: "This password is too weak",
   },
-  options?: StrongPasswordOptions
+  options?: StrongPasswordOptions,
 ) => {
   const _options = {
     ...defaultOptions,
@@ -41,12 +41,12 @@ const schema = (
           value,
           _options as StrongPasswordOptions & {
             returnScore: false | undefined;
-          }
+          },
         );
       },
       {
         message: errorMessages.weak,
-      }
+      },
     );
 };
 

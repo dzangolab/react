@@ -32,7 +32,7 @@ const setup = () => {
         <userContext.Provider value={values}>
           <DropdownUserMenu label={values.user.email} />
         </userContext.Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     ),
   };
 };

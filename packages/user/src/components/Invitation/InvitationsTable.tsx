@@ -10,7 +10,11 @@ import { InvitationActions } from "./InvitationActions";
 
 import { InvitationModal } from ".";
 
-import type { InvitationPayload } from "../../types";
+import type {
+  AddInvitationResponse,
+  InvitationAppOption,
+  InvitationRoleOption,
+} from "@/types";
 
 export type InvitationsTableProperties = {
   id?: string;
@@ -20,10 +24,13 @@ export type InvitationsTableProperties = {
   showInviteAction?: boolean;
   totalRecords?: number;
   invitations: Array<object>;
+  apps?: Array<InvitationAppOption>;
+  roles?: Array<InvitationRoleOption>;
   fetchInvitations: (arguments_?: any) => void;
-  handleInvitationSubmit?: (data: InvitationPayload) => void;
-  handleInvitationResend?: (data: any) => void;
-  handleInvitationRevoke?: (data: any) => void;
+  onInvitationAdded?: (response: AddInvitationResponse) => void;
+  onInvitationResent?: (data: any) => void;
+  onInvitationRevoked?: (data: any) => void;
+  prepareInvitationData?: (data: any) => any;
   inviteButtonIcon?: IconType<ButtonProps>;
   extraColumns?: Array<ColumnProps>;
   showAppColumn?: boolean;
@@ -37,10 +44,13 @@ export const InvitationsTable = ({
   showInviteAction = true,
   totalRecords = 0,
   invitations,
+  apps,
+  roles,
   fetchInvitations,
-  handleInvitationSubmit,
-  handleInvitationResend,
-  handleInvitationRevoke,
+  onInvitationAdded,
+  onInvitationResent,
+  onInvitationRevoked,
+  prepareInvitationData,
   inviteButtonIcon,
   extraColumns = [],
   showAppColumn = true,
@@ -121,9 +131,9 @@ export const InvitationsTable = ({
         return (
           <>
             <InvitationActions
-              handleInvitationResend={handleInvitationResend}
-              handleInvitationRevoke={handleInvitationRevoke}
-              data={data}
+              onInvitationResent={onInvitationResent}
+              onInvitationRevoked={onInvitationRevoked}
+              invitation={data}
             />
           </>
         );
@@ -137,13 +147,15 @@ export const InvitationsTable = ({
   };
 
   const renderHeader = () => {
-    if (showInviteAction && handleInvitationSubmit) {
+    if (showInviteAction) {
       return (
         <div className="table-actions">
           <InvitationModal
-            handleSubmit={handleInvitationSubmit}
-            loading={loading}
+            apps={apps}
+            roles={roles}
             buttonIcon={inviteButtonIcon}
+            onSubmitted={onInvitationAdded}
+            prepareData={prepareInvitationData}
           />
         </div>
       );

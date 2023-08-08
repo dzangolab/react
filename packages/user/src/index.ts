@@ -24,6 +24,7 @@ import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import UserToastContainer from "./toastify";
+import AcceptInvitation from "./views/AcceptInvitation";
 import ChangePassword from "./views/ChangePassword";
 import ForgetPassword from "./views/ForgetPassword";
 import Login from "./views/Login";
@@ -50,16 +51,11 @@ declare module "@dzangolab/react-config" {
 export {
   // components
   AuthGoogleCallback,
-  ChangePassword,
   DropdownUserMenu,
-  ForgetPassword,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
-  Login,
-  Profile,
-  ResetPassword,
-  Signup,
+  SignupForm,
   TermsAndConditions,
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
@@ -67,7 +63,15 @@ export {
   UserProvider,
   UserToastContainer,
   UsersTable,
-  SignupForm,
+
+  // views
+  AcceptInvitation,
+  ChangePassword,
+  ForgetPassword,
+  Login,
+  Profile,
+  ResetPassword,
+  Signup,
 
   // utilities
   changePassword,

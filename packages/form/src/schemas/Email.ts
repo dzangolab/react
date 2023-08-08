@@ -9,7 +9,7 @@ const schema = (
     invalid: "Please provide a valid email address",
     required: "Email address is required",
   },
-  options?: IsEmailOptions
+  options?: IsEmailOptions,
 ) => {
   return z
     .string()
@@ -18,7 +18,7 @@ const schema = (
     })
     .refine(
       (value) => validator.isEmail(value, options || {}),
-      errorMessages.invalid
+      errorMessages.invalid,
     );
 };
 

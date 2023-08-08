@@ -39,7 +39,7 @@ test("Component matches snapshot", () => {
   const component = create(
     <userContext.Provider value={values}>
       <DropdownUserMenu />
-    </userContext.Provider>
+    </userContext.Provider>,
   );
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();

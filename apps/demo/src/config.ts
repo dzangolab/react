@@ -19,7 +19,7 @@ const config: AppConfig = {
   features: {
     showVersion: parse(
       import.meta.env.VITE_FEATURES_SHOW_VERSION as string,
-      true
+      true,
     ) as boolean,
   } as AppFeatures,
   i18n: {
