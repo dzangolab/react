@@ -106,11 +106,17 @@ export const InvitationsTable = ({
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
-        return data.invitedBy ? (
-          `${data.invitedBy.givenName} ${data.invitedBy.surname}`
-        ) : (
-          <code>&#8212;</code>
-        );
+        if (!data.invitedBy) {
+          return <code>&#8212;</code>;
+        }
+
+        if (data.invitedBy.givenName || data.invitedBy.surname) {
+          return `${data.invitedBy.givenName || ""} ${
+            data.invitedBy.surname || ""
+          }`;
+        }
+
+        return data.invitedBy.email;
       },
       align: "center",
     },
