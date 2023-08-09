@@ -31,6 +31,7 @@ import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
+import FirstUser from "./views/FirstUser";
 
 import "./assets/css/index.css";
 
@@ -52,6 +53,7 @@ export {
   // components
   AuthGoogleCallback,
   DropdownUserMenu,
+  FirstUser,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
