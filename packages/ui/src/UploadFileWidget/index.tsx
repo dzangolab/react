@@ -12,6 +12,7 @@ export const UploadFile = ({
   accept = "image/*",
   name = "demo[]",
   url,
+  emptyTemplate,
   ...uploadFileOptions
 }: FileUploadProps) => {
   const [renamingStatus, setRenamingStatus] = useState<number>(-1);
@@ -120,7 +121,7 @@ export const UploadFile = ({
         multiple={multiple}
         accept={accept}
         name={name}
-        emptyTemplate={<p>Select or drag a file</p>}
+        emptyTemplate={emptyTemplate}
         itemTemplate={itemTemplate}
         {...uploadFileOptions}
       />
