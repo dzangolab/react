@@ -311,8 +311,8 @@ importers:
         specifier: 0.14.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
-        specifier: 7.33.0
-        version: 7.33.0(eslint@8.46.0)
+        specifier: 7.33.1
+        version: 7.33.1(eslint@8.46.0)
       jsdom:
         specifier: 22.1.0
         version: 22.1.0
@@ -405,8 +405,8 @@ importers:
         specifier: 0.14.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
-        specifier: 7.33.0
-        version: 7.33.0(eslint@8.46.0)
+        specifier: 7.33.1
+        version: 7.33.1(eslint@8.46.0)
       prettier:
         specifier: 3.0.1
         version: 3.0.1
@@ -474,8 +474,8 @@ importers:
         specifier: 0.14.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
-        specifier: 7.33.0
-        version: 7.33.0(eslint@8.46.0)
+        specifier: 7.33.1
+        version: 7.33.1(eslint@8.46.0)
       jsdom:
         specifier: 22.1.0
         version: 22.1.0
@@ -571,8 +571,8 @@ importers:
         specifier: 0.14.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
-        specifier: 7.33.0
-        version: 7.33.0(eslint@8.46.0)
+        specifier: 7.33.1
+        version: 7.33.1(eslint@8.46.0)
       jsdom:
         specifier: 22.1.0
         version: 22.1.0
@@ -674,8 +674,8 @@ importers:
         specifier: 0.14.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
-        specifier: 7.33.0
-        version: 7.33.0(eslint@8.46.0)
+        specifier: 7.33.1
+        version: 7.33.1(eslint@8.46.0)
       jsdom:
         specifier: 22.1.0
         version: 22.1.0
@@ -743,8 +743,8 @@ importers:
         specifier: 6.1.1
         version: 6.1.1(eslint@8.46.0)
       eslint-plugin-react:
-        specifier: 7.33.0
-        version: 7.33.0(eslint@8.46.0)
+        specifier: 7.33.1
+        version: 7.33.1(eslint@8.46.0)
       eslint-plugin-unicorn:
         specifier: 45.0.2
         version: 45.0.2(eslint@8.46.0)
@@ -7962,8 +7962,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-react@7.33.0(eslint@8.46.0):
-    resolution: {integrity: sha512-qewL/8P34WkY8jAqdQxsiL82pDUeT7nhs8IsuXgfgnsEloKCT4miAV9N9kGtx7/KM9NH/NCGUE7Edt9iGxLXFw==}
+  /eslint-plugin-react@7.33.1(eslint@8.46.0):
+    resolution: {integrity: sha512-L093k0WAMvr6VhNwReB8VgOq5s2LesZmrpPdKz/kZElQDzqS7G7+DnKoqT+w4JwuiGeAhAvHO0fvy0Eyk4ejDA==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
