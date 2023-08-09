@@ -137,9 +137,11 @@
   },
   "validation": {
     "messages": {
+      "app": "App is required",
       "email": "Email is required",
       "validEmail": "Email must be a valid email",
       "requiredField": "This field is required",
+      "role": "Role is required",
       "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
       "mustMatch": "Passwords must match"
     }
@@ -216,7 +218,8 @@
         "role": "Role",
         "invitedBy": "Invited by",
         "expiresAt": "Expires at",
-        "actions": "Actions"
+        "actions": "Actions",
+        "app":"App"
       },
       "searchPlaceholder": "john.doe.at.example.com",
       "emptyMessage": "Table is empty",
