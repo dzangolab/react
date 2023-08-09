@@ -17,21 +17,23 @@ import type {
 } from "@/types";
 
 export type InvitationsTableProperties = {
-  id?: string;
+  apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  loading?: boolean;
-  showInviteAction?: boolean;
-  totalRecords?: number;
-  invitations: Array<object>;
-  apps?: Array<InvitationAppOption>;
-  roles?: Array<InvitationRoleOption>;
+  extraColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
+  id?: string;
+  inviteButtonIcon?: IconType<ButtonProps>;
+  invitations: Array<object>;
+  loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
   onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
-  inviteButtonIcon?: IconType<ButtonProps>;
+  roles?: Array<InvitationRoleOption>;
+  showAppColumn?: boolean;
+  showInviteAction?: boolean;
+  totalRecords?: number;
 };
 
 export const InvitationsTable = ({
@@ -50,12 +52,27 @@ export const InvitationsTable = ({
   onInvitationRevoked,
   prepareInvitationData,
   inviteButtonIcon,
+  extraColumns = [],
+  showAppColumn = true,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
+
+  const appColumn: Array<ColumnProps> = showAppColumn
+    ? [
+        {
+          field: "app",
+          header: t("invitations.table.defaultColumns.app"),
+          body: (data: { appId: any }) => {
+            return <span>{data.appId || "-"} </span>;
+          },
+          align: "center",
+        },
+      ]
+    : [];
 
   const defaultColumns: Array<ColumnProps> = [
     {
@@ -67,6 +84,7 @@ export const InvitationsTable = ({
       showFilterMenu: false,
       showClearButton: false,
     },
+    ...appColumn,
     {
       field: "role",
       header: t("invitations.table.defaultColumns.role"),
@@ -83,15 +101,22 @@ export const InvitationsTable = ({
       },
       align: "center",
     },
+    ...extraColumns,
     {
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
-        return data.invitedBy ? (
-          `${data.invitedBy.givenName} ${data.invitedBy.surname}`
-        ) : (
-          <code>&#8212;</code>
-        );
+        if (!data.invitedBy) {
+          return <code>&#8212;</code>;
+        }
+
+        if (data.invitedBy.givenName || data.invitedBy.surname) {
+          return `${data.invitedBy.givenName || ""} ${
+            data.invitedBy.surname || ""
+          }`;
+        }
+
+        return data.invitedBy.email;
       },
       align: "center",
     },

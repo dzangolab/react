@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
-import { Button, ButtonProps } from "primereact/button";
+import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
@@ -14,6 +14,7 @@ export type UsersTableProperties = {
   id?: string;
   className?: string;
   columns?: Array<ColumnProps>;
+  extraColumns?: Array<ColumnProps>;
   loading?: boolean;
   showInviteAction?: boolean;
   totalRecords?: number;
@@ -28,6 +29,7 @@ export const UsersTable = ({
   id = "table-users",
   className = "table-users",
   columns,
+  extraColumns = [],
   loading = false,
   showInviteAction = true,
   totalRecords = 0,
@@ -87,6 +89,7 @@ export const UsersTable = ({
       },
       align: "center",
     },
+    ...extraColumns,
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
