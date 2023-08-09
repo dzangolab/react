@@ -57,8 +57,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1
       primereact:
-        specifier: 9.6.0
-        version: 9.6.0(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.1
+        version: 9.6.1(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -324,8 +324,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
       primereact:
-        specifier: 9.6.0
-        version: 9.6.0(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.1
+        version: 9.6.1(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -584,8 +584,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
       primereact:
-        specifier: 9.6.0
-        version: 9.6.0(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.1
+        version: 9.6.1(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -690,8 +690,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1
       primereact:
-        specifier: 9.6.0
-        version: 9.6.0(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.1
+        version: 9.6.1(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -10875,8 +10875,8 @@ packages:
   /primeicons@6.0.1:
     resolution: {integrity: sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==}
 
-  /primereact@9.6.0(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-+9nhZkh914aSDh2phuSm3BQNKQW0kpcBZqUd+Jdlpg+f6fvgNGGUr2wgZiqfXljkHeCEHdWO/wqB8WvfzqjOVw==}
+  /primereact@9.6.1(@types/react@18.2.19)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-MRmloop4tJgvqB5v3kIlgAseQzCAQMfY8mo/KVCvRtj2Pn15dpwLLchsbTCZw3t6nxAs3AZ+CK9MENJQU5Lh7w==}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
       react: ^17.0.0 || ^18.0.0
