@@ -6,13 +6,12 @@ import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
-import { AdditionalInvitationFields } from "@/types";
-
 import { InvitationActions } from "./InvitationActions";
 
 import { InvitationModal } from ".";
 
 import type {
+  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
