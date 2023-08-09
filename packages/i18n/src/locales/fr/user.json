@@ -152,6 +152,10 @@
         "cancel": "Cancel (fr)",
         "submit": "Invite (fr)"
       },
+      "app": {
+        "label": "App (fr)",
+        "placeholder": "Select app (fr)"
+      },
       "email": {
         "label": "Email (fr)",
         "placeholder": "john.doe.at.example.com"
@@ -165,6 +169,14 @@
       "invite": {
         "success": "Successfully invited user (fr)",
         "error": "Error inviting user (fr)"
+      },
+      "resend": {
+        "success": "Successfully resent invitation (fr)",
+        "error": "Error resending invitation (fr)"
+      },
+      "revoke": {
+        "success": "Successfully revoked invitation (fr)",
+        "error": "Error revoking invitation (fr)"
       }
     },
     "modal": {

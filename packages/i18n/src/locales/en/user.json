@@ -153,6 +153,10 @@
         "cancel": "Cancel",
         "submit": "Invite user"
       },
+      "app": {
+        "label": "App",
+        "placeholder": "Select app"
+      },
       "email": {
         "label": "Email",
         "placeholder": "john.doe.at.example.com"
@@ -166,6 +170,14 @@
       "invite": {
         "success": "Successfully invited user",
         "error": "Error inviting user"
+      },
+      "resend": {
+        "success": "Successfully resent invitation",
+        "error": "Error resending invitation"
+      },
+      "revoke": {
+        "success": "Successfully revoked invitation",
+        "error": "Error revoking invitation"
       }
     },
     "modal": {
