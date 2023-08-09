@@ -1,4 +1,3 @@
-import { useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, ButtonProps } from "primereact/button";
 import { Dialog } from "primereact/dialog";
@@ -9,8 +8,8 @@ import {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  AdditionalInvitationFields,
 } from "@/types";
-import { AdditionalInvitationFields } from "@/types/invitation";
 
 import { InvitationForm } from "./InvitationForm";
 

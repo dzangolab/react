@@ -6,11 +6,11 @@ import * as zod from "zod";
 
 import { addInvitation } from "@/api/invitation";
 import { useConfig } from "@/hooks";
-import { AdditionalInvitationFields } from "@/types/invitation";
 
 import { InvitationFormFields } from "./InvitationFormFields";
 
 import type {
+  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
@@ -55,15 +55,15 @@ export const InvitationForm = ({
       defaultValues.role = filteredRoles[0];
     }
 
-    if (additionalInvitationFields?.additionalDefaultValues) {
+    if (additionalInvitationFields?.defaultValues) {
       defaultValues = {
         ...defaultValues,
-        ...additionalInvitationFields.additionalDefaultValues,
+        ...additionalInvitationFields.defaultValues,
       };
     }
 
     return defaultValues;
-  }, [apps, roles, additionalInvitationFields?.additionalDefaultValues]);
+  }, [apps, roles, additionalInvitationFields?.defaultValues]);
 
   const getFormData = (data: any) => {
     const parsedData: { email: string; role: string; appId?: number } = {
@@ -133,9 +133,9 @@ export const InvitationForm = ({
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
   }
 
-  if (additionalInvitationFields?.additionalInvitationSchema) {
+  if (additionalInvitationFields?.schema) {
     InvitationFormSchema = InvitationFormSchema.merge(
-      additionalInvitationFields.additionalInvitationSchema,
+      additionalInvitationFields.schema,
     );
   }
 
@@ -146,7 +146,7 @@ export const InvitationForm = ({
       validationSchema={InvitationFormSchema}
     >
       <InvitationFormFields
-        additionalFields={additionalInvitationFields?.renderFields}
+        renderAdditionalFields={additionalInvitationFields?.renderFields}
         apps={apps}
         loading={submitting}
         onCancel={onCancel}

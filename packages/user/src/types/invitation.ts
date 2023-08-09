@@ -38,8 +38,8 @@ export interface InvitationAppOption {
 
 export interface AdditionalInvitationFields {
   renderFields: RenderAdditionalInvitationFields;
-  additionalInvitationSchema: AdditionalInvitationSchema;
-  additionalDefaultValues: AdditionalDefaultValues;
+  schema: AdditionalInvitationSchema;
+  defaultValues: AdditionalDefaultValues;
 }
 
 export type RenderAdditionalInvitationFields = (

@@ -10,18 +10,21 @@ import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React, { useEffect, useState } from "react";
 
-import { InvitationAppOption, InvitationRoleOption } from "@/types";
-import { RenderAdditionalInvitationFields } from "@/types/invitation";
+import {
+  InvitationAppOption,
+  InvitationRoleOption,
+  RenderAdditionalInvitationFields,
+} from "@/types";
 
 interface IProperties {
-  additionalFields?: RenderAdditionalInvitationFields;
+  renderAdditionalFields?: RenderAdditionalInvitationFields;
   apps?: InvitationAppOption[];
   loading?: boolean;
   onCancel?: () => void;
   roles?: InvitationRoleOption[];
 }
 export const InvitationFormFields: React.FC<IProperties> = ({
-  additionalFields,
+  renderAdditionalFields,
   apps,
   roles,
   loading,
@@ -86,7 +89,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         />
       ) : null}
 
-      {additionalFields ? additionalFields(useFormContext) : null}
+      {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
 
       <div className="actions">
         {onCancel && (
