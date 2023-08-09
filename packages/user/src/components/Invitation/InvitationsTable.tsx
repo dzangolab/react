@@ -23,6 +23,7 @@ export type InvitationsTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
+  extraColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -33,6 +34,7 @@ export type InvitationsTableProperties = {
   onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
+  showAppColumn?: boolean;
   showInviteAction?: boolean;
   totalRecords?: number;
 };
@@ -54,12 +56,27 @@ export const InvitationsTable = ({
   roles,
   showInviteAction = true,
   totalRecords = 0,
+  extraColumns = [],
+  showAppColumn = true,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
+
+  const appColumn: Array<ColumnProps> = showAppColumn
+    ? [
+        {
+          field: "app",
+          header: t("invitations.table.defaultColumns.app"),
+          body: (data: { appId: any }) => {
+            return <span>{data.appId || "-"} </span>;
+          },
+          align: "center",
+        },
+      ]
+    : [];
 
   const defaultColumns: Array<ColumnProps> = [
     {
@@ -71,6 +88,7 @@ export const InvitationsTable = ({
       showFilterMenu: false,
       showClearButton: false,
     },
+    ...appColumn,
     {
       field: "role",
       header: t("invitations.table.defaultColumns.role"),
@@ -87,15 +105,22 @@ export const InvitationsTable = ({
       },
       align: "center",
     },
+    ...extraColumns,
     {
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
-        return data.invitedBy ? (
-          `${data.invitedBy.givenName} ${data.invitedBy.surname}`
-        ) : (
-          <code>&#8212;</code>
-        );
+        if (!data.invitedBy) {
+          return <code>&#8212;</code>;
+        }
+
+        if (data.invitedBy.givenName || data.invitedBy.surname) {
+          return `${data.invitedBy.givenName || ""} ${
+            data.invitedBy.surname || ""
+          }`;
+        }
+
+        return data.invitedBy.email;
       },
       align: "center",
     },
