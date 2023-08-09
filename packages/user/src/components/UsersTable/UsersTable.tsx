@@ -1,4 +1,3 @@
-import { useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
@@ -7,11 +6,10 @@ import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
-import { AdditionalInvitationFields } from "@/types/invitation";
-
 import { InvitationModal } from "../Invitation";
 
 import type {
+  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
