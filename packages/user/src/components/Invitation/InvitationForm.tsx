@@ -6,6 +6,7 @@ import * as zod from "zod";
 
 import { addInvitation } from "@/api/invitation";
 import { useConfig } from "@/hooks";
+import { AdditionalInvitationFields } from "@/types/invitation";
 
 import { InvitationFormFields } from "./InvitationFormFields";
 
@@ -16,13 +17,7 @@ import type {
 } from "@/types";
 
 interface Properties {
-  additionalInvitationFields?: {
-    additionalDefaultValues: Record<string, any>;
-    additionalInvitationSchema: Zod.ZodObject<any>;
-    fields: React.ComponentType<{
-      useFormContext: typeof useFormContext;
-    }>;
-  };
+  additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
   onCancel?: () => void;
   onSubmitted?: (response: AddInvitationResponse) => void; // afterSubmit
@@ -151,7 +146,7 @@ export const InvitationForm = ({
       validationSchema={InvitationFormSchema}
     >
       <InvitationFormFields
-        additionalFields={additionalInvitationFields?.fields}
+        additionalFields={additionalInvitationFields?.renderFields}
         apps={apps}
         loading={submitting}
         onCancel={onCancel}

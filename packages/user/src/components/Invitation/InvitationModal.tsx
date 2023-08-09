@@ -10,17 +10,12 @@ import {
   InvitationAppOption,
   InvitationRoleOption,
 } from "@/types";
+import { AdditionalInvitationFields } from "@/types/invitation";
 
 import { InvitationForm } from "./InvitationForm";
 
 interface Properties {
-  additionalInvitationFields?: {
-    fields: React.ComponentType<{
-      useFormContext: typeof useFormContext;
-    }>;
-    additionalInvitationSchema: Zod.ZodObject<any>;
-    additionalDefaultValues: Record<string, any>;
-  };
+  additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
   buttonIcon?: IconType<ButtonProps>;
   onSubmitted?: (response: AddInvitationResponse) => void;

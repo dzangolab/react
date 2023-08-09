@@ -7,6 +7,8 @@ import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
+import { AdditionalInvitationFields } from "@/types/invitation";
+
 import { InvitationActions } from "./InvitationActions";
 
 import { InvitationModal } from ".";
@@ -18,13 +20,7 @@ import type {
 } from "@/types";
 
 export type InvitationsTableProperties = {
-  additionalInvitationFields?: {
-    additionalDefaultValues: Record<string, any>;
-    additionalInvitationSchema: Zod.ZodObject<any>;
-    fields: React.ComponentType<{
-      useFormContext: typeof useFormContext;
-    }>;
-  };
+  additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;

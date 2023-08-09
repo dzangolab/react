@@ -11,18 +11,17 @@ import { Button } from "primereact/button";
 import React, { useEffect, useState } from "react";
 
 import { InvitationAppOption, InvitationRoleOption } from "@/types";
+import { RenderAdditionalInvitationFields } from "@/types/invitation";
 
 interface IProperties {
-  additionalFields?: React.ComponentType<{
-    useFormContext: typeof useFormContext;
-  }>;
+  additionalFields?: RenderAdditionalInvitationFields;
   apps?: InvitationAppOption[];
   loading?: boolean;
   onCancel?: () => void;
   roles?: InvitationRoleOption[];
 }
 export const InvitationFormFields: React.FC<IProperties> = ({
-  additionalFields: AdditionalFields,
+  additionalFields,
   apps,
   roles,
   loading,
@@ -68,6 +67,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
+
       {apps?.length ? (
         <AppPicker
           name="app"
@@ -76,6 +76,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           options={apps}
         />
       ) : null}
+
       {filteredRoles?.length ? (
         <RolePicker
           name="role"
@@ -85,9 +86,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         />
       ) : null}
 
-      {AdditionalFields ? (
-        <AdditionalFields useFormContext={useFormContext} />
-      ) : null}
+      {additionalFields ? additionalFields(useFormContext) : null}
 
       <div className="actions">
         {onCancel && (
@@ -101,6 +100,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
             outlined
           ></Button>
         )}
+
         <Button
           type="submit"
           label={t("invitation.form.actions.submit")}
