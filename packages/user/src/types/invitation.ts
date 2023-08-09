@@ -1,3 +1,6 @@
+import { useFormContext } from "@dzangolab/react-form";
+import Zod from "zod";
+
 import { ErrorResponse } from "./types";
 
 export interface InvitationPayload {
@@ -32,6 +35,20 @@ export interface InvitationAppOption {
   origin: string;
   supportedRoles: InvitationRoleOption[];
 }
+
+export interface AdditionalInvitationFields {
+  renderFields: RenderAdditionalInvitationFields;
+  schema: AdditionalInvitationSchema;
+  defaultValues: AdditionalDefaultValues;
+}
+
+export type RenderAdditionalInvitationFields = (
+  formContext: typeof useFormContext,
+) => React.ComponentType;
+
+export type AdditionalInvitationSchema = Zod.ZodObject<any>;
+
+export type AdditionalDefaultValues = Record<string, any>;
 
 export type AddInvitationResponse = Invitation | ErrorResponse;
 

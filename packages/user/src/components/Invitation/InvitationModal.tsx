@@ -8,24 +8,27 @@ import {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  AdditionalInvitationFields,
 } from "@/types";
 
 import { InvitationForm } from "./InvitationForm";
 
 interface Properties {
+  additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
-  roles?: InvitationRoleOption[];
   buttonIcon?: IconType<ButtonProps>;
-  prepareData?: (data: any) => any;
   onSubmitted?: (response: AddInvitationResponse) => void;
+  prepareData?: (data: any) => any;
+  roles?: InvitationRoleOption[];
 }
 
 export const InvitationModal = ({
+  additionalInvitationFields,
   apps,
   buttonIcon,
-  roles,
-  prepareData,
   onSubmitted,
+  prepareData,
+  roles,
 }: Properties) => {
   const { t } = useTranslation("user");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -46,8 +49,8 @@ export const InvitationModal = ({
         resizable={false}
       >
         <InvitationForm
+          additionalInvitationFields={additionalInvitationFields}
           apps={apps}
-          roles={roles}
           onCancel={() => {
             setModalVisible(false);
           }}
@@ -59,6 +62,7 @@ export const InvitationModal = ({
             setModalVisible(false);
           }}
           prepareData={prepareData}
+          roles={roles}
         />
       </Dialog>
     </div>
