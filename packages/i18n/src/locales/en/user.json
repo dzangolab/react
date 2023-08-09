@@ -145,10 +145,13 @@
     }
   },
   "invitation": {
+    "accept": {
+      "message": "Invitation already accepted"
+    },
     "form": {
       "actions": {
         "cancel": "Cancel",
-        "submit": "Invite"
+        "submit": "Invite user"
       },
       "email": {
         "label": "Email",
@@ -159,15 +162,28 @@
         "placeholder": "Select role"
       }
     },
+    "messages": {
+      "invite": {
+        "success": "Successfully invited user",
+        "error": "Error inviting user"
+      }
+    },
     "modal": {
       "button": {
-        "label": "Invite"
+        "label": "Invite user"
       },
       "dialog": {
         "header": "Invitation form"
       }
     },
     "title": "Invitation",
+    "actions": {
+      "resend": "Resend",
+      "revoke": "Revoke"
+    },
+    "confirmation": {
+      "header": "Confirmation"
+    },
     "confirm": {
       "resend": {
         "message": "Are you sure you want to resend?"
@@ -175,9 +191,24 @@
       "revoke": {
         "message": "Are you sure you want to revoke?"
       }
+    }
+  },
+  "invitations": {
+    "errors": {
+      "errorFetchingInvitation": "Invalid token. Please contact your administrator.",
+      "errorAcceptingInvitation": "Error accepting invitation."
     },
-    "confirmation": {
-      "header": "Confirmation"
+    "table": {
+      "defaultColumns": {
+        "email": "Email",
+        "role": "Role",
+        "invitedBy": "Invited by",
+        "expiresAt": "Expires at",
+        "actions": "Actions"
+      },
+      "searchPlaceholder": "john.doe.at.example.com",
+      "emptyMessage": "Table is empty",
+      "title": "Invitations"
     }
   }
 }
