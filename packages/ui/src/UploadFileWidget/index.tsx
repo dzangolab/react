@@ -9,9 +9,9 @@ import React, { LegacyRef, useRef, useState } from "react";
 
 export const UploadFile = ({
   multiple = true,
-  accept = "image/*",
-  name = "demo[]",
-  url,
+  accept,
+  name,
+  uploadHandler,
   emptyTemplate,
   ...uploadFileOptions
 }: FileUploadProps) => {
@@ -117,7 +117,8 @@ export const UploadFile = ({
       <FileUpload
         ref={fileReference as LegacyRef<FileUpload> | undefined}
         style={{ width: "100%" }}
-        url={url}
+        customUpload
+        uploadHandler={uploadHandler}
         multiple={multiple}
         accept={accept}
         name={name}
