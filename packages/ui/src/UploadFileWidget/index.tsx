@@ -7,14 +7,21 @@ import {
 import { InputText } from "primereact/inputtext";
 import React, { LegacyRef, useRef, useState } from "react";
 
+interface IUploadFile extends FileUploadProps {
+  allowRename?: boolean;
+  allowDescription?: boolean;
+}
+
 export const UploadFile = ({
+  allowRename = false,
+  allowDescription = false,
   multiple = true,
   accept,
   name,
   uploadHandler,
   emptyTemplate,
   ...uploadFileOptions
-}: FileUploadProps) => {
+}: IUploadFile) => {
   const [renamingStatus, setRenamingStatus] = useState<number>(-1);
   const [customFileName, setCustomFileName] = useState<string | null>(null);
   const [totalSize, setTotalSize] = useState(0);
@@ -33,6 +40,7 @@ export const UploadFile = ({
   };
 
   const handleChangeFileName = (index: number) => {
+    console.log(fileReference);
     const files = fileReference.current?.getFiles();
     if (files) {
       const updatedFiles = files.map((file, i) => {
@@ -45,6 +53,8 @@ export const UploadFile = ({
         return file;
       });
       fileReference.current?.setFiles(updatedFiles as File[]);
+      fileReference.current?.upload();
+      console.log(fileReference.current?.getFiles());
       handleRenameChangeStatus();
     }
   };
@@ -89,8 +99,10 @@ export const UploadFile = ({
             <>
               <span
                 onClick={() => {
-                  setCustomFileName(null);
-                  setRenamingStatus(index);
+                  if (allowRename) {
+                    setCustomFileName(null);
+                    setRenamingStatus(index);
+                  }
                 }}
               >
                 {customFileName !== null && renamingStatus === index
@@ -117,8 +129,9 @@ export const UploadFile = ({
       <FileUpload
         ref={fileReference as LegacyRef<FileUpload> | undefined}
         style={{ width: "100%" }}
-        customUpload
-        uploadHandler={uploadHandler}
+        // customUpload
+        // uploadHandler={uploadHandler}
+        // url="api/images"
         multiple={multiple}
         accept={accept}
         name={name}
