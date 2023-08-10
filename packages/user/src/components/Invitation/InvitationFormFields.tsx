@@ -10,22 +10,28 @@ import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React, { useEffect, useState } from "react";
 
-import { InvitationAppOption, InvitationRoleOption } from "@/types";
+import {
+  InvitationAppOption,
+  InvitationRoleOption,
+  RenderAdditionalInvitationFields,
+} from "@/types";
 
 interface IProperties {
+  renderAdditionalFields?: RenderAdditionalInvitationFields;
   apps?: InvitationAppOption[];
   loading?: boolean;
-  roles?: InvitationRoleOption[];
   onCancel?: () => void;
+  roles?: InvitationRoleOption[];
 }
-
 export const InvitationFormFields: React.FC<IProperties> = ({
+  renderAdditionalFields,
   apps,
   roles,
   loading,
   onCancel,
 }) => {
   const { t } = useTranslation("user");
+
   const {
     register,
     getFieldState,
@@ -64,6 +70,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
+
       {apps?.length ? (
         <AppPicker
           name="app"
@@ -72,6 +79,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           options={apps}
         />
       ) : null}
+
       {filteredRoles?.length ? (
         <RolePicker
           name="role"
@@ -80,6 +88,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           options={filteredRoles}
         />
       ) : null}
+
+      {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
 
       <div className="actions">
         {onCancel && (
@@ -93,6 +103,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
             outlined
           ></Button>
         )}
+
         <Button
           type="submit"
           label={t("invitation.form.actions.submit")}

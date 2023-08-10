@@ -11,12 +11,14 @@ import { InvitationActions } from "./InvitationActions";
 import { InvitationModal } from ".";
 
 import type {
+  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
 } from "@/types";
 
 export type InvitationsTableProperties = {
+  additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
@@ -37,21 +39,22 @@ export type InvitationsTableProperties = {
 };
 
 export const InvitationsTable = ({
-  id = "table-invitations",
+  additionalInvitationFields,
+  apps,
   className = "table-invitations",
   columns,
-  loading = false,
-  showInviteAction = true,
-  totalRecords = 0,
-  invitations,
-  apps,
-  roles,
   fetchInvitations,
+  id = "table-invitations",
+  inviteButtonIcon,
+  invitations,
+  loading = false,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
   prepareInvitationData,
-  inviteButtonIcon,
+  roles,
+  showInviteAction = true,
+  totalRecords = 0,
   extraColumns = [],
   showAppColumn = true,
 }: InvitationsTableProperties) => {
@@ -157,11 +160,12 @@ export const InvitationsTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
+            additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            roles={roles}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
+            roles={roles}
           />
         </div>
       );
