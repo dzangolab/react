@@ -1,41 +1,54 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
-import { Button, ButtonProps } from "primereact/button";
+import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
 import { InvitationModal } from "../Invitation";
 
-import type { AddInvitationResponse } from "@/types";
+import type {
+  AdditionalInvitationFields,
+  AddInvitationResponse,
+  InvitationAppOption,
+  InvitationRoleOption,
+} from "@/types";
 
 export type UsersTableProperties = {
-  id?: string;
+  additionalInvitationFields?: AdditionalInvitationFields;
+  apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
+  fetchUsers: (arguments_?: any) => void;
+  id?: string;
+  inviteButtonIcon?: IconType<ButtonProps>;
+  extraColumns?: Array<ColumnProps>;
   loading?: boolean;
+  onInvitationAdded?: (response: AddInvitationResponse) => void;
+  prepareInvitationData?: (data: any) => any;
+  roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
   totalRecords?: number;
   users: Array<object>;
-  fetchUsers: (arguments_?: any) => void;
-  onInvitationAdded?: (response: AddInvitationResponse) => void;
-  prepareInvitationData?: (data: any) => any;
-  inviteButtonIcon?: IconType<ButtonProps>;
 };
 
 export const UsersTable = ({
-  id = "table-users",
+  additionalInvitationFields,
+  apps,
   className = "table-users",
   columns,
+  fetchUsers,
+  id = "table-users",
+  inviteButtonIcon,
+  extraColumns = [],
   loading = false,
+  onInvitationAdded,
+  prepareInvitationData,
+  roles,
   showInviteAction = true,
   totalRecords = 0,
   users,
-  inviteButtonIcon,
-  fetchUsers,
-  onInvitationAdded,
-  prepareInvitationData,
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -87,6 +100,7 @@ export const UsersTable = ({
       },
       align: "center",
     },
+    ...extraColumns,
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
@@ -107,9 +121,12 @@ export const UsersTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
+            additionalInvitationFields={additionalInvitationFields}
+            apps={apps}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
+            roles={roles}
           />
         </div>
       );

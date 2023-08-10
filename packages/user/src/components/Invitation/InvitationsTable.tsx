@@ -11,51 +11,71 @@ import { InvitationActions } from "./InvitationActions";
 import { InvitationModal } from ".";
 
 import type {
+  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
 } from "@/types";
 
 export type InvitationsTableProperties = {
-  id?: string;
+  additionalInvitationFields?: AdditionalInvitationFields;
+  apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  loading?: boolean;
-  showInviteAction?: boolean;
-  totalRecords?: number;
-  invitations: Array<object>;
-  apps?: Array<InvitationAppOption>;
-  roles?: Array<InvitationRoleOption>;
+  extraColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
+  id?: string;
+  inviteButtonIcon?: IconType<ButtonProps>;
+  invitations: Array<object>;
+  loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
   onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
-  inviteButtonIcon?: IconType<ButtonProps>;
+  roles?: Array<InvitationRoleOption>;
+  showAppColumn?: boolean;
+  showInviteAction?: boolean;
+  totalRecords?: number;
 };
 
 export const InvitationsTable = ({
-  id = "table-invitations",
+  additionalInvitationFields,
+  apps,
   className = "table-invitations",
   columns,
-  loading = false,
-  showInviteAction = true,
-  totalRecords = 0,
-  invitations,
-  apps,
-  roles,
   fetchInvitations,
+  id = "table-invitations",
+  inviteButtonIcon,
+  invitations,
+  loading = false,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
   prepareInvitationData,
-  inviteButtonIcon,
+  roles,
+  showInviteAction = true,
+  totalRecords = 0,
+  extraColumns = [],
+  showAppColumn = true,
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
+
+  const appColumn: Array<ColumnProps> = showAppColumn
+    ? [
+        {
+          field: "app",
+          header: t("invitations.table.defaultColumns.app"),
+          body: (data: { appId: any }) => {
+            return <span>{data.appId || "-"} </span>;
+          },
+          align: "center",
+        },
+      ]
+    : [];
 
   const defaultColumns: Array<ColumnProps> = [
     {
@@ -67,6 +87,7 @@ export const InvitationsTable = ({
       showFilterMenu: false,
       showClearButton: false,
     },
+    ...appColumn,
     {
       field: "role",
       header: t("invitations.table.defaultColumns.role"),
@@ -83,15 +104,22 @@ export const InvitationsTable = ({
       },
       align: "center",
     },
+    ...extraColumns,
     {
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
-        return data.invitedBy ? (
-          `${data.invitedBy.givenName} ${data.invitedBy.surname}`
-        ) : (
-          <code>&#8212;</code>
-        );
+        if (!data.invitedBy) {
+          return <code>&#8212;</code>;
+        }
+
+        if (data.invitedBy.givenName || data.invitedBy.surname) {
+          return `${data.invitedBy.givenName || ""} ${
+            data.invitedBy.surname || ""
+          }`;
+        }
+
+        return data.invitedBy.email;
       },
       align: "center",
     },
@@ -132,11 +160,12 @@ export const InvitationsTable = ({
       return (
         <div className="table-actions">
           <InvitationModal
+            additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            roles={roles}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
+            roles={roles}
           />
         </div>
       );

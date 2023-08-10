@@ -1,4 +1,4 @@
-import { Provider, emailSchema } from "@dzangolab/react-form";
+import { Provider, emailSchema, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React, { useCallback, useState } from "react";
 import { toast } from "react-toastify";
@@ -10,25 +10,28 @@ import { useConfig } from "@/hooks";
 import { InvitationFormFields } from "./InvitationFormFields";
 
 import type {
+  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
 } from "@/types";
 
 interface Properties {
+  additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
-  roles?: InvitationRoleOption[];
   onCancel?: () => void;
   onSubmitted?: (response: AddInvitationResponse) => void; // afterSubmit
   prepareData?: (rawFormData: any) => any;
+  roles?: InvitationRoleOption[];
 }
 
 export const InvitationForm = ({
+  additionalInvitationFields,
   apps,
-  roles,
   onSubmitted,
   onCancel,
   prepareData,
+  roles,
 }: Properties) => {
   const { t } = useTranslation("user");
 
@@ -37,7 +40,7 @@ export const InvitationForm = ({
   const [submitting, setSubmitting] = useState(false);
 
   const getDefaultValues = useCallback(() => {
-    const defaultValues: any = { email: "", role: undefined };
+    let defaultValues: any = { email: "", role: undefined };
 
     let filteredRoles = roles;
 
@@ -52,8 +55,15 @@ export const InvitationForm = ({
       defaultValues.role = filteredRoles[0];
     }
 
+    if (additionalInvitationFields?.defaultValues) {
+      defaultValues = {
+        ...defaultValues,
+        ...additionalInvitationFields.defaultValues,
+      };
+    }
+
     return defaultValues;
-  }, [apps, roles]);
+  }, [apps, roles, additionalInvitationFields?.defaultValues]);
 
   const getFormData = (data: any) => {
     const parsedData: { email: string; role: string; appId?: number } = {
@@ -94,7 +104,7 @@ export const InvitationForm = ({
       });
   };
 
-  let InvitationFormSchema = zod.object({
+  let InvitationFormSchema: Zod.ZodObject<any> = zod.object({
     email: emailSchema({
       invalid: t("validation.messages.validEmail"),
       required: t("validation.messages.email"),
@@ -123,6 +133,12 @@ export const InvitationForm = ({
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
   }
 
+  if (additionalInvitationFields?.schema) {
+    InvitationFormSchema = InvitationFormSchema.merge(
+      additionalInvitationFields.schema,
+    );
+  }
+
   return (
     <Provider
       onSubmit={onSubmit}
@@ -130,10 +146,11 @@ export const InvitationForm = ({
       validationSchema={InvitationFormSchema}
     >
       <InvitationFormFields
+        renderAdditionalFields={additionalInvitationFields?.renderFields}
         apps={apps}
         loading={submitting}
-        roles={roles}
         onCancel={onCancel}
+        roles={roles}
       />
     </Provider>
   );
