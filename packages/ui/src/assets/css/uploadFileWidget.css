@@ -26,3 +26,15 @@
   display: flex;
   justify-content: space-between;
 }
+
+.file-wrapper > div:last-child {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-wrapper > div:last-child > div:last-child {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
