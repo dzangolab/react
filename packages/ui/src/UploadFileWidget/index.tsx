@@ -2,6 +2,7 @@ import { Button } from "primereact/button";
 import {
   FileUpload,
   FileUploadProps,
+  FileUploadSelectEvent,
   ItemTemplateOptions,
 } from "primereact/fileupload";
 import { InputText } from "primereact/inputtext";
@@ -15,7 +16,7 @@ interface IUploadFile extends FileUploadProps {
 export const UploadFile = ({
   allowRename = false,
   allowDescription = false,
-  multiple = true,
+  multiple = false,
   accept,
   name,
   uploadHandler,
@@ -27,6 +28,9 @@ export const UploadFile = ({
   const [customFileDescription, setCustomFileDescription] =
     useState<string>("");
   const [descriptionStatus, setDescriptionStatus] = useState<number>(-1);
+  const [customFile, setCustomFile] = useState<
+    Array<{ name: string; description: string | null; file: File }>
+  >([]);
   const [totalSize, setTotalSize] = useState(0);
 
   const fileReference = useRef<FileUpload>();
@@ -42,7 +46,7 @@ export const UploadFile = ({
     setCustomFileName(null);
   };
 
-  const handleChangeFileName = (index: number) => {
+  const handleApplyName = (index: number) => {
     console.log(fileReference);
     const files = fileReference.current?.getFiles();
     if (files) {
@@ -56,8 +60,6 @@ export const UploadFile = ({
         return file;
       });
       fileReference.current?.setFiles(updatedFiles as File[]);
-      fileReference.current?.upload();
-      console.log(fileReference.current?.getFiles());
       handleRenameChangeStatus();
     }
   };
@@ -66,30 +68,25 @@ export const UploadFile = ({
     setCustomFileName(event.target.value);
   };
 
-  const handleDescription = (
+  const handleChangeDescription = (
     event: React.ChangeEvent<HTMLInputElement>,
-    index: number,
   ) => {
     setCustomFileDescription(event.target.value);
+  };
+
+  const handleDescriptionApply = (index: number) => {
     const files = fileReference.current?.getFiles();
     if (files) {
       const updatedFiles = files.map((file, i) => {
-        if (index === i) {
-          // return new File([file] {
-          //   description:cus
-          //   type: file.type,
-          //   lastModified: file.lastModified,
-          // });
-          return {
-            customFileDescription,
-            ...file,
-          };
+        if (index === i && customFileName !== "") {
+          return new File([file], customFileName || file.name, {
+            type: file.type,
+            lastModified: file.lastModified,
+          });
         }
         return file;
       });
-      fileReference.current?.setFiles(updatedFiles as File[]);
     }
-    console.log(fileReference.current?.getFiles());
   };
 
   const handleDescriptionStatus = (index: number) => {
@@ -99,6 +96,17 @@ export const UploadFile = ({
       setDescriptionStatus(index);
     }
   };
+
+  const handleOnSelect = (event: FileUploadSelectEvent) => {
+    const files = event.files;
+    for (const file of files) {
+      setCustomFile((previous) => [
+        ...previous,
+        { name: file.name, description: null, file: file },
+      ]);
+    }
+  };
+
   const itemTemplate = (inFile: object, properties: ItemTemplateOptions) => {
     const file = inFile as File;
     const index = properties.index;
@@ -119,7 +127,7 @@ export const UploadFile = ({
                   type="button"
                   icon="pi pi-check"
                   className="p-button-outlined p-button-rounded p-button-success"
-                  onClick={() => handleChangeFileName(index)}
+                  onClick={() => handleApplyName(index)}
                 />
                 <Button
                   type="button"
@@ -141,9 +149,10 @@ export const UploadFile = ({
                   }
                 }}
               >
-                {customFileName !== null && renamingStatus === index
+                {/* {customFileName !== null && renamingStatus === index
                   ? customFileName
-                  : file.name}
+                  : file.name} */}
+                {file.name}
               </span>
             </>
           )}
@@ -153,7 +162,7 @@ export const UploadFile = ({
             {descriptionStatus === index && (
               <InputText
                 type="text"
-                onChange={(event) => handleDescription(event, index)}
+                onChange={(event) => handleChangeDescription(event)}
                 placeholder="Add file description"
               />
             )}
@@ -189,6 +198,7 @@ export const UploadFile = ({
         name={name}
         emptyTemplate={emptyTemplate}
         itemTemplate={itemTemplate}
+        onSelect={handleOnSelect}
         {...uploadFileOptions}
       />
     </div>
