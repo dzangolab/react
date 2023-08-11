@@ -74,7 +74,7 @@ const SignUpFirstUser = () => {
       })
       .catch(() => {
         setSignUpFirstUserLoading(false);
-        toast.error(`${t("errors.errorSignUpFirstUser")}`);
+        toast.error(`${t("firstUser.errors.errorSignUpFirstUser")}`);
       });
   };
 
@@ -82,7 +82,7 @@ const SignUpFirstUser = () => {
     if (isError) {
       return (
         <Card>
-          <p>{t(`errors.errorFetchingIsFirstUser`)}</p>
+          <p>{t(`firstUser.errors.errorFetchingIsFirstUser`)}</p>
         </Card>
       );
     }
@@ -90,7 +90,7 @@ const SignUpFirstUser = () => {
     if (!isFirstUser) {
       return (
         <Card>
-          <p>{t(`errors.signUpFirstUser`)}</p>
+          <p>{t(`firstUser.errors.signUpFirstUser`)}</p>
         </Card>
       );
     }
