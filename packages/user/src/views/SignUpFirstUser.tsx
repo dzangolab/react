@@ -82,7 +82,7 @@ const SignUpFirstUser = () => {
     if (isError) {
       return (
         <Card>
-          <p>{t(`firstUser.errors.errorFetchingIsFirstUser`)}</p>
+          <p>{t(`errors:errors.otherErrors`)}</p>
         </Card>
       );
     }
@@ -107,7 +107,7 @@ const SignUpFirstUser = () => {
   return (
     <Page
       className="signup"
-      title={t("signup.title")}
+      title={t("firstUser.title")}
       loading={loading || loginLoading}
     >
       {renderPageContent()}
