@@ -90,7 +90,7 @@ const SignUpFirstUser = () => {
     if (!isFirstUser) {
       return (
         <Card>
-          <p>{t(`success.signUpFirstUser`)}</p>
+          <p>{t(`errors.signUpFirstUser`)}</p>
         </Card>
       );
     }
