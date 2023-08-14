@@ -53,7 +53,6 @@ export {
   // components
   AuthGoogleCallback,
   DropdownUserMenu,
-  SignUpFirstUser,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
@@ -74,6 +73,7 @@ export {
   Profile,
   ResetPassword,
   Signup,
+  SignUpFirstUser,
 
   // utilities
   changePassword,

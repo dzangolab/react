@@ -43,6 +43,26 @@
     },
     "title": "Forget Password (fr)"
   },
+  "firstUser": {
+    "title": "Register first user (fr)",
+    "errors": {
+      "notFirstUser": "First admin has already signed up. If this was not expected, please contact developer team (fr)"
+    },
+    "links": {
+      "login": "Go to Login (fr)"
+    },
+    "login": {
+      "messages": {
+        "error": "Automatic login failed. Redirecting to login page for manual login (fr)"
+      }
+    },
+    "signup": {
+      "messages": {
+        "error": "Error signing up first user (fr)",
+        "success": "Succefully added first admin user. Automatically logging in ... (fr)"
+      }
+    }
+  },
   "login": {
     "form": {
       "actions": {

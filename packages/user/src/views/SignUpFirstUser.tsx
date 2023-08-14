@@ -3,9 +3,11 @@ import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 
 import { getIsFirstUser, signUpFirstUser } from "@/api/user";
 import SignupForm from "@/components/SignupForm";
+import { ROUTES } from "@/constants";
 import { useConfig, useUser } from "@/hooks";
 
 import { login } from "..";
@@ -24,6 +26,8 @@ const SignUpFirstUser = () => {
 
   const [signUpFirstUserLoading, setSignUpFirstUserLoading] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getIsFirstUser(appConfig?.apiBaseUrl || "")
@@ -49,6 +53,7 @@ const SignUpFirstUser = () => {
       .then((response) => {
         setSignUpFirstUserLoading(false);
         setLoginLoading(true);
+        toast.success(`${t("firstUser.signup.messages.success")}`);
 
         // TODO Sign up first-user should return authenticated user from api
         login(credentials)
@@ -59,7 +64,7 @@ const SignUpFirstUser = () => {
             }
           })
           .catch((error: any) => {
-            const errorMessage = t("errors:errors.otherErrors");
+            const errorMessage = t("firstUser.login.messages.error");
 
             if (error.name) {
               throw error as Error;
@@ -67,6 +72,7 @@ const SignUpFirstUser = () => {
             setLoginLoading(true);
 
             toast.error(error.message || errorMessage);
+            navigate(appConfig.user.routes?.login?.path || ROUTES.LOGIN);
           })
           .finally(() => {
             setLoginLoading(false);
@@ -74,7 +80,7 @@ const SignUpFirstUser = () => {
       })
       .catch(() => {
         setSignUpFirstUserLoading(false);
-        toast.error(`${t("firstUser.errors.errorSignUpFirstUser")}`);
+        toast.error(`${t("firstUser.signup.messages.error")}`);
       });
   };
 
@@ -90,7 +96,15 @@ const SignUpFirstUser = () => {
     if (!isFirstUser) {
       return (
         <Card>
-          <p>{t(`firstUser.errors.signUpFirstUser`)}</p>
+          <p>{t(`firstUser.errors.notFirstUser`)}</p>
+          <div className="links">
+            <Link
+              to={appConfig.user.routes?.login?.path || ROUTES.LOGIN}
+              className="native-link"
+            >
+              {t("firstUser.links.login")}
+            </Link>
+          </div>
         </Card>
       );
     }
