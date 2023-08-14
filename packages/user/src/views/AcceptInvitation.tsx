@@ -100,10 +100,14 @@ const AcceptInvitation = () => {
       );
     }
 
-    if (invitation?.acceptedAt) {
+    if (
+      invitation?.acceptedAt ||
+      invitation.revokedAt ||
+      invitation.expiresAt < Date.now()
+    ) {
       return (
         <Card>
-          <p>{t(`invitation.accept.message`)}</p>
+          <p>{t(`invitation.invalid.message`)}</p>
         </Card>
       );
     }
