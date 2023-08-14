@@ -102,8 +102,8 @@ const AcceptInvitation = () => {
 
     if (
       invitation?.acceptedAt ||
-      invitation.revokedAt ||
-      invitation.expiresAt < Date.now()
+      invitation?.revokedAt ||
+      invitation?.expiresAt < Date.now()
     ) {
       return (
         <Card>
