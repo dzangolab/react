@@ -14,6 +14,7 @@ import type {
   InvitationAppOption,
   InvitationRoleOption,
 } from "@/types";
+import { InvitationActions } from "../Invitation/InvitationActions";
 
 export type UsersInvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
@@ -26,6 +27,9 @@ export type UsersInvitationsTableProperties = {
   extraColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  onInvitationResent?: (data: any) => void;
+  onInvitationRevoked?: (data: any) => void;
+
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
@@ -44,6 +48,8 @@ export const UsersInvitationsTable = ({
   extraColumns = [],
   loading = false,
   onInvitationAdded,
+  onInvitationResent,
+  onInvitationRevoked,
   prepareInvitationData,
   roles,
   showInviteAction = true,
@@ -100,7 +106,43 @@ export const UsersInvitationsTable = ({
       },
       align: "center",
     },
+    {
+      field: "status",
+      header: t("table.defaultColumns.status"),
+      body: (data) => {
+        return (
+          <>
+            <Tag
+              value={data.isActiveUser ? "ACTIVE" : "PENDING"}
+              style={{
+                background: data.isActiveUser ? "#6366F1" : "#22C55E",
+                width: "5rem",
+              }}
+            />
+          </>
+        );
+      },
+      align: "center",
+    },
     ...extraColumns,
+    {
+      field: "actions",
+      header: t("invitations.table.defaultColumns.actions"),
+      body: (data) => {
+        return (
+          <>
+            {data.isActiveUser ? null : (
+              <InvitationActions
+                onInvitationResent={onInvitationResent}
+                onInvitationRevoked={onInvitationRevoked}
+                invitation={data}
+              />
+            )}
+          </>
+        );
+      },
+      align: "center",
+    },
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
