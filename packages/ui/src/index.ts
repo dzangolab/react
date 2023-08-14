@@ -15,6 +15,7 @@ export * from "./Buttons";
 export * from "./DataTable";
 export * from "./Table";
 export * from "./utils";
+export * from "./FilesTable";
 
 export {
   Accordion,
