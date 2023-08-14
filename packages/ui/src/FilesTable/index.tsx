@@ -74,12 +74,12 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header: "invitations.table.defaultColumns.role",
+      header: "invitations.table.defaultColumns.uploadedBy",
       align: "center",
     },
     {
       field: "uploadedAt",
-      header: "invitations.table.defaultColumns.invitedBy",
+      header: "invitations.table.defaultColumns.uploadedAt",
       align: "center",
     },
 
@@ -94,7 +94,7 @@ export const FilesTable = ({
   ];
 
   const rowClassNameCallback = (data: any) => {
-    return `invitations-${data.id}`;
+    return `files-${data.id}`;
   };
 
   return (
