@@ -26,7 +26,6 @@ export type FilesTableProperties = {
   files: Array<object>;
   totalRecords?: number;
   showDescriptionColumn?: boolean;
-  showActions?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
   translationMessage?: Messages;
@@ -40,23 +39,20 @@ export const FilesTable = ({
   files,
   totalRecords,
   showDescriptionColumn,
-  showActions,
   extraColumns = [],
   fetchFiles,
   translationMessage,
 }: FilesTableProperties) => {
-  const actionItems: MenuItem[] = showActions
-    ? [
-        {
-          label: translationMessage?.downloadAction || "Download",
-          icon: "pi pi-download",
-        },
-        {
-          label: translationMessage?.deleteAction || "Delete",
-          icon: "pi pi-trash",
-        },
-      ]
-    : [];
+  const actionItems: MenuItem[] = [
+    {
+      label: translationMessage?.downloadAction || "Download",
+      icon: "pi pi-download",
+    },
+    {
+      label: translationMessage?.deleteAction || "Delete",
+      icon: "pi pi-trash",
+    },
+  ];
 
   if (showDescriptionColumn) {
     actionItems.push({
