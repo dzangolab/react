@@ -28,16 +28,16 @@ export const FilesTable = ({
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [
     {
-      label: "invitation.actions.resend",
+      label: "file.actions.resend",
       icon: "pi pi-download",
     },
     {
-      label: "invitation.actions.revoke",
+      label: "file.actions.revoke",
       icon: "pi pi-file-edit",
       className: "danger",
     },
     {
-      label: "invitation.actions.revoke",
+      label: "file.actions.revoke",
       icon: "pi pi-pencil",
       className: "danger",
     },
@@ -51,7 +51,7 @@ export const FilesTable = ({
     ? [
         {
           field: "description",
-          header: "invitations.table.defaultColumns.app",
+          header: "files.table.defaultColumns.app",
           body: (data: { appId: any }) => {
             return <span>{data.appId || "-"} </span>;
           },
@@ -63,10 +63,10 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: "invitations.table.defaultColumns.email",
+      header: "files.table.defaultColumns.email",
       sortable: true,
       filter: true,
-      filterPlaceholder: "invitations.table.searchPlaceholder",
+      filterPlaceholder: "files.table.searchPlaceholder",
       showFilterMenu: false,
       showClearButton: false,
     },
@@ -74,18 +74,24 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header: "invitations.table.defaultColumns.uploadedBy",
+      header: "files.table.defaultColumns.uploadedBy",
       align: "center",
+      body: (data) => {
+        return <></>;
+      },
     },
     {
       field: "uploadedAt",
-      header: "invitations.table.defaultColumns.uploadedAt",
+      header: "files.table.defaultColumns.uploadedAt",
       align: "center",
+      body: (data) => {
+        return <></>;
+      },
     },
 
     {
       field: "actions",
-      header: "invitations.table.defaultColumns.actions",
+      header: "files.table.defaultColumns.actions",
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
@@ -102,7 +108,7 @@ export const FilesTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={files}
-      emptyMessage="invitations.table.emptyMessage"
+      emptyMessage="files.table.emptyMessage"
       fetchData={fetchFiles}
       id={id}
       initialFilters={initialFilters}
