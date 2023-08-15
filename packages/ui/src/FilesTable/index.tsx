@@ -80,7 +80,7 @@ export const FilesTable = ({
       sortable: true,
       filter: true,
       filterPlaceholder:
-        translationMessage?.searchPlaceholder || "fileNameExample",
+        translationMessage?.searchPlaceholder || "File name example",
       showFilterMenu: false,
       showClearButton: false,
     },
