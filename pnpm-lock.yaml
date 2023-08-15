@@ -238,8 +238,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0
       tsconfig:
-        specifier: 0.15.0
-        version: link:../../tools/tsconfig
+        specifier: 7.0.0
+        version: 7.0.0
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -335,8 +335,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.15.0
-        version: link:../../tools/tsconfig
+        specifier: 7.0.0
+        version: 7.0.0
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -420,8 +420,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.15.0
-        version: link:../../tools/tsconfig
+        specifier: 7.0.0
+        version: 7.0.0
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -498,8 +498,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.15.0
-        version: link:../../tools/tsconfig
+        specifier: 7.0.0
+        version: 7.0.0
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -595,8 +595,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.15.0
-        version: link:../../tools/tsconfig
+        specifier: 7.0.0
+        version: 7.0.0
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -701,8 +701,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.15.0
-        version: link:../../tools/tsconfig
+        specifier: 7.0.0
+        version: 7.0.0
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -5122,6 +5122,14 @@ packages:
     dependencies:
       '@types/mime': 3.0.1
       '@types/node': 18.17.5
+    dev: true
+
+  /@types/strip-bom@3.0.0:
+    resolution: {integrity: sha512-xevGOReSYGM7g/kUBZzPqCrR/KYAo+F0yiPc85WFTJa0MSLtyFTVTU6cJu/aV4mid7IffDIWqo69THF2o4JiEQ==}
+    dev: true
+
+  /@types/strip-json-comments@0.0.30:
+    resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
     dev: true
 
   /@types/tough-cookie@4.0.2:
@@ -11910,6 +11918,11 @@ packages:
     dependencies:
       min-indent: 1.0.1
 
+  /strip-json-comments@2.0.1:
+    resolution: {integrity: sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
   /strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
@@ -12264,6 +12277,15 @@ packages:
       json5: 1.0.1
       minimist: 1.2.7
       strip-bom: 3.0.0
+
+  /tsconfig@7.0.0:
+    resolution: {integrity: sha512-vZXmzPrL+EmC4T/4rVlT2jNVMWCi/O4DIiSj3UHg1OE5kCKbk4mfrXc6dZksLgRM/TZlKnousKH9bbTazUWRRw==}
+    dependencies:
+      '@types/strip-bom': 3.0.0
+      '@types/strip-json-comments': 0.0.30
+      strip-bom: 3.0.0
+      strip-json-comments: 2.0.1
+    dev: true
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
