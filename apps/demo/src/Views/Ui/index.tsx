@@ -70,7 +70,6 @@ const componentList = [
             uploadedAt: 8567,
           },
         ]}
-        fetchFiles={() => {}}
       />
     ),
   },
