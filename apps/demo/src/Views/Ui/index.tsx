@@ -5,6 +5,7 @@ import FacadeExample from "./Facades/Example";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import { LocalDataTable } from "./LocalDataTable";
 
 const componentList = [
   {
@@ -51,6 +52,11 @@ const componentList = [
     key: 5,
     title: "buttons.export",
     component: <ExportButton />,
+  },
+  {
+    key: 6,
+    title: "table.localDataTable",
+    component: <LocalDataTable />,
   },
 ];
 

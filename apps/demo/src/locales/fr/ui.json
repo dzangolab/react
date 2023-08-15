@@ -8,5 +8,8 @@
     "export": "Export XLSX",
     "submit": "Submit Button"
   },
-  "responsiveMenu": "Responsive Menu"
+  "responsiveMenu": "Responsive Menu",
+  "table": {
+    "localDataTable": "Local Data Table (fr)"
+  }
 }
