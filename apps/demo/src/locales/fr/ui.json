@@ -10,6 +10,14 @@
   },
   "responsiveMenu": "Responsive Menu",
   "table": {
-    "localDataTable": "Local Data Table (fr)"
+    "title": {
+      "localDataTable": "Local data table (fr)"
+    },
+    "headers": {
+      "userName": "User name (fr)",
+      "email": "Email (fr)",
+      "roles": "Roles (fr)",
+      "age": "Age (fr)"
+    }
   }
 }

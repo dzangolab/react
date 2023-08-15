@@ -1,13 +1,16 @@
 import { DataTable } from "@dzangolab/react-ui";
+import { useTranslation } from "@dzangolab/react-i18n";
 import { Tag } from "primereact/tag";
 
 import type { ColumnProps } from "primereact/column";
 
 export const LocalDataTable = () => {
+  const { t } = useTranslation("ui");
+
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "username",
-      header: "User Name",
+      header: t("table.headers.userName"),
       sortable: true,
       body: (data) => {
         return data.username || <code>&#8212;</code>;
@@ -15,7 +18,7 @@ export const LocalDataTable = () => {
     },
     {
       field: "email",
-      header: "Email",
+      header: t("table.headers.email"),
       sortable: true,
       filter: true,
       filterPlaceholder: "Search email",
@@ -23,7 +26,7 @@ export const LocalDataTable = () => {
 
     {
       field: "roles",
-      header: "Roles",
+      header: t("table.headers.roles"),
       body: (data) => {
         return (
           <>
@@ -41,7 +44,7 @@ export const LocalDataTable = () => {
     },
     {
       field: "age",
-      header: "Age",
+      header: t("table.headers.age"),
       sortable: true,
       body: (data) => {
         return data.age;

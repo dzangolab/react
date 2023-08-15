@@ -55,7 +55,7 @@ const componentList = [
   },
   {
     key: 6,
-    title: "table.localDataTable",
+    title: "table.title.localDataTable",
     component: <LocalDataTable />,
   },
 ];
