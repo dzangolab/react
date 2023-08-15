@@ -1,14 +1,14 @@
 {
   "facades": {
-    "youtubeFacade": "Youtube facade",
-    "alt": "Sorry, unable to load video/image"
+    "youtubeFacade": "Youtube facade (fr)",
+    "alt": "Sorry, unable to load video/image (fr)"
   },
-  "loading": "Loading",
+  "loading": "Loading (fr)",
   "buttons": {
-    "export": "Export XLSX",
-    "submit": "Submit button"
+    "export": "Export XLSX (fr)",
+    "submit": "Submit button (fr)"
   },
-  "responsiveMenu": "Responsive menu",
+  "responsiveMenu": "Responsive menu (fr)",
   "files":{
     "table":"Files table (fr)"
   }

@@ -8,6 +8,7 @@ type Messages = {
   downloadAction?: string;
   editDescriptionAction?: string;
   renameAction?: string;
+  deleteAction?: string;
   filenameColumnHeader?: string;
   descriptionColumnHeader?: string;
   uploadedByColumnHeader?: string;
@@ -25,6 +26,7 @@ export type FilesTableProperties = {
   files: Array<object>;
   totalRecords?: number;
   showDescriptionColumn?: boolean;
+  showActions?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
   translationMessage?: Messages;
@@ -38,24 +40,31 @@ export const FilesTable = ({
   files,
   totalRecords,
   showDescriptionColumn,
+  showActions,
   extraColumns = [],
   fetchFiles,
   translationMessage,
 }: FilesTableProperties) => {
-  const actionItems: MenuItem[] = [
-    {
-      label: translationMessage?.downloadAction || "Download",
-      icon: "pi pi-download",
-    },
-    {
-      label: translationMessage?.editDescriptionAction || "Edit",
-      icon: "pi pi-file-edit",
-    },
-    {
-      label: translationMessage?.renameAction || "Rename",
-      icon: "pi pi-pencil",
-    },
-  ];
+  const actionItems: MenuItem[] = showActions
+    ? [
+        {
+          label: translationMessage?.downloadAction || "Download",
+          icon: "pi pi-download",
+        },
+        {
+          label: translationMessage?.editDescriptionAction || "Edit",
+          icon: "pi pi-file-edit",
+        },
+        {
+          label: translationMessage?.renameAction || "Rename",
+          icon: "pi pi-pencil",
+        },
+        {
+          label: translationMessage?.deleteAction || "Delete",
+          icon: "pi pi-trash",
+        },
+      ]
+    : [];
 
   const initialFilters = {
     filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -100,7 +109,6 @@ export const FilesTable = ({
         return data.uploadedAt;
       },
     },
-
     {
       field: "actions",
       header: translationMessage?.actionsColumnHeader || "Actions",
