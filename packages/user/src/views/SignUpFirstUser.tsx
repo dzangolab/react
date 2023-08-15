@@ -2,8 +2,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { getIsFirstUser, signUpFirstUser } from "@/api/user";
 import SignupForm from "@/components/SignupForm";
