@@ -31,6 +31,7 @@ import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
+import SignUpFirstUser from "./views/SignUpFirstUser";
 
 import "./assets/css/index.css";
 
@@ -72,6 +73,7 @@ export {
   Profile,
   ResetPassword,
   Signup,
+  SignUpFirstUser,
 
   // utilities
   changePassword,

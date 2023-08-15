@@ -43,6 +43,23 @@
     },
     "title": "Forget Password"
   },
+  "firstUser": {
+    "title": "Register first user",
+    "errors": {
+      "notFirstUser": "First admin has already signed up. If this was not expected, please contact developer team"
+    },
+    "login": {
+      "messages": {
+        "error": "Automatic login failed. Redirecting to login page for manual login"
+      }
+    },
+    "signup": {
+      "messages": {
+        "error": "Error signing up first user",
+        "success": "Succefully added first admin user. Automatically logging in ..."
+      }
+    }
+  },
   "login": {
     "form": {
       "actions": {
@@ -219,7 +236,7 @@
         "invitedBy": "Invited by",
         "expiresAt": "Expires at",
         "actions": "Actions",
-        "app":"App"
+        "app": "App"
       },
       "searchPlaceholder": "john.doe.at.example.com",
       "emptyMessage": "Table is empty",
