@@ -58,9 +58,21 @@ const componentList = [
     component: <ExportButton />,
   },
   {
-    key: 5,
-    title: "buttons.export",
-    component: <FilesTable files={[]} fetchFiles={() => {}} />,
+    key: 6,
+    title: "files.table",
+    component: (
+      <FilesTable
+        files={[
+          {
+            filename: "image.jpeg",
+            description: "This is a file",
+            uploadedBy: "Manish",
+            uploadedAt: 8567,
+          },
+        ]}
+        fetchFiles={() => {}}
+      />
+    ),
   },
 ];
 

@@ -32,14 +32,12 @@ export const FilesTable = ({
       icon: "pi pi-download",
     },
     {
-      label: "file.actions.revoke",
+      label: "file.actions.edit",
       icon: "pi pi-file-edit",
-      className: "danger",
     },
     {
-      label: "file.actions.revoke",
+      label: "file.actions.rename",
       icon: "pi pi-pencil",
-      className: "danger",
     },
   ];
 
@@ -52,8 +50,8 @@ export const FilesTable = ({
         {
           field: "description",
           header: "files.table.defaultColumns.app",
-          body: (data: { appId: any }) => {
-            return <span>{data.appId || "-"} </span>;
+          body: () => {
+            return <></>;
           },
           align: "center",
         },
@@ -77,7 +75,7 @@ export const FilesTable = ({
       header: "files.table.defaultColumns.uploadedBy",
       align: "center",
       body: (data) => {
-        return <></>;
+        return data.uploadedBy;
       },
     },
     {
@@ -85,7 +83,7 @@ export const FilesTable = ({
       header: "files.table.defaultColumns.uploadedAt",
       align: "center",
       body: (data) => {
-        return <></>;
+        return data.uploadedAt;
       },
     },
 
