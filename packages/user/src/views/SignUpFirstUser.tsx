@@ -64,11 +64,9 @@ const SignUpFirstUser = () => {
             }
           })
           .catch((error: any) => {
-            const errorMessage = t("firstUser.login.messages.error");
-
             setLoginLoading(false);
 
-            toast.error(error.message || errorMessage);
+            toast.error(t("firstUser.login.messages.error"));
             navigate(appConfig.user.routes?.login?.path || ROUTES.LOGIN);
           })
           .finally(() => {
