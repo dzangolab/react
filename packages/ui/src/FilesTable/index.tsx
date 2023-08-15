@@ -8,7 +8,7 @@ type TranslationMessage = {
   actionDownload: string;
   actionEdit: string;
   actionRename: string;
-  columnEmailHeader: string;
+  columnFileHeader: string;
   columnDescriptionHeader: string;
   searchPlaceholder: string;
   columnUploadedBy: string;
@@ -58,7 +58,7 @@ export const FilesTable = ({
   ];
 
   const initialFilters = {
-    email: { value: "", matchMode: FilterMatchMode.CONTAINS },
+    filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
   const descriptionColumn: Array<ColumnProps> = showDescriptionColumn
@@ -76,11 +76,11 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: translationMessage?.columnEmailHeader || "Email",
+      header: translationMessage?.columnFileHeader || "File",
       sortable: true,
       filter: true,
       filterPlaceholder:
-        translationMessage?.searchPlaceholder || "john.doe.at.example.com",
+        translationMessage?.searchPlaceholder || "fileNameExample",
       showFilterMenu: false,
       showClearButton: false,
     },
