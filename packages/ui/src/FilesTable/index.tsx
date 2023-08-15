@@ -61,7 +61,7 @@ export const FilesTable = ({
   if (showDescriptionColumn) {
     actionItems.push({
       label: translationMessage?.editDescriptionAction || "Edit",
-      icon: "pi pi-file-edit",
+      icon: "pi pi-pencil",
     });
   }
 
