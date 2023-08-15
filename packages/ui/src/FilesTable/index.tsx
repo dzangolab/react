@@ -27,7 +27,7 @@ export type FilesTableProperties = {
   showDescriptionColumn?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  translationMessage: TranslationMessage;
+  translationMessage?: TranslationMessage;
 };
 
 export const FilesTable = ({
@@ -44,15 +44,15 @@ export const FilesTable = ({
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [
     {
-      label: translationMessage.actionDownload || "Download",
+      label: translationMessage?.actionDownload || "Download",
       icon: "pi pi-download",
     },
     {
-      label: translationMessage.actionEdit || "Edit",
+      label: translationMessage?.actionEdit || "Edit",
       icon: "pi pi-file-edit",
     },
     {
-      label: translationMessage.actionRename || "Rename",
+      label: translationMessage?.actionRename || "Rename",
       icon: "pi pi-pencil",
     },
   ];
@@ -65,11 +65,10 @@ export const FilesTable = ({
     ? [
         {
           field: "description",
-          header: translationMessage.columnDescriptionHeader || "Description",
+          header: translationMessage?.columnDescriptionHeader || "Description",
           body: (data) => {
             return <></>;
           },
-          align: "center",
         },
       ]
     : [];
@@ -77,11 +76,11 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: translationMessage.columnEmailHeader || "Email",
+      header: translationMessage?.columnEmailHeader || "Email",
       sortable: true,
       filter: true,
       filterPlaceholder:
-        translationMessage.searchPlaceholder || "john.doe.at.example.com",
+        translationMessage?.searchPlaceholder || "john.doe.at.example.com",
       showFilterMenu: false,
       showClearButton: false,
     },
@@ -89,16 +88,14 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header: translationMessage.columnUploadedBy || "Uploaded by",
-      align: "center",
+      header: translationMessage?.columnUploadedBy || "Uploaded by",
       body: (data) => {
         return data.uploadedBy;
       },
     },
     {
       field: "uploadedAt",
-      header: translationMessage.columnUploadedAt || "Uploaded at",
-      align: "center",
+      header: translationMessage?.columnUploadedAt || "Uploaded at",
       body: (data) => {
         return data.uploadedAt;
       },
@@ -106,11 +103,10 @@ export const FilesTable = ({
 
     {
       field: "actions",
-      header: translationMessage.columnActions || "Actions",
+      header: translationMessage?.columnActions || "Actions",
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
-      align: "center",
     },
   ];
 
@@ -124,7 +120,7 @@ export const FilesTable = ({
       columns={columns ? columns : defaultColumns}
       data={files}
       emptyMessage={
-        translationMessage.emptyTableMessage || "The table is empty"
+        translationMessage?.emptyTableMessage || "The table is empty"
       }
       fetchData={fetchFiles}
       id={id}
