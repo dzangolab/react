@@ -60,18 +60,7 @@ const componentList = [
   {
     key: 6,
     title: "files.table",
-    component: (
-      <FilesTable
-        files={[
-          {
-            filename: "image.jpeg",
-            description: "This is a file",
-            uploadedBy: "Manish",
-            uploadedAt: 8567,
-          },
-        ]}
-      />
-    ),
+    component: <FilesTable files={[]} />,
   },
 ];
 

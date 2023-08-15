@@ -110,6 +110,7 @@ export const FilesTable = ({
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
+      align: "center",
     },
   ];
 
