@@ -52,19 +52,18 @@ export const FilesTable = ({
           icon: "pi pi-download",
         },
         {
-          label: translationMessage?.editDescriptionAction || "Edit",
-          icon: "pi pi-file-edit",
-        },
-        {
-          label: translationMessage?.renameAction || "Rename",
-          icon: "pi pi-pencil",
-        },
-        {
           label: translationMessage?.deleteAction || "Delete",
           icon: "pi pi-trash",
         },
       ]
     : [];
+
+  if (showDescriptionColumn) {
+    actionItems.push({
+      label: translationMessage?.editDescriptionAction || "Edit",
+      icon: "pi pi-file-edit",
+    });
+  }
 
   const initialFilters = {
     filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
