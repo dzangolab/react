@@ -1,7 +1,20 @@
+import React from "react";
 import { ActionsMenu, DataTable } from "../index";
 import { FilterMatchMode } from "primereact/api";
 import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
+
+type TranslationMessage = {
+  actionDownload: string;
+  columnEmailHeader: string;
+
+  columnDescriptionHeader: string;
+  searchPlaceholder: string;
+  columnUploadedBy: string;
+  columnUploadedAt: string;
+  columnActions: string;
+  emptyTableMessage: string;
+};
 
 export type FilesTableProperties = {
   className?: string;
@@ -13,7 +26,7 @@ export type FilesTableProperties = {
   showDescriptionColumn?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  translationMessage?: object;
+  translationMessage: TranslationMessage;
 };
 
 export const FilesTable = ({
@@ -30,15 +43,15 @@ export const FilesTable = ({
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [
     {
-      label: "file.actions.downloads",
+      label: translationMessage.actionDownload || "Download",
       icon: "pi pi-download",
     },
     {
-      label: "file.actions.edit",
+      label: "file.actions.edit" || "Edit",
       icon: "pi pi-file-edit",
     },
     {
-      label: "file.actions.rename",
+      label: "file.actions.rename" || "Rename",
       icon: "pi pi-pencil",
     },
   ];
@@ -51,8 +64,8 @@ export const FilesTable = ({
     ? [
         {
           field: "description",
-          header: "files.table.defaultColumns.app",
-          body: () => {
+          header: translationMessage.columnDescriptionHeader || "Description",
+          body: (data) => {
             return <></>;
           },
           align: "center",
@@ -63,10 +76,11 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: "files.table.defaultColumns.email",
+      header: translationMessage.columnEmailHeader || "Email",
       sortable: true,
       filter: true,
-      filterPlaceholder: "files.table.searchPlaceholder",
+      filterPlaceholder:
+        translationMessage.searchPlaceholder || "john.doe.at.example.com",
       showFilterMenu: false,
       showClearButton: false,
     },
@@ -74,7 +88,7 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header: "files.table.defaultColumns.uploadedBy",
+      header: translationMessage.columnUploadedBy || "Uploaded by",
       align: "center",
       body: (data) => {
         return data.uploadedBy;
@@ -82,7 +96,7 @@ export const FilesTable = ({
     },
     {
       field: "uploadedAt",
-      header: "files.table.defaultColumns.uploadedAt",
+      header: translationMessage.columnUploadedAt || "Uploaded at",
       align: "center",
       body: (data) => {
         return data.uploadedAt;
@@ -91,7 +105,7 @@ export const FilesTable = ({
 
     {
       field: "actions",
-      header: "files.table.defaultColumns.actions",
+      header: translationMessage.columnActions || "Actions",
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
@@ -108,7 +122,9 @@ export const FilesTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={files}
-      emptyMessage="files.table.emptyMessage"
+      emptyMessage={
+        translationMessage.emptyTableMessage || "The table is empty"
+      }
       fetchData={fetchFiles}
       id={id}
       initialFilters={initialFilters}
