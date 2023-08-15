@@ -13,6 +13,7 @@ export type FilesTableProperties = {
   showDescriptionColumn?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
+  translationMessage?: object;
 };
 
 export const FilesTable = ({
@@ -25,10 +26,11 @@ export const FilesTable = ({
   showDescriptionColumn,
   extraColumns = [],
   fetchFiles,
+  translationMessage,
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [
     {
-      label: "file.actions.resend",
+      label: "file.actions.downloads",
       icon: "pi pi-download",
     },
     {
