@@ -4,17 +4,17 @@ import { FilterMatchMode } from "primereact/api";
 import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 
-type TranslationMessage = {
-  actionDownloadMessage: string;
-  actionEditMessage: string;
-  actionRenameMessage: string;
-  columnFileHeaderMessage: string;
-  columnDescriptionHeaderMessage: string;
-  searchPlaceholderMessage: string;
-  columnUploadedByHeaderMessage: string;
-  columnUploadedAtHeaderMessage: string;
-  columnActionsHeaderMessage: string;
-  tableEmptyMessage: string;
+type Messages = {
+  downloadAction?: string;
+  editDescriptionAction?: string;
+  renameAction?: string;
+  filenameColumnHeader?: string;
+  descriptionColumnHeader?: string;
+  uploadedByColumnHeader?: string;
+  uploadedAtColumnHeader?: string;
+  actionsColumnHeader?: string;
+  searchPlaceholder?: string;
+  tableEmpty?: string;
 };
 
 export type FilesTableProperties = {
@@ -27,7 +27,7 @@ export type FilesTableProperties = {
   showDescriptionColumn?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  translationMessage?: TranslationMessage;
+  translationMessage?: Messages;
 };
 
 export const FilesTable = ({
@@ -44,15 +44,15 @@ export const FilesTable = ({
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [
     {
-      label: translationMessage?.actionDownloadMessage || "Download",
+      label: translationMessage?.downloadAction || "Download",
       icon: "pi pi-download",
     },
     {
-      label: translationMessage?.actionEditMessage || "Edit",
+      label: translationMessage?.editDescriptionAction || "Edit",
       icon: "pi pi-file-edit",
     },
     {
-      label: translationMessage?.actionRenameMessage || "Rename",
+      label: translationMessage?.renameAction || "Rename",
       icon: "pi pi-pencil",
     },
   ];
@@ -65,8 +65,7 @@ export const FilesTable = ({
     ? [
         {
           field: "description",
-          header:
-            translationMessage?.columnDescriptionHeaderMessage || "Description",
+          header: translationMessage?.descriptionColumnHeader || "Description",
           body: (data) => {
             return data.description;
           },
@@ -77,11 +76,11 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: translationMessage?.columnFileHeaderMessage || "File",
+      header: translationMessage?.filenameColumnHeader || "File",
       sortable: true,
       filter: true,
       filterPlaceholder:
-        translationMessage?.searchPlaceholderMessage || "File name example",
+        translationMessage?.searchPlaceholder || "File name example",
       showFilterMenu: false,
       showClearButton: false,
     },
@@ -89,16 +88,14 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header:
-        translationMessage?.columnUploadedByHeaderMessage || "Uploaded by",
+      header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
       body: (data) => {
         return data.uploadedBy;
       },
     },
     {
       field: "uploadedAt",
-      header:
-        translationMessage?.columnUploadedAtHeaderMessage || "Uploaded at",
+      header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
       body: (data) => {
         return data.uploadedAt;
       },
@@ -106,7 +103,7 @@ export const FilesTable = ({
 
     {
       field: "actions",
-      header: translationMessage?.columnActionsHeaderMessage || "Actions",
+      header: translationMessage?.actionsColumnHeader || "Actions",
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
@@ -123,9 +120,7 @@ export const FilesTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={files}
-      emptyMessage={
-        translationMessage?.tableEmptyMessage || "The table is empty"
-      }
+      emptyMessage={translationMessage?.tableEmpty || "The table is empty"}
       fetchData={fetchFiles}
       id={id}
       initialFilters={initialFilters}

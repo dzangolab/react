@@ -6,7 +6,10 @@
   "loading": "Loading",
   "buttons": {
     "export": "Export XLSX",
-    "submit": "Submit Button"
+    "submit": "Submit button"
   },
-  "responsiveMenu": "Responsive Menu"
+  "responsiveMenu": "Responsive menu",
+  "files":{
+    "table":"Files table (fr)"
+  }
 }
