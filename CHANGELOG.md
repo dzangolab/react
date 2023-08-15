@@ -1,3 +1,23 @@
+# [0.15.0](https://github.com/dzangolab/react/compare/v0.14.0...v0.15.0) (2023-08-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-react to v7.33.1 ([#498](https://github.com/dzangolab/react/issues/498)) ([59cd2dc](https://github.com/dzangolab/react/commit/59cd2dc4cf44ae27e93b638dd3bc498b892cdcf1))
+* **deps:** update dependency react-hook-form to v7.45.4 ([#500](https://github.com/dzangolab/react/issues/500)) ([749f878](https://github.com/dzangolab/react/commit/749f87859b9b2529361360f9f0d83e0a34e1b3bd))
+* **deps:** update dependency react-redux to v8.1.2 ([#501](https://github.com/dzangolab/react/issues/501)) ([eee5f9b](https://github.com/dzangolab/react/commit/eee5f9b3b0206d89bb5368db360c2a721ce5768f))
+* fix the column to display emdash when there is null present ([#492](https://github.com/dzangolab/react/issues/492)) ([3898647](https://github.com/dzangolab/react/commit/38986477849dec7c07cbc4aab256c81a1f92476a))
+
+
+### Features
+
+* add default translations for invitations in il8n package ([#495](https://github.com/dzangolab/react/issues/495)) ([1ceade1](https://github.com/dzangolab/react/commit/1ceade15a54b41b857a8d704d449e0b0985af0cb))
+* add first user signup page ([#497](https://github.com/dzangolab/react/issues/497)) ([bc65781](https://github.com/dzangolab/react/commit/bc6578141538f6206b7764c72524165944a1aadd))
+* add support for extra columns ([#485](https://github.com/dzangolab/react/issues/485)) ([2e1268a](https://github.com/dzangolab/react/commit/2e1268a14a6d0767445b471bfc36dbd0cc5d7dc8))
+* add support for extra columns ([#491](https://github.com/dzangolab/react/issues/491)) ([90eebe9](https://github.com/dzangolab/react/commit/90eebe9343e9ed1ae15113294816948052668008))
+
+
+
 # [0.14.0](https://github.com/dzangolab/react/compare/v0.13.2...v0.14.0) (2023-08-07)
 
 
