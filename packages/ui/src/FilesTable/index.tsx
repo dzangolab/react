@@ -6,8 +6,9 @@ import { MenuItem } from "primereact/menuitem";
 
 type TranslationMessage = {
   actionDownload: string;
+  actionEdit: string;
+  actionRename: string;
   columnEmailHeader: string;
-
   columnDescriptionHeader: string;
   searchPlaceholder: string;
   columnUploadedBy: string;
@@ -47,11 +48,11 @@ export const FilesTable = ({
       icon: "pi pi-download",
     },
     {
-      label: "file.actions.edit" || "Edit",
+      label: translationMessage.actionEdit || "Edit",
       icon: "pi pi-file-edit",
     },
     {
-      label: "file.actions.rename" || "Rename",
+      label: translationMessage.actionRename || "Rename",
       icon: "pi pi-pencil",
     },
   ];
