@@ -4,6 +4,8 @@ import { Tag } from "primereact/tag";
 
 import type { ColumnProps } from "primereact/column";
 
+import "./index.css";
+
 export const LocalDataTable = () => {
   const { t } = useTranslation("ui");
 
@@ -147,7 +149,12 @@ export const LocalDataTable = () => {
 
   return (
     <>
-      <DataTable columns={defaultColumns} data={users} />
+      <DataTable
+        className="table-localdata"
+        columns={defaultColumns}
+        rows={5}
+        data={users}
+      />
     </>
   );
 };

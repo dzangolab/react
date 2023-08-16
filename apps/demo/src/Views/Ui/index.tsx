@@ -5,7 +5,7 @@ import FacadeExample from "./Facades/Example";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import { LocalDataTable } from "./LocalDataTable";
+import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 
 const componentList = [
   {
