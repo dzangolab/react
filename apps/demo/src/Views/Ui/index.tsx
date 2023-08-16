@@ -62,7 +62,13 @@ const componentList = [
     title: "files.table",
     component: (
       <FilesTable
-        files={[{ filename: "myfile", uploadedBy: "Manish", uploadedAt: 312 }]}
+        files={[
+          {
+            filename: "myfile",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+          },
+        ]}
       />
     ),
   },
