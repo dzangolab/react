@@ -59,6 +59,7 @@ export const DataTable = ({
       paginator={paginator}
       paginatorTemplate={paginatorTemplate}
       rowClassName={rowClassName}
+      rows={lazyState.rows}
       rowsPerPageOptions={rowsPerPageOptions}
       stripedRows={stripedRows}
       totalRecords={totalRecords}
@@ -70,7 +71,6 @@ export const DataTable = ({
         onFilter,
         onPage,
         onSort,
-        rows: lazyState.rows,
         sortField: lazyState.sortField,
         sortOrder: lazyState.sortOrder,
       })}
