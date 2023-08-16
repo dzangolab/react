@@ -56,6 +56,10 @@
         "cancel": "Cancel (fr)",
         "submit": "Invite (fr)"
       },
+      "app": {
+        "label": "App (fr)",
+        "placeholder": "Select app (fr)"
+      },
       "email": {
         "label": "Email (fr)",
         "placeholder": "john.doe.at.example.com"

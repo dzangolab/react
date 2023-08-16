@@ -56,6 +56,10 @@
         "cancel": "Cancel",
         "submit": "Invite"
       },
+      "app": {
+        "label": "App ",
+        "placeholder": "Select app "
+      },
       "email": {
         "label": "Email",
         "placeholder": "john.doe.at.example.com"
