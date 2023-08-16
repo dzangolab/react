@@ -45,7 +45,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       }
     },
     "title": "Forget Password"
@@ -62,7 +62,7 @@
       },
       "email": {
         "label": "Email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "role": {
         "label": "Role",
@@ -89,7 +89,7 @@
         "role": "Role"
       },
       "emptyMessage":"Table is empty",
-      "searchPlaceholder": "john.doe.at.example.com"
+      "searchPlaceholder": ""
     },
     "title": "Invitations"
   },
@@ -100,7 +100,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Your password"
@@ -132,7 +132,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Your password"
