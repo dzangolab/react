@@ -108,14 +108,20 @@ export const FilesTable = ({
       field: "uploadedBy",
       header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
       body: (data) => {
-        return data.uploadedBy;
+        return data.uploadedBy ? (
+          `${data.uploadedBy.givenName || ""} ${data.uploadedBy.lastName || ""}`
+        ) : (
+          <code>&#8212;</code>
+        );
       },
     },
     {
       field: "uploadedAt",
       header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
       body: (data) => {
-        return data.uploadedAt;
+        const date = new Date(data.uploadedAt);
+
+        return date.toLocaleDateString("en-GB");
       },
     },
     {
