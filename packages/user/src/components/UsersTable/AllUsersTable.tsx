@@ -127,7 +127,9 @@ export const AllUsersTable = ({
         return (
           <>
             <Tag
-              value={data.isActiveUser ? "ACTIVE" : "PENDING"}
+              value={
+                data.isActiveUser ? t("status.active") : t("status.invited")
+              }
               style={{
                 background: data.isActiveUser ? "#6366F1" : "#22C55E",
                 width: "5rem",

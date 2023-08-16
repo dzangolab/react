@@ -219,7 +219,7 @@
         "invitedBy": "Invited by",
         "expiresAt": "Expires at",
         "actions": "Actions",
-        "app":"App"
+        "app": "App"
       },
       "searchPlaceholder": "john.doe.at.example.com",
       "emptyMessage": "Table is empty",
