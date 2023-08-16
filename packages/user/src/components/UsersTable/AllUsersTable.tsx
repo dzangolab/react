@@ -16,36 +16,36 @@ import type {
 } from "@/types";
 import { InvitationActions } from "../Invitation/InvitationActions";
 
-export type UsersInvitationsTableProperties = {
+export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
+  extraColumns?: Array<ColumnProps>;
   fetchUsers: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
-  extraColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
   onInvitationRevoked?: (data: any) => void;
-
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
+  showAppColumn?: boolean;
   totalRecords?: number;
   users: Array<object>;
 };
 
-export const UsersInvitationsTable = ({
+export const AllUsersTable = ({
   additionalInvitationFields,
   apps,
   className = "table-users",
   columns,
+  extraColumns = [],
   fetchUsers,
   id = "table-users",
   inviteButtonIcon,
-  extraColumns = [],
   loading = false,
   onInvitationAdded,
   onInvitationResent,
@@ -53,14 +53,28 @@ export const UsersInvitationsTable = ({
   prepareInvitationData,
   roles,
   showInviteAction = true,
+  showAppColumn = true,
   totalRecords = 0,
   users,
-}: UsersInvitationsTableProperties) => {
+}: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
+
+  const appColumn: Array<ColumnProps> = showAppColumn
+    ? [
+        {
+          field: "app",
+          header: t("invitations.table.defaultColumns.app"),
+          body: (data: { appId: any }) => {
+            return <span>{data.appId || "-"} </span>;
+          },
+          align: "center",
+        },
+      ]
+    : [];
 
   const defaultColumns: Array<ColumnProps> = [
     {
@@ -84,7 +98,7 @@ export const UsersInvitationsTable = ({
       showFilterMenu: false,
       showClearButton: false,
     },
-
+    ...appColumn,
     {
       field: "roles",
       header: t("table.defaultColumns.roles"),
@@ -125,6 +139,24 @@ export const UsersInvitationsTable = ({
       align: "center",
     },
     ...extraColumns,
+    {
+      field: "invitedBy",
+      header: t("invitations.table.defaultColumns.invitedBy"),
+      body: (data) => {
+        if (!data.invitedBy) {
+          return <code>&#8212;</code>;
+        }
+
+        if (data.invitedBy.givenName || data.invitedBy.surname) {
+          return `${data.invitedBy.givenName || ""} ${
+            data.invitedBy.surname || ""
+          }`;
+        }
+
+        return data.invitedBy.email;
+      },
+      align: "center",
+    },
     {
       field: "actions",
       header: t("invitations.table.defaultColumns.actions"),
