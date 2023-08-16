@@ -38,7 +38,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       }
     },
     "title": "Forget Password"
@@ -67,7 +67,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Your password"
@@ -100,7 +100,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Your password"
@@ -178,7 +178,7 @@
       },
       "email": {
         "label": "Email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "role": {
         "label": "Role",
@@ -238,7 +238,7 @@
         "actions": "Actions",
         "app": "App"
       },
-      "searchPlaceholder": "john.doe.at.example.com",
+      "searchPlaceholder": "",
       "emptyMessage": "Table is empty",
       "title": "Invitations"
     }
