@@ -31,7 +31,7 @@ export type FilesTableProperties = {
   translationMessage?: Messages;
   onDownload?: (arguments_: any) => void;
   onDelete?: (arguments_: any) => void;
-  onDescription?: (arguments_: any) => void;
+  onEditDescription?: (arguments_: any) => void;
 };
 
 export const FilesTable = ({
@@ -47,7 +47,7 @@ export const FilesTable = ({
   translationMessage,
   onDownload,
   onDelete,
-  onDescription,
+  onEditDescription,
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [];
 
@@ -59,19 +59,20 @@ export const FilesTable = ({
     });
   }
 
+  if (showDescriptionColumn && onEditDescription) {
+    actionItems.push({
+      label: translationMessage?.editDescriptionAction || "Edit description",
+      icon: "pi pi-pencil",
+      command: onEditDescription,
+    });
+  }
+
   if (onDelete) {
     actionItems.push({
       label: translationMessage?.deleteAction || "Delete",
       icon: "pi pi-trash",
+      className: "danger",
       command: onDelete,
-    });
-  }
-
-  if (showDescriptionColumn && onDescription) {
-    actionItems.push({
-      label: translationMessage?.editDescriptionAction || "Edit",
-      icon: "pi pi-pencil",
-      command: onDescription,
     });
   }
 
