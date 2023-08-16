@@ -121,7 +121,7 @@ export const InvitationsTable = ({
 
         return data.invitedBy.email;
       },
-      align: "center",
+      align: "left",
     },
     {
       field: "expiresAt",
@@ -131,7 +131,7 @@ export const InvitationsTable = ({
 
         return date.toLocaleDateString("en-GB");
       },
-      align: "center",
+      align: "left",
     },
     {
       field: "actions",
