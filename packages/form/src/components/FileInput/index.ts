@@ -1,1 +1,3 @@
-export * from "./FileInput";
+export * from "./FileDropzone";
+export * from "./FileDropzoneBasic";
+export * from "./types";

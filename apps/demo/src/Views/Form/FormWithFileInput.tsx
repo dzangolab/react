@@ -1,5 +1,4 @@
-// components/Forms/FormWithFileInput.tsx
-import { Provider, FileInput, TextInput } from "@dzangolab/react-form";
+import { Provider, FileDropzone } from "@dzangolab/react-form";
 import React from "react";
 
 export const FormWithFileInput: React.FC = () => {
@@ -10,13 +9,17 @@ export const FormWithFileInput: React.FC = () => {
 
   return (
     <Provider onSubmit={onSubmit}>
-      <FileInput
-        accept="image/png, image/jpg, image/jpeg, image/gif"
-        multiple
+      <FileDropzone
         name="images"
         dropzoneOptions={{
-          multiple: true,
+          accept: {
+            "image/*": [".jpeg", ".png"],
+          },
         }}
+        enableDescription
+        dropzoneMessage="Drag and drop"
+        addDescriptionLabel="+ Add description"
+        descriptionPlaceholder="Description"
       />
       <div className="mb-4">
         <button className="w-full bg-primary">Upload</button>

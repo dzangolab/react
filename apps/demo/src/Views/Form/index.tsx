@@ -16,7 +16,7 @@ const componentList = [
   },
   {
     key: 3,
-    title: "pages.forms.confirmPassword",
+    title: "pages.forms.fileInput",
     component: <FormWithFileInput />,
   },
 ];

@@ -1,23 +1,21 @@
-// components/FormComponents/FileInput.tsx
-import React, { FC, useCallback, useEffect, useMemo } from "react";
+// components/FormComponents/FileDropzoneBasic.tsx
+import React, { FC, useCallback, useMemo } from "react";
 import { DropzoneOptions, useDropzone } from "react-dropzone";
-import { useFormContext } from "react-hook-form";
 
-import { FileItem } from "./FileItem";
+import { SelectedFile } from "./SelectedFile";
+import { FileExtended } from "./types";
 
-interface IFileInputProperties
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+interface IFileDropzoneBasicProperties {
   name: string;
   label?: string;
   mode?: "append" | "update";
+  value: FileExtended[];
+  enableDescription?: boolean;
+  addDescriptionLabel?: string;
+  descriptionPlaceholder?: string;
+  dropzoneMessage?: string;
   dropzoneOptions?: DropzoneOptions;
-}
-
-export interface ExtendedFile extends File {
-  description?: string;
+  onChange: (files: FileExtended[]) => void;
 }
 
 const baseStyle = {
@@ -48,33 +46,34 @@ const rejectStyle = {
   borderColor: "#ff1744",
 };
 
-export const FileInput: FC<IFileInputProperties> = ({
+export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
   name,
   label,
   mode = "append",
+  value,
   dropzoneOptions,
-  ...inputProperties
+  enableDescription = false,
+  addDescriptionLabel,
+  descriptionPlaceholder,
+  dropzoneMessage,
+  onChange,
 }) => {
-  const { register, unregister, setValue, watch } = useFormContext();
-
-  const files: ExtendedFile[] = watch(name);
-
   const onDrop = useCallback(
-    (droppedFiles: ExtendedFile[]) => {
+    (droppedFiles: FileExtended[]) => {
       /*
          This is where the magic is happening.
          Depending upon the mode we are replacing old files with new one,
          or appending new files into the old ones, and also filtering out the duplicate files. 
       */
       let newFiles =
-        mode === "update" ? droppedFiles : [...(files || []), ...droppedFiles];
+        mode === "update" ? droppedFiles : [...(value || []), ...droppedFiles];
 
       if (mode === "append") {
-        newFiles = newFiles.reduce((previous: ExtendedFile[], file) => {
+        newFiles = newFiles.reduce((previous: FileExtended[], file) => {
           const fo = Object.entries(file);
 
           if (
-            previous.find((pFile: ExtendedFile) => {
+            previous.find((pFile: FileExtended) => {
               const eo = Object.entries(pFile);
               return eo.every(
                 ([key, value], index) =>
@@ -90,38 +89,26 @@ export const FileInput: FC<IFileInputProperties> = ({
       }
 
       // End Magic.
-      setValue(name, newFiles, { shouldValidate: true });
+      onChange(newFiles);
     },
-    [setValue, name, mode, files],
+    [name, mode, value, onChange],
   );
 
   const onRemove = useCallback(
     (index: number) => {
-      const newFiles = files.filter((_, index_) => index_ !== index); // improve this
+      const newFiles = value.filter((_, index_) => index_ !== index); // improve this
 
-      setValue(name, newFiles, { shouldValidate: true });
+      onChange(newFiles);
     },
-    [setValue, name, mode, files],
+    [value, onChange],
   );
 
-  const {
-    getRootProps,
-    getInputProps,
-    isFocused,
-    isDragAccept,
-    isDragReject,
-    isDragActive,
-  } = useDropzone({
-    onDrop,
-    ...dropzoneOptions,
-  });
-
-  useEffect(() => {
-    register(name);
-    return () => {
-      unregister(name);
-    };
-  }, [register, unregister, name]);
+  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
+    useDropzone({
+      onDrop,
+      multiple: true,
+      ...dropzoneOptions,
+    });
 
   const style = useMemo(
     () => ({
@@ -137,22 +124,23 @@ export const FileInput: FC<IFileInputProperties> = ({
     <>
       {label && <label htmlFor={name}>{label}</label>}
       <div {...getRootProps({ className: "dropzone", style })}>
-        <input
-          {...inputProperties}
-          id={name}
-          name={name}
-          {...getInputProps()}
-        />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <input id={name} name={name} {...getInputProps()} />
+        {dropzoneMessage && <p>{dropzoneMessage}</p>}
       </div>
       <ul className="selected-files">
-        {!!files?.length &&
-          files.map((file, index) => {
+        {!!value?.length &&
+          value.map((file, index) => {
             return (
-              <FileItem
-                file={file}
+              <SelectedFile
                 key={file.name}
+                file={file}
+                enableDescription={enableDescription}
+                addDescriptionLabel={addDescriptionLabel}
+                descriptionPlaceholder={descriptionPlaceholder}
                 onRemove={() => onRemove(index)}
+                onDescriptionChange={(description) => {
+                  file.description = description;
+                }}
               />
             );
           })}
