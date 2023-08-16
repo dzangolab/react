@@ -108,17 +108,17 @@ export const FilesTable = ({
       field: "uploadedBy",
       header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
       body: (data) => {
-        if (!data.updatedBy) {
+        if (!data.uploadedBy) {
           return <code>&#8212;</code>;
         }
 
-        if (data.updatedBy.givenName || data.updatedBy.lastName) {
-          return `${data.updatedBy.givenName || ""} ${
-            data.updatedBy.lastName || ""
+        if (data.uploadedBy.givenName || data.uploadedBy.lastName) {
+          return `${data.uploadedBy.givenName || ""} ${
+            data.uploadedBy.lastName || ""
           }`;
         }
 
-        return data.updatedBy.email;
+        return data.uploadedBy.email;
       },
     },
     {
