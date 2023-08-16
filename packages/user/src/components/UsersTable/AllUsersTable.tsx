@@ -67,7 +67,7 @@ export const AllUsersTable = ({
     ? [
         {
           field: "app",
-          header: t("invitations.table.defaultColumns.app"),
+          header: t("user:invitations.table.defaultColumns.app"),
           body: (data: { appId: any }) => {
             return <span>{data.appId || "-"} </span>;
           },
@@ -141,7 +141,7 @@ export const AllUsersTable = ({
     ...extraColumns,
     {
       field: "invitedBy",
-      header: t("invitations.table.defaultColumns.invitedBy"),
+      header: t("user:invitations.table.defaultColumns.invitedBy"),
       body: (data) => {
         if (!data.invitedBy) {
           return <code>&#8212;</code>;
@@ -159,7 +159,7 @@ export const AllUsersTable = ({
     },
     {
       field: "actions",
-      header: t("invitations.table.defaultColumns.actions"),
+      header: t("user:invitations.table.defaultColumns.actions"),
       body: (data) => {
         return (
           <>
