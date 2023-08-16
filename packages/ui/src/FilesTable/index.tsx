@@ -29,6 +29,9 @@ export type FilesTableProperties = {
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
   translationMessage?: Messages;
+  onDownload?: (arguments_: any) => void;
+  onDelete?: (arguments_: any) => void;
+  onDescription?: (arguments_: any) => void;
 };
 
 export const FilesTable = ({
@@ -42,22 +45,33 @@ export const FilesTable = ({
   extraColumns = [],
   fetchFiles,
   translationMessage,
+  onDownload,
+  onDelete,
+  onDescription,
 }: FilesTableProperties) => {
-  const actionItems: MenuItem[] = [
-    {
+  const actionItems: MenuItem[] = [];
+
+  if (onDownload) {
+    actionItems.push({
       label: translationMessage?.downloadAction || "Download",
       icon: "pi pi-download",
-    },
-    {
+      command: onDownload,
+    });
+  }
+
+  if (onDelete) {
+    actionItems.push({
       label: translationMessage?.deleteAction || "Delete",
       icon: "pi pi-trash",
-    },
-  ];
+      command: onDelete,
+    });
+  }
 
-  if (showDescriptionColumn) {
+  if (showDescriptionColumn && onDescription) {
     actionItems.push({
       label: translationMessage?.editDescriptionAction || "Edit",
       icon: "pi pi-pencil",
+      command: onDescription,
     });
   }
 

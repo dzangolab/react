@@ -11,11 +11,12 @@ import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { TabbedPanel } from "./TabbedPanel";
+
 export * from "./Buttons";
 export * from "./DataTable";
+export * from "./FilesTable";
 export * from "./Table";
 export * from "./utils";
-export * from "./FilesTable";
 
 export {
   Accordion,
