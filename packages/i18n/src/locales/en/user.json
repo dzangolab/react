@@ -45,9 +45,6 @@
   },
   "firstUser": {
     "title": "Register first user",
-    "errors": {
-      "notFirstUser": "First admin has already signed up. If this was not expected, please contact developer team"
-    },
     "login": {
       "messages": {
         "error": "Automatic login failed. Redirecting to login page for manual login"
