@@ -23,7 +23,7 @@ const baseStyle = {
   display: "flex",
   flexDirection: "column" as const,
   alignItems: "center",
-  padding: "20px",
+  padding: "30px 20px",
   borderWidth: 2,
   borderRadius: 2,
   borderColor: "#eeeeee",

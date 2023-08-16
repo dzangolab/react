@@ -75,6 +75,7 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
           icon="pi pi-times"
           severity="danger"
           size="small"
+          text
         ></Button>
       )}
     </li>
