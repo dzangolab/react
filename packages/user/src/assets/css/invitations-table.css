@@ -15,9 +15,9 @@
 }
 
 .table-invitations .column-signedUpAt {
-  width: 15rem;
-  max-width: 15rem;
-  min-width: 15rem;
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
 }
 
 .table-invitations .column-invitedBy {
