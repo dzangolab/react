@@ -8,7 +8,7 @@ import {
 import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import {
   InvitationAppOption,
@@ -60,6 +60,20 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     }
   }, [filteredRoles]);
 
+  const updatedApps = useMemo(() => {
+    let modifiedApps = apps || [];
+    const currentOrigin = window.location.origin;
+
+    const appToMove = modifiedApps.find((app) => app.origin === currentOrigin);
+
+    if (appToMove) {
+      modifiedApps = modifiedApps.filter((app) => app.origin !== currentOrigin);
+      modifiedApps = [{ ...appToMove, name: "This app" }, ...modifiedApps];
+    }
+
+    return modifiedApps;
+  }, [apps]);
+
   return (
     <>
       <Email
@@ -76,11 +90,11 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           name="app"
           label={t("invitation.form.app.label")}
           placeholder={t("invitation.form.app.placeholder")}
-          options={apps}
+          options={updatedApps}
         />
       ) : null}
 
-      {filteredRoles?.length ? (
+      {apps?.length ? (
         <RolePicker
           name="role"
           label={t("invitation.form.role.label")}
