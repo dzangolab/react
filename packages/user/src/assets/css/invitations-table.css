@@ -1,0 +1,33 @@
+.table-invitations .column-email {
+  min-width: 30rem;
+}
+
+.table-invitations .column-roles {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.table-invitations .column-signedUpAt {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.table-invitations .column-invitedBy {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.table-invitations .column-expiresAt {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.table-invitations .column-actions {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
