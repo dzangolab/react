@@ -2,7 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { getIsFirstUser, signUpFirstUser } from "@/api/user";
@@ -22,7 +22,6 @@ const SignUpFirstUser = () => {
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isFirstUser, setIsFirstUser] = useState<boolean>(false);
 
   const [signUpFirstUserLoading, setSignUpFirstUserLoading] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
@@ -32,7 +31,9 @@ const SignUpFirstUser = () => {
   useEffect(() => {
     getIsFirstUser(appConfig?.apiBaseUrl || "")
       .then((response) => {
-        setIsFirstUser(response.signUp);
+        if (!response?.signUp) {
+          navigate(appConfig.user.routes?.login?.path || ROUTES.LOGIN);
+        }
       })
       .catch(() => {
         setIsError(true);
@@ -43,10 +44,6 @@ const SignUpFirstUser = () => {
   }, []);
 
   const handleSubmit = (credentials: LoginCredentials) => {
-    if (!isFirstUser) {
-      return;
-    }
-
     setSignUpFirstUserLoading(true);
 
     signUpFirstUser(credentials, appConfig?.apiBaseUrl || "")
@@ -65,7 +62,6 @@ const SignUpFirstUser = () => {
           })
           .catch((error: any) => {
             setLoginLoading(false);
-
             toast.error(t("firstUser.login.messages.error"));
             navigate(appConfig.user.routes?.login?.path || ROUTES.LOGIN);
           })
@@ -84,22 +80,6 @@ const SignUpFirstUser = () => {
       return (
         <Card>
           <p>{t(`errors:errors.otherErrors`)}</p>
-        </Card>
-      );
-    }
-
-    if (!isFirstUser) {
-      return (
-        <Card>
-          <p>{t(`firstUser.errors.notFirstUser`)}</p>
-          <div className="links">
-            <Link
-              to={appConfig.user.routes?.login?.path || ROUTES.LOGIN}
-              className="native-link"
-            >
-              {t("firstUser.links.login")}
-            </Link>
-          </div>
         </Card>
       );
     }
