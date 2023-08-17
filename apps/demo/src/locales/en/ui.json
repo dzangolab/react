@@ -8,8 +8,19 @@
     "export": "Export XLSX",
     "submit": "Submit button"
   },
-  "responsiveMenu": "Responsive menu",
-  "files":{
-    "table":"Files table"
+  "responsiveMenu": "Responsive Menu",
+  "table": {
+    "title": {
+      "localDataTable": "Local data table"
+    },
+    "headers": {
+      "userName": "User name",
+      "email": "Email",
+      "roles": "Roles",
+      "age": "Age"
+    }
+  },
+  "files": {
+    "table": "Files table"
   }
 }

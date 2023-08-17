@@ -10,6 +10,7 @@ import FacadeExample from "./Facades/Example";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 
 const componentList = [
   {
@@ -59,6 +60,11 @@ const componentList = [
   },
   {
     key: 6,
+    title: "table.title.localDataTable",
+    component: <LocalDataTable />,
+  },
+  {
+    key: 7,
     title: "files.table",
     component: (
       <FilesTable
