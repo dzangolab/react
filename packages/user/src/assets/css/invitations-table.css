@@ -3,9 +3,9 @@
 }
 
 .table-invitations .column-app {
-  width: 5rem;
-  max-width: 5rem;
-  min-width: 5rem;
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
 }
 
 .table-invitations .column-role {
@@ -15,15 +15,15 @@
 }
 
 .table-invitations .column-signedUpAt {
-  width: 10rem;
-  max-width: 10rem;
-  min-width: 10rem;
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
 }
 
 .table-invitations .column-invitedBy {
-  width: 10rem;
-  max-width: 10rem;
-  min-width: 10rem;
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
 }
 
 .table-invitations .column-expiresAt {
