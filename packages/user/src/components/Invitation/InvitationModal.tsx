@@ -41,6 +41,7 @@ export const InvitationModal = ({
         onClick={() => setModalVisible(true)}
       />
       <Dialog
+        className="invitation-modal"
         contentStyle={{ overflowY: "visible" }}
         header={t("invitation.modal.dialog.header")}
         visible={modalVisible}
