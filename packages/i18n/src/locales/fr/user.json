@@ -218,7 +218,8 @@
       "revoke": {
         "message": "Are you sure you want to revoke? (fr)"
       }
-    }
+    },
+    "thisApp": "This app (fr)"
   },
   "invitations": {
     "errors": {

@@ -68,7 +68,10 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
     if (appToMove) {
       modifiedApps = modifiedApps.filter((app) => app.origin !== currentOrigin);
-      modifiedApps = [{ ...appToMove, name: "This app" }, ...modifiedApps];
+      modifiedApps = [
+        { ...appToMove, name: t("invitation.thisApp") },
+        ...modifiedApps,
+      ];
     }
 
     return modifiedApps;
@@ -94,7 +97,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         />
       ) : null}
 
-      {apps?.length ? (
+      {apps?.length || roles?.length ? (
         <RolePicker
           name="role"
           label={t("invitation.form.role.label")}
