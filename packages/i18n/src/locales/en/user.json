@@ -38,10 +38,24 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       }
     },
     "title": "Forget Password"
+  },
+  "firstUser": {
+    "title": "Register first user",
+    "login": {
+      "messages": {
+        "error": "Automatic login failed. Redirecting to login page for manual login"
+      }
+    },
+    "signup": {
+      "messages": {
+        "error": "Error signing up first user",
+        "success": "Succefully added first admin user. Automatically logging in ..."
+      }
+    }
   },
   "login": {
     "form": {
@@ -50,7 +64,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Your password"
@@ -83,7 +97,7 @@
       },
       "email": {
         "label": "Your email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Your password"
@@ -161,7 +175,7 @@
       },
       "email": {
         "label": "Email",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "role": {
         "label": "Role",
@@ -219,9 +233,9 @@
         "invitedBy": "Invited by",
         "expiresAt": "Expires at",
         "actions": "Actions",
-        "app":"App"
+        "app": "App"
       },
-      "searchPlaceholder": "john.doe.at.example.com",
+      "searchPlaceholder": "",
       "emptyMessage": "Table is empty",
       "title": "Invitations"
     }

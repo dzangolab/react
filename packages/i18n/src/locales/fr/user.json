@@ -38,10 +38,24 @@
       },
       "email": {
         "label": "Your email (fr)",
-        "placeholder": "john.doe.at.example.com (fr)"
+        "placeholder": ""
       }
     },
     "title": "Forget Password (fr)"
+  },
+  "firstUser": {
+    "title": "Register first user (fr)",
+    "login": {
+      "messages": {
+        "error": "Automatic login failed. Redirecting to login page for manual login (fr)"
+      }
+    },
+    "signup": {
+      "messages": {
+        "error": "Error signing up first user (fr)",
+        "success": "Succefully added first admin user. Automatically logging in ... (fr)"
+      }
+    }
   },
   "login": {
     "form": {
@@ -50,7 +64,7 @@
       },
       "email": {
         "label": "Votre adresse mail",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "votre mot de passe"
@@ -103,7 +117,7 @@
       },
       "email": {
         "label": "Votre adresse e-mail",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Votre mot de passe"
@@ -160,7 +174,7 @@
       },
       "email": {
         "label": "Email (fr)",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "role": {
         "label": "Role (fr)",
@@ -220,7 +234,7 @@
         "actions": "Actions (fr)",
         "app": "App (fr)"
       },
-      "searchPlaceholder": "john.doe.at.example.com (fr)",
+      "searchPlaceholder": "",
       "emptyMessage": "Table is empty (fr)",
       "title": "Invitations (fr)"
     }

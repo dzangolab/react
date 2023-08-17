@@ -6,7 +6,7 @@
   "loading": "Loading",
   "buttons": {
     "export": "Export XLSX",
-    "submit": "Submit Button"
+    "submit": "Submit button"
   },
   "responsiveMenu": "Responsive Menu",
   "table": {
@@ -19,5 +19,8 @@
       "roles": "Roles",
       "age": "Age"
     }
+  },
+  "files": {
+    "table": "Files table"
   }
 }
