@@ -155,7 +155,9 @@ export const FilesTable = ({
         "Last downloaded at",
       hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
-        return data.lastDownloadedAt;
+        const date = new Date(data.lastDownloadedAt);
+
+        return date.toLocaleDateString("en-GB");
       },
     },
     {
