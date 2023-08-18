@@ -84,6 +84,7 @@ export const UsersTable = ({
     },
 
     {
+      align: "center",
       field: "roles",
       header: t("table.defaultColumns.roles"),
       hidden: !visibleColumns.includes("roles"),
@@ -103,7 +104,6 @@ export const UsersTable = ({
           </>
         );
       },
-      align: "center",
     },
     ...extraColumns,
     {

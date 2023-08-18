@@ -131,13 +131,13 @@ export const FilesTable = ({
       },
     },
     {
+      align: "center",
       field: "actions",
       header: translationMessage?.actionsColumnHeader || "Actions",
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
-      align: "center",
     },
   ];
 
