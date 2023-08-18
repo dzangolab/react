@@ -51,7 +51,7 @@ export const FilesTable = ({
   extraColumns = [],
   fetchFiles,
   translationMessage,
-  visibleColumns,
+  visibleColumns = ["file", "uploadedBy", "uploadedAt", "actions"],
   onDownload,
   onDelete,
   onEditDescription,

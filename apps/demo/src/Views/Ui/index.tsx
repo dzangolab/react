@@ -75,13 +75,6 @@ const componentList = [
             uploadedAt: Date.now(),
           },
         ]}
-        visibleColumns={[
-          "file",
-          "description",
-          "uploadedBy",
-          "uploadedAt",
-          "actions",
-        ]}
       />
     ),
   },

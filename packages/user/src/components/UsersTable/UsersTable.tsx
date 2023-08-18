@@ -52,7 +52,7 @@ export const UsersTable = ({
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns,
+  visibleColumns = ["name", "email", "roles", "signedUpAt"],
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 

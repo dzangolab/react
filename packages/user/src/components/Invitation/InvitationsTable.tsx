@@ -5,9 +5,7 @@ import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
-
 import { InvitationActions } from "./InvitationActions";
-
 import { InvitationModal } from ".";
 
 import type {
@@ -65,7 +63,14 @@ export const InvitationsTable = ({
   roles,
   showInviteAction = true,
   totalRecords = 0,
-  visibleColumns,
+  visibleColumns = [
+    "email",
+    "app",
+    "role",
+    "invitedBy",
+    "expiresAt",
+    "actions",
+  ],
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
