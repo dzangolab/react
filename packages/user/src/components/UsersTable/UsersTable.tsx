@@ -15,6 +15,8 @@ import type {
   InvitationRoleOption,
 } from "@/types";
 
+type VisibleColumn = "name" | "email" | "roles" | "signedUpAt";
+
 export type UsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -31,7 +33,7 @@ export type UsersTableProperties = {
   showInviteAction?: boolean;
   totalRecords?: number;
   users: Array<object>;
-  visibleColumns?: Array<string>;
+  visibleColumns?: VisibleColumn[];
 };
 
 export const UsersTable = ({
@@ -50,7 +52,7 @@ export const UsersTable = ({
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns = ["name", "email", "roles", "signedUpAt"],
+  visibleColumns ,
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -62,7 +64,7 @@ export const UsersTable = ({
     {
       field: "name",
       header: t("table.defaultColumns.name"),
-      hidden: !visibleColumns.includes("name"),
+      hidden: !visibleColumns?.includes("name"),
       sortable: false,
       body: (data) => {
         return (
@@ -75,7 +77,7 @@ export const UsersTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumns.includes("email"),
+      hidden: !visibleColumns?.includes("email"),
       sortable: true,
       filter: true,
       filterPlaceholder: t("table.searchPlaceholder"),
@@ -87,7 +89,7 @@ export const UsersTable = ({
       align: "center",
       field: "roles",
       header: t("table.defaultColumns.roles"),
-      hidden: !visibleColumns.includes("roles"),
+      hidden: !visibleColumns?.includes("roles"),
       body: (data) => {
         return (
           <>
@@ -109,7 +111,7 @@ export const UsersTable = ({
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      hidden: !visibleColumns.includes("signedUpAt"),
+      hidden: !visibleColumns?.includes("signedUpAt"),
       body: (data) => {
         const date = new Date(data.signedUpAt);
 
