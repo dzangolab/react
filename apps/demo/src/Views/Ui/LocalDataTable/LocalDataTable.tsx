@@ -1,5 +1,5 @@
-import { useTranslation } from "@dzangolab/react-i18n";
 import { DataTable } from "@dzangolab/react-ui";
+import { useTranslation } from "@dzangolab/react-i18n";
 import { Tag } from "primereact/tag";
 
 import type { ColumnProps } from "primereact/column";
