@@ -145,7 +145,7 @@ export const FilesTable = ({
       header: translationMessage?.downloadCountColumnHeader || "Download count",
       hidden: !visibleColumns.includes("downloadCount"),
       body: (data) => {
-        return data.description;
+        return data.downloadCount;
       },
     },
     {
@@ -155,7 +155,7 @@ export const FilesTable = ({
         "Last downloaded at",
       hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
-        return data.description;
+        return data.lastDownloadedAt;
       },
     },
     {
