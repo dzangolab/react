@@ -69,7 +69,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     if (appToMove) {
       modifiedApps = modifiedApps.filter((app) => app.origin !== currentOrigin);
       modifiedApps = [
-        { ...appToMove, name: t("invitation.thisApp") },
+        { ...appToMove, name: t("app:thisApp") },
         ...modifiedApps,
       ];
     }
