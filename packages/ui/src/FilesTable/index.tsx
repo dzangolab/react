@@ -95,14 +95,14 @@ export const FilesTable = ({
       filter: true,
       filterPlaceholder:
         translationMessage?.searchPlaceholder || "File name example",
-      hidden: !visibleColumns?.includes("file"),
+      hidden: !visibleColumns.includes("file"),
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
       header: translationMessage?.descriptionColumnHeader || "Description",
-      hidden: !visibleColumns?.includes("description"),
+      hidden: !visibleColumns.includes("description"),
       body: (data) => {
         return data.description;
       },
@@ -111,7 +111,7 @@ export const FilesTable = ({
     {
       field: "uploadedBy",
       header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
-      hidden: !visibleColumns?.includes("uploadedBy"),
+      hidden: !visibleColumns.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -129,7 +129,7 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
-      hidden: !visibleColumns?.includes("uploadedAt"),
+      hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
         const date = new Date(data.uploadedAt);
 
@@ -140,7 +140,7 @@ export const FilesTable = ({
       align: "center",
       field: "actions",
       header: translationMessage?.actionsColumnHeader || "Actions",
-      hidden: !visibleColumns?.includes("actions"),
+      hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
