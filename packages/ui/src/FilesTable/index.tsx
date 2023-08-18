@@ -19,6 +19,13 @@ type Messages = {
   tableEmpty?: string;
 };
 
+type VisibleColumn =
+  | "file"
+  | "description"
+  | "uploadedBy"
+  | "uploadedAt"
+  | "actions";
+
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
@@ -32,7 +39,7 @@ export type FilesTableProperties = {
   onEditDescription?: (arguments_: any) => void;
   totalRecords?: number;
   translationMessage?: Messages;
-  visibleColumns?: Array<string>;
+  visibleColumns?: VisibleColumn[];
 };
 
 export const FilesTable = ({
@@ -45,7 +52,7 @@ export const FilesTable = ({
   extraColumns = [],
   fetchFiles,
   translationMessage,
-  visibleColumns = ["file", "uploadedBy", "uploadedAt", "actions"],
+  visibleColumns,
   onDownload,
   onDelete,
   onEditDescription,
@@ -60,7 +67,7 @@ export const FilesTable = ({
     });
   }
 
-  if (visibleColumns.includes("description") && onEditDescription) {
+  if (visibleColumns?.includes("description") && onEditDescription) {
     actionItems.push({
       label: translationMessage?.editDescriptionAction || "Edit description",
       icon: "pi pi-pencil",
@@ -89,14 +96,14 @@ export const FilesTable = ({
       filter: true,
       filterPlaceholder:
         translationMessage?.searchPlaceholder || "File name example",
-      hidden: !visibleColumns.includes("file"),
+      hidden: !visibleColumns?.includes("file"),
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
       header: translationMessage?.descriptionColumnHeader || "Description",
-      hidden: !visibleColumns.includes("description"),
+      hidden: !visibleColumns?.includes("description"),
       body: (data) => {
         return data.description;
       },
@@ -105,7 +112,7 @@ export const FilesTable = ({
     {
       field: "uploadedBy",
       header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
-      hidden: !visibleColumns.includes("uploadedBy"),
+      hidden: !visibleColumns?.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -123,7 +130,7 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
-      hidden: !visibleColumns.includes("uploadedAt"),
+      hidden: !visibleColumns?.includes("uploadedAt"),
       body: (data) => {
         const date = new Date(data.uploadedAt);
 
@@ -134,7 +141,7 @@ export const FilesTable = ({
       align: "center",
       field: "actions",
       header: translationMessage?.actionsColumnHeader || "Actions",
-      hidden: !visibleColumns.includes("actions"),
+      hidden: !visibleColumns?.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
