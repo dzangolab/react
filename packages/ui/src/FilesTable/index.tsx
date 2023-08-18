@@ -11,6 +11,8 @@ type Messages = {
   deleteAction?: string;
   filenameColumnHeader?: string;
   descriptionColumnHeader?: string;
+  downloadCountHeader?: string;
+  lastDownloadedAtHeader?: string;
   uploadedByColumnHeader?: string;
   uploadedAtColumnHeader?: string;
   actionsColumnHeader?: string;
@@ -103,6 +105,23 @@ export const FilesTable = ({
       field: "description",
       header: translationMessage?.descriptionColumnHeader || "Description",
       hidden: !visibleColumns.includes("description"),
+      body: (data) => {
+        return data.description;
+      },
+    },
+    {
+      field: "downloadCount",
+      header: translationMessage?.downloadCountHeader || "Download count",
+      hidden: !visibleColumns.includes("downloadCount"),
+      body: (data) => {
+        return data.description;
+      },
+    },
+    {
+      field: "lastDownloadedAt",
+      header:
+        translationMessage?.lastDownloadedAtHeader || "Last downloaded at",
+      hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
         return data.description;
       },
