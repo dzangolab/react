@@ -11,5 +11,6 @@
   "footer": {
     "copyright": "All rights reserved."
   },
-  "loading": "Loading ..."
+  "loading": "Loading ...",
+  "thisApp": "This app"
 }

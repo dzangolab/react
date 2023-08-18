@@ -42,7 +42,7 @@ export const AppPickerBasic = ({
         optionLabel="name"
         placeholder={placeholder}
         options={options}
-        disabled={options?.length === 1 ? true : false}
+        disabled={!options?.length || options.length === 1}
         focusInputRef={inputRef}
         onChange={(event) => onChange(event.value)}
         className={classNames({ "p-invalid": error })}
