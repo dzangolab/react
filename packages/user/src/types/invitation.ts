@@ -43,7 +43,7 @@ export interface AdditionalInvitationFields {
 }
 
 export interface InvitationExpiryDateField {
-  calender: boolean;
+  calendar: boolean;
 }
 
 export type RenderAdditionalInvitationFields = (

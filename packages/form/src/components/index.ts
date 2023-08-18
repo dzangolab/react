@@ -2,6 +2,7 @@ import { useForm, useFormContext, useWatch } from "react-hook-form";
 
 export * from "./AppPicker";
 export * from "./DatePicker";
+export * from "./DateInput";
 export * from "./Email";
 export * from "./ErrorMessage";
 export * from "./Form";
