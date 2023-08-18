@@ -23,6 +23,8 @@ type Messages = {
 type VisibleColumn =
   | "file"
   | "description"
+  | "downloadCount"
+  | "lastDownloadedAt"
   | "uploadedBy"
   | "uploadedAt"
   | "actions";
