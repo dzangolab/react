@@ -66,7 +66,7 @@ export const FilesTable = ({
     });
   }
 
-  if (visibleColumns?.includes("description") && onEditDescription) {
+  if (visibleColumns.includes("description") && onEditDescription) {
     actionItems.push({
       label: translationMessage?.editDescriptionAction || "Edit description",
       icon: "pi pi-pencil",
