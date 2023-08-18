@@ -1,14 +1,23 @@
-import { Controller, useFormContext } from "react-hook-form";
-import { DatePickerBasic } from "./DatePickerBasic";
 import { FC } from "react";
+import { Controller, useFormContext } from "react-hook-form";
+
+import { DatePickerBasic } from "./DatePickerBasic";
 
 export interface DatePicker {
   label?: string;
   name: string;
+  maxDate?: Date;
+  minDate?: Date;
   placeholder?: string;
 }
 
-const DatePicker: FC<DatePicker> = ({ label, name, placeholder }) => {
+export const DatePicker: FC<DatePicker> = ({
+  label,
+  name,
+  maxDate,
+  minDate,
+  placeholder,
+}) => {
   const { control, getFieldState } = useFormContext();
   const { error } = getFieldState(name);
   return (
@@ -20,6 +29,8 @@ const DatePicker: FC<DatePicker> = ({ label, name, placeholder }) => {
           <DatePickerBasic
             inputRef={field.ref}
             name={name}
+            maxDate={maxDate}
+            minDate={minDate}
             onChange={field.onChange}
             error={error}
             label={label}
@@ -31,5 +42,3 @@ const DatePicker: FC<DatePicker> = ({ label, name, placeholder }) => {
     </>
   );
 };
-
-export default DatePicker;

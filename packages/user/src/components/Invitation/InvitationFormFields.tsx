@@ -1,5 +1,6 @@
 import {
   AppPicker,
+  DatePicker,
   Email,
   RolePicker,
   useFormContext,
@@ -9,9 +10,11 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React, { useEffect, useState } from "react";
+import { date } from "zod";
 
 import {
   InvitationAppOption,
+  InvitationExpiryDateField,
   InvitationRoleOption,
   RenderAdditionalInvitationFields,
 } from "@/types";
@@ -19,6 +22,7 @@ import {
 interface IProperties {
   renderAdditionalFields?: RenderAdditionalInvitationFields;
   apps?: InvitationAppOption[];
+  expiryDateField?: InvitationExpiryDateField;
   loading?: boolean;
   onCancel?: () => void;
   roles?: InvitationRoleOption[];
@@ -26,6 +30,7 @@ interface IProperties {
 export const InvitationFormFields: React.FC<IProperties> = ({
   renderAdditionalFields,
   apps,
+  expiryDateField,
   roles,
   loading,
   onCancel,
@@ -90,6 +95,16 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       ) : null}
 
       {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
+
+      {expiryDateField?.calender ? (
+        <DatePicker
+          key="calender"
+          name="expiresAt"
+          minDate={new Date()}
+          label="Expires At"
+          placeholder="Select a date"
+        />
+      ) : null}
 
       <div className="actions">
         {onCancel && (

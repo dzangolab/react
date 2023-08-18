@@ -14,11 +14,13 @@ import type {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  InvitationExpiryDateField,
 } from "@/types";
 
 interface Properties {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
+  expiryDateField?: InvitationExpiryDateField;
   onCancel?: () => void;
   onSubmitted?: (response: AddInvitationResponse) => void; // afterSubmit
   prepareData?: (rawFormData: any) => any;
@@ -28,6 +30,7 @@ interface Properties {
 export const InvitationForm = ({
   additionalInvitationFields,
   apps,
+  expiryDateField,
   onSubmitted,
   onCancel,
   prepareData,
@@ -51,6 +54,10 @@ export const InvitationForm = ({
       filteredRoles = app.supportedRoles;
     }
 
+    if (expiryDateField) {
+      defaultValues.expiresAt = null;
+    }
+
     if (filteredRoles?.length === 1) {
       defaultValues.role = filteredRoles[0];
     }
@@ -63,16 +70,25 @@ export const InvitationForm = ({
     }
 
     return defaultValues;
-  }, [apps, roles, additionalInvitationFields?.defaultValues]);
+  }, [apps, roles, additionalInvitationFields?.defaultValues, expiryDateField]);
 
   const getFormData = (data: any) => {
-    const parsedData: { email: string; role: string; appId?: number } = {
+    const parsedData: {
+      email: string;
+      role: string;
+      appId?: number;
+      expiresAt?: Date;
+    } = {
       email: data.email,
       role: data.role?.name,
     };
 
     if (data.app?.id) {
       parsedData.appId = data.app.id;
+    }
+
+    if (data.expiresAt) {
+      parsedData.expiresAt = data.expiresAt;
     }
 
     return parsedData;
@@ -133,6 +149,15 @@ export const InvitationForm = ({
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
   }
 
+  if (expiryDateField) {
+    const ExpiresAtFormSchema = zod.object(
+      { expiresAt: zod.date() },
+      { required_error: "Date is required" },
+    );
+
+    InvitationFormSchema = InvitationFormSchema.merge(ExpiresAtFormSchema);
+  }
+
   if (additionalInvitationFields?.schema) {
     InvitationFormSchema = InvitationFormSchema.merge(
       additionalInvitationFields.schema,
@@ -148,6 +173,7 @@ export const InvitationForm = ({
       <InvitationFormFields
         renderAdditionalFields={additionalInvitationFields?.renderFields}
         apps={apps}
+        expiryDateField={expiryDateField}
         loading={submitting}
         onCancel={onCancel}
         roles={roles}

@@ -1,14 +1,17 @@
-import { FC } from "react";
 import { Calendar } from "primereact/calendar";
-import { classNames } from "primereact/utils";
-import { ErrorMessage } from "../ErrorMessage";
 import { Nullable } from "primereact/ts-helpers";
+import { classNames } from "primereact/utils";
+import { FC } from "react";
+
+import { ErrorMessage } from "../ErrorMessage";
 
 export interface DatePickerBasicProperties {
   error?: any;
   inputRef: React.Ref<HTMLInputElement>;
   label?: string;
   name: string;
+  maxDate?: Date;
+  minDate?: Date;
   placeholder?: string;
   onChange: (value: Nullable<string | Date | Date[]>) => void;
   value: Date;
@@ -19,6 +22,8 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
   inputRef,
   label,
   name,
+  maxDate,
+  minDate,
   placeholder,
   onChange,
   value,
@@ -33,7 +38,9 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
         inputRef={inputRef}
         onChange={(event) => onChange(event.value)}
         className={classNames({ "p-invalid": error })}
-        appendTo="self"
+        panelClassName={name}
+        maxDate={maxDate}
+        minDate={minDate}
       />
 
       {error?.message && <ErrorMessage message={error.message} />}
