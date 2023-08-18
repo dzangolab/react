@@ -11,8 +11,8 @@ type Messages = {
   deleteAction?: string;
   filenameColumnHeader?: string;
   descriptionColumnHeader?: string;
-  downloadCountHeader?: string;
-  lastDownloadedAtHeader?: string;
+  downloadCountColumnHeader?: string;
+  lastDownloadedAtColumnHeader?: string;
   uploadedByColumnHeader?: string;
   uploadedAtColumnHeader?: string;
   actionsColumnHeader?: string;
@@ -23,10 +23,10 @@ type Messages = {
 type VisibleColumn =
   | "file"
   | "description"
-  | "downloadCount"
-  | "lastDownloadedAt"
   | "uploadedBy"
   | "uploadedAt"
+  | "downloadCount"
+  | "lastDownloadedAt"
   | "actions";
 
 export type FilesTableProperties = {
@@ -111,23 +111,6 @@ export const FilesTable = ({
         return data.description;
       },
     },
-    {
-      field: "downloadCount",
-      header: translationMessage?.downloadCountHeader || "Download count",
-      hidden: !visibleColumns.includes("downloadCount"),
-      body: (data) => {
-        return data.description;
-      },
-    },
-    {
-      field: "lastDownloadedAt",
-      header:
-        translationMessage?.lastDownloadedAtHeader || "Last downloaded at",
-      hidden: !visibleColumns.includes("lastDownloadedAt"),
-      body: (data) => {
-        return data.description;
-      },
-    },
     ...extraColumns,
     {
       field: "uploadedBy",
@@ -155,6 +138,24 @@ export const FilesTable = ({
         const date = new Date(data.uploadedAt);
 
         return date.toLocaleDateString("en-GB");
+      },
+    },
+    {
+      field: "downloadCount",
+      header: translationMessage?.downloadCountColumnHeader || "Download count",
+      hidden: !visibleColumns.includes("downloadCount"),
+      body: (data) => {
+        return data.description;
+      },
+    },
+    {
+      field: "lastDownloadedAt",
+      header:
+        translationMessage?.lastDownloadedAtColumnHeader ||
+        "Last downloaded at",
+      hidden: !visibleColumns.includes("lastDownloadedAt"),
+      body: (data) => {
+        return data.description;
       },
     },
     {
