@@ -22,17 +22,17 @@ type Messages = {
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
-  id?: string;
-  loading?: boolean;
-  files: Array<object>;
-  totalRecords?: number;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  translationMessage?: Messages;
-  visibleColumns?: Array<string>;
+  files: Array<object>;
+  id?: string;
+  loading?: boolean;
   onDownload?: (arguments_: any) => void;
   onDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
+  totalRecords?: number;
+  translationMessage?: Messages;
+  visibleColumns?: Array<string>;
 };
 
 export const FilesTable = ({
