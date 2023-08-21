@@ -13,8 +13,8 @@ type Message = {
 
 type FileCardType = {
   file?: IFile;
-  handleDownload?: () => void;
-  handleView?: () => void;
+  handleDownload: (arguments_: any) => void;
+  handleView?: (arguments_: any) => void;
   showDescription?: boolean;
   translationMessage?: Message;
 };
