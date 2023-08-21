@@ -1,0 +1,21 @@
+.table-localdata .column-email {
+  min-width: 30rem;
+  width: 30rem;
+  max-width: 30rem;
+}
+
+.table-localdata .column-userName {
+  min-width: 25rem;
+}
+
+.table-localdata .column-roles {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.table-localdata .column-age {
+  width: 7rem;
+  max-width: 7rem;
+  min-width: 7rem;
+}
