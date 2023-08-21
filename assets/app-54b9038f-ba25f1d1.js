@@ -1,1 +1,0 @@
-const o={menu:{about:"A propos de nous",home:"Accueil",profile:"Profil",login:"Connexion",logout:"Déconnexion"}},e={copyright:"Tous droits réservés."},n="Loading[fr] ...",r={header:o,footer:e,loading:n};export{r as default,e as footer,o as header,n as loading};
