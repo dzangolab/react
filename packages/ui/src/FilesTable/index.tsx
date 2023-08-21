@@ -12,6 +12,8 @@ type Messages = {
   deleteAction?: string;
   filenameColumnHeader?: string;
   descriptionColumnHeader?: string;
+  downloadCountColumnHeader?: string;
+  lastDownloadedAtColumnHeader?: string;
   uploadedByColumnHeader?: string;
   uploadedAtColumnHeader?: string;
   actionsColumnHeader?: string;
@@ -19,20 +21,38 @@ type Messages = {
   tableEmpty?: string;
 };
 
+type VisibleColumn =
+  | "filename"
+  | "description"
+  | "uploadedBy"
+  | "uploadedAt"
+  | "downloadCount"
+  | "lastDownloadedAt"
+  | "actions";
+
+interface IFile {
+  filename: string;
+  description?: string;
+  uploadedBy: object;
+  uploadedAt: number;
+  downloadCount?: number;
+  lastDownloadedAt?: number;
+}
+
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
-  id?: string;
-  loading?: boolean;
-  files: Array<object>;
-  totalRecords?: number;
-  showDescriptionColumn?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  translationMessage?: Messages;
+  files: Array<IFile>;
+  id?: string;
+  loading?: boolean;
   onDownload?: (arguments_: any) => void;
   onDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
+  totalRecords?: number;
+  translationMessage?: Messages;
+  visibleColumns?: VisibleColumn[];
 };
 
 export const FilesTable = ({
@@ -42,10 +62,10 @@ export const FilesTable = ({
   loading,
   files,
   totalRecords,
-  showDescriptionColumn,
   extraColumns = [],
   fetchFiles,
   translationMessage,
+  visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
   onDownload,
   onDelete,
   onEditDescription,
@@ -60,7 +80,7 @@ export const FilesTable = ({
     });
   }
 
-  if (showDescriptionColumn && onEditDescription) {
+  if (visibleColumns.includes("description") && onEditDescription) {
     actionItems.push({
       label: translationMessage?.editDescriptionAction || "Edit description",
       icon: "pi pi-pencil",
@@ -81,18 +101,6 @@ export const FilesTable = ({
     filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const descriptionColumn: Array<ColumnProps> = showDescriptionColumn
-    ? [
-        {
-          field: "description",
-          header: translationMessage?.descriptionColumnHeader || "Description",
-          body: (data) => {
-            return data.description;
-          },
-        },
-      ]
-    : [];
-
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
@@ -101,14 +109,23 @@ export const FilesTable = ({
       filter: true,
       filterPlaceholder:
         translationMessage?.searchPlaceholder || "File name example",
+      hidden: !visibleColumns.includes("filename"),
       showFilterMenu: false,
       showClearButton: false,
     },
-    ...descriptionColumn,
+    {
+      field: "description",
+      header: translationMessage?.descriptionColumnHeader || "Description",
+      hidden: !visibleColumns.includes("description"),
+      body: (data) => {
+        return data.description;
+      },
+    },
     ...extraColumns,
     {
       field: "uploadedBy",
       header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
+      hidden: !visibleColumns.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -126,6 +143,7 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
+      hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
         const date = new Date(data.uploadedAt);
 
@@ -133,12 +151,36 @@ export const FilesTable = ({
       },
     },
     {
+      field: "downloadCount",
+      header: translationMessage?.downloadCountColumnHeader || "Download count",
+      hidden: !visibleColumns.includes("downloadCount"),
+      body: (data) => {
+        return data.downloadCount;
+      },
+    },
+    {
+      field: "lastDownloadedAt",
+      header:
+        translationMessage?.lastDownloadedAtColumnHeader ||
+        "Last downloaded at",
+      hidden: !visibleColumns.includes("lastDownloadedAt"),
+      body: (data) => {
+        if (data.lastDownloadedAt) {
+          const date = new Date(data.lastDownloadedAt);
+
+          return date.toLocaleDateString("en-GB");
+        }
+        return <code>&#8212;</code>;
+      },
+    },
+    {
+      align: "center",
       field: "actions",
       header: translationMessage?.actionsColumnHeader || "Actions",
+      hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
-      align: "center",
     },
   ];
 
