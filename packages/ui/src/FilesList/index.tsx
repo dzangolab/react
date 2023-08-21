@@ -1,15 +1,19 @@
-import { FileCard, IFile } from "..";
+import { FileCard, IFile, Message } from "..";
 
 type FilesListType = {
   files: IFile[];
   handleView: (arguments_: IFile) => void;
   handleDownload: (arguments_: IFile) => void;
+  showDescription?: boolean;
+  translationMessage?: Message;
 };
 
 export const FilesList = ({
   files,
   handleView,
   handleDownload,
+  showDescription,
+  translationMessage,
 }: FilesListType) => {
   return files.map((file: IFile, index: number) => {
     return (
@@ -18,6 +22,8 @@ export const FilesList = ({
         file={file}
         handleView={(file) => handleView(file)}
         handleDownload={(file) => handleDownload(file)}
+        showDescription={showDescription}
+        translationMessage={translationMessage}
       />
     );
   });
