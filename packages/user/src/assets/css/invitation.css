@@ -1,22 +1,5 @@
-.invitation-modal .loading {
-  position: absolute;
-  left: -0.2rem;
-}
-
-.invitation-modal .form {
-  min-width: 24rem;
-}
-
 @media screen and (max-width: 576px) {
-  .invitation-modal .form {
-    min-width: 12rem;
-  }
-
   .invitation-modal .actions {
     flex-direction: column-reverse;
-  }
-
-  .invitation-modal .loading {
-    left: 0.5rem;
   }
 }
