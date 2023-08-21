@@ -21,7 +21,7 @@ type Messages = {
 };
 
 type VisibleColumn =
-  | "file"
+  | "fileName"
   | "description"
   | "uploadedBy"
   | "uploadedAt"
@@ -29,12 +29,21 @@ type VisibleColumn =
   | "lastDownloadedAt"
   | "actions";
 
+interface IFile {
+  fileName: string;
+  description?: string;
+  uploadedBy: string;
+  uploadedAt: string;
+  downloadCount?: number;
+  lastDownloadedAt?: string;
+}
+
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  files: Array<object>;
+  files: Array<IFile>;
   id?: string;
   loading?: boolean;
   onDownload?: (arguments_: any) => void;
@@ -55,7 +64,7 @@ export const FilesTable = ({
   extraColumns = [],
   fetchFiles,
   translationMessage,
-  visibleColumns = ["file", "uploadedBy", "uploadedAt", "actions"],
+  visibleColumns = ["fileName", "uploadedBy", "uploadedAt", "actions"],
   onDownload,
   onDelete,
   onEditDescription,
@@ -99,7 +108,7 @@ export const FilesTable = ({
       filter: true,
       filterPlaceholder:
         translationMessage?.searchPlaceholder || "File name example",
-      hidden: !visibleColumns.includes("file"),
+      hidden: !visibleColumns.includes("fileName"),
       showFilterMenu: false,
       showClearButton: false,
     },
