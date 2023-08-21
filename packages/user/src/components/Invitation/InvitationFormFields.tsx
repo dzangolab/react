@@ -99,19 +99,18 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       {expiryDateField?.calendar ? (
         <DatePicker
           key="calender"
-          name="expiresAt"
+          label={t("invitation.form.expiresAt.label")}
           minDate={new Date()}
-          label="Expires At"
-          placeholder="Select a date"
+          name="expiresAt"
+          placeholder={t("invitation.form.expiresAt.placeholder")}
         />
       ) : (
         <DateInput
-          key="input date"
-          name="expiresAt"
-          label="Expires After"
-          placeholder="Enter number of days"
-          register={register}
           getFieldState={getFieldState}
+          label={t("invitation.form.expiresAfter.label")}
+          name="expiresAt"
+          placeholder={t("invitation.form.expiresAfter.placeholder")}
+          register={register}
         />
       )}
 

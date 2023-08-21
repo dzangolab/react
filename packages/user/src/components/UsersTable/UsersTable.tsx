@@ -13,6 +13,7 @@ import type {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  InvitationExpiryDateField,
 } from "@/types";
 
 export type UsersTableProperties = {
@@ -20,10 +21,11 @@ export type UsersTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
+  extraColumns?: Array<ColumnProps>;
   fetchUsers: (arguments_?: any) => void;
   id?: string;
+  invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
-  extraColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   prepareInvitationData?: (data: any) => any;
@@ -38,10 +40,11 @@ export const UsersTable = ({
   apps,
   className = "table-users",
   columns,
+  extraColumns = [],
   fetchUsers,
   id = "table-users",
+  invitationExpiryDateField,
   inviteButtonIcon,
-  extraColumns = [],
   loading = false,
   onInvitationAdded,
   prepareInvitationData,
@@ -123,6 +126,7 @@ export const UsersTable = ({
           <InvitationModal
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
+            expiryDateField={invitationExpiryDateField}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}

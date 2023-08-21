@@ -15,6 +15,7 @@ import type {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  InvitationExpiryDateField,
 } from "@/types";
 
 export type InvitationsTableProperties = {
@@ -22,6 +23,7 @@ export type InvitationsTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
+  expiryDateField?: InvitationExpiryDateField;
   extraColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
   id?: string;
@@ -43,6 +45,7 @@ export const InvitationsTable = ({
   apps,
   className = "table-invitations",
   columns,
+  expiryDateField,
   fetchInvitations,
   id = "table-invitations",
   inviteButtonIcon,
@@ -161,6 +164,7 @@ export const InvitationsTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             buttonIcon={inviteButtonIcon}
+            expiryDateField={expiryDateField}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}
