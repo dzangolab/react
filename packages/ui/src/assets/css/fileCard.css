@@ -1,0 +1,8 @@
+.file-card {
+  width: 30rem;
+}
+
+.file-actions {
+  display: flex;
+  justify-content: space-between;
+}
