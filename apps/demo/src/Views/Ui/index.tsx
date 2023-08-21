@@ -4,6 +4,7 @@ import {
   ResponsiveMenu,
   FilesTable,
   FileCard,
+  FilesList,
 } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
@@ -92,6 +93,13 @@ const componentList = [
     key: 8,
     title: "file.card",
     component: <FileCard />,
+  },
+  {
+    key: 9,
+    title: "files.list",
+    component: (
+      <FilesList files={[]} handleDownload={() => {}} handleView={() => {}} />
+    ),
   },
 ];
 

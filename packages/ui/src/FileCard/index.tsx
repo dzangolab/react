@@ -53,7 +53,7 @@ export const FileCard = ({
         <div className="file-upload-details">
           <div className="uploaded-by">
             <span>{translationMessage?.uploadedbyHeader || "Uploaded by"}</span>
-            <span>{checkUploadedByData(file?.uploadedBy)}</span>
+            {/* <span>{checkUploadedByData(file?.uploadedBy)}</span> */}
           </div>
           <div className="uploaded-at">
             <span>{translationMessage?.uploadedAtHeader || "Uploaded at"}</span>

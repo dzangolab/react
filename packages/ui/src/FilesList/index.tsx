@@ -15,10 +15,10 @@ export const FilesList = ({
   showDescription,
   translationMessage,
 }: FilesListType) => {
-  return files.map((file: IFile, index: number) => {
+  return files.map((file: IFile) => {
     return (
       <FileCard
-        key={index}
+        key={file.filename}
         file={file}
         handleView={(file) => handleView(file)}
         handleDownload={(file) => handleDownload(file)}
