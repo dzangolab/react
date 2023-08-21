@@ -5,9 +5,7 @@ import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
-
 import { InvitationActions } from "./InvitationActions";
-
 import { InvitationModal } from ".";
 
 import type {
@@ -17,6 +15,14 @@ import type {
   InvitationRoleOption,
   InvitationExpiryDateField,
 } from "@/types";
+
+type VisibleColumn =
+  | "email"
+  | "app"
+  | "role"
+  | "invitedBy"
+  | "expiresAt"
+  | "actions";
 
 export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
@@ -38,6 +44,7 @@ export type InvitationsTableProperties = {
   showAppColumn?: boolean;
   showInviteAction?: boolean;
   totalRecords?: number;
+  visibleColumns?: VisibleColumn[];
 };
 
 export const InvitationsTable = ({
@@ -46,6 +53,7 @@ export const InvitationsTable = ({
   className = "table-invitations",
   columns,
   expiryDateField,
+  extraColumns = [],
   fetchInvitations,
   id = "table-invitations",
   inviteButtonIcon,
@@ -58,8 +66,14 @@ export const InvitationsTable = ({
   roles,
   showInviteAction = true,
   totalRecords = 0,
-  extraColumns = [],
-  showAppColumn = true,
+  visibleColumns = [
+    "email",
+    "app",
+    "role",
+    "invitedBy",
+    "expiresAt",
+    "actions",
+  ],
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("user");
 
@@ -67,33 +81,31 @@ export const InvitationsTable = ({
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const appColumn: Array<ColumnProps> = showAppColumn
-    ? [
-        {
-          field: "app",
-          header: t("invitations.table.defaultColumns.app"),
-          body: (data: { appId: any }) => {
-            return <span>{data.appId || "-"} </span>;
-          },
-          align: "center",
-        },
-      ]
-    : [];
-
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "email",
       header: t("invitations.table.defaultColumns.email"),
+      hidden: !visibleColumns.includes("email"),
       sortable: true,
       filter: true,
       filterPlaceholder: t("invitations.table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
     },
-    ...appColumn,
     {
+      align: "center",
+      field: "app",
+      header: t("invitations.table.defaultColumns.app"),
+      hidden: !visibleColumns.includes("app"),
+      body: (data: { appId: any }) => {
+        return <span>{data.appId || "-"} </span>;
+      },
+    },
+    {
+      align: "center",
       field: "role",
       header: t("invitations.table.defaultColumns.role"),
+      hidden: !visibleColumns.includes("role"),
       body: (data) => {
         return (
           <Tag
@@ -105,12 +117,12 @@ export const InvitationsTable = ({
           />
         );
       },
-      align: "center",
     },
     ...extraColumns,
     {
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
+      hidden: !visibleColumns.includes("invitedBy"),
       body: (data) => {
         if (!data.invitedBy) {
           return <code>&#8212;</code>;
@@ -128,6 +140,7 @@ export const InvitationsTable = ({
     {
       field: "expiresAt",
       header: t("invitations.table.defaultColumns.expiresAt"),
+      hidden: !visibleColumns.includes("expiresAt"),
       body: (data) => {
         const date = new Date(data.expiresAt);
 
@@ -135,8 +148,10 @@ export const InvitationsTable = ({
       },
     },
     {
+      align: "center",
       field: "actions",
       header: t("invitations.table.defaultColumns.actions"),
+      hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return (
           <>
@@ -148,7 +163,6 @@ export const InvitationsTable = ({
           </>
         );
       },
-      align: "center",
     },
   ];
 

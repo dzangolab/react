@@ -19,20 +19,27 @@ type Messages = {
   tableEmpty?: string;
 };
 
+type VisibleColumn =
+  | "file"
+  | "description"
+  | "uploadedBy"
+  | "uploadedAt"
+  | "actions";
+
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
-  id?: string;
-  loading?: boolean;
-  files: Array<object>;
-  totalRecords?: number;
-  showDescriptionColumn?: boolean;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  translationMessage?: Messages;
+  files: Array<object>;
+  id?: string;
+  loading?: boolean;
   onDownload?: (arguments_: any) => void;
   onDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
+  totalRecords?: number;
+  translationMessage?: Messages;
+  visibleColumns?: VisibleColumn[];
 };
 
 export const FilesTable = ({
@@ -42,10 +49,10 @@ export const FilesTable = ({
   loading,
   files,
   totalRecords,
-  showDescriptionColumn,
   extraColumns = [],
   fetchFiles,
   translationMessage,
+  visibleColumns = ["file", "uploadedBy", "uploadedAt", "actions"],
   onDownload,
   onDelete,
   onEditDescription,
@@ -60,7 +67,7 @@ export const FilesTable = ({
     });
   }
 
-  if (showDescriptionColumn && onEditDescription) {
+  if (visibleColumns.includes("description") && onEditDescription) {
     actionItems.push({
       label: translationMessage?.editDescriptionAction || "Edit description",
       icon: "pi pi-pencil",
@@ -81,18 +88,6 @@ export const FilesTable = ({
     filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const descriptionColumn: Array<ColumnProps> = showDescriptionColumn
-    ? [
-        {
-          field: "description",
-          header: translationMessage?.descriptionColumnHeader || "Description",
-          body: (data) => {
-            return data.description;
-          },
-        },
-      ]
-    : [];
-
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
@@ -101,14 +96,23 @@ export const FilesTable = ({
       filter: true,
       filterPlaceholder:
         translationMessage?.searchPlaceholder || "File name example",
+      hidden: !visibleColumns.includes("file"),
       showFilterMenu: false,
       showClearButton: false,
     },
-    ...descriptionColumn,
+    {
+      field: "description",
+      header: translationMessage?.descriptionColumnHeader || "Description",
+      hidden: !visibleColumns.includes("description"),
+      body: (data) => {
+        return data.description;
+      },
+    },
     ...extraColumns,
     {
       field: "uploadedBy",
       header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
+      hidden: !visibleColumns.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -126,6 +130,7 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
+      hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
         const date = new Date(data.uploadedAt);
 
@@ -133,12 +138,13 @@ export const FilesTable = ({
       },
     },
     {
+      align: "center",
       field: "actions",
       header: translationMessage?.actionsColumnHeader || "Actions",
+      hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
       },
-      align: "center",
     },
   ];
 
