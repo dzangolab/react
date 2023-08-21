@@ -32,7 +32,7 @@ export type AllUsersTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   extraColumns?: Array<ColumnProps>;
-  fetchUsers: (arguments_?: any) => void;
+  fetchUsers?: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
   loading?: boolean;
@@ -45,7 +45,7 @@ export type AllUsersTableProperties = {
   showAppColumn?: boolean;
   totalRecords?: number;
   users: Array<object>;
-  visibleColumns: VisibleColumn[];
+  visibleColumns?: VisibleColumn[];
 };
 
 export const AllUsersTable = ({
@@ -165,7 +165,7 @@ export const AllUsersTable = ({
       header: t("user:invitations.table.defaultColumns.invitedBy"),
       hidden: !visibleColumns.includes("invitedBy"),
       body: (data) => {
-        if (!data.invitedBy) {
+        if (data.isActiveUser) {
           return <code>&#8212;</code>;
         }
 
@@ -178,6 +178,16 @@ export const AllUsersTable = ({
         return data.invitedBy.email;
       },
       align: "center",
+    },
+    {
+      field: "signedUpAt",
+      header: t("table.defaultColumns.signedUpOn"),
+      hidden: !visibleColumns.includes("signedUpAt"),
+      body: (data) => {
+        const date = new Date(data.signedUpAt);
+
+        return date.toLocaleDateString("en-GB");
+      },
     },
     {
       field: "actions",
@@ -197,16 +207,6 @@ export const AllUsersTable = ({
         );
       },
       align: "center",
-    },
-    {
-      field: "signedUpAt",
-      header: t("table.defaultColumns.signedUpOn"),
-      hidden: !visibleColumns.includes("signedUpAt"),
-      body: (data) => {
-        const date = new Date(data.signedUpAt);
-
-        return date.toLocaleDateString("en-GB");
-      },
     },
   ];
 
