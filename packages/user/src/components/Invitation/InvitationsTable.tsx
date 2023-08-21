@@ -29,10 +29,10 @@ export type InvitationsTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  expiryDateField?: InvitationExpiryDateField;
   extraColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
   id?: string;
+  invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
   invitations: Array<object>;
   loading?: boolean;
@@ -52,7 +52,7 @@ export const InvitationsTable = ({
   apps,
   className = "table-invitations",
   columns,
-  expiryDateField,
+  invitationExpiryDateField,
   extraColumns = [],
   fetchInvitations,
   id = "table-invitations",
@@ -178,7 +178,7 @@ export const InvitationsTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             buttonIcon={inviteButtonIcon}
-            expiryDateField={expiryDateField}
+            expiryDateField={invitationExpiryDateField}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}
