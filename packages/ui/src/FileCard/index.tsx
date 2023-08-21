@@ -7,6 +7,8 @@ type Message = {
   uploadedAtHeader?: string;
   downloadCountHeader?: string;
   lastDownloadedAtHeader?: string;
+  downloadButtonLabel?: string;
+  viewButtonLabel?: string;
 };
 
 type FileCardType = {
@@ -25,10 +27,17 @@ export const FileCard = ({
   translationMessage,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
-    if (data) {
-      return data;
+    if (!data.uploadedBy) {
+      return <code>&#8212;</code>;
     }
-    return <code>&#8212;</code>;
+
+    if (data.uploadedBy.givenName || data.uploadedBy.lastName) {
+      return `${data.uploadedBy.givenName || ""} ${
+        data.uploadedBy.lastName || ""
+      }`;
+    }
+
+    return data.uploadedBy.email;
   };
 
   return (
@@ -76,10 +85,14 @@ export const FileCard = ({
       <div className="file-actions">
         <Button
           icon="pi pi-download"
-          label="Download"
+          label={translationMessage?.downloadButtonLabel || "Download"}
           onClick={handleDownload}
         />
-        <Button icon="pi pi-eye" label="View" onClick={handleView} />
+        <Button
+          icon="pi pi-eye"
+          label={translationMessage?.viewButtonLabel || "View"}
+          onClick={handleView}
+        />
       </div>
     </Card>
   );
