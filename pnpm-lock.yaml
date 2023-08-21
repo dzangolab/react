@@ -118,7 +118,7 @@ importers:
         version: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
       eslint-plugin-prettier:
         specifier: 5.0.0
-        version: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.46.0)(prettier@3.0.1)
+        version: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.46.0)(prettier@3.0.2)
       eslint-plugin-unicorn:
         specifier: 44.0.2
         version: 44.0.2(eslint@8.46.0)
@@ -126,8 +126,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       react-test-renderer:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
@@ -232,8 +232,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -317,8 +317,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       primereact:
         specifier: 9.6.1
         version: 9.6.1(@types/react@18.2.20)(react-dom@18.2.0)(react@18.2.0)
@@ -408,8 +408,8 @@ importers:
         specifier: 7.33.2
         version: 7.33.2(eslint@8.46.0)
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -480,8 +480,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       primeicons:
         specifier: 6.0.1
         version: 6.0.1
@@ -577,8 +577,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       primereact:
         specifier: 9.6.1
         version: 9.6.1(@types/react@18.2.20)(react-dom@18.2.0)(react@18.2.0)
@@ -680,8 +680,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       primeicons:
         specifier: 6.0.1
         version: 6.0.1
@@ -738,7 +738,7 @@ importers:
         version: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
       eslint-plugin-prettier:
         specifier: 5.0.0
-        version: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.46.0)(prettier@3.0.1)
+        version: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.46.0)(prettier@3.0.2)
       eslint-plugin-promise:
         specifier: 6.1.1
         version: 6.1.1(eslint@8.46.0)
@@ -753,8 +753,8 @@ importers:
         specifier: 8.46.0
         version: 8.46.0
       prettier:
-        specifier: 3.0.1
-        version: 3.0.1
+        specifier: 3.0.2
+        version: 3.0.2
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -7887,7 +7887,7 @@ packages:
       semver: 6.3.1
     dev: true
 
-  /eslint-plugin-prettier@5.0.0(eslint-config-prettier@8.8.0)(eslint@8.46.0)(prettier@3.0.1):
+  /eslint-plugin-prettier@5.0.0(eslint-config-prettier@8.8.0)(eslint@8.46.0)(prettier@3.0.2):
     resolution: {integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -7903,7 +7903,7 @@ packages:
     dependencies:
       eslint: 8.46.0
       eslint-config-prettier: 8.8.0(eslint@8.46.0)
-      prettier: 3.0.1
+      prettier: 3.0.2
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.5
 
@@ -10806,8 +10806,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier@3.0.1:
-    resolution: {integrity: sha512-fcOWSnnpCrovBsmFZIGIy9UqK2FaI7Hqax+DIO0A9UxeVoY4iweyaFjS5TavZN97Hfehph0nhsZnjlVKzEQSrQ==}
+  /prettier@3.0.2:
+    resolution: {integrity: sha512-o2YR9qtniXvwEZlOKbveKfDQVyqxbEIWn48Z8m3ZJjBjcCmUy3xZGIv+7AkaeuaTr6yPXJjwv07ZWlsWbEy1rQ==}
     engines: {node: '>=14'}
     hasBin: true
 
