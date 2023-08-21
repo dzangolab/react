@@ -98,7 +98,36 @@ const componentList = [
     key: 9,
     title: "files.list",
     component: (
-      <FilesList files={[]} handleDownload={() => {}} handleView={() => {}} />
+      <FilesList
+        files={[
+          {
+            filename: "file1.png",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: 235_325,
+            downloadCount: 5,
+          },
+          {
+            filename: "file1.png",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: 235_325,
+            downloadCount: 5,
+          },
+          {
+            filename: "file1.png",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: 235_325,
+            downloadCount: 5,
+          },
+          {
+            filename: "file1.png",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: 235_325,
+            downloadCount: 5,
+          },
+        ]}
+        handleDownload={() => {}}
+        handleView={() => {}}
+      />
     ),
   },
 ];

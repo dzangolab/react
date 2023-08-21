@@ -8,9 +8,9 @@
   gap: 0.5rem;
 }
 
-.file-details > span:first-child {
-  font-weight: bold;
+.filename {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .upload-download-detail-wrapper {
@@ -42,13 +42,13 @@
 .uploaded-at > span:first-child,
 .download-count > span:first-child,
 .last-downloaded-at > span:first-child {
-  font-weight: bold;
   font-size: 1rem;
+  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .file-actions {
   display: flex;
-  justify-content: flex-end;
   gap: 3rem;
+  justify-content: flex-end;
 }
