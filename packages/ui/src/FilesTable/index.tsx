@@ -30,9 +30,10 @@ type VisibleColumn =
   | "lastDownloadedAt"
   | "actions";
 
-interface IFile {
+export interface IFile {
   filename: string;
   description?: string;
+  size?: number;
   uploadedBy: object;
   uploadedAt: number;
   downloadCount?: number;

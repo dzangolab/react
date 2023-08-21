@@ -1,8 +1,54 @@
 .file-card {
-  width: 30rem;
+  width: 25rem;
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.file-details > span:first-child {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.upload-download-detail-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0rem;
+}
+
+.file-download-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.uploaded-by,
+.uploaded-at,
+.download-count,
+.last-downloaded-at {
+  display: flex;
+  flex-direction: column;
+}
+
+.uploaded-by,
+.download-count {
+  margin-bottom: 2rem;
+}
+
+.uploaded-by > span:first-child,
+.uploaded-at > span:first-child,
+.download-count > span:first-child,
+.last-downloaded-at > span:first-child {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .file-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 3rem;
 }
