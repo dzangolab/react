@@ -2,11 +2,19 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { IFile } from "../FilesTable";
 
+type Message = {
+  uploadedbyHeader?: string;
+  uploadedAtHeader?: string;
+  downloadCountHeader?: string;
+  lastDownloadedAtHeader?: string;
+};
+
 type FileCardType = {
   file?: IFile;
   handleDownload?: () => void;
   handleView?: () => void;
   showDescription?: boolean;
+  translationMessage?: Message;
 };
 
 export const FileCard = ({
@@ -14,8 +22,9 @@ export const FileCard = ({
   handleDownload,
   handleView,
   showDescription,
+  translationMessage,
 }: FileCardType) => {
-  const checkFileData = (data: any) => {
+  const checkUploadedByData = (data: any) => {
     if (data) {
       return data;
     }
@@ -25,7 +34,7 @@ export const FileCard = ({
   return (
     <Card className="file-card">
       <div className="file-details">
-        <span className="filename">{file?.filename || "This is my file"}</span>
+        <span className="filename">{file?.filename}</span>
         {showDescription && (
           <span className="file-description">{file?.description}</span>
         )}
@@ -34,21 +43,26 @@ export const FileCard = ({
       <div className="upload-download-detail-wrapper">
         <div className="file-upload-details">
           <div className="uploaded-by">
-            <span>Uploaded by</span>
-            <span>{checkFileData(file?.uploadedBy)}</span>
+            <span>{translationMessage?.uploadedbyHeader || "Uploaded by"}</span>
+            <span>{checkUploadedByData(file?.uploadedBy)}</span>
           </div>
           <div className="uploaded-at">
-            <span>Uploaded At</span>
+            <span>{translationMessage?.uploadedAtHeader || "Uploaded at"}</span>
             <span>{file?.uploadedAt}</span>
           </div>
         </div>
         <div className="file-download-details">
           <div className="download-count">
-            <span>Download count</span>
+            <span>
+              {translationMessage?.downloadCountHeader || "Download count"}
+            </span>
             <span>{file?.downloadCount}</span>
           </div>
           <div className="last-downloaded-at">
-            <span>Last Download time</span>
+            <span>
+              {translationMessage?.lastDownloadedAtHeader ||
+                "Last downloaded at"}
+            </span>
             <span>
               {file?.lastDownloadedAt ? (
                 file?.lastDownloadedAt
