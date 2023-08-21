@@ -1,3 +1,7 @@
 .p-datepicker.expiresAt {
   z-index: 1111 !important;
 }
+
+.field.expiresAt .p-calendar {
+  width: 100%;
+}

@@ -65,6 +65,28 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     }
   }, [filteredRoles]);
 
+  const renderExpiryDateField = () => (
+    <>
+      {expiryDateField?.calendar ? (
+        <DatePicker
+          key="calender"
+          label={t("invitation.form.expiresAt.label")}
+          minDate={new Date()}
+          name="expiresAt"
+          placeholder={t("invitation.form.expiresAt.placeholder")}
+        />
+      ) : (
+        <DateInput
+          getFieldState={getFieldState}
+          label={t("invitation.form.expiresAfter.label")}
+          name="expiresAt"
+          placeholder={t("invitation.form.expiresAfter.placeholder")}
+          register={register}
+        />
+      )}
+    </>
+  );
+
   return (
     <>
       <Email
@@ -96,23 +118,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
       {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
 
-      {expiryDateField?.calendar ? (
-        <DatePicker
-          key="calender"
-          label={t("invitation.form.expiresAt.label")}
-          minDate={new Date()}
-          name="expiresAt"
-          placeholder={t("invitation.form.expiresAt.placeholder")}
-        />
-      ) : (
-        <DateInput
-          getFieldState={getFieldState}
-          label={t("invitation.form.expiresAfter.label")}
-          name="expiresAt"
-          placeholder={t("invitation.form.expiresAfter.placeholder")}
-          register={register}
-        />
-      )}
+      {expiryDateField ? renderExpiryDateField() : null}
 
       <div className="actions">
         {onCancel && (
