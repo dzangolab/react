@@ -18,18 +18,22 @@ export const FileCard = () => {
   };
 
   const footer = () => {
-    return <></>;
+    return (
+      <div
+        className="file-card-footer"
+        style={{ display: "flex", justifyContent: "space-between" }}
+      >
+        <Button icon="pi pi-eye" rounded aria-label="Filter" />
+        <Button icon="pi pi-download" rounded aria-label="Filter" />
+      </div>
+    );
   };
   return (
-    <div className="">
-      <Card
-        title="Title"
-        subTitle="Subtitle"
-        className="md:w-25rem"
-        header={header}
-        children={body()}
-        footer={footer}
-      />
-    </div>
+    <Card
+      style={{ width: "30rem" }}
+      header={header}
+      children={body()}
+      footer={footer}
+    />
   );
 };
