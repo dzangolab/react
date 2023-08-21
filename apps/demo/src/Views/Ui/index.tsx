@@ -81,7 +81,7 @@ const componentList = [
   },
   {
     key: 8,
-    title: "files.table",
+    title: "file.card",
     component: <FileCard />,
   },
 ];
