@@ -88,7 +88,7 @@
         "invitedBy": "Invited by",
         "role": "Role"
       },
-      "emptyMessage":"Table is empty",
+      "emptyMessage": "Table is empty",
       "searchPlaceholder": ""
     },
     "title": "Invitations"
@@ -187,7 +187,7 @@
   },
   "userMenu": {
     "profile": "Profile",
-    "logout": "Log out"
+    "logout": "Logout"
   },
   "validation": {
     "messages": {
