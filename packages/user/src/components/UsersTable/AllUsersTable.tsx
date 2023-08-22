@@ -14,46 +14,69 @@ import type {
   InvitationAppOption,
   InvitationRoleOption,
 } from "@/types";
+import { InvitationActions } from "../Invitation/InvitationActions";
 
-type VisibleColumn = "name" | "email" | "roles" | "signedUpAt";
+type VisibleColumn =
+  | "name"
+  | "email"
+  | "roles"
+  | "signedUpAt"
+  | "app"
+  | "invitedBy"
+  | "status"
+  | "actions";
 
-export type UsersTableProperties = {
+export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  fetchUsers: (arguments_?: any) => void;
+  additionalColumns?: Array<ColumnProps>;
+  fetchUsers?: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
-  additionalColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  onInvitationResent?: (data: any) => void;
+  onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
+  showAppColumn?: boolean;
   totalRecords?: number;
   users: Array<object>;
   visibleColumns?: VisibleColumn[];
 };
 
-export const UsersTable = ({
+export const AllUsersTable = ({
   additionalInvitationFields,
   apps,
   className = "table-users",
   columns,
+  additionalColumns = [],
   fetchUsers,
   id = "table-users",
   inviteButtonIcon,
-  additionalColumns = [],
   loading = false,
   onInvitationAdded,
+  onInvitationResent,
+  onInvitationRevoked,
   prepareInvitationData,
   roles,
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns = ["name", "email", "roles", "signedUpAt"],
-}: UsersTableProperties) => {
+  visibleColumns = [
+    "name",
+    "email",
+    "roles",
+    "signedUpAt",
+    "app",
+    "invitedBy",
+    "status",
+    "actions",
+  ],
+}: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 
   const initialFilters = {
@@ -84,9 +107,15 @@ export const UsersTable = ({
       showFilterMenu: false,
       showClearButton: false,
     },
-
     {
-      align: "center",
+      field: "app",
+      header: t("user:invitations.table.defaultColumns.app"),
+      hidden: !visibleColumns.includes("app"),
+      body: (data: { appId: any }) => {
+        return <span>{data.appId || "-"} </span>;
+      },
+    },
+    {
       field: "roles",
       header: t("table.defaultColumns.roles"),
       hidden: !visibleColumns.includes("roles"),
@@ -106,22 +135,91 @@ export const UsersTable = ({
           </>
         );
       },
+      align: "center",
+    },
+    {
+      field: "status",
+      header: t("table.defaultColumns.status"),
+      hidden: !visibleColumns.includes("status"),
+      body: (data) => {
+        return (
+          <>
+            <Tag
+              value={
+                data.isActiveUser ? t("status.active") : t("status.invited")
+              }
+              style={{
+                background: data.isActiveUser ? "#6366F1" : "#22C55E",
+                width: "5rem",
+              }}
+            />
+          </>
+        );
+      },
+      align: "center",
     },
     ...additionalColumns,
+    {
+      field: "invitedBy",
+      header: t("user:invitations.table.defaultColumns.invitedBy"),
+      hidden: !visibleColumns.includes("invitedBy"),
+      body: (data) => {
+        if (data.isActiveUser) {
+          return <code>&#8212;</code>;
+        }
+
+        if (data.invitedBy.givenName || data.invitedBy.surname) {
+          return `${data.invitedBy.givenName || ""} ${
+            data.invitedBy.surname || ""
+          }`;
+        }
+
+        return data.invitedBy.email;
+      },
+    },
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
       hidden: !visibleColumns.includes("signedUpAt"),
       body: (data) => {
-        const date = new Date(data.signedUpAt);
+        if (data.signedUpAt) {
+          const date = new Date(data.signedUpAt);
 
-        return date.toLocaleDateString("en-GB");
+          return date.toLocaleDateString("en-GB");
+        }
+
+        return "-";
       },
+    },
+    {
+      field: "actions",
+      header: t("user:invitations.table.defaultColumns.actions"),
+      hidden: !visibleColumns.includes("actions"),
+      body: (data) => {
+        return (
+          <>
+            {data.isActiveUser ? (
+              "-"
+            ) : (
+              <InvitationActions
+                onInvitationResent={onInvitationResent}
+                onInvitationRevoked={onInvitationRevoked}
+                invitation={data}
+              />
+            )}
+          </>
+        );
+      },
+      align: "center",
     },
   ];
 
   const rowClassNameCallback = (data: any) => {
-    return `user-${data.id}`;
+    if (data.isActiveUser) {
+      return `active-user user-${data.id}`;
+    }
+
+    return `invited-user invitation-${data.id}`;
   };
 
   const renderHeader = () => {

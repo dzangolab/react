@@ -28,7 +28,7 @@ export type InvitationsTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  extraColumns?: Array<ColumnProps>;
+  additionalColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -50,7 +50,7 @@ export const InvitationsTable = ({
   apps,
   className = "table-invitations",
   columns,
-  extraColumns = [],
+  additionalColumns = [],
   fetchInvitations,
   id = "table-invitations",
   inviteButtonIcon,
@@ -115,7 +115,7 @@ export const InvitationsTable = ({
         );
       },
     },
-    ...extraColumns,
+    ...additionalColumns,
     {
       field: "invitedBy",
       header: t("invitations.table.defaultColumns.invitedBy"),
