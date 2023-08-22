@@ -1,1 +1,0 @@
-const e={title:"users table",defaultColumns:{id:"Id",givenName:"Given Name",middleNames:"Middle Names",status:"Status",surname:"Surname"}},t={active:"Active",invited:"Invited"},a={table:e,status:t};export{a as default,t as status,e as table};

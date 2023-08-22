@@ -1,0 +1,1 @@
+const e={title:"Users (fr)",defaultColumns:{id:"Id (fr)",givenName:"Given name (fr)",middleNames:"Middle names (fr)",status:"Status(fr)",surname:"Surname(fr)"}},t={active:"Active",invited:"Invited"},a={table:e,status:t};export{a as default,t as status,e as table};
