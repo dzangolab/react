@@ -96,7 +96,7 @@
   "login": {
     "form": {
       "actions": {
-        "submit": "Sign in"
+        "submit": "Signin"
       },
       "email": {
         "label": "Your email",
@@ -109,7 +109,7 @@
     "instructions": "Enter your credentials to continue.",
     "links": {
       "forgotPassword": "Forgot password",
-      "signup": "Sign up"
+      "signup": "Signup"
     },
     "button": {
       "googleLoginLabel": "Continue with google"
@@ -157,8 +157,8 @@
     "title": "Register"
   },
   "menu": {
-    "signin": "Sign in",
-    "signup": "Sign up"
+    "signin": "Signin",
+    "signup": "Signup"
   },
   "resetPassword": {
     "form": {
