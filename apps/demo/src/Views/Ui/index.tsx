@@ -75,6 +75,15 @@ const componentList = [
             uploadedAt: Date.now(),
           },
         ]}
+        visibleColumns={[
+          "filename",
+          "description",
+          "uploadedBy",
+          "uploadedAt",
+          "downloadCount",
+          "lastDownloadedAt",
+          "actions",
+        ]}
       />
     ),
   },

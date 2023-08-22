@@ -12,6 +12,8 @@ type Messages = {
   deleteAction?: string;
   filenameColumnHeader?: string;
   descriptionColumnHeader?: string;
+  downloadCountColumnHeader?: string;
+  lastDownloadedAtColumnHeader?: string;
   uploadedByColumnHeader?: string;
   uploadedAtColumnHeader?: string;
   actionsColumnHeader?: string;
@@ -20,18 +22,29 @@ type Messages = {
 };
 
 type VisibleColumn =
-  | "file"
+  | "filename"
   | "description"
   | "uploadedBy"
   | "uploadedAt"
+  | "downloadCount"
+  | "lastDownloadedAt"
   | "actions";
+
+interface IFile {
+  filename: string;
+  description?: string;
+  uploadedBy: object;
+  uploadedAt: number;
+  downloadCount?: number;
+  lastDownloadedAt?: number;
+}
 
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   extraColumns?: Array<ColumnProps>;
   fetchFiles?: (arguments_?: any) => void;
-  files: Array<object>;
+  files: Array<IFile>;
   id?: string;
   loading?: boolean;
   onDownload?: (arguments_: any) => void;
@@ -52,7 +65,7 @@ export const FilesTable = ({
   extraColumns = [],
   fetchFiles,
   translationMessage,
-  visibleColumns = ["file", "uploadedBy", "uploadedAt", "actions"],
+  visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
   onDownload,
   onDelete,
   onEditDescription,
@@ -96,7 +109,7 @@ export const FilesTable = ({
       filter: true,
       filterPlaceholder:
         translationMessage?.searchPlaceholder || "File name example",
-      hidden: !visibleColumns.includes("file"),
+      hidden: !visibleColumns.includes("filename"),
       showFilterMenu: false,
       showClearButton: false,
     },
@@ -135,6 +148,29 @@ export const FilesTable = ({
         const date = new Date(data.uploadedAt);
 
         return date.toLocaleDateString("en-GB");
+      },
+    },
+    {
+      field: "downloadCount",
+      header: translationMessage?.downloadCountColumnHeader || "Download count",
+      hidden: !visibleColumns.includes("downloadCount"),
+      body: (data) => {
+        return data.downloadCount;
+      },
+    },
+    {
+      field: "lastDownloadedAt",
+      header:
+        translationMessage?.lastDownloadedAtColumnHeader ||
+        "Last downloaded at",
+      hidden: !visibleColumns.includes("lastDownloadedAt"),
+      body: (data) => {
+        if (data.lastDownloadedAt) {
+          const date = new Date(data.lastDownloadedAt);
+
+          return date.toLocaleDateString("en-GB");
+        }
+        return <code>&#8212;</code>;
       },
     },
     {
