@@ -1,0 +1,5 @@
+@media screen and (max-width: 576px) {
+  .invitation-modal .actions {
+    flex-direction: column-reverse;
+  }
+}

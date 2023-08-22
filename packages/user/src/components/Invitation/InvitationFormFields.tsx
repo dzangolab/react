@@ -6,7 +6,6 @@ import {
   useWatch,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React, { useEffect, useMemo, useState } from "react";
 
@@ -126,7 +125,6 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           label={t("invitation.form.actions.submit")}
           disabled={!!Object.values(errors).length}
           loading={loading}
-          loadingIcon={<LoadingIcon />}
         ></Button>
       </div>
     </>
