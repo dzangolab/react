@@ -23,7 +23,7 @@
         "mustMatch": "Passwords must match"
       }
     },
-    "title": "Change Password"
+    "title": "Change password"
   },
   "forgetPassword": {
     "messages": {
@@ -41,7 +41,7 @@
         "placeholder": ""
       }
     },
-    "title": "Forget Password"
+    "title": "Forgot password"
   },
   "firstUser": {
     "title": "Register first user",
@@ -143,7 +143,7 @@
         "confirmPassword": "Confirm password is required"
       }
     },
-    "title": "Reset Password"
+    "title": "Reset password"
   },
   "userMenu": {
     "profile": "Profile",

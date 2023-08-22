@@ -1,12 +1,12 @@
 {
   "table": {
-    "title": "users table [fr]",
+    "title": "Users (fr)",
     "defaultColumns": {
-      "id": "Id[fr]",
-      "givenName": "Given Name[fr]",
-      "middleNames": "Middle Names[fr]",
-      "status": "Status[fr]",
-      "surname": "Surname[fr]"
+      "id": "Id (fr)",
+      "givenName": "Given name (fr)",
+      "middleNames": "Middle names (fr)",
+      "status": "Status(fr)",
+      "surname": "Surname(fr)"
     }
   },
   "status": {

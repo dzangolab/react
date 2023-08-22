@@ -20,8 +20,8 @@
       "title": "Demo"
     },
     "forms": {
-      "login": "Login Form",
-      "confirmPassword": "Confirm Password Form"
+      "login": "Login form",
+      "confirmPassword": "Confirm password form"
     }
   },
   "loading": "Loading ..."
