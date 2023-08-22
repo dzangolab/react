@@ -114,7 +114,6 @@ export const AllUsersTable = ({
       body: (data: { appId: any }) => {
         return <span>{data.appId || "-"} </span>;
       },
-      align: "center",
     },
     {
       field: "roles",
@@ -177,16 +176,19 @@ export const AllUsersTable = ({
 
         return data.invitedBy.email;
       },
-      align: "center",
     },
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
       hidden: !visibleColumns.includes("signedUpAt"),
       body: (data) => {
-        const date = new Date(data.signedUpAt);
+        if (data.signedUpAt) {
+          const date = new Date(data.signedUpAt);
 
-        return date.toLocaleDateString("en-GB");
+          return date.toLocaleDateString("en-GB");
+        }
+
+        return "-";
       },
     },
     {
@@ -196,7 +198,9 @@ export const AllUsersTable = ({
       body: (data) => {
         return (
           <>
-            {data.isActiveUser ? null : (
+            {data.isActiveUser ? (
+              "-"
+            ) : (
               <InvitationActions
                 onInvitationResent={onInvitationResent}
                 onInvitationRevoked={onInvitationRevoked}
@@ -211,7 +215,11 @@ export const AllUsersTable = ({
   ];
 
   const rowClassNameCallback = (data: any) => {
-    return `user-${data.id}`;
+    if (data.isActiveUser) {
+      return `active-user user-${data.id}`;
+    }
+
+    return `invited-user invitation-${data.id}`;
   };
 
   const renderHeader = () => {
