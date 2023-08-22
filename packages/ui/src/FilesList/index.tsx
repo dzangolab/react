@@ -16,7 +16,7 @@ export const FilesList = ({
   translationMessage,
 }: FilesListType) => {
   return (
-    <div>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem" }}>
       {files.map((file: IFile) => {
         return (
           <FileCard
