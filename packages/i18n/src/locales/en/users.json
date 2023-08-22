@@ -5,7 +5,12 @@
       "id": "Id",
       "givenName": "Given Name",
       "middleNames": "Middle Names",
+      "status": "Status",
       "surname": "Surname"
     }
+  },
+  "status": {
+    "active": "Active",
+    "invited": "Invited"
   }
 }

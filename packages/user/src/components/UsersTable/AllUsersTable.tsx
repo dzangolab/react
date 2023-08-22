@@ -6,60 +6,57 @@ import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
-import { InvitationActions } from "./InvitationActions";
-
-import { InvitationModal } from ".";
+import { InvitationModal } from "../Invitation";
 
 import type {
   AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
-  InvitationExpiryDateField,
 } from "@/types";
+import { InvitationActions } from "../Invitation/InvitationActions";
 
 type VisibleColumn =
+  | "name"
   | "email"
+  | "roles"
+  | "signedUpAt"
   | "app"
-  | "role"
   | "invitedBy"
-  | "expiresAt"
+  | "status"
   | "actions";
 
-export type InvitationsTableProperties = {
+export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
   additionalColumns?: Array<ColumnProps>;
-  fetchInvitations: (arguments_?: any) => void;
+  fetchUsers?: (arguments_?: any) => void;
   id?: string;
-  invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
-  invitations: Array<object>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: any) => void;
   onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
-  showAppColumn?: boolean;
   showInviteAction?: boolean;
+  showAppColumn?: boolean;
   totalRecords?: number;
+  users: Array<object>;
   visibleColumns?: VisibleColumn[];
 };
 
-export const InvitationsTable = ({
+export const AllUsersTable = ({
   additionalInvitationFields,
   apps,
-  className = "table-invitations",
+  className = "table-users",
   columns,
-  invitationExpiryDateField,
   additionalColumns = [],
-  fetchInvitations,
-  id = "table-invitations",
+  fetchUsers,
+  id = "table-users",
   inviteButtonIcon,
-  invitations,
   loading = false,
   onInvitationAdded,
   onInvitationResent,
@@ -68,16 +65,19 @@ export const InvitationsTable = ({
   roles,
   showInviteAction = true,
   totalRecords = 0,
+  users,
   visibleColumns = [
+    "name",
     "email",
+    "roles",
+    "signedUpAt",
     "app",
-    "role",
     "invitedBy",
-    "expiresAt",
+    "status",
     "actions",
   ],
-}: InvitationsTableProperties) => {
-  const { t } = useTranslation("user");
+}: AllUsersTableProperties) => {
+  const { t } = useTranslation("users");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -85,48 +85,86 @@ export const InvitationsTable = ({
 
   const defaultColumns: Array<ColumnProps> = [
     {
+      field: "name",
+      header: t("table.defaultColumns.name"),
+      hidden: !visibleColumns.includes("name"),
+      sortable: false,
+      body: (data) => {
+        return (
+          (data.givenName ? data.givenName : "") +
+            (data.middleNames ? " " + data.middleNames : "") +
+            (data.surname ? " " + data.surname : "") || <code>&#8212;</code>
+        );
+      },
+    },
+    {
       field: "email",
-      header: t("invitations.table.defaultColumns.email"),
+      header: t("table.defaultColumns.email"),
       hidden: !visibleColumns.includes("email"),
       sortable: true,
       filter: true,
-      filterPlaceholder: t("invitations.table.searchPlaceholder"),
+      filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
     },
     {
-      align: "center",
       field: "app",
-      header: t("invitations.table.defaultColumns.app"),
+      header: t("user:invitations.table.defaultColumns.app"),
       hidden: !visibleColumns.includes("app"),
       body: (data: { appId: any }) => {
         return <span>{data.appId || "-"} </span>;
       },
     },
     {
-      align: "center",
-      field: "role",
-      header: t("invitations.table.defaultColumns.role"),
-      hidden: !visibleColumns.includes("role"),
+      field: "roles",
+      header: t("table.defaultColumns.roles"),
+      hidden: !visibleColumns.includes("roles"),
       body: (data) => {
         return (
-          <Tag
-            value={data.role}
-            style={{
-              background: data.role === "ADMIN" ? "#6366F1" : "#22C55E",
-              width: "5rem",
-            }}
-          />
+          <>
+            {data.roles.map((role: string, index: number) => (
+              <Tag
+                key={role + index}
+                value={role}
+                style={{
+                  background: role === "ADMIN" ? "#6366F1" : "#22C55E",
+                  width: "5rem",
+                }}
+              />
+            ))}
+          </>
         );
       },
+      align: "center",
+    },
+    {
+      field: "status",
+      header: t("table.defaultColumns.status"),
+      hidden: !visibleColumns.includes("status"),
+      body: (data) => {
+        return (
+          <>
+            <Tag
+              value={
+                data.isActiveUser ? t("status.active") : t("status.invited")
+              }
+              style={{
+                background: data.isActiveUser ? "#6366F1" : "#22C55E",
+                width: "5rem",
+              }}
+            />
+          </>
+        );
+      },
+      align: "center",
     },
     ...additionalColumns,
     {
       field: "invitedBy",
-      header: t("invitations.table.defaultColumns.invitedBy"),
+      header: t("user:invitations.table.defaultColumns.invitedBy"),
       hidden: !visibleColumns.includes("invitedBy"),
       body: (data) => {
-        if (!data.invitedBy) {
+        if (data.isActiveUser) {
           return <code>&#8212;</code>;
         }
 
@@ -140,36 +178,48 @@ export const InvitationsTable = ({
       },
     },
     {
-      field: "expiresAt",
-      header: t("invitations.table.defaultColumns.expiresAt"),
-      hidden: !visibleColumns.includes("expiresAt"),
+      field: "signedUpAt",
+      header: t("table.defaultColumns.signedUpOn"),
+      hidden: !visibleColumns.includes("signedUpAt"),
       body: (data) => {
-        const date = new Date(data.expiresAt);
+        if (data.signedUpAt) {
+          const date = new Date(data.signedUpAt);
 
-        return date.toLocaleDateString("en-GB");
+          return date.toLocaleDateString("en-GB");
+        }
+
+        return "-";
       },
     },
     {
-      align: "center",
       field: "actions",
-      header: t("invitations.table.defaultColumns.actions"),
+      header: t("user:invitations.table.defaultColumns.actions"),
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return (
           <>
-            <InvitationActions
-              onInvitationResent={onInvitationResent}
-              onInvitationRevoked={onInvitationRevoked}
-              invitation={data}
-            />
+            {data.isActiveUser ? (
+              "-"
+            ) : (
+              <InvitationActions
+                onInvitationResent={onInvitationResent}
+                onInvitationRevoked={onInvitationRevoked}
+                invitation={data}
+              />
+            )}
           </>
         );
       },
+      align: "center",
     },
   ];
 
   const rowClassNameCallback = (data: any) => {
-    return `invitations-${data.id}`;
+    if (data.isActiveUser) {
+      return `active-user user-${data.id}`;
+    }
+
+    return `invited-user invitation-${data.id}`;
   };
 
   const renderHeader = () => {
@@ -180,13 +230,14 @@ export const InvitationsTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             buttonIcon={inviteButtonIcon}
-            expiryDateField={invitationExpiryDateField}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}
           />
         </div>
       );
+    } else {
+      return null;
     }
   };
 
@@ -194,10 +245,10 @@ export const InvitationsTable = ({
     <DataTable
       className={className}
       columns={columns ? columns : defaultColumns}
-      data={invitations}
-      emptyMessage={t("invitations.table.emptyMessage")}
-      fetchData={fetchInvitations}
-      header={renderHeader}
+      data={users}
+      emptyMessage={t("app:table.emptyMessage")}
+      fetchData={fetchUsers}
+      header={renderHeader()}
       id={id}
       initialFilters={initialFilters}
       loading={loading}

@@ -28,6 +28,7 @@ export type UsersTableProperties = {
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
+  additionalColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   prepareInvitationData?: (data: any) => any;
@@ -43,11 +44,11 @@ export const UsersTable = ({
   apps,
   className = "table-users",
   columns,
-  extraColumns = [],
   fetchUsers,
   id = "table-users",
   invitationExpiryDateField,
   inviteButtonIcon,
+  additionalColumns = [],
   loading = false,
   onInvitationAdded,
   prepareInvitationData,
@@ -110,7 +111,7 @@ export const UsersTable = ({
         );
       },
     },
-    ...extraColumns,
+    ...additionalColumns,
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
