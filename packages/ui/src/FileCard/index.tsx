@@ -13,7 +13,7 @@ export type Message = {
 };
 
 type FileCardType = {
-  file?: IFile;
+  file: IFile;
   handleDownload?: (arguments_: any) => void;
   handleView?: (arguments_: any) => void;
   showDescription?: boolean;

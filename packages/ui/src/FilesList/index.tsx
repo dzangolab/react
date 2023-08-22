@@ -15,16 +15,20 @@ export const FilesList = ({
   showDescription,
   translationMessage,
 }: FilesListType) => {
-  return files.map((file: IFile) => {
-    return (
-      <FileCard
-        key={file.filename}
-        file={file}
-        handleView={(file) => handleView(file)}
-        handleDownload={(file) => handleDownload(file)}
-        showDescription={showDescription}
-        translationMessage={translationMessage}
-      />
-    );
-  });
+  return (
+    <div>
+      {files.map((file: IFile) => {
+        return (
+          <FileCard
+            key={file.filename}
+            file={file}
+            handleView={(file) => handleView(file)}
+            handleDownload={(file) => handleDownload(file)}
+            showDescription={showDescription}
+            translationMessage={translationMessage}
+          />
+        );
+      })}
+    </div>
+  );
 };

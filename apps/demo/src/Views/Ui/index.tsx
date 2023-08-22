@@ -92,7 +92,16 @@ const componentList = [
   {
     key: 8,
     title: "file.card",
-    component: <FileCard />,
+    component: (
+      <FileCard
+        file={{
+          filename: "file1.png",
+          uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+          uploadedAt: 235_325,
+          downloadCount: 5,
+        }}
+      />
+    ),
   },
   {
     key: 9,
