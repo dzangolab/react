@@ -73,7 +73,7 @@
     "instructions": "Enter your credentials to continue.",
     "links": {
       "forgotPassword": "Forgot password",
-      "signup": "Signup"
+      "signup": "Sign up"
     },
     "messages": {
       "success": "Logged in successfully.",

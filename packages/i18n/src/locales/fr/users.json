@@ -1,6 +1,6 @@
 {
   "table": {
-    "title": "Users table (fr)",
+    "title": "Users (fr)",
     "defaultColumns": {
       "id": "Id (fr)",
       "givenName": "Given name (fr)",

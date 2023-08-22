@@ -1,6 +1,6 @@
 {
   "table": {
-    "title": "Users table",
+    "title": "Users",
     "defaultColumns": {
       "id": "Id",
       "givenName": "Given name",
