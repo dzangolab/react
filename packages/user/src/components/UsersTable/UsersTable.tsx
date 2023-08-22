@@ -13,6 +13,7 @@ import type {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  InvitationExpiryDateField,
 } from "@/types";
 
 type VisibleColumn = "name" | "email" | "roles" | "signedUpAt";
@@ -22,8 +23,10 @@ export type UsersTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
+  extraColumns?: Array<ColumnProps>;
   fetchUsers: (arguments_?: any) => void;
   id?: string;
+  invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
   additionalColumns?: Array<ColumnProps>;
   loading?: boolean;
@@ -43,6 +46,7 @@ export const UsersTable = ({
   columns,
   fetchUsers,
   id = "table-users",
+  invitationExpiryDateField,
   inviteButtonIcon,
   additionalColumns = [],
   loading = false,
@@ -131,6 +135,7 @@ export const UsersTable = ({
           <InvitationModal
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
+            expiryDateField={invitationExpiryDateField}
             buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}

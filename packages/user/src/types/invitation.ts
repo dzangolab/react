@@ -42,6 +42,11 @@ export interface AdditionalInvitationFields {
   defaultValues: AdditionalDefaultValues;
 }
 
+export interface InvitationExpiryDateField {
+  display: boolean;
+  mode: "calendar" | "input";
+}
+
 export type RenderAdditionalInvitationFields = (
   formContext: typeof useFormContext,
 ) => React.ComponentType;

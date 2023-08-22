@@ -153,6 +153,7 @@
     "messages": {
       "app": "App is required",
       "email": "Email is required",
+      "expiresAt": "Expiry date is required",
       "validEmail": "Email must be a valid email",
       "requiredField": "This field is required",
       "role": "Role is required",
@@ -176,6 +177,14 @@
       "email": {
         "label": "Email",
         "placeholder": ""
+      },
+      "expiresAfter": {
+        "label": "Expires after",
+        "placeholder": "Enter number of days"
+      },
+      "expiresAt": {
+        "label": "Expires at",
+        "placeholder": "Select a date"
       },
       "role": {
         "label": "Role",

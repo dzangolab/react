@@ -1,5 +1,7 @@
 import {
   AppPicker,
+  DateInput,
+  DatePicker,
   Email,
   RolePicker,
   useFormContext,
@@ -11,6 +13,7 @@ import React, { useEffect, useMemo, useState } from "react";
 
 import {
   InvitationAppOption,
+  InvitationExpiryDateField,
   InvitationRoleOption,
   RenderAdditionalInvitationFields,
 } from "@/types";
@@ -18,6 +21,7 @@ import {
 interface IProperties {
   renderAdditionalFields?: RenderAdditionalInvitationFields;
   apps?: InvitationAppOption[];
+  expiryDateField?: InvitationExpiryDateField;
   loading?: boolean;
   onCancel?: () => void;
   roles?: InvitationRoleOption[];
@@ -25,6 +29,7 @@ interface IProperties {
 export const InvitationFormFields: React.FC<IProperties> = ({
   renderAdditionalFields,
   apps,
+  expiryDateField,
   roles,
   loading,
   onCancel,
@@ -58,6 +63,28 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       setValue("role", filteredRoles[0]);
     }
   }, [filteredRoles]);
+
+  const renderExpiryDateField = () => (
+    <>
+      {expiryDateField?.mode === "calendar" ? (
+        <DatePicker
+          key="calender"
+          label={t("invitation.form.expiresAt.label")}
+          minDate={new Date()}
+          name="expiresAt"
+          placeholder={t("invitation.form.expiresAt.placeholder")}
+        />
+      ) : (
+        <DateInput
+          getFieldState={getFieldState}
+          label={t("invitation.form.expiresAfter.label")}
+          name="expiresAt"
+          placeholder={t("invitation.form.expiresAfter.placeholder")}
+          register={register}
+        />
+      )}
+    </>
+  );
 
   const updatedApps = useMemo(() => {
     let modifiedApps = apps || [];
@@ -106,6 +133,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       ) : null}
 
       {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
+
+      {expiryDateField?.display ? renderExpiryDateField() : null}
 
       <div className="actions">
         {onCancel && (

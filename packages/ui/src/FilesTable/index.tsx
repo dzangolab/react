@@ -1,8 +1,9 @@
-import React from "react";
-import { ActionsMenu, DataTable } from "../index";
 import { FilterMatchMode } from "primereact/api";
 import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
+import React from "react";
+
+import { ActionsMenu, DataTable } from "../index";
 
 type Messages = {
   downloadAction?: string;

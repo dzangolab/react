@@ -5,7 +5,9 @@ import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
+
 import { InvitationActions } from "./InvitationActions";
+
 import { InvitationModal } from ".";
 
 import type {
@@ -13,6 +15,7 @@ import type {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  InvitationExpiryDateField,
 } from "@/types";
 
 type VisibleColumn =
@@ -31,6 +34,7 @@ export type InvitationsTableProperties = {
   additionalColumns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: any) => void;
   id?: string;
+  invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
   invitations: Array<object>;
   loading?: boolean;
@@ -50,6 +54,7 @@ export const InvitationsTable = ({
   apps,
   className = "table-invitations",
   columns,
+  invitationExpiryDateField,
   additionalColumns = [],
   fetchInvitations,
   id = "table-invitations",
@@ -175,6 +180,7 @@ export const InvitationsTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             buttonIcon={inviteButtonIcon}
+            expiryDateField={invitationExpiryDateField}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}

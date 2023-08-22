@@ -9,6 +9,7 @@ import {
   InvitationAppOption,
   InvitationRoleOption,
   AdditionalInvitationFields,
+  InvitationExpiryDateField,
 } from "@/types";
 
 import { InvitationForm } from "./InvitationForm";
@@ -17,6 +18,7 @@ interface Properties {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
   buttonIcon?: IconType<ButtonProps>;
+  expiryDateField?: InvitationExpiryDateField;
   onSubmitted?: (response: AddInvitationResponse) => void;
   prepareData?: (data: any) => any;
   roles?: InvitationRoleOption[];
@@ -26,6 +28,7 @@ export const InvitationModal = ({
   additionalInvitationFields,
   apps,
   buttonIcon,
+  expiryDateField,
   onSubmitted,
   prepareData,
   roles,
@@ -52,6 +55,7 @@ export const InvitationModal = ({
         <InvitationForm
           additionalInvitationFields={additionalInvitationFields}
           apps={apps}
+          expiryDateField={expiryDateField}
           onCancel={() => {
             setModalVisible(false);
           }}
