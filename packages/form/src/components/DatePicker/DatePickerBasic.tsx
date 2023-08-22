@@ -31,6 +31,7 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
   return (
     <div className={`field ${name}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
+
       <Calendar
         id={name}
         value={value}

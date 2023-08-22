@@ -54,7 +54,7 @@ export const InvitationForm = ({
       filteredRoles = app.supportedRoles;
     }
 
-    if (expiryDateField) {
+    if (expiryDateField?.display) {
       defaultValues.expiresAt = null;
     }
 
@@ -70,7 +70,12 @@ export const InvitationForm = ({
     }
 
     return defaultValues;
-  }, [apps, roles, additionalInvitationFields?.defaultValues, expiryDateField]);
+  }, [
+    apps,
+    roles,
+    additionalInvitationFields?.defaultValues,
+    expiryDateField?.display,
+  ]);
 
   const getFormData = (data: any) => {
     const parsedData: {

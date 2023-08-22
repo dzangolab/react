@@ -20,6 +20,7 @@ export const DatePicker: FC<DatePicker> = ({
 }) => {
   const { control, getFieldState } = useFormContext();
   const { error } = getFieldState(name);
+
   return (
     <>
       <Controller
