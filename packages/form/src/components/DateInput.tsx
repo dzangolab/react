@@ -24,6 +24,10 @@ export const DateInput: React.FC<IDateInputField> = ({
         return undefined;
       }
 
+      if (Number(value) <= 0) {
+        return undefined;
+      }
+
       const currentDate = new Date();
       currentDate.setDate(currentDate.getDate() + Number(value));
 
