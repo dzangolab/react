@@ -5,7 +5,7 @@
       "success": "Logged in successfully. (fr)"
     },
     "message": {
-      "error": "Oops! something went wrong. (fr)"
+      "error": "Oops! Something went wrong. (fr)"
     }
   },
   "changePassword": {
@@ -111,7 +111,7 @@
       "signup": "Inscription"
     },
     "button": {
-      "googleLoginLabel": "Continue with google (fr)"
+      "googleLoginLabel": "Continue with Google (fr)"
     },
     "messages": {
       "success": "Logged in successfully.",

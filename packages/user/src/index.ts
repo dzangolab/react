@@ -8,7 +8,11 @@ import {
 import SignupForm from "./components/SignupForm";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
-import { UsersTable, UsersTableProperties } from "./components/UsersTable";
+import {
+  UsersTable,
+  UsersTableProperties,
+  AllUsersTable,
+} from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
 import { useUser } from "./hooks";
@@ -64,6 +68,7 @@ export {
   UserProvider,
   UserToastContainer,
   UsersTable,
+  AllUsersTable,
 
   // views
   AcceptInvitation,

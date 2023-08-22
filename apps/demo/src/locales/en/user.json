@@ -5,7 +5,7 @@
       "success": "Logged in successfully."
     },
     "message": {
-      "error": "Oops! something went wrong."
+      "error": "Oops! Something went wrong."
     }
   },
   "changePassword": {
@@ -109,10 +109,10 @@
     "instructions": "Enter your credentials to continue.",
     "links": {
       "forgotPassword": "Forgot password",
-      "signup": "Signup"
+      "signup": "Sign up"
     },
     "button": {
-      "googleLoginLabel": "Continue with google"
+      "googleLoginLabel": "Continue with Google"
     },
     "messages": {
       "success": "Logged in successfully.",
