@@ -86,14 +86,12 @@ export const FileCard = ({
       <div className="file-actions">
         <Button
           icon="pi pi-download"
-          label={translationMessage?.downloadButtonLabel || "Download"}
+          rounded
+          text
+          raised
           onClick={handleDownload}
         />
-        <Button
-          icon="pi pi-eye"
-          label={translationMessage?.viewButtonLabel || "View"}
-          onClick={handleView}
-        />
+        <Button icon="pi pi-eye" rounded text raised onClick={handleView} />
       </div>
     </Card>
   );

@@ -1,5 +1,5 @@
 .file-card {
-  width: 25rem;
+  width: 15rem;
 }
 
 .file-details {
@@ -15,7 +15,7 @@
 
 .upload-download-detail-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 3rem 0rem;
 }
 
@@ -30,12 +30,12 @@
 .download-count,
 .last-downloaded-at {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .uploaded-by,
 .download-count {
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .uploaded-by > span:first-child,
@@ -49,6 +49,5 @@
 
 .file-actions {
   display: flex;
-  gap: 3rem;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
