@@ -1,10 +1,10 @@
 {
   "table": {
-    "title": "users table [fr]",
+    "title": "Users table [fr]",
     "defaultColumns": {
       "id": "Id[fr]",
-      "givenName": "Given Name[fr]",
-      "middleNames": "Middle Names[fr]",
+      "givenName": "Given name[fr]",
+      "middleNames": "Middle names[fr]",
       "surname": "Surname[fr]"
     }
   }

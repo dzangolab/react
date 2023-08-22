@@ -5,7 +5,7 @@
       "success": "Logged in successfully. (fr)"
     },
     "message": {
-      "error": "Oops! Something went wrong. (fr)"
+      "error": "Oops! something went wrong. (fr)"
     }
   },
   "changePassword": {
@@ -33,7 +33,7 @@
         "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Change Password (fr)"
+    "title": "Change password (fr)"
   },
   "forgetPassword": {
     "messages": {
@@ -48,7 +48,7 @@
         "placeholder": ""
       }
     },
-    "title": "Forget Password (fr)"
+    "title": "Forget password (fr)"
   },
   "invitation": {
     "form": {
@@ -111,7 +111,7 @@
       "signup": "Inscription"
     },
     "button": {
-      "googleLoginLabel": "Continue with Google (fr)"
+      "googleLoginLabel": "Continue with google (fr)"
     },
     "messages": {
       "success": "Logged in successfully.",
@@ -144,7 +144,7 @@
         "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Reset Password (fr)"
+    "title": "Reset password (fr)"
   },
   "signup": {
     "form": {
@@ -189,7 +189,7 @@
   },
   "userMenu": {
     "profile": "Profile (fr)",
-    "logout": "Logout (fr)"
+    "logout": "Log out (fr)"
   },
   "validation": {
     "messages": {

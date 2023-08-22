@@ -5,7 +5,7 @@
       "success": "Logged in successfully."
     },
     "message": {
-      "error": "Oops! Something went wrong."
+      "error": "Oops! something went wrong."
     }
   },
   "changePassword": {
@@ -33,7 +33,7 @@
         "mustMatch": "Passwords must match"
       }
     },
-    "title": "Change Password"
+    "title": "Change password"
   },
   "forgetPassword": {
     "messages": {
@@ -48,7 +48,7 @@
         "placeholder": ""
       }
     },
-    "title": "Forget Password"
+    "title": "Forgot password"
   },
   "invitation": {
     "form": {
@@ -112,7 +112,7 @@
       "signup": "Sign up"
     },
     "button": {
-      "googleLoginLabel": "Continue with Google"
+      "googleLoginLabel": "Continue with google"
     },
     "messages": {
       "success": "Logged in successfully.",
@@ -157,8 +157,8 @@
     "title": "Register"
   },
   "menu": {
-    "signin": "Signin",
-    "signup": "Signup"
+    "signin": "Sign in",
+    "signup": "Sign up"
   },
   "resetPassword": {
     "form": {
@@ -180,14 +180,14 @@
         "mustMatch": "Passwords must match"
       }
     },
-    "title": "Reset Password"
+    "title": "Reset password"
   },
   "profile": {
     "title": "Profile"
   },
   "userMenu": {
     "profile": "Profile",
-    "logout": "Logout"
+    "logout": "Log out"
   },
   "validation": {
     "messages": {

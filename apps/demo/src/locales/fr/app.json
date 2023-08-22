@@ -20,8 +20,8 @@
       "title": "Demo (fr)"
     },
     "forms": {
-      "login": "Login Form (fr)",
-      "confirmPassword": "Confirm Password Form (fr)"
+      "login": "Login form (fr)",
+      "confirmPassword": "Confirm password form (fr)"
     }
   },
   "loading": "Loading (fr) ..."

@@ -23,7 +23,7 @@
         "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Change Password (fr)"
+    "title": "Change password (fr)"
   },
   "forgetPassword": {
     "messages": {
@@ -41,7 +41,7 @@
         "placeholder": ""
       }
     },
-    "title": "Forget Password (fr)"
+    "title": "Forgot password (fr)"
   },
   "firstUser": {
     "title": "Register first user (fr)",
@@ -105,7 +105,7 @@
         "confirmPassword": "Confirm password is required (fr)"
       }
     },
-    "title": "Reset Password (fr)"
+    "title": "Reset password (fr)"
   },
   "signup": {
     "form": {
