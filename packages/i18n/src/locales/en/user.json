@@ -60,7 +60,7 @@
   "login": {
     "form": {
       "actions": {
-        "submit": "Signin"
+        "submit": "Sign in"
       },
       "email": {
         "label": "Your email",
