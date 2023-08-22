@@ -154,7 +154,7 @@ export const InvitationForm = ({
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
   }
 
-  if (expiryDateField) {
+  if (expiryDateField?.display) {
     const ExpiresAtFormSchema = zod.object({
       expiresAt: zod.date({
         required_error: t("validation.messages.expiresAt"),
