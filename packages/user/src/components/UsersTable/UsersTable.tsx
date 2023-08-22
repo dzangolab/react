@@ -25,7 +25,7 @@ export type UsersTableProperties = {
   fetchUsers: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
-  extraColumns?: Array<ColumnProps>;
+  additionalColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   prepareInvitationData?: (data: any) => any;
@@ -44,7 +44,7 @@ export const UsersTable = ({
   fetchUsers,
   id = "table-users",
   inviteButtonIcon,
-  extraColumns = [],
+  additionalColumns = [],
   loading = false,
   onInvitationAdded,
   prepareInvitationData,
@@ -107,7 +107,7 @@ export const UsersTable = ({
         );
       },
     },
-    ...extraColumns,
+    ...additionalColumns,
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),

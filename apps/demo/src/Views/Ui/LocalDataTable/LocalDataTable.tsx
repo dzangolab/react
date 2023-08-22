@@ -5,7 +5,6 @@ import { Tag } from "primereact/tag";
 import type { ColumnProps } from "primereact/column";
 
 import "./index.css";
-import { AllUsersTable } from "@dzangolab/react-user";
 
 export const LocalDataTable = () => {
   const { t } = useTranslation("ui");
@@ -148,67 +147,6 @@ export const LocalDataTable = () => {
     },
   ];
 
-  const allUsers = [
-    {
-      id: "user-1",
-      email: "john@dzangolab.com",
-      givenName: "John",
-      surname: "Doe",
-      username: "johndoe",
-      roles: ["USER"],
-      isActiveUser: true,
-      invitedBy: null,
-      signedUpAt: "2023-08-10T08:00:00Z",
-    },
-    {
-      id: "invitation-123",
-      email: "jane@dzangolab.com",
-      givenName: "Jane",
-      surname: "Smith",
-      username: "janesmith",
-      isActiveUser: false,
-      roles: ["ADMIN"],
-      invitedBy: {
-        id: "user-2",
-        email: "admin@dzangolab.com",
-        givenName: "Admin",
-        surname: "User",
-        username: "admin",
-        isActiveUser: true,
-        roles: ["ADMIN"],
-      },
-    },
-    {
-      id: "user-3",
-      email: "alice@dzangolab.com",
-      givenName: "Alice",
-      surname: "Johnson",
-      username: "alicej",
-      roles: ["ADMIN"],
-      isActiveUser: true,
-      invitedBy: null,
-      signedUpAt: "2023-08-08T10:30:00Z",
-    },
-    {
-      id: "invitation-456",
-      email: "bob@dzangolab.com",
-      givenName: "Bob",
-      surname: "Williams",
-      username: "bobw",
-      isActiveUser: false,
-      roles: ["USER"],
-      invitedBy: {
-        id: "user-4",
-        email: "charlie@dzangolab.com",
-        givenName: "Charlie",
-        surname: "Brown",
-        username: "charlieb",
-        isActiveUser: true,
-        roles: ["ADMIN"],
-      },
-    },
-  ];
-
   return (
     <>
       <DataTable
@@ -217,8 +155,6 @@ export const LocalDataTable = () => {
         rows={5}
         data={users}
       />
-
-      <AllUsersTable users={allUsers} totalRecords={4} />
     </>
   );
 };

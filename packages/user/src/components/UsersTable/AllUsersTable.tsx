@@ -31,7 +31,7 @@ export type AllUsersTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  extraColumns?: Array<ColumnProps>;
+  additionalColumns?: Array<ColumnProps>;
   fetchUsers?: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -53,7 +53,7 @@ export const AllUsersTable = ({
   apps,
   className = "table-users",
   columns,
-  extraColumns = [],
+  additionalColumns = [],
   fetchUsers,
   id = "table-users",
   inviteButtonIcon,
@@ -158,7 +158,7 @@ export const AllUsersTable = ({
       },
       align: "center",
     },
-    ...extraColumns,
+    ...additionalColumns,
     {
       field: "invitedBy",
       header: t("user:invitations.table.defaultColumns.invitedBy"),
