@@ -134,7 +134,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
       {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
 
-      {expiryDateField ? renderExpiryDateField() : null}
+      {expiryDateField?.display ? renderExpiryDateField() : null}
 
       <div className="actions">
         {onCancel && (
