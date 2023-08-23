@@ -1,5 +1,5 @@
 .file-card {
-  width: 15rem;
+  width: 20rem;
 }
 
 .file-details {
@@ -8,15 +8,19 @@
   gap: 0.5rem;
 }
 
-.filename {
-  font-size: 1.5rem;
+.file-name {
+  font-size: 1.4rem;
   font-weight: bold;
+}
+
+.file-size {
+  margin-left: 0.5rem;
 }
 
 .upload-download-detail-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 3rem 0rem;
+  margin: 1rem 0rem;
 }
 
 .file-download-details {
@@ -30,7 +34,15 @@
 .download-count,
 .last-downloaded-at {
   display: flex;
+  margin-bottom: 1rem;
   /* flex-direction: column; */
+}
+
+.uploaded-by,
+.uploaded-at {
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: column;
 }
 
 .uploaded-by,
@@ -44,7 +56,7 @@
 .last-downloaded-at > span:first-child {
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .file-actions {

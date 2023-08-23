@@ -24,7 +24,7 @@ export const FileCard = ({
   file,
   handleDownload,
   handleView,
-  showDescription,
+  showDescription = true,
   translationMessage,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
@@ -44,12 +44,18 @@ export const FileCard = ({
   return (
     <Card className="file-card">
       <div className="file-details">
-        <span className="filename">{file?.filename}</span>
+        <span className="file-name-size">
+          <span className="file-name">{file?.filename}</span>
+          <span className="file-size">({file?.size || "4KB"})</span>
+        </span>
         {showDescription && (
-          <span className="file-description">{file?.description}</span>
+          <span className="file-description">
+            {file?.description || "This is my file description"}
+          </span>
         )}
-        <span className="file-size">{file?.size}</span>
+        {/* <span className="file-size"></span> */}
       </div>
+      <hr />
       <div className="upload-download-detail-wrapper">
         <div className="file-upload-details">
           <div className="uploaded-by">
@@ -63,35 +69,33 @@ export const FileCard = ({
         </div>
         <div className="file-download-details">
           <div className="download-count">
-            <span>
+            {/* <span>
               {translationMessage?.downloadCountHeader || "Download count"}
-            </span>
-            <span>{file?.downloadCount}</span>
+            </span> */}
+            {/* <span>{`${file?.downloadCount} times downloaded`}</span> */}
           </div>
           <div className="last-downloaded-at">
-            <span>
+            {/* <span>
               {translationMessage?.lastDownloadedAtHeader ||
                 "Last downloaded at"}
-            </span>
-            <span>
+            </span> */}
+            {/* <span>
               {file?.lastDownloadedAt ? (
-                file?.lastDownloadedAt
+                `${file?.lastDownloadedAt} downloaded last`
               ) : (
                 <code>&#8212;</code>
               )}
-            </span>
+            </span> */}
           </div>
         </div>
       </div>
       <div className="file-actions">
         <Button
           icon="pi pi-download"
-          rounded
-          text
-          raised
           onClick={handleDownload}
+          label="Download"
         />
-        <Button icon="pi pi-eye" rounded text raised onClick={handleView} />
+        <Button icon="pi pi-eye" onClick={handleView} label="View" />
       </div>
     </Card>
   );
