@@ -77,7 +77,7 @@ export const InvitationsTable = ({
     "actions",
   ],
 }: InvitationsTableProperties) => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation("invitations");
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -86,18 +86,18 @@ export const InvitationsTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "email",
-      header: t("invitations.table.defaultColumns.email"),
+      header: t("table.defaultColumns.email"),
       hidden: !visibleColumns.includes("email"),
       sortable: true,
       filter: true,
-      filterPlaceholder: t("invitations.table.searchPlaceholder"),
+      filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       align: "center",
       field: "app",
-      header: t("invitations.table.defaultColumns.app"),
+      header: t("table.defaultColumns.app"),
       hidden: !visibleColumns.includes("app"),
       body: (data: { appId: any }) => {
         return <span>{data.appId || "-"} </span>;
@@ -106,7 +106,7 @@ export const InvitationsTable = ({
     {
       align: "center",
       field: "role",
-      header: t("invitations.table.defaultColumns.role"),
+      header: t("table.defaultColumns.role"),
       hidden: !visibleColumns.includes("role"),
       body: (data) => {
         return (
@@ -123,7 +123,7 @@ export const InvitationsTable = ({
     ...additionalColumns,
     {
       field: "invitedBy",
-      header: t("invitations.table.defaultColumns.invitedBy"),
+      header: t("table.defaultColumns.invitedBy"),
       hidden: !visibleColumns.includes("invitedBy"),
       body: (data) => {
         if (!data.invitedBy) {
@@ -141,7 +141,7 @@ export const InvitationsTable = ({
     },
     {
       field: "expiresAt",
-      header: t("invitations.table.defaultColumns.expiresAt"),
+      header: t("table.defaultColumns.expiresAt"),
       hidden: !visibleColumns.includes("expiresAt"),
       body: (data) => {
         const date = new Date(data.expiresAt);
@@ -152,7 +152,7 @@ export const InvitationsTable = ({
     {
       align: "center",
       field: "actions",
-      header: t("invitations.table.defaultColumns.actions"),
+      header: t("table.defaultColumns.actions"),
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return (
@@ -195,7 +195,7 @@ export const InvitationsTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={invitations}
-      emptyMessage={t("invitations.table.emptyMessage")}
+      emptyMessage={t("table.emptyMessage")}
       fetchData={fetchInvitations}
       header={renderHeader}
       id={id}

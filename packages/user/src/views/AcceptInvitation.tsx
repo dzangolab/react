@@ -13,7 +13,7 @@ import { Invitation, LoginCredentials } from "@/types";
 import { login } from "..";
 
 const AcceptInvitation = () => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation("invitations");
 
   const appConfig = useConfig();
   const { token } = useParams();
@@ -68,7 +68,7 @@ const AcceptInvitation = () => {
             .then((result: any) => {
               if (result?.user) {
                 setUser(result.user);
-                toast.success(`${t("login.messages.success")}`);
+                toast.success(`${t("user:login.messages.success")}`);
               }
             })
             .catch((error: any) => {
@@ -87,7 +87,7 @@ const AcceptInvitation = () => {
       })
       .catch(() => {
         setAcceptInvitationLoading(false);
-        toast.error(`${t("invitations.errors.errorAcceptingInvitation")}`);
+        toast.error(`${t("invitations.messages.errorAcceptingInvitation")}`);
       });
   };
 
@@ -95,7 +95,7 @@ const AcceptInvitation = () => {
     if (isError || !invitation) {
       return (
         <Card>
-          <p>{t(`invitations.errors.errorFetchingInvitation`)}</p>
+          <p>{t(`invitations.messages.errorFetchingInvitation`)}</p>
         </Card>
       );
     }
@@ -107,7 +107,7 @@ const AcceptInvitation = () => {
     ) {
       return (
         <Card>
-          <p>{t(`invitation.invalid.message`)}</p>
+          <p>{t(`invitation.messages.invalidInvitation`)}</p>
         </Card>
       );
     }
@@ -125,7 +125,7 @@ const AcceptInvitation = () => {
   return (
     <Page
       className="signup"
-      title={t("signup.title")}
+      title={t("user:signup.title")}
       loading={loading || loginLoading}
     >
       {renderPageContent()}

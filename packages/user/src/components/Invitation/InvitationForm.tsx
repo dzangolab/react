@@ -36,7 +36,7 @@ export const InvitationForm = ({
   prepareData,
   roles,
 }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation("invitations");
 
   const appConfig = useConfig();
 
@@ -108,9 +108,9 @@ export const InvitationForm = ({
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
-          toast.error(t("invitation.messages.invite.error"));
+          toast.error(t("messages.invite.error"));
         } else {
-          toast.success(t("invitation.messages.invite.success"));
+          toast.success(t("messages.invite.success"));
 
           if (onSubmitted) {
             onSubmitted(response);
@@ -118,7 +118,7 @@ export const InvitationForm = ({
         }
       })
       .catch(() => {
-        toast.error(t("invitation.messages.invite.error"));
+        toast.error(t("messages.invite.error"));
       })
       .finally(() => {
         setSubmitting(false);

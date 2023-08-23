@@ -34,7 +34,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   loading,
   onCancel,
 }) => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation("invitations");
 
   const {
     register,
@@ -69,17 +69,17 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       {expiryDateField?.mode === "calendar" ? (
         <DatePicker
           key="calender"
-          label={t("invitation.form.expiresAt.label")}
+          label={t("form.fields.expiresAt.label")}
           minDate={new Date()}
           name="expiresAt"
-          placeholder={t("invitation.form.expiresAt.placeholder")}
+          placeholder={t("form.fields.expiresAt.placeholder")}
         />
       ) : (
         <DateInput
           getFieldState={getFieldState}
-          label={t("invitation.form.expiresAfter.label")}
+          label={t("form.fields.expiresAfter.label")}
           name="expiresAt"
-          placeholder={t("invitation.form.expiresAfter.placeholder")}
+          placeholder={t("form.fields.expiresAfter.placeholder")}
           register={register}
         />
       )}
@@ -106,9 +106,9 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   return (
     <>
       <Email
-        label={t("invitation.form.email.label")}
+        label={t("form.fields.email.label")}
         name="email"
-        placeholder={t("invitation.form.email.placeholder")}
+        placeholder={t("form.fields.email.placeholder")}
         register={register}
         getFieldState={getFieldState}
         submitcount={submitCount}
@@ -117,8 +117,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       {apps?.length ? (
         <AppPicker
           name="app"
-          label={t("invitation.form.app.label")}
-          placeholder={t("invitation.form.app.placeholder")}
+          label={t("form.fields.app.label")}
+          placeholder={t("form.fields.app.placeholder")}
           options={updatedApps}
         />
       ) : null}
@@ -126,8 +126,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       {apps?.length || roles?.length ? (
         <RolePicker
           name="role"
-          label={t("invitation.form.role.label")}
-          placeholder={t("invitation.form.role.placeholder")}
+          label={t("form.fields.role.label")}
+          placeholder={t("form.fields.role.placeholder")}
           options={filteredRoles}
         />
       ) : null}
@@ -143,7 +143,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
               event.preventDefault();
               onCancel();
             }}
-            label={t("invitation.form.actions.cancel")}
+            label={t("form.fields.actions.cancel")}
             severity="secondary"
             outlined
           ></Button>
@@ -151,7 +151,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
         <Button
           type="submit"
-          label={t("invitation.form.actions.submit")}
+          label={t("form.fields.actions.submit")}
           disabled={!!Object.values(errors).length}
           loading={loading}
         ></Button>

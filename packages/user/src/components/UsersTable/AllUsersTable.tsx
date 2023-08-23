@@ -7,6 +7,7 @@ import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
 import { InvitationModal } from "../Invitation";
+import { InvitationActions } from "../Invitation/InvitationActions";
 
 import type {
   AdditionalInvitationFields,
@@ -14,7 +15,6 @@ import type {
   InvitationAppOption,
   InvitationRoleOption,
 } from "@/types";
-import { InvitationActions } from "../Invitation/InvitationActions";
 
 type VisibleColumn =
   | "name"
@@ -109,7 +109,7 @@ export const AllUsersTable = ({
     },
     {
       field: "app",
-      header: t("user:invitations.table.defaultColumns.app"),
+      header: t("invitations:table.defaultColumns.app"),
       hidden: !visibleColumns.includes("app"),
       body: (data: { appId: any }) => {
         return <span>{data.appId || "-"} </span>;
@@ -161,7 +161,7 @@ export const AllUsersTable = ({
     ...additionalColumns,
     {
       field: "invitedBy",
-      header: t("user:invitations.table.defaultColumns.invitedBy"),
+      header: t("invitations:table.defaultColumns.invitedBy"),
       hidden: !visibleColumns.includes("invitedBy"),
       body: (data) => {
         if (data.isActiveUser) {
@@ -193,7 +193,7 @@ export const AllUsersTable = ({
     },
     {
       field: "actions",
-      header: t("user:invitations.table.defaultColumns.actions"),
+      header: t("invitations:table.defaultColumns.actions"),
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return (
