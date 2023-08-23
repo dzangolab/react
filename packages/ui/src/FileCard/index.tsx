@@ -53,7 +53,6 @@ export const FileCard = ({
             {file?.description || "This is my file description"}
           </span>
         )}
-        {/* <span className="file-size"></span> */}
       </div>
       <hr />
       <div className="upload-download-detail-wrapper">
@@ -69,23 +68,14 @@ export const FileCard = ({
         </div>
         <div className="file-download-details">
           <div className="download-count">
-            {/* <span>
-              {translationMessage?.downloadCountHeader || "Download count"}
-            </span> */}
-            {/* <span>{`${file?.downloadCount} times downloaded`}</span> */}
+            <span>{`${file?.downloadCount} times downloaded`}</span>
           </div>
           <div className="last-downloaded-at">
-            {/* <span>
+            <span>
               {translationMessage?.lastDownloadedAtHeader ||
                 "Last downloaded at"}
-            </span> */}
-            {/* <span>
-              {file?.lastDownloadedAt ? (
-                `${file?.lastDownloadedAt} downloaded last`
-              ) : (
-                <code>&#8212;</code>
-              )}
-            </span> */}
+            </span>
+            {file.lastDownloadedAt && <span>{file?.lastDownloadedAt}</span>}
           </div>
         </div>
       </div>

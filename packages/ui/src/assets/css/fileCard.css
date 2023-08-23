@@ -20,13 +20,20 @@
 .upload-download-detail-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 1rem 0rem;
+  margin: 2rem 0rem;
+}
+
+.file-upload-details {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 .file-download-details {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  /* flex-direction: column; */
+  justify-content: space-between;
 }
 
 .uploaded-by,
