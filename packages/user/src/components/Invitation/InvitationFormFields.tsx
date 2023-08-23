@@ -143,7 +143,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
               event.preventDefault();
               onCancel();
             }}
-            label={t("form.fields.actions.cancel")}
+            label={t("form.actions.cancel")}
             severity="secondary"
             outlined
           ></Button>
@@ -151,7 +151,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
         <Button
           type="submit"
-          label={t("form.fields.actions.submit")}
+          label={t("form.actions.submit")}
           disabled={!!Object.values(errors).length}
           loading={loading}
         ></Button>
