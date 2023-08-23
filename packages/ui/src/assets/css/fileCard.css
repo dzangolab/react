@@ -1,5 +1,6 @@
 .file-card {
   width: 20rem;
+  box-shadow: -1px -1px 29px -14px rgba(0,0,0,0.68);
 }
 
 .file-details {
