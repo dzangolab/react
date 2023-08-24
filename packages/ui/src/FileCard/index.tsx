@@ -46,11 +46,11 @@ export const FileCard = ({
       <div className="file-details">
         <span className="file-name-size">
           <span className="file-name">{file?.filename}</span>
-          <span className="file-size">({file?.size || "4KB"})</span>
+          <span className="file-size">{file.size && `(${file?.size})`}</span>
         </span>
         {showDescription && (
           <span className="file-description">
-            {file?.description || "This is my file description"}
+            {file?.description || "This is my file desription"}
           </span>
         )}
       </div>

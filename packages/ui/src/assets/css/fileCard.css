@@ -1,6 +1,6 @@
 .file-card {
   width: 20rem;
-  box-shadow: -1px -1px 29px -14px rgba(0,0,0,0.68);
+  box-shadow: -1px -1px 29px -14px rgba(0, 0, 0, 0.68);
 }
 
 .file-details {
@@ -26,14 +26,12 @@
 
 .file-upload-details {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 
 .file-download-details {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
 }
 
@@ -43,7 +41,6 @@
 .last-downloaded-at {
   display: flex;
   margin-bottom: 1rem;
-  /* flex-direction: column; */
 }
 
 .uploaded-by,
@@ -51,11 +48,6 @@
   display: flex;
   margin-bottom: 1rem;
   flex-direction: column;
-}
-
-.uploaded-by,
-.download-count {
-  /* margin-bottom: 2rem; */
 }
 
 .uploaded-by > span:first-child,
