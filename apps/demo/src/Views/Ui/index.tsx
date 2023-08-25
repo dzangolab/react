@@ -96,9 +96,11 @@ const componentList = [
       <FileCard
         file={{
           filename: "file1.png",
+          size: 4,
           uploadedBy: { givenName: "Manish", lastName: "Aryal" },
           uploadedAt: 235_325,
           downloadCount: 5,
+          lastDownloadedAt: 3_243_541_412,
         }}
       />
     ),
@@ -114,28 +116,32 @@ const componentList = [
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: 235_325,
             downloadCount: 5,
+            lastDownloadedAt: 12_343_352,
           },
           {
             filename: "file1.png",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: 235_325,
             downloadCount: 5,
+            lastDownloadedAt: 12_343_352,
           },
           {
             filename: "file1.png",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: 235_325,
             downloadCount: 5,
+            lastDownloadedAt: 12_343_352,
           },
           {
             filename: "file1.png",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: 235_325,
             downloadCount: 5,
+            lastDownloadedAt: 1_234_352,
           },
         ]}
-        handleDownload={() => {}}
-        handleView={() => {}}
+        onFileDownload={() => {}}
+        onFileView={() => {}}
       />
     ),
   },

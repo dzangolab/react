@@ -6,7 +6,7 @@ import { IFile } from "../FilesTable";
 export type Message = {
   uploadedbyHeader?: string;
   uploadedAtHeader?: string;
-  downloadCountHeader?: string;
+  downloadCountLabel?: string;
   lastDownloadedAtHeader?: string;
   downloadButtonLabel?: string;
   viewButtonLabel?: string;
@@ -14,18 +14,24 @@ export type Message = {
 
 type FileCardType = {
   file: IFile;
-  handleDownload?: (arguments_: any) => void;
-  handleView?: (arguments_: any) => void;
+  onArchive?: (arguments_: any) => void;
+  onDelete?: (arguments_: any) => void;
+  onDownload?: (arguments_: any) => void;
+  onShare?: (arguments_: any) => void;
+  onView?: (arguments_: any) => void;
   showDescription?: boolean;
-  translationMessage?: Message;
+  Messages?: Message;
 };
 
 export const FileCard = ({
   file,
-  handleDownload,
-  handleView,
+  onDownload,
+  onView,
+  onArchive,
+  onDelete,
+  onShare,
   showDescription = true,
-  translationMessage,
+  Messages,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
     if (!data.uploadedBy) {
@@ -57,7 +63,7 @@ export const FileCard = ({
             </span>
             {showDescription && (
               <>
-                <span className="file-description-detail">
+                <span className="file-description-details">
                   <span className="file-description">
                     {file.description || "This is my file desription"}
                   </span>
@@ -69,37 +75,36 @@ export const FileCard = ({
           <div className="file-upload-download-details">
             <div className="file-upload-details">
               <div className="uploaded-by">
-                <span>
-                  {translationMessage?.uploadedbyHeader || "Uploaded by"}
-                </span>
+                <span>{Messages?.uploadedbyHeader || "Uploaded by"}</span>
                 <span>{checkUploadedByData(file)}</span>
               </div>
               <div className="uploaded-at">
-                <span>
-                  {translationMessage?.uploadedAtHeader || "Uploaded at"}
-                </span>
+                <span>{Messages?.uploadedAtHeader || "Uploaded at"}</span>
                 <span>{file?.uploadedAt}</span>
               </div>
             </div>
             <div className="file-download-details">
               <div className="download-count">
-                <span>{`${file?.downloadCount} times downloaded`}</span>
+                <span>{Messages?.downloadCountLabel || "Downloads"}</span>
+                <span>{file?.downloadCount}</span>
               </div>
               <div className="last-downloaded-at">
                 {file.lastDownloadedAt && (
-                  <span>{`${file?.lastDownloadedAt} Last download`}</span>
+                  <>
+                    <span>
+                      {Messages?.lastDownloadedAtHeader || "Last download"}
+                    </span>
+                    <span>{file?.lastDownloadedAt}</span>
+                  </>
                 )}
               </div>
             </div>
           </div>
           <div className="file-actions">
-            <Button icon="pi pi-eye" onClick={handleView} rounded outlined />
-            <Button
-              icon="pi pi-download"
-              onClick={handleDownload}
-              rounded
-              outlined
-            />
+            <Button icon="pi pi-share-alt" onClick={onShare} />
+            <Button icon="pi pi-trash" onClick={onDelete} />
+            <Button icon="pi pi-eye" onClick={onView} />
+            <Button icon="pi pi-download" onClick={onDownload} />
           </div>
         </div>
       </div>

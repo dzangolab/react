@@ -2,30 +2,39 @@ import { FileCard, IFile, Message } from "..";
 
 type FilesListType = {
   files: IFile[];
-  handleView: (arguments_: IFile) => void;
-  handleDownload: (arguments_: IFile) => void;
+  onFileArchive?: (arguments_: IFile) => void;
+  onFileDelete?: (arguments_: IFile) => void;
+  onFileDownload: (arguments_: IFile) => void;
+  onFileShare?: (arguments_: IFile) => void;
+  onFileView: (arguments_: IFile) => void;
   showDescription?: boolean;
-  translationMessage?: Message;
+  Messages?: Message;
 };
 
 export const FilesList = ({
   files,
-  handleView,
-  handleDownload,
+  onFileArchive,
+  onFileDelete,
+  onFileDownload,
+  onFileShare,
+  onFileView,
   showDescription,
-  translationMessage,
+  Messages,
 }: FilesListType) => {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem" }}>
+    <div>
       {files.map((file: IFile) => {
         return (
           <FileCard
             key={file.filename}
             file={file}
-            handleView={(file) => handleView(file)}
-            handleDownload={(file) => handleDownload(file)}
+            onArchive={onFileArchive}
+            onDelete={onFileDelete}
+            onDownload={onFileDownload}
+            onShare={onFileShare}
+            onView={onFileView}
             showDescription={showDescription}
-            translationMessage={translationMessage}
+            Messages={Messages}
           />
         );
       })}
