@@ -1,17 +1,19 @@
 import {
   AppPicker,
+  DateInput,
+  DatePicker,
   Email,
   RolePicker,
   useFormContext,
   useWatch,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { LoadingIcon } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import React, { useEffect, useMemo, useState } from "react";
 
 import {
   InvitationAppOption,
+  InvitationExpiryDateField,
   InvitationRoleOption,
   RenderAdditionalInvitationFields,
 } from "@/types";
@@ -19,6 +21,7 @@ import {
 interface IProperties {
   renderAdditionalFields?: RenderAdditionalInvitationFields;
   apps?: InvitationAppOption[];
+  expiryDateField?: InvitationExpiryDateField;
   loading?: boolean;
   onCancel?: () => void;
   roles?: InvitationRoleOption[];
@@ -26,11 +29,12 @@ interface IProperties {
 export const InvitationFormFields: React.FC<IProperties> = ({
   renderAdditionalFields,
   apps,
+  expiryDateField,
   roles,
   loading,
   onCancel,
 }) => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation("invitations");
 
   const {
     register,
@@ -60,6 +64,28 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     }
   }, [filteredRoles]);
 
+  const renderExpiryDateField = () => (
+    <>
+      {expiryDateField?.mode === "calendar" ? (
+        <DatePicker
+          key="calender"
+          label={t("form.fields.expiresAt.label")}
+          minDate={new Date()}
+          name="expiresAt"
+          placeholder={t("form.fields.expiresAt.placeholder")}
+        />
+      ) : (
+        <DateInput
+          getFieldState={getFieldState}
+          label={t("form.fields.expiresAfter.label")}
+          name="expiresAt"
+          placeholder={t("form.fields.expiresAfter.placeholder")}
+          register={register}
+        />
+      )}
+    </>
+  );
+
   const updatedApps = useMemo(() => {
     let modifiedApps = apps || [];
     const currentOrigin = window.location.origin;
@@ -80,9 +106,9 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   return (
     <>
       <Email
-        label={t("invitation.form.email.label")}
+        label={t("form.fields.email.label")}
         name="email"
-        placeholder={t("invitation.form.email.placeholder")}
+        placeholder={t("form.fields.email.placeholder")}
         register={register}
         getFieldState={getFieldState}
         submitcount={submitCount}
@@ -91,8 +117,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       {apps?.length ? (
         <AppPicker
           name="app"
-          label={t("invitation.form.app.label")}
-          placeholder={t("invitation.form.app.placeholder")}
+          label={t("form.fields.app.label")}
+          placeholder={t("form.fields.app.placeholder")}
           options={updatedApps}
         />
       ) : null}
@@ -100,13 +126,15 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       {apps?.length || roles?.length ? (
         <RolePicker
           name="role"
-          label={t("invitation.form.role.label")}
-          placeholder={t("invitation.form.role.placeholder")}
+          label={t("form.fields.role.label")}
+          placeholder={t("form.fields.role.placeholder")}
           options={filteredRoles}
         />
       ) : null}
 
       {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
+
+      {expiryDateField?.display ? renderExpiryDateField() : null}
 
       <div className="actions">
         {onCancel && (
@@ -115,7 +143,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
               event.preventDefault();
               onCancel();
             }}
-            label={t("invitation.form.actions.cancel")}
+            label={t("form.actions.cancel")}
             severity="secondary"
             outlined
           ></Button>
@@ -123,10 +151,9 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
         <Button
           type="submit"
-          label={t("invitation.form.actions.submit")}
+          label={t("form.actions.submit")}
           disabled={!!Object.values(errors).length}
           loading={loading}
-          loadingIcon={<LoadingIcon />}
         ></Button>
       </div>
     </>

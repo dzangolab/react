@@ -21,7 +21,7 @@ export const InvitationActions = ({
 }: InvitationActionsProperites) => {
   const appConfig = useConfig();
 
-  const { t } = useTranslation("user");
+  const { t } = useTranslation("invitations");
 
   const [showResendConfirmation, setShowResendConfirmation] = useState(false);
   const [showRevokeConfirmation, setShowRevokeConfirmation] = useState(false);
@@ -31,14 +31,14 @@ export const InvitationActions = ({
 
   const actionItems: MenuItem[] = [
     {
-      label: t("invitation.actions.resend"),
+      label: t("invitations.actions.resend"),
       icon: "pi pi-replay",
       command: (event) => {
         setShowResendConfirmation(true);
       },
     },
     {
-      label: t("invitation.actions.revoke"),
+      label: t("invitations.actions.revoke"),
       icon: "pi pi-times",
       className: "danger",
       command: (event) => {
@@ -54,9 +54,9 @@ export const InvitationActions = ({
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
-          toast.error(t("invitation.messages.resend.error"));
+          toast.error(t("messages.resend.error"));
         } else {
-          toast.success(t("invitation.messages.resend.success"));
+          toast.success(t("messages.resend.success"));
 
           if (onInvitationResent) {
             onInvitationResent(response);
@@ -64,7 +64,7 @@ export const InvitationActions = ({
         }
       })
       .catch(() => {
-        toast.error(t("invitation.messages.resend.error"));
+        toast.error(t("messages.resend.error"));
       })
       .finally(() => {
         setResendLoading(false);
@@ -78,9 +78,9 @@ export const InvitationActions = ({
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
-          toast.error(t("invitation.messages.revoke.error"));
+          toast.error(t("messages.revoke.error"));
         } else {
-          toast.success(t("invitation.messages.revoke.success"));
+          toast.success(t("messages.revoke.success"));
 
           if (onInvitationRevoked) {
             onInvitationRevoked(response);
@@ -88,7 +88,7 @@ export const InvitationActions = ({
         }
       })
       .catch(() => {
-        toast.error(t("invitation.messages.revoke.error"));
+        toast.error(t("messages.revoke.error"));
       })
       .finally(() => {
         setRevokeLoading(false);
@@ -99,19 +99,19 @@ export const InvitationActions = ({
     <>
       <ActionsMenu actions={actionItems} />
       <ConfirmationModal
-        message={t("invitation.confirm.resend.message")}
+        message={t("confirmation.confirm.resend.message")}
         accept={onResendConfirm}
         visible={showResendConfirmation}
         onHide={() => setShowResendConfirmation(false)}
-        header={t("invitation.confirmation.header")}
+        header={t("confirmation.header")}
         acceptIcon={resendLoading ? "pi pi-spin pi-spinner" : undefined}
       />
       <ConfirmationModal
-        message={t("invitation.confirm.revoke.message")}
+        message={t("confirmation.confirm.revoke.message")}
         accept={onRevokeConfirm}
         visible={showRevokeConfirmation}
         onHide={() => setShowRevokeConfirmation(false)}
-        header={t("invitation.confirmation.header")}
+        header={t("confirmation.header")}
         acceptIcon={revokeLoading ? "pi pi-spin pi-spinner" : undefined}
       />
     </>

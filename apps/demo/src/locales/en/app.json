@@ -20,9 +20,12 @@
       "title": "Demo"
     },
     "forms": {
-      "login": "Login Form",
-      "confirmPassword": "Confirm Password Form"
+      "login": "Login form",
+      "confirmPassword": "Confirm password form"
     }
   },
-  "loading": "Loading ..."
+  "loading": "Loading ...",
+  "table": {
+    "emptyMessage": "No results"
+  }
 }
