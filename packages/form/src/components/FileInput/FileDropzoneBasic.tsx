@@ -18,34 +18,6 @@ interface IFileDropzoneBasicProperties {
   onChange: (files: FileExtended[]) => void;
 }
 
-const baseStyle = {
-  flex: 1,
-  display: "flex",
-  flexDirection: "column" as const,
-  alignItems: "center",
-  padding: "30px 20px",
-  borderWidth: 2,
-  borderRadius: 2,
-  borderColor: "#eeeeee",
-  borderStyle: "dashed",
-  backgroundColor: "#fafafa",
-  color: "#bdbdbd",
-  outline: "none",
-  transition: "border .24s ease-in-out",
-};
-
-const focusedStyle = {
-  borderColor: "#2196f3",
-};
-
-const acceptStyle = {
-  borderColor: "#00e676",
-};
-
-const rejectStyle = {
-  borderColor: "#ff1744",
-};
-
 export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
   name,
   label,
@@ -110,20 +82,18 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
       ...dropzoneOptions,
     });
 
-  const style = useMemo(
-    () => ({
-      ...baseStyle,
-      ...(isFocused ? focusedStyle : {}),
-      ...(isDragAccept ? acceptStyle : {}),
-      ...(isDragReject ? rejectStyle : {}),
-    }),
+  const className = useMemo(
+    () =>
+      `dropzone ${isFocused ? "focused" : ""} ${
+        isDragAccept ? "accepted" : ""
+      } ${isDragReject ? "rejected" : ""}`,
     [isFocused, isDragAccept, isDragReject],
   );
 
   return (
     <>
       {label && <label htmlFor={name}>{label}</label>}
-      <div {...getRootProps({ className: "dropzone", style })}>
+      <div {...getRootProps({ className })}>
         <input id={name} name={name} {...getInputProps()} />
         {dropzoneMessage && <p>{dropzoneMessage}</p>}
       </div>
