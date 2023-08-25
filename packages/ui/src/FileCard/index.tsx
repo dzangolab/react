@@ -20,7 +20,7 @@ type FileCardType = {
   onShare?: (arguments_: any) => void;
   onView?: (arguments_: any) => void;
   showDescription?: boolean;
-  Messages?: Message;
+  messages?: Message;
 };
 
 export const FileCard = ({
@@ -31,7 +31,7 @@ export const FileCard = ({
   onDelete,
   onShare,
   showDescription = true,
-  Messages,
+  messages,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
     if (!data.uploadedBy) {
@@ -75,24 +75,24 @@ export const FileCard = ({
           <div className="file-upload-download-details">
             <div className="file-upload-details">
               <div className="uploaded-by">
-                <span>{Messages?.uploadedbyHeader || "Uploaded by"}</span>
+                <span>{messages?.uploadedbyHeader || "Uploaded by"}</span>
                 <span>{checkUploadedByData(file)}</span>
               </div>
               <div className="uploaded-at">
-                <span>{Messages?.uploadedAtHeader || "Uploaded at"}</span>
+                <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
                 <span>{file?.uploadedAt}</span>
               </div>
             </div>
             <div className="file-download-details">
               <div className="download-count">
-                <span>{Messages?.downloadCountLabel || "Downloads"}</span>
+                <span>{messages?.downloadCountLabel || "Downloads"}</span>
                 <span>{file?.downloadCount}</span>
               </div>
               <div className="last-downloaded-at">
                 {file.lastDownloadedAt && (
                   <>
                     <span>
-                      {Messages?.lastDownloadedAtHeader || "Last download"}
+                      {messages?.lastDownloadedAtHeader || "Last download"}
                     </span>
                     <span>{file?.lastDownloadedAt}</span>
                   </>
@@ -101,10 +101,11 @@ export const FileCard = ({
             </div>
           </div>
           <div className="file-actions">
-            <Button icon="pi pi-share-alt" onClick={onShare} />
-            <Button icon="pi pi-trash" onClick={onDelete} />
-            <Button icon="pi pi-eye" onClick={onView} />
-            <Button icon="pi pi-download" onClick={onDownload} />
+            <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />
+            <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />
+            <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />
+            <Button icon="pi pi-eye" onClick={() => onView?.(file)} />
+            <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />
           </div>
         </div>
       </div>

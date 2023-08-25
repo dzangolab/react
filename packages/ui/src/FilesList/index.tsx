@@ -4,11 +4,11 @@ type FilesListType = {
   files: IFile[];
   onFileArchive?: (arguments_: IFile) => void;
   onFileDelete?: (arguments_: IFile) => void;
-  onFileDownload: (arguments_: IFile) => void;
+  onFileDownload?: (arguments_: IFile) => void;
   onFileShare?: (arguments_: IFile) => void;
-  onFileView: (arguments_: IFile) => void;
+  onFileView?: (arguments_: IFile) => void;
   showDescription?: boolean;
-  Messages?: Message;
+  messages?: Message;
 };
 
 export const FilesList = ({
@@ -19,7 +19,7 @@ export const FilesList = ({
   onFileShare,
   onFileView,
   showDescription,
-  Messages,
+  messages,
 }: FilesListType) => {
   return (
     <div>
@@ -34,7 +34,7 @@ export const FilesList = ({
             onShare={onFileShare}
             onView={onFileView}
             showDescription={showDescription}
-            Messages={Messages}
+            messages={messages}
           />
         );
       })}
