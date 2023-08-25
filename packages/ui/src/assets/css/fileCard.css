@@ -44,6 +44,10 @@
   align-items: center;
 }
 
+.file-description-detail > button:hover {
+  background-color: white;
+}
+
 .file-upload-download-details {
   display: flex;
   gap: 5rem;

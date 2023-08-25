@@ -24,7 +24,7 @@ export const FileCard = ({
   file,
   handleDownload,
   handleView,
-  showDescription = false,
+  showDescription = true,
   translationMessage,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
@@ -58,7 +58,9 @@ export const FileCard = ({
             {showDescription && (
               <>
                 <span className="file-description-detail">
-                  <span className="file-description">{file.description}</span>
+                  <span className="file-description">
+                    {file.description || "This is my file desription"}
+                  </span>
                   <Button icon="pi pi-pencil" text size="small" />
                 </span>
               </>
@@ -84,11 +86,9 @@ export const FileCard = ({
                 <span>{`${file?.downloadCount} times downloaded`}</span>
               </div>
               <div className="last-downloaded-at">
-                <span>
-                  {translationMessage?.lastDownloadedAtHeader ||
-                    "Last downloaded at"}
-                </span>
-                {file.lastDownloadedAt && <span>{file?.lastDownloadedAt}</span>}
+                {file.lastDownloadedAt && (
+                  <span>{`${file?.lastDownloadedAt} Last download`}</span>
+                )}
               </div>
             </div>
           </div>
