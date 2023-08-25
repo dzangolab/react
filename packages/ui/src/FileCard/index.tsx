@@ -43,49 +43,83 @@ export const FileCard = ({
 
   return (
     <Card className="file-card">
-      <div className="file-details">
-        <span className="file-name-size">
-          <span className="file-name">{file?.filename}</span>
-          <span className="file-size">{file.size && `(${file?.size})`}</span>
-        </span>
-        {showDescription && (
-          <span className="file-description">
-            {file?.description || "This is my file desription"}
-          </span>
-        )}
-      </div>
-      <hr />
-      <div className="upload-download-detail-wrapper">
-        <div className="file-upload-details">
-          <div className="uploaded-by">
-            <span>{translationMessage?.uploadedbyHeader || "Uploaded by"}</span>
-            <span>{checkUploadedByData(file)}</span>
-          </div>
-          <div className="uploaded-at">
-            <span>{translationMessage?.uploadedAtHeader || "Uploaded at"}</span>
-            <span>{file?.uploadedAt}</span>
-          </div>
+      <div className="file-card-wrapper">
+        <div className="file-icon">
+          <i className="pi pi-file-pdf" style={{ fontSize: "5rem" }}></i>
         </div>
-        <div className="file-download-details">
-          <div className="download-count">
-            <span>{`${file?.downloadCount} times downloaded`}</span>
-          </div>
-          <div className="last-downloaded-at">
+        <div className="file-details-wrapper">
+          <div className="file-details">
             <span>
-              {translationMessage?.lastDownloadedAtHeader ||
-                "Last downloaded at"}
+              <span className="file-name">document.pdf</span>
+              <span className="file-size">(4KB)</span>
             </span>
-            {file.lastDownloadedAt && <span>{file?.lastDownloadedAt}</span>}
+            <span className="file-description-detail">
+              <span className="file-description">
+                This is my file description
+              </span>
+              <Button icon="pi pi-pencil" text size="small" />
+            </span>
+          </div>
+          <div className="file-upload-download-details">
+            <div className="file-upload-details">
+              <div className="uploaded-by">
+                <span>
+                  {translationMessage?.uploadedbyHeader || "Uploaded by"}
+                </span>
+                <span>{checkUploadedByData(file)}</span>
+              </div>
+              <div className="uploaded-at">
+                <span>
+                  {translationMessage?.uploadedAtHeader || "Uploaded at"}
+                </span>
+                <span>{file?.uploadedAt}</span>
+              </div>
+            </div>
+            <div className="file-download-details">
+              <div className="download-count">
+                <span>{`${file?.downloadCount} times downloaded`}</span>
+              </div>
+              <div className="last-downloaded-at">
+                <span>
+                  {translationMessage?.lastDownloadedAtHeader ||
+                    "Last downloaded at"}
+                </span>
+                {file.lastDownloadedAt && <span>{file?.lastDownloadedAt}</span>}
+              </div>
+            </div>
+          </div>
+          <div className="file-actions">
+            {/* <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
+            <Button
+              icon="pi pi-bookmark"
+              rounded
+              outlined
+              severity="secondary"
+              aria-label="Bookmark"
+            />
+            <Button
+              icon="pi pi-search"
+              rounded
+              outlined
+              severity="success"
+              aria-label="Search"
+            /> */}
+            <Button
+              icon="pi pi-view"
+              rounded
+              outlined
+              severity="info"
+              aria-label="User"
+            />
+            <Button
+              icon="pi pi-download"
+              rounded
+              outlined
+              severity="warning"
+              aria-label="Notification"
+            />
           </div>
         </div>
-      </div>
-      <div className="file-actions">
-        <Button
-          icon="pi pi-download"
-          onClick={handleDownload}
-          label="Download"
-        />
-        <Button icon="pi pi-eye" onClick={handleView} label="View" />
       </div>
     </Card>
   );
