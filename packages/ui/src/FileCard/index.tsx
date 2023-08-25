@@ -24,7 +24,7 @@ export const FileCard = ({
   file,
   handleDownload,
   handleView,
-  showDescription = true,
+  showDescription = false,
   translationMessage,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
@@ -45,20 +45,24 @@ export const FileCard = ({
     <Card className="file-card">
       <div className="file-card-wrapper">
         <div className="file-icon">
-          <i className="pi pi-file-pdf" style={{ fontSize: "5rem" }}></i>
+          <i className="pi pi-file-pdf"></i>
         </div>
         <div className="file-details-wrapper">
           <div className="file-details">
             <span>
-              <span className="file-name">document.pdf</span>
-              <span className="file-size">(4KB)</span>
-            </span>
-            <span className="file-description-detail">
-              <span className="file-description">
-                This is my file description
+              <span className="file-name">{file.filename}</span>
+              <span className="file-size">
+                {file.size && `(${file?.size})`}
               </span>
-              <Button icon="pi pi-pencil" text size="small" />
             </span>
+            {showDescription && (
+              <>
+                <span className="file-description-detail">
+                  <span className="file-description">{file.description}</span>
+                  <Button icon="pi pi-pencil" text size="small" />
+                </span>
+              </>
+            )}
           </div>
           <div className="file-upload-download-details">
             <div className="file-upload-details">
@@ -89,34 +93,12 @@ export const FileCard = ({
             </div>
           </div>
           <div className="file-actions">
-            {/* <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
-            <Button
-              icon="pi pi-bookmark"
-              rounded
-              outlined
-              severity="secondary"
-              aria-label="Bookmark"
-            />
-            <Button
-              icon="pi pi-search"
-              rounded
-              outlined
-              severity="success"
-              aria-label="Search"
-            /> */}
-            <Button
-              icon="pi pi-view"
-              rounded
-              outlined
-              severity="info"
-              aria-label="User"
-            />
+            <Button icon="pi pi-eye" onClick={handleView} rounded outlined />
             <Button
               icon="pi pi-download"
+              onClick={handleDownload}
               rounded
               outlined
-              severity="warning"
-              aria-label="Notification"
             />
           </div>
         </div>
