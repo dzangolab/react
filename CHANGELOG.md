@@ -1,3 +1,20 @@
+# [0.16.0](https://github.com/dzangolab/react/compare/v0.15.0...v0.16.0) (2023-08-25)
+
+
+### Bug Fixes
+
+* convert all translation into sentence case ([#530](https://github.com/dzangolab/react/issues/530)) ([bff3bd1](https://github.com/dzangolab/react/commit/bff3bd12468bd9fa277868491ae4d375ae93203f))
+* **deps:** update dependency eslint-plugin-react to v7.33.2 ([#518](https://github.com/dzangolab/react/issues/518)) ([c828576](https://github.com/dzangolab/react/commit/c8285767914a18ae190017b297b776a21f4cdcb9))
+* ui glitch issue in invitation modal ([#522](https://github.com/dzangolab/react/issues/522)) ([9ab8c3d](https://github.com/dzangolab/react/commit/9ab8c3df1d9c4a8ae4bd550f02b51a35a732c29a))
+
+
+### Features
+
+* add support for column toggling ([#523](https://github.com/dzangolab/react/issues/523)) ([199addf](https://github.com/dzangolab/react/commit/199addffa2a800d827f8da0ac366e7cf049b0b1d))
+* add support in data table to support local filtering and sorting ([#512](https://github.com/dzangolab/react/issues/512)) ([9a4ecd4](https://github.com/dzangolab/react/commit/9a4ecd41434e7f15fa5c59845c08534a04649750))
+
+
+
 # [0.15.0](https://github.com/dzangolab/react/compare/v0.14.0...v0.15.0) (2023-08-15)
 
 
