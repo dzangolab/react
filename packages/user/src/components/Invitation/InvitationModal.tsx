@@ -33,20 +33,20 @@ export const InvitationModal = ({
   prepareData,
   roles,
 }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t } = useTranslation("invitations");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
     <div className="flex justify-content-center">
       <Button
-        label={t("invitation.modal.button.label")}
+        label={t("modal.button.label")}
         icon={buttonIcon}
         onClick={() => setModalVisible(true)}
       />
       <Dialog
         className="invitation-modal"
         contentStyle={{ overflowY: "visible" }}
-        header={t("invitation.modal.dialog.header")}
+        header={t("modal.dialog.header")}
         visible={modalVisible}
         onHide={() => setModalVisible(false)}
         draggable={false}
