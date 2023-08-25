@@ -1,53 +1,49 @@
-import { Dropdown } from "primereact/dropdown";
+import { Calendar } from "primereact/calendar";
+import { Nullable } from "primereact/ts-helpers";
 import { classNames } from "primereact/utils";
-import React from "react";
+import { FC } from "react";
 
 import { ErrorMessage } from "../ErrorMessage";
-import { RoleOption } from "../RolePicker";
 
-export interface AppOption {
-  id: number;
-  name: string;
-  origin: string;
-  supportedRoles?: RoleOption[];
-}
-
-interface IProperties {
+export interface DatePickerBasicProperties {
   error?: any;
   inputRef: React.Ref<HTMLInputElement>;
   label?: string;
   name: string;
-  options: AppOption[];
+  maxDate?: Date;
+  minDate?: Date;
   placeholder?: string;
-  value: AppOption;
-  onChange: (app: AppOption) => void;
+  onChange: (value: Nullable<string | Date | Date[]>) => void;
+  value: Date;
 }
 
-export const AppPickerBasic = ({
+export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
   error,
   inputRef,
   label,
   name,
-  options,
+  maxDate,
+  minDate,
   placeholder,
-  value,
   onChange,
-}: IProperties) => {
+  value,
+}) => {
   return (
     <div className={`field ${name}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
-      <Dropdown
+
+      <Calendar
         id={name}
         value={value}
-        optionLabel="name"
         placeholder={placeholder}
-        options={options}
-        disabled={!options?.length || options.length === 1}
-        focusInputRef={inputRef}
+        inputRef={inputRef}
         onChange={(event) => onChange(event.value)}
         className={classNames({ "p-invalid": error })}
-        appendTo="self"
+        panelClassName={name}
+        maxDate={maxDate}
+        minDate={minDate}
       />
+
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );

@@ -1,11 +1,16 @@
 {
   "table": {
-    "title": "users table",
+    "title": "Users",
     "defaultColumns": {
       "id": "Id",
-      "givenName": "Given Name",
-      "middleNames": "Middle Names",
+      "givenName": "Given name",
+      "middleNames": "Middle names",
+      "status": "Status",
       "surname": "Surname"
     }
+  },
+  "status": {
+    "active": "Active",
+    "invited": "Invited"
   }
 }

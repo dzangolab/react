@@ -1,7 +1,13 @@
-import { LoadingIcon, Page, ResponsiveMenu } from "@dzangolab/react-ui";
+import {
+  LoadingIcon,
+  Page,
+  ResponsiveMenu,
+  FilesTable,
+} from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
+import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
@@ -51,6 +57,35 @@ const componentList = [
     key: 5,
     title: "buttons.export",
     component: <ExportButton />,
+  },
+  {
+    key: 6,
+    title: "table.title.localDataTable",
+    component: <LocalDataTable />,
+  },
+  {
+    key: 7,
+    title: "files.table",
+    component: (
+      <FilesTable
+        files={[
+          {
+            filename: "myfile",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+          },
+        ]}
+        visibleColumns={[
+          "filename",
+          "description",
+          "uploadedBy",
+          "uploadedAt",
+          "downloadCount",
+          "lastDownloadedAt",
+          "actions",
+        ]}
+      />
+    ),
   },
 ];
 

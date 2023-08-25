@@ -2,9 +2,11 @@
 @import "./changePassword.css";
 @import "./forgetPassword.css";
 @import "./form.css";
+@import "./invitation.css";
 @import "./login.css";
 @import "./profileInformation.css";
 @import "./redirectMessage.css";
 @import "./resetPassword.css";
 @import "./signup.css";
 @import "./termsAndConditions.css";
+@import "./invitations-table.css";

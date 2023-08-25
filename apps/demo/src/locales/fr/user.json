@@ -33,7 +33,7 @@
         "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Change Password (fr)"
+    "title": "Change password (fr)"
   },
   "forgetPassword": {
     "messages": {
@@ -45,10 +45,10 @@
       },
       "email": {
         "label": "Your email (fr)",
-        "placeholder": "john.doe.at.example.com (fr)"
+        "placeholder": ""
       }
     },
-    "title": "Forget Password (fr)"
+    "title": "Forget password (fr)"
   },
   "invitation": {
     "form": {
@@ -56,9 +56,13 @@
         "cancel": "Cancel (fr)",
         "submit": "Invite (fr)"
       },
+      "app": {
+        "label": "App (fr)",
+        "placeholder": "Select app (fr)"
+      },
       "email": {
         "label": "Email (fr)",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "role": {
         "label": "Role (fr)",
@@ -85,7 +89,7 @@
         "role": "Role (fr)"
       },
       "emptyMessage": "Table is empty (fr)",
-      "searchPlaceholder": "john.doe.at.example.com"
+      "searchPlaceholder": ""
     },
     "title": "Invitations (fr)"
   },
@@ -96,7 +100,7 @@
       },
       "email": {
         "label": "Votre adresse mail",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "votre mot de passe"
@@ -140,7 +144,7 @@
         "mustMatch": "Passwords must match (fr)"
       }
     },
-    "title": "Reset Password (fr)"
+    "title": "Reset password (fr)"
   },
   "signup": {
     "form": {
@@ -152,7 +156,7 @@
       },
       "email": {
         "label": "Votre adresse e-mail",
-        "placeholder": "john.doe.at.example.com"
+        "placeholder": ""
       },
       "password": {
         "label": "Votre mot de passe"

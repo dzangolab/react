@@ -55,23 +55,25 @@ export const DataTable = ({
       cellClassName={(_, { field }) => `cell-${field}`}
       dataKey={dataKey}
       filterDisplay={filterDisplay}
-      filters={lazyState.filters}
-      first={lazyState.first}
-      lazy={!!fetchData}
       loading={loading}
-      onFilter={onFilter}
-      onPage={onPage}
-      onSort={onSort}
       paginator={paginator}
       paginatorTemplate={paginatorTemplate}
       rowClassName={rowClassName}
       rows={lazyState.rows}
       rowsPerPageOptions={rowsPerPageOptions}
-      sortField={lazyState.sortField}
-      sortOrder={lazyState.sortOrder}
       stripedRows={stripedRows}
       totalRecords={totalRecords}
       value={data}
+      {...(fetchData && {
+        filters: lazyState.filters,
+        first: lazyState.first,
+        lazy: !!fetchData,
+        onFilter,
+        onPage,
+        onSort,
+        sortField: lazyState.sortField,
+        sortOrder: lazyState.sortOrder,
+      })}
       {...tableOptions}
     >
       {columns.map((column) => (
