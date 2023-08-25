@@ -24,5 +24,8 @@
       "confirmPassword": "Confirm password form"
     }
   },
-  "loading": "Loading ..."
+  "loading": "Loading ...",
+  "table": {
+    "emptyMessage": "No results"
+  }
 }
