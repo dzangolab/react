@@ -1,0 +1,1 @@
+const e={actions:{invite:"Invite user (fr)"},title:"Users (fr)",defaultColumns:{email:"Email (fr)",roles:"Roles (fr)",name:"Name (fr)",signedUpOn:"Signed up on (fr)"},searchPlaceholder:"Search (fr)"},t={active:"Active (fr)",invited:"Invited (fr)"},a={table:e,status:t};export{a as default,t as status,e as table};
