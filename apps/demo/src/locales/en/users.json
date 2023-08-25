@@ -1,13 +1,16 @@
 {
   "table": {
+    "actions": {
+      "invite": "Invite user"
+    },
     "title": "Users",
     "defaultColumns": {
-      "id": "Id",
-      "givenName": "Given name",
-      "middleNames": "Middle names",
-      "status": "Status",
-      "surname": "Surname"
-    }
+      "email": "Email",
+      "roles": "Roles",
+      "name": "Name",
+      "signedUpOn": "Signed up on"
+    },
+    "searchPlaceholder": "Search"
   },
   "status": {
     "active": "Active",

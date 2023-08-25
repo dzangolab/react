@@ -1,16 +1,19 @@
 {
   "table": {
+    "actions": {
+      "invite": "Invite user (fr)"
+    },
     "title": "Users (fr)",
     "defaultColumns": {
-      "id": "Id (fr)",
-      "givenName": "Given name (fr)",
-      "middleNames": "Middle names (fr)",
-      "status": "Status(fr)",
-      "surname": "Surname(fr)"
-    }
+      "email": "Email (fr)",
+      "roles": "Roles (fr)",
+      "name": "Name (fr)",
+      "signedUpOn": "Signed up on (fr)"
+    },
+    "searchPlaceholder": "Search (fr)"
   },
   "status": {
-    "active": "Active",
-    "invited": "Invited"
+    "active": "Active (fr)",
+    "invited": "Invited (fr)"
   }
 }
