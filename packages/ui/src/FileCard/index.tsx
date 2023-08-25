@@ -2,8 +2,9 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 
 import { IFile } from "../FilesTable";
+import { useEffect } from "react";
 
-export type Message = {
+export type Messages = {
   uploadedbyHeader?: string;
   uploadedAtHeader?: string;
   downloadCountLabel?: string;
@@ -19,19 +20,23 @@ type FileCardType = {
   onDownload?: (arguments_: any) => void;
   onShare?: (arguments_: any) => void;
   onView?: (arguments_: any) => void;
+  onRenderThumbnailType?: (arguments_: any) => void;
+  messages?: Messages;
+  renderThumbnail?: boolean;
   showDescription?: boolean;
-  messages?: Message;
 };
 
 export const FileCard = ({
   file,
-  onDownload,
-  onView,
   onArchive,
   onDelete,
+  onDownload,
   onShare,
-  showDescription = true,
+  onView,
+  onRenderThumbnailType,
   messages,
+  renderThumbnail = true,
+  showDescription = true,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
     if (!data.uploadedBy) {
@@ -50,9 +55,11 @@ export const FileCard = ({
   return (
     <Card className="file-card">
       <div className="file-card-wrapper">
-        <div className="file-icon">
-          <i className="pi pi-file-pdf"></i>
-        </div>
+        {renderThumbnail && (
+          <div className="file-icon">
+            <i className="pi pi-file-pdf"></i>
+          </div>
+        )}
         <div className="file-details-wrapper">
           <div className="file-details">
             <span>

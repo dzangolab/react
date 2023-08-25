@@ -1,4 +1,4 @@
-import { FileCard, IFile, Message } from "..";
+import { FileCard, IFile, Messages } from "..";
 
 type FilesListType = {
   files: IFile[];
@@ -7,8 +7,9 @@ type FilesListType = {
   onFileDownload?: (arguments_: IFile) => void;
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
+  messages?: Messages;
+  renderThumbnail?: boolean;
   showDescription?: boolean;
-  messages?: Message;
 };
 
 export const FilesList = ({
@@ -18,11 +19,12 @@ export const FilesList = ({
   onFileDownload,
   onFileShare,
   onFileView,
-  showDescription,
   messages,
+  renderThumbnail,
+  showDescription,
 }: FilesListType) => {
   return (
-    <div>
+    <div className="file-list-wrapper">
       {files.map((file: IFile) => {
         return (
           <FileCard
@@ -33,8 +35,9 @@ export const FilesList = ({
             onDownload={onFileDownload}
             onShare={onFileShare}
             onView={onFileView}
-            showDescription={showDescription}
             messages={messages}
+            renderThumbnail={renderThumbnail}
+            showDescription={showDescription}
           />
         );
       })}
