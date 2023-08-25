@@ -1,5 +1,4 @@
 .layout.basic {
-  /* --_layout-basic-padding: var(--layout-gap, 1em); */
   --_layout-basic-max-width: var(--layout-max-width, 60rem);
   --_layout-basic-padding-h: var(--layout-padding-h, 1em);
   --_layout-basic-padding-v: var(--layout-padding-v, 2em);
@@ -19,7 +18,8 @@
 
 .layout.basic > main {
   flex: 1;
-  padding: var(--_layout-basic-padding-v) 0;
+  padding-top: var(--_layout-basic-padding-v);
+  padding-bottom: var(--_layout-basic-padding-v);
 }
 
 @media screen and (min-width: 60rem) {
