@@ -1,28 +1,28 @@
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
+import { ReactNode } from "react";
 
 import { IFile } from "../FilesTable";
-import { useEffect } from "react";
 
 export type Messages = {
+  downloadCountLabel?: string;
+  downloadButtonLabel?: string;
+  lastDownloadedAtHeader?: string;
   uploadedbyHeader?: string;
   uploadedAtHeader?: string;
-  downloadCountLabel?: string;
-  lastDownloadedAtHeader?: string;
-  downloadButtonLabel?: string;
   viewButtonLabel?: string;
 };
 
 type FileCardType = {
   file: IFile;
-  onArchive?: (arguments_: any) => void;
-  onDelete?: (arguments_: any) => void;
-  onDownload?: (arguments_: any) => void;
-  onShare?: (arguments_: any) => void;
-  onView?: (arguments_: any) => void;
-  onRenderThumbnailType?: (arguments_: any) => void;
   messages?: Messages;
-  renderThumbnail?: boolean;
+  onArchive?: (arguments_: IFile) => void;
+  onDelete?: (arguments_: IFile) => void;
+  onDownload?: (arguments_: IFile) => void;
+  onShare?: (arguments_: IFile) => void;
+  onView?: (arguments_: IFile) => void;
+  renderThumbnail?: (arguments_: IFile) => ReactNode;
+  showThumbnail?: boolean;
   showDescription?: boolean;
 };
 
@@ -33,9 +33,9 @@ export const FileCard = ({
   onDownload,
   onShare,
   onView,
-  onRenderThumbnailType,
   messages,
-  renderThumbnail = true,
+  renderThumbnail,
+  showThumbnail = true,
   showDescription = true,
 }: FileCardType) => {
   const checkUploadedByData = (data: any) => {
@@ -52,14 +52,24 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
+  const renderIconThumbnail = () => {
+    if (showThumbnail) {
+      if (!renderThumbnail) {
+        return (
+          <div className="file-icon">
+            <i className="pi pi-file-pdf"></i>;
+          </div>
+        );
+      }
+      return <div className="file-icon">{renderThumbnail?.(file)}</div>;
+    }
+    return null;
+  };
+
   return (
     <Card className="file-card">
       <div className="file-card-wrapper">
-        {renderThumbnail && (
-          <div className="file-icon">
-            <i className="pi pi-file-pdf"></i>
-          </div>
-        )}
+        {renderIconThumbnail()}
         <div className="file-details-wrapper">
           <div className="file-details">
             <span>
@@ -92,8 +102,12 @@ export const FileCard = ({
             </div>
             <div className="file-download-details">
               <div className="download-count">
-                <span>{messages?.downloadCountLabel || "Downloads"}</span>
-                <span>{file?.downloadCount}</span>
+                {file.downloadCount && (
+                  <>
+                    <span>{messages?.downloadCountLabel || "Downloads"}</span>
+                    <span>{file?.downloadCount}</span>
+                  </>
+                )}
               </div>
               <div className="last-downloaded-at">
                 {file.lastDownloadedAt && (

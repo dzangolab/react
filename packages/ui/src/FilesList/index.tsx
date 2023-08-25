@@ -1,26 +1,30 @@
+import { ReactNode } from "react";
+
 import { FileCard, IFile, Messages } from "..";
 
 type FilesListType = {
   files: IFile[];
+  messages?: Messages;
   onFileArchive?: (arguments_: IFile) => void;
   onFileDelete?: (arguments_: IFile) => void;
   onFileDownload?: (arguments_: IFile) => void;
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
-  messages?: Messages;
-  renderThumbnail?: boolean;
+  renderFileThumbnail?: (arguments_: IFile) => ReactNode;
+  showFileThumbnail?: boolean;
   showDescription?: boolean;
 };
 
 export const FilesList = ({
   files,
+  messages,
   onFileArchive,
   onFileDelete,
   onFileDownload,
   onFileShare,
   onFileView,
-  messages,
-  renderThumbnail,
+  showFileThumbnail,
+  renderFileThumbnail,
   showDescription,
 }: FilesListType) => {
   return (
@@ -30,13 +34,14 @@ export const FilesList = ({
           <FileCard
             key={file.filename}
             file={file}
+            messages={messages}
             onArchive={onFileArchive}
             onDelete={onFileDelete}
             onDownload={onFileDownload}
             onShare={onFileShare}
             onView={onFileView}
-            messages={messages}
-            renderThumbnail={renderThumbnail}
+            renderThumbnail={renderFileThumbnail}
+            showThumbnail={showFileThumbnail}
             showDescription={showDescription}
           />
         );
