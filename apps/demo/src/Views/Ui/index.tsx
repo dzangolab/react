@@ -96,12 +96,16 @@ const componentList = [
       <FileCard
         file={{
           filename: "file1.png",
+          description: "This is my file",
           size: 4,
           uploadedBy: { givenName: "Manish", lastName: "Aryal" },
           uploadedAt: Date.now(),
           downloadCount: 5,
           lastDownloadedAt: Date.now(),
         }}
+        onDownload={() => {}}
+        onView={() => {}}
+        onShare={() => {}}
       />
     ),
   },

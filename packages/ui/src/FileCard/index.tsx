@@ -23,6 +23,7 @@ type FileCardType = {
   onView?: (arguments_: IFile) => void;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
   showThumbnail?: boolean;
+  showEditDescription?: boolean;
   showDescription?: boolean;
 };
 
@@ -36,21 +37,10 @@ export const FileCard = ({
   messages,
   renderThumbnail,
   showThumbnail = true,
+  showEditDescription = true,
   showDescription = true,
 }: FileCardType) => {
-  const checkUploadedByData = (data: any) => {
-    if (!data.uploadedBy) {
-      return <code>&#8212;</code>;
-    }
-
-    if (data.uploadedBy.givenName || data.uploadedBy.lastName) {
-      return `${data.uploadedBy.givenName || ""} ${
-        data.uploadedBy.lastName || ""
-      }`;
-    }
-
-    return data.uploadedBy.email;
-  };
+  const buttons: any[] = [];
 
   const renderIconThumbnail = () => {
     if (showThumbnail) {
@@ -66,26 +56,72 @@ export const FileCard = ({
     return null;
   };
 
+  const checkUploadedByData = (data: any) => {
+    if (!data.uploadedBy) {
+      return <code>&#8212;</code>;
+    }
+
+    if (data.uploadedBy.givenName || data.uploadedBy.lastName) {
+      return `${data.uploadedBy.givenName || ""} ${
+        data.uploadedBy.lastName || ""
+      }`;
+    }
+
+    return data.uploadedBy.email;
+  };
+
+  const updateDateTimeFormat = (date: number) => {
+    return new Date(date).toLocaleDateString("en-GB");
+  };
+
+  const renderActions = () => {
+    if (onArchive) {
+      buttons.push(
+        <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />,
+      );
+    }
+    if (onDelete) {
+      buttons.push(
+        <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />,
+      );
+    }
+    if (onDownload) {
+      buttons.push(
+        <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />,
+      );
+    }
+    if (onShare) {
+      buttons.push(
+        <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />,
+      );
+    }
+    if (onView) {
+      buttons.push(<Button icon="pi pi-eye" onClick={() => onView?.(file)} />);
+    }
+
+    return buttons;
+  };
+
   return (
     <Card className="file-card">
       <div className="file-card-wrapper">
         {renderIconThumbnail()}
         <div className="file-details-wrapper">
           <div className="file-details">
-            <span>
+            <div>
               <span className="file-name">{file.filename}</span>
               <span className="file-size">
                 {file.size && `(${file?.size})`}
               </span>
-            </span>
+            </div>
             {showDescription && (
               <>
-                <span className="file-description-details">
-                  <span className="file-description">
-                    {file.description || "This is my file desription"}
-                  </span>
-                  <Button icon="pi pi-pencil" text size="small" />
-                </span>
+                <div className="file-description-details">
+                  <span className="file-description">{file.description}</span>
+                  {showEditDescription && (
+                    <Button icon="pi pi-pencil" text size="small" />
+                  )}
+                </div>
               </>
             )}
           </div>
@@ -97,7 +133,7 @@ export const FileCard = ({
               </div>
               <div className="uploaded-at">
                 <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
-                <span>{file?.uploadedAt}</span>
+                <span>{updateDateTimeFormat(file?.uploadedAt)}</span>
               </div>
             </div>
             <div className="file-download-details">
@@ -115,19 +151,13 @@ export const FileCard = ({
                     <span>
                       {messages?.lastDownloadedAtHeader || "Last download"}
                     </span>
-                    <span>{file?.lastDownloadedAt}</span>
+                    <span>{updateDateTimeFormat(file.lastDownloadedAt)}</span>
                   </>
                 )}
               </div>
             </div>
           </div>
-          <div className="file-actions">
-            <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />
-            <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />
-            <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />
-            <Button icon="pi pi-eye" onClick={() => onView?.(file)} />
-            <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />
-          </div>
+          <div className="file-actions">{...renderActions()}</div>
         </div>
       </div>
     </Card>

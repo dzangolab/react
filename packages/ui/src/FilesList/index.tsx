@@ -12,6 +12,7 @@ type FilesListType = {
   onFileView?: (arguments_: IFile) => void;
   renderFileThumbnail?: (arguments_: IFile) => ReactNode;
   showFileThumbnail?: boolean;
+  showEditDescription?: boolean;
   showDescription?: boolean;
 };
 
@@ -25,6 +26,7 @@ export const FilesList = ({
   onFileView,
   showFileThumbnail,
   renderFileThumbnail,
+  showEditDescription,
   showDescription,
 }: FilesListType) => {
   return (
@@ -42,6 +44,7 @@ export const FilesList = ({
             onView={onFileView}
             renderThumbnail={renderFileThumbnail}
             showThumbnail={showFileThumbnail}
+            showEditDescription={showEditDescription}
             showDescription={showDescription}
           />
         );
