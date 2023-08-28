@@ -75,6 +75,7 @@ const componentList = [
             filename: "myfile",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
+            lastDownloadedAt: Date.now(),
           },
         ]}
         visibleColumns={[

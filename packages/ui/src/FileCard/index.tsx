@@ -29,12 +29,12 @@ type FileCardType = {
 
 export const FileCard = ({
   file,
+  messages,
   onArchive,
   onDelete,
   onDownload,
   onShare,
   onView,
-  messages,
   renderThumbnail: pRenderThumbnail,
   showDescription = true,
   showEditDescription = true,
