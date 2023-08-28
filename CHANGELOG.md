@@ -1,3 +1,12 @@
+# [0.17.0](https://github.com/dzangolab/react/compare/v0.16.0...v0.17.0) (2023-08-28)
+
+
+### Features
+
+* **form:** add FileInput and FileDropzone components ([#516](https://github.com/dzangolab/react/issues/516)) ([bf325c3](https://github.com/dzangolab/react/commit/bf325c3efd2cdea47aff3ee110bfdf8e1014e062))
+
+
+
 # [0.16.0](https://github.com/dzangolab/react/compare/v0.15.0...v0.16.0) (2023-08-25)
 
 
