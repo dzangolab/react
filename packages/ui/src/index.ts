@@ -15,6 +15,8 @@ import { TabbedPanel } from "./TabbedPanel";
 export * from "./Buttons";
 export * from "./DataTable";
 export * from "./FilesTable";
+export * from "./FileCard";
+export * from "./FilesList";
 export * from "./Table";
 export * from "./utils";
 

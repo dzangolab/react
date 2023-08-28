@@ -3,7 +3,7 @@ import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React from "react";
 
-import { ActionsMenu, DataTable } from "../index";
+import { ActionsMenu, DataTable, formatDate } from "../index";
 
 type Messages = {
   downloadAction?: string;
@@ -30,9 +30,10 @@ type VisibleColumn =
   | "lastDownloadedAt"
   | "actions";
 
-interface IFile {
+export interface IFile {
   filename: string;
   description?: string;
+  size?: number;
   uploadedBy: object;
   uploadedAt: number;
   downloadCount?: number;
@@ -145,9 +146,7 @@ export const FilesTable = ({
       header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
       hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
-        const date = new Date(data.uploadedAt);
-
-        return date.toLocaleDateString("en-GB");
+        return formatDate(data.uploadedAt);
       },
     },
     {
@@ -166,9 +165,7 @@ export const FilesTable = ({
       hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
         if (data.lastDownloadedAt) {
-          const date = new Date(data.lastDownloadedAt);
-
-          return date.toLocaleDateString("en-GB");
+          return formatDate(data.lastDownloadedAt);
         }
         return <code>&#8212;</code>;
       },

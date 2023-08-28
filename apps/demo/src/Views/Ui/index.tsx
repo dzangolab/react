@@ -3,6 +3,8 @@ import {
   Page,
   ResponsiveMenu,
   FilesTable,
+  FileCard,
+  FilesList,
 } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
@@ -73,6 +75,7 @@ const componentList = [
             filename: "myfile",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
+            lastDownloadedAt: Date.now(),
           },
         ]}
         visibleColumns={[
@@ -84,6 +87,66 @@ const componentList = [
           "lastDownloadedAt",
           "actions",
         ]}
+      />
+    ),
+  },
+  {
+    key: 8,
+    title: "file.card",
+    component: (
+      <FileCard
+        file={{
+          filename: "file1.png",
+          description: "This is my file",
+          size: 4,
+          uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+          uploadedAt: Date.now(),
+          downloadCount: 0,
+          lastDownloadedAt: Date.now(),
+        }}
+        onDownload={() => {}}
+        onView={() => {}}
+        onShare={() => {}}
+      />
+    ),
+  },
+  {
+    key: 9,
+    title: "files.list",
+    component: (
+      <FilesList
+        files={[
+          {
+            filename: "file1.png",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "document.pdf",
+            uploadedBy: { givenName: "Gaurav", lastName: "Sapkota" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "photo.jpeg",
+            uploadedBy: { givenName: "Deepak", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "manish.png",
+            uploadedBy: { givenName: "Lamdiki", lastName: "Sherpa" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            lastDownloadedAt: Date.now(),
+          },
+        ]}
+        onFileDownload={() => {}}
+        onFileView={() => {}}
       />
     ),
   },
