@@ -5,12 +5,10 @@ import { ReactNode } from "react";
 import { IFile } from "../FilesTable";
 
 export type Messages = {
-  downloadCountLabel?: string;
-  downloadButtonLabel?: string;
+  downloadCountHeader?: string;
   lastDownloadedAtHeader?: string;
   uploadedbyHeader?: string;
   uploadedAtHeader?: string;
-  viewButtonLabel?: string;
 };
 
 type FileCardType = {
@@ -145,7 +143,7 @@ export const FileCard = ({
               <div className="download-count">
                 {(file?.downloadCount || file?.downloadCount === 0) && (
                   <>
-                    <span>{messages?.downloadCountLabel || "Downloads:"}</span>
+                    <span>{messages?.downloadCountHeader || "Downloads:"}</span>
                     <span>{file?.downloadCount}</span>
                   </>
                 )}
