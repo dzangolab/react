@@ -15,9 +15,9 @@
 }
 
 .file-thumbnail {
+  align-items: center;
   border-right: 0.1rem solid black;
   display: flex;
-  align-items: center;
   padding: 2rem;
 }
 
@@ -49,8 +49,8 @@
 }
 
 .file-description-details {
-  display: flex;
   align-items: center;
+  display: flex;
   margin-top: 0.5rem;
 }
 
