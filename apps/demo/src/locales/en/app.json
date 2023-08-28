@@ -25,5 +25,8 @@
       "fileInput": "Form with file input"
     }
   },
-  "loading": "Loading ..."
+  "loading": "Loading ...",
+  "table": {
+    "emptyMessage": "No results"
+  }
 }
