@@ -22,9 +22,10 @@ type FileCardType = {
   onShare?: (arguments_: IFile) => void;
   onView?: (arguments_: IFile) => void;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
-  showThumbnail?: boolean;
-  showEditDescription?: boolean;
   showDescription?: boolean;
+  showEditDescription?: boolean;
+  showSize?: boolean;
+  showThumbnail?: boolean;
 };
 
 export const FileCard = ({
@@ -36,9 +37,10 @@ export const FileCard = ({
   onView,
   messages,
   renderThumbnail,
-  showThumbnail = true,
-  showEditDescription = true,
   showDescription = true,
+  showEditDescription = true,
+  showSize = true,
+  showThumbnail = true,
 }: FileCardType) => {
   const buttons: any[] = [];
 
@@ -111,13 +113,13 @@ export const FileCard = ({
             <div>
               <span className="file-name">{file.filename}</span>
               <span className="file-size">
-                {file.size && `(${file?.size})`}
+                {file.size && showSize && `(${file?.size})`}
               </span>
             </div>
-            {showDescription && (
+            {showDescription && file.description && (
               <>
                 <div className="file-description-details">
-                  <span className="file-description">{file.description}</span>
+                  <span>{file.description}</span>
                   {showEditDescription && (
                     <Button icon="pi pi-pencil" text size="small" />
                   )}

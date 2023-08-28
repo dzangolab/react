@@ -11,9 +11,10 @@ type FilesListType = {
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
   renderFileThumbnail?: (arguments_: IFile) => ReactNode;
+  showFileDescription?: boolean;
+  showFileEditDescription?: boolean;
+  showFileSize?: boolean;
   showFileThumbnail?: boolean;
-  showEditDescription?: boolean;
-  showDescription?: boolean;
 };
 
 export const FilesList = ({
@@ -24,10 +25,11 @@ export const FilesList = ({
   onFileDownload,
   onFileShare,
   onFileView,
-  showFileThumbnail,
   renderFileThumbnail,
-  showEditDescription,
-  showDescription,
+  showFileDescription,
+  showFileEditDescription,
+  showFileSize,
+  showFileThumbnail,
 }: FilesListType) => {
   return (
     <div className="file-list-wrapper">
@@ -43,9 +45,10 @@ export const FilesList = ({
             onShare={onFileShare}
             onView={onFileView}
             renderThumbnail={renderFileThumbnail}
+            showDescription={showFileDescription}
+            showEditDescription={showFileEditDescription}
+            showSize={showFileSize}
             showThumbnail={showFileThumbnail}
-            showEditDescription={showEditDescription}
-            showDescription={showDescription}
           />
         );
       })}
