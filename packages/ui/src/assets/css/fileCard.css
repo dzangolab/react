@@ -1,7 +1,7 @@
-.p-card,
-.p-card-body,
-.p-card-content {
-  padding: 0 !important;
+.file-card,
+.file-card > .p-card-body,
+.file-card > .p-card-body > .p-card-content {
+  padding: 0rem !important;
 }
 
 .file-card {

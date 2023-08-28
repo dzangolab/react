@@ -22,9 +22,9 @@
   },
   "files": {
     "table": "Files table",
-    "list": "Files List"
+    "list": "Files list"
   },
   "file": {
-    "card": "File Card"
+    "card": "File card"
   }
 }

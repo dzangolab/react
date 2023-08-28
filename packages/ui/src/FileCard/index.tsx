@@ -34,22 +34,21 @@ export const FileCard = ({
   onShare,
   onView,
   messages,
-  renderThumbnail,
+  renderThumbnail: pRenderThumbnail,
   showDescription = true,
   showEditDescription = true,
   showSize = true,
   showThumbnail = true,
 }: FileCardType) => {
-  const actionButtons: any[] = [];
-
-  const renderThumbnailType = () => {
+  const renderThumbnail = () => {
     if (!showThumbnail) {
       return null;
     }
+
     return (
       <div className="file-thumbnail">
-        {renderThumbnail ? (
-          renderThumbnail(file)
+        {pRenderThumbnail ? (
+          pRenderThumbnail(file)
         ) : (
           <i className="pi pi-file-pdf"></i>
         )}
@@ -76,6 +75,7 @@ export const FileCard = ({
   };
 
   const renderActions = () => {
+    const actionButtons: any[] = [];
     if (onArchive) {
       actionButtons.push(
         <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />,
@@ -102,13 +102,13 @@ export const FileCard = ({
       );
     }
 
-    return actionButtons;
+    return <div className="file-actions">{actionButtons}</div>;
   };
 
   return (
     <Card className="file-card">
       <div className="file-thumbnail-details-wrapper">
-        {renderThumbnailType()}
+        {renderThumbnail()}
         <div className="file-details-wrapper">
           <div className="file-name-description-details-wrapper">
             <div>
@@ -160,7 +160,7 @@ export const FileCard = ({
               </div>
             </div>
           </div>
-          <div className="file-actions">{...renderActions()}</div>
+          {renderActions()}
         </div>
       </div>
     </Card>
