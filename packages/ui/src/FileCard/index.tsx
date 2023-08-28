@@ -107,7 +107,7 @@ export const FileCard = ({
 
   return (
     <Card className="file-card">
-      <div className="file-card-details-wrapper">
+      <div className="file-thumbnail-details-wrapper">
         {renderThumbnailType()}
         <div className="file-details-wrapper">
           <div className="file-details">
