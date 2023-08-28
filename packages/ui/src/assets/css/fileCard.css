@@ -33,7 +33,7 @@
   margin-left: 2rem;
 }
 
-.file-details {
+.file-name-description-details-wrapper {
   display: flex;
   flex-direction: column;
 }

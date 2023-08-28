@@ -42,7 +42,7 @@ export const FileCard = ({
   showSize = true,
   showThumbnail = true,
 }: FileCardType) => {
-  const buttons: any[] = [];
+  const actionButtons: any[] = [];
 
   const renderThumbnailType = () => {
     if (!showThumbnail) {
@@ -73,36 +73,38 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
-  const updateDateTimeFormat = (date: number) => {
+  const updateDateFormat = (date: number) => {
     return new Date(date).toLocaleDateString("en-GB");
   };
 
   const renderActions = () => {
     if (onArchive) {
-      buttons.push(
+      actionButtons.push(
         <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />,
       );
     }
     if (onDelete) {
-      buttons.push(
+      actionButtons.push(
         <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />,
       );
     }
     if (onDownload) {
-      buttons.push(
+      actionButtons.push(
         <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />,
       );
     }
     if (onShare) {
-      buttons.push(
+      actionButtons.push(
         <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />,
       );
     }
     if (onView) {
-      buttons.push(<Button icon="pi pi-eye" onClick={() => onView?.(file)} />);
+      actionButtons.push(
+        <Button icon="pi pi-eye" onClick={() => onView?.(file)} />,
+      );
     }
 
-    return buttons;
+    return actionButtons;
   };
 
   return (
@@ -110,7 +112,7 @@ export const FileCard = ({
       <div className="file-thumbnail-details-wrapper">
         {renderThumbnailType()}
         <div className="file-details-wrapper">
-          <div className="file-details">
+          <div className="file-name-description-details-wrapper">
             <div>
               <span className="file-name">{file.filename}</span>
               <span className="file-size">
@@ -136,7 +138,7 @@ export const FileCard = ({
               </div>
               <div className="uploaded-at">
                 <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
-                <span>{updateDateTimeFormat(file?.uploadedAt)}</span>
+                <span>{updateDateFormat(file?.uploadedAt)}</span>
               </div>
             </div>
             <div className="file-download-details">
@@ -154,7 +156,7 @@ export const FileCard = ({
                     <span>
                       {messages?.lastDownloadedAtHeader || "Last download:"}
                     </span>
-                    <span>{updateDateTimeFormat(file.lastDownloadedAt)}</span>
+                    <span>{updateDateFormat(file.lastDownloadedAt)}</span>
                   </>
                 )}
               </div>
