@@ -44,18 +44,19 @@ export const FileCard = ({
 }: FileCardType) => {
   const buttons: any[] = [];
 
-  const renderIconThumbnail = () => {
-    if (showThumbnail) {
-      if (!renderThumbnail) {
-        return (
-          <div className="file-icon">
-            <i className="pi pi-file-pdf"></i>;
-          </div>
-        );
-      }
-      return <div className="file-icon">{renderThumbnail?.(file)}</div>;
+  const renderThumbnailType = () => {
+    if (!showThumbnail) {
+      return null;
     }
-    return null;
+    return (
+      <div className="file-thumbnail">
+        {renderThumbnail ? (
+          renderThumbnail(file)
+        ) : (
+          <i className="pi pi-file-pdf"></i>
+        )}
+      </div>
+    );
   };
 
   const checkUploadedByData = (data: any) => {
@@ -106,8 +107,8 @@ export const FileCard = ({
 
   return (
     <Card className="file-card">
-      <div className="file-card-wrapper">
-        {renderIconThumbnail()}
+      <div className="file-card-details-wrapper">
+        {renderThumbnailType()}
         <div className="file-details-wrapper">
           <div className="file-details">
             <div>
