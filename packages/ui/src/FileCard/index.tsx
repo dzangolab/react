@@ -2,6 +2,7 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { ReactNode } from "react";
 
+import { formatDate } from "..";
 import { IFile } from "../FilesTable";
 
 export type Messages = {
@@ -70,10 +71,6 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
-  const updateDateFormat = (date: number) => {
-    return new Date(date).toLocaleDateString("en-GB");
-  };
-
   const renderActions = () => {
     const actionButtons: any[] = [];
     if (onArchive) {
@@ -136,7 +133,7 @@ export const FileCard = ({
               </div>
               <div className="uploaded-at">
                 <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
-                <span>{updateDateFormat(file?.uploadedAt)}</span>
+                <span>{formatDate(file?.uploadedAt)}</span>
               </div>
             </div>
             <div className="file-download-details">
@@ -154,7 +151,7 @@ export const FileCard = ({
                     <span>
                       {messages?.lastDownloadedAtHeader || "Last download:"}
                     </span>
-                    <span>{updateDateFormat(file.lastDownloadedAt)}</span>
+                    <span>{formatDate(file.lastDownloadedAt)}</span>
                   </>
                 )}
               </div>
