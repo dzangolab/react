@@ -54,7 +54,7 @@
   margin-top: 0.5rem;
 }
 
-.file-upload-download-details {
+.file-upload-download-details-wrapper {
   display: flex;
   gap: 5rem;
 }

@@ -128,7 +128,7 @@ export const FileCard = ({
               </>
             )}
           </div>
-          <div className="file-upload-download-details">
+          <div className="file-upload-download-details-wrapper">
             <div className="file-upload-details">
               <div className="uploaded-by">
                 <span>{messages?.uploadedbyHeader || "Uploaded by"}</span>
