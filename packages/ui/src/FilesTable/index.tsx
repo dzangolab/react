@@ -146,7 +146,7 @@ export const FilesTable = ({
       header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
       hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
-        formatDate(data.uploadedAt);
+        return formatDate(data.uploadedAt);
       },
     },
     {
@@ -165,7 +165,7 @@ export const FilesTable = ({
       hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
         if (data.lastDownloadedAt) {
-          formatDate(data.lastDownloadedAt);
+          return formatDate(data.lastDownloadedAt);
         }
         return <code>&#8212;</code>;
       },
