@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "devDependencies": {
-    "@types/jsdom": "21.1.1",
+    "@types/jsdom": "21.1.2",
     "@types/node": "18.17.6",
     "@types/react": "18.2.20",
     "@vitejs/plugin-react": "4.0.4",

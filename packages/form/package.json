@@ -38,7 +38,7 @@
     "@dzangolab/react-config": "0.16.0",
     "@storybook/react": "7.3.2",
     "@testing-library/react": "14.0.0",
-    "@types/jsdom": "21.1.1",
+    "@types/jsdom": "21.1.2",
     "@types/node": "18.17.6",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
