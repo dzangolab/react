@@ -72,34 +72,23 @@ export const FileCard = ({
   };
 
   const renderActions = () => {
-    const actionButtons: any[] = [];
-    if (onArchive) {
-      actionButtons.push(
-        <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />,
-      );
-    }
-    if (onDelete) {
-      actionButtons.push(
-        <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />,
-      );
-    }
-    if (onDownload) {
-      actionButtons.push(
-        <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />,
-      );
-    }
-    if (onShare) {
-      actionButtons.push(
-        <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />,
-      );
-    }
-    if (onView) {
-      actionButtons.push(
-        <Button icon="pi pi-eye" onClick={() => onView?.(file)} />,
-      );
-    }
-
-    return <div className="file-actions">{actionButtons}</div>;
+    return (
+      <div className="file-actions">
+        {!!onArchive && (
+          <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />
+        )}
+        {!!onDelete && (
+          <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />
+        )}
+        {!!onDownload && (
+          <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />
+        )}
+        {!!onShare && (
+          <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />
+        )}
+        {!!onView && <Button icon="pi pi-eye" onClick={() => onView?.(file)} />}
+      </div>
+    );
   };
 
   return (
