@@ -22,11 +22,11 @@
   background: lightgray;
 }
 
-.fie-input .selected-files li .file-description {
+.file-input .selected-files li .file-description {
   max-width: 40rem;
 }
 
-.fie-input .dropzone {
+.file-input .dropzone {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
   transition: border 0.24s ease-in-out;
 }
 
-.fie-input .dropzone.focused {
+.file-input .dropzone.focused {
   border-color: #2196f3;
 }
 
