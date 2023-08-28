@@ -1,0 +1,12 @@
+{
+  "fileInput": {
+    "actions": {
+      "upload": "Upload (fr)"
+    },
+    "description": {
+      "label": "+ Add description (fr)",
+      "placeholder": "Description (fr)"
+    },
+    "dropzoneMessage": "Drag and drop (fr)"
+  }
+}

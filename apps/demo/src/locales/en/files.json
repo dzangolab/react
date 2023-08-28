@@ -1,0 +1,12 @@
+{
+  "fileInput": {
+    "actions": {
+      "upload": "Upload"
+    },
+    "description": {
+      "label": "+ Add description",
+      "placeholder": "Description"
+    },
+    "dropzoneMessage": "Drag and drop"
+  }
+}
