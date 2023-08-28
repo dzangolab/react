@@ -141,9 +141,9 @@ export const FileCard = ({
             </div>
             <div className="file-download-details">
               <div className="download-count">
-                {file.downloadCount && (
+                {(file?.downloadCount || file?.downloadCount === 0) && (
                   <>
-                    <span>{messages?.downloadCountLabel || "Downloads"}</span>
+                    <span>{messages?.downloadCountLabel || "Downloads:"}</span>
                     <span>{file?.downloadCount}</span>
                   </>
                 )}
@@ -152,7 +152,7 @@ export const FileCard = ({
                 {file.lastDownloadedAt && (
                   <>
                     <span>
-                      {messages?.lastDownloadedAtHeader || "Last download"}
+                      {messages?.lastDownloadedAtHeader || "Last download:"}
                     </span>
                     <span>{updateDateTimeFormat(file.lastDownloadedAt)}</span>
                   </>

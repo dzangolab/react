@@ -100,7 +100,7 @@ const componentList = [
           size: 4,
           uploadedBy: { givenName: "Manish", lastName: "Aryal" },
           uploadedAt: Date.now(),
-          downloadCount: 5,
+          downloadCount: 0,
           lastDownloadedAt: Date.now(),
         }}
         onDownload={() => {}}

@@ -14,14 +14,14 @@
   padding: 1rem;
 }
 
-.file-icon {
+.file-thumbnail {
   border-right: 0.1rem solid black;
   display: flex;
   align-items: center;
   padding: 2rem;
 }
 
-.file-icon > i {
+.file-thumbnail > i {
   font-size: 5rem;
 }
 
