@@ -21,7 +21,8 @@
     },
     "forms": {
       "login": "Login form",
-      "confirmPassword": "Confirm password form"
+      "confirmPassword": "Confirm password form",
+      "fileInput": "Form with file input"
     }
   },
   "loading": "Loading ...",

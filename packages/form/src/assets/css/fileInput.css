@@ -1,0 +1,55 @@
+.file-input .selected-files {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+}
+
+.file-input .selected-files li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+}
+
+.file-input .selected-files li .file-info {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.file-input .selected-files li .file-preview {
+  width: 2.5rem;
+  height: 3rem;
+  background: lightgray;
+}
+
+.file-input .selected-files li .file-description {
+  max-width: 40rem;
+}
+
+.file-input .dropzone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: "center";
+  padding: 30px 20px;
+  border-width: 2;
+  border-radius: 2;
+  border-color: #eeeeee;
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
+}
+
+.file-input .dropzone.focused {
+  border-color: #2196f3;
+}
+
+.file-input .dropzone.accepted {
+  border-color: #00e676;
+}
+
+.file-input .dropzone.rejected {
+  border-color: #ff1744;
+}

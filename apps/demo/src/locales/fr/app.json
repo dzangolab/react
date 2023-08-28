@@ -21,7 +21,8 @@
     },
     "forms": {
       "login": "Login form (fr)",
-      "confirmPassword": "Confirm password form (fr)"
+      "confirmPassword": "Confirm password form (fr)",
+      "fileInput": "Form with file input"
     }
   },
   "loading": "Loading (fr) ...",
