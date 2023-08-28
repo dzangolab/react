@@ -21,6 +21,10 @@
     }
   },
   "files": {
-    "table": "Files table (fr)"
+    "table": "Files table (fr)",
+    "list": "Files list (fr)"
+  },
+  "file": {
+    "card": "File card (fr)"
   }
 }

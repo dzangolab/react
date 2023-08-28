@@ -1,0 +1,100 @@
+.file-card,
+.file-card > .p-card-body,
+.file-card > .p-card-body > .p-card-content {
+  padding: 0rem !important;
+}
+
+.file-card {
+  box-shadow: -1px -1px 29px -14px rgba(0, 0, 0, 0.68);
+  width: 100%;
+}
+
+.file-thumbnail-details-wrapper {
+  display: flex;
+  padding: 1rem;
+}
+
+.file-thumbnail {
+  align-items: center;
+  border-right: 0.1rem solid black;
+  display: flex;
+  padding: 2rem;
+}
+
+.file-thumbnail > i {
+  font-size: 5rem;
+}
+
+.file-details-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.file-name-description-details-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.file-size {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+.file-description-details {
+  align-items: center;
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.file-upload-download-details-wrapper {
+  display: flex;
+  gap: 5rem;
+}
+
+.file-upload-details {
+  display: flex;
+  gap: 4rem;
+}
+
+.uploaded-by,
+.uploaded-at {
+  display: flex;
+  flex-direction: column;
+}
+
+.uploaded-by > span:first-child,
+.uploaded-at > span:first-child,
+.download-count > span:first-child,
+.last-downloaded-at > span:first-child {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.download-count {
+  margin-bottom: 0.3rem;
+}
+
+.download-count > span:last-child,
+.last-downloaded-at > span:last-child {
+  margin-left: 0.4rem;
+}
+
+.file-download-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-actions {
+  display: flex;
+  gap: 4rem;
+  justify-content: flex-end;
+}
