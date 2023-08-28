@@ -8,5 +8,11 @@
       "placeholder": "Description"
     },
     "dropzoneMessage": "Drag and drop"
+  },
+  "fileUpload": {
+    "actions": {
+      "upload": "Upload",
+      "cancel": "Cancel"
+    }
   }
 }

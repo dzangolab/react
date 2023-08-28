@@ -6,6 +6,7 @@ export * from "./DateInput";
 export * from "./Email";
 export * from "./ErrorMessage";
 export * from "./FileInput";
+export * from "./FileUpload";
 export * from "./Form";
 export * from "./Input";
 export * from "./Password";

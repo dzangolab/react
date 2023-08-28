@@ -9,6 +9,7 @@ import {
 
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
+import { FileUploadDemo } from "./FileUpload";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
@@ -149,6 +150,11 @@ const componentList = [
         onFileView={() => {}}
       />
     ),
+  },
+  {
+    key: 10,
+    title: "files.upload",
+    component: <FileUploadDemo />,
   },
 ];
 

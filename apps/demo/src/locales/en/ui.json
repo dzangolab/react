@@ -22,7 +22,8 @@
   },
   "files": {
     "table": "Files table",
-    "list": "Files list"
+    "list": "Files list",
+    "upload": "Files upload"
   },
   "file": {
     "card": "File card"
