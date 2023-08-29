@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@dzangolab/react-config": "0.17.0",
-    "@storybook/react": "7.3.2",
+    "@storybook/react": "7.4.0",
     "@testing-library/react": "14.0.0",
     "@types/jsdom": "21.1.2",
     "@types/node": "18.17.12",
