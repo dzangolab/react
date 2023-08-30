@@ -12,6 +12,9 @@ interface IFileInputBasicProperties {
   noDrag?: boolean;
   multiple?: boolean;
   label?: string;
+  inputButtonLabel?: string;
+  inputButtonLabelSelected?: string;
+  emptySelectionMessage?: string;
   mode?: "append" | "update";
   value: FileExtended[];
   enableDescription?: boolean;
@@ -25,12 +28,15 @@ interface IFileInputBasicProperties {
 export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   name,
   noDrag = false,
+  inputButtonLabel = "Select",
+  inputButtonLabelSelected = "Selected",
   label,
   mode = "append",
   multiple = true,
   value,
   dropzoneOptions,
   enableDescription = false,
+  emptySelectionMessage = "No file selected.",
   addDescriptionLabel,
   descriptionPlaceholder,
   dropzoneMessage,
@@ -107,8 +113,8 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
           <Button
             label={
               value?.length
-                ? "selected" + "( " + value?.length + " )"
-                : "select"
+                ? inputButtonLabelSelected + ` (${value?.length})`
+                : inputButtonLabel
             }
             icon={"pi pi-file"}
             onMouseEnter={(event) =>
@@ -153,10 +159,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   );
 
   return (
-    <div
-      className="file-input"
-      // onMouseLeave={(event) => overlayRef.current?.toggle(event)}
-    >
+    <div className="file-input">
       {label && <label htmlFor={name}>{label}</label>}
       {renderInputUi()}
 
@@ -165,7 +168,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
           ref={overlayReference as LegacyRef<OverlayPanel>}
           showCloseIcon
         >
-          {value?.length ? renderSelectedFiles() : "No file selected"}
+          {value?.length ? renderSelectedFiles() : emptySelectionMessage}
         </OverlayPanel>
       ) : (
         renderSelectedFiles()
