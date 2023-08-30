@@ -7,7 +7,7 @@
       "label": "+ Add description",
       "placeholder": "Description"
     },
-    "dropzoneMessage": "Drag and drop"
+    "dropzoneMessage": "Drag and drop or click"
   },
   "fileUpload": {
     "actions": {

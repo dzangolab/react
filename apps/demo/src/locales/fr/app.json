@@ -23,6 +23,7 @@
       "login": "Login form (fr)",
       "confirmPassword": "Confirm password form (fr)",
       "fileInput": "Form with file input",
+      "fileInputButton": "Form with file input button",
       "upload": "Files upload (fr)"
     }
   },

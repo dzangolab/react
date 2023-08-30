@@ -7,7 +7,7 @@
       "label": "+ Add description (fr)",
       "placeholder": "Description (fr)"
     },
-    "dropzoneMessage": "Drag and drop (fr)"
+    "dropzoneMessage": "Drag and drop or click (fr)"
   },
   "fileUpload": {
     "actions": {
