@@ -6,6 +6,7 @@ import { FileInputBasic } from "./FileInputBasic";
 
 interface IFileInputProperties {
   name: string;
+  multiple?: boolean;
   noDrag?: boolean;
   label?: string;
   mode?: "append" | "update";
@@ -22,6 +23,7 @@ interface IFileInputProperties {
 export const FileInput = ({
   name,
   noDrag = true,
+  multiple = true,
   label,
   mode = "update",
   emptySelectionMessage,
@@ -50,6 +52,7 @@ export const FileInput = ({
             value={field.value}
             label={label}
             mode={mode}
+            multiple={multiple}
             dropzoneOptions={dropzoneOptions}
             enableDescription={enableDescription}
             addDescriptionLabel={addDescriptionLabel}
