@@ -8,5 +8,11 @@
       "placeholder": "Description (fr)"
     },
     "dropzoneMessage": "Drag and drop (fr)"
+  },
+  "fileUpload": {
+    "actions": {
+      "upload": "Upload (fr)",
+      "cancel": "Cancel (fr)"
+    }
   }
 }

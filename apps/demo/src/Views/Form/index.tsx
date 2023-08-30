@@ -2,6 +2,7 @@ import { ConfirmPasswordForm, LoginForm } from "@dzangolab/react-form";
 
 import { FormWithFileInput } from "./FormWithFileInput";
 import ComponentList from "../../components/ComponentList";
+import { FileUploadDemo } from "./FileUpload";
 
 const componentList = [
   {
@@ -18,6 +19,11 @@ const componentList = [
     key: 3,
     title: "pages.forms.fileInput",
     component: <FormWithFileInput />,
+  },
+  {
+    key: 4,
+    title: "pages.forms.fileUpload",
+    component: <FileUploadDemo />,
   },
 ];
 
