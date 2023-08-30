@@ -18,7 +18,7 @@ export const FormWithFileInputButton: React.FC = () => {
         emptySelectionMessage={t("fileInput.emptySelectionMessage")}
         inputButtonLabel={t("fileInput.buttons.label.inputButtonLabel")}
         inputButtonLabelSelected={t(
-          "fileInput.buttons.label.inputButtonLabelSelected"
+          "fileInput.buttons.label.inputButtonLabelSelected",
         )}
         name="images"
         dropzoneOptions={{
