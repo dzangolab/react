@@ -15,6 +15,11 @@ export const FormWithFileInputButton: React.FC = () => {
     <Provider onSubmit={onSubmit}>
       <FileInput
         noDrag={true}
+        emptySelectionMessage={t("fileInput.emptySelectionMessage")}
+        inputButtonLabel={t("fileInput.buttons.label.inputButtonLabel")}
+        inputButtonLabelSelected={t(
+          "fileInput.buttons.label.inputButtonLabelSelected",
+        )}
         name="images"
         dropzoneOptions={{
           accept: {

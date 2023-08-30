@@ -3,11 +3,18 @@
     "actions": {
       "upload": "Upload"
     },
+    "buttons": {
+      "label": {
+        "inputButtonLabel": "Select file",
+        "inputButtonLabelSelected": "Selected"
+      }
+    },
     "description": {
       "label": "+ Add description",
       "placeholder": "Description"
     },
-    "dropzoneMessage": "Drag and drop or click"
+    "dropzoneMessage": "Drag and drop or click",
+    "emptySelectionMessage": "No files selected"
   },
   "fileUpload": {
     "actions": {

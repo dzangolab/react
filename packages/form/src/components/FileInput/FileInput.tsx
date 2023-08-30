@@ -9,6 +9,9 @@ interface IFileInputProperties {
   noDrag?: boolean;
   label?: string;
   mode?: "append" | "update";
+  inputButtonLabel?: string;
+  inputButtonLabelSelected?: string;
+  emptySelectionMessage?: string;
   enableDescription?: boolean;
   addDescriptionLabel?: string;
   descriptionPlaceholder?: string;
@@ -21,6 +24,9 @@ export const FileInput = ({
   noDrag = true,
   label,
   mode = "update",
+  emptySelectionMessage,
+  inputButtonLabel,
+  inputButtonLabelSelected,
   enableDescription = false,
   addDescriptionLabel,
   descriptionPlaceholder,
@@ -38,6 +44,9 @@ export const FileInput = ({
           <FileInputBasic
             name={field.name}
             noDrag={noDrag}
+            inputButtonLabel={inputButtonLabel}
+            inputButtonLabelSelected={inputButtonLabelSelected}
+            emptySelectionMessage={emptySelectionMessage}
             value={field.value}
             label={label}
             mode={mode}
