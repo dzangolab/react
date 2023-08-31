@@ -1,13 +1,15 @@
-import React from "react";
+import { Button } from "primereact/button";
+import React, { ComponentProps, useState } from "react";
 import { DropzoneOptions } from "react-dropzone";
-import { Controller, useFormContext } from "react-hook-form";
 
 import { FileInputBasic } from "./FileInputBasic";
+import { FileExtended } from "./types";
 
 interface IFileInputProperties {
   name: string;
   multiple?: boolean;
-  noDrag?: boolean;
+  inputMode?: "dropzone" | "button";
+  displaySelectedFileList?: "list" | "popup-list" | "none";
   label?: string;
   mode?: "append" | "update";
   inputButtonLabel?: string;
@@ -18,11 +20,15 @@ interface IFileInputProperties {
   descriptionPlaceholder?: string;
   dropzoneMessage?: string;
   dropzoneOptions?: DropzoneOptions;
+  selectButtonProps?: ComponentProps<typeof Button>;
+  defaultValue?: FileExtended[];
+  onChange: (files: FileExtended[]) => void;
 }
 
 export const FileInput = ({
   name,
-  noDrag = true,
+  inputMode,
+  displaySelectedFileList,
   multiple = true,
   label,
   mode = "update",
@@ -34,33 +40,36 @@ export const FileInput = ({
   descriptionPlaceholder,
   dropzoneMessage,
   dropzoneOptions,
+  selectButtonProps,
+  defaultValue = [],
+  onChange,
 }: IFileInputProperties) => {
-  const { control } = useFormContext();
+  const [selectedFiles, setSelectedFiles] =
+    useState<FileExtended[]>(defaultValue);
 
   return (
     <>
-      <Controller
+      <FileInputBasic
         name={name}
-        control={control}
-        render={({ field }) => (
-          <FileInputBasic
-            name={field.name}
-            noDrag={noDrag}
-            inputButtonLabel={inputButtonLabel}
-            inputButtonLabelSelected={inputButtonLabelSelected}
-            emptySelectionMessage={emptySelectionMessage}
-            value={field.value}
-            label={label}
-            mode={mode}
-            multiple={multiple}
-            dropzoneOptions={dropzoneOptions}
-            enableDescription={enableDescription}
-            addDescriptionLabel={addDescriptionLabel}
-            descriptionPlaceholder={descriptionPlaceholder}
-            dropzoneMessage={dropzoneMessage}
-            onChange={(files) => field.onChange(files)}
-          />
-        )}
+        inputMode={inputMode}
+        displaySelectedFileList={displaySelectedFileList}
+        inputButtonLabel={inputButtonLabel}
+        inputButtonLabelSelected={inputButtonLabelSelected}
+        emptySelectionMessage={emptySelectionMessage}
+        value={selectedFiles}
+        label={label}
+        mode={mode}
+        multiple={multiple}
+        dropzoneOptions={dropzoneOptions}
+        enableDescription={enableDescription}
+        addDescriptionLabel={addDescriptionLabel}
+        descriptionPlaceholder={descriptionPlaceholder}
+        dropzoneMessage={dropzoneMessage}
+        onChange={(files) => {
+          setSelectedFiles(files);
+          onChange(files);
+        }}
+        selectButtonProps={selectButtonProps}
       />
     </>
   );

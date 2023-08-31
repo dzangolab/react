@@ -23,7 +23,8 @@
       "login": "Login form",
       "confirmPassword": "Confirm password form",
       "fileInput": "Form with file input",
-      "fileInputButton": "Form with file input button",
+      "fileInputButton": "File input button",
+      "formFileInputButton": "Form with file input button",
       "fileUpload": "Files upload"
     }
   },

@@ -1,18 +1,19 @@
-import { FileInput } from "@dzangolab/react-form";
+import { FormFileInput } from "@dzangolab/react-form";
+import { Provider } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 
-export const FileInputButton: React.FC = () => {
+export const FormWithFileInputButton: React.FC = () => {
   const { t } = useTranslation("files");
 
-  const onChange = (values: any) => {
+  const onSubmit = (values: any) => {
     console.log("values", values);
     // Implement your own form submission logic here.
   };
 
   return (
-    <>
-      <FileInput
+    <Provider onSubmit={onSubmit}>
+      <FormFileInput
         displaySelectedFileList="popup-list"
         inputMode="button"
         emptySelectionMessage={t("fileInput.emptySelectionMessage")}
@@ -33,8 +34,12 @@ export const FileInputButton: React.FC = () => {
         selectButtonProps={{
           icon: "pi pi-file",
         }}
-        onChange={onChange}
       />
-    </>
+      <div className="mb-4">
+        <button className="w-full bg-primary">
+          {t("fileInput.actions.upload")}
+        </button>
+      </div>
+    </Provider>
   );
 };
