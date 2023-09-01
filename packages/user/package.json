@@ -50,7 +50,7 @@
     "eslint-config-custom": "0.17.0",
     "eslint-plugin-react": "7.33.2",
     "jsdom": "22.1.0",
-    "prettier": "3.0.2",
+    "prettier": "3.0.3",
     "primeicons": "6.0.1",
     "primereact": "9.6.1",
     "react": "18.2.0",
