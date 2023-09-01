@@ -1,7 +1,7 @@
 import { FilterMatchMode } from "primereact/api";
 import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
-import React from "react";
+import React, { ComponentProps } from "react";
 
 import { ActionsMenu, DataTable, formatDate } from "../index";
 
@@ -51,6 +51,7 @@ export type FilesTableProperties = {
   onDownload?: (arguments_: any) => void;
   onDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
+  tableProps?: Partial<ComponentProps<typeof DataTable>>;
   totalRecords?: number;
   translationMessage?: Messages;
   visibleColumns?: VisibleColumn[];
@@ -65,6 +66,7 @@ export const FilesTable = ({
   totalRecords,
   extraColumns = [],
   fetchFiles,
+  tableProps,
   translationMessage,
   visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
   onDownload,
@@ -199,6 +201,7 @@ export const FilesTable = ({
       showGridlines
       stripedRows={false}
       totalRecords={totalRecords}
+      {...tableProps}
     ></DataTable>
   );
 };
