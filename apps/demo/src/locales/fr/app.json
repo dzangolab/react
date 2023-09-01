@@ -22,7 +22,9 @@
     "forms": {
       "login": "Login form (fr)",
       "confirmPassword": "Confirm password form (fr)",
-      "fileInput": "Form with file input",
+      "fileInput": "Form with file input (fr)",
+      "fileInputButton": "file input button (fr)",
+      "formFileInputButton": "Form with file input button (fr)",
       "upload": "Files upload (fr)"
     }
   },

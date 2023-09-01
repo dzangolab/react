@@ -3,11 +3,18 @@
     "actions": {
       "upload": "Upload (fr)"
     },
+    "buttons": {
+      "label": {
+        "inputButtonLabel": "Select file",
+        "inputButtonLabelSelected": "Selected",
+        "emptySelectionMessage": "No files selected"
+      }
+    },
     "description": {
       "label": "+ Add description (fr)",
       "placeholder": "Description (fr)"
     },
-    "dropzoneMessage": "Drag and drop (fr)"
+    "dropzoneMessage": "Drag and drop or click (fr)"
   },
   "fileUpload": {
     "actions": {
