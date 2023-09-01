@@ -278,9 +278,6 @@ importers:
         specifier: 3.21.4
         version: 3.21.4
     devDependencies:
-      '@dzangolab/react-config':
-        specifier: 0.17.0
-        version: link:../config
       '@storybook/react':
         specifier: 7.4.0
         version: 7.4.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
@@ -335,9 +332,6 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
-      react-router-dom:
-        specifier: 6.15.0
-        version: 6.15.0(react-dom@18.2.0)(react@18.2.0)
       react-test-renderer:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
