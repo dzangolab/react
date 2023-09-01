@@ -1,9 +1,11 @@
 import { FilterMatchMode } from "primereact/api";
 import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
-import React, { ComponentProps } from "react";
+import React from "react";
 
 import { ActionsMenu, DataTable, formatDate } from "../index";
+
+import type { ComponentProps } from "react";
 
 type Messages = {
   downloadAction?: string;
