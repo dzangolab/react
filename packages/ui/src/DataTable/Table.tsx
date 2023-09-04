@@ -1,6 +1,6 @@
 import { Column } from "primereact/column";
 import { DataTable as PDataTable } from "primereact/datatable";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import { TABLE_DEFAULT } from "./constants";
 import { ITableProperties, LazyTableState } from "./types";
@@ -50,11 +50,19 @@ export const DataTable = ({
     setlazyState(event);
   };
 
+  const displayFilter = useMemo(() => {
+    const filterableColumn = columns.find((column) => {
+      return column.filter && !column.hidden;
+    });
+
+    return !!filterableColumn;
+  }, [columns]);
+
   return (
     <PDataTable
       cellClassName={(_, { field }) => `cell-${field}`}
       dataKey={dataKey}
-      filterDisplay={filterDisplay}
+      filterDisplay={displayFilter ? filterDisplay : undefined}
       loading={loading}
       paginator={paginator}
       paginatorTemplate={paginatorTemplate}
