@@ -120,10 +120,10 @@ export const AllUsersTable = ({
       header: t("table.defaultColumns.roles"),
       hidden: !visibleColumns.includes("roles"),
       body: (data) => {
-        if (data.roles) {
+        if (data?.roles) {
           return (
             <>
-              {data.roles.map((role: string, index: number) => (
+              {data?.roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
                   value={role}
@@ -136,6 +136,7 @@ export const AllUsersTable = ({
             </>
           );
         }
+
         return (
           <>
             <Tag
