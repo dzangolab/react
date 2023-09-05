@@ -53,11 +53,10 @@ export type FilesTableProperties = {
   onDownload?: (arguments_: any) => void;
   onDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
-  tableProps?: Partial<ComponentProps<typeof DataTable>>;
   totalRecords?: number;
   translationMessage?: Messages;
   visibleColumns?: VisibleColumn[];
-};
+} & Partial<ComponentProps<typeof DataTable>>;
 
 export const FilesTable = ({
   className,
@@ -68,12 +67,12 @@ export const FilesTable = ({
   totalRecords,
   extraColumns = [],
   fetchFiles,
-  tableProps,
   translationMessage,
   visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
   onDownload,
   onDelete,
   onEditDescription,
+  ...tableProperties
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [];
 
@@ -203,7 +202,7 @@ export const FilesTable = ({
       showGridlines
       stripedRows={false}
       totalRecords={totalRecords}
-      {...tableProps}
+      {...tableProperties}
     ></DataTable>
   );
 };
