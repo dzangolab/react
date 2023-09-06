@@ -22,7 +22,8 @@
   },
   "files": {
     "table": "Files table (fr)",
-    "list": "Files list (fr)"
+    "list": "Files list (fr)",
+    "presentation": "Files Presentation (fr)"
   },
   "file": {
     "card": "File card (fr)"

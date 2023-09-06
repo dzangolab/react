@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { FileCard, IFile, Messages } from "..";
 
-type FilesListType = {
+export type FilesListType = {
   files: IFile[];
   messages?: Messages;
   onFileArchive?: (arguments_: IFile) => void;
