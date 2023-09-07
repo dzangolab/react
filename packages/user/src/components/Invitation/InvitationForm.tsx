@@ -130,14 +130,21 @@ export const InvitationForm = ({
       invalid: t("validation.messages.validEmail"),
       required: t("validation.messages.email"),
     }),
-    role: zod.z.object(
-      {
-        id: zod.z.number(),
-        name: zod.z.string(),
-      },
-      { required_error: t("validation.messages.role") },
-    ),
   });
+
+  if (apps?.length || roles?.length) {
+    const RoleFormSchema = zod.object({
+      role: zod.z.object(
+        {
+          id: zod.z.number(),
+          name: zod.z.string(),
+        },
+        { required_error: t("validation.messages.role") },
+      ),
+    });
+
+    InvitationFormSchema = InvitationFormSchema.merge(RoleFormSchema);
+  }
 
   if (apps?.length) {
     const AppIdFormSchema = zod.object({
