@@ -1,3 +1,17 @@
+# [0.18.0](https://github.com/dzangolab/react/compare/v0.17.0...v0.18.0) (2023-09-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hookform/resolvers to v3.3.1 ([#546](https://github.com/dzangolab/react/issues/546)) ([bccbc70](https://github.com/dzangolab/react/commit/bccbc70ddd5acd8bacabc4c770c0a30fd8aeadf2))
+
+
+### Features
+
+* add support for custom headers ([#552](https://github.com/dzangolab/react/issues/552)) ([dbca6d4](https://github.com/dzangolab/react/commit/dbca6d4e7783b651b6575721505045e1077c1b15))
+
+
+
 # [0.17.0](https://github.com/dzangolab/react/compare/v0.16.0...v0.17.0) (2023-08-28)
 
 
