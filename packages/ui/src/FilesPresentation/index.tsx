@@ -1,5 +1,3 @@
-import type { FC } from "react";
-
 import {
   FilesTable,
   FilesList,
@@ -8,20 +6,33 @@ import {
   FilesListType,
 } from "..";
 
+import type { FC } from "react";
+
 export interface IFilesPresentationProperties {
   presentation?: "list" | "table";
   files: Array<IFile>;
-  onFileDelete?: (arguments_: IFile) => void;
-  onFileDownload?: (arguments_: IFile) => void;
+  onFileArchive?: (arguments_: any) => void;
+  onFileDownload?: (arguments_: any) => void;
+  onFileDelete?: (arguments_: any) => void;
+  onEditDescription?: (arguments_: any) => void;
+  onFileShare?: (arguments_: any) => void;
+  onFileView?: (arguments_: any) => void;
   listProps?: Omit<FilesListType, "files" | "onFileDownload" | "onFileDelete">;
-  tableProps?: Omit<FilesListType, "files" | "onDownload" | "onDelete">;
+  tableProps?: Omit<
+    FilesTableProperties,
+    "files" | "onFileDownload" | "onFileDelete"
+  >;
 }
 
 export const FilesPresentation: FC<IFilesPresentationProperties> = ({
   presentation = "list",
   files = [],
-  onFileDelete,
+  onFileArchive,
   onFileDownload,
+  onFileDelete,
+  onFileShare,
+  onFileView,
+  onEditDescription,
   listProps,
   tableProps,
 }) => {
@@ -31,6 +42,9 @@ export const FilesPresentation: FC<IFilesPresentationProperties> = ({
         files={files}
         onFileDelete={onFileDelete}
         onFileDownload={onFileDownload}
+        onFileArchive={onFileArchive}
+        onFileShare={onFileShare}
+        onFileView={onFileView}
         {...listProps}
       />
     );
@@ -39,8 +53,12 @@ export const FilesPresentation: FC<IFilesPresentationProperties> = ({
   return (
     <FilesTable
       files={files}
-      onDelete={onFileDelete}
-      onDownload={onFileDownload}
+      onFileDelete={onFileDelete}
+      onFileDownload={onFileDownload}
+      onFileArchive={onFileArchive}
+      onFileShare={onFileShare}
+      onFileView={onFileView}
+      onEditDescription={onEditDescription}
       {...tableProps}
     />
   );

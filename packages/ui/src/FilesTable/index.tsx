@@ -8,6 +8,7 @@ import { ActionsMenu, DataTable, formatDate } from "../index";
 import type { ComponentProps } from "react";
 
 type Messages = {
+  archiveAction?: string;
   downloadAction?: string;
   editDescriptionAction?: string;
   renameAction?: string;
@@ -20,6 +21,8 @@ type Messages = {
   uploadedAtColumnHeader?: string;
   actionsColumnHeader?: string;
   searchPlaceholder?: string;
+  shareAction?: string;
+  viewAction?: string;
   tableEmpty?: string;
 };
 
@@ -42,6 +45,16 @@ export interface IFile {
   lastDownloadedAt?: number;
 }
 
+// onFileArchive?: (arguments_: IFile) => void;
+// onFileShare?: (arguments_: IFile) => void;
+// onFileView?: (arguments_: IFile) => void;
+
+// renderFileThumbnail?: (arguments_: IFile) => ReactNode;
+// showFileDescription?: boolean;
+// showFileEditDescription?: boolean;
+// showFileSize?: boolean;
+// showFileThumbnail?: boolean;
+
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
@@ -50,11 +63,14 @@ export type FilesTableProperties = {
   files: Array<IFile>;
   id?: string;
   loading?: boolean;
-  onDownload?: (arguments_: any) => void;
-  onDelete?: (arguments_: any) => void;
+  onFileArchive?: (arguments_: any) => void;
+  onFileDownload?: (arguments_: any) => void;
+  onFileDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
+  onFileShare?: (arguments_: any) => void;
+  onFileView?: (arguments_: any) => void;
   totalRecords?: number;
-  translationMessage?: Messages;
+  messages?: Messages;
   visibleColumns?: VisibleColumn[];
 } & Partial<ComponentProps<typeof DataTable>>;
 
@@ -67,37 +83,64 @@ export const FilesTable = ({
   totalRecords,
   extraColumns = [],
   fetchFiles,
-  translationMessage,
+  messages,
   visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
-  onDownload,
-  onDelete,
+  onFileArchive,
+  onFileDownload,
+  onFileDelete,
+  onFileShare,
+  onFileView,
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
   const actionItems: MenuItem[] = [];
 
-  if (onDownload) {
+  if (onFileDownload) {
     actionItems.push({
-      label: translationMessage?.downloadAction || "Download",
+      label: messages?.archiveAction || "Archive",
+      icon: "pi pi-book",
+      command: onFileArchive,
+    });
+  }
+
+  if (onFileDownload) {
+    actionItems.push({
+      label: messages?.downloadAction || "Download",
       icon: "pi pi-download",
-      command: onDownload,
+      command: onFileDownload,
     });
   }
 
   if (visibleColumns.includes("description") && onEditDescription) {
     actionItems.push({
-      label: translationMessage?.editDescriptionAction || "Edit description",
+      label: messages?.editDescriptionAction || "Edit description",
       icon: "pi pi-pencil",
       command: onEditDescription,
     });
   }
 
-  if (onDelete) {
+  if (onFileShare) {
     actionItems.push({
-      label: translationMessage?.deleteAction || "Delete",
+      label: messages?.shareAction || "Share",
+      icon: "pi pi-share-alt",
+      command: onFileShare,
+    });
+  }
+
+  if (onFileView) {
+    actionItems.push({
+      label: messages?.viewAction || "Share",
+      icon: "pi pi-eye",
+      command: onFileShare,
+    });
+  }
+
+  if (onFileDelete) {
+    actionItems.push({
+      label: messages?.deleteAction || "Delete",
       icon: "pi pi-trash",
       className: "danger",
-      command: onDelete,
+      command: onFileDelete,
     });
   }
 
@@ -108,18 +151,17 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: translationMessage?.filenameColumnHeader || "File",
+      header: messages?.filenameColumnHeader || "File",
       sortable: true,
       filter: true,
-      filterPlaceholder:
-        translationMessage?.searchPlaceholder || "File name example",
+      filterPlaceholder: messages?.searchPlaceholder || "File name example",
       hidden: !visibleColumns.includes("filename"),
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
-      header: translationMessage?.descriptionColumnHeader || "Description",
+      header: messages?.descriptionColumnHeader || "Description",
       hidden: !visibleColumns.includes("description"),
       body: (data) => {
         return data.description;
@@ -128,7 +170,7 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
+      header: messages?.uploadedByColumnHeader || "Uploaded by",
       hidden: !visibleColumns.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
@@ -146,7 +188,7 @@ export const FilesTable = ({
     },
     {
       field: "uploadedAt",
-      header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
+      header: messages?.uploadedAtColumnHeader || "Uploaded at",
       hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
         return formatDate(data.uploadedAt);
@@ -154,7 +196,7 @@ export const FilesTable = ({
     },
     {
       field: "downloadCount",
-      header: translationMessage?.downloadCountColumnHeader || "Download count",
+      header: messages?.downloadCountColumnHeader || "Download count",
       hidden: !visibleColumns.includes("downloadCount"),
       body: (data) => {
         return data.downloadCount;
@@ -162,9 +204,7 @@ export const FilesTable = ({
     },
     {
       field: "lastDownloadedAt",
-      header:
-        translationMessage?.lastDownloadedAtColumnHeader ||
-        "Last downloaded at",
+      header: messages?.lastDownloadedAtColumnHeader || "Last downloaded at",
       hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
         if (data.lastDownloadedAt) {
@@ -176,7 +216,7 @@ export const FilesTable = ({
     {
       align: "center",
       field: "actions",
-      header: translationMessage?.actionsColumnHeader || "Actions",
+      header: messages?.actionsColumnHeader || "Actions",
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
@@ -193,7 +233,7 @@ export const FilesTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={files}
-      emptyMessage={translationMessage?.tableEmpty || "The table is empty"}
+      emptyMessage={messages?.tableEmpty || "The table is empty"}
       fetchData={fetchFiles}
       id={id}
       initialFilters={initialFilters}
