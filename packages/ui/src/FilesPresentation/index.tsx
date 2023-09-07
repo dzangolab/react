@@ -17,10 +17,25 @@ export interface IFilesPresentationProperties {
   onEditDescription?: (arguments_: any) => void;
   onFileShare?: (arguments_: any) => void;
   onFileView?: (arguments_: any) => void;
-  listProps?: Omit<FilesListType, "files" | "onFileDownload" | "onFileDelete">;
+  listProps?: Omit<
+    FilesListType,
+    | "files"
+    | "onFileDownload"
+    | "onFileDelete"
+    | "onFileArchive"
+    | "onEditDescription"
+    | "onFileShare"
+    | "onFileView"
+  >;
   tableProps?: Omit<
     FilesTableProperties,
-    "files" | "onFileDownload" | "onFileDelete"
+    | "files"
+    | "onFileDownload"
+    | "onFileDelete"
+    | "onFileArchive"
+    | "onEditDescription"
+    | "onFileShare"
+    | "onFileView"
   >;
 }
 
