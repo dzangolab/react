@@ -1,4 +1,5 @@
 import {
+  AllUsersTable,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
@@ -17,6 +18,7 @@ const roles = [
     name: "SUPERADMIN",
   },
 ];
+
 const apps = [
   {
     id: 1,
@@ -37,6 +39,67 @@ const apps = [
   },
 ];
 
+const allUsers = [
+  {
+    id: "user-1",
+    email: "john@dzangolab.com",
+    givenName: "John",
+    roles: ["USER"],
+    surname: "Doe",
+    username: "johndoe",
+    isActiveUser: true,
+    invitedBy: null,
+    signedUpAt: "2023-08-10T08:00:00Z",
+  },
+  {
+    id: "invitation-123",
+    email: "jane@dzangolab.com",
+    givenName: "Jane",
+    roles: ["ADMIN"],
+    surname: "Smith",
+    username: "janesmith",
+    isActiveUser: false,
+    invitedBy: {
+      id: "user-2",
+      email: "admin@dzangolab.com",
+      givenName: "Admin",
+      roles: ["USER"],
+      surname: "User",
+      username: "admin",
+      isActiveUser: true,
+    },
+  },
+  {
+    id: "user-3",
+    email: "alice@dzangolab.com",
+    givenName: "Alice",
+    roles: ["USER"],
+    surname: "Johnson",
+    username: "alicej",
+    isActiveUser: true,
+    invitedBy: null,
+    signedUpAt: "2023-08-08T10:30:00Z",
+  },
+  {
+    id: "invitation-456",
+    email: "bob@dzangolab.com",
+    givenName: "Bob",
+    roles: ["ADMIN"],
+    surname: "Williams",
+    username: "bobw",
+    isActiveUser: false,
+    invitedBy: {
+      id: "user-4",
+      email: "charlie@dzangolab.com",
+      givenName: "Charlie",
+      roles: ["USER"],
+      surname: "Brown",
+      username: "charlieb",
+      isActiveUser: true,
+    },
+  },
+];
+
 const componentList = [
   {
     key: 1,
@@ -50,6 +113,36 @@ const componentList = [
     title: "Invitation form with only roles field",
     component: (
       <InvitationForm
+        onSubmitted={() => {}}
+        onCancel={() => {}}
+        roles={roles}
+      />
+    ),
+  },
+  {
+    key: 6,
+    title: "Invitation form with calender expiry date field ",
+    component: (
+      <InvitationForm
+        expiryDateField={{
+          display: true,
+          mode: "calendar",
+        }}
+        onSubmitted={() => {}}
+        onCancel={() => {}}
+        roles={roles}
+      />
+    ),
+  },
+  {
+    key: 7,
+    title: "Invitation form with input expiry date field ",
+    component: (
+      <InvitationForm
+        expiryDateField={{
+          display: true,
+          mode: "input",
+        }}
         onSubmitted={() => {}}
         onCancel={() => {}}
         roles={roles}
@@ -82,6 +175,11 @@ const componentList = [
         onInvitationAdded={() => {}}
       />
     ),
+  },
+  {
+    key: 8,
+    title: "All users table",
+    component: <AllUsersTable users={allUsers} />,
   },
 ];
 

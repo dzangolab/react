@@ -109,14 +109,33 @@ export const InvitationsTable = ({
       header: t("table.defaultColumns.role"),
       hidden: !visibleColumns.includes("role"),
       body: (data) => {
+        if (data?.roles) {
+          return (
+            <>
+              {data?.roles?.map((role: string, index: number) => (
+                <Tag
+                  key={role + index}
+                  value={role}
+                  style={{
+                    background: role === "ADMIN" ? "#6366F1" : "#22C55E",
+                    width: "5rem",
+                  }}
+                />
+              ))}
+            </>
+          );
+        }
+
         return (
-          <Tag
-            value={data.role}
-            style={{
-              background: data.role === "ADMIN" ? "#6366F1" : "#22C55E",
-              width: "5rem",
-            }}
-          />
+          <>
+            <Tag
+              value={data.role}
+              style={{
+                background: data.role === "ADMIN" ? "#6366F1" : "#22C55E",
+                width: "5rem",
+              }}
+            />
+          </>
         );
       },
     },
