@@ -12,9 +12,6 @@ export type FilesListType = {
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
   renderFileThumbnail?: (arguments_: IFile) => ReactNode;
-  showFileDescription?: boolean;
-  showFileEditDescription?: boolean;
-  showFileSize?: boolean;
   showFileThumbnail?: boolean;
   visibleFileDetails?: VisibleFileDetails[];
 };
