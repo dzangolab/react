@@ -156,6 +156,7 @@ const componentList = [
     title: "files.presentation",
     component: (
       <FilesPresentation
+        visibleFileDetails={["description", "downloadCount", "filename"]}
         presentation="table"
         files={[
           {
@@ -163,6 +164,7 @@ const componentList = [
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
             downloadCount: 5,
+            size: 1000,
             lastDownloadedAt: Date.now(),
           },
           {

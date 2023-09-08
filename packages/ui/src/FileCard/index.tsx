@@ -100,6 +100,7 @@ export const FileCard = ({
 
   const visibleFileDetailsObject = useMemo(() => {
     const visibleDetails = {} as Record<VisibleFileDetails, boolean>;
+
     for (const name of visibleFileDetails) {
       visibleDetails[name] = true;
     }
@@ -134,7 +135,7 @@ export const FileCard = ({
         <div className="file-details-wrapper">
           <div className="file-name-description-details-wrapper">
             <div>
-              {visibleFileDetailsObject.filesize ? (
+              {visibleFileDetailsObject.filename ? (
                 <span className="file-name">{file.filename}</span>
               ) : null}
               <span className="file-size">
