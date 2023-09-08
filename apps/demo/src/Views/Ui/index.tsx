@@ -15,8 +15,6 @@ import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
 
-import type { IFile } from "@dzangolab/react-ui";
-
 const componentList = [
   {
     key: 1,
@@ -172,10 +170,10 @@ const componentList = [
         onEditDescription={(file: any) => {
           console.log(file);
         }}
-        onFileDownload={(file: IFile) => {
+        onFileDownload={(file: any) => {
           console.log(file);
         }}
-        onFileView={(file: IFile) => {
+        onFileView={(file: any) => {
           console.log(file);
         }}
         files={[

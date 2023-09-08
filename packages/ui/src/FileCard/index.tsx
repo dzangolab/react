@@ -155,11 +155,9 @@ export const FileCard = ({
               {visibleFileDetailsObject.filename ? (
                 <span className="file-name">{file.filename}</span>
               ) : null}
-              <span className="file-size">
-                {file.size &&
-                  visibleFileDetailsObject.filesize &&
-                  `(${file?.size})`}
-              </span>
+              {file.size && visibleFileDetailsObject.filesize && (
+                <span className="file-size">{`(${file?.size})`}</span>
+              )}
             </div>
 
             {file.description && visibleFileDetailsObject.description && (
