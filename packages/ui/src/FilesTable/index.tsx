@@ -3,7 +3,12 @@ import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React from "react";
 
-import { ActionsMenu, DataTable, formatDate } from "../index";
+import {
+  ActionsMenu,
+  DataTable,
+  VisibleFileDetails,
+  formatDate,
+} from "../index";
 
 import type { ComponentProps } from "react";
 
@@ -25,15 +30,6 @@ type Messages = {
   viewAction?: string;
   tableEmpty?: string;
 };
-
-type VisibleColumn =
-  | "filename"
-  | "description"
-  | "uploadedBy"
-  | "uploadedAt"
-  | "downloadCount"
-  | "lastDownloadedAt"
-  | "actions";
 
 export interface IFile {
   filename: string;
@@ -71,7 +67,7 @@ export type FilesTableProperties = {
   onFileView?: (arguments_: any) => void;
   totalRecords?: number;
   messages?: Messages;
-  visibleColumns?: VisibleColumn[];
+  visibleColumns?: VisibleFileDetails[];
 } & Partial<ComponentProps<typeof DataTable>>;
 
 export const FilesTable = ({

@@ -2,52 +2,38 @@ import {
   FilesTable,
   FilesList,
   IFile,
-  FilesTableProperties,
-  FilesListType,
+  FileMessages,
+  VisibleFileDetails,
 } from "..";
 
-import type { FC } from "react";
+import type { ComponentProps, FC } from "react";
 
 export interface IFilesPresentationProperties {
   presentation?: "list" | "table";
   files: Array<IFile>;
+  messages?: FileMessages;
   onFileArchive?: (arguments_: any) => void;
   onFileDownload?: (arguments_: any) => void;
   onFileDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
   onFileShare?: (arguments_: any) => void;
   onFileView?: (arguments_: any) => void;
-  listProps?: Omit<
-    FilesListType,
-    | "files"
-    | "onFileDownload"
-    | "onFileDelete"
-    | "onFileArchive"
-    | "onEditDescription"
-    | "onFileShare"
-    | "onFileView"
-  >;
-  tableProps?: Omit<
-    FilesTableProperties,
-    | "files"
-    | "onFileDownload"
-    | "onFileDelete"
-    | "onFileArchive"
-    | "onEditDescription"
-    | "onFileShare"
-    | "onFileView"
-  >;
+  visibleFileDetails?: VisibleFileDetails[];
+  listProps?: Partial<ComponentProps<typeof FilesList>>;
+  tableProps?: Partial<ComponentProps<typeof FilesTable>>;
 }
 
 export const FilesPresentation: FC<IFilesPresentationProperties> = ({
   presentation = "list",
   files = [],
+  messages,
   onFileArchive,
   onFileDownload,
   onFileDelete,
   onFileShare,
   onFileView,
   onEditDescription,
+  visibleFileDetails,
   listProps,
   tableProps,
 }) => {
@@ -55,11 +41,14 @@ export const FilesPresentation: FC<IFilesPresentationProperties> = ({
     return (
       <FilesList
         files={files}
+        messages={messages}
+        onFileArchive={onFileArchive}
         onFileDelete={onFileDelete}
         onFileDownload={onFileDownload}
-        onFileArchive={onFileArchive}
+        onEditDescription={onEditDescription}
         onFileShare={onFileShare}
         onFileView={onFileView}
+        visibleFileDetails={visibleFileDetails}
         {...listProps}
       />
     );
@@ -68,12 +57,14 @@ export const FilesPresentation: FC<IFilesPresentationProperties> = ({
   return (
     <FilesTable
       files={files}
+      messages={messages}
+      onFileArchive={onFileArchive}
       onFileDelete={onFileDelete}
       onFileDownload={onFileDownload}
-      onFileArchive={onFileArchive}
+      onEditDescription={onEditDescription}
       onFileShare={onFileShare}
       onFileView={onFileView}
-      onEditDescription={onEditDescription}
+      visibleColumns={visibleFileDetails}
       {...tableProps}
     />
   );
