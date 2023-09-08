@@ -2,7 +2,7 @@ import {
   FilesTable,
   FilesList,
   IFile,
-  FileMessages,
+  TableMessages,
   VisibleFileDetails,
 } from "..";
 
@@ -11,7 +11,7 @@ import type { ComponentProps, FC } from "react";
 export interface IFilesPresentationProperties {
   presentation?: "list" | "table";
   files: Array<IFile>;
-  messages?: FileMessages;
+  messages?: TableMessages;
   onFileArchive?: (arguments_: any) => void;
   onFileDownload?: (arguments_: any) => void;
   onFileDelete?: (arguments_: any) => void;

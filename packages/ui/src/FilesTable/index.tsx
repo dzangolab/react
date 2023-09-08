@@ -6,30 +6,17 @@ import React from "react";
 import {
   ActionsMenu,
   DataTable,
+  FileMessages,
   VisibleFileDetails,
   formatDate,
 } from "../index";
 
 import type { ComponentProps } from "react";
 
-type Messages = {
-  archiveAction?: string;
-  downloadAction?: string;
-  editDescriptionAction?: string;
-  renameAction?: string;
-  deleteAction?: string;
-  filenameColumnHeader?: string;
-  descriptionColumnHeader?: string;
-  downloadCountColumnHeader?: string;
-  lastDownloadedAtColumnHeader?: string;
-  uploadedByColumnHeader?: string;
-  uploadedAtColumnHeader?: string;
-  actionsColumnHeader?: string;
+export type TableMessages = {
   searchPlaceholder?: string;
-  shareAction?: string;
-  viewAction?: string;
   tableEmpty?: string;
-};
+} & FileMessages;
 
 export interface IFile {
   filename: string;
@@ -40,16 +27,6 @@ export interface IFile {
   downloadCount?: number;
   lastDownloadedAt?: number;
 }
-
-// onFileArchive?: (arguments_: IFile) => void;
-// onFileShare?: (arguments_: IFile) => void;
-// onFileView?: (arguments_: IFile) => void;
-
-// renderFileThumbnail?: (arguments_: IFile) => ReactNode;
-// showFileDescription?: boolean;
-// showFileEditDescription?: boolean;
-// showFileSize?: boolean;
-// showFileThumbnail?: boolean;
 
 export type FilesTableProperties = {
   className?: string;
@@ -66,7 +43,7 @@ export type FilesTableProperties = {
   onFileShare?: (arguments_: any) => void;
   onFileView?: (arguments_: any) => void;
   totalRecords?: number;
-  messages?: Messages;
+  messages?: TableMessages;
   visibleColumns?: VisibleFileDetails[];
 } & Partial<ComponentProps<typeof DataTable>>;
 
@@ -147,7 +124,7 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: messages?.filenameColumnHeader || "File",
+      header: messages?.filenameHeader || "File",
       sortable: true,
       filter: true,
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
@@ -157,7 +134,7 @@ export const FilesTable = ({
     },
     {
       field: "description",
-      header: messages?.descriptionColumnHeader || "Description",
+      header: messages?.descriptionHeader || "Description",
       hidden: !visibleColumns.includes("description"),
       body: (data) => {
         return data.description;
@@ -166,7 +143,7 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header: messages?.uploadedByColumnHeader || "Uploaded by",
+      header: messages?.uploadedByHeader || "Uploaded by",
       hidden: !visibleColumns.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
@@ -184,7 +161,7 @@ export const FilesTable = ({
     },
     {
       field: "uploadedAt",
-      header: messages?.uploadedAtColumnHeader || "Uploaded at",
+      header: messages?.uploadedAtHeader || "Uploaded at",
       hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
         return formatDate(data.uploadedAt);
@@ -192,7 +169,7 @@ export const FilesTable = ({
     },
     {
       field: "downloadCount",
-      header: messages?.downloadCountColumnHeader || "Download count",
+      header: messages?.downloadCountHeader || "Download count",
       hidden: !visibleColumns.includes("downloadCount"),
       body: (data) => {
         return data.downloadCount;
@@ -200,7 +177,7 @@ export const FilesTable = ({
     },
     {
       field: "lastDownloadedAt",
-      header: messages?.lastDownloadedAtColumnHeader || "Last downloaded at",
+      header: messages?.lastDownloadedAtHeader || "Last downloaded at",
       hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
         if (data.lastDownloadedAt) {
@@ -212,7 +189,7 @@ export const FilesTable = ({
     {
       align: "center",
       field: "actions",
-      header: messages?.actionsColumnHeader || "Actions",
+      header: messages?.actionsHeader || "Actions",
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={actionItems} />;
