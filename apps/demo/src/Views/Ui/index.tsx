@@ -15,6 +15,8 @@ import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
 
+import type { IFile } from "@dzangolab/react-ui";
+
 const componentList = [
   {
     key: 1,
@@ -156,14 +158,33 @@ const componentList = [
     title: "files.presentation",
     component: (
       <FilesPresentation
-        visibleFileDetails={["description", "downloadCount", "filename"]}
+        visibleFileDetails={[
+          "actions",
+          "description",
+          "downloadCount",
+          "filename",
+          "uploadedAt",
+          "uploadedBy",
+          "lastDownloadedAt",
+          "filesize",
+        ]}
         presentation="table"
+        onEditDescription={(file: any) => {
+          console.log(file);
+        }}
+        onFileDownload={(file: IFile) => {
+          console.log(file);
+        }}
+        onFileView={(file: IFile) => {
+          console.log(file);
+        }}
         files={[
           {
             filename: "file1.png",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
             downloadCount: 5,
+            description: "file1 description",
             size: 1000,
             lastDownloadedAt: Date.now(),
           },

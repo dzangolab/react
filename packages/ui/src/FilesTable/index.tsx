@@ -66,56 +66,66 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
-  const actionItems: MenuItem[] = [];
+  const getActionsItem = (file: IFile) => {
+    const actionItems: MenuItem[] = [];
 
-  if (onFileDownload) {
-    actionItems.push({
-      label: messages?.archiveAction || "Archive",
-      icon: "pi pi-book",
-      command: onFileArchive,
-    });
-  }
+    if (onFileArchive) {
+      actionItems.push({
+        label: messages?.archiveAction || "Archive",
+        icon: "pi pi-book",
+        command: (event) =>
+          onFileArchive?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
 
-  if (onFileDownload) {
-    actionItems.push({
-      label: messages?.downloadAction || "Download",
-      icon: "pi pi-download",
-      command: onFileDownload,
-    });
-  }
+    if (onFileDownload) {
+      actionItems.push({
+        label: messages?.downloadAction || "Download",
+        icon: "pi pi-download",
+        command: (event) =>
+          onFileDownload?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
 
-  if (visibleColumns.includes("description") && onEditDescription) {
-    actionItems.push({
-      label: messages?.editDescriptionAction || "Edit description",
-      icon: "pi pi-pencil",
-      command: onEditDescription,
-    });
-  }
+    if (visibleColumns.includes("description") && onEditDescription) {
+      actionItems.push({
+        label: messages?.editDescriptionAction || "Edit description",
+        icon: "pi pi-pencil",
+        command: (event) =>
+          onEditDescription?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
 
-  if (onFileShare) {
-    actionItems.push({
-      label: messages?.shareAction || "Share",
-      icon: "pi pi-share-alt",
-      command: onFileShare,
-    });
-  }
+    if (onFileShare) {
+      actionItems.push({
+        label: messages?.shareAction || "Share",
+        icon: "pi pi-share-alt",
+        command: (event) =>
+          onFileShare?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
 
-  if (onFileView) {
-    actionItems.push({
-      label: messages?.viewAction || "Share",
-      icon: "pi pi-eye",
-      command: onFileShare,
-    });
-  }
+    if (onFileView) {
+      actionItems.push({
+        label: messages?.viewAction || "Share",
+        icon: "pi pi-eye",
+        command: (event) =>
+          onFileView?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
 
-  if (onFileDelete) {
-    actionItems.push({
-      label: messages?.deleteAction || "Delete",
-      icon: "pi pi-trash",
-      className: "danger",
-      command: onFileDelete,
-    });
-  }
+    if (onFileDelete) {
+      actionItems.push({
+        label: messages?.deleteAction || "Delete",
+        icon: "pi pi-trash",
+        className: "danger",
+        command: (event) =>
+          onFileDelete?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
+
+    return actionItems;
+  };
 
   const initialFilters = {
     filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -192,7 +202,7 @@ export const FilesTable = ({
       header: messages?.actionsHeader || "Actions",
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
-        return <ActionsMenu actions={actionItems} />;
+        return <ActionsMenu actions={getActionsItem(data)} />;
       },
     },
   ];

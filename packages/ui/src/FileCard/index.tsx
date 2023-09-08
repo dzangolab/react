@@ -35,12 +35,12 @@ export type VisibleFileDetails =
 type FileCardType = {
   file: IFile;
   messages?: FileMessages;
-  onArchive?: (arguments_: IFile) => void;
-  onDelete?: (arguments_: IFile) => void;
-  onDownload?: (arguments_: IFile) => void;
-  onEditDescription?: (arguments_: IFile) => void;
-  onShare?: (arguments_: IFile) => void;
-  onView?: (arguments_: IFile) => void;
+  onArchive?: (arguments_: any) => void;
+  onDelete?: (arguments_: any) => void;
+  onDownload?: (arguments_: any) => void;
+  onEditDescription?: (arguments_: any) => void;
+  onShare?: (arguments_: any) => void;
+  onView?: (arguments_: any) => void;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
   showThumbnail?: boolean;
   visibleFileDetails?: VisibleFileDetails[];
@@ -112,18 +112,35 @@ export const FileCard = ({
     return (
       <div className="file-actions">
         {!!onArchive && (
-          <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />
+          <Button
+            icon="pi pi-book"
+            onClick={(event) => onArchive?.({ ...event, data: { file } })}
+          />
         )}
         {!!onDelete && (
-          <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />
+          <Button
+            icon="pi pi-trash"
+            onClick={(event) => onDelete?.({ ...event, data: { file } })}
+          />
         )}
         {!!onDownload && (
-          <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />
+          <Button
+            icon="pi pi-download"
+            onClick={(event) => onDownload?.({ ...event, data: { file } })}
+          />
         )}
         {!!onShare && (
-          <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />
+          <Button
+            icon="pi pi-share-alt"
+            onClick={(event) => onShare?.({ ...event, data: { file } })}
+          />
         )}
-        {!!onView && <Button icon="pi pi-eye" onClick={() => onView?.(file)} />}
+        {!!onView && (
+          <Button
+            icon="pi pi-eye"
+            onClick={(event) => onView?.({ ...event, data: { file } })}
+          />
+        )}
       </div>
     );
   };
@@ -149,8 +166,15 @@ export const FileCard = ({
               <>
                 <div className="file-description-details">
                   <span>{file.description}</span>
-                  {onEditDescription && (
-                    <Button icon="pi pi-pencil" text size="small" />
+                  {!!onEditDescription && (
+                    <Button
+                      icon="pi pi-pencil"
+                      text
+                      size="small"
+                      onClick={(event) =>
+                        onEditDescription?.({ ...event, data: { file } })
+                      }
+                    />
                   )}
                 </div>
               </>
