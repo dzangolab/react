@@ -12,9 +12,7 @@
   "main": "dist//DzangolabReactUI.umd.js",
   "module": "dist//DzangolabReactUI.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
