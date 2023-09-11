@@ -1,3 +1,25 @@
+# [0.18.0](https://github.com/dzangolab/react/compare/v0.17.0...v0.18.0) (2023-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hookform/resolvers to v3.3.1 ([#546](https://github.com/dzangolab/react/issues/546)) ([bccbc70](https://github.com/dzangolab/react/commit/bccbc70ddd5acd8bacabc4c770c0a30fd8aeadf2))
+* invitation not working if only email field ([#559](https://github.com/dzangolab/react/issues/559)) ([b332a5f](https://github.com/dzangolab/react/commit/b332a5f444ea107e54d8acaa80f4fae85acf4d75))
+
+
+### Features
+
+* add files presentation component to support list view or table … ([#558](https://github.com/dzangolab/react/issues/558)) ([ce890ff](https://github.com/dzangolab/react/commit/ce890ff1edd0c9e7f206d6e3ca02e25deb294fd9))
+* add support for custom headers ([#552](https://github.com/dzangolab/react/issues/552)) ([dbca6d4](https://github.com/dzangolab/react/commit/dbca6d4e7783b651b6575721505045e1077c1b15))
+
+
+### Reverts
+
+* Revert "chore: release v0.18.0 (#561)" (#562) ([9e23929](https://github.com/dzangolab/react/commit/9e23929f4ccbdfc6e337583aa4639f9be7e66729)), closes [#561](https://github.com/dzangolab/react/issues/561) [#562](https://github.com/dzangolab/react/issues/562)
+* Revert "chore: release v0.18.0 (#556)" (#560) ([1534fbd](https://github.com/dzangolab/react/commit/1534fbdca9e76c1bf5a6c20e326ad5938255ef56)), closes [#556](https://github.com/dzangolab/react/issues/556) [#560](https://github.com/dzangolab/react/issues/560)
+
+
+
 # [0.17.0](https://github.com/dzangolab/react/compare/v0.16.0...v0.17.0) (2023-08-28)
 
 
