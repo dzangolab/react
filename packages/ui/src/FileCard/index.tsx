@@ -1,30 +1,49 @@
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 
 import { formatDate } from "..";
 import { IFile } from "../FilesTable";
 
-export type Messages = {
+export type FileMessages = {
+  archiveAction?: string;
+  downloadAction?: string;
+  editDescriptionAction?: string;
+  renameAction?: string;
+  deleteAction?: string;
+  filenameHeader?: string;
+  descriptionHeader?: string;
   downloadCountHeader?: string;
   lastDownloadedAtHeader?: string;
-  uploadedbyHeader?: string;
+  uploadedByHeader?: string;
   uploadedAtHeader?: string;
+  actionsHeader?: string;
+  shareAction?: string;
+  viewAction?: string;
 };
+
+export type VisibleFileDetails =
+  | "filename"
+  | "filesize"
+  | "description"
+  | "uploadedBy"
+  | "uploadedAt"
+  | "downloadCount"
+  | "lastDownloadedAt"
+  | "actions";
 
 type FileCardType = {
   file: IFile;
-  messages?: Messages;
-  onArchive?: (arguments_: IFile) => void;
-  onDelete?: (arguments_: IFile) => void;
-  onDownload?: (arguments_: IFile) => void;
-  onShare?: (arguments_: IFile) => void;
-  onView?: (arguments_: IFile) => void;
+  messages?: FileMessages;
+  onArchive?: (arguments_: any) => void;
+  onDelete?: (arguments_: any) => void;
+  onDownload?: (arguments_: any) => void;
+  onEditDescription?: (arguments_: any) => void;
+  onShare?: (arguments_: any) => void;
+  onView?: (arguments_: any) => void;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
-  showDescription?: boolean;
-  showEditDescription?: boolean;
-  showSize?: boolean;
   showThumbnail?: boolean;
+  visibleFileDetails?: VisibleFileDetails[];
 };
 
 export const FileCard = ({
@@ -35,11 +54,19 @@ export const FileCard = ({
   onDownload,
   onShare,
   onView,
+  onEditDescription,
   renderThumbnail: pRenderThumbnail,
-  showDescription = true,
-  showEditDescription = true,
-  showSize = true,
   showThumbnail = true,
+  visibleFileDetails = [
+    "filename",
+    "filesize",
+    "description",
+    "uploadedBy",
+    "uploadedAt",
+    "downloadCount",
+    "lastDownloadedAt",
+    "actions",
+  ],
 }: FileCardType) => {
   const renderThumbnail = () => {
     if (!showThumbnail) {
@@ -71,22 +98,49 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
+  const visibleFileDetailsObject = useMemo(() => {
+    const visibleDetails = {} as Record<VisibleFileDetails, boolean>;
+
+    for (const name of visibleFileDetails) {
+      visibleDetails[name] = true;
+    }
+
+    return visibleDetails;
+  }, [visibleFileDetails]);
+
   const renderActions = () => {
     return (
       <div className="file-actions">
         {!!onArchive && (
-          <Button icon="pi pi-book" onClick={() => onArchive?.(file)} />
+          <Button
+            icon="pi pi-book"
+            onClick={(event) => onArchive?.({ ...event, data: { file } })}
+          />
         )}
         {!!onDelete && (
-          <Button icon="pi pi-trash" onClick={() => onDelete?.(file)} />
+          <Button
+            icon="pi pi-trash"
+            onClick={(event) => onDelete?.({ ...event, data: { file } })}
+          />
         )}
         {!!onDownload && (
-          <Button icon="pi pi-download" onClick={() => onDownload?.(file)} />
+          <Button
+            icon="pi pi-download"
+            onClick={(event) => onDownload?.({ ...event, data: { file } })}
+          />
         )}
         {!!onShare && (
-          <Button icon="pi pi-share-alt" onClick={() => onShare?.(file)} />
+          <Button
+            icon="pi pi-share-alt"
+            onClick={(event) => onShare?.({ ...event, data: { file } })}
+          />
         )}
-        {!!onView && <Button icon="pi pi-eye" onClick={() => onView?.(file)} />}
+        {!!onView && (
+          <Button
+            icon="pi pi-eye"
+            onClick={(event) => onView?.({ ...event, data: { file } })}
+          />
+        )}
       </div>
     );
   };
@@ -98,55 +152,92 @@ export const FileCard = ({
         <div className="file-details-wrapper">
           <div className="file-name-description-details-wrapper">
             <div>
-              <span className="file-name">{file.filename}</span>
-              <span className="file-size">
-                {file.size && showSize && `(${file?.size})`}
-              </span>
+              {visibleFileDetailsObject.filename ? (
+                <span className="file-name">{file.filename}</span>
+              ) : null}
+              {file.size && visibleFileDetailsObject.filesize && (
+                <span className="file-size">{`(${file?.size})`}</span>
+              )}
             </div>
-            {showDescription && file.description && (
+
+            {file.description && visibleFileDetailsObject.description && (
               <>
                 <div className="file-description-details">
                   <span>{file.description}</span>
-                  {showEditDescription && (
-                    <Button icon="pi pi-pencil" text size="small" />
+                  {!!onEditDescription && (
+                    <Button
+                      icon="pi pi-pencil"
+                      text
+                      size="small"
+                      onClick={(event) =>
+                        onEditDescription?.({ ...event, data: { file } })
+                      }
+                    />
                   )}
                 </div>
               </>
             )}
           </div>
-          <div className="file-upload-download-details-wrapper">
-            <div className="file-upload-details">
-              <div className="uploaded-by">
-                <span>{messages?.uploadedbyHeader || "Uploaded by"}</span>
-                <span>{checkUploadedByData(file)}</span>
-              </div>
-              <div className="uploaded-at">
-                <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
-                <span>{formatDate(file?.uploadedAt)}</span>
-              </div>
+
+          {visibleFileDetailsObject.uploadedAt ||
+          visibleFileDetailsObject.uploadedBy ||
+          visibleFileDetailsObject.lastDownloadedAt ||
+          visibleFileDetailsObject.downloadCount ? (
+            <div className="file-upload-download-details-wrapper">
+              {visibleFileDetailsObject.uploadedAt ||
+              visibleFileDetailsObject.uploadedBy ? (
+                <div className="file-upload-details">
+                  {visibleFileDetailsObject.uploadedBy ? (
+                    <div className="uploaded-by">
+                      <span>{messages?.uploadedByHeader || "Uploaded by"}</span>
+                      <span>{checkUploadedByData(file)}</span>
+                    </div>
+                  ) : null}
+
+                  {visibleFileDetailsObject.uploadedAt ? (
+                    <div className="uploaded-at">
+                      <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
+                      <span>{formatDate(file?.uploadedAt)}</span>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+
+              {visibleFileDetailsObject.downloadCount ||
+              visibleFileDetailsObject.lastDownloadedAt ? (
+                <div className="file-download-details">
+                  {visibleFileDetailsObject.downloadCount ? (
+                    <div className="download-count">
+                      {(file?.downloadCount || file?.downloadCount === 0) && (
+                        <>
+                          <span>
+                            {messages?.downloadCountHeader || "Downloads:"}
+                          </span>
+                          <span>{file?.downloadCount}</span>
+                        </>
+                      )}
+                    </div>
+                  ) : null}
+
+                  {visibleFileDetailsObject.lastDownloadedAt ? (
+                    <div className="last-downloaded-at">
+                      {file.lastDownloadedAt && (
+                        <>
+                          <span>
+                            {messages?.lastDownloadedAtHeader ||
+                              "Last download:"}
+                          </span>
+                          <span>{formatDate(file.lastDownloadedAt)}</span>
+                        </>
+                      )}
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
-            <div className="file-download-details">
-              <div className="download-count">
-                {(file?.downloadCount || file?.downloadCount === 0) && (
-                  <>
-                    <span>{messages?.downloadCountHeader || "Downloads:"}</span>
-                    <span>{file?.downloadCount}</span>
-                  </>
-                )}
-              </div>
-              <div className="last-downloaded-at">
-                {file.lastDownloadedAt && (
-                  <>
-                    <span>
-                      {messages?.lastDownloadedAtHeader || "Last download:"}
-                    </span>
-                    <span>{formatDate(file.lastDownloadedAt)}</span>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-          {renderActions()}
+          ) : null}
+
+          {visibleFileDetailsObject.actions ? renderActions() : null}
         </div>
       </div>
     </Card>

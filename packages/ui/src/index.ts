@@ -17,6 +17,7 @@ export * from "./DataTable";
 export * from "./FilesTable";
 export * from "./FileCard";
 export * from "./FilesList";
+export * from "./FilesPresentation";
 export * from "./Table";
 export * from "./utils";
 

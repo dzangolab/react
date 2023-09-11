@@ -5,6 +5,7 @@ import {
   FilesTable,
   FileCard,
   FilesList,
+  FilesPresentation,
 } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
@@ -147,6 +148,66 @@ const componentList = [
         ]}
         onFileDownload={() => {}}
         onFileView={() => {}}
+      />
+    ),
+  },
+  {
+    key: 9,
+    title: "files.presentation",
+    component: (
+      <FilesPresentation
+        visibleFileDetails={[
+          "actions",
+          "description",
+          "downloadCount",
+          "filename",
+          "uploadedAt",
+          "uploadedBy",
+          "lastDownloadedAt",
+          "filesize",
+        ]}
+        presentation="table"
+        onEditDescription={(file: any) => {
+          console.log(file);
+        }}
+        onFileDownload={(file: any) => {
+          console.log(file);
+        }}
+        onFileView={(file: any) => {
+          console.log(file);
+        }}
+        files={[
+          {
+            filename: "file1.png",
+            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            description: "file1 description",
+            size: 1000,
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "document.pdf",
+            uploadedBy: { givenName: "Gaurav", lastName: "Sapkota" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "photo.jpeg",
+            uploadedBy: { givenName: "Deepak", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "manish.png",
+            uploadedBy: { givenName: "Lamdiki", lastName: "Sherpa" },
+            uploadedAt: Date.now(),
+            downloadCount: 5,
+            lastDownloadedAt: Date.now(),
+          },
+        ]}
       />
     ),
   },

@@ -1,34 +1,32 @@
 import { ReactNode } from "react";
 
-import { FileCard, IFile, Messages } from "..";
+import { FileCard, IFile, FileMessages, VisibleFileDetails } from "..";
 
-type FilesListType = {
+export type FilesListType = {
   files: IFile[];
-  messages?: Messages;
+  messages?: FileMessages;
   onFileArchive?: (arguments_: IFile) => void;
   onFileDelete?: (arguments_: IFile) => void;
   onFileDownload?: (arguments_: IFile) => void;
+  onEditDescription?: (arguments_: any) => void;
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
   renderFileThumbnail?: (arguments_: IFile) => ReactNode;
-  showFileDescription?: boolean;
-  showFileEditDescription?: boolean;
-  showFileSize?: boolean;
   showFileThumbnail?: boolean;
+  visibleFileDetails?: VisibleFileDetails[];
 };
 
 export const FilesList = ({
   files,
   messages,
+  onEditDescription,
   onFileArchive,
   onFileDelete,
   onFileDownload,
   onFileShare,
   onFileView,
   renderFileThumbnail,
-  showFileDescription,
-  showFileEditDescription,
-  showFileSize,
+  visibleFileDetails,
   showFileThumbnail,
 }: FilesListType) => {
   return (
@@ -42,13 +40,12 @@ export const FilesList = ({
             onArchive={onFileArchive}
             onDelete={onFileDelete}
             onDownload={onFileDownload}
+            onEditDescription={onEditDescription}
             onShare={onFileShare}
             onView={onFileView}
             renderThumbnail={renderFileThumbnail}
-            showDescription={showFileDescription}
-            showEditDescription={showFileEditDescription}
-            showSize={showFileSize}
             showThumbnail={showFileThumbnail}
+            visibleFileDetails={visibleFileDetails}
           />
         );
       })}

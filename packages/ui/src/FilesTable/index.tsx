@@ -3,34 +3,20 @@ import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React from "react";
 
-import { ActionsMenu, DataTable, formatDate } from "../index";
+import {
+  ActionsMenu,
+  DataTable,
+  FileMessages,
+  VisibleFileDetails,
+  formatDate,
+} from "../index";
 
 import type { ComponentProps } from "react";
 
-type Messages = {
-  downloadAction?: string;
-  editDescriptionAction?: string;
-  renameAction?: string;
-  deleteAction?: string;
-  filenameColumnHeader?: string;
-  descriptionColumnHeader?: string;
-  downloadCountColumnHeader?: string;
-  lastDownloadedAtColumnHeader?: string;
-  uploadedByColumnHeader?: string;
-  uploadedAtColumnHeader?: string;
-  actionsColumnHeader?: string;
+export type TableMessages = {
   searchPlaceholder?: string;
   tableEmpty?: string;
-};
-
-type VisibleColumn =
-  | "filename"
-  | "description"
-  | "uploadedBy"
-  | "uploadedAt"
-  | "downloadCount"
-  | "lastDownloadedAt"
-  | "actions";
+} & FileMessages;
 
 export interface IFile {
   filename: string;
@@ -50,12 +36,15 @@ export type FilesTableProperties = {
   files: Array<IFile>;
   id?: string;
   loading?: boolean;
-  onDownload?: (arguments_: any) => void;
-  onDelete?: (arguments_: any) => void;
+  onFileArchive?: (arguments_: any) => void;
+  onFileDownload?: (arguments_: any) => void;
+  onFileDelete?: (arguments_: any) => void;
   onEditDescription?: (arguments_: any) => void;
+  onFileShare?: (arguments_: any) => void;
+  onFileView?: (arguments_: any) => void;
   totalRecords?: number;
-  translationMessage?: Messages;
-  visibleColumns?: VisibleColumn[];
+  messages?: TableMessages;
+  visibleColumns?: VisibleFileDetails[];
 } & Partial<ComponentProps<typeof DataTable>>;
 
 export const FilesTable = ({
@@ -67,39 +56,76 @@ export const FilesTable = ({
   totalRecords,
   extraColumns = [],
   fetchFiles,
-  translationMessage,
+  messages,
   visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
-  onDownload,
-  onDelete,
+  onFileArchive,
+  onFileDownload,
+  onFileDelete,
+  onFileShare,
+  onFileView,
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
-  const actionItems: MenuItem[] = [];
+  const getActionsItem = (file: IFile) => {
+    const actionItems: MenuItem[] = [];
 
-  if (onDownload) {
-    actionItems.push({
-      label: translationMessage?.downloadAction || "Download",
-      icon: "pi pi-download",
-      command: onDownload,
-    });
-  }
+    if (onFileArchive) {
+      actionItems.push({
+        label: messages?.archiveAction || "Archive",
+        icon: "pi pi-book",
+        command: (event) =>
+          onFileArchive?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
 
-  if (visibleColumns.includes("description") && onEditDescription) {
-    actionItems.push({
-      label: translationMessage?.editDescriptionAction || "Edit description",
-      icon: "pi pi-pencil",
-      command: onEditDescription,
-    });
-  }
+    if (onFileDownload) {
+      actionItems.push({
+        label: messages?.downloadAction || "Download",
+        icon: "pi pi-download",
+        command: (event) =>
+          onFileDownload?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
 
-  if (onDelete) {
-    actionItems.push({
-      label: translationMessage?.deleteAction || "Delete",
-      icon: "pi pi-trash",
-      className: "danger",
-      command: onDelete,
-    });
-  }
+    if (visibleColumns.includes("description") && onEditDescription) {
+      actionItems.push({
+        label: messages?.editDescriptionAction || "Edit description",
+        icon: "pi pi-pencil",
+        command: (event) =>
+          onEditDescription?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
+
+    if (onFileShare) {
+      actionItems.push({
+        label: messages?.shareAction || "Share",
+        icon: "pi pi-share-alt",
+        command: (event) =>
+          onFileShare?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
+
+    if (onFileView) {
+      actionItems.push({
+        label: messages?.viewAction || "Share",
+        icon: "pi pi-eye",
+        command: (event) =>
+          onFileView?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
+
+    if (onFileDelete) {
+      actionItems.push({
+        label: messages?.deleteAction || "Delete",
+        icon: "pi pi-trash",
+        className: "danger",
+        command: (event) =>
+          onFileDelete?.({ ...event.originalEvent, data: { file } }),
+      });
+    }
+
+    return actionItems;
+  };
 
   const initialFilters = {
     filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -108,18 +134,17 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "filename",
-      header: translationMessage?.filenameColumnHeader || "File",
+      header: messages?.filenameHeader || "File",
       sortable: true,
       filter: true,
-      filterPlaceholder:
-        translationMessage?.searchPlaceholder || "File name example",
+      filterPlaceholder: messages?.searchPlaceholder || "File name example",
       hidden: !visibleColumns.includes("filename"),
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
-      header: translationMessage?.descriptionColumnHeader || "Description",
+      header: messages?.descriptionHeader || "Description",
       hidden: !visibleColumns.includes("description"),
       body: (data) => {
         return data.description;
@@ -128,7 +153,7 @@ export const FilesTable = ({
     ...extraColumns,
     {
       field: "uploadedBy",
-      header: translationMessage?.uploadedByColumnHeader || "Uploaded by",
+      header: messages?.uploadedByHeader || "Uploaded by",
       hidden: !visibleColumns.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
@@ -146,7 +171,7 @@ export const FilesTable = ({
     },
     {
       field: "uploadedAt",
-      header: translationMessage?.uploadedAtColumnHeader || "Uploaded at",
+      header: messages?.uploadedAtHeader || "Uploaded at",
       hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
         return formatDate(data.uploadedAt);
@@ -154,7 +179,7 @@ export const FilesTable = ({
     },
     {
       field: "downloadCount",
-      header: translationMessage?.downloadCountColumnHeader || "Download count",
+      header: messages?.downloadCountHeader || "Download count",
       hidden: !visibleColumns.includes("downloadCount"),
       body: (data) => {
         return data.downloadCount;
@@ -162,9 +187,7 @@ export const FilesTable = ({
     },
     {
       field: "lastDownloadedAt",
-      header:
-        translationMessage?.lastDownloadedAtColumnHeader ||
-        "Last downloaded at",
+      header: messages?.lastDownloadedAtHeader || "Last downloaded at",
       hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
         if (data.lastDownloadedAt) {
@@ -176,10 +199,10 @@ export const FilesTable = ({
     {
       align: "center",
       field: "actions",
-      header: translationMessage?.actionsColumnHeader || "Actions",
+      header: messages?.actionsHeader || "Actions",
       hidden: !visibleColumns.includes("actions"),
       body: (data) => {
-        return <ActionsMenu actions={actionItems} />;
+        return <ActionsMenu actions={getActionsItem(data)} />;
       },
     },
   ];
@@ -193,7 +216,7 @@ export const FilesTable = ({
       className={className}
       columns={columns ? columns : defaultColumns}
       data={files}
-      emptyMessage={translationMessage?.tableEmpty || "The table is empty"}
+      emptyMessage={messages?.tableEmpty || "The table is empty"}
       fetchData={fetchFiles}
       id={id}
       initialFilters={initialFilters}
