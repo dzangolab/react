@@ -11,12 +11,9 @@ import type { ComponentProps } from "react";
 
 interface IFileAttachBasicProperties {
   name: string;
-  inputMode?: "dropzone" | "button";
-  displaySelectedFileList?: "list" | "popup-list" | "none";
+  displaySelectedFileList?: "popup-list" | "none";
   multiple?: boolean;
-  label?: string;
   inputButtonLabel?: string;
-  inputButtonLabelSelected?: string;
   emptySelectionMessage?: string;
   mode?: "append" | "update";
   value: FileExtended[];
@@ -31,11 +28,8 @@ interface IFileAttachBasicProperties {
 
 export const FileAttachBasic: FC<IFileAttachBasicProperties> = ({
   name,
-  inputMode = "button",
   displaySelectedFileList = "popup-list",
-  inputButtonLabel = "Select",
-  inputButtonLabelSelected = "Selected",
-  label,
+  inputButtonLabel,
   mode = "append",
   multiple = true,
   value,
@@ -44,7 +38,6 @@ export const FileAttachBasic: FC<IFileAttachBasicProperties> = ({
   emptySelectionMessage = "No file selected.",
   addDescriptionLabel,
   descriptionPlaceholder,
-  dropzoneMessage,
   onChange,
   selectButtonProps,
 }) => {
@@ -95,52 +88,31 @@ export const FileAttachBasic: FC<IFileAttachBasicProperties> = ({
     [value, onChange],
   );
 
-  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
-    useDropzone({
-      noDrag: inputMode == "button",
-      onDrop,
-      multiple,
-      ...dropzoneOptions,
-    });
-
-  const className = useMemo(
-    () =>
-      `dropzone ${isFocused ? "focused" : ""} ${
-        isDragAccept ? "accepted" : ""
-      } ${isDragReject ? "rejected" : ""}`,
-    [isFocused, isDragAccept, isDragReject],
-  );
+  const { getRootProps, getInputProps } = useDropzone({
+    noDrag: true,
+    onDrop,
+    multiple,
+    ...dropzoneOptions,
+  });
 
   const renderInputUi = () => {
     const { onClick } = getRootProps();
 
-    if (inputMode == "button")
-      return (
-        <div className="input-button-wrapper">
-          <Button
-            label={
-              value?.length
-                ? inputButtonLabelSelected + ` (${value?.length})`
-                : inputButtonLabel
-            }
-            onMouseEnter={(event) =>
-              displaySelectedFileList === "popup-list" &&
-              overlayReference.current?.show(event, null)
-            }
-            onClick={(event) => {
-              event.preventDefault();
-              onClick?.(event);
-            }}
-            {...selectButtonProps}
-          />
-          <input id={name} name={name} {...getInputProps()} />
-        </div>
-      );
-
     return (
-      <div {...getRootProps({ className })}>
+      <div className="input-button-wrapper">
+        <Button
+          label={inputButtonLabel}
+          onMouseEnter={(event) =>
+            displaySelectedFileList === "popup-list" &&
+            overlayReference.current?.show(event, null)
+          }
+          onClick={(event) => {
+            event.preventDefault();
+            onClick?.(event);
+          }}
+          {...selectButtonProps}
+        />
         <input id={name} name={name} {...getInputProps()} />
-        {dropzoneMessage && <p>{dropzoneMessage}</p>}
       </div>
     );
   };
@@ -168,19 +140,16 @@ export const FileAttachBasic: FC<IFileAttachBasicProperties> = ({
 
   return (
     <div className="file-input">
-      {label && <label htmlFor={name}>{label}</label>}
       {renderInputUi()}
 
-      {inputMode === "button" && displaySelectedFileList === "popup-list" ? (
+      {displaySelectedFileList === "popup-list" ? (
         <OverlayPanel
           ref={overlayReference as LegacyRef<OverlayPanel>}
           showCloseIcon
         >
           {value?.length ? renderSelectedFiles() : emptySelectionMessage}
         </OverlayPanel>
-      ) : (
-        renderSelectedFiles()
-      )}
+      ) : null}
     </div>
   );
 };

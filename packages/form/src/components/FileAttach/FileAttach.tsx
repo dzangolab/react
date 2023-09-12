@@ -1,5 +1,5 @@
 import { Button } from "primereact/button";
-import React, { ComponentProps, useState } from "react";
+import React, { ComponentProps, useRef, useState } from "react";
 import { DropzoneOptions } from "react-dropzone";
 
 import { FileAttachBasic } from "./FileAttachBasic";
@@ -8,8 +8,7 @@ import { FileExtended } from "../FileInput/types";
 interface IFileAttachProperties {
   name: string;
   multiple?: boolean;
-  inputMode?: "dropzone" | "button";
-  displaySelectedFileList?: "list" | "popup-list" | "none";
+  displaySelectedFileList?: "popup-list" | "none";
   label?: string;
   mode?: "append" | "update";
   inputButtonLabel?: string;
@@ -18,8 +17,6 @@ interface IFileAttachProperties {
   enableDescription?: boolean;
   addDescriptionLabel?: string;
   descriptionPlaceholder?: string;
-  dropzoneMessage?: string;
-  dropzoneOptions?: DropzoneOptions;
   selectButtonProps?: ComponentProps<typeof Button>;
   defaultValue?: FileExtended[];
   onChange: (files: FileExtended[]) => void;
@@ -27,19 +24,14 @@ interface IFileAttachProperties {
 
 export const FileAttach = ({
   name,
-  inputMode,
-  displaySelectedFileList,
   multiple = true,
-  label,
   mode = "update",
   emptySelectionMessage,
   inputButtonLabel,
-  inputButtonLabelSelected,
   enableDescription = false,
   addDescriptionLabel,
   descriptionPlaceholder,
-  dropzoneMessage,
-  dropzoneOptions,
+  displaySelectedFileList,
   selectButtonProps,
   defaultValue = [],
   onChange,
@@ -51,20 +43,15 @@ export const FileAttach = ({
     <>
       <FileAttachBasic
         name={name}
-        inputMode={inputMode}
         displaySelectedFileList={displaySelectedFileList}
         inputButtonLabel={inputButtonLabel}
-        inputButtonLabelSelected={inputButtonLabelSelected}
         emptySelectionMessage={emptySelectionMessage}
         value={selectedFiles}
-        label={label}
         mode={mode}
         multiple={multiple}
-        dropzoneOptions={dropzoneOptions}
         enableDescription={enableDescription}
         addDescriptionLabel={addDescriptionLabel}
         descriptionPlaceholder={descriptionPlaceholder}
-        dropzoneMessage={dropzoneMessage}
         onChange={(files) => {
           setSelectedFiles(files);
           onChange(files);
