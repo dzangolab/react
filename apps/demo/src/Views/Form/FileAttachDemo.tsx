@@ -1,8 +1,10 @@
 import { FileAttach } from "@dzangolab/react-form";
 import { useState } from "react";
 
+import type { FileExtended } from "@dzangolab/react-form";
+
 const FileAttachDemo = () => {
-  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>([]);
   return (
     <>
       <FileAttach
@@ -11,12 +13,12 @@ const FileAttachDemo = () => {
         values={selectedFiles}
         mode={"append"}
         multiple={false}
-        onChange={(file: any) => {
+        onChange={(file: FileExtended[]) => {
           setSelectedFiles(file);
         }}
         displaySelectedFileList="none"
       />
-      {selectedFiles.map((file: any, i) => {
+      {selectedFiles.map((file: FileExtended, i) => {
         return (
           <div>
             <span>{file.name}</span>
