@@ -5,6 +5,7 @@ import type { FileExtended } from "@dzangolab/react-form";
 
 const FileAttachDemo = () => {
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>([]);
+
   return (
     <>
       <FileAttach
