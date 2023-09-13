@@ -28,9 +28,9 @@ interface IFileAttachBasicProperties {
 
 export const FileAttachBasic: FC<IFileAttachBasicProperties> = ({
   name,
-  displaySelectedFileList = "popup-list",
+  displaySelectedFileList = "none",
   inputButtonLabel,
-  mode = "append",
+  mode = "update",
   multiple = true,
   value,
   dropzoneOptions,

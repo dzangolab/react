@@ -1,5 +1,6 @@
 import { ConfirmPasswordForm, LoginForm } from "@dzangolab/react-form";
 
+import FileAttachDemo from "./FileAttachDemo";
 import { FileInputButton } from "./FileInputButton";
 import { FileUploadDemo } from "./FileUpload";
 import { FormWithFileInputButton } from "./FormFileInputButton";
@@ -36,6 +37,11 @@ const componentList = [
     key: 6,
     title: "pages.forms.fileUpload",
     component: <FileUploadDemo />,
+  },
+  {
+    key: 7,
+    title: "pages.forms.fileAttach",
+    component: <FileAttachDemo />,
   },
 ];
 

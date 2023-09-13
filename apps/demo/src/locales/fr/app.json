@@ -22,6 +22,7 @@
     "forms": {
       "login": "Login form (fr)",
       "confirmPassword": "Confirm password form (fr)",
+      "fileAttach": "FIle attach (fr)",
       "fileInput": "Form with file input (fr)",
       "fileInputButton": "file input button (fr)",
       "formFileInputButton": "Form with file input button (fr)",

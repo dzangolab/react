@@ -1,6 +1,5 @@
 import { Button } from "primereact/button";
-import React, { ComponentProps, useRef, useState } from "react";
-import { DropzoneOptions } from "react-dropzone";
+import React, { ComponentProps, useState } from "react";
 
 import { FileAttachBasic } from "./FileAttachBasic";
 import { FileExtended } from "../FileInput/types";
