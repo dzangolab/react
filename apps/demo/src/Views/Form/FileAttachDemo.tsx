@@ -8,7 +8,7 @@ const FileAttachDemo = () => {
       <FileAttach
         name="fileAttach"
         selectButtonProps={{ icon: "pi pi-file" }}
-        defaultValue={selectedFiles}
+        values={selectedFiles}
         mode={"append"}
         multiple={false}
         onChange={(file: any) => {

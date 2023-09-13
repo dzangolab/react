@@ -17,7 +17,7 @@ interface IFileAttachProperties {
   addDescriptionLabel?: string;
   descriptionPlaceholder?: string;
   selectButtonProps?: ComponentProps<typeof Button>;
-  defaultValue?: FileExtended[];
+  values?: FileExtended[];
   onChange: (files: FileExtended[]) => void;
 }
 
@@ -32,12 +32,9 @@ export const FileAttach = ({
   descriptionPlaceholder,
   displaySelectedFileList,
   selectButtonProps,
-  defaultValue = [],
+  values = [],
   onChange,
 }: IFileAttachProperties) => {
-  const [selectedFiles, setSelectedFiles] =
-    useState<FileExtended[]>(defaultValue);
-
   return (
     <>
       <FileAttachBasic
@@ -45,14 +42,13 @@ export const FileAttach = ({
         displaySelectedFileList={displaySelectedFileList}
         inputButtonLabel={inputButtonLabel}
         emptySelectionMessage={emptySelectionMessage}
-        value={selectedFiles}
+        value={values}
         mode={mode}
         multiple={multiple}
         enableDescription={enableDescription}
         addDescriptionLabel={addDescriptionLabel}
         descriptionPlaceholder={descriptionPlaceholder}
         onChange={(files) => {
-          setSelectedFiles(files);
           onChange(files);
         }}
         selectButtonProps={selectButtonProps}
