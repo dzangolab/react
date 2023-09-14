@@ -1,4 +1,4 @@
-import { FileAttach } from "@dzangolab/react-form";
+import { FileAttachBasic } from "@dzangolab/react-form";
 import { useState } from "react";
 
 import type { FileExtended } from "@dzangolab/react-form";
@@ -8,20 +8,20 @@ const FileAttachDemo = () => {
 
   return (
     <>
-      <FileAttach
+      <FileAttachBasic
         name="fileAttach"
         selectButtonProps={{ icon: "pi pi-file" }}
-        values={selectedFiles}
-        mode={"append"}
-        multiple={false}
+        value={selectedFiles}
+        mode={"update"}
+        multiple={true}
         onChange={(file: FileExtended[]) => {
           setSelectedFiles(file);
         }}
-        displaySelectedFileList="none"
+        selectedFileDisplay="none"
       />
       {selectedFiles.map((file: FileExtended, i) => {
         return (
-          <div>
+          <div key={file.name}>
             <span>{file.name}</span>
 
             <button

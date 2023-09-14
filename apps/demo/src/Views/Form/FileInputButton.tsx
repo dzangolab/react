@@ -13,8 +13,9 @@ export const FileInputButton: React.FC = () => {
   return (
     <>
       <FileInput
-        displaySelectedFileList="popup-list"
-        inputMode="button"
+        selectedFileDisplay="popup"
+        inputMethod="button"
+        value={[]}
         emptySelectionMessage={t("fileInput.emptySelectionMessage")}
         inputButtonLabel={t("fileInput.buttons.label.inputButtonLabel")}
         inputButtonLabelSelected={t(

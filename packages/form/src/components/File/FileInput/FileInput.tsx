@@ -1,35 +1,14 @@
-import { Button } from "primereact/button";
-import React, { ComponentProps, useState } from "react";
-import { DropzoneOptions } from "react-dropzone";
+import React, { useState } from "react";
 
 import { FileInputBasic } from "./FileInputBasic";
-import { FileExtended } from "./types";
 
-interface IFileInputProperties {
-  name: string;
-  multiple?: boolean;
-  inputMode?: "dropzone" | "button";
-  displaySelectedFileList?: "list" | "popup-list" | "none";
-  label?: string;
-  mode?: "append" | "update";
-  inputButtonLabel?: string;
-  inputButtonLabelSelected?: string;
-  emptySelectionMessage?: string;
-  enableDescription?: boolean;
-  addDescriptionLabel?: string;
-  descriptionPlaceholder?: string;
-  dropzoneMessage?: string;
-  dropzoneOptions?: DropzoneOptions;
-  selectButtonProps?: ComponentProps<typeof Button>;
-  defaultValue?: FileExtended[];
-  onChange: (files: FileExtended[]) => void;
-}
+import type { FileExtended, IFileInputProperties } from "../types";
 
 export const FileInput = ({
   name,
-  inputMode,
-  displaySelectedFileList,
-  multiple = true,
+  inputMethod,
+  selectedFileDisplay,
+  multiple = false,
   label,
   mode = "update",
   emptySelectionMessage,
@@ -41,18 +20,17 @@ export const FileInput = ({
   dropzoneMessage,
   dropzoneOptions,
   selectButtonProps,
-  defaultValue = [],
+  value = [],
   onChange,
 }: IFileInputProperties) => {
-  const [selectedFiles, setSelectedFiles] =
-    useState<FileExtended[]>(defaultValue);
+  const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>(value);
 
   return (
     <>
       <FileInputBasic
         name={name}
-        inputMode={inputMode}
-        displaySelectedFileList={displaySelectedFileList}
+        inputMethod={inputMethod}
+        selectedFileDisplay={selectedFileDisplay}
         inputButtonLabel={inputButtonLabel}
         inputButtonLabelSelected={inputButtonLabelSelected}
         emptySelectionMessage={emptySelectionMessage}

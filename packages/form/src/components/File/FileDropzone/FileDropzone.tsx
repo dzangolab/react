@@ -1,24 +1,15 @@
 import React from "react";
-import { DropzoneOptions } from "react-dropzone";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { FileDropzoneBasic } from "./FileDropzoneBasic";
 
-interface IFileDropzoneProperties {
-  name: string;
-  label?: string;
-  mode?: "append" | "update";
-  enableDescription?: boolean;
-  addDescriptionLabel?: string;
-  descriptionPlaceholder?: string;
-  dropzoneMessage?: string;
-  dropzoneOptions?: DropzoneOptions;
-}
+import type { FileExtended, IFileDropzoneProperties } from "../types";
 
 export const FileDropzone = ({
   name,
   label,
   mode = "update",
+  multiple,
   enableDescription = false,
   addDescriptionLabel,
   descriptionPlaceholder,
@@ -38,12 +29,13 @@ export const FileDropzone = ({
             value={field.value}
             label={label}
             mode={mode}
+            multiple={multiple}
             dropzoneOptions={dropzoneOptions}
             enableDescription={enableDescription}
             addDescriptionLabel={addDescriptionLabel}
             descriptionPlaceholder={descriptionPlaceholder}
             dropzoneMessage={dropzoneMessage}
-            onChange={(files) => field.onChange(files)}
+            onChange={(files: FileExtended[]) => field.onChange(files)}
           />
         )}
       />
