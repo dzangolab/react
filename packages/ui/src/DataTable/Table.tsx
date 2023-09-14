@@ -7,6 +7,7 @@ import { ITableProperties, LazyTableState } from "./types";
 
 export const DataTable = ({
   columns,
+  currentPageReportTemplate = TABLE_DEFAULT.CURRENT_PAGE_REPORT_TEMPLATE,
   data,
   dataKey = TABLE_DEFAULT.DATA_KEY,
   defaultRowsPerPage = TABLE_DEFAULT.ROWS_PER_PAGE,
@@ -61,6 +62,7 @@ export const DataTable = ({
   return (
     <PDataTable
       cellClassName={(_, { field }) => `cell-${field}`}
+      currentPageReportTemplate={currentPageReportTemplate}
       dataKey={dataKey}
       filterDisplay={displayFilter ? filterDisplay : undefined}
       loading={loading}
