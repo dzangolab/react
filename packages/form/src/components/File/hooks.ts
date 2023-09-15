@@ -22,31 +22,36 @@ export const useOnDropFile = ({
          Depending upon the mode we are replacing old files with new one,
          or appending new files into the old ones, and also filtering out the duplicate files. 
       */
-      let newFiles =
-        mode === "update" || !multiple
-          ? droppedFiles
-          : [...(value || []), ...droppedFiles];
+      if (!multiple || mode === "update") {
+        return onChange(droppedFiles);
+      } else {
+        const newFiles = [...(value || []), ...droppedFiles];
 
-      newFiles = newFiles.reduce((previous: FileExtended[], file) => {
-        const fo = Object.entries(file);
+        const uniqueFiles = newFiles.reduce(
+          (previousUniqueFiles: FileExtended[], currentFile) => {
+            const currentFileEntries = Object.entries(currentFile);
 
-        if (
-          previous.find((pFile: FileExtended) => {
-            const eo = Object.entries(pFile);
-            return eo.every(
-              ([key, value], index) =>
-                key === fo[index][0] && value === fo[index][1],
-            );
-          })
-        ) {
-          return previous;
-        } else {
-          return [...previous, file];
-        }
-      }, []);
+            if (
+              previousUniqueFiles.find((existingFile: FileExtended) => {
+                const existingFileEntries = Object.entries(existingFile);
+                return existingFileEntries.every(
+                  ([key, value], index) =>
+                    key === currentFileEntries[index][0] &&
+                    value === currentFileEntries[index][1],
+                );
+              })
+            ) {
+              return previousUniqueFiles;
+            } else {
+              return [...previousUniqueFiles, currentFile];
+            }
+          },
+          [],
+        );
 
-      // End Magic.
-      onChange(newFiles);
+        // End Magic.
+        onChange(uniqueFiles);
+      }
     },
     [name, mode, value, onChange],
   );

@@ -14,6 +14,8 @@ export const FormWithFileInput: React.FC = () => {
     <Provider onSubmit={onSubmit}>
       <FileDropzone
         name="images"
+        mode="append"
+        multiple={true}
         dropzoneOptions={{
           accept: {
             "image/*": [".jpeg", ".png"],
