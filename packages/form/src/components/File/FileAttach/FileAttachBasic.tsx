@@ -79,7 +79,7 @@ export const FileAttachBasic: FC<IFileAttachBasicProperties> = ({
   );
 
   return (
-    <div className="file-input">
+    <div className="file-input attach">
       {renderInputUi()}
 
       {selectedFileDisplay === "popup" ? (

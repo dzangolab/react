@@ -40,7 +40,7 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
   );
 
   return (
-    <div className="file-input">
+    <div className="file-input dropzone">
       {label && <label htmlFor={name}>{label}</label>}
       <div {...getRootProps({ className })}>
         <input id={name} name={name} {...getInputProps()} />
