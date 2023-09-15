@@ -1,3 +1,13 @@
+# [0.20.0](https://github.com/dzangolab/react/compare/v0.19.0...v0.20.0) (2023-09-15)
+
+
+### Features
+
+* add current page report in datatable ([#566](https://github.com/dzangolab/react/issues/566)) ([cd7d416](https://github.com/dzangolab/react/commit/cd7d416bfdedf227387ee6208fa769ce362c6ae0))
+* add file attach component ([#565](https://github.com/dzangolab/react/issues/565)) ([3178acc](https://github.com/dzangolab/react/commit/3178acc6f94ab092573231bd0170ea6e2d6a938b))
+
+
+
 # [0.19.0](https://github.com/dzangolab/react/compare/v0.18.0...v0.19.0) (2023-09-11)
 
 
