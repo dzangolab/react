@@ -6,7 +6,11 @@ export const FormWithFileInput: React.FC = () => {
   const { t } = useTranslation("files");
 
   const onSubmit = (values: any) => {
-    console.log("values", values);
+    const formData = new FormData();
+
+    formData.set("file", values);
+
+    console.log("values", formData.get("file"));
     // Implement your own form submission logic here.
   };
 
