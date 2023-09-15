@@ -1,4 +1,9 @@
-import { Provider, FileDropzone } from "@dzangolab/react-form";
+import {
+  Provider,
+  FileDropzone,
+  useFormContext,
+  Email,
+} from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 
@@ -8,14 +13,17 @@ export const FormWithFileInput: React.FC = () => {
   const onSubmit = (values: any) => {
     const formData = new FormData();
 
-    formData.set("file", values);
+    for (let name in values) {
+      formData.set(name, values[name]);
+    }
 
-    console.log("values", formData.get("file"));
+    console.log("values", formData.get("images"), formData.get("uploadedBy"));
     // Implement your own form submission logic here.
   };
 
   return (
     <Provider onSubmit={onSubmit}>
+      <UploadBy />
       <FileDropzone
         name="images"
         mode="append"
@@ -36,5 +44,25 @@ export const FormWithFileInput: React.FC = () => {
         </button>
       </div>
     </Provider>
+  );
+};
+
+export const UploadBy = () => {
+  const { t } = useTranslation("files");
+  const {
+    register,
+    getFieldState,
+    formState: { errors, submitCount },
+  } = useFormContext();
+
+  return (
+    <Email
+      label={t("fileUpload.fields.uploadedBy.label")}
+      name="uploadedBy"
+      placeholder={t("fileUpload.fields.uploadedBy.placeholder")}
+      register={register}
+      getFieldState={getFieldState}
+      submitcount={submitCount}
+    />
   );
 };

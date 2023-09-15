@@ -20,6 +20,12 @@
     "actions": {
       "upload": "Upload",
       "cancel": "Cancel"
+    },
+    "fields":{
+      "uploadedBy":{
+        "label": "Upload by",
+        "placeholder": "Enter your email address"
+      }
     }
   }
 }
