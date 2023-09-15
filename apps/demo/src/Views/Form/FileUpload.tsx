@@ -12,6 +12,7 @@ export const FileUploadDemo = () => {
           "image/*": [".jpeg", ".png"],
         },
       }}
+      value={[]}
       enableDescription
       dropzoneMessage={t("fileInput.dropzoneMessage")}
       addDescriptionLabel={t("fileInput.description.label")}

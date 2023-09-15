@@ -1,44 +1,25 @@
 // components/FormComponents/FileInputBasic.tsx
 import { Button } from "primereact/button";
 import { OverlayPanel } from "primereact/overlaypanel";
-import React, { FC, LegacyRef, useCallback, useMemo, useRef } from "react";
-import { DropzoneOptions, useDropzone } from "react-dropzone";
+import React, { useMemo, useRef } from "react";
+import { useDropzone } from "react-dropzone";
 
-import { SelectedFile } from "./SelectedFile";
+import { useOnDropFile, useOnRemoveFile } from "../hooks";
+import { SelectedFile } from "../SelectedFile";
 
-import type { FileExtended } from "./types";
-import type { ComponentProps } from "react";
-
-interface IFileInputBasicProperties {
-  name: string;
-  inputMode?: "dropzone" | "button";
-  displaySelectedFileList?: "list" | "popup-list" | "none";
-  multiple?: boolean;
-  label?: string;
-  inputButtonLabel?: string;
-  inputButtonLabelSelected?: string;
-  emptySelectionMessage?: string;
-  mode?: "append" | "update";
-  value: FileExtended[];
-  enableDescription?: boolean;
-  addDescriptionLabel?: string;
-  descriptionPlaceholder?: string;
-  dropzoneMessage?: string;
-  dropzoneOptions?: DropzoneOptions;
-  onChange: (files: FileExtended[]) => void;
-  selectButtonProps?: ComponentProps<typeof Button>;
-}
+import type { IFileInputBasicProperties } from "../types";
+import type { FC, LegacyRef } from "react";
 
 export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   name,
-  inputMode = "button",
-  displaySelectedFileList = "popup-list",
+  inputMethod = "button",
+  selectedFileDisplay = "popup",
   inputButtonLabel = "Select",
   inputButtonLabelSelected = "Selected",
   label,
   mode = "append",
   multiple = true,
-  value,
+  value = [],
   dropzoneOptions,
   enableDescription = false,
   emptySelectionMessage = "No file selected.",
@@ -50,54 +31,12 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
 }) => {
   const overlayReference = useRef<OverlayPanel>();
 
-  const onDrop = useCallback(
-    (droppedFiles: FileExtended[]) => {
-      /*
-         This is where the magic is happening.
-         Depending upon the mode we are replacing old files with new one,
-         or appending new files into the old ones, and also filtering out the duplicate files. 
-      */
-      let newFiles =
-        mode === "update" ? droppedFiles : [...(value || []), ...droppedFiles];
-
-      if (mode === "append") {
-        newFiles = newFiles.reduce((previous: FileExtended[], file) => {
-          const fo = Object.entries(file);
-
-          if (
-            previous.find((pFile: FileExtended) => {
-              const eo = Object.entries(pFile);
-              return eo.every(
-                ([key, value], index) =>
-                  key === fo[index][0] && value === fo[index][1],
-              );
-            })
-          ) {
-            return previous;
-          } else {
-            return [...previous, file];
-          }
-        }, []);
-      }
-
-      // End Magic.
-      onChange(newFiles);
-    },
-    [name, mode, value, onChange],
-  );
-
-  const onRemove = useCallback(
-    (index: number) => {
-      const newFiles = value.filter((_, index_) => index_ !== index); // improve this
-
-      onChange(newFiles);
-    },
-    [value, onChange],
-  );
+  const onDrop = useOnDropFile({ mode, name, onChange, value, multiple });
+  const onRemove = useOnRemoveFile({ value, onChange });
 
   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
     useDropzone({
-      noDrag: inputMode == "button",
+      noDrag: inputMethod == "button",
       onDrop,
       multiple,
       ...dropzoneOptions,
@@ -114,7 +53,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   const renderInputUi = () => {
     const { onClick } = getRootProps();
 
-    if (inputMode == "button")
+    if (inputMethod == "button")
       return (
         <div className="input-button-wrapper">
           <Button
@@ -124,7 +63,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
                 : inputButtonLabel
             }
             onMouseEnter={(event) =>
-              displaySelectedFileList === "popup-list" &&
+              selectedFileDisplay === "popup" &&
               overlayReference.current?.show(event, null)
             }
             onClick={(event) => {
@@ -171,7 +110,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
       {label && <label htmlFor={name}>{label}</label>}
       {renderInputUi()}
 
-      {inputMode === "button" && displaySelectedFileList === "popup-list" ? (
+      {inputMethod === "button" && selectedFileDisplay === "popup" ? (
         <OverlayPanel
           ref={overlayReference as LegacyRef<OverlayPanel>}
           showCloseIcon

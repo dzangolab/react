@@ -1,33 +1,15 @@
-import { Button } from "primereact/button";
-import React, { ComponentProps } from "react";
-import { DropzoneOptions } from "react-dropzone";
+import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 import { FileInputBasic } from "./FileInputBasic";
 
-interface IFormFileInputProperties {
-  name: string;
-  multiple?: boolean;
-  inputMode?: "dropzone" | "button";
-  displaySelectedFileList?: "list" | "popup-list" | "none";
-  label?: string;
-  mode?: "append" | "update";
-  inputButtonLabel?: string;
-  inputButtonLabelSelected?: string;
-  emptySelectionMessage?: string;
-  enableDescription?: boolean;
-  addDescriptionLabel?: string;
-  descriptionPlaceholder?: string;
-  dropzoneMessage?: string;
-  dropzoneOptions?: DropzoneOptions;
-  selectButtonProps?: ComponentProps<typeof Button>;
-}
+import type { IFormFileInputProperties } from "../types";
 
 export const FormFileInput = ({
   name,
-  inputMode,
-  displaySelectedFileList,
-  multiple = true,
+  inputMethod,
+  selectedFileDisplay,
+  multiple = false,
   label,
   mode = "update",
   emptySelectionMessage,
@@ -50,8 +32,8 @@ export const FormFileInput = ({
         render={({ field }) => (
           <FileInputBasic
             name={field.name}
-            inputMode={inputMode}
-            displaySelectedFileList={displaySelectedFileList}
+            inputMethod={inputMethod}
+            selectedFileDisplay={selectedFileDisplay}
             inputButtonLabel={inputButtonLabel}
             inputButtonLabelSelected={inputButtonLabelSelected}
             emptySelectionMessage={emptySelectionMessage}

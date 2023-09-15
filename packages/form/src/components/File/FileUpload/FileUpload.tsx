@@ -1,42 +1,23 @@
 import { Button } from "primereact/button";
 import { useState } from "react";
 
-import { FileDropzoneBasic } from "../FileInput";
+import { FileDropzoneBasic } from "../FileDropzone";
 
-import type { FileExtended } from "../FileInput";
+import type { FileExtended, IFileUploadProperties } from "../types";
 import type { FC } from "react";
-import type { DropzoneOptions } from "react-dropzone";
-
-interface IFileUploadProperties {
-  addDescriptionLabel?: string;
-  cancelButtonIcon?: string;
-  cancelButtonLabel?: string;
-  defaultValue?: FileExtended[];
-  descriptionPlaceholder?: string;
-  dropzoneMessage?: string;
-  dropzoneOptions?: DropzoneOptions;
-  enableDescription?: boolean;
-  label?: string;
-  mode?: "append" | "update";
-  name: string;
-  onCancel?: () => void;
-  onFileSelect?: (files: FileExtended[]) => FileExtended[];
-  onUpload: (files: FileExtended[]) => void;
-  uploadButtonIcon?: string;
-  uploadButtonLabel?: string;
-}
 
 export const FileUpload: FC<IFileUploadProperties> = ({
   addDescriptionLabel,
   cancelButtonIcon,
   cancelButtonLabel = "Cancel",
-  defaultValue,
+  value,
   descriptionPlaceholder,
   dropzoneMessage,
   dropzoneOptions,
   enableDescription = false,
   label,
   mode = "append",
+  multiple,
   name,
   onCancel,
   onFileSelect,
@@ -45,7 +26,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   uploadButtonLabel = "Upload",
 }) => {
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>(
-    defaultValue || [],
+    value || [],
   );
 
   return (
@@ -54,6 +35,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
         name={name}
         value={selectedFiles}
         label={label}
+        multiple={multiple}
         mode={mode}
         dropzoneOptions={dropzoneOptions}
         enableDescription={enableDescription}

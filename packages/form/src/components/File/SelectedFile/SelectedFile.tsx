@@ -2,7 +2,7 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import React, { useEffect, useState } from "react";
 
-import { FileExtended } from "./types";
+import { FileExtended } from "../types";
 
 type SelectedFileProperties = {
   file: FileExtended;

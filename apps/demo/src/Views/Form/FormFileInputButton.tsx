@@ -14,8 +14,8 @@ export const FormWithFileInputButton: React.FC = () => {
   return (
     <Provider onSubmit={onSubmit}>
       <FormFileInput
-        displaySelectedFileList="popup-list"
-        inputMode="button"
+        selectedFileDisplay="popup"
+        inputMethod="button"
         emptySelectionMessage={t("fileInput.emptySelectionMessage")}
         inputButtonLabel={t("fileInput.buttons.label.inputButtonLabel")}
         inputButtonLabelSelected={t(
