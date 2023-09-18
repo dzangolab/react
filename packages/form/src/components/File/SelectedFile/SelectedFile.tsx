@@ -21,8 +21,10 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
   onRemove,
   onDescriptionChange,
 }) => {
-  const [showDescriptionInput, setShowDescriptionInput] = useState(false);
-  const [description, setDescription] = useState("");
+  const [showDescriptionInput, setShowDescriptionInput] = useState(
+    !!file.description,
+  );
+  const [description, setDescription] = useState(file.description || "");
 
   useEffect(() => {
     if (enableDescription && onDescriptionChange) {
