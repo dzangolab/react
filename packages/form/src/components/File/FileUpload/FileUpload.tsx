@@ -61,6 +61,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
         />
         <Button
           disabled={!selectedFiles.length}
+          severity="secondary"
           label={cancelButtonLabel}
           icon={cancelButtonIcon}
           onClick={() => {
