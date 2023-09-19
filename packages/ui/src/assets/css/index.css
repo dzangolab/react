@@ -15,6 +15,7 @@
 @import "./googleButton.css";
 @import "./primereact-override/index.css";
 @import "./fileCard.css";
+@import "./filelist.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";
