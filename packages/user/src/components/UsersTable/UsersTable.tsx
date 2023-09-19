@@ -34,6 +34,7 @@ export type UsersTableProperties = {
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
+  showFilterSearch?: boolean;
   totalRecords?: number;
   users: Array<object>;
   visibleColumns?: VisibleColumn[];
@@ -54,6 +55,7 @@ export const UsersTable = ({
   prepareInvitationData,
   roles,
   showInviteAction = true,
+  showFilterSearch = true,
   totalRecords = 0,
   users,
   visibleColumns = ["name", "email", "roles", "signedUpAt"],
@@ -83,7 +85,7 @@ export const UsersTable = ({
       header: t("table.defaultColumns.email"),
       hidden: !visibleColumns.includes("email"),
       sortable: true,
-      filter: true,
+      filter: showFilterSearch,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,

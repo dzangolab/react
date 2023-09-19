@@ -44,6 +44,7 @@ export type InvitationsTableProperties = {
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
+  showFilterSearch?: boolean;
   showInviteAction?: boolean;
   totalRecords?: number;
   visibleColumns?: VisibleColumn[];
@@ -66,6 +67,7 @@ export const InvitationsTable = ({
   onInvitationRevoked,
   prepareInvitationData,
   roles,
+  showFilterSearch = true,
   showInviteAction = true,
   totalRecords = 0,
   visibleColumns = [
@@ -89,7 +91,7 @@ export const InvitationsTable = ({
       header: t("table.defaultColumns.email"),
       hidden: !visibleColumns.includes("email"),
       sortable: true,
-      filter: true,
+      filter: showFilterSearch,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
