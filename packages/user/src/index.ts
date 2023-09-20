@@ -36,6 +36,7 @@ import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
 import SignUpFirstUser from "./views/SignUpFirstUser";
+import VerifyEmail from "./views/VerifyEmail";
 
 import "./assets/css/index.css";
 
@@ -79,6 +80,7 @@ export {
   ResetPassword,
   Signup,
   SignUpFirstUser,
+  VerifyEmail,
 
   // utilities
   changePassword,

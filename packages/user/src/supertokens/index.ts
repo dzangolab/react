@@ -1,5 +1,6 @@
 import { AppConfig } from "@dzangolab/react-config";
 import SuperTokens from "supertokens-web-js";
+import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
@@ -12,7 +13,11 @@ const superTokens = (config: AppConfig) => {
       apiDomain: config.apiBaseUrl,
       apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
-    recipeList: [Session.init(), ThirdPartyEmailPassword.init()],
+    recipeList: [
+      Session.init(),
+      EmailVerification.init(),
+      ThirdPartyEmailPassword.init(),
+    ],
   });
 };
 
