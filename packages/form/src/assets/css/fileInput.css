@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 1rem;
+  height: 4.5rem;
 }
 
 .file-input .selected-files li .file-info {
@@ -17,13 +18,18 @@
 }
 
 .file-input .selected-files li .file-preview {
-  width: 2.5rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 100%;
   background: lightgray;
 }
 
 .file-input .selected-files li .file-description {
   max-width: 40rem;
+}
+
+.file-input .selected-files .p-button.p-button-sm {
+  padding: 0 !important;
+  width: auto;
 }
 
 .file-input .dropzone {
@@ -52,4 +58,15 @@
 
 .file-input .dropzone.rejected {
   border-color: #ff1744;
+}
+
+.file-description .description {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.514);
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
