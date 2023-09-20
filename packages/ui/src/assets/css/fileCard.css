@@ -6,19 +6,25 @@
 
 .file-card {
   box-shadow: -1px -1px 29px -14px rgba(0, 0, 0, 0.28);
-  width: 100%;
+  max-width: 100%;
 }
 
 .file-thumbnail-details-wrapper {
   display: flex;
   padding: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .file-thumbnail {
   align-items: center;
-  border-right: 0.1rem solid black;
   display: flex;
-  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 6rem;
+  min-width: 6rem;
 }
 
 .file-thumbnail > i {
@@ -29,8 +35,9 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-left: 2rem;
+  gap: 1rem;
+  justify-content: flex-start;
+  min-width: 15rem;
 }
 
 .file-name-description-details-wrapper {
@@ -56,12 +63,13 @@
 
 .file-upload-download-details-wrapper {
   display: flex;
-  gap: 5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .file-upload-details {
   display: flex;
-  gap: 4rem;
+  gap: 1rem;
 }
 
 .uploaded-by,
@@ -95,6 +103,8 @@
 
 .file-actions {
   display: flex;
-  gap: 4rem;
+  gap: 1rem;
   justify-content: flex-end;
+  flex-wrap: wrap;
+  padding: 0rem 1rem 1rem 1rem;
 }

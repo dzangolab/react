@@ -1,6 +1,6 @@
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, useMemo } from "react";
 
 import { formatDate } from "..";
 import { IFile } from "../FilesTable";
@@ -36,11 +36,17 @@ type FileCardType = {
   file: IFile;
   messages?: FileMessages;
   onArchive?: (arguments_: any) => void;
+  archiveButtonProps?: ComponentProps<typeof Button>;
   onDelete?: (arguments_: any) => void;
+  deleteButtonProps?: ComponentProps<typeof Button>;
   onDownload?: (arguments_: any) => void;
+  downloadButtonProps?: ComponentProps<typeof Button>;
   onEditDescription?: (arguments_: any) => void;
+  editDescriptionButtonProps?: ComponentProps<typeof Button>;
   onShare?: (arguments_: any) => void;
+  shareButtonProps?: ComponentProps<typeof Button>;
   onView?: (arguments_: any) => void;
+  viewButtonProps?: ComponentProps<typeof Button>;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
   showThumbnail?: boolean;
   visibleFileDetails?: VisibleFileDetails[];
@@ -50,11 +56,17 @@ export const FileCard = ({
   file,
   messages,
   onArchive,
+  archiveButtonProps,
   onDelete,
+  deleteButtonProps,
   onDownload,
+  downloadButtonProps,
   onShare,
+  shareButtonProps,
   onView,
+  viewButtonProps,
   onEditDescription,
+  editDescriptionButtonProps,
   renderThumbnail: pRenderThumbnail,
   showThumbnail = true,
   visibleFileDetails = [
@@ -113,32 +125,49 @@ export const FileCard = ({
       <div className="file-actions">
         {!!onArchive && (
           <Button
+            size="small"
             icon="pi pi-book"
+            label="Archive"
             onClick={(event) => onArchive?.({ ...event, data: { file } })}
+            {...archiveButtonProps}
           />
         )}
         {!!onDelete && (
           <Button
+            size="small"
             icon="pi pi-trash"
+            label="Delete"
+            severity="danger"
             onClick={(event) => onDelete?.({ ...event, data: { file } })}
+            {...archiveButtonProps}
           />
         )}
         {!!onDownload && (
           <Button
+            size="small"
             icon="pi pi-download"
+            label="Download"
             onClick={(event) => onDownload?.({ ...event, data: { file } })}
+            {...downloadButtonProps}
           />
         )}
         {!!onShare && (
           <Button
+            size="small"
             icon="pi pi-share-alt"
+            label="Share"
             onClick={(event) => onShare?.({ ...event, data: { file } })}
+            {...shareButtonProps}
           />
         )}
         {!!onView && (
           <Button
+            size="small"
             icon="pi pi-eye"
+            label="View"
+            severity="secondary"
             onClick={(event) => onView?.({ ...event, data: { file } })}
+            {...viewButtonProps}
           />
         )}
       </div>
@@ -172,6 +201,7 @@ export const FileCard = ({
                       onClick={(event) =>
                         onEditDescription?.({ ...event, data: { file } })
                       }
+                      {...editDescriptionButtonProps}
                     />
                   )}
                 </div>
@@ -236,10 +266,9 @@ export const FileCard = ({
               ) : null}
             </div>
           ) : null}
-
-          {visibleFileDetailsObject.actions ? renderActions() : null}
         </div>
       </div>
+      {visibleFileDetailsObject.actions ? renderActions() : null}
     </Card>
   );
 };

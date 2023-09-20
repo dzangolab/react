@@ -108,6 +108,8 @@ const componentList = [
         onDownload={() => {}}
         onView={() => {}}
         onShare={() => {}}
+        onArchive={() => {}}
+        onDelete={() => {}}
       />
     ),
   },
