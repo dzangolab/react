@@ -26,6 +26,15 @@ type VisibleColumn =
   | "status"
   | "actions";
 
+type FilterableColumn =
+  | "name"
+  | "email"
+  | "roles"
+  | "signedUpAt"
+  | "app"
+  | "invitedBy"
+  | "status";
+
 export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -41,12 +50,12 @@ export type AllUsersTableProperties = {
   onInvitationRevoked?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
-  showFilterSearch?: boolean;
   showInviteAction?: boolean;
   showAppColumn?: boolean;
   totalRecords?: number;
   users: Array<object>;
   visibleColumns?: VisibleColumn[];
+  filterableColumns?: FilterableColumn[];
 };
 
 export const AllUsersTable = ({
@@ -65,7 +74,6 @@ export const AllUsersTable = ({
   prepareInvitationData,
   roles,
   showInviteAction = true,
-  showFilterSearch = true,
   totalRecords = 0,
   users,
   visibleColumns = [
@@ -77,6 +85,15 @@ export const AllUsersTable = ({
     "invitedBy",
     "status",
     "actions",
+  ],
+  filterableColumns = [
+    "name",
+    "email",
+    "roles",
+    "signedUpAt",
+    "app",
+    "invitedBy",
+    "status",
   ],
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
@@ -90,6 +107,7 @@ export const AllUsersTable = ({
       field: "name",
       header: t("table.defaultColumns.name"),
       hidden: !visibleColumns.includes("name"),
+      filter: filterableColumns.includes("name"),
       sortable: false,
       body: (data) => {
         return (
@@ -104,7 +122,7 @@ export const AllUsersTable = ({
       header: t("table.defaultColumns.email"),
       hidden: !visibleColumns.includes("email"),
       sortable: true,
-      filter: showFilterSearch,
+      filter: filterableColumns.includes("email"),
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -113,6 +131,7 @@ export const AllUsersTable = ({
       field: "app",
       header: t("invitations:table.defaultColumns.app"),
       hidden: !visibleColumns.includes("app"),
+      filter: filterableColumns.includes("app"),
       body: (data: { appId: any }) => {
         return <span>{data.appId || "-"} </span>;
       },
@@ -121,6 +140,7 @@ export const AllUsersTable = ({
       field: "roles",
       header: t("table.defaultColumns.roles"),
       hidden: !visibleColumns.includes("roles"),
+      filter: filterableColumns.includes("roles"),
       body: (data) => {
         if (data?.roles) {
           return (
@@ -157,6 +177,7 @@ export const AllUsersTable = ({
       field: "status",
       header: t("table.defaultColumns.status"),
       hidden: !visibleColumns.includes("status"),
+      filter: filterableColumns.includes("status"),
       body: (data) => {
         return (
           <>
@@ -179,6 +200,7 @@ export const AllUsersTable = ({
       field: "invitedBy",
       header: t("invitations:table.defaultColumns.invitedBy"),
       hidden: !visibleColumns.includes("invitedBy"),
+      filter: filterableColumns.includes("invitedBy"),
       body: (data) => {
         if (data.isActiveUser) {
           return <code>&#8212;</code>;
@@ -197,6 +219,7 @@ export const AllUsersTable = ({
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
       hidden: !visibleColumns.includes("signedUpAt"),
+      filter: filterableColumns.includes("signedUpAt"),
       body: (data) => {
         if (data.signedUpAt) {
           const date = new Date(data.signedUpAt);
