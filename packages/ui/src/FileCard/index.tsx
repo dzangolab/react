@@ -139,7 +139,7 @@ export const FileCard = ({
             label="Delete"
             severity="danger"
             onClick={(event) => onDelete?.({ ...event, data: { file } })}
-            {...archiveButtonProps}
+            {...deleteButtonProps}
           />
         )}
         {!!onDownload && (

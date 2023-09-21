@@ -49,7 +49,8 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
                     setShowDescriptionInput(true);
                   }}
                 >
-                  {description || addDescriptionLabel}
+                  {description || addDescriptionLabel}{" "}
+                  <i className="pi pi-pencil"></i>
                 </span>
               ) : (
                 <>
@@ -83,7 +84,7 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
           icon="pi pi-times"
           severity="danger"
           size="small"
-          text
+          outlined
         ></Button>
       )}
     </li>
