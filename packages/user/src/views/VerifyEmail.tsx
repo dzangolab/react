@@ -3,10 +3,8 @@ import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import EmailVerification from "supertokens-web-js/recipe/emailverification";
 
-// import { ROUTES } from "../constants";
-// import { useConfig } from "../hooks";
+import verifyEmail from "@/supertokens/verifyEmail";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
@@ -17,21 +15,26 @@ const VerifyEmail = () => {
   useEffect(() => {
     setVerifyEmailLoading(true);
 
-    EmailVerification.verifyEmail()
+    verifyEmail()
       .then((response) => {
-        // console.log("email verification response", response);
-
         setVerifyEmailLoading(false);
 
-        if (response?.status === "OK") {
-          toast.success(`${t("emailVerification.messages.success")}`);
+        if (response) {
+          setVerifyEmailLoading(false);
 
-          setLoading(false);
-        } else if (
-          response?.status === "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR"
-        ) {
-          toast.success(`${t("emailVerification.messages.invalidToken")}`);
-          setLoading(false);
+          if (response.status === "OK") {
+            toast.success(`${t("emailVerification.messages.success")}`);
+
+            setLoading(false);
+          } else if (response.status === "EMAIL_ALREADY_VERIFIED") {
+            toast.info(`${t("emailVerification.messages.alreadyVerified")}`);
+
+            setLoading(false);
+          } else {
+            toast.error(`${t("emailVerification.messages.invalidToken")}`);
+
+            setLoading(false);
+          }
         }
       })
       .catch(() => {
@@ -55,14 +58,14 @@ const VerifyEmail = () => {
 
     return (
       <Card>
-        <p>{t(`invitation.messages.invalidInvitation`)}</p>
+        <p>{t(`emailVerification.messages.invalidToken`)}</p>
       </Card>
     );
   };
 
   return (
     <Page
-      className="reset-password"
+      className="verify-email"
       title={t("emailVerification.title")}
       loading={loading || verifyEmailLoading}
     >
