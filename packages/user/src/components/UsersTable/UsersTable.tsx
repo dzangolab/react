@@ -18,6 +18,8 @@ import type {
 
 type VisibleColumn = "name" | "email" | "roles" | "signedUpAt";
 
+type FilterableColumn = "name" | "email" | "roles" | "signedUpAt";
+
 export type UsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -34,10 +36,10 @@ export type UsersTableProperties = {
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
-  showFilterSearch?: boolean;
   totalRecords?: number;
   users: Array<object>;
   visibleColumns?: VisibleColumn[];
+  filterableColumns?: FilterableColumn[];
 };
 
 export const UsersTable = ({
@@ -55,10 +57,10 @@ export const UsersTable = ({
   prepareInvitationData,
   roles,
   showInviteAction = true,
-  showFilterSearch = true,
   totalRecords = 0,
   users,
   visibleColumns = ["name", "email", "roles", "signedUpAt"],
+  filterableColumns = ["email"],
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -72,6 +74,7 @@ export const UsersTable = ({
       header: t("table.defaultColumns.name"),
       hidden: !visibleColumns.includes("name"),
       sortable: false,
+      filter: filterableColumns.includes("name"),
       body: (data) => {
         return (
           (data.givenName ? data.givenName : "") +
@@ -85,7 +88,7 @@ export const UsersTable = ({
       header: t("table.defaultColumns.email"),
       hidden: !visibleColumns.includes("email"),
       sortable: true,
-      filter: showFilterSearch,
+      filter: filterableColumns.includes("email"),
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -96,6 +99,7 @@ export const UsersTable = ({
       field: "roles",
       header: t("table.defaultColumns.roles"),
       hidden: !visibleColumns.includes("roles"),
+      filter: filterableColumns.includes("roles"),
       body: (data) => {
         if (data?.roles) {
           return (
@@ -132,6 +136,7 @@ export const UsersTable = ({
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
       hidden: !visibleColumns.includes("signedUpAt"),
+      filter: filterableColumns.includes("signedUpAt"),
       body: (data) => {
         const date = new Date(data.signedUpAt);
 

@@ -86,15 +86,7 @@ export const AllUsersTable = ({
     "status",
     "actions",
   ],
-  filterableColumns = [
-    "name",
-    "email",
-    "roles",
-    "signedUpAt",
-    "app",
-    "invitedBy",
-    "status",
-  ],
+  filterableColumns = ["email"],
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 

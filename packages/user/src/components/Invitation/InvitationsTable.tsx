@@ -26,6 +26,8 @@ type VisibleColumn =
   | "expiresAt"
   | "actions";
 
+type FilterableColumn = "email" | "app" | "role" | "invitedBy" | "expiresAt";
+
 export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -48,6 +50,7 @@ export type InvitationsTableProperties = {
   showInviteAction?: boolean;
   totalRecords?: number;
   visibleColumns?: VisibleColumn[];
+  filterableColumns?: FilterableColumn[];
 };
 
 export const InvitationsTable = ({
@@ -78,6 +81,7 @@ export const InvitationsTable = ({
     "expiresAt",
     "actions",
   ],
+  filterableColumns = ["email"],
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("invitations");
 
@@ -91,7 +95,7 @@ export const InvitationsTable = ({
       header: t("table.defaultColumns.email"),
       hidden: !visibleColumns.includes("email"),
       sortable: true,
-      filter: showFilterSearch,
+      filter: filterableColumns.includes("email"),
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -101,6 +105,7 @@ export const InvitationsTable = ({
       field: "app",
       header: t("table.defaultColumns.app"),
       hidden: !visibleColumns.includes("app"),
+      filter: filterableColumns.includes("app"),
       body: (data: { appId: any }) => {
         return <span>{data.appId || "-"} </span>;
       },
@@ -110,6 +115,7 @@ export const InvitationsTable = ({
       field: "role",
       header: t("table.defaultColumns.role"),
       hidden: !visibleColumns.includes("role"),
+      filter: filterableColumns.includes("role"),
       body: (data) => {
         if (data?.roles) {
           return (
@@ -146,6 +152,7 @@ export const InvitationsTable = ({
       field: "invitedBy",
       header: t("table.defaultColumns.invitedBy"),
       hidden: !visibleColumns.includes("invitedBy"),
+      filter: filterableColumns.includes("invitedBy"),
       body: (data) => {
         if (!data.invitedBy) {
           return <code>&#8212;</code>;
@@ -164,6 +171,7 @@ export const InvitationsTable = ({
       field: "expiresAt",
       header: t("table.defaultColumns.expiresAt"),
       hidden: !visibleColumns.includes("expiresAt"),
+      filter: filterableColumns.includes("expiresAt"),
       body: (data) => {
         const date = new Date(data.expiresAt);
 
