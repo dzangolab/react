@@ -3,7 +3,7 @@ import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React from "react";
 
-import { useVisibleOrFilterableField } from "@/utils";
+import { useVisibleOrFilterableField } from "../utils";
 
 import {
   ActionsMenu,

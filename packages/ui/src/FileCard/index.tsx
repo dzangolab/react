@@ -2,7 +2,7 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { ReactNode } from "react";
 
-import { useVisibleOrFilterableField } from "@/utils";
+import { useVisibleOrFilterableField } from "../utils";
 
 import { formatDate } from "..";
 import { IFile } from "../FilesTable";
