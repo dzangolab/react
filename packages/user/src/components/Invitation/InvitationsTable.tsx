@@ -46,7 +46,6 @@ export type InvitationsTableProperties = {
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
-  showFilterSearch?: boolean;
   showInviteAction?: boolean;
   totalRecords?: number;
   visibleColumns?: VisibleColumn[];
@@ -70,7 +69,6 @@ export const InvitationsTable = ({
   onInvitationRevoked,
   prepareInvitationData,
   roles,
-  showFilterSearch = true,
   showInviteAction = true,
   totalRecords = 0,
   visibleColumns = [

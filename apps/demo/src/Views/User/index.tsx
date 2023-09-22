@@ -159,10 +159,10 @@ const componentList = [
     title: "Users Table",
     component: (
       <UsersTable
-        showFilterSearch={false}
         users={[]}
         fetchUsers={() => {}}
         onInvitationAdded={() => {}}
+        visibleColumns={["email"]}
       />
     ),
   },
@@ -171,17 +171,17 @@ const componentList = [
     title: "Invitations Table",
     component: (
       <InvitationsTable
-        showFilterSearch={false}
         invitations={[]}
         fetchInvitations={() => {}}
         onInvitationAdded={() => {}}
+        filterableColumns={["email"]}
       />
     ),
   },
   {
     key: 8,
     title: "All users table",
-    component: <AllUsersTable users={allUsers} showFilterSearch={true} />,
+    component: <AllUsersTable users={allUsers} />,
   },
 ];
 
