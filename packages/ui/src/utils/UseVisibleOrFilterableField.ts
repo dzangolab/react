@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-export const useVisibleOrFilterField = <T extends string>(
+export const useVisibleOrFilterableField = <T extends string>(
   visibleFields: T[],
 ) => {
   return useMemo(() => {

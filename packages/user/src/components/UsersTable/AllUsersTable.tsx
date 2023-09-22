@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable, useVisibleOrFilterField } from "@dzangolab/react-ui";
+import { DataTable, useVisibleOrFilterableField } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -90,8 +90,8 @@ export const AllUsersTable = ({
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const visibleColumnsMap = useVisibleOrFilterField(visibleColumns);
-  const filterableColumnsMap = useVisibleOrFilterField(filterableColumns);
+  const visibleColumnsMap = useVisibleOrFilterableField(visibleColumns);
+  const filterableColumnsMap = useVisibleOrFilterableField(filterableColumns);
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },

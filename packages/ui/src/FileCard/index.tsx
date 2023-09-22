@@ -2,7 +2,7 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { ReactNode } from "react";
 
-import { useVisibleOrFilterField } from "@/utils";
+import { useVisibleOrFilterableField } from "@/utils";
 
 import { formatDate } from "..";
 import { IFile } from "../FilesTable";
@@ -100,8 +100,7 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
-  const visibleFileDetailsMap =
-    useVisibleOrFilterField<VisibleFileDetails>(visibleFileDetails);
+  const visibleFileDetailsMap = useVisibleOrFilterableField(visibleFileDetails);
 
   const renderActions = () => {
     return (

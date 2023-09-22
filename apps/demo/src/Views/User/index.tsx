@@ -162,7 +162,6 @@ const componentList = [
         users={[]}
         fetchUsers={() => {}}
         onInvitationAdded={() => {}}
-        visibleColumns={["email"]}
       />
     ),
   },

@@ -3,7 +3,7 @@ import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React from "react";
 
-import { useVisibleOrFilterField } from "@/utils";
+import { useVisibleOrFilterableField } from "@/utils";
 
 import {
   ActionsMenu,
@@ -68,7 +68,7 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
-  const visibleColumnsMap = useVisibleOrFilterField(visibleColumns);
+  const visibleColumnsMap = useVisibleOrFilterableField(visibleColumns);
 
   const getActionsItem = (file: IFile) => {
     const actionItems: MenuItem[] = [];
