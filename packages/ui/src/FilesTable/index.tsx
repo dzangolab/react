@@ -3,6 +3,8 @@ import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React from "react";
 
+import { useVisibleOrFilterField } from "@/utils";
+
 import {
   ActionsMenu,
   DataTable,
@@ -66,6 +68,8 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
+  const visibleColumnsMap = useVisibleOrFilterField(visibleColumns);
+
   const getActionsItem = (file: IFile) => {
     const actionItems: MenuItem[] = [];
 
@@ -138,14 +142,14 @@ export const FilesTable = ({
       sortable: true,
       filter: true,
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
-      hidden: !visibleColumns.includes("filename"),
+      hidden: !visibleColumnsMap.filename,
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
       header: messages?.descriptionHeader || "Description",
-      hidden: !visibleColumns.includes("description"),
+      hidden: !visibleColumnsMap.description,
       body: (data) => {
         return data.description;
       },
@@ -154,7 +158,7 @@ export const FilesTable = ({
     {
       field: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      hidden: !visibleColumns.includes("uploadedBy"),
+      hidden: !visibleColumnsMap.uploadedBy,
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -172,7 +176,7 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
-      hidden: !visibleColumns.includes("uploadedAt"),
+      hidden: !visibleColumnsMap.uploadedAt,
       body: (data) => {
         return formatDate(data.uploadedAt);
       },
@@ -180,7 +184,7 @@ export const FilesTable = ({
     {
       field: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
-      hidden: !visibleColumns.includes("downloadCount"),
+      hidden: !visibleColumnsMap.downloadCount,
       body: (data) => {
         return data.downloadCount;
       },
@@ -188,7 +192,7 @@ export const FilesTable = ({
     {
       field: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      hidden: !visibleColumns.includes("lastDownloadedAt"),
+      hidden: !visibleColumnsMap.lastDownloadedAt,
       body: (data) => {
         if (data.lastDownloadedAt) {
           return formatDate(data.lastDownloadedAt);
@@ -200,7 +204,7 @@ export const FilesTable = ({
       align: "center",
       field: "actions",
       header: messages?.actionsHeader || "Actions",
-      hidden: !visibleColumns.includes("actions"),
+      hidden: !visibleColumnsMap.actions,
       body: (data) => {
         return <ActionsMenu actions={getActionsItem(data)} />;
       },

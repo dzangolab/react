@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable } from "@dzangolab/react-ui";
+import { DataTable, useVisibleOrFilterField } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -63,6 +63,8 @@ export const UsersTable = ({
   filterableColumns = ["email"],
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
+  const visibleColumnsMap = useVisibleOrFilterField(visibleColumns);
+  const filterableColumnsMap = useVisibleOrFilterField(filterableColumns);
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -72,9 +74,9 @@ export const UsersTable = ({
     {
       field: "name",
       header: t("table.defaultColumns.name"),
-      hidden: !visibleColumns.includes("name"),
+      hidden: !visibleColumnsMap.name,
       sortable: false,
-      filter: filterableColumns.includes("name"),
+      filter: filterableColumnsMap.name,
       body: (data) => {
         return (
           (data.givenName ? data.givenName : "") +
@@ -86,9 +88,9 @@ export const UsersTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumns.includes("email"),
+      hidden: !visibleColumnsMap.email,
       sortable: true,
-      filter: filterableColumns.includes("email"),
+      filter: filterableColumnsMap.email,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -98,8 +100,8 @@ export const UsersTable = ({
       align: "center",
       field: "roles",
       header: t("table.defaultColumns.roles"),
-      hidden: !visibleColumns.includes("roles"),
-      filter: filterableColumns.includes("roles"),
+      hidden: !visibleColumnsMap.roles,
+      filter: filterableColumnsMap.roles,
       body: (data) => {
         if (data?.roles) {
           return (
@@ -135,8 +137,8 @@ export const UsersTable = ({
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      hidden: !visibleColumns.includes("signedUpAt"),
-      filter: filterableColumns.includes("signedUpAt"),
+      hidden: !visibleColumnsMap.signedUpAt,
+      filter: filterableColumnsMap.signedUpAt,
       body: (data) => {
         const date = new Date(data.signedUpAt);
 
