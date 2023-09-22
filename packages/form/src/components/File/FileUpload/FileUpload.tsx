@@ -8,6 +8,7 @@ import type { FC } from "react";
 
 export const FileUpload: FC<IFileUploadProperties> = ({
   addDescriptionLabel,
+  actionsAlignment = "right",
   cancelButtonIcon,
   cancelButtonLabel = "Cancel",
   value,
@@ -52,7 +53,11 @@ export const FileUpload: FC<IFileUploadProperties> = ({
           setSelectedFiles(modifiedFiles);
         }}
       />
-      <div className="actions">
+      <div
+        className={`actions ${
+          actionsAlignment === "right" ? "align-right" : ""
+        }`}
+      >
         <Button
           disabled={!selectedFiles.length}
           label={uploadButtonLabel}

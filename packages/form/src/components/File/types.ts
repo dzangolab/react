@@ -26,6 +26,7 @@ export interface IFileDropzoneBasicProperties {
 
 export interface IFileUploadProperties
   extends Omit<IFileDropzoneBasicProperties, "onChange"> {
+  actionsAlignment?: "left" | "right";
   cancelButtonIcon?: string;
   cancelButtonLabel?: string;
   onCancel?: () => void;
