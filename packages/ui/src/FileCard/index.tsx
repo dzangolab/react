@@ -1,16 +1,21 @@
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { ComponentProps, ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, useMemo, useState } from "react";
 
-import { formatDate } from "..";
+import ConfirmationFileActions from "./ConfirmationFileActions";
+import { ConfirmationModal, formatDate } from "..";
 import { IFile } from "../FilesTable";
 
 export type FileMessages = {
   archiveAction?: string;
+  archiveConfirmationHeader?: string;
+  archiveConfirmationMessage?: string;
   downloadAction?: string;
   editDescriptionAction?: string;
   renameAction?: string;
   deleteAction?: string;
+  deleteConfirmationHeader?: string;
+  deleteConfirmationMessage?: string;
   filenameHeader?: string;
   descriptionHeader?: string;
   downloadCountHeader?: string;
@@ -37,8 +42,10 @@ type FileCardType = {
   messages?: FileMessages;
   onArchive?: (arguments_: any) => void;
   archiveButtonProps?: ComponentProps<typeof Button>;
+  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onDelete?: (arguments_: any) => void;
   deleteButtonProps?: ComponentProps<typeof Button>;
+  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onDownload?: (arguments_: any) => void;
   downloadButtonProps?: ComponentProps<typeof Button>;
   onEditDescription?: (arguments_: any) => void;
@@ -57,8 +64,10 @@ export const FileCard = ({
   messages,
   onArchive,
   archiveButtonProps,
+  archiveConfirmationProps,
   onDelete,
   deleteButtonProps,
+  deleteConfirmationProps,
   onDownload,
   downloadButtonProps,
   onShare,
@@ -80,6 +89,11 @@ export const FileCard = ({
     "actions",
   ],
 }: FileCardType) => {
+  const [visibleArchiveConfirmation, setVisibleArchiveConfirmation] =
+    useState(false);
+  const [visibleDeleteConfirmation, setVisibleDeleteConfirmation] =
+    useState(false);
+
   const renderThumbnail = () => {
     if (!showThumbnail) {
       return null;
@@ -124,23 +138,27 @@ export const FileCard = ({
     return (
       <div className="file-actions">
         {!!onArchive && (
-          <Button
-            size="small"
-            icon="pi pi-book"
-            label="Archive"
-            onClick={(event) => onArchive?.({ ...event, data: { file } })}
-            {...archiveButtonProps}
-          />
+          <>
+            <Button
+              size="small"
+              icon="pi pi-book"
+              label="Archive"
+              onClick={() => setVisibleArchiveConfirmation(true)}
+              {...archiveButtonProps}
+            />
+          </>
         )}
         {!!onDelete && (
-          <Button
-            size="small"
-            icon="pi pi-trash"
-            label="Delete"
-            severity="danger"
-            onClick={(event) => onDelete?.({ ...event, data: { file } })}
-            {...deleteButtonProps}
-          />
+          <>
+            <Button
+              size="small"
+              icon="pi pi-trash"
+              label="Delete"
+              severity="danger"
+              onClick={() => setVisibleDeleteConfirmation(true)}
+              {...deleteButtonProps}
+            />
+          </>
         )}
         {!!onDownload && (
           <Button
@@ -170,6 +188,26 @@ export const FileCard = ({
             {...viewButtonProps}
           />
         )}
+
+        <ConfirmationFileActions
+          file={file}
+          setVisibleArchiveConfirmation={(isVisible) =>
+            setVisibleArchiveConfirmation(isVisible)
+          }
+          setVisibleDeleteConfirmation={(isVisible) =>
+            setVisibleDeleteConfirmation(isVisible)
+          }
+          visibleArchiveConfirmation={visibleArchiveConfirmation}
+          visibleDeleteConfirmation={visibleDeleteConfirmation}
+          archiveConfirmationProps={archiveConfirmationProps}
+          deleteConfirmationProps={deleteConfirmationProps}
+          archiveConfirmationHeader={messages?.archiveConfirmationHeader}
+          archiveConfirmationMessage={messages?.archiveConfirmationMessage}
+          deleteConfirmationHeader={messages?.deleteConfirmationHeader}
+          deleteConfirmationMessage={messages?.deleteConfirmationMessage}
+          onArchive={onArchive}
+          onDelete={onDelete}
+        />
       </div>
     );
   };

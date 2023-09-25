@@ -1,10 +1,13 @@
 import { FilterMatchMode } from "primereact/api";
 import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
-import React from "react";
+import React, { useState } from "react";
+
+import ConfirmationFileActions from "@/FileCard/ConfirmationFileActions";
 
 import {
   ActionsMenu,
+  ConfirmationModal,
   DataTable,
   FileMessages,
   VisibleFileDetails,
@@ -37,8 +40,10 @@ export type FilesTableProperties = {
   id?: string;
   loading?: boolean;
   onFileArchive?: (arguments_: any) => void;
+  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onFileDownload?: (arguments_: any) => void;
   onFileDelete?: (arguments_: any) => void;
+  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onEditDescription?: (arguments_: any) => void;
   onFileShare?: (arguments_: any) => void;
   onFileView?: (arguments_: any) => void;
@@ -48,8 +53,10 @@ export type FilesTableProperties = {
 } & Partial<ComponentProps<typeof DataTable>>;
 
 export const FilesTable = ({
+  archiveConfirmationProps,
   className,
   columns,
+  deleteConfirmationProps,
   id,
   loading,
   files,
@@ -66,6 +73,13 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
+  const [visibleArchiveConfirmation, setVisibleArchiveConfirmation] =
+    useState(false);
+  const [visibleDeleteConfirmation, setVisibleDeleteConfirmation] =
+    useState(false);
+
+  const [removeableFile, setRemoveableFile] = useState<IFile>();
+
   const getActionsItem = (file: IFile) => {
     const actionItems: MenuItem[] = [];
 
@@ -73,8 +87,11 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.archiveAction || "Archive",
         icon: "pi pi-book",
-        command: (event) =>
-          onFileArchive?.({ ...event.originalEvent, data: { file } }),
+        command: () => {
+          setRemoveableFile(file);
+          setVisibleDeleteConfirmation(false);
+          setVisibleArchiveConfirmation(true);
+        },
       });
     }
 
@@ -119,8 +136,11 @@ export const FilesTable = ({
         label: messages?.deleteAction || "Delete",
         icon: "pi pi-trash",
         className: "danger",
-        command: (event) =>
-          onFileDelete?.({ ...event.originalEvent, data: { file } }),
+        command: () => {
+          setRemoveableFile(file);
+          setVisibleDeleteConfirmation(true);
+          setVisibleArchiveConfirmation(false);
+        },
       });
     }
 
@@ -212,20 +232,42 @@ export const FilesTable = ({
   };
 
   return (
-    <DataTable
-      className={className}
-      columns={columns ? columns : defaultColumns}
-      data={files}
-      emptyMessage={messages?.tableEmpty || "The table is empty"}
-      fetchData={fetchFiles}
-      id={id}
-      initialFilters={initialFilters}
-      loading={loading}
-      rowClassName={rowClassNameCallback}
-      showGridlines
-      stripedRows={false}
-      totalRecords={totalRecords}
-      {...tableProperties}
-    ></DataTable>
+    <>
+      <DataTable
+        className={className}
+        dataKey="filename"
+        columns={columns ? columns : defaultColumns}
+        data={files}
+        emptyMessage={messages?.tableEmpty || "The table is empty"}
+        fetchData={fetchFiles}
+        id={id}
+        initialFilters={initialFilters}
+        loading={loading}
+        rowClassName={rowClassNameCallback}
+        showGridlines
+        stripedRows={false}
+        totalRecords={totalRecords}
+        {...tableProperties}
+      ></DataTable>
+      <ConfirmationFileActions
+        file={removeableFile}
+        setVisibleArchiveConfirmation={(isVisible) =>
+          setVisibleArchiveConfirmation(isVisible)
+        }
+        setVisibleDeleteConfirmation={(isVisible) =>
+          setVisibleDeleteConfirmation(isVisible)
+        }
+        visibleArchiveConfirmation={visibleArchiveConfirmation}
+        visibleDeleteConfirmation={visibleDeleteConfirmation}
+        archiveConfirmationProps={archiveConfirmationProps}
+        deleteConfirmationProps={deleteConfirmationProps}
+        archiveConfirmationHeader={messages?.archiveConfirmationHeader}
+        archiveConfirmationMessage={messages?.archiveConfirmationMessage}
+        deleteConfirmationHeader={messages?.deleteConfirmationHeader}
+        deleteConfirmationMessage={messages?.deleteConfirmationMessage}
+        onArchive={onFileArchive}
+        onDelete={onFileDelete}
+      />
+    </>
   );
 };

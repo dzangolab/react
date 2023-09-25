@@ -11,6 +11,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   actionsAlignment = "right",
   cancelButtonIcon,
   cancelButtonLabel = "Cancel",
+  cancelButtonProps,
   value,
   descriptionPlaceholder,
   dropzoneMessage,
@@ -25,6 +26,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   onUpload,
   uploadButtonIcon,
   uploadButtonLabel = "Upload",
+  uploadButtonProps,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>(
     value || [],
@@ -63,6 +65,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
           label={uploadButtonLabel}
           icon={uploadButtonIcon}
           onClick={() => onUpload(selectedFiles)}
+          {...uploadButtonProps}
         />
         <Button
           disabled={!selectedFiles.length}
@@ -73,6 +76,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
             onCancel && onCancel();
             setSelectedFiles([]);
           }}
+          {...cancelButtonProps}
         />
       </div>
     </div>

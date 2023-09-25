@@ -71,10 +71,18 @@ const componentList = [
     title: "files.table",
     component: (
       <FilesTable
+        onFileDelete={() => {}}
+        onFileArchive={() => {}}
         files={[
           {
             filename: "myfile",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "myfile2",
+            uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
             uploadedAt: Date.now(),
             lastDownloadedAt: Date.now(),
           },
@@ -154,7 +162,7 @@ const componentList = [
     ),
   },
   {
-    key: 9,
+    key: 10,
     title: "files.presentation",
     component: (
       <FilesPresentation

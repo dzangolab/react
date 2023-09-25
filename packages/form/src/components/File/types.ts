@@ -29,11 +29,13 @@ export interface IFileUploadProperties
   actionsAlignment?: "left" | "right";
   cancelButtonIcon?: string;
   cancelButtonLabel?: string;
+  cancelButtonProps?: ComponentProps<typeof Button>;
   onCancel?: () => void;
   onFileSelect?: (files: FileExtended[]) => FileExtended[];
   onUpload: (files: FileExtended[]) => void;
   uploadButtonIcon?: string;
   uploadButtonLabel?: string;
+  uploadButtonProps?: ComponentProps<typeof Button>;
 }
 
 export type IFileDropzoneProperties = Omit<
