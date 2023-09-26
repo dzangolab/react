@@ -1,13 +1,13 @@
 import { useMemo } from "react";
 
-export const useColumnsMap = <T extends string>(visibleFields: T[]) => {
+export const useColumnsMap = <T extends string>(fields: T[]) => {
   return useMemo(() => {
-    const visibleDetails = {} as Record<T, boolean>;
+    const visibleFields = {} as Record<T, boolean>;
 
-    for (const name of visibleFields) {
-      visibleDetails[name] = true;
+    for (const name of fields) {
+      visibleFields[name] = true;
     }
 
-    return visibleDetails;
-  }, [visibleFields]);
+    return visibleFields;
+  }, [fields]);
 };
