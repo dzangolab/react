@@ -112,8 +112,8 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
 
       {inputMethod === "button" && selectedFileDisplay === "popup" ? (
         <OverlayPanel
+          className="file-list-overlay"
           ref={overlayReference as LegacyRef<OverlayPanel>}
-          showCloseIcon
         >
           {value?.length ? renderSelectedFiles() : emptySelectionMessage}
         </OverlayPanel>

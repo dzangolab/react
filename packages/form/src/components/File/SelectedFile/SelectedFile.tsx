@@ -1,6 +1,6 @@
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
-import React, { useEffect, useState } from "react";
+import React, { Ref, useEffect, useRef, useState } from "react";
 
 import { FileExtended } from "../types";
 
@@ -22,7 +22,9 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
   onDescriptionChange,
 }) => {
   const [showDescriptionInput, setShowDescriptionInput] = useState(false);
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(file.description || "");
+
+  const inputDescriptionReference = useRef<HTMLInputElement>();
 
   useEffect(() => {
     if (enableDescription && onDescriptionChange) {
@@ -34,40 +36,47 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
     <li key={file.name}>
       <div className="file-info">
         <div className="file-preview"></div>
-        <span>{file.name}</span>
-      </div>
-
-      {enableDescription && (
-        <div className="file-description">
-          {!showDescriptionInput ? (
-            <Button
-              onClick={() => setShowDescriptionInput(true)}
-              text
-              severity="secondary"
-              label={addDescriptionLabel}
-              size="small"
-            ></Button>
-          ) : (
-            <>
-              <div className="p-inputgroup">
-                <InputText
-                  value={description}
-                  placeholder={descriptionPlaceholder}
-                  onChange={(event) => setDescription(event.target.value)}
-                />
-                <Button
+        <div className="file-details">
+          <span>{file.name}</span>
+          {enableDescription && (
+            <div className="file-description">
+              {!showDescriptionInput ? (
+                <span
+                  className="description"
+                  role="button"
+                  tabIndex={0}
                   onClick={() => {
-                    setDescription("");
-                    setShowDescriptionInput(false);
+                    setShowDescriptionInput(true);
                   }}
-                  icon="pi pi-times"
-                  severity="secondary"
-                />
-              </div>
-            </>
+                >
+                  {description || addDescriptionLabel}{" "}
+                  <i className="pi pi-pencil"></i>
+                </span>
+              ) : (
+                <>
+                  <div className="p-inputgroup">
+                    <InputText
+                      ref={inputDescriptionReference as Ref<HTMLInputElement>}
+                      autoFocus
+                      value={description}
+                      placeholder={descriptionPlaceholder}
+                      onChange={(event) => setDescription(event.target.value)}
+                      onKeyDown={(keyEvent) => {
+                        if (keyEvent.key === "Enter") {
+                          setShowDescriptionInput(false);
+                        }
+                      }}
+                      onBlur={() => {
+                        setShowDescriptionInput(false);
+                      }}
+                    />
+                  </div>
+                </>
+              )}
+            </div>
           )}
         </div>
-      )}
+      </div>
 
       {!!onRemove && (
         <Button
@@ -75,7 +84,7 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
           icon="pi pi-times"
           severity="danger"
           size="small"
-          text
+          outlined
         ></Button>
       )}
     </li>
