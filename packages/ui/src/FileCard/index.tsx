@@ -1,16 +1,21 @@
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, useMemo, useState } from "react";
 
-import { formatDate } from "..";
+import ConfirmationFileActions from "./ConfirmationFileActions";
+import { ConfirmationModal, formatDate } from "..";
 import { IFile } from "../FilesTable";
 
 export type FileMessages = {
   archiveAction?: string;
+  archiveConfirmationHeader?: string;
+  archiveConfirmationMessage?: string;
   downloadAction?: string;
   editDescriptionAction?: string;
   renameAction?: string;
   deleteAction?: string;
+  deleteConfirmationHeader?: string;
+  deleteConfirmationMessage?: string;
   filenameHeader?: string;
   descriptionHeader?: string;
   downloadCountHeader?: string;
@@ -36,11 +41,19 @@ type FileCardType = {
   file: IFile;
   messages?: FileMessages;
   onArchive?: (arguments_: any) => void;
+  archiveButtonProps?: ComponentProps<typeof Button>;
+  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onDelete?: (arguments_: any) => void;
+  deleteButtonProps?: ComponentProps<typeof Button>;
+  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onDownload?: (arguments_: any) => void;
+  downloadButtonProps?: ComponentProps<typeof Button>;
   onEditDescription?: (arguments_: any) => void;
+  editDescriptionButtonProps?: ComponentProps<typeof Button>;
   onShare?: (arguments_: any) => void;
+  shareButtonProps?: ComponentProps<typeof Button>;
   onView?: (arguments_: any) => void;
+  viewButtonProps?: ComponentProps<typeof Button>;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
   showThumbnail?: boolean;
   visibleFileDetails?: VisibleFileDetails[];
@@ -50,11 +63,19 @@ export const FileCard = ({
   file,
   messages,
   onArchive,
+  archiveButtonProps,
+  archiveConfirmationProps,
   onDelete,
+  deleteButtonProps,
+  deleteConfirmationProps,
   onDownload,
+  downloadButtonProps,
   onShare,
+  shareButtonProps,
   onView,
+  viewButtonProps,
   onEditDescription,
+  editDescriptionButtonProps,
   renderThumbnail: pRenderThumbnail,
   showThumbnail = true,
   visibleFileDetails = [
@@ -68,6 +89,11 @@ export const FileCard = ({
     "actions",
   ],
 }: FileCardType) => {
+  const [visibleArchiveConfirmation, setVisibleArchiveConfirmation] =
+    useState(false);
+  const [visibleDeleteConfirmation, setVisibleDeleteConfirmation] =
+    useState(false);
+
   const renderThumbnail = () => {
     if (!showThumbnail) {
       return null;
@@ -112,35 +138,76 @@ export const FileCard = ({
     return (
       <div className="file-actions">
         {!!onArchive && (
-          <Button
-            icon="pi pi-book"
-            onClick={(event) => onArchive?.({ ...event, data: { file } })}
-          />
+          <>
+            <Button
+              size="small"
+              icon="pi pi-book"
+              label="Archive"
+              onClick={() => setVisibleArchiveConfirmation(true)}
+              {...archiveButtonProps}
+            />
+          </>
         )}
         {!!onDelete && (
-          <Button
-            icon="pi pi-trash"
-            onClick={(event) => onDelete?.({ ...event, data: { file } })}
-          />
+          <>
+            <Button
+              size="small"
+              icon="pi pi-trash"
+              label="Delete"
+              severity="danger"
+              onClick={() => setVisibleDeleteConfirmation(true)}
+              {...deleteButtonProps}
+            />
+          </>
         )}
         {!!onDownload && (
           <Button
+            size="small"
             icon="pi pi-download"
+            label="Download"
             onClick={(event) => onDownload?.({ ...event, data: { file } })}
+            {...downloadButtonProps}
           />
         )}
         {!!onShare && (
           <Button
+            size="small"
             icon="pi pi-share-alt"
+            label="Share"
             onClick={(event) => onShare?.({ ...event, data: { file } })}
+            {...shareButtonProps}
           />
         )}
         {!!onView && (
           <Button
+            size="small"
             icon="pi pi-eye"
+            label="View"
+            severity="secondary"
             onClick={(event) => onView?.({ ...event, data: { file } })}
+            {...viewButtonProps}
           />
         )}
+
+        <ConfirmationFileActions
+          file={file}
+          setVisibleArchiveConfirmation={(isVisible) =>
+            setVisibleArchiveConfirmation(isVisible)
+          }
+          setVisibleDeleteConfirmation={(isVisible) =>
+            setVisibleDeleteConfirmation(isVisible)
+          }
+          visibleArchiveConfirmation={visibleArchiveConfirmation}
+          visibleDeleteConfirmation={visibleDeleteConfirmation}
+          archiveConfirmationProps={archiveConfirmationProps}
+          deleteConfirmationProps={deleteConfirmationProps}
+          archiveConfirmationHeader={messages?.archiveConfirmationHeader}
+          archiveConfirmationMessage={messages?.archiveConfirmationMessage}
+          deleteConfirmationHeader={messages?.deleteConfirmationHeader}
+          deleteConfirmationMessage={messages?.deleteConfirmationMessage}
+          onArchive={onArchive}
+          onDelete={onDelete}
+        />
       </div>
     );
   };
@@ -172,6 +239,7 @@ export const FileCard = ({
                       onClick={(event) =>
                         onEditDescription?.({ ...event, data: { file } })
                       }
+                      {...editDescriptionButtonProps}
                     />
                   )}
                 </div>
@@ -236,10 +304,9 @@ export const FileCard = ({
               ) : null}
             </div>
           ) : null}
-
-          {visibleFileDetailsObject.actions ? renderActions() : null}
         </div>
       </div>
+      {visibleFileDetailsObject.actions ? renderActions() : null}
     </Card>
   );
 };

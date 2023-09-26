@@ -58,6 +58,7 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
                 descriptionPlaceholder={descriptionPlaceholder}
                 onRemove={() => onRemove(index)}
                 onDescriptionChange={(description) => {
+                  console.log(description, "description");
                   file.description = description;
                 }}
               />

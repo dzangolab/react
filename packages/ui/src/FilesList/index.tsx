@@ -1,10 +1,26 @@
-import { ReactNode } from "react";
+import { Button } from "primereact/button";
+import { ComponentProps, ReactNode } from "react";
+import { vi } from "vitest";
 
-import { FileCard, IFile, FileMessages, VisibleFileDetails } from "..";
+import {
+  FileCard,
+  IFile,
+  FileMessages,
+  VisibleFileDetails,
+  ConfirmationModal,
+} from "..";
 
 export type FilesListType = {
   files: IFile[];
   messages?: FileMessages;
+  archiveButtonProps?: ComponentProps<typeof Button>;
+  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  deleteButtonProps?: ComponentProps<typeof Button>;
+  downloadButtonProps?: ComponentProps<typeof Button>;
+  editDescriptionButtonProps?: ComponentProps<typeof Button>;
+  shareButtonProps?: ComponentProps<typeof Button>;
+  viewButtonProps?: ComponentProps<typeof Button>;
   onFileArchive?: (arguments_: IFile) => void;
   onFileDelete?: (arguments_: IFile) => void;
   onFileDownload?: (arguments_: IFile) => void;
@@ -17,6 +33,14 @@ export type FilesListType = {
 };
 
 export const FilesList = ({
+  archiveButtonProps,
+  archiveConfirmationProps,
+  deleteConfirmationProps,
+  deleteButtonProps,
+  downloadButtonProps,
+  editDescriptionButtonProps,
+  shareButtonProps,
+  viewButtonProps,
   files,
   messages,
   onEditDescription,
@@ -46,6 +70,14 @@ export const FilesList = ({
             renderThumbnail={renderFileThumbnail}
             showThumbnail={showFileThumbnail}
             visibleFileDetails={visibleFileDetails}
+            archiveButtonProps={archiveButtonProps}
+            archiveConfirmationProps={archiveConfirmationProps}
+            deleteButtonProps={deleteButtonProps}
+            deleteConfirmationProps={deleteConfirmationProps}
+            downloadButtonProps={downloadButtonProps}
+            editDescriptionButtonProps={editDescriptionButtonProps}
+            shareButtonProps={shareButtonProps}
+            viewButtonProps={viewButtonProps}
           />
         );
       })}
