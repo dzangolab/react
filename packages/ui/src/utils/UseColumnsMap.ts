@@ -1,8 +1,6 @@
 import { useMemo } from "react";
 
-export const useVisibleOrFilterableField = <T extends string>(
-  visibleFields: T[],
-) => {
+export const useColumnsMap = <T extends string>(visibleFields: T[]) => {
   return useMemo(() => {
     const visibleDetails = {} as Record<T, boolean>;
 

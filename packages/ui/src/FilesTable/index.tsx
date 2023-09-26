@@ -3,8 +3,6 @@ import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React from "react";
 
-import { useVisibleOrFilterableField } from "../utils";
-
 import {
   ActionsMenu,
   DataTable,
@@ -12,6 +10,7 @@ import {
   VisibleFileDetails,
   formatDate,
 } from "../index";
+import { useColumnsMap } from "../utils";
 
 import type { ComponentProps } from "react";
 
@@ -68,7 +67,7 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
-  const visibleColumnsMap = useVisibleOrFilterableField(visibleColumns);
+  const visibleColumnsMap = useColumnsMap(visibleColumns);
 
   const getActionsItem = (file: IFile) => {
     const actionItems: MenuItem[] = [];

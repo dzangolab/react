@@ -2,10 +2,9 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { ReactNode } from "react";
 
-import { useVisibleOrFilterableField } from "../utils";
-
 import { formatDate } from "..";
 import { IFile } from "../FilesTable";
+import { useColumnsMap } from "../utils";
 
 export type FileMessages = {
   archiveAction?: string;
@@ -100,7 +99,7 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
-  const visibleFileDetailsMap = useVisibleOrFilterableField(visibleFileDetails);
+  const visibleFileDetailsMap = useColumnsMap(visibleFileDetails);
 
   const renderActions = () => {
     return (
