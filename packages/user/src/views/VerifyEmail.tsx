@@ -8,8 +8,8 @@ import verifyEmail from "@/supertokens/verifyEmail";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
-  const [isError, setIsError] = useState(false);
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
+  const [verifyStatus, setVerifyStatus] = useState<string>("");
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -25,19 +25,22 @@ const VerifyEmail = () => {
             toast.success(`${t("emailVerification.messages.success")}`);
 
             setVerifyEmailLoading(false);
+            setVerifyStatus("OK");
           } else if (response.status === "EMAIL_ALREADY_VERIFIED") {
             toast.info(`${t("emailVerification.messages.alreadyVerified")}`);
 
             setVerifyEmailLoading(false);
+            setVerifyStatus("EMAIL_ALREADY_VERIFIED");
           } else {
             toast.error(`${t("emailVerification.messages.invalidToken")}`);
 
             setVerifyEmailLoading(false);
+            setVerifyStatus("INVALID_TOKEN");
           }
         }
       })
       .catch(() => {
-        setIsError(true);
+        setVerifyStatus("ERROR");
       })
       .finally(() => {
         setVerifyEmailLoading(false);
@@ -45,19 +48,32 @@ const VerifyEmail = () => {
   }, []);
 
   const renderPageContent = () => {
-    if (isError) {
+    if (verifyStatus === "ERROR") {
       return (
         <Card>
           <p>{t(`emailVerification.messages.error`)}</p>
         </Card>
       );
+    } else {
+      if (verifyStatus === "EMAIL_ALREADY_VERIFIED")
+        return (
+          <Card>
+            <p>{t(`emailVerification.messages.alreadyVerified`)}</p>
+          </Card>
+        );
+      if (verifyStatus === "INVALID_TOKEN") {
+        return (
+          <Card>
+            <p>{t(`emailVerification.messages.invalidToken`)}</p>
+          </Card>
+        );
+      }
+      return (
+        <Card>
+          <p>{t(`emailVerification.messages.success`)}</p>
+        </Card>
+      );
     }
-
-    return (
-      <Card>
-        <p>{t(`emailVerification.messages.success`)}</p>
-      </Card>
-    );
   };
 
   return (
