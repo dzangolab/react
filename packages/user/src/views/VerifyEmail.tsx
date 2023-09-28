@@ -49,9 +49,7 @@ const VerifyEmail = () => {
     if (isError) {
       return (
         <Card>
-          <p>
-            {t(`emailVerification.messages.errorFetchingEmailVerification`)}
-          </p>
+          <p>{t(`emailVerification.messages.error`)}</p>
         </Card>
       );
     }
