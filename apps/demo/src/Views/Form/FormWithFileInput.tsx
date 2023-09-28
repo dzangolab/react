@@ -17,7 +17,6 @@ export const FormWithFileInput: React.FC = () => {
       formData.set(name, values[name]);
     }
 
-    console.log("values", formData.get("images"), formData.get("uploadedBy"));
     // Implement your own form submission logic here.
   };
 
@@ -52,7 +51,7 @@ export const UploadBy = () => {
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount },
+    formState: { submitCount },
   } = useFormContext();
 
   return (
