@@ -12,7 +12,9 @@ interface DzangolabReactUserConfig {
     showCheckbox?: boolean;
   };
   features?: {
-    emailVerification?: boolean;
+    signUp?: {
+      emailVerification?: boolean;
+    };
   };
 }
 
