@@ -8,9 +8,8 @@ import verifyEmail from "@/supertokens/verifyEmail";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
-  const [loading, setLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState(false);
-  const [verifyEmailLoading, setVerifyEmailLoading] = useState(false);
+  const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -25,15 +24,15 @@ const VerifyEmail = () => {
           if (response.status === "OK") {
             toast.success(`${t("emailVerification.messages.success")}`);
 
-            setLoading(false);
+            setVerifyEmailLoading(false);
           } else if (response.status === "EMAIL_ALREADY_VERIFIED") {
             toast.info(`${t("emailVerification.messages.alreadyVerified")}`);
 
-            setLoading(false);
+            setVerifyEmailLoading(false);
           } else {
             toast.error(`${t("emailVerification.messages.invalidToken")}`);
 
-            setLoading(false);
+            setVerifyEmailLoading(false);
           }
         }
       })
@@ -41,7 +40,7 @@ const VerifyEmail = () => {
         setIsError(true);
       })
       .finally(() => {
-        setLoading(false);
+        setVerifyEmailLoading(false);
       });
   }, []);
 
@@ -56,7 +55,7 @@ const VerifyEmail = () => {
 
     return (
       <Card>
-        <p>{t(`emailVerification.messages.invalidToken`)}</p>
+        <p>{t(`emailVerification.messages.success`)}</p>
       </Card>
     );
   };
@@ -65,7 +64,7 @@ const VerifyEmail = () => {
     <Page
       className="verify-email"
       title={t("emailVerification.title")}
-      loading={loading || verifyEmailLoading}
+      loading={verifyEmailLoading}
     >
       {renderPageContent()}
     </Page>
