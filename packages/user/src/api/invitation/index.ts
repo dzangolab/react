@@ -10,6 +10,7 @@ import {
 import client from "../axios";
 
 export const addInvitation = async (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   invitationData: any,
   apiBaseUrl: string,
 ): Promise<AddInvitationResponse> => {

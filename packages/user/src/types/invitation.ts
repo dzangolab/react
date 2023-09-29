@@ -17,6 +17,7 @@ export interface Invitation {
   expiresAt: number;
   id: number;
   invitedById: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload: any;
   revokedAt: number;
   role: string;
@@ -51,8 +52,10 @@ export type RenderAdditionalInvitationFields = (
   formContext: typeof useFormContext,
 ) => React.ComponentType;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AdditionalInvitationSchema = Zod.ZodObject<any>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AdditionalDefaultValues = Record<string, any>;
 
 export type AddInvitationResponse = Invitation | ErrorResponse;
@@ -63,4 +66,5 @@ export type RevokeInvitationResponse = Invitation | ErrorResponse;
 
 export type GetInvitationResponse = Invitation | ErrorResponse;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AccpetInvitationResponse = any | ErrorResponse;

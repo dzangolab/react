@@ -14,8 +14,11 @@ export interface ActionsMenuProperties {
   editLabel?: string;
   viewIcon?: string;
   viewLabel?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDelete?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onEdit?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onView?: (arguments_: any) => void;
 }
 

@@ -41,19 +41,24 @@ export type VisibleFileDetails =
 type FileCardType = {
   file: IFile;
   messages?: FileMessages;
-  onArchive?: (arguments_: any) => void;
+  onArchive?: (arguments_: IFile) => void;
   archiveButtonProps?: ComponentProps<typeof Button>;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  onDelete?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onDelete?: (arguments_: IFile) => void;
   deleteButtonProps?: ComponentProps<typeof Button>;
   deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  onDownload?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onDownload?: (arguments_: IFile) => void;
   downloadButtonProps?: ComponentProps<typeof Button>;
-  onEditDescription?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onEditDescription?: (arguments_: IFile) => void;
   editDescriptionButtonProps?: ComponentProps<typeof Button>;
-  onShare?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onShare?: (arguments_: IFile) => void;
   shareButtonProps?: ComponentProps<typeof Button>;
-  onView?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onView?: (arguments_: IFile) => void;
   viewButtonProps?: ComponentProps<typeof Button>;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
   showThumbnail?: boolean;
@@ -110,7 +115,7 @@ export const FileCard = ({
       </div>
     );
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkUploadedByData = (data: any) => {
     if (!data.uploadedBy) {
       return <code>&#8212;</code>;
@@ -158,7 +163,7 @@ export const FileCard = ({
             size="small"
             icon="pi pi-download"
             label="Download"
-            onClick={(event) => onDownload?.({ ...event, data: { file } })}
+            onClick={() => onDownload?.(file)}
             {...downloadButtonProps}
           />
         )}
@@ -167,7 +172,7 @@ export const FileCard = ({
             size="small"
             icon="pi pi-share-alt"
             label="Share"
-            onClick={(event) => onShare?.({ ...event, data: { file } })}
+            onClick={() => onShare?.(file)}
             {...shareButtonProps}
           />
         )}
@@ -177,7 +182,7 @@ export const FileCard = ({
             icon="pi pi-eye"
             label="View"
             severity="secondary"
-            onClick={(event) => onView?.({ ...event, data: { file } })}
+            onClick={() => onView?.(file)}
             {...viewButtonProps}
           />
         )}
@@ -229,9 +234,7 @@ export const FileCard = ({
                       icon="pi pi-pencil"
                       text
                       size="small"
-                      onClick={(event) =>
-                        onEditDescription?.({ ...event, data: { file } })
-                      }
+                      onClick={() => onEditDescription?.(file)}
                       {...editDescriptionButtonProps}
                     />
                   )}

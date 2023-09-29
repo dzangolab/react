@@ -16,7 +16,10 @@ import type {
   InvitationAppOption,
   InvitationRoleOption,
   InvitationExpiryDateField,
-} from "@/types";
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
+} from "../../types";
+import type { DataTableStateEvent } from "primereact/datatable";
 
 type VisibleColumn =
   | "email"
@@ -34,15 +37,17 @@ export type InvitationsTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   additionalColumns?: Array<ColumnProps>;
-  fetchInvitations: (arguments_?: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fetchInvitations: (arguments_?: DataTableStateEvent) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
   invitations: Array<object>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
-  onInvitationResent?: (data: any) => void;
-  onInvitationRevoked?: (data: any) => void;
+  onInvitationResent?: (data: ResendInvitationResponse) => void;
+  onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
@@ -107,7 +112,7 @@ export const InvitationsTable = ({
       header: t("table.defaultColumns.app"),
       hidden: !visibleColumnsMap.app,
       filter: filterableColumnsMap.app,
-      body: (data: { appId: any }) => {
+      body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
     },
@@ -198,6 +203,7 @@ export const InvitationsTable = ({
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rowClassNameCallback = (data: any) => {
     return `invitations-${data.id}`;
   };

@@ -47,20 +47,21 @@ const SignUpFirstUser = () => {
     setSignUpFirstUserLoading(true);
 
     signUpFirstUser(credentials, appConfig?.apiBaseUrl || "")
-      .then((response) => {
+      .then(() => {
         setSignUpFirstUserLoading(false);
         setLoginLoading(true);
         toast.success(`${t("firstUser.signup.messages.success")}`);
 
         // TODO Sign up first-user should return authenticated user from api
         login(credentials)
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           .then((result: any) => {
             if (result?.user) {
               setUser(result.user);
               toast.success(`${t("login.messages.success")}`);
             }
           })
-          .catch((error: any) => {
+          .catch(() => {
             setLoginLoading(false);
             toast.error(t("firstUser.login.messages.error"));
             navigate(appConfig.user.routes?.login?.path || ROUTES.LOGIN);

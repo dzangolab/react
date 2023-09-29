@@ -17,7 +17,7 @@ export const FileUploadDemo = () => {
       dropzoneMessage={t("fileInput.dropzoneMessage")}
       addDescriptionLabel={t("fileInput.description.label")}
       descriptionPlaceholder={t("fileInput.description.placeholder")}
-      onUpload={(files) => console.log(files)}
+      onUpload={() => {}}
       cancelButtonLabel={t("fileUpload.actions.cancel")}
       cancelButtonIcon="pi pi-times"
       uploadButtonIcon="pi pi-plus"

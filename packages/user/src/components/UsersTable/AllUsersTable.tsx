@@ -41,13 +41,17 @@ export type AllUsersTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   additionalColumns?: Array<ColumnProps>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchUsers?: (arguments_?: any) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onInvitationResent?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onInvitationRevoked?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
@@ -127,7 +131,7 @@ export const AllUsersTable = ({
       header: t("invitations:table.defaultColumns.app"),
       hidden: !visibleColumnsMap.app,
       filter: filterableColumnsMap.app,
-      body: (data: { appId: any }) => {
+      body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
     },
@@ -248,7 +252,10 @@ export const AllUsersTable = ({
     },
   ];
 
-  const rowClassNameCallback = (data: any) => {
+  const rowClassNameCallback = (data: {
+    id: string | number;
+    isActiveUser: boolean;
+  }) => {
     if (data.isActiveUser) {
       return `active-user user-${data.id}`;
     }

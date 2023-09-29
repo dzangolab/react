@@ -23,6 +23,7 @@ interface Properties {
   expiryDateField?: InvitationExpiryDateField;
   onCancel?: () => void;
   onSubmitted?: (response: AddInvitationResponse) => void; // afterSubmit
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareData?: (rawFormData: any) => any;
   roles?: InvitationRoleOption[];
 }
@@ -43,6 +44,7 @@ export const InvitationForm = ({
   const [submitting, setSubmitting] = useState(false);
 
   const getDefaultValues = useCallback(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let defaultValues: any = { email: "", role: undefined };
 
     let filteredRoles = roles;
@@ -77,6 +79,7 @@ export const InvitationForm = ({
     expiryDateField?.display,
   ]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getFormData = (data: any) => {
     const parsedData: {
       email: string;
@@ -99,6 +102,7 @@ export const InvitationForm = ({
     return parsedData;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (data: any) => {
     setSubmitting(true);
 
@@ -125,6 +129,7 @@ export const InvitationForm = ({
       });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let InvitationFormSchema: Zod.ZodObject<any> = zod.object({
     email: emailSchema({
       invalid: t("validation.messages.validEmail"),

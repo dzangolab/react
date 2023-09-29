@@ -6,8 +6,10 @@ import { ZodEffects, ZodObject } from "zod";
 interface IForm extends UseFormProps {
   className?: string;
   children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   validationSchema?: ZodObject<any> | ZodEffects<any>;
   html5Validation?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSubmit: (data: any) => any;
 }
 
@@ -24,6 +26,7 @@ export const Provider: React.FC<IForm> = ({
     ...useFormOptions,
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnSubmit = async (data: any) => {
     try {
       await onSubmit(data);

@@ -5,8 +5,7 @@ import React from "react";
 export const FileInputButton: React.FC = () => {
   const { t } = useTranslation("files");
 
-  const onChange = (values: any) => {
-    console.log("values", values);
+  const onChange = () => {
     // Implement your own form submission logic here.
   };
 
