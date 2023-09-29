@@ -1,15 +1,17 @@
 import React, { ComponentProps, FC } from "react";
 
-import { ConfirmationModal, IFile } from "..";
+import { ConfirmationModal } from "..";
+
+import type { IFile } from "..";
 
 type ConfirmationFileActionsType = {
   visibleArchiveConfirmation: boolean;
   visibleDeleteConfirmation: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onArchive?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onDelete?: (arguments_: any) => void;
-  file?: IFile;
+
+  onArchive?: (arguments_: IFile) => void;
+
+  onDelete?: (arguments_: IFile) => void;
+  file: IFile;
   setVisibleArchiveConfirmation: (isVisible: boolean) => void;
   setVisibleDeleteConfirmation: (isVisible: boolean) => void;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
@@ -40,7 +42,7 @@ const ConfirmationFileActions: FC<ConfirmationFileActionsType> = ({
       <ConfirmationModal
         visible={visibleArchiveConfirmation}
         accept={() => {
-          onArchive?.({ data: { file } });
+          onArchive?.(file);
           setVisibleArchiveConfirmation(false);
         }}
         reject={() => {
@@ -59,7 +61,7 @@ const ConfirmationFileActions: FC<ConfirmationFileActionsType> = ({
       <ConfirmationModal
         visible={visibleDeleteConfirmation}
         accept={() => {
-          onDelete?.({ data: { file } });
+          onDelete?.(file);
           setVisibleDeleteConfirmation(false);
         }}
         reject={() => setVisibleDeleteConfirmation(false)}

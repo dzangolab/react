@@ -40,20 +40,14 @@ export type FilesTableProperties = {
   files: Array<IFile>;
   id?: string;
   loading?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileArchive?: (arguments_: any) => void;
+  onFileArchive?: (arguments_: IFile) => void;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileDownload?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileDelete?: (arguments_: any) => void;
+  onFileDownload?: (arguments_: IFile) => void;
+  onFileDelete?: (arguments_: IFile) => void;
   deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onEditDescription?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileShare?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileView?: (arguments_: any) => void;
+  onEditDescription?: (arguments_: IFile) => void;
+  onFileShare?: (arguments_: IFile) => void;
+  onFileView?: (arguments_: IFile) => void;
   totalRecords?: number;
   messages?: TableMessages;
   visibleColumns?: VisibleFileDetails[];
@@ -107,8 +101,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.downloadAction || "Download",
         icon: "pi pi-download",
-        command: (event) =>
-          onFileDownload?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileDownload?.(file),
       });
     }
 
@@ -116,8 +109,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.editDescriptionAction || "Edit description",
         icon: "pi pi-pencil",
-        command: (event) =>
-          onEditDescription?.({ ...event.originalEvent, data: { file } }),
+        command: () => onEditDescription?.(file),
       });
     }
 
@@ -125,8 +117,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.shareAction || "Share",
         icon: "pi pi-share-alt",
-        command: (event) =>
-          onFileShare?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileShare?.(file),
       });
     }
 
@@ -134,8 +125,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.viewAction || "Share",
         icon: "pi pi-eye",
-        command: (event) =>
-          onFileView?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileView?.(file),
       });
     }
 
@@ -258,7 +248,7 @@ export const FilesTable = ({
         {...tableProperties}
       ></DataTable>
       <ConfirmationFileActions
-        file={removeableFile}
+        file={removeableFile as IFile}
         setVisibleArchiveConfirmation={(isVisible) =>
           setVisibleArchiveConfirmation(isVisible)
         }

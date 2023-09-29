@@ -12,18 +12,12 @@ export interface IFilesPresentationProperties {
   presentation?: "list" | "table";
   files: Array<IFile>;
   messages?: TableMessages;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileArchive?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileDownload?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileDelete?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onEditDescription?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileShare?: (arguments_: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onFileView?: (arguments_: any) => void;
+  onFileArchive?: (arguments_: IFile) => void;
+  onFileDownload?: (arguments_: IFile) => void;
+  onFileDelete?: (arguments_: IFile) => void;
+  onEditDescription?: (arguments_: IFile) => void;
+  onFileShare?: (arguments_: IFile) => void;
+  onFileView?: (arguments_: IFile) => void;
   visibleFileDetails?: VisibleFileDetails[];
   listProps?: Partial<ComponentProps<typeof FilesList>>;
   tableProps?: Partial<ComponentProps<typeof FilesTable>>;

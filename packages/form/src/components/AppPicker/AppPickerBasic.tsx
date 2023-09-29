@@ -1,10 +1,11 @@
 import { Dropdown } from "primereact/dropdown";
 import { classNames } from "primereact/utils";
 import React from "react";
-import { ErrorOption } from "react-hook-form";
 
 import { ErrorMessage } from "../ErrorMessage";
-import { RoleOption } from "../RolePicker";
+
+import type { RoleOption } from "../RolePicker";
+import type { ErrorOption } from "react-hook-form";
 
 export interface AppOption {
   id: number;

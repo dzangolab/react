@@ -16,7 +16,10 @@ import type {
   InvitationAppOption,
   InvitationRoleOption,
   InvitationExpiryDateField,
-} from "@/types";
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
+} from "../../types";
+import type { DataTableStateEvent } from "primereact/datatable";
 
 type VisibleColumn =
   | "email"
@@ -35,17 +38,15 @@ export type InvitationsTableProperties = {
   columns?: Array<ColumnProps>;
   additionalColumns?: Array<ColumnProps>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetchInvitations: (arguments_?: any) => void;
+  fetchInvitations: (arguments_?: DataTableStateEvent) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
   invitations: Array<object>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onInvitationResent?: (data: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onInvitationRevoked?: (data: any) => void;
+  onInvitationResent?: (data: ResendInvitationResponse) => void;
+  onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
