@@ -1,3 +1,18 @@
+# [0.21.0](https://github.com/dzangolab/react/compare/v0.20.0...v0.21.0) (2023-09-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-config-prettier to v8.10.0 ([#550](https://github.com/dzangolab/react/issues/550)) ([d224c49](https://github.com/dzangolab/react/commit/d224c49124bb4b7bb0531fd040e0a85c97a77da9))
+* **deps:** update dependency eslint-import-resolver-typescript to v3.6.1 ([#551](https://github.com/dzangolab/react/issues/551)) ([4e55198](https://github.com/dzangolab/react/commit/4e55198c9469c8d04ef3b3ee4d4c79c40a66ac6e))
+
+
+### Features
+
+* add support to show and hide filter search in tables ([#570](https://github.com/dzangolab/react/issues/570)) ([f155c2a](https://github.com/dzangolab/react/commit/f155c2ad104d4c893816b8f7173136e8439356f0))
+
+
+
 # [0.20.0](https://github.com/dzangolab/react/compare/v0.19.0...v0.20.0) (2023-09-15)
 
 
