@@ -8,6 +8,7 @@ export interface ExportButtonProperties extends ButtonProps {
   sheetName?: string;
   onExportStart?: () => void;
   onExportEnd?: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getData: () => Array<Array<any>>;
 }
 

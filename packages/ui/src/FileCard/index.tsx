@@ -40,18 +40,24 @@ export type VisibleFileDetails =
 type FileCardType = {
   file: IFile;
   messages?: FileMessages;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onArchive?: (arguments_: any) => void;
   archiveButtonProps?: ComponentProps<typeof Button>;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDelete?: (arguments_: any) => void;
   deleteButtonProps?: ComponentProps<typeof Button>;
   deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDownload?: (arguments_: any) => void;
   downloadButtonProps?: ComponentProps<typeof Button>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onEditDescription?: (arguments_: any) => void;
   editDescriptionButtonProps?: ComponentProps<typeof Button>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onShare?: (arguments_: any) => void;
   shareButtonProps?: ComponentProps<typeof Button>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onView?: (arguments_: any) => void;
   viewButtonProps?: ComponentProps<typeof Button>;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
@@ -109,7 +115,7 @@ export const FileCard = ({
       </div>
     );
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkUploadedByData = (data: any) => {
     if (!data.uploadedBy) {
       return <code>&#8212;</code>;

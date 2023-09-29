@@ -65,12 +65,14 @@ const AcceptInvitation = () => {
 
           // TODO acceptInvitation should return authenticated user from api
           login(credentials)
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .then((result: any) => {
               if (result?.user) {
                 setUser(result.user);
                 toast.success(`${t("user:login.messages.success")}`);
               }
             })
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .catch((error: any) => {
               const errorMessage = t("errors:errors.otherErrors");
 

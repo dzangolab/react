@@ -117,6 +117,7 @@ export const getFilterParameters = (
   const filterKeys = Object.keys(filters || {});
   if (!filterKeys.length) return null;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const allFilters: any = [];
   filterKeys.forEach((filterKey) => {
     const parsedFilter = parseOneFilter(
@@ -156,7 +157,8 @@ export const getSortParameters = (
 
 export const getPaginationParameters = (
   { rows, first }: LazyTableState,
-  options?: GetRequestJSONOptions,
+  // eslint-disable-next-line
+  options?: GetRequestJSONOptions
 ) => {
   return {
     limit: rows,

@@ -32,6 +32,7 @@ export type InvitationsTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   additionalColumns?: Array<ColumnProps>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchInvitations: (arguments_?: any) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
@@ -39,8 +40,11 @@ export type InvitationsTableProperties = {
   invitations: Array<object>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onInvitationResent?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onInvitationRevoked?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
@@ -99,7 +103,7 @@ export const InvitationsTable = ({
       field: "app",
       header: t("table.defaultColumns.app"),
       hidden: !visibleColumns.includes("app"),
-      body: (data: { appId: any }) => {
+      body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
     },
@@ -187,6 +191,7 @@ export const InvitationsTable = ({
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rowClassNameCallback = (data: any) => {
     return `invitations-${data.id}`;
   };

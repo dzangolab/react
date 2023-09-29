@@ -5,7 +5,9 @@ import { ConfirmationModal, IFile } from "..";
 type ConfirmationFileActionsType = {
   visibleArchiveConfirmation: boolean;
   visibleDeleteConfirmation: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onArchive?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDelete?: (arguments_: any) => void;
   file?: IFile;
   setVisibleArchiveConfirmation: (isVisible: boolean) => void;

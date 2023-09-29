@@ -34,17 +34,24 @@ export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   extraColumns?: Array<ColumnProps>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchFiles?: (arguments_?: any) => void;
   files: Array<IFile>;
   id?: string;
   loading?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onFileArchive?: (arguments_: any) => void;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onFileDownload?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onFileDelete?: (arguments_: any) => void;
   deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onEditDescription?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onFileShare?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onFileView?: (arguments_: any) => void;
   totalRecords?: number;
   messages?: TableMessages;
@@ -226,7 +233,7 @@ export const FilesTable = ({
     },
   ];
 
-  const rowClassNameCallback = (data: any) => {
+  const rowClassNameCallback = (data: { id: string | number }) => {
     return `files-${data.id}`;
   };
 

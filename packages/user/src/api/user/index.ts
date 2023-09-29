@@ -1,6 +1,6 @@
 import client from "../axios";
 
-import type { ErrorResponse, LoginCredentials } from "@/types";
+import type { LoginCredentials, UserType } from "../../types";
 
 export const getIsFirstUser = async (
   apiBaseUrl: string,
@@ -19,7 +19,7 @@ export const getIsFirstUser = async (
 export const signUpFirstUser = async (
   credential: LoginCredentials,
   apiBaseUrl: string,
-): Promise<any> => {
+): Promise<UserType> => {
   const response = await client(apiBaseUrl).post(`signup/admin`, credential, {
     withCredentials: true,
   });

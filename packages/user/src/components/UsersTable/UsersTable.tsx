@@ -24,6 +24,7 @@ export type UsersTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   extraColumns?: Array<ColumnProps>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchUsers: (arguments_?: any) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
@@ -31,6 +32,7 @@ export type UsersTableProperties = {
   additionalColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
@@ -138,6 +140,7 @@ export const UsersTable = ({
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rowClassNameCallback = (data: any) => {
     return `user-${data.id}`;
   };

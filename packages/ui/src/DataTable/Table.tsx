@@ -24,7 +24,7 @@ export const DataTable = ({
   totalRecords = TABLE_DEFAULT.TOTAL_RECORDS,
   fetchData,
   rowClassName,
-  ...tableOptions
+  ...tableOptions // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: ITableProperties<any>) => {
   const [lazyState, setlazyState] = useState({
     first: 0,
