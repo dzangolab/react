@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable } from "@dzangolab/react-ui";
+import { DataTable, useColumnsMap } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -26,6 +26,8 @@ type VisibleColumn =
   | "expiresAt"
   | "actions";
 
+type FilterableColumn = "email" | "app" | "role" | "invitedBy" | "expiresAt";
+
 export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -51,6 +53,7 @@ export type InvitationsTableProperties = {
   showInviteAction?: boolean;
   totalRecords?: number;
   visibleColumns?: VisibleColumn[];
+  filterableColumns?: FilterableColumn[];
 };
 
 export const InvitationsTable = ({
@@ -80,8 +83,12 @@ export const InvitationsTable = ({
     "expiresAt",
     "actions",
   ],
+  filterableColumns = ["email"],
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("invitations");
+
+  const visibleColumnsMap = useColumnsMap(visibleColumns);
+  const filterableColumnsMap = useColumnsMap(filterableColumns);
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -91,9 +98,9 @@ export const InvitationsTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumns.includes("email"),
+      hidden: !visibleColumnsMap.email,
       sortable: true,
-      filter: true,
+      filter: filterableColumnsMap.email,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -102,7 +109,8 @@ export const InvitationsTable = ({
       align: "center",
       field: "app",
       header: t("table.defaultColumns.app"),
-      hidden: !visibleColumns.includes("app"),
+      hidden: !visibleColumnsMap.app,
+      filter: filterableColumnsMap.app,
       body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
@@ -111,7 +119,8 @@ export const InvitationsTable = ({
       align: "center",
       field: "role",
       header: t("table.defaultColumns.role"),
-      hidden: !visibleColumns.includes("role"),
+      hidden: !visibleColumnsMap.role,
+      filter: filterableColumnsMap.role,
       body: (data) => {
         if (data?.roles) {
           return (
@@ -147,7 +156,8 @@ export const InvitationsTable = ({
     {
       field: "invitedBy",
       header: t("table.defaultColumns.invitedBy"),
-      hidden: !visibleColumns.includes("invitedBy"),
+      hidden: !visibleColumnsMap.invitedBy,
+      filter: filterableColumnsMap.invitedBy,
       body: (data) => {
         if (!data.invitedBy) {
           return <code>&#8212;</code>;
@@ -165,7 +175,8 @@ export const InvitationsTable = ({
     {
       field: "expiresAt",
       header: t("table.defaultColumns.expiresAt"),
-      hidden: !visibleColumns.includes("expiresAt"),
+      hidden: !visibleColumnsMap.expiresAt,
+      filter: filterableColumnsMap.expiresAt,
       body: (data) => {
         const date = new Date(data.expiresAt);
 
@@ -176,7 +187,7 @@ export const InvitationsTable = ({
       align: "center",
       field: "actions",
       header: t("table.defaultColumns.actions"),
-      hidden: !visibleColumns.includes("actions"),
+      hidden: !visibleColumnsMap.actions,
       body: (data) => {
         return (
           <>

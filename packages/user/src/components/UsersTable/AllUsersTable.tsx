@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable } from "@dzangolab/react-ui";
+import { DataTable, useColumnsMap } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -26,6 +26,15 @@ type VisibleColumn =
   | "status"
   | "actions";
 
+type FilterableColumn =
+  | "name"
+  | "email"
+  | "roles"
+  | "signedUpAt"
+  | "app"
+  | "invitedBy"
+  | "status";
+
 export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -50,6 +59,7 @@ export type AllUsersTableProperties = {
   totalRecords?: number;
   users: Array<object>;
   visibleColumns?: VisibleColumn[];
+  filterableColumns?: FilterableColumn[];
 };
 
 export const AllUsersTable = ({
@@ -80,8 +90,12 @@ export const AllUsersTable = ({
     "status",
     "actions",
   ],
+  filterableColumns = ["email"],
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
+
+  const visibleColumnsMap = useColumnsMap(visibleColumns);
+  const filterableColumnsMap = useColumnsMap(filterableColumns);
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -91,7 +105,8 @@ export const AllUsersTable = ({
     {
       field: "name",
       header: t("table.defaultColumns.name"),
-      hidden: !visibleColumns.includes("name"),
+      hidden: !visibleColumnsMap.name,
+      filter: filterableColumnsMap.name,
       sortable: false,
       body: (data) => {
         return (
@@ -104,9 +119,9 @@ export const AllUsersTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumns.includes("email"),
+      hidden: !visibleColumnsMap.email,
       sortable: true,
-      filter: true,
+      filter: filterableColumnsMap.email,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -114,7 +129,8 @@ export const AllUsersTable = ({
     {
       field: "app",
       header: t("invitations:table.defaultColumns.app"),
-      hidden: !visibleColumns.includes("app"),
+      hidden: !visibleColumnsMap.app,
+      filter: filterableColumnsMap.app,
       body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
@@ -122,7 +138,8 @@ export const AllUsersTable = ({
     {
       field: "roles",
       header: t("table.defaultColumns.roles"),
-      hidden: !visibleColumns.includes("roles"),
+      hidden: !visibleColumnsMap.roles,
+      filter: filterableColumnsMap.roles,
       body: (data) => {
         if (data?.roles) {
           return (
@@ -158,7 +175,8 @@ export const AllUsersTable = ({
     {
       field: "status",
       header: t("table.defaultColumns.status"),
-      hidden: !visibleColumns.includes("status"),
+      hidden: !visibleColumnsMap.status,
+      filter: filterableColumnsMap.status,
       body: (data) => {
         return (
           <>
@@ -180,7 +198,8 @@ export const AllUsersTable = ({
     {
       field: "invitedBy",
       header: t("invitations:table.defaultColumns.invitedBy"),
-      hidden: !visibleColumns.includes("invitedBy"),
+      hidden: !visibleColumnsMap.invitedBy,
+      filter: filterableColumnsMap.invitedBy,
       body: (data) => {
         if (data.isActiveUser) {
           return <code>&#8212;</code>;
@@ -198,7 +217,8 @@ export const AllUsersTable = ({
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      hidden: !visibleColumns.includes("signedUpAt"),
+      hidden: !visibleColumnsMap.signedUpAt,
+      filter: filterableColumnsMap.signedUpAt,
       body: (data) => {
         if (data.signedUpAt) {
           const date = new Date(data.signedUpAt);
@@ -212,7 +232,7 @@ export const AllUsersTable = ({
     {
       field: "actions",
       header: t("invitations:table.defaultColumns.actions"),
-      hidden: !visibleColumns.includes("actions"),
+      hidden: !visibleColumnsMap.actions,
       body: (data) => {
         return (
           <>

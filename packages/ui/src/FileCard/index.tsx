@@ -1,10 +1,11 @@
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { ComponentProps, ReactNode, useMemo, useState } from "react";
+import { ComponentProps, ReactNode, useState } from "react";
 
 import ConfirmationFileActions from "./ConfirmationFileActions";
 import { ConfirmationModal, formatDate } from "..";
 import { IFile } from "../FilesTable";
+import { useColumnsMap } from "../utils";
 
 export type FileMessages = {
   archiveAction?: string;
@@ -130,15 +131,7 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
-  const visibleFileDetailsObject = useMemo(() => {
-    const visibleDetails = {} as Record<VisibleFileDetails, boolean>;
-
-    for (const name of visibleFileDetails) {
-      visibleDetails[name] = true;
-    }
-
-    return visibleDetails;
-  }, [visibleFileDetails]);
+  const visibleFileDetailsMap = useColumnsMap(visibleFileDetails);
 
   const renderActions = () => {
     return (
@@ -225,15 +218,15 @@ export const FileCard = ({
         <div className="file-details-wrapper">
           <div className="file-name-description-details-wrapper">
             <div>
-              {visibleFileDetailsObject.filename ? (
+              {visibleFileDetailsMap.filename ? (
                 <span className="file-name">{file.filename}</span>
               ) : null}
-              {file.size && visibleFileDetailsObject.filesize && (
+              {file.size && visibleFileDetailsMap.filesize && (
                 <span className="file-size">{`(${file?.size})`}</span>
               )}
             </div>
 
-            {file.description && visibleFileDetailsObject.description && (
+            {file.description && visibleFileDetailsMap.description && (
               <>
                 <div className="file-description-details">
                   <span>{file.description}</span>
@@ -253,22 +246,22 @@ export const FileCard = ({
             )}
           </div>
 
-          {visibleFileDetailsObject.uploadedAt ||
-          visibleFileDetailsObject.uploadedBy ||
-          visibleFileDetailsObject.lastDownloadedAt ||
-          visibleFileDetailsObject.downloadCount ? (
+          {visibleFileDetailsMap.uploadedAt ||
+          visibleFileDetailsMap.uploadedBy ||
+          visibleFileDetailsMap.lastDownloadedAt ||
+          visibleFileDetailsMap.downloadCount ? (
             <div className="file-upload-download-details-wrapper">
-              {visibleFileDetailsObject.uploadedAt ||
-              visibleFileDetailsObject.uploadedBy ? (
+              {visibleFileDetailsMap.uploadedAt ||
+              visibleFileDetailsMap.uploadedBy ? (
                 <div className="file-upload-details">
-                  {visibleFileDetailsObject.uploadedBy ? (
+                  {visibleFileDetailsMap.uploadedBy ? (
                     <div className="uploaded-by">
                       <span>{messages?.uploadedByHeader || "Uploaded by"}</span>
                       <span>{checkUploadedByData(file)}</span>
                     </div>
                   ) : null}
 
-                  {visibleFileDetailsObject.uploadedAt ? (
+                  {visibleFileDetailsMap.uploadedAt ? (
                     <div className="uploaded-at">
                       <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
                       <span>{formatDate(file?.uploadedAt)}</span>
@@ -277,10 +270,10 @@ export const FileCard = ({
                 </div>
               ) : null}
 
-              {visibleFileDetailsObject.downloadCount ||
-              visibleFileDetailsObject.lastDownloadedAt ? (
+              {visibleFileDetailsMap.downloadCount ||
+              visibleFileDetailsMap.lastDownloadedAt ? (
                 <div className="file-download-details">
-                  {visibleFileDetailsObject.downloadCount ? (
+                  {visibleFileDetailsMap.downloadCount ? (
                     <div className="download-count">
                       {(file?.downloadCount || file?.downloadCount === 0) && (
                         <>
@@ -293,7 +286,7 @@ export const FileCard = ({
                     </div>
                   ) : null}
 
-                  {visibleFileDetailsObject.lastDownloadedAt ? (
+                  {visibleFileDetailsMap.lastDownloadedAt ? (
                     <div className="last-downloaded-at">
                       {file.lastDownloadedAt && (
                         <>
@@ -312,7 +305,7 @@ export const FileCard = ({
           ) : null}
         </div>
       </div>
-      {visibleFileDetailsObject.actions ? renderActions() : null}
+      {visibleFileDetailsMap.actions ? renderActions() : null}
     </Card>
   );
 };
