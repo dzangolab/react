@@ -173,13 +173,14 @@ const componentList = [
         invitations={[]}
         fetchInvitations={() => {}}
         onInvitationAdded={() => {}}
+        filterableColumns={["email"]}
       />
     ),
   },
   {
     key: 8,
     title: "All users table",
-    component: <AllUsersTable users={allUsers} />,
+    component: <AllUsersTable users={allUsers} filterableColumns={[]} />,
   },
 ];
 
