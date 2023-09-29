@@ -10,6 +10,7 @@ import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
+import { Card } from "primereact/card";
 
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
@@ -21,6 +22,7 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
   const { user: userConfig } = useConfig();
+  const [verifyEmailPage, setVerifyEmailPage] = useState<boolean>(false);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
@@ -28,7 +30,8 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
     await signup(credentials)
       .then(async (result) => {
         if (result?.user) {
-          await setUser(result.user);
+          setVerifyEmailPage(true);
+          // await setUser(result.user);
           onSignupSuccess && (await onSignupSuccess(result));
 
           toast.success(`${t("signup.messages.success")}`);
@@ -75,8 +78,14 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
 
   return (
     <Page className="signup" title={t("signup.title")}>
-      <SignupForm handleSubmit={handleSubmit} loading={loading} />
-      <div className="links">{getLinks()}</div>
+      {verifyEmailPage ? (
+        <Card>Check your email for verification</Card>
+      ) : (
+        <>
+          <SignupForm handleSubmit={handleSubmit} loading={loading} />
+          <div className="links">{getLinks()}</div>
+        </>
+      )}
     </Page>
   );
 };
