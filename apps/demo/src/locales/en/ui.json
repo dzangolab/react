@@ -19,6 +19,12 @@
       "roles": "Roles",
       "age": "Age",
       "action": "Action"
+    },
+    "actionMenu": {
+      "confirmationModal": {
+        "message": "Are you sure you want to delete?",
+        "header": "Confirm delete"
+      }
     }
   },
   "files": {

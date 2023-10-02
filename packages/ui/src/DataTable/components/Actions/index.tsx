@@ -14,10 +14,12 @@ export interface ActionsMenuProperties {
   deleteLabel?: string;
   editIcon?: string;
   editLabel?: string;
+  header?: string;
+  message?: string;
   viewIcon?: string;
   viewLabel?: string;
   requireConfirmationOnDelete?: boolean;
-  onDelete?: (arguments_: any) => void;
+  onDelete?: (arguments_?: any) => void;
   onEdit?: (arguments_: any) => void;
   onView?: (arguments_: any) => void;
 }
@@ -29,6 +31,8 @@ export const ActionsMenu = ({
   deleteLabel,
   editIcon,
   editLabel,
+  header,
+  message,
   viewIcon,
   viewLabel,
   onDelete,
@@ -71,7 +75,7 @@ export const ActionsMenu = ({
           if (requireConfirmationOnDelete) {
             setShowDeleteConfirmation(true);
           } else {
-            console.log(onDelete);
+            onDelete();
           }
         },
       });
@@ -83,11 +87,13 @@ export const ActionsMenu = ({
       <Menu model={items} buttonOptions={buttonOptions} />
       <ConfirmationModal
         visible={showDeleteConfirmation}
-        message="Are you sure you want to delete?"
-        header="Confirm delete"
+        message={message}
+        header={header}
         onHide={() => setShowDeleteConfirmation(false)}
         accept={() => {
-          console.log(onDelete);
+          if (onDelete) {
+            onDelete();
+          }
           setShowDeleteConfirmation(false);
         }}
       />

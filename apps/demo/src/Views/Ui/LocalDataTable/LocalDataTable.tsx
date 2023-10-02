@@ -64,6 +64,8 @@ export const LocalDataTable = () => {
               console.log(data);
             }}
             requireConfirmationOnDelete={true}
+            message={t("table.actionMenu.confirmationModal.message")}
+            header={t("table.actionMenu.confirmationModal.header")}
           />
         );
       },
