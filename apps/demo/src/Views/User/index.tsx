@@ -162,6 +162,24 @@ const componentList = [
         users={[]}
         fetchUsers={() => {}}
         onInvitationAdded={() => {}}
+        visibleColumns={[
+          "email",
+          "name",
+          "roles",
+          "lastSignedUpAt",
+          "signedUpAt",
+        ]}
+        columns={[
+          {
+            field: "lastSignedUpAt",
+            header: "Last signed up on",
+            body: (data) => {
+              const date = new Date(data.signedUpAt);
+
+              return date.toLocaleDateString("en-GB");
+            },
+          },
+        ]}
       />
     ),
   },
