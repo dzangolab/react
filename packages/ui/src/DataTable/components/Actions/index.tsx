@@ -3,8 +3,9 @@ import { ButtonProps } from "primereact/button";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { Menu } from "../../../Menu";
 import { ConfirmationModal } from "@/ConfirmationModal";
+
+import { Menu } from "../../../Menu";
 
 export interface ActionsMenuProperties {
   actions?: MenuItem[];
@@ -16,7 +17,7 @@ export interface ActionsMenuProperties {
   viewIcon?: string;
   viewLabel?: string;
   requireConfirmationOnDelete?: boolean;
-  onDelete?: (arguments_: any) => {};
+  onDelete?: (arguments_: any) => void;
   onEdit?: (arguments_: any) => void;
   onView?: (arguments_: any) => void;
 }
@@ -67,12 +68,12 @@ export const ActionsMenu = ({
         icon: deleteIcon || "pi pi-trash",
         className: "danger",
         command: () => {
-         if(requireConfirmationOnDelete){
-          setShowDeleteConfirmation(true)
-         } else {
-          onDelete
-         }
-        }
+          if (requireConfirmationOnDelete) {
+            setShowDeleteConfirmation(true);
+          } else {
+            console.log(onDelete);
+          }
+        },
       });
     }
   }
@@ -84,7 +85,10 @@ export const ActionsMenu = ({
         visible={showDeleteConfirmation}
         message="Are you sure you want to delete?"
         onHide={() => setShowDeleteConfirmation(false)}
-        accept={()=>onDelete}
+        accept={() => {
+          console.log(onDelete);
+          setShowDeleteConfirmation(false);
+        }}
       />
     </>
   );
