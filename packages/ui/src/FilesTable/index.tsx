@@ -12,7 +12,7 @@ import {
   VisibleFileDetails,
   formatDate,
 } from "../index";
-import { useColumnsMap } from "../utils";
+import { useManipulateColumns } from "../utils";
 
 import type { ComponentProps } from "react";
 
@@ -33,8 +33,7 @@ export interface IFile {
 
 export type FilesTableProperties = {
   className?: string;
-  columns?: Array<ColumnProps>;
-  extraColumns?: Array<ColumnProps>;
+  columnOptions?: Array<ColumnProps>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchFiles?: (arguments_?: any) => void;
   files: Array<IFile>;
@@ -56,13 +55,12 @@ export type FilesTableProperties = {
 export const FilesTable = ({
   archiveConfirmationProps,
   className,
-  columns,
+  columnOptions = [],
   deleteConfirmationProps,
   id,
   loading,
   files,
   totalRecords,
-  extraColumns = [],
   fetchFiles,
   messages,
   visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
@@ -74,7 +72,6 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
-  const visibleColumnsMap = useColumnsMap(visibleColumns);
   const [visibleArchiveConfirmation, setVisibleArchiveConfirmation] =
     useState(false);
   const [visibleDeleteConfirmation, setVisibleDeleteConfirmation] =
@@ -156,23 +153,19 @@ export const FilesTable = ({
       sortable: true,
       filter: true,
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
-      hidden: !visibleColumnsMap.filename,
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
       header: messages?.descriptionHeader || "Description",
-      hidden: !visibleColumnsMap.description,
       body: (data) => {
         return data.description;
       },
     },
-    ...extraColumns,
     {
       field: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      hidden: !visibleColumnsMap.uploadedBy,
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -190,7 +183,6 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
-      hidden: !visibleColumnsMap.uploadedAt,
       body: (data) => {
         return formatDate(data.uploadedAt);
       },
@@ -198,7 +190,6 @@ export const FilesTable = ({
     {
       field: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
-      hidden: !visibleColumnsMap.downloadCount,
       body: (data) => {
         return data.downloadCount;
       },
@@ -206,7 +197,6 @@ export const FilesTable = ({
     {
       field: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      hidden: !visibleColumnsMap.lastDownloadedAt,
       body: (data) => {
         if (data.lastDownloadedAt) {
           return formatDate(data.lastDownloadedAt);
@@ -218,12 +208,16 @@ export const FilesTable = ({
       align: "center",
       field: "actions",
       header: messages?.actionsHeader || "Actions",
-      hidden: !visibleColumnsMap.actions,
       body: (data) => {
         return <ActionsMenu actions={getActionsItem(data)} />;
       },
     },
   ];
+
+  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+    visibleColumns,
+    columns: [...defaultColumns, ...columnOptions],
+  });
 
   const rowClassNameCallback = (data: { id: string | number }) => {
     return `files-${data.id}`;
@@ -234,7 +228,7 @@ export const FilesTable = ({
       <DataTable
         className={className}
         dataKey="filename"
-        columns={columns ? columns : defaultColumns}
+        columns={processedColumns}
         data={files}
         emptyMessage={messages?.tableEmpty || "The table is empty"}
         fetchData={fetchFiles}

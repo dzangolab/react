@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable, useColumnsMap } from "@dzangolab/react-ui";
+import { DataTable, useManipulateColumns } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -24,23 +24,14 @@ type VisibleColumn =
   | "app"
   | "invitedBy"
   | "status"
-  | "actions";
-
-type FilterableColumn =
-  | "name"
-  | "email"
-  | "roles"
-  | "signedUpAt"
-  | "app"
-  | "invitedBy"
-  | "status";
+  | "actions"
+  | string;
 
 export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
-  columns?: Array<ColumnProps>;
-  additionalColumns?: Array<ColumnProps>;
+  columnOptions?: Array<ColumnProps>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchUsers?: (arguments_?: any) => void;
   id?: string;
@@ -59,15 +50,13 @@ export type AllUsersTableProperties = {
   totalRecords?: number;
   users: Array<object>;
   visibleColumns?: VisibleColumn[];
-  filterableColumns?: FilterableColumn[];
 };
 
 export const AllUsersTable = ({
   additionalInvitationFields,
   apps,
   className = "table-users",
-  columns,
-  additionalColumns = [],
+  columnOptions = [],
   fetchUsers,
   id = "table-users",
   inviteButtonIcon,
@@ -90,12 +79,8 @@ export const AllUsersTable = ({
     "status",
     "actions",
   ],
-  filterableColumns = ["email"],
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
-
-  const visibleColumnsMap = useColumnsMap(visibleColumns);
-  const filterableColumnsMap = useColumnsMap(filterableColumns);
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -105,8 +90,6 @@ export const AllUsersTable = ({
     {
       field: "name",
       header: t("table.defaultColumns.name"),
-      hidden: !visibleColumnsMap.name,
-      filter: filterableColumnsMap.name,
       sortable: false,
       body: (data) => {
         return (
@@ -119,9 +102,7 @@ export const AllUsersTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumnsMap.email,
       sortable: true,
-      filter: filterableColumnsMap.email,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -129,8 +110,6 @@ export const AllUsersTable = ({
     {
       field: "app",
       header: t("invitations:table.defaultColumns.app"),
-      hidden: !visibleColumnsMap.app,
-      filter: filterableColumnsMap.app,
       body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
@@ -138,8 +117,6 @@ export const AllUsersTable = ({
     {
       field: "roles",
       header: t("table.defaultColumns.roles"),
-      hidden: !visibleColumnsMap.roles,
-      filter: filterableColumnsMap.roles,
       body: (data) => {
         if (data?.roles) {
           return (
@@ -175,8 +152,6 @@ export const AllUsersTable = ({
     {
       field: "status",
       header: t("table.defaultColumns.status"),
-      hidden: !visibleColumnsMap.status,
-      filter: filterableColumnsMap.status,
       body: (data) => {
         return (
           <>
@@ -194,12 +169,9 @@ export const AllUsersTable = ({
       },
       align: "center",
     },
-    ...additionalColumns,
     {
       field: "invitedBy",
       header: t("invitations:table.defaultColumns.invitedBy"),
-      hidden: !visibleColumnsMap.invitedBy,
-      filter: filterableColumnsMap.invitedBy,
       body: (data) => {
         if (data.isActiveUser) {
           return <code>&#8212;</code>;
@@ -217,8 +189,6 @@ export const AllUsersTable = ({
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      hidden: !visibleColumnsMap.signedUpAt,
-      filter: filterableColumnsMap.signedUpAt,
       body: (data) => {
         if (data.signedUpAt) {
           const date = new Date(data.signedUpAt);
@@ -232,7 +202,6 @@ export const AllUsersTable = ({
     {
       field: "actions",
       header: t("invitations:table.defaultColumns.actions"),
-      hidden: !visibleColumnsMap.actions,
       body: (data) => {
         return (
           <>
@@ -251,6 +220,11 @@ export const AllUsersTable = ({
       align: "center",
     },
   ];
+
+  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+    visibleColumns,
+    columns: [...defaultColumns, ...columnOptions],
+  });
 
   const rowClassNameCallback = (data: {
     id: string | number;
@@ -285,7 +259,7 @@ export const AllUsersTable = ({
   return (
     <DataTable
       className={className}
-      columns={columns ? columns : defaultColumns}
+      columns={processedColumns}
       data={users}
       emptyMessage={t("app:table.emptyMessage")}
       fetchData={fetchUsers}

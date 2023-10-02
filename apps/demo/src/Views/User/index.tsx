@@ -169,15 +169,10 @@ const componentList = [
           "lastSignedUpAt",
           "signedUpAt",
         ]}
-        columns={[
+        columnOptions={[
           {
-            field: "lastSignedUpAt",
-            header: "Last signed up on",
-            body: (data) => {
-              const date = new Date(data.signedUpAt);
-
-              return date.toLocaleDateString("en-GB");
-            },
+            field: "email",
+            filter: false,
           },
         ]}
       />
@@ -191,14 +186,13 @@ const componentList = [
         invitations={[]}
         fetchInvitations={() => {}}
         onInvitationAdded={() => {}}
-        filterableColumns={["email"]}
       />
     ),
   },
   {
     key: 8,
     title: "All users table",
-    component: <AllUsersTable users={allUsers} filterableColumns={[]} />,
+    component: <AllUsersTable users={allUsers} />,
   },
 ];
 
