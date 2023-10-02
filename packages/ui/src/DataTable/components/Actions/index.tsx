@@ -3,7 +3,7 @@ import { ButtonProps } from "primereact/button";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { ConfirmationModal } from "@/ConfirmationModal";
+import { ConfirmationModal } from "../../../ConfirmationModal";
 
 import { Menu } from "../../../Menu";
 
@@ -84,6 +84,7 @@ export const ActionsMenu = ({
       <ConfirmationModal
         visible={showDeleteConfirmation}
         message="Are you sure you want to delete?"
+        header="Confirm delete"
         onHide={() => setShowDeleteConfirmation(false)}
         accept={() => {
           console.log(onDelete);

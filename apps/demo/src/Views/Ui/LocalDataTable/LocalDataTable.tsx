@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable } from "@dzangolab/react-ui";
+import { ActionsMenu, DataTable } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
 import type { ColumnProps } from "primereact/column";
@@ -50,6 +50,22 @@ export const LocalDataTable = () => {
       sortable: true,
       body: (data) => {
         return data.age;
+      },
+    },
+    {
+      field: "action",
+      header: t("table.headers.action"),
+      body: (data) => {
+        return (
+          <ActionsMenu
+            onView={() => {}}
+            onEdit={() => {}}
+            onDelete={() => {
+              console.log(data);
+            }}
+            requireConfirmationOnDelete={true}
+          />
+        );
       },
     },
   ];

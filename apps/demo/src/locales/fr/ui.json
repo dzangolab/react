@@ -17,7 +17,8 @@
       "userName": "User name (fr)",
       "email": "Email (fr)",
       "roles": "Roles (fr)",
-      "age": "Age (fr)"
+      "age": "Age (fr)",
+      "action": "Action (fr)"
     }
   },
   "files": {

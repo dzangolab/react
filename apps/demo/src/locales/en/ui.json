@@ -17,7 +17,8 @@
       "userName": "User name",
       "email": "Email",
       "roles": "Roles",
-      "age": "Age"
+      "age": "Age",
+      "action": "Action"
     }
   },
   "files": {
