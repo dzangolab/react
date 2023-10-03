@@ -3,13 +3,12 @@ import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-
 import verifyEmail from "@/supertokens/verifyEmail";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
-  const [verifyStatus, setVerifyStatus] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -25,56 +24,28 @@ const VerifyEmail = () => {
             toast.success(`${t("emailVerification.messages.success")}`);
 
             setVerifyEmailLoading(false);
-            setVerifyStatus("OK");
+            setMessage(t("emailVerification.messages.success"));
           } else if (response.status === "EMAIL_ALREADY_VERIFIED") {
             toast.info(`${t("emailVerification.messages.alreadyVerified")}`);
 
             setVerifyEmailLoading(false);
-            setVerifyStatus("EMAIL_ALREADY_VERIFIED");
+            setMessage(t("emailVerification.messages.alreadyVerified"));
           } else {
             toast.error(`${t("emailVerification.messages.invalidToken")}`);
 
             setVerifyEmailLoading(false);
-            setVerifyStatus("INVALID_TOKEN");
+            setMessage(t("emailVerification.messages.invalidToken"));
           }
         }
       })
       .catch(() => {
-        setVerifyStatus("ERROR");
+        setVerifyEmailLoading(false);
+        setMessage(t("emailVerification.messages.error"));
       })
       .finally(() => {
         setVerifyEmailLoading(false);
       });
   }, []);
-
-  const renderPageContent = () => {
-    if (verifyStatus === "ERROR") {
-      return (
-        <Card>
-          <p>{t(`emailVerification.messages.error`)}</p>
-        </Card>
-      );
-    } else {
-      if (verifyStatus === "EMAIL_ALREADY_VERIFIED")
-        return (
-          <Card>
-            <p>{t(`emailVerification.messages.alreadyVerified`)}</p>
-          </Card>
-        );
-      if (verifyStatus === "INVALID_TOKEN") {
-        return (
-          <Card>
-            <p>{t(`emailVerification.messages.invalidToken`)}</p>
-          </Card>
-        );
-      }
-      return (
-        <Card>
-          <p>{t(`emailVerification.messages.success`)}</p>
-        </Card>
-      );
-    }
-  };
 
   return (
     <Page
@@ -82,7 +53,7 @@ const VerifyEmail = () => {
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
     >
-      {renderPageContent()}
+      <Card>{message}</Card>
     </Page>
   );
 };
