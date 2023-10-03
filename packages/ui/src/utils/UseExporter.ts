@@ -10,6 +10,7 @@ type UseExporterOptions = {
   onExportEnd?: () => void;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TriggerExportType = (data: any) => void;
 
 const exportXLSX = ({
@@ -20,6 +21,7 @@ const exportXLSX = ({
 }: {
   sheetName: string;
   filename: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
   sheetOptions: WorkSheetOptions;
 }) => {
@@ -43,6 +45,7 @@ export const useExporter = ({
   const [exporting, setExporting] = useState(false);
 
   const triggerExport = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (data: any) => {
       setExporting(true);
       if (onExportStart) {

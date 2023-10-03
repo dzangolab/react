@@ -71,10 +71,18 @@ const componentList = [
     title: "files.table",
     component: (
       <FilesTable
+        onFileDelete={() => {}}
+        onFileArchive={() => {}}
         files={[
           {
             filename: "myfile",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+            uploadedAt: Date.now(),
+            lastDownloadedAt: Date.now(),
+          },
+          {
+            filename: "myfile2",
+            uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
             uploadedAt: Date.now(),
             lastDownloadedAt: Date.now(),
           },
@@ -108,6 +116,8 @@ const componentList = [
         onDownload={() => {}}
         onView={() => {}}
         onShare={() => {}}
+        onArchive={() => {}}
+        onDelete={() => {}}
       />
     ),
   },
@@ -152,7 +162,7 @@ const componentList = [
     ),
   },
   {
-    key: 9,
+    key: 10,
     title: "files.presentation",
     component: (
       <FilesPresentation
@@ -167,15 +177,9 @@ const componentList = [
           "filesize",
         ]}
         presentation="table"
-        onEditDescription={(file: any) => {
-          console.log(file);
-        }}
-        onFileDownload={(file: any) => {
-          console.log(file);
-        }}
-        onFileView={(file: any) => {
-          console.log(file);
-        }}
+        onEditDescription={() => {}}
+        onFileDownload={() => {}}
+        onFileView={() => {}}
         files={[
           {
             filename: "file1.png",

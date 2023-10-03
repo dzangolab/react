@@ -1,15 +1,18 @@
 import { FilterMatchMode } from "primereact/api";
 import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
-import React from "react";
+import React, { useState } from "react";
 
+import ConfirmationFileActions from "../FileCard/ConfirmationFileActions";
 import {
   ActionsMenu,
+  ConfirmationModal,
   DataTable,
   FileMessages,
   VisibleFileDetails,
   formatDate,
 } from "../index";
+import { useColumnsMap } from "../utils";
 
 import type { ComponentProps } from "react";
 
@@ -32,24 +35,29 @@ export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
   extraColumns?: Array<ColumnProps>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchFiles?: (arguments_?: any) => void;
   files: Array<IFile>;
   id?: string;
   loading?: boolean;
-  onFileArchive?: (arguments_: any) => void;
-  onFileDownload?: (arguments_: any) => void;
-  onFileDelete?: (arguments_: any) => void;
-  onEditDescription?: (arguments_: any) => void;
-  onFileShare?: (arguments_: any) => void;
-  onFileView?: (arguments_: any) => void;
+  onFileArchive?: (arguments_: IFile) => void;
+  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  onFileDownload?: (arguments_: IFile) => void;
+  onFileDelete?: (arguments_: IFile) => void;
+  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  onEditDescription?: (arguments_: IFile) => void;
+  onFileShare?: (arguments_: IFile) => void;
+  onFileView?: (arguments_: IFile) => void;
   totalRecords?: number;
   messages?: TableMessages;
   visibleColumns?: VisibleFileDetails[];
 } & Partial<ComponentProps<typeof DataTable>>;
 
 export const FilesTable = ({
+  archiveConfirmationProps,
   className,
   columns,
+  deleteConfirmationProps,
   id,
   loading,
   files,
@@ -66,6 +74,14 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
+  const visibleColumnsMap = useColumnsMap(visibleColumns);
+  const [visibleArchiveConfirmation, setVisibleArchiveConfirmation] =
+    useState(false);
+  const [visibleDeleteConfirmation, setVisibleDeleteConfirmation] =
+    useState(false);
+
+  const [removeableFile, setRemoveableFile] = useState<IFile>();
+
   const getActionsItem = (file: IFile) => {
     const actionItems: MenuItem[] = [];
 
@@ -73,8 +89,11 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.archiveAction || "Archive",
         icon: "pi pi-book",
-        command: (event) =>
-          onFileArchive?.({ ...event.originalEvent, data: { file } }),
+        command: () => {
+          setRemoveableFile(file);
+          setVisibleDeleteConfirmation(false);
+          setVisibleArchiveConfirmation(true);
+        },
       });
     }
 
@@ -82,8 +101,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.downloadAction || "Download",
         icon: "pi pi-download",
-        command: (event) =>
-          onFileDownload?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileDownload?.(file),
       });
     }
 
@@ -91,8 +109,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.editDescriptionAction || "Edit description",
         icon: "pi pi-pencil",
-        command: (event) =>
-          onEditDescription?.({ ...event.originalEvent, data: { file } }),
+        command: () => onEditDescription?.(file),
       });
     }
 
@@ -100,8 +117,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.shareAction || "Share",
         icon: "pi pi-share-alt",
-        command: (event) =>
-          onFileShare?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileShare?.(file),
       });
     }
 
@@ -109,8 +125,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.viewAction || "Share",
         icon: "pi pi-eye",
-        command: (event) =>
-          onFileView?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileView?.(file),
       });
     }
 
@@ -119,8 +134,11 @@ export const FilesTable = ({
         label: messages?.deleteAction || "Delete",
         icon: "pi pi-trash",
         className: "danger",
-        command: (event) =>
-          onFileDelete?.({ ...event.originalEvent, data: { file } }),
+        command: () => {
+          setRemoveableFile(file);
+          setVisibleDeleteConfirmation(true);
+          setVisibleArchiveConfirmation(false);
+        },
       });
     }
 
@@ -138,14 +156,14 @@ export const FilesTable = ({
       sortable: true,
       filter: true,
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
-      hidden: !visibleColumns.includes("filename"),
+      hidden: !visibleColumnsMap.filename,
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
       header: messages?.descriptionHeader || "Description",
-      hidden: !visibleColumns.includes("description"),
+      hidden: !visibleColumnsMap.description,
       body: (data) => {
         return data.description;
       },
@@ -154,7 +172,7 @@ export const FilesTable = ({
     {
       field: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      hidden: !visibleColumns.includes("uploadedBy"),
+      hidden: !visibleColumnsMap.uploadedBy,
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -172,7 +190,7 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
-      hidden: !visibleColumns.includes("uploadedAt"),
+      hidden: !visibleColumnsMap.uploadedAt,
       body: (data) => {
         return formatDate(data.uploadedAt);
       },
@@ -180,7 +198,7 @@ export const FilesTable = ({
     {
       field: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
-      hidden: !visibleColumns.includes("downloadCount"),
+      hidden: !visibleColumnsMap.downloadCount,
       body: (data) => {
         return data.downloadCount;
       },
@@ -188,7 +206,7 @@ export const FilesTable = ({
     {
       field: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      hidden: !visibleColumns.includes("lastDownloadedAt"),
+      hidden: !visibleColumnsMap.lastDownloadedAt,
       body: (data) => {
         if (data.lastDownloadedAt) {
           return formatDate(data.lastDownloadedAt);
@@ -200,32 +218,54 @@ export const FilesTable = ({
       align: "center",
       field: "actions",
       header: messages?.actionsHeader || "Actions",
-      hidden: !visibleColumns.includes("actions"),
+      hidden: !visibleColumnsMap.actions,
       body: (data) => {
         return <ActionsMenu actions={getActionsItem(data)} />;
       },
     },
   ];
 
-  const rowClassNameCallback = (data: any) => {
+  const rowClassNameCallback = (data: { id: string | number }) => {
     return `files-${data.id}`;
   };
 
   return (
-    <DataTable
-      className={className}
-      columns={columns ? columns : defaultColumns}
-      data={files}
-      emptyMessage={messages?.tableEmpty || "The table is empty"}
-      fetchData={fetchFiles}
-      id={id}
-      initialFilters={initialFilters}
-      loading={loading}
-      rowClassName={rowClassNameCallback}
-      showGridlines
-      stripedRows={false}
-      totalRecords={totalRecords}
-      {...tableProperties}
-    ></DataTable>
+    <>
+      <DataTable
+        className={className}
+        dataKey="filename"
+        columns={columns ? columns : defaultColumns}
+        data={files}
+        emptyMessage={messages?.tableEmpty || "The table is empty"}
+        fetchData={fetchFiles}
+        id={id}
+        initialFilters={initialFilters}
+        loading={loading}
+        rowClassName={rowClassNameCallback}
+        showGridlines
+        stripedRows={false}
+        totalRecords={totalRecords}
+        {...tableProperties}
+      ></DataTable>
+      <ConfirmationFileActions
+        file={removeableFile as IFile}
+        setVisibleArchiveConfirmation={(isVisible) =>
+          setVisibleArchiveConfirmation(isVisible)
+        }
+        setVisibleDeleteConfirmation={(isVisible) =>
+          setVisibleDeleteConfirmation(isVisible)
+        }
+        visibleArchiveConfirmation={visibleArchiveConfirmation}
+        visibleDeleteConfirmation={visibleDeleteConfirmation}
+        archiveConfirmationProps={archiveConfirmationProps}
+        deleteConfirmationProps={deleteConfirmationProps}
+        archiveConfirmationHeader={messages?.archiveConfirmationHeader}
+        archiveConfirmationMessage={messages?.archiveConfirmationMessage}
+        deleteConfirmationHeader={messages?.deleteConfirmationHeader}
+        deleteConfirmationMessage={messages?.deleteConfirmationMessage}
+        onArchive={onFileArchive}
+        onDelete={onFileDelete}
+      />
+    </>
   );
 };

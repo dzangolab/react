@@ -1,16 +1,22 @@
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, useState } from "react";
 
-import { formatDate } from "..";
+import ConfirmationFileActions from "./ConfirmationFileActions";
+import { ConfirmationModal, formatDate } from "..";
 import { IFile } from "../FilesTable";
+import { useColumnsMap } from "../utils";
 
 export type FileMessages = {
   archiveAction?: string;
+  archiveConfirmationHeader?: string;
+  archiveConfirmationMessage?: string;
   downloadAction?: string;
   editDescriptionAction?: string;
   renameAction?: string;
   deleteAction?: string;
+  deleteConfirmationHeader?: string;
+  deleteConfirmationMessage?: string;
   filenameHeader?: string;
   descriptionHeader?: string;
   downloadCountHeader?: string;
@@ -35,12 +41,25 @@ export type VisibleFileDetails =
 type FileCardType = {
   file: IFile;
   messages?: FileMessages;
-  onArchive?: (arguments_: any) => void;
-  onDelete?: (arguments_: any) => void;
-  onDownload?: (arguments_: any) => void;
-  onEditDescription?: (arguments_: any) => void;
-  onShare?: (arguments_: any) => void;
-  onView?: (arguments_: any) => void;
+  onArchive?: (arguments_: IFile) => void;
+  archiveButtonProps?: ComponentProps<typeof Button>;
+  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onDelete?: (arguments_: IFile) => void;
+  deleteButtonProps?: ComponentProps<typeof Button>;
+  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onDownload?: (arguments_: IFile) => void;
+  downloadButtonProps?: ComponentProps<typeof Button>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onEditDescription?: (arguments_: IFile) => void;
+  editDescriptionButtonProps?: ComponentProps<typeof Button>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onShare?: (arguments_: IFile) => void;
+  shareButtonProps?: ComponentProps<typeof Button>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onView?: (arguments_: IFile) => void;
+  viewButtonProps?: ComponentProps<typeof Button>;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
   showThumbnail?: boolean;
   visibleFileDetails?: VisibleFileDetails[];
@@ -50,11 +69,19 @@ export const FileCard = ({
   file,
   messages,
   onArchive,
+  archiveButtonProps,
+  archiveConfirmationProps,
   onDelete,
+  deleteButtonProps,
+  deleteConfirmationProps,
   onDownload,
+  downloadButtonProps,
   onShare,
+  shareButtonProps,
   onView,
+  viewButtonProps,
   onEditDescription,
+  editDescriptionButtonProps,
   renderThumbnail: pRenderThumbnail,
   showThumbnail = true,
   visibleFileDetails = [
@@ -68,6 +95,11 @@ export const FileCard = ({
     "actions",
   ],
 }: FileCardType) => {
+  const [visibleArchiveConfirmation, setVisibleArchiveConfirmation] =
+    useState(false);
+  const [visibleDeleteConfirmation, setVisibleDeleteConfirmation] =
+    useState(false);
+
   const renderThumbnail = () => {
     if (!showThumbnail) {
       return null;
@@ -83,7 +115,7 @@ export const FileCard = ({
       </div>
     );
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkUploadedByData = (data: any) => {
     if (!data.uploadedBy) {
       return <code>&#8212;</code>;
@@ -98,49 +130,82 @@ export const FileCard = ({
     return data.uploadedBy.email;
   };
 
-  const visibleFileDetailsObject = useMemo(() => {
-    const visibleDetails = {} as Record<VisibleFileDetails, boolean>;
-
-    for (const name of visibleFileDetails) {
-      visibleDetails[name] = true;
-    }
-
-    return visibleDetails;
-  }, [visibleFileDetails]);
+  const visibleFileDetailsMap = useColumnsMap(visibleFileDetails);
 
   const renderActions = () => {
     return (
       <div className="file-actions">
         {!!onArchive && (
-          <Button
-            icon="pi pi-book"
-            onClick={(event) => onArchive?.({ ...event, data: { file } })}
-          />
+          <>
+            <Button
+              size="small"
+              icon="pi pi-book"
+              label="Archive"
+              onClick={() => setVisibleArchiveConfirmation(true)}
+              {...archiveButtonProps}
+            />
+          </>
         )}
         {!!onDelete && (
-          <Button
-            icon="pi pi-trash"
-            onClick={(event) => onDelete?.({ ...event, data: { file } })}
-          />
+          <>
+            <Button
+              size="small"
+              icon="pi pi-trash"
+              label="Delete"
+              severity="danger"
+              onClick={() => setVisibleDeleteConfirmation(true)}
+              {...deleteButtonProps}
+            />
+          </>
         )}
         {!!onDownload && (
           <Button
+            size="small"
             icon="pi pi-download"
-            onClick={(event) => onDownload?.({ ...event, data: { file } })}
+            label="Download"
+            onClick={() => onDownload?.(file)}
+            {...downloadButtonProps}
           />
         )}
         {!!onShare && (
           <Button
+            size="small"
             icon="pi pi-share-alt"
-            onClick={(event) => onShare?.({ ...event, data: { file } })}
+            label="Share"
+            onClick={() => onShare?.(file)}
+            {...shareButtonProps}
           />
         )}
         {!!onView && (
           <Button
+            size="small"
             icon="pi pi-eye"
-            onClick={(event) => onView?.({ ...event, data: { file } })}
+            label="View"
+            severity="secondary"
+            onClick={() => onView?.(file)}
+            {...viewButtonProps}
           />
         )}
+
+        <ConfirmationFileActions
+          file={file}
+          setVisibleArchiveConfirmation={(isVisible) =>
+            setVisibleArchiveConfirmation(isVisible)
+          }
+          setVisibleDeleteConfirmation={(isVisible) =>
+            setVisibleDeleteConfirmation(isVisible)
+          }
+          visibleArchiveConfirmation={visibleArchiveConfirmation}
+          visibleDeleteConfirmation={visibleDeleteConfirmation}
+          archiveConfirmationProps={archiveConfirmationProps}
+          deleteConfirmationProps={deleteConfirmationProps}
+          archiveConfirmationHeader={messages?.archiveConfirmationHeader}
+          archiveConfirmationMessage={messages?.archiveConfirmationMessage}
+          deleteConfirmationHeader={messages?.deleteConfirmationHeader}
+          deleteConfirmationMessage={messages?.deleteConfirmationMessage}
+          onArchive={onArchive}
+          onDelete={onDelete}
+        />
       </div>
     );
   };
@@ -152,15 +217,15 @@ export const FileCard = ({
         <div className="file-details-wrapper">
           <div className="file-name-description-details-wrapper">
             <div>
-              {visibleFileDetailsObject.filename ? (
+              {visibleFileDetailsMap.filename ? (
                 <span className="file-name">{file.filename}</span>
               ) : null}
-              {file.size && visibleFileDetailsObject.filesize && (
+              {file.size && visibleFileDetailsMap.filesize && (
                 <span className="file-size">{`(${file?.size})`}</span>
               )}
             </div>
 
-            {file.description && visibleFileDetailsObject.description && (
+            {file.description && visibleFileDetailsMap.description && (
               <>
                 <div className="file-description-details">
                   <span>{file.description}</span>
@@ -169,9 +234,8 @@ export const FileCard = ({
                       icon="pi pi-pencil"
                       text
                       size="small"
-                      onClick={(event) =>
-                        onEditDescription?.({ ...event, data: { file } })
-                      }
+                      onClick={() => onEditDescription?.(file)}
+                      {...editDescriptionButtonProps}
                     />
                   )}
                 </div>
@@ -179,22 +243,22 @@ export const FileCard = ({
             )}
           </div>
 
-          {visibleFileDetailsObject.uploadedAt ||
-          visibleFileDetailsObject.uploadedBy ||
-          visibleFileDetailsObject.lastDownloadedAt ||
-          visibleFileDetailsObject.downloadCount ? (
+          {visibleFileDetailsMap.uploadedAt ||
+          visibleFileDetailsMap.uploadedBy ||
+          visibleFileDetailsMap.lastDownloadedAt ||
+          visibleFileDetailsMap.downloadCount ? (
             <div className="file-upload-download-details-wrapper">
-              {visibleFileDetailsObject.uploadedAt ||
-              visibleFileDetailsObject.uploadedBy ? (
+              {visibleFileDetailsMap.uploadedAt ||
+              visibleFileDetailsMap.uploadedBy ? (
                 <div className="file-upload-details">
-                  {visibleFileDetailsObject.uploadedBy ? (
+                  {visibleFileDetailsMap.uploadedBy ? (
                     <div className="uploaded-by">
                       <span>{messages?.uploadedByHeader || "Uploaded by"}</span>
                       <span>{checkUploadedByData(file)}</span>
                     </div>
                   ) : null}
 
-                  {visibleFileDetailsObject.uploadedAt ? (
+                  {visibleFileDetailsMap.uploadedAt ? (
                     <div className="uploaded-at">
                       <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
                       <span>{formatDate(file?.uploadedAt)}</span>
@@ -203,10 +267,10 @@ export const FileCard = ({
                 </div>
               ) : null}
 
-              {visibleFileDetailsObject.downloadCount ||
-              visibleFileDetailsObject.lastDownloadedAt ? (
+              {visibleFileDetailsMap.downloadCount ||
+              visibleFileDetailsMap.lastDownloadedAt ? (
                 <div className="file-download-details">
-                  {visibleFileDetailsObject.downloadCount ? (
+                  {visibleFileDetailsMap.downloadCount ? (
                     <div className="download-count">
                       {(file?.downloadCount || file?.downloadCount === 0) && (
                         <>
@@ -219,7 +283,7 @@ export const FileCard = ({
                     </div>
                   ) : null}
 
-                  {visibleFileDetailsObject.lastDownloadedAt ? (
+                  {visibleFileDetailsMap.lastDownloadedAt ? (
                     <div className="last-downloaded-at">
                       {file.lastDownloadedAt && (
                         <>
@@ -236,10 +300,9 @@ export const FileCard = ({
               ) : null}
             </div>
           ) : null}
-
-          {visibleFileDetailsObject.actions ? renderActions() : null}
         </div>
       </div>
+      {visibleFileDetailsMap.actions ? renderActions() : null}
     </Card>
   );
 };

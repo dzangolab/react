@@ -5,8 +5,10 @@ import { FC } from "react";
 
 import { ErrorMessage } from "../ErrorMessage";
 
+import type { ErrorOption } from "react-hook-form";
+
 export interface DatePickerBasicProperties {
-  error?: any;
+  error?: ErrorOption;
   inputRef: React.Ref<HTMLInputElement>;
   label?: string;
   name: string;

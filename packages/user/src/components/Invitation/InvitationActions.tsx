@@ -33,7 +33,8 @@ export const InvitationActions = ({
     {
       label: t("invitations.actions.resend"),
       icon: "pi pi-replay",
-      command: (event) => {
+      disabled: !!invitation.acceptedAt,
+      command: () => {
         setShowResendConfirmation(true);
       },
     },
@@ -41,7 +42,8 @@ export const InvitationActions = ({
       label: t("invitations.actions.revoke"),
       icon: "pi pi-times",
       className: "danger",
-      command: (event) => {
+      disabled: !!invitation.acceptedAt,
+      command: () => {
         setShowRevokeConfirmation(true);
       },
     },
