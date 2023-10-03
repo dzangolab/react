@@ -4,12 +4,12 @@ import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
 import { ConfirmationModal } from "../../../ConfirmationModal";
-
 import { Menu } from "../../../Menu";
 
 export interface ActionsMenuProperties {
   actions?: MenuItem[];
   buttonOptions?: Omit<ButtonProps, "onClick">;
+  data?: any;
   deleteIcon?: string;
   deleteLabel?: string;
   editIcon?: string;
@@ -27,6 +27,7 @@ export interface ActionsMenuProperties {
 export const ActionsMenu = ({
   actions,
   buttonOptions: pButtonOptions,
+  data,
   deleteIcon,
   deleteLabel,
   editIcon,
@@ -75,7 +76,7 @@ export const ActionsMenu = ({
           if (requireConfirmationOnDelete) {
             setShowDeleteConfirmation(true);
           } else {
-            onDelete();
+            onDelete(data);
           }
         },
       });
@@ -92,7 +93,7 @@ export const ActionsMenu = ({
         onHide={() => setShowDeleteConfirmation(false)}
         accept={() => {
           if (onDelete) {
-            onDelete();
+            onDelete(data);
           }
           setShowDeleteConfirmation(false);
         }}

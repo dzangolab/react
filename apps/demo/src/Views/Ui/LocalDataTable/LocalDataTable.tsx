@@ -5,10 +5,11 @@ import { Tag } from "primereact/tag";
 import type { ColumnProps } from "primereact/column";
 
 import "./index.css";
+import { useState } from "react";
 
 export const LocalDataTable = () => {
   const { t } = useTranslation("ui");
-
+  const [dataToDelete, setDataToDelete] = useState({})
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "username",
@@ -61,11 +62,12 @@ export const LocalDataTable = () => {
             onView={() => {}}
             onEdit={() => {}}
             onDelete={() => {
-              console.log(data);
+              console.log(data)
             }}
             requireConfirmationOnDelete={true}
             message={t("table.actionMenu.confirmationModal.message")}
             header={t("table.actionMenu.confirmationModal.header")}
+            data={data}
           />
         );
       },
