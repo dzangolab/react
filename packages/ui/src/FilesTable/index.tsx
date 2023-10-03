@@ -9,6 +9,7 @@ import {
   ConfirmationModal,
   DataTable,
   FileMessages,
+  LazyTableState,
   VisibleFileDetails,
   formatDate,
 } from "../index";
@@ -34,8 +35,7 @@ export interface IFile {
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetchFiles?: (arguments_?: any) => void;
+  fetchFiles?: (arguments_?: LazyTableState) => void;
   files: Array<IFile>;
   id?: string;
   loading?: boolean;

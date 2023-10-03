@@ -7,8 +7,7 @@ export interface ITableProperties<D extends object>
   totalRecords?: number;
   data: Array<D>;
   columns: Array<ColumnProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetchData?: (arguments_?: any) => void;
+  fetchData?: (arguments_?: LazyTableState) => void;
 
   // filtering
   initialFilters?: DataTableFilterMeta;

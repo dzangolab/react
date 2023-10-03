@@ -1,9 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable, useManipulateColumns } from "@dzangolab/react-ui";
+import {
+  DataTable,
+  LazyTableState,
+  useManipulateColumns,
+} from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
-import { DataTableStateEvent } from "primereact/datatable";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
@@ -24,7 +27,7 @@ export type UsersTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  fetchUsers: (arguments_?: DataTableStateEvent) => void;
+  fetchUsers: (arguments_?: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;

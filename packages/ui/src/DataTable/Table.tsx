@@ -6,7 +6,7 @@ import {
 import React, { useState, useEffect, useMemo } from "react";
 
 import { TABLE_DEFAULT } from "./constants";
-import { ITableProperties } from "./types";
+import { ITableProperties, LazyTableState } from "./types";
 
 export const DataTable = ({
   columns,
@@ -26,14 +26,14 @@ export const DataTable = ({
   rowClassName,
   ...tableOptions // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: ITableProperties<any>) => {
-  const [lazyState, setlazyState] = useState({
+  const [lazyState, setlazyState] = useState<LazyTableState>({
     first: 0,
     rows: defaultRowsPerPage,
     page: 1,
     sortField: "",
     sortOrder: undefined,
     filters: initialFilters,
-  } as DataTableStateEvent);
+  });
 
   useEffect(() => {
     if (fetchData) {
@@ -41,15 +41,15 @@ export const DataTable = ({
     }
   }, [lazyState, fetchData]);
 
-  const onPage = (event: DataTableStateEvent) => {
+  const onPage = (event: LazyTableState & DataTableStateEvent) => {
     setlazyState(event);
   };
 
-  const onSort = (event: DataTableStateEvent) => {
+  const onSort = (event: LazyTableState & DataTableStateEvent) => {
     setlazyState(event);
   };
 
-  const onFilter = (event: DataTableStateEvent) => {
+  const onFilter = (event: LazyTableState & DataTableStateEvent) => {
     event["first"] = 0;
     setlazyState(event);
   };

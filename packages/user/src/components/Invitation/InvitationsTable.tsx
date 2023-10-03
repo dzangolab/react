@@ -1,5 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable, useManipulateColumns } from "@dzangolab/react-ui";
+import {
+  DataTable,
+  LazyTableState,
+  useManipulateColumns,
+} from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -19,7 +23,6 @@ import type {
   ResendInvitationResponse,
   RevokeInvitationResponse,
 } from "../../types";
-import type { DataTableStateEvent } from "primereact/datatable";
 
 type VisibleColumn =
   | "email"
@@ -35,7 +38,7 @@ export type InvitationsTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  fetchInvitations: (arguments_?: DataTableStateEvent) => void;
+  fetchInvitations: (arguments_?: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
