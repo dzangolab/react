@@ -20,11 +20,9 @@
       "age": "Age (fr)",
       "action": "Action (fr)"
     },
-    "actionMenu": {
-      "confirmationModal": {
-        "message": "Are you sure you want to delete? (fr)",
-        "header": "Confirm delete (fr)"
-      }
+    "action": {
+      "message": "Are you sure you want to delete? (fr)",
+      "header": "Confirm delete (fr)"
     }
   },
   "files": {
