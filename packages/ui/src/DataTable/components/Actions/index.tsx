@@ -3,8 +3,8 @@ import { ButtonProps } from "primereact/button";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { ConfirmationModal } from "@/ConfirmationModal";
-import { Menu } from "@/Menu";
+import { ConfirmationModal } from "../../../ConfirmationModal";
+import { Menu } from "../../../Menu";
 
 export interface ActionsMenuProperties {
   actions?: MenuItem[];
