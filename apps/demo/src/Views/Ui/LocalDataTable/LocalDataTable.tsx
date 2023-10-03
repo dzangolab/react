@@ -5,7 +5,6 @@ import { Tag } from "primereact/tag";
 import type { ColumnProps } from "primereact/column";
 
 import "./index.css";
-import { useState } from "react";
 
 export const LocalDataTable = () => {
   const { t } = useTranslation("ui");
@@ -65,8 +64,8 @@ export const LocalDataTable = () => {
               console.log(data);
             }}
             requireConfirmationOnDelete={false}
-            deleteConfirmationMessage={t("table.action.message")}
-            deleteConfirmationHeader={t("table.action.header")}
+            deleteConfirmationMessage={t("table.delete.message")}
+            deleteConfirmationHeader={t("table.delete.header")}
             data={data}
           />
         );

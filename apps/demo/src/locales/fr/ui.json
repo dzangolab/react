@@ -20,7 +20,7 @@
       "age": "Age (fr)",
       "action": "Action (fr)"
     },
-    "action": {
+    "delete": {
       "message": "Are you sure you want to delete? (fr)",
       "header": "Confirm delete (fr)"
     }
