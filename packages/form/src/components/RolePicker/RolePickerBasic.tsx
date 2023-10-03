@@ -4,6 +4,8 @@ import React from "react";
 
 import { ErrorMessage } from "../ErrorMessage";
 
+import type { ErrorOption } from "react-hook-form";
+
 interface Role {
   name: string;
   id: number;
@@ -17,7 +19,7 @@ interface IProperties {
   onChange: (role: Role) => void;
   inputRef: React.Ref<HTMLInputElement>;
   options: Role[];
-  error?: any;
+  error?: ErrorOption;
 }
 
 export const RolePickerBasic = ({

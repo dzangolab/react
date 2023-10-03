@@ -1,4 +1,4 @@
-import { Email, FormFileInput } from "@dzangolab/react-form";
+import { FormFileInput } from "@dzangolab/react-form";
 import { Provider } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
@@ -15,7 +15,6 @@ export const FormWithFileInputButton: React.FC = () => {
       formData.set(name, values[name]);
     }
 
-    console.log("values", formData.get("images"), formData.get("uploadedBy"));
     // Implement your own form submission logic here.
   };
 

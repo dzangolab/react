@@ -1,5 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable } from "@dzangolab/react-ui";
+import {
+  DataTable,
+  LazyTableState,
+  useManipulateColumns,
+} from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -16,21 +20,20 @@ import type {
   InvitationExpiryDateField,
 } from "@/types";
 
-type VisibleColumn = "name" | "email" | "roles" | "signedUpAt";
+type VisibleColumn = "name" | "email" | "roles" | "signedUpAt" | string;
 
 export type UsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  extraColumns?: Array<ColumnProps>;
-  fetchUsers: (arguments_?: any) => void;
+  fetchUsers: (arguments_?: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
-  additionalColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
@@ -43,12 +46,11 @@ export const UsersTable = ({
   additionalInvitationFields,
   apps,
   className = "table-users",
-  columns,
+  columns = [],
   fetchUsers,
   id = "table-users",
   invitationExpiryDateField,
   inviteButtonIcon,
-  additionalColumns = [],
   loading = false,
   onInvitationAdded,
   prepareInvitationData,
@@ -68,7 +70,6 @@ export const UsersTable = ({
     {
       field: "name",
       header: t("table.defaultColumns.name"),
-      hidden: !visibleColumns.includes("name"),
       sortable: false,
       body: (data) => {
         return (
@@ -81,19 +82,15 @@ export const UsersTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumns.includes("email"),
       sortable: true,
-      filter: true,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
     },
-
     {
       align: "center",
       field: "roles",
       header: t("table.defaultColumns.roles"),
-      hidden: !visibleColumns.includes("roles"),
       body: (data) => {
         if (data?.roles) {
           return (
@@ -125,11 +122,9 @@ export const UsersTable = ({
         );
       },
     },
-    ...additionalColumns,
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      hidden: !visibleColumns.includes("signedUpAt"),
       body: (data) => {
         const date = new Date(data.signedUpAt);
 
@@ -138,6 +133,12 @@ export const UsersTable = ({
     },
   ];
 
+  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+    visibleColumns,
+    columns: [...defaultColumns, ...columns],
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rowClassNameCallback = (data: any) => {
     return `user-${data.id}`;
   };
@@ -165,7 +166,7 @@ export const UsersTable = ({
   return (
     <DataTable
       className={className}
-      columns={columns ? columns : defaultColumns}
+      columns={processedColumns}
       data={users}
       emptyMessage={t("app:table.emptyMessage")}
       fetchData={fetchUsers}

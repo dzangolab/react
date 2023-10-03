@@ -20,6 +20,7 @@ interface Properties {
   buttonIcon?: IconType<ButtonProps>;
   expiryDateField?: InvitationExpiryDateField;
   onSubmitted?: (response: AddInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareData?: (data: any) => any;
   roles?: InvitationRoleOption[];
 }

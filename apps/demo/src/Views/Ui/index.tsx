@@ -177,15 +177,9 @@ const componentList = [
           "filesize",
         ]}
         presentation="table"
-        onEditDescription={(file: any) => {
-          console.log(file);
-        }}
-        onFileDownload={(file: any) => {
-          console.log(file);
-        }}
-        onFileView={(file: any) => {
-          console.log(file);
-        }}
+        onEditDescription={() => {}}
+        onFileDownload={() => {}}
+        onFileView={() => {}}
         files={[
           {
             filename: "file1.png",

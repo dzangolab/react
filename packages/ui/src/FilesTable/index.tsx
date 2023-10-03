@@ -4,15 +4,16 @@ import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
 import ConfirmationFileActions from "../FileCard/ConfirmationFileActions";
-
 import {
   ActionsMenu,
   ConfirmationModal,
   DataTable,
   FileMessages,
+  LazyTableState,
   VisibleFileDetails,
   formatDate,
 } from "../index";
+import { useManipulateColumns } from "../utils";
 
 import type { ComponentProps } from "react";
 
@@ -34,19 +35,18 @@ export interface IFile {
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
-  extraColumns?: Array<ColumnProps>;
-  fetchFiles?: (arguments_?: any) => void;
+  fetchFiles?: (arguments_?: LazyTableState) => void;
   files: Array<IFile>;
   id?: string;
   loading?: boolean;
-  onFileArchive?: (arguments_: any) => void;
+  onFileArchive?: (arguments_: IFile) => void;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  onFileDownload?: (arguments_: any) => void;
-  onFileDelete?: (arguments_: any) => void;
+  onFileDownload?: (arguments_: IFile) => void;
+  onFileDelete?: (arguments_: IFile) => void;
   deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  onEditDescription?: (arguments_: any) => void;
-  onFileShare?: (arguments_: any) => void;
-  onFileView?: (arguments_: any) => void;
+  onEditDescription?: (arguments_: IFile) => void;
+  onFileShare?: (arguments_: IFile) => void;
+  onFileView?: (arguments_: IFile) => void;
   totalRecords?: number;
   messages?: TableMessages;
   visibleColumns?: VisibleFileDetails[];
@@ -55,13 +55,12 @@ export type FilesTableProperties = {
 export const FilesTable = ({
   archiveConfirmationProps,
   className,
-  columns,
+  columns = [],
   deleteConfirmationProps,
   id,
   loading,
   files,
   totalRecords,
-  extraColumns = [],
   fetchFiles,
   messages,
   visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
@@ -99,8 +98,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.downloadAction || "Download",
         icon: "pi pi-download",
-        command: (event) =>
-          onFileDownload?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileDownload?.(file),
       });
     }
 
@@ -108,8 +106,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.editDescriptionAction || "Edit description",
         icon: "pi pi-pencil",
-        command: (event) =>
-          onEditDescription?.({ ...event.originalEvent, data: { file } }),
+        command: () => onEditDescription?.(file),
       });
     }
 
@@ -117,8 +114,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.shareAction || "Share",
         icon: "pi pi-share-alt",
-        command: (event) =>
-          onFileShare?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileShare?.(file),
       });
     }
 
@@ -126,8 +122,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.viewAction || "Share",
         icon: "pi pi-eye",
-        command: (event) =>
-          onFileView?.({ ...event.originalEvent, data: { file } }),
+        command: () => onFileView?.(file),
       });
     }
 
@@ -158,23 +153,19 @@ export const FilesTable = ({
       sortable: true,
       filter: true,
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
-      hidden: !visibleColumns.includes("filename"),
       showFilterMenu: false,
       showClearButton: false,
     },
     {
       field: "description",
       header: messages?.descriptionHeader || "Description",
-      hidden: !visibleColumns.includes("description"),
       body: (data) => {
         return data.description;
       },
     },
-    ...extraColumns,
     {
       field: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      hidden: !visibleColumns.includes("uploadedBy"),
       body: (data) => {
         if (!data.uploadedBy) {
           return <code>&#8212;</code>;
@@ -192,7 +183,6 @@ export const FilesTable = ({
     {
       field: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
-      hidden: !visibleColumns.includes("uploadedAt"),
       body: (data) => {
         return formatDate(data.uploadedAt);
       },
@@ -200,7 +190,6 @@ export const FilesTable = ({
     {
       field: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
-      hidden: !visibleColumns.includes("downloadCount"),
       body: (data) => {
         return data.downloadCount;
       },
@@ -208,7 +197,6 @@ export const FilesTable = ({
     {
       field: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      hidden: !visibleColumns.includes("lastDownloadedAt"),
       body: (data) => {
         if (data.lastDownloadedAt) {
           return formatDate(data.lastDownloadedAt);
@@ -220,14 +208,18 @@ export const FilesTable = ({
       align: "center",
       field: "actions",
       header: messages?.actionsHeader || "Actions",
-      hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return <ActionsMenu actions={getActionsItem(data)} />;
       },
     },
   ];
 
-  const rowClassNameCallback = (data: any) => {
+  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+    visibleColumns,
+    columns: [...defaultColumns, ...columns],
+  });
+
+  const rowClassNameCallback = (data: { id: string | number }) => {
     return `files-${data.id}`;
   };
 
@@ -236,7 +228,7 @@ export const FilesTable = ({
       <DataTable
         className={className}
         dataKey="filename"
-        columns={columns ? columns : defaultColumns}
+        columns={processedColumns}
         data={files}
         emptyMessage={messages?.tableEmpty || "The table is empty"}
         fetchData={fetchFiles}
@@ -250,7 +242,7 @@ export const FilesTable = ({
         {...tableProperties}
       ></DataTable>
       <ConfirmationFileActions
-        file={removeableFile}
+        file={removeableFile as IFile}
         setVisibleArchiveConfirmation={(isVisible) =>
           setVisibleArchiveConfirmation(isVisible)
         }

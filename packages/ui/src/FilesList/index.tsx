@@ -1,6 +1,5 @@
 import { Button } from "primereact/button";
 import { ComponentProps, ReactNode } from "react";
-import { vi } from "vitest";
 
 import {
   FileCard,
@@ -24,7 +23,7 @@ export type FilesListType = {
   onFileArchive?: (arguments_: IFile) => void;
   onFileDelete?: (arguments_: IFile) => void;
   onFileDownload?: (arguments_: IFile) => void;
-  onEditDescription?: (arguments_: any) => void;
+  onEditDescription?: (arguments_: IFile) => void;
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
   renderFileThumbnail?: (arguments_: IFile) => ReactNode;

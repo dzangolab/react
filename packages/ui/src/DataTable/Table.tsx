@@ -1,5 +1,8 @@
 import { Column } from "primereact/column";
-import { DataTable as PDataTable } from "primereact/datatable";
+import {
+  DataTableStateEvent,
+  DataTable as PDataTable,
+} from "primereact/datatable";
 import React, { useState, useEffect, useMemo } from "react";
 
 import { TABLE_DEFAULT } from "./constants";
@@ -21,13 +24,13 @@ export const DataTable = ({
   totalRecords = TABLE_DEFAULT.TOTAL_RECORDS,
   fetchData,
   rowClassName,
-  ...tableOptions
+  ...tableOptions // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: ITableProperties<any>) => {
   const [lazyState, setlazyState] = useState<LazyTableState>({
     first: 0,
     rows: defaultRowsPerPage,
     page: 1,
-    sortField: undefined,
+    sortField: "",
     sortOrder: undefined,
     filters: initialFilters,
   });
@@ -38,15 +41,15 @@ export const DataTable = ({
     }
   }, [lazyState, fetchData]);
 
-  const onPage = (event: any) => {
+  const onPage = (event: LazyTableState & DataTableStateEvent) => {
     setlazyState(event);
   };
 
-  const onSort = (event: any) => {
+  const onSort = (event: LazyTableState & DataTableStateEvent) => {
     setlazyState(event);
   };
 
-  const onFilter = (event: any) => {
+  const onFilter = (event: LazyTableState & DataTableStateEvent) => {
     event["first"] = 0;
     setlazyState(event);
   };

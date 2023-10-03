@@ -1,5 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable } from "@dzangolab/react-ui";
+import {
+  DataTable,
+  LazyTableState,
+  useManipulateColumns,
+} from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -16,7 +20,9 @@ import type {
   InvitationAppOption,
   InvitationRoleOption,
   InvitationExpiryDateField,
-} from "@/types";
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
+} from "../../types";
 
 type VisibleColumn =
   | "email"
@@ -24,23 +30,24 @@ type VisibleColumn =
   | "role"
   | "invitedBy"
   | "expiresAt"
-  | "actions";
+  | "actions"
+  | string;
 
 export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  additionalColumns?: Array<ColumnProps>;
-  fetchInvitations: (arguments_?: any) => void;
+  fetchInvitations: (arguments_?: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
   invitations: Array<object>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
-  onInvitationResent?: (data: any) => void;
-  onInvitationRevoked?: (data: any) => void;
+  onInvitationResent?: (data: ResendInvitationResponse) => void;
+  onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
@@ -53,9 +60,8 @@ export const InvitationsTable = ({
   additionalInvitationFields,
   apps,
   className = "table-invitations",
-  columns,
+  columns = [],
   invitationExpiryDateField,
-  additionalColumns = [],
   fetchInvitations,
   id = "table-invitations",
   inviteButtonIcon,
@@ -87,9 +93,7 @@ export const InvitationsTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumns.includes("email"),
       sortable: true,
-      filter: true,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -98,8 +102,7 @@ export const InvitationsTable = ({
       align: "center",
       field: "app",
       header: t("table.defaultColumns.app"),
-      hidden: !visibleColumns.includes("app"),
-      body: (data: { appId: any }) => {
+      body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
     },
@@ -107,7 +110,6 @@ export const InvitationsTable = ({
       align: "center",
       field: "role",
       header: t("table.defaultColumns.role"),
-      hidden: !visibleColumns.includes("role"),
       body: (data) => {
         if (data?.roles) {
           return (
@@ -139,11 +141,9 @@ export const InvitationsTable = ({
         );
       },
     },
-    ...additionalColumns,
     {
       field: "invitedBy",
       header: t("table.defaultColumns.invitedBy"),
-      hidden: !visibleColumns.includes("invitedBy"),
       body: (data) => {
         if (!data.invitedBy) {
           return <code>&#8212;</code>;
@@ -161,7 +161,6 @@ export const InvitationsTable = ({
     {
       field: "expiresAt",
       header: t("table.defaultColumns.expiresAt"),
-      hidden: !visibleColumns.includes("expiresAt"),
       body: (data) => {
         const date = new Date(data.expiresAt);
 
@@ -172,7 +171,6 @@ export const InvitationsTable = ({
       align: "center",
       field: "actions",
       header: t("table.defaultColumns.actions"),
-      hidden: !visibleColumns.includes("actions"),
       body: (data) => {
         return (
           <>
@@ -187,6 +185,12 @@ export const InvitationsTable = ({
     },
   ];
 
+  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+    visibleColumns,
+    columns: [...defaultColumns, ...columns],
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rowClassNameCallback = (data: any) => {
     return `invitations-${data.id}`;
   };
@@ -212,11 +216,11 @@ export const InvitationsTable = ({
   return (
     <DataTable
       className={className}
-      columns={columns ? columns : defaultColumns}
+      columns={processedColumns}
       data={invitations}
       emptyMessage={t("table.emptyMessage")}
       fetchData={fetchInvitations}
-      header={renderHeader}
+      header={renderHeader()}
       id={id}
       initialFilters={initialFilters}
       loading={loading}

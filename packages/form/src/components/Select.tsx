@@ -7,7 +7,9 @@ interface ISelect {
   label?: string;
   name: string;
   options: { value: string; label: string; disabled?: boolean }[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
 }
 

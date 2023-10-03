@@ -19,8 +19,11 @@ export interface ActionsMenuProperties {
   viewIcon?: string;
   viewLabel?: string;
   requireConfirmationOnDelete?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDelete?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onEdit?: (arguments_: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onView?: (arguments_: any) => void;
 }
 
