@@ -19,7 +19,7 @@ export interface ActionsMenuProperties {
   viewIcon?: string;
   viewLabel?: string;
   requireConfirmationOnDelete?: boolean;
-  onDelete?: (arguments_?: any) => void;
+  onDelete?: (arguments_: any) => void;
   onEdit?: (arguments_: any) => void;
   onView?: (arguments_: any) => void;
 }
