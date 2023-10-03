@@ -34,8 +34,7 @@ export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
-  columnOptions?: Array<ColumnProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns?: Array<ColumnProps>;
   fetchInvitations: (arguments_?: DataTableStateEvent) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
@@ -58,7 +57,7 @@ export const InvitationsTable = ({
   additionalInvitationFields,
   apps,
   className = "table-invitations",
-  columnOptions = [],
+  columns = [],
   invitationExpiryDateField,
   fetchInvitations,
   id = "table-invitations",
@@ -185,7 +184,7 @@ export const InvitationsTable = ({
 
   const processedColumns: Array<ColumnProps> = useManipulateColumns({
     visibleColumns,
-    columns: [...defaultColumns, ...columnOptions],
+    columns: [...defaultColumns, ...columns],
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

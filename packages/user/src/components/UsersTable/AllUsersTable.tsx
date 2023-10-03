@@ -3,6 +3,7 @@ import { DataTable, useManipulateColumns } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
+import { DataTableStateEvent } from "primereact/datatable";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
@@ -14,6 +15,8 @@ import type {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
 } from "@/types";
 
 type VisibleColumn =
@@ -31,17 +34,14 @@ export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
-  columnOptions?: Array<ColumnProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetchUsers?: (arguments_?: any) => void;
+  columns?: Array<ColumnProps>;
+  fetchUsers?: (arguments_?: DataTableStateEvent) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onInvitationResent?: (data: any) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onInvitationRevoked?: (data: any) => void;
+  onInvitationResent?: (data: ResendInvitationResponse) => void;
+  onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
@@ -56,7 +56,7 @@ export const AllUsersTable = ({
   additionalInvitationFields,
   apps,
   className = "table-users",
-  columnOptions = [],
+  columns = [],
   fetchUsers,
   id = "table-users",
   inviteButtonIcon,
@@ -223,7 +223,7 @@ export const AllUsersTable = ({
 
   const processedColumns: Array<ColumnProps> = useManipulateColumns({
     visibleColumns,
-    columns: [...defaultColumns, ...columnOptions],
+    columns: [...defaultColumns, ...columns],
   });
 
   const rowClassNameCallback = (data: {

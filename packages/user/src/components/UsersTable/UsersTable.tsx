@@ -3,6 +3,7 @@ import { DataTable, useManipulateColumns } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
+import { DataTableStateEvent } from "primereact/datatable";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
@@ -22,9 +23,8 @@ export type UsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
-  columnOptions?: Array<ColumnProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetchUsers: (arguments_?: any) => void;
+  columns?: Array<ColumnProps>;
+  fetchUsers: (arguments_?: DataTableStateEvent) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -43,7 +43,7 @@ export const UsersTable = ({
   additionalInvitationFields,
   apps,
   className = "table-users",
-  columnOptions = [],
+  columns = [],
   fetchUsers,
   id = "table-users",
   invitationExpiryDateField,
@@ -132,7 +132,7 @@ export const UsersTable = ({
 
   const processedColumns: Array<ColumnProps> = useManipulateColumns({
     visibleColumns,
-    columns: [...defaultColumns, ...columnOptions],
+    columns: [...defaultColumns, ...columns],
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

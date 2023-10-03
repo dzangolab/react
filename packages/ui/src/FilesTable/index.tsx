@@ -33,7 +33,7 @@ export interface IFile {
 
 export type FilesTableProperties = {
   className?: string;
-  columnOptions?: Array<ColumnProps>;
+  columns?: Array<ColumnProps>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetchFiles?: (arguments_?: any) => void;
   files: Array<IFile>;
@@ -55,7 +55,7 @@ export type FilesTableProperties = {
 export const FilesTable = ({
   archiveConfirmationProps,
   className,
-  columnOptions = [],
+  columns = [],
   deleteConfirmationProps,
   id,
   loading,
@@ -216,7 +216,7 @@ export const FilesTable = ({
 
   const processedColumns: Array<ColumnProps> = useManipulateColumns({
     visibleColumns,
-    columns: [...defaultColumns, ...columnOptions],
+    columns: [...defaultColumns, ...columns],
   });
 
   const rowClassNameCallback = (data: { id: string | number }) => {

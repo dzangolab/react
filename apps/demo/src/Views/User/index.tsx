@@ -169,7 +169,7 @@ const componentList = [
           "lastSignedUpAt",
           "signedUpAt",
         ]}
-        columnOptions={[
+        columns={[
           {
             field: "email",
             filter: false,
