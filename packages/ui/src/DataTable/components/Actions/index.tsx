@@ -86,16 +86,18 @@ export const ActionsMenu = ({
   return (
     <>
       <Menu model={items} buttonOptions={buttonOptions} />
-      <ConfirmationModal
-        visible={showDeleteConfirmation && !!onDelete}
-        message={deleteConfirmationMessage}
-        header={deleteConfirmationHeader}
-        onHide={() => setShowDeleteConfirmation(false)}
-        accept={() => {
-          onDelete?.(data);
-          setShowDeleteConfirmation(false);
-        }}
-      />
+      {!!onDelete && requireConfirmationOnDelete && (
+        <ConfirmationModal
+          visible={showDeleteConfirmation}
+          message={deleteConfirmationMessage}
+          header={deleteConfirmationHeader}
+          onHide={() => setShowDeleteConfirmation(false)}
+          accept={() => {
+            onDelete(data);
+            setShowDeleteConfirmation(false);
+          }}
+        />
+      )}
     </>
   );
 };
