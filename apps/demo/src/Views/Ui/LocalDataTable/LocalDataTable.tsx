@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export const LocalDataTable = () => {
   const { t } = useTranslation("ui");
-  const [dataToDelete, setDataToDelete] = useState({})
+
   const defaultColumns: Array<ColumnProps> = [
     {
       field: "username",
