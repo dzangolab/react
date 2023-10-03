@@ -63,7 +63,7 @@ export const LocalDataTable = () => {
             onDelete={() => {
               console.log(data);
             }}
-            requireConfirmationOnDelete={false}
+            requireConfirmationOnDelete={true}
             deleteConfirmationMessage={t("table.delete.message")}
             deleteConfirmationHeader={t("table.delete.header")}
             data={data}
