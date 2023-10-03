@@ -162,6 +162,13 @@ const componentList = [
         users={[]}
         fetchUsers={() => {}}
         onInvitationAdded={() => {}}
+        visibleColumns={["email", "name", "roles", "signedUpAt"]}
+        columns={[
+          {
+            field: "email",
+            filter: false,
+          },
+        ]}
       />
     ),
   },
@@ -173,14 +180,13 @@ const componentList = [
         invitations={[]}
         fetchInvitations={() => {}}
         onInvitationAdded={() => {}}
-        filterableColumns={["email"]}
       />
     ),
   },
   {
     key: 8,
     title: "All users table",
-    component: <AllUsersTable users={allUsers} filterableColumns={[]} />,
+    component: <AllUsersTable users={allUsers} />,
   },
 ];
 

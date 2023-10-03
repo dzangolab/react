@@ -36,7 +36,8 @@ export type VisibleFileDetails =
   | "uploadedAt"
   | "downloadCount"
   | "lastDownloadedAt"
-  | "actions";
+  | "actions"
+  | string;
 
 type FileCardType = {
   file: IFile;

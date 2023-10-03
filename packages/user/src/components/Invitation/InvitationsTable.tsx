@@ -1,5 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable, useColumnsMap } from "@dzangolab/react-ui";
+import {
+  DataTable,
+  LazyTableState,
+  useManipulateColumns,
+} from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -19,7 +23,6 @@ import type {
   ResendInvitationResponse,
   RevokeInvitationResponse,
 } from "../../types";
-import type { DataTableStateEvent } from "primereact/datatable";
 
 type VisibleColumn =
   | "email"
@@ -27,18 +30,15 @@ type VisibleColumn =
   | "role"
   | "invitedBy"
   | "expiresAt"
-  | "actions";
-
-type FilterableColumn = "email" | "app" | "role" | "invitedBy" | "expiresAt";
+  | "actions"
+  | string;
 
 export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  additionalColumns?: Array<ColumnProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetchInvitations: (arguments_?: DataTableStateEvent) => void;
+  fetchInvitations: (arguments_?: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -54,16 +54,14 @@ export type InvitationsTableProperties = {
   showInviteAction?: boolean;
   totalRecords?: number;
   visibleColumns?: VisibleColumn[];
-  filterableColumns?: FilterableColumn[];
 };
 
 export const InvitationsTable = ({
   additionalInvitationFields,
   apps,
   className = "table-invitations",
-  columns,
+  columns = [],
   invitationExpiryDateField,
-  additionalColumns = [],
   fetchInvitations,
   id = "table-invitations",
   inviteButtonIcon,
@@ -84,12 +82,8 @@ export const InvitationsTable = ({
     "expiresAt",
     "actions",
   ],
-  filterableColumns = ["email"],
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("invitations");
-
-  const visibleColumnsMap = useColumnsMap(visibleColumns);
-  const filterableColumnsMap = useColumnsMap(filterableColumns);
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -99,9 +93,7 @@ export const InvitationsTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumnsMap.email,
       sortable: true,
-      filter: filterableColumnsMap.email,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
@@ -110,8 +102,6 @@ export const InvitationsTable = ({
       align: "center",
       field: "app",
       header: t("table.defaultColumns.app"),
-      hidden: !visibleColumnsMap.app,
-      filter: filterableColumnsMap.app,
       body: (data: { appId: number | null }) => {
         return <span>{data.appId || "-"} </span>;
       },
@@ -120,8 +110,6 @@ export const InvitationsTable = ({
       align: "center",
       field: "role",
       header: t("table.defaultColumns.role"),
-      hidden: !visibleColumnsMap.role,
-      filter: filterableColumnsMap.role,
       body: (data) => {
         if (data?.roles) {
           return (
@@ -153,12 +141,9 @@ export const InvitationsTable = ({
         );
       },
     },
-    ...additionalColumns,
     {
       field: "invitedBy",
       header: t("table.defaultColumns.invitedBy"),
-      hidden: !visibleColumnsMap.invitedBy,
-      filter: filterableColumnsMap.invitedBy,
       body: (data) => {
         if (!data.invitedBy) {
           return <code>&#8212;</code>;
@@ -176,8 +161,6 @@ export const InvitationsTable = ({
     {
       field: "expiresAt",
       header: t("table.defaultColumns.expiresAt"),
-      hidden: !visibleColumnsMap.expiresAt,
-      filter: filterableColumnsMap.expiresAt,
       body: (data) => {
         const date = new Date(data.expiresAt);
 
@@ -188,7 +171,6 @@ export const InvitationsTable = ({
       align: "center",
       field: "actions",
       header: t("table.defaultColumns.actions"),
-      hidden: !visibleColumnsMap.actions,
       body: (data) => {
         return (
           <>
@@ -202,6 +184,11 @@ export const InvitationsTable = ({
       },
     },
   ];
+
+  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+    visibleColumns,
+    columns: [...defaultColumns, ...columns],
+  });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rowClassNameCallback = (data: any) => {
@@ -229,7 +216,7 @@ export const InvitationsTable = ({
   return (
     <DataTable
       className={className}
-      columns={columns ? columns : defaultColumns}
+      columns={processedColumns}
       data={invitations}
       emptyMessage={t("table.emptyMessage")}
       fetchData={fetchInvitations}

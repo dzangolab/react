@@ -1,5 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DataTable, useColumnsMap } from "@dzangolab/react-ui";
+import {
+  DataTable,
+  LazyTableState,
+  useManipulateColumns,
+} from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { ColumnProps } from "primereact/column";
@@ -16,22 +20,17 @@ import type {
   InvitationExpiryDateField,
 } from "@/types";
 
-type VisibleColumn = "name" | "email" | "roles" | "signedUpAt";
-
-type FilterableColumn = "name" | "email" | "roles" | "signedUpAt";
+type VisibleColumn = "name" | "email" | "roles" | "signedUpAt" | string;
 
 export type UsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  extraColumns?: Array<ColumnProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fetchUsers: (arguments_?: any) => void;
+  fetchUsers: (arguments_?: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
-  additionalColumns?: Array<ColumnProps>;
   loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -41,19 +40,17 @@ export type UsersTableProperties = {
   totalRecords?: number;
   users: Array<object>;
   visibleColumns?: VisibleColumn[];
-  filterableColumns?: FilterableColumn[];
 };
 
 export const UsersTable = ({
   additionalInvitationFields,
   apps,
   className = "table-users",
-  columns,
+  columns = [],
   fetchUsers,
   id = "table-users",
   invitationExpiryDateField,
   inviteButtonIcon,
-  additionalColumns = [],
   loading = false,
   onInvitationAdded,
   prepareInvitationData,
@@ -62,11 +59,8 @@ export const UsersTable = ({
   totalRecords = 0,
   users,
   visibleColumns = ["name", "email", "roles", "signedUpAt"],
-  filterableColumns = ["email"],
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
-  const visibleColumnsMap = useColumnsMap(visibleColumns);
-  const filterableColumnsMap = useColumnsMap(filterableColumns);
 
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
@@ -76,9 +70,7 @@ export const UsersTable = ({
     {
       field: "name",
       header: t("table.defaultColumns.name"),
-      hidden: !visibleColumnsMap.name,
       sortable: false,
-      filter: filterableColumnsMap.name,
       body: (data) => {
         return (
           (data.givenName ? data.givenName : "") +
@@ -90,20 +82,15 @@ export const UsersTable = ({
     {
       field: "email",
       header: t("table.defaultColumns.email"),
-      hidden: !visibleColumnsMap.email,
       sortable: true,
-      filter: filterableColumnsMap.email,
       filterPlaceholder: t("table.searchPlaceholder"),
       showFilterMenu: false,
       showClearButton: false,
     },
-
     {
       align: "center",
       field: "roles",
       header: t("table.defaultColumns.roles"),
-      hidden: !visibleColumnsMap.roles,
-      filter: filterableColumnsMap.roles,
       body: (data) => {
         if (data?.roles) {
           return (
@@ -135,12 +122,9 @@ export const UsersTable = ({
         );
       },
     },
-    ...additionalColumns,
     {
       field: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      hidden: !visibleColumnsMap.signedUpAt,
-      filter: filterableColumnsMap.signedUpAt,
       body: (data) => {
         const date = new Date(data.signedUpAt);
 
@@ -148,6 +132,11 @@ export const UsersTable = ({
       },
     },
   ];
+
+  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+    visibleColumns,
+    columns: [...defaultColumns, ...columns],
+  });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rowClassNameCallback = (data: any) => {
@@ -177,7 +166,7 @@ export const UsersTable = ({
   return (
     <DataTable
       className={className}
-      columns={columns ? columns : defaultColumns}
+      columns={processedColumns}
       data={users}
       emptyMessage={t("app:table.emptyMessage")}
       fetchData={fetchUsers}
