@@ -35,7 +35,7 @@ export interface IFile {
 export type FilesTableProperties = {
   className?: string;
   columns?: Array<ColumnProps>;
-  fetchFiles?: (arguments_?: LazyTableState) => void;
+  fetchFiles?: (arguments_: LazyTableState) => void;
   files: Array<IFile>;
   id?: string;
   loading?: boolean;

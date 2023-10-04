@@ -38,7 +38,7 @@ export type InvitationsTableProperties = {
   apps?: Array<InvitationAppOption>;
   className?: string;
   columns?: Array<ColumnProps>;
-  fetchInvitations: (arguments_?: LazyTableState) => void;
+  fetchInvitations: (arguments_: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;

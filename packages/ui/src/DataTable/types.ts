@@ -7,7 +7,7 @@ export interface ITableProperties<D extends object>
   totalRecords?: number;
   data: Array<D>;
   columns: Array<ColumnProps>;
-  fetchData?: (arguments_?: LazyTableState) => void;
+  fetchData?: (arguments_: LazyTableState) => void;
 
   // filtering
   initialFilters?: DataTableFilterMeta;
