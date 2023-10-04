@@ -163,7 +163,8 @@
       "success": "Email verified successfully (fr)",
       "alreadyVerified": "Email is already verified (fr)",
       "invalidToken": "The token is invalid (fr)",
-      "error": "Some error occured (fr)"
+      "error": "Some error occured (fr)",
+      "unverified": "Please check your email for verification (fr)"
     }
   }
 }

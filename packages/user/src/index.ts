@@ -39,7 +39,7 @@ import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
 import SignUpFirstUser from "./views/SignUpFirstUser";
 import VerifyEmail from "./views/VerifyEmail";
-import VerifyUserEmail from "./views/VerifyEmailUser";
+import EmailVerificationReminder from "./views/EmailVerificationReminder";
 
 import "./assets/css/index.css";
 
@@ -84,7 +84,7 @@ export {
   Signup,
   SignUpFirstUser,
   VerifyEmail,
-  VerifyUserEmail,
+  EmailVerificationReminder,
 
   // utilities
   changePassword,
