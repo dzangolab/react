@@ -162,7 +162,7 @@
     "title": "Email verification",
     "messages": {
       "success": "Email verified successfully",
-      "alreadyVeified": "Email is already verified",
+      "alreadyVerified": "Email is already verified",
       "invalidToken": "The token is invalid",
       "error": "Some error occured"
     }

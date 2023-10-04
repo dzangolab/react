@@ -161,7 +161,7 @@
     "title": "Email verification (fr)",
     "messages": {
       "success": "Email verified successfully (fr)",
-      "alreadyVeified": "Email is already verified (fr)",
+      "alreadyVerified": "Email is already verified (fr)",
       "invalidToken": "The token is invalid (fr)",
       "error": "Some error occured (fr)"
     }

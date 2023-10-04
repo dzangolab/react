@@ -3,6 +3,7 @@ import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+
 import verifyEmail from "@/supertokens/verifyEmail";
 
 const VerifyEmail = () => {
