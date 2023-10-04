@@ -20,6 +20,7 @@ import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
+import checkVerifiedEmail from "./supertokens/checkVerifiedEmail";
 import forgetPassword from "./supertokens/forget-password";
 import googleLogin from "./supertokens/google-login";
 import { verifySessionRoles } from "./supertokens/helpers";
@@ -27,6 +28,7 @@ import login from "./supertokens/login";
 import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
+import verifyEmail from "./supertokens/verifyEmail";
 import UserToastContainer from "./toastify";
 import AcceptInvitation from "./views/AcceptInvitation";
 import ChangePassword from "./views/ChangePassword";
@@ -37,6 +39,7 @@ import ResetPassword from "./views/ResetPassword";
 import Signup from "./views/Signup";
 import SignUpFirstUser from "./views/SignUpFirstUser";
 import VerifyEmail from "./views/VerifyEmail";
+import VerifyUserEmail from "./views/VerifyEmailUser";
 
 import "./assets/css/index.css";
 
@@ -81,6 +84,7 @@ export {
   Signup,
   SignUpFirstUser,
   VerifyEmail,
+  VerifyUserEmail,
 
   // utilities
   changePassword,
@@ -97,6 +101,8 @@ export {
   useUser,
   userContext,
   verifySessionRoles,
+  verifyEmail,
+  checkVerifiedEmail,
 };
 
 export type {
