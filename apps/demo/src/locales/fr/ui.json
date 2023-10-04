@@ -17,7 +17,12 @@
       "userName": "User name (fr)",
       "email": "Email (fr)",
       "roles": "Roles (fr)",
-      "age": "Age (fr)"
+      "age": "Age (fr)",
+      "action": "Action (fr)"
+    },
+    "delete": {
+      "message": "Are you sure you want to delete? (fr)",
+      "header": "Confirm delete (fr)"
     }
   },
   "files": {

@@ -1,19 +1,24 @@
 //import { useRouter } from 'next/router';
 import { ButtonProps } from "primereact/button";
 import { MenuItem } from "primereact/menuitem";
-import React from "react";
+import React, { useState } from "react";
 
+import { ConfirmationModal } from "../../../ConfirmationModal";
 import { Menu } from "../../../Menu";
 
 export interface ActionsMenuProperties {
   actions?: MenuItem[];
   buttonOptions?: Omit<ButtonProps, "onClick">;
+  data?: object;
   deleteIcon?: string;
   deleteLabel?: string;
   editIcon?: string;
   editLabel?: string;
+  deleteConfirmationHeader?: string;
+  deleteConfirmationMessage?: string;
   viewIcon?: string;
   viewLabel?: string;
+  requireConfirmationOnDelete?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDelete?: (arguments_: any) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,16 +30,22 @@ export interface ActionsMenuProperties {
 export const ActionsMenu = ({
   actions,
   buttonOptions: pButtonOptions,
+  data,
   deleteIcon,
   deleteLabel,
   editIcon,
   editLabel,
+  deleteConfirmationHeader,
+  deleteConfirmationMessage,
   viewIcon,
   viewLabel,
   onDelete,
   onEdit,
   onView,
+  requireConfirmationOnDelete,
 }: ActionsMenuProperties) => {
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+
   const buttonOptions = {
     icon: "pi pi-cog",
     ...pButtonOptions,
@@ -64,10 +75,32 @@ export const ActionsMenu = ({
         label: deleteLabel || "Delete",
         icon: deleteIcon || "pi pi-trash",
         className: "danger",
-        command: onDelete,
+        command: () => {
+          if (requireConfirmationOnDelete) {
+            setShowDeleteConfirmation(true);
+          } else {
+            onDelete(data);
+          }
+        },
       });
     }
   }
 
-  return <Menu model={items} buttonOptions={buttonOptions} />;
+  return (
+    <>
+      <Menu model={items} buttonOptions={buttonOptions} />
+      {!!onDelete && requireConfirmationOnDelete && (
+        <ConfirmationModal
+          visible={showDeleteConfirmation}
+          message={deleteConfirmationMessage}
+          header={deleteConfirmationHeader}
+          onHide={() => setShowDeleteConfirmation(false)}
+          accept={() => {
+            onDelete(data);
+            setShowDeleteConfirmation(false);
+          }}
+        />
+      )}
+    </>
+  );
 };
