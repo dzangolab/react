@@ -41,7 +41,7 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
   return (
     <Form
       validationSchema={ResetPasswordFormSchema}
-      onSubmit={(data) => handleSubmit(data.newPassword)}
+      onSubmit={(data) => handleSubmit(data.password)}
     >
       <Password
         label={t("resetPassword.form.newPassword.label")}
