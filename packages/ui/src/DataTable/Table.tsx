@@ -105,27 +105,23 @@ export const DataTable = ({
             };
 
             if (column.bodyTooltip) {
+              const wrapperClassName =
+                `${data?.[dataKey]?.replace(/ /g, "-")}` + `-${column.field}`;
+
+              const tooltipContent =
+                typeof column?.bodyTooltip === "string"
+                  ? column?.bodyTooltip
+                  : data?.[column?.field || ""];
+
               return (
                 <>
                   <Tooltip
-                    target={`.${data?.[dataKey]?.replace(/ /g, "-")}-${
-                      column.field
-                    }`}
-                    content={
-                      typeof column?.bodyTooltip === "string"
-                        ? column?.bodyTooltip
-                        : data?.[column?.field || ""]
-                    }
+                    target={`.${wrapperClassName}`}
+                    content={tooltipContent}
                     position="top"
                     {...column?.bodyTooltipOptions}
                   />
-                  <div
-                    className={`${data?.[dataKey]?.replace(/ /g, "-")}-${
-                      column.field
-                    }`}
-                  >
-                    {renderBody()}
-                  </div>
+                  <div className={wrapperClassName}>{renderBody()}</div>
                 </>
               );
             }
