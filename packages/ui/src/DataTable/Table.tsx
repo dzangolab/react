@@ -3,6 +3,7 @@ import {
   DataTableStateEvent,
   DataTable as PDataTable,
 } from "primereact/datatable";
+import { Tooltip } from "primereact/tooltip";
 import React, { useState, useEffect, useMemo } from "react";
 
 import { TABLE_DEFAULT } from "./constants";
@@ -94,6 +95,43 @@ export const DataTable = ({
           key={column.field}
           headerClassName={`column-${column.field}`}
           {...column}
+          body={(data, columnsOptions) => {
+            const renderBody = () => {
+              if (typeof column.body === "function") {
+                return column.body(data, columnsOptions);
+              } else {
+                return column.body;
+              }
+            };
+
+            if (column.bodyTooltip) {
+              return (
+                <>
+                  <Tooltip
+                    target={`.${data?.[dataKey]?.replace(/ /g, "-")}-${
+                      column.field
+                    }`}
+                    content={
+                      typeof column?.bodyTooltip === "string"
+                        ? column?.bodyTooltip
+                        : data?.[column?.field || ""]
+                    }
+                    position="top"
+                    {...column?.bodyTooltipOptions}
+                  />
+                  <div
+                    className={`${data?.[dataKey]?.replace(/ /g, "-")}-${
+                      column.field
+                    }`}
+                  >
+                    {renderBody()}
+                  </div>
+                </>
+              );
+            }
+
+            return renderBody();
+          }}
         />
       ))}
     </PDataTable>

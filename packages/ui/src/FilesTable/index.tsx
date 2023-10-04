@@ -1,5 +1,4 @@
 import { FilterMatchMode } from "primereact/api";
-import { ColumnProps } from "primereact/column";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
@@ -9,6 +8,7 @@ import {
   ConfirmationModal,
   DataTable,
   FileMessages,
+  IColumnProperties,
   LazyTableState,
   VisibleFileDetails,
   formatDate,
@@ -23,7 +23,7 @@ export type TableMessages = {
 } & FileMessages;
 
 export interface IFile {
-  filename: string;
+  originalFileName: string;
   description?: string;
   size?: number;
   uploadedBy: object;
@@ -34,7 +34,7 @@ export interface IFile {
 
 export type FilesTableProperties = {
   className?: string;
-  columns?: Array<ColumnProps>;
+  columns?: Array<IColumnProperties>;
   fetchFiles?: (arguments_: LazyTableState) => void;
   files: Array<IFile>;
   id?: string;
@@ -63,7 +63,7 @@ export const FilesTable = ({
   totalRecords,
   fetchFiles,
   messages,
-  visibleColumns = ["filename", "uploadedBy", "uploadedAt", "actions"],
+  visibleColumns = ["originalFileName", "uploadedBy", "uploadedAt", "actions"],
   onFileArchive,
   onFileDownload,
   onFileDelete,
@@ -143,13 +143,13 @@ export const FilesTable = ({
   };
 
   const initialFilters = {
-    filename: { value: "", matchMode: FilterMatchMode.CONTAINS },
+    originalFileName: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const defaultColumns: Array<ColumnProps> = [
+  const defaultColumns: Array<IColumnProperties> = [
     {
-      field: "filename",
-      header: messages?.filenameHeader || "File",
+      field: "originalFileName",
+      header: messages?.originalFileNameHeader || "File",
       sortable: true,
       filter: true,
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
@@ -159,6 +159,7 @@ export const FilesTable = ({
     {
       field: "description",
       header: messages?.descriptionHeader || "Description",
+      bodyTooltip: true,
       body: (data) => {
         return data.description;
       },
@@ -214,7 +215,7 @@ export const FilesTable = ({
     },
   ];
 
-  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+  const processedColumns: Array<IColumnProperties> = useManipulateColumns({
     visibleColumns,
     columns: [...defaultColumns, ...columns],
   });
@@ -227,7 +228,7 @@ export const FilesTable = ({
     <>
       <DataTable
         className={className}
-        dataKey="filename"
+        dataKey="originalFileName"
         columns={processedColumns}
         data={files}
         emptyMessage={messages?.tableEmpty || "The table is empty"}

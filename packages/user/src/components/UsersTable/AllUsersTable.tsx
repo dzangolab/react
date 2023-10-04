@@ -6,7 +6,6 @@ import {
 } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
-import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
@@ -21,6 +20,7 @@ import type {
   ResendInvitationResponse,
   RevokeInvitationResponse,
 } from "@/types";
+import type { IColumnProperties } from "@dzangolab/react-ui";
 
 type VisibleColumn =
   | "name"
@@ -37,7 +37,7 @@ export type AllUsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
-  columns?: Array<ColumnProps>;
+  columns?: Array<IColumnProperties>;
   fetchUsers?: (arguments_: LazyTableState) => void;
   id?: string;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -89,7 +89,7 @@ export const AllUsersTable = ({
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const defaultColumns: Array<ColumnProps> = [
+  const defaultColumns: Array<IColumnProperties> = [
     {
       field: "name",
       header: t("table.defaultColumns.name"),
@@ -224,7 +224,7 @@ export const AllUsersTable = ({
     },
   ];
 
-  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+  const processedColumns: Array<IColumnProperties> = useManipulateColumns({
     visibleColumns,
     columns: [...defaultColumns, ...columns],
   });

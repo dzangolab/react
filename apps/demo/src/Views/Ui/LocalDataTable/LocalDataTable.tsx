@@ -60,9 +60,7 @@ export const LocalDataTable = () => {
           <ActionsMenu
             onView={() => {}}
             onEdit={() => {}}
-            onDelete={() => {
-              console.log(data);
-            }}
+            onDelete={() => {}}
             requireConfirmationOnDelete={true}
             deleteConfirmationMessage={t("table.delete.message")}
             deleteConfirmationHeader={t("table.delete.header")}

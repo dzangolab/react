@@ -75,20 +75,21 @@ const componentList = [
         onFileArchive={() => {}}
         files={[
           {
-            filename: "myfile",
+            originalFileName: "my file",
+            description: "file1 description",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
             lastDownloadedAt: Date.now(),
           },
           {
-            filename: "myfile2",
+            originalFileName: "my filev2",
             uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
             uploadedAt: Date.now(),
             lastDownloadedAt: Date.now(),
           },
         ]}
         visibleColumns={[
-          "filename",
+          "originalFileName",
           "description",
           "uploadedBy",
           "uploadedAt",
@@ -105,7 +106,7 @@ const componentList = [
     component: (
       <FileCard
         file={{
-          filename: "file1.png",
+          originalFileName: "file1.png",
           description: "This is my file",
           size: 4,
           uploadedBy: { givenName: "Manish", lastName: "Aryal" },
@@ -128,28 +129,28 @@ const componentList = [
       <FilesList
         files={[
           {
-            filename: "file1.png",
+            originalFileName: "file1.png",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
             downloadCount: 5,
             lastDownloadedAt: Date.now(),
           },
           {
-            filename: "document.pdf",
+            originalFileName: "document.pdf",
             uploadedBy: { givenName: "Gaurav", lastName: "Sapkota" },
             uploadedAt: Date.now(),
             downloadCount: 5,
             lastDownloadedAt: Date.now(),
           },
           {
-            filename: "photo.jpeg",
+            originalFileName: "photo.jpeg",
             uploadedBy: { givenName: "Deepak", lastName: "Aryal" },
             uploadedAt: Date.now(),
             downloadCount: 5,
             lastDownloadedAt: Date.now(),
           },
           {
-            filename: "manish.png",
+            originalFileName: "manish.png",
             uploadedBy: { givenName: "Lamdiki", lastName: "Sherpa" },
             uploadedAt: Date.now(),
             downloadCount: 5,
@@ -170,11 +171,11 @@ const componentList = [
           "actions",
           "description",
           "downloadCount",
-          "filename",
+          "originalFileName",
           "uploadedAt",
           "uploadedBy",
           "lastDownloadedAt",
-          "filesize",
+          "fileSize",
         ]}
         presentation="table"
         onEditDescription={() => {}}
@@ -182,7 +183,7 @@ const componentList = [
         onFileView={() => {}}
         files={[
           {
-            filename: "file1.png",
+            originalFileName: "file1.png",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
             downloadCount: 5,
@@ -191,21 +192,21 @@ const componentList = [
             lastDownloadedAt: Date.now(),
           },
           {
-            filename: "document.pdf",
+            originalFileName: "document.pdf",
             uploadedBy: { givenName: "Gaurav", lastName: "Sapkota" },
             uploadedAt: Date.now(),
             downloadCount: 5,
             lastDownloadedAt: Date.now(),
           },
           {
-            filename: "photo.jpeg",
+            originalFileName: "photo.jpeg",
             uploadedBy: { givenName: "Deepak", lastName: "Aryal" },
             uploadedAt: Date.now(),
             downloadCount: 5,
             lastDownloadedAt: Date.now(),
           },
           {
-            filename: "manish.png",
+            originalFileName: "manish.png",
             uploadedBy: { givenName: "Lamdiki", lastName: "Sherpa" },
             uploadedAt: Date.now(),
             downloadCount: 5,
