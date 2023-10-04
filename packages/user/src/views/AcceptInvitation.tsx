@@ -107,7 +107,7 @@ const AcceptInvitation = () => {
     ) {
       return (
         <Card>
-          <p>{t(`invitation.messages.invalidInvitation`)}</p>
+          <p>{t(`invitations.messages.invalidInvitation`)}</p>
         </Card>
       );
     }
