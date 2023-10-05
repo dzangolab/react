@@ -9,5 +9,4 @@ export const TABLE_DEFAULT = {
     "CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
   STRIPED_ROWS: true,
   TOTAL_RECORDS: 0,
-  MAX_ROW_HEIGHT: "2rem",
 };
