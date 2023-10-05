@@ -3,11 +3,12 @@ import {
   DataTableStateEvent,
   DataTable as PDataTable,
 } from "primereact/datatable";
-import { Tooltip } from "primereact/tooltip";
 import React, { useState, useEffect, useMemo } from "react";
 
 import { TABLE_DEFAULT } from "./constants";
-import { ITableProperties, LazyTableState } from "./types";
+import { wrapColumnBody } from "./WrapColumnBody";
+
+import type { ITableProperties, LazyTableState } from "./types";
 
 export const DataTable = ({
   columns,
@@ -96,56 +97,12 @@ export const DataTable = ({
           headerClassName={`column-${column.field}`}
           {...column}
           body={(data, columnsOptions) => {
-            const renderBody = () => {
-              if (typeof column.body === "function") {
-                return column.body(data, columnsOptions);
-              } else {
-                return column.body;
-              }
-            };
-
-            if (column.bodyTooltip) {
-              const wrapperClassName =
-                `${data?.[dataKey]?.replace(/ /g, "-")}` + `-${column.field}`;
-
-              let tooltipContent = "";
-
-              if (typeof column?.bodyTooltip === "function") {
-                tooltipContent = column.bodyTooltip(data);
-              } else if (typeof column?.bodyTooltip === "string") {
-                tooltipContent = column.bodyTooltip;
-              } else {
-                tooltipContent = data?.[column?.field || ""];
-              }
-
-              return (
-                <>
-                  <Tooltip
-                    target={`.${wrapperClassName}`}
-                    content={tooltipContent}
-                    className="table-tooltip"
-                    position="top"
-                    {...column?.bodyTooltipOptions}
-                  />
-                  <div
-                    className={wrapperClassName}
-                    style={{
-                      width: "inherit",
-                      maxWidth: "inherit",
-                      minWidth: "inherit",
-                      height: "inherit",
-                      maxHeight: "inherit",
-                      minHeight: "inherit",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {renderBody()}
-                  </div>
-                </>
-              );
-            }
-
-            return renderBody();
+            return wrapColumnBody({
+              data,
+              columnsOptions,
+              dataKey,
+              column,
+            });
           }}
         />
       ))}
