@@ -76,13 +76,14 @@ const componentList = [
         files={[
           {
             originalFileName: "my file",
-            description: "file1 description",
+            description: "File 1 description",
             uploadedBy: { givenName: "Manish", lastName: "Aryal" },
             uploadedAt: Date.now(),
             lastDownloadedAt: Date.now(),
           },
           {
             originalFileName: "my filev2",
+            description: "File description",
             uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
             uploadedAt: Date.now(),
             lastDownloadedAt: Date.now(),
@@ -103,6 +104,18 @@ const componentList = [
             bodyTooltip: (data) => {
               return `${data.uploadedBy.givenName} ${data.uploadedBy.lastName}`;
             },
+          },
+          {
+            field: "description",
+            bodyTooltipOptions: {
+              style: {
+                maxWidth: "20rem",
+              },
+            },
+          },
+          {
+            field: "uploadedAt",
+            bodyTooltip: true,
           },
         ]}
       />

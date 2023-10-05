@@ -201,16 +201,16 @@ table > thead > tr:first-child {
   }
 
   .table-wrapper
-  > div:first-child
-  > table
-  > thead
-  > tr:last-child
-  > th:last-child
-  > div
-  > div
-  > div {
-  margin: var(--filter-margin-last-item, 0);
-}
+    > div:first-child
+    > table
+    > thead
+    > tr:last-child
+    > th:last-child
+    > div
+    > div
+    > div {
+    margin: var(--filter-margin-last-item, 0);
+  }
 
   .table-wrapper > div:first-child > table > thead > tr:not(:first-child) {
     display: none;
@@ -228,7 +228,7 @@ table > thead > tr:first-child {
 
   .table-wrapper > div:first-child > table > tbody > tr {
     display: block;
-  }
+      }
 
   .table-wrapper > div:first-child > table td {
     border-bottom: none;
@@ -240,4 +240,16 @@ table > thead > tr:first-child {
     content: attr(data-label);
     float: left;
   }
+}
+
+.table-tooltip {
+  max-width: 22rem;
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  max-height: 2.2rem;
+}
+
+.p-datatable .p-datatable-tbody > tr td {
+  max-height: inherit;
 }

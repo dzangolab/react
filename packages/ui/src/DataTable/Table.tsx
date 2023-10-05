@@ -123,10 +123,24 @@ export const DataTable = ({
                   <Tooltip
                     target={`.${wrapperClassName}`}
                     content={tooltipContent}
+                    className="table-tooltip"
                     position="top"
                     {...column?.bodyTooltipOptions}
                   />
-                  <div className={wrapperClassName}>{renderBody()}</div>
+                  <div
+                    className={wrapperClassName}
+                    style={{
+                      width: "inherit",
+                      maxWidth: "inherit",
+                      minWidth: "inherit",
+                      height: "inherit",
+                      maxHeight: "inherit",
+                      minHeight: "inherit",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {renderBody()}
+                  </div>
                 </>
               );
             }
