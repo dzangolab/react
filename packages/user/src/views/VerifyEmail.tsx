@@ -48,6 +48,8 @@ const VerifyEmail = () => {
         }
       })
       .catch(() => {
+        toast.error(`${t("emailVerification.messages.error")}`);
+
         setVerifyEmailLoading(false);
         setMessage(t("emailVerification.messages.error"));
       })
