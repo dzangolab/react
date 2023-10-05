@@ -1,3 +1,23 @@
+# [0.22.0](https://github.com/dzangolab/react/compare/v0.21.0...v0.22.0) (2023-10-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v3.22.3 [security] ([#585](https://github.com/dzangolab/react/issues/585)) ([a1bc2a3](https://github.com/dzangolab/react/commit/a1bc2a376d51e474feaa4653f2ca2b30c57d2b96))
+* invitation table empty row issue ([#584](https://github.com/dzangolab/react/issues/584)) ([4952cdd](https://github.com/dzangolab/react/commit/4952cdddb047c5892d42ba2d32716a85bc4b4f65))
+* **translation-key:** fix typo in translation key ([#586](https://github.com/dzangolab/react/issues/586)) ([fcafc30](https://github.com/dzangolab/react/commit/fcafc30a5c1b3b44dee21852a8c99a87c9dd6c61))
+* type issue for fetch data callbacks props in data table ([#590](https://github.com/dzangolab/react/issues/590)) ([eb13f17](https://github.com/dzangolab/react/commit/eb13f17996c080fb9be5954630d1533a8bd2d271))
+
+
+### Features
+
+* add tooltip support for each column ([#591](https://github.com/dzangolab/react/issues/591)) ([696f4a4](https://github.com/dzangolab/react/commit/696f4a44ccef0410b196ac6ab46b62526b0fe6dd))
+* support column indexing and overriding in users table ([#582](https://github.com/dzangolab/react/issues/582)) ([618a05e](https://github.com/dzangolab/react/commit/618a05e99dc81d68fd41d9b1d9e6f0ffb7acb50d))
+* **ui/ActionsMenu:** add support for confirmation on delete ([#583](https://github.com/dzangolab/react/issues/583)) ([4bfff8f](https://github.com/dzangolab/react/commit/4bfff8f7409f74852969f794b4d515e12609a0c4))
+* **user:** fix reset password issue ([#587](https://github.com/dzangolab/react/issues/587)) ([aa11e65](https://github.com/dzangolab/react/commit/aa11e65a1ed8ed6a9919d447effad2887608524a))
+
+
+
 # [0.21.0](https://github.com/dzangolab/react/compare/v0.20.0...v0.21.0) (2023-09-29)
 
 
