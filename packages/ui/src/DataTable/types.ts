@@ -3,7 +3,8 @@ import { DataTableFilterMeta, DataTableProps } from "primereact/datatable";
 import { TooltipOptions } from "primereact/tooltip/tooltipoptions";
 
 export interface IColumnProperties extends ColumnProps {
-  bodyTooltip?: boolean | string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  bodyTooltip?: boolean | string | ((data: any) => string);
   bodyTooltipOptions?: TooltipOptions;
 }
 

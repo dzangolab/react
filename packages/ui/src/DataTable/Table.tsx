@@ -108,10 +108,15 @@ export const DataTable = ({
               const wrapperClassName =
                 `${data?.[dataKey]?.replace(/ /g, "-")}` + `-${column.field}`;
 
-              const tooltipContent =
-                typeof column?.bodyTooltip === "string"
-                  ? column?.bodyTooltip
-                  : data?.[column?.field || ""];
+              let tooltipContent = "";
+
+              if (typeof column?.bodyTooltip === "function") {
+                tooltipContent = column.bodyTooltip(data);
+              } else if (typeof column?.bodyTooltip === "string") {
+                tooltipContent = column.bodyTooltip;
+              } else {
+                tooltipContent = data?.[column?.field || ""];
+              }
 
               return (
                 <>

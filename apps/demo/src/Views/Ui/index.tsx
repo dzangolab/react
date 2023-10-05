@@ -97,6 +97,14 @@ const componentList = [
           "lastDownloadedAt",
           "actions",
         ]}
+        columns={[
+          {
+            field: "uploadedBy",
+            bodyTooltip: (data) => {
+              return `${data.uploadedBy.givenName} ${data.uploadedBy.lastName}`;
+            },
+          },
+        ]}
       />
     ),
   },
