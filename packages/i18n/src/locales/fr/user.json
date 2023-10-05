@@ -158,13 +158,13 @@
     }
   },
   "emailVerification": {
-    "title": "Email verification (fr)",
     "messages": {
-      "success": "Email verified successfully (fr)",
       "alreadyVerified": "Email is already verified (fr)",
-      "invalidToken": "The token is invalid (fr)",
       "error": "Some error occured (fr)",
+      "invalidToken": "The token is invalid (fr)",
+      "success": "Email verified successfully (fr)",
       "unverified": "Please check your email for verification (fr)"
-    }
+    },
+    "title": "Email verification (fr)"
   }
 }
