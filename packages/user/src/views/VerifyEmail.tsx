@@ -1,15 +1,19 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import verifyEmail from "@/supertokens/verifyEmail";
+
+import { UserContextType, useUser, userContext } from "..";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
+  const { user } = useContext(userContext) as UserContextType;
+  const { setUser } = useUser();
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -24,12 +28,16 @@ const VerifyEmail = () => {
           if (response.status === "OK") {
             toast.success(`${t("emailVerification.messages.success")}`);
 
+            setUser(user);
             setVerifyEmailLoading(false);
+
             setMessage(t("emailVerification.messages.success"));
           } else if (response.status === "EMAIL_ALREADY_VERIFIED") {
             toast.info(`${t("emailVerification.messages.alreadyVerified")}`);
 
+            setUser(user);
             setVerifyEmailLoading(false);
+
             setMessage(t("emailVerification.messages.alreadyVerified"));
           } else {
             toast.error(`${t("emailVerification.messages.invalidToken")}`);

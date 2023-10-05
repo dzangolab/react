@@ -74,6 +74,7 @@ const isUserVerified = async (): Promise<boolean | undefined> => {
   if (isVerified) {
     return true;
   }
+
   return false;
 };
 
