@@ -57,7 +57,7 @@ export const FilesList = ({
       {files.map((file: IFile) => {
         return (
           <FileCard
-            key={file.filename}
+            key={file.originalFileName}
             file={file}
             messages={messages}
             onArchive={onFileArchive}

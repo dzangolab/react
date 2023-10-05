@@ -1,12 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
   DataTable,
+  IColumnProperties,
   LazyTableState,
   useManipulateColumns,
 } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
-import { ColumnProps } from "primereact/column";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
@@ -37,7 +37,7 @@ export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
-  columns?: Array<ColumnProps>;
+  columns?: Array<IColumnProperties>;
   fetchInvitations: (arguments_: LazyTableState) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
@@ -89,7 +89,7 @@ export const InvitationsTable = ({
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const defaultColumns: Array<ColumnProps> = [
+  const defaultColumns: Array<IColumnProperties> = [
     {
       field: "email",
       header: t("table.defaultColumns.email"),
@@ -185,7 +185,7 @@ export const InvitationsTable = ({
     },
   ];
 
-  const processedColumns: Array<ColumnProps> = useManipulateColumns({
+  const processedColumns: Array<IColumnProperties> = useManipulateColumns({
     visibleColumns,
     columns: [...defaultColumns, ...columns],
   });

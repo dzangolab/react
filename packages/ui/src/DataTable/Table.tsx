@@ -6,7 +6,9 @@ import {
 import React, { useState, useEffect, useMemo } from "react";
 
 import { TABLE_DEFAULT } from "./constants";
-import { ITableProperties, LazyTableState } from "./types";
+import { wrapColumnBody } from "./WrapColumnBody";
+
+import type { ITableProperties, LazyTableState } from "./types";
 
 export const DataTable = ({
   columns,
@@ -94,6 +96,14 @@ export const DataTable = ({
           key={column.field}
           headerClassName={`column-${column.field}`}
           {...column}
+          body={(data, columnsOptions) => {
+            return wrapColumnBody({
+              data,
+              columnsOptions,
+              dataKey,
+              column,
+            });
+          }}
         />
       ))}
     </PDataTable>

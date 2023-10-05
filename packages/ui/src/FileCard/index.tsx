@@ -17,7 +17,7 @@ export type FileMessages = {
   deleteAction?: string;
   deleteConfirmationHeader?: string;
   deleteConfirmationMessage?: string;
-  filenameHeader?: string;
+  originalFileNameHeader?: string;
   descriptionHeader?: string;
   downloadCountHeader?: string;
   lastDownloadedAtHeader?: string;
@@ -29,8 +29,8 @@ export type FileMessages = {
 };
 
 export type VisibleFileDetails =
-  | "filename"
-  | "filesize"
+  | "originalFileName"
+  | "fileSize"
   | "description"
   | "uploadedBy"
   | "uploadedAt"
@@ -86,8 +86,8 @@ export const FileCard = ({
   renderThumbnail: pRenderThumbnail,
   showThumbnail = true,
   visibleFileDetails = [
-    "filename",
-    "filesize",
+    "originalFileName",
+    "fileSize",
     "description",
     "uploadedBy",
     "uploadedAt",
@@ -218,10 +218,10 @@ export const FileCard = ({
         <div className="file-details-wrapper">
           <div className="file-name-description-details-wrapper">
             <div>
-              {visibleFileDetailsMap.filename ? (
-                <span className="file-name">{file.filename}</span>
+              {visibleFileDetailsMap.originalFileName ? (
+                <span className="file-name">{file.originalFileName}</span>
               ) : null}
-              {file.size && visibleFileDetailsMap.filesize && (
+              {file.size && visibleFileDetailsMap.fileSize && (
                 <span className="file-size">{`(${file?.size})`}</span>
               )}
             </div>
