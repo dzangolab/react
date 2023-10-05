@@ -4,7 +4,7 @@ import { getUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
 import {
   getUserRoles,
-  getVerifiedUser,
+  isUserVerified,
   verifySessionRoles,
 } from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
@@ -49,7 +49,7 @@ const UserProvider = ({ children }: Properties) => {
     if (user) {
       roles = await getUserRoles();
 
-      isEmailVerified = await getVerifiedUser();
+      isEmailVerified = await isUserVerified();
       await setUserData({
         ...user,
         roles: roles,
