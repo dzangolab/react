@@ -11,7 +11,7 @@ import { UserContextType, useUser, userContext } from "..";
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>("");
+  const [status, setStatus] = useState<string | undefined>("");
   const { user } = useContext(userContext) as UserContextType;
   const { setUser } = useUser();
 
@@ -20,51 +20,54 @@ const VerifyEmail = () => {
 
     verifyEmail()
       .then((response) => {
-        setVerifyEmailLoading(false);
+        setVerifyEmailLoading(true);
 
         if (response) {
-          setVerifyEmailLoading(false);
-
-          if (response.status === "OK") {
-            toast.success(`${t("emailVerification.messages.success")}`);
-
-            setUser(user);
-            setVerifyEmailLoading(false);
-
-            setMessage(t("emailVerification.messages.success"));
-          } else if (response.status === "EMAIL_ALREADY_VERIFIED") {
-            toast.info(`${t("emailVerification.messages.alreadyVerified")}`);
-
-            setUser(user);
-            setVerifyEmailLoading(false);
-
-            setMessage(t("emailVerification.messages.alreadyVerified"));
-          } else {
-            toast.error(`${t("emailVerification.messages.invalidToken")}`);
-
-            setVerifyEmailLoading(false);
-            setMessage(t("emailVerification.messages.invalidToken"));
+          setStatus(response.status);
+          switch (response.status) {
+            case "OK":
+              toast.success(t("emailVerification.messages.success"));
+              setUser(user);
+              break;
+            case "EMAIL_ALREADY_VERIFIED":
+              toast.info(t("emailVerification.messages.alreadyVerified"));
+              setUser(user);
+              break;
+            default:
+              toast.error(t("emailVerification.messages.invalidToken"));
+              break;
           }
         }
       })
       .catch(() => {
         toast.error(`${t("emailVerification.messages.error")}`);
-
-        setVerifyEmailLoading(false);
-        setMessage(t("emailVerification.messages.error"));
+        setStatus("ERROR");
       })
       .finally(() => {
         setVerifyEmailLoading(false);
       });
   }, []);
 
+  const renderMessage = () => {
+    switch (status) {
+      case "OK":
+        return t("emailVerification.messages.success");
+      case "EMAIL_ALREADY_VERIFIED":
+        return t("emailVerification.messages.alreadyVerified");
+      case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
+        return t("emailVerification.messages.invalidToken");
+      default:
+        return t("emailVerification.messages.error");
+    }
+  };
+
   return (
     <Page
-      className="verify-email"
+      className="email-verification"
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
     >
-      <Card>{message}</Card>
+      <Card>{renderMessage()}</Card>
     </Page>
   );
 };

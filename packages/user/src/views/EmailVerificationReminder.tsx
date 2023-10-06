@@ -4,8 +4,9 @@ import { Card } from "primereact/card";
 
 const EmailVerificationReminder = () => {
   const { t } = useTranslation("user");
+
   return (
-    <Page className="verify-email" title={t("emailVerification.title")}>
+    <Page className="email-verification" title={t("emailVerification.title")}>
       <Card>{t("emailVerification.messages.unverified")}</Card>
     </Page>
   );
