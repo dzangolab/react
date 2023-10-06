@@ -16,6 +16,10 @@ export const wrapColumnBody: ({
   dataKey: string;
 }) => React.ReactNode = ({ data, columnsOptions, column, dataKey }) => {
   const renderBody = () => {
+    if (!column.body) {
+      return data[column?.field || ""];
+    }
+
     if (typeof column.body === "function") {
       return column.body(data, columnsOptions);
     } else {
