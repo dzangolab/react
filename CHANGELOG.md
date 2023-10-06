@@ -1,3 +1,12 @@
+## [0.22.1](https://github.com/dzangolab/react/compare/v0.22.0...v0.22.1) (2023-10-06)
+
+
+### Bug Fixes
+
+* **ui/DataTabla:** not rendering body if nothing is provided to column's body property ([#593](https://github.com/dzangolab/react/issues/593)) ([c2241c5](https://github.com/dzangolab/react/commit/c2241c52e5138445e7258e5257834d59beffd6c5))
+
+
+
 # [0.22.0](https://github.com/dzangolab/react/compare/v0.21.0...v0.22.0) (2023-10-05)
 
 
