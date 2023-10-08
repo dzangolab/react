@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import verifyEmail from "@/supertokens/verifyEmail";
 
 import { UserContextType, useUser, userContext } from "..";
+import { useNavigate } from "react-router-dom";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
@@ -14,6 +15,7 @@ const VerifyEmail = () => {
   const [status, setStatus] = useState<string | undefined>("");
   const { user } = useContext(userContext) as UserContextType;
   const { setUser } = useUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -24,15 +26,18 @@ const VerifyEmail = () => {
 
         if (response) {
           setStatus(response.status);
+
           switch (response.status) {
             case "OK":
               toast.success(t("emailVerification.messages.success"));
-              setUser(user);
+              redirectToHomePageAfterDelay();
               break;
+
             case "EMAIL_ALREADY_VERIFIED":
               toast.info(t("emailVerification.messages.alreadyVerified"));
-              setUser(user);
+              redirectToHomePageAfterDelay();
               break;
+
             default:
               toast.error(t("emailVerification.messages.invalidToken"));
               break;
@@ -48,14 +53,24 @@ const VerifyEmail = () => {
       });
   }, []);
 
+  const redirectToHomePageAfterDelay = () => {
+    setTimeout(() => {
+      setUser(user);
+      navigate("/");
+    }, 5000);
+  };
+
   const renderMessage = () => {
     switch (status) {
       case "OK":
         return t("emailVerification.messages.success");
+
       case "EMAIL_ALREADY_VERIFIED":
         return t("emailVerification.messages.alreadyVerified");
+
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
         return t("emailVerification.messages.invalidToken");
+
       default:
         return t("emailVerification.messages.error");
     }
