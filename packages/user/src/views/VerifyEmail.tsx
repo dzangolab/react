@@ -22,8 +22,6 @@ const VerifyEmail = () => {
 
     verifyEmail()
       .then((response) => {
-        setVerifyEmailLoading(true);
-
         if (response) {
           setStatus(response.status);
 
