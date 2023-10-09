@@ -1,3 +1,4 @@
+import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
@@ -67,4 +68,14 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
   return false;
 }
 
-export { getUserRoles, verifySessionRoles };
+const isUserVerified = async (): Promise<boolean | undefined> => {
+  const { isVerified } = await EmailVerification.isEmailVerified();
+
+  if (isVerified) {
+    return true;
+  }
+
+  return false;
+};
+
+export { getUserRoles, verifySessionRoles, isUserVerified };

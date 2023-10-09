@@ -2,7 +2,11 @@ import React, { createContext, useEffect, useState } from "react";
 
 import { getUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
-import { getUserRoles, verifySessionRoles } from "../supertokens/helpers";
+import {
+  getUserRoles,
+  isUserVerified,
+  verifySessionRoles,
+} from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
 
 interface Properties {
@@ -39,21 +43,28 @@ const UserProvider = ({ children }: Properties) => {
     getUser();
   }, []);
 
-  const setUserWithRoles = async (user: UserType | undefined) => {
-    let roles;
+  const setVerifiedUserWithRoles = async (user: UserType | undefined) => {
+    let roles, isEmailVerified;
 
     if (user) {
       roles = await getUserRoles();
 
-      await setUserData({ ...user, roles: roles });
-      setUser({ ...user, roles: roles });
+      isEmailVerified = await isUserVerified();
+      await setUserData({
+        ...user,
+        roles: roles,
+        isEmailVerified: isEmailVerified,
+      });
+      setUser({ ...user, roles: roles, isEmailVerified: isEmailVerified });
     } else {
       setUser(undefined);
     }
   };
 
   return (
-    <userContext.Provider value={{ user, loading, setUser: setUserWithRoles }}>
+    <userContext.Provider
+      value={{ user, loading, setUser: setVerifiedUserWithRoles }}
+    >
       {loading ? null : children}
     </userContext.Provider>
   );

@@ -156,5 +156,15 @@
       "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
       "mustMatch": "Passwords must match (fr)"
     }
+  },
+  "emailVerification": {
+    "messages": {
+      "alreadyVerified": "Email is already verified. Redirecting to home page in 5 seconds (fr)",
+      "error": "Some error occured (fr)",
+      "invalidToken": "The token is invalid (fr)",
+      "success": "Email verified successfully. Redirecting to home page in 5 seconds (fr)",
+      "unverified": "Please check your email for verification (fr)"
+    },
+    "title": "Email verification (fr)"
   }
 }

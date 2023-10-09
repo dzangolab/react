@@ -2,6 +2,7 @@ import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemail
 
 export interface UserType extends EmailPasswordUserType {
   givenName: string | null;
+  isEmailVerified?: boolean;
   lastLoginAt: number;
   middleNames: string | null;
   roles: string[];

@@ -11,6 +11,11 @@ interface DzangolabReactUserConfig {
     label: () => ReactNode;
     showCheckbox?: boolean;
   };
+  features?: {
+    signUp?: {
+      emailVerification: boolean;
+    };
+  };
 }
 
 export type { DzangolabReactUserConfig };

@@ -157,5 +157,15 @@
       "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
       "mustMatch": "Passwords must match"
     }
+  },
+  "emailVerification": {
+    "messages": {
+      "alreadyVerified": "Email is already verified. Redirecting to home page in 5 seconds",
+      "error": "Some error occured",
+      "invalidToken": "The token is invalid",
+      "success": "Email verified successfully. Redirecting to home page in 5 seconds",
+      "unverified": "Please check your email for verification"
+    },
+    "title": "Email verification"
   }
 }
