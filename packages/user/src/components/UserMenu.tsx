@@ -15,7 +15,9 @@ const UserMenu = (properties: Properties) => {
 
   const { user } = useUser();
 
-  return <>{user ? authenticatedUserMenu : anonymousUserMenu}</>;
+  return (
+    <>{user?.isEmailVerified ? authenticatedUserMenu : anonymousUserMenu}</>
+  );
 };
 
 export default UserMenu;
