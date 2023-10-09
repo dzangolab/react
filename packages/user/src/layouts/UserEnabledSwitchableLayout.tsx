@@ -6,13 +6,15 @@ import {
   SwitchableLayout,
 } from "@dzangolab/react-layout";
 import { ResponsiveMenu, useMediaQuery } from "@dzangolab/react-ui";
-import React, { FC, useCallback } from "react";
+import React, { useCallback } from "react";
 
 import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
-import { UserMenuItemType } from "@/types";
 
 import { DropdownUserMenu, UserMenu, useUser } from "..";
+
+import type { UserMenuItemType } from "@/types";
+import type { FC } from "react";
 
 interface Properties {
   anonymousUserMenu?: React.ReactNode;
@@ -49,7 +51,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
     anonymousUserMenu,
     authenticatedUserMenu,
     children,
-    displaySidebarMenuIcon,
+    displaySidebarMenuIcon = true,
     footer,
     layoutType = "basic",
     localSwitcher,

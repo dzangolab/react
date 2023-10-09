@@ -22,7 +22,7 @@ interface Properties {
   }[];
   onLogout?: () => void;
   customSidebar?: React.ReactNode;
-  displaySideBarMenuIcon?: boolean;
+  displaySidebarMenuIcon?: boolean;
   userMenu?: UserMenuItemType[];
   userMenuCollapsedIcon?: React.ReactNode;
   userMenuExpandIcon?: React.ReactNode;
@@ -38,7 +38,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
 
   const {
     children,
-    displaySideBarMenuIcon = true,
+    displaySidebarMenuIcon = true,
     footer,
     mainMenuRoutes,
     onLogout,
@@ -47,7 +47,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
         <ResponsiveMenu
           routes={mainMenuRoutes}
           orientation="vertical"
-          displayIcon={displaySideBarMenuIcon}
+          displayIcon={displaySidebarMenuIcon}
         />
       </Sidebar>
     ),
