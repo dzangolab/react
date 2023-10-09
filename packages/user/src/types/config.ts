@@ -13,7 +13,7 @@ interface DzangolabReactUserConfig {
   };
   features?: {
     signUp?: {
-      emailVerification?: boolean;
+      emailVerification: boolean;
     };
   };
 }
