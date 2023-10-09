@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 import verifyEmail from "@/supertokens/verifyEmail";
 
-import { UserContextType, useUser, userContext } from "..";
+import { UserContextType, userContext } from "..";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
