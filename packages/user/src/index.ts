@@ -18,6 +18,7 @@ import { getUserData, removeUserData, setUserData } from "./helpers";
 import { useUser } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
+import { UserEnabledSwitchableLayout } from "./layouts/UserEnabledSwitchableLayout";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import forgetPassword from "./supertokens/forget-password";
@@ -64,6 +65,7 @@ export {
   TermsAndConditions,
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
+  UserEnabledSwitchableLayout,
   UserMenu,
   UserProvider,
   UserToastContainer,

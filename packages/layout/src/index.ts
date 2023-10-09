@@ -8,6 +8,7 @@ import Version from "./components/Version";
 import Layout from "./Layout";
 import BasicLayout from "./layouts/BasicLayout";
 import CollapsibleSidebarLayout from "./layouts/CollapsibleSidebarLayout";
+import { SwitchableLayout } from "./layouts/SwitchableLayout";
 import NullLayout from "./NullLayout";
 
 import type { DzangolabReactLayoutConfig } from "./types";
@@ -31,6 +32,7 @@ export {
   MainMenu,
   NullLayout,
   Sidebar,
+  SwitchableLayout,
   Version,
 };
 
