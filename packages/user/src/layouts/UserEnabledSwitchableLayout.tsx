@@ -130,7 +130,20 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
         />
       </>
     );
-  }, []);
+  }, [
+    isSmallScreen,
+    user,
+    layoutType,
+    mainMenuRoutes,
+    mainMenuOrientation,
+    localSwitcher,
+    menuToggle,
+    authenticatedUserMenu,
+    userMenuCollapsedIcon,
+    userMenuExpandIcon,
+    userMenuLabel,
+    anonymousUserMenu,
+  ]);
 
   return (
     <SwitchableLayout
