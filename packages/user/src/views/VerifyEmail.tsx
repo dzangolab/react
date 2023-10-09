@@ -2,12 +2,12 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import verifyEmail from "@/supertokens/verifyEmail";
 
 import { UserContextType, useUser, userContext } from "..";
-import { useNavigate } from "react-router-dom";
 
 const VerifyEmail = () => {
   const { t } = useTranslation("user");
