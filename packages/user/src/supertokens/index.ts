@@ -7,10 +7,10 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
 
 const superTokens = (config: AppConfig) => {
-  const recipeListArray: any = [Session.init(), ThirdPartyEmailPassword.init()];
+  const recipeLists: any = [Session.init(), ThirdPartyEmailPassword.init()];
 
   if (config.user.features?.signUp?.emailVerification) {
-    recipeListArray.push(EmailVerification.init());
+    recipeLists.push(EmailVerification.init());
   }
 
   SuperTokens.init({
@@ -19,7 +19,7 @@ const superTokens = (config: AppConfig) => {
       apiDomain: config.apiBaseUrl,
       apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
-    recipeList: recipeListArray,
+    recipeList: recipeLists,
   });
 };
 
