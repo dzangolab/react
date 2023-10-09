@@ -15,6 +15,7 @@ const VerifyEmail = () => {
   const [status, setStatus] = useState<string | undefined>("");
   const { user, setUser } = useContext(userContext) as UserContextType;
   const navigate = useNavigate();
+  const [seconds, setSeconds] = useState<number>(5);
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -28,11 +29,12 @@ const VerifyEmail = () => {
             case "OK":
               toast.success(t("emailVerification.messages.success"));
               redirectToHomePageAfterDelay();
+
               break;
 
             case "EMAIL_ALREADY_VERIFIED":
               toast.info(t("emailVerification.messages.alreadyVerified"));
-              redirectToHomePageAfterDelay();
+              redirectToHomePage();
               break;
 
             default:
@@ -51,16 +53,25 @@ const VerifyEmail = () => {
   }, []);
 
   const redirectToHomePageAfterDelay = () => {
-    setTimeout(() => {
-      setUser(user);
-      navigate("/");
-    }, 5000);
+    const intervalId = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      } else {
+        clearInterval(intervalId);
+      }
+      redirectToHomePage();
+    }, 1000);
+  };
+
+  const redirectToHomePage = () => {
+    setUser(user);
+    navigate("/");
   };
 
   const renderMessage = () => {
     switch (status) {
       case "OK":
-        return t("emailVerification.messages.success");
+        return t("emailVerification.messages.success", { second: seconds });
 
       case "EMAIL_ALREADY_VERIFIED":
         return t("emailVerification.messages.alreadyVerified");
