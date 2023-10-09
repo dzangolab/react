@@ -13,8 +13,7 @@ const VerifyEmail = () => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
   const [status, setStatus] = useState<string | undefined>("");
-  const { user } = useContext(userContext) as UserContextType;
-  const { setUser } = useUser();
+  const { user, setUser } = useContext(userContext) as UserContextType;
   const navigate = useNavigate();
 
   useEffect(() => {
