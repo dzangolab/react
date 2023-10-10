@@ -79,7 +79,7 @@
 }
 
 .file-description .description {
-  cursor: pointer;
+cursor: pointer;
   color: rgba(0, 0, 0, 0.514);
   text-overflow: ellipsis;
 }

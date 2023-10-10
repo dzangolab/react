@@ -93,6 +93,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
               <SelectedFile
                 key={file.name}
                 file={file}
+                index={index}
                 enableDescription={enableDescription}
                 addDescriptionLabel={addDescriptionLabel}
                 descriptionPlaceholder={descriptionPlaceholder}

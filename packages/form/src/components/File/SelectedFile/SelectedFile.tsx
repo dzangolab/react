@@ -1,5 +1,6 @@
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
+import { Tooltip } from "primereact/tooltip";
 import React, { Ref, useEffect, useRef, useState } from "react";
 
 import { FileExtended } from "../types";
@@ -9,6 +10,7 @@ type SelectedFileProperties = {
   enableDescription?: boolean;
   addDescriptionLabel?: string;
   descriptionPlaceholder?: string;
+  index: number;
   onRemove?: () => void;
   onDescriptionChange?: (description?: string) => void;
 };
@@ -18,6 +20,7 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
   enableDescription = false,
   addDescriptionLabel,
   descriptionPlaceholder,
+  index,
   onRemove,
   onDescriptionChange,
 }) => {
@@ -37,21 +40,34 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
       <div className="file-info">
         <div className="file-preview"></div>
         <div className="file-details">
-          <span>{file.name}</span>
+          <Tooltip
+            position="top"
+            target={".file-name" + ".name" + index}
+            content={file.name}
+          />
+          <span className={"file-name" + " name" + index}>{file.name}</span>
           {enableDescription && (
             <div className="file-description">
               {!showDescriptionInput ? (
-                <span
-                  className="description"
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => {
-                    setShowDescriptionInput(true);
-                  }}
-                >
-                  {description || addDescriptionLabel}{" "}
-                  <i className="pi pi-pencil"></i>
-                </span>
+                <>
+                  <Tooltip
+                    position="top"
+                    target={".description" + ".description" + index}
+                    content={file.description}
+                  />
+
+                  <span
+                    className={"description" + " description" + index}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
+                      setShowDescriptionInput(true);
+                    }}
+                  >
+                    {description || addDescriptionLabel}{" "}
+                    <i className="pi pi-pencil"></i>
+                  </span>
+                </>
               ) : (
                 <>
                   <div className="p-inputgroup">
