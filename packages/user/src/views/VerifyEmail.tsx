@@ -54,13 +54,11 @@ const VerifyEmail = ({
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (second > 0) {
+    if (second > 0) {
+      setTimeout(() => {
         setSecond((previous) => previous - 1);
-      }
-    }, 1000);
-
-    if (second === 0) {
+      }, 1000);
+    } else if (second === 0) {
       setUser(user);
       navigate("/");
     }
