@@ -55,7 +55,6 @@ const VerifyEmail = ({
 
   useEffect(() => {
     setTimeout(() => {
-      console.log(second);
       if (second > 0) {
         setSecond((previous) => previous - 1);
       }
