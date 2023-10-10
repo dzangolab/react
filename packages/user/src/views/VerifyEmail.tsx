@@ -59,6 +59,7 @@ const VerifyEmail = ({
         setSecond((previous) => previous - 1);
       }
     }, 1000);
+
     if (second === 0) {
       setUser(user);
       navigate("/");
