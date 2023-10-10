@@ -9,13 +9,17 @@ import verifyEmail from "@/supertokens/verifyEmail";
 
 import { UserContextType, userContext } from "..";
 
-const VerifyEmail = () => {
+const VerifyEmail = ({
+  redirectionDelayTime = 5,
+}: {
+  redirectionDelayTime?: number;
+}) => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
   const [status, setStatus] = useState<string | undefined>("");
   const { user, setUser } = useContext(userContext) as UserContextType;
   const navigate = useNavigate();
-  const [second, setSecond] = useState<number>(5);
+  const [second, setSecond] = useState<number>(redirectionDelayTime);
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -28,12 +32,10 @@ const VerifyEmail = () => {
           switch (response.status) {
             case "OK":
               toast.success(t("emailVerification.toastMessages.success"));
-              redirectToHomePage();
               break;
 
             case "EMAIL_ALREADY_VERIFIED":
               toast.info(t("emailVerification.toastMessages.alreadyVerified"));
-              redirectToHomePage();
               break;
 
             default:
@@ -52,21 +54,17 @@ const VerifyEmail = () => {
   }, []);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    setTimeout(() => {
+      console.log(second);
       if (second > 0) {
         setSecond((previous) => previous - 1);
       }
     }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [second]);
-
-  const redirectToHomePage = () => {
-    setTimeout(() => {
+    if (second === 0) {
       setUser(user);
       navigate("/");
-    }, 5000);
-  };
+    }
+  }, [second]);
 
   const renderMessage = () => {
     switch (status) {
