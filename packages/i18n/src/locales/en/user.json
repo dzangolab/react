@@ -160,12 +160,18 @@
   },
   "emailVerification": {
     "messages": {
-      "alreadyVerified": "Email is already verified. Redirecting to home page in 5 seconds",
+      "alreadyVerified": "Email is already verified. Redirecting to home page in {{second}} seconds",
       "error": "Some error occured",
       "invalidToken": "The token is invalid",
-      "success": "Email verified successfully. Redirecting to home page in 5 seconds",
+      "success": "Email verified successfully. Redirecting to home page in {{second}} seconds",
       "unverified": "Please check your email for verification"
     },
-    "title": "Email verification"
+    "title": "Email verification",
+    "toastMessages": {
+      "success": "Email verified successfully",
+      "alreadyVerified": "Email is already verified",
+      "invalidToken": "The token is invalid",
+      "error": "Some error occured"
+    }
   }
 }

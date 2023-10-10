@@ -27,24 +27,23 @@ const VerifyEmail = () => {
 
           switch (response.status) {
             case "OK":
-              toast.success(t("emailVerification.messages.success"));
-              redirectToHomePageAfterDelay();
-
+              toast.success(t("emailVerification.toastMessages.success"));
+              redirectToHomePage();
               break;
 
             case "EMAIL_ALREADY_VERIFIED":
-              toast.info(t("emailVerification.messages.alreadyVerified"));
+              toast.info(t("emailVerification.toastMessages.alreadyVerified"));
               redirectToHomePage();
               break;
 
             default:
-              toast.error(t("emailVerification.messages.invalidToken"));
+              toast.error(t("emailVerification.toastMessages.invalidToken"));
               break;
           }
         }
       })
       .catch(() => {
-        toast.error(`${t("emailVerification.messages.error")}`);
+        toast.error(`${t("emailVerification.toastMessages.error")}`);
         setStatus("ERROR");
       })
       .finally(() => {
@@ -52,20 +51,21 @@ const VerifyEmail = () => {
       });
   }, []);
 
-  const redirectToHomePageAfterDelay = () => {
+  useEffect(() => {
     const intervalId = setInterval(() => {
       if (seconds > 0) {
-        setSeconds((prevSeconds) => prevSeconds - 1);
-      } else {
-        clearInterval(intervalId);
+        setSeconds((previous) => previous - 1);
       }
-      redirectToHomePage();
     }, 1000);
-  };
+
+    return () => clearInterval(intervalId);
+  }, [seconds]);
 
   const redirectToHomePage = () => {
-    setUser(user);
-    navigate("/");
+    setTimeout(() => {
+      setUser(user);
+      navigate("/");
+    }, 5000);
   };
 
   const renderMessage = () => {
@@ -74,7 +74,9 @@ const VerifyEmail = () => {
         return t("emailVerification.messages.success", { second: seconds });
 
       case "EMAIL_ALREADY_VERIFIED":
-        return t("emailVerification.messages.alreadyVerified");
+        return t("emailVerification.messages.alreadyVerified", {
+          second: seconds,
+        });
 
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
         return t("emailVerification.messages.invalidToken");
