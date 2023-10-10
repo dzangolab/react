@@ -19,7 +19,7 @@ const VerifyEmail = ({
   const [status, setStatus] = useState<string | undefined>("");
   const { user, setUser } = useContext(userContext) as UserContextType;
   const navigate = useNavigate();
-  const [second, setSecond] = useState<number>(redirectionDelayTime);
+  const [countdown, setCountdown] = useState<number>(redirectionDelayTime);
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -54,24 +54,26 @@ const VerifyEmail = ({
   }, []);
 
   useEffect(() => {
-    if (second > 0) {
+    if (countdown > 0) {
       setTimeout(() => {
-        setSecond((previous) => previous - 1);
+        setCountdown((previous) => previous - 1);
       }, 1000);
-    } else if (second === 0) {
+    } else if (countdown === 0) {
       setUser(user);
       navigate("/");
     }
-  }, [second]);
+  }, [countdown]);
 
   const renderMessage = () => {
     switch (status) {
       case "OK":
-        return t("emailVerification.messages.success", { second: second });
+        return t("emailVerification.messages.success", {
+          countdown: countdown,
+        });
 
       case "EMAIL_ALREADY_VERIFIED":
         return t("emailVerification.messages.alreadyVerified", {
-          second: second,
+          countdown: countdown,
         });
 
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":

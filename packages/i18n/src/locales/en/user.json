@@ -160,10 +160,10 @@
   },
   "emailVerification": {
     "messages": {
-      "alreadyVerified": "Email is already verified. Redirecting to home page in {{second}} seconds",
+      "alreadyVerified": "Email is already verified. Redirecting to home page in {{countdown}} seconds",
       "error": "Some error occured",
       "invalidToken": "The token is invalid",
-      "success": "Email verified successfully. Redirecting to home page in {{second}} seconds",
+      "success": "Email verified successfully. Redirecting to home page in {{countdown}} seconds",
       "unverified": "Please check your email for verification"
     },
     "title": "Email verification",
