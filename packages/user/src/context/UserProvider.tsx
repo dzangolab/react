@@ -49,18 +49,14 @@ const UserProvider = ({ children }: Properties) => {
 
     if (user) {
       roles = await getUserRoles();
-
       isEmailVerified = await isUserVerified();
+
       await setUserData({
         ...user,
         roles: roles,
         isEmailVerified: isEmailVerified,
       });
       setUser({ ...user, roles: roles, isEmailVerified: isEmailVerified });
-      // if (isEmailVerificationEnabled(appConfig)) {
-      // } else {
-      //   setUser({ ...user, roles: roles });
-      // }
     } else {
       setUser(undefined);
     }
