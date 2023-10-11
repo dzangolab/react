@@ -14,7 +14,7 @@ const superTokens = (config: AppConfig) => {
     ThirdPartyEmailPassword.init(),
   ];
 
-  if (isEmailVerificationEnabled()) {
+  if (isEmailVerificationEnabled(config)) {
     recipeLists.push(EmailVerification.init());
   }
 

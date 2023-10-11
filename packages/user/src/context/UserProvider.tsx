@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 
+import { isEmailVerificationEnabled } from "..";
 import { getUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
 import {
@@ -56,6 +57,10 @@ const UserProvider = ({ children }: Properties) => {
         isEmailVerified: isEmailVerified,
       });
       setUser({ ...user, roles: roles, isEmailVerified: isEmailVerified });
+      // if (isEmailVerificationEnabled(appConfig)) {
+      // } else {
+      //   setUser({ ...user, roles: roles });
+      // }
     } else {
       setUser(undefined);
     }
