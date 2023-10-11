@@ -55,8 +55,7 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
                     target={".description" + ".description" + index}
                     content={file.description}
                   />
-
-                  <span
+                  <div
                     className={"description" + " description" + index}
                     role="button"
                     tabIndex={0}
@@ -64,9 +63,9 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
                       setShowDescriptionInput(true);
                     }}
                   >
-                    {description || addDescriptionLabel}{" "}
-                    <i className="pi pi-pencil"></i>
-                  </span>
+                    <span>{description || addDescriptionLabel}</span>
+                  </div>
+                  <i className="pi pi-pencil"></i>
                 </>
               ) : (
                 <>

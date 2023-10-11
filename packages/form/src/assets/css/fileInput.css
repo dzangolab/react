@@ -38,9 +38,10 @@
 
 .file-input .selected-files li .file-description,
 .file-list-overlay .selected-files li .file-description {
-  max-width: 40rem;
+  display: flex;
+  gap: 0.5rem;
   height: 2.3rem;
-  overflow: hidden;
+  width: 100%;
 }
 
 .file-input .selected-files .p-button.p-button-sm,
@@ -79,9 +80,12 @@
 }
 
 .file-description .description {
-cursor: pointer;
+  cursor: pointer;
   color: rgba(0, 0, 0, 0.514);
   text-overflow: ellipsis;
+  height: 2.3rem;
+  max-width: 40rem;
+  overflow: hidden;
 }
 
 .file-description i {
