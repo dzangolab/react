@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
 
-import { isEmailVerificationEnabled } from "..";
 import { getUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
 import {
@@ -9,6 +8,7 @@ import {
   verifySessionRoles,
 } from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
+import { isEmailVerificationEnabled } from "../utils/emailVerificationconfig";
 
 interface Properties {
   children: React.ReactNode;
@@ -49,14 +49,21 @@ const UserProvider = ({ children }: Properties) => {
 
     if (user) {
       roles = await getUserRoles();
-      isEmailVerified = await isUserVerified();
-
-      await setUserData({
-        ...user,
-        roles: roles,
-        isEmailVerified: isEmailVerified,
-      });
-      setUser({ ...user, roles: roles, isEmailVerified: isEmailVerified });
+      if (isEmailVerificationEnabled(appConfig)) {
+        isEmailVerified = await isUserVerified();
+        await setUserData({
+          ...user,
+          roles: roles,
+          isEmailVerified: isEmailVerified,
+        });
+        setUser({ ...user, roles: roles, isEmailVerified: isEmailVerified });
+      } else {
+        await setUserData({
+          ...user,
+          roles: roles,
+        });
+        setUser({ ...user, roles: roles });
+      }
     } else {
       setUser(undefined);
     }
