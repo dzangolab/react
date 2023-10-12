@@ -9,12 +9,17 @@ import verifyEmail from "@/supertokens/verifyEmail";
 
 import { UserContextType, userContext } from "..";
 
-const VerifyEmail = () => {
+const VerifyEmail = ({
+  redirectionDelayTime = 5,
+}: {
+  redirectionDelayTime?: number;
+}) => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
   const [status, setStatus] = useState<string | undefined>("");
   const { user, setUser } = useContext(userContext) as UserContextType;
   const navigate = useNavigate();
+  const [countdown, setCountdown] = useState<number>(redirectionDelayTime);
 
   useEffect(() => {
     setVerifyEmailLoading(true);
@@ -26,23 +31,21 @@ const VerifyEmail = () => {
 
           switch (response.status) {
             case "OK":
-              toast.success(t("emailVerification.messages.success"));
-              redirectToHomePageAfterDelay();
+              toast.success(t("emailVerification.toastMessages.success"));
               break;
 
             case "EMAIL_ALREADY_VERIFIED":
-              toast.info(t("emailVerification.messages.alreadyVerified"));
-              redirectToHomePageAfterDelay();
+              toast.info(t("emailVerification.toastMessages.alreadyVerified"));
               break;
 
             default:
-              toast.error(t("emailVerification.messages.invalidToken"));
+              toast.error(t("emailVerification.toastMessages.invalidToken"));
               break;
           }
         }
       })
       .catch(() => {
-        toast.error(`${t("emailVerification.messages.error")}`);
+        toast.error(`${t("emailVerification.toastMessages.error")}`);
         setStatus("ERROR");
       })
       .finally(() => {
@@ -50,20 +53,28 @@ const VerifyEmail = () => {
       });
   }, []);
 
-  const redirectToHomePageAfterDelay = () => {
-    setTimeout(() => {
+  useEffect(() => {
+    if (countdown > 0) {
+      setTimeout(() => {
+        setCountdown((previous) => previous - 1);
+      }, 1000);
+    } else if (countdown === 0) {
       setUser(user);
       navigate("/");
-    }, 5000);
-  };
+    }
+  }, [countdown]);
 
   const renderMessage = () => {
     switch (status) {
       case "OK":
-        return t("emailVerification.messages.success");
+        return t("emailVerification.messages.success", {
+          countdown: countdown,
+        });
 
       case "EMAIL_ALREADY_VERIFIED":
-        return t("emailVerification.messages.alreadyVerified");
+        return t("emailVerification.messages.alreadyVerified", {
+          countdown: countdown,
+        });
 
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
         return t("emailVerification.messages.invalidToken");
