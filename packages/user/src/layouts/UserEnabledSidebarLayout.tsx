@@ -1,11 +1,5 @@
-import {
-  AppHeader,
-  CollapsibleSidebarLayout,
-  Logo,
-  MainMenu,
-  Sidebar,
-} from "@dzangolab/react-layout";
-import { ResponsiveMenu, useMediaQuery } from "@dzangolab/react-ui";
+import { CollapsibleSidebarLayout } from "@dzangolab/react-layout";
+import { useMediaQuery } from "@dzangolab/react-ui";
 
 import DropdownUserMenu from "../components/DropdownUserMenu";
 import UserMenu from "../components/UserMenu";
@@ -14,11 +8,14 @@ import { useConfig, useUser } from "../hooks";
 import { UserMenuItemType } from "../types";
 
 interface Properties {
+  anonymousUserMenu?: React.ReactNode;
+  authenticatedUserMenu?: React.ReactNode;
   children: React.ReactNode;
   footer?: React.ReactNode;
   mainMenuRoutes: {
     name: string;
     route: string;
+    icon?: React.ReactNode;
   }[];
   onLogout?: () => void;
   customSidebar?: React.ReactNode;
@@ -27,6 +24,12 @@ interface Properties {
   userMenuCollapsedIcon?: React.ReactNode;
   userMenuExpandIcon?: React.ReactNode;
   userMenuLabel?: React.ReactNode;
+  header?: React.ReactNode;
+  localSwitcher?: React.ReactNode;
+  menuToggle?: React.ReactNode;
+  mainMenuOrientation?: "horizontal" | "vertical";
+  mainMenu?: React.ReactNode;
+  logoRoute?: string;
 }
 
 const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
@@ -37,52 +40,56 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
   const {
+    anonymousUserMenu,
+    authenticatedUserMenu,
     children,
     displaySidebarMenuIcon = true,
     footer,
     mainMenuRoutes,
     onLogout,
-    customSidebar = (
-      <Sidebar>
-        <ResponsiveMenu
-          routes={mainMenuRoutes}
-          orientation="vertical"
-          displayIcon={displaySidebarMenuIcon}
-        />
-      </Sidebar>
-    ),
+    customSidebar,
     userMenu,
     userMenuCollapsedIcon,
     userMenuExpandIcon,
     userMenuLabel,
+    header,
+    localSwitcher,
+    logoRoute,
+    mainMenu,
+    mainMenuOrientation,
+    menuToggle,
   } = properties;
 
   return (
     <CollapsibleSidebarLayout
       children={children}
       footer={footer}
-      header={
-        <AppHeader
-          mainMenu={
-            isSmallScreen && user ? <MainMenu routes={mainMenuRoutes} /> : null
+      mainMenuRoutes={mainMenuRoutes || <></>}
+      logoRoute={logoRoute || home}
+      header={header}
+      displaySidebarMenuIcon={displaySidebarMenuIcon}
+      localSwitcher={localSwitcher}
+      mainMenu={mainMenu}
+      mainMenuOrientation={mainMenuOrientation}
+      menuToggle={menuToggle}
+      userMenu={
+        <UserMenu
+          authenticatedUserMenu={
+            authenticatedUserMenu || (
+              <DropdownUserMenu
+                collapseIcon={userMenuCollapsedIcon}
+                expandIcon={userMenuExpandIcon}
+                label={userMenuLabel}
+                onLogout={onLogout}
+                userMenu={userMenu}
+              />
+            )
           }
-          userMenu={
-            <UserMenu
-              authenticatedUserMenu={
-                <DropdownUserMenu
-                  collapseIcon={userMenuCollapsedIcon}
-                  expandIcon={userMenuExpandIcon}
-                  label={userMenuLabel}
-                  onLogout={onLogout}
-                  userMenu={userMenu}
-                />
-              }
-            />
-          }
-          logo={<Logo source={layoutConfig?.logo} route={home} />}
+          anonymousUserMenu={anonymousUserMenu}
         />
       }
-      sidebar={user && !isSmallScreen ? customSidebar : null}
+      sidebar={customSidebar}
+      displaySidebar={!!(user && !isSmallScreen)}
     />
   );
 };

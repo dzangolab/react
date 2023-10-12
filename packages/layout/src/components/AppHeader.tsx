@@ -8,7 +8,13 @@ import useConfig from "../hooks/useConfig";
 interface Properties {
   localeSwitcher?: React.ReactNode;
   logo?: React.ReactNode;
+  logoRoute?: string;
   mainMenu?: React.ReactNode;
+  mainMenuRoutes?: {
+    name: string;
+    route: string;
+  }[];
+  mainMenuOrientation?: "horizontal" | "vertical";
   navStyle?: "dropdown" | "left-slider";
   toggle?: React.ReactNode;
   userMenu?: React.ReactNode;
@@ -24,9 +30,11 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
       : undefined;
 
   const {
-    localeSwitcher = <LocaleSwitcher />,
-    logo = <Logo source={layoutConfig?.logo} route={home} />,
-    mainMenu = <MainMenu routes={layoutConfig?.mainMenu} />,
+    localeSwitcher,
+    logoRoute,
+    logo,
+    mainMenuOrientation,
+    mainMenu,
     navStyle = "dropdown",
     toggle = <i className="pi pi-align-justify"></i>,
     userMenu,
@@ -34,11 +42,16 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      {logo}
+      {logo || <Logo source={layoutConfig?.logo} route={logoRoute || home} />}
       <nav className={`menu ${navStyle}`} data-expanded={expanded}>
-        {mainMenu}
+        {mainMenu || (
+          <MainMenu
+            routes={layoutConfig?.mainMenu}
+            orientation={mainMenuOrientation}
+          />
+        )}
         {userMenu}
-        {localeSwitcher}
+        {localeSwitcher || <LocaleSwitcher />}
       </nav>
       <div className="toggle" onClick={() => setExpanded(!expanded)}>
         {toggle}

@@ -1,12 +1,6 @@
-import {
-  AppHeader,
-  Logo,
-  MainMenu,
-  Sidebar,
-  SwitchableLayout,
-} from "@dzangolab/react-layout";
-import { ResponsiveMenu, useMediaQuery } from "@dzangolab/react-ui";
-import React, { useCallback } from "react";
+import { MainMenu, SwitchableLayout } from "@dzangolab/react-layout";
+import { useMediaQuery } from "@dzangolab/react-ui";
+import React from "react";
 
 import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
@@ -22,13 +16,16 @@ interface Properties {
   children: React.ReactNode;
   displaySidebarMenuIcon?: boolean;
   footer?: React.ReactNode;
+  header?: React.ReactNode;
   layoutType?: "basic" | "sidebar";
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
   mainMenuRoutes: {
     name: string;
     route: string;
+    icon?: React.ReactNode;
   }[];
+  mainMenu?: React.ReactNode;
   mainMenuOrientation?: "horizontal" | "vertical";
   onLogout?: () => void;
   customSidebar?: React.ReactNode;
@@ -36,6 +33,7 @@ interface Properties {
   userMenuCollapsedIcon?: React.ReactNode;
   userMenuExpandIcon?: React.ReactNode;
   userMenuLabel?: React.ReactNode;
+  logoRoute?: string;
 }
 
 export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
@@ -53,8 +51,10 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
     children,
     displaySidebarMenuIcon = true,
     footer,
+    header,
     layoutType = "basic",
     localSwitcher,
+    logoRoute,
     mainMenuRoutes,
     mainMenuOrientation,
     menuToggle,
@@ -66,92 +66,47 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
     userMenuLabel,
   } = properties;
 
-  const renderSidebar = useCallback(() => {
-    if (user && !isSmallScreen && layoutType === "sidebar") {
-      if (customSidebar) {
-        return customSidebar;
-      }
-
+  const renderMainMenu = () => {
+    if ((isSmallScreen && user) || (user && layoutType === "basic")) {
       return (
-        <Sidebar>
-          <ResponsiveMenu
-            routes={mainMenuRoutes}
-            orientation="vertical"
-            displayIcon={displaySidebarMenuIcon}
-          />
-        </Sidebar>
+        <MainMenu routes={mainMenuRoutes} orientation={mainMenuOrientation} />
       );
     }
 
-    return null;
-  }, [
-    customSidebar,
-    user,
-    isSmallScreen,
-    layoutType,
-    mainMenuRoutes,
-    displaySidebarMenuIcon,
-  ]);
-
-  const renderHeader = useCallback(() => {
-    const renderMainMenu = () => {
-      if ((isSmallScreen && user) || (user && layoutType === "basic")) {
-        return (
-          <MainMenu routes={mainMenuRoutes} orientation={mainMenuOrientation} />
-        );
-      }
-
-      return null;
-    };
-
-    return (
-      <>
-        <AppHeader
-          localeSwitcher={localSwitcher}
-          toggle={menuToggle}
-          mainMenu={renderMainMenu()}
-          userMenu={
-            <UserMenu
-              authenticatedUserMenu={
-                authenticatedUserMenu || (
-                  <DropdownUserMenu
-                    collapseIcon={userMenuCollapsedIcon}
-                    expandIcon={userMenuExpandIcon}
-                    label={userMenuLabel}
-                    onLogout={onLogout}
-                    userMenu={userMenu}
-                  />
-                )
-              }
-              anonymousUserMenu={anonymousUserMenu}
-            />
-          }
-          logo={<Logo source={layoutConfig?.logo} route={home} />}
-        />
-      </>
-    );
-  }, [
-    isSmallScreen,
-    user,
-    layoutType,
-    mainMenuRoutes,
-    mainMenuOrientation,
-    localSwitcher,
-    menuToggle,
-    authenticatedUserMenu,
-    userMenuCollapsedIcon,
-    userMenuExpandIcon,
-    userMenuLabel,
-    anonymousUserMenu,
-  ]);
+    return <></>;
+  };
 
   return (
     <SwitchableLayout
+      layoutType={layoutType}
       children={children}
       footer={footer}
-      layoutType={layoutType}
-      header={renderHeader()}
-      sidebar={renderSidebar()}
+      mainMenuRoutes={mainMenuRoutes}
+      logoRoute={logoRoute || home}
+      header={header}
+      displaySidebarMenuIcon={displaySidebarMenuIcon}
+      localSwitcher={localSwitcher}
+      mainMenu={renderMainMenu()}
+      mainMenuOrientation={mainMenuOrientation}
+      menuToggle={menuToggle}
+      userMenu={
+        <UserMenu
+          authenticatedUserMenu={
+            authenticatedUserMenu || (
+              <DropdownUserMenu
+                collapseIcon={userMenuCollapsedIcon}
+                expandIcon={userMenuExpandIcon}
+                label={userMenuLabel}
+                onLogout={onLogout}
+                userMenu={userMenu}
+              />
+            )
+          }
+          anonymousUserMenu={anonymousUserMenu}
+        />
+      }
+      sidebar={customSidebar}
+      displaySidebar={!!(user && !isSmallScreen)}
     />
   );
 };

@@ -5,24 +5,53 @@ import AppHeader from "../components/AppHeader";
 
 interface Properties {
   children: React.ReactNode;
-  footer?: React.ReactNode;
   header?: React.ReactNode;
+  footer?: React.ReactNode;
+  localSwitcher?: React.ReactNode;
+  menuToggle?: React.ReactNode;
+  mainMenuRoutes?: {
+    name: string;
+    route: string;
+    icon?: React.ReactNode;
+  }[];
+  mainMenuOrientation?: "horizontal" | "vertical";
+  userMenu?: React.ReactNode;
+  mainMenu?: React.ReactNode;
+  logoRoute?: string;
 }
 
 const BasicLayout: React.FC<Properties> = (properties) => {
   const {
     children,
-    footer = <AppFooter />,
-    header = <AppHeader navStyle="left-slider" />,
+    localSwitcher,
+    logoRoute,
+    menuToggle,
+    mainMenuRoutes,
+    userMenu,
+    mainMenu,
+    mainMenuOrientation,
+    footer,
+    header,
   } = properties;
 
   return (
     <div className="layout basic">
-      {header}
+      {header || (
+        <AppHeader
+          navStyle="left-slider"
+          userMenu={userMenu}
+          mainMenuRoutes={mainMenuRoutes}
+          mainMenu={mainMenu}
+          toggle={menuToggle}
+          localeSwitcher={localSwitcher}
+          logoRoute={logoRoute}
+          mainMenuOrientation={mainMenuOrientation}
+        />
+      )}
 
       <main>{children}</main>
 
-      {footer}
+      {footer || <AppFooter />}
     </div>
   );
 };
