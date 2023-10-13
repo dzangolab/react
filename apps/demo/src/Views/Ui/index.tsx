@@ -196,14 +196,14 @@ const componentList = [
     component: (
       <FilesPresentation
         visibleFileDetails={[
-          "actions",
-          "description",
-          "downloadCount",
           "originalFileName",
-          "uploadedAt",
-          "uploadedBy",
-          "lastDownloadedAt",
+          "description",
           "size",
+          "uploadedBy",
+          "uploadedAt",
+          "downloadCount",
+          "lastDownloadedAt",
+          "actions",
         ]}
         presentation="table"
         onEditDescription={() => {}}
