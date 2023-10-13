@@ -1,8 +1,9 @@
 import { useState } from "react";
+
 import useConfig from "./useConfig";
 import useUser from "./useUser";
 
-export const useEmailVerification = () => {
+const useEmailVerification = () => {
   const config = useConfig();
   const { user } = useUser();
   const [emailVerificationEnabled, setEmailVerificationEnabled] =
@@ -22,3 +23,5 @@ export const useEmailVerification = () => {
 
   return [emailVerificationEnabled, userEmailVerified];
 };
+
+export default useEmailVerification;

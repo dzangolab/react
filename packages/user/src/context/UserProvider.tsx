@@ -1,14 +1,13 @@
 import React, { createContext, useEffect, useState } from "react";
 
 import { getUserData, setUserData } from "../helpers";
-import { useConfig } from "../hooks";
+import { useConfig, useEmailVerification } from "../hooks";
 import {
   getUserRoles,
   isUserVerified,
   verifySessionRoles,
 } from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
-import { isEmailVerificationEnabled } from "../utils/emailVerificationconfig";
 
 interface Properties {
   children: React.ReactNode;
@@ -20,6 +19,7 @@ const UserProvider = ({ children }: Properties) => {
   const [user, setUser] = useState<UserType | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const appConfig = useConfig();
+  const [emailVerificationEnabled] = useEmailVerification();
 
   useEffect(() => {
     const getUser = async () => {
@@ -49,7 +49,7 @@ const UserProvider = ({ children }: Properties) => {
 
     if (user) {
       roles = await getUserRoles();
-      if (isEmailVerificationEnabled(appConfig)) {
+      if (emailVerificationEnabled) {
         isEmailVerified = await isUserVerified();
         await setUserData({
           ...user,

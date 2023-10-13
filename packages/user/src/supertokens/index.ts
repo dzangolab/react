@@ -6,7 +6,7 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 
 import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
 
-import { isEmailVerificationEnabled } from "..";
+import { useEmailVerification } from "../hooks";
 
 const superTokens = (config: AppConfig) => {
   const recipeLists: Array<any> = [
@@ -14,7 +14,9 @@ const superTokens = (config: AppConfig) => {
     ThirdPartyEmailPassword.init(),
   ];
 
-  if (isEmailVerificationEnabled(config)) {
+  const [emailVerificationEnabled] = useEmailVerification();
+
+  if (emailVerificationEnabled) {
     recipeLists.push(EmailVerification.init());
   }
 

@@ -15,7 +15,7 @@ import {
 } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
-import { useUser } from "./hooks";
+import { useUser, useEmailVerification } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import superTokens from "./supertokens";
@@ -29,7 +29,6 @@ import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import verifyEmail from "./supertokens/verifyEmail";
 import UserToastContainer from "./toastify";
-import { isEmailVerificationEnabled } from "./utils/emailVerificationconfig";
 import AcceptInvitation from "./views/AcceptInvitation";
 import ChangePassword from "./views/ChangePassword";
 import EmailVerificationReminder from "./views/EmailVerificationReminder";
@@ -91,7 +90,6 @@ export {
   forgetPassword,
   getUserData,
   googleLogin,
-  isEmailVerificationEnabled,
   login,
   logout,
   removeUserData,
@@ -100,6 +98,7 @@ export {
   signup,
   superTokens,
   useUser,
+  useEmailVerification,
   userContext,
   verifySessionRoles,
   verifyEmail,
