@@ -16,7 +16,6 @@ interface Properties {
 const userContext = createContext<UserContextType | undefined>(undefined);
 
 const UserProvider = ({ children }: Properties) => {
-  // const {emailVerificationEnabled} = useEmailVerification();
   const [user, setUser] = useState<UserType | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const appConfig = useConfig();

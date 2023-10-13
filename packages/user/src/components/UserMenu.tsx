@@ -14,8 +14,7 @@ const UserMenu = (properties: Properties) => {
   } = properties;
 
   const { user } = useUser();
-  const { emailVerificationEnabled, userEmailVerified } =
-    useEmailVerification();
+  const [emailVerificationEnabled, userEmailVerified] = useEmailVerification();
 
   const renderUserMenu = () => {
     if (user) {

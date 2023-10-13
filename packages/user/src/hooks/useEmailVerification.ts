@@ -8,12 +8,11 @@ const useEmailVerification = () => {
   const emailVerificationEnabled =
     !!config.user.features?.signUp?.emailVerification;
 
-  const userEmailVerified =
-    typeof user?.isEmailVerified === "boolean"
-      ? user.isEmailVerified
-      : undefined;
+  const userEmailVerified = emailVerificationEnabled
+    ? user?.isEmailVerified
+    : undefined;
 
-  return { emailVerificationEnabled, userEmailVerified };
+  return [emailVerificationEnabled, userEmailVerified];
 };
 
 export default useEmailVerification;
