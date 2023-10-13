@@ -1,27 +1,19 @@
-import { useState } from "react";
-
 import useConfig from "./useConfig";
 import useUser from "./useUser";
 
 const useEmailVerification = () => {
   const config = useConfig();
   const { user } = useUser();
-  const [emailVerificationEnabled, setEmailVerificationEnabled] =
-    useState<boolean>(false);
-  const [userEmailVerified, setUserEmailVerified] = useState<
-    boolean | undefined
-  >(false);
-  if (config.user.features?.signUp?.emailVerification) {
-    setEmailVerificationEnabled(true);
-  } else {
-    setUserEmailVerified(undefined);
-  }
 
-  if (user?.isEmailVerified) {
-    setUserEmailVerified(true);
-  }
+  const emailVerificationEnabled =
+    !!config.user.features?.signUp?.emailVerification;
 
-  return [emailVerificationEnabled, userEmailVerified];
+  const userEmailVerified =
+    typeof user?.isEmailVerified === "boolean"
+      ? user.isEmailVerified
+      : undefined;
+
+  return { emailVerificationEnabled, userEmailVerified };
 };
 
 export default useEmailVerification;

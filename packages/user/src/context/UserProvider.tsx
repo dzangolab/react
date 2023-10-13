@@ -16,10 +16,10 @@ interface Properties {
 const userContext = createContext<UserContextType | undefined>(undefined);
 
 const UserProvider = ({ children }: Properties) => {
+  // const {emailVerificationEnabled} = useEmailVerification();
   const [user, setUser] = useState<UserType | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const appConfig = useConfig();
-  const [emailVerificationEnabled] = useEmailVerification();
 
   useEffect(() => {
     const getUser = async () => {
@@ -49,7 +49,7 @@ const UserProvider = ({ children }: Properties) => {
 
     if (user) {
       roles = await getUserRoles();
-      if (emailVerificationEnabled) {
+      if (appConfig.user.features?.signUp?.emailVerification) {
         isEmailVerified = await isUserVerified();
         await setUserData({
           ...user,
