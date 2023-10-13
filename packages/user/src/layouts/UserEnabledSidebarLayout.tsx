@@ -64,12 +64,12 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     <CollapsibleSidebarLayout
       children={children}
       footer={footer}
-      mainMenuRoutes={mainMenuRoutes || <></>}
+      mainMenuRoutes={mainMenuRoutes}
       logoRoute={logoRoute || home}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}
       localSwitcher={localSwitcher}
-      mainMenu={mainMenu}
+      mainMenu={mainMenu || <></>}
       mainMenuOrientation={mainMenuOrientation}
       menuToggle={menuToggle}
       userMenu={
