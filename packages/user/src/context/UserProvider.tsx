@@ -43,35 +43,30 @@ const UserProvider = ({ children }: Properties) => {
     getUser();
   }, []);
 
-  const setVerifiedUserWithRoles = async (user: UserType | undefined) => {
-    let roles, isEmailVerified;
+  const updateUser = async (user: UserType | undefined) => {
+    let roles, isEmailVerified, userData;
 
     if (user) {
       roles = await getUserRoles();
+
+      userData = {
+        ...user,
+        roles: roles,
+      };
+
       if (appConfig.user.features?.signUp?.emailVerification) {
         isEmailVerified = await isUserVerified();
-        await setUserData({
-          ...user,
-          roles: roles,
-          isEmailVerified: isEmailVerified,
-        });
-        setUser({ ...user, roles: roles, isEmailVerified: isEmailVerified });
-      } else {
-        await setUserData({
-          ...user,
-          roles: roles,
-        });
-        setUser({ ...user, roles: roles });
+        userData.isEmailVerified = isEmailVerified;
       }
+      await setUserData(userData);
+      setUser(userData);
     } else {
       setUser(undefined);
     }
   };
 
   return (
-    <userContext.Provider
-      value={{ user, loading, setUser: setVerifiedUserWithRoles }}
-    >
+    <userContext.Provider value={{ user, loading, setUser: updateUser }}>
       {loading ? null : children}
     </userContext.Provider>
   );

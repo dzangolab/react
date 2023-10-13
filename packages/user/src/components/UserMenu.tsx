@@ -17,19 +17,15 @@ const UserMenu = (properties: Properties) => {
   const [emailVerificationEnabled, userEmailVerified] = useEmailVerification();
 
   const renderUserMenu = () => {
-    if (user) {
-      if (!emailVerificationEnabled) {
-        return authenticatedUserMenu;
-      } else {
-        if (!userEmailVerified) {
-          return null;
-        }
-
-        return authenticatedUserMenu;
-      }
+    if (!user) {
+      return anonymousUserMenu;
     }
 
-    return anonymousUserMenu;
+    if (emailVerificationEnabled && !userEmailVerified) {
+      return null;
+    }
+
+    return authenticatedUserMenu;
   };
 
   return <>{renderUserMenu()}</>;
