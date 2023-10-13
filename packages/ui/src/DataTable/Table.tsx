@@ -100,7 +100,6 @@ export const DataTable = ({
             return wrapColumnBody({
               data,
               columnsOptions,
-              dataKey,
               column,
             });
           }}
