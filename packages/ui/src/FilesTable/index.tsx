@@ -20,9 +20,11 @@ import type { ComponentProps } from "react";
 export type TableMessages = {
   searchPlaceholder?: string;
   tableEmpty?: string;
+  fileSizeHeader?: string;
 } & FileMessages;
 
 export interface IFile {
+  id: number | string;
   originalFileName: string;
   description?: string;
   size?: number;
@@ -165,6 +167,10 @@ export const FilesTable = ({
       },
     },
     {
+      field: "size",
+      header: messages?.fileSizeHeader || "Size",
+    },
+    {
       field: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
       body: (data) => {
@@ -228,7 +234,7 @@ export const FilesTable = ({
     <>
       <DataTable
         className={className}
-        dataKey="originalFileName"
+        dataKey="id"
         columns={processedColumns}
         data={files}
         emptyMessage={messages?.tableEmpty || "The table is empty"}
