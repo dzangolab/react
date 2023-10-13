@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 
 import { getUserData, setUserData } from "../helpers";
-import { useConfig, useEmailVerification } from "../hooks";
+import { useConfig } from "../hooks";
 import {
   getUserRoles,
   isUserVerified,
