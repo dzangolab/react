@@ -12,7 +12,7 @@ const EmailVerificationReminder = () => {
       <Card>
         {t("emailVerification.messages.unverified")}
         <div className="resend-email-verification" onClick={resendEmail}>
-          Click here to resend the email.
+          {t("emailVerification.messages.resendEmail")}
         </div>
       </Card>
     </Page>
