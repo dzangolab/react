@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { resendEmail } from "@/supertokens/resend-email-verification";
 import verifyEmail from "@/supertokens/verifyEmail";
 
 import { UserContextType, userContext } from "..";
@@ -77,7 +78,12 @@ const VerifyEmail = ({
         });
 
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
-        return t("emailVerification.messages.invalidToken");
+        return (
+          <>
+            {t("emailVerification.messages.invalidToken")};
+            <div onClick={resendEmail}> Click here to resend the email</div>
+          </>
+        );
 
       default:
         return t("emailVerification.messages.error");
