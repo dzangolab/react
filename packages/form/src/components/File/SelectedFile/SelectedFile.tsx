@@ -42,21 +42,21 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
         <div className="file-details">
           <Tooltip
             position="top"
-            target={".file-name" + ".name" + index}
+            target={`.file-name.name-${index}`}
             content={file.name}
           />
-          <span className={"file-name" + " name" + index}>{file.name}</span>
+          <span className={`file-name name-${index}`}>{file.name}</span>
           {enableDescription && (
             <div className="file-description">
               {!showDescriptionInput ? (
                 <>
                   <Tooltip
                     position="top"
-                    target={".description" + ".description" + index}
+                    target={`.description.description-${index}`}
                     content={file.description}
                   />
                   <div
-                    className={"description" + " description" + index}
+                    className={`description description-${index}`}
                     role="button"
                     tabIndex={0}
                     onClick={() => {
