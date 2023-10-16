@@ -1,6 +1,6 @@
 import DropdownUserMenu from "./DropdownUserMenu";
 import SignInUpMenu from "./SignInUpMenu";
-import { useUser } from "../hooks";
+import { useUser, useEmailVerification } from "../hooks";
 
 interface Properties {
   authenticatedUserMenu?: React.ReactNode;
@@ -14,10 +14,21 @@ const UserMenu = (properties: Properties) => {
   } = properties;
 
   const { user } = useUser();
+  const [emailVerificationEnabled, userEmailVerified] = useEmailVerification();
 
-  return (
-    <>{user?.isEmailVerified ? authenticatedUserMenu : anonymousUserMenu}</>
-  );
+  const renderUserMenu = () => {
+    if (!user) {
+      return anonymousUserMenu;
+    }
+
+    if (emailVerificationEnabled && !userEmailVerified) {
+      return null;
+    }
+
+    return authenticatedUserMenu;
+  };
+
+  return <>{renderUserMenu()}</>;
 };
 
 export default UserMenu;
