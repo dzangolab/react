@@ -86,7 +86,7 @@ const VerifyEmail = ({
             {t("emailVerification.messages.invalidToken")};
             <div
               onClick={() => resendEmail(t)}
-              className="resend-email-verification"
+              className="resend-email-verification-message"
             >
               {t("emailVerification.messages.resendEmail")}
             </div>

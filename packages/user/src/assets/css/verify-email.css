@@ -2,11 +2,11 @@
   justify-items: center;
 }
 
-.resend-email-verification {
+.resend-email-verification-message {
   text-align: center;
 }
 
-.resend-email-verification:hover {
+.resend-email-verification-message:hover {
   color: blue;
   cursor: pointer;
 }
