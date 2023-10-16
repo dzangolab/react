@@ -7,14 +7,12 @@ export const wrapColumnBody: ({
   data,
   columnsOptions,
   column,
-  dataKey,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
   columnsOptions: ColumnBodyOptions;
   column: IColumnProperties;
-  dataKey: string;
-}) => React.ReactNode = ({ data, columnsOptions, column, dataKey }) => {
+}) => React.ReactNode = ({ data, columnsOptions, column }) => {
   const renderBody = () => {
     if (!column.body) {
       return data[column?.field || ""];
@@ -28,8 +26,7 @@ export const wrapColumnBody: ({
   };
 
   if (column.bodyTooltip) {
-    const wrapperClassName =
-      `${data?.[dataKey]?.replace(/ /g, "-")}` + `-${column.field}`;
+    const wrapperClassName = `${column.field}-${columnsOptions.rowIndex}`;
 
     let tooltipContent = "";
 

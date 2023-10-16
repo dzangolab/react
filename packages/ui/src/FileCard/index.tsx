@@ -30,7 +30,7 @@ export type FileMessages = {
 
 export type VisibleFileDetails =
   | "originalFileName"
-  | "fileSize"
+  | "size"
   | "description"
   | "uploadedBy"
   | "uploadedAt"
@@ -87,7 +87,7 @@ export const FileCard = ({
   showThumbnail = true,
   visibleFileDetails = [
     "originalFileName",
-    "fileSize",
+    "size",
     "description",
     "uploadedBy",
     "uploadedAt",
@@ -221,7 +221,7 @@ export const FileCard = ({
               {visibleFileDetailsMap.originalFileName ? (
                 <span className="file-name">{file.originalFileName}</span>
               ) : null}
-              {file.size && visibleFileDetailsMap.fileSize && (
+              {file.size && visibleFileDetailsMap.size && (
                 <span className="file-size">{`(${file?.size})`}</span>
               )}
             </div>
