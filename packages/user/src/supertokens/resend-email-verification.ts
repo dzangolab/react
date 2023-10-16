@@ -1,9 +1,7 @@
-import { useTranslation } from "@dzangolab/react-i18n";
 import { toast } from "react-toastify";
 import { sendVerificationEmail } from "supertokens-web-js/recipe/emailverification";
 
-export const resendEmail = async () => {
-  const { t } = useTranslation("user");
+export const resendEmail = async (t: any) => {
   try {
     const response = await sendVerificationEmail();
     switch (response.status) {
@@ -12,14 +10,14 @@ export const resendEmail = async () => {
         break;
 
       case "EMAIL_ALREADY_VERIFIED_ERROR":
-        toast.info("emailVerification.toastMessages.alreadyVerified");
+        toast.info(t("emailVerification.toastMessages.alreadyVerified"));
         break;
 
       default:
-        toast.error("emailVerification.toastMessages.resend.error");
+        toast.error(t("emailVerification.toastMessages.resend.error"));
         break;
     }
   } catch (error) {
-    toast.error("emailVerification.toastMessages.resend.error");
+    toast.error(t("emailVerification.toastMessages.resend.error"));
   }
 };
