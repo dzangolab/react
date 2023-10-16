@@ -16,10 +16,10 @@ export const resendEmail = async () => {
         break;
 
       default:
-        toast.error("emailVerification.toastMessages.error");
+        toast.error("emailVerification.toastMessages.resend.error");
         break;
     }
   } catch (error) {
-    toast.error("emailVerification.toastMessages.error");
+    toast.error("emailVerification.toastMessages.resend.error");
   }
 };

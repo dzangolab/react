@@ -164,14 +164,19 @@
       "error": "Some error occured",
       "invalidToken": "The token is invalid",
       "success": "Email verified successfully. Redirecting to home page in {{countdown}} seconds",
-      "unverified": "Please check your email for verification"
+      "unverified": "Please check your email for verification",
+      "resendEmail": "Click here to resend your email"
     },
     "title": "Email verification",
     "toastMessages": {
       "success": "Email verified successfully",
       "alreadyVerified": "Email is already verified",
       "invalidToken": "The token is invalid",
-      "error": "Some error occured"
+      "error": "Some error occured",
+      "resend": {
+        "success": "Email resent successfully",
+        "error": "Some error occured"
+      }
     }
   }
 }
