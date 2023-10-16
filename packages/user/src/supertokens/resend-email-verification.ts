@@ -10,7 +10,7 @@ export const resendEmail = async () => {
         break;
 
       case "EMAIL_ALREADY_VERIFIED_ERROR":
-        toast.success("Email is already verified");
+        toast.info("Email is already verified");
         break;
 
       default:

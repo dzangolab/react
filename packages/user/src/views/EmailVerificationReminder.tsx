@@ -4,18 +4,14 @@ import { Card } from "primereact/card";
 
 import { resendEmail } from "@/supertokens/resend-email-verification";
 
-const EmailVerificationReminder = ({
-  redirectionDelayTime = 5,
-}: {
-  redirectionDelayTime?: number;
-}) => {
+const EmailVerificationReminder = () => {
   const { t } = useTranslation("user");
 
   return (
     <Page className="email-verification" title={t("emailVerification.title")}>
       <Card>
         {t("emailVerification.messages.unverified")}
-        <div style={{ color: "blue", cursor: "pointer" }} onClick={resendEmail}>
+        <div className="resend-email-verification" onClick={resendEmail}>
           Click here to resend the email.
         </div>
       </Card>
