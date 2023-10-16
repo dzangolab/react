@@ -59,7 +59,10 @@ const VerifyEmail = ({
       setTimeout(() => {
         setCountdown((previous) => previous - 1);
       }, 1000);
-    } else if (countdown === 0) {
+    } else if (
+      countdown === 0 &&
+      (status === "OK" || status === "EMAIL_ALREADY_VERIFIED")
+    ) {
       setUser(user);
       navigate("/");
     }
