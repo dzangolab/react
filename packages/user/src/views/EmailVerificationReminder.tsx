@@ -12,7 +12,7 @@ const EmailVerificationReminder = () => {
     <Page className="email-verification" title={t("emailVerification.title")}>
       <Card>
         <div>{t("emailVerification.messages.unverified")}</div>
-        <div className="resend-email-button">
+        <div className="resend-email-button-wrapper">
           <Button
             label={t("emailVerification.messages.resendEmail.button")}
             onClick={() => resendEmail(t)}

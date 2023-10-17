@@ -83,10 +83,12 @@ const VerifyEmail = ({
       return (
         <>
           <div>{t("emailVerification.messages.login")}</div>
-          <Button
-            label={t("emailVerification.messages.button.login")}
-            onClick={() => navigate("/signin")}
-          />
+          <div className="signin-button-wrapper">
+            <Button
+              label={t("emailVerification.messages.button.login")}
+              onClick={() => navigate("/signin")}
+            />
+          </div>
         </>
       );
     }
@@ -105,12 +107,13 @@ const VerifyEmail = ({
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
         return (
           <>
-            <div>{t("emailVerification.messages.invalidToken")};</div>
-            <Button
-              label={t("emailVerification.messages.invalidToken.button")}
-              onClick={handleResend}
-              className="resend-email-button"
-            />
+            <div>{t("emailVerification.messages.invalidToken")}</div>
+            <div className="resend-email-button-wrapper">
+              <Button
+                label={t("emailVerification.messages.invalidToken.button")}
+                onClick={handleResend}
+              />
+            </div>
           </>
         );
 

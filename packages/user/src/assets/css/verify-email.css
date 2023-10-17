@@ -2,6 +2,7 @@
   justify-items: center;
 }
 
-.resend-email-button {
+.resend-email-button-wrapper,
+.signin-button-wrapper {
   text-align: center;
 }
