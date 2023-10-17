@@ -1,23 +1,10 @@
 import { toast } from "react-toastify";
 import { sendVerificationEmail } from "supertokens-web-js/recipe/emailverification";
 
-export const resendEmail = async (t: any) => {
-  try {
-    const response = await sendVerificationEmail();
-    switch (response.status) {
-      case "OK":
-        toast.success(t("emailVerification.toastMessages.resend.success"));
-        break;
+type resendEmailStatus = "OK" | "EMAIL_ALREADY_VERIFIED_ERROR";
 
-      case "EMAIL_ALREADY_VERIFIED_ERROR":
-        toast.info(t("emailVerification.toastMessages.alreadyVerified"));
-        break;
+export const resendEmail = async (): Promise<resendEmailStatus | undefined> => {
+  const response = await sendVerificationEmail();
 
-      default:
-        toast.error(t("emailVerification.toastMessages.resend.error"));
-        break;
-    }
-  } catch (error) {
-    toast.error(t("emailVerification.toastMessages.resend.error"));
-  }
+  return response.status;
 };

@@ -74,7 +74,7 @@ const VerifyEmail = ({
   }, [countdown]);
 
   const handleResend = () => {
-    resendEmail(t);
+    resendEmail;
     navigate("/verify-email-reminder");
   };
 
@@ -82,12 +82,14 @@ const VerifyEmail = ({
     if (!user) {
       return (
         <>
-          <div>{t("emailVerification.messages.unauthenticated")}</div>
+          <div className="message-wrapper">
+            {t("emailVerification.messages.unauthenticated")}
+          </div>
           <div className="button-wrapper">
             <Button
               label={t("emailVerification.button.signin")}
               onClick={() => navigate("/signin")}
-              className="signin-btn"
+              className="signin-button"
             />
           </div>
         </>
@@ -123,7 +125,7 @@ const VerifyEmail = ({
               <Button
                 label={t("emailVerification.button.invalidToken")}
                 onClick={handleResend}
-                className="resend-btn"
+                className="resend-button"
               />
             </div>
           </>
@@ -132,7 +134,7 @@ const VerifyEmail = ({
       default:
         return (
           <div className="message-wrapper">
-            t("emailVerification.messages.error");
+            {t("emailVerification.messages.error")};
           </div>
         );
     }
