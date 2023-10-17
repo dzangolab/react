@@ -2,11 +2,11 @@
   justify-items: center;
 }
 
-.resend-email-verification-message {
-  text-align: center;
+.email-verification > .p-card > .p-card-body > .p-card-content {
+  display: flex;
+  flex-direction: column;
 }
 
-.resend-email-verification-message:hover {
-  color: blue;
-  cursor: pointer;
+.resend-button {
+  text-align: center;
 }

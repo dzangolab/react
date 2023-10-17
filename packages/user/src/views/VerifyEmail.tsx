@@ -24,35 +24,39 @@ const VerifyEmail = ({
   const [countdown, setCountdown] = useState<number>(redirectionDelayTime);
 
   useEffect(() => {
-    setVerifyEmailLoading(true);
+    if (user) {
+      setVerifyEmailLoading(true);
 
-    verifyEmail()
-      .then((response) => {
-        if (response) {
-          setStatus(response.status);
+      verifyEmail()
+        .then((response) => {
+          if (response) {
+            setStatus(response.status);
 
-          switch (response.status) {
-            case "OK":
-              toast.success(t("emailVerification.toastMessages.success"));
-              break;
+            switch (response.status) {
+              case "OK":
+                toast.success(t("emailVerification.toastMessages.success"));
+                break;
 
-            case "EMAIL_ALREADY_VERIFIED":
-              toast.info(t("emailVerification.toastMessages.alreadyVerified"));
-              break;
+              case "EMAIL_ALREADY_VERIFIED":
+                toast.info(
+                  t("emailVerification.toastMessages.alreadyVerified"),
+                );
+                break;
 
-            default:
-              toast.error(t("emailVerification.toastMessages.invalidToken"));
-              break;
+              default:
+                toast.error(t("emailVerification.toastMessages.invalidToken"));
+                break;
+            }
           }
-        }
-      })
-      .catch(() => {
-        toast.error(`${t("emailVerification.toastMessages.error")}`);
-        setStatus("ERROR");
-      })
-      .finally(() => {
-        setVerifyEmailLoading(false);
-      });
+        })
+        .catch(() => {
+          toast.error(`${t("emailVerification.toastMessages.error")}`);
+          setStatus("ERROR");
+        })
+        .finally(() => {
+          setVerifyEmailLoading(false);
+        });
+    }
   }, []);
 
   useEffect(() => {
@@ -68,6 +72,11 @@ const VerifyEmail = ({
       navigate("/");
     }
   }, [countdown]);
+
+  const handleResend = () => {
+    resendEmail(t);
+    navigate("/verify-email-reminder");
+  };
 
   const renderMessage = () => {
     switch (status) {
@@ -86,8 +95,9 @@ const VerifyEmail = ({
           <>
             {t("emailVerification.messages.invalidToken")};
             <Button
-              label={t("emailVerification.messages.resendEmail")}
-              onClick={() => resendEmail(t)}
+              label={t("emailVerification.messages.invalidToken.button")}
+              onClick={handleResend}
+              className="resend-button"
             />
           </>
         );
@@ -103,7 +113,11 @@ const VerifyEmail = ({
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
     >
-      <Card>{renderMessage()}</Card>
+      {user ? (
+        <Card>{renderMessage()}</Card>
+      ) : (
+        "you are not logged in please continue for logging in"
+      )}
     </Page>
   );
 };
