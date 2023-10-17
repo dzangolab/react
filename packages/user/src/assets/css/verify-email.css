@@ -2,11 +2,6 @@
   justify-items: center;
 }
 
-.email-verification > .p-card > .p-card-body > .p-card-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.resend-button {
+.resend-email-button {
   text-align: center;
 }

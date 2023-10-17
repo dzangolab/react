@@ -79,6 +79,18 @@ const VerifyEmail = ({
   };
 
   const renderMessage = () => {
+    if (!user) {
+      return (
+        <>
+          <div>{t("emailVerification.messages.login")}</div>
+          <Button
+            label={t("emailVerification.messages.button.login")}
+            onClick={() => navigate("/signin")}
+          />
+        </>
+      );
+    }
+
     switch (status) {
       case "OK":
         return t("emailVerification.messages.success", {
@@ -93,11 +105,11 @@ const VerifyEmail = ({
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
         return (
           <>
-            {t("emailVerification.messages.invalidToken")};
+            <div>{t("emailVerification.messages.invalidToken")};</div>
             <Button
               label={t("emailVerification.messages.invalidToken.button")}
               onClick={handleResend}
-              className="resend-button"
+              className="resend-email-button"
             />
           </>
         );
@@ -113,11 +125,7 @@ const VerifyEmail = ({
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
     >
-      {user ? (
-        <Card>{renderMessage()}</Card>
-      ) : (
-        "you are not logged in please continue for logging in"
-      )}
+      <Card>{renderMessage()}</Card>
     </Page>
   );
 };

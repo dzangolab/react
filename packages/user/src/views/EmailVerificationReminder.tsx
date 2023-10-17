@@ -11,8 +11,8 @@ const EmailVerificationReminder = () => {
   return (
     <Page className="email-verification" title={t("emailVerification.title")}>
       <Card>
-        {t("emailVerification.messages.unverified")}
-        <div className="resend-button">
+        <div>{t("emailVerification.messages.unverified")}</div>
+        <div className="resend-email-button">
           <Button
             label={t("emailVerification.messages.resendEmail.button")}
             onClick={() => resendEmail(t)}
