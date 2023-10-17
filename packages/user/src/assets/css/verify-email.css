@@ -4,5 +4,6 @@
 
 .resend-email-button-wrapper,
 .signin-button-wrapper {
+  margin-top: 1rem;
   text-align: center;
 }
