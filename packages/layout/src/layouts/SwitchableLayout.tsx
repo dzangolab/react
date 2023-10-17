@@ -38,24 +38,9 @@ export const SwitchableLayout = ({
   menuToggle,
   userMenu,
 }: Properties) => {
-  return (
-    <>
-      {layoutType === "basic" ? (
-        <BasicLayout
-          {...{
-            children,
-            footer,
-            header,
-            mainMenuRoutes,
-            localSwitcher,
-            logoRoute,
-            mainMenu,
-            mainMenuOrientation,
-            menuToggle,
-            userMenu,
-          }}
-        />
-      ) : (
+  switch (layoutType) {
+    case "sidebar":
+      return (
         <CollapsibleSidebarLayout
           {...{
             children,
@@ -73,7 +58,24 @@ export const SwitchableLayout = ({
             displaySidebar,
           }}
         />
-      )}
-    </>
-  );
+      );
+
+    default:
+      return (
+        <BasicLayout
+          {...{
+            children,
+            footer,
+            header,
+            mainMenuRoutes,
+            localSwitcher,
+            logoRoute,
+            mainMenu,
+            mainMenuOrientation,
+            menuToggle,
+            userMenu,
+          }}
+        />
+      );
+  }
 };
