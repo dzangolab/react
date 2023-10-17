@@ -15,7 +15,7 @@ import {
 } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
-import { useUser } from "./hooks";
+import { useUser, useEmailVerification } from "./hooks";
 import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
 import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import { UserEnabledSwitchableLayout } from "./layouts/UserEnabledSwitchableLayout";
@@ -100,6 +100,7 @@ export {
   signup,
   superTokens,
   useUser,
+  useEmailVerification,
   userContext,
   verifySessionRoles,
   verifyEmail,
