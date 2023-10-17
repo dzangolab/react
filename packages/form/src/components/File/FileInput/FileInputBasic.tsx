@@ -87,7 +87,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   const renderSelectedFiles = () => {
     if (value?.length) {
       return (
-        <ul className="selected-files">
+        <ul className="selected">
           {value.map((file, index) => {
             return (
               <SelectedFile

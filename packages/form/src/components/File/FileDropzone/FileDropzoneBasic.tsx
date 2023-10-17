@@ -47,7 +47,7 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
         {dropzoneMessage && <p>{dropzoneMessage}</p>}
       </div>
       {!!value?.length && (
-        <ul className="selected-files">
+        <ul className="selected">
           {value.map((file, index) => {
             return (
               <SelectedFile

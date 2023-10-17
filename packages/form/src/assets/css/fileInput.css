@@ -1,13 +1,16 @@
-.file-input .selected-files,
-.file-list-overlay .selected-files {
+.file-input.selected,
+.file-list-overlay .selected {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem 0;
 }
+.file-input .selected {
+  padding-inline-start: 0px;
+}
 
-.file-input .selected-files li,
-.file-list-overlay .selected-files li {
+.file-input .selected li,
+.file-list-overlay .selected li {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -16,36 +19,36 @@
   padding: 0.5rem 0rem;
 }
 
-.file-input .selected-files li .file-info,
-.file-list-overlay .selected-files li .file-info {
+.file-input .selected li .info,
+.file-list-overlay .selected li .info {
   position: relative;
   display: flex;
   gap: 0.75rem;
   width: 90%;
 }
 
-.file-input .selected-files li > button,
-.file-list-overlay .selected-files li > button {
+.file-input .selected li > button,
+.file-list-overlay .selected li > button {
   margin-left: auto;
 }
 
-.file-input .selected-files li .file-preview,
-.file-list-overlay .selected-files li .file-preview {
+.file-input .selected li .preview,
+.file-list-overlay .selected li .preview {
   width: 3.5rem;
   height: 3.5rem;
   background: lightgray;
 }
 
-.file-input .selected-files li .file-description,
-.file-list-overlay .selected-files li .file-description {
+.file-input .selected li .description-wrapper,
+.file-list-overlay .selected li .description-wrapper {
   display: flex;
   gap: 0.5rem;
   height: 2.3rem;
   width: 100%;
 }
 
-.file-input .selected-files .p-button.p-button-sm,
-.file-list-overlay .selected-files .p-button.p-button-sm {
+.file-input .selected .p-button.p-button-sm,
+.file-list-overlay .selected .p-button.p-button-sm {
   padding: 0 !important;
   width: 1.5rem;
   height: 1.5rem;
@@ -79,7 +82,7 @@
   border-color: #ff1744;
 }
 
-.file-description .description {
+.description-wrapper .description {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.514);
   text-overflow: ellipsis;
@@ -88,19 +91,19 @@
   overflow: hidden;
 }
 
-.file-description i {
+.description-wrapper i {
   visibility: hidden;
 }
 
-.file-input .file-description .p-inputgroup {
+.file-input .description-wrapper .p-inputgroup {
   position: absolute;
 }
 
-.file-description:hover i {
+.description-wrapper:hover i {
   visibility: visible;
 }
 
-.file-details {
+.details {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
