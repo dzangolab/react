@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
+import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -84,12 +85,10 @@ const VerifyEmail = ({
         return (
           <>
             {t("emailVerification.messages.invalidToken")};
-            <div
+            <Button
+              label={t("emailVerification.messages.resendEmail")}
               onClick={() => resendEmail(t)}
-              className="resend-email-verification-message"
-            >
-              {t("emailVerification.messages.resendEmail")}
-            </div>
+            />
           </>
         );
 
