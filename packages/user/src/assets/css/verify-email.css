@@ -3,8 +3,7 @@
   justify-items: center;
 }
 
-.resend-email-button-wrapper,
-.signin-button-wrapper {
+.button-wrapper {
   margin-top: 1rem;
   text-align: center;
 }

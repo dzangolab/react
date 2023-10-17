@@ -2,11 +2,26 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
+import { toast } from "react-toastify";
 
 import { resendEmail } from "@/supertokens/resend-email-verification";
 
 const EmailVerificationReminder = () => {
   const { t } = useTranslation("user");
+
+  const handleResend = () => {
+    resendEmail()
+      .then((status) => {
+        if (status === "OK") {
+          toast.success(t("emailVerification.toastMessages.resendSuccess"));
+        } else if (status === "EMAIL_ALREADY_VERIFIED_ERROR") {
+          toast.info(t("emailVerification.toastMessages.alreadyVerified"));
+        }
+      })
+      .catch(() => {
+        toast.error(t("emailVerification.toastMessages.error"));
+      });
+  };
 
   return (
     <Page
@@ -20,7 +35,7 @@ const EmailVerificationReminder = () => {
         <div className="button-wrapper">
           <Button
             label={t("emailVerification.button.resendEmail")}
-            onClick={resendEmail}
+            onClick={handleResend}
           />
         </div>
       </Card>

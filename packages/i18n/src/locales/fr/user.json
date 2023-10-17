@@ -176,7 +176,7 @@
       "success": "Email verified successfully (fr)",
       "alreadyVerified": "Email is already verified (fr)",
       "invalidToken": "The token is invalid (fr)",
-      "error": "Some error occured (fr)",
+      "error": "Something went wrong. Please try again (fr)",
       "resendSuccess": "Email resent successfully (fr)",
       "resendError": "Something went wrong. Please try again (fr)"
     }
