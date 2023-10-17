@@ -58,6 +58,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
     mainMenuRoutes,
     mainMenuOrientation,
     menuToggle,
+    mainMenu,
     onLogout,
     customSidebar,
     userMenu,
@@ -67,13 +68,11 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
   } = properties;
 
   const renderMainMenu = () => {
-    if ((isSmallScreen && user) || (user && layoutType === "basic")) {
-      return (
-        <MainMenu routes={mainMenuRoutes} orientation={mainMenuOrientation} />
-      );
+    if (layoutType === "sidebar") {
+      return <></>;
     }
 
-    return <></>;
+    return mainMenu;
   };
 
   return (
@@ -81,7 +80,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
       layoutType={layoutType}
       children={children}
       footer={footer}
-      mainMenuRoutes={mainMenuRoutes}
+      mainMenuRoutes={user ? mainMenuRoutes : []}
       logoRoute={logoRoute || home}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}

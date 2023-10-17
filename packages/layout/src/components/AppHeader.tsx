@@ -38,6 +38,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     navStyle = "dropdown",
     toggle = <i className="pi pi-align-justify"></i>,
     userMenu,
+    mainMenuRoutes,
   } = properties;
 
   return (
@@ -46,7 +47,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
       <nav className={`menu ${navStyle}`} data-expanded={expanded}>
         {mainMenu || (
           <MainMenu
-            routes={layoutConfig?.mainMenu}
+            routes={mainMenuRoutes || layoutConfig?.mainMenu}
             orientation={mainMenuOrientation}
           />
         )}

@@ -64,7 +64,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     <CollapsibleSidebarLayout
       children={children}
       footer={footer}
-      mainMenuRoutes={mainMenuRoutes}
+      mainMenuRoutes={user ? mainMenuRoutes : []}
       logoRoute={logoRoute || home}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}

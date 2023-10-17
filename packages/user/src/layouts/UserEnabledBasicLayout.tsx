@@ -57,7 +57,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     <BasicLayout
       children={children}
       footer={footer}
-      mainMenuRoutes={mainMenuRoutes}
+      mainMenuRoutes={user ? mainMenuRoutes : []}
       mainMenu={mainMenu}
       mainMenuOrientation={mainMenuOrientation}
       header={header}
