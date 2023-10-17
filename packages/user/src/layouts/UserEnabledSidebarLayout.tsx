@@ -60,6 +60,14 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     menuToggle,
   } = properties;
 
+  const renderMainMenu = () => {
+    if (!isSmallScreen) {
+      return <></>;
+    }
+
+    return mainMenu;
+  };
+
   return (
     <CollapsibleSidebarLayout
       children={children}
@@ -69,7 +77,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}
       localSwitcher={localSwitcher}
-      mainMenu={mainMenu || <></>}
+      mainMenu={renderMainMenu()}
       mainMenuOrientation={mainMenuOrientation}
       menuToggle={menuToggle}
       userMenu={

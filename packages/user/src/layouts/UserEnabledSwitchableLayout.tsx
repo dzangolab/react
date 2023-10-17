@@ -68,7 +68,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
   } = properties;
 
   const renderMainMenu = () => {
-    if (layoutType === "sidebar") {
+    if (!isSmallScreen && layoutType === "sidebar") {
       return <></>;
     }
 
