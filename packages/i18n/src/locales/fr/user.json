@@ -164,9 +164,12 @@
       "invalidToken": "The token is invalid (fr)",
       "success": "Email verified successfully. Redirecting to home page in {{countdown}} seconds (fr)",
       "unverified": "Please check your email for verification (fr)",
-      "resendEmail": {
-        "button": "Resend email (fr)"
-      }
+      "login": "User session expired. Please login to continue (fr)"
+    },
+    "button": {
+      "resendEmail": "Resend email (fr)",
+      "invalidToken": "Continue (fr)",
+      "login": "Login (fr)"
     },
     "title": "Email verification (fr)",
     "toastMessages": {

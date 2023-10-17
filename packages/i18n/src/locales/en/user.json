@@ -165,9 +165,12 @@
       "invalidToken": "The token is invalid",
       "success": "Email verified successfully. Redirecting to home page in {{countdown}} seconds",
       "unverified": "Please check your email for verification",
-      "resendEmail":{
-        "button": "Resend email"
-      }
+      "login":"User session expired. Please login to continue"
+    },
+    "button":{
+      "resendEmail": "Resend email",
+      "invalidToken": "Continue",
+      "login":"Login"
     },
     "title": "Email verification",
     "toastMessages": {

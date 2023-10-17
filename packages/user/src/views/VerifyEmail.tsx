@@ -85,7 +85,7 @@ const VerifyEmail = ({
           <div>{t("emailVerification.messages.login")}</div>
           <div className="signin-button-wrapper">
             <Button
-              label={t("emailVerification.messages.button.login")}
+              label={t("emailVerification.button.login")}
               onClick={() => navigate("/signin")}
             />
           </div>
@@ -110,7 +110,7 @@ const VerifyEmail = ({
             <div>{t("emailVerification.messages.invalidToken")}</div>
             <div className="resend-email-button-wrapper">
               <Button
-                label={t("emailVerification.messages.invalidToken.button")}
+                label={t("emailVerification.button.invalidToken")}
                 onClick={handleResend}
               />
             </div>
