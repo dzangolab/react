@@ -82,11 +82,12 @@ const VerifyEmail = ({
     if (!user) {
       return (
         <>
-          <div>{t("emailVerification.messages.login")}</div>
-          <div className="signin-button-wrapper">
+          <div>{t("emailVerification.messages.unauthenticated")}</div>
+          <div className="button-wrapper">
             <Button
-              label={t("emailVerification.button.login")}
+              label={t("emailVerification.button.signin")}
               onClick={() => navigate("/signin")}
+              className="signin-btn"
             />
           </div>
         </>
@@ -95,30 +96,45 @@ const VerifyEmail = ({
 
     switch (status) {
       case "OK":
-        return t("emailVerification.messages.success", {
-          countdown: countdown,
-        });
+        return (
+          <div className="message-wrapper">
+            {t("emailVerification.messages.success", {
+              countdown: countdown,
+            })}
+          </div>
+        );
 
       case "EMAIL_ALREADY_VERIFIED":
-        return t("emailVerification.messages.alreadyVerified", {
-          countdown: countdown,
-        });
+        return (
+          <div className="message-wrapper">
+            {t("emailVerification.messages.alreadyVerified", {
+              countdown: countdown,
+            })}
+          </div>
+        );
 
       case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
         return (
           <>
-            <div>{t("emailVerification.messages.invalidToken")}</div>
-            <div className="resend-email-button-wrapper">
+            <div className="message-wrapper">
+              {t("emailVerification.messages.invalidToken")}
+            </div>
+            <div className="button-wrapper">
               <Button
                 label={t("emailVerification.button.invalidToken")}
                 onClick={handleResend}
+                className="resend-btn"
               />
             </div>
           </>
         );
 
       default:
-        return t("emailVerification.messages.error");
+        return (
+          <div className="message-wrapper">
+            t("emailVerification.messages.error");
+          </div>
+        );
     }
   };
 
@@ -128,7 +144,7 @@ const VerifyEmail = ({
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
     >
-      <Card>{renderMessage()}</Card>
+      <Card className="email-verification-card">{renderMessage()}</Card>
     </Page>
   );
 };

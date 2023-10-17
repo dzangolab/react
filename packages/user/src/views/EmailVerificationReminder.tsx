@@ -9,9 +9,14 @@ const EmailVerificationReminder = () => {
   const { t } = useTranslation("user");
 
   return (
-    <Page className="email-verification" title={t("emailVerification.title")}>
+    <Page
+      className="email-verification-reminder"
+      title={t("emailVerification.title")}
+    >
       <Card>
-        <div>{t("emailVerification.messages.unverified")}</div>
+        <div className="reminder-message-wrapper">
+          {t("emailVerification.messages.unverified")}
+        </div>
         <div className="resend-email-button-wrapper">
           <Button
             label={t("emailVerification.button.resendEmail")}
