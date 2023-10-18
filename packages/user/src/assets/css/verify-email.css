@@ -1,3 +1,9 @@
-.email-verification {
+.email-verification,
+.email-verification-reminder {
   justify-items: center;
+}
+
+.button-wrapper {
+  margin-top: 1rem;
+  text-align: center;
 }

@@ -161,17 +161,25 @@
   "emailVerification": {
     "messages": {
       "alreadyVerified": "Email is already verified. Redirecting to home page in {{countdown}} seconds",
-      "error": "Some error occured",
+      "error": "Something went wrong. Please try again",
       "invalidToken": "The token is invalid",
       "success": "Email verified successfully. Redirecting to home page in {{countdown}} seconds",
-      "unverified": "Please check your email for verification"
+      "unverified": "Please check your email for verification",
+      "unauthenticated": "User session expired. Please signin to continue"
+    },
+    "button": {
+      "resendEmail": "Resend email",
+      "invalidToken": "Continue",
+      "signin": "Signin"
     },
     "title": "Email verification",
     "toastMessages": {
       "success": "Email verified successfully",
       "alreadyVerified": "Email is already verified",
       "invalidToken": "The token is invalid",
-      "error": "Some error occured"
+      "error": "Something went wrong. Please try again",
+      "resendSuccess":"Email resent successfully",
+      "resendError":"Something went wrong. Please try again"
     }
   }
 }
