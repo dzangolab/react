@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { EMAIL_VERIFICATION } from "@/constants";
 import { resendEmail } from "@/supertokens/resend-email-verification";
 import verifyEmail from "@/supertokens/verify-email";
 
@@ -33,12 +34,12 @@ const VerifyEmail = ({
             setStatus(response.status);
 
             switch (response.status) {
-              case "OK":
+              case EMAIL_VERIFICATION.OK:
                 toast.success(t("emailVerification.toastMessages.success"));
                 setCountdown(redirectionDelayTime);
                 break;
 
-              case "EMAIL_ALREADY_VERIFIED":
+              case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
                 toast.info(
                   t("emailVerification.toastMessages.alreadyVerified"),
                 );
@@ -53,7 +54,7 @@ const VerifyEmail = ({
         })
         .catch(() => {
           toast.error(`${t("emailVerification.toastMessages.error")}`);
-          setStatus("ERROR");
+          setStatus(EMAIL_VERIFICATION.ERROR);
         })
         .finally(() => {
           setVerifyEmailLoading(false);
@@ -68,7 +69,8 @@ const VerifyEmail = ({
       }, 1000);
     } else if (
       countdown === 0 &&
-      (status === "OK" || status === "EMAIL_ALREADY_VERIFIED")
+      (status === EMAIL_VERIFICATION.OK ||
+        status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED)
     ) {
       setUser(user);
       navigate("/");
@@ -78,9 +80,9 @@ const VerifyEmail = ({
   const handleResend = () => {
     resendEmail()
       .then((status) => {
-        if (status === "OK") {
+        if (status === EMAIL_VERIFICATION.OK) {
           toast.success(t("emailVerification.toastMessages.resendSuccess"));
-        } else if (status === "EMAIL_ALREADY_VERIFIED_ERROR") {
+        } else if (status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR) {
           toast.info(t("emailVerification.toastMessages.alreadyVerified"));
         }
 
@@ -110,7 +112,7 @@ const VerifyEmail = ({
     }
 
     switch (status) {
-      case "OK":
+      case EMAIL_VERIFICATION.OK:
         return (
           <div className="message-wrapper">
             {t("emailVerification.messages.success", {
@@ -119,7 +121,7 @@ const VerifyEmail = ({
           </div>
         );
 
-      case "EMAIL_ALREADY_VERIFIED":
+      case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
         return (
           <div className="message-wrapper">
             {t("emailVerification.messages.alreadyVerified", {
@@ -128,7 +130,7 @@ const VerifyEmail = ({
           </div>
         );
 
-      case "EMAIL_VERIFICATION_INVALID_TOKEN_ERROR":
+      case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR:
         return (
           <>
             <div className="message-wrapper">
