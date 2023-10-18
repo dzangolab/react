@@ -1,40 +1,46 @@
-import { CollapsibleSidebarLayout } from "@dzangolab/react-layout";
+import { MainMenu, SwitchableLayout } from "@dzangolab/react-layout";
 import { useMediaQuery } from "@dzangolab/react-ui";
+import React from "react";
 
-import DropdownUserMenu from "../components/DropdownUserMenu";
-import UserMenu from "../components/UserMenu";
-import { getHomeRoute } from "../helpers";
-import { useConfig, useUser } from "../hooks";
-import { UserMenuItemType } from "../types";
+import { getHomeRoute } from "@/helpers";
+import { useConfig } from "@/hooks";
+
+import { DropdownUserMenu, UserMenu, useUser } from "..";
+
+import type { UserMenuItemType } from "@/types";
+import type { FC } from "react";
 
 interface Properties {
   anonymousUserMenu?: React.ReactNode;
   authenticatedUserMenu?: React.ReactNode;
   children: React.ReactNode;
+  displaySidebarMenuIcon?: boolean;
   footer?: React.ReactNode;
+  header?: React.ReactNode;
+  layoutType?: "basic" | "sidebar";
+  localSwitcher?: React.ReactNode;
+  menuToggle?: React.ReactNode;
   mainMenuRoutes: {
     name: string;
     route: string;
     icon?: React.ReactNode;
   }[];
+  mainMenu?: React.ReactNode;
+  mainMenuOrientation?: "horizontal" | "vertical";
   onLogout?: () => void;
   customSidebar?: React.ReactNode;
-  displaySidebarMenuIcon?: boolean;
   userMenu?: UserMenuItemType[];
   userMenuCollapsedIcon?: React.ReactNode;
   userMenuExpandIcon?: React.ReactNode;
   userMenuLabel?: React.ReactNode;
-  header?: React.ReactNode;
-  localSwitcher?: React.ReactNode;
-  menuToggle?: React.ReactNode;
-  mainMenuOrientation?: "horizontal" | "vertical";
-  mainMenu?: React.ReactNode;
   logoRoute?: string;
 }
 
-const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
+export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();
+
   const { user } = useUser();
+
   const isSmallScreen = useMediaQuery("(max-width: 576px)");
 
   const home = getHomeRoute(user, layoutConfig, userConfig);
@@ -45,23 +51,24 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     children,
     displaySidebarMenuIcon = true,
     footer,
+    header,
+    layoutType = "basic",
+    localSwitcher,
+    logoRoute,
     mainMenuRoutes,
+    mainMenuOrientation,
+    menuToggle,
+    mainMenu,
     onLogout,
     customSidebar,
     userMenu,
     userMenuCollapsedIcon,
     userMenuExpandIcon,
     userMenuLabel,
-    header,
-    localSwitcher,
-    logoRoute,
-    mainMenu,
-    mainMenuOrientation,
-    menuToggle,
   } = properties;
 
   const renderMainMenu = () => {
-    if (!isSmallScreen) {
+    if (!isSmallScreen && layoutType === "sidebar") {
       return <></>;
     }
 
@@ -69,7 +76,8 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
   };
 
   return (
-    <CollapsibleSidebarLayout
+    <SwitchableLayout
+      layoutType={layoutType}
       children={children}
       footer={footer}
       mainMenuRoutes={user ? mainMenuRoutes : []}
@@ -101,5 +109,3 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     />
   );
 };
-
-export default UserEnabledSidebarLayout;

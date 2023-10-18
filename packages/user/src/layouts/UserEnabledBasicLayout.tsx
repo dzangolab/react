@@ -1,4 +1,4 @@
-import { AppHeader, BasicLayout, Logo } from "@dzangolab/react-layout";
+import { BasicLayout } from "@dzangolab/react-layout";
 
 import DropdownUserMenu from "../components/DropdownUserMenu";
 import UserMenu from "../components/UserMenu";
@@ -7,6 +7,8 @@ import { useConfig, useUser } from "../hooks";
 import { UserMenuItemType } from "../types";
 
 interface Properties {
+  anonymousUserMenu?: React.ReactNode;
+  authenticatedUserMenu?: React.ReactNode;
   children: React.ReactNode;
   footer?: React.ReactNode;
   onLogout?: () => void;
@@ -14,6 +16,16 @@ interface Properties {
   userMenuCollapsedIcon?: React.ReactNode;
   userMenuExpandIcon?: React.ReactNode;
   userMenuLabel?: React.ReactNode;
+  header?: React.ReactNode;
+  localSwitcher?: React.ReactNode;
+  menuToggle?: React.ReactNode;
+  mainMenuRoutes: {
+    name: string;
+    route: string;
+  }[];
+  mainMenuOrientation?: "horizontal" | "vertical";
+  mainMenu?: React.ReactNode;
+  logoRoute?: string;
 }
 
 const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
@@ -23,6 +35,8 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
   const home = getHomeRoute(user, layoutConfig, userConfig);
 
   const {
+    anonymousUserMenu,
+    authenticatedUserMenu,
     children,
     footer,
     onLogout,
@@ -30,28 +44,40 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     userMenuCollapsedIcon,
     userMenuExpandIcon,
     userMenuLabel,
+    mainMenuRoutes,
+    mainMenu,
+    mainMenuOrientation,
+    header,
+    localSwitcher,
+    logoRoute,
+    menuToggle,
   } = properties;
 
   return (
     <BasicLayout
       children={children}
       footer={footer}
-      header={
-        <AppHeader
-          userMenu={
-            <UserMenu
-              authenticatedUserMenu={
-                <DropdownUserMenu
-                  collapseIcon={userMenuCollapsedIcon}
-                  expandIcon={userMenuExpandIcon}
-                  label={userMenuLabel}
-                  onLogout={onLogout}
-                  userMenu={userMenu}
-                />
-              }
-            />
+      mainMenuRoutes={user ? mainMenuRoutes : []}
+      mainMenu={mainMenu}
+      mainMenuOrientation={mainMenuOrientation}
+      header={header}
+      logoRoute={logoRoute || home}
+      menuToggle={menuToggle}
+      localSwitcher={localSwitcher}
+      userMenu={
+        <UserMenu
+          authenticatedUserMenu={
+            authenticatedUserMenu || (
+              <DropdownUserMenu
+                collapseIcon={userMenuCollapsedIcon}
+                expandIcon={userMenuExpandIcon}
+                label={userMenuLabel}
+                onLogout={onLogout}
+                userMenu={userMenu}
+              />
+            )
           }
-          logo={<Logo source={layoutConfig?.logo} route={home} />}
+          anonymousUserMenu={anonymousUserMenu}
         />
       }
     />
