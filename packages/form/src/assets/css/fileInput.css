@@ -1,4 +1,4 @@
-.file-input.selected,
+.file-input .selected,
 .file-list-overlay .selected {
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@
   border-color: #ff1744;
 }
 
-.description-wrapper .description {
+.file-input .description-wrapper .description {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.514);
   text-overflow: ellipsis;
@@ -91,7 +91,7 @@
   overflow: hidden;
 }
 
-.description-wrapper i {
+.file-input .description-wrapper i {
   visibility: hidden;
 }
 
@@ -99,11 +99,11 @@
   position: absolute;
 }
 
-.description-wrapper:hover i {
+.file-input .description-wrapper:hover i {
   visibility: visible;
 }
 
-.details {
+.file-input .details {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
