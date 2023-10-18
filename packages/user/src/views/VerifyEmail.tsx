@@ -21,7 +21,7 @@ const VerifyEmail = ({
   const [status, setStatus] = useState<string | undefined>("");
   const { user, setUser } = useContext(userContext) as UserContextType;
   const navigate = useNavigate();
-  const [countdown, setCountdown] = useState<number>(redirectionDelayTime);
+  const [countdown, setCountdown] = useState<number>(-1);
 
   useEffect(() => {
     if (user) {
@@ -35,12 +35,14 @@ const VerifyEmail = ({
             switch (response.status) {
               case "OK":
                 toast.success(t("emailVerification.toastMessages.success"));
+                setCountdown(redirectionDelayTime);
                 break;
 
               case "EMAIL_ALREADY_VERIFIED":
                 toast.info(
                   t("emailVerification.toastMessages.alreadyVerified"),
                 );
+                setCountdown(redirectionDelayTime);
                 break;
 
               default:
