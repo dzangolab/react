@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import { sendVerificationEmail } from "supertokens-web-js/recipe/emailverification";
 
 type resendEmailStatus = "OK" | "EMAIL_ALREADY_VERIFIED_ERROR";

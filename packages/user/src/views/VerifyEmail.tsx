@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { resendEmail } from "@/supertokens/resend-email-verification";
-import verifyEmail from "@/supertokens/verifyEmail";
+import verifyEmail from "@/supertokens/verify-email";
 
 import { UserContextType, userContext } from "..";
 
@@ -81,6 +81,7 @@ const VerifyEmail = ({
         } else if (status === "EMAIL_ALREADY_VERIFIED_ERROR") {
           toast.info(t("emailVerification.toastMessages.alreadyVerified"));
         }
+
         navigate("/verify-email-reminder");
       })
       .catch(() => {
