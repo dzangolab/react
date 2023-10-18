@@ -69,10 +69,12 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
 }
 
 const isUserVerified = async (): Promise<boolean | undefined> => {
-  const { isVerified } = await EmailVerification.isEmailVerified();
+  if (await Session.doesSessionExist()) {
+    const { isVerified } = await EmailVerification.isEmailVerified();
 
-  if (isVerified) {
-    return true;
+    if (isVerified) {
+      return true;
+    }
   }
 
   return false;

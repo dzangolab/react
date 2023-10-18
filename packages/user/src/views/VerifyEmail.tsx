@@ -74,8 +74,18 @@ const VerifyEmail = ({
   }, [countdown]);
 
   const handleResend = () => {
-    resendEmail;
-    navigate("/verify-email-reminder");
+    resendEmail()
+      .then((status) => {
+        if (status === "OK") {
+          toast.success(t("emailVerification.toastMessages.resendSuccess"));
+        } else if (status === "EMAIL_ALREADY_VERIFIED_ERROR") {
+          toast.info(t("emailVerification.toastMessages.alreadyVerified"));
+        }
+        navigate("/verify-email-reminder");
+      })
+      .catch(() => {
+        toast.error(t("emailVerification.toastMessages.error"));
+      });
   };
 
   const renderMessage = () => {
