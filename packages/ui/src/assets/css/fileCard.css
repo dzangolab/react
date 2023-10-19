@@ -18,7 +18,7 @@
   gap: 1rem;
 }
 
-.file-thumbnail {
+.file-card .file-thumbnail {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -27,11 +27,11 @@
   min-width: 6rem;
 }
 
-.file-thumbnail > i {
+.file-card .file-thumbnail > i {
   font-size: 5rem;
 }
 
-.file-details-wrapper {
+.file-card .details-wrapper {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -40,68 +40,68 @@
   min-width: 15rem;
 }
 
-.file-name-description-details-wrapper {
+.file-card .name-description-details-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.file-name {
+.file-card .name {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.file-size {
+.file-card .file-size {
   font-size: 1.3rem;
   margin-left: 1rem;
 }
 
-.file-description-details {
+.file-card .description-wrapper-details {
   align-items: center;
   display: flex;
   margin-top: 0.5rem;
 }
 
-.file-upload-download-details-wrapper {
+.file-card .file-upload-download-details-wrapper {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.file-upload-details {
+.file-card .file-upload-details {
   display: flex;
   gap: 1rem;
 }
 
-.uploaded-by,
-.uploaded-at {
+.file-card .uploaded-by,
+.file-card .uploaded-at {
   display: flex;
   flex-direction: column;
 }
 
-.uploaded-by > span:first-child,
-.uploaded-at > span:first-child,
-.download-count > span:first-child,
-.last-downloaded-at > span:first-child {
+.file-card .uploaded-by > span:first-child,
+.file-card .uploaded-at > span:first-child,
+.file-card .download-count > span:first-child,
+.file-card .last-downloaded-at > span:first-child {
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.3rem;
 }
 
-.download-count {
+.file-card .download-count {
   margin-bottom: 0.3rem;
 }
 
-.download-count > span:last-child,
-.last-downloaded-at > span:last-child {
+.file-card .download-count > span:last-child,
+.file-card.last-downloaded-at > span:last-child {
   margin-left: 0.4rem;
 }
 
-.file-download-details {
+.file-card .file-download-details {
   display: flex;
   flex-direction: column;
 }
 
-.file-actions {
+.file-card .file-actions {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;

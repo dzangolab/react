@@ -215,11 +215,11 @@ export const FileCard = ({
     <Card className="file-card">
       <div className="file-thumbnail-details-wrapper">
         {renderThumbnail()}
-        <div className="file-details-wrapper">
-          <div className="file-name-description-details-wrapper">
+        <div className="details-wrapper">
+          <div className="name-description-details-wrapper">
             <div>
               {visibleFileDetailsMap.originalFileName ? (
-                <span className="file-name">{file.originalFileName}</span>
+                <span className="name">{file.originalFileName}</span>
               ) : null}
               {file.size && visibleFileDetailsMap.size && (
                 <span className="file-size">{`(${file?.size})`}</span>
@@ -228,7 +228,7 @@ export const FileCard = ({
 
             {file.description && visibleFileDetailsMap.description && (
               <>
-                <div className="file-description-details">
+                <div className="description-wrapper-details">
                   <span>{file.description}</span>
                   {!!onEditDescription && (
                     <Button

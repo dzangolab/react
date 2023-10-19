@@ -84,26 +84,32 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
     );
   };
 
-  const renderSelectedFiles = () => (
-    <ul className="selected-files">
-      {!!value?.length &&
-        value.map((file, index) => {
-          return (
-            <SelectedFile
-              key={file.name}
-              file={file}
-              enableDescription={enableDescription}
-              addDescriptionLabel={addDescriptionLabel}
-              descriptionPlaceholder={descriptionPlaceholder}
-              onRemove={() => onRemove(index)}
-              onDescriptionChange={(description) => {
-                file.description = description;
-              }}
-            />
-          );
-        })}
-    </ul>
-  );
+  const renderSelectedFiles = () => {
+    if (value?.length) {
+      return (
+        <ul className="selected">
+          {value.map((file, index) => {
+            return (
+              <SelectedFile
+                key={file.name}
+                file={file}
+                index={index}
+                enableDescription={enableDescription}
+                addDescriptionLabel={addDescriptionLabel}
+                descriptionPlaceholder={descriptionPlaceholder}
+                onRemove={() => onRemove(index)}
+                onDescriptionChange={(description) => {
+                  file.description = description;
+                }}
+              />
+            );
+          })}
+        </ul>
+      );
+    }
+
+    return <></>;
+  };
 
   return (
     <div className="file-input">

@@ -46,13 +46,14 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
         <input id={name} name={name} {...getInputProps()} />
         {dropzoneMessage && <p>{dropzoneMessage}</p>}
       </div>
-      <ul className="selected-files">
-        {!!value?.length &&
-          value.map((file, index) => {
+      {!!value?.length && (
+        <ul className="selected">
+          {value.map((file, index) => {
             return (
               <SelectedFile
                 key={file.name}
                 file={file}
+                index={index}
                 enableDescription={enableDescription}
                 addDescriptionLabel={addDescriptionLabel}
                 descriptionPlaceholder={descriptionPlaceholder}
@@ -63,7 +64,8 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
               />
             );
           })}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 };

@@ -58,13 +58,14 @@ export const FileAttachBasic: FC<IFileAttachBasicProperties> = ({
   };
 
   const renderSelectedFiles = () => (
-    <ul className="selected-files">
+    <ul className="selected">
       {!!value?.length &&
         value.map((file, index) => {
           return (
             <SelectedFile
               key={file.name}
               file={file}
+              index={index}
               enableDescription={enableDescription}
               addDescriptionLabel={addDescriptionLabel}
               descriptionPlaceholder={descriptionPlaceholder}
