@@ -3,6 +3,7 @@ import { InputSwitch } from "primereact/inputswitch";
 import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
+
 interface ISwitch {
   checked: boolean;
   label?: string;
@@ -10,10 +11,11 @@ interface ISwitch {
   getFieldState?: UseFormGetFieldState<any>;
   register?: UseFormRegister<any>;
 }
+
 export const SwitchInput: React.FC<ISwitch> = ({
   name,
-  checked,
   label,
+  checked,
   getFieldState,
   register,
 }) => {
@@ -26,14 +28,14 @@ export const SwitchInput: React.FC<ISwitch> = ({
   if (isTouched && invalid) switchClassName = "invalid";
 
   return (
-    <>
+    <div className={`field switch-input ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <InputSwitch
-        {...register(name)}
         checked={checked}
+        {...register(name)}
         className={switchClassName}
       />
       {error?.message && <ErrorMessage message={error.message} />}
-    </>
+    </div>
   );
 };
