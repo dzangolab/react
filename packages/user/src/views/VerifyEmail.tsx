@@ -93,6 +93,12 @@ const VerifyEmail = ({
       });
   };
 
+  const handleRedirect = () => {
+    const urlParameters = new URLSearchParams(window.location.search);
+    const token = urlParameters.get("token");
+    navigate(`/signin?token=${token}`);
+  };
+
   const renderMessage = () => {
     if (!user) {
       return (
@@ -103,7 +109,7 @@ const VerifyEmail = ({
           <div className="button-wrapper">
             <Button
               label={t("emailVerification.button.signin")}
-              onClick={() => navigate("/signin")}
+              onClick={handleRedirect}
               className="signin-button"
             />
           </div>
