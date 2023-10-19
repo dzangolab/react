@@ -9,7 +9,6 @@ interface ISwitch {
   name: string;
   getFieldState?: UseFormGetFieldState<any>;
   register?: UseFormRegister<any>;
-  setChecked: (arguments_: boolean) => void;
 }
 export const SwitchInput: React.FC<ISwitch> = ({
   name,
@@ -17,7 +16,6 @@ export const SwitchInput: React.FC<ISwitch> = ({
   label,
   getFieldState,
   register,
-  setChecked,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -33,7 +31,6 @@ export const SwitchInput: React.FC<ISwitch> = ({
       <InputSwitch
         {...register(name)}
         checked={checked}
-        onChange={() => setChecked}
         className={switchClassName}
       />
       {error?.message && <ErrorMessage message={error.message} />}
