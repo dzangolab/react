@@ -1,25 +1,17 @@
 import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 import { InputSwitch } from "primereact/inputswitch";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ISwitch {
-  checked: boolean;
   label?: string;
   name: string;
-  getFieldState?: UseFormGetFieldState<any>;
-  register?: UseFormRegister<any>;
 }
 
-export const SwitchInput: React.FC<ISwitch> = ({
-  name,
-  label,
-  checked,
-  getFieldState,
-  register,
-}) => {
-  if (!register || !getFieldState) return null;
+export const SwitchInput: React.FC<ISwitch> = ({ name, label }) => {
+
+  const { control, getFieldState } = useFormContext();
 
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
@@ -30,12 +22,20 @@ export const SwitchInput: React.FC<ISwitch> = ({
   return (
     <div className={`field switch-input ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <InputSwitch
-        checked={checked}
-        {...register(name)}
-        className={switchClassName}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <InputSwitch
+            checked={field.value} 
+            inputRef={field.ref}
+            className={switchClassName}
+            onChange={(e) => field.onChange(e.value)}
+          />
+        )}
       />
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );
 };
+
