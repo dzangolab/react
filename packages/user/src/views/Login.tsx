@@ -36,7 +36,6 @@ const Login: React.FC<IProperties> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const location = useLocation();
   const searchParameters = new URLSearchParams(location.search);
-  const token = searchParameters.get("token");
   const navigate = useNavigate();
 
   let className = "login";
@@ -56,8 +55,9 @@ const Login: React.FC<IProperties> = ({
             onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
-            if (token) {
-              navigate(`/verify-email?token=${token}`);
+
+            if (searchParameters) {
+              navigate(`/verify-email?${searchParameters}`);
             }
           } else {
             toast.error(t("login.messages.permissionDenied"));
