@@ -24,16 +24,14 @@ export const SwitchInput: React.FC<ISwitch> = ({ name, label }) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => {
-          return (
-            <InputSwitch
-              checked={field.value}
-              inputRef={field.ref}
-              className={switchClassName}
-              onChange={(event) => field.onChange(event.value)}
-            />
-          );
-        }}
+        render={({ field }) => (
+          <InputSwitch
+            checked={field.value}
+            inputRef={field.ref}
+            className={switchClassName}
+            onChange={(event) => field.onChange(event.value)}
+          />
+        )}
       />
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
