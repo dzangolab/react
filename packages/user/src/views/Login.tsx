@@ -55,9 +55,9 @@ const Login: React.FC<IProperties> = ({
 
             toast.success(`${t("login.messages.success")}`);
 
-            if (window.location.search.startsWith("?token=")) {
+            if (window.location.search.startsWith("?redirect=")) {
               const urlParameters = new URLSearchParams(window.location.search);
-              path = urlParameters.get("token");
+              path = urlParameters.get("redirect");
             }
 
             if (path && path.length) {
