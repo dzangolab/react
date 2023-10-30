@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import GoogleLogin from "../components/GoogleLogin";
@@ -34,8 +34,10 @@ const Login: React.FC<IProperties> = ({
   const { setUser } = useUser();
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   let className = "login";
+  let path: string | null = null;
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
@@ -48,9 +50,19 @@ const Login: React.FC<IProperties> = ({
             (await verifySessionRoles(appConfig.user.supportedRoles))
           ) {
             await setUser(result.user);
+
             onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
+
+            if (window.location.search.startsWith("?redirect=")) {
+              const urlParameters = new URLSearchParams(window.location.search);
+              path = urlParameters.get("redirect");
+            }
+
+            if (path && path.length) {
+              navigate(path);
+            }
           } else {
             toast.error(t("login.messages.permissionDenied"));
           }
