@@ -3,6 +3,7 @@ import {
   FileDropzone,
   useFormContext,
   Email,
+  Switch
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
@@ -55,6 +56,7 @@ export const UploadBy = () => {
   } = useFormContext();
 
   return (
+    <>
     <Email
       label={t("fileUpload.fields.uploadedBy.label")}
       name="uploadedBy"
@@ -63,5 +65,7 @@ export const UploadBy = () => {
       getFieldState={getFieldState}
       submitcount={submitCount}
     />
+    <Switch/>
+    </>
   );
 };
