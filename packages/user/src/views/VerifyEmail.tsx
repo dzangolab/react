@@ -96,7 +96,11 @@ const VerifyEmail = ({
   const handleRedirect = () => {
     const urlParameters = new URLSearchParams(window.location.search);
     if (urlParameters) {
-      navigate(`/signin?${urlParameters}`);
+      navigate(
+        `/signin?token=${window.encodeURI(
+          location.pathname + location.search,
+        )}`,
+      );
     }
   };
 
