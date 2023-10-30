@@ -1,30 +1,30 @@
-  .field.switch-toggle input[type="checkbox"] {
-    width: 60px;
-    height: 35px;
+  .field.switch-toggle input{
+    width: 3.75rem;
+    height: 2.18rem;
     appearance: none;
     background-color: #ccc;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     position: relative;
     cursor: pointer;
   }
 
-  .field.switch-toggle input[type="checkbox"]:before {
+  .field.switch-toggle input:before {
     content: "";
     position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: 50%;
-    bottom: 4px;
-    left: 4px;
+    bottom: 0.25rem;
+    left: 0.25rem;
     background-color: white;
     transition: transform 0.3s, background-color 0.3s;
   }
   
-  .field.switch-toggle input[type="checkbox"]:checked:before {
+  .field.switch-toggle input:checked:before {
     transform: translateX(24px);
   }
   
-  .field.switch-toggle input[type="checkbox"]:checked {
+  .field.switch-toggle input:checked {
     background-color: #2196F3;
   }
   
