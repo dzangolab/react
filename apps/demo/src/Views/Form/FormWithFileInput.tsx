@@ -55,13 +55,15 @@ export const UploadBy = () => {
   } = useFormContext();
 
   return (
-    <Email
-      label={t("fileUpload.fields.uploadedBy.label")}
-      name="uploadedBy"
-      placeholder={t("fileUpload.fields.uploadedBy.placeholder")}
-      register={register}
-      getFieldState={getFieldState}
-      submitcount={submitCount}
-    />
+    <>
+      <Email
+        label={t("fileUpload.fields.uploadedBy.label")}
+        name="uploadedBy"
+        placeholder={t("fileUpload.fields.uploadedBy.placeholder")}
+        register={register}
+        getFieldState={getFieldState}
+        submitcount={submitCount}
+      />
+    </>
   );
 };

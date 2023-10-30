@@ -15,5 +15,6 @@ export * from "./TextArea";
 export * from "./TextInput";
 export * from "./FormProvider";
 export * from "./SwitchInput";
+export * from "./Switch";
 
 export { useForm, useFormContext, useWatch };
