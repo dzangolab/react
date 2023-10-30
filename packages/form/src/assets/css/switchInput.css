@@ -1,4 +1,4 @@
-  .field.switch-toggle input{
+  .switch-toggle input[type="checkbox"] {
     width: 3.75rem;
     height: 2.18rem;
     appearance: none;
@@ -8,7 +8,7 @@
     cursor: pointer;
   }
 
-  .field.switch-toggle input:before {
+  .switch-toggle input:before {
     content: "";
     position: absolute;
     width: 1.6rem;
@@ -20,11 +20,10 @@
     transition: transform 0.3s, background-color 0.3s;
   }
   
-  .field.switch-toggle input:checked:before {
+  .switch-toggle input:checked:before {
     transform: translateX(24px);
   }
   
-  .field.switch-toggle input:checked {
+  .switch-toggle input:checked {
     background-color: #2196F3;
   }
-  
