@@ -1,6 +1,6 @@
   .field.switch-toggle input[type="checkbox"] {
     width: 60px;
-    height: 34px;
+    height: 35px;
     appearance: none;
     background-color: #ccc;
     border-radius: 20px;
@@ -11,16 +11,17 @@
   .field.switch-toggle input[type="checkbox"]:before {
     content: "";
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
+    bottom: 4px;
+    left: 4px;
     background-color: white;
-    left: 2px;
     transition: transform 0.3s, background-color 0.3s;
   }
   
   .field.switch-toggle input[type="checkbox"]:checked:before {
-    transform: translateX(100%);
+    transform: translateX(24px);
   }
   
   .field.switch-toggle input[type="checkbox"]:checked {
