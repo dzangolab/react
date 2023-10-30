@@ -1,52 +1,29 @@
-.switch {
-    position: relative;
-    display: inline-block;
+  .field.switch-toggle input[type="checkbox"] {
     width: 60px;
     height: 34px;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    appearance: none;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
   }
-  
-  .slider:before {
-    position: absolute;
+
+  .field.switch-toggle input[type="checkbox"]:before {
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    left: 2px;
+    transition: transform 0.3s, background-color 0.3s;
   }
   
-  input:checked + .slider {
+  .field.switch-toggle input[type="checkbox"]:checked:before {
+    transform: translateX(100%);
+  }
+  
+  .field.switch-toggle input[type="checkbox"]:checked {
     background-color: #2196F3;
   }
-  */
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
   
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
