@@ -46,6 +46,7 @@ const Login: React.FC<IProperties> = ({
       path = urlParameters.get("redirect");
       return path;
     }
+
     return null;
   };
 
@@ -118,9 +119,11 @@ const Login: React.FC<IProperties> = ({
 
   const getReminder = () => {
     return (
-      <div style={{ justifyItems: "center" }}>
+      <div className="reminder">
         {getPath() && (
-          <Card>User session is expired please sign in to continue</Card>
+          <Card className="reminder-card">
+            {t("emailVerification.messages.unauthenticated")}
+          </Card>
         )}
       </div>
     );
