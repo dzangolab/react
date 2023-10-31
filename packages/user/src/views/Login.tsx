@@ -12,6 +12,7 @@ import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
+import { Card } from "primereact/card";
 
 interface IProperties {
   customDivider?: React.ReactNode;
@@ -39,6 +40,15 @@ const Login: React.FC<IProperties> = ({
   let className = "login";
   let path: string | null = null;
 
+  const getPath = (): string | null => {
+    if (window.location.search.startsWith("?redirect=")) {
+      const urlParameters = new URLSearchParams(window.location.search);
+      path = urlParameters.get("redirect");
+      return path;
+    }
+    return null;
+  };
+
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
 
@@ -55,10 +65,7 @@ const Login: React.FC<IProperties> = ({
 
             toast.success(`${t("login.messages.success")}`);
 
-            if (window.location.search.startsWith("?redirect=")) {
-              const urlParameters = new URLSearchParams(window.location.search);
-              path = urlParameters.get("redirect");
-            }
+            path = getPath();
 
             if (path && path.length) {
               navigate(path);
@@ -109,6 +116,16 @@ const Login: React.FC<IProperties> = ({
     );
   };
 
+  const getReminder = () => {
+    return (
+      <div style={{ justifyItems: "center" }}>
+        {getPath() && (
+          <Card>User session is expired please sign in to continue</Card>
+        )}
+      </div>
+    );
+  };
+
   if (!appConfig?.user.supportedLoginProviders) {
     orientation = "vertical";
   }
@@ -123,6 +140,7 @@ const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
     >
+      {getReminder()}
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
 
       <div className="links">{getLinks()}</div>

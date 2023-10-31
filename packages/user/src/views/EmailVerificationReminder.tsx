@@ -6,9 +6,14 @@ import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "@/constants";
 import { resendEmail } from "@/supertokens/resend-email-verification";
+import { useContext, useEffect } from "react";
+import { UserContextType, userContext } from "..";
+import { useNavigate } from "react-router-dom";
 
 const EmailVerificationReminder = () => {
   const { t } = useTranslation("user");
+  const { user } = useContext(userContext) as UserContextType;
+  const navigate = useNavigate();
 
   const handleResend = () => {
     resendEmail()
@@ -23,6 +28,12 @@ const EmailVerificationReminder = () => {
         toast.error(t("emailVerification.toastMessages.error"));
       });
   };
+
+  useEffect(() => {
+    if (user?.isEmailVerified) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <Page
