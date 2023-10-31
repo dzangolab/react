@@ -31,7 +31,7 @@ export const Password: React.FC<CustomInputProperties> = ({
           className="eye-icon"
           onClick={() => setShowPassword(!showPassword)}
         >
-          <i className={showPassword ? "pi pi-eye" : "pi pi-eye-slash"}></i>
+          <i className={!showPassword ? "pi pi-eye-slash" : "pi pi-eye"}></i>
         </span>
       </div>
       {error?.message && <ErrorMessage message={error.message} />}
