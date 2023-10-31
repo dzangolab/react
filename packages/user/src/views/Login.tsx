@@ -117,7 +117,7 @@ const Login: React.FC<IProperties> = ({
     );
   };
 
-  const getReminder = () => {
+  const showReminder = () => {
     return (
       <div className="reminder">
         {getPath() && (
@@ -143,7 +143,7 @@ const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
     >
-      {getReminder()}
+      {showReminder()}
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
 
       <div className="links">{getLinks()}</div>
