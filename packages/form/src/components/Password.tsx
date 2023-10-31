@@ -17,7 +17,7 @@ export const Password: React.FC<CustomInputProperties> = ({
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className={`field ${name}`}>
+    <div className={`field password-input ${name}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}
@@ -25,6 +25,7 @@ export const Password: React.FC<CustomInputProperties> = ({
         type={showPassword ? "text" : "password"}
         placeholder={placeholder}
         aria-invalid={submitcount > 0 ? invalid : undefined}
+        className="input-field-password "
       ></input>
       <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
         <i className={showPassword ? "pi pi-eye" : "pi pi-eye-slash"}></i>
