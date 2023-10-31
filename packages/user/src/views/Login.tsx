@@ -120,7 +120,7 @@ const Login: React.FC<IProperties> = ({
   const showReminder = () => {
     return (
       <div className="reminder">
-        {getPath() && (
+        {getPath() && getPath()?.length && (
           <Card className="reminder-card">
             {t("emailVerification.messages.unauthenticated")}
           </Card>
