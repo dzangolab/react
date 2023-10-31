@@ -13,8 +13,8 @@ export const Password: React.FC<CustomInputProperties> = ({
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, invalid } = getFieldState(name);
   const [showPassword, setShowPassword] = useState(false);
+  const { error, invalid } = getFieldState(name);
 
   return (
     <div className={`field ${name}`}>
