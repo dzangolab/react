@@ -32,14 +32,26 @@ exports[`Component matches snapshot 1`] = `
     >
       login.form.password.label
     </label>
-    <input
-      id="input-field-password"
-      name="password"
-      onBlur={[Function]}
-      onChange={[Function]}
-      placeholder=""
-      type="password"
-    />
+    <div
+      className="input-field-password"
+    >
+      <input
+        id="input-field-password"
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder=""
+        type="password"
+      />
+      <span
+        className="eye-icon"
+        onClick={[Function]}
+      >
+        <i
+          className="pi pi-eye-slash"
+        />
+      </span>
+    </div>
   </div>
   <button
     className="button-submit"

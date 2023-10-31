@@ -32,14 +32,26 @@ exports[`Component matches snapshot 1`] = `
     >
       signup.form.password.label
     </label>
-    <input
-      id="input-field-password"
-      name="password"
-      onBlur={[Function]}
-      onChange={[Function]}
-      placeholder=""
-      type="password"
-    />
+    <div
+      className="input-field-password"
+    >
+      <input
+        id="input-field-password"
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder=""
+        type="password"
+      />
+      <span
+        className="eye-icon"
+        onClick={[Function]}
+      >
+        <i
+          className="pi pi-eye-slash"
+        />
+      </span>
+    </div>
   </div>
   <div
     className="field confirmPassword"
@@ -49,14 +61,26 @@ exports[`Component matches snapshot 1`] = `
     >
       signup.form.confirmPassword.label
     </label>
-    <input
-      id="input-field-confirmPassword"
-      name="confirmPassword"
-      onBlur={[Function]}
-      onChange={[Function]}
-      placeholder=""
-      type="password"
-    />
+    <div
+      className="input-field-password"
+    >
+      <input
+        id="input-field-confirmPassword"
+        name="confirmPassword"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder=""
+        type="password"
+      />
+      <span
+        className="eye-icon"
+        onClick={[Function]}
+      >
+        <i
+          className="pi pi-eye-slash"
+        />
+      </span>
+    </div>
   </div>
   <div
     className="buttons"
