@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useState } from "react";
+import { Card } from "primereact/card";
+import React, { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -12,7 +13,6 @@ import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
-import { Card } from "primereact/card";
 
 interface IProperties {
   customDivider?: React.ReactNode;
@@ -40,7 +40,7 @@ const Login: React.FC<IProperties> = ({
   let className = "login";
   let path: string | null = null;
 
-  const getPath = (): string | null => {
+  path = useMemo(() => {
     if (window.location.search.startsWith("?redirect=")) {
       const urlParameters = new URLSearchParams(window.location.search);
       path = urlParameters.get("redirect");
@@ -48,7 +48,7 @@ const Login: React.FC<IProperties> = ({
     }
 
     return null;
-  };
+  }, []);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
@@ -65,8 +65,6 @@ const Login: React.FC<IProperties> = ({
             onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
-
-            path = getPath();
 
             if (path && path.length) {
               navigate(path);
@@ -117,16 +115,18 @@ const Login: React.FC<IProperties> = ({
     );
   };
 
-  const showReminder = () => {
-    return (
-      <div className="reminder">
-        {getPath() && getPath()?.length && (
+  const renderRedirectionMessage = () => {
+    if (path && path.length) {
+      return (
+        <div className="reminder">
           <Card className="reminder-card">
             {t("emailVerification.messages.unauthenticated")}
           </Card>
-        )}
-      </div>
-    );
+        </div>
+      );
+    }
+
+    return null;
   };
 
   if (!appConfig?.user.supportedLoginProviders) {
@@ -143,7 +143,7 @@ const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
     >
-      {showReminder()}
+      {renderRedirectionMessage()}
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
 
       <div className="links">{getLinks()}</div>
