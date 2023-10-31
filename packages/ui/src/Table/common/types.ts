@@ -62,6 +62,7 @@ export type TSortIcons = {
 
 export interface TableProviderProperties<T> {
   children?: ReactNode;
+  actionsHeader?: ReactNode;
   columns: ColumnDef<T>[];
   data: T[];
   fetcher: (requestJSON: TRequestJSON) => void;
@@ -101,6 +102,7 @@ export interface TBaseTable {
   header: ReactNode;
   body: ReactNode;
   footer: ReactNode;
+  actionsHeader?: ReactNode;
 }
 
 export interface FilterProperties {

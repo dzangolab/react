@@ -1,3 +1,12 @@
+.table-wrapper > div:first-child > .actions-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
 .table-wrapper > div:first-child > table {
   table-layout: fixed;
   width: 100%;
@@ -228,7 +237,7 @@ table > thead > tr:first-child {
 
   .table-wrapper > div:first-child > table > tbody > tr {
     display: block;
-      }
+  }
 
   .table-wrapper > div:first-child > table td {
     border-bottom: none;

@@ -7,7 +7,7 @@ import TableHeader from "./TableHeader";
 
 import type { TBaseTable } from "./types";
 
-function BaseTable({ header, body, footer }: TBaseTable) {
+function BaseTable({ header, body, footer, actionsHeader }: TBaseTable) {
   const { fixedHeader, hideScrollBar, title } = useContext(TableContext);
 
   const getTableWrapperStyle = () => {
@@ -20,6 +20,7 @@ function BaseTable({ header, body, footer }: TBaseTable) {
   return (
     <div className={`table-wrapper ${getTableWrapperStyle()}`}>
       <div>
+        <div className="actions-header">{actionsHeader}</div>
         <table>
           {title ? <caption>{title}</caption> : null}
           {header}

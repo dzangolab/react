@@ -40,6 +40,7 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
     fetcher,
     rowsPerPageOptions,
     totalItems,
+    actionsHeader,
     ...rest
   } = properties;
 
@@ -104,7 +105,7 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
         ...rest,
       }}
     >
-      {children ? children : <BaseTable />}
+      {children ? children : <BaseTable actionsHeader={actionsHeader} />}
     </TableContext.Provider>
   );
 }
