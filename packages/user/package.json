@@ -19,11 +19,11 @@
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "pnpm build && vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",
     "test:snapshot": "vitest --environment jsdom run snapshot/",
-    "snapshot:update": "vitest --environment jsdom run --update",
     "test:unit": "vitest --environment jsdom run unit/",
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
