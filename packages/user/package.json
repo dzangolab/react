@@ -23,6 +23,7 @@
     "test": "pnpm build && vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",
     "test:snapshot": "vitest --environment jsdom run snapshot/",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "test:unit": "vitest --environment jsdom run unit/",
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
