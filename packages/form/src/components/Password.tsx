@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
@@ -14,17 +14,26 @@ export const Password: React.FC<CustomInputProperties> = ({
   if (!register || !getFieldState) return null;
 
   const { error, invalid } = getFieldState(name);
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className={`field ${name}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
-      <input
-        {...register(name)}
-        id={`input-field-${name}`}
-        type="password"
-        placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? invalid : undefined}
-      ></input>
+      <div className="input-field-password">
+        <input
+          {...register(name)}
+          id={`input-field-${name}`}
+          type={showPassword ? "text" : "password"}
+          placeholder={placeholder}
+          aria-invalid={submitcount > 0 ? invalid : undefined}
+        ></input>
+        <span
+          className="eye-icon"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          <i className={showPassword ? "pi pi-eye" : "pi pi-eye-slash"}></i>
+        </span>
+      </div>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );
