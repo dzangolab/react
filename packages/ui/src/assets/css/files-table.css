@@ -5,9 +5,9 @@
 }
 
 .table-files .column-description {
-  max-width: 10rem;
-  min-width: 10rem;
-  width: 10rem;
+  max-width: 15rem;
+  min-width: 15rem;
+  width: 15rem;
 }
 
 .table-files .column-downloadCount {
