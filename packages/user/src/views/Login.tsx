@@ -19,10 +19,14 @@ interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
+  sessionInfoIcon?: string;
+  showSessionInfoIcon?: boolean;
   socialLoginFirst?: boolean;
 }
 
 const Login: React.FC<IProperties> = ({
+  sessionInfoIcon = "pi pi-info-circle",
+  showSessionInfoIcon = true,
   customDivider,
   divider = true,
   onLoginFailed,
@@ -118,10 +122,10 @@ const Login: React.FC<IProperties> = ({
     if (path && path.length) {
       return (
         <div className="redirect-message-wrapper">
-          <i className="pi pi-info-circle" />
-          <div className="redirect-message">
-            {t("emailVerification.messages.unauthenticated")}
-          </div>
+          <span className="info-icon">
+            {showSessionInfoIcon && <i className={sessionInfoIcon} />}
+          </span>
+          {t("emailVerification.messages.unauthenticated")}
         </div>
       );
     }

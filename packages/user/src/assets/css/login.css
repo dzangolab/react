@@ -12,13 +12,8 @@
   width: 100%;
 }
 
-.login > .content > .redirect-message-wrapper > i {
-  display: flex;
-  align-items: center;
-}
-
-.login > .content > .redirect-message-wrapper > .redirect-message {
-  background-color: inherit;
+.login > .content > .redirect-message-wrapper > .info-icon {
+  margin-right: 0.3rem;
 }
 
 .login > .content > form {
