@@ -188,7 +188,6 @@ export const FilesTable = ({
       },
     },
     {
-      bodyStyle: { textAlign: "right" },
       field: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
       body: (data) => {
@@ -196,7 +195,7 @@ export const FilesTable = ({
       },
     },
     {
-      bodyStyle: { textAlign: "right" },
+      align: "right",
       field: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
       body: (data) => {
@@ -204,7 +203,6 @@ export const FilesTable = ({
       },
     },
     {
-      bodyStyle: { textAlign: "right" },
       field: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
       body: (data) => {
