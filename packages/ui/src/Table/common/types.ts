@@ -102,7 +102,6 @@ export interface TBaseTable {
   header: ReactNode;
   body: ReactNode;
   footer: ReactNode;
-  actionsHeader?: ReactNode;
 }
 
 export interface FilterProperties {
