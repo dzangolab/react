@@ -1,4 +1,4 @@
-import { MainMenu, SwitchableLayout } from "@dzangolab/react-layout";
+import { SwitchableLayout } from "@dzangolab/react-layout";
 import { useMediaQuery } from "@dzangolab/react-ui";
 import React from "react";
 

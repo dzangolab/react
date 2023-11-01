@@ -6,6 +6,7 @@ import {
   FileCard,
   FilesList,
   FilesPresentation,
+  Table,
 } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
@@ -246,6 +247,49 @@ const componentList = [
           },
         ]}
       />
+    ),
+  },
+  {
+    key: 11,
+    title: "table.title.baseTable",
+    component: (
+      <Table
+        columns={[
+          {
+            accessorKey: "id",
+            header: () => <span>ID</span>,
+            enableSorting: false,
+            enableColumnFilter: false,
+          },
+          {
+            accessorKey: "givenName",
+            header: () => <span>Given Name</span>,
+          },
+          {
+            accessorKey: "middleNames",
+            header: () => <span>Middle Names</span>,
+          },
+          {
+            accessorKey: "surname",
+            header: () => <span>Surname</span>,
+          },
+        ]}
+        data={((count: number) => {
+          const data: any[] = [];
+          for (let i = 0; i < count; i++) {
+            data[i] = {
+              id: i + 1,
+              givenName: "jone" + i,
+              middleNames: "abcd" + i,
+              surname: "doe" + i,
+            };
+          }
+          return data;
+        })(5)}
+        fetcher={() => {}}
+        totalItems={5}
+        enableMultiSort={true}
+      ></Table>
     ),
   },
 ];

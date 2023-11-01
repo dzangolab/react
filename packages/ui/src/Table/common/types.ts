@@ -87,6 +87,7 @@ export interface TableProviderProperties<T> {
   showTotalNumber?: boolean;
   sortable?: boolean;
   sortIcons?: TSortIcons;
+  tableClassName?: string;
   title?: string;
   totalItems: number;
 }
