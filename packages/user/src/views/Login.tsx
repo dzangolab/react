@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import { Card } from "primereact/card";
 import React, { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -118,10 +117,11 @@ const Login: React.FC<IProperties> = ({
   const renderRedirectionMessage = () => {
     if (path && path.length) {
       return (
-        <div className="redirect-message">
-          <Card className="reminder-card">
+        <div className="redirect-message-wrapper">
+          <i className="pi pi-info-circle" />
+          <div className="redirect-message">
             {t("emailVerification.messages.unauthenticated")}
-          </Card>
+          </div>
         </div>
       );
     }

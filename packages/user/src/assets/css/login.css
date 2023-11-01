@@ -2,6 +2,25 @@
   justify-items: center;
 }
 
+.login > .content > .redirect-message-wrapper {
+  background-color: var(--blue-100);
+  border-radius: 0.5rem;
+  display: flex;
+  grid-area: message;
+  justify-content: start;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.login > .content > .redirect-message-wrapper > i {
+  display: flex;
+  align-items: center;
+}
+
+.login > .content > .redirect-message-wrapper > .redirect-message {
+  background-color: inherit;
+}
+
 .login > .content > form {
   grid-area: form;
 }
@@ -29,10 +48,6 @@
 .login > .content > .social-login-wrapper {
   display: flex;
   width: 100%;
-}
-
-.login > .content > .redirect-message {
-  grid-area: message;
 }
 
 .login > .content {
