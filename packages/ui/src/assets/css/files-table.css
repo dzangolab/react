@@ -22,10 +22,6 @@
   width: 12rem;
 }
 
-.table-files .column-originalFileName {
-  min-width: 20rem;
-}
-
 .table-files .column-uploadedAt {
   max-width: 8rem;
   min-width: 8rem;
