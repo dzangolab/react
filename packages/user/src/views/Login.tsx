@@ -47,6 +47,7 @@ const Login: React.FC<IProperties> = ({
     if (window.location.search.startsWith("?redirect=")) {
       const urlParameters = new URLSearchParams(window.location.search);
       path = urlParameters.get("redirect");
+
       return path;
     }
 
@@ -121,7 +122,7 @@ const Login: React.FC<IProperties> = ({
   const renderRedirectionMessage = () => {
     if (path && path.length) {
       return (
-        <div className="redirect-message-wrapper">
+        <div className="redirect-message">
           <span className="info-icon">
             {showSessionInfoIcon && <i className={sessionInfoIcon} />}
           </span>
@@ -148,6 +149,7 @@ const Login: React.FC<IProperties> = ({
       data-aria-orientation={orientation}
     >
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
+
       {renderRedirectionMessage()}
 
       <div className="links">{getLinks()}</div>
