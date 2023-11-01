@@ -196,6 +196,7 @@ export const FilesTable = ({
       },
     },
     {
+      bodyStyle: { textAlign: "right" },
       field: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
       body: (data) => {
