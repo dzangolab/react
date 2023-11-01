@@ -2,12 +2,6 @@
   justify-items: center;
 }
 
-.login > .content > .reminder {
-  position: relative;
-  left: 15rem;
-  bottom: 2rem;
-}
-
 .login > .content > form {
   grid-area: form;
 }

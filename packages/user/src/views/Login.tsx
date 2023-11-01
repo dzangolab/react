@@ -48,7 +48,7 @@ const Login: React.FC<IProperties> = ({
     }
 
     return null;
-  }, []);
+  }, [window.location.search]);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
@@ -118,7 +118,7 @@ const Login: React.FC<IProperties> = ({
   const renderRedirectionMessage = () => {
     if (path && path.length) {
       return (
-        <div className="reminder">
+        <div className="redirect-message">
           <Card className="reminder-card">
             {t("emailVerification.messages.unauthenticated")}
           </Card>
@@ -143,8 +143,8 @@ const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
     >
-      {renderRedirectionMessage()}
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
+      {renderRedirectionMessage()}
 
       <div className="links">{getLinks()}</div>
 
