@@ -7,7 +7,6 @@
   border-radius: 0.5rem;
   display: flex;
   grid-area: message;
-  justify-content: start;
   padding: 0.8rem;
   width: 100%;
 }
@@ -19,6 +18,7 @@
 
 .login > .content > .redirect-message-wrapper > .redirect-message {
   background-color: inherit;
+  margin-left: 0.3rem;
 }
 
 .login > .content > form {
