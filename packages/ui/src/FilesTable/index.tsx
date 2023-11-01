@@ -59,7 +59,7 @@ export const FilesTable = ({
   className = "table-files",
   columns = [],
   deleteConfirmationProps,
-  id,
+  id = "table-files",
   loading,
   files,
   totalRecords,
@@ -188,6 +188,7 @@ export const FilesTable = ({
       },
     },
     {
+      bodyStyle: { textAlign: "right" },
       field: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
       body: (data) => {
@@ -202,6 +203,7 @@ export const FilesTable = ({
       },
     },
     {
+      bodyStyle: { textAlign: "right" },
       field: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
       body: (data) => {
