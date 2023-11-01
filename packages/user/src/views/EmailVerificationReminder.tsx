@@ -18,7 +18,11 @@ const EmailVerificationReminder = () => {
   const { user } = useContext(userContext) as UserContextType;
   const appConfig = useContext(configContext);
   const navigate = useNavigate();
-  const homeRoute: any = getHomeRoute(user, appConfig?.layout, appConfig?.user);
+  const homeRoute: string | undefined = getHomeRoute(
+    user,
+    appConfig?.layout,
+    appConfig?.user,
+  );
 
   const handleResend = () => {
     resendEmail()
