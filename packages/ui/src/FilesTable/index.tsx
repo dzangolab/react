@@ -56,7 +56,7 @@ export type FilesTableProperties = {
 
 export const FilesTable = ({
   archiveConfirmationProps,
-  className,
+  className = "table-files",
   columns = [],
   deleteConfirmationProps,
   id,

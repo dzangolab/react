@@ -16,6 +16,7 @@
 @import "./primereact-override/index.css";
 @import "./fileCard.css";
 @import "./filelist.css";
+@import "./files-table.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";

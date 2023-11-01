@@ -1,0 +1,17 @@
+.table-files .description {
+  max-width: 10rem;
+  min-width: 10rem;
+  width: 10rem;
+}
+
+.table-files .column-uploadedAt {
+  max-width: 10rem;
+  min-width: 10rem;
+  width: 10rem;
+}
+
+.table-files .column-uploadedBy {
+  max-width: 10rem;
+  min-width: 10rem;
+  width: 10rem;
+}
