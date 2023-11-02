@@ -6,7 +6,14 @@ exports[`Component matches snapshot 1`] = `
 >
   <div>
     <table>
-      <colgroup />
+      <colgroup>
+        <col
+          width=""
+        />
+        <col
+          width=""
+        />
+      </colgroup>
       <thead
         className=""
       >
@@ -21,54 +28,276 @@ exports[`Component matches snapshot 1`] = `
             </button>
           </th>
         </tr>
-        <tr />
+        <tr>
+          <th
+            colSpan={1}
+          >
+            <div
+              className=""
+              onClick={[Function]}
+            >
+              <span>
+                ID
+              </span>
+              <button>
+                <img
+                  src="/src/assets/images/arrow-up-down.svg"
+                />
+              </button>
+              <div
+                onClick={[Function]}
+              >
+                <button
+                  onClick={[Function]}
+                >
+                  <img
+                    src="/src/assets/images/filter.svg"
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+          <th
+            colSpan={1}
+          >
+            <div
+              className=""
+              onClick={[Function]}
+            >
+              <span>
+                Name
+              </span>
+              <button>
+                <img
+                  src="/src/assets/images/arrow-up-down.svg"
+                />
+              </button>
+              <div
+                onClick={[Function]}
+              >
+                <button
+                  onClick={[Function]}
+                >
+                  <img
+                    src="/src/assets/images/filter.svg"
+                  />
+                </button>
+              </div>
+            </div>
+          </th>
+        </tr>
       </thead>
       <tbody>
         <tr
           data-id={1}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            1
+          </td>
+          <td
+            data-label="name"
+          >
+            jone
+          </td>
+        </tr>
         <tr
           data-id={2}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            2
+          </td>
+          <td
+            data-label="name"
+          >
+            abhi
+          </td>
+        </tr>
         <tr
           data-id={3}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            3
+          </td>
+          <td
+            data-label="name"
+          >
+            mike
+          </td>
+        </tr>
         <tr
           data-id={4}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            4
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={5}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            5
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={6}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            6
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={7}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            7
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={8}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            8
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={9}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            9
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={10}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            10
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={11}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            11
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={12}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            12
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={13}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            13
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={14}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            14
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
         <tr
           data-id={15}
-        />
+        >
+          <td
+            data-label="id"
+          >
+            15
+          </td>
+          <td
+            data-label="name"
+          >
+            tony
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

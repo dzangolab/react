@@ -1,3 +1,5 @@
+import { resourceUsage } from "process";
+
 import { useMemo } from "react";
 
 import type {
@@ -129,9 +131,13 @@ export const useManipulateColumns = ({
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const manipulatedColumns: Array<any> = useMemo(() => {
+    if (visibleColumns.length === 0) {
+      return columns;
+    }
+
     const mappedColumns = new Map();
 
-    //Merge duplicate fields to one based on filed value
+    //Merge duplicate fields to one based on column id value
     for (const column of columns) {
       if (mappedColumns.get(column.accessorKey || column.id)) {
         mappedColumns.set(column.accessorKey || column.id, {
@@ -143,7 +149,7 @@ export const useManipulateColumns = ({
       }
     }
 
-    //Sort columns based on field name provided in visibleColumns array.
+    //Sort columns based on column id provided in visibleColumns array.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const sortedColumns = visibleColumns.map<any>((visibleColumn) => {
       return mappedColumns.get(visibleColumn);

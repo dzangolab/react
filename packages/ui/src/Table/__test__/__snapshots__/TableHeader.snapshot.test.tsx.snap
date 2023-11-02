@@ -2,7 +2,14 @@
 
 exports[`Component matches snapshot 1`] = `
 [
-  <colgroup />,
+  <colgroup>
+    <col
+      width=""
+    />
+    <col
+      width=""
+    />
+  </colgroup>,
   <thead
     className=""
   >
@@ -17,7 +24,64 @@ exports[`Component matches snapshot 1`] = `
         </button>
       </th>
     </tr>
-    <tr />
+    <tr>
+      <th
+        colSpan={1}
+      >
+        <div
+          className=""
+          onClick={[Function]}
+        >
+          <span>
+            ID
+          </span>
+          <button>
+            <img
+              src="/src/assets/images/arrow-up-down.svg"
+            />
+          </button>
+          <div
+            onClick={[Function]}
+          >
+            <button
+              onClick={[Function]}
+            >
+              <img
+                src="/src/assets/images/filter.svg"
+              />
+            </button>
+          </div>
+        </div>
+      </th>
+      <th
+        colSpan={1}
+      >
+        <div
+          className=""
+          onClick={[Function]}
+        >
+          <span>
+            Name
+          </span>
+          <button>
+            <img
+              src="/src/assets/images/arrow-up-down.svg"
+            />
+          </button>
+          <div
+            onClick={[Function]}
+          >
+            <button
+              onClick={[Function]}
+            >
+              <img
+                src="/src/assets/images/filter.svg"
+              />
+            </button>
+          </div>
+        </div>
+      </th>
+    </tr>
   </thead>,
 ]
 `;
