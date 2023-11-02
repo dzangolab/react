@@ -26,9 +26,13 @@ exports[`Component matches snapshot 1`] = `
   >
     <li
       className="option"
+      icon="pi pi-power-off"
       name="userMenu.logout"
       onClick={[Function]}
     >
+      <i
+        className="pi pi-power-off"
+      />
       userMenu.logout
     </li>
   </ul>

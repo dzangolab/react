@@ -46,7 +46,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
 
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const dropdownUserMenu = (item: any) => (
-    <DropdownUserMenuItem route={item.route} icon={item.icon}>
+    <DropdownUserMenuItem route={item.route} icon={item.icon} showIcon={true}>
       {t(item.name)}
     </DropdownUserMenuItem>
   );
