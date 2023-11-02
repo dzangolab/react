@@ -36,10 +36,10 @@ const DropdownUserMenu: React.FC<Properties> = ({
   };
 
   const signoutRoute = {
+    icon: "pi pi-power-off",
     name: "userMenu.logout",
     onClick: signout,
     route: undefined,
-    icon: "pi pi-power-off",
   };
 
   const menuItems = userMenu ? [...userMenu, signoutRoute] : [signoutRoute];
