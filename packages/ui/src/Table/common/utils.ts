@@ -123,9 +123,11 @@ export const useManipulateColumns = ({
   columns,
   visibleColumns,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: Array<any>;
   visibleColumns: string[];
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const manipulatedColumns: Array<any> = useMemo(() => {
     const mappedColumns = new Map();
 
@@ -142,6 +144,7 @@ export const useManipulateColumns = ({
     }
 
     //Sort columns based on field name provided in visibleColumns array.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const sortedColumns = visibleColumns.map<any>((visibleColumn) => {
       return mappedColumns.get(visibleColumn);
     });
