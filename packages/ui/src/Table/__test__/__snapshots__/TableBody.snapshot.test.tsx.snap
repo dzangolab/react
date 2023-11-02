@@ -4,59 +4,15 @@ exports[`Component matches snapshot 1`] = `
 <tbody>
   <tr
     data-id={1}
-  >
-    <td
-      data-label="id"
-    >
-      1
-    </td>
-    <td
-      data-label="name"
-    >
-      jone
-    </td>
-  </tr>
+  />
   <tr
     data-id={2}
-  >
-    <td
-      data-label="id"
-    >
-      2
-    </td>
-    <td
-      data-label="name"
-    >
-      abhi
-    </td>
-  </tr>
+  />
   <tr
     data-id={3}
-  >
-    <td
-      data-label="id"
-    >
-      3
-    </td>
-    <td
-      data-label="name"
-    >
-      mike
-    </td>
-  </tr>
+  />
   <tr
     data-id={4}
-  >
-    <td
-      data-label="id"
-    >
-      4
-    </td>
-    <td
-      data-label="name"
-    >
-      tony
-    </td>
-  </tr>
+  />
 </tbody>
 `;
