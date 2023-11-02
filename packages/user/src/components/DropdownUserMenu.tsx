@@ -13,6 +13,7 @@ interface Properties
   extends Partial<Omit<DropdownMenuProperties, "dropdownMenu">> {
   onLogout?: () => void;
   userMenu?: UserMenuItemType[];
+  showUserMenuIcon?: boolean;
 }
 
 const DropdownUserMenu: React.FC<Properties> = ({
@@ -21,6 +22,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
   label,
   onLogout,
   userMenu,
+  showUserMenuIcon,
 }) => {
   const id = useId();
   const { user, setUser } = useUser();
@@ -36,17 +38,18 @@ const DropdownUserMenu: React.FC<Properties> = ({
   };
 
   const signoutRoute = {
-    icon: "pi pi-power-off",
     name: "userMenu.logout",
     onClick: signout,
     route: undefined,
+    icon: "pi pi-power-off",
   };
 
   const menuItems = userMenu ? [...userMenu, signoutRoute] : [signoutRoute];
 
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const dropdownUserMenu = (item: any) => (
-    <DropdownUserMenuItem route={item.route} icon={item.icon} showIcon={true}>
+    <DropdownUserMenuItem route={item.route}>
+      {showUserMenuIcon && <i className={item.icon}></i>}
       {t(item.name)}
     </DropdownUserMenuItem>
   );

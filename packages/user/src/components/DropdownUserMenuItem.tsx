@@ -3,32 +3,15 @@ import { Link } from "react-router-dom";
 
 interface Properties {
   children: React.ReactNode;
-  icon?: string;
   route?: string;
-  showIcon?: boolean;
 }
 
-const DropdownUserMenuItem = ({
-  children,
-  route,
-  icon,
-  showIcon,
-}: Properties) => {
+const DropdownUserMenuItem = ({ children, route }: Properties) => {
   if (route) {
-    return (
-      <Link to={route}>
-        {showIcon && <i className={icon}></i>}
-        {children}
-      </Link>
-    );
+    return <Link to={route}>{children}</Link>;
   }
 
-  return (
-    <>
-      {showIcon && <i className={icon}></i>}
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default DropdownUserMenuItem;

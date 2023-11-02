@@ -34,6 +34,7 @@ interface Properties {
   userMenuExpandIcon?: React.ReactNode;
   userMenuLabel?: React.ReactNode;
   logoRoute?: string;
+  showUserMenuIcon?: boolean;
 }
 
 export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
@@ -65,6 +66,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
     userMenuCollapsedIcon,
     userMenuExpandIcon,
     userMenuLabel,
+    showUserMenuIcon,
   } = properties;
 
   const renderMainMenu = () => {
@@ -98,6 +100,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
                 label={userMenuLabel}
                 onLogout={onLogout}
                 userMenu={userMenu}
+                showUserMenuIcon={showUserMenuIcon}
               />
             )
           }
