@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import type {
   TCustomColumnFilter,
   TFilterFn as TFilterFunction,
@@ -115,4 +117,37 @@ export const getRequestJSON = (
     sort: getSort(),
     offset: getOffset(),
   };
+};
+
+export const useManipulateColumns = ({
+  columns,
+  visibleColumns,
+}: {
+  columns: Array<any>;
+  visibleColumns: string[];
+}) => {
+  const manipulatedColumns: Array<any> = useMemo(() => {
+    const mappedColumns = new Map();
+
+    //Merge duplicate fields to one based on filed value
+    for (const column of columns) {
+      if (mappedColumns.get(column.accessorKey || column.id)) {
+        mappedColumns.set(column.accessorKey || column.id, {
+          ...mappedColumns.get(column.accessorKey || column.id),
+          ...column,
+        });
+      } else {
+        mappedColumns.set(column.accessorKey || column.id, column);
+      }
+    }
+
+    //Sort columns based on field name provided in visibleColumns array.
+    const sortedColumns = visibleColumns.map<any>((visibleColumn) => {
+      return mappedColumns.get(visibleColumn);
+    });
+
+    return sortedColumns;
+  }, [visibleColumns, columns]);
+
+  return manipulatedColumns;
 };

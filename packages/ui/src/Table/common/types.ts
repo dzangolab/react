@@ -89,6 +89,7 @@ export interface TableProviderProperties<T> {
   sortIcons?: TSortIcons;
   title?: string;
   totalItems: number;
+  visibleColumns?: string[];
 }
 
 export interface TableContextProperties<T>
