@@ -39,13 +39,14 @@ const DropdownUserMenu: React.FC<Properties> = ({
     name: "userMenu.logout",
     onClick: signout,
     route: undefined,
+    icon: "pi pi-power-off",
   };
 
   const menuItems = userMenu ? [...userMenu, signoutRoute] : [signoutRoute];
 
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const dropdownUserMenu = (item: any) => (
-    <DropdownUserMenuItem route={item.route}>
+    <DropdownUserMenuItem route={item.route} icon={item.icon}>
       {t(item.name)}
     </DropdownUserMenuItem>
   );
