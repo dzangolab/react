@@ -1,6 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -19,10 +19,14 @@ interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
+  sessionInfoIcon?: string;
+  showSessionInfoIcon?: boolean;
   socialLoginFirst?: boolean;
 }
 
 const Login: React.FC<IProperties> = ({
+  sessionInfoIcon = "pi pi-info-circle",
+  showSessionInfoIcon = true,
   customDivider,
   divider = true,
   onLoginFailed,
@@ -39,6 +43,17 @@ const Login: React.FC<IProperties> = ({
   let className = "login";
   let path: string | null = null;
 
+  path = useMemo(() => {
+    if (window.location.search.startsWith("?redirect=")) {
+      const urlParameters = new URLSearchParams(window.location.search);
+      path = urlParameters.get("redirect");
+
+      return path;
+    }
+
+    return null;
+  }, [window.location.search]);
+
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
 
@@ -54,11 +69,6 @@ const Login: React.FC<IProperties> = ({
             onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
-
-            if (window.location.search.startsWith("?redirect=")) {
-              const urlParameters = new URLSearchParams(window.location.search);
-              path = urlParameters.get("redirect");
-            }
 
             if (path && path.length) {
               navigate(path);
@@ -109,6 +119,21 @@ const Login: React.FC<IProperties> = ({
     );
   };
 
+  const renderRedirectionMessage = () => {
+    if (path && path.length) {
+      return (
+        <div className="redirect-message">
+          <span className="info-icon">
+            {showSessionInfoIcon && <i className={sessionInfoIcon} />}
+          </span>
+          {t("emailVerification.messages.unauthenticated")}
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   if (!appConfig?.user.supportedLoginProviders) {
     orientation = "vertical";
   }
@@ -124,6 +149,8 @@ const Login: React.FC<IProperties> = ({
       data-aria-orientation={orientation}
     >
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
+
+      {renderRedirectionMessage()}
 
       <div className="links">{getLinks()}</div>
 

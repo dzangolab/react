@@ -2,6 +2,22 @@
   justify-items: center;
 }
 
+.login > .content > .redirect-message {
+  background-color: var(--blue-100);
+  border: 1px solid var(--blue-800);
+  border-radius: 0.5rem;
+  color: var(--blue-800);
+  display: flex;
+  grid-area: message;
+  margin-bottom: 2rem;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.login > .content > .redirect-message > .info-icon {
+  margin-right: 0.3rem;
+}
+
 .login > .content > form {
   grid-area: form;
 }
@@ -29,10 +45,6 @@
 .login > .content > .social-login-wrapper {
   display: flex;
   width: 100%;
-}
-
-.login > .content > .redirect-message {
-  grid-area: message;
 }
 
 .login > .content {
@@ -75,10 +87,6 @@
       "links divider sso-wrapper";
     align-items: flex-start;
     min-width: 44rem;
-  }
-
-  .login > .content[data-aria-orientation="horizontal"] > .redirect-message {
-    max-width: 30rem;
   }
 
   .login.sso-first > .content[data-aria-orientation="horizontal"] {

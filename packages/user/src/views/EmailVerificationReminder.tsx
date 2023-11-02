@@ -1,14 +1,28 @@
+import { configContext } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "@/constants";
+import { getHomeRoute } from "@/helpers";
 import { resendEmail } from "@/supertokens/resend-email-verification";
+
+import { UserContextType, userContext } from "..";
 
 const EmailVerificationReminder = () => {
   const { t } = useTranslation("user");
+  const { user } = useContext(userContext) as UserContextType;
+  const appConfig = useContext(configContext);
+  const navigate = useNavigate();
+  const homeRoute: string | undefined = getHomeRoute(
+    user,
+    appConfig?.layout,
+    appConfig?.user,
+  );
 
   const handleResend = () => {
     resendEmail()
@@ -23,6 +37,12 @@ const EmailVerificationReminder = () => {
         toast.error(t("emailVerification.toastMessages.error"));
       });
   };
+
+  useEffect(() => {
+    if (user?.isEmailVerified) {
+      navigate(`/${homeRoute}`);
+    }
+  }, []);
 
   return (
     <Page
