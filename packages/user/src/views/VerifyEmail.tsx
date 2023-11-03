@@ -149,7 +149,7 @@ const VerifyEmail = ({
             </div>
             <div className="button-wrapper">
               <Button
-                label={t("emailVerification.button.invalidToken")}
+                label={t("emailVerification.button.resendEmail")}
                 onClick={handleResend}
                 className="resend-button"
               />

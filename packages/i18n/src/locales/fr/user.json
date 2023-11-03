@@ -168,7 +168,6 @@
     },
     "button": {
       "resendEmail": "Resend email (fr)",
-      "invalidToken": "Continue (fr)",
       "signin": "Signin (fr)"
     },
     "title": "Email verification (fr)",
