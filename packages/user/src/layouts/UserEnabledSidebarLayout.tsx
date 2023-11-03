@@ -30,6 +30,7 @@ interface Properties {
   mainMenuOrientation?: "horizontal" | "vertical";
   mainMenu?: React.ReactNode;
   logoRoute?: string;
+  showUserMenuIcon?: boolean;
 }
 
 const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
@@ -58,6 +59,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     mainMenu,
     mainMenuOrientation,
     menuToggle,
+    showUserMenuIcon,
   } = properties;
 
   const renderMainMenu = () => {
@@ -90,6 +92,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
                 label={userMenuLabel}
                 onLogout={onLogout}
                 userMenu={userMenu}
+                showUserMenuIcon={showUserMenuIcon}
               />
             )
           }

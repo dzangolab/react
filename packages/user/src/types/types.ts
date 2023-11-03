@@ -11,6 +11,7 @@ export interface UserType extends EmailPasswordUserType {
 }
 
 export interface UserMenuItemType {
+  icon?: string;
   name: string;
   onClick?: () => void;
   route?: string;

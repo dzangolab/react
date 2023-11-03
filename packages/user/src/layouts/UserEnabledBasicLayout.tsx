@@ -26,6 +26,7 @@ interface Properties {
   mainMenuOrientation?: "horizontal" | "vertical";
   mainMenu?: React.ReactNode;
   logoRoute?: string;
+  showUserMenuIcon?: boolean;
 }
 
 const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
@@ -51,6 +52,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     localSwitcher,
     logoRoute,
     menuToggle,
+    showUserMenuIcon,
   } = properties;
 
   return (
@@ -74,6 +76,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
                 label={userMenuLabel}
                 onLogout={onLogout}
                 userMenu={userMenu}
+                showUserMenuIcon={showUserMenuIcon}
               />
             )
           }

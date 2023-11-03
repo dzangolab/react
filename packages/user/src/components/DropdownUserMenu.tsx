@@ -12,6 +12,7 @@ import { UserMenuItemType } from "../types";
 interface Properties
   extends Partial<Omit<DropdownMenuProperties, "dropdownMenu">> {
   onLogout?: () => void;
+  showUserMenuIcon?: boolean;
   userMenu?: UserMenuItemType[];
 }
 
@@ -20,6 +21,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
   expandIcon,
   label,
   onLogout,
+  showUserMenuIcon,
   userMenu,
 }) => {
   const id = useId();
@@ -36,6 +38,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
   };
 
   const signoutRoute = {
+    icon: "pi pi-power-off",
     name: "userMenu.logout",
     onClick: signout,
     route: undefined,
@@ -46,6 +49,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const dropdownUserMenu = (item: any) => (
     <DropdownUserMenuItem route={item.route}>
+      {showUserMenuIcon && <i className={item.icon}></i>}
       {t(item.name)}
     </DropdownUserMenuItem>
   );
