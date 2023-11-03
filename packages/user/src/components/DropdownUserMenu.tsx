@@ -12,8 +12,8 @@ import { UserMenuItemType } from "../types";
 interface Properties
   extends Partial<Omit<DropdownMenuProperties, "dropdownMenu">> {
   onLogout?: () => void;
-  userMenu?: UserMenuItemType[];
   showUserMenuIcon?: boolean;
+  userMenu?: UserMenuItemType[];
 }
 
 const DropdownUserMenu: React.FC<Properties> = ({
@@ -21,8 +21,8 @@ const DropdownUserMenu: React.FC<Properties> = ({
   expandIcon,
   label,
   onLogout,
-  userMenu,
   showUserMenuIcon,
+  userMenu,
 }) => {
   const id = useId();
   const { user, setUser } = useUser();
@@ -38,10 +38,10 @@ const DropdownUserMenu: React.FC<Properties> = ({
   };
 
   const signoutRoute = {
+    icon: "pi pi-power-off",
     name: "userMenu.logout",
     onClick: signout,
     route: undefined,
-    icon: "pi pi-power-off",
   };
 
   const menuItems = userMenu ? [...userMenu, signoutRoute] : [signoutRoute];
