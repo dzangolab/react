@@ -169,7 +169,6 @@
     },
     "button": {
       "resendEmail": "Resend email",
-      "invalidToken": "Continue",
       "signin": "Signin"
     },
     "title": "Email verification",
