@@ -56,10 +56,10 @@ export type FilesTableProperties = {
 
 export const FilesTable = ({
   archiveConfirmationProps,
-  className,
+  className = "table-files",
   columns = [],
   deleteConfirmationProps,
-  id,
+  id = "table-files",
   loading,
   files,
   totalRecords,
@@ -195,6 +195,7 @@ export const FilesTable = ({
       },
     },
     {
+      align: "right",
       field: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
       body: (data) => {

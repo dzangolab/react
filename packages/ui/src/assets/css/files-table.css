@@ -1,0 +1,35 @@
+.table-files .column-actions {
+  max-width: 7rem;
+  min-width: 7rem;
+  width: 7rem;
+}
+
+.table-files .column-description {
+  max-width: 15rem;
+  min-width: 15rem;
+  width: 15rem;
+}
+
+.table-files .column-downloadCount {
+  max-width: 10rem;
+  min-width: 10rem;
+  width: 10rem;
+}
+
+.table-files .column-lastDownloadedAt {
+  max-width: 12rem;
+  min-width: 12rem;
+  width: 12rem;
+}
+
+.table-files .column-uploadedAt {
+  max-width: 8rem;
+  min-width: 8rem;
+  width: 8rem;
+}
+
+.table-files .column-uploadedBy {
+  max-width: 8rem;
+  min-width: 8rem;
+  width: 8rem;
+}
