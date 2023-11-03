@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import GoogleLogin from "../components/GoogleLogin";
@@ -38,7 +38,6 @@ const Login: React.FC<IProperties> = ({
   const { setUser } = useUser();
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   let className = "login";
   let path: string | null = null;
@@ -64,15 +63,11 @@ const Login: React.FC<IProperties> = ({
             appConfig &&
             (await verifySessionRoles(appConfig.user.supportedRoles))
           ) {
-            await setUser(result.user);
+            setUser(result.user);
 
             onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
-
-            if (path && path.length) {
-              navigate(path);
-            }
           } else {
             toast.error(t("login.messages.permissionDenied"));
           }
