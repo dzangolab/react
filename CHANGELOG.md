@@ -1,3 +1,29 @@
+# [0.23.0](https://github.com/dzangolab/react/compare/v0.22.1...v0.23.0) (2023-11-03)
+
+
+### Bug Fixes
+
+* **form/File:** selected file container displayed although no file selected. ([#598](https://github.com/dzangolab/react/issues/598)) ([d254da5](https://github.com/dzangolab/react/commit/d254da53d04c0795ec11c926d90938be240db812))
+* **redirectLogin:** redirect to show session expired message in signin page ([#607](https://github.com/dzangolab/react/issues/607)) ([e3013c7](https://github.com/dzangolab/react/commit/e3013c78ef941cf3d1221661d02f3f1d0ea9ddb5))
+* **ui/DataTable:** tooltip render issue ([#600](https://github.com/dzangolab/react/issues/600)) ([d144ee0](https://github.com/dzangolab/react/commit/d144ee0664fc4af5d90ada78c0c14e374639d377))
+
+
+### Features
+
+* **datatable-pagination:** remove pagination form datable incase of empty table ([#618](https://github.com/dzangolab/react/issues/618)) ([40e8b72](https://github.com/dzangolab/react/commit/40e8b7266ee981c862af016bd8aadda988f01baa))
+* **form/password:** add icon for show and hide password ([#606](https://github.com/dzangolab/react/issues/606)) ([52396ff](https://github.com/dzangolab/react/commit/52396fff76a4963bc1cd3ca5f729656c37403e16))
+* **form/Switch:** add switch component ([#605](https://github.com/dzangolab/react/issues/605)) ([e6a1040](https://github.com/dzangolab/react/commit/e6a10409803ef6cff6e3455856c168d562981354))
+* **form/switchInput:** add switch input component ([#602](https://github.com/dzangolab/react/issues/602)) ([c5c3bac](https://github.com/dzangolab/react/commit/c5c3bacd1f378d57c0c0e4a4e6a9bf0e57ea7072))
+* **layout/user:** add switchable layout ([#596](https://github.com/dzangolab/react/issues/596)) ([189cdb0](https://github.com/dzangolab/react/commit/189cdb0e396d19b8a994058a47b51e386e68b744))
+* **login-redirect:** redirect to verify page after login ([#603](https://github.com/dzangolab/react/issues/603)) ([97c71b9](https://github.com/dzangolab/react/commit/97c71b9b5e3d78bfb3bc2d0bcbafc2e78571e925))
+* **react/FilesTable:** add css for files table ([#612](https://github.com/dzangolab/react/issues/612)) ([ac62b6b](https://github.com/dzangolab/react/commit/ac62b6b110c5d566c844d088d0af75dc96f0d7a4))
+* **react/userMenu:** add icon to user menu ([#615](https://github.com/dzangolab/react/issues/615)) ([6164079](https://github.com/dzangolab/react/commit/6164079d0810243272b5e5162a5e86edab801dea))
+* **resendEmailVerification:** add request for resending email ([#601](https://github.com/dzangolab/react/issues/601)) ([8062146](https://github.com/dzangolab/react/commit/806214617d25ec41963b6c88cab39168f1862edb))
+* **ui/ExportButton:** add sheetOptions as props in ExportButton ([#595](https://github.com/dzangolab/react/issues/595)) ([16eac82](https://github.com/dzangolab/react/commit/16eac824149d4e1f5edea981f6a30b52a142f92e))
+* **user:** add VerifyEmail views component ([#572](https://github.com/dzangolab/react/issues/572)) ([72e7252](https://github.com/dzangolab/react/commit/72e7252dd289b62d85d5d264604681fe7038b340))
+
+
+
 ## [0.22.1](https://github.com/dzangolab/react/compare/v0.22.0...v0.22.1) (2023-10-06)
 
 
