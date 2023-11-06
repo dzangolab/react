@@ -24,7 +24,9 @@ exports[`Component matches snapshot 1`] = `
         </button>
       </th>
     </tr>
-    <tr>
+    <tr
+      className="row-header"
+    >
       <th
         colSpan={1}
       >

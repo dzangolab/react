@@ -11,6 +11,7 @@
   "responsiveMenu": "Responsive menu",
   "table": {
     "title": {
+      "baseTable": "Base table",
       "localDataTable": "Local data table"
     },
     "headers": {
