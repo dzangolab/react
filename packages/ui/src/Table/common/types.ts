@@ -91,6 +91,7 @@ export interface TableProviderProperties<T> {
   tableClassName?: string;
   title?: string;
   totalItems: number;
+  visibleColumns?: string[];
 }
 
 export interface TableContextProperties<T>

@@ -1,3 +1,7 @@
+import { resourceUsage } from "process";
+
+import { useMemo } from "react";
+
 import type {
   TCustomColumnFilter,
   TFilterFn as TFilterFunction,
@@ -115,4 +119,44 @@ export const getRequestJSON = (
     sort: getSort(),
     offset: getOffset(),
   };
+};
+
+export const useManipulateColumns = ({
+  columns,
+  visibleColumns,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns: Array<any>;
+  visibleColumns: string[];
+}) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const manipulatedColumns: Array<any> = useMemo(() => {
+    if (visibleColumns.length === 0) {
+      return columns;
+    }
+
+    const mappedColumns = new Map();
+
+    //Merge duplicate fields to one based on column id value
+    for (const column of columns) {
+      if (mappedColumns.get(column.accessorKey || column.id)) {
+        mappedColumns.set(column.accessorKey || column.id, {
+          ...mappedColumns.get(column.accessorKey || column.id),
+          ...column,
+        });
+      } else {
+        mappedColumns.set(column.accessorKey || column.id, column);
+      }
+    }
+
+    //Sort columns based on column id provided in visibleColumns array.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const sortedColumns = visibleColumns.map<any>((visibleColumn) => {
+      return mappedColumns.get(visibleColumn);
+    });
+
+    return sortedColumns;
+  }, [visibleColumns, columns]);
+
+  return manipulatedColumns;
 };

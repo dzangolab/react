@@ -254,6 +254,7 @@ const componentList = [
     title: "table.title.baseTable",
     component: (
       <Table
+        visibleColumns={["id", "middleNames", "surname"]}
         columns={[
           {
             accessorKey: "id",
