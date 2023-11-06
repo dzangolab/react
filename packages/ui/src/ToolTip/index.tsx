@@ -1,30 +1,54 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 
-const ToolTip = ({ text, children, position }: any) => {
-  const [showTooltip, setShowTooltip] = useState(false);
+interface Properties {
+  text: string;
+  children: React.ReactNode;
+}
 
-  const handleMouseEnter = () => {
-    setShowTooltip(true);
+const Tooltip = ({ text, children }: Properties) => {
+  const [visible, setVisible] = useState(false);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+
+  const showTooltip = (event: any) => {
+    const rect = event.target.getBoundingClientRect();
+    setPosition({
+      top: rect.bottom + 5,
+      left: rect.left,
+    });
+    setVisible(true);
   };
 
-  const handleMouseLeave = () => {
-    setShowTooltip(false);
+  const hideTooltip = () => {
+    setVisible(false);
   };
 
   return (
-    <div className="tooltip-container">
-      <div
-        className="tooltip-trigger"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {children}
-      </div>
-      {showTooltip && (
-        <div className={`tooltip tooltip-${position}`}>{text}</div>
-      )}
+    <div
+      onMouseEnter={showTooltip}
+      onMouseLeave={hideTooltip}
+      style={{ position: "relative", display: "inline-block" }}
+    >
+      {children}
+      {visible &&
+        createPortal(
+          <div
+            style={{
+              position: "absolute",
+              top: position.top,
+              left: position.left,
+              background: "rgba(0, 0, 0, 0.7)",
+              color: "white",
+              padding: "5px",
+              borderRadius: "5px",
+            }}
+          >
+            {text}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 };
 
-export default ToolTip;
+export default Tooltip;
