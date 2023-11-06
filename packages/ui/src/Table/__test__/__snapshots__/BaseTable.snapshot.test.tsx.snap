@@ -4,10 +4,12 @@ exports[`Component matches snapshot 1`] = `
 <div
   className="table-wrapper sticky-header hide-scrollbar"
 >
-  <div>
-    <div
-      className="actions-header"
-    />
+  <div
+    className="actions-header"
+  />
+  <div
+    className="table-container"
+  >
     <table>
       <colgroup>
         <col
