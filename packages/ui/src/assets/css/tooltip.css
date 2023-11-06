@@ -50,5 +50,21 @@
 }
 
 .tooltip-left::after {
+  right: -8%;
+  top:50%;
+  margin-top:-5px;
+  border-color: transparent transparent transparent #555;
+}
 
+.tooltip-right::after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-color: transparent #555 transparent transparent;
+}
+
+.tooltip-top::after {
+  border-color: transparent transparent #333 transparent;
+  left: 50%;
+  top: -35%;
 }
