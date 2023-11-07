@@ -6,13 +6,3 @@
 * {
   box-sizing: border-box;
 }
-
-.button-tooltip {
-
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
-    color: white;
-    padding: 5px;
-    position: fixed;
-  
-}
