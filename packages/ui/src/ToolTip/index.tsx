@@ -21,11 +21,11 @@ export const ToolTip = ({
 
   const handleMouseEnter = (event: any) => {
     const rect = event.target.getBoundingClientRect();
-    console.log(rect);
+
     switch (position) {
       case "top":
         setToolTipPosition({
-          top: rect.top - 34,
+          top: rect.top - 5,
           left: rect.left,
         });
         break;
@@ -44,10 +44,10 @@ export const ToolTip = ({
       case "left":
         setToolTipPosition({
           top: rect.top,
-          left: rect.left - 130,
+          left: rect.left - 5,
         });
     }
-    console.log(toolTipPosition);
+
     setShowTooltip(true);
   };
 
