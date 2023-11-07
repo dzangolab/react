@@ -1,4 +1,7 @@
 {
+  "fileAttach": {
+    "attachFileMessage": "Attach the file"
+  },
   "fileInput": {
     "actions": {
       "upload": "Upload"
@@ -21,8 +24,8 @@
       "upload": "Upload",
       "cancel": "Cancel"
     },
-    "fields":{
-      "uploadedBy":{
+    "fields": {
+      "uploadedBy": {
         "label": "Upload by",
         "placeholder": "Enter your email address"
       }

@@ -1,4 +1,7 @@
-{
+{ 
+  "fileAttach": {
+    "attachFileMessage": "Attach the file (fr)"
+  },
   "fileInput": {
     "actions": {
       "upload": "Upload (fr)"

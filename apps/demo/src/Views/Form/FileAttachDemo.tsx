@@ -1,15 +1,20 @@
 import { FileAttachBasic } from "@dzangolab/react-form";
+import { useTranslation } from "@dzangolab/react-i18n";
 import { ToolTip } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import type { FileExtended } from "@dzangolab/react-form";
 
 const FileAttachDemo = () => {
+  const { t } = useTranslation("files");
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>([]);
 
   return (
     <>
-      <ToolTip message="attach the file" position={{ top: -20, left: 50 }}>
+      <ToolTip
+        message={t("fileAttach.attachFileMessage")}
+        position={{ top: 0, left: 50 }}
+      >
         <FileAttachBasic
           name="fileAttach"
           selectButtonProps={{ icon: "pi pi-file" }}
