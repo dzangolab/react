@@ -4,8 +4,9 @@ import { createPortal } from "react-dom";
 interface Properties {
   message: string;
   children: React.ReactNode;
-  position: { top: number; left: number };
+  position?: "top" | "right" | "bottom" | "left";
   className?: string;
+  style?: object;
 }
 
 export const ToolTip = ({
@@ -13,18 +14,40 @@ export const ToolTip = ({
   children,
   position,
   className,
+  style,
 }: Properties) => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const [toolTipPosition, setToolTipPosition] = useState(position);
+  const [toolTipPosition, setToolTipPosition] = useState({ top: 0, left: 0 });
 
   const handleMouseEnter = (event: any) => {
     const rect = event.target.getBoundingClientRect();
-
-    setToolTipPosition({
-      top: rect.bottom + position.top,
-      left: rect.left + position.left,
-    });
-
+    console.log(rect);
+    switch (position) {
+      case "top":
+        setToolTipPosition({
+          top: rect.top - 34,
+          left: rect.left,
+        });
+        break;
+      case "right":
+        setToolTipPosition({
+          top: rect.top,
+          left: rect.right + 5,
+        });
+        break;
+      case "bottom":
+        setToolTipPosition({
+          top: rect.bottom + 5,
+          left: rect.left,
+        });
+        break;
+      case "left":
+        setToolTipPosition({
+          top: rect.top,
+          left: rect.left - 130,
+        });
+    }
+    console.log(toolTipPosition);
     setShowTooltip(true);
   };
 
@@ -45,6 +68,7 @@ export const ToolTip = ({
             style={{
               top: toolTipPosition.top,
               left: toolTipPosition.left,
+              ...style,
             }}
             className={className ? className : "tooltip"}
           >
