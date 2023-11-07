@@ -4,44 +4,49 @@ import { createPortal } from "react-dom";
 interface Properties {
   message: string;
   children: React.ReactNode;
-  position: { top: number; left: number; };
+  position: { top: number; left: number };
   className: string;
 }
 
-const ToolTip = ({ message, children, position, className}: Properties) => {
-  const [visible, setVisible] = useState(false);
+export const ToolTip = ({
+  message,
+  children,
+  position,
+  className,
+}: Properties) => {
+  const [showTooltip, setShowTooltip] = useState(false);
   const [toolTipPosition, setToolTipPositions] = useState(position);
 
-  const showTooltip = (event: any) => {
+  const handleMouseEnter = (event: any) => {
     const rect = event.target.getBoundingClientRect();
-    console.log(position)
+
     setToolTipPositions({
       top: rect.bottom + position.top,
       left: rect.left + position.left,
     });
-   console.log(toolTipPosition)
-    setVisible(true);
+
+    setShowTooltip(true);
   };
 
-  const hideTooltip = () => {
-    setVisible(false);
+  const handleMouseLeave = () => {
+    setShowTooltip(false);
   };
 
   return (
     <div
-      onMouseEnter={showTooltip}
-      onMouseLeave={hideTooltip}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className="tooltip-container"
     >
       {children}
-      {visible &&
+      {showTooltip &&
         createPortal(
           <div
             style={{
               top: toolTipPosition.top,
               left: toolTipPosition.left,
             }}
-            className="tooltip"
+            className={className ? className : "tooltip"}
           >
             {message}
           </div>,
@@ -50,5 +55,3 @@ const ToolTip = ({ message, children, position, className}: Properties) => {
     </div>
   );
 };
-
-export default ToolTip;

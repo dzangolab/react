@@ -1,12 +1,12 @@
-.tooltip-container .tooltip {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-  color: white;
-  padding: 5px;
-  position: absolute;
+.tooltip {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border-radius: 5px !important;
+  color: white !important;
+  padding: 5px !important;
+  position: absolute !important;
 }
 
 .tooltip-container {
-  display:inline-block;
-  position:relative;
+  display:inline-block !important;
+  position:relative !important;
 }

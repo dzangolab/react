@@ -1,5 +1,4 @@
-import { SubmitButton as Button } from "@dzangolab/react-ui";
-import { ToolTip } from "@dzangolab/react-ui";
+import { SubmitButton as Button, ToolTip } from "@dzangolab/react-ui";
 
 export const SubmitButton = () => {
   return (
