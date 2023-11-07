@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import GoogleLogin from "../components/GoogleLogin";
@@ -38,20 +38,21 @@ const Login: React.FC<IProperties> = ({
   const { setUser } = useUser();
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
+  const location = useLocation();
 
   let className = "login";
   let path: string | null = null;
 
   path = useMemo(() => {
-    if (window.location.search.startsWith("?redirect=")) {
-      const urlParameters = new URLSearchParams(window.location.search);
+    if (location.search.startsWith("?redirect=")) {
+      const urlParameters = new URLSearchParams(location.search);
       path = urlParameters.get("redirect");
 
       return path;
     }
 
     return null;
-  }, [window.location.search]);
+  }, [location.search]);
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
