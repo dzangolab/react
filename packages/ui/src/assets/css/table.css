@@ -181,11 +181,6 @@
   display: none;
 }
 
-/* hide filter button on desktop */
-table > thead > tr:first-child {
-  display: none;
-}
-
 .filter-form-wrapper {
   color: var(--filter-wrapper-color, #000);
   background-color: var(--filter-wrapper-background-color, #fff);

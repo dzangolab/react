@@ -6,7 +6,7 @@ import {
   FileCard,
   FilesList,
   FilesPresentation,
-  Table,
+  TDataTable,
 } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
@@ -253,8 +253,8 @@ const componentList = [
     key: 11,
     title: "table.title.baseTable",
     component: (
-      <Table
-        visibleColumns={["id", "middleNames", "surname"]}
+      <TDataTable
+        // visibleColumns={["id", "middleNames", "surname"]}
         columns={[
           {
             accessorKey: "id",
@@ -287,10 +287,10 @@ const componentList = [
           }
           return data;
         })(5)}
-        fetcher={() => {}}
-        totalItems={5}
-        enableMultiSort={true}
-      ></Table>
+        // fetcher={() => {}}
+        // totalItems={5}
+        // enableMultiSort={true}
+      ></TDataTable>
     ),
   },
 ];
