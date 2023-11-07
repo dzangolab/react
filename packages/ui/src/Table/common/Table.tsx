@@ -132,6 +132,7 @@ const DataTable = <TData extends { id: string | number }>({
         ),
         enableSorting: false,
         enableHiding: false,
+        align: "center",
       },
       ...manipulatedColumns,
     ];
