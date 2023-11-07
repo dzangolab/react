@@ -277,6 +277,10 @@ const componentList = [
           {
             accessorKey: "surname",
             header: () => <span>Surname</span>,
+            align: "left",
+          },
+          {
+            accessorKey: "address",
             align: "right",
           },
         ]}
@@ -286,12 +290,14 @@ const componentList = [
             data[i] = {
               id: i + 1,
               givenName: "jone" + i,
-              middleNames: "abcd" + i,
-              surname: "doe" + i,
+              middleNames: "abcd" + ((count - i) % (i + 1)),
+              surname: "doe" + (count % (i + 1)),
+              address: "address" + (count - i),
             };
           }
           return data;
-        })(5)}
+        })(20)}
+        isLoading={false}
         // fetcher={() => {}}
         // totalItems={5}
         // enableMultiSort={true}

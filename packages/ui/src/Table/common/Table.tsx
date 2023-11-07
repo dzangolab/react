@@ -40,6 +40,7 @@ import {
 } from "./TableElements";
 import { TCustomColumnFilter, TRequestJSON, TSortIcons } from "./types";
 import { getRequestJSON } from "./utils";
+import LoadingIcon from "../../LoadingIcon";
 
 import type { Table as TableType } from "@tanstack/react-table";
 
@@ -53,26 +54,21 @@ declare module "@tanstack/react-table" {
 interface DataTableProperties<TData>
   extends Omit<TableOptions<TData>, "getCoreRowModel"> {
   className?: string;
+  isLoading?: boolean;
   globalFilterPlaceholder?: string;
   fetchData?: (data: TRequestJSON) => void;
   renderToolbarItems?: (table: TableType<TData>) => React.ReactNode;
   renderTableFooterContent?: (table: TableType<TData>) => React.ReactNode;
   tableCaption?: React.ReactNode;
+  paginated?: boolean;
+  rowPerPage?: number;
+  rowPerPageOptions?: number[];
 }
 
 // export interface DataTableProperties<TData> {
 //   columns: ColumnDef<TData>[];
 //   data: TData[];
-//   //   fetcher: (requestJSON: TRequestJSON) => void;
-//   //   filterMenuToggleIcon?: string;
-//   //   enableMultiSort?: boolean;
 //   //   inputDebounceTime?: number;
-//   //   fixedHeader?: boolean;
-//   //   filterIcons?: {
-//   //     expanded: string;
-//   //     notExpanded: string;
-//   //   };
-//   //   hideScrollBar?: boolean;
 //   //   isLoading?: boolean;
 //   //   paginated?: boolean;
 //   //   paginationIcons?: {
@@ -94,10 +90,14 @@ interface DataTableProperties<TData>
 const DataTable = <TData extends { id: string | number }>({
   columns = [],
   data,
+  isLoading = false,
   fetchData,
   renderToolbarItems,
   renderTableFooterContent,
   tableCaption,
+  paginated = true,
+  rowPerPage,
+  rowPerPageOptions,
   ...tableOptions
 }: DataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -106,7 +106,7 @@ const DataTable = <TData extends { id: string | number }>({
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: DEFAULT_PAGE_INDEX,
-    pageSize: DEFAULT_PAGE_SIZE,
+    pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
   });
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
@@ -143,13 +143,6 @@ const DataTable = <TData extends { id: string | number }>({
   //     .getFilteredSelectedRowModel()
   //     .rows.map((row) => ({ id: row.original.id }));
 
-  //   const handleGlobalSearch = useCallback(
-  //     (event: ChangeEvent<HTMLInputElement>) => {
-  //       table.getColumn("firstName")?.setFilterValue(event.target.value);
-  //     },
-  //     [table]
-  //   );
-
   useEffect(() => {
     const requestJSON = getRequestJSON(sorting, columnFilters, {
       pageIndex: pagination.pageIndex,
@@ -171,6 +164,11 @@ const DataTable = <TData extends { id: string | number }>({
 
   return (
     <div className="table-container">
+      {isLoading ? (
+        <div className="loading-overlay">
+          <LoadingIcon color="#55575f" fontSize={"0.5rem"}></LoadingIcon>
+        </div>
+      ) : null}
       {renderToolbarItems ? (
         <TableToolbar children={renderToolbarItems(table)} />
       ) : null}
@@ -267,21 +265,23 @@ const DataTable = <TData extends { id: string | number }>({
         ) : null}
       </Table>
 
-      <div className="p-paginator-bottom p-paginator p-component">
-        <Paginator
-          first={pagination.pageIndex * pagination.pageSize}
-          rows={pagination.pageSize}
-          totalRecords={table.getFilteredRowModel().rows?.length}
-          rowsPerPageOptions={DEFAULT_PAGE_PER_OPTIONS}
-          onPageChange={(event) => {
-            const currentPageIndex = Math.ceil(event.first / event.rows);
-            setPagination({
-              pageIndex: currentPageIndex,
-              pageSize: event.rows,
-            });
-          }}
-        />
-      </div>
+      {paginated ? (
+        <div className="p-paginator-bottom p-paginator p-component">
+          <Paginator
+            first={pagination.pageIndex * pagination.pageSize}
+            rows={pagination.pageSize}
+            totalRecords={table.getFilteredRowModel().rows?.length}
+            rowsPerPageOptions={rowPerPageOptions || DEFAULT_PAGE_PER_OPTIONS}
+            onPageChange={(event) => {
+              const currentPageIndex = Math.ceil(event.first / event.rows);
+              setPagination({
+                pageIndex: currentPageIndex,
+                pageSize: event.rows,
+              });
+            }}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };
