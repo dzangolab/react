@@ -5,7 +5,7 @@ export const SubmitButton = () => {
   return (
     <>
       <ToolTip
-        message="Submit"
+        message="Submit the data"
         position={{ top: -70, left: 200 }}
         className="submit-button-tooltip"
       >

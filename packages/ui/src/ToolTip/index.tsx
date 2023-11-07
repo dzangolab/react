@@ -4,22 +4,22 @@ import { createPortal } from "react-dom";
 interface Properties {
   message: string;
   children: React.ReactNode;
-  position: { top: number; left: number };
+  position: { top: number; left: number; };
   className: string;
 }
 
-const ToolTip = ({ message, children, position, className }: Properties) => {
+const ToolTip = ({ message, children, position, className}: Properties) => {
   const [visible, setVisible] = useState(false);
   const [toolTipPosition, setToolTipPositions] = useState(position);
 
   const showTooltip = (event: any) => {
     const rect = event.target.getBoundingClientRect();
-    console.log(position);
+    console.log(position)
     setToolTipPositions({
       top: rect.bottom + position.top,
       left: rect.left + position.left,
     });
-    console.log(toolTipPosition);
+   console.log(toolTipPosition)
     setVisible(true);
   };
 
@@ -41,7 +41,7 @@ const ToolTip = ({ message, children, position, className }: Properties) => {
               top: toolTipPosition.top,
               left: toolTipPosition.left,
             }}
-            className={className ? className : "tooltip"}
+            className="tooltip"
           >
             {message}
           </div>,
