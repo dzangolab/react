@@ -15,12 +15,12 @@ export const ToolTip = ({
   className,
 }: Properties) => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const [toolTipPosition, setToolTipPositions] = useState(position);
+  const [toolTipPosition, setToolTipPosition] = useState(position);
 
   const handleMouseEnter = (event: any) => {
     const rect = event.target.getBoundingClientRect();
 
-    setToolTipPositions({
+    setToolTipPosition({
       top: rect.bottom + position.top,
       left: rect.left + position.left,
     });
