@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import type { SizeType } from "./Table";
-
 const TableToolbar = ({
   // handleGlobalSearch,
   // globalFilterPlaceholder,

@@ -277,6 +277,8 @@
   --table-column-padding: 0.5rem;
 }
 
+/* Tanstack table class definitions */
+
 .table-container {
   display: flex;
   flex-direction: column;
@@ -302,7 +304,7 @@
 }
 
 .table-container .table-wrapper .table {
-  width: 100%;
+  min-width: 100%;
   border-collapse: collapse;
 }
 
@@ -342,14 +344,27 @@
   .table
   .tcol-head[data-align="right"]
   > .content {
-  justify-content: flex-end;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
 }
 
 .table-container .table-wrapper .table .tcol-head {
   cursor: pointer;
 }
 
+.table-container .table-wrapper .table .tcol-head .sort-state {
+  visibility: hidden;
+}
+
+.table-container .table-wrapper .table .tcol-head:hover .sort-state {
+  visibility: visible;
+}
+
 .table-container .table-wrapper .table .tcol-head:active {
+  background-color: var(--table-header-active-bg-color);
+}
+
+.table-container .table-wrapper .table .tcol-head.highlight {
   background-color: var(--table-header-active-bg-color);
 }
 

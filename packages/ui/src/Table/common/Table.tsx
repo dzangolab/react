@@ -1,5 +1,4 @@
 import {
-  type ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
@@ -10,13 +9,15 @@ import {
   getFilteredRowModel,
   VisibilityState,
   PaginationState,
-  RowData,
+  TableOptions,
+  Updater,
 } from "@tanstack/react-table";
 import { Paginator } from "primereact/paginator";
-import {
+import React, {
   ChangeEvent,
   SyntheticEvent,
   useCallback,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -34,10 +35,13 @@ import {
   TableHeader,
   TableRow,
   TableToolbar,
+  TableCaption,
+  TableFooter,
 } from "./TableElements";
-import { TRequestJSON, TSortIcons } from "./types";
+import { TCustomColumnFilter, TRequestJSON, TSortIcons } from "./types";
+import { getRequestJSON } from "./utils";
 
-export type SizeType = "small" | "normal" | "large";
+import type { Table as TableType } from "@tanstack/react-table";
 
 declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations
@@ -46,57 +50,69 @@ declare module "@tanstack/react-table" {
   }
 }
 
-// interface DataTableProps<TData> {
-//   className?: string;
-//   columns?: ColumnDef<TData>[];
-//   data: TData[];
-//   globalFilterPlaceholder?: string;
-//   size?: SizeType;
-// }
-
-export interface DataTableProperties<TData> {
-  columns: ColumnDef<TData>[];
-  data: TData[];
-  //   fetcher: (requestJSON: TRequestJSON) => void;
-  //   filterMenuToggleIcon?: string;
-  //   enableMultiSort?: boolean;
-  //   inputDebounceTime?: number;
-  //   fixedHeader?: boolean;
-  //   filterIcons?: {
-  //     expanded: string;
-  //     notExpanded: string;
-  //   };
-  //   hideScrollBar?: boolean;
-  //   isLoading?: boolean;
-  //   paginated?: boolean;
-  //   paginationIcons?: {
-  //     start: string;
-  //     previous: string;
-  //     next: string;
-  //     end: string;
-  //   };
-  //   rowsPerPageOptions?: number[];
-  //   showPageControl?: boolean;
-  //   showTotalNumber?: boolean;
-  //   sortable?: boolean;
-  //   sortIcons?: TSortIcons;
-  //   tableClassName?: string;
-  //   title?: string;
-  //   totalItems: number;
+interface DataTableProperties<TData>
+  extends Omit<TableOptions<TData>, "getCoreRowModel"> {
+  className?: string;
+  globalFilterPlaceholder?: string;
+  fetchData?: (data: TRequestJSON) => void;
+  renderToolbarItems?: (table: TableType<TData>) => React.ReactNode;
+  renderTableFooterContent?: (table: TableType<TData>) => React.ReactNode;
+  tableCaption?: React.ReactNode;
 }
+
+// export interface DataTableProperties<TData> {
+//   columns: ColumnDef<TData>[];
+//   data: TData[];
+//   //   fetcher: (requestJSON: TRequestJSON) => void;
+//   //   filterMenuToggleIcon?: string;
+//   //   enableMultiSort?: boolean;
+//   //   inputDebounceTime?: number;
+//   //   fixedHeader?: boolean;
+//   //   filterIcons?: {
+//   //     expanded: string;
+//   //     notExpanded: string;
+//   //   };
+//   //   hideScrollBar?: boolean;
+//   //   isLoading?: boolean;
+//   //   paginated?: boolean;
+//   //   paginationIcons?: {
+//   //     start: string;
+//   //     previous: string;
+//   //     next: string;
+//   //     end: string;
+//   //   };
+//   //   rowsPerPageOptions?: number[];
+//   //   showPageControl?: boolean;
+//   //   showTotalNumber?: boolean;
+//   //   sortable?: boolean;
+//   //   sortIcons?: TSortIcons;
+//   //   tableClassName?: string;
+//   //   title?: string;
+//   //   totalItems: number;
+// }
 
 const DataTable = <TData extends { id: string | number }>({
   columns = [],
   data,
+  fetchData,
+  renderToolbarItems,
+  renderTableFooterContent,
+  tableCaption,
+  ...tableOptions
 }: DataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: DEFAULT_PAGE_SIZE,
   });
+
+  const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setColumnFilters(event_ as any);
+  };
 
   const table = useReactTable({
     data,
@@ -105,7 +121,7 @@ const DataTable = <TData extends { id: string | number }>({
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    onColumnFiltersChange: setColumnFilters,
+    onColumnFiltersChange: handleColumnFilterChange,
     onColumnVisibilityChange: setColumnVisibility,
     onPaginationChange: setPagination,
     onRowSelectionChange: setRowSelection,
@@ -117,6 +133,10 @@ const DataTable = <TData extends { id: string | number }>({
       rowSelection,
       sorting,
     },
+    manualFiltering: !!fetchData,
+    manualSorting: !!fetchData,
+    manualPagination: !!fetchData,
+    ...tableOptions,
   });
 
   //   const mappedSelectedRows = table
@@ -130,6 +150,15 @@ const DataTable = <TData extends { id: string | number }>({
   //     [table]
   //   );
 
+  useEffect(() => {
+    const requestJSON = getRequestJSON(sorting, columnFilters, {
+      pageIndex: pagination.pageIndex,
+      pageSize: pagination.pageSize,
+    });
+
+    fetchData && fetchData(requestJSON);
+  }, [columnFilters, pagination.pageIndex, pagination.pageSize, sorting]);
+
   const handleSort = useCallback(
     (event: SyntheticEvent, sortHandler?: (event: SyntheticEvent) => void) => {
       event.stopPropagation();
@@ -142,13 +171,16 @@ const DataTable = <TData extends { id: string | number }>({
 
   return (
     <div className="table-container">
-      <TableToolbar children={<>toolbar</>} />
+      {renderToolbarItems ? (
+        <TableToolbar children={renderToolbarItems(table)} />
+      ) : null}
       <Table>
+        <TableCaption children={tableCaption} />
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
               {headerGroup.headers.map(
-                ({ column, getContext, id, isPlaceholder }) => {
+                ({ column, getContext, id, isPlaceholder, colSpan }) => {
                   const {
                     columnDef,
                     getCanSort,
@@ -156,21 +188,28 @@ const DataTable = <TData extends { id: string | number }>({
                     getToggleSortingHandler,
                   } = column;
 
-                  //   const ColumnHeaderClasses = `${
-                  //     getCanSort() ? "p-sortable-column" : ""
-                  //   } ${
-                  //     getIsSorted() === "asc" || getIsSorted() === "desc"
-                  //       ? "p-highlight"
-                  //       : ""
-                  //   },
-                  //     `;
+                  const activeColumnClass = `${
+                    getIsSorted() === "asc" || getIsSorted() === "desc"
+                      ? "highlight"
+                      : ""
+                  }`;
 
-                  const ColumnHeaderClasses = "";
+                  const renderSortIcons = () => {
+                    switch (getIsSorted()) {
+                      case "asc":
+                        return <i className="pi pi-arrow-up"></i>;
+                      case "desc":
+                        return <i className="pi pi-arrow-down"></i>;
+                      default:
+                        return <i className="pi pi-arrows-v"></i>;
+                    }
+                  };
 
                   return (
                     <ColumnHeader
                       key={id}
-                      className={`column-${id}`}
+                      colSpan={colSpan}
+                      className={`column-${id} ${activeColumnClass}`}
                       data-align={columnDef.align || "left"}
                       onClick={(event) => {
                         if (getCanSort()) {
@@ -178,9 +217,18 @@ const DataTable = <TData extends { id: string | number }>({
                         }
                       }}
                     >
-                      {isPlaceholder
-                        ? null
-                        : flexRender(columnDef.header, getContext())}
+                      <>
+                        {isPlaceholder
+                          ? null
+                          : flexRender(columnDef.header, getContext())}
+                        <>
+                          {getCanSort() ? (
+                            <span className="sort-state">
+                              {renderSortIcons()}
+                            </span>
+                          ) : null}
+                        </>
+                      </>
                     </ColumnHeader>
                   );
                 },
@@ -214,6 +262,9 @@ const DataTable = <TData extends { id: string | number }>({
             </TableRow>
           )}
         </TableBody>
+        {renderTableFooterContent ? (
+          <TableFooter children={renderTableFooterContent(table)} />
+        ) : null}
       </Table>
 
       <div className="p-paginator-bottom p-paginator p-component">

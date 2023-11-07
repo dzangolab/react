@@ -255,6 +255,9 @@ const componentList = [
     component: (
       <TDataTable
         // visibleColumns={["id", "middleNames", "surname"]}
+        // fetchData={(data: any) => {
+        //   console.log(data);
+        // }}
         columns={[
           {
             accessorKey: "id",
@@ -274,6 +277,7 @@ const componentList = [
           {
             accessorKey: "surname",
             header: () => <span>Surname</span>,
+            align: "right",
           },
         ]}
         data={((count: number) => {
