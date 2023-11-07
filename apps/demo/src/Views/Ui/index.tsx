@@ -308,6 +308,9 @@ const componentList = [
         renderToolbarItems={() => {
           return <div>toolbar</div>;
         }}
+        onRowSelect={(table: any) => {
+          console.log(table.getFilteredSelectedRowModel());
+        }}
       ></TDataTable>
     ),
   },

@@ -12,6 +12,7 @@ import {
   TableOptions,
   Updater,
 } from "@tanstack/react-table";
+import { Checkbox } from "primereact/checkbox";
 import { Paginator } from "primereact/paginator";
 import React, {
   ChangeEvent,
@@ -42,7 +43,7 @@ import { TCustomColumnFilter, TRequestJSON, TSortIcons } from "./types";
 import { getRequestJSON, useManipulateColumns } from "./utils";
 import LoadingIcon from "../../LoadingIcon";
 
-import type { Table as TableType } from "@tanstack/react-table";
+import type { ColumnDef, Table as TableType } from "@tanstack/react-table";
 
 declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations
@@ -64,6 +65,7 @@ interface DataTableProperties<TData>
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   visibleColumns?: string[];
+  onRowSelect?: (table: TableType<TData>) => void;
 }
 
 // export interface DataTableProperties<TData> {
@@ -85,6 +87,7 @@ const DataTable = <TData extends { id: string | number }>({
   rowPerPage,
   rowPerPageOptions,
   visibleColumns = [],
+  onRowSelect,
   ...tableOptions
 }: DataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -103,9 +106,42 @@ const DataTable = <TData extends { id: string | number }>({
 
   const manipulatedColumns = useManipulateColumns({ visibleColumns, columns });
 
+  const columnsWithRowSelection = useMemo(() => {
+    if (!onRowSelect) {
+      return manipulatedColumns;
+    }
+
+    const columns: ColumnDef<TData>[] = [
+      {
+        id: "select",
+        header: ({ table }) => (
+          <Checkbox
+            checked={table.getIsAllPageRowsSelected()}
+            onChange={(value) =>
+              table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected())
+            }
+            aria-label="Select all"
+          />
+        ),
+        cell: ({ row }) => (
+          <Checkbox
+            checked={row.getIsSelected()}
+            onChange={(value) => row.toggleSelected(!row.getIsSelected())}
+            aria-label="Select row"
+          />
+        ),
+        enableSorting: false,
+        enableHiding: false,
+      },
+      ...manipulatedColumns,
+    ];
+
+    return columns;
+  }, []);
+
   const table = useReactTable({
     data,
-    columns: manipulatedColumns,
+    columns: columnsWithRowSelection,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -128,9 +164,11 @@ const DataTable = <TData extends { id: string | number }>({
     ...tableOptions,
   });
 
-  //   const mappedSelectedRows = table
-  //     .getFilteredSelectedRowModel()
-  //     .rows.map((row) => ({ id: row.original.id }));
+  const mappedSelectedRows = table.getFilteredSelectedRowModel();
+
+  useEffect(() => {
+    onRowSelect && onRowSelect(table);
+  }, [mappedSelectedRows]);
 
   useEffect(() => {
     const requestJSON = getRequestJSON(sorting, columnFilters, {
