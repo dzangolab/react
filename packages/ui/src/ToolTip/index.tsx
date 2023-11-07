@@ -5,7 +5,7 @@ interface Properties {
   message: string;
   children: React.ReactNode;
   position: { top: number; left: number };
-  className: string;
+  className?: string;
 }
 
 export const ToolTip = ({
