@@ -287,6 +287,7 @@ const componentList = [
           },
           {
             accessorKey: "address",
+            header: () => <span>Address</span>,
             align: "right",
           },
         ]}
@@ -306,11 +307,12 @@ const componentList = [
         isLoading={false}
         // totalItems={5}
         renderToolbarItems={() => {
-          return <div>toolbar</div>;
+          return <div>Toolbar</div>;
         }}
-        onRowSelect={(table: any) => {
+        onRowSelectChange={(table: any) => {
           console.log(table.getFilteredSelectedRowModel());
         }}
+        tableCaption={{ caption: "Testing table", align: "center" }}
       ></TDataTable>
     ),
   },

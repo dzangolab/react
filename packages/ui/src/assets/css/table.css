@@ -276,6 +276,7 @@
   --table-row-hover-bg-color: rgb(250, 250, 250);
   --table-column-padding: 0.5rem;
   --table-row-selected-bg-color: rgb(240, 245, 255);
+  --table-text-color: rgb(78, 78, 78);
 }
 
 /* Tanstack table class definitions */
@@ -285,6 +286,21 @@
   flex-direction: column;
   width: 100%;
   position: relative;
+  color: var(--table-text-color);
+}
+
+.table-container .tcaption {
+  font-weight: bold;
+  text-align: center;
+  padding: 0.2rem 0;
+}
+
+.table-container .tcaption[data-align="left"] {
+  text-align: left;
+}
+
+.table-container .tcaption[data-align="right"] {
+  text-align: right;
 }
 
 .table-container .loading-overlay {

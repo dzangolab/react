@@ -15,7 +15,6 @@ import {
 import { Checkbox } from "primereact/checkbox";
 import { Paginator } from "primereact/paginator";
 import React, {
-  ChangeEvent,
   SyntheticEvent,
   useCallback,
   useEffect,
@@ -39,10 +38,10 @@ import {
   TableCaption,
   TableFooter,
 } from "./TableElements";
-import { TCustomColumnFilter, TRequestJSON, TSortIcons } from "./types";
 import { getRequestJSON, useManipulateColumns } from "./utils";
 import LoadingIcon from "../../LoadingIcon";
 
+import type { TCustomColumnFilter, TRequestJSON } from "./types";
 import type { ColumnDef, Table as TableType } from "@tanstack/react-table";
 
 declare module "@tanstack/react-table" {
@@ -56,24 +55,27 @@ interface DataTableProperties<TData>
   extends Omit<TableOptions<TData>, "getCoreRowModel"> {
   className?: string;
   isLoading?: boolean;
-  globalFilterPlaceholder?: string;
+  globalFilter?: {
+    key: string;
+    value: string;
+    placeholder: string;
+  };
   fetchData?: (data: TRequestJSON) => void;
   renderToolbarItems?: (table: TableType<TData>) => React.ReactNode;
   renderTableFooterContent?: (table: TableType<TData>) => React.ReactNode;
-  tableCaption?: React.ReactNode;
+  renderCustomPagination?: (table: TableType<TData>) => React.ReactNode;
+  tableCaption?: {
+    caption: string;
+    align?: "left" | "center" | "right";
+  };
   paginated?: boolean;
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   visibleColumns?: string[];
-  onRowSelect?: (table: TableType<TData>) => void;
+  onRowSelectChange?: (table: TableType<TData>) => void;
+  totalItems?: number;
+  inputDebounceTime?: number;
 }
-
-// export interface DataTableProperties<TData> {
-//   //   inputDebounceTime?: number;
-//   //   showPageControl?: boolean;
-//   //   showTotalNumber?: boolean;
-//   //   totalItems: number;
-// }
 
 const DataTable = <TData extends { id: string | number }>({
   columns = [],
@@ -82,12 +84,15 @@ const DataTable = <TData extends { id: string | number }>({
   fetchData,
   renderToolbarItems,
   renderTableFooterContent,
+  renderCustomPagination,
   tableCaption,
   paginated = true,
   rowPerPage,
   rowPerPageOptions,
   visibleColumns = [],
-  onRowSelect,
+  onRowSelectChange,
+  totalItems,
+  inputDebounceTime,
   ...tableOptions
 }: DataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -107,7 +112,7 @@ const DataTable = <TData extends { id: string | number }>({
   const manipulatedColumns = useManipulateColumns({ visibleColumns, columns });
 
   const columnsWithRowSelection = useMemo(() => {
-    if (!onRowSelect) {
+    if (!onRowSelectChange) {
       return manipulatedColumns;
     }
 
@@ -138,7 +143,7 @@ const DataTable = <TData extends { id: string | number }>({
     ];
 
     return columns;
-  }, []);
+  }, [manipulatedColumns]);
 
   const table = useReactTable({
     data,
@@ -168,7 +173,7 @@ const DataTable = <TData extends { id: string | number }>({
   const mappedSelectedRows = table.getFilteredSelectedRowModel();
 
   useEffect(() => {
-    onRowSelect && onRowSelect(table);
+    onRowSelectChange && onRowSelectChange(table);
   }, [mappedSelectedRows]);
 
   useEffect(() => {
@@ -192,21 +197,30 @@ const DataTable = <TData extends { id: string | number }>({
 
   return (
     <div className="table-container">
-      {isLoading ? (
-        <div className="loading-overlay">
-          <LoadingIcon color="#55575f" fontSize={"0.5rem"}></LoadingIcon>
-        </div>
+      {tableCaption ? (
+        <TableCaption
+          children={tableCaption.caption}
+          data-align={tableCaption.align || "center"}
+        />
       ) : null}
+
       {renderToolbarItems ? (
         <TableToolbar children={renderToolbarItems(table)} />
       ) : null}
+
       <Table>
-        <TableCaption children={tableCaption} />
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
               {headerGroup.headers.map(
-                ({ column, getContext, id, isPlaceholder, colSpan }) => {
+                ({
+                  column,
+                  getContext,
+                  id,
+                  isPlaceholder,
+                  colSpan,
+                  rowSpan,
+                }) => {
                   const {
                     columnDef,
                     getCanSort,
@@ -235,6 +249,7 @@ const DataTable = <TData extends { id: string | number }>({
                     <ColumnHeader
                       key={id}
                       colSpan={colSpan}
+                      rowSpan={rowSpan}
                       className={`column-${id} ${activeColumnClass}`}
                       data-align={columnDef.align || "left"}
                       onClick={(event) => {
@@ -262,6 +277,7 @@ const DataTable = <TData extends { id: string | number }>({
             </TableRow>
           ))}
         </TableHeader>
+
         <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
@@ -288,26 +304,41 @@ const DataTable = <TData extends { id: string | number }>({
             </TableRow>
           )}
         </TableBody>
+
         {renderTableFooterContent ? (
           <TableFooter children={renderTableFooterContent(table)} />
         ) : null}
       </Table>
 
       {paginated ? (
-        <div className="p-paginator-bottom p-paginator p-component">
-          <Paginator
-            first={pagination.pageIndex * pagination.pageSize}
-            rows={pagination.pageSize}
-            totalRecords={table.getFilteredRowModel().rows?.length}
-            rowsPerPageOptions={rowPerPageOptions || DEFAULT_PAGE_PER_OPTIONS}
-            onPageChange={(event) => {
-              const currentPageIndex = Math.ceil(event.first / event.rows);
-              setPagination({
-                pageIndex: currentPageIndex,
-                pageSize: event.rows,
-              });
-            }}
-          />
+        <>
+          {renderCustomPagination ? (
+            renderCustomPagination(table)
+          ) : (
+            <div className="p-paginator-bottom p-paginator p-component">
+              <Paginator
+                first={pagination.pageIndex * pagination.pageSize}
+                rows={pagination.pageSize}
+                totalRecords={table.getFilteredRowModel().rows?.length}
+                rowsPerPageOptions={
+                  rowPerPageOptions || DEFAULT_PAGE_PER_OPTIONS
+                }
+                onPageChange={(event) => {
+                  const currentPageIndex = Math.ceil(event.first / event.rows);
+                  setPagination({
+                    pageIndex: currentPageIndex,
+                    pageSize: event.rows,
+                  });
+                }}
+              />
+            </div>
+          )}
+        </>
+      ) : null}
+
+      {isLoading ? (
+        <div className="loading-overlay">
+          <LoadingIcon color="#55575f" fontSize={"0.5rem"}></LoadingIcon>
         </div>
       ) : null}
     </div>
