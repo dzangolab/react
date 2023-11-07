@@ -254,7 +254,13 @@ const componentList = [
     title: "table.title.baseTable",
     component: (
       <TDataTable
-        // visibleColumns={["id", "middleNames", "surname"]}
+        visibleColumns={[
+          "id",
+          "givenName",
+          "middleNames",
+          "surname",
+          "address",
+        ]}
         // fetchData={(data: any) => {
         //   console.log(data);
         // }}
@@ -298,9 +304,10 @@ const componentList = [
           return data;
         })(20)}
         isLoading={false}
-        // fetcher={() => {}}
         // totalItems={5}
-        // enableMultiSort={true}
+        renderToolbarItems={() => {
+          return <div>toolbar</div>;
+        }}
       ></TDataTable>
     ),
   },

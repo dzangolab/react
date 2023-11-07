@@ -39,7 +39,7 @@ import {
   TableFooter,
 } from "./TableElements";
 import { TCustomColumnFilter, TRequestJSON, TSortIcons } from "./types";
-import { getRequestJSON } from "./utils";
+import { getRequestJSON, useManipulateColumns } from "./utils";
 import LoadingIcon from "../../LoadingIcon";
 
 import type { Table as TableType } from "@tanstack/react-table";
@@ -63,27 +63,13 @@ interface DataTableProperties<TData>
   paginated?: boolean;
   rowPerPage?: number;
   rowPerPageOptions?: number[];
+  visibleColumns?: string[];
 }
 
 // export interface DataTableProperties<TData> {
-//   columns: ColumnDef<TData>[];
-//   data: TData[];
 //   //   inputDebounceTime?: number;
-//   //   isLoading?: boolean;
-//   //   paginated?: boolean;
-//   //   paginationIcons?: {
-//   //     start: string;
-//   //     previous: string;
-//   //     next: string;
-//   //     end: string;
-//   //   };
-//   //   rowsPerPageOptions?: number[];
 //   //   showPageControl?: boolean;
 //   //   showTotalNumber?: boolean;
-//   //   sortable?: boolean;
-//   //   sortIcons?: TSortIcons;
-//   //   tableClassName?: string;
-//   //   title?: string;
 //   //   totalItems: number;
 // }
 
@@ -98,6 +84,7 @@ const DataTable = <TData extends { id: string | number }>({
   paginated = true,
   rowPerPage,
   rowPerPageOptions,
+  visibleColumns = [],
   ...tableOptions
 }: DataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -114,9 +101,11 @@ const DataTable = <TData extends { id: string | number }>({
     setColumnFilters(event_ as any);
   };
 
+  const manipulatedColumns = useManipulateColumns({ visibleColumns, columns });
+
   const table = useReactTable({
     data,
-    columns,
+    columns: manipulatedColumns,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
