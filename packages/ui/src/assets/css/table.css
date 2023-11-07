@@ -1,4 +1,4 @@
-.table-wrapper > .actions-header {
+/* .table-wrapper > .actions-header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -191,7 +191,7 @@
     display: block;
   }
 
-  /* hide grouping headers */
+  
   .table-wrapper > .table-container > table > colgroup > col:not(:first-child) {
     display: none;
   }
@@ -236,7 +236,7 @@
 
   .table-wrapper > .table-container > table > thead > tr > th,
   .table-wrapper > .table-container > table > tbody > tr > td {
-    width: 100% !important; /* override column size from props */
+    width: 100% !important; 
   }
 
   .table-wrapper > .table-container > table > tbody > tr {
@@ -265,4 +265,103 @@
 
 .p-datatable .p-datatable-tbody > tr td {
   max-height: inherit;
+} */
+
+/* Table variables */
+
+:root {
+  --table-border: 1px solid rgb(226, 226, 226);
+  --table-header-bg-color: rgb(245, 245, 245);
+  --table-header-active-bg-color: rgb(232, 240, 255);
+  --table-row-hover-bg-color: rgb(250, 250, 250);
+  --table-column-padding: 0.5rem;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-container .toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  border: var(--table-border);
+  background-color: var(--table-header-bg-color);
+  border-bottom: none;
+  padding: var(--table-column-padding);
+}
+
+.table-container .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-container .table-wrapper .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container .table-wrapper .table,
+.table-container .table-wrapper .table .trow,
+.table-container .table-wrapper .table .tcell,
+.table-container .table-wrapper .table .tcol-head {
+  border: var(--table-border);
+}
+
+.table-container .table-wrapper .table .tcell,
+.table-container .table-wrapper .table .tcol-head {
+  overflow: hidden;
+}
+
+.table-container .table-wrapper .table .tcell > .content,
+.table-container .table-wrapper .table .tcol-head > .content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  text-overflow: ellipsis;
+}
+
+.table-container .table-wrapper .table .tcell[data-align="center"] > .content,
+.table-container
+  .table-wrapper
+  .table
+  .tcol-head[data-align="center"]
+  > .content {
+  justify-content: center;
+}
+
+.table-container .table-wrapper .table .tcell[data-align="right"] > .content,
+.table-container
+  .table-wrapper
+  .table
+  .tcol-head[data-align="right"]
+  > .content {
+  justify-content: flex-end;
+}
+
+.table-container .table-wrapper .table .tcol-head {
+  cursor: pointer;
+}
+
+.table-container .table-wrapper .table .tcol-head:active {
+  background-color: var(--table-header-active-bg-color);
+}
+
+.table-wrapper .table .header-row {
+  background: var(--table-header-bg-color);
+}
+
+.table-wrapper .table .tbody .trow:hover {
+  background: var(--table-row-hover-bg-color);
+}
+
+.table-container .table-wrapper .table .tcell,
+.table-container .table-wrapper .table .tcol-head {
+  padding: var(--table-column-padding);
 }

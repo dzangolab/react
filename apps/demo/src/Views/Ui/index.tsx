@@ -261,6 +261,7 @@ const componentList = [
             header: () => <span>ID</span>,
             enableSorting: false,
             enableColumnFilter: false,
+            align: "center",
           },
           {
             accessorKey: "givenName",

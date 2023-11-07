@@ -10,6 +10,7 @@ import {
   getFilteredRowModel,
   VisibilityState,
   PaginationState,
+  RowData,
 } from "@tanstack/react-table";
 import { Paginator } from "primereact/paginator";
 import {
@@ -38,6 +39,13 @@ import { TRequestJSON, TSortIcons } from "./types";
 
 export type SizeType = "small" | "normal" | "large";
 
+declare module "@tanstack/react-table" {
+  // eslint-disable-next-line unicorn/prevent-abbreviations
+  interface ColumnDefBase<TData, TValue> {
+    align?: "left" | "center" | "right";
+  }
+}
+
 // interface DataTableProps<TData> {
 //   className?: string;
 //   columns?: ColumnDef<TData>[];
@@ -45,6 +53,7 @@ export type SizeType = "small" | "normal" | "large";
 //   globalFilterPlaceholder?: string;
 //   size?: SizeType;
 // }
+
 export interface DataTableProperties<TData> {
   columns: ColumnDef<TData>[];
   data: TData[];
@@ -137,7 +146,7 @@ const DataTable = <TData extends { id: string | number }>({
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+            <TableRow key={headerGroup.id} className="header-row">
               {headerGroup.headers.map(
                 ({ column, getContext, id, isPlaceholder }) => {
                   const {
@@ -147,18 +156,22 @@ const DataTable = <TData extends { id: string | number }>({
                     getToggleSortingHandler,
                   } = column;
 
-                  const ColumnHeaderClasses = `
-                      ${getCanSort() ? "p-sortable-column" : ""} ${
-                        getIsSorted() === "asc" || getIsSorted() === "desc"
-                          ? "p-highlight"
-                          : ""
-                      },
-                    `;
+                  //   const ColumnHeaderClasses = `${
+                  //     getCanSort() ? "p-sortable-column" : ""
+                  //   } ${
+                  //     getIsSorted() === "asc" || getIsSorted() === "desc"
+                  //       ? "p-highlight"
+                  //       : ""
+                  //   },
+                  //     `;
+
+                  const ColumnHeaderClasses = "";
 
                   return (
                     <ColumnHeader
                       key={id}
-                      className={ColumnHeaderClasses}
+                      className={`column-${id}`}
+                      data-align={columnDef.align || "left"}
                       onClick={(event) => {
                         if (getCanSort()) {
                           handleSort(event, getToggleSortingHandler());
@@ -187,6 +200,7 @@ const DataTable = <TData extends { id: string | number }>({
                   <TableCell
                     key={cell.id}
                     data-label={cell.column.id}
+                    data-align={cell.column.columnDef.align || "left"}
                     className={cell.column.id ? `column-${cell.column.id}` : ``}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
