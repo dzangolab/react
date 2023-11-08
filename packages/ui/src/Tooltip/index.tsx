@@ -1,7 +1,7 @@
 import React, { RefObject, useRef, FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-import { useTooltip } from "./TooltipPosition";
+import { useTooltip } from "./UseTooltip";
 
 type TooltipProperties = {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ type TooltipProperties = {
   style?: object;
 };
 
-export const ToolTip: FC<TooltipProperties> = ({
+export const TooltipWrapper: FC<TooltipProperties> = ({
   children,
   className,
   elementRef,

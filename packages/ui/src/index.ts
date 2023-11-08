@@ -11,7 +11,7 @@ import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { TabbedPanel } from "./TabbedPanel";
-import { ToolTip } from "./Tooltip";
+import { TooltipWrapper } from "./Tooltip";
 
 export * from "./Buttons";
 export * from "./DataTable";
@@ -34,7 +34,7 @@ export {
   SubPane,
   TabbedPanel,
   ConfirmationModal,
-  ToolTip,
+  TooltipWrapper,
 };
 
 export type { DropdownMenuProperties };
