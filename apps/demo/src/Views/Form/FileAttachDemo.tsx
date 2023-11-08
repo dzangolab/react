@@ -11,7 +11,7 @@ const FileAttachDemo = () => {
 
   return (
     <>
-      <ToolTip message={t("fileAttach.attachFileMessage")} position="bottom">
+      <ToolTip message={t("fileAttach.attachFileMessage")} position="right">
         <FileAttachBasic
           name="fileAttach"
           selectButtonProps={{ icon: "pi pi-file" }}
