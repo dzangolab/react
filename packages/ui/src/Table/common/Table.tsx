@@ -13,6 +13,7 @@ import {
   Updater,
 } from "@tanstack/react-table";
 import { Checkbox } from "primereact/checkbox";
+import { InputText } from "primereact/inputtext";
 import { Paginator } from "primereact/paginator";
 import React, {
   SyntheticEvent,
@@ -35,7 +36,6 @@ import {
   TableHeader,
   TableRow,
   TableToolbar,
-  TableCaption,
   TableFooter,
 } from "./TableElements";
 import { getRequestJSON, useManipulateColumns } from "./utils";
@@ -54,6 +54,7 @@ declare module "@tanstack/react-table" {
 interface DataTableProperties<TData>
   extends Omit<TableOptions<TData>, "getCoreRowModel"> {
   className?: string;
+  emptyTableMessage?: string;
   isLoading?: boolean;
   globalFilter?: {
     key: string;
@@ -64,8 +65,8 @@ interface DataTableProperties<TData>
   renderToolbarItems?: (table: TableType<TData>) => React.ReactNode;
   renderTableFooterContent?: (table: TableType<TData>) => React.ReactNode;
   renderCustomPagination?: (table: TableType<TData>) => React.ReactNode;
-  tableCaption?: {
-    caption: string;
+  title?: {
+    text: string;
     align?: "left" | "center" | "right";
   };
   paginated?: boolean;
@@ -80,12 +81,13 @@ interface DataTableProperties<TData>
 const DataTable = <TData extends { id: string | number }>({
   columns = [],
   data,
+  emptyTableMessage = "No results.",
   isLoading = false,
   fetchData,
   renderToolbarItems,
   renderTableFooterContent,
   renderCustomPagination,
-  tableCaption,
+  title,
   paginated = true,
   rowPerPage,
   rowPerPageOptions,
@@ -137,6 +139,8 @@ const DataTable = <TData extends { id: string | number }>({
         ),
         enableSorting: false,
         enableHiding: false,
+        enableColumnFilter: false,
+        enableGlobalFilter: false,
         align: "center",
       },
       ...manipulatedColumns,
@@ -197,10 +201,11 @@ const DataTable = <TData extends { id: string | number }>({
 
   return (
     <div className="table-container">
-      {tableCaption ? (
-        <TableCaption
-          children={tableCaption.caption}
-          data-align={tableCaption.align || "center"}
+      {title ? (
+        <h6
+          className="title"
+          children={title.text}
+          data-align={title.align || "center"}
         />
       ) : null}
 
@@ -212,6 +217,10 @@ const DataTable = <TData extends { id: string | number }>({
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
+              {(() => {
+                console.log(headerGroup, "headerGroup");
+                return "";
+              })()}
               {headerGroup.headers.map(
                 ({
                   column,
@@ -269,6 +278,16 @@ const DataTable = <TData extends { id: string | number }>({
                             </span>
                           ) : null}
                         </>
+
+                        {column.getCanFilter() ? (
+                          <InputText
+                            key={"filter" + column.columnDef.id}
+                            value={(column.getFilterValue() ?? "") as string}
+                            onChange={(event) => {
+                              column.setFilterValue(event.target.value);
+                            }}
+                          ></InputText>
+                        ) : null}
                       </>
                     </ColumnHeader>
                   );
@@ -276,6 +295,23 @@ const DataTable = <TData extends { id: string | number }>({
               )}
             </TableRow>
           ))}
+
+          {/* <TableRow key={table.getHeaderGroups().length}>
+            {table.getAllLeafColumns().map((column) => {
+              console.log(column);
+              return (
+                <ColumnHeader>
+                  <InputText
+                    key={"filter" + column.columnDef.id}
+                    value={""}
+                    onChange={(value) => {
+                      column.setFilterValue(value);
+                    }}
+                  ></InputText>
+                </ColumnHeader>
+              );
+            })}
+          </TableRow> */}
         </TableHeader>
 
         <TableBody>
@@ -300,7 +336,9 @@ const DataTable = <TData extends { id: string | number }>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length}>No results.</TableCell>
+              <TableCell colSpan={columns.length}>
+                {emptyTableMessage}
+              </TableCell>
             </TableRow>
           )}
         </TableBody>

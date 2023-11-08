@@ -289,17 +289,19 @@
   color: var(--table-text-color);
 }
 
-.table-container .tcaption {
+.table-container .title {
   font-weight: bold;
   text-align: center;
   padding: 0.2rem 0;
+  margin: 0;
+  font-size: 1rem;
 }
 
-.table-container .tcaption[data-align="left"] {
+.table-container .title[data-align="left"] {
   text-align: left;
 }
 
-.table-container .tcaption[data-align="right"] {
+.table-container .title[data-align="right"] {
   text-align: right;
 }
 
@@ -355,6 +357,7 @@
   align-items: center;
   justify-content: start;
   text-overflow: ellipsis;
+  flex-wrap: wrap;
 }
 
 .table-container .table-wrapper .table .tcell[data-align="center"] > .content,

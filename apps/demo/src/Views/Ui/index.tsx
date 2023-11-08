@@ -284,6 +284,10 @@ const componentList = [
             accessorKey: "surname",
             header: () => <span>Surname</span>,
             align: "left",
+            enableSorting: false,
+            enableHiding: false,
+            enableColumnFilter: false,
+            enableGlobalFilter: false,
           },
           {
             accessorKey: "address",
@@ -312,7 +316,7 @@ const componentList = [
         onRowSelectChange={(table: any) => {
           console.log(table.getFilteredSelectedRowModel());
         }}
-        tableCaption={{ caption: "Testing table", align: "center" }}
+        title={{ text: "Testing table", align: "center" }}
       ></TDataTable>
     ),
   },
