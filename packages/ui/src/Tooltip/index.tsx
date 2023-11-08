@@ -1,7 +1,7 @@
 import React, { RefObject, useRef, FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-import { useTooltip } from "./use-tooltip";
+import { useTooltip } from "./TooltipPosition";
 
 type TooltipProperties = {
   children: React.ReactNode;
@@ -20,7 +20,6 @@ export const ToolTip: FC<TooltipProperties> = ({
 
   const { position, isVisible, onMouseEnter, onMouseLeave } = useTooltip({
     ref: elementRef,
-    tooltipRef: tooltipReference,
   });
 
   useEffect(() => {
