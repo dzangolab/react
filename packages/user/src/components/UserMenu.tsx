@@ -1,6 +1,6 @@
 import DropdownUserMenu from "./DropdownUserMenu";
 import SignInUpMenu from "./SignInUpMenu";
-import { useUser, useEmailVerification } from "../hooks";
+import { useUser } from "../hooks";
 
 interface Properties {
   authenticatedUserMenu?: React.ReactNode;
