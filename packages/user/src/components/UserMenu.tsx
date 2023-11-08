@@ -14,21 +14,8 @@ const UserMenu = (properties: Properties) => {
   } = properties;
 
   const { user } = useUser();
-  const [emailVerificationEnabled, userEmailVerified] = useEmailVerification();
 
-  const renderUserMenu = () => {
-    if (!user) {
-      return anonymousUserMenu;
-    }
-
-    if (emailVerificationEnabled && !userEmailVerified) {
-      return null;
-    }
-
-    return authenticatedUserMenu;
-  };
-
-  return <>{renderUserMenu()}</>;
+  return user ? authenticatedUserMenu : anonymousUserMenu;
 };
 
 export default UserMenu;
