@@ -12,7 +12,6 @@ const UserMenu = (properties: Properties) => {
     authenticatedUserMenu = <DropdownUserMenu />,
     anonymousUserMenu = <SignInUpMenu />,
   } = properties;
-
   const { user } = useUser();
 
   return user ? authenticatedUserMenu : anonymousUserMenu;
