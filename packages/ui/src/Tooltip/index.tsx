@@ -20,7 +20,6 @@ export const TooltipWrapper: FC<TooltipProperties> = ({
 
   const { position, isVisible, onMouseEnter, onMouseLeave } = useTooltip({
     ref: elementRef,
-    tooltipReference,
   });
 
   useEffect(() => {

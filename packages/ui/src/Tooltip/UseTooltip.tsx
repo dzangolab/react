@@ -7,7 +7,6 @@ type Position = {
 
 type UseTooltipProperties = {
   ref: RefObject<HTMLElement>;
-  tooltipReference: RefObject<HTMLDivElement>;
 };
 
 export function useTooltip({ ref }: UseTooltipProperties) {
