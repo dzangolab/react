@@ -261,9 +261,6 @@ const componentList = [
           "surname",
           "address",
         ]}
-        // fetchData={(data: any) => {
-        //   console.log(data);
-        // }}
         columns={[
           {
             accessorKey: "id",
@@ -309,13 +306,7 @@ const componentList = [
           return data;
         })(20)}
         isLoading={false}
-        // totalItems={5}
-        renderToolbarItems={() => {
-          return <div>Toolbar</div>;
-        }}
-        onRowSelectChange={(table: any) => {
-          console.log(table.getFilteredSelectedRowModel());
-        }}
+        onRowSelectChange={() => {}}
         title={{ text: "Testing table", align: "center" }}
       ></TDataTable>
     ),

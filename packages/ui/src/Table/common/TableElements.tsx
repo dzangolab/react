@@ -1,19 +1,6 @@
 import * as React from "react";
 
-const TableToolbar = ({
-  // handleGlobalSearch,
-  // globalFilterPlaceholder,
-  // mappedSelectedRows,
-  // size,
-  children,
-}: {
-  // handleGlobalSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  // globalFilterPlaceholder?: string;
-  // mappedSelectedRows?: { id: string | number }[];
-  // size?: SizeType;
-  // value?: string;
-  children?: React.ReactNode;
-}) => {
+const TableToolbar = ({ children }: { children?: React.ReactNode }) => {
   return <div className="toolbar">{children}</div>;
 };
 

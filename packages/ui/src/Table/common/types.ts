@@ -3,6 +3,8 @@ import type {
   ColumnFilter,
   PaginationState,
   Table as ReactTable,
+  Table,
+  TableOptions,
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
@@ -161,3 +163,39 @@ export type TCustomColumnFilter = ChangeTypeOfKeys<
   "value",
   TFilterValue
 >;
+
+//TDataTable props
+
+declare module "@tanstack/react-table" {
+  // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
+  interface ColumnDefBase<TData, TValue> {
+    align?: "left" | "center" | "right";
+  }
+}
+
+export interface TDataTableProperties<TData>
+  extends Omit<TableOptions<TData>, "getCoreRowModel"> {
+  className?: string;
+  emptyTableMessage?: string;
+  isLoading?: boolean;
+  globalFilter?: {
+    key: string;
+    value: string;
+    placeholder: string;
+  };
+  fetchData?: (data: TRequestJSON) => void;
+  renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
+  renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
+  renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
+  title?: {
+    text: string;
+    align?: "left" | "center" | "right";
+  };
+  paginated?: boolean;
+  rowPerPage?: number;
+  rowPerPageOptions?: number[];
+  visibleColumns?: string[];
+  onRowSelectChange?: (table: Table<TData>) => void;
+  totalItems?: number;
+  inputDebounceTime?: number;
+}

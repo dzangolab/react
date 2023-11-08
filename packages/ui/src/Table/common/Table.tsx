@@ -9,7 +9,6 @@ import {
   getFilteredRowModel,
   VisibilityState,
   PaginationState,
-  TableOptions,
   Updater,
 } from "@tanstack/react-table";
 import { Checkbox } from "primereact/checkbox";
@@ -41,42 +40,8 @@ import {
 import { getRequestJSON, useManipulateColumns } from "./utils";
 import LoadingIcon from "../../LoadingIcon";
 
-import type { TCustomColumnFilter, TRequestJSON } from "./types";
-import type { ColumnDef, Table as TableType } from "@tanstack/react-table";
-
-declare module "@tanstack/react-table" {
-  // eslint-disable-next-line unicorn/prevent-abbreviations
-  interface ColumnDefBase<TData, TValue> {
-    align?: "left" | "center" | "right";
-  }
-}
-
-interface DataTableProperties<TData>
-  extends Omit<TableOptions<TData>, "getCoreRowModel"> {
-  className?: string;
-  emptyTableMessage?: string;
-  isLoading?: boolean;
-  globalFilter?: {
-    key: string;
-    value: string;
-    placeholder: string;
-  };
-  fetchData?: (data: TRequestJSON) => void;
-  renderToolbarItems?: (table: TableType<TData>) => React.ReactNode;
-  renderTableFooterContent?: (table: TableType<TData>) => React.ReactNode;
-  renderCustomPagination?: (table: TableType<TData>) => React.ReactNode;
-  title?: {
-    text: string;
-    align?: "left" | "center" | "right";
-  };
-  paginated?: boolean;
-  rowPerPage?: number;
-  rowPerPageOptions?: number[];
-  visibleColumns?: string[];
-  onRowSelectChange?: (table: TableType<TData>) => void;
-  totalItems?: number;
-  inputDebounceTime?: number;
-}
+import type { TCustomColumnFilter, TDataTableProperties } from "./types";
+import type { ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   columns = [],
@@ -93,10 +58,8 @@ const DataTable = <TData extends { id: string | number }>({
   rowPerPageOptions,
   visibleColumns = [],
   onRowSelectChange,
-  totalItems,
-  inputDebounceTime,
   ...tableOptions
-}: DataTableProperties<TData>) => {
+}: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -124,7 +87,7 @@ const DataTable = <TData extends { id: string | number }>({
         header: ({ table }) => (
           <Checkbox
             checked={table.getIsAllPageRowsSelected()}
-            onChange={(value) =>
+            onChange={() =>
               table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected())
             }
             aria-label="Select all"
@@ -133,7 +96,7 @@ const DataTable = <TData extends { id: string | number }>({
         cell: ({ row }) => (
           <Checkbox
             checked={row.getIsSelected()}
-            onChange={(value) => row.toggleSelected(!row.getIsSelected())}
+            onChange={() => row.toggleSelected(!row.getIsSelected())}
             aria-label="Select row"
           />
         ),
@@ -217,10 +180,6 @@ const DataTable = <TData extends { id: string | number }>({
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
-              {(() => {
-                console.log(headerGroup, "headerGroup");
-                return "";
-              })()}
               {headerGroup.headers.map(
                 ({
                   column,
@@ -278,16 +237,6 @@ const DataTable = <TData extends { id: string | number }>({
                             </span>
                           ) : null}
                         </>
-
-                        {column.getCanFilter() ? (
-                          <InputText
-                            key={"filter" + column.columnDef.id}
-                            value={(column.getFilterValue() ?? "") as string}
-                            onChange={(event) => {
-                              column.setFilterValue(event.target.value);
-                            }}
-                          ></InputText>
-                        ) : null}
                       </>
                     </ColumnHeader>
                   );
@@ -295,26 +244,40 @@ const DataTable = <TData extends { id: string | number }>({
               )}
             </TableRow>
           ))}
-
-          {/* <TableRow key={table.getHeaderGroups().length}>
-            {table.getAllLeafColumns().map((column) => {
-              console.log(column);
-              return (
-                <ColumnHeader>
-                  <InputText
-                    key={"filter" + column.columnDef.id}
-                    value={""}
-                    onChange={(value) => {
-                      column.setFilterValue(value);
-                    }}
-                  ></InputText>
-                </ColumnHeader>
-              );
-            })}
-          </TableRow> */}
         </TableHeader>
 
         <TableBody>
+          <TableRow key={"filters"}>
+            {table.getAllLeafColumns().map((column) => {
+              if (!column.getCanFilter()) {
+                return <TableCell key={"filter" + column.id}></TableCell>;
+              }
+
+              const activeColumnClass = `${
+                column.getIsFiltered() ? "highlight" : ""
+              }`;
+
+              return (
+                <TableCell
+                  key={"filter" + column.id}
+                  data-label={column.id}
+                  data-align={column.columnDef.align || "left"}
+                  className={
+                    (column.id ? `column-${column.id} ` : ``) +
+                    activeColumnClass
+                  }
+                >
+                  <InputText
+                    value={(column.getFilterValue() ?? "") as string}
+                    onChange={(event) => {
+                      column.setFilterValue(event.target.value);
+                    }}
+                  ></InputText>
+                </TableCell>
+              );
+            })}
+          </TableRow>
+
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
