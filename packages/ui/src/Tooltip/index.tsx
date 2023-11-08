@@ -1,93 +1,65 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { RefObject, useRef, FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-interface Properties {
-  message: string;
+import { useTooltip } from "./use-tooltip";
+
+type TooltipProperties = {
   children: React.ReactNode;
-  position?: "top" | "right" | "bottom" | "left";
   className?: string;
-}
+  elementRef: RefObject<HTMLElement>;
+  style?: object;
+};
 
-export const ToolTip = ({
-  message,
+export const ToolTip: FC<TooltipProperties> = ({
   children,
-  position = "top",
-  className = "tooltip",
-}: Properties) => {
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [toolTipPosition, setToolTipPosition] = useState({ top: 0, left: 0 });
+  className,
+  elementRef,
+  style,
+}) => {
+  const tooltipReference = useRef<HTMLDivElement>(null);
 
-  const tooltipReference = useRef<HTMLDivElement | null>(null);
+  const { position, isVisible, onMouseEnter, onMouseLeave } = useTooltip({
+    ref: elementRef,
+    tooltipRef: tooltipReference,
+  });
 
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+  useEffect(() => {
+    const element = elementRef?.current;
 
-  useLayoutEffect(() => {
-    if (tooltipReference.current) {
-      setWidth(tooltipReference.current.offsetWidth);
-      setHeight(tooltipReference.current.offsetHeight);
+    if (element) {
+      element.addEventListener("mouseenter", onMouseEnter);
+      element.addEventListener("mouseleave", onMouseLeave);
     }
-  }, [showTooltip, position]);
 
-  const handleMouseEnter = (event: any) => {
-    setShowTooltip(true);
-    const rect = event.target.getBoundingClientRect();
-    switch (position) {
-      case "top":
-        setToolTipPosition({
-          top: rect.top - height,
-          left: rect.left,
-        });
-        break;
-      case "right":
-        setToolTipPosition({
-          top: rect.top,
-          left: rect.right + 5,
-        });
-        break;
-      case "bottom":
-        setToolTipPosition({
-          top: rect.bottom + 5,
-          left: rect.left,
-        });
-        break;
-      case "left":
-        setToolTipPosition({
-          top: rect.top,
-          left: rect.left - width,
-        });
-        break;
-      default:
-        break;
-    }
-  };
+    return () => {
+      if (element) {
+        element.removeEventListener("mouseenter", onMouseEnter);
+        element.removeEventListener("mouseleave", onMouseLeave);
+      }
+    };
+  }, [elementRef, onMouseEnter, onMouseLeave]);
 
-  const handleMouseLeave = () => {
-    setShowTooltip(false);
-  };
+  if (!isVisible) {
+    return null;
+  }
 
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="tooltip-container"
-    >
-      {" "}
-      {children}
-      {showTooltip &&
+    <>
+      {isVisible &&
         createPortal(
           <div
-            style={{
-              top: toolTipPosition.top,
-              left: toolTipPosition.left,
-            }}
-            className={className}
             ref={tooltipReference}
+            className={className ? className : "tooltip-container"}
+            style={{
+              top: position.top,
+              left: position.left,
+              ...style,
+            }}
           >
-            {message}
+            {children}
           </div>,
           document.body,
         )}
-    </div>
+    </>
   );
 };
