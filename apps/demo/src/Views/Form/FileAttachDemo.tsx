@@ -8,36 +8,35 @@ import type { FileExtended } from "@dzangolab/react-form";
 const FileAttachDemo = () => {
   const { t } = useTranslation("files");
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>([]);
-  const buttonReference = useRef<HTMLDivElement>(null);
+  const reference = useRef<HTMLButtonElement>(null);
   return (
     <>
-      <ToolTip elementRef={buttonReference}>
-        <span>{t("fileAttach.attachFileMessage")}</span>
-      </ToolTip>
-      <div ref={buttonReference}>
-        <FileAttachBasic
-          name="fileAttach"
-          selectButtonProps={{ icon: "pi pi-file" }}
-          value={selectedFiles}
-          mode={"update"}
-          multiple={true}
-          onChange={(file: FileExtended[]) => {
-            setSelectedFiles(file);
-          }}
-          selectedFileDisplay="none"
-        />
-      </div>
+      <FileAttachBasic
+        name="fileAttach"
+        selectButtonProps={{ icon: "pi pi-file" }}
+        value={selectedFiles}
+        mode={"update"}
+        multiple={true}
+        onChange={(file: FileExtended[]) => {
+          setSelectedFiles(file);
+        }}
+        selectedFileDisplay="none"
+      />
+
       {selectedFiles.map((file: FileExtended, i) => {
         return (
           <div key={file.name}>
             <span>{file.name}</span>
-
+            <ToolTip elementRef={reference}>
+              <span>{t("fileAttach.attachFileMessage")}</span>
+            </ToolTip>
             <button
               onClick={() => {
                 setSelectedFiles((pre) =>
                   pre.filter((file, index) => i !== index),
                 );
               }}
+              ref={reference}
             >
               X
             </button>

@@ -1,6 +1,6 @@
 { 
   "fileAttach": {
-    "attachFileMessage": "Attach the file (fr)"
+    "deleteFileMessage": "Delete the file (fr)"
   },
   "fileInput": {
     "actions": {

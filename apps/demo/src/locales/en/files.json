@@ -1,6 +1,6 @@
 {
   "fileAttach": {
-    "attachFileMessage": "Attach the file"
+    "deletaFileMessage": "Delete the file"
   },
   "fileInput": {
     "actions": {
