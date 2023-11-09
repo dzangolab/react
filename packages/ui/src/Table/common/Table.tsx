@@ -37,7 +37,7 @@ import {
   TableToolbar,
   TableFooter,
 } from "./TableElements";
-import { getRequestJSON, useManipulateColumns } from "./utils";
+import { getRequestJSON, getParsedColumns } from "./utils";
 import LoadingIcon from "../../LoadingIcon";
 
 import type { TCustomColumnFilter, TDataTableProperties } from "./types";
@@ -47,6 +47,7 @@ const DataTable = <TData extends { id: string | number }>({
   columns = [],
   data,
   emptyTableMessage = "No results.",
+  enableRowSelection = false,
   isLoading = false,
   fetchData,
   renderToolbarItems,
@@ -76,11 +77,14 @@ const DataTable = <TData extends { id: string | number }>({
     setColumnFilters(event_ as any);
   };
 
-  const manipulatedColumns = useManipulateColumns({ visibleColumns, columns });
+  const parsedColumns = useMemo(
+    () => getParsedColumns({ visibleColumns, columns }),
+    [visibleColumns, columns],
+  );
 
   const columnsWithRowSelection = useMemo(() => {
-    if (!onRowSelectChange) {
-      return manipulatedColumns;
+    if (!enableRowSelection) {
+      return parsedColumns;
     }
 
     const columns: ColumnDef<TData>[] = [
@@ -108,11 +112,11 @@ const DataTable = <TData extends { id: string | number }>({
         enableGlobalFilter: false,
         align: "center",
       },
-      ...manipulatedColumns,
+      ...parsedColumns,
     ];
 
     return columns;
-  }, [manipulatedColumns]);
+  }, [parsedColumns]);
 
   const table = useReactTable({
     data,
@@ -331,7 +335,11 @@ const DataTable = <TData extends { id: string | number }>({
               <Paginator
                 first={pagination.pageIndex * pagination.pageSize}
                 rows={pagination.pageSize}
-                totalRecords={table.getFilteredRowModel().rows?.length}
+                totalRecords={
+                  fetchData
+                    ? totalRecords
+                    : table.getFilteredRowModel().rows?.length
+                }
                 rowsPerPageOptions={
                   rowPerPageOptions || DEFAULT_PAGE_PER_OPTIONS
                 }

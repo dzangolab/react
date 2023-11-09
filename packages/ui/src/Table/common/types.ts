@@ -177,6 +177,7 @@ export interface TDataTableProperties<TData>
   extends Omit<TableOptions<TData>, "getCoreRowModel"> {
   className?: string;
   emptyTableMessage?: string;
+  enableRowSelection?: boolean;
   isLoading?: boolean;
   globalFilter?: {
     key: string;

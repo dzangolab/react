@@ -10,7 +10,7 @@ import {
   DEFAULT_TABLE_DATA,
 } from "./common/constants";
 import { TableContext } from "./common/TableContext";
-import { getRequestJSON, useManipulateColumns } from "./common/utils";
+import { getRequestJSON, getParsedColumns } from "./common/utils";
 import adjustmentsIcon from "../assets/images/adjustments.svg";
 import arrowDownIcon from "../assets/images/arrow-down.svg";
 import arrowUpDownIcon from "../assets/images/arrow-up-down.svg";
@@ -59,7 +59,10 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
 
   const { pageIndex, pageSize } = paginationState;
 
-  const manipulatedColumns = useManipulateColumns({ visibleColumns, columns });
+  const parsedColumns = useMemo(
+    () => getParsedColumns({ visibleColumns, columns }),
+    [visibleColumns, columns],
+  );
 
   useEffect(() => {
     const requestJSON = getRequestJSON(sorting, columnFilters, {
@@ -79,7 +82,7 @@ function TableProvider<T>(properties: TableProviderProperties<T>) {
 
   const table = useReactTable({
     data: data || DEFAULT_TABLE_DATA,
-    columns: manipulatedColumns,
+    columns: parsedColumns,
     state: {
       sorting,
       pagination,

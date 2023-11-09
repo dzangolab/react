@@ -307,6 +307,7 @@ const componentList = [
         })(20)}
         isLoading={false}
         onRowSelectChange={() => {}}
+        enableRowSelection={true}
         title={{ text: "Testing table", align: "center" }}
       ></TDataTable>
     ),
