@@ -45,12 +45,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   let newErrors = {};
 
   if (errors && errors.role) {
-    newErrors = Object.keys(errors).reduce((accumulator: any, key) => {
-      if (key !== "role") {
-        accumulator[key] = errors[key];
-      }
-      return accumulator;
-    }, {});
+    const { role, ...others } = errors;
+    newErrors = others;
   }
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
