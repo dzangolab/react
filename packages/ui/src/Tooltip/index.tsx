@@ -20,6 +20,7 @@ export const Tooltip: FC<TooltipProperties> = ({
 
   const { position, showTooltip, onMouseEnter, onMouseLeave } = useTooltip({
     ref: elementRef,
+    tooltipReference,
   });
 
   useEffect(() => {

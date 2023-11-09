@@ -7,9 +7,10 @@ type Position = {
 
 type UseTooltipProperties = {
   ref: RefObject<HTMLElement>;
+  tooltipReference: RefObject<HTMLDivElement>;
 };
 
-export function useTooltip({ ref }: UseTooltipProperties) {
+export function useTooltip({ ref, tooltipReference }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [position, setPosition] = useState<Position>({});
 
@@ -19,10 +20,19 @@ export function useTooltip({ ref }: UseTooltipProperties) {
     }
 
     if (showTooltip) {
-      const { left, bottom } = ref.current.getBoundingClientRect();
+      const { left, width, top } = ref.current.getBoundingClientRect();
+
+      const tooltipWidth =
+        tooltipReference?.current?.getBoundingClientRect().width || 0;
+
+      const tooltipHeight =
+        tooltipReference?.current?.getBoundingClientRect().height || 0;
+
+      const middle = left + width / 2 - tooltipWidth / 2;
+
       setPosition({
-        top: bottom,
-        left: left,
+        top: top - tooltipHeight,
+        left: middle,
       });
     }
 
