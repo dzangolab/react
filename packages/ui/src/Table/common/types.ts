@@ -196,6 +196,6 @@ export interface TDataTableProperties<TData>
   rowPerPageOptions?: number[];
   visibleColumns?: string[];
   onRowSelectChange?: (table: Table<TData>) => void;
-  totalItems?: number;
+  totalRecords?: number;
   inputDebounceTime?: number;
 }

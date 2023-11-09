@@ -58,6 +58,7 @@ const DataTable = <TData extends { id: string | number }>({
   rowPerPageOptions,
   visibleColumns = [],
   onRowSelectChange,
+  totalRecords = 0,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -134,6 +135,9 @@ const DataTable = <TData extends { id: string | number }>({
     manualFiltering: !!fetchData,
     manualSorting: !!fetchData,
     manualPagination: !!fetchData,
+    ...(!!fetchData && {
+      pageCount: Math.ceil(totalRecords / pagination.pageSize),
+    }),
     ...tableOptions,
   });
 
