@@ -1,17 +1,18 @@
 :root {
-  --color: #555;
+  --tooltip-color: #fff;
+  --tooltip-bg-color: #555;
 }
 
 .tooltip-container {
-  background-color: var(--color);
+  background-color: var(--tooltip-bg-color);
   border-radius: 0.25rem;
-  color: #fff;
+  color: var(--tooltip-color);
   padding: 0.25rem;
   position: absolute;
 }
 
 .tooltip-container.top::after {
-  border-color: var(--color) transparent transparent transparent;
+  border-color: var(--tooltip-bg-color) transparent transparent transparent;
   border-style: solid;
   border-width: 0.25rem;
   content: "";
@@ -22,7 +23,7 @@
 }
 
 .tooltip-container.left::after {
-  border-color: transparent transparent transparent var(--color);
+  border-color: transparent transparent transparent var(--tooltip-bg-color);
   border-style: solid;
   border-width: 0.25rem;
   content: "";
@@ -33,7 +34,7 @@
 }
 
 .tooltip-container.bottom::after {
-  border-color: transparent transparent var(--color) transparent;
+  border-color: transparent transparent var(--tooltip-bg-color) transparent;
   border-style: solid;
   border-width: 0.25rem;
   bottom: 100%;
@@ -44,7 +45,7 @@
 }
 
 .tooltip-container.right::after {
-  border-color: transparent var(--color) transparent transparent;
+  border-color: transparent var(--tooltip-bg-color) transparent transparent;
   border-style: solid;
   border-width: 0.25rem;
   content: "";
