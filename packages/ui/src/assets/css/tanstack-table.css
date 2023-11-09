@@ -135,11 +135,12 @@
   background-color: var(--table-row-selected-bg-color);
 }
 
-.table-wrapper .table .header-row {
+.table-wrapper .table .header-row,
+.table-wrapper .table .trow.filters {
   background-color: var(--table-header-bg-color);
 }
 
-.table-wrapper .table .tbody .trow:hover {
+.table-wrapper .table .tbody .trow:hover:not(.trow.filters) {
   background-color: var(--table-row-hover-bg-color);
 }
 

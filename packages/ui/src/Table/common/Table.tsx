@@ -261,7 +261,7 @@ const DataTable = <TData extends { id: string | number }>({
 
         <TableBody>
           {isFilterRowVisible ? (
-            <TableRow key={"filters"}>
+            <TableRow key={"filters"} className="filters">
               {table.getAllLeafColumns().map((column) => {
                 if (!column.getCanFilter()) {
                   return <TableCell key={"filter" + column.id}></TableCell>;
