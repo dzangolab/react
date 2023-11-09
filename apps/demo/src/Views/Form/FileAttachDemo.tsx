@@ -1,10 +1,14 @@
 import { FileAttachBasic } from "@dzangolab/react-form";
-import { useState } from "react";
+import { useTranslation } from "@dzangolab/react-i18n";
+import { Tooltip } from "@dzangolab/react-ui";
+import { useRef, useState } from "react";
 
 import type { FileExtended } from "@dzangolab/react-form";
 
 const FileAttachDemo = () => {
+  const { t } = useTranslation("files");
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>([]);
+  const reference = useRef<HTMLButtonElement>(null);
 
   return (
     <>
@@ -19,17 +23,21 @@ const FileAttachDemo = () => {
         }}
         selectedFileDisplay="none"
       />
+
       {selectedFiles.map((file: FileExtended, i) => {
         return (
           <div key={file.name}>
             <span>{file.name}</span>
-
+            <Tooltip elementRef={reference}>
+              <span>{t("fileAttach.deleteFileMessage")}</span>
+            </Tooltip>
             <button
               onClick={() => {
                 setSelectedFiles((pre) =>
                   pre.filter((file, index) => i !== index),
                 );
               }}
+              ref={reference}
             >
               X
             </button>

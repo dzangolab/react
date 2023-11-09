@@ -1,4 +1,7 @@
-{
+{ 
+  "fileAttach": {
+    "deleteFileMessage": "Delete the file (fr)"
+  },
   "fileInput": {
     "actions": {
       "upload": "Upload (fr)"
