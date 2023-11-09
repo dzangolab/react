@@ -35,6 +35,7 @@ export function useTooltip({
         tooltipReference?.current?.getBoundingClientRect().height || 0;
 
       const horizontalCenter = left + width / 2 - tooltipWidth / 2;
+
       const verticalCenter = top + height / 2 - tooltipHeight / 2;
 
       switch (position) {
