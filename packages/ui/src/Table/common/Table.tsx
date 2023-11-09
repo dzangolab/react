@@ -69,6 +69,7 @@ const DataTable = <TData extends { id: string | number }>({
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
   });
+  const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -206,6 +207,10 @@ const DataTable = <TData extends { id: string | number }>({
                       : ""
                   }`;
 
+                  if (!isFilterRowVisible && column.getCanFilter()) {
+                    setIsFilterRowVisible(true);
+                  }
+
                   const renderSortIcons = () => {
                     switch (getIsSorted()) {
                       case "asc":
@@ -251,36 +256,38 @@ const DataTable = <TData extends { id: string | number }>({
         </TableHeader>
 
         <TableBody>
-          <TableRow key={"filters"}>
-            {table.getAllLeafColumns().map((column) => {
-              if (!column.getCanFilter()) {
-                return <TableCell key={"filter" + column.id}></TableCell>;
-              }
+          {isFilterRowVisible ? (
+            <TableRow key={"filters"}>
+              {table.getAllLeafColumns().map((column) => {
+                if (!column.getCanFilter()) {
+                  return <TableCell key={"filter" + column.id}></TableCell>;
+                }
 
-              const activeColumnClass = `${
-                column.getIsFiltered() ? "highlight" : ""
-              }`;
+                const activeColumnClass = `${
+                  column.getIsFiltered() ? "highlight" : ""
+                }`;
 
-              return (
-                <TableCell
-                  key={"filter" + column.id}
-                  data-label={column.id}
-                  data-align={column.columnDef.align || "left"}
-                  className={
-                    (column.id ? `column-${column.id} ` : ``) +
-                    activeColumnClass
-                  }
-                >
-                  <InputText
-                    value={(column.getFilterValue() ?? "") as string}
-                    onChange={(event) => {
-                      column.setFilterValue(event.target.value);
-                    }}
-                  ></InputText>
-                </TableCell>
-              );
-            })}
-          </TableRow>
+                return (
+                  <TableCell
+                    key={"filter" + column.id}
+                    data-label={column.id}
+                    data-align={column.columnDef.align || "left"}
+                    className={
+                      (column.id ? `column-${column.id} ` : ``) +
+                      activeColumnClass
+                    }
+                  >
+                    <InputText
+                      value={(column.getFilterValue() ?? "") as string}
+                      onChange={(event) => {
+                        column.setFilterValue(event.target.value);
+                      }}
+                    ></InputText>
+                  </TableCell>
+                );
+              })}
+            </TableRow>
+          ) : null}
 
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
