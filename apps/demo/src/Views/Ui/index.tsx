@@ -6,12 +6,12 @@ import {
   FileCard,
   FilesList,
   FilesPresentation,
-  TDataTable,
 } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
+import TanstackTable from "./LocalDataTable/TanstackTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
@@ -252,64 +252,7 @@ const componentList = [
   {
     key: 11,
     title: "table.title.tanstackTable",
-    component: (
-      <TDataTable
-        visibleColumns={[
-          "id",
-          "givenName",
-          "middleNames",
-          "surname",
-          "address",
-        ]}
-        columns={[
-          {
-            accessorKey: "id",
-            header: () => <span>ID</span>,
-            enableSorting: false,
-            enableColumnFilter: false,
-            align: "center",
-          },
-          {
-            accessorKey: "givenName",
-            header: () => <span>Given Name</span>,
-          },
-          {
-            accessorKey: "middleNames",
-            header: () => <span>Middle Names</span>,
-          },
-          {
-            accessorKey: "surname",
-            header: () => <span>Surname</span>,
-            align: "left",
-            enableSorting: false,
-            enableHiding: false,
-            enableColumnFilter: false,
-            enableGlobalFilter: false,
-          },
-          {
-            accessorKey: "address",
-            header: () => <span>Address</span>,
-            align: "right",
-          },
-        ]}
-        data={((count: number) => {
-          const data: any[] = [];
-          for (let i = 0; i < count; i++) {
-            data[i] = {
-              id: i + 1,
-              givenName: "jone" + i,
-              middleNames: "abcd" + ((count - i) % (i + 1)),
-              surname: "doe" + (count % (i + 1)),
-              address: "address" + (count - i),
-            };
-          }
-          return data;
-        })(20)}
-        isLoading={false}
-        onRowSelectChange={() => {}}
-        enableRowSelection={true}
-      ></TDataTable>
-    ),
+    component: <TanstackTable></TanstackTable>,
   },
 ];
 

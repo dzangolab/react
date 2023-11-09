@@ -19,7 +19,11 @@
       "email": "Email (fr)",
       "roles": "Roles (fr)",
       "age": "Age (fr)",
-      "action": "Action (fr)"
+      "action": "Action (fr)",
+      "givenName": "Given Name (fr)",
+      "middleNames": "Middle Names (fr)",
+      "surname": "Surname (fr)",
+      "address": "Address (fr)"
     },
     "delete": {
       "message": "Are you sure you want to delete? (fr)",

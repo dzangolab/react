@@ -19,7 +19,11 @@
       "email": "Email",
       "roles": "Roles",
       "age": "Age",
-      "action": "Action"
+      "action": "Action",
+      "givenName": "Given Name",
+      "middleNames": "Middle Names",
+      "surname": "Surname",
+      "address": "Address"
     },
     "delete": {
       "message": "Are you sure you want to delete?",
