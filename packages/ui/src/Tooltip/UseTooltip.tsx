@@ -10,7 +10,7 @@ type UseTooltipProperties = {
 };
 
 export function useTooltip({ ref }: UseTooltipProperties) {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [position, setPosition] = useState<Position>({});
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export function useTooltip({ ref }: UseTooltipProperties) {
       return;
     }
 
-    if (isVisible) {
+    if (showTooltip) {
       const { left, bottom } = ref.current.getBoundingClientRect();
       setPosition({
         top: bottom,
@@ -26,17 +26,17 @@ export function useTooltip({ ref }: UseTooltipProperties) {
       });
     }
 
-    if (!isVisible) {
+    if (!showTooltip) {
       setPosition({});
     }
-  }, [isVisible, ref]);
+  }, [showTooltip, ref]);
 
   const onMouseEnter = useCallback(() => {
-    setIsVisible(true);
+    setShowTooltip(true);
   }, []);
 
   const onMouseLeave = useCallback(() => {
-    setIsVisible(false);
+    setShowTooltip(false);
   }, []);
 
   return {
@@ -44,7 +44,7 @@ export function useTooltip({ ref }: UseTooltipProperties) {
       top: position.top ?? 0,
       left: position.left ?? 0,
     },
-    isVisible,
+    showTooltip,
     onMouseEnter,
     onMouseLeave,
   };

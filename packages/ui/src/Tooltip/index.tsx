@@ -10,7 +10,7 @@ type TooltipProperties = {
   style?: object;
 };
 
-export const TooltipWrapper: FC<TooltipProperties> = ({
+export const Tooltip: FC<TooltipProperties> = ({
   children,
   className,
   elementRef,
@@ -18,7 +18,7 @@ export const TooltipWrapper: FC<TooltipProperties> = ({
 }) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
 
-  const { position, isVisible, onMouseEnter, onMouseLeave } = useTooltip({
+  const { position, showTooltip, onMouseEnter, onMouseLeave } = useTooltip({
     ref: elementRef,
   });
 
@@ -38,27 +38,26 @@ export const TooltipWrapper: FC<TooltipProperties> = ({
     };
   }, [elementRef, onMouseEnter, onMouseLeave]);
 
-  if (!isVisible) {
+  if (!showTooltip) {
     return null;
   }
 
   return (
     <>
-      {isVisible &&
-        createPortal(
-          <div
-            ref={tooltipReference}
-            className={className ? className : "tooltip-container"}
-            style={{
-              top: position.top,
-              left: position.left,
-              ...style,
-            }}
-          >
-            {children}
-          </div>,
-          document.body,
-        )}
+      {createPortal(
+        <div
+          ref={tooltipReference}
+          className={className ? className : "tooltip-container"}
+          style={{
+            top: position.top,
+            left: position.left,
+            ...style,
+          }}
+        >
+          {children}
+        </div>,
+        document.body,
+      )}
     </>
   );
 };
