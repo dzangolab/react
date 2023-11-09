@@ -7,16 +7,18 @@ type TooltipProperties = {
   children: React.ReactNode;
   className?: string;
   elementRef: RefObject<HTMLElement>;
-  style?: object;
+  offset?: number;
   position?: "top" | "bottom" | "right" | "left";
+  style?: object;
 };
 
 export const Tooltip: FC<TooltipProperties> = ({
   children,
   className,
   elementRef,
-  style,
+  offset,
   position,
+  style,
 }) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
 
@@ -24,6 +26,7 @@ export const Tooltip: FC<TooltipProperties> = ({
     useTooltip({
       ref: elementRef,
       tooltipReference,
+      offset,
       position,
     });
 

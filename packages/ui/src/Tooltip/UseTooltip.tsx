@@ -8,12 +8,14 @@ type Position = {
 type UseTooltipProperties = {
   ref: RefObject<HTMLElement>;
   tooltipReference: RefObject<HTMLDivElement>;
+  offset?: number;
   position?: "top" | "bottom" | "right" | "left";
 };
 
 export function useTooltip({
   ref,
   tooltipReference,
+  offset = 5,
   position,
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
@@ -41,31 +43,31 @@ export function useTooltip({
       switch (position) {
         case "top":
           setTooltipPosition({
-            top: top - tooltipHeight - 5,
+            top: top - tooltipHeight - offset,
             left: horizontalCenter,
           });
           break;
         case "bottom":
           setTooltipPosition({
-            top: bottom + 5,
+            top: bottom + offset,
             left: horizontalCenter,
           });
           break;
         case "right":
           setTooltipPosition({
             top: verticalCenter,
-            left: right + 5,
+            left: right + offset,
           });
           break;
         case "left":
           setTooltipPosition({
             top: verticalCenter,
-            left: left - tooltipWidth - 5,
+            left: left - tooltipWidth - offset,
           });
           break;
         default:
           setTooltipPosition({
-            top: top - tooltipHeight - 5,
+            top: top - tooltipHeight,
             left: horizontalCenter,
           });
       }
