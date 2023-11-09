@@ -1,6 +1,29 @@
 .tooltip-container {
-  position: absolute;
-  background-color: #2c3a43;
+  background-color: #555;
+  border-radius: 5px;
   color: white;
   padding: 5px;
+  position: absolute;
+}
+
+.tooltip-container.top::after {
+  content: "";
+  border-color: #555 transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  top: 100%;
+}
+
+.tooltip-container.left::after {
+  content: "";
+  border-color: transparent #555 transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  left:100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }

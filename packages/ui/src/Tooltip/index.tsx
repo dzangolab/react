@@ -52,7 +52,7 @@ export const Tooltip: FC<TooltipProperties> = ({
       {createPortal(
         <div
           ref={tooltipReference}
-          className={className ? className : "tooltip-container"}
+          className={className ? className : `tooltip-container ${position}`}
           style={{
             top: tooltipPosition.top,
             left: tooltipPosition.left,

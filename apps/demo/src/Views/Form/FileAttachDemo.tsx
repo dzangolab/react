@@ -28,7 +28,7 @@ const FileAttachDemo = () => {
         return (
           <div key={file.name}>
             <span>{file.name}</span>
-            <Tooltip elementRef={reference} position="top">
+            <Tooltip elementRef={reference} position="right">
               <span>{t("fileAttach.deleteFileMessage")}</span>
             </Tooltip>
             <button

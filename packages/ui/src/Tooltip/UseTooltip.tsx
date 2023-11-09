@@ -25,7 +25,8 @@ export function useTooltip({
     }
 
     if (showTooltip) {
-      const { left, top, height, width } = ref.current.getBoundingClientRect();
+      const { left, right, top, bottom, height, width } =
+        ref.current.getBoundingClientRect();
 
       const tooltipWidth =
         tooltipReference?.current?.getBoundingClientRect().width || 0;
@@ -34,12 +35,31 @@ export function useTooltip({
         tooltipReference?.current?.getBoundingClientRect().height || 0;
 
       const horizontalCenter = left + width / 2 - tooltipWidth / 2;
+      const verticalCenter = top + height / 2 - tooltipHeight / 2;
 
       switch (position) {
         case "top":
           setTooltipPosition({
             top: top - tooltipHeight - 5,
             left: horizontalCenter,
+          });
+          break;
+        case "bottom":
+          setTooltipPosition({
+            top: bottom + 5,
+            left: horizontalCenter,
+          });
+          break;
+        case "right":
+          setTooltipPosition({
+            top: verticalCenter,
+            left: right + 5,
+          });
+          break;
+        case "left":
+          setTooltipPosition({
+            top: verticalCenter,
+            left: left - tooltipWidth - 5,
           });
           break;
         default:
