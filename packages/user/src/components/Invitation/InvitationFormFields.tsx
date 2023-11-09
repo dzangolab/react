@@ -42,7 +42,16 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     setValue,
     formState: { errors, submitCount },
   } = useFormContext();
+  let newErrors = {};
 
+  if (errors && errors.role) {
+    newErrors = Object.keys(errors).reduce((accumulator: any, key) => {
+      if (key !== "role") {
+        accumulator[key] = errors[key];
+      }
+      return accumulator;
+    }, {});
+  }
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
   const selectedApp: InvitationAppOption = useWatch({
@@ -102,7 +111,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
     return modifiedApps;
   }, [apps]);
-
+  console.log(errors);
   return (
     <>
       <Email
@@ -152,7 +161,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         <Button
           type="submit"
           label={t("form.actions.submit")}
-          disabled={!!Object.values(errors).length}
+          disabled={!!Object.values(newErrors).length}
           loading={loading}
         ></Button>
       </div>

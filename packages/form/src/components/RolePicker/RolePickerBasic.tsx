@@ -47,7 +47,7 @@ export const RolePickerBasic = ({
         className={classNames({ "p-invalid": error })}
         appendTo="self"
       />
-      {error?.message && <ErrorMessage message={error.message} />}
+      {error?.message && value && <ErrorMessage message={error.message} />}
     </div>
   );
 };
