@@ -8,11 +8,16 @@ type Position = {
 type UseTooltipProperties = {
   ref: RefObject<HTMLElement>;
   tooltipReference: RefObject<HTMLDivElement>;
+  position?: "top" | "bottom" | "right" | "left";
 };
 
-export function useTooltip({ ref, tooltipReference }: UseTooltipProperties) {
+export function useTooltip({
+  ref,
+  tooltipReference,
+  position,
+}: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
-  const [position, setPosition] = useState<Position>({});
+  const [tooltipPosition, setTooltipPosition] = useState<Position>({});
 
   useEffect(() => {
     if (!ref.current) {
@@ -20,7 +25,7 @@ export function useTooltip({ ref, tooltipReference }: UseTooltipProperties) {
     }
 
     if (showTooltip) {
-      const { left, width, top } = ref.current.getBoundingClientRect();
+      const { left, top, height, width } = ref.current.getBoundingClientRect();
 
       const tooltipWidth =
         tooltipReference?.current?.getBoundingClientRect().width || 0;
@@ -28,16 +33,25 @@ export function useTooltip({ ref, tooltipReference }: UseTooltipProperties) {
       const tooltipHeight =
         tooltipReference?.current?.getBoundingClientRect().height || 0;
 
-      const middle = left + width / 2 - tooltipWidth / 2;
+      const horizontalCenter = left + width / 2 - tooltipWidth / 2;
 
-      setPosition({
-        top: top - tooltipHeight,
-        left: middle,
-      });
+      switch (position) {
+        case "top":
+          setTooltipPosition({
+            top: top - tooltipHeight - 5,
+            left: horizontalCenter,
+          });
+          break;
+        default:
+          setTooltipPosition({
+            top: top - tooltipHeight - 5,
+            left: horizontalCenter,
+          });
+      }
     }
 
     if (!showTooltip) {
-      setPosition({});
+      setTooltipPosition({});
     }
   }, [showTooltip, ref]);
 
@@ -50,9 +64,9 @@ export function useTooltip({ ref, tooltipReference }: UseTooltipProperties) {
   }, []);
 
   return {
-    position: {
-      top: position.top ?? 0,
-      left: position.left ?? 0,
+    tooltipPosition: {
+      top: tooltipPosition.top,
+      left: tooltipPosition.left,
     },
     showTooltip,
     onMouseEnter,

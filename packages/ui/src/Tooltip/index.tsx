@@ -8,6 +8,7 @@ type TooltipProperties = {
   className?: string;
   elementRef: RefObject<HTMLElement>;
   style?: object;
+  position?: "top" | "bottom" | "right" | "left";
 };
 
 export const Tooltip: FC<TooltipProperties> = ({
@@ -15,13 +16,16 @@ export const Tooltip: FC<TooltipProperties> = ({
   className,
   elementRef,
   style,
+  position,
 }) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
 
-  const { position, showTooltip, onMouseEnter, onMouseLeave } = useTooltip({
-    ref: elementRef,
-    tooltipReference,
-  });
+  const { tooltipPosition, showTooltip, onMouseEnter, onMouseLeave } =
+    useTooltip({
+      ref: elementRef,
+      tooltipReference,
+      position,
+    });
 
   useEffect(() => {
     const element = elementRef?.current;
@@ -50,8 +54,8 @@ export const Tooltip: FC<TooltipProperties> = ({
           ref={tooltipReference}
           className={className ? className : "tooltip-container"}
           style={{
-            top: position.top,
-            left: position.left,
+            top: tooltipPosition.top,
+            left: tooltipPosition.left,
             ...style,
           }}
         >
