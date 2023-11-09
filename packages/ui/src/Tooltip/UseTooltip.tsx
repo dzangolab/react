@@ -67,7 +67,7 @@ export function useTooltip({
           break;
         default:
           setTooltipPosition({
-            top: top - tooltipHeight,
+            top: top - tooltipHeight - offset,
             left: horizontalCenter,
           });
       }
