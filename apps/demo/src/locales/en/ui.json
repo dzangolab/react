@@ -11,7 +11,7 @@
   "responsiveMenu": "Responsive menu",
   "table": {
     "title": {
-      "baseTable": "Base table",
+      "tanstackTable": "Tanstack table",
       "localDataTable": "Local data table"
     },
     "headers": {

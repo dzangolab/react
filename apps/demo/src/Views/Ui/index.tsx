@@ -251,7 +251,7 @@ const componentList = [
   },
   {
     key: 11,
-    title: "table.title.baseTable",
+    title: "table.title.tanstackTable",
     component: (
       <TDataTable
         visibleColumns={[
@@ -308,7 +308,6 @@ const componentList = [
         isLoading={false}
         onRowSelectChange={() => {}}
         enableRowSelection={true}
-        title={{ text: "Testing table", align: "center" }}
       ></TDataTable>
     ),
   },
