@@ -26,7 +26,7 @@ const MessageCard = ({
   return (
     <div className="message-card">
       {renderIcon()}
-      {message}
+      <span className="message">{message}</span>
     </div>
   );
 };
