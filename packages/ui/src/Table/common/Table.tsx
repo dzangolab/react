@@ -314,16 +314,16 @@ const DataTable = <TData extends { id: string | number }>({
                 data-id={row.original.id ?? row.id}
               >
                 {row.getVisibleCells().map((cell) => {
-                  if (cell.column.columnDef.tooltip) {
-                    return (
-                      <TableCell
-                        key={cell.id}
-                        data-label={cell.column.id}
-                        data-align={cell.column.columnDef.align || "left"}
-                        className={
-                          cell.column.id ? `column-${cell.column.id}` : ``
-                        }
-                      >
+                  return (
+                    <TableCell
+                      key={cell.id}
+                      data-label={cell.column.id}
+                      data-align={cell.column.columnDef.align || "left"}
+                      className={
+                        cell.column.id ? `column-${cell.column.id}` : ``
+                      }
+                    >
+                      {cell.column.columnDef.tooltip ? (
                         <TooltipWrapper
                           tooltipOptions={{
                             children: renderTooltipContent(cell),
@@ -334,22 +334,11 @@ const DataTable = <TData extends { id: string | number }>({
                             cell.getContext(),
                           )}
                         ></TooltipWrapper>
-                      </TableCell>
-                    );
-                  }
-
-                  return (
-                    <TableCell
-                      key={cell.id}
-                      data-label={cell.column.id}
-                      data-align={cell.column.columnDef.align || "left"}
-                      className={
-                        cell.column.id ? `column-${cell.column.id}` : ``
-                      }
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
+                      ) : (
+                        flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )
                       )}
                     </TableCell>
                   );
