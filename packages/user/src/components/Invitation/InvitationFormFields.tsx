@@ -9,7 +9,7 @@ import {
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button } from "primereact/button";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   InvitationAppOption,
@@ -42,11 +42,11 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     setValue,
     formState: { errors, submitCount },
   } = useFormContext();
-  let newErrors = {};
+  let modifiedErrors = errors;
 
   if (errors && errors.role) {
     const { role, ...others } = errors;
-    newErrors = others;
+    modifiedErrors = others;
   }
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
@@ -107,7 +107,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
     return modifiedApps;
   }, [apps]);
-  console.log(errors);
+
   return (
     <>
       <Email
@@ -157,7 +157,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         <Button
           type="submit"
           label={t("form.actions.submit")}
-          disabled={!!Object.values(newErrors).length}
+          disabled={!!Object.values(modifiedErrors).length}
           loading={loading}
         ></Button>
       </div>

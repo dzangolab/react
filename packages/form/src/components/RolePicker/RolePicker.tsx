@@ -39,7 +39,7 @@ export const RolePicker = ({
             options={options}
             inputRef={field.ref}
             onChange={(role) => field.onChange(role)}
-            error={error}
+            error={!field.value ? error : undefined}
           />
         )}
       />
