@@ -3,26 +3,21 @@ import { ReactNode } from "react";
 type MessageProperties = {
   message: string;
   icon?: string | ReactNode;
-  showIcon?: boolean;
 };
 
-const Message = ({ message, icon, showIcon = false }: MessageProperties) => {
+const Message = ({ message, icon }: MessageProperties) => {
   const renderIcon = () => {
-    if (showIcon) {
-      return (
-        <span className="icon">
-          {typeof icon === "string" ? <i className={icon} /> : icon}
-        </span>
-      );
-    }
-
-    return null;
+    return (
+      <span className="icon">
+        {typeof icon === "string" ? <i className={icon} /> : icon}
+      </span>
+    );
   };
 
   return (
-    <div className="message-icon-wrapper">
+    <div className="message">
       {renderIcon()}
-      <span className="message">{message}</span>
+      <span className="message-content">{message}</span>
     </div>
   );
 };

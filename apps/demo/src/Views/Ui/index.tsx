@@ -257,11 +257,10 @@ const componentList = [
   },
   {
     key: 12,
-    title: "message.card",
+    title: "message.title",
     component: (
       <Message
-        message="User session is expired"
-        showIcon={true}
+        message="message.content"
         icon={<i className="pi pi-info-circle" />}
       />
     ),
