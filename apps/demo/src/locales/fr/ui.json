@@ -11,6 +11,7 @@
   "responsiveMenu": "Responsive menu",
   "table": {
     "title": {
+      "tanstackTable": "Tanstack table (fr)",
       "localDataTable": "Local data table (fr)"
     },
     "headers": {
@@ -18,7 +19,11 @@
       "email": "Email (fr)",
       "roles": "Roles (fr)",
       "age": "Age (fr)",
-      "action": "Action (fr)"
+      "action": "Action (fr)",
+      "givenName": "Given name (fr)",
+      "middleNames": "Middle names (fr)",
+      "surname": "Surname (fr)",
+      "address": "Address (fr)"
     },
     "delete": {
       "message": "Are you sure you want to delete? (fr)",

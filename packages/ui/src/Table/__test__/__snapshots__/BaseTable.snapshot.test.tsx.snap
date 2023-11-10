@@ -4,7 +4,12 @@ exports[`Component matches snapshot 1`] = `
 <div
   className="table-wrapper sticky-header hide-scrollbar"
 >
-  <div>
+  <div
+    className="actions-header"
+  />
+  <div
+    className="table-container"
+  >
     <table>
       <colgroup>
         <col
@@ -28,7 +33,9 @@ exports[`Component matches snapshot 1`] = `
             </button>
           </th>
         </tr>
-        <tr>
+        <tr
+          className="row-header"
+        >
           <th
             colSpan={1}
           >
@@ -301,7 +308,9 @@ exports[`Component matches snapshot 1`] = `
       </tbody>
     </table>
   </div>
-  <div>
+  <div
+    className="table-footer-wrapper"
+  >
     <div>
       <span>
         <strong>

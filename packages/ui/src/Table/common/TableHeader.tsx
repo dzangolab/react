@@ -29,7 +29,9 @@ const sortFunction = (
   sortHandler?: (event: unknown) => void,
 ) => {
   if (!sortable) return;
+
   event.stopPropagation();
+
   if (sortHandler) {
     sortHandler(event);
   }
@@ -38,6 +40,7 @@ const sortFunction = (
 function TableHeader() {
   const { sortable, sortIcons, table, filterMenuToggleIcon } =
     useContext(TableContext);
+
   if (!table) return null;
 
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -63,7 +66,7 @@ function TableHeader() {
           </th>
         </tr>
         {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id}>
+          <tr key={headerGroup.id} className="row-header">
             {headerGroup.headers.map(
               ({ id, colSpan, isPlaceholder, column, getContext }) => {
                 const getColumnTitleClass = () => {

@@ -8,7 +8,8 @@ import TableHeader from "./TableHeader";
 import type { TBaseTable } from "./types";
 
 function BaseTable({ header, body, footer }: TBaseTable) {
-  const { fixedHeader, hideScrollBar, title } = useContext(TableContext);
+  const { fixedHeader, hideScrollBar, title, tableClassName, actionsHeader } =
+    useContext(TableContext);
 
   const getTableWrapperStyle = () => {
     if (fixedHeader && hideScrollBar) return "sticky-header hide-scrollbar";
@@ -19,8 +20,9 @@ function BaseTable({ header, body, footer }: TBaseTable) {
 
   return (
     <div className={`table-wrapper ${getTableWrapperStyle()}`}>
-      <div>
-        <table>
+      <div className="actions-header">{actionsHeader}</div>
+      <div className="table-container">
+        <table className={tableClassName}>
           {title ? <caption>{title}</caption> : null}
           {header}
           {body}
