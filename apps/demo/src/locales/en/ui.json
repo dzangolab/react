@@ -32,5 +32,8 @@
   },
   "file": {
     "card": "File card"
+  },
+  "message":{
+    "card": "Message card"
   }
 }

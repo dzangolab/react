@@ -9,7 +9,7 @@ type MessageCardProperties = {
 const MessageCard = ({
   message,
   icon,
-  showIcon = true,
+  showIcon = false,
 }: MessageCardProperties) => {
   const renderIcon = () => {
     if (showIcon) {

@@ -1,0 +1,5 @@
+.message-card{
+    padding: 1rem;
+    background-color: var(--blue-100);
+    border-radius: 0.5rem;
+}

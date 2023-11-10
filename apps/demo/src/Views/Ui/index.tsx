@@ -14,6 +14,7 @@ import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import { MessageCard } from "@dzangolab/react-ui";
 
 const componentList = [
   {
@@ -245,6 +246,17 @@ const componentList = [
             lastDownloadedAt: Date.now(),
           },
         ]}
+      />
+    ),
+  },
+  {
+    key: 11,
+    title: "message.card",
+    component: (
+      <MessageCard
+        message="User session is expired"
+        showIcon={true}
+        icon={<i className="pi pi-info-circle" />}
       />
     ),
   },
