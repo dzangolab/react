@@ -12,6 +12,7 @@ import { Message } from "@dzangolab/react-ui";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
+import TanstackTable from "./LocalDataTable/TanstackTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
@@ -251,6 +252,11 @@ const componentList = [
   },
   {
     key: 11,
+    title: "table.title.tanstackTable",
+    component: <TanstackTable></TanstackTable>,
+  },
+  {
+    key: 12,
     title: "message.card",
     component: (
       <Message

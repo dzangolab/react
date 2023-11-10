@@ -1,26 +1,36 @@
-.table-wrapper > div:first-child > table {
-  table-layout: fixed;
+.table-wrapper > .actions-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
   width: 100%;
 }
 
-.table-wrapper > div:first-child > table th,
-.table-wrapper > div:first-child > table td {
+.table-wrapper > .table-container > table {
+  table-layout: fixed;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table-wrapper > .table-container > table th,
+.table-wrapper > .table-container > table td {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.sticky-header.table-wrapper > div:first-child > table > thead {
+.sticky-header.table-wrapper > .table-container > table > thead {
   position: sticky;
   top: 0;
 }
 
-.table-wrapper > div:last-child > div:first-child > span {
+.table-wrapper > .table-footer-wrapper > div:first-child > span {
   width: max-content;
 }
 
 .table-wrapper
-  > div:first-child
+  > .table-container
   > table
   > thead
   > tr:not(:last-child)
@@ -30,7 +40,7 @@
   display: none;
 }
 
-.table-wrapper > div:first-child > table > thead > tr:last-child > th > div {
+.table-wrapper > .table-container > table > thead > tr:last-child > th > div {
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -38,13 +48,13 @@
   width: 100%;
 }
 
-.table-wrapper > div:first-child > table > thead > tr > th > div.disable-sort {
+.table-wrapper > .table-container > table > thead > tr > th > div.disable-sort {
   cursor: auto;
 }
 
-.table-wrapper > div:first-child > table > thead > tr > th > div > button,
+.table-wrapper > .table-container > table > thead > tr > th > div > button,
 .table-wrapper
-  > div:first-child
+  > .table-container
   > table
   > thead
   > tr
@@ -62,9 +72,16 @@
   visibility: hidden;
 }
 
-.table-wrapper > div:first-child > table > thead > tr > th:hover > div > button,
 .table-wrapper
-  > div:first-child
+  > .table-container
+  > table
+  > thead
+  > tr
+  > th:hover
+  > div
+  > button,
+.table-wrapper
+  > .table-container
   > table
   > thead
   > tr
@@ -83,7 +100,7 @@
 }
 
 .table-wrapper
-  > div:first-child
+  > .table-container
   > table
   > thead
   > tr:last-child
@@ -98,7 +115,7 @@
 }
 
 .table-wrapper
-  > div:first-child
+  > .table-container
   > table
   > thead
   > tr:last-child
@@ -109,62 +126,58 @@
   margin: var(--filter-margin-last-item, 0 0 0 -100px);
 }
 
-.table-wrapper > div:last-child > div:first-child,
-.table-wrapper > div:last-child > div:first-child > div {
+.table-wrapper > .table-footer-wrapper > div:first-child,
+.table-wrapper > .table-footer-wrapper > div:first-child > div {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.table-wrapper > div:last-child > div:first-child > div > span {
+.table-wrapper > .table-footer-wrapper > div:first-child > div > span {
   width: max-content;
 }
 
-.table-wrapper > div:last-child > div:last-child > button {
+.table-wrapper > .table-footer-wrapper > div:last-child > button {
   align-items: center;
   display: flex;
   justify-content: center;
   transition: var(--pagination-btn-transition, 0.3s);
 }
 
-.table-wrapper > div:last-child > div:last-child > button[disabled] {
+.table-wrapper > .table-footer-wrapper > div:last-child > button[disabled] {
   cursor: not-allowed;
 }
 
-.table-wrapper > div:last-child > div:last-child {
+.table-wrapper > .table-footer-wrapper > div:last-child {
   align-items: center;
   display: flex;
 }
 
-.table-wrapper > div:last-child {
+.table-wrapper > .table-footer-wrapper {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.table-wrapper > div:first-child {
+.table-wrapper > .table-container {
   display: block;
   max-width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
-.table-wrapper.sticky-header > div:first-child {
+.table-wrapper.sticky-header > .table-container {
   overflow-y: scroll;
 }
 
-.table-wrapper.hide-scrollbar > div:first-child {
+.table-wrapper.hide-scrollbar > .table-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.table-wrapper.hide-scrollbar > div:first-child::-webkit-scrollbar {
-  display: none;
-}
-
-/* hide filter button on desktop */
-table > thead > tr:first-child {
+.table-wrapper.hide-scrollbar > .table-container::-webkit-scrollbar {
   display: none;
 }
 
@@ -174,22 +187,21 @@ table > thead > tr:first-child {
 }
 
 @media screen and (max-width: 600px) {
-  .table-wrapper > div:first-child > table > thead > tr:first-child {
+  .table-wrapper > .table-container > table > thead > tr:first-child {
     display: block;
   }
 
-  /* hide grouping headers */
-  .table-wrapper > div:first-child > table > colgroup > col:not(:first-child) {
+  .table-wrapper > .table-container > table > colgroup > col:not(:first-child) {
     display: none;
   }
 
-  .table-wrapper > div:first-child > table > thead > tr:first-child > th {
+  .table-wrapper > .table-container > table > thead > tr:first-child > th {
     border: 0;
     padding: 0;
   }
 
   .table-wrapper
-    > div:first-child
+    > .table-container
     > table
     > thead
     > tr:first-child
@@ -201,7 +213,7 @@ table > thead > tr:first-child {
   }
 
   .table-wrapper
-    > div:first-child
+    > .table-container
     > table
     > thead
     > tr:last-child
@@ -212,31 +224,31 @@ table > thead > tr:first-child {
     margin: var(--filter-margin-last-item, 0);
   }
 
-  .table-wrapper > div:first-child > table > thead > tr:not(:first-child) {
+  .table-wrapper > .table-container > table > thead > tr:not(:first-child) {
     display: none;
   }
 
-  .table-wrapper > div:first-child > table > thead.active > tr:last-child {
+  .table-wrapper > .table-container > table > thead.active > tr:last-child {
     display: flex;
     flex-direction: column;
   }
 
-  .table-wrapper > div:first-child > table > thead > tr > th,
-  .table-wrapper > div:first-child > table > tbody > tr > td {
-    width: 100% !important; /* override column size from props */
+  .table-wrapper > .table-container > table > thead > tr > th,
+  .table-wrapper > .table-container > table > tbody > tr > td {
+    width: 100% !important;
   }
 
-  .table-wrapper > div:first-child > table > tbody > tr {
+  .table-wrapper > .table-container > table > tbody > tr {
     display: block;
-      }
+  }
 
-  .table-wrapper > div:first-child > table td {
+  .table-wrapper > .table-container > table td {
     border-bottom: none;
     display: block;
     text-align: right;
   }
 
-  .table-wrapper > div:first-child > table td::before {
+  .table-wrapper > .table-container > table td::before {
     content: attr(data-label);
     float: left;
   }

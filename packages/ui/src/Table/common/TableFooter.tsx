@@ -12,7 +12,7 @@ const Footer = ({
   const { paginated } = useContext(TableContext);
 
   return (
-    <div>
+    <div className="table-footer-wrapper">
       {detailComponent}
       {paginated ? paginationComponent : null}
     </div>

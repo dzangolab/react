@@ -56,7 +56,7 @@ export const getRequestJSON = (
       return {
         key: filterState[0].id,
         operator: getFilterOperator(filterState[0].value.filterFn),
-        value: String(filterState[0].value.value),
+        value: String(filterState[0].value.value || filterState[0].value),
       };
     }
 
@@ -65,7 +65,7 @@ export const getRequestJSON = (
         return {
           key: filter.id,
           operator: getFilterOperator(filter.value.filterFn),
-          value: String(filter.value.value),
+          value: String(filter.value.value || filter.value),
         };
       }),
     };
@@ -115,4 +115,39 @@ export const getRequestJSON = (
     sort: getSort(),
     offset: getOffset(),
   };
+};
+
+export const getParsedColumns = ({
+  columns,
+  visibleColumns,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns: Array<any>;
+  visibleColumns: string[];
+}) => {
+  if (visibleColumns.length === 0) {
+    return columns;
+  }
+
+  const parsedColumns = new Map();
+
+  //Merge duplicate fields to one based on column id value
+  for (const column of columns) {
+    if (parsedColumns.get(column.accessorKey || column.id)) {
+      parsedColumns.set(column.accessorKey || column.id, {
+        ...parsedColumns.get(column.accessorKey || column.id),
+        ...column,
+      });
+    } else {
+      parsedColumns.set(column.accessorKey || column.id, column);
+    }
+  }
+
+  //Sort columns based on column id provided in visibleColumns array.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sortedColumns = visibleColumns.map<any>((visibleColumn) => {
+    return parsedColumns.get(visibleColumn);
+  });
+
+  return sortedColumns;
 };

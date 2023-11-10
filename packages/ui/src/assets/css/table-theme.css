@@ -2,72 +2,68 @@
   font-size: var(--default-theader-font-size, 1rem);
 }
 
-.table-wrapper > div:first-child > table {
+.table-wrapper > .table-container > table {
   border-collapse: collapse;
   box-shadow: var(--tshadow, 0 0 20px rgba(0, 0, 0, 0.15));
 }
 
-.table-wrapper > div:first-child > table > caption {
+.table-wrapper > .table-container > table > caption {
   font-size: var(--tcaption-font-size, 24px);
   font-weight: var(--tcaption-weight, bold);
   text-align: var(--tcaption-align, left);
 }
 
-.table-wrapper > div:first-child > table > thead > tr {
+.table-wrapper > .table-container > table > thead > tr {
   background-color: var(--default-theader-bg-color, #fff);
   text-align: left;
 }
 
-.table-wrapper > div:first-child > table > thead > tr:last-of-type {
+.table-wrapper > .table-container > table > thead > tr:last-of-type {
   background-color: var(--last-theader-bg-color, #009879);
   color: var(--last-theader-color, #fff);
 }
 
-.table-wrapper > div:first-child > table > tbody {
+.table-wrapper > .table-container > table > tbody {
   font-size: var(--default-tbody-font-size, 0.9rem);
 }
 
-.table-wrapper > div:first-child > table > tbody > tr:last-of-type {
+.table-wrapper > .table-container > table > tbody > tr:last-of-type {
   border-bottom: var(--tbody-tr-border, 2px solid #009879);
 }
 
-.table-wrapper > div:first-child > table > tbody > tr:hover {
+.table-wrapper > .table-container > table > tbody > tr:hover {
   color: var(--tbody-tr-hover-color, #009879);
 }
 
-.table-wrapper > div:first-child > table > tbody > tr:nth-of-type(even) {
+.table-wrapper > .table-container > table > tbody > tr:nth-of-type(even) {
   background-color: var(--tbody-tr-even-bg-color, #f3f3f3);
 }
 
-.table-wrapper > div:first-child > table th,
-.table-wrapper > div:first-child > table td {
+.table-wrapper > .table-container > table th,
+.table-wrapper > .table-container > table td {
   padding: var(--tcell-padding, 12px 15px);
 }
 
-.table-wrapper > div:first-child > table > thead > tr > th > div,
-.table-wrapper > div:first-child > table > thead > tr > th > div > span {
+.table-wrapper > .table-container > table > thead > tr > th > div,
+.table-wrapper > .table-container > table > thead > tr > th > div > span {
   font-weight: var(--theader-font-weight, 600);
   width: max-content;
 }
 
-.table-wrapper > div:first-child > table > tbody > tr {
+.table-wrapper > .table-container > table > tbody > tr {
   border-bottom: var(--tbody-border-bottom, 1px solid #dddddd);
 }
 
-.table-wrapper > div:last-of-type {
+.table-wrapper > .table-footer-wrapper {
   margin: var(--tfooter-margin, 1rem 0 0 0);
 }
 
-.table-wrapper
-  > div:last-of-type
-  > div:first-child
-  > div
-  > input[type="number"] {
+.table-wrapper > .table-footer-wrapper > div > input[type="number"] {
   width: var(--tfooter-page-input-width, 3rem);
 }
 
 .table-wrapper
-  > div:first-of-type
+  > .table-container
   > table
   > thead
   > tr:last-of-type
@@ -75,7 +71,7 @@
   > div
   > div,
 .table-wrapper
-  > div:first-of-type
+  > .table-container
   > table
   > thead
   > tr:last-of-type
@@ -87,25 +83,28 @@
   width: var(--theader-column-icon-width, 1rem);
 }
 
-.table-wrapper > div:last-of-type > div:first-child > *:not(:last-child) {
+.table-wrapper > .table-container > .table-footer-wrapper > *:not(:last-child) {
   border-right: var(--tfooter-page-detail-border, 2px solid black);
   margin: var(--tfooter-page-detail-margin, 0 8px 0 0);
   padding: var(--tfooter-page-detail-padding, 0 8px 0 0);
 }
 
 .table-wrapper
-  > div:last-of-type
-  > div:first-of-type
+  > .table-container
+  > .table-footer-wrapper
   > div
   > *:not(:last-child) {
   margin: var(--tfooter-page-control-margin, 0 4px 0 0);
 }
 
-.table-wrapper > div:last-of-type > div:last-of-type > *:not(:last-of-type) {
+.table-wrapper
+  > .table-footer-wrapper
+  > div:last-of-type
+  > *:not(:last-of-type) {
   margin: var(--tfooter-pagination-btn-margin, 0 4px 0 0);
 }
 
-.table-wrapper > div:last-of-type > div:last-of-type > button {
+.table-wrapper > .table-footer-wrapper > div:last-of-type > button {
   background-color: var(--tfooter-pagination-btn-bg-color, #fff);
   border: var(--tfooter-pagination-border, solid 1px gray);
   border-radius: var(--tfooter-pagination-border-radius, 50%);
@@ -113,25 +112,25 @@
   width: var(--tfooter-pagination-btn-width, 32px);
 }
 
-.table-wrapper > div:last-of-type > div:last-of-type > button[disabled] {
+.table-wrapper > .table-footer-wrapper > div:last-of-type > button[disabled] {
   background-color: var(--tfooter-pagination-btn-bg-color-disabled, #e7e7e7);
 }
 
-.table-wrapper.sticky-header > div:first-child {
+.table-wrapper.sticky-header > .table-container {
   max-height: var(--tmax-height, 60vh);
 }
 
 @media screen and (max-width: 600px) {
-  .table-wrapper > div:first-child > table > thead > tr:first-child {
+  .table-wrapper > .table-container > table > thead > tr:first-child {
     display: block;
   }
 
-  .table-wrapper > div:first-child > table > thead > tr:last-of-type > th {
+  .table-wrapper > .table-container > table > thead > tr:last-of-type > th {
     border-bottom: var(--theader-border-bottom-sm, 1px solid #fff);
   }
 
   .table-wrapper
-    > div:first-child
+    > .table-container
     > table
     > thead
     > tr:first-child
@@ -144,22 +143,22 @@
     width: var(--theader-toggle-btn-width, 2rem);
   }
 
-  .table-wrapper > div:first-child > table > tbody > tr {
+  .table-wrapper > .table-container > table > tbody > tr {
     margin-bottom: var(--table-cards-gap, 0.6rem);
   }
 
-  .table-wrapper > div:first-child > table td {
+  .table-wrapper > .table-container > table td {
     border: 1px solid #222;
     font-size: var(--td-font-size, 0.8rem);
   }
 
-  .table-wrapper > div:first-child > table td::before {
+  .table-wrapper > .table-container > table td::before {
     font-weight: bold;
     margin-right: var(--responsive-td-gap, 1rem);
     text-transform: uppercase;
   }
 
-  .table-wrapper > div:first-child > table td:last-of-type {
+  .table-wrapper > .table-container > table td:last-of-type {
     border-bottom: var(--td-border-bottom, 1px solid #222);
   }
 }
