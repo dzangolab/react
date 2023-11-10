@@ -20,7 +20,7 @@ const Message = ({ message, icon, showIcon = false }: MessageProperties) => {
   };
 
   return (
-    <div className="message-card">
+    <div className="message-icon-wrapper">
       {renderIcon()}
       <span className="message">{message}</span>
     </div>
