@@ -36,12 +36,13 @@ import {
   TableRow,
   TableToolbar,
   TableFooter,
+  TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
 import LoadingIcon from "../../LoadingIcon";
 
 import type { TCustomColumnFilter, TDataTableProperties } from "./types";
-import type { ColumnDef } from "@tanstack/react-table";
+import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   columns = [],
@@ -170,6 +171,18 @@ const DataTable = <TData extends { id: string | number }>({
     },
     [],
   );
+
+  const renderTooltipContent = (
+    cell: Cell<TData, unknown>,
+  ): React.ReactNode => {
+    if (typeof cell.column.columnDef.tooltip === "string") {
+      return cell.column.columnDef.tooltip;
+    } else if (typeof cell.column.columnDef.tooltip === "function") {
+      return cell.column.columnDef.tooltip(cell);
+    }
+
+    return cell.getValue() as string;
+  };
 
   return (
     <div className="table-container">
@@ -300,16 +313,47 @@ const DataTable = <TData extends { id: string | number }>({
                 data-state={row.getIsSelected() && "selected"}
                 data-id={row.original.id ?? row.id}
               >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    data-label={cell.column.id}
-                    data-align={cell.column.columnDef.align || "left"}
-                    className={cell.column.id ? `column-${cell.column.id}` : ``}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
+                {row.getVisibleCells().map((cell) => {
+                  if (cell.column.columnDef.tooltip) {
+                    return (
+                      <TableCell
+                        key={cell.id}
+                        data-label={cell.column.id}
+                        data-align={cell.column.columnDef.align || "left"}
+                        className={
+                          cell.column.id ? `column-${cell.column.id}` : ``
+                        }
+                      >
+                        <TooltipWrapper
+                          tooltipOptions={{
+                            children: renderTooltipContent(cell),
+                            ...cell.column.columnDef?.tooltipOptions,
+                          }}
+                          cellContent={flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext(),
+                          )}
+                        ></TooltipWrapper>
+                      </TableCell>
+                    );
+                  }
+
+                  return (
+                    <TableCell
+                      key={cell.id}
+                      data-label={cell.column.id}
+                      data-align={cell.column.columnDef.align || "left"}
+                      className={
+                        cell.column.id ? `column-${cell.column.id}` : ``
+                      }
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </TableCell>
+                  );
+                })}
               </TableRow>
             ))
           ) : (

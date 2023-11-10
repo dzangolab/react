@@ -1,4 +1,7 @@
 import * as React from "react";
+import { useRef } from "react";
+
+import { Tooltip } from "../../Tooltip";
 
 const TableToolbar = ({ children }: { children?: React.ReactNode }) => {
   return <div className="toolbar">{children}</div>;
@@ -100,12 +103,30 @@ const TableCaption = React.forwardRef<
 ));
 TableCaption.displayName = "TableCaption";
 
+const TooltipWrapper = ({
+  tooltipOptions,
+  cellContent,
+}: {
+  tooltipOptions: Omit<React.ComponentProps<typeof Tooltip>, "elementRef">;
+  cellContent: React.ReactNode | JSX.Element;
+}) => {
+  const reference = useRef<HTMLDivElement>(null);
+
+  return (
+    <>
+      <Tooltip elementRef={reference} {...tooltipOptions} />
+      <div ref={reference}>{cellContent}</div>
+    </>
+  );
+};
+
 export {
   Table,
   TableBody,
   TableFooter,
   TableHeader,
   TableToolbar,
+  TooltipWrapper,
   ColumnHeader,
   TableRow,
   TableCell,
