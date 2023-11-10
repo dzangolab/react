@@ -7,6 +7,8 @@ type TooltipProperties = {
   children: React.ReactNode;
   className?: string;
   elementRef: RefObject<HTMLElement>;
+  offset?: number;
+  position?: "top" | "bottom" | "right" | "left";
   style?: object;
 };
 
@@ -14,14 +16,19 @@ export const Tooltip: FC<TooltipProperties> = ({
   children,
   className,
   elementRef,
+  offset,
+  position,
   style,
 }) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
 
-  const { position, showTooltip, onMouseEnter, onMouseLeave } = useTooltip({
-    ref: elementRef,
-    tooltipReference,
-  });
+  const { tooltipPosition, showTooltip, onMouseEnter, onMouseLeave } =
+    useTooltip({
+      ref: elementRef,
+      tooltipReference,
+      offset,
+      position,
+    });
 
   useEffect(() => {
     const element = elementRef?.current;
@@ -48,10 +55,10 @@ export const Tooltip: FC<TooltipProperties> = ({
       {createPortal(
         <div
           ref={tooltipReference}
-          className={className ? className : "tooltip-container"}
+          className={className ? className : `tooltip-container ${position}`}
           style={{
-            top: position.top,
-            left: position.left,
+            top: tooltipPosition.top,
+            left: tooltipPosition.left,
             ...style,
           }}
         >
