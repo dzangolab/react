@@ -20,8 +20,8 @@
       "roles": "Roles",
       "age": "Age",
       "action": "Action",
-      "givenName": "Given Name",
-      "middleNames": "Middle Names",
+      "givenName": "Given name",
+      "middleNames": "Middle names",
       "surname": "Surname",
       "address": "Address"
     },
