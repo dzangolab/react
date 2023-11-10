@@ -44,9 +44,12 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   } = useFormContext();
   let modifiedErrors = errors;
 
-  if (errors && errors.role) {
-    const { role, ...others } = errors;
-    modifiedErrors = others;
+  const selectedRole = useWatch({ name: "role" });
+
+  if (errors && errors.role && selectedRole) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { role, ...otherErrors } = errors;
+    modifiedErrors = otherErrors;
   }
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
