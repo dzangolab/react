@@ -37,20 +37,12 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   const { t } = useTranslation("invitations");
 
   const {
+    trigger,
     register,
     getFieldState,
     setValue,
     formState: { errors, submitCount },
   } = useFormContext();
-  let modifiedErrors = errors;
-
-  const selectedRole = useWatch({ name: "role" });
-
-  if (errors && errors.role && selectedRole) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { role, ...otherErrors } = errors;
-    modifiedErrors = otherErrors;
-  }
 
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
@@ -61,7 +53,6 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   useEffect(() => {
     if (selectedApp) {
       setValue("role", undefined); // reset role value when app changes
-
       setFilteredRoles(selectedApp.supportedRoles || []);
     }
   }, [selectedApp]);
@@ -70,6 +61,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     // if there's only one role, select it by default
     if (filteredRoles?.length === 1) {
       setValue("role", filteredRoles[0]);
+      trigger("role");
     }
   }, [filteredRoles]);
 
@@ -161,7 +153,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         <Button
           type="submit"
           label={t("form.actions.submit")}
-          disabled={!!Object.values(modifiedErrors).length}
+          disabled={!!Object.values(errors).length}
           loading={loading}
         ></Button>
       </div>
