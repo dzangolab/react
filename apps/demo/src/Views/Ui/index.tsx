@@ -8,13 +8,13 @@ import {
   FilesPresentation,
 } from "@dzangolab/react-ui";
 
+import { Message } from "@dzangolab/react-ui";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import { MessageCard } from "@dzangolab/react-ui";
 
 const componentList = [
   {
@@ -253,7 +253,7 @@ const componentList = [
     key: 11,
     title: "message.card",
     component: (
-      <MessageCard
+      <Message
         message="User session is expired"
         showIcon={true}
         icon={<i className="pi pi-info-circle" />}

@@ -1,16 +1,12 @@
 import { ReactNode } from "react";
 
-type MessageCardProperties = {
+type MessageProperties = {
   message: string;
   icon?: string | ReactNode;
   showIcon?: boolean;
 };
 
-const MessageCard = ({
-  message,
-  icon,
-  showIcon = false,
-}: MessageCardProperties) => {
+const Message = ({ message, icon, showIcon = false }: MessageProperties) => {
   const renderIcon = () => {
     if (showIcon) {
       return (
@@ -31,4 +27,4 @@ const MessageCard = ({
   );
 };
 
-export default MessageCard;
+export default Message;
