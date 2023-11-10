@@ -9,7 +9,7 @@ import {
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button } from "primereact/button";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import {
   InvitationAppOption,
@@ -51,6 +51,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     const { role, ...otherErrors } = errors;
     modifiedErrors = otherErrors;
   }
+
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
   const selectedApp: InvitationAppOption = useWatch({
