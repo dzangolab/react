@@ -53,6 +53,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   useEffect(() => {
     if (selectedApp) {
       setValue("role", undefined); // reset role value when app changes
+
       setFilteredRoles(selectedApp.supportedRoles || []);
     }
   }, [selectedApp]);
