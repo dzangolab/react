@@ -14,6 +14,7 @@ type UseTooltipProperties = {
 };
 
 export function useTooltip({
+  delay = 0,
   ref,
   tooltipReference,
   offset = 5,
@@ -80,8 +81,11 @@ export function useTooltip({
   }, [showTooltip, ref]);
 
   const onMouseEnter = useCallback(() => {
-    setShowTooltip(true);
-  }, []);
+    const timeoutId = setTimeout(() => {
+      setShowTooltip(true);
+    }, delay);
+    return () => clearTimeout(timeoutId);
+  }, [delay]);
 
   const onMouseLeave = useCallback(() => {
     setShowTooltip(false);
