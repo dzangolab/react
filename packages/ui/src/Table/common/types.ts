@@ -199,4 +199,5 @@ export interface TDataTableProperties<TData>
   onRowSelectChange?: (table: Table<TData>) => void;
   totalRecords?: number;
   inputDebounceTime?: number;
+  stripe?: "none" | "even" | "odd";
 }

@@ -60,6 +60,7 @@ const DataTable = <TData extends { id: string | number }>({
   visibleColumns = [],
   onRowSelectChange,
   totalRecords = 0,
+  stripe = "none",
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -259,7 +260,7 @@ const DataTable = <TData extends { id: string | number }>({
           ))}
         </TableHeader>
 
-        <TableBody>
+        <TableBody data-stripe={stripe}>
           {isFilterRowVisible ? (
             <TableRow key={"filters"} className="filters">
               {table.getAllLeafColumns().map((column) => {
