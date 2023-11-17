@@ -6,10 +6,11 @@ type Position = {
 };
 
 type UseTooltipProperties = {
-  ref: RefObject<HTMLElement>;
-  tooltipReference: RefObject<HTMLDivElement>;
+  delay?: number;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
+  ref: RefObject<HTMLElement>;
+  tooltipReference: RefObject<HTMLDivElement>;
 };
 
 export function useTooltip({
