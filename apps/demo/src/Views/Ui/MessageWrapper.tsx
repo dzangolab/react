@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Message } from "@dzangolab/react-ui";
 
-const MessageWrapper = () => {
+const MessageDemo = () => {
   const { t } = useTranslation("ui");
 
   return (
@@ -12,4 +12,4 @@ const MessageWrapper = () => {
   );
 };
 
-export default MessageWrapper;
+export default MessageDemo;

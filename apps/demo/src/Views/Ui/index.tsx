@@ -15,7 +15,7 @@ import TanstackTable from "./LocalDataTable/TanstackTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import MessageWrapper from "./MessageWrapper";
+import MessageDemo from "./MessageWrapper";
 
 const componentList = [
   {
@@ -258,7 +258,7 @@ const componentList = [
   {
     key: 12,
     title: "message.title",
-    component: <MessageWrapper />,
+    component: <MessageDemo />,
   },
 ];
 
