@@ -22,6 +22,7 @@ export function useTooltip({
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [tooltipPosition, setTooltipPosition] = useState<Position>({});
+  let timeoutId: any;
 
   useEffect(() => {
     if (!ref.current) {
@@ -80,21 +81,16 @@ export function useTooltip({
     }
   }, [showTooltip, ref]);
 
-  const showTooltipWithDelay = useCallback(() => {
-    const timeoutId = setTimeout(() => {
+  const onMouseEnter = () => {
+    timeoutId = setTimeout(() => {
       setShowTooltip(true);
     }, delay);
-
     return () => clearTimeout(timeoutId);
-  }, [delay]);
+  };
 
-  const onMouseEnter = useCallback(() => {
-    showTooltipWithDelay();
-  }, [showTooltipWithDelay]);
-
-  const onMouseLeave = useCallback(() => {
+  const onMouseLeave = () => {
     setShowTooltip(false);
-  }, []);
+  };
 
   return {
     tooltipPosition: {
