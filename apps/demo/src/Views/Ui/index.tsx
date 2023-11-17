@@ -8,7 +8,6 @@ import {
   FilesPresentation,
 } from "@dzangolab/react-ui";
 
-import { Message } from "@dzangolab/react-ui";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
@@ -16,6 +15,7 @@ import TanstackTable from "./LocalDataTable/TanstackTable";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import MessageWrapper from "./MessageWrapper";
 
 const componentList = [
   {
@@ -258,12 +258,7 @@ const componentList = [
   {
     key: 12,
     title: "message.title",
-    component: (
-      <Message
-        message="message.content"
-        icon={<i className="pi pi-info-circle" />}
-      />
-    ),
+    component: <MessageWrapper />,
   },
 ];
 
