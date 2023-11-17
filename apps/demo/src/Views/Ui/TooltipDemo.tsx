@@ -4,6 +4,7 @@ import { useRef } from "react";
 export const TooltipDemo = () => {
   const submitButtonReference = useRef<HTMLButtonElement>(null);
   const cancelButtonReference = useRef<HTMLButtonElement>(null);
+  const buttonReference = useRef<HTMLButtonElement>(null);
   return (
     <>
       <Tooltip
@@ -24,6 +25,15 @@ export const TooltipDemo = () => {
         <span>cancel button</span>
       </Tooltip>
       <button ref={cancelButtonReference}>Cancel</button>
+      <Tooltip
+        elementRef={buttonReference}
+        position="left"
+        offset={5}
+        delay={200}
+      >
+        <span>This is just button</span>
+      </Tooltip>
+      <button ref={buttonReference}>button</button>
     </>
   );
 };
