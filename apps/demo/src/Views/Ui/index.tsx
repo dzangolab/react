@@ -13,9 +13,9 @@ import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import { SubmitButton } from "./SubmitButton";
+import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-
 const componentList = [
   {
     key: 1,
@@ -253,6 +253,11 @@ const componentList = [
     key: 11,
     title: "table.title.tanstackTable",
     component: <TanstackTable></TanstackTable>,
+  },
+  {
+    key: 12,
+    title: "tooltip",
+    component: <TooltipDemo></TooltipDemo>,
   },
 ];
 
