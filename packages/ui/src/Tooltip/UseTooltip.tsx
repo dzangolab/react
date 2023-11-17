@@ -22,7 +22,7 @@ export function useTooltip({
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [tooltipPosition, setTooltipPosition] = useState<Position>({});
-  let timeoutId: NodeJS.Timeout;
+  let timeoutId: ReturnType<typeof setTimeout>;
 
   useEffect(() => {
     if (!ref.current) {
