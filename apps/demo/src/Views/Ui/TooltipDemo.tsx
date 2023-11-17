@@ -5,6 +5,7 @@ export const TooltipDemo = () => {
   const submitButtonReference = useRef<HTMLButtonElement>(null);
   const cancelButtonReference = useRef<HTMLButtonElement>(null);
   const buttonReference = useRef<HTMLButtonElement>(null);
+  const reference = useRef<HTMLButtonElement>(null);
   return (
     <>
       <Tooltip
@@ -31,9 +32,13 @@ export const TooltipDemo = () => {
         offset={5}
         delay={200}
       >
-        <span>This is just button</span>
+        <span>Tooltip is displayed on left</span>
       </Tooltip>
       <button ref={buttonReference}>button</button>
+      <Tooltip elementRef={reference} position="right" offset={5}>
+        <span>Tooltip is displayed on right</span>
+      </Tooltip>
+      <button ref={reference}>right</button>
     </>
   );
 };
