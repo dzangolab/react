@@ -7,6 +7,7 @@ import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
+import Message from "./Message";
 import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
@@ -29,6 +30,7 @@ export {
   GoogleButton,
   LoadingIcon,
   LoadingPage,
+  Message,
   Page,
   ResponsiveMenu,
   SubPane,

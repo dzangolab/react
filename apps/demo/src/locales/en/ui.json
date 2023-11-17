@@ -37,5 +37,9 @@
   },
   "file": {
     "card": "File card"
+  },
+  "message":{
+    "title": "Message",
+    "content":"User session is expired"
   }
 }
