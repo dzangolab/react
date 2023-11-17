@@ -39,6 +39,7 @@
     "card": "File card (fr)"
   },
   "message":{
-    "card": "Message card (fr)"
+    "title": "Message (fr)",
+    "content":"User session is expired (fr)"
   }
 }
