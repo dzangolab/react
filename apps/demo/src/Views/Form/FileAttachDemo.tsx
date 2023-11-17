@@ -32,7 +32,7 @@ const FileAttachDemo = () => {
               elementRef={reference}
               position="top"
               offset={10}
-              delay={3000}
+              delay={200}
             >
               <span>{t("fileAttach.deleteFileMessage")}</span>
             </Tooltip>

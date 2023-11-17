@@ -85,10 +85,10 @@ export function useTooltip({
     timeoutId = setTimeout(() => {
       setShowTooltip(true);
     }, delay);
-    return () => clearTimeout(timeoutId);
   };
 
   const onMouseLeave = () => {
+    clearTimeout(timeoutId);
     setShowTooltip(false);
   };
 
