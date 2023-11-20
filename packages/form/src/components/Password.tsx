@@ -19,7 +19,10 @@ export const Password: React.FC<CustomInputProperties> = ({
   return (
     <div className={`field ${name}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
-      <div className="input-field-password">
+      <div
+        className="input-field-password"
+        aria-invalid={submitcount > 0 ? invalid : undefined}
+      >
         <input
           {...register(name)}
           id={`input-field-${name}`}
