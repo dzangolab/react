@@ -9,7 +9,7 @@ export interface PaginationProperties {
   itemsPerPageControlLabel?: string;
   defaultItemsPerPage?: number;
   showFirstLastButtons?: boolean;
-  showPrevNextButtons?: boolean;
+  showPreviousNextButtons?: boolean;
   showPageButtons?: boolean;
   className?: string;
   pageInputLabel?: string;
@@ -28,7 +28,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
   defaultItemsPerPage = itemsPerPageOptions[0],
   showFirstLastButtons = true,
   showPageButtons = false,
-  showPrevNextButtons: showPreviousNextButtons = true,
+  showPreviousNextButtons = true,
   className,
   showItemsPerPageControl = true,
   showPageInput = true,
