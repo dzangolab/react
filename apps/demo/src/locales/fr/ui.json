@@ -50,7 +50,7 @@
       "right": "Right (fr)",
       "top": "Top (fr)"
     },
-    "content": "Enter your name (fr)",
+    "content": "Tooltip component (fr)",
     "button": {
       "save": "Save (fr)",
       "content": "Save the data (fr)"

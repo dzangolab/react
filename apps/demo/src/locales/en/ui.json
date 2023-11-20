@@ -50,7 +50,7 @@
       "right": "Right",
       "top": "Top"
     },
-    "content": "Enter your name",
+    "content": "Tooltip component",
     "button": {
       "save": "Save",
       "content": "Save the data"
