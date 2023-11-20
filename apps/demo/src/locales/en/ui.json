@@ -40,6 +40,23 @@
   },
   "tooltip": {
     "title": "Tooltip",
-    "submitButtonMessage": "submit the data"
+    "positions": {
+      "top": {
+        "placeHolder": "top",
+        "message": "Enter your name"
+      },
+      "bottom": {
+        "placeHolder": "bottom",
+        "message": "Enter your name"
+      },
+      "left": {
+        "placeHolder": "left",
+        "message": "Enter your name"
+      },
+      "right": {
+        "placeHolder": "right",
+        "message": "Enter your name"
+      }
+    }
   }
 }
