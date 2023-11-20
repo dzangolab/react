@@ -51,5 +51,9 @@
       "save": "Save",
       "message": "Save the data"
     }
+  },
+  "message":{
+    "title": "Message",
+    "content":"User session is expired"
   }
 }

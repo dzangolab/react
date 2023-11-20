@@ -12,10 +12,12 @@ import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
+import MessageDemo from "./MessageDemo";
 import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+
 const componentList = [
   {
     key: 1,
@@ -256,8 +258,13 @@ const componentList = [
   },
   {
     key: 12,
+    title: "message.title",
+    component: <MessageDemo />,
+  },
+  {
+    key: 13,
     title: "tooltip.title",
-    component: <TooltipDemo></TooltipDemo>,
+    component: <TooltipDemo />,
   },
 ];
 
