@@ -1,4 +1,4 @@
-.tooltip-component input {
+.tooltip-component div {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   margin: 0.5rem;
@@ -6,7 +6,7 @@
   width: 50%;
 }
 
-.button-save button {
+.button-save {
   background-color: blue;
   border: none;
   border-radius: 0.25rem;
