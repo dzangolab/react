@@ -41,23 +41,12 @@
   "tooltip": {
     "title": "Tooltip (fr)",
     "positions": {
-      "bottom": {
-        "placeholder": "Bottom (fr)",
-        "message": "Enter your name (fr)"
-      },
-      "left": {
-        "placeholder": "Left (fr)",
-        "message": "Enter your name (fr)"
-      },
-      "right": {
-        "placeholder": "Right (fr)",
-        "message": "Enter your name (fr)"
-      },
-      "top": {
-        "placeholder": "Top (fr)",
-        "message": "Enter your name (fr)"
-      }
+      "bottom": "Bottom (fr)",
+      "left": "Left (fr)",
+      "right": "Right (fr)",
+      "top": "Top (fr)"
     },
+    "message": "Enter your name (fr)",
     "button": {
       "save": "Save (fr)",
       "message": "Save the data (fr)"

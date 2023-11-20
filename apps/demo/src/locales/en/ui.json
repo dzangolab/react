@@ -41,23 +41,12 @@
   "tooltip": {
     "title": "Tooltip",
     "positions": {
-      "bottom": {
-        "placeholder": "Bottom",
-        "message": "Enter your name"
-      },
-      "left": {
-        "placeholder": "Left",
-        "message": "Enter your name"
-      },
-      "right": {
-        "placeholder": "Right",
-        "message": "Enter your name"
-      },
-      "top": {
-        "placeholder": "Top",
-        "message": "Enter your name"
-      }
+      "bottom": "Bottom",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top"
     },
+    "message": "Enter your name",
     "button": {
       "save": "Save",
       "message": "Save the data"
