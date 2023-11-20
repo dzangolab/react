@@ -50,10 +50,10 @@
       "right": "Right",
       "top": "Top"
     },
-    "message": "Enter your name",
+    "content": "Enter your name",
     "button": {
       "save": "Save",
-      "message": "Save the data"
+      "content": "Save the data"
     }
   }
 }
