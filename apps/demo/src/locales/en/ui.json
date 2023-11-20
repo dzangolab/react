@@ -38,8 +38,22 @@
   "file": {
     "card": "File card"
   },
-  "message":{
+  "message": {
     "title": "Message",
-    "content":"User session is expired"
+    "content": "User session is expired"
+  },
+  "tooltip": {
+    "title": "Tooltip",
+    "positions": {
+      "bottom": "Bottom",
+      "left": "Left",
+      "right": "Right",
+      "top": "Top"
+    },
+    "content": "Tooltip component",
+    "button": {
+      "save": "Save",
+      "content": "Save the data"
+    }
   }
 }
