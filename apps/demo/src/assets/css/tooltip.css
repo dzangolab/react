@@ -1,5 +1,16 @@
 .tooltip-component input {
   border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
   padding: 10px;
-  margin: 20px;
+  width: 50%;
+}
+
+.button-tooltip button {
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin: 10px;
+  padding: 10px;
 }

@@ -57,6 +57,10 @@
         "placeholder": "Top",
         "message": "Enter your name"
       }
+    },
+    "button": {
+      "save": "Save",
+      "message": "Save the data"
     }
   }
 }

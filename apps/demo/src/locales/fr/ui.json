@@ -57,6 +57,10 @@
         "placeholder": "Top (fr)",
         "message": "Enter your name (fr)"
       }
+    },
+    "button": {
+      "save": "Save (fr)",
+      "message": "Save the data (fr)"
     }
   }
 }
