@@ -1,3 +1,5 @@
+import { Pagination } from "../../Pagination";
+
 import type {
   ColumnDef,
   ColumnFilter,
@@ -6,7 +8,7 @@ import type {
   Table,
   TableOptions,
 } from "@tanstack/react-table";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
 
@@ -199,4 +201,13 @@ export interface TDataTableProperties<TData>
   onRowSelectChange?: (table: Table<TData>) => void;
   totalRecords?: number;
   inputDebounceTime?: number;
+  paginationOptions?: Omit<
+    ComponentProps<typeof Pagination>,
+    | "currentPage"
+    | "totalItems"
+    | "onPageChange"
+    | "onItemsPerPageChange"
+    | "itemsPerPageOptions"
+    | "defaultItemsPerPage"
+  >;
 }

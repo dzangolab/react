@@ -6,10 +6,13 @@ export interface PaginationProperties {
   onPageChange: (page: number) => void;
   onItemsPerPageChange?: (itemsPerPage: number) => void;
   itemsPerPageOptions?: number[];
+  itemsPerPageControlLabel?: string;
   defaultItemsPerPage?: number;
   showFirstLastButtons?: boolean;
   showPrevNextButtons?: boolean;
+  showPageButtons?: boolean;
   className?: string;
+  pageInputLabel?: string;
   showItemsPerPageControl?: boolean;
   showPageInput?: boolean;
 }
@@ -20,8 +23,11 @@ export const Pagination: React.FC<PaginationProperties> = ({
   onPageChange,
   onItemsPerPageChange,
   itemsPerPageOptions = [5, 10, 20],
+  itemsPerPageControlLabel = "Items per page",
+  pageInputLabel = "Go to page:",
   defaultItemsPerPage = itemsPerPageOptions[0],
   showFirstLastButtons = true,
+  showPageButtons = false,
   showPrevNextButtons: showPreviousNextButtons = true,
   className,
   showItemsPerPageControl = true,
@@ -61,49 +67,73 @@ export const Pagination: React.FC<PaginationProperties> = ({
 
   return (
     <div className={`pagination ${className || ""}`}>
-      {showFirstLastButtons && currentPage > 0 && (
-        <button className="first-page" onClick={() => onPageChange(0)}>
-          <i className="pi pi-angle-double-left" />
-        </button>
-      )}
+      <div className="buttons-wrapper">
+        <div>
+          {showFirstLastButtons && (
+            <button
+              className="first-page"
+              onClick={() => onPageChange(0)}
+              disabled={!(currentPage > 0)}
+            >
+              <i className="pi pi-angle-double-left" />
+            </button>
+          )}
 
-      {showPreviousNextButtons && currentPage > 0 && (
-        <button
-          className="previous-page"
-          onClick={() => onPageChange(currentPage - 1)}
-        >
-          <i className="pi pi-angle-left" />
-        </button>
-      )}
+          {showPreviousNextButtons && (
+            <button
+              className="previous-page"
+              onClick={() => onPageChange(currentPage - 1)}
+              disabled={!(currentPage > 0)}
+            >
+              <i className="pi pi-angle-left" />
+            </button>
+          )}
+        </div>
 
-      {pages.map((page) => (
-        <button
-          key={page}
-          className={`page-button ${page === currentPage + 1 ? "active" : ""}`}
-          onClick={() => onPageChange(page - 1)}
-        >
-          {page}
-        </button>
-      ))}
+        <div>
+          {showPageButtons ? (
+            pages.map((page) => (
+              <button
+                key={page}
+                className={`page-button ${
+                  page === currentPage + 1 ? "active" : ""
+                }`}
+                onClick={() => onPageChange(page - 1)}
+              >
+                {page}
+              </button>
+            ))
+          ) : (
+            <span> {`${currentPage + 1} of ${lastPage}`}</span>
+          )}
+        </div>
 
-      {showPreviousNextButtons && currentPage < lastPage - 1 && (
-        <button
-          className="next-page"
-          onClick={() => onPageChange(currentPage + 1)}
-        >
-          <i className="pi pi-angle-right" />
-        </button>
-      )}
+        <div>
+          {showPreviousNextButtons && (
+            <button
+              className="next-page"
+              onClick={() => onPageChange(currentPage + 1)}
+              disabled={!(currentPage < lastPage - 1)}
+            >
+              <i className="pi pi-angle-right" />
+            </button>
+          )}
 
-      {showFirstLastButtons && currentPage < lastPage - 1 && (
-        <button className="last-page" onClick={() => onPageChange(lastPage)}>
-          <i className="pi pi-angle-double-right" />
-        </button>
-      )}
+          {showFirstLastButtons && (
+            <button
+              className="last-page"
+              onClick={() => onPageChange(lastPage - 1)}
+              disabled={!(currentPage < lastPage - 1)}
+            >
+              <i className="pi pi-angle-double-right" />
+            </button>
+          )}
+        </div>
+      </div>
 
       {showItemsPerPageControl && (
         <div className="items-per-page-control">
-          <span>Items per page:</span>
+          <span>{itemsPerPageControlLabel}</span>
           <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
             {itemsPerPageOptions.map((option) => (
               <option key={option} value={option}>
@@ -116,7 +146,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
 
       {showPageInput && (
         <div className="page-input-control">
-          <span>Go to page:</span>
+          <span>{pageInputLabel}</span>
           <input
             type="number"
             value={customPage}

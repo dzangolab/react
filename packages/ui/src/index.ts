@@ -22,6 +22,7 @@ export * from "./FilesList";
 export * from "./FilesPresentation";
 export * from "./Table";
 export * from "./utils";
+export * from "./Pagination";
 
 export {
   Accordion,

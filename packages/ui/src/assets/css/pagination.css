@@ -2,11 +2,26 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  padding: 10px;
+  padding: 0.5rem;
   background-color: #f8f9fa;
   border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination .buttons-wrapper,
+.pagination .buttons-wrapper > div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
   align-items: center;
+  width: fit-content;
+}
+
+.pagination .buttons-wrapper {
+  padding: 0 0.5rem;
+  gap: 0.5rem;
 }
 
 .first-page,
@@ -32,13 +47,22 @@
   background-color: #0056b3;
 }
 
+.first-page:disabled,
+.last-page:disabled,
+.next-page:disabled,
+.previous-page:disabled,
+.page-button:disabled {
+  background-color: #e4e4e4;
+  cursor: not-allowed;
+  color: inherit;
+}
+
 .page-button.active {
   background-color: #0056b3;
 }
 
 .items-per-page-control,
 .page-input-control {
-  margin-left: auto;
   display: flex;
   align-items: center;
   color: #495057;
@@ -55,6 +79,8 @@
   border: 1px solid #ced4da;
   border-radius: 4px;
   margin-right: 8px;
+  width: 4rem;
+  background-color: #f8f9fa;
 }
 
 .items-per-page-control select:focus,

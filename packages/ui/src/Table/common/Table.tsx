@@ -60,6 +60,7 @@ const DataTable = <TData extends { id: string | number }>({
   visibleColumns = [],
   onRowSelectChange,
   totalRecords = 0,
+  paginationOptions,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -337,6 +338,7 @@ const DataTable = <TData extends { id: string | number }>({
               onPageChange={(currentPage) => {
                 table.setPageIndex(currentPage);
               }}
+              itemsPerPageOptions={rowPerPageOptions}
               onItemsPerPageChange={(itemsPerPage) => {
                 table.setPageSize(itemsPerPage);
               }}
@@ -345,6 +347,7 @@ const DataTable = <TData extends { id: string | number }>({
                   ? totalRecords
                   : table.getFilteredRowModel().rows?.length
               }
+              {...paginationOptions}
             ></Pagination>
           )}
         </>
