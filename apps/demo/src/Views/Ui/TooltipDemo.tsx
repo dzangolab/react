@@ -8,7 +8,7 @@ export const TooltipDemo = () => {
   const leftReference = useRef(null);
   const topReference = useRef(null);
   const bottomReference = useRef(null);
-  const htmlReference = useRef(null);
+  const buttonReference = useRef(null);
 
   return (
     <div className="tooltip-component">
@@ -37,12 +37,12 @@ export const TooltipDemo = () => {
         ref={bottomReference}
         placeholder={t("tooltip.positions.bottom")}
       />
-      <div className="button-tooltip">
-        <Tooltip elementRef={htmlReference} position="right" offset={10}>
+      <div className="button-save">
+        <Tooltip elementRef={buttonReference} position="right" offset={10}>
           <i className="pi pi-check"></i>
           <span>{t("tooltip.button.message")}</span>
         </Tooltip>
-        <button ref={htmlReference}>{t("tooltip.button.save")}</button>
+        <button ref={buttonReference}>{t("tooltip.button.save")}</button>
       </div>
     </div>
   );
