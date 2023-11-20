@@ -256,7 +256,7 @@ const componentList = [
   },
   {
     key: 12,
-    title: "tooltip",
+    title: "tooltip.title",
     component: <TooltipDemo></TooltipDemo>,
   },
 ];
