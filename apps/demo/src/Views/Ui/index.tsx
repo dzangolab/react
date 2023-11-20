@@ -12,10 +12,10 @@ import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
+import MessageDemo from "./MessageDemo";
 import { SubmitButton } from "./SubmitButton";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import MessageDemo from "./MessageDemo";
 
 const componentList = [
   {

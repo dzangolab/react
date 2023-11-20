@@ -13,7 +13,6 @@ import {
 } from "@tanstack/react-table";
 import { Checkbox } from "primereact/checkbox";
 import { InputText } from "primereact/inputtext";
-import { Paginator } from "primereact/paginator";
 import React, {
   SyntheticEvent,
   useCallback,
@@ -39,6 +38,7 @@ import {
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
 import LoadingIcon from "../../LoadingIcon";
+import { Pagination } from "../../Pagination";
 
 import type { TCustomColumnFilter, TDataTableProperties } from "./types";
 import type { ColumnDef } from "@tanstack/react-table";
@@ -331,27 +331,21 @@ const DataTable = <TData extends { id: string | number }>({
           {renderCustomPagination ? (
             renderCustomPagination(table)
           ) : (
-            <div className="p-paginator-bottom p-paginator p-component">
-              <Paginator
-                first={pagination.pageIndex * pagination.pageSize}
-                rows={pagination.pageSize}
-                totalRecords={
-                  fetchData
-                    ? totalRecords
-                    : table.getFilteredRowModel().rows?.length
-                }
-                rowsPerPageOptions={
-                  rowPerPageOptions || DEFAULT_PAGE_PER_OPTIONS
-                }
-                onPageChange={(event) => {
-                  const currentPageIndex = Math.ceil(event.first / event.rows);
-                  setPagination({
-                    pageIndex: currentPageIndex,
-                    pageSize: event.rows,
-                  });
-                }}
-              />
-            </div>
+            <Pagination
+              currentPage={pagination.pageIndex}
+              defaultItemsPerPage={pagination.pageSize}
+              onPageChange={(currentPage) => {
+                table.setPageIndex(currentPage);
+              }}
+              onItemsPerPageChange={(itemsPerPage) => {
+                table.setPageSize(itemsPerPage);
+              }}
+              totalItems={
+                fetchData
+                  ? totalRecords
+                  : table.getFilteredRowModel().rows?.length
+              }
+            ></Pagination>
           )}
         </>
       ) : null}

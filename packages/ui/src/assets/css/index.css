@@ -15,6 +15,7 @@
 @import "./ssoBaseButton.css";
 @import "./googleButton.css";
 @import "./primereact-override/index.css";
+@import "./pagination.css";
 @import "./fileCard.css";
 @import "./filelist.css";
 @import "./files-table.css";
