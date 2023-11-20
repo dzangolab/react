@@ -18,33 +18,24 @@ export const TooltipDemo = () => {
         offset={10}
         delay={100}
       >
-        {t("tooltip.positions.right.message")}
+        {t("tooltip.message")}
       </Tooltip>
-      <input
-        ref={rightReference}
-        placeholder={t("tooltip.positions.right.placeholder")}
-      />
+      <input ref={rightReference} placeholder={t("tooltip.positions.right")} />
       <Tooltip elementRef={leftReference} position="left" delay={200}>
-        {t("tooltip.positions.left.message")}
+        {t("tooltip.message")}
       </Tooltip>
-      <input
-        ref={leftReference}
-        placeholder={t("tooltip.positions.left.placeholder")}
-      />
+      <input ref={leftReference} placeholder={t("tooltip.positions.left")} />
       <Tooltip elementRef={topReference} position="top" offset={10} delay={500}>
-        {t("tooltip.positions.top.message")}
+        {t("tooltip.message")}
       </Tooltip>
-      <input
-        ref={topReference}
-        placeholder={t("tooltip.positions.top.placeholder")}
-      />
+      <input ref={topReference} placeholder={t("tooltip.positions.top")} />
       <Tooltip elementRef={bottomReference} position="bottom">
-        <h3>{t("tooltip.positions.bottom.placeholder")}</h3>
-        <h4>{t("tooltip.positions.bottom.message")}</h4>
+        <h3>{t("tooltip.positions.bottom")}</h3>
+        <h4>{t("tooltip.message")}</h4>
       </Tooltip>
       <input
         ref={bottomReference}
-        placeholder={t("tooltip.positions.bottom.placeholder")}
+        placeholder={t("tooltip.positions.bottom")}
       />
       <div className="button-tooltip">
         <Tooltip elementRef={htmlReference} position="right" offset={10}>

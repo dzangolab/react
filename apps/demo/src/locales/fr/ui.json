@@ -38,6 +38,10 @@
   "file": {
     "card": "File card (fr)"
   },
+  "message": {
+    "title": "Message (fr)",
+    "content": "User session is expired (fr)"
+  },
   "tooltip": {
     "title": "Tooltip (fr)",
     "positions": {
@@ -51,9 +55,5 @@
       "save": "Save (fr)",
       "message": "Save the data (fr)"
     }
-  },
-  "message":{
-    "title": "Message (fr)",
-    "content":"User session is expired (fr)"
   }
 }
