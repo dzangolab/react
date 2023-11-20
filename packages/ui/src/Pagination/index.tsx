@@ -68,27 +68,29 @@ export const Pagination: React.FC<PaginationProperties> = ({
   return (
     <div className={`pagination ${className || ""}`}>
       <div className="buttons-wrapper">
-        <div>
-          {showFirstLastButtons && (
-            <button
-              className="first-page"
-              onClick={() => onPageChange(0)}
-              disabled={!(currentPage > 0)}
-            >
-              <i className="pi pi-angle-double-left" />
-            </button>
-          )}
+        {showFirstLastButtons || showPreviousNextButtons ? (
+          <div>
+            {showFirstLastButtons && (
+              <button
+                className="first-page"
+                onClick={() => onPageChange(0)}
+                disabled={!(currentPage > 0)}
+              >
+                <i className="pi pi-angle-double-left" />
+              </button>
+            )}
 
-          {showPreviousNextButtons && (
-            <button
-              className="previous-page"
-              onClick={() => onPageChange(currentPage - 1)}
-              disabled={!(currentPage > 0)}
-            >
-              <i className="pi pi-angle-left" />
-            </button>
-          )}
-        </div>
+            {showPreviousNextButtons && (
+              <button
+                className="previous-page"
+                onClick={() => onPageChange(currentPage - 1)}
+                disabled={!(currentPage > 0)}
+              >
+                <i className="pi pi-angle-left" />
+              </button>
+            )}
+          </div>
+        ) : null}
 
         <div>
           {showPageButtons ? (
@@ -108,27 +110,29 @@ export const Pagination: React.FC<PaginationProperties> = ({
           )}
         </div>
 
-        <div>
-          {showPreviousNextButtons && (
-            <button
-              className="next-page"
-              onClick={() => onPageChange(currentPage + 1)}
-              disabled={!(currentPage < lastPage - 1)}
-            >
-              <i className="pi pi-angle-right" />
-            </button>
-          )}
+        {showFirstLastButtons || showPreviousNextButtons ? (
+          <div>
+            {showPreviousNextButtons && (
+              <button
+                className="next-page"
+                onClick={() => onPageChange(currentPage + 1)}
+                disabled={!(currentPage < lastPage - 1)}
+              >
+                <i className="pi pi-angle-right" />
+              </button>
+            )}
 
-          {showFirstLastButtons && (
-            <button
-              className="last-page"
-              onClick={() => onPageChange(lastPage - 1)}
-              disabled={!(currentPage < lastPage - 1)}
-            >
-              <i className="pi pi-angle-double-right" />
-            </button>
-          )}
-        </div>
+            {showFirstLastButtons && (
+              <button
+                className="last-page"
+                onClick={() => onPageChange(lastPage - 1)}
+                disabled={!(currentPage < lastPage - 1)}
+              >
+                <i className="pi pi-angle-double-right" />
+              </button>
+            )}
+          </div>
+        ) : null}
       </div>
 
       {showItemsPerPageControl && (
