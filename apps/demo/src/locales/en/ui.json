@@ -41,20 +41,20 @@
   "tooltip": {
     "title": "Tooltip",
     "positions": {
-      "top": {
-        "placeHolder": "top",
-        "message": "Enter your name"
-      },
       "bottom": {
-        "placeHolder": "bottom",
+        "placeholder": "Bottom",
         "message": "Enter your name"
       },
       "left": {
-        "placeHolder": "left",
+        "placeholder": "Left",
         "message": "Enter your name"
       },
       "right": {
-        "placeHolder": "right",
+        "placeholder": "Right",
+        "message": "Enter your name"
+      },
+      "top": {
+        "placeholder": "Top",
         "message": "Enter your name"
       }
     }

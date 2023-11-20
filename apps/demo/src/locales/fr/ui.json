@@ -41,20 +41,20 @@
   "tooltip": {
     "title": "Tooltip (fr)",
     "positions": {
-      "top": {
-        "placeHolder": "top (fr)",
-        "message": "Enter your name (fr)"
-      },
       "bottom": {
-        "placeHolder": "bottom (fr)",
+        "placeholder": "Bottom (fr)",
         "message": "Enter your name (fr)"
       },
       "left": {
-        "placeHolder": "left (fr)",
+        "placeholder": "Left (fr)",
         "message": "Enter your name (fr)"
       },
       "right": {
-        "placeHolder": "right (fr)",
+        "placeholder": "Right (fr)",
+        "message": "Enter your name (fr)"
+      },
+      "top": {
+        "placeholder": "Top (fr)",
         "message": "Enter your name (fr)"
       }
     }

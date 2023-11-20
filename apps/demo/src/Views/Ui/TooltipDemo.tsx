@@ -14,19 +14,31 @@ export const TooltipDemo = () => {
       <Tooltip elementRef={rightReference} position="right" delay={100}>
         {t("tooltip.positions.right.message")}
       </Tooltip>
-      <input ref={rightReference} placeholder="right" />
+      <input
+        ref={rightReference}
+        placeholder={t("tooltip.positions.right.placeholder")}
+      />
       <Tooltip elementRef={leftReference} position="left" delay={200}>
         {t("tooltip.positions.left.message")}
       </Tooltip>
-      <input ref={leftReference} placeholder="left" />
+      <input
+        ref={leftReference}
+        placeholder={t("tooltip.positions.left.placeholder")}
+      />
       <Tooltip elementRef={topReference} position="top" delay={100}>
         {t("tooltip.positions.top.message")}
       </Tooltip>
-      <input ref={topReference} placeholder="top" />
+      <input
+        ref={topReference}
+        placeholder={t("tooltip.positions.top.placeholder")}
+      />
       <Tooltip elementRef={bottomReference} position="bottom" delay={200}>
         {t("tooltip.positions.bottom.message")}
       </Tooltip>
-      <input ref={bottomReference} placeholder="bottom" />
+      <input
+        ref={bottomReference}
+        placeholder={t("tooltip.positions.bottom.placeholder")}
+      />
     </div>
   );
 };
