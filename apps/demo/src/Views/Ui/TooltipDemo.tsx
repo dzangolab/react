@@ -22,22 +22,11 @@ export const TooltipDemo = () => {
         {t("tooltip.content")}
       </Tooltip>
       <div ref={rightReference}>{t("tooltip.positions.right")}</div>
-      <Tooltip
-        elementRef={leftReference}
-        position="left"
-        delay={200}
-        mouseTrack
-      >
+      <Tooltip elementRef={leftReference} position="left" delay={200}>
         {t("tooltip.content")}
       </Tooltip>
       <div ref={leftReference}>{t("tooltip.positions.left")}</div>
-      <Tooltip
-        elementRef={topReference}
-        position="top"
-        offset={10}
-        delay={500}
-        mouseTrack
-      >
+      <Tooltip elementRef={topReference} position="top" offset={10} delay={500}>
         {t("tooltip.content")}
       </Tooltip>
       <div ref={topReference}>{t("tooltip.positions.top")}</div>
@@ -46,12 +35,7 @@ export const TooltipDemo = () => {
         <h4>{t("tooltip.content")}</h4>
       </Tooltip>
       <div ref={bottomReference}>{t("tooltip.positions.bottom")}</div>
-      <Tooltip
-        elementRef={buttonReference}
-        position="right"
-        offset={10}
-        mouseTrack
-      >
+      <Tooltip elementRef={buttonReference} position="right" offset={10}>
         <i className="pi pi-check"></i>
         <span>{t("tooltip.button.content")}</span>
       </Tooltip>
