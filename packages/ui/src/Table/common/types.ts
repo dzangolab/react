@@ -1,4 +1,7 @@
+import { Tooltip } from "@/Tooltip";
+
 import type {
+  Cell,
   ColumnDef,
   ColumnFilter,
   PaginationState,
@@ -6,7 +9,7 @@ import type {
   Table,
   TableOptions,
 } from "@tanstack/react-table";
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
 
@@ -170,6 +173,8 @@ declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
   interface ColumnDefBase<TData, TValue> {
     align?: "left" | "center" | "right";
+    tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
+    tooltipOptions?: Omit<ComponentProps<typeof Tooltip>, "elementRef">;
   }
 }
 
