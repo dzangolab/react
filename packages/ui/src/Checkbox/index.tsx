@@ -3,7 +3,7 @@ type CheckboxProperties = {
   name?: string;
   label?: string;
   checked?: boolean;
-  handleChange: () => void;
+  handleChange?: () => void;
 };
 
 const Checkbox: React.FC<CheckboxProperties> = ({
