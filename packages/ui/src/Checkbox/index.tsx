@@ -1,9 +1,20 @@
-type CheckBoxProperties = object;
+type CheckBoxProperties = {
+  name?: string;
+  label?: string;
+  checked?: boolean;
+  handleChange?: () => void;
+};
 
-const CheckBox: React.FC<CheckBoxProperties> = () => {
+const CheckBox: React.FC<CheckBoxProperties> = ({
+  name,
+  label,
+  handleChange,
+  ...others
+}) => {
   return (
-    <div>
-      <input type="checkbox" />
+    <div className={`field ${name}`}>
+      <input type="checkbox" name={name} onChange={handleChange} {...others} />
+      <label htmlFor={name}>{label}</label>
     </div>
   );
 };
