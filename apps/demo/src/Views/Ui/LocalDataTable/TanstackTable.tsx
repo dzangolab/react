@@ -18,14 +18,14 @@ const TanstackTable = () => {
         {
           accessorKey: "middleNames",
           header: () => <span>{t("table.headers.middleNames")}</span>,
-        },
-        {
-          accessorKey: "surname",
-          header: () => <span>{t("table.headers.surname")}</span>,
           enableSorting: false,
           enableHiding: false,
           enableColumnFilter: false,
           enableGlobalFilter: false,
+        },
+        {
+          accessorKey: "surname",
+          header: () => <span>{t("table.headers.surname")}</span>,
         },
         {
           accessorKey: "address",
@@ -44,10 +44,16 @@ const TanstackTable = () => {
           };
         }
         return data;
-      })(20)}
+      })(200)}
       isLoading={false}
       onRowSelectChange={() => {}}
       enableRowSelection={true}
+      paginationOptions={{
+        showPageButtons: false,
+        pageInputLabel: t("table.pagination.pageControl"),
+        itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
+      emptyTableMessage={t("table.emptyTableMessage")}
       stripe="even"
     ></TDataTable>
   );

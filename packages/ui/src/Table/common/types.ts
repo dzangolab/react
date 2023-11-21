@@ -1,4 +1,5 @@
-import { Tooltip } from "@/Tooltip";
+import { Pagination } from "../../Pagination";
+import { Tooltip } from "../../Tooltip";
 
 import type {
   Cell,
@@ -174,7 +175,9 @@ declare module "@tanstack/react-table" {
   interface ColumnDefBase<TData, TValue> {
     align?: "left" | "center" | "right";
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
-    tooltipOptions?: Omit<ComponentProps<typeof Tooltip>, "elementRef">;
+    tooltipOptions?: Partial<
+      Omit<ComponentProps<typeof Tooltip>, "elementRef">
+    >;
   }
 }
 
@@ -204,5 +207,14 @@ export interface TDataTableProperties<TData>
   onRowSelectChange?: (table: Table<TData>) => void;
   totalRecords?: number;
   inputDebounceTime?: number;
+  paginationOptions?: Omit<
+    ComponentProps<typeof Pagination>,
+    | "currentPage"
+    | "totalItems"
+    | "onPageChange"
+    | "onItemsPerPageChange"
+    | "itemsPerPageOptions"
+    | "defaultItemsPerPage"
+  >;
   stripe?: "none" | "even" | "odd";
 }

@@ -12,8 +12,6 @@ import {
   Updater,
 } from "@tanstack/react-table";
 import { Checkbox } from "primereact/checkbox";
-import { InputText } from "primereact/inputtext";
-import { Paginator } from "primereact/paginator";
 import React, {
   SyntheticEvent,
   useCallback,
@@ -39,7 +37,9 @@ import {
   TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
+import { DebouncedInput } from "../../";
 import LoadingIcon from "../../LoadingIcon";
+import { Pagination } from "../../Pagination";
 
 import type { TCustomColumnFilter, TDataTableProperties } from "./types";
 import type { Cell, ColumnDef } from "@tanstack/react-table";
@@ -57,10 +57,11 @@ const DataTable = <TData extends { id: string | number }>({
   title,
   paginated = true,
   rowPerPage,
-  rowPerPageOptions,
+  rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
   visibleColumns = [],
   onRowSelectChange,
   totalRecords = 0,
+  paginationOptions,
   stripe = "none",
   ...tableOptions
 }: TDataTableProperties<TData>) => {
@@ -295,12 +296,11 @@ const DataTable = <TData extends { id: string | number }>({
                       activeColumnClass
                     }
                   >
-                    <InputText
-                      value={(column.getFilterValue() ?? "") as string}
-                      onChange={(event) => {
-                        column.setFilterValue(event.target.value);
+                    <DebouncedInput
+                      onInputChange={(value) => {
+                        column.setFilterValue(value);
                       }}
-                    ></InputText>
+                    ></DebouncedInput>
                   </TableCell>
                 );
               })}
@@ -348,7 +348,7 @@ const DataTable = <TData extends { id: string | number }>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length}>
+              <TableCell colSpan={columnsWithRowSelection.length}>
                 {emptyTableMessage}
               </TableCell>
             </TableRow>
@@ -365,27 +365,23 @@ const DataTable = <TData extends { id: string | number }>({
           {renderCustomPagination ? (
             renderCustomPagination(table)
           ) : (
-            <div className="p-paginator-bottom p-paginator p-component">
-              <Paginator
-                first={pagination.pageIndex * pagination.pageSize}
-                rows={pagination.pageSize}
-                totalRecords={
-                  fetchData
-                    ? totalRecords
-                    : table.getFilteredRowModel().rows?.length
-                }
-                rowsPerPageOptions={
-                  rowPerPageOptions || DEFAULT_PAGE_PER_OPTIONS
-                }
-                onPageChange={(event) => {
-                  const currentPageIndex = Math.ceil(event.first / event.rows);
-                  setPagination({
-                    pageIndex: currentPageIndex,
-                    pageSize: event.rows,
-                  });
-                }}
-              />
-            </div>
+            <Pagination
+              currentPage={pagination.pageIndex}
+              defaultItemsPerPage={pagination.pageSize}
+              onPageChange={(currentPage) => {
+                table.setPageIndex(currentPage);
+              }}
+              itemsPerPageOptions={rowPerPageOptions}
+              onItemsPerPageChange={(itemsPerPage) => {
+                table.setPageSize(itemsPerPage);
+              }}
+              totalItems={
+                fetchData
+                  ? totalRecords
+                  : table.getFilteredRowModel().rows?.length
+              }
+              {...paginationOptions}
+            ></Pagination>
           )}
         </>
       ) : null}
