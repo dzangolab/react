@@ -12,7 +12,6 @@ import {
   Updater,
 } from "@tanstack/react-table";
 import { Checkbox } from "primereact/checkbox";
-import { InputText } from "primereact/inputtext";
 import React, {
   SyntheticEvent,
   useCallback,
@@ -37,6 +36,7 @@ import {
   TableFooter,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
+import { DebouncedInput } from "../../";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
@@ -56,7 +56,7 @@ const DataTable = <TData extends { id: string | number }>({
   title,
   paginated = true,
   rowPerPage,
-  rowPerPageOptions,
+  rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
   visibleColumns = [],
   onRowSelectChange,
   totalRecords = 0,
@@ -282,12 +282,11 @@ const DataTable = <TData extends { id: string | number }>({
                       activeColumnClass
                     }
                   >
-                    <InputText
-                      value={(column.getFilterValue() ?? "") as string}
-                      onChange={(event) => {
-                        column.setFilterValue(event.target.value);
+                    <DebouncedInput
+                      onInputChange={(value) => {
+                        column.setFilterValue(value);
                       }}
-                    ></InputText>
+                    ></DebouncedInput>
                   </TableCell>
                 );
               })}

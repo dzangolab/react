@@ -44,6 +44,7 @@ const TanstackTable = () => {
       isLoading={false}
       onRowSelectChange={() => {}}
       enableRowSelection={true}
+      paginationOptions={{ showPageButtons: false }}
     ></TDataTable>
   );
 };

@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+
+import { DebouncedInput } from "..";
 
 export interface PaginationProperties {
   currentPage: number;
@@ -22,7 +24,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
   totalItems,
   onPageChange,
   onItemsPerPageChange,
-  itemsPerPageOptions = [5, 10, 20],
+  itemsPerPageOptions = [5, 10, 20, 30],
   itemsPerPageControlLabel = "Items per page",
   pageInputLabel = "Go to page:",
   defaultItemsPerPage = itemsPerPageOptions[0],
@@ -34,7 +36,6 @@ export const Pagination: React.FC<PaginationProperties> = ({
   showPageInput = true,
 }) => {
   const [itemsPerPage, setItemsPerPage] = useState<number>(defaultItemsPerPage);
-  const [customPage, setCustomPage] = useState<string>("");
 
   useEffect(() => {
     setItemsPerPage(defaultItemsPerPage);
@@ -52,21 +53,38 @@ export const Pagination: React.FC<PaginationProperties> = ({
     onItemsPerPageChange && onItemsPerPageChange(newItemsPerPage);
   };
 
-  const handlePageInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    setCustomPage(event.target.value);
-  };
+  const handlePageInputChange = useCallback(
+    (value: string | number | readonly string[]) => {
+      const newPage = parseInt(value.toString(), 10) - 1;
 
-  const handlePageInputBlur = () => {
-    const newPage = parseInt(customPage, 10) - 1;
-    if (!isNaN(newPage) && newPage >= 0 && newPage < lastPage) {
-      onPageChange(newPage);
-    }
-  };
+      if (!isNaN(newPage) && newPage >= 0 && newPage < lastPage) {
+        onPageChange(newPage);
+      }
+    },
+    [lastPage, onPageChange],
+  );
 
   return (
     <div className={`pagination ${className || ""}`}>
+      {showItemsPerPageControl && (
+        <div className="items-per-page-control">
+          <span>{itemsPerPageControlLabel}</span>
+          <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+            {itemsPerPageOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {showPageInput && (
+        <div className="page-input-control">
+          <span>{pageInputLabel}</span>
+          <DebouncedInput type="number" onInputChange={handlePageInputChange} />
+        </div>
+      )}
       <div className="buttons-wrapper">
         {showFirstLastButtons || showPreviousNextButtons ? (
           <div>
@@ -106,7 +124,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
               </button>
             ))
           ) : (
-            <span> {`${currentPage + 1} of ${lastPage}`}</span>
+            <span> {`${currentPage + 1} / ${lastPage}`}</span>
           )}
         </div>
 
@@ -134,31 +152,6 @@ export const Pagination: React.FC<PaginationProperties> = ({
           </div>
         ) : null}
       </div>
-
-      {showItemsPerPageControl && (
-        <div className="items-per-page-control">
-          <span>{itemsPerPageControlLabel}</span>
-          <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
-            {itemsPerPageOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      {showPageInput && (
-        <div className="page-input-control">
-          <span>{pageInputLabel}</span>
-          <input
-            type="number"
-            value={customPage}
-            onChange={handlePageInputChange}
-            onBlur={handlePageInputBlur}
-          />
-        </div>
-      )}
     </div>
   );
 };

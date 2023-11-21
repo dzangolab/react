@@ -1,6 +1,6 @@
 .pagination {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   list-style: none;
   padding: 0.8rem;
   background-color: #f8f9fa;
@@ -23,6 +23,7 @@
 
 .pagination .buttons-wrapper {
   padding: 0.5rem 0;
+  margin-left: auto;
 }
 
 .first-page,
@@ -75,16 +76,5 @@
 
 .items-per-page-control select,
 .page-input-control input {
-  padding: 6px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
   width: 4rem;
-  background-color: #f8f9fa;
-}
-
-.items-per-page-control select:focus,
-.page-input-control input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
