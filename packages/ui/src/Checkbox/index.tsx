@@ -1,11 +1,11 @@
-type CheckBoxProperties = {
+type CheckboxProperties = {
   name?: string;
   label?: string;
   checked?: boolean;
   handleChange: () => void;
 };
 
-const CheckBox: React.FC<CheckBoxProperties> = ({
+const Checkbox: React.FC<CheckboxProperties> = ({
   name,
   label,
   handleChange,
@@ -19,4 +19,4 @@ const CheckBox: React.FC<CheckBoxProperties> = ({
   );
 };
 
-export default CheckBox;
+export default Checkbox;

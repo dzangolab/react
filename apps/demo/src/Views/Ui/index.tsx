@@ -17,7 +17,7 @@ import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import { CheckBox } from "@dzangolab/react-ui";
+import { Checkbox } from "@dzangolab/react-ui";
 
 const componentList = [
   {
@@ -271,7 +271,7 @@ const componentList = [
     key: 14,
     title: "checkbox.title",
     component: (
-      <CheckBox
+      <Checkbox
         handleChange={() => console.log("Hello")}
         label="Please sign your terms and conditions"
       />

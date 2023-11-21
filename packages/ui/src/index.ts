@@ -2,7 +2,7 @@ import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
 import { SubPane } from "./components/SubPane";
-import CheckBox from "./Checkbox";
+import Checkbox from "./Checkbox";
 import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
@@ -26,7 +26,7 @@ export * from "./utils";
 
 export {
   Accordion,
-  CheckBox,
+  Checkbox,
   Divider,
   DropdownMenu,
   GoogleButton,
