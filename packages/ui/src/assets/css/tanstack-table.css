@@ -134,16 +134,23 @@
 
 .table-container
   .table-wrapper
-  .table
-  .tbody[data-stripe="even"]
+  .table[data-stripe="even"]
+  .tbody
   .trow:nth-child(odd) {
   background-color: var(--table-stripe-color);
 }
 
+.table-container .table-wrapper .table[data-stripe="even"] .tcell,
+.table-container .table-wrapper .table[data-stripe="even"] .tcol-head,
+.table-container .table-wrapper .table[data-stripe="odd"] .tcell,
+.table-container .table-wrapper .table[data-stripe="odd"] .tcol-head {
+  border: none;
+}
+
 .table-container
   .table-wrapper
-  .table
-  .tbody[data-stripe="odd"]
+  .table[data-stripe="odd"]
+  .tbody
   .trow:nth-child(even) {
   background-color: var(--table-stripe-color);
 }

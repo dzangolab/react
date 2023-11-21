@@ -1,4 +1,4 @@
-import { useState, RefObject, useCallback, useEffect } from "react";
+import { useState, RefObject, useEffect } from "react";
 
 type Position = {
   top?: number;
