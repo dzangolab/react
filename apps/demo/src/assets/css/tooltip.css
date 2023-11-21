@@ -1,0 +1,16 @@
+.tooltip-component div {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.button-save {
+  background-color: blue;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
