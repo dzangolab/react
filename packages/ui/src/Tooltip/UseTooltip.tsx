@@ -34,7 +34,7 @@ export function useTooltip({
 
     if (showTooltip) {
       console.log(mousePosition);
-      if (mouseTrack && mousePosition) {
+      if (mouseTrack) {
         setTooltipPosition({
           top: mousePosition.top,
           left: mousePosition.left,
@@ -85,12 +85,13 @@ export function useTooltip({
             });
         }
       }
+      console.log("tooltip", tooltipPosition);
     }
 
     if (!showTooltip) {
       setTooltipPosition({});
     }
-  }, [showTooltip, ref]);
+  }, [showTooltip, ref, mousePosition]);
 
   const onMouseEnter = () => {
     timeoutId = setTimeout(() => {
@@ -104,15 +105,9 @@ export function useTooltip({
   };
 
   const onMouseMove = (event: MouseEvent) => {
-    if (mouseTrack) {
-      console.log("Mouse Position:", {
-        top: event.clientY,
-        left: event.clientX,
-      });
-
-      setMousePosition({ top: event.clientY, left: event.clientX });
-    }
+    setMousePosition({ top: event.clientY, left: event.clientX });
   };
+
   return {
     tooltipPosition: {
       top: tooltipPosition.top,
