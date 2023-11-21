@@ -4,7 +4,6 @@
   list-style: none;
   padding: 0.8rem;
   background-color: #f8f9fa;
-  border-radius: 5px;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
@@ -77,4 +76,17 @@
 .items-per-page-control select,
 .page-input-control input {
   width: 4rem;
+}
+
+.items-per-page-control select {
+  padding: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+.items-per-page-control select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }

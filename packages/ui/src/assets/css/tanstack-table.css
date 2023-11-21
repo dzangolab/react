@@ -148,3 +148,8 @@
 .table-container .table-wrapper .table .tcol-head {
   padding: var(--table-column-padding);
 }
+
+.table-container .pagination {
+  border: var(--table-border);
+  border-top: none;
+}
