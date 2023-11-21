@@ -1,4 +1,5 @@
 type CheckboxProperties = {
+  register?: any;
   name?: string;
   label?: string;
   checked?: boolean;
@@ -6,6 +7,7 @@ type CheckboxProperties = {
 };
 
 const Checkbox: React.FC<CheckboxProperties> = ({
+  register,
   name,
   label,
   handleChange,
@@ -13,7 +15,14 @@ const Checkbox: React.FC<CheckboxProperties> = ({
 }) => {
   return (
     <div className="check-box-wrapper">
-      <input type="checkbox" name={name} onChange={handleChange} {...others} />
+      <input
+        id={name}
+        type="checkbox"
+        {...(register ? register(name) : undefined)}
+        name={name}
+        onChange={handleChange}
+        {...others}
+      />
       {label && <label htmlFor={name}>{label}</label>}
     </div>
   );
