@@ -8,6 +8,7 @@ type TooltipProperties = {
   className?: string;
   delay?: number;
   elementRef: RefObject<HTMLElement>;
+  mouseTrack?: boolean;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
   style?: object;
@@ -18,6 +19,7 @@ export const Tooltip: FC<TooltipProperties> = ({
   className,
   delay,
   elementRef,
+  mouseTrack = false,
   offset,
   position,
   style,
@@ -27,6 +29,7 @@ export const Tooltip: FC<TooltipProperties> = ({
   const { tooltipPosition, showTooltip, onMouseEnter, onMouseLeave } =
     useTooltip({
       delay,
+      mouseTrack,
       offset,
       position,
       ref: elementRef,

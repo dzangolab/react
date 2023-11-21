@@ -7,6 +7,7 @@ type Position = {
 
 type UseTooltipProperties = {
   delay?: number;
+  mouseTrack?: boolean;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
   ref: RefObject<HTMLElement>;
