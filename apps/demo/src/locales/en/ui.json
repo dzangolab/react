@@ -14,6 +14,10 @@
       "tanstackTable": "Tanstack table",
       "localDataTable": "Local data table"
     },
+    "pagination": {
+      "pageControl": "Go to",
+      "rowsPerPage": "Rows"
+    },
     "headers": {
       "userName": "User name",
       "email": "Email",
@@ -28,7 +32,8 @@
     "delete": {
       "message": "Are you sure you want to delete?",
       "header": "Confirm delete"
-    }
+    },
+    "emptyTableMessage": "No records found."
   },
   "files": {
     "table": "Files table",

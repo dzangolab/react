@@ -314,7 +314,7 @@ const DataTable = <TData extends { id: string | number }>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length}>
+              <TableCell colSpan={columnsWithRowSelection.length}>
                 {emptyTableMessage}
               </TableCell>
             </TableRow>
