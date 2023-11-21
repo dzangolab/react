@@ -268,9 +268,14 @@ const componentList = [
     component: <TooltipDemo />,
   },
   {
-    key: 13,
+    key: 14,
     title: "checkbox.title",
-    component: <CheckBox />,
+    component: (
+      <CheckBox
+        handleChange={() => console.log("Hello")}
+        label="Please sign your terms and conditions"
+      />
+    ),
   },
 ];
 
