@@ -12,7 +12,7 @@ const CheckBox: React.FC<CheckBoxProperties> = ({
   ...others
 }) => {
   return (
-    <div className={`check-box-wrapper ${name}`}>
+    <div className="check-box-wrapper">
       <input type="checkbox" name={name} onChange={handleChange} {...others} />
       {label && <label htmlFor={name}>{label}</label>}
     </div>
