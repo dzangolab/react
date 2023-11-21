@@ -6,13 +6,15 @@ type Position = {
 };
 
 type UseTooltipProperties = {
-  ref: RefObject<HTMLElement>;
-  tooltipReference: RefObject<HTMLDivElement>;
+  delay?: number;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
+  ref: RefObject<HTMLElement>;
+  tooltipReference: RefObject<HTMLDivElement>;
 };
 
 export function useTooltip({
+  delay = 0,
   ref,
   tooltipReference,
   offset = 5,
@@ -20,6 +22,7 @@ export function useTooltip({
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [tooltipPosition, setTooltipPosition] = useState<Position>({});
+  let timeoutId: ReturnType<typeof setTimeout>;
 
   useEffect(() => {
     if (!ref.current) {
@@ -78,13 +81,16 @@ export function useTooltip({
     }
   }, [showTooltip, ref]);
 
-  const onMouseEnter = useCallback(() => {
-    setShowTooltip(true);
-  }, []);
+  const onMouseEnter = () => {
+    timeoutId = setTimeout(() => {
+      setShowTooltip(true);
+    }, delay);
+  };
 
-  const onMouseLeave = useCallback(() => {
+  const onMouseLeave = () => {
+    clearTimeout(timeoutId);
     setShowTooltip(false);
-  }, []);
+  };
 
   return {
     tooltipPosition: {

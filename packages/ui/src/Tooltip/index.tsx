@@ -6,6 +6,7 @@ import { useTooltip } from "./UseTooltip";
 type TooltipProperties = {
   children: React.ReactNode;
   className?: string;
+  delay?: number;
   elementRef: RefObject<HTMLElement>;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
@@ -15,6 +16,7 @@ type TooltipProperties = {
 export const Tooltip: FC<TooltipProperties> = ({
   children,
   className,
+  delay,
   elementRef,
   offset,
   position,
@@ -24,10 +26,11 @@ export const Tooltip: FC<TooltipProperties> = ({
 
   const { tooltipPosition, showTooltip, onMouseEnter, onMouseLeave } =
     useTooltip({
-      ref: elementRef,
-      tooltipReference,
+      delay,
       offset,
       position,
+      ref: elementRef,
+      tooltipReference,
     });
 
   useEffect(() => {

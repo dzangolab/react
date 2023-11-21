@@ -37,6 +37,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   const { t } = useTranslation("invitations");
 
   const {
+    trigger,
     register,
     getFieldState,
     setValue,
@@ -61,6 +62,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     // if there's only one role, select it by default
     if (filteredRoles?.length === 1) {
       setValue("role", filteredRoles[0]);
+      trigger("role");
     }
   }, [filteredRoles]);
 
