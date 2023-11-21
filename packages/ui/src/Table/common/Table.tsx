@@ -61,6 +61,7 @@ const DataTable = <TData extends { id: string | number }>({
   visibleColumns = [],
   onRowSelectChange,
   totalRecords = 0,
+  stripe = "none",
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -198,7 +199,7 @@ const DataTable = <TData extends { id: string | number }>({
         <TableToolbar children={renderToolbarItems(table)} />
       ) : null}
 
-      <Table>
+      <Table data-stripe={stripe}>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">

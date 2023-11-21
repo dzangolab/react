@@ -4,10 +4,11 @@
   --table-border: 1px solid rgb(226, 226, 226);
   --table-header-bg-color: rgb(245, 245, 245);
   --table-header-active-bg-color: rgb(232, 240, 255);
-  --table-row-hover-bg-color: rgb(250, 250, 250);
+  --table-row-hover-bg-color: #318aff0f;
   --table-column-padding: 0.5rem;
   --table-row-selected-bg-color: rgb(240, 245, 255);
   --table-text-color: rgb(78, 78, 78);
+  --table-stripe-color: #0064ff08;
 }
 
 /* Tanstack table class definitions */
@@ -131,13 +132,40 @@
   background-color: var(--table-header-active-bg-color);
 }
 
+.table-container
+  .table-wrapper
+  .table[data-stripe="even"]
+  .tbody
+  .trow:nth-child(odd) {
+  background-color: var(--table-stripe-color);
+}
+
+.table-container .table-wrapper .table[data-stripe="even"] .tcell,
+.table-container .table-wrapper .table[data-stripe="even"] .tcol-head,
+.table-container .table-wrapper .table[data-stripe="odd"] .tcell,
+.table-container .table-wrapper .table[data-stripe="odd"] .tcol-head {
+  border: none;
+}
+
+.table-container
+  .table-wrapper
+  .table[data-stripe="odd"]
+  .tbody
+  .trow:nth-child(even) {
+  background-color: var(--table-stripe-color);
+}
+
 .table-container .table-wrapper .table .tbody .trow[data-state="selected"] {
-  background-color: var(--table-row-selected-bg-color);
+  background-color: var(--table-row-selected-bg-color) !important;
+}
+
+.table-wrapper .table .tbody .trow:hover:not(.trow.filters) {
+  background-color: var(--table-row-hover-bg-color) !important;
 }
 
 .table-wrapper .table .header-row,
 .table-wrapper .table .trow.filters {
-  background-color: var(--table-header-bg-color);
+  background-color: var(--table-header-bg-color) !important;
 }
 
 .table-wrapper .table .tbody .trow:hover:not(.trow.filters) {

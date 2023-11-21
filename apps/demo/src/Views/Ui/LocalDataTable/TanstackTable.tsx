@@ -48,6 +48,7 @@ const TanstackTable = () => {
       isLoading={false}
       onRowSelectChange={() => {}}
       enableRowSelection={true}
+      stripe="even"
     ></TDataTable>
   );
 };
