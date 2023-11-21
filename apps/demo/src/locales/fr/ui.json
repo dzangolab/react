@@ -55,5 +55,8 @@
       "save": "Save (fr)",
       "content": "Save the data (fr)"
     }
+  },
+  "checkbox":{
+    "title":"Checkbox"
   }
 }

@@ -55,5 +55,8 @@
       "save": "Save",
       "content": "Save the data"
     }
+  },
+  "checkbox":{
+    "title":"Checkbox"
   }
 }

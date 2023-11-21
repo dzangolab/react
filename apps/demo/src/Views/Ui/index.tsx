@@ -17,6 +17,7 @@ import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import { CheckBox } from "@dzangolab/react-ui";
 
 const componentList = [
   {
@@ -265,6 +266,11 @@ const componentList = [
     key: 13,
     title: "tooltip.title",
     component: <TooltipDemo />,
+  },
+  {
+    key: 13,
+    title: "checkbox.title",
+    component: <CheckBox />,
   },
 ];
 
