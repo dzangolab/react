@@ -10,6 +10,10 @@ const TanstackTable = () => {
         {
           accessorKey: "givenName",
           header: () => <span>{t("table.headers.givenName")}</span>,
+          tooltip: true,
+          tooltipOptions: {
+            position: "right",
+          },
         },
         {
           accessorKey: "middleNames",
@@ -50,6 +54,7 @@ const TanstackTable = () => {
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
       }}
       emptyTableMessage={t("table.emptyTableMessage")}
+      stripe="even"
     ></TDataTable>
   );
 };

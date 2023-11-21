@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useDebouncedValue } from "../utils";
 
+import type { InputHTMLAttributes, ChangeEvent } from "react";
+
 export interface DebouncedInputProperties
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends InputHTMLAttributes<HTMLInputElement> {
   onInputChange: (value: string | number | readonly string[]) => void;
   debounceTime?: number;
 }
@@ -12,11 +14,11 @@ export const DebouncedInput: React.FC<DebouncedInputProperties> = ({
   onInputChange,
   debounceTime = 500,
   type = "text",
-  className,
+  className = "",
   defaultValue = "",
   ...inputProperties
 }) => {
-  const [inputValue, setInputValue] = React.useState(defaultValue);
+  const [inputValue, setInputValue] = useState(defaultValue);
 
   const isMounted = useRef(false);
 
@@ -33,7 +35,7 @@ export const DebouncedInput: React.FC<DebouncedInputProperties> = ({
     }
   }, [debouncedValue]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 

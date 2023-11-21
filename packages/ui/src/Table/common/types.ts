@@ -1,6 +1,8 @@
 import { Pagination } from "../../Pagination";
+import { Tooltip } from "../../Tooltip";
 
 import type {
+  Cell,
   ColumnDef,
   ColumnFilter,
   PaginationState,
@@ -172,6 +174,10 @@ declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
   interface ColumnDefBase<TData, TValue> {
     align?: "left" | "center" | "right";
+    tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
+    tooltipOptions?: Partial<
+      Omit<ComponentProps<typeof Tooltip>, "elementRef">
+    >;
   }
 }
 
@@ -210,4 +216,5 @@ export interface TDataTableProperties<TData>
     | "itemsPerPageOptions"
     | "defaultItemsPerPage"
   >;
+  stripe?: "none" | "even" | "odd";
 }

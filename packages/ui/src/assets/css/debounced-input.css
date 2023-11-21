@@ -3,7 +3,7 @@
   border: 1px solid #ced4da;
   border-radius: 4px;
   background-color: #f8f9fa;
-  width: 100%;
+  max-width: 100%;
 }
 
 .debounced-input:focus {

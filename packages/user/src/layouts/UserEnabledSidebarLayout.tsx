@@ -12,7 +12,7 @@ interface Properties {
   authenticatedUserMenu?: React.ReactNode;
   children: React.ReactNode;
   footer?: React.ReactNode;
-  mainMenuRoutes: {
+  mainMenuRoutes?: {
     name: string;
     route: string;
     icon?: React.ReactNode;
@@ -74,7 +74,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     <CollapsibleSidebarLayout
       children={children}
       footer={footer}
-      mainMenuRoutes={user ? mainMenuRoutes : []}
+      mainMenuRoutes={mainMenuRoutes}
       logoRoute={logoRoute || home}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}
