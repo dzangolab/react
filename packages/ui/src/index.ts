@@ -1,8 +1,8 @@
 import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
-import { SubPane } from "./components/SubPane";
 import Checkbox from "./Checkbox";
+import { SubPane } from "./components/SubPane";
 import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
