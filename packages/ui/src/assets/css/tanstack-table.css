@@ -4,7 +4,7 @@
   --table-border: 1px solid rgb(226, 226, 226);
   --table-header-bg-color: rgb(245, 245, 245);
   --table-header-active-bg-color: rgb(232, 240, 255);
-  --table-row-hover-bg-color: rgb(250, 250, 250);
+  --table-row-hover-bg-color: rgba(242, 244, 255, 0.623);
   --table-column-padding: 0.5rem;
   --table-row-selected-bg-color: rgb(240, 245, 255);
   --table-text-color: rgb(78, 78, 78);

@@ -1,12 +1,23 @@
+:root {
+  --pagination-bg-color: #f8f9fa;
+  --pagination-padding: 0.8rem;
+  --pagination-gap: 0.5rem;
+  --pagination-buttons-bg-color: #007bff;
+  --pagination-buttons-bg-color-hover: #0056b3;
+  --pagination-buttons-bg-color-active: #0056b3;
+  --pagination-buttons-bg-color-disabled: #e4e4e4;
+  --pagination-buttons-color-disabled: inherit;
+}
+
 .pagination {
   display: flex;
   flex-wrap: wrap-reverse;
   list-style: none;
-  padding: 0.8rem;
-  background-color: #f8f9fa;
+  padding: var(--pagination-padding);
+  background-color: var(--pagination-bg-color);
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--pagination-gap);
 }
 
 .pagination .buttons-wrapper,
@@ -17,7 +28,7 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
-  gap: 0.5rem;
+  gap: var(--pagination-gap);
 }
 
 .pagination .buttons-wrapper {
@@ -33,7 +44,7 @@
   border: none;
   padding: 8px 12px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: var(--pagination-buttons-bg-color);
   color: #fff;
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -44,7 +55,7 @@
 .next-page:hover,
 .previous-page:hover,
 .page-button:hover {
-  background-color: #0056b3;
+  background-color: var(--pagination-buttons-bg-color-hover);
 }
 
 .first-page:disabled,
@@ -52,13 +63,13 @@
 .next-page:disabled,
 .previous-page:disabled,
 .page-button:disabled {
-  background-color: #e4e4e4;
+  background-color: var(--pagination-buttons-bg-color-disabled);
   cursor: not-allowed;
-  color: inherit;
+  color: var(--pagination-buttons-color-disabled);
 }
 
 .page-button.active {
-  background-color: #0056b3;
+  background-color: var(--pagination-buttons-bg-color-active);
 }
 
 .items-per-page-control,
