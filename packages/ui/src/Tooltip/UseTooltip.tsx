@@ -33,7 +33,6 @@ export function useTooltip({
     }
 
     if (showTooltip) {
-      console.log(mousePosition);
       if (mouseTrack) {
         setTooltipPosition({
           top: mousePosition.top,
@@ -85,7 +84,6 @@ export function useTooltip({
             });
         }
       }
-      console.log("tooltip", tooltipPosition);
     }
 
     if (!showTooltip) {
