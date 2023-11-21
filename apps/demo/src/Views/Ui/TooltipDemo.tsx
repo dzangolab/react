@@ -17,6 +17,7 @@ export const TooltipDemo = () => {
         position="right"
         offset={10}
         delay={100}
+        mouseTrack
       >
         {t("tooltip.content")}
       </Tooltip>

@@ -20,9 +20,11 @@ export function useTooltip({
   tooltipReference,
   offset = 5,
   position,
+  mouseTrack = false,
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [tooltipPosition, setTooltipPosition] = useState<Position>({});
+  const [mousePosition, setMousePosition] = useState<Position>({});
   let timeoutId: ReturnType<typeof setTimeout>;
 
   useEffect(() => {
@@ -31,49 +33,56 @@ export function useTooltip({
     }
 
     if (showTooltip) {
-      const { left, right, top, bottom, height, width } =
-        ref.current.getBoundingClientRect();
+      if (mouseTrack && mousePosition) {
+        setTooltipPosition({
+          top: mousePosition.top,
+          left: mousePosition.left,
+        });
+      } else {
+        const { left, right, top, bottom, height, width } =
+          ref.current.getBoundingClientRect();
 
-      const tooltipWidth =
-        tooltipReference?.current?.getBoundingClientRect().width || 0;
+        const tooltipWidth =
+          tooltipReference?.current?.getBoundingClientRect().width || 0;
 
-      const tooltipHeight =
-        tooltipReference?.current?.getBoundingClientRect().height || 0;
+        const tooltipHeight =
+          tooltipReference?.current?.getBoundingClientRect().height || 0;
 
-      const horizontalCenter = left + width / 2 - tooltipWidth / 2;
+        const horizontalCenter = left + width / 2 - tooltipWidth / 2;
 
-      const verticalCenter = top + height / 2 - tooltipHeight / 2;
+        const verticalCenter = top + height / 2 - tooltipHeight / 2;
 
-      switch (position) {
-        case "top":
-          setTooltipPosition({
-            top: top - tooltipHeight - offset,
-            left: horizontalCenter,
-          });
-          break;
-        case "bottom":
-          setTooltipPosition({
-            top: bottom + offset,
-            left: horizontalCenter,
-          });
-          break;
-        case "right":
-          setTooltipPosition({
-            top: verticalCenter,
-            left: right + offset,
-          });
-          break;
-        case "left":
-          setTooltipPosition({
-            top: verticalCenter,
-            left: left - tooltipWidth - offset,
-          });
-          break;
-        default:
-          setTooltipPosition({
-            top: top - tooltipHeight - offset,
-            left: horizontalCenter,
-          });
+        switch (position) {
+          case "top":
+            setTooltipPosition({
+              top: top - tooltipHeight - offset,
+              left: horizontalCenter,
+            });
+            break;
+          case "bottom":
+            setTooltipPosition({
+              top: bottom + offset,
+              left: horizontalCenter,
+            });
+            break;
+          case "right":
+            setTooltipPosition({
+              top: verticalCenter,
+              left: right + offset,
+            });
+            break;
+          case "left":
+            setTooltipPosition({
+              top: verticalCenter,
+              left: left - tooltipWidth - offset,
+            });
+            break;
+          default:
+            setTooltipPosition({
+              top: top - tooltipHeight - offset,
+              left: horizontalCenter,
+            });
+        }
       }
     }
 
@@ -93,6 +102,9 @@ export function useTooltip({
     setShowTooltip(false);
   };
 
+  const onMouseMove = (event: MouseEvent) => {
+    setMousePosition({ top: event.clientY, left: event.clientX });
+  };
   return {
     tooltipPosition: {
       top: tooltipPosition.top,
@@ -101,5 +113,6 @@ export function useTooltip({
     showTooltip,
     onMouseEnter,
     onMouseLeave,
+    onMouseMove,
   };
 }

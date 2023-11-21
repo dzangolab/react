@@ -19,22 +19,27 @@ export const Tooltip: FC<TooltipProperties> = ({
   className,
   delay,
   elementRef,
-  mouseTrack = false,
+  mouseTrack,
   offset,
   position,
   style,
 }) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
 
-  const { tooltipPosition, showTooltip, onMouseEnter, onMouseLeave } =
-    useTooltip({
-      delay,
-      mouseTrack,
-      offset,
-      position,
-      ref: elementRef,
-      tooltipReference,
-    });
+  const {
+    tooltipPosition,
+    showTooltip,
+    onMouseEnter,
+    onMouseLeave,
+    onMouseMove,
+  } = useTooltip({
+    delay,
+    mouseTrack,
+    offset,
+    position,
+    ref: elementRef,
+    tooltipReference,
+  });
 
   useEffect(() => {
     const element = elementRef?.current;
@@ -42,15 +47,17 @@ export const Tooltip: FC<TooltipProperties> = ({
     if (element) {
       element.addEventListener("mouseenter", onMouseEnter);
       element.addEventListener("mouseleave", onMouseLeave);
+      element.addEventListener("mousemove", onMouseMove);
     }
 
     return () => {
       if (element) {
         element.removeEventListener("mouseenter", onMouseEnter);
         element.removeEventListener("mouseleave", onMouseLeave);
+        element.removeEventListener("mousemove", onMouseMove);
       }
     };
-  }, [elementRef, onMouseEnter, onMouseLeave]);
+  }, [elementRef, onMouseEnter, onMouseLeave, onMouseMove]);
 
   if (!showTooltip) {
     return null;
