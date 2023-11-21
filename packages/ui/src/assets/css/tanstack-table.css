@@ -88,7 +88,7 @@
   align-items: center;
   justify-content: start;
   text-overflow: ellipsis;
-  flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 .table-container .table-wrapper .table .tcell[data-align="center"] > .content,
@@ -114,12 +114,9 @@
   cursor: pointer;
 }
 
-.table-container .table-wrapper .table .tcol-head .sort-state {
-  visibility: hidden;
-}
-
-.table-container .table-wrapper .table .tcol-head:hover .sort-state {
-  visibility: visible;
+.table-container .table-wrapper .table .tcol-head .sort-state i {
+  font-size: 0.7rem !important;
+  font-weight: bold !important;
 }
 
 .table-container .table-wrapper .table .tcol-head:active {
