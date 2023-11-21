@@ -37,5 +37,23 @@
   },
   "file": {
     "card": "File card (fr)"
+  },
+  "message": {
+    "title": "Message (fr)",
+    "content": "User session is expired (fr)"
+  },
+  "tooltip": {
+    "title": "Tooltip (fr)",
+    "positions": {
+      "bottom": "Bottom (fr)",
+      "left": "Left (fr)",
+      "right": "Right (fr)",
+      "top": "Top (fr)"
+    },
+    "content": "Tooltip component (fr)",
+    "button": {
+      "save": "Save (fr)",
+      "content": "Save the data (fr)"
+    }
   }
 }
