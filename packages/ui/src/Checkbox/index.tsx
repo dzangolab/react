@@ -1,7 +1,7 @@
 type CheckBoxProperties = {
   name?: string;
   label?: string;
-  checked: boolean;
+  checked?: boolean;
   handleChange: () => void;
 };
 
@@ -9,16 +9,11 @@ const CheckBox: React.FC<CheckBoxProperties> = ({
   name,
   label,
   handleChange,
-  checked,
+  ...others
 }) => {
   return (
-    <div className={`field ${name}`}>
-      <input
-        type="checkbox"
-        name={name}
-        onChange={handleChange}
-        checked={checked}
-      />
+    <div className={`check-box-wrapper ${name}`}>
+      <input type="checkbox" name={name} onChange={handleChange} {...others} />
       {label && <label htmlFor={name}>{label}</label>}
     </div>
   );

@@ -20,6 +20,7 @@
 @import "./files-table.css";
 @import "./message.css";
 @import "./tooltip.css";
+@import "./checkbox.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";
