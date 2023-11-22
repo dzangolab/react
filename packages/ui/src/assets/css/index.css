@@ -22,6 +22,7 @@
 @import "./files-table.css";
 @import "./message.css";
 @import "./tooltip.css";
+@import "./"
 
 /* Theme CSS */
 @import "./accordion-theme.css";

@@ -6,7 +6,7 @@ interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
   name?: string;
 }
 
-const Input = ({
+export const Input = ({
   type,
   label,
   name,
@@ -29,5 +29,3 @@ const Input = ({
     </div>
   );
 };
-
-export default Input;

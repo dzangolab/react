@@ -6,6 +6,7 @@ import {
   FileCard,
   FilesList,
   FilesPresentation,
+  Input,
 } from "@dzangolab/react-ui";
 
 import { ExportButton } from "./ExportButton";
@@ -265,6 +266,11 @@ const componentList = [
     key: 13,
     title: "tooltip.title",
     component: <TooltipDemo />,
+  },
+  {
+    key: 14,
+    title: "tooltip.title",
+    component: <Input type="email" />,
   },
 ];
 
