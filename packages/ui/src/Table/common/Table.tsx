@@ -12,8 +12,6 @@ import {
   Updater,
 } from "@tanstack/react-table";
 import { Checkbox } from "primereact/checkbox";
-import { InputText } from "primereact/inputtext";
-import { Paginator } from "primereact/paginator";
 import React, {
   SyntheticEvent,
   useCallback,
@@ -36,12 +34,15 @@ import {
   TableRow,
   TableToolbar,
   TableFooter,
+  TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
+import { DebouncedInput } from "../../";
 import LoadingIcon from "../../LoadingIcon";
+import { Pagination } from "../../Pagination";
 
 import type { TCustomColumnFilter, TDataTableProperties } from "./types";
-import type { ColumnDef } from "@tanstack/react-table";
+import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   columns = [],
@@ -56,10 +57,12 @@ const DataTable = <TData extends { id: string | number }>({
   title,
   paginated = true,
   rowPerPage,
-  rowPerPageOptions,
+  rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
   visibleColumns = [],
   onRowSelectChange,
   totalRecords = 0,
+  paginationOptions,
+  stripe = "none",
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -171,6 +174,18 @@ const DataTable = <TData extends { id: string | number }>({
     [],
   );
 
+  const renderTooltipContent = (
+    cell: Cell<TData, unknown>,
+  ): React.ReactNode => {
+    if (typeof cell.column.columnDef.tooltip === "string") {
+      return cell.column.columnDef.tooltip;
+    } else if (typeof cell.column.columnDef.tooltip === "function") {
+      return cell.column.columnDef.tooltip(cell);
+    }
+
+    return cell.getValue() as string;
+  };
+
   return (
     <div className="table-container">
       {title ? (
@@ -185,7 +200,7 @@ const DataTable = <TData extends { id: string | number }>({
         <TableToolbar children={renderToolbarItems(table)} />
       ) : null}
 
-      <Table>
+      <Table data-stripe={stripe}>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
@@ -281,12 +296,11 @@ const DataTable = <TData extends { id: string | number }>({
                       activeColumnClass
                     }
                   >
-                    <InputText
-                      value={(column.getFilterValue() ?? "") as string}
-                      onChange={(event) => {
-                        column.setFilterValue(event.target.value);
+                    <DebouncedInput
+                      onInputChange={(value) => {
+                        column.setFilterValue(value);
                       }}
-                    ></InputText>
+                    ></DebouncedInput>
                   </TableCell>
                 );
               })}
@@ -300,21 +314,41 @@ const DataTable = <TData extends { id: string | number }>({
                 data-state={row.getIsSelected() && "selected"}
                 data-id={row.original.id ?? row.id}
               >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    data-label={cell.column.id}
-                    data-align={cell.column.columnDef.align || "left"}
-                    className={cell.column.id ? `column-${cell.column.id}` : ``}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
+                {row.getVisibleCells().map((cell) => {
+                  return (
+                    <TableCell
+                      key={cell.id}
+                      data-label={cell.column.id}
+                      data-align={cell.column.columnDef.align || "left"}
+                      className={
+                        cell.column.id ? `column-${cell.column.id}` : ``
+                      }
+                    >
+                      {cell.column.columnDef.tooltip ? (
+                        <TooltipWrapper
+                          tooltipOptions={{
+                            children: renderTooltipContent(cell),
+                            ...cell.column.columnDef?.tooltipOptions,
+                          }}
+                          cellContent={flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext(),
+                          )}
+                        ></TooltipWrapper>
+                      ) : (
+                        flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )
+                      )}
+                    </TableCell>
+                  );
+                })}
               </TableRow>
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length}>
+              <TableCell colSpan={columnsWithRowSelection.length}>
                 {emptyTableMessage}
               </TableCell>
             </TableRow>
@@ -331,27 +365,23 @@ const DataTable = <TData extends { id: string | number }>({
           {renderCustomPagination ? (
             renderCustomPagination(table)
           ) : (
-            <div className="p-paginator-bottom p-paginator p-component">
-              <Paginator
-                first={pagination.pageIndex * pagination.pageSize}
-                rows={pagination.pageSize}
-                totalRecords={
-                  fetchData
-                    ? totalRecords
-                    : table.getFilteredRowModel().rows?.length
-                }
-                rowsPerPageOptions={
-                  rowPerPageOptions || DEFAULT_PAGE_PER_OPTIONS
-                }
-                onPageChange={(event) => {
-                  const currentPageIndex = Math.ceil(event.first / event.rows);
-                  setPagination({
-                    pageIndex: currentPageIndex,
-                    pageSize: event.rows,
-                  });
-                }}
-              />
-            </div>
+            <Pagination
+              currentPage={pagination.pageIndex}
+              defaultItemsPerPage={pagination.pageSize}
+              onPageChange={(currentPage) => {
+                table.setPageIndex(currentPage);
+              }}
+              itemsPerPageOptions={rowPerPageOptions}
+              onItemsPerPageChange={(itemsPerPage) => {
+                table.setPageSize(itemsPerPage);
+              }}
+              totalItems={
+                fetchData
+                  ? totalRecords
+                  : table.getFilteredRowModel().rows?.length
+              }
+              {...paginationOptions}
+            ></Pagination>
           )}
         </>
       ) : null}

@@ -7,7 +7,7 @@ interface Properties {
   footer?: React.ReactNode;
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
-  mainMenuRoutes: {
+  mainMenuRoutes?: {
     name: string;
     route: string;
     icon?: React.ReactNode;
