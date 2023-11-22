@@ -1,12 +1,13 @@
 import { useState, RefObject, useEffect } from "react";
 
 type Position = {
-  top?: number;
-  left?: number;
+  top: number;
+  left: number;
 };
 
 type UseTooltipProperties = {
   delay?: number;
+  mouseTrack?: boolean;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
   ref: RefObject<HTMLElement>;
@@ -19,9 +20,17 @@ export function useTooltip({
   tooltipReference,
   offset = 5,
   position,
+  mouseTrack = false,
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
-  const [tooltipPosition, setTooltipPosition] = useState<Position>({});
+  const [tooltipPosition, setTooltipPosition] = useState<Position>({
+    top: 0,
+    left: 0,
+  });
+  const [mousePosition, setMousePosition] = useState<Position>({
+    top: 0,
+    left: 0,
+  });
   let timeoutId: ReturnType<typeof setTimeout>;
 
   useEffect(() => {
@@ -30,56 +39,57 @@ export function useTooltip({
     }
 
     if (showTooltip) {
-      const { left, right, top, bottom, height, width } =
-        ref.current.getBoundingClientRect();
+      if (mouseTrack && mousePosition) {
+        setTooltipPosition({
+          top: mousePosition.top + offset,
+          left: mousePosition.left + 2 * offset,
+        });
+      } else {
+        const { left, right, top, bottom, height, width } =
+          ref.current.getBoundingClientRect();
 
-      const tooltipWidth =
-        tooltipReference?.current?.getBoundingClientRect().width || 0;
+        const tooltipWidth =
+          tooltipReference?.current?.getBoundingClientRect().width || 0;
 
-      const tooltipHeight =
-        tooltipReference?.current?.getBoundingClientRect().height || 0;
+        const tooltipHeight =
+          tooltipReference?.current?.getBoundingClientRect().height || 0;
 
-      const horizontalCenter = left + width / 2 - tooltipWidth / 2;
+        const horizontalCenter = left + width / 2 - tooltipWidth / 2;
 
-      const verticalCenter = top + height / 2 - tooltipHeight / 2;
+        const verticalCenter = top + height / 2 - tooltipHeight / 2;
 
-      switch (position) {
-        case "top":
-          setTooltipPosition({
-            top: top - tooltipHeight - offset,
-            left: horizontalCenter,
-          });
-          break;
-        case "bottom":
-          setTooltipPosition({
-            top: bottom + offset,
-            left: horizontalCenter,
-          });
-          break;
-        case "right":
-          setTooltipPosition({
-            top: verticalCenter,
-            left: right + offset,
-          });
-          break;
-        case "left":
-          setTooltipPosition({
-            top: verticalCenter,
-            left: left - tooltipWidth - offset,
-          });
-          break;
-        default:
-          setTooltipPosition({
-            top: top - tooltipHeight - offset,
-            left: horizontalCenter,
-          });
+        switch (position) {
+          case "top":
+            setTooltipPosition({
+              top: top - tooltipHeight - offset,
+              left: horizontalCenter,
+            });
+            break;
+          case "bottom":
+            setTooltipPosition({
+              top: bottom + offset,
+              left: horizontalCenter,
+            });
+            break;
+          case "right":
+            setTooltipPosition({
+              top: verticalCenter,
+              left: right + offset,
+            });
+            break;
+          case "left":
+            setTooltipPosition({
+              top: verticalCenter,
+              left: left - tooltipWidth - offset,
+            });
+        }
       }
     }
 
     if (!showTooltip) {
-      setTooltipPosition({});
+      setTooltipPosition({ top: 0, left: 0 });
     }
-  }, [showTooltip, ref]);
+  }, [showTooltip, ref, mousePosition]);
 
   const onMouseEnter = () => {
     timeoutId = setTimeout(() => {
@@ -92,6 +102,12 @@ export function useTooltip({
     setShowTooltip(false);
   };
 
+  const onMouseMove = (event: MouseEvent) => {
+    if (mouseTrack) {
+      setMousePosition({ top: event.clientY, left: event.clientX });
+    }
+  };
+
   return {
     tooltipPosition: {
       top: tooltipPosition.top,
@@ -100,5 +116,6 @@ export function useTooltip({
     showTooltip,
     onMouseEnter,
     onMouseLeave,
+    onMouseMove,
   };
 }
