@@ -1,8 +1,12 @@
 :root {
-  --color: #555;
-  --checkbox-color :#007aff;
+  --color: hsl(0, 0%, 33%);
+  --input-autofill-color: #ffffff;
+  --input-background-color: #007aff;
+  --input-invalid-border-color: #dc3545;
+  --input-outline-color: #007aff;
+  --input-valid-border-color: #198754;
   --border-color: #b5b5b5;
-  --error-message-color : #dc3545;
+  --error-message-color: #dc3545;
   --menu-border-color: #555;
   --transition-duration: 300ms;
 }
