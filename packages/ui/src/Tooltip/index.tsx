@@ -21,7 +21,7 @@ export const Tooltip: FC<TooltipProperties> = ({
   elementRef,
   mouseTrack,
   offset,
-  position,
+  position = "top",
   style,
 }) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
@@ -41,7 +41,7 @@ export const Tooltip: FC<TooltipProperties> = ({
     tooltipReference,
   });
 
-  const calculateClassName = (mouseTrack: boolean, position?: string) => {
+  const calculateClassName = (mouseTrack?: boolean, position?: string) => {
     if (mouseTrack) {
       return "tooltip-container";
     } else {
@@ -71,7 +71,7 @@ export const Tooltip: FC<TooltipProperties> = ({
     return null;
   }
 
-  const calculatedClassName = calculateClassName(mouseTrack || false, position);
+  const calculatedClassName = calculateClassName(mouseTrack, position);
 
   return (
     <>
