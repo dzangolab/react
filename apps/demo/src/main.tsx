@@ -32,8 +32,6 @@ configureTooltip({
   mouseTrack: false,
 });
 
-// superTokens(config);
-
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ConfigProvider appConfig={config}>
     <UserProvider>
