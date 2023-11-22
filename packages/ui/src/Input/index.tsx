@@ -1,15 +1,15 @@
 import { HTMLAttributes } from "react";
 
 interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
-  type: string;
   label?: string;
   name?: string;
+  error?: string;
 }
 
 export const Input = ({
-  type,
   label,
   name,
+  error,
   placeholder,
   onChange,
   ...others
@@ -18,14 +18,13 @@ export const Input = ({
     <div className={`input-field ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
-        type={type}
         id={name}
         name={name}
         placeholder={placeholder}
         onChange={onChange}
         {...others}
       />
-      {}
+      {error && <div className="error-message">{error}</div>}
     </div>
   );
 };

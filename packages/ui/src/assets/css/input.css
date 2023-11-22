@@ -1,0 +1,8 @@
+.input-field{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field >input:focus{
+    outline: none;
+}
