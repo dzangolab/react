@@ -3,12 +3,7 @@ import { Checkbox } from "@dzangolab/react-ui";
 
 const CheckboxDemo = () => {
   const { t } = useTranslation("ui");
-  return (
-    <Checkbox
-      onChange={() => console.log("Hello")}
-      label={t("checkbox.label")}
-    />
-  );
+  return <Checkbox label={t("checkbox.label")} />;
 };
 
 export default CheckboxDemo;
