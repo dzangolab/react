@@ -1,8 +1,8 @@
 import { useState, RefObject, useCallback, useEffect } from "react";
 
 type Position = {
-  top?: number;
-  left?: number;
+  top: number;
+  left: number;
 };
 
 type UseTooltipProperties = {
@@ -23,8 +23,14 @@ export function useTooltip({
   mouseTrack = false,
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
-  const [tooltipPosition, setTooltipPosition] = useState<Position>({});
-  const [mousePosition, setMousePosition] = useState<Position>({});
+  const [tooltipPosition, setTooltipPosition] = useState<Position>({
+    top: 0,
+    left: 0,
+  });
+  const [mousePosition, setMousePosition] = useState<Position>({
+    top: 0,
+    left: 0,
+  });
   let timeoutId: ReturnType<typeof setTimeout>;
 
   useEffect(() => {
@@ -35,8 +41,8 @@ export function useTooltip({
     if (showTooltip) {
       if (mouseTrack && mousePosition) {
         setTooltipPosition({
-          top: mousePosition.top,
-          left: mousePosition.left,
+          top: mousePosition.top + offset,
+          left: mousePosition.left + 2 * offset,
         });
       } else {
         const { left, right, top, bottom, height, width } =
@@ -85,9 +91,9 @@ export function useTooltip({
         }
       }
     }
-    console.log(tooltipPosition);
+
     if (!showTooltip) {
-      setTooltipPosition({});
+      setTooltipPosition({ top: 0, left: 0 });
     }
   }, [showTooltip, ref, mousePosition]);
 

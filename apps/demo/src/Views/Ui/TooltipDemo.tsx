@@ -22,7 +22,12 @@ export const TooltipDemo = () => {
         {t("tooltip.content")}
       </Tooltip>
       <div ref={rightReference}>{t("tooltip.positions.right")}</div>
-      <Tooltip elementRef={leftReference} position="left" delay={200}>
+      <Tooltip
+        elementRef={leftReference}
+        position="left"
+        delay={200}
+        mouseTrack
+      >
         {t("tooltip.content")}
       </Tooltip>
       <div ref={leftReference}>{t("tooltip.positions.left")}</div>
