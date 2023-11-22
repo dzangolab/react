@@ -1,9 +1,9 @@
 type CheckboxProperties = {
-  register?: any;
-  name?: string;
-  label?: string;
   checked?: boolean;
   handleChange?: () => void;
+  label: string;
+  name?: string;
+  register?: any;
 };
 
 const Checkbox: React.FC<CheckboxProperties> = ({
@@ -23,7 +23,7 @@ const Checkbox: React.FC<CheckboxProperties> = ({
         onChange={handleChange}
         {...others}
       />
-      {label && <label htmlFor={name}>{label}</label>}
+      <label htmlFor={name}>{label}</label>
     </div>
   );
 };
