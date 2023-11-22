@@ -6,7 +6,7 @@ const CheckboxDemo = () => {
 
   return (
     <Checkbox
-      handleChange={() => console.log("Hello")}
+      onChange={() => console.log("Hello")}
       label={t("checkbox.label")}
     />
   );
