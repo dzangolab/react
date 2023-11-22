@@ -8,6 +8,7 @@ const CheckboxDemo = () => {
     <Checkbox
       onChange={() => console.log("Hello")}
       label={t("checkbox.label")}
+      errorMessage="Something is wrong"
     />
   );
 };

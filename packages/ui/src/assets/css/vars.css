@@ -1,6 +1,7 @@
 :root {
   --color: #555;
   --border-color: #b5b5b5;
+  --error-message-color : #dc3545;
   --menu-border-color: #555;
   --transition-duration: 300ms;
 }

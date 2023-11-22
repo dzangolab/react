@@ -1,3 +1,8 @@
 .check-box-wrapper > input[type="checkbox"] {
   transform: scale(1.5);
 }
+
+.error-message{
+    margin-top: 1rem ;
+    color: var(--error-message-color);
+}
