@@ -57,6 +57,7 @@
     }
   },
   "checkbox":{
-    "title":"Checkbox"
+    "title":"Checkbox (fr)",
+    "label": "Please agree with the terms and conditions (fr)"
   }
 }

@@ -10,7 +10,6 @@ const Checkbox: React.FC<CheckboxProperties> = ({
   register,
   name,
   label,
-  handleChange,
   ...others
 }) => {
   return (
@@ -20,7 +19,6 @@ const Checkbox: React.FC<CheckboxProperties> = ({
         type="checkbox"
         {...(register ? register(name) : undefined)}
         name={name}
-        onChange={handleChange}
         {...others}
       />
       <label htmlFor={name}>{label}</label>
