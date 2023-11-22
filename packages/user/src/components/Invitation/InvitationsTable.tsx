@@ -1,9 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  DataTable,
-  IColumnProperties,
-  LazyTableState,
-  useManipulateColumns,
+  // DataTable,
+  TDataTable as DataTable,
+  // TDataTableProperties,
+  // IColumnProperties,
+  // LazyTableState,
+  // useManipulateColumns,
+  TRequestJSON,
 } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
@@ -22,7 +25,9 @@ import type {
   InvitationExpiryDateField,
   ResendInvitationResponse,
   RevokeInvitationResponse,
+  Invitation,
 } from "../../types";
+import type { ColumnDef } from "@tanstack/react-table";
 
 type VisibleColumn =
   | "email"
@@ -37,8 +42,8 @@ export type InvitationsTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   className?: string;
-  columns?: Array<IColumnProperties>;
-  fetchInvitations: (arguments_: LazyTableState) => void;
+  columns?: Array<ColumnDef<Invitation>>;
+  fetchInvitations: (arguments_: TRequestJSON) => void;
   id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
@@ -89,32 +94,37 @@ export const InvitationsTable = ({
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
 
-  const defaultColumns: Array<IColumnProperties> = [
+  const defaultColumns: Array<ColumnDef<any>> = [
     {
-      field: "email",
+      accessorKey: "email",
       header: t("table.defaultColumns.email"),
-      sortable: true,
-      filterPlaceholder: t("table.searchPlaceholder"),
-      showFilterMenu: false,
-      showClearButton: false,
+      // enableSorting: true,
+      // filterPlaceholder: t("table.searchPlaceholder"),
+      // showFilterMenu: false,
+      // showClearButton: false,
     },
     {
       align: "center",
-      field: "app",
+      accessorKey: "app",
       header: t("table.defaultColumns.app"),
-      body: (data: { appId: number | null }) => {
-        return <span>{data.appId || "-"} </span>;
+      cell: ({ getValue }) => {
+        return (
+          <span>{(getValue() as { appId: number | null }).appId || "-"} </span>
+        );
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       align: "center",
-      field: "role",
+      accessorKey: "role",
       header: t("table.defaultColumns.role"),
-      body: (data) => {
-        if (data?.roles) {
+      cell: ({ getValue }) => {
+        const roles = getValue() as string[] | undefined;
+        if (roles) {
           return (
             <>
-              {data?.roles?.map((role: string, index: number) => (
+              {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
                   value={role}
@@ -128,72 +138,77 @@ export const InvitationsTable = ({
           );
         }
 
+        const role = getValue() as string;
+
         return (
           <>
             <Tag
-              value={data.role}
+              value={role}
               style={{
-                background: data.role === "ADMIN" ? "#6366F1" : "#22C55E",
+                background: role === "ADMIN" ? "#6366F1" : "#22C55E",
                 width: "5rem",
               }}
             />
           </>
         );
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
-      field: "invitedBy",
+      accessorKey: "invitedBy",
       header: t("table.defaultColumns.invitedBy"),
-      body: (data) => {
-        if (!data.invitedBy) {
+      cell: ({ getValue }) => {
+        const invitedBy = getValue() as any;
+
+        if (!invitedBy) {
           return <code>&#8212;</code>;
         }
 
-        if (data.invitedBy.givenName || data.invitedBy.surname) {
-          return `${data.invitedBy.givenName || ""} ${
-            data.invitedBy.surname || ""
-          }`;
+        if (invitedBy.givenName || invitedBy.surname) {
+          return `${invitedBy.givenName || ""} ${invitedBy.surname || ""}`;
         }
 
-        return data.invitedBy.email;
+        return invitedBy.email;
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
-      field: "expiresAt",
+      accessorKey: "expiresAt",
       header: t("table.defaultColumns.expiresAt"),
-      body: (data) => {
-        const date = new Date(data.expiresAt);
+      cell: ({ getValue }) => {
+        const date = new Date(getValue() as string);
 
         return date.toLocaleDateString("en-GB");
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       align: "center",
-      field: "actions",
+      id: "actions",
       header: t("table.defaultColumns.actions"),
-      body: (data) => {
+      cell: () => {
         return (
           <>
             <InvitationActions
               onInvitationResent={onInvitationResent}
               onInvitationRevoked={onInvitationRevoked}
-              invitation={data}
+              invitation={{} as Invitation}
             />
           </>
         );
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
   ];
 
-  const processedColumns: Array<IColumnProperties> = useManipulateColumns({
-    visibleColumns,
-    columns: [...defaultColumns, ...columns],
-  });
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const rowClassNameCallback = (data: any) => {
-    return `invitations-${data.id}`;
-  };
+  // const rowClassNameCallback = (data: any) => {
+  //   return `invitations-${data.id}`;
+  // };
 
   const renderHeader = () => {
     if (showInviteAction) {
@@ -216,17 +231,16 @@ export const InvitationsTable = ({
   return (
     <DataTable
       className={className}
-      columns={processedColumns}
+      columns={[...defaultColumns, ...columns]}
       data={invitations}
-      emptyMessage={t("table.emptyMessage")}
+      emptyTableMessage={t("table.emptyMessage")}
       fetchData={fetchInvitations}
-      header={renderHeader()}
-      id={id}
-      initialFilters={initialFilters}
-      loading={loading}
-      rowClassName={rowClassNameCallback}
-      showGridlines
-      stripedRows={false}
+      renderToolbarItems={renderHeader}
+      // id={id}
+      // initialFilters={initialFilters}
+      isLoading={loading}
+      // showGridlines
+      // stripedRows={false}
       totalRecords={totalRecords}
     ></DataTable>
   );

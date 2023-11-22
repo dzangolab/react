@@ -45,6 +45,7 @@ import type { TCustomColumnFilter, TDataTableProperties } from "./types";
 import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
+  className,
   columns = [],
   data,
   emptyTableMessage = "No results.",
@@ -200,7 +201,7 @@ const DataTable = <TData extends { id: string | number }>({
         <TableToolbar children={renderToolbarItems(table)} />
       ) : null}
 
-      <Table data-stripe={stripe}>
+      <Table className={className} data-stripe={stripe}>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
