@@ -2,6 +2,7 @@ export interface ConfigureTooltipOptions {
   delay?: number;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
+  mouseTrack?: boolean;
 }
 
 const tooltipConfiguration = (): {
@@ -12,6 +13,7 @@ const tooltipConfiguration = (): {
     delay: 100,
     offset: 10,
     position: "right",
+    mouseTrack: false,
   };
 
   return {

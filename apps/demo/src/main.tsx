@@ -24,10 +24,12 @@ import "./assets/css/tooltip.css";
 
 i18n(config.i18n);
 
+// configure tooltip globally
 configureTooltip({
-  offset: 20,
+  offset: 10,
   delay: 400,
   position: "right",
+  mouseTrack: false,
 });
 
 // superTokens(config);
