@@ -1,27 +1,24 @@
-type CheckboxProperties = {
-  checked?: boolean;
-  handleChange?: () => void;
-  label: string;
-  name?: string;
-  register?: any;
-};
+import { InputHTMLAttributes } from "react";
+interface CheckboxProperties extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+}
 
 const Checkbox: React.FC<CheckboxProperties> = ({
-  register,
   name,
   label,
+  onChange,
   ...others
 }) => {
   return (
     <div className="check-box-wrapper">
       <input
+        {...others}
         id={name}
         type="checkbox"
-        {...(register ? register(name) : undefined)}
         name={name}
-        {...others}
+        onChange={onChange}
       />
-      <label htmlFor={name}>{label}</label>
+      {label && <label htmlFor={name}>{label}</label>}
     </div>
   );
 };
