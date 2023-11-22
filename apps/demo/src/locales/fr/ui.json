@@ -51,6 +51,7 @@
     "title": "Tooltip (fr)",
     "positions": {
       "bottom": "Bottom (fr)",
+      "configured": "Configured (fr)",
       "left": "Left (fr)",
       "right": "Right (fr)",
       "top": "Top (fr)"
@@ -60,5 +61,9 @@
       "save": "Save (fr)",
       "content": "Save the data (fr)"
     }
+  },
+  "checkbox":{
+    "title":"Checkbox (fr)",
+    "label": "Please agree with the terms and conditions (fr)"
   }
 }

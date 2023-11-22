@@ -1,6 +1,7 @@
 import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
+import Checkbox from "./Checkbox";
 import { SubPane } from "./components/SubPane";
 import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
@@ -13,7 +14,6 @@ import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { TabbedPanel } from "./TabbedPanel";
-import { Tooltip } from "./Tooltip";
 
 export * from "./Buttons";
 export * from "./DataTable";
@@ -25,9 +25,11 @@ export * from "./Table";
 export * from "./utils";
 export * from "./Pagination";
 export * from "./DebouncedInput";
+export * from "./Tooltip";
 
 export {
   Accordion,
+  Checkbox,
   Divider,
   DropdownMenu,
   GoogleButton,
@@ -40,7 +42,6 @@ export {
   SubPane,
   TabbedPanel,
   ConfirmationModal,
-  Tooltip,
 };
 
 export type { DropdownMenuProperties };

@@ -22,7 +22,8 @@
 @import "./files-table.css";
 @import "./message.css";
 @import "./tooltip.css";
-@import "./"
+@import "./checkbox.css";
+@import "./input.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";

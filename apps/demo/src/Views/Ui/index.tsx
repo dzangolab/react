@@ -18,6 +18,7 @@ import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import CheckboxDemo from "./CheckboxDemo";
 
 const componentList = [
   {
@@ -269,8 +270,8 @@ const componentList = [
   },
   {
     key: 14,
-    title: "tooltip.title",
-    component: <Input type="email" />,
+    title: "checkbox.title",
+    component: <CheckboxDemo />,
   },
 ];
 
