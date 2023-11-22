@@ -12,7 +12,7 @@ const Checkbox: React.FC<IProperties> = ({
   ...others
 }) => {
   return (
-    <div className="check-box-wrapper">
+    <div className="checkbox-wrapper">
       <input
         {...others}
         id={name}

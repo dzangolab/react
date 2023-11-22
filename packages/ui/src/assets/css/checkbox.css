@@ -1,5 +1,6 @@
-.check-box-wrapper > input[type="checkbox"] {
+.checkbox-wrapper > input[type="checkbox"] {
   transform: scale(1.5);
+  accent-color: var(--checkbox-color);
 }
 
 .error-message{
