@@ -51,6 +51,7 @@
     "title": "Tooltip",
     "positions": {
       "bottom": "Bottom",
+      "configured": "Configured",
       "left": "Left",
       "right": "Right",
       "top": "Top"

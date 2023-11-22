@@ -51,6 +51,7 @@
     "title": "Tooltip (fr)",
     "positions": {
       "bottom": "Bottom (fr)",
+      "configured": "Configured (fr)",
       "left": "Left (fr)",
       "right": "Right (fr)",
       "top": "Top (fr)"
