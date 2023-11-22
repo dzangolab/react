@@ -1,5 +1,5 @@
 :root {
-  --color: hsl(0, 0%, 33%);
+  --color: rgb(84,84,84);
   --input-autofill-color: #ffffff;
   --input-background-color: #007aff;
   --input-invalid-border-color: #dc3545;
