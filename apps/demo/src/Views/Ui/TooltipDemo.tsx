@@ -12,16 +12,17 @@ export const TooltipDemo = () => {
 
   return (
     <div className="tooltip-component">
-      <Tooltip elementRef={rightReference} offset={10} delay={100} mouseTrack>
+      <Tooltip
+        elementRef={rightReference}
+        offset={10}
+        delay={100}
+        position="right"
+        mouseTrack
+      >
         {t("tooltip.content")}
       </Tooltip>
       <div ref={rightReference}>{t("tooltip.positions.right")}</div>
-      <Tooltip
-        elementRef={leftReference}
-        position="left"
-        delay={200}
-        mouseTrack
-      >
+      <Tooltip elementRef={leftReference} position="left" delay={200}>
         {t("tooltip.content")}
       </Tooltip>
       <div ref={leftReference}>{t("tooltip.positions.left")}</div>

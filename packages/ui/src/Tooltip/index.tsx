@@ -41,7 +41,7 @@ export const Tooltip: FC<TooltipProperties> = ({
     tooltipReference,
   });
 
-  const calculateClassName = (mouseTrack?: boolean, position?: string) => {
+  const renderClassName = (mouseTrack?: boolean, position?: string) => {
     if (mouseTrack) {
       return "tooltip-container";
     } else {
@@ -71,14 +71,14 @@ export const Tooltip: FC<TooltipProperties> = ({
     return null;
   }
 
-  const calculatedClassName = calculateClassName(mouseTrack, position);
+  const renderedClassName = renderClassName(mouseTrack, position);
 
   return (
     <>
       {createPortal(
         <div
           ref={tooltipReference}
-          className={className ? className : calculatedClassName}
+          className={className ? className : renderedClassName}
           style={{
             top: tooltipPosition.top,
             left: tooltipPosition.left,
