@@ -1,14 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  // DataTable,
   TDataTable as DataTable,
-  // TDataTableProperties,
-  // IColumnProperties,
-  // LazyTableState,
-  // useManipulateColumns,
+  TDataTableProperties,
   TRequestJSON,
 } from "@dzangolab/react-ui";
-import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
@@ -26,6 +21,7 @@ import type {
   ResendInvitationResponse,
   RevokeInvitationResponse,
   Invitation,
+  UserType,
 } from "../../types";
 import type { ColumnDef } from "@tanstack/react-table";
 
@@ -38,17 +34,18 @@ type VisibleColumn =
   | "actions"
   | string;
 
-export type InvitationsTableProperties = {
+export type InvitationsTableProperties = Partial<
+  Omit<
+    TDataTableProperties<Invitation>,
+    "data" | "visibleColumns" | "fetchData"
+  >
+> & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
-  className?: string;
-  columns?: Array<ColumnDef<Invitation>>;
   fetchInvitations: (arguments_: TRequestJSON) => void;
-  id?: string;
   invitationExpiryDateField?: InvitationExpiryDateField;
   inviteButtonIcon?: IconType<ButtonProps>;
-  invitations: Array<object>;
-  loading?: boolean;
+  invitations: Array<Invitation>;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
@@ -57,7 +54,6 @@ export type InvitationsTableProperties = {
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
   showInviteAction?: boolean;
-  totalRecords?: number;
   visibleColumns?: VisibleColumn[];
 };
 
@@ -68,10 +64,8 @@ export const InvitationsTable = ({
   columns = [],
   invitationExpiryDateField,
   fetchInvitations,
-  id = "table-invitations",
   inviteButtonIcon,
   invitations,
-  loading = false,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
@@ -87,21 +81,14 @@ export const InvitationsTable = ({
     "expiresAt",
     "actions",
   ],
+  ...tableOptions
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("invitations");
 
-  const initialFilters = {
-    email: { value: "", matchMode: FilterMatchMode.CONTAINS },
-  };
-
-  const defaultColumns: Array<ColumnDef<any>> = [
+  const defaultColumns: Array<ColumnDef<Invitation>> = [
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
-      // enableSorting: true,
-      // filterPlaceholder: t("table.searchPlaceholder"),
-      // showFilterMenu: false,
-      // showClearButton: false,
     },
     {
       align: "center",
@@ -109,7 +96,9 @@ export const InvitationsTable = ({
       header: t("table.defaultColumns.app"),
       cell: ({ getValue }) => {
         return (
-          <span>{(getValue() as { appId: number | null }).appId || "-"} </span>
+          <span>
+            {(getValue() as { appId: number } | undefined)?.appId || "-"}{" "}
+          </span>
         );
       },
       enableSorting: false,
@@ -120,8 +109,9 @@ export const InvitationsTable = ({
       accessorKey: "role",
       header: t("table.defaultColumns.role"),
       cell: ({ getValue }) => {
-        const roles = getValue() as string[] | undefined;
-        if (roles) {
+        const roles = getValue() as string[];
+
+        if (Array.isArray(roles)) {
           return (
             <>
               {roles?.map((role: string, index: number) => (
@@ -138,14 +128,12 @@ export const InvitationsTable = ({
           );
         }
 
-        const role = getValue() as string;
-
         return (
           <>
             <Tag
-              value={role}
+              value={roles}
               style={{
-                background: role === "ADMIN" ? "#6366F1" : "#22C55E",
+                background: roles === "ADMIN" ? "#6366F1" : "#22C55E",
                 width: "5rem",
               }}
             />
@@ -159,17 +147,17 @@ export const InvitationsTable = ({
       accessorKey: "invitedBy",
       header: t("table.defaultColumns.invitedBy"),
       cell: ({ getValue }) => {
-        const invitedBy = getValue() as any;
+        const invitedBy = getValue() as UserType;
 
         if (!invitedBy) {
           return <code>&#8212;</code>;
         }
 
-        if (invitedBy.givenName || invitedBy.surname) {
-          return `${invitedBy.givenName || ""} ${invitedBy.surname || ""}`;
+        if (invitedBy?.givenName || invitedBy?.surname) {
+          return `${invitedBy?.givenName || ""} ${invitedBy?.surname || ""}`;
         }
 
-        return invitedBy.email;
+        return invitedBy?.email;
       },
       enableSorting: false,
       enableColumnFilter: false,
@@ -189,13 +177,13 @@ export const InvitationsTable = ({
       align: "center",
       id: "actions",
       header: t("table.defaultColumns.actions"),
-      cell: () => {
+      cell: ({ row: { original } }) => {
         return (
           <>
             <InvitationActions
               onInvitationResent={onInvitationResent}
               onInvitationRevoked={onInvitationRevoked}
-              invitation={{} as Invitation}
+              invitation={original}
             />
           </>
         );
@@ -205,12 +193,7 @@ export const InvitationsTable = ({
     },
   ];
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const rowClassNameCallback = (data: any) => {
-  //   return `invitations-${data.id}`;
-  // };
-
-  const renderHeader = () => {
+  const renderToolbar = () => {
     if (showInviteAction) {
       return (
         <div className="table-actions">
@@ -235,13 +218,10 @@ export const InvitationsTable = ({
       data={invitations}
       emptyTableMessage={t("table.emptyMessage")}
       fetchData={fetchInvitations}
-      renderToolbarItems={renderHeader}
-      // id={id}
-      // initialFilters={initialFilters}
-      isLoading={loading}
-      // showGridlines
-      // stripedRows={false}
+      renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
+      visibleColumns={visibleColumns}
+      {...tableOptions}
     ></DataTable>
   );
 };
