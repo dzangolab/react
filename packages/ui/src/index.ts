@@ -1,6 +1,7 @@
 import "./assets/css/index.css";
 
 import { Accordion } from "./Accordion";
+import Checkbox from "./Checkbox";
 import { SubPane } from "./components/SubPane";
 import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
@@ -27,6 +28,7 @@ export * from "./Tooltip";
 
 export {
   Accordion,
+  Checkbox,
   Divider,
   DropdownMenu,
   GoogleButton,
