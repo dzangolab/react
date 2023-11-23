@@ -19,7 +19,7 @@ export const Input = ({
   ...others
 }: IInputProperties) => {
   return (
-    <div className="field-wrapper">
+    <div className={`field-wrapper ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <div className={`field ${name}`} aria-invalid={error}>
         <input
