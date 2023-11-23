@@ -19,5 +19,14 @@
   "status": {
     "active": "Active (fr)",
     "invited": "Invited (fr)"
+  },
+  "confirmation": {
+    "header": "Confirmation (fr)",
+    "disable": {
+      "message": "Are you sure you want to disable user? (fr)"
+    },
+    "enable": {
+      "message": "Are you sure you want to enable user? (fr)"
+    }
   }
 }

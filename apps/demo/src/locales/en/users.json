@@ -19,5 +19,14 @@
   "status": {
     "active": "Active",
     "invited": "Invited"
+  },
+  "confirmation": {
+    "header": "Confirmation ",
+    "disable": {
+      "message": "Are you sure you want to disable user?"
+    },
+    "enable": {
+      "message": "Are you sure you want to enable user?"
+    }
   }
 }

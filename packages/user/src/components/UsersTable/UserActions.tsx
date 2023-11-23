@@ -30,8 +30,8 @@ export const UserAction = () => {
       <ActionsMenu actions={actionItems} />
       <ConfirmationModal
         visible={showEnableConfirmation}
-        message="Are you sure"
-        header={t("table.actions.enableUser")}
+        message={t("confirmation.enable.message")}
+        header={t("confirmation.header")}
         onHide={() => {
           setShowEnableConfirmation(false);
         }}
@@ -41,13 +41,13 @@ export const UserAction = () => {
       />
       <ConfirmationModal
         visible={showDisableConfirmation}
-        message="Are you sure"
-        header={t("table.actions.disableUser")}
+        message={t("confirmation.disable.message")}
+        header={t("confirmation.header")}
         onHide={() => {
           setShowDisableConfirmation(false);
         }}
         accept={() => {
-          console.log("enabled");
+          console.log("disabled");
         }}
       />
     </>

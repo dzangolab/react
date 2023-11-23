@@ -1,4 +1,4 @@
-{
+{ 
   "table": {
     "actions": {
       "invite": "Invite user",
@@ -19,5 +19,14 @@
   "status": {
     "active": "Active",
     "invited": "Invited"
+  },
+  "confirmation": {
+    "header": "Confirmation ",
+    "enable": {
+      "message": "Are you sure you want to enable user?"
+    },
+    "disable": {
+      "message": "Are you sure you want to disable user?"
+    }
   }
 }
