@@ -29,7 +29,7 @@ configureTooltip({
   offset: 10,
   delay: 400,
   position: "right",
-  mouseTrack: true,
+  mouseTrack: false,
 });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

@@ -24,10 +24,7 @@ export function useTooltip({
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
   const [tooltipPosition, setTooltipPosition] = useState<Position>({});
-  const [mousePosition, setMousePosition] = useState<Position>({
-    top: 0,
-    left: 0,
-  });
+  const [mousePosition, setMousePosition] = useState<Position>({});
   const timeoutIdReference = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
