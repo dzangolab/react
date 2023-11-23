@@ -1,8 +1,18 @@
-.input-field{
-    display: flex;
-    flex-direction: column;
+.input-field {
+  display: flex;
+  flex-direction: column;
 }
 
-.input-field >input:focus{
-    outline: none;
+.input-field > input {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.input-field > input:focus {
+  outline: var(--input-outline-color);
+}
+
+.input-field > input:-webkit-autofill {
+  background-color: var(--input-autofill-color);
 }

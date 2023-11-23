@@ -273,6 +273,11 @@ const componentList = [
     title: "checkbox.title",
     component: <CheckboxDemo />,
   },
+  {
+    key: 15,
+    title: "input.title",
+    component: <Input />,
+  },
 ];
 
 const Ui = () => {

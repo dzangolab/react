@@ -62,8 +62,11 @@
       "content": "Save the data (fr)"
     }
   },
-  "checkbox":{
-    "title":"Checkbox (fr)",
+  "checkbox": {
+    "title": "Checkbox (fr)",
     "label": "Please agree with the terms and conditions (fr)"
+  },
+  "input": {
+    "title": "Input (fr)"
   }
 }

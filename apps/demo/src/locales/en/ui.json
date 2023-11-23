@@ -65,5 +65,8 @@
   "checkbox": {
     "title": "Checkbox",
     "label": "Please agree with the terms and conditions"
+  },
+  "input":{
+    "title":"Input"
   }
 }
