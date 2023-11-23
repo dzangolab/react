@@ -20,7 +20,13 @@ import type {
   InvitationExpiryDateField,
 } from "@/types";
 
-type VisibleColumn = "name" | "email" | "roles" | "signedUpAt" | string;
+type VisibleColumn =
+  | "name"
+  | "email"
+  | "roles"
+  | "signedUpAt"
+  | "actions"
+  | string;
 
 export type UsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
@@ -58,7 +64,7 @@ export const UsersTable = ({
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns = ["name", "email", "roles", "signedUpAt"],
+  visibleColumns = ["name", "email", "roles", "signedUpAt", "actions"],
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -130,6 +136,10 @@ export const UsersTable = ({
 
         return date.toLocaleDateString("en-GB");
       },
+    },
+    {
+      field: "actions",
+      header: t("table.defaultColumns.actions"),
     },
   ];
 

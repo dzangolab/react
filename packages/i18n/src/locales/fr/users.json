@@ -5,6 +5,7 @@
     },
     "title": "Users (fr)",
     "defaultColumns": {
+      "actions": "Actions (fr)",
       "email": "Email (fr)",
       "roles": "Roles (fr)",
       "name": "Name (fr)",

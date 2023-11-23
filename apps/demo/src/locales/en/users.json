@@ -5,6 +5,7 @@
     },
     "title": "Users",
     "defaultColumns": {
+      "actions": "Actions",
       "email": "Email",
       "roles": "Roles",
       "name": "Name",

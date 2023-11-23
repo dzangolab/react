@@ -162,7 +162,7 @@ const componentList = [
         users={[]}
         fetchUsers={() => {}}
         onInvitationAdded={() => {}}
-        visibleColumns={["email", "name", "roles", "signedUpAt"]}
+        visibleColumns={["email", "name", "roles", "signedUpAt", "actions"]}
         columns={[
           {
             field: "email",
