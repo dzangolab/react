@@ -7,7 +7,7 @@ const InputDemo = () => {
   return (
     <Input
       error={true}
-      errorMessage={t("input.error")}
+      errorMessage={t("input.errorMessage")}
       label={t("input.label")}
     />
   );

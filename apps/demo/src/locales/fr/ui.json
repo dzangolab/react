@@ -68,7 +68,7 @@
   },
   "input": {
     "title": "Input (fr)",
-    "error":"Value is required (fr)",
+    "errorMessage":"Value is required (fr)",
     "label":"Your input (fr)"
   }
 }

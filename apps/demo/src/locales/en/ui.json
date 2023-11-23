@@ -68,7 +68,7 @@
   },
   "input":{
     "title":"Input",
-    "error":"Value is required",
+    "errorMessage":"Value is required",
     "label":"Your input"
   }
 }
