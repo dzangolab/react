@@ -3,6 +3,7 @@
   --default-autofill-color: #ffffff;
   --default-background-color: #007aff;
   --default-border-color: #ccc;
+  --default-border-radius: 0.5rem;
   --default-invalid-border-color: #dc3545;
   --default-outline-color: #007aff;
   --default-padding-height: 0.5em;

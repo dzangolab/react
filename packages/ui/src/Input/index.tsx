@@ -21,15 +21,17 @@ export const Input = ({
   return (
     <div className={`field-wrapper ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <input
-        aria-invalid={error}
-        id={name}
-        name={name}
-        onChange={onChange}
-        placeholder={placeholder}
-        type={type}
-        {...others}
-      />
+      <div className="field">
+        <input
+          aria-invalid={error}
+          id={name}
+          name={name}
+          onChange={onChange}
+          placeholder={placeholder}
+          type={type}
+          {...others}
+        />
+      </div>
       {error && errorMessage && (
         <span className="error-message">{errorMessage}</span>
       )}
