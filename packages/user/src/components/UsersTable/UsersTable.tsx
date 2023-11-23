@@ -142,7 +142,7 @@ export const UsersTable = ({
       align: "center",
       field: "actions",
       header: t("table.defaultColumns.actions"),
-      body: () => {
+      body: (data) => {
         return <UserAction />;
       },
     },

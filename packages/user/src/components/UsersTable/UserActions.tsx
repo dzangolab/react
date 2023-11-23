@@ -25,6 +25,14 @@ export const UserAction = () => {
     },
   ];
 
+  const handleDisableUser = () => {
+    console.log("enabled");
+  };
+
+  const handleEnableUser = () => {
+    console.log("disabled");
+  };
+
   return (
     <>
       <ActionsMenu actions={actionItems} />
@@ -35,9 +43,7 @@ export const UserAction = () => {
         onHide={() => {
           setShowEnableConfirmation(false);
         }}
-        accept={() => {
-          console.log("enabled");
-        }}
+        accept={handleEnableUser}
       />
       <ConfirmationModal
         visible={showDisableConfirmation}
@@ -46,9 +52,7 @@ export const UserAction = () => {
         onHide={() => {
           setShowDisableConfirmation(false);
         }}
-        accept={() => {
-          console.log("disabled");
-        }}
+        accept={handleDisableUser}
       />
     </>
   );
