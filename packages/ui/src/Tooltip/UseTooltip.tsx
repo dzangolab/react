@@ -100,7 +100,6 @@ export function useTooltip({
   const onMouseLeave = () => {
     clearTimeout(timeoutId);
     setShowTooltip(false);
-    console.log("mouseenter");
   };
 
   const onMouseMove = (event: MouseEvent) => {

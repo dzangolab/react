@@ -47,7 +47,12 @@ export const TooltipDemo = () => {
       <button ref={buttonReference} className="button-save">
         {t("tooltip.button.save")}
       </button>
-      <Tooltip elementRef={mouseTrackReference} position="left" delay={200}>
+      <Tooltip
+        elementRef={mouseTrackReference}
+        position="left"
+        delay={200}
+        mouseTrack
+      >
         {t("tooltip.content")}
       </Tooltip>
       <div ref={mouseTrackReference}>{t("tooltip.positions.mouseTrack")}</div>
