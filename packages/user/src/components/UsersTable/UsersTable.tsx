@@ -4,14 +4,13 @@ import {
   IColumnProperties,
   LazyTableState,
   useManipulateColumns,
-  ActionsMenu,
 } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
-import { MenuItem } from "primereact/menuitem";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
+import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
 
 import type {
@@ -73,17 +72,6 @@ export const UsersTable = ({
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
-
-  const actionItems: MenuItem[] = [
-    {
-      label: t("table.actions.enableUser"),
-      icon: "pi pi-check",
-    },
-    {
-      label: t("table.actions.disableUser"),
-      icon: "pi pi-times",
-    },
-  ];
 
   const defaultColumns: Array<IColumnProperties> = [
     {
@@ -151,16 +139,12 @@ export const UsersTable = ({
       },
     },
     {
+      align: "center",
       field: "actions",
       header: t("table.defaultColumns.actions"),
       body: () => {
-        return (
-          <>
-            <ActionsMenu actions={actionItems} />
-          </>
-        );
+        return <UserAction />;
       },
-      align: "center",
     },
   ];
 
