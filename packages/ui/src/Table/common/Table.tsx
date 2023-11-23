@@ -45,11 +45,15 @@ import type { TCustomColumnFilter, TDataTableProperties } from "./types";
 import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
+  border = "grid",
+  className,
   columns = [],
   data,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
+  id,
   isLoading = false,
+  initialFilters = [],
   fetchData,
   renderToolbarItems,
   renderTableFooterContent,
@@ -66,7 +70,8 @@ const DataTable = <TData extends { id: string | number }>({
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>([]);
+  const [columnFilters, setColumnFilters] =
+    useState<TCustomColumnFilter[]>(initialFilters);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
@@ -186,8 +191,16 @@ const DataTable = <TData extends { id: string | number }>({
     return cell.getValue() as string;
   };
 
+  const totalItems = fetchData
+    ? totalRecords
+    : table.getFilteredRowModel().rows?.length;
+
   return (
-    <div className="table-container">
+    <div
+      id={id}
+      data-border={border}
+      className={"table-container " + className || ""}
+    >
       {title ? (
         <h6
           className="title"
@@ -300,6 +313,7 @@ const DataTable = <TData extends { id: string | number }>({
                       onInputChange={(value) => {
                         column.setFilterValue(value);
                       }}
+                      placeholder={column.columnDef.filterPlaceholder || ""}
                     ></DebouncedInput>
                   </TableCell>
                 );
@@ -360,7 +374,7 @@ const DataTable = <TData extends { id: string | number }>({
         ) : null}
       </Table>
 
-      {paginated ? (
+      {paginated && totalItems > 0 ? (
         <>
           {renderCustomPagination ? (
             renderCustomPagination(table)
@@ -375,11 +389,7 @@ const DataTable = <TData extends { id: string | number }>({
               onItemsPerPageChange={(itemsPerPage) => {
                 table.setPageSize(itemsPerPage);
               }}
-              totalItems={
-                fetchData
-                  ? totalRecords
-                  : table.getFilteredRowModel().rows?.length
-              }
+              totalItems={totalItems}
               {...paginationOptions}
             ></Pagination>
           )}

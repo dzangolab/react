@@ -174,6 +174,7 @@ declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
   interface ColumnDefBase<TData, TValue> {
     align?: "left" | "center" | "right";
+    filterPlaceholder?: string;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
       Omit<ComponentProps<typeof Tooltip>, "elementRef">
@@ -187,6 +188,9 @@ export interface TDataTableProperties<TData>
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
   isLoading?: boolean;
+  id?: string;
+  initialFilters?: TCustomColumnFilter[];
+  border?: "grid" | "horizontal" | "vertical" | "none";
   globalFilter?: {
     key: string;
     value: string;

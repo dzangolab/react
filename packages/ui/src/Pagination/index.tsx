@@ -64,6 +64,8 @@ export const Pagination: React.FC<PaginationProperties> = ({
     [lastPage, onPageChange],
   );
 
+  const pageStatics = <span> {`${currentPage + 1} / ${lastPage}`}</span>;
+
   return (
     <div className={`pagination ${className || ""}`}>
       {showItemsPerPageControl && (
@@ -79,79 +81,81 @@ export const Pagination: React.FC<PaginationProperties> = ({
         </div>
       )}
 
-      {showPageInput && (
+      {lastPage > 1 && showPageInput && (
         <div className="page-input-control">
           <span>{pageInputLabel}</span>
           <DebouncedInput type="number" onInputChange={handlePageInputChange} />
         </div>
       )}
-      <div className="buttons-wrapper">
-        {showFirstLastButtons || showPreviousNextButtons ? (
+      {lastPage > 1 ? (
+        <div className="buttons-wrapper">
+          {showFirstLastButtons || showPreviousNextButtons ? (
+            <div>
+              {showFirstLastButtons && (
+                <button
+                  className="first-page"
+                  onClick={() => onPageChange(0)}
+                  disabled={!(currentPage > 0)}
+                >
+                  <i className="pi pi-angle-double-left" />
+                </button>
+              )}
+
+              {showPreviousNextButtons && (
+                <button
+                  className="previous-page"
+                  onClick={() => onPageChange(currentPage - 1)}
+                  disabled={!(currentPage > 0)}
+                >
+                  <i className="pi pi-angle-left" />
+                </button>
+              )}
+            </div>
+          ) : null}
+
           <div>
-            {showFirstLastButtons && (
-              <button
-                className="first-page"
-                onClick={() => onPageChange(0)}
-                disabled={!(currentPage > 0)}
-              >
-                <i className="pi pi-angle-double-left" />
-              </button>
-            )}
-
-            {showPreviousNextButtons && (
-              <button
-                className="previous-page"
-                onClick={() => onPageChange(currentPage - 1)}
-                disabled={!(currentPage > 0)}
-              >
-                <i className="pi pi-angle-left" />
-              </button>
-            )}
+            {showPageButtons
+              ? pages.map((page) => (
+                  <button
+                    key={page}
+                    className={`page-button ${
+                      page === currentPage + 1 ? "active" : ""
+                    }`}
+                    onClick={() => onPageChange(page - 1)}
+                  >
+                    {page}
+                  </button>
+                ))
+              : pageStatics}
           </div>
-        ) : null}
 
-        <div>
-          {showPageButtons ? (
-            pages.map((page) => (
-              <button
-                key={page}
-                className={`page-button ${
-                  page === currentPage + 1 ? "active" : ""
-                }`}
-                onClick={() => onPageChange(page - 1)}
-              >
-                {page}
-              </button>
-            ))
-          ) : (
-            <span> {`${currentPage + 1} / ${lastPage}`}</span>
-          )}
+          {showFirstLastButtons || showPreviousNextButtons ? (
+            <div>
+              {showPreviousNextButtons && (
+                <button
+                  className="next-page"
+                  onClick={() => onPageChange(currentPage + 1)}
+                  disabled={!(currentPage < lastPage - 1)}
+                >
+                  <i className="pi pi-angle-right" />
+                </button>
+              )}
+
+              {showFirstLastButtons && (
+                <button
+                  className="last-page"
+                  onClick={() => onPageChange(lastPage - 1)}
+                  disabled={!(currentPage < lastPage - 1)}
+                >
+                  <i className="pi pi-angle-double-right" />
+                </button>
+              )}
+            </div>
+          ) : null}
         </div>
-
-        {showFirstLastButtons || showPreviousNextButtons ? (
-          <div>
-            {showPreviousNextButtons && (
-              <button
-                className="next-page"
-                onClick={() => onPageChange(currentPage + 1)}
-                disabled={!(currentPage < lastPage - 1)}
-              >
-                <i className="pi pi-angle-right" />
-              </button>
-            )}
-
-            {showFirstLastButtons && (
-              <button
-                className="last-page"
-                onClick={() => onPageChange(lastPage - 1)}
-                disabled={!(currentPage < lastPage - 1)}
-              >
-                <i className="pi pi-angle-double-right" />
-              </button>
-            )}
-          </div>
-        ) : null}
-      </div>
+      ) : (
+        pageStatics
+      )}
     </div>
   );
 };

@@ -44,7 +44,7 @@ const TanstackTable = () => {
           };
         }
         return data;
-      })(200)}
+      })(20)}
       isLoading={false}
       onRowSelectChange={() => {}}
       enableRowSelection={true}
@@ -55,6 +55,7 @@ const TanstackTable = () => {
       }}
       emptyTableMessage={t("table.emptyTableMessage")}
       stripe="even"
+      border="none"
     ></TDataTable>
   );
 };
