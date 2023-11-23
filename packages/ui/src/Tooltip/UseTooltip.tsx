@@ -1,8 +1,8 @@
-import { useState, RefObject, useEffect } from "react";
+import { useState, RefObject, useEffect, useRef } from "react";
 
 type Position = {
-  top: number;
-  left: number;
+  top?: number;
+  left?: number;
 };
 
 type UseTooltipProperties = {
@@ -23,15 +23,12 @@ export function useTooltip({
   mouseTrack = false,
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
-  const [tooltipPosition, setTooltipPosition] = useState<Position>({
-    top: 0,
-    left: 0,
-  });
+  const [tooltipPosition, setTooltipPosition] = useState<Position>({});
   const [mousePosition, setMousePosition] = useState<Position>({
     top: 0,
     left: 0,
   });
-  let timeoutId: ReturnType<typeof setTimeout>;
+  const timeoutIdReference = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     if (!ref.current) {
@@ -41,8 +38,8 @@ export function useTooltip({
     if (showTooltip) {
       if (mouseTrack && mousePosition) {
         setTooltipPosition({
-          top: mousePosition.top + offset,
-          left: mousePosition.left + 2 * offset,
+          top: mousePosition.top && mousePosition.top + offset,
+          left: mousePosition.left && mousePosition.left + 2 * offset,
         });
       } else {
         const { left, right, top, bottom, height, width } =
@@ -87,18 +84,19 @@ export function useTooltip({
     }
 
     if (!showTooltip) {
-      setTooltipPosition({ top: 0, left: 0 });
+      setTooltipPosition({});
     }
   }, [showTooltip, ref, mousePosition]);
 
   const onMouseEnter = () => {
-    timeoutId = setTimeout(() => {
+    clearTimeout(timeoutIdReference.current);
+    timeoutIdReference.current = setTimeout(() => {
       setShowTooltip(true);
     }, delay);
   };
 
   const onMouseLeave = () => {
-    clearTimeout(timeoutId);
+    clearTimeout(timeoutIdReference.current);
     setShowTooltip(false);
   };
 

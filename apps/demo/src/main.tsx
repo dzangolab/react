@@ -27,9 +27,9 @@ i18n(config.i18n);
 // configure tooltip globally
 configureTooltip({
   offset: 10,
-  delay: 400,
+  delay: 0,
   position: "right",
-  mouseTrack: false,
+  mouseTrack: true,
 });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
