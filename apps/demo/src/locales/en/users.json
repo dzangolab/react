@@ -21,7 +21,7 @@
     "invited": "Invited"
   },
   "confirmation": {
-    "header": "Confirmation ",
+    "header": "Confirmation",
     "disable": {
       "message": "Are you sure you want to disable user?"
     },
