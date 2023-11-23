@@ -143,7 +143,7 @@ export const UsersTable = ({
       field: "actions",
       header: t("table.defaultColumns.actions"),
       body: (data) => {
-        return <UserAction user={data} />;
+        return <UserAction />;
       },
     },
   ];
