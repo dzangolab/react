@@ -10,31 +10,34 @@ export const TooltipDemo = () => {
   const bottomReference = useRef(null);
   const buttonReference = useRef(null);
   const mouseTrackReference = useRef(null);
+  const configuredReference = useRef(null);
 
   return (
     <div className="tooltip-component">
       <Tooltip
         elementRef={rightReference}
         offset={10}
+        delay={100}
         position="right"
-        mouseTrack
       >
         {t("tooltip.content")}
       </Tooltip>
       <div ref={rightReference}>{t("tooltip.positions.right")}</div>
-      <Tooltip elementRef={leftReference} position="left" mouseTrack>
+      <Tooltip elementRef={leftReference} position="left">
         {t("tooltip.content")}
       </Tooltip>
       <div ref={leftReference}>{t("tooltip.positions.left")}</div>
-      <Tooltip elementRef={topReference} position="top" offset={10} mouseTrack>
+      <Tooltip elementRef={topReference} position="top" offset={10} delay={500}>
         {t("tooltip.content")}
       </Tooltip>
       <div ref={topReference}>{t("tooltip.positions.top")}</div>
-      <Tooltip elementRef={bottomReference} position="bottom">
+
+      <Tooltip elementRef={bottomReference} position="bottom" mouseTrack>
         <h3>{t("tooltip.positions.bottom")}</h3>
         <h4>{t("tooltip.content")}</h4>
       </Tooltip>
       <div ref={bottomReference}>{t("tooltip.positions.bottom")}</div>
+
       <Tooltip elementRef={buttonReference} position="right" offset={10}>
         <i className="pi pi-check"></i>
         <span>{t("tooltip.button.content")}</span>
@@ -46,6 +49,9 @@ export const TooltipDemo = () => {
         {t("tooltip.content")}
       </Tooltip>
       <div ref={mouseTrackReference}>{t("tooltip.positions.top")}</div>
+
+      <Tooltip elementRef={configuredReference}>{t("tooltip.content")}</Tooltip>
+      <div ref={configuredReference}>{t("tooltip.positions.configured")}</div>
     </div>
   );
 };

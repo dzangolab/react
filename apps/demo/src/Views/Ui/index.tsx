@@ -8,6 +8,7 @@ import {
   FilesPresentation,
 } from "@dzangolab/react-ui";
 
+import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
@@ -265,6 +266,11 @@ const componentList = [
     key: 13,
     title: "tooltip.title",
     component: <TooltipDemo />,
+  },
+  {
+    key: 14,
+    title: "checkbox.title",
+    component: <CheckboxDemo />,
   },
 ];
 

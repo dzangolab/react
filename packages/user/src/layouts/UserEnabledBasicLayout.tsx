@@ -19,7 +19,7 @@ interface Properties {
   header?: React.ReactNode;
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
-  mainMenuRoutes: {
+  mainMenuRoutes?: {
     name: string;
     route: string;
   }[];
@@ -59,7 +59,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     <BasicLayout
       children={children}
       footer={footer}
-      mainMenuRoutes={user ? mainMenuRoutes : []}
+      mainMenuRoutes={mainMenuRoutes}
       mainMenu={mainMenu}
       mainMenuOrientation={mainMenuOrientation}
       header={header}

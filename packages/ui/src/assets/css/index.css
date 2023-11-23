@@ -1,6 +1,7 @@
 @import "./reset.css";
 @import "./vars.css";
 @import "./dropdownMenu.css";
+@import "./debounced-input.css";
 @import "./responsive-menu.css";
 @import "./accordion.css";
 @import "./tabs.css";
@@ -15,11 +16,13 @@
 @import "./ssoBaseButton.css";
 @import "./googleButton.css";
 @import "./primereact-override/index.css";
+@import "./pagination.css";
 @import "./fileCard.css";
 @import "./filelist.css";
 @import "./files-table.css";
 @import "./message.css";
 @import "./tooltip.css";
+@import "./checkbox.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";

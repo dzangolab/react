@@ -20,7 +20,7 @@ interface Properties {
   layoutType?: "basic" | "sidebar";
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
-  mainMenuRoutes: {
+  mainMenuRoutes?: {
     name: string;
     route: string;
     icon?: React.ReactNode;
@@ -82,7 +82,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
       layoutType={layoutType}
       children={children}
       footer={footer}
-      mainMenuRoutes={user ? mainMenuRoutes : []}
+      mainMenuRoutes={mainMenuRoutes}
       logoRoute={logoRoute || home}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}

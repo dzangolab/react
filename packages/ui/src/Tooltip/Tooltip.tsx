@@ -1,6 +1,7 @@
 import React, { RefObject, useRef, FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 
+import { tooltipConfig } from "./ConfigureTooltip";
 import { useTooltip } from "./UseTooltip";
 
 type TooltipProperties = {
@@ -14,14 +15,14 @@ type TooltipProperties = {
   style?: object;
 };
 
-const Tooltip: FC<TooltipProperties> = ({
+export const Tooltip: FC<TooltipProperties> = ({
   children,
   className,
-  delay,
+  delay = tooltipConfig.delay,
   elementRef,
-  mouseTrack,
-  offset,
-  position = "top",
+  mouseTrack = tooltipConfig.mouseTrack,
+  offset = tooltipConfig.offset,
+  position = tooltipConfig.position,
   style,
 }) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
@@ -92,8 +93,3 @@ const Tooltip: FC<TooltipProperties> = ({
     </>
   );
 };
-export * from "./Tooltip";
-export {
-  type ConfigureTooltipOptions,
-  configureTooltip,
-} from "./ConfigureTooltip";

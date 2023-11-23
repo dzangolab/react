@@ -1,0 +1,103 @@
+:root {
+  --pagination-bg-color: #f8f9fa;
+  --pagination-padding: 0.8rem;
+  --pagination-gap: 0.5rem;
+  --pagination-buttons-bg-color: #007bff;
+  --pagination-buttons-bg-color-hover: #0056b3;
+  --pagination-buttons-bg-color-active: #0056b3;
+  --pagination-buttons-bg-color-disabled: #e4e4e4;
+  --pagination-buttons-color-disabled: inherit;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  list-style: none;
+  padding: var(--pagination-padding);
+  background-color: var(--pagination-bg-color);
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--pagination-gap);
+}
+
+.pagination .buttons-wrapper,
+.pagination .buttons-wrapper > div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: var(--pagination-gap);
+}
+
+.pagination .buttons-wrapper {
+  padding: 0.5rem 0;
+  margin-left: auto;
+}
+
+.first-page,
+.last-page,
+.next-page,
+.previous-page,
+.page-button {
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: var(--pagination-buttons-bg-color);
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.first-page:hover,
+.last-page:hover,
+.next-page:hover,
+.previous-page:hover,
+.page-button:hover {
+  background-color: var(--pagination-buttons-bg-color-hover);
+}
+
+.first-page:disabled,
+.last-page:disabled,
+.next-page:disabled,
+.previous-page:disabled,
+.page-button:disabled {
+  background-color: var(--pagination-buttons-bg-color-disabled);
+  cursor: not-allowed;
+  color: var(--pagination-buttons-color-disabled);
+}
+
+.page-button.active {
+  background-color: var(--pagination-buttons-bg-color-active);
+}
+
+.items-per-page-control,
+.page-input-control {
+  display: flex;
+  align-items: center;
+  color: #495057;
+}
+
+.items-per-page-control span,
+.page-input-control span {
+  margin-right: 8px;
+}
+
+.items-per-page-control select,
+.page-input-control input {
+  width: 4rem;
+}
+
+.items-per-page-control select {
+  padding: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+.items-per-page-control select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}

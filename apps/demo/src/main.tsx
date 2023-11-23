@@ -1,5 +1,6 @@
 import { ConfigProvider } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
+import { configureTooltip } from "@dzangolab/react-ui";
 import { UserProvider } from "@dzangolab/react-user";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -23,7 +24,13 @@ import "./assets/css/tooltip.css";
 
 i18n(config.i18n);
 
-// superTokens(config);
+// configure tooltip globally
+configureTooltip({
+  offset: 10,
+  delay: 400,
+  position: "right",
+  mouseTrack: false,
+});
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ConfigProvider appConfig={config}>
