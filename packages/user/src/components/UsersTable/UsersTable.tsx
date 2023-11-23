@@ -4,9 +4,11 @@ import {
   IColumnProperties,
   LazyTableState,
   useManipulateColumns,
+  ActionsMenu,
 } from "@dzangolab/react-ui";
 import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
+import { MenuItem } from "primereact/menuitem";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
@@ -71,6 +73,17 @@ export const UsersTable = ({
   const initialFilters = {
     email: { value: "", matchMode: FilterMatchMode.CONTAINS },
   };
+
+  const actionItems: MenuItem[] = [
+    {
+      label: "Enable user",
+      icon: "pi pi-replay",
+    },
+    {
+      label: "Disable user",
+      icon: "pi pi-times",
+    },
+  ];
 
   const defaultColumns: Array<IColumnProperties> = [
     {
@@ -140,6 +153,14 @@ export const UsersTable = ({
     {
       field: "actions",
       header: t("table.defaultColumns.actions"),
+      body: () => {
+        return (
+          <>
+            <ActionsMenu actions={actionItems} />
+          </>
+        );
+      },
+      align: "center",
     },
   ];
 

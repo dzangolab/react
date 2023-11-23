@@ -159,7 +159,7 @@ const componentList = [
     title: "Users Table",
     component: (
       <UsersTable
-        users={[]}
+        users={allUsers}
         fetchUsers={() => {}}
         onInvitationAdded={() => {}}
         visibleColumns={["email", "name", "roles", "signedUpAt", "actions"]}
