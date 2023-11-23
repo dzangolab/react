@@ -66,9 +66,10 @@
     "title": "Checkbox",
     "label": "Please agree with the terms and conditions"
   },
-  "input":{
-    "title":"Input",
-    "errorMessage":"Value is required",
-    "label":"Your input"
+  "input": {
+    "title": "Input",
+    "errorMessage": "Value is required",
+    "label": "Your input",
+    "placeholder": "Please enter your value"
   }
 }
