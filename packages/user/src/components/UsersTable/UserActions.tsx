@@ -3,7 +3,7 @@ import { ActionsMenu, ConfirmationModal } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
 import { useState } from "react";
 
-export const UserAction = () => {
+export const UserAction = (data: any) => {
   const { t } = useTranslation("users");
   const [showEnableConfirmation, setShowEnableConfirmation] = useState(false);
   const [showDisableConfirmation, setShowDisableConfirmation] = useState(false);
@@ -26,11 +26,11 @@ export const UserAction = () => {
   ];
 
   const handleDisableUser = () => {
-    console.log("enabled");
+    console.log(data);
   };
 
   const handleEnableUser = () => {
-    console.log("disabled");
+    console.log(data);
   };
 
   return (
