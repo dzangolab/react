@@ -27,7 +27,7 @@ i18n(config.i18n);
 // configure tooltip globally
 configureTooltip({
   offset: 10,
-  delay: 0,
+  delay: 400,
   position: "right",
   mouseTrack: true,
 });
