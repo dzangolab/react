@@ -9,6 +9,7 @@ import {
   Input,
 } from "@dzangolab/react-ui";
 
+import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
@@ -18,7 +19,6 @@ import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import CheckboxDemo from "./CheckboxDemo";
 
 const componentList = [
   {
@@ -276,7 +276,7 @@ const componentList = [
   {
     key: 15,
     title: "input.title",
-    component: <Input />,
+    component: <Input error="Invalid input" label="Name" />,
   },
 ];
 

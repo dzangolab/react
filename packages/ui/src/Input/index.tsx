@@ -24,7 +24,7 @@ export const Input = ({
         onChange={onChange}
         {...others}
       />
-      {error && <div className="error-message">{error}</div>}
+      {error && <span className="input-error-message">{error}</span>}
     </div>
   );
 };

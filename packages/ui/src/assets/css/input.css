@@ -1,18 +1,25 @@
 .input-field {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
+  gap: 0.4rem;
 }
 
 .input-field > input {
+  border: 1px solid var(--input-border-color);
   border-radius: 0.5rem;
   padding: 0.5rem;
   width: 50%;
 }
 
 .input-field > input:focus {
-  outline: var(--input-outline-color);
+  outline: 2px solid var(--input-outline-color);
 }
 
 .input-field > input:-webkit-autofill {
   background-color: var(--input-autofill-color);
+}
+
+.input-error-message {
+  color: var(--error-message-color);
 }
