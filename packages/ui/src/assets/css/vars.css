@@ -1,13 +1,13 @@
 :root {
   --color: rgb(84,84,84);
-  --default-autofill-color: #ffffff;
-  --default-background-color: #007aff;
-  --default-border-color: #ccc;
-  --default-border-radius: 0.5rem;
-  --default-invalid-border-color: #dc3545;
-  --default-outline-color: #007aff;
-  --default-padding-height: 0.5em;
-  --default-valid-border-color: #198754;
+  --field-autofill-color: #ffffff;
+  --field-background-color: #007aff;
+  --field-border-color: #ccc;
+  --field-border-radius: 0.5rem;
+  --field-invalid-border-color: #dc3545;
+  --field-outline-color: #007aff;
+  --field-padding-height: 0.5em;
+  --field-valid-border-color: #198754;
   --border-color: #b5b5b5;
   --error-message-color: #dc3545;
   --menu-border-color: #555;
