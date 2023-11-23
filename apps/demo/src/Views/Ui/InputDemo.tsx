@@ -6,15 +6,18 @@ const InputDemo = () => {
   const { t } = useTranslation("ui");
 
   return (
-    <Input
-      error={true}
-      errorMessage={t("input.errorMessage")}
-      onChange={(event: ChangeEvent<HTMLInputElement>) =>
-        console.log(event.target.value)
-      }
-      placeholder={t("input.placeholder")}
-      label={t("input.label")}
-    />
+    <>
+      <Input
+        error={true}
+        errorMessage={t("input.errorMessage")}
+        onChange={(event: ChangeEvent<HTMLInputElement>) =>
+          console.log(event.target.value)
+        }
+        placeholder={t("input.placeholder")}
+        label={t("input.label")}
+      />
+      <Input />
+    </>
   );
 };
 
