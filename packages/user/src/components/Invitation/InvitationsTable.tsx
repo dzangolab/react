@@ -221,6 +221,10 @@ export const InvitationsTable = ({
       renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
       visibleColumns={visibleColumns}
+      paginationOptions={{
+        pageInputLabel: t("table.pagination.pageControl"),
+        itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
       {...tableOptions}
     ></DataTable>
   );
