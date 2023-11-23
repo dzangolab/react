@@ -5,6 +5,7 @@
   --input-border-color: #ccc;
   --input-invalid-border-color: #dc3545;
   --input-outline-color: #007aff;
+  --input-padding-height: 0.5em;
   --input-valid-border-color: #198754;
   --border-color: #b5b5b5;
   --error-message-color: #dc3545;

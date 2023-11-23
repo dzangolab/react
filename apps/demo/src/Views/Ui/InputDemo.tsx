@@ -4,7 +4,13 @@ import { Input } from "@dzangolab/react-ui";
 const InputDemo = () => {
   const { t } = useTranslation("ui");
 
-  return <Input error={t("input.error")} label={t("input.label")} />;
+  return (
+    <Input
+      error={true}
+      errorMessage={t("input.error")}
+      label={t("input.label")}
+    />
+  );
 };
 
 export default InputDemo;
