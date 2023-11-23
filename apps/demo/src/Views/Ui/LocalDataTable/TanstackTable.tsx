@@ -56,6 +56,7 @@ const TanstackTable = () => {
       emptyTableMessage={t("table.emptyTableMessage")}
       stripe="even"
       border="none"
+      id="invitations-table"
     ></TDataTable>
   );
 };

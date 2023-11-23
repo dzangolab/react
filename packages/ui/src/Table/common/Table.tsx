@@ -46,7 +46,7 @@ import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   border = "grid",
-  className,
+  className = "",
   columns = [],
   data,
   emptyTableMessage = "No results.",
@@ -199,7 +199,7 @@ const DataTable = <TData extends { id: string | number }>({
     <div
       id={id}
       data-border={border}
-      className={"table-container " + className || ""}
+      className={"table-container " + className}
     >
       {title ? (
         <h6
