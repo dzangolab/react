@@ -76,11 +76,11 @@ export const UsersTable = ({
 
   const actionItems: MenuItem[] = [
     {
-      label: "Enable user",
-      icon: "pi pi-replay",
+      label: t("table.actions.enableUser"),
+      icon: "pi pi-check",
     },
     {
-      label: "Disable user",
+      label: t("table.actions.disableUser"),
       icon: "pi pi-times",
     },
   ];
