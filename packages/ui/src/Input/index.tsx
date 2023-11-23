@@ -32,7 +32,7 @@ export const Input = ({
         />
       </div>
       {error && errorMessage && (
-        <span className="error-message">{errorMessage}</span>
+        <span className={`error-message ${name}`}>{errorMessage}</span>
       )}
     </div>
   );
