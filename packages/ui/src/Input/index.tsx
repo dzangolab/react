@@ -15,7 +15,7 @@ export const Input = ({
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`input-field ${name}`}>
+    <div className="input-field-wrapper">
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}
