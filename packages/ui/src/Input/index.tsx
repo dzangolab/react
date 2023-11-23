@@ -22,12 +22,12 @@ export const Input = ({
     <div className="input-field-wrapper">
       {label && <label htmlFor={name}>{label}</label>}
       <input
-        type={type}
+        aria-invalid={error}
         id={name}
         name={name}
-        placeholder={placeholder}
         onChange={onChange}
-        aria-invalid={error}
+        placeholder={placeholder}
+        type={type}
         {...others}
       />
       {error && errorMessage && (
