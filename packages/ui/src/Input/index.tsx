@@ -21,9 +21,8 @@ export const Input = ({
   return (
     <div className={`field-wrapper ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className="field">
+      <div className="field" aria-invalid={error}>
         <input
-          aria-invalid={error}
           id={name}
           name={name}
           onChange={onChange}
