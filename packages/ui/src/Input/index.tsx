@@ -1,21 +1,21 @@
 import { HTMLAttributes } from "react";
 
 interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
-  type?: "text" | "number";
-  label?: string;
-  name?: string;
   error?: boolean;
   errorMessage?: string;
+  label?: string;
+  name?: string;
+  type?: "text" | "number";
 }
 
 export const Input = ({
+  error,
   errorMessage,
-  type,
   label,
   name,
-  error,
-  placeholder,
   onChange,
+  placeholder,
+  type,
   ...others
 }: IInputProperties) => {
   return (
