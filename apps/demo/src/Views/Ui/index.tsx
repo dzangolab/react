@@ -6,12 +6,12 @@ import {
   FileCard,
   FilesList,
   FilesPresentation,
-  Input,
 } from "@dzangolab/react-ui";
 
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
+import InputDemo from "./InputDemo";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import MessageDemo from "./MessageDemo";
@@ -276,7 +276,7 @@ const componentList = [
   {
     key: 15,
     title: "input.title",
-    component: <Input error="Invalid input" label="Name" />,
+    component: <InputDemo />,
   },
 ];
 

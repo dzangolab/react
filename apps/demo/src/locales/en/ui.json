@@ -67,6 +67,8 @@
     "label": "Please agree with the terms and conditions"
   },
   "input":{
-    "title":"Input"
+    "title":"Input",
+    "error":"Value is required",
+    "label":"Your input"
   }
 }

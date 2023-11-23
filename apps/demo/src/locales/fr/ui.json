@@ -67,6 +67,8 @@
     "label": "Please agree with the terms and conditions (fr)"
   },
   "input": {
-    "title": "Input (fr)"
+    "title": "Input (fr)",
+    "error":"Value is required (fr)",
+    "label":"Your input (fr)"
   }
 }
