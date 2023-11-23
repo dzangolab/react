@@ -95,13 +95,11 @@ export function useTooltip({
     timeoutId = setTimeout(() => {
       setShowTooltip(true);
     }, delay);
-    console.log("mouseenter");
   }, [delay]);
 
   const onMouseLeave = () => {
     clearTimeout(timeoutId);
     setShowTooltip(false);
-    console.log("mouseleave");
   };
 
   const onMouseMove = (event: MouseEvent) => {
