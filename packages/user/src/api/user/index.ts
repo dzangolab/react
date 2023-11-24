@@ -36,7 +36,7 @@ export const enableUser = async (
   apiBaseUrl: string,
 ): Promise<UserType> => {
   const response = await client(apiBaseUrl).put(
-    `users/${id}/enable`,
+    `users/ad7b9d08-dc94-440e-8e2d-9e15134ab9df/enable`,
     {},
     {
       withCredentials: true,

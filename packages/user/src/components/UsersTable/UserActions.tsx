@@ -34,8 +34,13 @@ export const UserAction = (user: any) => {
   ];
 
   const handleDisableUser = () => {
-    // TODO add api logic
-    console.log("disabled");
+    disableUser(user.user.id, appConfig?.apiBaseUrl || "")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(() => {
+        toast.error("error occurred");
+      });
   };
 
   const handleEnableUser = () => {
