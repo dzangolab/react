@@ -14,6 +14,7 @@ const TanstackTable = () => {
           tooltipOptions: {
             position: "right",
           },
+          filterPlaceholder: t("table.placeholders.givenName"),
         },
         {
           accessorKey: "middleNames",
@@ -44,7 +45,7 @@ const TanstackTable = () => {
           };
         }
         return data;
-      })(200)}
+      })(20)}
       isLoading={false}
       onRowSelectChange={() => {}}
       enableRowSelection={true}
@@ -55,6 +56,9 @@ const TanstackTable = () => {
       }}
       emptyTableMessage={t("table.emptyTableMessage")}
       stripe="even"
+      border="none"
+      id="invitations-table"
+      initialFilters={[{ id: "givenName", value: "0" }]}
     ></TDataTable>
   );
 };
