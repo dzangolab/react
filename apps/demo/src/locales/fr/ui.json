@@ -18,6 +18,9 @@
       "pageControl": "Go to (fr)",
       "rowsPerPage": "Rows (fr)"
     },
+    "placeholders": {
+      "givenName": "Type here to search (fr)..."
+    },
     "headers": {
       "userName": "User name (fr)",
       "email": "Email (fr)",
@@ -62,8 +65,8 @@
       "content": "Save the data (fr)"
     }
   },
-  "checkbox":{
-    "title":"Checkbox (fr)",
+  "checkbox": {
+    "title": "Checkbox (fr)",
     "label": "Please agree with the terms and conditions (fr)"
   }
 }

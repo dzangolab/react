@@ -14,9 +14,13 @@
       "tanstackTable": "Tanstack table",
       "localDataTable": "Local data table"
     },
+
     "pagination": {
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
+    },
+    "placeholders": {
+      "givenName": "Type here to search..."
     },
     "headers": {
       "userName": "User name",

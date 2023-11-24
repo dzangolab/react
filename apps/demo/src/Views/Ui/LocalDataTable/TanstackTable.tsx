@@ -14,6 +14,7 @@ const TanstackTable = () => {
           tooltipOptions: {
             position: "right",
           },
+          filterPlaceholder: t("table.placeholders.givenName"),
         },
         {
           accessorKey: "middleNames",
