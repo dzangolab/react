@@ -2,8 +2,14 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { ActionsMenu, ConfirmationModal } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
-export const UserAction = () => {
+import { enableUser, disableUser } from "@/api/user";
+import { useConfig } from "@/hooks";
+
+export const UserAction = (user: any) => {
+  const appConfig = useConfig();
+
   const { t } = useTranslation("users");
 
   const [showEnableConfirmation, setShowEnableConfirmation] = useState(false);
@@ -33,8 +39,13 @@ export const UserAction = () => {
   };
 
   const handleEnableUser = () => {
-    // TODO add api logic
-    console.log("enabled");
+    enableUser(user.user.id, appConfig?.apiBaseUrl || "")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(() => {
+        toast.error("error occurred");
+      });
   };
 
   return (

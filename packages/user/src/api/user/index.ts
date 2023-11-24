@@ -31,7 +31,10 @@ export const signUpFirstUser = async (
   }
 };
 
-export const enableUser = async (id: number, apiBaseUrl: string) => {
+export const enableUser = async (
+  id: number,
+  apiBaseUrl: string,
+): Promise<UserType> => {
   const response = await client(apiBaseUrl).put(
     `users/${id}/enable`,
     {},
@@ -47,7 +50,10 @@ export const enableUser = async (id: number, apiBaseUrl: string) => {
   }
 };
 
-export const disableUser = async (id: number, apiBaseUrl: string) => {
+export const disableUser = async (
+  id: number,
+  apiBaseUrl: string,
+): Promise<UserType> => {
   const response = await client(apiBaseUrl).put(
     `users/${id}/disable`,
     {},
