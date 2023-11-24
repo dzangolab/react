@@ -45,16 +45,21 @@ import type { TCustomColumnFilter, TDataTableProperties } from "./types";
 import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
-  className,
+  border = "grid",
+  className = "",
   columns = [],
   data,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
+  id,
   isLoading = false,
+  initialFilters = [],
+  inputDebounceTime,
   fetchData,
   renderToolbarItems,
   renderTableFooterContent,
   renderCustomPagination,
+  renderSortIcons,
   title,
   paginated = true,
   rowPerPage,
@@ -67,7 +72,10 @@ const DataTable = <TData extends { id: string | number }>({
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>([]);
+  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    initialFilters as any,
+  );
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
@@ -187,8 +195,16 @@ const DataTable = <TData extends { id: string | number }>({
     return cell.getValue() as string;
   };
 
+  const totalItems = fetchData
+    ? totalRecords
+    : table.getFilteredRowModel().rows?.length;
+
   return (
-    <div className="table-container">
+    <div
+      id={id}
+      data-border={border}
+      className={"table-container " + className}
+    >
       {title ? (
         <h6
           className="title"
@@ -201,7 +217,7 @@ const DataTable = <TData extends { id: string | number }>({
         <TableToolbar children={renderToolbarItems(table)} />
       ) : null}
 
-      <Table className={className} data-stripe={stripe}>
+      <Table data-stripe={stripe}>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
@@ -231,7 +247,11 @@ const DataTable = <TData extends { id: string | number }>({
                     setIsFilterRowVisible(true);
                   }
 
-                  const renderSortIcons = () => {
+                  const getSortIcon = () => {
+                    if (renderSortIcons) {
+                      return renderSortIcons(getIsSorted());
+                    }
+
                     switch (getIsSorted()) {
                       case "asc":
                         return <i className="pi pi-arrow-up"></i>;
@@ -261,9 +281,7 @@ const DataTable = <TData extends { id: string | number }>({
                           : flexRender(columnDef.header, getContext())}
                         <>
                           {getCanSort() ? (
-                            <span className="sort-state">
-                              {renderSortIcons()}
-                            </span>
+                            <span className="sort-state">{getSortIcon()}</span>
                           ) : null}
                         </>
                       </>
@@ -298,9 +316,12 @@ const DataTable = <TData extends { id: string | number }>({
                     }
                   >
                     <DebouncedInput
+                      defaultValue={column.getFilterValue() as string}
                       onInputChange={(value) => {
                         column.setFilterValue(value);
                       }}
+                      placeholder={column.columnDef.filterPlaceholder || ""}
+                      debounceTime={inputDebounceTime}
                     ></DebouncedInput>
                   </TableCell>
                 );
@@ -361,7 +382,7 @@ const DataTable = <TData extends { id: string | number }>({
         ) : null}
       </Table>
 
-      {paginated ? (
+      {paginated && totalItems > 0 ? (
         <>
           {renderCustomPagination ? (
             renderCustomPagination(table)
@@ -376,11 +397,7 @@ const DataTable = <TData extends { id: string | number }>({
               onItemsPerPageChange={(itemsPerPage) => {
                 table.setPageSize(itemsPerPage);
               }}
-              totalItems={
-                fetchData
-                  ? totalRecords
-                  : table.getFilteredRowModel().rows?.length
-              }
+              totalItems={totalItems}
               {...paginationOptions}
             ></Pagination>
           )}
