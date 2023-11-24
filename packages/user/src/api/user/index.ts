@@ -33,7 +33,7 @@ export const signUpFirstUser = async (
 
 export const enableUser = async (id: number, apiBaseUrl: string) => {
   const response = await client(apiBaseUrl).put(
-    `users/ad7b9d08-dc94-440e-8e2d-9e15134ab9df/enable`,
+    `users/${id}/enable`,
     {},
     {
       withCredentials: true,
@@ -49,7 +49,7 @@ export const enableUser = async (id: number, apiBaseUrl: string) => {
 
 export const disableUser = async (id: number, apiBaseUrl: string) => {
   const response = await client(apiBaseUrl).put(
-    `users/ad7b9d08-dc94-440e-8e2d-9e15134ab9df/disable`,
+    `users/${id}/disable`,
     {},
     { withCredentials: true },
   );
