@@ -14,7 +14,7 @@ interface IProperties {
   onLoginSuccess?: (user: SignInUpPromise) => void;
 }
 
-export const BaseLogin: React.FC<IProperties> = ({
+export const LoginBasic: React.FC<IProperties> = ({
   onLoginFailed,
   onLoginSuccess,
 }) => {

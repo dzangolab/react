@@ -2,7 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-import SignupForm from "../components/SignupForm";
+import SignupForm from "./SignupForm";
 import { useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
@@ -13,7 +13,10 @@ interface IProperties {
   onSignupSuccess?: (user: SignInUpPromise) => void;
 }
 
-const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
+export const SignupBasic: React.FC<IProperties> = ({
+  onSignupFailed,
+  onSignupSuccess,
+}) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
@@ -48,5 +51,3 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
 
   return <SignupForm handleSubmit={handleSubmit} loading={loading} />;
 };
-
-export default Signup;
