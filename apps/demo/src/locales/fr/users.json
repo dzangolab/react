@@ -2,8 +2,8 @@
   "table": {
     "actions": {
       "invite": "Invite user (fr)",
-      "enableUser": "Enable User (fr)",
-      "disableUser": "Disable User (fr)"
+      "enable": "Enable User (fr)",
+      "disable": "Disable User (fr)"
     },
     "title": "Users (fr)",
     "defaultColumns": {
@@ -23,10 +23,10 @@
   "confirmation": {
     "header": "Confirmation (fr)",
     "disable": {
-      "message": "Are you sure you want to disable user? (fr)"
+      "message": "Are you sure you want to disable this user? (fr)"
     },
     "enable": {
-      "message": "Are you sure you want to enable user? (fr)"
+      "message": "Are you sure you want to enable this user? (fr)"
     }
   }
 }

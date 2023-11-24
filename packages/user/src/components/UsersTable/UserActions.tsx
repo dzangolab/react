@@ -10,14 +10,15 @@ export const UserAction = () => {
 
   const actionItems: MenuItem[] = [
     {
-      label: t("table.actions.enableUser"),
+      label: t("table.actions.enable"),
       icon: "pi pi-check",
       command: () => {
         setShowEnableConfirmation(true);
       },
     },
     {
-      label: t("table.actions.disableUser"),
+      label: t("table.actions.disable"),
+      className: "danger",
       icon: "pi pi-times",
       command: () => {
         setShowDisableConfirmation(true);
@@ -26,10 +27,12 @@ export const UserAction = () => {
   ];
 
   const handleDisableUser = () => {
+    // TODO add api logic
     console.log("disabled");
   };
 
   const handleEnableUser = () => {
+    // TODO add api logic
     console.log("enabled");
   };
 
