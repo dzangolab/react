@@ -94,12 +94,8 @@ export const InvitationsTable = ({
       align: "center",
       accessorKey: "app",
       header: t("table.defaultColumns.app"),
-      cell: ({ getValue }) => {
-        return (
-          <span>
-            {(getValue() as { appId: number } | undefined)?.appId || "-"}{" "}
-          </span>
-        );
+      cell: ({ row: { original } }) => {
+        return <span>{original.appId || "-"} </span>;
       },
       enableSorting: false,
       enableColumnFilter: false,
