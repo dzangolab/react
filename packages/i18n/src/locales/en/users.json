@@ -2,8 +2,8 @@
   "table": {
     "actions": {
       "invite": "Invite user",
-      "enable": "Enable User",
-      "disable": "Disable User"
+      "enable": "Enable user",
+      "disable": "Disable user"
     },
     "title": "Users",
     "defaultColumns": {

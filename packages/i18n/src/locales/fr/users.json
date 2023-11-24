@@ -2,8 +2,8 @@
   "table": {
     "actions": {
       "invite": "Invite user (fr)",
-      "enable": "Enable User (fr)",
-      "disable": "Disable User (fr)"
+      "enable": "Enable user (fr)",
+      "disable": "Disable user (fr)"
     },
     "title": "Users (fr)",
     "defaultColumns": {
