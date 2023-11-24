@@ -1,17 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
 
+import { LoginBasic } from "..";
 import GoogleLogin from "../components/GoogleLogin";
-import LoginForm from "../components/LoginForm";
 import { ROUTES } from "../constants";
-import { useConfig, useUser } from "../hooks";
-import { verifySessionRoles } from "../supertokens/helpers";
-import login from "../supertokens/login";
+import { useConfig } from "../hooks";
 
-import type { LoginCredentials, SignInUpPromise } from "../types";
+import type { SignInUpPromise } from "../types";
 
 interface IProperties {
   customDivider?: React.ReactNode;
@@ -35,9 +32,7 @@ const Login: React.FC<IProperties> = ({
   socialLoginFirst = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
-  const { setUser } = useUser();
   const appConfig = useConfig();
-  const [loading, setLoading] = useState<boolean>(false);
   const location = useLocation();
 
   let className = "login";
@@ -53,41 +48,6 @@ const Login: React.FC<IProperties> = ({
 
     return null;
   }, [location.search]);
-
-  const handleSubmit = async (credentials: LoginCredentials) => {
-    setLoading(true);
-
-    await login(credentials)
-      .then(async (result) => {
-        if (result?.user) {
-          if (
-            appConfig &&
-            (await verifySessionRoles(appConfig.user.supportedRoles))
-          ) {
-            setUser(result.user);
-
-            onLoginSuccess && (await onLoginSuccess(result));
-
-            toast.success(`${t("login.messages.success")}`);
-          } else {
-            toast.error(t("login.messages.permissionDenied"));
-          }
-        }
-      })
-      .catch(async (error) => {
-        let errorMessage = "errors.otherErrors";
-
-        if (error.message) {
-          errorMessage = `errors.${error.message}`;
-        }
-
-        onLoginFailed && (await onLoginFailed(error));
-
-        toast.error(t(errorMessage, { ns: "errors" }));
-      });
-
-    setLoading(false);
-  };
 
   const getLinks = () => {
     return (
@@ -144,7 +104,10 @@ const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
     >
-      <LoginForm handleSubmit={handleSubmit} loading={loading} />
+      <LoginBasic
+        onLoginFailed={onLoginFailed}
+        onLoginSuccess={onLoginSuccess}
+      />
 
       {renderRedirectionMessage()}
 
