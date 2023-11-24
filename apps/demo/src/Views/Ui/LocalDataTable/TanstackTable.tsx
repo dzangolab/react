@@ -57,6 +57,7 @@ const TanstackTable = () => {
       stripe="even"
       border="none"
       id="invitations-table"
+      initialFilters={[{ id: "givenName", value: "0" }]}
     ></TDataTable>
   );
 };

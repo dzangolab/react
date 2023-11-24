@@ -10,6 +10,7 @@ import type {
   SortDirection,
   Table,
   TableOptions,
+  ColumnFiltersState,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -190,7 +191,7 @@ export interface TDataTableProperties<TData>
   enableRowSelection?: boolean;
   isLoading?: boolean;
   id?: string;
-  initialFilters?: TCustomColumnFilter[];
+  initialFilters?: ColumnFiltersState;
   border?: "grid" | "horizontal" | "vertical" | "none";
   globalFilter?: {
     key: string;

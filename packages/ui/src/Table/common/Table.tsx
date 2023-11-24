@@ -72,8 +72,10 @@ const DataTable = <TData extends { id: string | number }>({
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] =
-    useState<TCustomColumnFilter[]>(initialFilters);
+  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    initialFilters as any,
+  );
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
@@ -314,6 +316,7 @@ const DataTable = <TData extends { id: string | number }>({
                     }
                   >
                     <DebouncedInput
+                      defaultValue={column.getFilterValue() as string}
                       onInputChange={(value) => {
                         column.setFilterValue(value);
                       }}
