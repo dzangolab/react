@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export const UserAction = () => {
   const { t } = useTranslation("users");
+
   const [showEnableConfirmation, setShowEnableConfirmation] = useState(false);
   const [showDisableConfirmation, setShowDisableConfirmation] = useState(false);
 

@@ -30,3 +30,33 @@ export const signUpFirstUser = async (
     return response.data;
   }
 };
+
+export const enableUser = async (id: number, apiBaseUrl: string) => {
+  const response = await client(apiBaseUrl).put(
+    `users/${id}/enable`,
+    {},
+    {
+      withCredentials: true,
+    },
+  );
+
+  if (response.data.status === "ERROR") {
+    throw new Error(response.data.message);
+  } else {
+    return response.data;
+  }
+};
+
+export const disableUser = async (id: number, apiBaseUrl: string) => {
+  const response = await client(apiBaseUrl).put(
+    `users/${id}/disable`,
+    {},
+    { withCredentials: true },
+  );
+
+  if (response.data.status === "ERROR") {
+    throw new Error(response.data.message);
+  } else {
+    return response.data;
+  }
+};
