@@ -54,10 +54,12 @@ const DataTable = <TData extends { id: string | number }>({
   id,
   isLoading = false,
   initialFilters = [],
+  inputDebounceTime,
   fetchData,
   renderToolbarItems,
   renderTableFooterContent,
   renderCustomPagination,
+  renderSortIcons,
   title,
   paginated = true,
   rowPerPage,
@@ -243,7 +245,11 @@ const DataTable = <TData extends { id: string | number }>({
                     setIsFilterRowVisible(true);
                   }
 
-                  const renderSortIcons = () => {
+                  const getSortIcon = () => {
+                    if (renderSortIcons) {
+                      return renderSortIcons(getIsSorted());
+                    }
+
                     switch (getIsSorted()) {
                       case "asc":
                         return <i className="pi pi-arrow-up"></i>;
@@ -273,9 +279,7 @@ const DataTable = <TData extends { id: string | number }>({
                           : flexRender(columnDef.header, getContext())}
                         <>
                           {getCanSort() ? (
-                            <span className="sort-state">
-                              {renderSortIcons()}
-                            </span>
+                            <span className="sort-state">{getSortIcon()}</span>
                           ) : null}
                         </>
                       </>
@@ -314,6 +318,7 @@ const DataTable = <TData extends { id: string | number }>({
                         column.setFilterValue(value);
                       }}
                       placeholder={column.columnDef.filterPlaceholder || ""}
+                      debounceTime={inputDebounceTime}
                     ></DebouncedInput>
                   </TableCell>
                 );

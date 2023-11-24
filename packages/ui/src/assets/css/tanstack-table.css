@@ -92,8 +92,14 @@
   border: var(--table-border);
 }
 
-.table-container .pagination {
+.table-container[data-border="horizontal"] .pagination,
+.table-container[data-border="grid"] .pagination {
   border-top: none;
+}
+
+.table-container[data-border="horizontal"] .toolbar,
+.table-container[data-border="grid"] .toolbar {
+  border-bottom: none;
 }
 
 .table-container .table-wrapper .table .tcell,

@@ -7,6 +7,7 @@ import type {
   ColumnFilter,
   PaginationState,
   Table as ReactTable,
+  SortDirection,
   Table,
   TableOptions,
 } from "@tanstack/react-table";
@@ -200,6 +201,7 @@ export interface TDataTableProperties<TData>
   renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
   renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
   renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
+  renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
   title?: {
     text: string;
     align?: "left" | "center" | "right";

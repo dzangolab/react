@@ -9,6 +9,7 @@ export interface PaginationProperties {
   onItemsPerPageChange?: (itemsPerPage: number) => void;
   itemsPerPageOptions?: number[];
   itemsPerPageControlLabel?: string;
+  inputDebounceTime?: number;
   defaultItemsPerPage?: number;
   showFirstLastButtons?: boolean;
   showPreviousNextButtons?: boolean;
@@ -26,6 +27,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
   onItemsPerPageChange,
   itemsPerPageOptions = [5, 10, 20, 30],
   itemsPerPageControlLabel = "Items per page",
+  inputDebounceTime,
   pageInputLabel = "Go to page:",
   defaultItemsPerPage = itemsPerPageOptions[0],
   showFirstLastButtons = true,
@@ -84,7 +86,11 @@ export const Pagination: React.FC<PaginationProperties> = ({
       {lastPage > 1 && showPageInput && (
         <div className="page-input-control">
           <span>{pageInputLabel}</span>
-          <DebouncedInput type="number" onInputChange={handlePageInputChange} />
+          <DebouncedInput
+            type="number"
+            debounceTime={inputDebounceTime}
+            onInputChange={handlePageInputChange}
+          />
         </div>
       )}
       {lastPage > 1 ? (
