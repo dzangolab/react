@@ -40,7 +40,6 @@ exports[`Component matches snapshot 1`] = `
         name="password"
         onBlur={[Function]}
         onChange={[Function]}
-        onFocus={[Function]}
         placeholder=""
         type="password"
       />
@@ -70,7 +69,6 @@ exports[`Component matches snapshot 1`] = `
         name="confirmPassword"
         onBlur={[Function]}
         onChange={[Function]}
-        onFocus={[Function]}
         placeholder=""
         type="password"
       />
