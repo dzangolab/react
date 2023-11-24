@@ -7,7 +7,7 @@ export interface ConfigureTooltipOptions {
 
 const tooltipConfiguration = (): {
   configureTooltip: (options: ConfigureTooltipOptions) => void;
-  tooltipConfig: ConfigureTooltipOptions;
+  getTooltipConfig: () => Readonly<ConfigureTooltipOptions>;
 } => {
   const tooltipOptions: ConfigureTooltipOptions = {
     delay: 100,
@@ -30,10 +30,10 @@ const tooltipConfiguration = (): {
         }
       }
     },
-    get tooltipConfig() {
-      return tooltipOptions;
+    getTooltipConfig: () => {
+      return Object.freeze({ ...tooltipOptions });
     },
   };
 };
 
-export const { configureTooltip, tooltipConfig } = tooltipConfiguration();
+export const { configureTooltip, getTooltipConfig } = tooltipConfiguration();

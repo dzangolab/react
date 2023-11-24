@@ -1,7 +1,7 @@
 import React, { RefObject, useRef, FC, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-import { tooltipConfig } from "./ConfigureTooltip";
+import { getTooltipConfig } from "./ConfigureTooltip";
 import { useTooltip } from "./UseTooltip";
 
 type TooltipProperties = {
@@ -15,16 +15,20 @@ type TooltipProperties = {
   style?: object;
 };
 
-export const Tooltip: FC<TooltipProperties> = ({
-  children,
-  className,
-  delay = tooltipConfig.delay,
-  elementRef,
-  mouseTrack = tooltipConfig.mouseTrack,
-  offset = tooltipConfig.offset,
-  position = tooltipConfig.position,
-  style,
-}) => {
+export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
+  const tooltipConfig = getTooltipConfig();
+
+  const {
+    children,
+    className,
+    delay,
+    elementRef,
+    mouseTrack,
+    offset,
+    position,
+    style,
+  } = { ...tooltipConfig, ...tooltipProperties };
+
   const tooltipReference = useRef<HTMLDivElement>(null);
 
   const {
