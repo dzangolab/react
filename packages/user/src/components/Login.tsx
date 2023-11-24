@@ -9,7 +9,12 @@ import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
-const Login = () => {
+interface IProperties {
+  onLoginFailed?: (error: Error) => void;
+  onLoginSuccess?: (user: SignInUpPromise) => void;
+}
+
+export const Login = ({ onLoginFailed, onLoginSuccess }: IProperties) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
@@ -27,7 +32,7 @@ const Login = () => {
           ) {
             setUser(result.user);
 
-            // onLoginSuccess && (await onLoginSuccess(result));
+            onLoginSuccess && (await onLoginSuccess(result));
 
             toast.success(`${t("login.messages.success")}`);
           } else {
@@ -42,7 +47,7 @@ const Login = () => {
           errorMessage = `errors.${error.message}`;
         }
 
-        // onLoginFailed && (await onLoginFailed(error));
+        onLoginFailed && (await onLoginFailed(error));
 
         toast.error(t(errorMessage, { ns: "errors" }));
       });
@@ -52,5 +57,3 @@ const Login = () => {
 
   return <LoginForm handleSubmit={handleSubmit} loading={loading} />;
 };
-
-export default Login;

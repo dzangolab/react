@@ -5,6 +5,7 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
+import { Login as BaseLogin } from "./components/Login";
 import SignupForm from "./components/SignupForm";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
@@ -74,6 +75,7 @@ export {
   UserToastContainer,
   UsersTable,
   AllUsersTable,
+  BaseLogin,
 
   // views
   AcceptInvitation,
