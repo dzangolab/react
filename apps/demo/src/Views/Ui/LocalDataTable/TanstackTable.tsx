@@ -57,7 +57,6 @@ const TanstackTable = () => {
       stripe="even"
       border="none"
       id="invitations-table"
-      renderToolbarItems={() => "Toolbar"}
     ></TDataTable>
   );
 };

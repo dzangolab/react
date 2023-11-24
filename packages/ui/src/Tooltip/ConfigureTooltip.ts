@@ -22,7 +22,7 @@ const tooltipConfiguration = (): {
         if (
           globalTooltipOptions[configOption as keyof ConfigureTooltipOptions]
         ) {
-          tooltipConfig[configOption as keyof ConfigureTooltipOptions] =
+          tooltipOptions[configOption as keyof ConfigureTooltipOptions] =
             globalTooltipOptions[
               configOption as keyof ConfigureTooltipOptions
               //eslint-disable-next-line @typescript-eslint/no-explicit-any
