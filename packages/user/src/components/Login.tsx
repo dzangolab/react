@@ -14,7 +14,10 @@ interface IProperties {
   onLoginSuccess?: (user: SignInUpPromise) => void;
 }
 
-export const Login = ({ onLoginFailed, onLoginSuccess }: IProperties) => {
+export const BaseLogin: React.FC<IProperties> = ({
+  onLoginFailed,
+  onLoginSuccess,
+}) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();

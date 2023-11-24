@@ -5,7 +5,7 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
-import { Login as BaseLogin } from "./components/Login";
+import { BaseLogin } from "./components/Login";
 import SignupForm from "./components/SignupForm";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
