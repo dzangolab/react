@@ -108,8 +108,8 @@ export const InvitationsTable = ({
       align: "center",
       accessorKey: "role",
       header: t("table.defaultColumns.role"),
-      cell: ({ getValue }) => {
-        const roles = getValue() as string[];
+      cell: ({ getValue, row: { original } }) => {
+        const roles = (original as unknown as { roles: string[] })?.roles;
 
         if (Array.isArray(roles)) {
           return (
@@ -128,12 +128,14 @@ export const InvitationsTable = ({
           );
         }
 
+        const role = (getValue() as string) || "";
+
         return (
           <>
             <Tag
-              value={roles}
+              value={role}
               style={{
-                background: roles === "ADMIN" ? "#6366F1" : "#22C55E",
+                background: role === "ADMIN" ? "#6366F1" : "#22C55E",
                 width: "5rem",
               }}
             />
