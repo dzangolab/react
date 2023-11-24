@@ -48,7 +48,7 @@
   background-color: var(--field-autofill-color);
 }
 
-.input-field-wrapper .error-message {
+.field-wrapper .error-message {
   color: var(--error-message-color);
   margin: 0;
 }

@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import * as z from "zod";
 
 import { Email, Form, Password } from "..";
@@ -8,12 +9,16 @@ const schema = z.object({
   password: passwordSchema(),
 });
 
+const handleSubmit = () => {
+  toast.success("Login is sucessfull");
+};
+
 export const LoginForm = () => {
   return (
     <Form
       className="form login-form"
       // eslint-disable-next-line no-console
-      onSubmit={(data) => console.log(data)}
+      onSubmit={handleSubmit}
       validationSchema={schema}
     >
       <Email name="email" label="Email" />
