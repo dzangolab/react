@@ -28,5 +28,15 @@
     "enable": {
       "message": "Are you sure you want to enable this user? (fr)"
     }
+  },
+  "messages": {
+    "enable": {
+      "success": "Successfully enabled user (fr)",
+      "error": "Error enabling user (fr)"
+    },
+    "disable": {
+      "success": "Successfully disabled user (fr)",
+      "error": "Error disabling user (fr)"
+    }
   }
 }

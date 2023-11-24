@@ -28,5 +28,15 @@
     "disable": {
       "message": "Are you sure you want to disable this user?"
     }
+  },
+  "messages": {
+    "enable": {
+      "success": "Successfully enabled user",
+      "error": "Error enabling user"
+    },
+    "disable": {
+      "success": "Successfully disabled user",
+      "error": "Error disabling user"
+    }
   }
 }

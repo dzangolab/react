@@ -31,10 +31,7 @@ export const signUpFirstUser = async (
   }
 };
 
-export const enableUser = async (
-  id: number,
-  apiBaseUrl: string,
-): Promise<UserType> => {
+export const enableUser = async (id: number, apiBaseUrl: string) => {
   const response = await client(apiBaseUrl).put(
     `users/ad7b9d08-dc94-440e-8e2d-9e15134ab9df/enable`,
     {},
@@ -46,16 +43,13 @@ export const enableUser = async (
   if (response.data.status === "ERROR") {
     throw new Error(response.data.message);
   } else {
-    return response.data;
+    return response;
   }
 };
 
-export const disableUser = async (
-  id: number,
-  apiBaseUrl: string,
-): Promise<UserType> => {
+export const disableUser = async (id: number, apiBaseUrl: string) => {
   const response = await client(apiBaseUrl).put(
-    `users/${id}/disable`,
+    `users/ad7b9d08-dc94-440e-8e2d-9e15134ab9df/disable`,
     {},
     { withCredentials: true },
   );
@@ -63,6 +57,6 @@ export const disableUser = async (
   if (response.data.status === "ERROR") {
     throw new Error(response.data.message);
   } else {
-    return response.data;
+    return response;
   }
 };

@@ -36,20 +36,28 @@ export const UserAction = (user: any) => {
   const handleDisableUser = () => {
     disableUser(user.user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
-        console.log(response);
+        if ("data" in response && response.data.status === "OK") {
+          toast.success(t("messages.disable.success"));
+        } else {
+          toast.error(t("messages.disable.error"));
+        }
       })
       .catch(() => {
-        toast.error("error occurred");
+        toast.error(t("messages.disable.error"));
       });
   };
 
   const handleEnableUser = () => {
     enableUser(user.user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
-        console.log(response);
+        if ("data" in response && response.data.status === "OK") {
+          toast.success(t("messages.enable.success"));
+        } else {
+          toast.error(t("messages.enable.error"));
+        }
       })
       .catch(() => {
-        toast.error("error occurred");
+        toast.error(t("messages.enable.error"));
       });
   };
 
