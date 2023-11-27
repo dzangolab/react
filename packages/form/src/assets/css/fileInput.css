@@ -54,6 +54,7 @@
 
 .file-input .selected .p-button.p-button-sm,
 .file-list-overlay .selected .p-button.p-button-sm {
+  min-width: 1.5rem;
   padding: 0 !important;
   width: 1.5rem;
   height: 1.5rem;
@@ -113,8 +114,4 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 80%;
-}
-
-.file-input .selected li > button {
-  min-width: 1.5rem;
 }
