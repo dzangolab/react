@@ -177,22 +177,23 @@
   background-color: var(--table-row-selected-bg-color) !important;
 }
 
+.table-container
+  .table-wrapper
+  .table
+  .tbody
+  .trow[data-state="selected"]:hover,
 .table-wrapper .table .tbody .trow:hover {
   background-color: var(--table-row-hover-bg-color) !important;
 }
 
 .table-wrapper .table .header-row {
-  background-color: var(--table-header-bg-color) !important;
+  background-color: var(--table-header-bg-color);
 }
 
 .table-wrapper .table .trow.filters .content input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
-}
-
-.table-wrapper .table .tbody .trow:hover {
-  background-color: var(--table-row-hover-bg-color);
 }
 
 .table-container .table-wrapper .table .tcell,

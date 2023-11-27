@@ -151,7 +151,9 @@ export const getParsedColumns = ({
             ...getParsedColumns({
               columns: column.columns,
               visibleColumns,
-              childColumns: parsedColumns.get(column.accessorKey || column.id),
+              childColumns:
+                parsedColumns.get(column.accessorKey || column.id).columns ||
+                [],
             }),
           ],
         });
