@@ -1,0 +1,6 @@
+.links {
+  display: flex;
+  min-width: 20rem;
+  max-width: 20rem;
+  justify-content: space-between;
+}
