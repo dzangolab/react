@@ -16,5 +16,9 @@
   "status": {
     "active": "Active (fr)",
     "invited": "Invited (fr)"
+  },
+  "pagination": {
+    "pageControl": "Go to (fr)",
+    "rowsPerPage": "Rows (fr)"
   }
 }
