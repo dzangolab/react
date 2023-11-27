@@ -27,11 +27,6 @@
   width: 90%;
 }
 
-.file-input .selected li .info .details > span {
-  overflow: clip;
-  text-overflow: ellipsis;
-}
-
 .file-input .selected li > button,
 .file-list-overlay .selected li > button {
   margin-left: auto;
@@ -42,6 +37,11 @@
   width: 3.5rem;
   height: 3.5rem;
   background: lightgray;
+}
+
+.file-input .selected li .info .details > span {
+  overflow: clip;
+  text-overflow: ellipsis;
 }
 
 .file-input .selected li .description-wrapper,
