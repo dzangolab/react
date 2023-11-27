@@ -31,11 +31,11 @@
   },
   "messages": {
     "enable": {
-      "success": "Successfully enabled user",
+      "success": "User enabled successfully",
       "error": "Error enabling user"
     },
     "disable": {
-      "success": "Successfully disabled user",
+      "success": "User disabled successfully",
       "error": "Error disabling user"
     }
   }
