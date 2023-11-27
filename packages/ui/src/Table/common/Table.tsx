@@ -183,6 +183,10 @@ const DataTable = <TData extends { id: string | number }>({
     [],
   );
 
+  useEffect(() => {
+    table.setColumnOrder(["select", ...visibleColumns]);
+  }, [visibleColumns, columnsWithRowSelection]);
+
   const renderTooltipContent = (
     cell: Cell<TData, unknown>,
   ): React.ReactNode => {
@@ -222,14 +226,7 @@ const DataTable = <TData extends { id: string | number }>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
               {headerGroup.headers.map(
-                ({
-                  column,
-                  getContext,
-                  id,
-                  isPlaceholder,
-                  colSpan,
-                  rowSpan,
-                }) => {
+                ({ column, getContext, id, isPlaceholder, colSpan }) => {
                   const {
                     columnDef,
                     getCanSort,
@@ -266,7 +263,6 @@ const DataTable = <TData extends { id: string | number }>({
                     <ColumnHeader
                       key={id}
                       colSpan={colSpan}
-                      rowSpan={rowSpan}
                       className={`column-${id} ${activeColumnClass}`}
                       data-align={columnDef.align || "left"}
                       onClick={(event) => {
@@ -276,14 +272,17 @@ const DataTable = <TData extends { id: string | number }>({
                       }}
                     >
                       <>
-                        {isPlaceholder
-                          ? null
-                          : flexRender(columnDef.header, getContext())}
-                        <>
-                          {getCanSort() ? (
-                            <span className="sort-state">{getSortIcon()}</span>
-                          ) : null}
-                        </>
+                        {isPlaceholder ? null : (
+                          <>
+                            {flexRender(columnDef.header, getContext())}
+
+                            {getCanSort() ? (
+                              <span className="sort-state">
+                                {getSortIcon()}
+                              </span>
+                            ) : null}
+                          </>
+                        )}
                       </>
                     </ColumnHeader>
                   );
@@ -291,11 +290,9 @@ const DataTable = <TData extends { id: string | number }>({
               )}
             </TableRow>
           ))}
-        </TableHeader>
 
-        <TableBody>
           {isFilterRowVisible ? (
-            <TableRow key={"filters"} className="filters">
+            <TableRow key={"filters"} className={`header-row filters`}>
               {table.getAllLeafColumns().map((column) => {
                 if (!column.getCanFilter()) {
                   return <TableCell key={"filter" + column.id}></TableCell>;
@@ -306,7 +303,7 @@ const DataTable = <TData extends { id: string | number }>({
                 }`;
 
                 return (
-                  <TableCell
+                  <ColumnHeader
                     key={"filter" + column.id}
                     data-label={column.id}
                     data-align={column.columnDef.align || "left"}
@@ -323,12 +320,14 @@ const DataTable = <TData extends { id: string | number }>({
                       placeholder={column.columnDef.filterPlaceholder || ""}
                       debounceTime={inputDebounceTime}
                     ></DebouncedInput>
-                  </TableCell>
+                  </ColumnHeader>
                 );
               })}
             </TableRow>
           ) : null}
+        </TableHeader>
 
+        <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
