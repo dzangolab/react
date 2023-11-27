@@ -1,10 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  DataTable,
-  LazyTableState,
-  useManipulateColumns,
+  TDataTable as DataTable,
+  TDataTableProperties,
+  TRequestJSON,
 } from "@dzangolab/react-ui";
-import { FilterMatchMode } from "primereact/api";
 import { ButtonProps } from "primereact/button";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
@@ -19,8 +18,22 @@ import type {
   InvitationRoleOption,
   ResendInvitationResponse,
   RevokeInvitationResponse,
+  UserType,
 } from "@/types";
-import type { IColumnProperties } from "@dzangolab/react-ui";
+
+type InvitedByType = {
+  givenName: string;
+  surname: string;
+  email: string;
+};
+
+interface User extends UserType {
+  appId: number;
+  isActiveUser: boolean;
+  email: string;
+  invitedBy: InvitedByType;
+}
+import type { ColumnDef } from "@tanstack/react-table";
 
 type VisibleColumn =
   | "name"
@@ -33,15 +46,13 @@ type VisibleColumn =
   | "actions"
   | string;
 
-export type AllUsersTableProperties = {
+export type AllUsersTableProperties = Partial<
+  Omit<TDataTableProperties<User>, "data" | "visibleColumns" | "fetchData">
+> & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
-  className?: string;
-  columns?: Array<IColumnProperties>;
-  fetchUsers?: (arguments_: LazyTableState) => void;
-  id?: string;
+  fetchUsers?: (arguments_: TRequestJSON) => void;
   inviteButtonIcon?: IconType<ButtonProps>;
-  loading?: boolean;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
@@ -50,8 +61,7 @@ export type AllUsersTableProperties = {
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
   showAppColumn?: boolean;
-  totalRecords?: number;
-  users: Array<object>;
+  users: Array<User>;
   visibleColumns?: VisibleColumn[];
 };
 
@@ -61,9 +71,7 @@ export const AllUsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
-  id = "table-users",
   inviteButtonIcon,
-  loading = false,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
@@ -82,49 +90,45 @@ export const AllUsersTable = ({
     "status",
     "actions",
   ],
+  ...tableOptions
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const initialFilters = {
-    email: { value: "", matchMode: FilterMatchMode.CONTAINS },
-  };
-
-  const defaultColumns: Array<IColumnProperties> = [
+  const defaultColumns: Array<ColumnDef<User>> = [
     {
-      field: "name",
+      accessorKey: "name",
       header: t("table.defaultColumns.name"),
-      sortable: false,
-      body: (data) => {
+      cell: ({ row: { original } }) => {
         return (
-          (data.givenName ? data.givenName : "") +
-            (data.middleNames ? " " + data.middleNames : "") +
-            (data.surname ? " " + data.surname : "") || <code>&#8212;</code>
+          (original.givenName ? original.givenName : "") +
+            (original.middleNames ? " " + original.middleNames : "") +
+            (original.surname ? " " + original.surname : "") || (
+            <code>&#8212;</code>
+          )
         );
       },
     },
     {
-      field: "email",
+      accessorKey: "email",
       header: t("table.defaultColumns.email"),
-      sortable: true,
-      filterPlaceholder: t("table.searchPlaceholder"),
-      showFilterMenu: false,
-      showClearButton: false,
     },
     {
-      field: "app",
+      accessorKey: "app",
       header: t("invitations:table.defaultColumns.app"),
-      body: (data: { appId: number | null }) => {
-        return <span>{data.appId || "-"} </span>;
+      cell: ({ row: { original } }) => {
+        return <span>{original.appId || "-"} </span>;
       },
     },
     {
-      field: "roles",
+      accessorKey: "roles",
       header: t("table.defaultColumns.roles"),
-      body: (data) => {
-        if (data?.roles) {
+      cell: ({ getValue, row: { original } }) => {
+        const roles = (original as unknown as { roles: string[] })?.roles;
+
+        if (Array.isArray(roles)) {
           return (
             <>
-              {data?.roles?.map((role: string, index: number) => (
+              {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
                   value={role}
@@ -138,12 +142,14 @@ export const AllUsersTable = ({
           );
         }
 
+        const role = (getValue() as string) || "";
+
         return (
           <>
             <Tag
-              value={data.role}
+              value={role}
               style={{
-                background: data.role === "ADMIN" ? "#6366F1" : "#22C55E",
+                background: role === "ADMIN" ? "#6366F1" : "#22C55E",
                 width: "5rem",
               }}
             />
@@ -153,17 +159,17 @@ export const AllUsersTable = ({
       align: "center",
     },
     {
-      field: "status",
+      accessorKey: "status",
       header: t("table.defaultColumns.status"),
-      body: (data) => {
+      cell: ({ row: { original } }) => {
         return (
           <>
             <Tag
               value={
-                data.isActiveUser ? t("status.active") : t("status.invited")
+                original.isActiveUser ? t("status.active") : t("status.invited")
               }
               style={{
-                background: data.isActiveUser ? "#6366F1" : "#22C55E",
+                background: original.isActiveUser ? "#6366F1" : "#22C55E",
                 width: "5rem",
               }}
             />
@@ -173,28 +179,28 @@ export const AllUsersTable = ({
       align: "center",
     },
     {
-      field: "invitedBy",
+      accessorKey: "invitedBy",
       header: t("invitations:table.defaultColumns.invitedBy"),
-      body: (data) => {
-        if (data.isActiveUser) {
+      cell: ({ getValue }) => {
+        const invitedBy = getValue() as User;
+
+        if (invitedBy?.isActiveUser) {
           return <code>&#8212;</code>;
         }
 
-        if (data.invitedBy.givenName || data.invitedBy.surname) {
-          return `${data.invitedBy.givenName || ""} ${
-            data.invitedBy.surname || ""
-          }`;
+        if (invitedBy?.givenName || invitedBy?.surname) {
+          return `${invitedBy?.givenName || ""} ${invitedBy?.surname || ""}`;
         }
 
-        return data.invitedBy.email;
+        return invitedBy?.email;
       },
     },
     {
-      field: "signedUpAt",
+      accessorKey: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      body: (data) => {
-        if (data.signedUpAt) {
-          const date = new Date(data.signedUpAt);
+      cell: ({ row: { original } }) => {
+        if (original.signedUpAt) {
+          const date = new Date(original.signedUpAt);
 
           return date.toLocaleDateString("en-GB");
         }
@@ -203,44 +209,13 @@ export const AllUsersTable = ({
       },
     },
     {
-      field: "actions",
+      accessorKey: "actions",
       header: t("invitations:table.defaultColumns.actions"),
-      body: (data) => {
-        return (
-          <>
-            {data.isActiveUser ? (
-              "-"
-            ) : (
-              <InvitationActions
-                onInvitationResent={onInvitationResent}
-                onInvitationRevoked={onInvitationRevoked}
-                invitation={data}
-              />
-            )}
-          </>
-        );
-      },
       align: "center",
     },
   ];
 
-  const processedColumns: Array<IColumnProperties> = useManipulateColumns({
-    visibleColumns,
-    columns: [...defaultColumns, ...columns],
-  });
-
-  const rowClassNameCallback = (data: {
-    id: string | number;
-    isActiveUser: boolean;
-  }) => {
-    if (data.isActiveUser) {
-      return `active-user user-${data.id}`;
-    }
-
-    return `invited-user invitation-${data.id}`;
-  };
-
-  const renderHeader = () => {
+  const renderToolbar = () => {
     if (showInviteAction) {
       return (
         <div className="table-actions">
@@ -262,18 +237,13 @@ export const AllUsersTable = ({
   return (
     <DataTable
       className={className}
-      columns={processedColumns}
+      columns={[...defaultColumns, ...columns]}
       data={users}
-      emptyMessage={t("app:table.emptyMessage")}
+      emptyTableMessage={t("app:table.emptyMessage")}
       fetchData={fetchUsers}
-      header={renderHeader()}
-      id={id}
-      initialFilters={initialFilters}
-      loading={loading}
-      rowClassName={rowClassNameCallback}
-      showGridlines
-      stripedRows={false}
+      renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
+      {...tableOptions}
     ></DataTable>
   );
 };
