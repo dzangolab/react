@@ -3,30 +3,37 @@ import { TDataTable } from "@dzangolab/react-ui";
 
 const TanstackTable = () => {
   const { t } = useTranslation("ui");
+
   return (
     <TDataTable
       visibleColumns={["givenName", "middleNames", "surname", "address"]}
       columns={[
         {
-          accessorKey: "givenName",
-          header: () => <span>{t("table.headers.givenName")}</span>,
-          tooltip: true,
-          tooltipOptions: {
-            position: "right",
-          },
-          filterPlaceholder: t("table.placeholders.givenName"),
-        },
-        {
-          accessorKey: "middleNames",
-          header: () => <span>{t("table.headers.middleNames")}</span>,
-          enableSorting: false,
-          enableHiding: false,
-          enableColumnFilter: false,
-          enableGlobalFilter: false,
-        },
-        {
-          accessorKey: "surname",
-          header: () => <span>{t("table.headers.surname")}</span>,
+          id: "fullName",
+          header: () => <span>{t("table.headers.fullName")}</span>,
+          columns: [
+            {
+              accessorKey: "givenName",
+              header: () => <span>{t("table.headers.givenName")}</span>,
+              tooltip: true,
+              tooltipOptions: {
+                position: "right",
+              },
+              filterPlaceholder: t("table.placeholders.givenName"),
+            },
+            {
+              accessorKey: "middleNames",
+              header: () => <span>{t("table.headers.middleNames")}</span>,
+              enableSorting: false,
+              enableHiding: false,
+              enableColumnFilter: false,
+              enableGlobalFilter: false,
+            },
+            {
+              accessorKey: "surname",
+              header: () => <span>{t("table.headers.surname")}</span>,
+            },
+          ],
         },
         {
           accessorKey: "address",
