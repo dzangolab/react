@@ -19,6 +19,7 @@ export const UserAction = (user: any) => {
     {
       label: t("table.actions.enable"),
       icon: "pi pi-check",
+      disabled: user.user.disabled,
       command: () => {
         setShowEnableConfirmation(true);
       },
@@ -27,6 +28,7 @@ export const UserAction = (user: any) => {
       label: t("table.actions.disable"),
       className: "danger",
       icon: "pi pi-times",
+      disabled: user.user.disabled,
       command: () => {
         setShowDisableConfirmation(true);
       },
