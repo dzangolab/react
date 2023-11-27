@@ -4,10 +4,12 @@ import { TableContext } from "./common/TableContext";
 import TableDetail from "./common/TableDetail";
 import * as TTableElements from "./common/TableElements";
 import TableFooter from "./common/TableFooter";
+import { getParsedColumns } from "./common/utils";
 import ServerTableProvider from "./ServerTableProvider";
 
 export {
   BaseTable,
+  getParsedColumns,
   TableContext,
   TableDetail,
   TableFooter,
@@ -16,4 +18,8 @@ export {
   TTableElements,
 };
 
-export type { TableColumnDefinition, TRequestJSON } from "./common/types";
+export type {
+  TableColumnDefinition,
+  TRequestJSON,
+  TDataTableProperties,
+} from "./common/types";

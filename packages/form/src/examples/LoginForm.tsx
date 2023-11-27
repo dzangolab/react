@@ -18,7 +18,7 @@ export const LoginForm = () => {
     >
       <Email name="email" label="Email" />
       <Password name="password" label="Password" />
-      <input type="submit" value="Log in 2" />
+      <input type="submit" value="Log in" />
     </Form>
   );
 };

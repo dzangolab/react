@@ -7,7 +7,7 @@ export interface ConfigureTooltipOptions {
 
 const tooltipConfiguration = (): {
   configureTooltip: (options: ConfigureTooltipOptions) => void;
-  tooltipConfig: ConfigureTooltipOptions;
+  getTooltipConfig: () => Readonly<ConfigureTooltipOptions>;
 } => {
   const tooltipOptions: ConfigureTooltipOptions = {
     delay: 100,
@@ -22,7 +22,7 @@ const tooltipConfiguration = (): {
         if (
           globalTooltipOptions[configOption as keyof ConfigureTooltipOptions]
         ) {
-          tooltipConfig[configOption as keyof ConfigureTooltipOptions] =
+          tooltipOptions[configOption as keyof ConfigureTooltipOptions] =
             globalTooltipOptions[
               configOption as keyof ConfigureTooltipOptions
               //eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,10 +30,10 @@ const tooltipConfiguration = (): {
         }
       }
     },
-    get tooltipConfig() {
-      return tooltipOptions;
+    getTooltipConfig: () => {
+      return Object.freeze({ ...tooltipOptions });
     },
   };
 };
 
-export const { configureTooltip, tooltipConfig } = tooltipConfiguration();
+export const { configureTooltip, getTooltipConfig } = tooltipConfiguration();
