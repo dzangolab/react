@@ -15,6 +15,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 1rem;
+  position: relative;
   border-bottom: 1px solid #bdbdbd48;
   padding: 0.5rem 0rem;
 }
@@ -54,6 +55,8 @@
 
 .file-input .selected .p-button.p-button-sm,
 .file-list-overlay .selected .p-button.p-button-sm {
+  position: absolute;
+  right: 0;
   min-width: 1.5rem;
   padding: 0 !important;
   width: 1.5rem;
