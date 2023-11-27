@@ -1,11 +1,10 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useMemo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { LoginBasic } from "..";
 import GoogleLogin from "../components/GoogleLogin";
-import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
