@@ -136,44 +136,56 @@ export const getParsedColumns = ({
 
   if (childColumns) {
     childColumns.forEach((column) =>
-      parsedColumns.set(column.accessorKey || column.id, column),
+      parsedColumns.set(
+        column.accessorKey || column.id || column.header,
+        column,
+      ),
     );
   }
 
   //Merge duplicate fields to one based on column id value
   for (const column of columns) {
     if (column.columns) {
-      if (parsedColumns.get(column.accessorKey || column.id)) {
-        parsedColumns.set(column.accessorKey || column.id, {
-          ...parsedColumns.get(column.accessorKey || column.id),
+      if (parsedColumns.get(column.accessorKey || column.id || column.header)) {
+        parsedColumns.set(column.accessorKey || column.id || column.header, {
+          ...parsedColumns.get(
+            column.accessorKey || column.id || column.header,
+          ),
           ...column,
           columns: [
             ...getParsedColumns({
               columns: column.columns,
               visibleColumns,
               childColumns:
-                parsedColumns.get(column.accessorKey || column.id).columns ||
-                [],
+                parsedColumns.get(
+                  column.accessorKey || column.id || column.header,
+                ).columns || [],
             }),
           ],
         });
       } else {
-        parsedColumns.set(column.accessorKey || column.id, {
+        parsedColumns.set(column.accessorKey || column.id || column.header, {
           ...column,
           columns: [
             ...getParsedColumns({ columns: column.columns, visibleColumns }),
           ],
         });
       }
-    } else if (!visibleColumns.includes(column.id || column.accessorKey)) {
+    } else if (
+      !visibleColumns.includes(column.id || column.accessorKey || column.header)
+    ) {
       continue;
-    } else if (parsedColumns.get(column.accessorKey || column.id)) {
-      parsedColumns.set(column.accessorKey || column.id, {
-        ...parsedColumns.get(column.accessorKey || column.id),
+    } else if (
+      parsedColumns.get(column.accessorKey || column.id || column.header)
+    ) {
+      parsedColumns.set(column.accessorKey || column.id || column.header, {
+        ...parsedColumns.get(column.accessorKey || column.id || column.header),
         ...column,
       });
     } else {
-      parsedColumns.set(column.accessorKey || column.id, { ...column });
+      parsedColumns.set(column.accessorKey || column.id || column.header, {
+        ...column,
+      });
     }
   }
 
