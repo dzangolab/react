@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "./SignupForm";
@@ -7,7 +8,8 @@ import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
-import { Link } from "react-router-dom";
+
+// eslint-disable-next-line import/no-unresolved
 import { ROUTES } from "@/constants";
 
 interface IProperties {
