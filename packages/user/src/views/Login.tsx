@@ -49,32 +49,6 @@ const Login: React.FC<IProperties> = ({
     return null;
   }, [location.search]);
 
-  const getLinks = () => {
-    return (
-      <>
-        {appConfig.user?.routes?.signup?.disabled ? null : (
-          <Link
-            to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
-            className="native-link"
-          >
-            {t("login.links.signup")}
-          </Link>
-        )}
-        {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
-          <Link
-            to={
-              appConfig.user.routes?.forgetPassword?.path ||
-              ROUTES.FORGET_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("login.links.forgotPassword")}
-          </Link>
-        )}
-      </>
-    );
-  };
-
   const renderRedirectionMessage = () => {
     if (path && path.length) {
       return (
@@ -110,8 +84,6 @@ const Login: React.FC<IProperties> = ({
       />
 
       {renderRedirectionMessage()}
-
-      <div className="links">{getLinks()}</div>
 
       {appConfig?.user.supportedLoginProviders ? (
         <>

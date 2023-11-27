@@ -8,6 +8,8 @@ import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/constants";
 
 interface IProperties {
   onLoginFailed?: (error: Error) => void;
@@ -22,6 +24,32 @@ export const LoginBasic: React.FC<IProperties> = ({
   const { setUser } = useUser();
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
+
+  const getLinks = () => {
+    return (
+      <>
+        {appConfig.user?.routes?.signup?.disabled ? null : (
+          <Link
+            to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
+            className="native-link"
+          >
+            {t("login.links.signup")}
+          </Link>
+        )}
+        {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
+          <Link
+            to={
+              appConfig.user.routes?.forgetPassword?.path ||
+              ROUTES.FORGET_PASSWORD
+            }
+            className="native-link"
+          >
+            {t("login.links.forgotPassword")}
+          </Link>
+        )}
+      </>
+    );
+  };
 
   const handleSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
@@ -58,5 +86,10 @@ export const LoginBasic: React.FC<IProperties> = ({
     setLoading(false);
   };
 
-  return <LoginForm handleSubmit={handleSubmit} loading={loading} />;
+  return (
+    <>
+      <LoginForm handleSubmit={handleSubmit} loading={loading} />
+      <div className="links">{getLinks()}</div>;
+    </>
+  );
 };
