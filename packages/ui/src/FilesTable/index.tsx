@@ -1,4 +1,3 @@
-import { FilterMatchMode } from "primereact/api";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
@@ -6,15 +5,15 @@ import ConfirmationFileActions from "../FileCard/ConfirmationFileActions";
 import {
   ActionsMenu,
   ConfirmationModal,
-  DataTable,
+  TDataTable as DataTable,
   FileMessages,
-  IColumnProperties,
-  LazyTableState,
+  TDataTableProperties,
+  TRequestJSON,
   VisibleFileDetails,
   formatDate,
 } from "../index";
-import { useManipulateColumns } from "../utils";
 
+import type { ColumnDef } from "@tanstack/react-table";
 import type { ComponentProps } from "react";
 
 export type TableMessages = {
@@ -28,19 +27,18 @@ export interface IFile {
   originalFileName: string;
   description?: string;
   size?: number;
-  uploadedBy: object;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  uploadedBy: any;
   uploadedAt: number;
   downloadCount?: number;
   lastDownloadedAt?: number;
 }
 
-export type FilesTableProperties = {
-  className?: string;
-  columns?: Array<IColumnProperties>;
-  fetchFiles?: (arguments_: LazyTableState) => void;
+export type FilesTableProperties = Partial<
+  Omit<TDataTableProperties<IFile>, "data" | "visibleColumns" | "fetchData">
+> & {
+  fetchFiles?: (arguments_: TRequestJSON) => void;
   files: Array<IFile>;
-  id?: string;
-  loading?: boolean;
   onFileArchive?: (arguments_: IFile) => void;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onFileDownload?: (arguments_: IFile) => void;
@@ -49,10 +47,9 @@ export type FilesTableProperties = {
   onEditDescription?: (arguments_: IFile) => void;
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
-  totalRecords?: number;
   messages?: TableMessages;
   visibleColumns?: VisibleFileDetails[];
-} & Partial<ComponentProps<typeof DataTable>>;
+};
 
 export const FilesTable = ({
   archiveConfirmationProps,
@@ -60,7 +57,7 @@ export const FilesTable = ({
   columns = [],
   deleteConfirmationProps,
   id = "table-files",
-  loading,
+  isLoading,
   files,
   totalRecords,
   fetchFiles,
@@ -144,111 +141,92 @@ export const FilesTable = ({
     return actionItems;
   };
 
-  const initialFilters = {
-    originalFileName: { value: "", matchMode: FilterMatchMode.CONTAINS },
-  };
-
-  const defaultColumns: Array<IColumnProperties> = [
+  const defaultColumns: Array<ColumnDef<IFile>> = [
     {
-      field: "originalFileName",
+      accessorKey: "originalFileName",
       header: messages?.originalFileNameHeader || "File",
-      sortable: true,
-      filter: true,
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
-      showFilterMenu: false,
-      showClearButton: false,
+      enableColumnFilter: true,
+      enableSorting: true,
+      enableGlobalFilter: true,
     },
     {
-      field: "description",
+      accessorKey: "description",
       header: messages?.descriptionHeader || "Description",
-      bodyTooltip: true,
-      body: (data) => {
-        return data.description;
-      },
+      tooltip: true,
+      enableGlobalFilter: true,
     },
     {
-      field: "size",
+      accessorKey: "size",
       header: messages?.fileSizeHeader || "Size",
     },
     {
-      field: "uploadedBy",
+      id: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      body: (data) => {
-        if (!data.uploadedBy) {
+      cell: ({ row: { original } }) => {
+        if (!original.uploadedBy) {
           return <code>&#8212;</code>;
         }
 
-        if (data.uploadedBy.givenName || data.uploadedBy.lastName) {
-          return `${data.uploadedBy.givenName || ""} ${
-            data.uploadedBy.lastName || ""
+        if (original.uploadedBy.givenName || original.uploadedBy.lastName) {
+          return `${original.uploadedBy.givenName || ""} ${
+            original.uploadedBy.lastName || ""
           }`;
         }
 
-        return data.uploadedBy.email;
+        return original.uploadedBy.email;
       },
     },
     {
-      field: "uploadedAt",
+      accessorKey: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
-      body: (data) => {
-        return formatDate(data.uploadedAt);
+      cell: ({ getValue }) => {
+        return formatDate(getValue() as number);
       },
     },
     {
       align: "right",
-      field: "downloadCount",
+      accessorKey: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
-      body: (data) => {
-        return data.downloadCount;
-      },
     },
     {
-      field: "lastDownloadedAt",
+      accessorKey: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      body: (data) => {
-        if (data.lastDownloadedAt) {
-          return formatDate(data.lastDownloadedAt);
+      enableColumnFilter: false,
+      enableSorting: false,
+      cell: ({ getValue }) => {
+        if (getValue()) {
+          return formatDate(getValue() as number);
         }
+
         return <code>&#8212;</code>;
       },
     },
     {
       align: "center",
-      field: "actions",
+      id: "actions",
       header: messages?.actionsHeader || "Actions",
-      body: (data) => {
-        return <ActionsMenu actions={getActionsItem(data)} />;
+      cell: ({ row: { original } }) => {
+        return <ActionsMenu actions={getActionsItem(original)} />;
       },
     },
   ];
-
-  const processedColumns: Array<IColumnProperties> = useManipulateColumns({
-    visibleColumns,
-    columns: [...defaultColumns, ...columns],
-  });
-
-  const rowClassNameCallback = (data: { id: string | number }) => {
-    return `files-${data.id}`;
-  };
 
   return (
     <>
       <DataTable
         className={className}
-        dataKey="id"
-        columns={processedColumns}
+        columns={[...defaultColumns, ...columns]}
         data={files}
-        emptyMessage={messages?.tableEmpty || "The table is empty"}
+        emptyTableMessage={messages?.tableEmpty || "The table is empty"}
         fetchData={fetchFiles}
         id={id}
-        initialFilters={initialFilters}
-        loading={loading}
-        rowClassName={rowClassNameCallback}
-        showGridlines
-        stripedRows={false}
+        isLoading={isLoading}
         totalRecords={totalRecords}
+        visibleColumns={visibleColumns}
         {...tableProperties}
       ></DataTable>
+
       <ConfirmationFileActions
         file={removeableFile as IFile}
         setVisibleArchiveConfirmation={(isVisible) =>

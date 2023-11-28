@@ -52,6 +52,7 @@ const allUsers = [
     isActiveUser: true,
     invitedBy: null,
     signedUpAt: "2023-08-10T08:00:00Z",
+    disabled: false,
   },
   {
     id: "invitation-123",
@@ -70,6 +71,7 @@ const allUsers = [
       username: "admin",
       isActiveUser: true,
     },
+    disabled: true,
   },
   {
     id: "user-3",
@@ -81,6 +83,7 @@ const allUsers = [
     isActiveUser: true,
     invitedBy: null,
     signedUpAt: "2023-08-08T10:30:00Z",
+    disabled: false,
   },
   {
     id: "invitation-456",
@@ -90,6 +93,7 @@ const allUsers = [
     surname: "Williams",
     username: "bobw",
     isActiveUser: false,
+    disabled: false,
     invitedBy: {
       id: "user-4",
       email: "charlie@dzangolab.com",
@@ -161,14 +165,14 @@ const componentList = [
     title: "Users Table",
     component: (
       <UsersTable
-        users={[]}
+        users={allUsers}
         fetchUsers={() => {}}
         onInvitationAdded={() => {}}
-        visibleColumns={["email", "name", "roles", "signedUpAt"]}
+        visibleColumns={["email", "name", "roles", "signedUpAt", "actions"]}
         columns={[
           {
-            field: "email",
-            filter: false,
+            accessorKey: "email",
+            enableColumnFilter: false,
           },
         ]}
       />

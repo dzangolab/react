@@ -120,9 +120,12 @@ export const getRequestJSON = (
 export const getParsedColumns = ({
   columns,
   visibleColumns,
+  childColumns,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: Array<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  childColumns?: Array<any>;
   visibleColumns: string[];
 }) => {
   if (visibleColumns.length === 0) {
@@ -131,23 +134,104 @@ export const getParsedColumns = ({
 
   const parsedColumns = new Map();
 
+  if (childColumns) {
+    childColumns.forEach((column) =>
+      parsedColumns.set(
+        column.accessorKey || column.id || column.header,
+        column,
+      ),
+    );
+  }
+
+  const updateColumn = ({
+    enableColumnFilter,
+    enableSorting,
+    enableGlobalFilter,
+    enableMultiSort,
+  }: {
+    enableColumnFilter?: boolean;
+    enableSorting?: boolean;
+    enableGlobalFilter?: boolean;
+    enableMultiSort?: boolean;
+  }) => {
+    return {
+      enableColumnFilter:
+        typeof enableColumnFilter === "undefined" ? false : enableColumnFilter,
+
+      enableSorting:
+        typeof enableSorting === "undefined" ? false : enableSorting,
+
+      enableGlobalFilter:
+        typeof enableGlobalFilter === "undefined" ? false : enableGlobalFilter,
+
+      enableMultiSort:
+        typeof enableMultiSort === "undefined" ? false : enableMultiSort,
+    };
+  };
+
   //Merge duplicate fields to one based on column id value
   for (const column of columns) {
-    if (parsedColumns.get(column.accessorKey || column.id)) {
-      parsedColumns.set(column.accessorKey || column.id, {
-        ...parsedColumns.get(column.accessorKey || column.id),
+    const columnIdentifier = column.accessorKey || column.id || column.header;
+
+    if (column.columns) {
+      if (parsedColumns.get(columnIdentifier)) {
+        parsedColumns.set(columnIdentifier, {
+          ...parsedColumns.get(columnIdentifier),
+          ...column,
+          columns: [
+            ...getParsedColumns({
+              columns: column.columns,
+              visibleColumns,
+              childColumns: parsedColumns.get(columnIdentifier).columns || [],
+            }),
+          ],
+        });
+      } else {
+        parsedColumns.set(columnIdentifier, {
+          ...column,
+          columns: [
+            ...getParsedColumns({ columns: column.columns, visibleColumns }),
+          ],
+          ...updateColumn({
+            enableColumnFilter: column.enableColumnFilter,
+            enableGlobalFilter: column.enableGlobalFilter,
+            enableMultiSort: column.enableMultiSort,
+            enableSorting: column.enableSorting,
+          }),
+        });
+      }
+    } else if (!visibleColumns.includes(columnIdentifier)) {
+      continue;
+    } else if (parsedColumns.get(columnIdentifier)) {
+      parsedColumns.set(columnIdentifier, {
+        ...parsedColumns.get(columnIdentifier),
         ...column,
       });
     } else {
-      parsedColumns.set(column.accessorKey || column.id, column);
+      parsedColumns.set(columnIdentifier, {
+        ...column,
+        ...updateColumn({
+          enableColumnFilter: column.enableColumnFilter,
+          enableGlobalFilter: column.enableGlobalFilter,
+          enableMultiSort: column.enableMultiSort,
+          enableSorting: column.enableSorting,
+        }),
+      });
     }
   }
 
-  //Sort columns based on column id provided in visibleColumns array.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const sortedColumns = visibleColumns.map<any>((visibleColumn) => {
-    return parsedColumns.get(visibleColumn);
-  });
+  const parsedColumnsList: any[] = [];
 
-  return sortedColumns;
+  for (const parsedColumnId of parsedColumns.keys()) {
+    if (!visibleColumns.includes(parsedColumnId)) {
+      if (parsedColumns.get(parsedColumnId)?.columns?.length == 0) {
+        continue;
+      }
+    }
+
+    parsedColumnsList.push(parsedColumns.get(parsedColumnId));
+  }
+
+  return parsedColumnsList;
 };
