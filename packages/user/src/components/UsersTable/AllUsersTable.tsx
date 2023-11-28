@@ -98,10 +98,14 @@ export const AllUsersTable = ({
           )
         );
       },
+      enableColumnFilter: true,
+      enableSorting: true,
     },
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
+      enableColumnFilter: true,
+      enableSorting: true,
     },
     {
       accessorKey: "app",
@@ -109,8 +113,6 @@ export const AllUsersTable = ({
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
-      enableColumnFilter: false,
-      enableSorting: false,
     },
     {
       align: "center",
@@ -150,8 +152,6 @@ export const AllUsersTable = ({
           </>
         );
       },
-      enableColumnFilter: false,
-      enableSorting: false,
     },
     {
       align: "center",
@@ -172,8 +172,6 @@ export const AllUsersTable = ({
           </>
         );
       },
-      enableColumnFilter: false,
-      enableSorting: false,
     },
     {
       accessorKey: "invitedBy",
@@ -191,8 +189,6 @@ export const AllUsersTable = ({
 
         return original.invitedBy?.email;
       },
-      enableColumnFilter: false,
-      enableSorting: false,
     },
     {
       accessorKey: "signedUpAt",
@@ -206,8 +202,6 @@ export const AllUsersTable = ({
 
         return "-";
       },
-      enableColumnFilter: false,
-      enableSorting: false,
     },
     {
       align: "center",
@@ -228,8 +222,6 @@ export const AllUsersTable = ({
           </>
         );
       },
-      enableColumnFilter: false,
-      enableSorting: false,
     },
   ];
 
@@ -261,6 +253,7 @@ export const AllUsersTable = ({
       fetchData={fetchUsers}
       renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
+      visibleColumns={visibleColumns}
       paginationOptions={{
         pageInputLabel: t("table.pagination.pageControl"),
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
