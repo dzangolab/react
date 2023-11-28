@@ -74,7 +74,7 @@ export const UsersTable = ({
       enableColumnFilter: true,
     },
     {
-      accessorKey: "name",
+      id: "name",
       header: t("table.defaultColumns.name"),
       cell: ({ row: { original } }) => {
         return (
@@ -90,7 +90,7 @@ export const UsersTable = ({
     },
     {
       align: "center",
-      accessorKey: "roles",
+      id: "roles",
       header: t("table.defaultColumns.roles"),
       cell: ({ getValue, row: { original } }) => {
         const roles = (original as unknown as { roles: string[] })?.roles;
@@ -146,7 +146,7 @@ export const UsersTable = ({
     },
     {
       align: "center",
-      accessorKey: "actions",
+      id: "actions",
       header: t("table.defaultColumns.actions"),
       cell: ({ row: { original } }) => {
         return <UserAction user={original} />;
