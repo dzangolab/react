@@ -18,7 +18,7 @@ import type {
   InvitationRoleOption,
   ResendInvitationResponse,
   RevokeInvitationResponse,
-  User,
+  ExtendedUser,
   Invitation,
 } from "@/types";
 import type { ColumnDef } from "@tanstack/react-table";
@@ -35,7 +35,10 @@ type VisibleColumn =
   | string;
 
 export type AllUsersTableProperties = Partial<
-  Omit<TDataTableProperties<User>, "data" | "visibleColumns" | "fetchData">
+  Omit<
+    TDataTableProperties<ExtendedUser>,
+    "data" | "visibleColumns" | "fetchData"
+  >
 > & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -49,7 +52,7 @@ export type AllUsersTableProperties = Partial<
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
   showAppColumn?: boolean;
-  users: Array<User>;
+  users: Array<ExtendedUser>;
   visibleColumns?: VisibleColumn[];
 };
 
@@ -82,7 +85,7 @@ export const AllUsersTable = ({
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const defaultColumns: Array<ColumnDef<User>> = [
+  const defaultColumns: Array<ColumnDef<ExtendedUser>> = [
     {
       accessorKey: "name",
       header: t("table.defaultColumns.name"),
