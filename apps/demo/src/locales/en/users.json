@@ -11,14 +11,14 @@
       "signedUpOn": "Signed up on",
       "status": "Status"
     },
+    "pagination": {
+      "pageControl": "Go to (fr)",
+      "rowsPerPage": "Rows (fr)"
+    },
     "searchPlaceholder": "Search"
   },
   "status": {
     "active": "Active",
     "invited": "Invited"
-  },
-  "pagination": {
-    "pageControl": "Go to (fr)",
-    "rowsPerPage": "Rows (fr)"
   }
 }

@@ -28,10 +28,10 @@ type InvitedByType = {
 };
 
 interface User extends UserType {
-  appId: number;
+  appId?: number;
   isActiveUser: boolean;
   email: string;
-  invitedBy: InvitedByType;
+  invitedBy: InvitedByType | null;
 }
 import type { ColumnDef } from "@tanstack/react-table";
 
@@ -118,6 +118,8 @@ export const AllUsersTable = ({
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       accessorKey: "roles",
@@ -157,6 +159,8 @@ export const AllUsersTable = ({
         );
       },
       align: "center",
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       accessorKey: "status",
@@ -177,6 +181,8 @@ export const AllUsersTable = ({
         );
       },
       align: "center",
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       accessorKey: "invitedBy",
@@ -194,6 +200,8 @@ export const AllUsersTable = ({
 
         return invitedBy?.email;
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       accessorKey: "signedUpAt",
@@ -207,11 +215,8 @@ export const AllUsersTable = ({
 
         return "-";
       },
-    },
-    {
-      accessorKey: "actions",
-      header: t("invitations:table.defaultColumns.actions"),
-      align: "center",
+      enableSorting: false,
+      enableColumnFilter: false,
     },
   ];
 
@@ -243,6 +248,10 @@ export const AllUsersTable = ({
       fetchData={fetchUsers}
       renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
+      paginationOptions={{
+        pageInputLabel: t("table.pagination.pageControl"),
+        itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
       {...tableOptions}
     ></DataTable>
   );
