@@ -41,6 +41,7 @@
   background: lightgray;
 }
 
+.file-list-overlay .selected li .info .details,
 .file-input .selected li .info .details > span {
   overflow: clip;
   text-overflow: ellipsis;
