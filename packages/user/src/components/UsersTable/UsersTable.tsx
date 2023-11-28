@@ -42,7 +42,6 @@ export type UsersTableProperties = Partial<
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
-  totalRecords?: number;
   users: Array<UserType>;
   visibleColumns?: VisibleColumn[];
 };
@@ -85,8 +84,6 @@ export const UsersTable = ({
           )
         );
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       align: "center",
@@ -126,8 +123,6 @@ export const UsersTable = ({
           </>
         );
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       accessorKey: "signedUpAt",
@@ -141,8 +136,6 @@ export const UsersTable = ({
 
         return "-";
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       align: "center",
@@ -151,8 +144,6 @@ export const UsersTable = ({
       cell: ({ row: { original } }) => {
         return <UserAction user={original} />;
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
   ];
 
