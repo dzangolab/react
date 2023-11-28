@@ -16,11 +16,13 @@ import { ROUTES } from "@/constants";
 interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
+  handleLoginSubmit?: (credentials: LoginCredentials) => void;
 }
 
 export const LoginBasic: React.FC<IProperties> = ({
   onLoginFailed,
   onLoginSuccess,
+  handleLoginSubmit,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
@@ -90,7 +92,10 @@ export const LoginBasic: React.FC<IProperties> = ({
 
   return (
     <>
-      <LoginForm handleSubmit={handleSubmit} loading={loading} />
+      <LoginForm
+        handleSubmit={handleLoginSubmit ? handleLoginSubmit : handleSubmit}
+        loading={loading}
+      />
       <div className="login-basic-links">{getLinks()}</div>
     </>
   );
