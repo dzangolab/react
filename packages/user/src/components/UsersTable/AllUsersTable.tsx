@@ -26,6 +26,7 @@ type InvitedByType = {
   givenName: string;
   surname: string;
   email: string;
+  id: string;
 };
 
 interface User extends UserType {
