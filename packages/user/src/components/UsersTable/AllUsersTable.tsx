@@ -106,10 +106,9 @@ export const AllUsersTable = ({
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
+      align: "center",
       accessorKey: "roles",
       header: t("table.defaultColumns.roles"),
       cell: ({ getValue, row: { original } }) => {
@@ -146,11 +145,9 @@ export const AllUsersTable = ({
           </>
         );
       },
-      align: "center",
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
+      align: "center",
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
@@ -168,9 +165,6 @@ export const AllUsersTable = ({
           </>
         );
       },
-      align: "center",
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       accessorKey: "invitedBy",
@@ -188,8 +182,6 @@ export const AllUsersTable = ({
 
         return original.invitedBy?.email;
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       accessorKey: "signedUpAt",
@@ -203,10 +195,9 @@ export const AllUsersTable = ({
 
         return "-";
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
+      align: "center",
       accessorKey: "actions",
       header: t("invitations:table.defaultColumns.actions"),
       cell: ({ row: { original } }) => {
@@ -224,9 +215,6 @@ export const AllUsersTable = ({
           </>
         );
       },
-      align: "center",
-      enableSorting: false,
-      enableColumnFilter: false,
     },
   ];
 
