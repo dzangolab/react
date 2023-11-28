@@ -30,10 +30,7 @@ type VisibleColumn =
   | string;
 
 export type UsersTableProperties = Partial<
-  Omit<
-    TDataTableProperties<UserType>,
-    "id" | "data" | "visibleColumns" | "fetchData"
-  >
+  Omit<TDataTableProperties<UserType>, "data" | "visibleColumns" | "fetchData">
 > & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -138,10 +135,14 @@ export const UsersTable = ({
     {
       accessorKey: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      cell: ({ getValue }) => {
-        const date = new Date(getValue() as string);
+      cell: ({ row: { original } }) => {
+        if (original.signedUpAt) {
+          const date = new Date(original.signedUpAt);
 
-        return date.toLocaleDateString("en-GB");
+          return date.toLocaleDateString("en-GB");
+        }
+
+        return "-";
       },
       enableSorting: false,
       enableColumnFilter: false,
