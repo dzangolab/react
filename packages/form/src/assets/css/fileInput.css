@@ -35,6 +35,7 @@
 
 .file-input .selected li .preview,
 .file-list-overlay .selected li .preview {
+  min-width: 3.5rem;
   width: 3.5rem;
   height: 3.5rem;
   background: lightgray;
