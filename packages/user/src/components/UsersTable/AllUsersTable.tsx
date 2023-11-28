@@ -19,6 +19,7 @@ import type {
   ResendInvitationResponse,
   RevokeInvitationResponse,
   UserType,
+  Invitation,
 } from "@/types";
 
 type InvitedByType = {
@@ -28,6 +29,7 @@ type InvitedByType = {
 };
 
 interface User extends UserType {
+  id: string;
   appId?: number;
   isActiveUser: boolean;
   email: string;
@@ -215,6 +217,28 @@ export const AllUsersTable = ({
 
         return "-";
       },
+      enableSorting: false,
+      enableColumnFilter: false,
+    },
+    {
+      accessorKey: "actions",
+      header: t("invitations:table.defaultColumns.actions"),
+      cell: ({ row: { original } }) => {
+        return (
+          <>
+            {original.isActiveUser ? (
+              "-"
+            ) : (
+              <InvitationActions
+                onInvitationResent={onInvitationResent}
+                onInvitationRevoked={onInvitationRevoked}
+                invitation={original as unknown as Invitation}
+              />
+            )}
+          </>
+        );
+      },
+      align: "center",
       enableSorting: false,
       enableColumnFilter: false,
     },
