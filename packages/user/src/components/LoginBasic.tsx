@@ -91,7 +91,7 @@ export const LoginBasic: React.FC<IProperties> = ({
   return (
     <>
       <LoginForm handleSubmit={handleSubmit} loading={loading} />
-      <div className="links">{getLinks()}</div>
+      <div className="login-basic-links">{getLinks()}</div>
     </>
   );
 };

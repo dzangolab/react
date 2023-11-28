@@ -80,7 +80,7 @@ export const SignupBasic: React.FC<IProperties> = ({
   return (
     <>
       <SignupForm handleSubmit={handleSubmit} loading={loading} />
-      <div className="links">{getLinks()}</div>
+      <div className="signup-basic-links">{getLinks()}</div>
     </>
   );
 };
