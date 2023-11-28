@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -17,12 +17,14 @@ interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   handleLoginSubmit?: (credentials: LoginCredentials) => void;
+  links?: ReactNode;
 }
 
 export const LoginBasic: React.FC<IProperties> = ({
   onLoginFailed,
   onLoginSuccess,
   handleLoginSubmit,
+  links,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
@@ -65,6 +67,10 @@ export const LoginBasic: React.FC<IProperties> = ({
   };
 
   const getLinks = () => {
+    if (links) {
+      return links;
+    }
+
     return (
       <>
         {appConfig.user?.routes?.signup?.disabled ? null : (

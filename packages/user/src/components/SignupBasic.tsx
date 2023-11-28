@@ -15,11 +15,15 @@ import { ROUTES } from "@/constants";
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
+  handleSignupSubmit?: (credentials: LoginCredentials) => void;
+  links?: ReactNode;
 }
 
 export const SignupBasic: React.FC<IProperties> = ({
   onSignupFailed,
   onSignupSuccess,
+  handleSignupSubmit,
+  links,
 }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
@@ -55,6 +59,10 @@ export const SignupBasic: React.FC<IProperties> = ({
   };
 
   const getLinks = () => {
+    if (links) {
+      return links;
+    }
+
     return (
       <>
         <Link
@@ -79,7 +87,10 @@ export const SignupBasic: React.FC<IProperties> = ({
 
   return (
     <>
-      <SignupForm handleSubmit={handleSubmit} loading={loading} />
+      <SignupForm
+        handleSubmit={handleSignupSubmit ? handleSignupSubmit : handleSubmit}
+        loading={loading}
+      />
       <div className="signup-basic-links">{getLinks()}</div>
     </>
   );
