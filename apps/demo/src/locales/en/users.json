@@ -15,8 +15,8 @@
       "status": "Status"
     },
     "pagination": {
-      "pageControl": "Go to (fr)",
-      "rowsPerPage": "Rows (fr)"
+      "pageControl": "Go to",
+      "rowsPerPage": "Rows"
     },
     "searchPlaceholder": "Search"
   },
