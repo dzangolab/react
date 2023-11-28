@@ -16,6 +16,7 @@ import {
 import {
   AuthState,
   ErrorResponse,
+  ExtendedUser,
   LoginCredentials,
   SignInUpPromise,
   UserContextType,
@@ -30,6 +31,7 @@ export type {
   AuthState,
   DzangolabReactUserConfig,
   ErrorResponse,
+  ExtendedUser,
   GetInvitationResponse,
   Invitation,
   InvitationAppOption,
