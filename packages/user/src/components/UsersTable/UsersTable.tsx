@@ -68,6 +68,12 @@ export const UsersTable = ({
 
   const defaultColumns: Array<ColumnDef<UserType>> = [
     {
+      accessorKey: "email",
+      header: t("table.defaultColumns.email"),
+      enableSorting: true,
+      enableColumnFilter: true,
+    },
+    {
       accessorKey: "name",
       header: t("table.defaultColumns.name"),
       cell: ({ row: { original } }) => {
@@ -81,12 +87,6 @@ export const UsersTable = ({
       },
       enableSorting: false,
       enableColumnFilter: false,
-    },
-    {
-      accessorKey: "email",
-      header: t("table.defaultColumns.email"),
-      enableSorting: true,
-      enableColumnFilter: true,
     },
     {
       align: "center",
@@ -186,6 +186,10 @@ export const UsersTable = ({
       renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
       visibleColumns={visibleColumns}
+      paginationOptions={{
+        pageInputLabel: t("table.pagination.pageControl"),
+        itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
       {...tableProperties}
     ></DataTable>
   );
