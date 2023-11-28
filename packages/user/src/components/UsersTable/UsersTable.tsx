@@ -76,21 +76,23 @@ export const UsersTable = ({
     {
       accessorKey: "name",
       header: t("table.defaultColumns.name"),
-      enableSorting: false,
-      cell: ({ getValue }: any) => {
+      cell: ({ row: { original } }) => {
         return (
-          (getValue.givenName ? getValue.givenName : "") +
-            (getValue.middleNames ? " " + getValue.middleNames : "") +
-            (getValue.surname ? " " + getValue.surname : "") || (
+          (original.givenName ? original.givenName : "") +
+            (original.middleNames ? " " + original.middleNames : "") +
+            (original.surname ? " " + original.surname : "") || (
             <code>&#8212;</code>
           )
         );
       },
+      enableSorting: true,
+      enableColumnFilter: true,
     },
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
       enableSorting: true,
+      enableColumnFilter: false,
     },
     {
       align: "center",
@@ -130,15 +132,19 @@ export const UsersTable = ({
           </>
         );
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       accessorKey: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      cell: ({ getValue }: any) => {
-        const date = new Date(getValue.signedUpAt);
+      cell: ({ getValue }) => {
+        const date = new Date(getValue() as string);
 
         return date.toLocaleDateString("en-GB");
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       align: "center",
@@ -147,6 +153,8 @@ export const UsersTable = ({
       cell: ({ row: { original } }) => {
         return <UserAction user={original} />;
       },
+      enableSorting: false,
+      enableColumnFilter: false,
     },
   ];
 
