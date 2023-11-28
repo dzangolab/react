@@ -146,25 +146,23 @@ export const FilesTable = ({
       accessorKey: "originalFileName",
       header: messages?.originalFileNameHeader || "File",
       filterPlaceholder: messages?.searchPlaceholder || "File name example",
+      enableColumnFilter: true,
+      enableSorting: true,
+      enableGlobalFilter: true,
     },
     {
       accessorKey: "description",
       header: messages?.descriptionHeader || "Description",
       tooltip: true,
-      enableColumnFilter: false,
-      enableSorting: false,
+      enableGlobalFilter: true,
     },
     {
       accessorKey: "size",
       header: messages?.fileSizeHeader || "Size",
-      enableColumnFilter: false,
-      enableSorting: false,
     },
     {
       id: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      enableColumnFilter: false,
-      enableSorting: false,
       cell: ({ row: { original } }) => {
         if (!original.uploadedBy) {
           return <code>&#8212;</code>;
@@ -182,8 +180,6 @@ export const FilesTable = ({
     {
       accessorKey: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
-      enableColumnFilter: false,
-      enableSorting: false,
       cell: ({ getValue }) => {
         return formatDate(getValue() as number);
       },
@@ -192,8 +188,6 @@ export const FilesTable = ({
       align: "right",
       accessorKey: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
-      enableColumnFilter: false,
-      enableSorting: false,
     },
     {
       accessorKey: "lastDownloadedAt",
@@ -212,8 +206,6 @@ export const FilesTable = ({
       align: "center",
       id: "actions",
       header: messages?.actionsHeader || "Actions",
-      enableColumnFilter: false,
-      enableSorting: false,
       cell: ({ row: { original } }) => {
         return <ActionsMenu actions={getActionsItem(original)} />;
       },

@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { enableUser, disableUser } from "@/api/user";
 import { useConfig } from "@/hooks";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const UserAction = (user: any) => {
   const appConfig = useConfig();
 
