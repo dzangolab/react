@@ -85,14 +85,14 @@ export const UsersTable = ({
           )
         );
       },
-      enableSorting: true,
-      enableColumnFilter: true,
+      enableSorting: false,
+      enableColumnFilter: false,
     },
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
       enableSorting: true,
-      enableColumnFilter: false,
+      enableColumnFilter: true,
     },
     {
       align: "center",
