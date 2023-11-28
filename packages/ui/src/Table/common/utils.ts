@@ -143,48 +143,79 @@ export const getParsedColumns = ({
     );
   }
 
+  const updateColumn = ({
+    enableColumnFilter,
+    enableSorting,
+    enableGlobalFilter,
+    enableMultiSort,
+  }: {
+    enableColumnFilter?: boolean;
+    enableSorting?: boolean;
+    enableGlobalFilter?: boolean;
+    enableMultiSort?: boolean;
+  }) => {
+    return {
+      enableColumnFilter:
+        typeof enableColumnFilter === "undefined" ? false : enableColumnFilter,
+
+      enableSorting:
+        typeof enableSorting === "undefined" ? false : enableSorting,
+
+      enableGlobalFilter:
+        typeof enableGlobalFilter === "undefined" ? false : enableGlobalFilter,
+
+      enableMultiSort:
+        typeof enableMultiSort === "undefined" ? false : enableMultiSort,
+    };
+  };
+
   //Merge duplicate fields to one based on column id value
   for (const column of columns) {
+    const columnIdentifier = column.accessorKey || column.id || column.header;
+
     if (column.columns) {
-      if (parsedColumns.get(column.accessorKey || column.id || column.header)) {
-        parsedColumns.set(column.accessorKey || column.id || column.header, {
-          ...parsedColumns.get(
-            column.accessorKey || column.id || column.header,
-          ),
+      if (parsedColumns.get(columnIdentifier)) {
+        parsedColumns.set(columnIdentifier, {
+          ...parsedColumns.get(columnIdentifier),
           ...column,
           columns: [
             ...getParsedColumns({
               columns: column.columns,
               visibleColumns,
-              childColumns:
-                parsedColumns.get(
-                  column.accessorKey || column.id || column.header,
-                ).columns || [],
+              childColumns: parsedColumns.get(columnIdentifier).columns || [],
             }),
           ],
         });
       } else {
-        parsedColumns.set(column.accessorKey || column.id || column.header, {
+        parsedColumns.set(columnIdentifier, {
           ...column,
           columns: [
             ...getParsedColumns({ columns: column.columns, visibleColumns }),
           ],
+          ...updateColumn({
+            enableColumnFilter: column.enableColumnFilter,
+            enableGlobalFilter: column.enableGlobalFilter,
+            enableMultiSort: column.enableMultiSort,
+            enableSorting: column.enableSorting,
+          }),
         });
       }
-    } else if (
-      !visibleColumns.includes(column.id || column.accessorKey || column.header)
-    ) {
+    } else if (!visibleColumns.includes(columnIdentifier)) {
       continue;
-    } else if (
-      parsedColumns.get(column.accessorKey || column.id || column.header)
-    ) {
-      parsedColumns.set(column.accessorKey || column.id || column.header, {
-        ...parsedColumns.get(column.accessorKey || column.id || column.header),
+    } else if (parsedColumns.get(columnIdentifier)) {
+      parsedColumns.set(columnIdentifier, {
+        ...parsedColumns.get(columnIdentifier),
         ...column,
       });
     } else {
-      parsedColumns.set(column.accessorKey || column.id || column.header, {
+      parsedColumns.set(columnIdentifier, {
         ...column,
+        ...updateColumn({
+          enableColumnFilter: column.enableColumnFilter,
+          enableGlobalFilter: column.enableGlobalFilter,
+          enableMultiSort: column.enableMultiSort,
+          enableSorting: column.enableSorting,
+        }),
       });
     }
   }
