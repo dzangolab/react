@@ -15,6 +15,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 1rem;
+  position: relative;
   border-bottom: 1px solid #bdbdbd48;
   padding: 0.5rem 0rem;
 }
@@ -34,9 +35,16 @@
 
 .file-input .selected li .preview,
 .file-list-overlay .selected li .preview {
+  min-width: 3.5rem;
   width: 3.5rem;
   height: 3.5rem;
   background: lightgray;
+}
+
+.file-list-overlay .selected li .info .details,
+.file-input .selected li .info .details > span {
+  overflow: clip;
+  text-overflow: ellipsis;
 }
 
 .file-input .selected li .description-wrapper,
@@ -49,6 +57,9 @@
 
 .file-input .selected .p-button.p-button-sm,
 .file-list-overlay .selected .p-button.p-button-sm {
+  position: absolute;
+  right: 0;
+  min-width: 1.5rem;
   padding: 0 !important;
   width: 1.5rem;
   height: 1.5rem;

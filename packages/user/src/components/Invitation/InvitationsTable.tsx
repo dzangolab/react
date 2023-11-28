@@ -89,6 +89,9 @@ export const InvitationsTable = ({
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
+      enableSorting: true,
+      enableColumnFilter: true,
+      enableGlobalFilter: true,
     },
     {
       align: "center",
@@ -97,8 +100,6 @@ export const InvitationsTable = ({
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       align: "center",
@@ -138,8 +139,6 @@ export const InvitationsTable = ({
           </>
         );
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       accessorKey: "invitedBy",
@@ -157,8 +156,6 @@ export const InvitationsTable = ({
 
         return invitedBy?.email;
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       accessorKey: "expiresAt",
@@ -168,8 +165,6 @@ export const InvitationsTable = ({
 
         return date.toLocaleDateString("en-GB");
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       align: "center",
@@ -186,8 +181,6 @@ export const InvitationsTable = ({
           </>
         );
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
   ];
 
