@@ -42,3 +42,19 @@ export interface SignInUpPromise {
 export interface ErrorResponse {
   data: { message: string; status: "ERROR" };
 }
+export interface InvitedByType {
+  email: string;
+  givenName: string;
+  id: string;
+  isActiveUser: boolean;
+  roles: string[];
+  surname: string;
+  username: string;
+}
+export interface User extends UserType {
+  id: string;
+  appId?: number;
+  isActiveUser: boolean;
+  email: string;
+  invitedBy: InvitedByType | null;
+}

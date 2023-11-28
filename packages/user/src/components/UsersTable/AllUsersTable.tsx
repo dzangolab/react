@@ -18,24 +18,9 @@ import type {
   InvitationRoleOption,
   ResendInvitationResponse,
   RevokeInvitationResponse,
-  UserType,
+  User,
   Invitation,
 } from "@/types";
-
-type InvitedByType = {
-  givenName: string;
-  surname: string;
-  email: string;
-  id: string;
-};
-
-interface User extends UserType {
-  id: string;
-  appId?: number;
-  isActiveUser: boolean;
-  email: string;
-  invitedBy: InvitedByType | null;
-}
 import type { ColumnDef } from "@tanstack/react-table";
 
 type VisibleColumn =
@@ -190,18 +175,18 @@ export const AllUsersTable = ({
     {
       accessorKey: "invitedBy",
       header: t("invitations:table.defaultColumns.invitedBy"),
-      cell: ({ getValue }) => {
-        const invitedBy = getValue() as User;
-
-        if (invitedBy?.isActiveUser) {
+      cell: ({ row: { original } }) => {
+        if (original.isActiveUser) {
           return <code>&#8212;</code>;
         }
 
-        if (invitedBy?.givenName || invitedBy?.surname) {
-          return `${invitedBy?.givenName || ""} ${invitedBy?.surname || ""}`;
+        if (original.invitedBy?.givenName || original.invitedBy?.surname) {
+          return `${original.invitedBy.givenName || ""} ${
+            original.invitedBy.surname || ""
+          }`;
         }
 
-        return invitedBy?.email;
+        return original.invitedBy?.email;
       },
       enableSorting: false,
       enableColumnFilter: false,
