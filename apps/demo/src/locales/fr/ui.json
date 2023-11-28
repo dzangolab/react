@@ -30,7 +30,8 @@
       "givenName": "Given name (fr)",
       "middleNames": "Middle names (fr)",
       "surname": "Surname (fr)",
-      "address": "Address (fr)"
+      "address": "Address (fr)",
+      "fullName": "Full name (fr)"
     },
     "delete": {
       "message": "Are you sure you want to delete? (fr)",

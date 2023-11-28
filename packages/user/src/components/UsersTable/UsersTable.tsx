@@ -10,6 +10,7 @@ import { ButtonProps } from "primereact/button";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
+import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
 
 import type {
@@ -20,7 +21,13 @@ import type {
   InvitationExpiryDateField,
 } from "@/types";
 
-type VisibleColumn = "name" | "email" | "roles" | "signedUpAt" | string;
+type VisibleColumn =
+  | "name"
+  | "email"
+  | "roles"
+  | "signedUpAt"
+  | "actions"
+  | string;
 
 export type UsersTableProperties = {
   additionalInvitationFields?: AdditionalInvitationFields;
@@ -58,7 +65,7 @@ export const UsersTable = ({
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns = ["name", "email", "roles", "signedUpAt"],
+  visibleColumns = ["name", "email", "roles", "signedUpAt", "actions"],
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
@@ -129,6 +136,14 @@ export const UsersTable = ({
         const date = new Date(data.signedUpAt);
 
         return date.toLocaleDateString("en-GB");
+      },
+    },
+    {
+      align: "center",
+      field: "actions",
+      header: t("table.defaultColumns.actions"),
+      body: (data) => {
+        return <UserAction user={data} />;
       },
     },
   ];

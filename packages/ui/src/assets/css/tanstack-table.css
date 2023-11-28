@@ -2,7 +2,7 @@
 
 :root {
   --table-border: 1px solid rgb(226, 226, 226);
-  --table-header-bg-color: rgb(245, 245, 245);
+  --table-header-bg-color: #f0f2f7ad;
   --table-header-active-bg-color: rgb(232, 240, 255);
   --table-row-hover-bg-color: #318aff0f;
   --table-column-padding: 0.5rem;
@@ -161,7 +161,7 @@
   .table-wrapper
   .table[data-stripe="even"]
   .tbody
-  .trow:nth-child(odd) {
+  .trow:nth-child(even) {
   background-color: var(--table-stripe-color);
 }
 
@@ -169,7 +169,7 @@
   .table-wrapper
   .table[data-stripe="odd"]
   .tbody
-  .trow:nth-child(even) {
+  .trow:nth-child(odd) {
   background-color: var(--table-stripe-color);
 }
 
@@ -177,22 +177,23 @@
   background-color: var(--table-row-selected-bg-color) !important;
 }
 
-.table-wrapper .table .tbody .trow:hover:not(.trow.filters) {
+.table-container
+  .table-wrapper
+  .table
+  .tbody
+  .trow[data-state="selected"]:hover,
+.table-wrapper .table .tbody .trow:hover {
   background-color: var(--table-row-hover-bg-color) !important;
 }
 
-.table-wrapper .table .header-row,
-.table-wrapper .table .trow.filters {
-  background-color: var(--table-header-bg-color) !important;
+.table-wrapper .table .header-row {
+  background-color: var(--table-header-bg-color);
 }
 
 .table-wrapper .table .trow.filters .content input {
   width: 100%;
   min-width: 7rem;
-}
-
-.table-wrapper .table .tbody .trow:hover:not(.trow.filters) {
-  background-color: var(--table-row-hover-bg-color);
+  font-weight: normal;
 }
 
 .table-container .table-wrapper .table .tcell,

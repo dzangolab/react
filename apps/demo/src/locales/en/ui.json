@@ -31,7 +31,8 @@
       "givenName": "Given name",
       "middleNames": "Middle names",
       "surname": "Surname",
-      "address": "Address"
+      "address": "Address",
+      "fullName": "Full name"
     },
     "delete": {
       "message": "Are you sure you want to delete?",

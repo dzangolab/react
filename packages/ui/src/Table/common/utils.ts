@@ -120,9 +120,12 @@ export const getRequestJSON = (
 export const getParsedColumns = ({
   columns,
   visibleColumns,
+  childColumns,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: Array<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  childColumns?: Array<any>;
   visibleColumns: string[];
 }) => {
   if (visibleColumns.length === 0) {
@@ -131,23 +134,73 @@ export const getParsedColumns = ({
 
   const parsedColumns = new Map();
 
+  if (childColumns) {
+    childColumns.forEach((column) =>
+      parsedColumns.set(
+        column.accessorKey || column.id || column.header,
+        column,
+      ),
+    );
+  }
+
   //Merge duplicate fields to one based on column id value
   for (const column of columns) {
-    if (parsedColumns.get(column.accessorKey || column.id)) {
-      parsedColumns.set(column.accessorKey || column.id, {
-        ...parsedColumns.get(column.accessorKey || column.id),
+    if (column.columns) {
+      if (parsedColumns.get(column.accessorKey || column.id || column.header)) {
+        parsedColumns.set(column.accessorKey || column.id || column.header, {
+          ...parsedColumns.get(
+            column.accessorKey || column.id || column.header,
+          ),
+          ...column,
+          columns: [
+            ...getParsedColumns({
+              columns: column.columns,
+              visibleColumns,
+              childColumns:
+                parsedColumns.get(
+                  column.accessorKey || column.id || column.header,
+                ).columns || [],
+            }),
+          ],
+        });
+      } else {
+        parsedColumns.set(column.accessorKey || column.id || column.header, {
+          ...column,
+          columns: [
+            ...getParsedColumns({ columns: column.columns, visibleColumns }),
+          ],
+        });
+      }
+    } else if (
+      !visibleColumns.includes(column.id || column.accessorKey || column.header)
+    ) {
+      continue;
+    } else if (
+      parsedColumns.get(column.accessorKey || column.id || column.header)
+    ) {
+      parsedColumns.set(column.accessorKey || column.id || column.header, {
+        ...parsedColumns.get(column.accessorKey || column.id || column.header),
         ...column,
       });
     } else {
-      parsedColumns.set(column.accessorKey || column.id, column);
+      parsedColumns.set(column.accessorKey || column.id || column.header, {
+        ...column,
+      });
     }
   }
 
-  //Sort columns based on column id provided in visibleColumns array.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const sortedColumns = visibleColumns.map<any>((visibleColumn) => {
-    return parsedColumns.get(visibleColumn);
-  });
+  const parsedColumnsList: any[] = [];
 
-  return sortedColumns;
+  for (const parsedColumnId of parsedColumns.keys()) {
+    if (!visibleColumns.includes(parsedColumnId)) {
+      if (parsedColumns.get(parsedColumnId)?.columns?.length == 0) {
+        continue;
+      }
+    }
+
+    parsedColumnsList.push(parsedColumns.get(parsedColumnId));
+  }
+
+  return parsedColumnsList;
 };

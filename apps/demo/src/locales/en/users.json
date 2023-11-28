@@ -1,10 +1,13 @@
 {
   "table": {
     "actions": {
-      "invite": "Invite user"
+      "invite": "Invite user",
+      "enable": "Enable user",
+      "disable": "Disable user"
     },
     "title": "Users",
     "defaultColumns": {
+      "actions": "Actions",
       "email": "Email",
       "roles": "Roles",
       "name": "Name",
@@ -20,5 +23,24 @@
   "status": {
     "active": "Active",
     "invited": "Invited"
+  },
+  "confirmation": {
+    "header": "Confirmation",
+    "disable": {
+      "message": "Are you sure you want to disable this user?"
+    },
+    "enable": {
+      "message": "Are you sure you want to enable this user?"
+    }
+  },
+  "messages": {
+    "enable": {
+      "success": "User enabled successfully",
+      "error": "Error enabling user"
+    },
+    "disable": {
+      "success": "User disabled successfully",
+      "error": "Error disabling user"
+    }
   }
 }
