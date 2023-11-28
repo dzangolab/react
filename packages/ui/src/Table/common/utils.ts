@@ -128,10 +128,6 @@ export const getParsedColumns = ({
   childColumns?: Array<any>;
   visibleColumns: string[];
 }) => {
-  if (visibleColumns.length === 0) {
-    return columns;
-  }
-
   const parsedColumns = new Map();
 
   if (childColumns) {
@@ -200,7 +196,10 @@ export const getParsedColumns = ({
           }),
         });
       }
-    } else if (!visibleColumns.includes(columnIdentifier)) {
+    } else if (
+      visibleColumns.length !== 0 &&
+      !visibleColumns.includes(columnIdentifier)
+    ) {
       continue;
     } else if (parsedColumns.get(columnIdentifier)) {
       parsedColumns.set(columnIdentifier, {

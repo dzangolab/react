@@ -184,7 +184,9 @@ const DataTable = <TData extends { id: string | number }>({
   );
 
   useEffect(() => {
-    table.setColumnOrder(["select", ...visibleColumns]);
+    if (visibleColumns.length !== 0) {
+      table.setColumnOrder(["select", ...visibleColumns]);
+    }
   }, [visibleColumns, columnsWithRowSelection]);
 
   const renderTooltipContent = (
