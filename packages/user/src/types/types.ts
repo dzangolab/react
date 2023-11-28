@@ -43,6 +43,7 @@ export interface SignInUpPromise {
 export interface ErrorResponse {
   data: { message: string; status: "ERROR" };
 }
+
 export interface ExtendedUser extends UserType {
   appId?: number;
   isActiveUser: boolean;
