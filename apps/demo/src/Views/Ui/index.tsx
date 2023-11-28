@@ -100,28 +100,18 @@ const componentList = [
           "description",
           "uploadedBy",
           "uploadedAt",
-          "downloadCount",
-          "lastDownloadedAt",
           "actions",
         ]}
         columns={[
           {
-            field: "uploadedBy",
-            bodyTooltip: (data) => {
-              return `${data.uploadedBy.givenName} ${data.uploadedBy.lastName}`;
+            id: "uploadedBy",
+            tooltip: ({ row: { original } }) => {
+              return `${original.uploadedBy.givenName} ${original.uploadedBy.lastName}`;
             },
           },
           {
-            field: "description",
-            bodyTooltipOptions: {
-              style: {
-                maxWidth: "20rem",
-              },
-            },
-          },
-          {
-            field: "uploadedAt",
-            bodyTooltip: true,
+            accessorKey: "uploadedAt",
+            tooltip: true,
           },
         ]}
       />
