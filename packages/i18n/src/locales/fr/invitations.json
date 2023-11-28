@@ -82,6 +82,10 @@
       "actions": "Actions (fr)",
       "app": "App (fr)"
     },
+    "pagination": {
+      "pageControl": "Go to (fr)",
+      "rowsPerPage": "Rows (fr)"
+    },
     "searchPlaceholder": "",
     "emptyMessage": "Table is empty (fr)",
     "title": "Invitations (fr)"

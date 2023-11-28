@@ -2,7 +2,6 @@ import {
   LoadingIcon,
   Page,
   ResponsiveMenu,
-  FilesTable,
   FileCard,
   FilesList,
   FilesPresentation,
@@ -11,6 +10,7 @@ import {
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
+import FilesTableDemo from "./FilesTableDemo";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import MessageDemo from "./MessageDemo";
@@ -73,59 +73,7 @@ const componentList = [
   {
     key: 7,
     title: "files.table",
-    component: (
-      <FilesTable
-        onFileDelete={() => {}}
-        onFileArchive={() => {}}
-        files={[
-          {
-            id: 0,
-            originalFileName: "my file",
-            description: "File 1 description",
-            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
-            uploadedAt: Date.now(),
-            lastDownloadedAt: Date.now(),
-          },
-          {
-            id: 1,
-            originalFileName: "my filev2",
-            description: "File description",
-            uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
-            uploadedAt: Date.now(),
-            lastDownloadedAt: Date.now(),
-          },
-        ]}
-        visibleColumns={[
-          "originalFileName",
-          "description",
-          "uploadedBy",
-          "uploadedAt",
-          "downloadCount",
-          "lastDownloadedAt",
-          "actions",
-        ]}
-        columns={[
-          {
-            field: "uploadedBy",
-            bodyTooltip: (data) => {
-              return `${data.uploadedBy.givenName} ${data.uploadedBy.lastName}`;
-            },
-          },
-          {
-            field: "description",
-            bodyTooltipOptions: {
-              style: {
-                maxWidth: "20rem",
-              },
-            },
-          },
-          {
-            field: "uploadedAt",
-            bodyTooltip: true,
-          },
-        ]}
-      />
-    ),
+    component: <FilesTableDemo />,
   },
   {
     key: 8,
