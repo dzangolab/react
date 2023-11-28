@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
