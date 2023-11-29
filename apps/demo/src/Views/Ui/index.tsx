@@ -7,6 +7,7 @@ import {
   FilesPresentation,
   SortableContainer,
 } from "@dzangolab/react-ui";
+import { Popup } from "@dzangolab/react-ui";
 
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
@@ -231,9 +232,19 @@ const componentList = [
           { id: 2, data: "Item 2" },
           { id: 3, data: "Item 3" },
         ]}
-        onSort={(sorted) => {
+        onSort={(sorted: any) => {
           console.log(sorted);
         }}
+      />
+    ),
+  },
+  {
+    key: 16,
+    title: "Popup Container",
+    component: (
+      <Popup
+        trigger={<button>Open popup</button>}
+        content={<div>Pop up contents.</div>}
       />
     ),
   },

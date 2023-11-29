@@ -37,7 +37,7 @@ import {
   TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { DebouncedInput, SortableContainer } from "../../";
+import { DebouncedInput, Popup, SortableContainer } from "../../";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
@@ -205,6 +205,8 @@ const DataTable = <TData extends { id: string | number }>({
     ? totalRecords
     : table.getFilteredRowModel().rows?.length;
 
+  console.log(table.getAllLeafColumns());
+
   return (
     <div
       id={id}
@@ -219,19 +221,40 @@ const DataTable = <TData extends { id: string | number }>({
         />
       ) : null}
 
-      {renderToolbarItems ? (
-        <>
-          <TableToolbar children={renderToolbarItems(table)} />
-        </>
-      ) : null}
+      <TableToolbar
+        children={
+          <>
+            {renderToolbarItems ? renderToolbarItems(table) : null}
 
-      <SortableContainer
-        items={table
-          .getAllLeafColumns()
-          .map((column, index) => ({ id: index, data: column.id }))}
-        onSort={(sorted) => {
-          table.setColumnOrder(sorted.map((item) => item.data));
-        }}
+            <Popup
+              trigger={"Columns"}
+              content={
+                <SortableContainer
+                  items={table
+                    .getAllLeafColumns()
+                    .filter((column) => column.id !== "select")
+                    .map((column, index) => ({
+                      id: index,
+                      data: column,
+                      render: (data: any) => {
+                        if (typeof data.columnDef.header === "function") {
+                          return data.columnDef.header();
+                        }
+
+                        return data.columnDef.header;
+                      },
+                    }))}
+                  onSort={(sorted) => {
+                    table.setColumnOrder([
+                      ...(enableRowSelection ? ["select"] : []),
+                      ...sorted.map((item) => item.data.id),
+                    ]);
+                  }}
+                />
+              }
+            />
+          </>
+        }
       />
 
       <Table data-stripe={stripe}>
