@@ -95,9 +95,9 @@ const Signup: React.FC<IProperties> = ({
     }
 
     return (
-      <div className="">
+      <div className="signup-wrapper">
         <SignupForm handleSubmit={handleSubmit} loading={loading} />
-        <div className="signup-links">{getLinks()}</div>
+        <div className="links">{getLinks()}</div>
       </div>
     );
   };

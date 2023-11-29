@@ -108,7 +108,7 @@
   }
 }
 
-.login-links{
+.login-wrapper > .links {
   max-width: 20rem;
   min-width: 20rem;
   width: 100%;

@@ -17,11 +17,11 @@ interface IProperties {
   customDivider?: React.ReactNode;
   divider?: boolean;
   isPage?: boolean;
-  showLinks?: boolean;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
+  showLinks?: boolean;
   showSessionInfoIcon?: boolean;
   socialLoginFirst?: boolean;
 }
@@ -188,9 +188,9 @@ const Login: React.FC<IProperties> = ({
     }
 
     return (
-      <div className="">
+      <div className="login-wrapper">
         <LoginForm handleSubmit={handleSubmit} loading={loading} />
-        <div className="login-links">{getLinks()}</div>
+        <div className="links">{getLinks()}</div>
       </div>
     );
   };

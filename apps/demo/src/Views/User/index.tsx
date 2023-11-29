@@ -197,7 +197,7 @@ const componentList = [
   {
     key: 9,
     title: "Login",
-    component: <Login isPage={false} showLinks={false} />,
+    component: <Login isPage={false} />,
   },
 ];
 
