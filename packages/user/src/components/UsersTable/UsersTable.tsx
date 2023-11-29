@@ -39,6 +39,8 @@ export type UsersTableProperties = Partial<
   inviteButtonIcon?: IconType<ButtonProps>;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onUserEnabled?: (data: any) => void;
+  onUserDisabled?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
@@ -55,6 +57,8 @@ export const UsersTable = ({
   invitationExpiryDateField,
   inviteButtonIcon,
   onInvitationAdded,
+  onUserDisabled,
+  onUserEnabled,
   prepareInvitationData,
   roles,
   showInviteAction = true,
@@ -142,7 +146,13 @@ export const UsersTable = ({
       id: "actions",
       header: t("table.defaultColumns.actions"),
       cell: ({ row: { original } }) => {
-        return <UserAction user={original} />;
+        return (
+          <UserAction
+            user={original}
+            onUserDisabled={onUserDisabled}
+            onUserEnabled={onUserEnabled}
+          />
+        );
       },
     },
   ];

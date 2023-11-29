@@ -54,6 +54,7 @@ export const UserAction = ({
 
           if (onUserDisabled) {
             onUserDisabled(response);
+            console.log("disable", response);
           }
         } else {
           toast.error(t("messages.disable.error"));
@@ -72,6 +73,7 @@ export const UserAction = ({
 
           if (onUserEnabled) {
             onUserEnabled(response);
+            console.log("enable", response);
           }
         } else {
           toast.error(t("messages.enable.error"));
