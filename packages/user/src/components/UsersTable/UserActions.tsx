@@ -7,8 +7,18 @@ import { toast } from "react-toastify";
 import { enableUser, disableUser } from "@/api/user";
 import { useConfig } from "@/hooks";
 
+type UserActionsProperites = {
+  onUserEnabled?: (response: any) => void;
+  onUserDisabled?: (response: any) => void;
+  user: any;
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const UserAction = (user: any) => {
+export const UserAction = ({
+  user,
+  onUserEnabled,
+  onUserDisabled,
+}: UserActionsProperites) => {
   const appConfig = useConfig();
 
   const { t } = useTranslation("users");
@@ -20,7 +30,7 @@ export const UserAction = (user: any) => {
     {
       label: t("table.actions.enable"),
       icon: "pi pi-check",
-      disabled: !user.user.disabled,
+      disabled: !user.disabled,
       command: () => {
         setShowEnableConfirmation(true);
       },
@@ -29,7 +39,7 @@ export const UserAction = (user: any) => {
       label: t("table.actions.disable"),
       className: "danger",
       icon: "pi pi-times",
-      disabled: user.user.disabled,
+      disabled: user.disabled,
       command: () => {
         setShowDisableConfirmation(true);
       },
@@ -37,10 +47,14 @@ export const UserAction = (user: any) => {
   ];
 
   const handleDisableUser = () => {
-    disableUser(user.user.id, appConfig?.apiBaseUrl || "")
+    disableUser(user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
         if ("data" in response && response.data.status === "OK") {
           toast.success(t("messages.disable.success"));
+
+          if (onUserDisabled) {
+            onUserDisabled(response);
+          }
         } else {
           toast.error(t("messages.disable.error"));
         }
@@ -51,10 +65,14 @@ export const UserAction = (user: any) => {
   };
 
   const handleEnableUser = () => {
-    enableUser(user.user.id, appConfig?.apiBaseUrl || "")
+    enableUser(user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
         if ("data" in response && response.data.status === "OK") {
           toast.success(t("messages.enable.success"));
+
+          if (onUserEnabled) {
+            onUserEnabled(response);
+          }
         } else {
           toast.error(t("messages.enable.error"));
         }
