@@ -17,14 +17,14 @@ interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   handleLoginSubmit?: (credentials: LoginCredentials) => void;
-  links?: ReactNode;
+  loginLinks?: ReactNode;
 }
 
 export const LoginBasic: React.FC<IProperties> = ({
   onLoginFailed,
   onLoginSuccess,
   handleLoginSubmit,
-  links,
+  loginLinks,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
@@ -67,8 +67,8 @@ export const LoginBasic: React.FC<IProperties> = ({
   };
 
   const getLinks = () => {
-    if (links) {
-      return links;
+    if (loginLinks) {
+      return loginLinks;
     }
 
     return (
@@ -78,7 +78,7 @@ export const LoginBasic: React.FC<IProperties> = ({
             to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
             className="native-link"
           >
-            {t("login.links.signup")}
+            {t("login.loginLinks.signup")}
           </Link>
         )}
         {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
@@ -89,7 +89,7 @@ export const LoginBasic: React.FC<IProperties> = ({
             }
             className="native-link"
           >
-            {t("login.links.forgotPassword")}
+            {t("login.loginLinks.forgotPassword")}
           </Link>
         )}
       </>
@@ -102,7 +102,7 @@ export const LoginBasic: React.FC<IProperties> = ({
         handleSubmit={handleLoginSubmit ? handleLoginSubmit : handleSubmit}
         loading={loading}
       />
-      <div className="login-basic-links">{getLinks()}</div>
+      <div className="login-basic-loginLinks">{getLinks()}</div>
     </>
   );
 };
