@@ -4,8 +4,6 @@ import {
   InvitationModal,
   InvitationsTable,
   UsersTable,
-  LoginBasic,
-  SignupBasic,
 } from "@dzangolab/react-user";
 
 import ComponentList from "../../components/ComponentList";
@@ -193,16 +191,6 @@ const componentList = [
     key: 8,
     title: "All users table",
     component: <AllUsersTable users={allUsers} />,
-  },
-  {
-    key: 9,
-    title: "Login",
-    component: <LoginBasic />,
-  },
-  {
-    key: 10,
-    title: "Signup",
-    component: <SignupBasic />,
   },
 ];
 

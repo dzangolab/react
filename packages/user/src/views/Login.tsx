@@ -181,7 +181,12 @@ const Login: React.FC<IProperties> = ({
       );
     }
 
-    return <LoginForm handleSubmit={handleSubmit} loading={loading} />;
+    return (
+      <>
+        <LoginForm handleSubmit={handleSubmit} loading={loading} />;
+        <div>getLinks()</div>
+      </>
+    );
   };
 
   return renderContent();
