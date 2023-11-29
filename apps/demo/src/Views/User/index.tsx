@@ -7,8 +7,6 @@ import {
 } from "@dzangolab/react-user";
 
 import ComponentList from "../../components/ComponentList";
-import { Login } from "@dzangolab/react-user";
-import { Signup } from "@dzangolab/react-user";
 
 const roles = [
   {
