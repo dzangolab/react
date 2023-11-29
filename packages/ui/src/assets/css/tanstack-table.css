@@ -5,7 +5,7 @@
   --table-header-bg-color: #f0f2f7ad;
   --table-header-active-bg-color: rgb(232, 240, 255);
   --table-row-hover-bg-color: #318aff0f;
-  --table-column-padding: 0.5rem;
+  --table-column-padding: 0.8rem;
   --table-row-selected-bg-color: rgb(240, 245, 255);
   --table-text-color: rgb(78, 78, 78);
   --table-stripe-color: #0064ff08;
@@ -188,6 +188,7 @@
 
 .table-wrapper .table .header-row {
   background-color: var(--table-header-bg-color);
+  font-size: 1rem;
 }
 
 .table-wrapper .table .trow.filters .content input {

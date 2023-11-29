@@ -20,24 +20,26 @@ const TanstackTable = () => {
                 position: "right",
               },
               filterPlaceholder: t("table.placeholders.givenName"),
+              enableColumnFilter: true,
+              enableSorting: true,
             },
             {
               accessorKey: "middleNames",
               header: () => <span>{t("table.headers.middleNames")}</span>,
-              enableSorting: false,
-              enableHiding: false,
-              enableColumnFilter: false,
-              enableGlobalFilter: false,
             },
             {
               accessorKey: "surname",
               header: () => <span>{t("table.headers.surname")}</span>,
+              enableColumnFilter: true,
+              enableSorting: true,
             },
           ],
         },
         {
           accessorKey: "address",
           header: () => <span>{t("table.headers.address")}</span>,
+          enableColumnFilter: true,
+          enableSorting: true,
         },
       ]}
       data={((count: number) => {

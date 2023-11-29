@@ -14,6 +14,10 @@
       "signedUpOn": "Signed up on",
       "status": "Status"
     },
+    "pagination": {
+      "pageControl": "Go to",
+      "rowsPerPage": "Rows"
+    },
     "searchPlaceholder": "Search"
   },
   "status": {

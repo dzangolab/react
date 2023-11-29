@@ -14,6 +14,10 @@
       "signedUpOn": "Signed up on (fr)",
       "status": "Status (fr)"
     },
+    "pagination": {
+      "pageControl": "Go to (fr)",
+      "rowsPerPage": "Rows (fr)"
+    },
     "searchPlaceholder": "Search (fr)"
   },
   "status": {

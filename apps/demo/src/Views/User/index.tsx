@@ -169,8 +169,8 @@ const componentList = [
         visibleColumns={["email", "name", "roles", "signedUpAt", "actions"]}
         columns={[
           {
-            field: "email",
-            filter: false,
+            accessorKey: "email",
+            enableColumnFilter: false,
           },
         ]}
       />

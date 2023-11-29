@@ -18,7 +18,7 @@ import type {
   InvitationRoleOption,
   ResendInvitationResponse,
   RevokeInvitationResponse,
-  User,
+  ExtendedUser,
   Invitation,
 } from "@/types";
 import type { ColumnDef } from "@tanstack/react-table";
@@ -35,7 +35,10 @@ type VisibleColumn =
   | string;
 
 export type AllUsersTableProperties = Partial<
-  Omit<TDataTableProperties<User>, "data" | "visibleColumns" | "fetchData">
+  Omit<
+    TDataTableProperties<ExtendedUser>,
+    "data" | "visibleColumns" | "fetchData"
+  >
 > & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
@@ -49,7 +52,7 @@ export type AllUsersTableProperties = Partial<
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
   showAppColumn?: boolean;
-  users: Array<User>;
+  users: Array<ExtendedUser>;
   visibleColumns?: VisibleColumn[];
 };
 
@@ -82,7 +85,7 @@ export const AllUsersTable = ({
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const defaultColumns: Array<ColumnDef<User>> = [
+  const defaultColumns: Array<ColumnDef<ExtendedUser>> = [
     {
       accessorKey: "name",
       header: t("table.defaultColumns.name"),
@@ -95,10 +98,14 @@ export const AllUsersTable = ({
           )
         );
       },
+      enableColumnFilter: true,
+      enableSorting: true,
     },
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
+      enableColumnFilter: true,
+      enableSorting: true,
     },
     {
       accessorKey: "app",
@@ -106,10 +113,9 @@ export const AllUsersTable = ({
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
+      align: "center",
       accessorKey: "roles",
       header: t("table.defaultColumns.roles"),
       cell: ({ getValue, row: { original } }) => {
@@ -146,11 +152,9 @@ export const AllUsersTable = ({
           </>
         );
       },
-      align: "center",
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
+      align: "center",
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
@@ -168,9 +172,6 @@ export const AllUsersTable = ({
           </>
         );
       },
-      align: "center",
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       accessorKey: "invitedBy",
@@ -188,8 +189,6 @@ export const AllUsersTable = ({
 
         return original.invitedBy?.email;
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
       accessorKey: "signedUpAt",
@@ -203,10 +202,9 @@ export const AllUsersTable = ({
 
         return "-";
       },
-      enableSorting: false,
-      enableColumnFilter: false,
     },
     {
+      align: "center",
       accessorKey: "actions",
       header: t("invitations:table.defaultColumns.actions"),
       cell: ({ row: { original } }) => {
@@ -224,9 +222,6 @@ export const AllUsersTable = ({
           </>
         );
       },
-      align: "center",
-      enableSorting: false,
-      enableColumnFilter: false,
     },
   ];
 
@@ -258,6 +253,7 @@ export const AllUsersTable = ({
       fetchData={fetchUsers}
       renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
+      visibleColumns={visibleColumns}
       paginationOptions={{
         pageInputLabel: t("table.pagination.pageControl"),
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
