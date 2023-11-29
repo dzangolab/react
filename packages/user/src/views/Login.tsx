@@ -16,6 +16,7 @@ import type { LoginCredentials, SignInUpPromise } from "../types";
 interface IProperties {
   customDivider?: React.ReactNode;
   divider?: boolean;
+  isPage?: boolean;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
@@ -28,6 +29,7 @@ const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
   customDivider,
+  isPage = true,
   divider = true,
   onLoginFailed,
   onLoginSuccess,
@@ -138,43 +140,51 @@ const Login: React.FC<IProperties> = ({
     className = className + (socialLoginFirst ? " sso-first" : " sso-last");
   }
 
-  return (
-    <Page
-      title={t("login.title")}
-      className={className}
-      data-aria-orientation={orientation}
-    >
-      <LoginForm handleSubmit={handleSubmit} loading={loading} />
+  const renderContent = () => {
+    if (isPage) {
+      return (
+        <Page
+          title={t("login.title")}
+          className={className}
+          data-aria-orientation={orientation}
+        >
+          <LoginForm handleSubmit={handleSubmit} loading={loading} />
 
-      {renderRedirectionMessage()}
+          {renderRedirectionMessage()}
 
-      <div className="links">{getLinks()}</div>
+          <div className="links">{getLinks()}</div>
 
-      {appConfig?.user.supportedLoginProviders ? (
-        <>
-          {divider ? (
-            customDivider ? (
-              customDivider
-            ) : (
-              <>
-                <Divider orientation="horizontal" />
-                <Divider orientation="vertical" />
-              </>
-            )
+          {appConfig?.user.supportedLoginProviders ? (
+            <>
+              {divider ? (
+                customDivider ? (
+                  customDivider
+                ) : (
+                  <>
+                    <Divider orientation="horizontal" />
+                    <Divider orientation="vertical" />
+                  </>
+                )
+              ) : null}
+
+              <div className="social-login-wrapper">
+                {appConfig.user.supportedLoginProviders.includes("google") ? (
+                  <GoogleLogin
+                    label={t("login.button.googleLoginLabel")}
+                    redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+                  />
+                ) : null}
+              </div>
+            </>
           ) : null}
+        </Page>
+      );
+    }
 
-          <div className="social-login-wrapper">
-            {appConfig.user.supportedLoginProviders.includes("google") ? (
-              <GoogleLogin
-                label={t("login.button.googleLoginLabel")}
-                redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
-              />
-            ) : null}
-          </div>
-        </>
-      ) : null}
-    </Page>
-  );
+    return <LoginForm handleSubmit={handleSubmit} loading={loading} />;
+  };
+
+  return renderContent();
 };
 
 export default Login;

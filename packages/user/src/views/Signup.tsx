@@ -14,9 +14,14 @@ import type { LoginCredentials, SignInUpPromise } from "../types";
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
+  isPage?: boolean;
 }
 
-const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
+const Signup: React.FC<IProperties> = ({
+  onSignupFailed,
+  onSignupSuccess,
+  isPage = true,
+}) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUser();
@@ -73,12 +78,20 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
     );
   };
 
-  return (
-    <Page className="signup" title={t("signup.title")}>
-      <SignupForm handleSubmit={handleSubmit} loading={loading} />
-      <div className="links">{getLinks()}</div>
-    </Page>
-  );
+  const renderContent = () => {
+    if (isPage) {
+      return (
+        <Page className="signup" title={t("signup.title")}>
+          <SignupForm handleSubmit={handleSubmit} loading={loading} />
+          <div className="links">{getLinks()}</div>
+        </Page>
+      );
+    }
+
+    return <SignupForm handleSubmit={handleSubmit} loading={loading} />;
+  };
+
+  return renderContent();
 };
 
 export default Signup;
