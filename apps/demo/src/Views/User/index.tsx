@@ -194,11 +194,6 @@ const componentList = [
     title: "All users table",
     component: <AllUsersTable users={allUsers} />,
   },
-  {
-    key: 9,
-    title: "Login",
-    component: <Login isPage={false} />,
-  },
 ];
 
 const User = () => {
