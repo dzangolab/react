@@ -17,6 +17,7 @@ interface IProperties {
   customDivider?: React.ReactNode;
   divider?: boolean;
   isPage?: boolean;
+  showLinks?: boolean;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
@@ -30,6 +31,7 @@ const Login: React.FC<IProperties> = ({
   showSessionInfoIcon = true,
   customDivider,
   isPage = true,
+  showLinks = true,
   divider = true,
   onLoginFailed,
   onLoginSuccess,
@@ -92,6 +94,10 @@ const Login: React.FC<IProperties> = ({
   };
 
   const getLinks = () => {
+    if (!isPage && !showLinks) {
+      return null;
+    }
+
     return (
       <>
         {appConfig.user?.routes?.signup?.disabled ? null : (
@@ -182,10 +188,10 @@ const Login: React.FC<IProperties> = ({
     }
 
     return (
-      <>
-        <LoginForm handleSubmit={handleSubmit} loading={loading} />;
-        <div>getLinks()</div>
-      </>
+      <div className="">
+        <LoginForm handleSubmit={handleSubmit} loading={loading} />
+        <div className="login-links">{getLinks()}</div>
+      </div>
     );
   };
 

@@ -15,12 +15,14 @@ interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   isPage?: boolean;
+  showLinks?: boolean;
 }
 
 const Signup: React.FC<IProperties> = ({
   onSignupFailed,
   onSignupSuccess,
   isPage = true,
+  showLinks = true,
 }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
@@ -56,6 +58,10 @@ const Signup: React.FC<IProperties> = ({
   };
 
   const getLinks = () => {
+    if (!isPage && !showLinks) {
+      return null;
+    }
+
     return (
       <>
         <Link
@@ -88,7 +94,12 @@ const Signup: React.FC<IProperties> = ({
       );
     }
 
-    return <SignupForm handleSubmit={handleSubmit} loading={loading} />;
+    return (
+      <div className="">
+        <SignupForm handleSubmit={handleSubmit} loading={loading} />
+        <div className="signup-links">{getLinks()}</div>
+      </div>
+    );
   };
 
   return renderContent();

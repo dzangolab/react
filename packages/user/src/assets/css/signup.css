@@ -24,3 +24,13 @@
   color: #525252;
   line-height: 1.35;
 }
+
+.signup-links{
+  max-width: 20rem;
+  min-width: 20rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
