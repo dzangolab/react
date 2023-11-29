@@ -49,7 +49,6 @@ export const UserAction = ({
   const handleDisableUser = () => {
     disableUser(user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
-        console.log(response);
         if ("data" in response && response.data.status === "OK") {
           toast.success(t("messages.disable.success"));
 
@@ -68,7 +67,6 @@ export const UserAction = ({
   const handleEnableUser = () => {
     enableUser(user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
-        console.log(response);
         if ("data" in response && response.data.status === "OK") {
           toast.success(t("messages.enable.success"));
 
