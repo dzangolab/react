@@ -24,6 +24,7 @@ export * from "./Table";
 export * from "./utils";
 export * from "./Pagination";
 export * from "./DebouncedInput";
+export * from "./SortableContainer";
 export * from "./Tooltip";
 
 export {

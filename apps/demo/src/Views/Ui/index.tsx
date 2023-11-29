@@ -5,6 +5,7 @@ import {
   FileCard,
   FilesList,
   FilesPresentation,
+  SortableContainer,
 } from "@dzangolab/react-ui";
 
 import CheckboxDemo from "./CheckboxDemo";
@@ -219,6 +220,22 @@ const componentList = [
     key: 14,
     title: "checkbox.title",
     component: <CheckboxDemo />,
+  },
+  {
+    key: 15,
+    title: "Sortable Component",
+    component: (
+      <SortableContainer
+        items={[
+          { id: 1, data: "Item 1" },
+          { id: 2, data: "Item 2" },
+          { id: 3, data: "Item 3" },
+        ]}
+        onSort={(sorted) => {
+          console.log(sorted);
+        }}
+      />
+    ),
   },
 ];
 

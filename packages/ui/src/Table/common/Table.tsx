@@ -37,7 +37,7 @@ import {
   TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { DebouncedInput } from "../../";
+import { DebouncedInput, SortableContainer } from "../../";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
@@ -220,8 +220,19 @@ const DataTable = <TData extends { id: string | number }>({
       ) : null}
 
       {renderToolbarItems ? (
-        <TableToolbar children={renderToolbarItems(table)} />
+        <>
+          <TableToolbar children={renderToolbarItems(table)} />
+        </>
       ) : null}
+
+      <SortableContainer
+        items={table
+          .getAllLeafColumns()
+          .map((column, index) => ({ id: index, data: column.id }))}
+        onSort={(sorted) => {
+          table.setColumnOrder(sorted.map((item) => item.data));
+        }}
+      />
 
       <Table data-stripe={stripe}>
         <TableHeader>

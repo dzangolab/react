@@ -1,0 +1,13 @@
+.sortable-item {
+  cursor: move;
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.sortable-item:hover {
+  background-color: #f8f8f8;
+}
