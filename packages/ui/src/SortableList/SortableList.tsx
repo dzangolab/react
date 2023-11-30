@@ -14,6 +14,7 @@ export interface SortableListProperties {
   onSort?: (sortedItems: { id: number; data: any }[]) => void;
   itemClassName?: string;
   className?: string;
+  grabHandleIcon?: ReactNode;
 }
 
 export const SortableList: FC<SortableListProperties> = ({
@@ -21,6 +22,7 @@ export const SortableList: FC<SortableListProperties> = ({
   onSort,
   itemClassName,
   className,
+  grabHandleIcon,
 }) => {
   const [sortedItems, setSortedItems] = useState(items);
   const [draggedItem, setDraggedItem] = useState<number | null>(null);
@@ -61,10 +63,14 @@ export const SortableList: FC<SortableListProperties> = ({
           onDragOver={() => handleDragOver(index)}
           onDragEnd={handleDragEnd}
         >
-          <span className="grab-icon">
-            <i className="pi pi-ellipsis-v" />
-            <i className="pi pi-ellipsis-v" />
-          </span>
+          {grabHandleIcon ? (
+            grabHandleIcon
+          ) : (
+            <span className="grab-icon">
+              <i className="pi pi-ellipsis-v" />
+              <i className="pi pi-ellipsis-v" />
+            </span>
+          )}
           <div className="item">
             {item.render ? item.render(item.data) : item.data}
           </div>

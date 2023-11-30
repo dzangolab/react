@@ -187,6 +187,7 @@ declare module "@tanstack/react-table" {
 export interface TDataTableProperties<TData>
   extends Omit<TableOptions<TData>, "getCoreRowModel"> {
   className?: string;
+  columnActionBtnLabel?: string;
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
   isLoading?: boolean;

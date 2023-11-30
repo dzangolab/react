@@ -11,6 +11,7 @@ import {
   PaginationState,
   Updater,
 } from "@tanstack/react-table";
+import { Button } from "primereact/button";
 import { Checkbox } from "primereact/checkbox";
 import React, {
   SyntheticEvent,
@@ -48,6 +49,7 @@ const DataTable = <TData extends { id: string | number }>({
   border = "grid",
   className = "",
   columns = [],
+  columnActionBtnLabel: columnActionButtonLabel = "Columns",
   data,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
@@ -226,7 +228,7 @@ const DataTable = <TData extends { id: string | number }>({
             <>
               {showColumnsAction ? (
                 <Popup
-                  trigger={"Columns"}
+                  trigger={<Button label={columnActionButtonLabel} />}
                   content={
                     <SortableList
                       items={table

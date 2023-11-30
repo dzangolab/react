@@ -4,6 +4,7 @@
 
 .popup-trigger {
   cursor: pointer;
+  display: inline-block;
 }
 
 .popup-content {
