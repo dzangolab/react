@@ -11,6 +11,8 @@ import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
+
+// eslint-disable-next-line import/no-unresolved
 import { Links } from "@/components/Links";
 
 interface IProperties {
