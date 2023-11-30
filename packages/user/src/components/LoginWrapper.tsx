@@ -9,7 +9,7 @@ import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
-const LoginWrapper = () => {
+export const LoginWrapper = () => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
@@ -52,5 +52,3 @@ const LoginWrapper = () => {
 
   return <LoginForm handleSubmit={handleSubmit} loading={loading} />;
 };
-
-export default LoginWrapper;

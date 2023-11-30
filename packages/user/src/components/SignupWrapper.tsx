@@ -13,7 +13,7 @@ interface IProperties {
   onSignupSuccess?: (user: SignInUpPromise) => void;
 }
 
-const SignupWrapper: React.FC<IProperties> = ({
+export const SignupWrapper: React.FC<IProperties> = ({
   onSignupFailed,
   onSignupSuccess,
 }) => {
@@ -51,5 +51,3 @@ const SignupWrapper: React.FC<IProperties> = ({
 
   return <SignupForm handleSubmit={handleSubmit} loading={loading} />;
 };
-
-export default SignupWrapper;
