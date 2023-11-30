@@ -9,6 +9,7 @@ import signup from "../supertokens/signup";
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
 interface IProperties {
+  handleSubmit?: (credentials: LoginCredentials) => void;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
 }

@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { toast } from "react-toastify";
 
 import LoginForm from "./LoginForm";
@@ -9,13 +9,19 @@ import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
-export const LoginWrapper = () => {
+interface IProperties {
+  handleSubmit?: (credential: LoginCredentials) => void;
+  onLoginFailed?: (error: Error) => void;
+  onLoginSuccess?: (user: SignInUpPromise) => void;
+}
+
+export const LoginWrapper: FC<IProperties> = () => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSubmit = async (credentials: LoginCredentials) => {
+  const handleLoginSubmit = async (credentials: LoginCredentials) => {
     setLoading(true);
 
     await login(credentials)
@@ -50,5 +56,5 @@ export const LoginWrapper = () => {
     setLoading(false);
   };
 
-  return <LoginForm handleSubmit={handleSubmit} loading={loading} />;
+  return <LoginForm handleSubmit={handleLoginSubmit} loading={loading} />;
 };
