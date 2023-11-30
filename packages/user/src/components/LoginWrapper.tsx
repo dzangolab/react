@@ -69,7 +69,7 @@ export const LoginWrapper: FC<IProperties> = ({
   return (
     <LoginForm
       handleSubmit={handleLoginSubmit}
-      loading={loading ? loading : loginLoading}
+      loading={loading === undefined ? loginLoading : loading}
     />
   );
 };
