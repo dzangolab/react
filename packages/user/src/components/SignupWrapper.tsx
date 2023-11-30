@@ -11,7 +11,6 @@ interface IProperties {
   handleSubmit?: (credentials: LoginCredentials) => void;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
-  showLinks?: boolean;
   loading?: boolean;
 }
 
