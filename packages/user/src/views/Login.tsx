@@ -1,27 +1,22 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
 
 import GoogleLogin from "../components/GoogleLogin";
 import LoginForm from "../components/LoginForm";
 import { ROUTES } from "../constants";
-import { useConfig, useUser } from "../hooks";
-import { verifySessionRoles } from "../supertokens/helpers";
-import login from "../supertokens/login";
+import { useConfig } from "../hooks";
 
-import type { LoginCredentials, SignInUpPromise } from "../types";
+import type { SignInUpPromise } from "../types";
 
 interface IProperties {
   customDivider?: React.ReactNode;
   divider?: boolean;
-  isPage?: boolean;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
-  showLinks?: boolean;
   showSessionInfoIcon?: boolean;
   socialLoginFirst?: boolean;
 }
@@ -30,8 +25,6 @@ const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
   customDivider,
-  isPage = true,
-  showLinks = true,
   divider = true,
   onLoginFailed,
   onLoginSuccess,
@@ -39,9 +32,7 @@ const Login: React.FC<IProperties> = ({
   socialLoginFirst = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
-  const { setUser } = useUser();
   const appConfig = useConfig();
-  const [loading, setLoading] = useState<boolean>(false);
   const location = useLocation();
 
   let className = "login";
@@ -58,46 +49,7 @@ const Login: React.FC<IProperties> = ({
     return null;
   }, [location.search]);
 
-  const handleSubmit = async (credentials: LoginCredentials) => {
-    setLoading(true);
-
-    await login(credentials)
-      .then(async (result) => {
-        if (result?.user) {
-          if (
-            appConfig &&
-            (await verifySessionRoles(appConfig.user.supportedRoles))
-          ) {
-            setUser(result.user);
-
-            onLoginSuccess && (await onLoginSuccess(result));
-
-            toast.success(`${t("login.messages.success")}`);
-          } else {
-            toast.error(t("login.messages.permissionDenied"));
-          }
-        }
-      })
-      .catch(async (error) => {
-        let errorMessage = "errors.otherErrors";
-
-        if (error.message) {
-          errorMessage = `errors.${error.message}`;
-        }
-
-        onLoginFailed && (await onLoginFailed(error));
-
-        toast.error(t(errorMessage, { ns: "errors" }));
-      });
-
-    setLoading(false);
-  };
-
   const getLinks = () => {
-    if (!isPage && !showLinks) {
-      return null;
-    }
-
     return (
       <>
         {appConfig.user?.routes?.signup?.disabled ? null : (
@@ -146,56 +98,46 @@ const Login: React.FC<IProperties> = ({
     className = className + (socialLoginFirst ? " sso-first" : " sso-last");
   }
 
-  const renderContent = () => {
-    if (isPage) {
-      return (
-        <Page
-          title={t("login.title")}
-          className={className}
-          data-aria-orientation={orientation}
-        >
-          <LoginForm handleSubmit={handleSubmit} loading={loading} />
+  return (
+    <Page
+      title={t("login.title")}
+      className={className}
+      data-aria-orientation={orientation}
+    >
+      <LoginForm
+        onLoginFailed={onLoginFailed}
+        onLoginSuccess={onLoginSuccess}
+      />
 
-          {renderRedirectionMessage()}
+      {renderRedirectionMessage()}
 
-          <div className="links">{getLinks()}</div>
+      <div className="links">{getLinks()}</div>
 
-          {appConfig?.user.supportedLoginProviders ? (
-            <>
-              {divider ? (
-                customDivider ? (
-                  customDivider
-                ) : (
-                  <>
-                    <Divider orientation="horizontal" />
-                    <Divider orientation="vertical" />
-                  </>
-                )
-              ) : null}
-
-              <div className="social-login-wrapper">
-                {appConfig.user.supportedLoginProviders.includes("google") ? (
-                  <GoogleLogin
-                    label={t("login.button.googleLoginLabel")}
-                    redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
-                  />
-                ) : null}
-              </div>
-            </>
+      {appConfig?.user.supportedLoginProviders ? (
+        <>
+          {divider ? (
+            customDivider ? (
+              customDivider
+            ) : (
+              <>
+                <Divider orientation="horizontal" />
+                <Divider orientation="vertical" />
+              </>
+            )
           ) : null}
-        </Page>
-      );
-    }
 
-    return (
-      <div className="login-wrapper">
-        <LoginForm handleSubmit={handleSubmit} loading={loading} />
-        <div className="links">{getLinks()}</div>
-      </div>
-    );
-  };
-
-  return renderContent();
+          <div className="social-login-wrapper">
+            {appConfig.user.supportedLoginProviders.includes("google") ? (
+              <GoogleLogin
+                label={t("login.button.googleLoginLabel")}
+                redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+              />
+            ) : null}
+          </div>
+        </>
+      ) : null}
+    </Page>
+  );
 };
 
 export default Login;
