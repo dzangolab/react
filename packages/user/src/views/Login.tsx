@@ -1,15 +1,11 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
 
 import { LoginWrapper } from "..";
 import GoogleLogin from "../components/GoogleLogin";
-import LoginForm from "../components/LoginForm";
-import { useConfig, useUser } from "../hooks";
-import { verifySessionRoles } from "../supertokens/helpers";
-import login from "../supertokens/login";
+import { useConfig } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
 
@@ -54,32 +50,6 @@ const Login: React.FC<IProperties> = ({
 
     return null;
   }, [location.search]);
-
-  const getLinks = () => {
-    return (
-      <>
-        {appConfig.user?.routes?.signup?.disabled ? null : (
-          <Link
-            to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
-            className="native-link"
-          >
-            {t("login.links.signup")}
-          </Link>
-        )}
-        {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
-          <Link
-            to={
-              appConfig.user.routes?.forgetPassword?.path ||
-              ROUTES.FORGET_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("login.links.forgotPassword")}
-          </Link>
-        )}
-      </>
-    );
-  };
 
   const renderRedirectionMessage = () => {
     if (path && path.length) {
