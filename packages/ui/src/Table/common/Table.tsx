@@ -37,7 +37,7 @@ import {
   TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { DebouncedInput, Popup, SortableContainer } from "../../";
+import { DebouncedInput, Popup, SortableList } from "../../";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
@@ -69,6 +69,7 @@ const DataTable = <TData extends { id: string | number }>({
   totalRecords = 0,
   paginationOptions,
   stripe = "none",
+  showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -205,8 +206,6 @@ const DataTable = <TData extends { id: string | number }>({
     ? totalRecords
     : table.getFilteredRowModel().rows?.length;
 
-  console.log(table.getAllLeafColumns());
-
   return (
     <div
       id={id}
@@ -221,41 +220,46 @@ const DataTable = <TData extends { id: string | number }>({
         />
       ) : null}
 
-      <TableToolbar
-        children={
-          <>
-            {renderToolbarItems ? renderToolbarItems(table) : null}
+      {showColumnsAction || renderToolbarItems ? (
+        <TableToolbar
+          children={
+            <>
+              {showColumnsAction ? (
+                <Popup
+                  trigger={"Columns"}
+                  content={
+                    <SortableList
+                      items={table
+                        .getAllLeafColumns()
+                        .filter((column) => column.id !== "select")
+                        .map((column, index) => ({
+                          id: index,
+                          data: column,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          render: (data: any) => {
+                            if (typeof data.columnDef.header === "function") {
+                              return data.columnDef.header();
+                            }
 
-            <Popup
-              trigger={"Columns"}
-              content={
-                <SortableContainer
-                  items={table
-                    .getAllLeafColumns()
-                    .filter((column) => column.id !== "select")
-                    .map((column, index) => ({
-                      id: index,
-                      data: column,
-                      render: (data: any) => {
-                        if (typeof data.columnDef.header === "function") {
-                          return data.columnDef.header();
-                        }
-
-                        return data.columnDef.header;
-                      },
-                    }))}
-                  onSort={(sorted) => {
-                    table.setColumnOrder([
-                      ...(enableRowSelection ? ["select"] : []),
-                      ...sorted.map((item) => item.data.id),
-                    ]);
-                  }}
+                            return data.columnDef.header;
+                          },
+                        }))}
+                      onSort={(sorted) => {
+                        table.setColumnOrder([
+                          ...(enableRowSelection ? ["select"] : []),
+                          ...sorted.map((item) => item.data.id),
+                        ]);
+                      }}
+                    />
+                  }
                 />
-              }
-            />
-          </>
-        }
-      />
+              ) : null}
+
+              {renderToolbarItems ? renderToolbarItems(table) : null}
+            </>
+          }
+        />
+      ) : null}
 
       <Table data-stripe={stripe}>
         <TableHeader>

@@ -5,7 +5,7 @@ import {
   FileCard,
   FilesList,
   FilesPresentation,
-  SortableContainer,
+  SortableList,
 } from "@dzangolab/react-ui";
 import { Popup } from "@dzangolab/react-ui";
 
@@ -226,15 +226,12 @@ const componentList = [
     key: 15,
     title: "Sortable Component",
     component: (
-      <SortableContainer
+      <SortableList
         items={[
           { id: 1, data: "Item 1" },
           { id: 2, data: "Item 2" },
           { id: 3, data: "Item 3" },
         ]}
-        onSort={(sorted: any) => {
-          console.log(sorted);
-        }}
       />
     ),
   },

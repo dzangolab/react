@@ -25,7 +25,7 @@ export * from "./utils";
 export * from "./Pagination";
 export * from "./Popup";
 export * from "./DebouncedInput";
-export * from "./SortableContainer";
+export * from "./SortableList";
 export * from "./Tooltip";
 
 export {

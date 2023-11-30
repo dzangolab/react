@@ -1,13 +1,22 @@
-import React, { ReactNode, useState } from "react";
+import { useState } from "react";
 
-export interface SortableContainerProperties {
-  items: { id: number; data: any; render?: (data: any) => ReactNode }[];
-  onSort: (sortedItems: { id: number; data: any }[]) => void;
+import type { FC, ReactNode } from "react";
+
+export interface SortableListProperties {
+  items: {
+    id: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    render?: (data: any) => ReactNode;
+  }[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onSort?: (sortedItems: { id: number; data: any }[]) => void;
   itemClassName?: string;
   className?: string;
 }
 
-export const SortableContainer: React.FC<SortableContainerProperties> = ({
+export const SortableList: FC<SortableListProperties> = ({
   items,
   onSort,
   itemClassName,
@@ -28,21 +37,23 @@ export const SortableContainer: React.FC<SortableContainerProperties> = ({
   const handleDragEnd = () => {
     if (draggedItem !== null && draggedItem !== droppedOver) {
       const updatedItems = [...sortedItems];
+
       const [movedItem] = updatedItems.splice(draggedItem, 1);
 
       updatedItems.splice(droppedOver, 0, movedItem);
 
       setSortedItems(updatedItems);
-      onSort(updatedItems);
+      onSort && onSort(updatedItems);
       setDraggedItem(droppedOver);
     }
+
     setDraggedItem(null);
   };
 
   return (
-    <div className={`sortable-container ${className}`}>
+    <ul className={`sortable-list ${className}`}>
       {sortedItems.map((item, index) => (
-        <div
+        <li
           className={`sortable-item ${itemClassName}`}
           key={item.id}
           draggable
@@ -50,9 +61,15 @@ export const SortableContainer: React.FC<SortableContainerProperties> = ({
           onDragOver={() => handleDragOver(index)}
           onDragEnd={handleDragEnd}
         >
-          {item.render ? item.render(item.data) : item.data}
-        </div>
+          <span className="grab-icon">
+            <i className="pi pi-ellipsis-v" />
+            <i className="pi pi-ellipsis-v" />
+          </span>
+          <div className="item">
+            {item.render ? item.render(item.data) : item.data}
+          </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
