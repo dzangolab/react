@@ -1,17 +1,17 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useMemo, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import GoogleLogin from "../components/GoogleLogin";
 import LoginForm from "../components/LoginForm";
-import { ROUTES } from "../constants";
 import { useConfig, useUser } from "../hooks";
 import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
+import { Links } from "@/components/Links";
 
 interface IProperties {
   customDivider?: React.ReactNode;
@@ -89,32 +89,6 @@ const Login: React.FC<IProperties> = ({
     setLoading(false);
   };
 
-  const getLinks = () => {
-    return (
-      <>
-        {appConfig.user?.routes?.signup?.disabled ? null : (
-          <Link
-            to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
-            className="native-link"
-          >
-            {t("login.links.signup")}
-          </Link>
-        )}
-        {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
-          <Link
-            to={
-              appConfig.user.routes?.forgetPassword?.path ||
-              ROUTES.FORGET_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("login.links.forgotPassword")}
-          </Link>
-        )}
-      </>
-    );
-  };
-
   const renderRedirectionMessage = () => {
     if (path && path.length) {
       return (
@@ -148,7 +122,9 @@ const Login: React.FC<IProperties> = ({
 
       {renderRedirectionMessage()}
 
-      <div className="links">{getLinks()}</div>
+      <div className="links">
+        <Links />
+      </div>
 
       {appConfig?.user.supportedLoginProviders ? (
         <>

@@ -5,6 +5,7 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
+import { Links } from "./components/Links";
 import SignupForm from "./components/SignupForm";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
@@ -64,6 +65,7 @@ export {
   InvitationForm,
   InvitationModal,
   InvitationsTable,
+  Links,
   SignupForm,
   TermsAndConditions,
   UserEnabledBasicLayout,
