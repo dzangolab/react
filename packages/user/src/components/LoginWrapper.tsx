@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import LoginForm from "./LoginForm";
@@ -9,8 +8,6 @@ import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
-
-import { ROUTES } from "@/constants";
 
 interface IProperties {
   handleSubmit?: (credential: LoginCredentials) => void;
@@ -23,7 +20,6 @@ export const LoginWrapper: FC<IProperties> = ({
   handleSubmit,
   onLoginFailed,
   onLoginSuccess,
-  showLinks = true,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
@@ -69,42 +65,9 @@ export const LoginWrapper: FC<IProperties> = ({
     }
   };
 
-  const getLinks = () => {
-    if (showLinks) {
-      return (
-        <>
-          {appConfig.user?.routes?.signup?.disabled ? null : (
-            <Link
-              to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
-              className="native-link"
-            >
-              {t("login.links.signup")}
-            </Link>
-          )}
-          {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
-            <Link
-              to={
-                appConfig.user.routes?.forgetPassword?.path ||
-                ROUTES.FORGET_PASSWORD
-              }
-              className="native-link"
-            >
-              {t("login.links.forgotPassword")}
-            </Link>
-          )}
-        </>
-      );
-    }
-
-    return null;
-  };
-
   return (
-    <>
+    <div className="login-wrapper">
       <LoginForm handleSubmit={handleLoginSubmit} loading={loading} />;
-      <div className="links">
-        <div className="links">{getLinks()}</div>
-      </div>
-    </>
+    </div>
   );
 };
