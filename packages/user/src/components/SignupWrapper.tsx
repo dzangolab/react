@@ -12,22 +12,24 @@ interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   showLinks?: boolean;
+  loading?: boolean;
 }
 
 export const SignupWrapper: React.FC<IProperties> = ({
   handleSubmit,
   onSignupFailed,
   onSignupSuccess,
+  loading,
 }) => {
   const { t } = useTranslation("user");
-  const [loading, setLoading] = useState<boolean>(false);
+  const [signupLoading, setSignupLoading] = useState<boolean>(false);
   const { setUser } = useUser();
 
   const handleSignupSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
       handleSubmit(credentials);
     } else {
-      setLoading(true);
+      setSignupLoading(true);
 
       await signup(credentials)
         .then(async (result) => {
@@ -50,14 +52,15 @@ export const SignupWrapper: React.FC<IProperties> = ({
           toast.error(error.message || errorMessage);
         })
         .finally(() => {
-          setLoading(false);
+          setSignupLoading(false);
         });
     }
   };
 
   return (
-    <div className="signup-wrapper">
-      <SignupForm handleSubmit={handleSignupSubmit} loading={loading} />;
-    </div>
+    <SignupForm
+      handleSubmit={handleSignupSubmit}
+      loading={loading ? loading : signupLoading}
+    />
   );
 };

@@ -14,23 +14,25 @@ interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   showLinks?: boolean;
+  loading?: boolean;
 }
 
 export const LoginWrapper: FC<IProperties> = ({
   handleSubmit,
   onLoginFailed,
   onLoginSuccess,
+  loading,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loginLoading, setLoginLoading] = useState<boolean>(false);
 
   const handleLoginSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
       handleSubmit(credentials);
     } else {
-      setLoading(true);
+      setLoginLoading(true);
 
       await login(credentials)
         .then(async (result) => {
@@ -61,13 +63,14 @@ export const LoginWrapper: FC<IProperties> = ({
           toast.error(t(errorMessage, { ns: "errors" }));
         });
 
-      setLoading(false);
+      setLoginLoading(false);
     }
   };
 
   return (
-    <div className="login-wrapper">
-      <LoginForm handleSubmit={handleLoginSubmit} loading={loading} />;
-    </div>
+    <LoginForm
+      handleSubmit={handleLoginSubmit}
+      loading={loading ? loading : loginLoading}
+    />
   );
 };
