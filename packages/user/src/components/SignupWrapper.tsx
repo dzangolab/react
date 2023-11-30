@@ -60,7 +60,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
   return (
     <SignupForm
       handleSubmit={handleSignupSubmit}
-      loading={handleSubmit ? signupLoading : loading}
+      loading={handleSubmit ? loading : signupLoading}
     />
   );
 };
