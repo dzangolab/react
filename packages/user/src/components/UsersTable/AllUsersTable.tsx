@@ -48,8 +48,8 @@ export type AllUsersTableProperties = Partial<
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
-  onUserEnabled?: (data: any) => void;
   onUserDisabled?: (data: any) => void;
+  onUserEnabled?: (data: any) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
@@ -213,6 +213,7 @@ export const AllUsersTable = ({
       accessorKey: "actions",
       header: t("invitations:table.defaultColumns.actions"),
       cell: ({ row: { original } }) => {
+        console.log(original);
         return (
           <>
             {original.isActiveUser ? (
