@@ -1,3 +1,39 @@
+# [0.24.0](https://github.com/dzangolab/react/compare/v0.23.0...v0.24.0) (2023-12-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hookform/resolvers to v3.3.2 ([#626](https://github.com/dzangolab/react/issues/626)) ([b3a247e](https://github.com/dzangolab/react/commit/b3a247e7a02ecee2ca7edfb61cbda5b3370489a7))
+* **invitation-input-role:** make button enable after input fields are filled. ([#633](https://github.com/dzangolab/react/issues/633)) ([e082b67](https://github.com/dzangolab/react/commit/e082b6751242fa2c4de2075025fbc9fd0cef7866))
+* **passwordInput:** add padding for the input field ([#643](https://github.com/dzangolab/react/issues/643)) ([30168e1](https://github.com/dzangolab/react/commit/30168e1b975b4e359a7e6d7fcb4bfee68fd80425))
+* **passwordInput:** remove unnecessary state update for class name  ([#659](https://github.com/dzangolab/react/issues/659)) ([f111398](https://github.com/dzangolab/react/commit/f111398e166fefb31971b674d92b5f373bc09ff4))
+* **sessionMessage:** add useLocation hook instead of window api ([#628](https://github.com/dzangolab/react/issues/628)) ([83cadff](https://github.com/dzangolab/react/commit/83cadffc5851c7bcf0d353ae3006e7ff0e24c56b))
+* **ui/tooltip:** solve the issue related to multiple tooltip appearance ([#655](https://github.com/dzangolab/react/issues/655)) ([8ffdbe0](https://github.com/dzangolab/react/commit/8ffdbe06a73d1ef5cc2bc420c1d32aad5716b96c))
+* **user/layouts:** fix main routes handling ([#641](https://github.com/dzangolab/react/issues/641)) ([533a1b3](https://github.com/dzangolab/react/commit/533a1b3d20d2dac6112f7e2d930b306d1ff6225d))
+* **userMenu:** remove the condition to check for email verification ([#631](https://github.com/dzangolab/react/issues/631)) ([3eb40ab](https://github.com/dzangolab/react/commit/3eb40ab74819a771eaeb101802b07b3c83a2c6c9))
+
+
+### Features
+
+* add in-house pagination component and integrate to tanstack table ([#642](https://github.com/dzangolab/react/issues/642)) ([b34a793](https://github.com/dzangolab/react/commit/b34a7935b112595e82f3788d88ec9f4419c1c68c))
+* **AllUsersTable:** add user actions in AllUsersTable  ([#672](https://github.com/dzangolab/react/issues/672)) ([934c273](https://github.com/dzangolab/react/commit/934c273d884912a82b5001ede4f91217baaece13))
+* **checkbox:** add inhouse checkbox component ([#644](https://github.com/dzangolab/react/issues/644)) ([0f9444c](https://github.com/dzangolab/react/commit/0f9444c92a550285bb0cd7f9a043d0ca8b4e35f0))
+* **login:** add login and signup as a component ([#661](https://github.com/dzangolab/react/issues/661)) ([531ecf3](https://github.com/dzangolab/react/commit/531ecf3ba4cfc8c82ddf542107fdc3f08a1898a8))
+* **messageCard:** add message card as a component ([#635](https://github.com/dzangolab/react/issues/635)) ([d173b24](https://github.com/dzangolab/react/commit/d173b2437068f03f95642d72e90a63f1e2d0ebac))
+* **ui/Table:** add id, initialfilter and border support with refactor on pagination ui behaviour ([#657](https://github.com/dzangolab/react/issues/657)) ([2c66e9e](https://github.com/dzangolab/react/commit/2c66e9e334d1a1406c7fd9a5c9f570d70b523dce))
+* **ui/Table:** add new table component using tanstack table ([1b189f6](https://github.com/dzangolab/react/commit/1b189f668db00548bb12d68e21862c4d96e7a9be))
+* **ui/Table:** add striped table row support ([#639](https://github.com/dzangolab/react/issues/639)) ([b13442c](https://github.com/dzangolab/react/commit/b13442cb46237a8e23704e8b9855927495be4767))
+* **ui/Table:** add support for header groups ([#664](https://github.com/dzangolab/react/issues/664)) ([acbab50](https://github.com/dzangolab/react/commit/acbab507e48fae1a5d0b6f486971bc162e6c93b7))
+* **ui/Table:** add tooltip support in table column body ([#634](https://github.com/dzangolab/react/issues/634)) ([75d2cae](https://github.com/dzangolab/react/commit/75d2caee0388806e6a8864c6fb1244214db14771))
+* **ui/tooltip:** add delay prop to tooltip ([#638](https://github.com/dzangolab/react/issues/638)) ([7019531](https://github.com/dzangolab/react/commit/7019531e9385336be834c8764d922e277f3bc161))
+* **ui/tooltip:** add global configuration option ([#647](https://github.com/dzangolab/react/issues/647)) ([6493889](https://github.com/dzangolab/react/commit/64938899a3baa383524a88ce6445607281a7972a))
+* **ui/tooltip:** add mouseTrack prop to tooltip ([#645](https://github.com/dzangolab/react/issues/645)) ([d189ecc](https://github.com/dzangolab/react/commit/d189ecc7a38a721c2922d5e3997720c9c3564c5e))
+* **ui/Tooltip:** add position prop to tooltip ([#632](https://github.com/dzangolab/react/issues/632)) ([b106fdb](https://github.com/dzangolab/react/commit/b106fdbdba5f7387a0cf2e0fe425bfa4289ae1c0))
+* **ui/Tooltip:** add Tooltip component ([#629](https://github.com/dzangolab/react/issues/629)) ([e836e5d](https://github.com/dzangolab/react/commit/e836e5dbfa58fb1d1f825ea485eecfa20b0e4650))
+* **user/usersTable:** add action column in users table ([#656](https://github.com/dzangolab/react/issues/656)) ([7f4b1e5](https://github.com/dzangolab/react/commit/7f4b1e5b6518cfe021ef82455b14447b87d337bc))
+
+
+
 # [0.23.0](https://github.com/dzangolab/react/compare/v0.22.1...v0.23.0) (2023-11-03)
 
 
