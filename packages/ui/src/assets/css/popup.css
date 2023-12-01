@@ -16,3 +16,8 @@
   border-radius: 4px;
   display: inline-block;
 }
+
+#popper[data-popper-reference-hidden] {
+  visibility: hidden;
+  pointer-events: none;
+}
