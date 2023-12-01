@@ -10,6 +10,7 @@ import { IconType } from "primereact/utils";
 
 import { InvitationModal } from "../Invitation";
 import { InvitationActions } from "../Invitation/InvitationActions";
+import { UserAction } from "./UserActions";
 
 import type {
   AdditionalInvitationFields,
@@ -47,6 +48,8 @@ export type AllUsersTableProperties = Partial<
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
+  onUserDisabled?: (data: any) => void;
+  onUserEnabled?: (data: any) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
@@ -66,6 +69,8 @@ export const AllUsersTable = ({
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
+  onUserDisabled,
+  onUserEnabled,
   prepareInvitationData,
   roles,
   showInviteAction = true,
@@ -211,7 +216,11 @@ export const AllUsersTable = ({
         return (
           <>
             {original.isActiveUser ? (
-              "-"
+              <UserAction
+                user={original}
+                onUserDisabled={onUserDisabled}
+                onUserEnabled={onUserEnabled}
+              />
             ) : (
               <InvitationActions
                 onInvitationResent={onInvitationResent}
