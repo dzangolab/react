@@ -8,6 +8,7 @@ import { ButtonProps } from "primereact/button";
 import { Tag } from "primereact/tag";
 import { IconType } from "primereact/utils";
 
+import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
 import { InvitationActions } from "../Invitation/InvitationActions";
 
@@ -211,7 +212,7 @@ export const AllUsersTable = ({
         return (
           <>
             {original.isActiveUser ? (
-              "-"
+              <UserAction user={original} />
             ) : (
               <InvitationActions
                 onInvitationResent={onInvitationResent}
