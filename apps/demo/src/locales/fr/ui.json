@@ -10,6 +10,9 @@
   },
   "responsiveMenu": "Responsive menu",
   "table": {
+    "actions": {
+      "columnActionBtnLabel": "Columns (fr)"
+    },
     "title": {
       "tanstackTable": "Tanstack table (fr)",
       "localDataTable": "Local data table (fr)"
@@ -70,5 +73,12 @@
   "checkbox": {
     "title": "Checkbox (fr)",
     "label": "Please agree with the terms and conditions (fr)"
+  },
+  "sortableList": {
+    "title": "Sortable List (fr)"
+  },
+  "popup": {
+    "content": "Popup contents. (fr)",
+    "title": "Popup (fr)"
   }
 }

@@ -7,7 +7,6 @@ import {
   FilesPresentation,
   SortableList,
 } from "@dzangolab/react-ui";
-import { Popup } from "@dzangolab/react-ui";
 
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
@@ -16,6 +15,7 @@ import FilesTableDemo from "./FilesTableDemo";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import MessageDemo from "./MessageDemo";
+import PopupDemo from "./PopupDemo";
 import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
@@ -224,7 +224,7 @@ const componentList = [
   },
   {
     key: 15,
-    title: "Sortable Component",
+    title: "sortableList.title",
     component: (
       <SortableList
         items={[
@@ -237,13 +237,8 @@ const componentList = [
   },
   {
     key: 16,
-    title: "Popup Container",
-    component: (
-      <Popup
-        trigger={<button>Open popup</button>}
-        content={<div>Pop up contents.</div>}
-      />
-    ),
+    title: "popup.title",
+    component: <PopupDemo />,
   },
 ];
 
