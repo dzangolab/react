@@ -213,7 +213,6 @@ export const AllUsersTable = ({
       accessorKey: "actions",
       header: t("invitations:table.defaultColumns.actions"),
       cell: ({ row: { original } }) => {
-        console.log(original);
         return (
           <>
             {original.isActiveUser ? (
