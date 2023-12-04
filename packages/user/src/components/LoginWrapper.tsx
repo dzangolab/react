@@ -30,7 +30,6 @@ export const LoginWrapper: FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
   const appConfig = useConfig();
-  const { user: userConfig } = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
 
   const handleLoginSubmit = async (credentials: LoginCredentials) => {
@@ -76,21 +75,23 @@ export const LoginWrapper: FC<IProperties> = ({
     if (showLinks) {
       return (
         <div className="links">
-          <Link
-            to={userConfig.routes?.login?.path || ROUTES.LOGIN}
-            className="native-link"
-          >
-            {t("signup.links.login")}
-          </Link>
-          {userConfig?.routes?.forgetPassword?.disabled ? null : (
+          {appConfig.user?.routes?.signup?.disabled ? null : (
+            <Link
+              to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
+              className="native-link"
+            >
+              {t("login.links.signup")}
+            </Link>
+          )}
+          {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
             <Link
               to={
-                userConfig.routes?.forgetPassword?.path ||
+                appConfig.user.routes?.forgetPassword?.path ||
                 ROUTES.FORGET_PASSWORD
               }
               className="native-link"
             >
-              {t("signup.links.forgotPassword")}
+              {t("login.links.forgotPassword")}
             </Link>
           )}
         </div>
