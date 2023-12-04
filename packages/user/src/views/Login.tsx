@@ -16,6 +16,7 @@ interface IProperties {
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
+  showLinks?: boolean;
   showSessionInfoIcon?: boolean;
   socialLoginFirst?: boolean;
 }
@@ -28,6 +29,7 @@ const Login: React.FC<IProperties> = ({
   onLoginFailed,
   onLoginSuccess,
   orientation = "vertical",
+  showLinks,
   socialLoginFirst = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
@@ -80,6 +82,7 @@ const Login: React.FC<IProperties> = ({
       <LoginWrapper
         onLoginFailed={onLoginFailed}
         onLoginSuccess={onLoginSuccess}
+        showLinks={showLinks}
       />
 
       {renderRedirectionMessage()}

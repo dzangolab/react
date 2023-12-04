@@ -8,9 +8,14 @@ import type { SignInUpPromise } from "../types";
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
+  showLinks?: boolean;
 }
 
-const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
+const Signup: React.FC<IProperties> = ({
+  onSignupFailed,
+  onSignupSuccess,
+  showLinks,
+}) => {
   const { t } = useTranslation("user");
 
   return (
@@ -18,6 +23,7 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
       <SignupWrapper
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}
+        showLinks={showLinks}
       />
     </Page>
   );
