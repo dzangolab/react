@@ -23,6 +23,8 @@
 @import "./message.css";
 @import "./tooltip.css";
 @import "./checkbox.css";
+@import "./sortable.css";
+@import "./popup.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";

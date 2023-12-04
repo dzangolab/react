@@ -68,6 +68,8 @@ const TanstackTable = () => {
       border="none"
       id="invitations-table"
       initialFilters={[{ id: "givenName", value: "0" }]}
+      showColumnsAction={true}
+      columnActionBtnLabel={t("table.actions.columnActionBtnLabel")}
     ></TDataTable>
   );
 };
