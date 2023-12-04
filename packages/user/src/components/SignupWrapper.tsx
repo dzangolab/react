@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "./SignupForm";
-import { useConfig, useUser } from "../hooks";
+import { useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
-import type { LoginCredentials, SignInUpPromise } from "../types";
+import type {
+  DzangolabReactUserConfig,
+  LoginCredentials,
+  SignInUpPromise,
+} from "../types";
 
 import { ROUTES } from "@/constants";
 
@@ -17,6 +21,7 @@ interface IProperties {
   onSignupSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
   showLinks?: boolean;
+  userConfig?: DzangolabReactUserConfig;
 }
 
 export const SignupWrapper: React.FC<IProperties> = ({
@@ -25,11 +30,11 @@ export const SignupWrapper: React.FC<IProperties> = ({
   onSignupSuccess,
   loading,
   showLinks = true,
+  userConfig,
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
   const { setUser } = useUser();
-  const { user: userConfig } = useConfig();
 
   const handleSignupSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
@@ -68,7 +73,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
       return (
         <div className="links">
           <Link
-            to={userConfig.routes?.login?.path || ROUTES.LOGIN}
+            to={userConfig?.routes?.login?.path || ROUTES.LOGIN}
             className="native-link"
           >
             {t("signup.links.login")}
@@ -76,7 +81,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
           {userConfig?.routes?.forgetPassword?.disabled ? null : (
             <Link
               to={
-                userConfig.routes?.forgetPassword?.path ||
+                userConfig?.routes?.forgetPassword?.path ||
                 ROUTES.FORGET_PASSWORD
               }
               className="native-link"

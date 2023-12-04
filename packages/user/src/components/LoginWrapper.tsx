@@ -1,10 +1,11 @@
+import { AppConfig } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import LoginForm from "./LoginForm";
-import { useConfig, useUser } from "../hooks";
+import { useUser } from "../hooks";
 import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
@@ -13,6 +14,7 @@ import type { LoginCredentials, SignInUpPromise } from "../types";
 import { ROUTES } from "@/constants";
 
 interface IProperties {
+  appConfig?: AppConfig;
   handleSubmit?: (credential: LoginCredentials) => void;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
@@ -21,6 +23,7 @@ interface IProperties {
 }
 
 export const LoginWrapper: FC<IProperties> = ({
+  appConfig,
   handleSubmit,
   onLoginFailed,
   onLoginSuccess,
@@ -29,7 +32,6 @@ export const LoginWrapper: FC<IProperties> = ({
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
-  const appConfig = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
 
   const handleLoginSubmit = async (credentials: LoginCredentials) => {
@@ -71,22 +73,22 @@ export const LoginWrapper: FC<IProperties> = ({
     }
   };
 
-  const getLinks = () => {
+  const renderLinks = () => {
     if (showLinks) {
       return (
         <div className="links">
-          {appConfig.user?.routes?.signup?.disabled ? null : (
+          {appConfig?.user?.routes?.signup?.disabled ? null : (
             <Link
-              to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
+              to={appConfig?.user.routes?.signup?.path || ROUTES.SIGNUP}
               className="native-link"
             >
               {t("login.links.signup")}
             </Link>
           )}
-          {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
+          {appConfig?.user?.routes?.forgetPassword?.disabled ? null : (
             <Link
               to={
-                appConfig.user.routes?.forgetPassword?.path ||
+                appConfig?.user.routes?.forgetPassword?.path ||
                 ROUTES.FORGET_PASSWORD
               }
               className="native-link"
@@ -107,7 +109,7 @@ export const LoginWrapper: FC<IProperties> = ({
         handleSubmit={handleLoginSubmit}
         loading={handleSubmit ? loading : loginLoading}
       />
-      {getLinks()}
+      {renderLinks()}
     </div>
   );
 };

@@ -80,6 +80,7 @@ const Login: React.FC<IProperties> = ({
       data-aria-orientation={orientation}
     >
       <LoginWrapper
+        appConfig={appConfig}
         onLoginFailed={onLoginFailed}
         onLoginSuccess={onLoginSuccess}
         showLinks={showLinks}

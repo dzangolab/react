@@ -5,6 +5,8 @@ import { SignupWrapper } from "..";
 
 import type { SignInUpPromise } from "../types";
 
+import { useConfig } from "@/hooks";
+
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
@@ -17,6 +19,7 @@ const Signup: React.FC<IProperties> = ({
   showLinks,
 }) => {
   const { t } = useTranslation("user");
+  const { user: userConfig } = useConfig();
 
   return (
     <Page className="signup" title={t("signup.title")}>
@@ -24,6 +27,7 @@ const Signup: React.FC<IProperties> = ({
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}
         showLinks={showLinks}
+        userConfig={userConfig}
       />
     </Page>
   );
