@@ -11,6 +11,7 @@ import {
   PaginationState,
   Updater,
 } from "@tanstack/react-table";
+import { Button } from "primereact/button";
 import { Checkbox } from "primereact/checkbox";
 import React, {
   SyntheticEvent,
@@ -37,7 +38,7 @@ import {
   TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { DebouncedInput } from "../../";
+import { DebouncedInput, Popup, SortableList } from "../../";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
@@ -48,6 +49,7 @@ const DataTable = <TData extends { id: string | number }>({
   border = "grid",
   className = "",
   columns = [],
+  columnActionBtnLabel: columnActionButtonLabel = "Columns",
   data,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
@@ -69,6 +71,7 @@ const DataTable = <TData extends { id: string | number }>({
   totalRecords = 0,
   paginationOptions,
   stripe = "none",
+  showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -219,8 +222,45 @@ const DataTable = <TData extends { id: string | number }>({
         />
       ) : null}
 
-      {renderToolbarItems ? (
-        <TableToolbar children={renderToolbarItems(table)} />
+      {showColumnsAction || renderToolbarItems ? (
+        <TableToolbar
+          children={
+            <>
+              {showColumnsAction ? (
+                <Popup
+                  trigger={<Button label={columnActionButtonLabel} />}
+                  content={
+                    <SortableList
+                      items={table
+                        .getAllLeafColumns()
+                        .filter((column) => column.id !== "select")
+                        .map((column, index) => ({
+                          id: index,
+                          data: column,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          render: (data: any) => {
+                            if (typeof data.columnDef.header === "function") {
+                              return data.columnDef.header();
+                            }
+
+                            return data.columnDef.header;
+                          },
+                        }))}
+                      onSort={(sorted) => {
+                        table.setColumnOrder([
+                          ...(enableRowSelection ? ["select"] : []),
+                          ...sorted.map((item) => item.data.id),
+                        ]);
+                      }}
+                    />
+                  }
+                />
+              ) : null}
+
+              {renderToolbarItems ? renderToolbarItems(table) : null}
+            </>
+          }
+        />
       ) : null}
 
       <Table data-stripe={stripe}>

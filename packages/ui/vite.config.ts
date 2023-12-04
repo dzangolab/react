@@ -33,6 +33,7 @@ export default defineConfig(({ mode }) => {
             "react-dom": "ReactDOM",
             "react-outside-click-handler": "ReactOutsideClickHandler",
             "react-router-dom": "ReactRouterDom",
+            "react-popper": "reactPopper",
           },
         },
       },

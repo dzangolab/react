@@ -23,7 +23,9 @@ export * from "./FilesPresentation";
 export * from "./Table";
 export * from "./utils";
 export * from "./Pagination";
+export * from "./Popup";
 export * from "./DebouncedInput";
+export * from "./SortableList";
 export * from "./Tooltip";
 
 export {

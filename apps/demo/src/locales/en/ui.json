@@ -10,6 +10,9 @@
   },
   "responsiveMenu": "Responsive menu",
   "table": {
+    "actions": {
+      "columnActionBtnLabel": "Columns"
+    },
     "title": {
       "tanstackTable": "Tanstack table",
       "localDataTable": "Local data table"
@@ -71,5 +74,12 @@
   "checkbox": {
     "title": "Checkbox",
     "label": "Please agree with the terms and conditions"
+  },
+  "sortableList": {
+    "title": "Sortable list"
+  },
+  "popup": {
+    "content": "Popup contents.",
+    "title": "Popup"
   }
 }
