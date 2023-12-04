@@ -5,7 +5,6 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
-import { Links } from "./components/Links";
 import LoginForm from "./components/LoginForm";
 import { LoginWrapper } from "./components/LoginWrapper";
 import SignupForm from "./components/SignupForm";
@@ -68,7 +67,6 @@ export {
   InvitationForm,
   InvitationModal,
   InvitationsTable,
-  Links,
   LoginForm,
   SignupForm,
   SignupWrapper,

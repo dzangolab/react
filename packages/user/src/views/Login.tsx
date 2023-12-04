@@ -9,9 +9,6 @@ import { useConfig } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
 
-// eslint-disable-next-line import/no-unresolved
-import { Links } from "@/components/Links";
-
 interface IProperties {
   customDivider?: React.ReactNode;
   divider?: boolean;
@@ -86,10 +83,6 @@ const Login: React.FC<IProperties> = ({
       />
 
       {renderRedirectionMessage()}
-
-      <div className="links">
-        <Links />
-      </div>
 
       {appConfig?.user.supportedLoginProviders ? (
         <>

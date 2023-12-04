@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 
-import { Links, SignupWrapper } from "..";
+import { SignupWrapper } from "..";
 
 import type { SignInUpPromise } from "../types";
 
@@ -19,9 +19,6 @@ const Signup: React.FC<IProperties> = ({ onSignupFailed, onSignupSuccess }) => {
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}
       />
-      <div className="links">
-        <Links />
-      </div>
     </Page>
   );
 };
