@@ -1,5 +1,11 @@
 import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
-import React, { useState, ReactNode, LegacyRef, useCallback } from "react";
+import React, {
+  useState,
+  ReactNode,
+  LegacyRef,
+  useCallback,
+  useEffect,
+} from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
@@ -17,18 +23,41 @@ export const Popup: React.FC<PopupProperties> = ({
   position = "bottom",
   offset = 10,
 }) => {
-  const [referenceElement, setReferenceElement] = useState(null);
-  const [popperElement, setPopperElement] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [referenceElement, setReferenceElement] = useState<Element | null>(
+    null,
+  );
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
 
-  const setOffset: OffsetsFunction = useCallback(({ placement }) => {
-    if (placement === "bottom" || placement === "top") {
-      return [offset, 0];
-    } else {
-      return [0, offset];
-    }
+  const setOffset: OffsetsFunction = useCallback(() => {
+    return [0, offset];
   }, []);
 
-  console.log(referenceElement, popperElement);
+  const togglePopup = () => {
+    setIsOpen((previousIsOpen) => !previousIsOpen);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+  };
+
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (popperElement && referenceElement) {
+      if (
+        !popperElement.contains(event.target as Node) &&
+        !referenceElement.contains(event.target as Node)
+      )
+        closePopup();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [handleOutsideClick]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
@@ -66,10 +95,11 @@ export const Popup: React.FC<PopupProperties> = ({
       <div
         className="popup-trigger"
         ref={setReferenceElement as LegacyRef<HTMLDivElement>}
+        onClick={togglePopup}
       >
         {trigger}
       </div>
-      {renderPopupContent()}
+      {isOpen ? renderPopupContent() : null}
     </div>
   );
 };
