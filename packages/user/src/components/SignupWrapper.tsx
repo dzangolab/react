@@ -68,7 +68,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
     }
   };
 
-  const getLinks = () => {
+  const renderLinks = () => {
     if (showLinks) {
       return (
         <div className="links">
@@ -102,7 +102,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
         handleSubmit={handleSignupSubmit}
         loading={handleSubmit ? loading : signupLoading}
       />
-      {getLinks()}
+      {renderLinks()}
     </div>
   );
 };
