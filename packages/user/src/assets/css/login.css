@@ -31,14 +31,6 @@
   grid-area: sso-wrapper;
 }
 
-.login > .content > .login-wrapper > .links {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 1rem;
-  width: 100%;
-}
-
 .login > .content > .social-login-wrapper {
   display: flex;
   width: 100%;
