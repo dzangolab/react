@@ -2,7 +2,7 @@
   justify-items: center;
 }
 
-.signup .links {
+.signup .signup-wrapper .links {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;

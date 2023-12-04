@@ -93,12 +93,12 @@ export const SignupWrapper: React.FC<IProperties> = ({
   };
 
   return (
-    <>
+    <div className="signup-wrapper">
       <SignupForm
         handleSubmit={handleSignupSubmit}
         loading={handleSubmit ? loading : signupLoading}
       />
       {getLinks()}
-    </>
+    </div>
   );
 };

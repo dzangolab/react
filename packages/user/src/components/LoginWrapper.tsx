@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import LoginForm from "./LoginForm";
@@ -8,7 +9,7 @@ import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
-import { Link } from "react-router-dom";
+
 import { ROUTES } from "@/constants";
 
 interface IProperties {
@@ -100,12 +101,12 @@ export const LoginWrapper: FC<IProperties> = ({
   };
 
   return (
-    <>
+    <div className="login-wrapper">
       <LoginForm
         handleSubmit={handleLoginSubmit}
         loading={handleSubmit ? loading : loginLoading}
       />
       {getLinks()}
-    </>
+    </div>
   );
 };

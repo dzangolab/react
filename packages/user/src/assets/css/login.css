@@ -18,12 +18,12 @@
   margin-right: 0.3rem;
 }
 
-.login > .content > form {
-  grid-area: form;
+.login > .content > .login-wrapper {
+  grid-area: wrapper;
 }
 
-.login > .content > .links {
-  grid-area: links;
+.login > .content > .login-wrapper > .links {
+  margin-top: 1rem;
 }
 
 .login > .content > .divider {
@@ -55,8 +55,7 @@
   display: grid;
   grid-template-areas:
     "message"
-    "form"
-    "links"
+    "wrapper"
     "divider"
     "sso-wrapper";
   grid-auto-rows: max-content;
@@ -71,8 +70,7 @@
     "message"
     "sso-wrapper"
     "divider"
-    "form"
-    "links";
+    "wrapper";
 }
 
 .login > .content > .divider[data-aria-orientation="horizontal"] {
@@ -83,8 +81,8 @@
   .login > .content[data-aria-orientation="horizontal"] {
     grid-template-areas:
       "message message message"
-      "form  divider sso-wrapper"
-      "links divider sso-wrapper";
+      "wrapper  divider sso-wrapper"
+      "wrapper divider sso-wrapper";
     align-items: flex-start;
     min-width: 44rem;
   }
@@ -92,8 +90,8 @@
   .login.sso-first > .content[data-aria-orientation="horizontal"] {
     grid-template-areas:
       "message message message"
-      "sso-wrapper divider form "
-      "sso-wrapper divider links";
+      "sso-wrapper divider wrapper "
+      "sso-wrapper divider wrapper";
   }
 
   .login
