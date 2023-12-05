@@ -1,11 +1,10 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
 import React, { useMemo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { LoginWrapper } from "..";
 import GoogleLogin from "../components/GoogleLogin";
-import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
@@ -18,12 +17,16 @@ interface IProperties {
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
   showSessionInfoIcon?: boolean;
+  showForgetPasswordLink?: boolean;
+  showSignupLink?: boolean;
   socialLoginFirst?: boolean;
 }
 
 const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
+  showForgetPasswordLink,
+  showSignupLink,
   customDivider,
   divider = true,
   onLoginFailed,
@@ -48,32 +51,6 @@ const Login: React.FC<IProperties> = ({
 
     return null;
   }, [location.search]);
-
-  const getLinks = () => {
-    return (
-      <>
-        {appConfig.user?.routes?.signup?.disabled ? null : (
-          <Link
-            to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
-            className="native-link"
-          >
-            {t("login.links.signup")}
-          </Link>
-        )}
-        {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
-          <Link
-            to={
-              appConfig.user.routes?.forgetPassword?.path ||
-              ROUTES.FORGET_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("login.links.forgotPassword")}
-          </Link>
-        )}
-      </>
-    );
-  };
 
   const renderRedirectionMessage = () => {
     if (path && path.length) {
@@ -107,11 +84,11 @@ const Login: React.FC<IProperties> = ({
       <LoginWrapper
         onLoginFailed={onLoginFailed}
         onLoginSuccess={onLoginSuccess}
+        showForgetPasswordLink={showForgetPasswordLink}
+        showSignupLink={showSignupLink}
       />
 
       {renderRedirectionMessage()}
-
-      <div className="links">{getLinks()}</div>
 
       {appConfig?.user.supportedLoginProviders ? (
         <>
