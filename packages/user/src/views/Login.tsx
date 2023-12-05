@@ -16,20 +16,22 @@ interface IProperties {
   onLoginSuccess?: (user: SignInUpPromise) => void;
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
-  showLinks?: boolean;
   showSessionInfoIcon?: boolean;
+  showForgetPasswordLink?: boolean;
+  showSignupLink?: boolean;
   socialLoginFirst?: boolean;
 }
 
 const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
+  showForgetPasswordLink,
+  showSignupLink,
   customDivider,
   divider = true,
   onLoginFailed,
   onLoginSuccess,
   orientation = "vertical",
-  showLinks,
   socialLoginFirst = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
@@ -83,7 +85,8 @@ const Login: React.FC<IProperties> = ({
         appConfig={appConfig}
         onLoginFailed={onLoginFailed}
         onLoginSuccess={onLoginSuccess}
-        showLinks={showLinks}
+        showForgetPasswordLink={showForgetPasswordLink}
+        showSignupLink={showSignupLink}
       />
 
       {renderRedirectionMessage()}

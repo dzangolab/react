@@ -19,7 +19,8 @@ interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
-  showLinks?: boolean;
+  showForgetPasswordLink?: boolean;
+  showSignupLink?: boolean;
 }
 
 export const LoginWrapper: FC<IProperties> = ({
@@ -28,7 +29,8 @@ export const LoginWrapper: FC<IProperties> = ({
   onLoginFailed,
   onLoginSuccess,
   loading,
-  showLinks = true,
+  showForgetPasswordLink = true,
+  showSignupLink = true,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
@@ -74,33 +76,30 @@ export const LoginWrapper: FC<IProperties> = ({
   };
 
   const renderLinks = () => {
-    if (showLinks) {
-      return (
-        <div className="links">
-          {appConfig?.user?.routes?.signup?.disabled ? null : (
-            <Link
-              to={appConfig?.user.routes?.signup?.path || ROUTES.SIGNUP}
-              className="native-link"
-            >
-              {t("login.links.signup")}
-            </Link>
-          )}
-          {appConfig?.user?.routes?.forgetPassword?.disabled ? null : (
-            <Link
-              to={
-                appConfig?.user.routes?.forgetPassword?.path ||
-                ROUTES.FORGET_PASSWORD
-              }
-              className="native-link"
-            >
-              {t("login.links.forgotPassword")}
-            </Link>
-          )}
-        </div>
-      );
-    }
-
-    return null;
+    return (
+      <div className="links">
+        {!showSignupLink || appConfig?.user?.routes?.signup?.disabled ? null : (
+          <Link
+            to={appConfig?.user.routes?.signup?.path || ROUTES.SIGNUP}
+            className="native-link"
+          >
+            {t("login.links.signup")}
+          </Link>
+        )}
+        {!showForgetPasswordLink ||
+        appConfig?.user?.routes?.forgetPassword?.disabled ? null : (
+          <Link
+            to={
+              appConfig?.user.routes?.forgetPassword?.path ||
+              ROUTES.FORGET_PASSWORD
+            }
+            className="native-link"
+          >
+            {t("login.links.forgotPassword")}
+          </Link>
+        )}
+      </div>
+    );
   };
 
   return (

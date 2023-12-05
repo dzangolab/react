@@ -22,6 +22,8 @@ interface IProperties {
   loading?: boolean;
   showLinks?: boolean;
   userConfig?: DzangolabReactUserConfig;
+  showForgetPasswordLink?: boolean;
+  showLoginLink?: boolean;
 }
 
 export const SignupWrapper: React.FC<IProperties> = ({
@@ -29,7 +31,8 @@ export const SignupWrapper: React.FC<IProperties> = ({
   onSignupFailed,
   onSignupSuccess,
   loading,
-  showLinks = true,
+  showLoginLink = true,
+  showForgetPasswordLink = true,
   userConfig,
 }) => {
   const { t } = useTranslation("user");
@@ -69,31 +72,29 @@ export const SignupWrapper: React.FC<IProperties> = ({
   };
 
   const renderLinks = () => {
-    if (showLinks) {
-      return (
-        <div className="links">
+    return (
+      <div className="links">
+        {showLoginLink && (
           <Link
             to={userConfig?.routes?.login?.path || ROUTES.LOGIN}
             className="native-link"
           >
             {t("signup.links.login")}
           </Link>
-          {userConfig?.routes?.forgetPassword?.disabled ? null : (
-            <Link
-              to={
-                userConfig?.routes?.forgetPassword?.path ||
-                ROUTES.FORGET_PASSWORD
-              }
-              className="native-link"
-            >
-              {t("signup.links.forgotPassword")}
-            </Link>
-          )}
-        </div>
-      );
-    }
-
-    return null;
+        )}
+        {!showForgetPasswordLink ||
+        userConfig?.routes?.forgetPassword?.disabled ? null : (
+          <Link
+            to={
+              userConfig?.routes?.forgetPassword?.path || ROUTES.FORGET_PASSWORD
+            }
+            className="native-link"
+          >
+            {t("signup.links.forgotPassword")}
+          </Link>
+        )}
+      </div>
+    );
   };
 
   return (

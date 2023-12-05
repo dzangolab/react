@@ -10,13 +10,15 @@ import { useConfig } from "@/hooks";
 interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
-  showLinks?: boolean;
+  showForgetPasswordLink?: boolean;
+  showLoginLink?: boolean;
 }
 
 const Signup: React.FC<IProperties> = ({
   onSignupFailed,
   onSignupSuccess,
-  showLinks,
+  showForgetPasswordLink,
+  showLoginLink,
 }) => {
   const { t } = useTranslation("user");
   const { user: userConfig } = useConfig();
@@ -26,8 +28,9 @@ const Signup: React.FC<IProperties> = ({
       <SignupWrapper
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}
-        showLinks={showLinks}
         userConfig={userConfig}
+        showForgetPasswordLink={showForgetPasswordLink}
+        showLoginLink={showLoginLink}
       />
     </Page>
   );
