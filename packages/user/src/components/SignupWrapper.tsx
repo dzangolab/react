@@ -9,7 +9,6 @@ import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
-// eslint-disable-next-line import/no-unresolved
 import { ROUTES } from "@/constants";
 
 interface IProperties {
