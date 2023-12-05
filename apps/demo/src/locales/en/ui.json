@@ -81,5 +81,8 @@
   "popup": {
     "content": "Popup contents.",
     "title": "Popup"
+  },
+  "stepper": {
+    "title": "Stepper"
   }
 }

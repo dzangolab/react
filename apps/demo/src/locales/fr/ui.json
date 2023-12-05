@@ -80,5 +80,8 @@
   "popup": {
     "content": "Popup contents. (fr)",
     "title": "Popup (fr)"
+  },
+  "stepper": {
+    "title": "Stepper (fr)"
   }
 }

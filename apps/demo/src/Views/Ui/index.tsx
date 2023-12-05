@@ -20,6 +20,7 @@ import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import { Stepper } from "@dzangolab/react-ui";
 
 const componentList = [
   {
@@ -239,6 +240,11 @@ const componentList = [
     key: 16,
     title: "popup.title",
     component: <PopupDemo />,
+  },
+  {
+    key: 17,
+    title: "stepper.title",
+    component: <Stepper />,
   },
 ];
 

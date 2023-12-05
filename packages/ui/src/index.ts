@@ -12,6 +12,7 @@ import Message from "./Message";
 import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
+import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
 
 export * from "./Buttons";
@@ -39,6 +40,7 @@ export {
   Message,
   Page,
   ResponsiveMenu,
+  Stepper,
   SubPane,
   TabbedPanel,
   ConfirmationModal,
