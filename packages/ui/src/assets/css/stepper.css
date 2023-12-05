@@ -21,6 +21,7 @@
   width: 3rem;
   border-radius: 50%;
   border: 1px solid #f3f4f6;
+  box-shadow: -1px -1px 29px -14px rgba(0, 0, 0, 0.28);
   background: #ffffff;
   z-index: 1;
   display: flex;
@@ -33,6 +34,7 @@
 .step-label {
   display: flex;
   justify-content: center;
+  margin-top: 0.5rem;
 }
 
 .step-label.active {
@@ -46,5 +48,5 @@
   position: absolute;
   border-top: 1px solid #e5e7eb;
   left: 0;
-  top: 45%;
+  top: 40%;
 }
