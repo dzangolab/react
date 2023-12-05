@@ -1,0 +1,36 @@
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 2rem;
+}
+
+.label-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-number {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-label {
+  display: flex;
+  justify-content: center;
+}
+
+.line {
+  content: "";
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  border-top: 1px solid #e5e7eb;
+  left: 0;
+  top: 45%;
+}

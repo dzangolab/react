@@ -8,7 +8,12 @@ interface IProperties {
 }
 
 export const Stepper: React.FC<IProperties> = ({
-  list = [{ label: "Manish" }, { label: "Gaurav" }],
+  list = [
+    { label: "Manish" },
+    { label: "Gaurav" },
+    { label: "Kriti" },
+    { label: "suvash" },
+  ],
 }) => {
   return (
     <ul className="stepper">
@@ -20,12 +25,13 @@ export const Stepper: React.FC<IProperties> = ({
             onClick={(event: any) => element.command?.(event)}
           >
             <div className="label-wrapper">
-              <span>{index + 1}</span>
+              <span className="step-number">{index + 1}</span>
               <span className="step-label">{element.label}</span>
             </div>
           </li>
         );
       })}
+      <div className="line"></div>
     </ul>
   );
 };
