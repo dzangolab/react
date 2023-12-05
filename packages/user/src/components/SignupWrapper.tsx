@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "./SignupForm";
+import { ROUTES } from "../constants";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
-
-import { ROUTES } from "@/constants";
 
 interface IProperties {
   handleSubmit?: (credentials: LoginCredentials) => void;
