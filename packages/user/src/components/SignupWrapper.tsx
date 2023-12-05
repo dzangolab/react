@@ -69,17 +69,17 @@ export const SignupWrapper: React.FC<IProperties> = ({
       <div className="links">
         {showLoginLink && (
           <Link
-            to={appConfig.user?.routes?.login?.path || ROUTES.LOGIN}
+            to={appConfig.user.routes?.login?.path || ROUTES.LOGIN}
             className="native-link"
           >
             {t("signup.links.login")}
           </Link>
         )}
         {!showForgetPasswordLink ||
-        appConfig.user?.routes?.forgetPassword?.disabled ? null : (
+        appConfig.user.routes?.forgetPassword?.disabled ? null : (
           <Link
             to={
-              appConfig.user?.routes?.forgetPassword?.path ||
+              appConfig.user.routes?.forgetPassword?.path ||
               ROUTES.FORGET_PASSWORD
             }
             className="native-link"
