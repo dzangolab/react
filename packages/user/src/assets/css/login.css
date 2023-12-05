@@ -18,12 +18,8 @@
   margin-right: 0.3rem;
 }
 
-.login > .content > form {
-  grid-area: form;
-}
-
-.login > .content > .links {
-  grid-area: links;
+.login > .content > .login-wrapper {
+  grid-area: form-wrapper;
 }
 
 .login > .content > .divider {
@@ -33,13 +29,6 @@
 
 .login > .content > .social-login-wrapper {
   grid-area: sso-wrapper;
-}
-
-.login > .content > .links {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
 }
 
 .login > .content > .social-login-wrapper {
@@ -55,8 +44,7 @@
   display: grid;
   grid-template-areas:
     "message"
-    "form"
-    "links"
+    "form-wrapper"
     "divider"
     "sso-wrapper";
   grid-auto-rows: max-content;
@@ -71,8 +59,7 @@
     "message"
     "sso-wrapper"
     "divider"
-    "form"
-    "links";
+    "form-wrapper";
 }
 
 .login > .content > .divider[data-aria-orientation="horizontal"] {
@@ -83,8 +70,7 @@
   .login > .content[data-aria-orientation="horizontal"] {
     grid-template-areas:
       "message message message"
-      "form  divider sso-wrapper"
-      "links divider sso-wrapper";
+      "form-wrapper  divider sso-wrapper";
     align-items: flex-start;
     min-width: 44rem;
   }
@@ -92,8 +78,7 @@
   .login.sso-first > .content[data-aria-orientation="horizontal"] {
     grid-template-areas:
       "message message message"
-      "sso-wrapper divider form "
-      "sso-wrapper divider links";
+      "sso-wrapper divider form-wrapper ";
   }
 
   .login
