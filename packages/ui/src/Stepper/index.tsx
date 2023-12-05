@@ -19,7 +19,10 @@ export const Stepper: React.FC<IProperties> = ({
             key={index}
             onClick={(event: any) => element.command?.(event)}
           >
-            <span className="step-label">{element.label}</span>
+            <div className="label-wrapper">
+              <span>{index + 1}</span>
+              <span className="step-label">{element.label}</span>
+            </div>
           </li>
         );
       })}
