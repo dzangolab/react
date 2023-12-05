@@ -1,20 +1,19 @@
-import { AppConfig } from "@dzangolab/react-config";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import LoginForm from "./LoginForm";
-import { useUser } from "../hooks";
+import { useConfig, useUser } from "../hooks";
 import { verifySessionRoles } from "../supertokens/helpers";
 import login from "../supertokens/login";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
+// eslint-disable-next-line import/no-unresolved
 import { ROUTES } from "@/constants";
 
 interface IProperties {
-  appConfig?: AppConfig;
   handleSubmit?: (credential: LoginCredentials) => void;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
@@ -24,7 +23,6 @@ interface IProperties {
 }
 
 export const LoginWrapper: FC<IProperties> = ({
-  appConfig,
   handleSubmit,
   onLoginFailed,
   onLoginSuccess,
@@ -34,6 +32,7 @@ export const LoginWrapper: FC<IProperties> = ({
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
+  const appConfig = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
 
   const handleLoginSubmit = async (credentials: LoginCredentials) => {

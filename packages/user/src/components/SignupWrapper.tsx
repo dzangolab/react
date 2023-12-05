@@ -4,15 +4,12 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import SignupForm from "./SignupForm";
-import { useUser } from "../hooks";
+import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
-import type {
-  DzangolabReactUserConfig,
-  LoginCredentials,
-  SignInUpPromise,
-} from "../types";
+import type { LoginCredentials, SignInUpPromise } from "../types";
 
+// eslint-disable-next-line import/no-unresolved
 import { ROUTES } from "@/constants";
 
 interface IProperties {
@@ -20,8 +17,6 @@ interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
-  showLinks?: boolean;
-  userConfig?: DzangolabReactUserConfig;
   showForgetPasswordLink?: boolean;
   showLoginLink?: boolean;
 }
@@ -33,11 +28,11 @@ export const SignupWrapper: React.FC<IProperties> = ({
   loading,
   showLoginLink = true,
   showForgetPasswordLink = true,
-  userConfig,
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
   const { setUser } = useUser();
+  const { user: userConfig } = useConfig();
 
   const handleSignupSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
