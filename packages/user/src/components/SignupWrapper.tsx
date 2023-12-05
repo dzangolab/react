@@ -32,7 +32,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
   const { setUser } = useUser();
-  const { user: userConfig } = useConfig();
+  const appConfig = useConfig();
 
   const handleSignupSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
@@ -71,17 +71,18 @@ export const SignupWrapper: React.FC<IProperties> = ({
       <div className="links">
         {showLoginLink && (
           <Link
-            to={userConfig?.routes?.login?.path || ROUTES.LOGIN}
+            to={appConfig.user?.routes?.login?.path || ROUTES.LOGIN}
             className="native-link"
           >
             {t("signup.links.login")}
           </Link>
         )}
         {!showForgetPasswordLink ||
-        userConfig?.routes?.forgetPassword?.disabled ? null : (
+        appConfig.user?.routes?.forgetPassword?.disabled ? null : (
           <Link
             to={
-              userConfig?.routes?.forgetPassword?.path || ROUTES.FORGET_PASSWORD
+              appConfig.user?.routes?.forgetPassword?.path ||
+              ROUTES.FORGET_PASSWORD
             }
             className="native-link"
           >
