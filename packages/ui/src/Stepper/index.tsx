@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Step } from "./Step";
 
 type MenuItem = {
+  step?: number | string | ReactNode;
   label: string;
   command?: (event: any) => void;
 };
@@ -14,6 +15,7 @@ interface IProperties {
 export const Stepper: React.FC<IProperties> = ({
   list = [
     {
+      step: "a",
       label: "Manish",
       command: (event) => {
         console.log(event.label);

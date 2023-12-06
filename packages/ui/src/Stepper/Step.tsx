@@ -1,6 +1,7 @@
 export const Step = ({
   active,
   label,
+  step,
   command,
   index,
   handleActiveIndex,
@@ -17,9 +18,13 @@ export const Step = ({
     return null;
   };
 
-  //   const renderStep = () => {};
-
-  console.log("Hello");
+  const renderStep = (index: number) => {
+    return (
+      <span className="step-number" aria-current={active === index && "step"}>
+        {step ? step : index + 1}
+      </span>
+    );
+  };
 
   return (
     <li
@@ -31,9 +36,7 @@ export const Step = ({
       }}
     >
       <div className="label-wrapper">
-        <span className="step-number" aria-current={active === index && "step"}>
-          {index + 1}
-        </span>
+        {renderStep(index)}
         {renderLabel(label)}
       </div>
     </li>
