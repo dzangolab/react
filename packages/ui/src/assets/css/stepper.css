@@ -22,13 +22,16 @@
   background: #ffffff;
   border: 1px solid #f3f4f6;
   border-radius: 50%;
-  cursor: pointer;
   display: flex;
   height: 3rem;
   justify-content: center;
   transition: all 0.2s ease;
   width: 3rem;
   z-index: 0;
+}
+
+.stepper > .step:hover{
+  cursor: pointer;
 }
 
 .stepper > .step > .step-label {
