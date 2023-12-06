@@ -1,45 +1,44 @@
 .stepper {
   display: flex;
   justify-content: space-between;
-  position: relative;
   padding: 2rem;
+  position: relative;
 }
 
 .stepper > .step {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  max-width: 10rem;
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .stepper > .step > span[aria-current="step"] {
   background-color: #06b6d4;
-  color: #ffffff;
   border: none;
+  color: #ffffff;
 }
 
 .stepper > .step > .step-number {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
+  align-items: center;
+  background: #ffffff;
   border: 1px solid #f3f4f6;
   box-shadow: -1px -1px 29px -14px rgba(0, 0, 0, 0.28);
-  background: #ffffff;
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
   transition: 0.1s ease;
+  width: 3rem;
+  z-index: 0;
 }
 
 .stepper > .step > .step-label {
+  color: #6b7280;
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
-  color: #6b7280;
 }
 
 .stepper > .step > .step-label.active {
@@ -48,13 +47,13 @@
 }
 
 .stepper > .step::before {
-  content: " ";
   border-top: 1px solid #e5e7eb;
-  width: 100%;
-  top: 50%;
-  left: 0;
+  content: " ";
   display: block;
-  position: absolute;
+  left: 0;
   margin-top: -1rem;
+  position: absolute;
+  top: 50%;
+  width: 100%;
   z-index: -1;
 }

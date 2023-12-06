@@ -32,7 +32,7 @@ export const Stepper: React.FC<IProperties> = ({
       {stepList.map((element, index) => {
         return (
           <Step
-            key={index}
+            key={element.label}
             {...element}
             index={index}
             handleActiveIndex={handleActiveIndex}

@@ -28,25 +28,13 @@ const StepperDemo = () => {
         console.log(event.label);
       },
     },
-    {
-      label: "Kriti",
-      command: (event: any) => {
-        console.log(event.label);
-      },
-    },
-    {
-      label: "suvash",
-      command: (event: any) => {
-        console.log(event.label);
-      },
-    },
   ];
 
   return (
     <Stepper
       stepList={list}
-      activeIndex={3}
-      // readOnly={false}
+      activeIndex={activeIndex}
+      readOnly={false}
       onSelect={(event: any) => {
         console.log(event);
         setActiveIndex(event.index);
