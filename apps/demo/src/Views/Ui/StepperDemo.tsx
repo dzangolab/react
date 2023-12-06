@@ -5,7 +5,7 @@ const StepperDemo = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const list = [
     {
-      label: "Manish is my name and it is my name",
+      label: "Manish",
       command: (event: any) => {
         console.log(event.label);
       },

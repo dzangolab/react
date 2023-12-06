@@ -9,12 +9,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  max-width: 10rem;
   flex: 1;
 }
 
 .stepper > .step > span[aria-current="step"] {
   background-color: #06b6d4;
-  color: white;
+  color: #ffffff;
   border: none;
 }
 
@@ -45,12 +47,14 @@
   font-weight: bold;
 }
 
-.stepper > .line {
-  content: "";
-  width: 100%;
-  z-index: -1;
-  position: absolute;
+.stepper > .step::before {
+  content: " ";
   border-top: 1px solid #e5e7eb;
+  width: 100%;
+  top: 50%;
   left: 0;
-  top: 40%;
+  display: block;
+  position: absolute;
+  margin-top: -1rem;
+  z-index: -1;
 }

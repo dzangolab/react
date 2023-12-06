@@ -40,7 +40,6 @@ export const Stepper: React.FC<IProperties> = ({
           />
         );
       })}
-      <div className="line"></div>
     </ul>
   );
 };
