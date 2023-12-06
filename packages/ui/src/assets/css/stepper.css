@@ -1,14 +1,12 @@
 .stepper {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
   position: relative;
+  padding: 0;
 }
 
 .stepper > .step {
-  align-items: center;
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
 }
@@ -23,13 +21,12 @@
   align-items: center;
   background: #ffffff;
   border: 1px solid #f3f4f6;
-  box-shadow: -1px -1px 29px -14px rgba(0, 0, 0, 0.28);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   height: 3rem;
   justify-content: center;
-  transition: 0.1s ease;
+  transition: all 0.2s ease;
   width: 3rem;
   z-index: 0;
 }

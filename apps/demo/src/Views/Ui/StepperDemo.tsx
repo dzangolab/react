@@ -23,7 +23,7 @@ const StepperDemo = () => {
       },
     },
     {
-      label: "suvash",
+      label: "suvas",
       command: (event: any) => {
         console.log(event.label);
       },
