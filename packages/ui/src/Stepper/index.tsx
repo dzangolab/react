@@ -52,6 +52,12 @@ export const Stepper: React.FC<IProperties> = ({
   ],
   activeIndex = 0,
 }) => {
+  const handleActiveIndex = (event: any) => {
+    console.log(event.index);
+    setActive(event.index);
+  };
+
+  const [active, setActive] = useState(activeIndex);
   return (
     <ul className="stepper">
       {list.map((element, index) => {
@@ -60,7 +66,8 @@ export const Stepper: React.FC<IProperties> = ({
             key={index}
             {...element}
             index={index}
-            activeIndex={activeIndex}
+            handleActiveIndex={handleActiveIndex}
+            active={active}
           />
         );
       })}

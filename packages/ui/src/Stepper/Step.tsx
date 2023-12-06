@@ -1,12 +1,25 @@
-import { useState } from "react";
+export const Step = ({
+  active,
+  label,
+  command,
+  index,
+  handleActiveIndex,
+}: any) => {
+  const renderLabel = (label: string) => {
+    if (label) {
+      return (
+        <span className={`step-label ${active === index && "active"} `}>
+          {label}
+        </span>
+      );
+    }
 
-export const Step = ({ label, command, index, activeIndex }: any) => {
-  const handleActiveIndex = (event: any) => {
-    console.log(event);
-    setActive(event.index);
+    return null;
   };
 
-  const [active, setActive] = useState(activeIndex);
+  //   const renderStep = () => {};
+
+  console.log("Hello");
 
   return (
     <li
@@ -21,9 +34,7 @@ export const Step = ({ label, command, index, activeIndex }: any) => {
         <span className="step-number" aria-current={active === index && "step"}>
           {index + 1}
         </span>
-        <span className={`step-label ${active === index && "active"} `}>
-          {label}
-        </span>
+        {renderLabel(label)}
       </div>
     </li>
   );
