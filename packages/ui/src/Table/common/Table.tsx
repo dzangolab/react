@@ -42,7 +42,7 @@ import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
 import type { TCustomColumnFilter, TDataTableProperties } from "./types";
-import type { Cell, Column, ColumnDef } from "@tanstack/react-table";
+import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   border = "grid",
