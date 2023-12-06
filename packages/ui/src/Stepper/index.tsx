@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Step } from "./Step";
 
 type MenuItem = {
   label: string;
@@ -12,39 +13,55 @@ interface IProperties {
 
 export const Stepper: React.FC<IProperties> = ({
   list = [
-    { label: "Manish" },
-    { label: "Gaurav" },
-    { label: "Kriti" },
-    { label: "suvash" },
+    {
+      label: "Manish",
+      command: (event) => {
+        console.log(event.label);
+      },
+    },
+    {
+      label: "Gaurav",
+      command: (event) => {
+        console.log(event.label);
+      },
+    },
+    {
+      label: "Kriti",
+      command: (event) => {
+        console.log(event.label);
+      },
+    },
+    {
+      label: "suvash",
+      command: (event) => {
+        console.log(event.label);
+      },
+    },
+    {
+      label: "Kriti",
+      command: (event) => {
+        console.log(event.label);
+      },
+    },
+    {
+      label: "suvash",
+      command: (event) => {
+        console.log(event.label);
+      },
+    },
   ],
   activeIndex = 0,
 }) => {
-  const handleActiveIndex = (index: number) => {
-    setActive(index);
-  };
-
-  const [active, setActive] = useState(activeIndex);
   return (
     <ul className="stepper">
       {list.map((element, index) => {
         return (
-          <li
-            className="step"
+          <Step
             key={index}
-            onClick={() => handleActiveIndex(index)}
-          >
-            <div className="label-wrapper">
-              <span
-                className="step-number"
-                aria-current={active === index && "step"}
-              >
-                {index + 1}
-              </span>
-              <span className={`step-label ${active === index && "active"} `}>
-                {element.label}
-              </span>
-            </div>
-          </li>
+            {...element}
+            index={index}
+            activeIndex={activeIndex}
+          />
         );
       })}
       <div className="line"></div>
