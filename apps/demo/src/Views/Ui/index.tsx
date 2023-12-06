@@ -21,6 +21,7 @@ import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
 import { Stepper } from "@dzangolab/react-ui";
+import StepperDemo from "./Stepper";
 
 const componentList = [
   {
@@ -244,7 +245,7 @@ const componentList = [
   {
     key: 17,
     title: "stepper.title",
-    component: <Stepper />,
+    component: <StepperDemo />,
   },
 ];
 

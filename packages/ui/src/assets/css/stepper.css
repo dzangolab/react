@@ -35,9 +35,11 @@
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
+  color: #6b7280;
 }
 
 .step-label.active {
+  color: #000;
   font-weight: bold;
 }
 

@@ -1,65 +1,31 @@
 import { ReactNode, useState } from "react";
 import { Step } from "./Step";
 
-type MenuItem = {
+type StepItem = {
   step?: number | string | ReactNode;
   label: string;
   command?: (event: any) => void;
 };
 
 interface IProperties {
-  list?: MenuItem[];
+  list?: StepItem[];
   activeIndex?: number;
+  onSelect?: (event: any) => void;
+  readOnly?: boolean;
 }
 
 export const Stepper: React.FC<IProperties> = ({
-  list = [
-    {
-      step: "a",
-      label: "Manish",
-      command: (event) => {
-        console.log(event.label);
-      },
-    },
-    {
-      label: "Gaurav",
-      command: (event) => {
-        console.log(event.label);
-      },
-    },
-    {
-      label: "Kriti",
-      command: (event) => {
-        console.log(event.label);
-      },
-    },
-    {
-      label: "suvash",
-      command: (event) => {
-        console.log(event.label);
-      },
-    },
-    {
-      label: "Kriti",
-      command: (event) => {
-        console.log(event.label);
-      },
-    },
-    {
-      label: "suvash",
-      command: (event) => {
-        console.log(event.label);
-      },
-    },
-  ],
+  list = [],
   activeIndex = 0,
+  onSelect,
+  readOnly = true,
 }) => {
   const handleActiveIndex = (event: any) => {
-    console.log(event.index);
-    setActive(event.index);
+    if (!readOnly && onSelect) {
+      onSelect(event);
+    }
   };
 
-  const [active, setActive] = useState(activeIndex);
   return (
     <ul className="stepper">
       {list.map((element, index) => {
@@ -69,7 +35,7 @@ export const Stepper: React.FC<IProperties> = ({
             {...element}
             index={index}
             handleActiveIndex={handleActiveIndex}
-            active={active}
+            activeIndex={activeIndex}
           />
         );
       })}
