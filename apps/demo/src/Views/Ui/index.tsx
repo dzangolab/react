@@ -16,12 +16,11 @@ import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import MessageDemo from "./MessageDemo";
 import PopupDemo from "./PopupDemo";
+import StepperDemo from "./StepperDemo";
 import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import { Stepper } from "@dzangolab/react-ui";
-import StepperDemo from "./Stepper";
 
 const componentList = [
   {

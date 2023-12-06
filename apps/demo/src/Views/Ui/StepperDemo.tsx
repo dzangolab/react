@@ -5,7 +5,7 @@ const StepperDemo = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const list = [
     {
-      label: "Manish",
+      label: "Manish is my name and it is my name",
       command: (event: any) => {
         console.log(event.label);
       },
@@ -44,9 +44,9 @@ const StepperDemo = () => {
 
   return (
     <Stepper
-      list={list}
-      activeIndex={activeIndex}
-      readOnly={false}
+      stepList={list}
+      activeIndex={3}
+      // readOnly={false}
       onSelect={(event: any) => {
         console.log(event);
         setActiveIndex(event.index);

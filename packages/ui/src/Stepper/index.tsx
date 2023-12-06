@@ -8,14 +8,14 @@ type StepItem = {
 };
 
 interface IProperties {
-  list?: StepItem[];
+  stepList?: StepItem[];
   activeIndex?: number;
   onSelect?: (event: any) => void;
   readOnly?: boolean;
 }
 
 export const Stepper: React.FC<IProperties> = ({
-  list = [],
+  stepList = [],
   activeIndex = 0,
   onSelect,
   readOnly = true,
@@ -28,7 +28,7 @@ export const Stepper: React.FC<IProperties> = ({
 
   return (
     <ul className="stepper">
-      {list.map((element, index) => {
+      {stepList.map((element, index) => {
         return (
           <Step
             key={index}

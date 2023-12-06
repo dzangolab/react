@@ -5,18 +5,20 @@
   padding: 2rem;
 }
 
-.label-wrapper {
+.stepper > .step {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  flex: 1;
 }
 
-.label-wrapper > span[aria-current="step"] {
+.stepper > .step > span[aria-current="step"] {
   background-color: #06b6d4;
   color: white;
   border: none;
 }
 
-.step-number {
+.stepper > .step > .step-number {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
@@ -31,19 +33,19 @@
   transition: 0.1s ease;
 }
 
-.step-label {
+.stepper > .step > .step-label {
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
   color: #6b7280;
 }
 
-.step-label.active {
+.stepper > .step > .step-label.active {
   color: #000;
   font-weight: bold;
 }
 
-.line {
+.stepper > .line {
   content: "";
   width: 100%;
   z-index: -1;

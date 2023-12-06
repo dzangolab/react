@@ -52,10 +52,8 @@ export const Step: FC<IStepProperties> = ({
         command?.({ ...event, label: label });
       }}
     >
-      <div className="label-wrapper">
-        {renderStep(index)}
-        {renderLabel(label)}
-      </div>
+      {renderStep(index)}
+      {renderLabel(label)}
     </li>
   );
 };
