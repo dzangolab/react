@@ -2,7 +2,7 @@ import { Stepper } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 const StepperDemo = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const list = [
     {
       label: "Manish",

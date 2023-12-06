@@ -40,7 +40,13 @@ export const Step: FC<IStepProperties> = ({
         className="step-number"
         aria-current={activeIndex >= index && "step"}
       >
-        {step ? step : index + 1}
+        {activeIndex >= index ? (
+          <i className="pi pi-check" />
+        ) : step ? (
+          step
+        ) : (
+          index + 1
+        )}
       </span>
     );
   };
