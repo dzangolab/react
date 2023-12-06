@@ -1,16 +1,17 @@
-import { ReactNode, useState } from "react";
-import { Step } from "./Step";
+import { ReactNode } from "react";
+
+import { IStepEvent, Step } from "./Step";
 
 type StepItem = {
   step?: number | string | ReactNode;
   label: string;
-  command?: (event: any) => void;
+  command?: (event: IStepEvent) => void;
 };
 
 interface IProperties {
   stepList?: StepItem[];
   activeIndex?: number;
-  onSelect?: (event: any) => void;
+  onSelect?: (event: IStepEvent) => void;
   readOnly?: boolean;
 }
 
@@ -20,7 +21,7 @@ export const Stepper: React.FC<IProperties> = ({
   onSelect,
   readOnly = true,
 }) => {
-  const handleActiveIndex = (event: any) => {
+  const handleActiveIndex = (event: IStepEvent) => {
     if (!readOnly && onSelect) {
       onSelect(event);
     }
