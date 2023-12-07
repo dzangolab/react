@@ -117,9 +117,9 @@ export {
 export type {
   Invitation,
   InvitationAppOption,
-  UserContextType,
-  UserType,
-  UsersTableProperties,
   InvitationPayload,
   LoginCredentials,
+  DzangolabReactUserConfig,
+  UserContextType,
+  UserType,
 };
