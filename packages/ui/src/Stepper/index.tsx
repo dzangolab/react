@@ -3,24 +3,24 @@ import { ReactNode } from "react";
 import { IStepEvent, Step } from "./Step";
 
 type StepItem = {
-  activeStep?: string | ReactNode;
-  step?: number | string | ReactNode;
-  label: string;
+  activeStepIcon?: string | ReactNode;
   command?: (event: IStepEvent) => void;
+  label: string;
+  step?: number | string | ReactNode;
 };
 
 interface IProperties {
-  stepList?: StepItem[];
   activeIndex?: number;
   onSelect?: (event: IStepEvent) => void;
   readOnly?: boolean;
+  stepList?: StepItem[];
 }
 
 export const Stepper: React.FC<IProperties> = ({
-  stepList = [],
   activeIndex = 0,
   onSelect,
   readOnly = true,
+  stepList = [],
 }) => {
   const handleActiveIndex = (event: IStepEvent) => {
     if (!readOnly && onSelect) {
@@ -38,6 +38,7 @@ export const Stepper: React.FC<IProperties> = ({
             index={index}
             handleActiveIndex={handleActiveIndex}
             activeIndex={activeIndex}
+            readOnly={readOnly}
           />
         );
       })}

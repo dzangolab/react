@@ -7,22 +7,24 @@ export interface IStepEvent extends MouseEvent<HTMLElement> {
 
 interface IStepProperties {
   activeIndex: number;
-  activeStep?: string | ReactNode;
-  step?: number | string | ReactNode;
-  label?: string;
+  activeStepIcon?: string | ReactNode;
   command?: (event: IStepEvent) => void;
-  index: number;
   handleActiveIndex?: (event: IStepEvent) => void;
+  index: number;
+  label?: string;
+  readOnly?: boolean;
+  step?: number | string | ReactNode;
 }
 
 export const Step: FC<IStepProperties> = ({
   activeIndex,
-  label,
-  step,
+  activeStepIcon,
   command,
-  index,
   handleActiveIndex,
-  activeStep,
+  index,
+  label,
+  readOnly,
+  step,
 }) => {
   const renderLabel = (label?: string) => {
     if (label) {
@@ -36,17 +38,17 @@ export const Step: FC<IStepProperties> = ({
     return null;
   };
 
-  const renderStep = (index: number, activeStep?: string | ReactNode) => {
+  const renderStep = (index: number, activeStepIcon?: string | ReactNode) => {
     return (
       <span
         className="step-number"
         aria-current={activeIndex >= index && "step"}
       >
-        {activeIndex >= index && activeStep ? (
-          typeof activeStep === "string" ? (
-            <i className={activeStep} />
+        {activeIndex >= index && activeStepIcon ? (
+          typeof activeStepIcon === "string" ? (
+            <i className={activeStepIcon} />
           ) : (
-            activeStep
+            activeStepIcon
           )
         ) : step ? (
           step
@@ -57,16 +59,22 @@ export const Step: FC<IStepProperties> = ({
     );
   };
 
+  const handleCommand = (event: IStepEvent) => {
+    if (!readOnly && command) {
+      command(event);
+    }
+  };
+
   return (
     <li
       className="step"
       key={index}
       onClick={(event) => {
         handleActiveIndex?.({ ...event, index, label: label });
-        command?.({ ...event, index, label: label });
+        handleCommand({ ...event, index, label: label });
       }}
     >
-      {renderStep(index, activeStep)}
+      {renderStep(index, activeStepIcon)}
       {renderLabel(label)}
     </li>
   );

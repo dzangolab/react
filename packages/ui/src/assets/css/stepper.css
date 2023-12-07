@@ -19,10 +19,6 @@
   color: #ffffff;
 }
 
-.stepper > .step > span[aria-current="step"]:hover {
-  background-color: none;
-}
-
 .stepper > .step > .step-number {
   align-items: center;
   background: #ffffff;
