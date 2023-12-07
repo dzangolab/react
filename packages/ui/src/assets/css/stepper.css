@@ -1,7 +1,6 @@
 .stepper {
   display: flex;
   justify-content: space-between;
-  position: relative;
   padding: 0;
 }
 
@@ -11,6 +10,7 @@
   flex: 1;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .stepper > .step > span[aria-current="step"] {
@@ -40,7 +40,10 @@
   color: #6b7280;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 0.5rem;
+  word-break: break-word;
+  text-align: center;
 }
 
 .stepper > .step > .step-number:hover,
@@ -63,4 +66,12 @@
   top: 50%;
   width: 100%;
   z-index: -1;
+}
+
+.stepper > .step:last-child()::before {
+  left: -50%;
+}
+
+.stepper > .step:first-child::before {
+  left: 50%;
 }
