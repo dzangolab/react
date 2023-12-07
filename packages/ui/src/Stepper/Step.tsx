@@ -44,7 +44,7 @@ export const Step: FC<IStepProperties> = ({
       >
         {activeIndex >= index && activeStep ? (
           typeof activeStep === "string" ? (
-            <i className={activeStep || "pi pi-check"} />
+            <i className={activeStep} />
           ) : (
             activeStep
           )

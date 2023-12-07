@@ -10,7 +10,6 @@ type StepItem = {
 };
 
 interface IProperties {
-  activeStepIcon?: string | ReactNode;
   stepList?: StepItem[];
   activeIndex?: number;
   onSelect?: (event: IStepEvent) => void;

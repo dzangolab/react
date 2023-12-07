@@ -19,8 +19,7 @@ import "@dzangolab/react-ui/dist/DzangolabReactUI.css";
 import "@dzangolab/react-i18n/dist/DzangolabReactI18n.css";
 import "@dzangolab/react-user/dist/DzangolabReactUser.css";
 
-import "./assets/css/style.css";
-import "./assets/css/tooltip.css";
+import "./assets/css/index.css";
 
 i18n(config.i18n);
 

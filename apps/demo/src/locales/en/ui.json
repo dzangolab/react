@@ -83,6 +83,9 @@
     "title": "Popup"
   },
   "stepper": {
-    "title": "Stepper"
+    "title": "Stepper",
+    "demo":{
+      "message": "You are on page: {{page}}"
+    }
   }
 }
