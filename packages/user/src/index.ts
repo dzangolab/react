@@ -119,7 +119,6 @@ export type {
   InvitationAppOption,
   InvitationPayload,
   LoginCredentials,
-  DzangolabReactUserConfig,
   UserContextType,
   UserType,
   UsersTableProperties,
