@@ -12,7 +12,6 @@ import {
   Updater,
 } from "@tanstack/react-table";
 import { Button } from "primereact/button";
-import { Checkbox } from "primereact/checkbox";
 import React, {
   SyntheticEvent,
   useCallback,
@@ -38,7 +37,7 @@ import {
   TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { DebouncedInput, Popup, SortableList } from "../../";
+import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
@@ -239,11 +238,21 @@ const DataTable = <TData extends { id: string | number }>({
                           data: column,
                           // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           render: (data: any) => {
+                            let header = data.columnDef.header;
+
                             if (typeof data.columnDef.header === "function") {
-                              return data.columnDef.header();
+                              header = data.columnDef.header();
                             }
 
-                            return data.columnDef.header;
+                            return (
+                              <>
+                                <Checkbox
+                                  checked={data.getIsVisible()}
+                                  onClick={() => data.toggleVisibility()}
+                                  label={header}
+                                ></Checkbox>
+                              </>
+                            );
                           },
                         }))}
                       onSort={(sorted) => {
@@ -335,7 +344,7 @@ const DataTable = <TData extends { id: string | number }>({
 
           {isFilterRowVisible ? (
             <TableRow key={"filters"} className={`header-row filters`}>
-              {table.getAllLeafColumns().map((column) => {
+              {table.getVisibleLeafColumns().map((column) => {
                 if (!column.getCanFilter()) {
                   return <TableCell key={"filter" + column.id}></TableCell>;
                 }
