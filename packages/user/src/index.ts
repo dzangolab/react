@@ -122,4 +122,5 @@ export type {
   DzangolabReactUserConfig,
   UserContextType,
   UserType,
+  UsersTableProperties,
 };
