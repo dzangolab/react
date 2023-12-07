@@ -82,6 +82,9 @@
     "title": "Popup (fr)"
   },
   "stepper": {
-    "title": "Stepper (fr)"
+    "title": "Stepper (fr)",
+    "demo": {
+      "message": "You are on page: {{page}} (fr)"
+    }
   }
 }
