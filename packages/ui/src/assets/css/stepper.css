@@ -8,6 +8,8 @@
 .stepper > .step {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  align-items: center;
   justify-content: center;
 }
 
@@ -15,6 +17,10 @@
   background-color: #06b6d4;
   border: none;
   color: #ffffff;
+}
+
+.stepper > .step > span[aria-current="step"]:hover {
+  background-color: none;
 }
 
 .stepper > .step > .step-number {
@@ -30,15 +36,16 @@
   z-index: 0;
 }
 
-.stepper > .step:hover {
-  cursor: pointer;
-}
-
 .stepper > .step > .step-label {
   color: #6b7280;
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
+}
+
+.stepper > .step > .step-number:hover,
+.stepper > .step > .step-label:hover {
+  cursor: pointer;
 }
 
 .stepper > .step > .step-label.active {

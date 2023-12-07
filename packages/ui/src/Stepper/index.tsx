@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { IStepEvent, Step } from "./Step";
 
 type StepItem = {
+  activeStep?: string | ReactNode;
   step?: number | string | ReactNode;
   label: string;
   command?: (event: IStepEvent) => void;
@@ -21,7 +22,6 @@ export const Stepper: React.FC<IProperties> = ({
   activeIndex = 0,
   onSelect,
   readOnly = true,
-  activeStepIcon,
 }) => {
   const handleActiveIndex = (event: IStepEvent) => {
     if (!readOnly && onSelect) {
@@ -39,7 +39,6 @@ export const Stepper: React.FC<IProperties> = ({
             index={index}
             handleActiveIndex={handleActiveIndex}
             activeIndex={activeIndex}
-            activeStepIcon={activeStepIcon}
           />
         );
       })}

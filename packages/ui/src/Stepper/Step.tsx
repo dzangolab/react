@@ -7,7 +7,7 @@ export interface IStepEvent extends MouseEvent<HTMLElement> {
 
 interface IStepProperties {
   activeIndex: number;
-  activeStepIcon?: string | ReactNode;
+  activeStep?: string | ReactNode;
   step?: number | string | ReactNode;
   label?: string;
   command?: (event: IStepEvent) => void;
@@ -22,7 +22,7 @@ export const Step: FC<IStepProperties> = ({
   command,
   index,
   handleActiveIndex,
-  activeStepIcon,
+  activeStep,
 }) => {
   const renderLabel = (label?: string) => {
     if (label) {
@@ -36,17 +36,17 @@ export const Step: FC<IStepProperties> = ({
     return null;
   };
 
-  const renderStep = (index: number) => {
+  const renderStep = (index: number, activeStep?: string | ReactNode) => {
     return (
       <span
         className="step-number"
         aria-current={activeIndex >= index && "step"}
       >
-        {activeIndex >= index ? (
-          typeof activeStepIcon === "string" ? (
-            <i className={activeStepIcon} />
+        {activeIndex >= index && activeStep ? (
+          typeof activeStep === "string" ? (
+            <i className={activeStep || "pi pi-check"} />
           ) : (
-            activeStepIcon
+            activeStep
           )
         ) : step ? (
           step
@@ -66,7 +66,7 @@ export const Step: FC<IStepProperties> = ({
         command?.({ ...event, index, label: label });
       }}
     >
-      {renderStep(index)}
+      {renderStep(index, activeStep)}
       {renderLabel(label)}
     </li>
   );
