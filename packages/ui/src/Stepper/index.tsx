@@ -13,7 +13,7 @@ interface IProperties {
   activeIndex?: number;
   onSelect?: (event: IStepEvent) => void;
   readOnly?: boolean;
-  stepList: StepItem[];
+  stepList?: StepItem[];
 }
 
 export const Stepper: React.FC<IProperties> = ({

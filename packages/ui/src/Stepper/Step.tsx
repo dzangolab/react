@@ -9,7 +9,7 @@ interface IStepProperties {
   activeIndex: number;
   activeStepIcon?: string | ReactNode;
   command?: (event: IStepEvent) => void;
-  handleActiveIndex?: (event: IStepEvent) => void;
+  handleActiveIndex: (event: IStepEvent) => void;
   index: number;
   label?: string;
   readOnly?: boolean;
@@ -70,7 +70,7 @@ export const Step: FC<IStepProperties> = ({
       className="step"
       key={index}
       onClick={(event) => {
-        handleActiveIndex?.({ ...event, index, label: label });
+        handleActiveIndex({ ...event, index, label: label });
         handleCommand({ ...event, index, label: label });
       }}
     >
