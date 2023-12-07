@@ -5,7 +5,7 @@ import { IStepEvent, Step } from "./Step";
 type StepItem = {
   activeStepIcon?: string | ReactNode;
   command?: (event: IStepEvent) => void;
-  label: string;
+  label?: string;
   step?: number | string | ReactNode;
 };
 
@@ -13,7 +13,7 @@ interface IProperties {
   activeIndex?: number;
   onSelect?: (event: IStepEvent) => void;
   readOnly?: boolean;
-  stepList?: StepItem[];
+  stepList: StepItem[];
 }
 
 export const Stepper: React.FC<IProperties> = ({
