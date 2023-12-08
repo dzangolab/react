@@ -17,19 +17,19 @@ const StepperDemo = () => {
     },
     {
       activeStepIcon: "pi pi-check",
-      label: "Children",
+      // label: "Children",
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      label: "Payment",
+      // label: "Payment",
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      label: "Confirmation",
+      // label: "Confirmation",
     },
   ];
 
