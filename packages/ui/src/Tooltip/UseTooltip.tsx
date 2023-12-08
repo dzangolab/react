@@ -16,74 +16,11 @@ type UseTooltipProperties = {
 
 export function useTooltip({
   delay = 0,
-  ref,
-  tooltipReference,
-  offset = 5,
-  position,
   mouseTrack = false,
 }: UseTooltipProperties) {
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
-  const [tooltipPosition, setTooltipPosition] = useState<Position>({});
   const [mousePosition, setMousePosition] = useState<Position>({});
   const timeoutIdReference = useRef<ReturnType<typeof setTimeout>>();
-
-  useEffect(() => {
-    if (!ref.current) {
-      return;
-    }
-
-    if (showTooltip) {
-      if (mouseTrack && mousePosition) {
-        setTooltipPosition({
-          top: mousePosition.top && mousePosition.top + offset,
-          left: mousePosition.left && mousePosition.left + 2 * offset,
-        });
-      } else {
-        const { left, right, top, bottom, height, width } =
-          ref.current.getBoundingClientRect();
-
-        const tooltipWidth =
-          tooltipReference?.current?.getBoundingClientRect().width || 0;
-
-        const tooltipHeight =
-          tooltipReference?.current?.getBoundingClientRect().height || 0;
-
-        const horizontalCenter = left + width / 2 - tooltipWidth / 2;
-
-        const verticalCenter = top + height / 2 - tooltipHeight / 2;
-
-        switch (position) {
-          case "top":
-            setTooltipPosition({
-              top: top - tooltipHeight - offset,
-              left: horizontalCenter,
-            });
-            break;
-          case "bottom":
-            setTooltipPosition({
-              top: bottom + offset,
-              left: horizontalCenter,
-            });
-            break;
-          case "right":
-            setTooltipPosition({
-              top: verticalCenter,
-              left: right + offset,
-            });
-            break;
-          case "left":
-            setTooltipPosition({
-              top: verticalCenter,
-              left: left - tooltipWidth - offset,
-            });
-        }
-      }
-    }
-
-    if (!showTooltip) {
-      setTooltipPosition({});
-    }
-  }, [showTooltip, ref, mousePosition]);
 
   const onMouseEnter = () => {
     clearTimeout(timeoutIdReference.current);
@@ -104,10 +41,7 @@ export function useTooltip({
   };
 
   return {
-    tooltipPosition: {
-      top: tooltipPosition.top,
-      left: tooltipPosition.left,
-    },
+    mousePosition,
     showTooltip,
     onMouseEnter,
     onMouseLeave,

@@ -1,5 +1,7 @@
-import React, { RefObject, useRef, FC, useEffect } from "react";
+import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
+import React, { RefObject, useRef, FC, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
+import { usePopper } from "react-popper";
 
 import { getTooltipConfig } from "./ConfigureTooltip";
 import { useTooltip } from "./UseTooltip";
@@ -32,7 +34,7 @@ export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
   const tooltipReference = useRef<HTMLDivElement>(null);
 
   const {
-    tooltipPosition,
+    mousePosition,
     showTooltip,
     onMouseEnter,
     onMouseLeave,
@@ -78,17 +80,37 @@ export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
 
   const renderedClassName = renderClassName(mouseTrack, position);
 
+  const setOffset: OffsetsFunction = useCallback(() => {
+    return [0, offset];
+  }, []);
+
+  const { styles, attributes } = usePopper(
+    elementRef.current,
+    tooltipReference.current,
+    {
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: setOffset,
+          },
+        },
+        {
+          name: "hide",
+        },
+      ],
+      placement: position,
+    },
+  );
+
   return (
     <>
       {createPortal(
         <div
           ref={tooltipReference}
           className={className ? className : renderedClassName}
-          style={{
-            top: tooltipPosition.top,
-            left: tooltipPosition.left,
-            ...style,
-          }}
+          style={styles.popper}
+          {...attributes}
         >
           {children}
         </div>,
