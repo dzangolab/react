@@ -84,7 +84,13 @@
   "stepper": {
     "title": "Stepper (fr)",
     "demo": {
-      "message": "You are on page: {{page}} (fr)"
+      "message": "You are on page: {{page}} (fr)",
+      "label": {
+        "personal": "Personal (fr)",
+        "children": "Children (fr)",
+        "payment": "Payment (fr)",
+        "confirmation": "Confirmation (fr)"
+      }
     }
   }
 }

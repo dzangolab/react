@@ -84,8 +84,14 @@
   },
   "stepper": {
     "title": "Stepper",
-    "demo":{
-      "message": "You are on page: {{page}}"
+    "demo": {
+      "message": "You are on page: {{page}}",
+      "label": {
+        "personal": "Personal",
+        "children": "Children",
+        "payment": "Payment",
+        "confirmation": "Confirmation"
+      }
     }
   }
 }

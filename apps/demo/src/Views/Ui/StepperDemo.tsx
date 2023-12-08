@@ -10,26 +10,26 @@ const StepperDemo = () => {
     {
       step: "a",
       activeStepIcon: "pi pi-times",
-      label: "Personal",
+      label: t("stepper.demo.label.personal"),
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
       activeStepIcon: "pi pi-check",
-      // label: "Children",
+      label: t("stepper.demo.label.personal"),
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      // label: "Payment",
+      label: t("stepper.demo.label.personal"),
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      // label: "Confirmation",
+      label: t("stepper.demo.label.personal"),
     },
   ];
 
