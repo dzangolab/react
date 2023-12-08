@@ -9,7 +9,7 @@ const StepperDemo = () => {
   const list = [
     {
       step: "a",
-      activeStepIcon: "pi pi-times",
+      activeStepIcon: <i className="pi pi-check" />,
       label: t("stepper.demo.label.personal"),
       command: (event: any) => {
         toast.info(event.label);
