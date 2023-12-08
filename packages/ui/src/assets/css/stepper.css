@@ -14,10 +14,14 @@
   position: relative;
 }
 
-.stepper > .step > span[aria-current="step"] {
+.stepper > .step > .step-number.active {
   background-color: #06b6d4;
   border: none;
   color: #ffffff;
+}
+
+.stepper > .step > .step-number.current {
+  border: 1px solid #06b6d4;
 }
 
 .stepper > .step > .step-number {
@@ -30,7 +34,7 @@
   justify-content: center;
   transition: all 0.4s ease;
   width: 3rem;
-  z-index: 0;
+  z-index: 1;
 }
 
 .stepper > .step > .step-label {
@@ -61,7 +65,7 @@
   position: absolute;
   top: 20%;
   width: 100%;
-  z-index: -1;
+  z-index: 0;
 }
 
 .stepper > .step:last-child::before {

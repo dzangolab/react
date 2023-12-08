@@ -41,8 +41,9 @@ export const Step: FC<IStepProperties> = ({
   const renderStep = (index: number, activeStepIcon?: string | ReactNode) => {
     return (
       <span
-        className="step-number"
-        aria-current={activeIndex >= index && "step"}
+        className={`step-number ${activeIndex === index && "current"} ${
+          activeIndex > index && "active"
+        } `}
       >
         {activeIndex >= index && activeStepIcon ? (
           typeof activeStepIcon === "string" ? (
