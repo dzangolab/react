@@ -5,31 +5,31 @@ import { toast } from "react-toastify";
 
 const StepperDemo = () => {
   const { t } = useTranslation("ui");
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const list = [
     {
       step: "a",
       activeStepIcon: "pi pi-times",
-      label: "Manish",
+      label: "Personal",
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
       activeStepIcon: "pi pi-check",
-      label: "Gaurav",
+      label: "Children",
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      label: "Kriti",
+      label: "Payment",
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      label: "suvash",
+      label: "Confirmation",
     },
   ];
 

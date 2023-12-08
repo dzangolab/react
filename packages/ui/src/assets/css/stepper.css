@@ -63,12 +63,17 @@
   top: 50%;
   width: 100%;
   z-index: -1;
+  overflow: hidden;
 }
 
 .stepper > .step:last-child()::before {
   left: -50%;
 }
 
-.stepper > .step:first-child::before {
+.stepper > .step:first-child()::before {
   left: 50%;
+}
+
+.stepper > .step:only-child::before {
+  display: none;
 }
