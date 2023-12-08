@@ -22,6 +22,10 @@
   padding: 0.5rem;
   border-left: 1px solid rgb(236, 236, 236);
   margin: 2px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .sortable-list .sortable-item:hover {

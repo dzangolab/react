@@ -47,6 +47,8 @@ import VerifyEmail from "./views/VerifyEmail";
 import "./assets/css/index.css";
 
 import type {
+  Invitation,
+  InvitationAppOption,
   InvitationPayload,
   LoginCredentials,
   DzangolabReactUserConfig,
@@ -113,9 +115,11 @@ export {
 };
 
 export type {
+  Invitation,
+  InvitationAppOption,
+  InvitationPayload,
+  LoginCredentials,
   UserContextType,
   UserType,
   UsersTableProperties,
-  InvitationPayload,
-  LoginCredentials,
 };
