@@ -13,10 +13,12 @@ interface IProperties {
   activeIndex?: number;
   onSelect?: (event: IStepEvent) => void;
   readOnly?: boolean;
+  lineStyle?: "dashed" | "solid";
   stepList?: StepItem[];
 }
 
 export const Stepper: React.FC<IProperties> = ({
+  lineStyle = "dashed",
   activeIndex = 0,
   onSelect,
   readOnly = true,
@@ -36,6 +38,7 @@ export const Stepper: React.FC<IProperties> = ({
             key={index}
             {...element}
             index={index}
+            lineStyle={lineStyle}
             handleActiveIndex={handleActiveIndex}
             activeIndex={activeIndex}
             readOnly={readOnly}

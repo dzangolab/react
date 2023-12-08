@@ -68,12 +68,16 @@
   z-index: 0;
 }
 
-.stepper > .step:last-child::before {
-  left: -50%;
+.stepper > .step.dashed::before {
+  border-top: 1px dashed #e5e7eb;
 }
 
 .stepper > .step:first-child::before {
   left: 50%;
+}
+
+.stepper > .step:last-child::before {
+  left: -50%;
 }
 
 .stepper > .step:only-child::before {
