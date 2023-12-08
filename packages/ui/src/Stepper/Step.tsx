@@ -12,7 +12,7 @@ interface IStepProperties {
   handleActiveIndex: (event: IStepEvent) => void;
   index: number;
   label?: string;
-  lineStyle?: "dashed" | "solid";
+  isLineDashed?: boolean;
   readOnly?: boolean;
   step?: number | string | ReactNode;
 }
@@ -24,7 +24,7 @@ export const Step: FC<IStepProperties> = ({
   handleActiveIndex,
   index,
   label,
-  lineStyle,
+  isLineDashed,
   readOnly,
   step,
 }) => {
@@ -70,7 +70,7 @@ export const Step: FC<IStepProperties> = ({
 
   return (
     <li
-      className={`step ${lineStyle}`}
+      className={`step ${isLineDashed && "dashed"}`}
       key={index}
       onClick={(event) => {
         handleActiveIndex({ ...event, index, label: label });
