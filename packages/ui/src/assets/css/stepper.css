@@ -62,7 +62,6 @@
   top: 20%;
   width: 100%;
   z-index: -1;
-  overflow: hidden;
 }
 
 .stepper > .step:last-child::before {
