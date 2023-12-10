@@ -40,7 +40,8 @@ export const Stepper: React.FC<IProperties> = ({
             index={index}
             lineStyle={lineStyle}
             handleActiveIndex={handleActiveIndex}
-            activeIndex={activeIndex}
+            isActive={activeIndex > index ? true : false}
+            isCurrent={activeIndex === index ? true : false}
             readOnly={readOnly}
           />
         );
