@@ -1,7 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Stepper } from "@dzangolab/react-ui";
 import { useState } from "react";
-import { toast } from "react-toastify";
 
 const StepperDemo = () => {
   const { t } = useTranslation("ui");

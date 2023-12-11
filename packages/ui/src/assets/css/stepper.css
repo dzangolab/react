@@ -80,7 +80,7 @@
 }
 
 .stepper > .step.dashed::before {
-  border-top: 1px dashed;
+  border-top: 1px dashed var(--line-border-color);
 }
 
 .stepper > .step:first-child::before {
