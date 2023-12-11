@@ -23,6 +23,7 @@ const StepperDemo = () => {
       },
     },
     {
+      activeStepIcon: "pi pi-check",
       label: t("stepper.demo.label.payment"),
       command: (event: any) => {
         toast.info(event.label);

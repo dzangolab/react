@@ -18,7 +18,7 @@ interface IProperties {
 }
 
 export const Stepper: React.FC<IProperties> = ({
-  lineStyle = "dashed",
+  lineStyle = "solid",
   activeIndex = 0,
   onSelect,
   readOnly = true,
