@@ -5,6 +5,8 @@ export interface IStepEvent extends MouseEvent<HTMLElement> {
   index?: number;
 }
 
+export type LineStyleType = "solid" | "dashed";
+
 interface IStepProperties {
   isCompleted: boolean;
   isActive: boolean;
@@ -13,7 +15,7 @@ interface IStepProperties {
   handleActiveIndex: (event: IStepEvent) => void;
   index: number;
   label?: string;
-  lineStyle?: "solid" | "dashed";
+  lineStyle?: LineStyleType;
   readOnly?: boolean;
   step?: number | string | ReactNode;
 }

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { IStepEvent, Step } from "./Step";
+import { IStepEvent, LineStyleType, Step } from "./Step";
 
 type StepItem = {
   activeStepIcon?: string | ReactNode;
@@ -13,7 +13,7 @@ interface IProperties {
   activeIndex?: number;
   onChange?: (event: IStepEvent) => void;
   readOnly?: boolean;
-  lineStyle?: "solid" | "dashed";
+  lineStyle?: LineStyleType;
   stepList?: StepItem[];
 }
 

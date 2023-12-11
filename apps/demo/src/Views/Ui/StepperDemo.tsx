@@ -9,21 +9,21 @@ const StepperDemo = () => {
   const list = [
     {
       step: "a",
-      activeStepIcon: <i className="pi pi-check" />,
+      completedStepIcon: <i className="pi pi-check" />,
       label: t("stepper.demo.label.personal"),
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      activeStepIcon: "pi pi-check",
+      completedStepIcon: "pi pi-check",
       label: t("stepper.demo.label.children"),
       command: (event: any) => {
         toast.info(event.label);
       },
     },
     {
-      activeStepIcon: "pi pi-check",
+      completedStepIcon: "pi pi-check",
       label: t("stepper.demo.label.payment"),
       command: (event: any) => {
         toast.info(event.label);
