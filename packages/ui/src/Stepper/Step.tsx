@@ -41,20 +41,18 @@ export const Step: FC<IStepProperties> = ({
   };
 
   const renderStep = (index: number, activeStepIcon?: string | ReactNode) => {
-    const isStepActive = isActive && activeStepIcon;
-    const shouldRenderIcon = isStepActive && typeof activeStepIcon === "string";
-    const shouldRenderStep = !isStepActive && step;
-
     const renderContent = () => {
-      if (shouldRenderIcon) {
-        return <i className={activeStepIcon as string} />;
-      } else if (shouldRenderStep) {
-        return step;
-      } else if (isStepActive) {
-        return activeStepIcon;
-      } else {
+      if (!isActive) {
+        if (step) return step;
         return index + 1;
       }
+
+      if (activeStepIcon) {
+        if (typeof activeStepIcon !== "string") return activeStepIcon;
+        return <i className={activeStepIcon} />;
+      }
+
+      return index + 1;
     };
 
     return (
