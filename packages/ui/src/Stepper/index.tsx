@@ -13,7 +13,7 @@ interface IProperties {
   onChange?: (event: IStepEvent) => void;
   readOnly?: boolean;
   lineStyle?: LineStyleType;
-  stepList: StepItem[];
+  steps: StepItem[];
 }
 
 export const Stepper: React.FC<IProperties> = ({
@@ -21,7 +21,7 @@ export const Stepper: React.FC<IProperties> = ({
   activeIndex = 0,
   onChange,
   readOnly = true,
-  stepList = [],
+  steps = [],
 }) => {
   const onClick = (event: IStepEvent) => {
     if (!readOnly && onChange) {
@@ -31,7 +31,7 @@ export const Stepper: React.FC<IProperties> = ({
 
   return (
     <ul className="stepper">
-      {stepList.map((element, index) => {
+      {steps.map((element, index) => {
         return (
           <Step
             key={index}

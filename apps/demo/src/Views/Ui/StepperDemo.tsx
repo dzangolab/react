@@ -27,7 +27,7 @@ const StepperDemo = () => {
   return (
     <>
       <Stepper
-        stepList={list}
+        steps={list}
         activeIndex={activeIndex}
         readOnly={false}
         onChange={(event: any) => {
