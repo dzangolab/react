@@ -11,12 +11,10 @@ interface IStepProperties {
   isCompleted: boolean;
   isActive: boolean;
   completedStepIcon?: string | ReactNode;
-  command?: (event: IStepEvent) => void;
   handleIndexChange: (event: IStepEvent) => void;
   index: number;
   label?: string;
   lineStyle?: LineStyleType;
-  readOnly?: boolean;
   step?: number | string | ReactNode;
 }
 

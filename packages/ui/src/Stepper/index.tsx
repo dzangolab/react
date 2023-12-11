@@ -41,7 +41,6 @@ export const Stepper: React.FC<IProperties> = ({
             handleIndexChange={handleIndexChange}
             isCompleted={activeIndex > index ? true : false}
             isActive={activeIndex === index ? true : false}
-            readOnly={readOnly}
           />
         );
       })}
