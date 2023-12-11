@@ -11,7 +11,7 @@ interface IStepProperties {
   isCompleted: boolean;
   isActive: boolean;
   completedStepIcon?: string | ReactNode;
-  handleIndexChange: (event: IStepEvent) => void;
+  onClick: (event: IStepEvent) => void;
   index: number;
   label?: string;
   lineStyle?: LineStyleType;
@@ -22,7 +22,7 @@ export const Step: FC<IStepProperties> = ({
   isCompleted,
   isActive,
   completedStepIcon,
-  handleIndexChange,
+  onClick,
   index,
   label,
   lineStyle,
@@ -65,7 +65,7 @@ export const Step: FC<IStepProperties> = ({
   };
 
   const handleClick = (event: IStepEvent) => {
-    handleIndexChange(event);
+    onClick(event);
   };
 
   return (

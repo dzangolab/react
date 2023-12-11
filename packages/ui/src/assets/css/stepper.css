@@ -1,11 +1,11 @@
 :root {
-  --step-completed-color: #007aff;
-  --step-active-border-color: #007aff;
-  --line-border-color: #e5e7eb;
-  --step-number-color: #ffffff;
-  --step-number-border-color: #f3f4f6;
-  --step-label-color: #6b7280;
-  --step-label-completed-color: #000000;
+  --stepper-completed-color: #007aff;
+  --stepper-active-border-color: #007aff;
+  --stepper-line-border-color: #e5e7eb;
+  --stepper-number-color: #ffffff;
+  --stepper-number-border-color: #f3f4f6;
+  --stepper-label-color: #6b7280;
+  --stepper-label-completed-color: #000000;
 }
 
 .stepper {
@@ -25,19 +25,19 @@
 }
 
 .stepper > .step > .step-number.completed {
-  background-color: var(--step-completed-color);
+  background-color: var(--stepper-completed-color);
   border: none;
-  color: var(--step-number-color);
+  color: var(--stepper-number-color);
 }
 
 .stepper > .step > .step-number.active {
-  border: 1px solid var( --step-active-border-color);
+  border: 1px solid var( --stepper-active-border-color);
 }
 
 .stepper > .step > .step-number {
   align-items: center;
-  background: var(--step-number-color);
-  border: 1px solid var(--step-number-border-color);
+  background: var(--stepper-number-color);
+  border: 1px solid var(--stepper-number-border-color);
   border-radius: 50%;
   display: flex;
   height: 3rem;
@@ -48,7 +48,7 @@
 }
 
 .stepper > .step > .step-label {
-  color: var(--step-label-color);
+  color: var(--stepper-label-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +69,7 @@
 }
 
 .stepper > .step::before {
-  border-top: 1px solid var(--line-border-color);
+  border-top: 1px solid var(--stepper-line-border-color);
   content: " ";
   display: block;
   left: 0;
@@ -80,7 +80,7 @@
 }
 
 .stepper > .step.dashed::before {
-  border-top: 1px dashed var(--line-border-color);
+  border-top: 1px dashed var(--stepper-line-border-color);
 }
 
 .stepper > .step:first-child::before {
