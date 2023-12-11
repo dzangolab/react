@@ -11,23 +11,14 @@ const StepperDemo = () => {
       step: "a",
       completedStepIcon: <i className="pi pi-check" />,
       label: t("stepper.demo.label.personal"),
-      command: (event: any) => {
-        toast.info(event.label);
-      },
     },
     {
       completedStepIcon: "pi pi-check",
       label: t("stepper.demo.label.children"),
-      command: (event: any) => {
-        toast.info(event.label);
-      },
     },
     {
       completedStepIcon: "pi pi-check",
       label: t("stepper.demo.label.payment"),
-      command: (event: any) => {
-        toast.info(event.label);
-      },
     },
     {
       label: t("stepper.demo.label.confirmation"),

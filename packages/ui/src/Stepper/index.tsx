@@ -4,7 +4,6 @@ import { IStepEvent, LineStyleType, Step } from "./Step";
 
 type StepItem = {
   activeStepIcon?: string | ReactNode;
-  command?: (event: IStepEvent) => void;
   label?: string;
   step?: number | string | ReactNode;
 };
@@ -24,7 +23,7 @@ export const Stepper: React.FC<IProperties> = ({
   readOnly = true,
   stepList = [],
 }) => {
-  const handleActiveIndex = (event: IStepEvent) => {
+  const handleIndexChange = (event: IStepEvent) => {
     if (!readOnly && onChange) {
       onChange(event);
     }
@@ -39,7 +38,7 @@ export const Stepper: React.FC<IProperties> = ({
             {...element}
             index={index}
             lineStyle={lineStyle}
-            handleActiveIndex={handleActiveIndex}
+            handleIndexChange={handleIndexChange}
             isCompleted={activeIndex > index ? true : false}
             isActive={activeIndex === index ? true : false}
             readOnly={readOnly}

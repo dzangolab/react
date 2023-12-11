@@ -12,7 +12,7 @@ interface IStepProperties {
   isActive: boolean;
   completedStepIcon?: string | ReactNode;
   command?: (event: IStepEvent) => void;
-  handleActiveIndex: (event: IStepEvent) => void;
+  handleIndexChange: (event: IStepEvent) => void;
   index: number;
   label?: string;
   lineStyle?: LineStyleType;
@@ -24,12 +24,10 @@ export const Step: FC<IStepProperties> = ({
   isCompleted,
   isActive,
   completedStepIcon,
-  command,
-  handleActiveIndex,
+  handleIndexChange,
   index,
   label,
   lineStyle,
-  readOnly,
   step,
 }) => {
   const renderLabel = (label?: string) => {
@@ -68,15 +66,8 @@ export const Step: FC<IStepProperties> = ({
     );
   };
 
-  const handleCommand = (event: IStepEvent) => {
-    if (!readOnly && command) {
-      command(event);
-    }
-  };
-
   const handleClick = (event: IStepEvent) => {
-    handleActiveIndex(event);
-    handleCommand(event);
+    handleIndexChange(event);
   };
 
   return (
