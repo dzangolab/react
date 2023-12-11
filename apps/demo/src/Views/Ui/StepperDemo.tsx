@@ -40,7 +40,7 @@ const StepperDemo = () => {
         stepList={list}
         activeIndex={activeIndex}
         readOnly={false}
-        onSelect={(event: any) => {
+        onChange={(event: any) => {
           setActiveIndex(event.index);
         }}
       />

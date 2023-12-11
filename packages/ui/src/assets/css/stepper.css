@@ -1,3 +1,12 @@
+:root {
+  --step-completed-color: #007aff;
+  --line-border-color: #e5e7eb;
+  --step-number-color: #ffffff;
+  --step-number-border-color: #f3f4f6;
+  --step-label-color: #6b7280;
+  --step-label-completed-color: #000000;
+}
+
 .stepper {
   display: flex;
   justify-content: space-between;
@@ -14,20 +23,20 @@
   position: relative;
 }
 
-.stepper > .step > .step-number.active {
-  background-color: #007aff;
+.stepper > .step > .step-number.completed {
+  background-color: var(--step-completed-color);
   border: none;
-  color: #ffffff;
+  color: var(--step-number-color);
 }
 
-.stepper > .step > .step-number.current {
-  border: 1px solid #007aff;
+.stepper > .step > .step-number.active {
+  border: 1px solid var(--step-completed-color);
 }
 
 .stepper > .step > .step-number {
   align-items: center;
-  background: #ffffff;
-  border: 1px solid #f3f4f6;
+  background: var(--step-number-color);
+  border: 1px solid var(--step-number-border-color);
   border-radius: 50%;
   display: flex;
   height: 3rem;
@@ -38,7 +47,7 @@
 }
 
 .stepper > .step > .step-label {
-  color: #6b7280;
+  color: var(--step-label-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,13 +61,13 @@
   cursor: pointer;
 }
 
-.stepper > .step > .step-label.active {
+.stepper > .step > .step-label.completed {
   color: #000;
   font-weight: bold;
 }
 
 .stepper > .step::before {
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--line-border-color);
   content: " ";
   display: block;
   left: 0;
@@ -69,7 +78,7 @@
 }
 
 .stepper > .step.dashed::before {
-  border-top: 1px dashed #e5e7eb;
+  border-top: 1px dashed;
 }
 
 .stepper > .step:first-child::before {

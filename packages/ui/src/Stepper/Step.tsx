@@ -6,9 +6,9 @@ export interface IStepEvent extends MouseEvent<HTMLElement> {
 }
 
 interface IStepProperties {
+  isCompleted: boolean;
   isActive: boolean;
-  isCurrent: boolean;
-  activeStepIcon?: string | ReactNode;
+  completedStepIcon?: string | ReactNode;
   command?: (event: IStepEvent) => void;
   handleActiveIndex: (event: IStepEvent) => void;
   index: number;
@@ -19,9 +19,9 @@ interface IStepProperties {
 }
 
 export const Step: FC<IStepProperties> = ({
+  isCompleted,
   isActive,
-  isCurrent,
-  activeStepIcon,
+  completedStepIcon,
   command,
   handleActiveIndex,
   index,
@@ -36,15 +36,20 @@ export const Step: FC<IStepProperties> = ({
     }
 
     return (
-      <span className={`step-label ${isActive ? "active" : ""} `}>{label}</span>
+      <span className={`step-label ${isCompleted ? "completed" : ""} `}>
+        {label}
+      </span>
     );
   };
 
-  const renderStep = (index: number, activeStepIcon?: string | ReactNode) => {
+  const renderStep = (
+    index: number,
+    completedStepIcon?: string | ReactNode,
+  ) => {
     const renderContent = () => {
-      if (isActive && activeStepIcon) {
-        if (typeof activeStepIcon !== "string") return activeStepIcon;
-        return <i className={activeStepIcon} />;
+      if (isCompleted && completedStepIcon) {
+        if (typeof completedStepIcon !== "string") return completedStepIcon;
+        return <i className={completedStepIcon} />;
       }
 
       return step || index + 1;
@@ -52,8 +57,8 @@ export const Step: FC<IStepProperties> = ({
 
     return (
       <span
-        className={`step-number ${isCurrent ? "current" : ""} ${
-          isActive ? "active" : ""
+        className={`step-number ${isActive ? "active" : ""} ${
+          isCompleted ? "completed" : ""
         } `}
       >
         {renderContent()}
@@ -74,13 +79,13 @@ export const Step: FC<IStepProperties> = ({
 
   return (
     <li
-      className={`step ${lineStyle === "dashed" && "dashed"}`}
+      className={`step ${lineStyle}`}
       key={index}
       onClick={(event) => {
         handleClick({ ...event, index, label: label });
       }}
     >
-      {renderStep(index, activeStepIcon)}
+      {renderStep(index, completedStepIcon)}
       {renderLabel(label)}
     </li>
   );

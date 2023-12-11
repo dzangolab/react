@@ -11,7 +11,7 @@ type StepItem = {
 
 interface IProperties {
   activeIndex?: number;
-  onSelect?: (event: IStepEvent) => void;
+  onChange?: (event: IStepEvent) => void;
   readOnly?: boolean;
   lineStyle?: "solid" | "dashed";
   stepList?: StepItem[];
@@ -20,13 +20,13 @@ interface IProperties {
 export const Stepper: React.FC<IProperties> = ({
   lineStyle = "solid",
   activeIndex = 0,
-  onSelect,
+  onChange,
   readOnly = true,
   stepList = [],
 }) => {
   const handleActiveIndex = (event: IStepEvent) => {
-    if (!readOnly && onSelect) {
-      onSelect(event);
+    if (!readOnly && onChange) {
+      onChange(event);
     }
   };
 
@@ -40,8 +40,8 @@ export const Stepper: React.FC<IProperties> = ({
             index={index}
             lineStyle={lineStyle}
             handleActiveIndex={handleActiveIndex}
-            isActive={activeIndex > index ? true : false}
-            isCurrent={activeIndex === index ? true : false}
+            isCompleted={activeIndex > index ? true : false}
+            isActive={activeIndex === index ? true : false}
             readOnly={readOnly}
           />
         );
