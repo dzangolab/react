@@ -81,5 +81,17 @@
   "popup": {
     "content": "Popup contents.",
     "title": "Popup"
+  },
+  "stepper": {
+    "title": "Stepper",
+    "demo": {
+      "message": "You are on page: {{page}}",
+      "label": {
+        "personal": "Personal",
+        "children": "Children",
+        "payment": "Payment",
+        "confirmation": "Confirmation"
+      }
+    }
   }
 }
