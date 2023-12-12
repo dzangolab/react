@@ -250,7 +250,14 @@ const componentList = [
   {
     key: 18,
     title: "button.title",
-    component: <Button label="button" />,
+    component: (
+      <Button
+        // label="button"
+        severity="danger"
+        variant="outlined"
+        icon="pi pi-check"
+      />
+    ),
   },
 ];
 

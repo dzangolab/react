@@ -1,3 +1,10 @@
+:root {
+  --button-color-primary: #007aff;
+  --button-color-secondary: #475569;
+  --button-color-success: #16a34a;
+  --button-color-danger: #dc2626;
+}
+
 .button {
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
@@ -19,4 +26,28 @@
 
 .button.danger {
   background-color: #dc2626;
+}
+
+.button.outlined {
+  background: transparent;
+  color: #007aff;
+  border: 1px solid #007aff;
+}
+
+.button.secondary.outlined {
+  background: transparent;
+  color: #475569;
+  border: 1px solid#475569;
+}
+
+.button.success.outlined {
+  background: transparent;
+  color: #16a34a;
+  border: 1px solid #16a34a;
+}
+
+.button.danger.outlined {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid#dc2626;
 }

@@ -2,8 +2,8 @@ import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
 interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
-  severity?: "primary" | "secondary" | "danger" | "succcess";
-  variant?: "outlined" | "filled" | "text";
+  severity?: "primary" | "secondary" | "danger" | "success";
+  variant?: "outlined" | "filled";
   icon?: string | ReactNode;
   loading?: boolean;
   iconPosition?: string;
@@ -25,10 +25,11 @@ export const Button: FC<IButtonProperties> = ({
       <span>{typeof icon === "string" ? <i className={icon} /> : icon}</span>
     );
   };
+
   return (
     <button
       onClick={onClick}
-      disabled={disabled}
+      disabled={loading || disabled}
       className={`button ${severity} ${variant}`}
       {...otherProperties}
     >
