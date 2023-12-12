@@ -10,6 +10,9 @@
   font-size: 1rem;
   border-radius: 0.5rem;
   border: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
   font-weight: 700;
   background-color: #007aff;
   cursor: pointer;
@@ -54,4 +57,9 @@
 
 .button > .button-label {
   margin-left: 0.5rem;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: default;
 }

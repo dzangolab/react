@@ -253,9 +253,10 @@ const componentList = [
     component: (
       <Button
         label="button"
-        severity="danger"
-        variant="outlined"
+        severity="primary"
+        variant="filled"
         icon="pi pi-check"
+        disabled={true}
       />
     ),
   },
