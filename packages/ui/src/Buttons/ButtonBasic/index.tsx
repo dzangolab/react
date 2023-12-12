@@ -20,9 +20,19 @@ export const Button: FC<IButtonProperties> = ({
   onClick,
   ...otherProperties
 }) => {
+  const renderIcon = () => {
+    return (
+      <span>{typeof icon === "string" ? <i className={icon} /> : icon}</span>
+    );
+  };
   return (
-    <button onClick={onClick} disabled={disabled} {...otherProperties}>
-      <span>{icon}</span>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`button ${severity} ${variant}`}
+      {...otherProperties}
+    >
+      {renderIcon()}
       <span>{label}</span>
     </button>
   );
