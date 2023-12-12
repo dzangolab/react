@@ -30,7 +30,9 @@ export const Input: React.FC<IInputField> = ({
     <div className={`field ${name}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
-        {...register(name)}
+        {...register(name, {
+          valueAsNumber: type === "number" ? true : false,
+        })}
         id={`input-field-${name}`}
         className={inputClassName}
         type={type}

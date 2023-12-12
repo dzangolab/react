@@ -55,7 +55,7 @@
   position: absolute;
   right: 0;
   top: var(--header-padding-top, 1em);
-  z-index: 1;
+  z-index: 999;
 }
 
 .layout > header > nav[data-expanded="false"] {

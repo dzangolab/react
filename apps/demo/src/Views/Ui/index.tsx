@@ -16,6 +16,7 @@ import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import MessageDemo from "./MessageDemo";
 import PopupDemo from "./PopupDemo";
+import StepperDemo from "./StepperDemo";
 import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
@@ -239,6 +240,11 @@ const componentList = [
     key: 16,
     title: "popup.title",
     component: <PopupDemo />,
+  },
+  {
+    key: 17,
+    title: "stepper.title",
+    component: <StepperDemo />,
   },
 ];
 

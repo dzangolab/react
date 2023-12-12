@@ -80,5 +80,17 @@
   "popup": {
     "content": "Popup contents. (fr)",
     "title": "Popup (fr)"
+  },
+  "stepper": {
+    "title": "Stepper (fr)",
+    "demo": {
+      "message": "You are on page: {{page}} (fr)",
+      "label": {
+        "personal": "Personal (fr)",
+        "children": "Children (fr)",
+        "payment": "Payment (fr)",
+        "confirmation": "Confirmation (fr)"
+      }
+    }
   }
 }
