@@ -2,8 +2,8 @@ import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
 interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
-  severity?: string;
-  variant?: string;
+  severity?: "primary" | "secondary" | "danger" | "succcess";
+  variant?: "outlined" | "filled" | "text";
   icon?: string | ReactNode;
   loading?: boolean;
   iconPosition?: string;
@@ -11,7 +11,7 @@ interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button: FC<IButtonProperties> = ({
   label,
-  severity,
+  severity = "primary",
   variant,
   icon,
   loading,

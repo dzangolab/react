@@ -7,6 +7,7 @@ import {
   FilesPresentation,
   SortableList,
 } from "@dzangolab/react-ui";
+import { Button } from "@dzangolab/react-ui";
 
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
@@ -245,6 +246,11 @@ const componentList = [
     key: 17,
     title: "stepper.title",
     component: <StepperDemo />,
+  },
+  {
+    key: 18,
+    title: "button.title",
+    component: <Button label="button" />,
   },
 ];
 
