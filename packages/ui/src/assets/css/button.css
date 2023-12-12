@@ -51,3 +51,7 @@
   color: #dc2626;
   border: 1px solid#dc2626;
 }
+
+.button > .button-label {
+  margin-left: 0.5rem;
+}

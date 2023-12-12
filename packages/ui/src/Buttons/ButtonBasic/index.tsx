@@ -22,7 +22,9 @@ export const Button: FC<IButtonProperties> = ({
 }) => {
   const renderIcon = () => {
     return (
-      <span>{typeof icon === "string" ? <i className={icon} /> : icon}</span>
+      <span className="button-icon">
+        {typeof icon === "string" ? <i className={icon} /> : icon}
+      </span>
     );
   };
 
@@ -34,7 +36,7 @@ export const Button: FC<IButtonProperties> = ({
       {...otherProperties}
     >
       {renderIcon()}
-      <span>{label}</span>
+      <span className="button-label">{label}</span>
     </button>
   );
 };
