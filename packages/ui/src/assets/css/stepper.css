@@ -24,13 +24,13 @@
   position: relative;
 }
 
-.stepper > .step > .step-number.completed {
+.stepper > .step > .step-number.active {
   background-color: var(--stepper-completed-color);
   border: none;
   color: var(--stepper-number-color);
 }
 
-.stepper > .step > .step-number.active {
+.stepper > .step > .step-number.completed {
   border: 1px solid var(--stepper-active-border-color);
 }
 
@@ -63,7 +63,7 @@
   cursor: pointer;
 }
 
-.stepper > .step > .step-label.completed {
+.stepper > .step > .step-label.active {
   color: #000;
   font-weight: bold;
 }
@@ -83,12 +83,20 @@
   border-top: 1px dashed var(--stepper-line-border-color);
 }
 
-.stepper > .step:first-child::before {
+.stepper > .step.center:first-child::before {
   left: 50%;
 }
 
-.stepper > .step:last-child::before {
+.stepper > .step.center:last-child::before {
   left: -50%;
+}
+
+.stepper > .step.start:last-child::before {
+  display: none;
+}
+
+.stepper > .step.end:last-child::before {
+  display: none;
 }
 
 .stepper > .step:only-child::before {
@@ -99,6 +107,10 @@
   .stepper > .step > .step-number {
     height: 2rem;
     width: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .stepper > .step > .step-number > i {
     font-size: 0.8rem;
   }
 
