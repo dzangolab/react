@@ -99,14 +99,8 @@
   left: -50%;
 }
 
-.stepper > .step.start:last-child::before {
-  display: none;
-}
-
-.stepper > .step.end:first-child::before {
-  display: none;
-}
-
+.stepper > .step.start:last-child::before,
+.stepper > .step.end:first-child::before,
 .stepper > .step:only-child::before {
   display: none;
 }
