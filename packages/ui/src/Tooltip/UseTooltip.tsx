@@ -1,4 +1,4 @@
-import { useState, RefObject, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 type Position = {
   top?: number;
@@ -8,10 +8,6 @@ type Position = {
 type UseTooltipProperties = {
   delay?: number;
   mouseTrack?: boolean;
-  offset?: number;
-  position?: "top" | "bottom" | "right" | "left";
-  ref: RefObject<HTMLElement>;
-  tooltipReference: RefObject<HTMLDivElement>;
 };
 
 export function useTooltip({
