@@ -24,6 +24,14 @@
   position: relative;
 }
 
+.stepper > .step.start {
+  align-items: start;
+}
+
+.stepper > .step.end {
+  align-items: end;
+}
+
 .stepper > .step > .step-number.active {
   background-color: var(--stepper-completed-color);
   border: none;
@@ -95,7 +103,7 @@
   display: none;
 }
 
-.stepper > .step.end:last-child::before {
+.stepper > .step.end:first-child::before {
   display: none;
 }
 

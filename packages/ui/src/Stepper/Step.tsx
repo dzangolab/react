@@ -38,9 +38,7 @@ export const Step: FC<IStepProperties> = ({
     }
 
     return (
-      <span className={`step-label ${isCompleted ? "completed" : ""} `}>
-        {label}
-      </span>
+      <span className={`step-label ${isActive ? "active" : ""} `}>{label}</span>
     );
   };
 
