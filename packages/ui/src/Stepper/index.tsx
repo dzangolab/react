@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { IStepEvent, LineStyleType, ListAlignmentType, Step } from "./Step";
+import { IStepEvent, LineStyleType, AlignType, Step } from "./Step";
 
 type StepItem = {
   activeStepIcon?: string | ReactNode;
@@ -14,11 +14,11 @@ interface IProperties {
   readOnly?: boolean;
   lineStyle?: LineStyleType;
   steps: StepItem[];
-  listalignment?: ListAlignmentType;
+  align?: AlignType;
 }
 
 export const Stepper: React.FC<IProperties> = ({
-  listalignment = "center",
+  align = "center",
   lineStyle = "solid",
   activeIndex = 0,
   onChange,
@@ -43,7 +43,7 @@ export const Stepper: React.FC<IProperties> = ({
             onClick={onClick}
             isCompleted={activeIndex > index ? true : false}
             isActive={activeIndex === index ? true : false}
-            listalignment={listalignment}
+            align={align}
           />
         );
       })}

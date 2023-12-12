@@ -5,7 +5,7 @@ export interface IStepEvent extends MouseEvent<HTMLElement> {
   index?: number;
 }
 
-export type ListAlignmentType = "start" | "center" | "end";
+export type AlignType = "start" | "center" | "end";
 
 export type LineStyleType = "solid" | "dashed";
 
@@ -17,7 +17,7 @@ interface IStepProperties {
   index: number;
   label?: string;
   lineStyle?: LineStyleType;
-  listalignment?: ListAlignmentType;
+  align?: AlignType;
   step?: number | string | ReactNode;
 }
 
@@ -29,7 +29,7 @@ export const Step: FC<IStepProperties> = ({
   index,
   label,
   lineStyle,
-  listalignment,
+  align,
   step,
 }) => {
   const renderLabel = (label?: string) => {
@@ -72,7 +72,7 @@ export const Step: FC<IStepProperties> = ({
 
   return (
     <li
-      className={`step ${listalignment} ${lineStyle}`}
+      className={`step ${align} ${lineStyle}`}
       key={index}
       onClick={(event) => {
         handleClick({ ...event, index, label: label });
