@@ -7,12 +7,17 @@ import React, {
   useCallback,
   useState,
   useMemo,
+  useRef,
 } from "react";
 import { createPortal, findDOMNode } from "react-dom";
 import { usePopper } from "react-popper";
 
 import { getTooltipConfig } from "./ConfigureTooltip";
-import { useTooltip } from "./UseTooltip";
+
+type Position = {
+  top?: number;
+  left?: number;
+};
 
 type TooltipProperties = {
   children: React.ReactNode;
@@ -36,19 +41,30 @@ export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
     offset,
     position,
   } = { ...tooltipConfig, ...tooltipProperties };
+
   const [tooltipReference, setTooltipReference] =
     useState<HTMLDivElement | null>();
+  const [showTooltip, setShowTooltip] = useState<boolean>(false);
+  const [mousePosition, setMousePosition] = useState<Position>({});
+  const timeoutIdReference = useRef<ReturnType<typeof setTimeout>>();
 
-  const {
-    mousePosition,
-    showTooltip,
-    onMouseEnter,
-    onMouseLeave,
-    onMouseMove,
-  } = useTooltip({
-    delay,
-    mouseTrack,
-  });
+  const onMouseEnter = () => {
+    clearTimeout(timeoutIdReference.current);
+    timeoutIdReference.current = setTimeout(() => {
+      setShowTooltip(true);
+    }, delay);
+  };
+
+  const onMouseLeave = () => {
+    clearTimeout(timeoutIdReference.current);
+    setShowTooltip(false);
+  };
+
+  const onMouseMove = (event: MouseEvent) => {
+    if (mouseTrack) {
+      setMousePosition({ top: event.clientY, left: event.clientX });
+    }
+  };
 
   const renderClassName = (mouseTrack?: boolean, position?: string) => {
     if (mouseTrack) {
