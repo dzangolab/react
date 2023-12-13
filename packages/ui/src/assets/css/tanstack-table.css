@@ -55,9 +55,6 @@
   justify-content: flex-end;
   width: 100%;
   background-color: var(--table-header-bg-color);
-}
-
-.table-container .toolbar .table-actions {
   padding: var(--table-column-padding);
 }
 
