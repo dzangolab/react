@@ -86,9 +86,9 @@
   font-size: var(--_button-font-size);
 }
 
-.button.small > span > i,
-.button.large > span > i,
-.button.medium > span > i {
+.button.small .button-icon > i,
+.button.large .button-icon > i,
+.button.medium .button-icon > i {
   font-size: var(--_button-icon-size);
 }
 
