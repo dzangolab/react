@@ -31,8 +31,10 @@ export const Button: FC<IButtonProperties> = ({
 
     const renderContent = () => {
       if (loading && loadingIcon) {
-        if (typeof loadingIcon === "string")
+        if (typeof loadingIcon === "string") {
           return <i className={loadingIcon} />;
+        }
+
         return loadingIcon;
       }
 
