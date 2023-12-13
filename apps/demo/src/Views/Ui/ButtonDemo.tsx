@@ -1,24 +1,39 @@
+import { useTranslation } from "@dzangolab/react-i18n";
 import { Button } from "@dzangolab/react-ui";
 
 export const ButtonDemo = () => {
+  const { t } = useTranslation("ui");
+
   return (
     <div className="buttons-wrapper">
       <Button
+        label={t("button.label")}
         size="small"
         variant="filled"
         severity="secondary"
         icon="pi pi-check"
       />
-      <Button size="medium" variant="outlined" severity="secondary" />
       <Button
+        label={t("button.label")}
+        size="medium"
+        variant="outlined"
+        severity="secondary"
+      />
+      <Button
+        label={t("button.label")}
         size="large"
         severity="alternate"
         variant="outlined"
         loading={true}
         loadingIcon="pi pi-spin pi-spinner"
       />
-      <Button variant="filled" />
-      <Button variant="filled" severity="alternate" disabled={true} />
+      <Button label={t("button.label")} variant="filled" icon="pi pi-user" />
+      <Button
+        label={t("button.label")}
+        variant="filled"
+        severity="alternate"
+        disabled={true}
+      />
     </div>
   );
 };

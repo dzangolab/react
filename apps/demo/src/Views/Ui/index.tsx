@@ -7,7 +7,6 @@ import {
   FilesPresentation,
   SortableList,
 } from "@dzangolab/react-ui";
-import { Button } from "@dzangolab/react-ui";
 
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";

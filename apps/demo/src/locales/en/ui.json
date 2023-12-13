@@ -95,6 +95,7 @@
     }
   },
   "button": {
-    "title": "Button"
+    "title": "Button",
+    "label": "Click"
   }
 }
