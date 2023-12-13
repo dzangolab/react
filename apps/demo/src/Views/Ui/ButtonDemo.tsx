@@ -29,9 +29,9 @@ export const ButtonDemo = () => {
       />
       <Button label={t("button.label")} variant="filled" icon="pi pi-user" />
       <Button
-        label={t("button.label")}
         variant="filled"
         severity="alternate"
+        icon="pi pi-user"
         disabled={true}
       />
     </div>

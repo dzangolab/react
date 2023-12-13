@@ -25,14 +25,31 @@ export const Button: FC<IButtonProperties> = ({
   ...otherProperties
 }) => {
   const renderIcon = () => {
-    if (loading && loadingIcon) {
-      if (typeof loadingIcon === "string") return <i className={loadingIcon} />;
-      return loadingIcon;
+    if (!icon && !loadingIcon) {
+      return null;
     }
 
-    if (icon && typeof icon === "string") return <i className={icon} />;
+    const renderContent = () => {
+      if (loading && loadingIcon) {
+        if (typeof loadingIcon === "string")
+          return <i className={loadingIcon} />;
+        return loadingIcon;
+      }
 
-    return icon;
+      if (icon && typeof icon === "string") return <i className={icon} />;
+
+      return icon;
+    };
+
+    return <span className="button-icon">{renderContent()}</span>;
+  };
+
+  const renderLabel = () => {
+    if (label) {
+      return <span className="button-label">{label}</span>;
+    }
+
+    return null;
   };
 
   return (
@@ -42,8 +59,8 @@ export const Button: FC<IButtonProperties> = ({
       className={`button ${severity} ${variant} ${iconPosition} ${size}`}
       {...otherProperties}
     >
-      <span className="button-icon">{renderIcon()}</span>
-      <span className="button-label">{label}</span>
+      {renderIcon()}
+      {renderLabel()}
     </button>
   );
 };
