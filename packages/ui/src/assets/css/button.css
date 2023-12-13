@@ -1,11 +1,12 @@
 :root {
-  --button-color-text: #ffffff;
+  --button-text-color: #ffffff;
 }
 
 .button {
-  --button-bg-color: var(--button-color);
-  --button-outlined-hover-color: var(--button-hover-color);
-  font-size: 1rem;
+  --_button-color: var(--button-color);
+  --_button-outlined-hover-color: var(--button-outlined-hover-color);
+  --_button-font-size: var(--button-font-size);
+  --_button-icon-size: var(--button-icon-size);
   border-radius: 0.5rem;
   border: none;
   display: flex;
@@ -13,7 +14,7 @@
   gap: 0.5rem;
   font-weight: 700;
   cursor: pointer;
-  color: var(--button-color-text);
+  color: var(--button-text-color);
   transition: all 0.3s ease;
 }
 
@@ -43,36 +44,51 @@
 .button.primary,
 .button.secondary,
 .button.alternate {
-  background-color: var(--button-bg-color);
+  background-color: var(--_button-color);
 }
 
 .button.secondary.outlined,
 .button.alternate.outlined,
 .button.primary.outlined {
   background: transparent;
-  color: var(--button-bg-color);
-  border: 1px solid var(--button-bg-color);
+  color: var(--_button-color);
+  border: 1px solid var(--_button-color);
 }
 
 .button.primary.outlined:hover,
 .button.secondary.outlined:hover,
 .button.alternate.outlined:hover {
-  background: var(--button-outlined-hover-color);
+  background: var(--_button-outlined-hover-color);
 }
 
 .button.small {
-  font-size: 0.875rem;
+  --button-icon-size: 0.8rem;
+  --button-font-size: 0.875rem;
   padding: 0.65625rem 1.09375rem;
 }
 
 .button.medium {
-  font-size: 1rem;
+  --button-icon-size: 0.95rem;
+  --button-font-size: 1rem;
   padding: 0.75rem 1.25rem;
 }
 
 .button.large {
-  font-size: 1.5rem;
+  --button-icon-size: 1.15rem;
+  --button-font-size: 1.5rem;
   padding: 0.9375rem 1.5625rem;
+}
+
+.button.small ,
+.button.large ,
+.button.medium  {
+  font-size: var(--_button-font-size);
+}
+
+.button.small > span > i,
+.button.large > span > i,
+.button.medium > span > i {
+  font-size: var(--_button-icon-size);
 }
 
 .button:disabled {

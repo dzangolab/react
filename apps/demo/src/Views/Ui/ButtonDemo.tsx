@@ -9,9 +9,20 @@ export const ButtonDemo = () => {
         severity="secondary"
         icon="pi pi-check"
       />
-      <Button size="medium" variant="outlined" severity="secondary" />
-      <Button size="large" severity="alternate" variant="outlined" />
-      <Button variant="filled" disabled={true} />
+      <Button
+        size="medium"
+        variant="outlined"
+        severity="secondary"
+        disabled={true}
+      />
+      <Button
+        size="large"
+        severity="alternate"
+        variant="outlined"
+        loading={true}
+        loadingIcon="pi pi-spin pi-spinner"
+      />
+      <Button variant="filled" />
     </div>
   );
 };
