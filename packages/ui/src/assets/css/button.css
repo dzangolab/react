@@ -62,6 +62,16 @@
   background: var(--button-outlined-hover-color);
 }
 
+.button.small {
+  font-size: 0.875rem;
+  padding: 0.65625rem 1.09375rem;
+}
+
+.button.large {
+  font-size: 1.5rem;
+  padding: 0.9375rem 1.5625rem;
+}
+
 .button:disabled {
   opacity: 0.5;
   cursor: default;
