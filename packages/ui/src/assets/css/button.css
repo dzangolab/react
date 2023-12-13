@@ -17,8 +17,13 @@
   font-weight: 700;
   background-color: var(--button-color-primary);
   cursor: pointer;
+  width: 7rem;
   color: var(--button-color-text-primary);
   transition: all 0.3s ease;
+}
+
+.button.right {
+  flex-direction: row-reverse;
 }
 
 .button.filled:hover {
@@ -59,6 +64,10 @@
   background: transparent;
   color: var(--button-color-danger);
   border: 1px solid var(--button-color-danger);
+}
+
+.button.danger.outlined:hover {
+  background-color: #f7eded;
 }
 
 .button:disabled {

@@ -6,7 +6,7 @@ interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "outlined" | "filled";
   icon?: string | ReactNode;
   loading?: boolean;
-  iconPosition?: string;
+  iconPosition?: "left" | "right";
 }
 
 export const Button: FC<IButtonProperties> = ({
@@ -16,7 +16,7 @@ export const Button: FC<IButtonProperties> = ({
   icon,
   loading,
   disabled,
-  iconPosition,
+  iconPosition = "left",
   onClick,
   ...otherProperties
 }) => {
@@ -32,7 +32,7 @@ export const Button: FC<IButtonProperties> = ({
     <button
       onClick={onClick}
       disabled={loading || disabled}
-      className={`button ${severity} ${variant}`}
+      className={`button ${severity} ${variant} ${iconPosition}`}
       {...otherProperties}
     >
       {renderIcon()}
