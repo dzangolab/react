@@ -26,11 +26,11 @@ export const Button: FC<IButtonProperties> = ({
 }) => {
   const renderIcon = () => {
     if (loading && loadingIcon) {
-      if (typeof loadingIcon === "string") <i className={loadingIcon} />;
+      if (typeof loadingIcon === "string") return <i className={loadingIcon} />;
       return loadingIcon;
     }
 
-    if (icon && typeof icon === "string") <i className={icon} />;
+    if (icon && typeof icon === "string") return <i className={icon} />;
 
     return icon;
   };

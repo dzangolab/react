@@ -4,24 +4,13 @@ export const ButtonDemo = () => {
   return (
     <div className="buttons-wrapper">
       <Button
+        size="small"
         variant="filled"
         severity="secondary"
-        loading={true}
-        loadingIcon={<i className="pi pi-spin pi-spinner" />}
+        icon="pi pi-check"
       />
-      <Button
-        size="small"
-        variant="outlined"
-        severity="secondary"
-        loading={true}
-        loadingIcon={<i className="pi pi-spin pi-spinner" />}
-      />
-      <Button
-        severity="alternate"
-        variant="outlined"
-        loading={true}
-        loadingIcon={<i className="pi pi-spin pi-spinner" />}
-      />
+      <Button size="medium" variant="outlined" severity="secondary" />
+      <Button size="large" severity="alternate" variant="outlined" />
       <Button variant="filled" disabled={true} />
     </div>
   );
