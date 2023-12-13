@@ -28,17 +28,17 @@
 
 .button.primary {
   --button-color: #007aff;
-  --button-hover-color: #e6eef6;
+  --button-outlined-hover-color: #e6eef6;
 }
 
 .button.secondary {
   --button-color: #475569;
-  --button-hover-color: #eaeff6;
+  --button-outlined-hover-color: #eaeff6;
 }
 
 .button.alternate {
   --button-color: #0284c7;
-  --button-hover-color: #e9f2f6;
+  --button-outlined-hover-color: #e9f2f6;
 }
 
 .button.primary,
@@ -79,9 +79,9 @@
   padding: 0.9375rem 1.5625rem;
 }
 
-.button.small ,
-.button.large ,
-.button.medium  {
+.button.small,
+.button.large,
+.button.medium {
   font-size: var(--_button-font-size);
 }
 
