@@ -1,5 +1,6 @@
 :root {
   --button-color-primary: #007aff;
+  --button-color-text-primary: #ffffff;
   --button-color-secondary: #475569;
   --button-color-success: #16a34a;
   --button-color-danger: #dc2626;
@@ -14,50 +15,50 @@
   justify-content: center;
   gap: 0.5rem;
   font-weight: 700;
-  background-color: #007aff;
+  background-color: var(--button-color-primary);
   cursor: pointer;
-  color: #ffffff;
+  color: var(--button-color-text-primary);
   transition: all 0.3s ease;
 }
 
-.button:hover {
-  filter: brightness(0.6);
+.button.filled:hover {
+  filter: brightness(0.9);
 }
 
 .button.secondary {
-  background-color: #475569;
+  background-color: var(--button-color-secondary);
 }
 
 .button.success {
-  background-color: #16a34a;
+  background-color: var(--button-color-success);
 }
 
 .button.danger {
-  background-color: #dc2626;
+  background-color: var(--button-color-danger);
 }
 
 .button.outlined {
   background: transparent;
-  color: #007aff;
-  border: 1px solid #007aff;
+  color: var(--button-color-primary);
+  border: 1px solid var(--button-color-primary);
 }
 
 .button.secondary.outlined {
   background: transparent;
-  color: #475569;
-  border: 1px solid#475569;
+  color: var(--button-color-secondary);
+  border: 1px solid var(--button-color-secondary);
 }
 
 .button.success.outlined {
   background: transparent;
-  color: #16a34a;
-  border: 1px solid #16a34a;
+  color: var(--button-color-success);
+  border: 1px solid var(--button-color-success);
 }
 
 .button.danger.outlined {
   background: transparent;
-  color: #dc2626;
-  border: 1px solid#dc2626;
+  color: var(--button-color-danger);
+  border: 1px solid var(--button-color-danger);
 }
 
 .button:disabled {

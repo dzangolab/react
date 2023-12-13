@@ -252,9 +252,9 @@ const componentList = [
     title: "button.title",
     component: (
       <Button
-        label="button"
+        label="Button"
         severity="danger"
-        variant="outlined"
+        variant="filled"
         icon="pi pi-check"
       />
     ),
