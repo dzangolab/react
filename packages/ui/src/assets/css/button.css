@@ -2,8 +2,7 @@
   --button-color-primary: #007aff;
   --button-color-text-primary: #ffffff;
   --button-color-secondary: #475569;
-  --button-color-success: #16a34a;
-  --button-color-danger: #dc2626;
+  --button-color-alternate: #0284c7;
 }
 
 .button {
@@ -27,19 +26,15 @@
 }
 
 .button.filled:hover {
-  filter: brightness(0.9);
+  filter: brightness(0.8);
 }
 
 .button.secondary {
   background-color: var(--button-color-secondary);
 }
 
-.button.success {
-  background-color: var(--button-color-success);
-}
-
-.button.danger {
-  background-color: var(--button-color-danger);
+.button.alternate {
+  background-color: var(--button-color-alternate);
 }
 
 .button.outlined {
@@ -54,16 +49,10 @@
   border: 1px solid var(--button-color-secondary);
 }
 
-.button.success.outlined {
+.button.alternate.outlined {
   background: transparent;
-  color: var(--button-color-success);
-  border: 1px solid var(--button-color-success);
-}
-
-.button.danger.outlined {
-  background: transparent;
-  color: var(--button-color-danger);
-  border: 1px solid var(--button-color-danger);
+  color: var(--button-color-alternate);
+  border: 1px solid var(--button-color-alternate);
 }
 
 .button.danger.outlined:hover {
