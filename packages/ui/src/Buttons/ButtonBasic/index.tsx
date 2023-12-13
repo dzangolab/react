@@ -10,7 +10,7 @@ interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<IButtonProperties> = ({
-  label,
+  label = "Button",
   severity = "primary",
   variant,
   icon,

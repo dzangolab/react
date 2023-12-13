@@ -22,6 +22,7 @@ import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
+import { ButtonDemo } from "./ButtonDemo";
 
 const componentList = [
   {
@@ -250,14 +251,7 @@ const componentList = [
   {
     key: 18,
     title: "button.title",
-    component: (
-      <Button
-        label="Button"
-        severity="danger"
-        variant="outlined"
-        icon="pi pi-check"
-      />
-    ),
+    component: <ButtonDemo />,
   },
 ];
 
