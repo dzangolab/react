@@ -5,7 +5,7 @@ export const ButtonDemo = () => {
     <div className="buttons-wrapper">
       <Button variant="filled" severity="secondary" />
       <Button variant="outlined" severity="secondary" />
-      <Button severity="alternate" variant="filled" />
+      <Button severity="alternate" variant="outlined" />
       <Button variant="filled" />
     </div>
   );

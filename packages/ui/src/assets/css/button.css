@@ -1,11 +1,9 @@
 :root {
-  --button-color-primary: #007aff;
-  --button-color-text-primary: #ffffff;
-  --button-color-secondary: #475569;
-  --button-color-alternate: #0284c7;
+  --button-color-text: #ffffff;
 }
 
 .button {
+  --button-bg-color: var(--button-color);
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   border-radius: 0.5rem;
@@ -14,10 +12,10 @@
   justify-content: center;
   gap: 0.5rem;
   font-weight: 700;
-  background-color: var(--button-color-primary);
+  background-color: var(--button-bg-color);
   cursor: pointer;
   width: 7rem;
-  color: var(--button-color-text-primary);
+  color: var(--button-color-text);
   transition: all 0.3s ease;
 }
 
@@ -29,34 +27,30 @@
   filter: brightness(0.8);
 }
 
+.button.primary {
+  --button-color: #007aff;
+}
+
 .button.secondary {
-  background-color: var(--button-color-secondary);
+  --button-color: #475569;
 }
 
 .button.alternate {
-  background-color: var(--button-color-alternate);
+  --button-color: #0284c7;
 }
 
-.button.outlined {
+.button.primary,
+.button.secondary,
+.button.alternate {
+  background-color: var(--button-bg-color);
+}
+
+.button.secondary.outlined,
+.button.alternate.outlined,
+.button.primary.outlined {
   background: transparent;
-  color: var(--button-color-primary);
-  border: 1px solid var(--button-color-primary);
-}
-
-.button.secondary.outlined {
-  background: transparent;
-  color: var(--button-color-secondary);
-  border: 1px solid var(--button-color-secondary);
-}
-
-.button.alternate.outlined {
-  background: transparent;
-  color: var(--button-color-alternate);
-  border: 1px solid var(--button-color-alternate);
-}
-
-.button.danger.outlined:hover {
-  background-color: #f7eded;
+  color: var(--button-bg-color);
+  border: 1px solid var(--button-bg-color);
 }
 
 .button:disabled {
