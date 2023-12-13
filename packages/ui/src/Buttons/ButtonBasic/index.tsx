@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
+import LoadingIcon from "../../LoadingIcon";
+
 interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   severity?: "primary" | "secondary" | "alternate";
@@ -7,6 +9,7 @@ interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string | ReactNode;
   loading?: boolean;
   iconPosition?: "left" | "right";
+  size?: "small" | "medium" | "large";
 }
 
 export const Button: FC<IButtonProperties> = ({
@@ -17,13 +20,20 @@ export const Button: FC<IButtonProperties> = ({
   loading,
   disabled,
   iconPosition = "left",
+  size = "medium",
   onClick,
   ...otherProperties
 }) => {
   const renderIcon = () => {
     return (
       <span className="button-icon">
-        {typeof icon === "string" ? <i className={icon} /> : icon}
+        {loading ? (
+          <LoadingIcon />
+        ) : typeof icon === "string" ? (
+          <i className={icon} />
+        ) : (
+          icon
+        )}
       </span>
     );
   };
@@ -32,7 +42,7 @@ export const Button: FC<IButtonProperties> = ({
     <button
       onClick={onClick}
       disabled={loading || disabled}
-      className={`button ${severity} ${variant} ${iconPosition}`}
+      className={`button ${severity} ${variant} ${iconPosition} ${size}`}
       {...otherProperties}
     >
       {renderIcon()}
