@@ -17,7 +17,7 @@
   --button-alternate-outlined-hover-color: #e9f2f6;
 }
 
-.button {
+.dz-button {
   --_button-color: var(--button-color);
   --_button-outlined-hover-color: var(--button-outlined-hover-color);
   --_button-font-size: var(--button-font-size);
@@ -36,69 +36,69 @@
   transition: all 0.3s ease;
 }
 
-.button:disabled {
+.dz-button:disabled {
   opacity: 0.5;
   cursor: default;
 }
 
-.button.filled {
+.dz-button.filled {
   color: var(--button-text-color);
 }
 
-.button.filled:hover {
+.dz-button.filled:hover {
   filter: brightness(0.8);
 }
 
-.button.filled:disabled:hover {
+.dz-button.filled:disabled:hover {
   filter: none;
 }
 
-.button.outlined {
+.dz-button.outlined {
   background: transparent;
   border: 1px solid var(--_button-color);
 }
 
-.button.outlined:hover {
+.dz-button.outlined:hover {
   background: var(--_button-outlined-hover-color);
 }
 
-.button.outlined:disabled:hover {
+.dz-button.outlined:disabled:hover {
   background: none;
 }
 
-.button.primary {
+.dz-button.primary {
   --button-color: var(--button-primary-color);
   --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
 }
 
-.button.secondary {
+.dz-button.secondary {
   --button-color: var(--button-secondary-color);
   --button-outlined-hover-color: var(--button-secondary-outlined-hover-color);
 }
 
-.button.alternate {
+.dz-button.alternate {
   --button-color: var(--button-alternate-color);
   --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
 }
 
-.button.small {
+.dz-button.small {
   --button-icon-size: var(--button-small-icon-size);
   --button-font-size: var(--button-small-font-size);
   --button-padding: var(--button-small-padding);
 }
 
-.button.medium {
+.dz-button.medium {
   --button-icon-size: var(--button-medium-icon-size);
   --button-font-size: var(--button-medium-font-size);
   --button-padding: var(--button-medium-padding);
 }
 
-.button.large {
+.dz-button.large {
   --button-icon-size: var(--button-large-icon-size);
   --button-font-size: var(--button-large-font-size);
   --button-padding: var(--button-large-padding);
 }
 
-.button > span > i {
+.dz-button > span > i {
   font-size: var(--_button-icon-size);
 }
