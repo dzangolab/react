@@ -28,8 +28,6 @@
   border: none;
   display: flex;
   font-size: var(--_button-font-size);
-  justify-content: center;
-  align-items: center;
   padding: var(--_button-padding);
   gap: 0.5rem;
   font-weight: 700;
