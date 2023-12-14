@@ -7,7 +7,7 @@ interface Properties {
   anonymousUserMenu?: React.ReactNode;
 }
 
-const UserMenu = (properties: Properties) => {
+const UserMenu: React.FC<Properties> = (properties: Properties) => {
   const {
     authenticatedUserMenu = <DropdownUserMenu />,
     anonymousUserMenu = <SignInUpMenu />,
