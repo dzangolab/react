@@ -38,12 +38,25 @@
   transition: all 0.3s ease;
 }
 
-.button .button-icon > i {
-  font-size: var(--_button-icon-size);
+.button.right {
+  flex-direction: row-reverse;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .button.filled {
   color: var(--button-text-color);
+}
+
+.button.filled:hover {
+  filter: brightness(0.8);
+}
+
+.button.filled:disabled:hover {
+  filter: none;
 }
 
 .button.outlined {
@@ -55,12 +68,8 @@
   background: var(--_button-outlined-hover-color);
 }
 
-.button.right {
-  flex-direction: row-reverse;
-}
-
-.button.filled:hover {
-  filter: brightness(0.8);
+.button.outlined:disabled:hover {
+  background: none;
 }
 
 .button.primary {
@@ -96,15 +105,6 @@
   --button-padding: var(--button-large-padding);
 }
 
-.button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-.button.filled:disabled:hover {
-  filter: none;
-}
-
-.button.outlined:disabled:hover {
-  background: none;
+.button .button-icon > i {
+  font-size: var(--_button-icon-size);
 }
