@@ -11,7 +11,7 @@ export const ButtonDemo = () => {
         size="small"
         variant="filled"
         severity="secondary"
-        icon="pi pi-check"
+        iconLeft="pi pi-check"
       />
       <Button
         label={t("button.label.secondary")}
@@ -25,18 +25,18 @@ export const ButtonDemo = () => {
         severity="alternate"
         variant="outlined"
         loading={true}
-        loadingIcon="pi pi-spin pi-spinner"
+        iconLeft="pi pi-spin pi-spinner"
       />
       <Button
         label={t("button.label.primary")}
         variant="filled"
-        icon="pi pi-user"
+        iconRight="pi pi-user"
       />
       <Button
         variant="filled"
         severity="alternate"
-        icon="pi pi-user"
         disabled={true}
+        iconLeft="pi pi-user"
       />
     </div>
   );

@@ -36,10 +36,6 @@
   transition: all 0.3s ease;
 }
 
-.button.right {
-  flex-direction: row-reverse;
-}
-
 .button:disabled {
   opacity: 0.5;
   cursor: default;
@@ -103,6 +99,6 @@
   --button-padding: var(--button-large-padding);
 }
 
-.button .button-icon > i {
+.button > span > i {
   font-size: var(--_button-icon-size);
 }

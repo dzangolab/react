@@ -4,10 +4,10 @@ interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   severity?: "primary" | "secondary" | "alternate";
   variant?: "outlined" | "filled";
-  icon?: string | ReactNode;
+  iconLeft?: string | ReactNode;
+  iconRight?: string | ReactNode;
   loading?: boolean;
   loadingIcon?: string | ReactNode;
-  iconPosition?: "left" | "right";
   size?: "small" | "medium" | "large";
 }
 
@@ -15,35 +15,24 @@ export const Button: FC<IButtonProperties> = ({
   label,
   severity = "primary",
   variant = "filled",
-  icon,
+  iconLeft,
+  iconRight,
   loading,
-  loadingIcon,
   disabled,
-  iconPosition = "left",
   size = "medium",
   onClick,
   ...otherProperties
 }) => {
-  const renderIcon = () => {
-    if (!icon && !loadingIcon) {
+  const renderIconLeft = () => {
+    if (!iconLeft) {
       return null;
     }
 
-    const renderContent = () => {
-      if (loading && loadingIcon) {
-        if (typeof loadingIcon === "string") {
-          return <i className={loadingIcon} />;
-        }
-
-        return loadingIcon;
-      }
-
-      if (icon && typeof icon === "string") return <i className={icon} />;
-
-      return icon;
-    };
-
-    return <span className="button-icon">{renderContent()}</span>;
+    return (
+      <span className="button-left-icon">
+        {typeof iconLeft === "string" ? <i className={iconLeft} /> : iconLeft}
+      </span>
+    );
   };
 
   const renderLabel = () => {
@@ -54,15 +43,32 @@ export const Button: FC<IButtonProperties> = ({
     return <span className="button-label">{label}</span>;
   };
 
+  const renderIconRight = () => {
+    if (!iconRight) {
+      return null;
+    }
+
+    return (
+      <span className="button-left-icon">
+        {typeof iconRight === "string" ? (
+          <i className={iconRight} />
+        ) : (
+          iconRight
+        )}
+      </span>
+    );
+  };
+
   return (
     <button
       onClick={onClick}
       disabled={loading || disabled}
-      className={`button ${severity} ${variant} ${iconPosition} ${size}`}
+      className={`button ${severity} ${variant} ${size}`}
       {...otherProperties}
     >
-      {renderIcon()}
+      {renderIconLeft()}
       {renderLabel()}
+      {renderIconRight()}
     </button>
   );
 };
