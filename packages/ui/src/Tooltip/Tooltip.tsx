@@ -1,8 +1,23 @@
-import React, { RefObject, useRef, FC, useEffect } from "react";
-import { createPortal } from "react-dom";
+import { VirtualElement } from "@popperjs/core";
+import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
+import React, {
+  RefObject,
+  FC,
+  useEffect,
+  useCallback,
+  useState,
+  useMemo,
+  useRef,
+} from "react";
+import { createPortal, findDOMNode } from "react-dom";
+import { usePopper } from "react-popper";
 
 import { getTooltipConfig } from "./ConfigureTooltip";
-import { useTooltip } from "./UseTooltip";
+
+type Position = {
+  top?: number;
+  left?: number;
+};
 
 type TooltipProperties = {
   children: React.ReactNode;
@@ -12,7 +27,6 @@ type TooltipProperties = {
   mouseTrack?: boolean;
   offset?: number;
   position?: "top" | "bottom" | "right" | "left";
-  style?: object;
 };
 
 export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
@@ -26,25 +40,31 @@ export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
     mouseTrack,
     offset,
     position,
-    style,
   } = { ...tooltipConfig, ...tooltipProperties };
 
-  const tooltipReference = useRef<HTMLDivElement>(null);
+  const [tooltipReference, setTooltipReference] =
+    useState<HTMLDivElement | null>();
+  const [showTooltip, setShowTooltip] = useState<boolean>(false);
+  const [mousePosition, setMousePosition] = useState<Position>({});
+  const timeoutIdReference = useRef<ReturnType<typeof setTimeout>>();
 
-  const {
-    tooltipPosition,
-    showTooltip,
-    onMouseEnter,
-    onMouseLeave,
-    onMouseMove,
-  } = useTooltip({
-    delay,
-    mouseTrack,
-    offset,
-    position,
-    ref: elementRef,
-    tooltipReference,
-  });
+  const onMouseEnter = () => {
+    clearTimeout(timeoutIdReference.current);
+    timeoutIdReference.current = setTimeout(() => {
+      setShowTooltip(true);
+    }, delay);
+  };
+
+  const onMouseLeave = () => {
+    clearTimeout(timeoutIdReference.current);
+    setShowTooltip(false);
+  };
+
+  const onMouseMove = (event: MouseEvent) => {
+    if (mouseTrack) {
+      setMousePosition({ top: event.clientY, left: event.clientX });
+    }
+  };
 
   const renderClassName = (mouseTrack?: boolean, position?: string) => {
     if (mouseTrack) {
@@ -72,23 +92,58 @@ export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
     };
   }, [elementRef, onMouseEnter, onMouseLeave, onMouseMove]);
 
+  const renderedClassName = renderClassName(mouseTrack, position);
+
+  const setOffset: OffsetsFunction = useCallback(() => {
+    return [0, offset];
+  }, []);
+
+  const virtualElement = useMemo(() => {
+    return {
+      getBoundingClientRect: () => ({
+        width: 0,
+        height: 0,
+        top: mousePosition.top,
+        right: mousePosition.left,
+        bottom: mousePosition.top,
+        left: mousePosition.left,
+      }),
+    };
+  }, [mousePosition]);
+
+  const { styles, attributes } = usePopper(
+    mouseTrack
+      ? (virtualElement as VirtualElement)
+      : (findDOMNode(elementRef.current) as Element),
+    tooltipReference,
+    {
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: setOffset,
+          },
+        },
+        {
+          name: "hide",
+        },
+      ],
+      placement: position,
+    },
+  );
+
   if (!showTooltip) {
     return null;
   }
-
-  const renderedClassName = renderClassName(mouseTrack, position);
 
   return (
     <>
       {createPortal(
         <div
-          ref={tooltipReference}
+          ref={setTooltipReference}
           className={className ? className : renderedClassName}
-          style={{
-            top: tooltipPosition.top,
-            left: tooltipPosition.left,
-            ...style,
-          }}
+          style={styles.popper}
+          {...attributes}
         >
           {children}
         </div>,
