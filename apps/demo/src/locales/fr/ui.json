@@ -92,5 +92,13 @@
         "confirmation": "Confirmation (fr)"
       }
     }
+  },
+  "button": {
+    "title": "Button (fr)",
+    "label": {
+      "primary": "Primary (fr)",
+      "secondary": "Secondary (fr)",
+      "alternate": "Alternate (fr)"
+    }
   }
 }

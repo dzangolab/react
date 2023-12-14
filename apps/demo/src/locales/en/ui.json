@@ -93,5 +93,13 @@
         "confirmation": "Confirmation"
       }
     }
+  },
+  "button": {
+    "title": "Button",
+    "label": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "alternate": "Alternate"
+    }
   }
 }
