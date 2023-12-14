@@ -96,6 +96,10 @@
   },
   "button": {
     "title": "Button",
-    "label": "Click"
+    "label":{
+      "primary":"Primary",
+      "secondary":"Secondary",
+      "alternate":"Alternate"
+    }
   }
 }

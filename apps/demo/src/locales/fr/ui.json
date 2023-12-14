@@ -95,6 +95,10 @@
   },
   "button": {
     "title": "Button (fr)",
-    "label": "Click (fr)"
+    "label": {
+      "primary": "Primary (fr)",
+      "secondary": "Secondary (fr)",
+      "alternate": "Alternate (fr)"
+    }
   }
 }
