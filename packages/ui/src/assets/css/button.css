@@ -1,5 +1,20 @@
 :root {
   --button-text-color: #ffffff;
+  --button-primary-color: #007aff;
+  --button-secondary-color: #475569;
+  --button-alternate-color: #0284c7;
+  --button-small-font-size: 0.875rem;
+  --button-small-icon-size: 0.8rem;
+  --button-medium-icon-size: 0.95rem;
+  --button-medium-font-size: 1rem;
+  --button-large-icon-size: 1.15rem;
+  --button-large-font-size: 1.5rem;
+  --button-small-padding: 0.65625rem 1.09375rem;
+  --button-medium-padding: 0.75rem 1.25rem;
+  --button-large-padding: 0.9375rem 1.5625rem;
+  --button-primary-outlined-hover-color: #e6eef6;
+  --button-secondary-outlined-hover-color: #eaeff6;
+  --button-alternate-outlined-hover-color: #e9f2f6;
 }
 
 .button {
@@ -7,16 +22,37 @@
   --_button-outlined-hover-color: var(--button-outlined-hover-color);
   --_button-font-size: var(--button-font-size);
   --_button-icon-size: var(--button-icon-size);
+  --_button-padding: var(--button-padding);
+  background-color: var(--_button-color);
   border-radius: 0.5rem;
   border: none;
   display: flex;
+  font-size: var(--_button-font-size);
   justify-content: center;
   align-items: center;
+  padding: var(--_button-padding);
   gap: 0.5rem;
   font-weight: 700;
   cursor: pointer;
-  color: var(--button-text-color);
+  color: var(--_button-color);
   transition: all 0.3s ease;
+}
+
+.button .button-icon > i {
+  font-size: var(--_button-icon-size);
+}
+
+.button.filled {
+  color: var(--button-text-color);
+}
+
+.button.outlined {
+  background: transparent;
+  border: 1px solid var(--_button-color);
+}
+
+.button.outlined:hover {
+  background: var(--_button-outlined-hover-color);
 }
 
 .button.right {
@@ -28,68 +64,36 @@
 }
 
 .button.primary {
-  --button-color: #007aff;
-  --button-outlined-hover-color: #e6eef6;
+  --button-color: var(--button-primary-color);
+  --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
 }
 
 .button.secondary {
-  --button-color: #475569;
-  --button-outlined-hover-color: #eaeff6;
+  --button-color: var(--button-secondary-color);
+  --button-outlined-hover-color: var(--button-secondary-outlined-hover-color);
 }
 
 .button.alternate {
-  --button-color: #0284c7;
-  --button-outlined-hover-color: #e9f2f6;
-}
-
-.button.primary,
-.button.secondary,
-.button.alternate {
-  background-color: var(--_button-color);
-}
-
-.button.secondary.outlined,
-.button.alternate.outlined,
-.button.primary.outlined {
-  background: transparent;
-  color: var(--_button-color);
-  border: 1px solid var(--_button-color);
-}
-
-.button.primary.outlined:hover,
-.button.secondary.outlined:hover,
-.button.alternate.outlined:hover {
-  background: var(--_button-outlined-hover-color);
+  --button-color: var(--button-alternate-color);
+  --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
 }
 
 .button.small {
-  --button-icon-size: 0.8rem;
-  --button-font-size: 0.875rem;
-  padding: 0.65625rem 1.09375rem;
+  --button-icon-size: var(--button-small-icon-size);
+  --button-font-size: var(--button-small-font-size);
+  --button-padding: var(--button-small-padding);
 }
 
 .button.medium {
-  --button-icon-size: 0.95rem;
-  --button-font-size: 1rem;
-  padding: 0.75rem 1.25rem;
+  --button-icon-size: var(--button-medium-icon-size);
+  --button-font-size: var(--button-medium-font-size);
+  --button-padding: var(--button-medium-padding);
 }
 
 .button.large {
-  --button-icon-size: 1.15rem;
-  --button-font-size: 1.5rem;
-  padding: 0.9375rem 1.5625rem;
-}
-
-.button.small,
-.button.large,
-.button.medium {
-  font-size: var(--_button-font-size);
-}
-
-.button.small .button-icon > i,
-.button.large .button-icon > i,
-.button.medium .button-icon > i {
-  font-size: var(--_button-icon-size);
+  --button-icon-size: var(--button-large-icon-size);
+  --button-font-size: var(--button-large-font-size);
+  --button-padding: var(--button-large-padding);
 }
 
 .button:disabled {
