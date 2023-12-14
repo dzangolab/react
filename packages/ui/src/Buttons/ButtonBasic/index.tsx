@@ -47,11 +47,11 @@ export const Button: FC<IButtonProperties> = ({
   };
 
   const renderLabel = () => {
-    if (label) {
-      return <span className="button-label">{label}</span>;
+    if (!label) {
+      return null;
     }
 
-    return null;
+    return <span className="button-label">{label}</span>;
   };
 
   return (
