@@ -99,6 +99,22 @@
       "primary": "Primary (fr)",
       "secondary": "Secondary (fr)",
       "alternate": "Alternate (fr)"
+    },
+    "property": {
+      "disable": "Disabled (fr)",
+      "icon": {
+        "title": "Icon (fr)",
+        "left": "Icon left (fr)",
+        "right": "Icon right (fr)"
+      },
+      "outline": "Outlined (fr)",
+      "severity": "Severity (fr)",
+      "size": {
+        "title" : "Size (fr)",
+        "small": "Small (fr)",
+        "medium": "Medium (fr)",
+        "large": "Large (fr)"
+      }
     }
   }
 }
