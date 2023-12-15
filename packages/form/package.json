@@ -27,7 +27,6 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@dzangolab/react-ui": "workspace:^",
     "@hookform/error-message": "2.0.1",
     "@hookform/resolvers": "3.3.2",
     "react-debounce-input": "3.3.0",
@@ -37,6 +36,7 @@
     "zod": "3.22.3"
   },
   "devDependencies": {
+    "@dzangolab/react-ui": "0.24.0",
     "@storybook/react": "7.4.0",
     "@testing-library/react": "14.0.0",
     "@types/jsdom": "21.1.4",
@@ -62,6 +62,7 @@
     "vitest": "0.30.1"
   },
   "peerDependencies": {
+    "@dzangolab/react-ui": "0.24.0",
     "primereact": "9.6.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",
