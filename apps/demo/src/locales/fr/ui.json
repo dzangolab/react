@@ -102,7 +102,12 @@
     },
     "property": {
       "severity": "Severity (fr)",
-      "size": "Size (fr)",
+      "size": {
+        "title" : "Size (fr)",
+        "small": "Small (fr)",
+        "medium": "Medium (fr)",
+        "large": "Large (fr)"
+      },
       "outline": "Outlined (fr)",
       "icon": "Icon (fr)",
       "disable": "Disabled (fr)"

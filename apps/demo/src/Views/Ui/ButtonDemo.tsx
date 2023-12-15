@@ -12,22 +12,22 @@ export const ButtonDemo = () => {
         <Button label={t("button.label.secondary")} severity="secondary" />
         <Button label={t("button.label.alternate")} severity="alternate" />
       </div>
-      <h3>{t("button.property.size")}</h3>
+      <h3>{t("button.property.size.title")}</h3>
       <div className="button-size">
         <Button
-          label="small button"
+          label={t("button.property.size.small")}
           size="small"
           variant="filled"
           severity="primary"
         />
         <Button
-          label="medium button"
+          label={t("button.property.size.medium")}
           size="medium"
           variant="filled"
           severity="primary"
         />
         <Button
-          label="large button"
+          label={t("button.property.size.large")}
           size="large"
           variant="filled"
           severity="primary"
@@ -80,7 +80,7 @@ export const ButtonDemo = () => {
       <h3>{t("button.property.disable")}</h3>
       <div>
         <Button
-          label="Disabled"
+          label={t("button.property.disable")}
           variant="filled"
           severity="primary"
           disabled={true}

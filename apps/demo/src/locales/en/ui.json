@@ -103,7 +103,12 @@
     },
     "property": {
       "severity": "Severity",
-      "size": "Size",
+      "size": {
+        "title" : "Size",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
+      },
       "outline": "Outlined",
       "icon": "Icon",
       "disable": "Disabled"
