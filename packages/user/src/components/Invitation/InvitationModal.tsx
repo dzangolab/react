@@ -42,7 +42,6 @@ export const InvitationModal = ({
         label={t("modal.button.label")}
         iconLeft={buttonIcon}
         onClick={() => setModalVisible(true)}
-        className="my-classname"
       />
       <Dialog
         className="invitation-modal"

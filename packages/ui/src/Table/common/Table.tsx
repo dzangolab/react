@@ -11,7 +11,6 @@ import {
   PaginationState,
   Updater,
 } from "@tanstack/react-table";
-import { Button } from "primereact/button";
 import React, {
   SyntheticEvent,
   useCallback,
@@ -38,6 +37,7 @@ import {
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
 import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
+import { Button } from "../../Buttons/ButtonBasic";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
