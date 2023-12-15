@@ -1,7 +1,12 @@
 .buttons-wrapper {
-  align-items: center;
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  justify-content: space-around;
+}
+
+.button-severity, .button-size, .button-icon, .button-outline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   flex-wrap: wrap;
 }
