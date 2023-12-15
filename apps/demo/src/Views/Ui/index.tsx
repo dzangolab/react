@@ -8,6 +8,7 @@ import {
   SortableList,
 } from "@dzangolab/react-ui";
 
+import { ButtonDemo } from "./ButtonDemo";
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
@@ -21,7 +22,6 @@ import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
-import { ButtonDemo } from "./ButtonDemo";
 
 const componentList = [
   {
