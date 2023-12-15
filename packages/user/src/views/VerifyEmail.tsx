@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
-import { Button } from "primereact/button";
+import { Page, Button } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

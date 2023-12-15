@@ -5,7 +5,6 @@ import {
   TRequestJSON,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
-import { IconType } from "primereact/utils";
 import { ReactNode } from "react";
 
 import { InvitationActions } from "./InvitationActions";
