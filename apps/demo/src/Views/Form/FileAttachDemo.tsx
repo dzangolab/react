@@ -14,7 +14,7 @@ const FileAttachDemo = () => {
     <>
       <FileAttachBasic
         name="fileAttach"
-        selectButtonProps={{ icon: "pi pi-file" }}
+        selectButtonProps={{ iconLeft: "pi pi-file" }}
         value={selectedFiles}
         mode={"update"}
         multiple={true}

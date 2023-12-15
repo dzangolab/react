@@ -12,7 +12,9 @@
   "main": "dist//DzangolabReactForm.umd.js",
   "module": "dist//DzangolabReactForm.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -25,6 +27,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
+    "@dzangolab/react-ui": "workspace:^",
     "@hookform/error-message": "2.0.1",
     "@hookform/resolvers": "3.3.2",
     "react-debounce-input": "3.3.0",

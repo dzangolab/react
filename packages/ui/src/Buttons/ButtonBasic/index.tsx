@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
-interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProperties
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   severity?: "primary" | "secondary" | "alternate";
   variant?: "outlined" | "filled";

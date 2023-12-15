@@ -31,7 +31,7 @@ export const FileInputButton: React.FC = () => {
         addDescriptionLabel={t("fileInput.description.label")}
         descriptionPlaceholder={t("fileInput.description.placeholder")}
         selectButtonProps={{
-          icon: "pi pi-file",
+          iconLeft: "pi pi-file",
         }}
         onChange={onChange}
       />
