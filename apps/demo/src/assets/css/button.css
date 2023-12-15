@@ -4,7 +4,7 @@
   gap: 1rem;
 }
 
-.button-severity, .button-size, .button-icon, .button-outline {
+.button-severity, .button-size, .button-icon, .button-outline, .button-disable {
   display: flex;
   align-items: center;
   gap: 1rem;

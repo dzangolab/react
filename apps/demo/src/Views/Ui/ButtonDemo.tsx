@@ -56,6 +56,9 @@ export const ButtonDemo = () => {
       </div>
       <h3>{t("button.property.icon")}</h3>
       <div className="button-icon">
+        <Button variant="filled" iconRight="pi pi-user" />
+        <Button variant="filled" severity="secondary" iconLeft="pi pi-check" />
+        <Button variant="filled" severity="alternate" iconLeft="pi pi-times" />
         <Button
           label={t("button.label.alternate")}
           size="medium"
@@ -64,24 +67,18 @@ export const ButtonDemo = () => {
           loading={true}
           iconLeft="pi pi-spin pi-spinner"
         />
-        <Button
-          label={t("button.label.primary")}
-          variant="filled"
-          iconRight="pi pi-user"
-        />
-        <Button
-          label={t("button.label.secondary")}
-          variant="filled"
-          severity="secondary"
-          iconLeft="pi pi-user"
-        />
-        <Button variant="filled" severity="alternate" iconLeft="pi pi-user" />
       </div>
       <h3>{t("button.property.disable")}</h3>
-      <div>
+      <div className="button-disable">
         <Button
           label={t("button.property.disable")}
           variant="filled"
+          severity="primary"
+          disabled={true}
+        />
+        <Button
+          label={t("button.property.disable")}
+          variant="outlined"
           severity="primary"
           disabled={true}
         />
