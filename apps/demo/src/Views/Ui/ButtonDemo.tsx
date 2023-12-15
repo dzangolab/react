@@ -6,37 +6,34 @@ export const ButtonDemo = () => {
 
   return (
     <div className="buttons-wrapper">
-      <h3>Severity</h3>
+      <h3>{t("button.property.severity")}</h3>
       <div className="button-severity">
         <Button label={t("button.label.primary")} severity="primary" />
         <Button label={t("button.label.secondary")} severity="secondary" />
         <Button label={t("button.label.alternate")} severity="alternate" />
       </div>
-      <h3>Sizes</h3>
+      <h3>{t("button.property.size")}</h3>
       <div className="button-size">
         <Button
           label="small button"
           size="small"
           variant="filled"
-          severity="secondary"
-          iconLeft="pi pi-check"
+          severity="primary"
         />
         <Button
           label="medium button"
           size="medium"
           variant="filled"
-          severity="secondary"
-          iconLeft="pi pi-check"
+          severity="primary"
         />
         <Button
           label="large button"
           size="large"
           variant="filled"
-          severity="secondary"
-          iconLeft="pi pi-check"
+          severity="primary"
         />
       </div>
-      <h3>Outlined</h3>
+      <h3>{t("button.property.outline")}</h3>
       <div className="button-outline">
         <Button
           label={t("button.label.primary")}
@@ -57,7 +54,7 @@ export const ButtonDemo = () => {
           variant="outlined"
         />
       </div>
-      <h3>Icons</h3>
+      <h3>{t("button.property.icon")}</h3>
       <div className="button-icon">
         <Button
           label={t("button.label.alternate")}
@@ -80,7 +77,7 @@ export const ButtonDemo = () => {
         />
         <Button variant="filled" severity="alternate" iconLeft="pi pi-user" />
       </div>
-      <h3>Disabled</h3>
+      <h3>{t("button.property.disable")}</h3>
       <div>
         <Button
           label="Disabled"

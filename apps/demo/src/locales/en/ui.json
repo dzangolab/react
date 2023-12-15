@@ -100,6 +100,13 @@
       "primary": "Primary",
       "secondary": "Secondary",
       "alternate": "Alternate"
+    },
+    "property": {
+      "severity": "Severity",
+      "size": "Size",
+      "outline": "Outlined",
+      "icon": "Icon",
+      "disable": "Disabled"
     }
   }
 }

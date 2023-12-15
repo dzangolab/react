@@ -99,6 +99,13 @@
       "primary": "Primary (fr)",
       "secondary": "Secondary (fr)",
       "alternate": "Alternate (fr)"
+    },
+    "property": {
+      "severity": "Severity (fr)",
+      "size": "Size (fr)",
+      "outline": "Outlined (fr)",
+      "icon": "Icon (fr)",
+      "disable": "Disabled (fr)"
     }
   }
 }
