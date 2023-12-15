@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
-interface IButtonProperties extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProperties
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   severity?: "primary" | "secondary" | "alternate";
   variant?: "outlined" | "filled";
@@ -21,6 +22,7 @@ export const Button: FC<IButtonProperties> = ({
   disabled,
   size = "medium",
   onClick,
+  className,
   ...otherProperties
 }) => {
   const renderIconLeft = () => {
@@ -63,7 +65,7 @@ export const Button: FC<IButtonProperties> = ({
     <button
       onClick={onClick}
       disabled={loading || disabled}
-      className={`dz-button ${severity} ${variant} ${size}`}
+      className={`dz-button ${className} ${severity} ${variant} ${size}`}
       {...otherProperties}
     >
       {renderIconLeft()}

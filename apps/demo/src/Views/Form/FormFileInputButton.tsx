@@ -1,6 +1,6 @@
-import { FormFileInput } from "@dzangolab/react-form";
-import { Provider } from "@dzangolab/react-form";
+import { FormFileInput, Provider } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Button } from "@dzangolab/react-ui";
 import React from "react";
 
 import { UploadBy } from "./FormWithFileInput";
@@ -40,13 +40,11 @@ export const FormWithFileInputButton: React.FC = () => {
         addDescriptionLabel={t("fileInput.description.label")}
         descriptionPlaceholder={t("fileInput.description.placeholder")}
         selectButtonProps={{
-          icon: "pi pi-file",
+          iconLeft: "pi pi-file",
         }}
       />
       <div className="mb-4">
-        <button className="w-full bg-primary">
-          {t("fileInput.actions.upload")}
-        </button>
+        <Button label={t("fileInput.actions.upload")} />
       </div>
     </Provider>
   );

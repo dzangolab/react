@@ -1,5 +1,5 @@
 // components/FormComponents/FileInputBasic.tsx
-import { Button } from "primereact/button";
+import { Button } from "@dzangolab/react-ui";
 import { OverlayPanel } from "primereact/overlaypanel";
 import React, { useMemo, useRef } from "react";
 import { useDropzone } from "react-dropzone";

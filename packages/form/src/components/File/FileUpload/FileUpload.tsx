@@ -1,4 +1,4 @@
-import { Button } from "primereact/button";
+import { Button } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { FileDropzoneBasic } from "../FileDropzone";
@@ -63,7 +63,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
         <Button
           disabled={!selectedFiles.length}
           label={uploadButtonLabel}
-          icon={uploadButtonIcon}
+          iconLeft={uploadButtonIcon}
           onClick={() => onUpload(selectedFiles)}
           {...uploadButtonProps}
         />
@@ -71,7 +71,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
           disabled={!selectedFiles.length}
           severity="secondary"
           label={cancelButtonLabel}
-          icon={cancelButtonIcon}
+          iconLeft={cancelButtonIcon}
           onClick={() => {
             onCancel && onCancel();
             setSelectedFiles([]);

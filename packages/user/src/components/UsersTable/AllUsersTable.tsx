@@ -4,9 +4,8 @@ import {
   TDataTableProperties,
   TRequestJSON,
 } from "@dzangolab/react-ui";
-import { ButtonProps } from "primereact/button";
 import { Tag } from "primereact/tag";
-import { IconType } from "primereact/utils";
+import { ReactNode } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -44,7 +43,7 @@ export type AllUsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
-  inviteButtonIcon?: IconType<ButtonProps>;
+  inviteButtonIcon?: string | ReactNode;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
