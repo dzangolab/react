@@ -109,7 +109,11 @@
         "large": "Large (fr)"
       },
       "outline": "Outlined (fr)",
-      "icon": "Icon (fr)",
+      "icon": {
+        "title": "Icon (fr)",
+        "left": "Icon left (fr)",
+        "right": "Icon right (fr)"
+      },
       "disable": "Disabled (fr)"
     }
   }

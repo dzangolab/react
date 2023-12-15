@@ -54,11 +54,21 @@ export const ButtonDemo = () => {
           variant="outlined"
         />
       </div>
-      <h3>{t("button.property.icon")}</h3>
+      <h3>{t("button.property.icon.title")}</h3>
       <div className="button-icon">
         <Button variant="filled" iconRight="pi pi-user" />
-        <Button variant="filled" severity="secondary" iconLeft="pi pi-check" />
-        <Button variant="filled" severity="alternate" iconLeft="pi pi-times" />
+        <Button
+          label={t("button.property.icon.left")}
+          variant="filled"
+          severity="secondary"
+          iconLeft="pi pi-check"
+        />
+        <Button
+          label={t("button.property.icon.right")}
+          variant="filled"
+          severity="alternate"
+          iconRight="pi pi-times"
+        />
         <Button
           label={t("button.label.alternate")}
           size="medium"

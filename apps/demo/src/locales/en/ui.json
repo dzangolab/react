@@ -110,7 +110,11 @@
         "large": "Large"
       },
       "outline": "Outlined",
-      "icon": "Icon",
+      "icon": {
+        "title": "Icon",
+        "left": "Icon left",
+        "right": "Icon right"
+      },
       "disable": "Disabled"
     }
   }
