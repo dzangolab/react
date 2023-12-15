@@ -5,9 +5,8 @@ import {
   TRequestJSON,
 } from "@dzangolab/react-ui";
 import { ColumnDef } from "@tanstack/react-table";
-import { ButtonProps } from "primereact/button";
 import { Tag } from "primereact/tag";
-import { IconType } from "primereact/utils";
+import { ReactNode } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -36,7 +35,7 @@ export type UsersTableProperties = Partial<
   apps?: Array<InvitationAppOption>;
   fetchUsers: (arguments_: TRequestJSON) => void;
   invitationExpiryDateField?: InvitationExpiryDateField;
-  inviteButtonIcon?: IconType<ButtonProps>;
+  inviteButtonIcon?: string | ReactNode;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (data: any) => void;

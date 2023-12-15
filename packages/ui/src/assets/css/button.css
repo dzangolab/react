@@ -27,6 +27,8 @@
   border-radius: 0.5rem;
   border: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: var(--_button-font-size);
   padding: var(--_button-padding);
   gap: 0.5rem;
