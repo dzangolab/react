@@ -102,20 +102,20 @@
       "alternate": "Alternate"
     },
     "property": {
+      "disable": "Disabled",
+      "icon": {
+        "title": "Icon",
+        "left": "Icon left",
+        "right": "Icon right"
+      },
+      "outline": "Outlined",
       "severity": "Severity",
       "size": {
         "title" : "Size",
         "small": "Small",
         "medium": "Medium",
         "large": "Large"
-      },
-      "outline": "Outlined",
-      "icon": {
-        "title": "Icon",
-        "left": "Icon left",
-        "right": "Icon right"
-      },
-      "disable": "Disabled"
+      }
     }
   }
 }
