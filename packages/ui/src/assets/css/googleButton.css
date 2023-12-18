@@ -1,5 +1,5 @@
 .google.dark {
-  background-color: #4285f4 !important;
+  background-color: var(--dz-primary-color) !important;
   border: none;
   color: #ffffff !important;
 }

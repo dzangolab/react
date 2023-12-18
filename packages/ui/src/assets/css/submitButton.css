@@ -1,6 +1,6 @@
 .button-submit {
   align-items: center;
-  background: var(--submit-button-bg-color, #1c4786);
+  background: var(--dz-primary-color);
   border-radius: 6px;
   border: none;
   color: var(--submit-button-color, #ffffff);

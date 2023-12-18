@@ -114,10 +114,7 @@ export const InvitationsTable = ({
                 <Tag
                   key={role + index}
                   value={role}
-                  style={{
-                    background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-                    width: "5rem",
-                  }}
+                  className={role === "ADMIN" ? "primary" : "success"}
                 />
               ))}
             </>
@@ -130,10 +127,7 @@ export const InvitationsTable = ({
           <>
             <Tag
               value={role}
-              style={{
-                background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-                width: "5rem",
-              }}
+              className={role === "ADMIN" ? "primary" : "success"}
             />
           </>
         );

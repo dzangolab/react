@@ -132,10 +132,7 @@ export const AllUsersTable = ({
                 <Tag
                   key={role + index}
                   value={role}
-                  style={{
-                    background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-                    width: "5rem",
-                  }}
+                  className={role === "ADMIN" ? "primary" : "success"}
                 />
               ))}
             </>
@@ -148,10 +145,7 @@ export const AllUsersTable = ({
           <>
             <Tag
               value={role}
-              style={{
-                background: role === "ADMIN" ? "#6366F1" : "#22C55E",
-                width: "5rem",
-              }}
+              className={role === "ADMIN" ? "primary" : "success"}
             />
           </>
         );
@@ -168,10 +162,7 @@ export const AllUsersTable = ({
               value={
                 original.isActiveUser ? t("status.active") : t("status.invited")
               }
-              style={{
-                background: original.isActiveUser ? "#6366F1" : "#22C55E",
-                width: "5rem",
-              }}
+              className={original.isActiveUser === true ? "primary" : "success"}
             />
           </>
         );

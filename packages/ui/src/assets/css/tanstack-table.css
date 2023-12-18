@@ -107,6 +107,16 @@
   overflow: hidden;
 }
 
+.table-container .table-wrapper .table .tcell .content > .primary {
+  width: 5rem;
+  background: var(--dz-primary-color);
+}
+
+.table-container .table-wrapper .table .tcell .content > .success {
+  width: 5rem;
+  background: var(--dz-success-color);
+}
+
 .table-container .table-wrapper .table .tcell > .content,
 .table-container .table-wrapper .table .tcol-head > .content {
   width: 100%;

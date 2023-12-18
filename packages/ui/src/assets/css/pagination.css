@@ -2,7 +2,6 @@
   --pagination-bg-color: #f8f9fa;
   --pagination-padding: 0.8rem;
   --pagination-gap: 0.5rem;
-  --pagination-buttons-bg-color: #007bff;
   --pagination-buttons-bg-color-hover: #0056b3;
   --pagination-buttons-bg-color-active: #0056b3;
   --pagination-buttons-bg-color-disabled: #e4e4e4;
@@ -44,7 +43,7 @@
   border: none;
   padding: 8px 12px;
   cursor: pointer;
-  background-color: var(--pagination-buttons-bg-color);
+  background-color: var(--dz-primary-color);
   color: #fff;
   border-radius: 4px;
   transition: background-color 0.3s ease;
