@@ -99,7 +99,10 @@
     "label": {
       "primary": "Primary",
       "secondary": "Secondary",
-      "alternate": "Alternate"
+      "alternate": "Alternate",
+      "success":"Success",
+      "danger":"Danger",
+      "warning":"Warning"
     },
     "property": {
       "disable": "Disabled",

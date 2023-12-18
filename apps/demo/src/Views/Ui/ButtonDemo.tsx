@@ -11,6 +11,9 @@ export const ButtonDemo = () => {
         <Button label={t("button.label.primary")} severity="primary" />
         <Button label={t("button.label.secondary")} severity="secondary" />
         <Button label={t("button.label.alternate")} severity="alternate" />
+        <Button label={t("button.label.success")} severity="success" />
+        <Button label={t("button.label.danger")} severity="danger" />
+        <Button label={t("button.label.warning")} severity="warning" />
       </div>
       <h3>{t("button.property.size.title")}</h3>
       <div className="button-size">
@@ -51,6 +54,21 @@ export const ButtonDemo = () => {
           label={t("button.label.alternate")}
           size="medium"
           severity="alternate"
+          variant="outlined"
+        />
+        <Button
+          label={t("button.label.success")}
+          severity="success"
+          variant="outlined"
+        />
+        <Button
+          label={t("button.label.danger")}
+          severity="danger"
+          variant="outlined"
+        />
+        <Button
+          label={t("button.label.warning")}
+          severity="warning"
           variant="outlined"
         />
       </div>

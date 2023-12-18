@@ -90,18 +90,18 @@
 }
 
 .dz-button.success {
-  --button-color: var(--button-alternate-color);
-  --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
+  --button-color: var(--button-success-color);
+  --button-outlined-hover-color: var(--button-success-outlined-hover-color);
 }
 
 .dz-button.danger {
-  --button-color: var(--button-alternate-color);
-  --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
+  --button-color: var(--button-danger-color);
+  --button-outlined-hover-color: var(--button-danger-outlined-hover-color);
 }
 
 .dz-button.warning {
-  --button-color: var(--button-alternate-color);
-  --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
+  --button-color: var(--button-warning-color);
+  --button-outlined-hover-color: var(--button-warning-outlined-hover-color);
 }
 
 .dz-button.small {

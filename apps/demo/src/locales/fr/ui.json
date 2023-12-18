@@ -98,7 +98,10 @@
     "label": {
       "primary": "Primary (fr)",
       "secondary": "Secondary (fr)",
-      "alternate": "Alternate (fr)"
+      "alternate": "Alternate (fr)",
+      "success": "Success (fr)",
+      "danger": "Danger (fr)",
+      "warning": "Warning (fr)"
     },
     "property": {
       "disable": "Disabled (fr)",
@@ -110,7 +113,7 @@
       "outline": "Outlined (fr)",
       "severity": "Severity (fr)",
       "size": {
-        "title" : "Size (fr)",
+        "title": "Size (fr)",
         "small": "Small (fr)",
         "medium": "Medium (fr)",
         "large": "Large (fr)"
