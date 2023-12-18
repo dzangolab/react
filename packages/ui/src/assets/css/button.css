@@ -69,7 +69,7 @@
 }
 
 .dz-button.primary {
-  --button-color: var(--button-primary-color);
+  --button-color: var(--dz-primary-color);
   --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
 }
 
