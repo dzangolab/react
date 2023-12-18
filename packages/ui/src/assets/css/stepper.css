@@ -1,4 +1,6 @@
 :root {
+  --stepper-active-color: var(--dz-primary-color);
+  --stepper-completed-border-color: var(--dz-primary-color);
   --stepper-line-border-color: #e5e7eb;
   --stepper-number-color: #ffffff;
   --stepper-number-border-color: #f3f4f6;
@@ -31,13 +33,13 @@
 }
 
 .stepper > .step > .step-number.active {
-  background-color: var(--dz-primary-color);
+  background-color: var(--stepper-active-color);;
   border: none;
   color: var(--stepper-number-color);
 }
 
 .stepper > .step > .step-number.completed {
-  border: 1px solid var(--dz-primary-color);
+  border: 1px solid var(--stepper-completed-border-color);
 }
 
 .stepper > .step > .step-number {
