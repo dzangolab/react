@@ -30,7 +30,11 @@
 
 .file-input .selected li > button,
 .file-list-overlay .selected li > button {
-  margin-left: auto;
+  position: absolute;
+  right: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0rem;
 }
 
 .file-input .selected li .preview,
@@ -41,6 +45,7 @@
   background: lightgray;
 }
 
+.file-list-overlay .selected li .info
 .file-list-overlay .selected li .info .details,
 .file-input .selected li .info .details > span {
   overflow: clip;
@@ -53,16 +58,6 @@
   gap: 0.5rem;
   height: 2.3rem;
   width: 100%;
-}
-
-.file-input .selected .p-button.p-button-sm,
-.file-list-overlay .selected .p-button.p-button-sm {
-  position: absolute;
-  right: 0;
-  min-width: 1.5rem;
-  padding: 0 !important;
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .file-input .dropzone {
