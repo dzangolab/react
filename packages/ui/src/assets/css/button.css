@@ -1,8 +1,8 @@
 :root {
   --button-text-color: #ffffff;
   --button-primary-color: var(--dz-primary-color);
-  --button-secondary-color: #475569;
-  --button-alternate-color: #0284c7;
+  --button-secondary-color: var(--dz-secondary-color);
+  --button-alternate-color: var(--dz-alternate-color);
   --button-small-font-size: 0.875rem;
   --button-small-icon-size: 0.8rem;
   --button-medium-icon-size: 0.95rem;

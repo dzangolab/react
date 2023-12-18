@@ -1,5 +1,5 @@
 a.native-link {
-  color: #385898;
+  color: var(--dz-alternate-color);
   cursor: pointer;
   text-decoration: none;
 }
