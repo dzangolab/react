@@ -60,6 +60,13 @@
   width: 100%;
 }
 
+.file-list-overlay .p-overlaypanel-content .selected li .info .details > span {
+  display: inline-block;
+  width: 90%;
+  overflow: clip;
+  text-overflow: ellipsis;
+}
+
 .file-input .dropzone {
   flex: 1;
   display: flex;
