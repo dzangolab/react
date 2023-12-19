@@ -42,6 +42,10 @@
   border: 1px solid var(--stepper-completed-border-color);
 }
 
+.stepper > .step > .step-number.completed > i {
+  color: var(--stepper-completed-border-color);
+}
+
 .stepper > .step > .step-number {
   align-items: center;
   background: var(--stepper-number-color);
