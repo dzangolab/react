@@ -28,7 +28,7 @@ export const Button: FC<IButtonProperties> = ({
   disabled,
   size = "medium",
   onClick,
-  className,
+  className = "",
   ...otherProperties
 }) => {
   const renderIconLeft = () => {
