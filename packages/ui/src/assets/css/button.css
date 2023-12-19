@@ -122,6 +122,11 @@
   --button-padding: var(--button-large-padding);
 }
 
+.dz-button .icon-left,
+.dz-button .icon-right {
+  display: flex;
+}
+
 .dz-button > span > i {
   font-size: var(--_button-icon-size);
 }
