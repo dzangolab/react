@@ -38,6 +38,10 @@
   width: 90%;
 }
 
+.input-field > input[type="number"]{
+  appearance: textfield;
+}
+
 .input-field > input:focus {
   outline: none;
 }
