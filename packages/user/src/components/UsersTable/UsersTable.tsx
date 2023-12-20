@@ -102,7 +102,10 @@ export const UsersTable = ({
                 <Tag
                   key={role + index}
                   value={role}
-                  className={role === "ADMIN" ? "primary" : "success"}
+                  severity={role === "ADMIN" ? "info" : "success"}
+                  style={{
+                    width: "5rem",
+                  }}
                 />
               ))}
             </>
@@ -115,7 +118,10 @@ export const UsersTable = ({
           <>
             <Tag
               value={role}
-              className={role === "ADMIN" ? "primary" : "success"}
+              severity={role === "ADMIN" ? "info" : "success"}
+              style={{
+                width: "5rem",
+              }}
             />
           </>
         );
