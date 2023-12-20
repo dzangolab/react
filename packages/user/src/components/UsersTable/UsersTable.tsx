@@ -1,15 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  DataTable,
-  IColumnProperties,
-  LazyTableState,
-  useManipulateColumns,
+  TDataTable as DataTable,
+  TDataTableProperties,
+  TRequestJSON,
 } from "@dzangolab/react-ui";
-import { FilterMatchMode } from "primereact/api";
-import { ButtonProps } from "primereact/button";
+import { ColumnDef } from "@tanstack/react-table";
 import { Tag } from "primereact/tag";
-import { IconType } from "primereact/utils";
+import { ReactNode } from "react";
 
+import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
 
 import type {
@@ -18,27 +17,33 @@ import type {
   InvitationAppOption,
   InvitationRoleOption,
   InvitationExpiryDateField,
+  UserType,
 } from "@/types";
 
-type VisibleColumn = "name" | "email" | "roles" | "signedUpAt" | string;
+type VisibleColumn =
+  | "name"
+  | "email"
+  | "roles"
+  | "signedUpAt"
+  | "actions"
+  | string;
 
-export type UsersTableProperties = {
+export type UsersTableProperties = Partial<
+  Omit<TDataTableProperties<UserType>, "data" | "visibleColumns" | "fetchData">
+> & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
-  className?: string;
-  columns?: Array<IColumnProperties>;
-  fetchUsers: (arguments_: LazyTableState) => void;
-  id?: string;
+  fetchUsers: (arguments_: TRequestJSON) => void;
   invitationExpiryDateField?: InvitationExpiryDateField;
-  inviteButtonIcon?: IconType<ButtonProps>;
-  loading?: boolean;
+  inviteButtonIcon?: string | ReactNode;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onUserEnabled?: (data: any) => void;
+  onUserDisabled?: (data: any) => void;
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
-  totalRecords?: number;
-  users: Array<object>;
+  users: Array<UserType>;
   visibleColumns?: VisibleColumn[];
 };
 
@@ -48,54 +53,52 @@ export const UsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
-  id = "table-users",
   invitationExpiryDateField,
   inviteButtonIcon,
-  loading = false,
   onInvitationAdded,
+  onUserDisabled,
+  onUserEnabled,
   prepareInvitationData,
   roles,
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns = ["name", "email", "roles", "signedUpAt"],
+  visibleColumns = ["name", "email", "roles", "signedUpAt", "actions"],
+  ...tableProperties
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const initialFilters = {
-    email: { value: "", matchMode: FilterMatchMode.CONTAINS },
-  };
-
-  const defaultColumns: Array<IColumnProperties> = [
+  const defaultColumns: Array<ColumnDef<UserType>> = [
     {
-      field: "name",
+      accessorKey: "email",
+      header: t("table.defaultColumns.email"),
+      enableSorting: true,
+      enableColumnFilter: true,
+    },
+    {
+      id: "name",
       header: t("table.defaultColumns.name"),
-      sortable: false,
-      body: (data) => {
+      cell: ({ row: { original } }) => {
         return (
-          (data.givenName ? data.givenName : "") +
-            (data.middleNames ? " " + data.middleNames : "") +
-            (data.surname ? " " + data.surname : "") || <code>&#8212;</code>
+          (original.givenName ? original.givenName : "") +
+            (original.middleNames ? " " + original.middleNames : "") +
+            (original.surname ? " " + original.surname : "") || (
+            <code>&#8212;</code>
+          )
         );
       },
     },
     {
-      field: "email",
-      header: t("table.defaultColumns.email"),
-      sortable: true,
-      filterPlaceholder: t("table.searchPlaceholder"),
-      showFilterMenu: false,
-      showClearButton: false,
-    },
-    {
       align: "center",
-      field: "roles",
+      id: "roles",
       header: t("table.defaultColumns.roles"),
-      body: (data) => {
-        if (data?.roles) {
+      cell: ({ getValue, row: { original } }) => {
+        const roles = (original as unknown as { roles: string[] })?.roles;
+
+        if (Array.isArray(roles)) {
           return (
             <>
-              {data?.roles?.map((role: string, index: number) => (
+              {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
                   value={role}
@@ -109,12 +112,14 @@ export const UsersTable = ({
           );
         }
 
+        const role = (getValue() as string) || "";
+
         return (
           <>
             <Tag
-              value={data.role}
+              value={role}
               style={{
-                background: data.role === "ADMIN" ? "#6366F1" : "#22C55E",
+                background: role === "ADMIN" ? "#6366F1" : "#22C55E",
                 width: "5rem",
               }}
             />
@@ -123,27 +128,35 @@ export const UsersTable = ({
       },
     },
     {
-      field: "signedUpAt",
+      accessorKey: "signedUpAt",
       header: t("table.defaultColumns.signedUpOn"),
-      body: (data) => {
-        const date = new Date(data.signedUpAt);
+      cell: ({ row: { original } }) => {
+        if (original.signedUpAt) {
+          const date = new Date(original.signedUpAt);
 
-        return date.toLocaleDateString("en-GB");
+          return date.toLocaleDateString("en-GB");
+        }
+
+        return "-";
+      },
+    },
+    {
+      align: "center",
+      id: "actions",
+      header: t("table.defaultColumns.actions"),
+      cell: ({ row: { original } }) => {
+        return (
+          <UserAction
+            user={original}
+            onUserDisabled={onUserDisabled}
+            onUserEnabled={onUserEnabled}
+          />
+        );
       },
     },
   ];
 
-  const processedColumns: Array<IColumnProperties> = useManipulateColumns({
-    visibleColumns,
-    columns: [...defaultColumns, ...columns],
-  });
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const rowClassNameCallback = (data: any) => {
-    return `user-${data.id}`;
-  };
-
-  const renderHeader = () => {
+  const renderToolbar = () => {
     if (showInviteAction) {
       return (
         <div className="table-actions">
@@ -166,18 +179,18 @@ export const UsersTable = ({
   return (
     <DataTable
       className={className}
-      columns={processedColumns}
+      columns={[...defaultColumns, ...columns]}
       data={users}
-      emptyMessage={t("app:table.emptyMessage")}
+      emptyTableMessage={t("app:table.emptyMessage")}
       fetchData={fetchUsers}
-      header={renderHeader()}
-      id={id}
-      initialFilters={initialFilters}
-      loading={loading}
-      rowClassName={rowClassNameCallback}
-      showGridlines
-      stripedRows={false}
+      renderToolbarItems={showInviteAction ? renderToolbar : undefined}
       totalRecords={totalRecords}
+      visibleColumns={visibleColumns}
+      paginationOptions={{
+        pageInputLabel: t("table.pagination.pageControl"),
+        itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
+      {...tableProperties}
     ></DataTable>
   );
 };

@@ -1,0 +1,23 @@
+.popup-container {
+  position: relative;
+}
+
+.popup-trigger {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.popup-content {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+#popper[data-popper-reference-hidden] {
+  visibility: hidden;
+  pointer-events: none;
+}

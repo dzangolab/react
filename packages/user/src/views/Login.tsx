@@ -1,17 +1,13 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useMemo, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
+import React, { useMemo } from "react";
+import { useLocation } from "react-router-dom";
 
+import { LoginWrapper } from "..";
 import GoogleLogin from "../components/GoogleLogin";
-import LoginForm from "../components/LoginForm";
-import { ROUTES } from "../constants";
-import { useConfig, useUser } from "../hooks";
-import { verifySessionRoles } from "../supertokens/helpers";
-import login from "../supertokens/login";
+import { useConfig } from "../hooks";
 
-import type { LoginCredentials, SignInUpPromise } from "../types";
+import type { SignInUpPromise } from "../types";
 
 interface IProperties {
   customDivider?: React.ReactNode;
@@ -21,12 +17,16 @@ interface IProperties {
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
   showSessionInfoIcon?: boolean;
+  showForgetPasswordLink?: boolean;
+  showSignupLink?: boolean;
   socialLoginFirst?: boolean;
 }
 
 const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
+  showForgetPasswordLink,
+  showSignupLink,
   customDivider,
   divider = true,
   onLoginFailed,
@@ -35,9 +35,7 @@ const Login: React.FC<IProperties> = ({
   socialLoginFirst = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
-  const { setUser } = useUser();
   const appConfig = useConfig();
-  const [loading, setLoading] = useState<boolean>(false);
   const location = useLocation();
 
   let className = "login";
@@ -53,67 +51,6 @@ const Login: React.FC<IProperties> = ({
 
     return null;
   }, [location.search]);
-
-  const handleSubmit = async (credentials: LoginCredentials) => {
-    setLoading(true);
-
-    await login(credentials)
-      .then(async (result) => {
-        if (result?.user) {
-          if (
-            appConfig &&
-            (await verifySessionRoles(appConfig.user.supportedRoles))
-          ) {
-            setUser(result.user);
-
-            onLoginSuccess && (await onLoginSuccess(result));
-
-            toast.success(`${t("login.messages.success")}`);
-          } else {
-            toast.error(t("login.messages.permissionDenied"));
-          }
-        }
-      })
-      .catch(async (error) => {
-        let errorMessage = "errors.otherErrors";
-
-        if (error.message) {
-          errorMessage = `errors.${error.message}`;
-        }
-
-        onLoginFailed && (await onLoginFailed(error));
-
-        toast.error(t(errorMessage, { ns: "errors" }));
-      });
-
-    setLoading(false);
-  };
-
-  const getLinks = () => {
-    return (
-      <>
-        {appConfig.user?.routes?.signup?.disabled ? null : (
-          <Link
-            to={appConfig.user.routes?.signup?.path || ROUTES.SIGNUP}
-            className="native-link"
-          >
-            {t("login.links.signup")}
-          </Link>
-        )}
-        {appConfig.user?.routes?.forgetPassword?.disabled ? null : (
-          <Link
-            to={
-              appConfig.user.routes?.forgetPassword?.path ||
-              ROUTES.FORGET_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("login.links.forgotPassword")}
-          </Link>
-        )}
-      </>
-    );
-  };
 
   const renderRedirectionMessage = () => {
     if (path && path.length) {
@@ -144,11 +81,14 @@ const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
     >
-      <LoginForm handleSubmit={handleSubmit} loading={loading} />
+      <LoginWrapper
+        onLoginFailed={onLoginFailed}
+        onLoginSuccess={onLoginSuccess}
+        showForgetPasswordLink={showForgetPasswordLink}
+        showSignupLink={showSignupLink}
+      />
 
       {renderRedirectionMessage()}
-
-      <div className="links">{getLinks()}</div>
 
       {appConfig?.user.supportedLoginProviders ? (
         <>

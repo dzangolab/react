@@ -10,6 +10,9 @@
   },
   "responsiveMenu": "Responsive menu",
   "table": {
+    "actions": {
+      "columnActionBtnLabel": "Columns (fr)"
+    },
     "title": {
       "tanstackTable": "Tanstack table (fr)",
       "localDataTable": "Local data table (fr)"
@@ -17,6 +20,9 @@
     "pagination": {
       "pageControl": "Go to (fr)",
       "rowsPerPage": "Rows (fr)"
+    },
+    "placeholders": {
+      "givenName": "Type here to search (fr)..."
     },
     "headers": {
       "userName": "User name (fr)",
@@ -27,7 +33,8 @@
       "givenName": "Given name (fr)",
       "middleNames": "Middle names (fr)",
       "surname": "Surname (fr)",
-      "address": "Address (fr)"
+      "address": "Address (fr)",
+      "fullName": "Full name (fr)"
     },
     "delete": {
       "message": "Are you sure you want to delete? (fr)",
@@ -53,6 +60,7 @@
       "bottom": "Bottom (fr)",
       "configured": "Configured (fr)",
       "left": "Left (fr)",
+      "mouseTrack": "MouseTrack (fr)",
       "right": "Right (fr)",
       "top": "Top (fr)"
     },
@@ -70,6 +78,52 @@
     "title": "Input (fr)",
     "errorMessage": "Value is required (fr)",
     "label": "Your input (fr)",
-    "placeholder": "Please enter your value (fr)"
+    "placeholder": "Please enter your value (fr)",
+  "sortableList": {
+    "title": "Sortable list (fr)"
+  },
+  "popup": {
+    "content": "Popup contents. (fr)",
+    "title": "Popup (fr)"
+  },
+  "stepper": {
+    "title": "Stepper (fr)",
+    "demo": {
+      "message": "You are on page: {{page}} (fr)",
+      "label": {
+        "personal": "Personal (fr)",
+        "children": "Children (fr)",
+        "payment": "Payment (fr)",
+        "confirmation": "Confirmation (fr)"
+      }
+    }
+  },
+  "button": {
+    "title": "Button (fr)",
+    "label": {
+      "primary": "Primary (fr)",
+      "secondary": "Secondary (fr)",
+      "alternate": "Alternate (fr)",
+      "success": "Success (fr)",
+      "danger": "Danger (fr)",
+      "warning": "Warning (fr)"
+    },
+    "property": {
+      "disable": "Disabled (fr)",
+      "icon": {
+        "title": "Icon (fr)",
+        "left": "Icon left (fr)",
+        "right": "Icon right (fr)"
+      },
+      "outline": "Outlined (fr)",
+      "severity": "Severity (fr)",
+      "size": {
+        "title": "Size (fr)",
+        "small": "Small (fr)",
+        "medium": "Medium (fr)",
+        "large": "Large (fr)"
+      }
+    }
   }
+}
 }

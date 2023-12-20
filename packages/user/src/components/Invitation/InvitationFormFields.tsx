@@ -8,7 +8,7 @@ import {
   useWatch,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button } from "primereact/button";
+import { Button } from "@dzangolab/react-ui";
 import React, { useEffect, useMemo, useState } from "react";
 
 import {
@@ -147,7 +147,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
             }}
             label={t("form.actions.cancel")}
             severity="secondary"
-            outlined
+            variant="outlined"
           ></Button>
         )}
 

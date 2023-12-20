@@ -1,4 +1,4 @@
-import { Button } from "primereact/button";
+import { Button } from "@dzangolab/react-ui";
 import { InputText } from "primereact/inputtext";
 import { Tooltip } from "primereact/tooltip";
 import React, { Ref, useEffect, useRef, useState } from "react";
@@ -96,10 +96,10 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
       {!!onRemove && (
         <Button
           onClick={onRemove}
-          icon="pi pi-times"
+          iconLeft="pi pi-times"
           severity="danger"
           size="small"
-          outlined
+          variant="outlined"
         ></Button>
       )}
     </li>

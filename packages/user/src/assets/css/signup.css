@@ -2,12 +2,6 @@
   justify-items: center;
 }
 
-.signup .links {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
 .signup .buttons {
   display: flex;
   flex-direction: column;

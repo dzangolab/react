@@ -2,19 +2,23 @@ import {
   LoadingIcon,
   Page,
   ResponsiveMenu,
-  FilesTable,
   FileCard,
   FilesList,
   FilesPresentation,
+  SortableList,
 } from "@dzangolab/react-ui";
 
+import { ButtonDemo } from "./ButtonDemo";
 import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
+import FilesTableDemo from "./FilesTableDemo";
 import InputDemo from "./InputDemo";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import MessageDemo from "./MessageDemo";
+import PopupDemo from "./PopupDemo";
+import StepperDemo from "./StepperDemo";
 import { SubmitButton } from "./SubmitButton";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
@@ -74,59 +78,7 @@ const componentList = [
   {
     key: 7,
     title: "files.table",
-    component: (
-      <FilesTable
-        onFileDelete={() => {}}
-        onFileArchive={() => {}}
-        files={[
-          {
-            id: 0,
-            originalFileName: "my file",
-            description: "File 1 description",
-            uploadedBy: { givenName: "Manish", lastName: "Aryal" },
-            uploadedAt: Date.now(),
-            lastDownloadedAt: Date.now(),
-          },
-          {
-            id: 1,
-            originalFileName: "my filev2",
-            description: "File description",
-            uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
-            uploadedAt: Date.now(),
-            lastDownloadedAt: Date.now(),
-          },
-        ]}
-        visibleColumns={[
-          "originalFileName",
-          "description",
-          "uploadedBy",
-          "uploadedAt",
-          "downloadCount",
-          "lastDownloadedAt",
-          "actions",
-        ]}
-        columns={[
-          {
-            field: "uploadedBy",
-            bodyTooltip: (data) => {
-              return `${data.uploadedBy.givenName} ${data.uploadedBy.lastName}`;
-            },
-          },
-          {
-            field: "description",
-            bodyTooltipOptions: {
-              style: {
-                maxWidth: "20rem",
-              },
-            },
-          },
-          {
-            field: "uploadedAt",
-            bodyTooltip: true,
-          },
-        ]}
-      />
-    ),
+    component: <FilesTableDemo />,
   },
   {
     key: 8,
@@ -277,6 +229,34 @@ const componentList = [
     key: 15,
     title: "input.title",
     component: <InputDemo />,
+  },
+  {
+    key: 16,
+    title: "sortableList.title",
+    component: (
+      <SortableList
+        items={[
+          { id: 1, data: "Item 1" },
+          { id: 2, data: "Item 2" },
+          { id: 3, data: "Item 3" },
+        ]}
+      />
+    ),
+  },
+  {
+    key: 16,
+    title: "popup.title",
+    component: <PopupDemo />,
+  },
+  {
+    key: 17,
+    title: "stepper.title",
+    component: <StepperDemo />,
+  },
+  {
+    key: 18,
+    title: "button.title",
+    component: <ButtonDemo />,
   },
 ];
 

@@ -5,6 +5,7 @@ import {
   Email,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Button } from "@dzangolab/react-ui";
 import React from "react";
 
 export const FormWithFileInput: React.FC = () => {
@@ -38,9 +39,7 @@ export const FormWithFileInput: React.FC = () => {
         descriptionPlaceholder={t("fileInput.description.placeholder")}
       />
       <div className="mb-4">
-        <button className="w-full bg-primary">
-          {t("fileInput.actions.upload")}
-        </button>
+        <Button label={t("fileInput.actions.upload")} />
       </div>
     </Provider>
   );

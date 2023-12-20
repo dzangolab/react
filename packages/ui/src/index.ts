@@ -13,6 +13,7 @@ import Message from "./Message";
 import Page from "./Page";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
+import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
 
 export * from "./Buttons";
@@ -24,7 +25,9 @@ export * from "./FilesPresentation";
 export * from "./Table";
 export * from "./utils";
 export * from "./Pagination";
+export * from "./Popup";
 export * from "./DebouncedInput";
+export * from "./SortableList";
 export * from "./Tooltip";
 
 export {
@@ -39,6 +42,7 @@ export {
   Message,
   Page,
   ResponsiveMenu,
+  Stepper,
   SubPane,
   TabbedPanel,
   ConfirmationModal,

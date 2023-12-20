@@ -1,4 +1,3 @@
-import { Button } from "primereact/button";
 import { ComponentProps, ReactNode } from "react";
 
 import {
@@ -8,6 +7,7 @@ import {
   VisibleFileDetails,
   ConfirmationModal,
 } from "..";
+import { Button } from "../Buttons/ButtonBasic";
 
 export type FilesListType = {
   files: IFile[];

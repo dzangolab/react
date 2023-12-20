@@ -1,8 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, ButtonProps } from "primereact/button";
+import { Button } from "@dzangolab/react-ui";
 import { Dialog } from "primereact/dialog";
-import { IconType } from "primereact/utils";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 
 import {
   AddInvitationResponse,
@@ -17,7 +16,7 @@ import { InvitationForm } from "./InvitationForm";
 interface Properties {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
-  buttonIcon?: IconType<ButtonProps>;
+  buttonIcon?: string | ReactNode;
   expiryDateField?: InvitationExpiryDateField;
   onSubmitted?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -41,7 +40,7 @@ export const InvitationModal = ({
     <div className="flex justify-content-center">
       <Button
         label={t("modal.button.label")}
-        icon={buttonIcon}
+        iconLeft={buttonIcon}
         onClick={() => setModalVisible(true)}
       />
       <Dialog

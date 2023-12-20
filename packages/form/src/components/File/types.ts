@@ -1,6 +1,6 @@
-import { Button } from "primereact/button";
+import { Button } from "@dzangolab/react-ui";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import type { DropzoneOptions } from "react-dropzone";
 
 export interface FileExtended extends File {
@@ -27,13 +27,13 @@ export interface IFileDropzoneBasicProperties {
 export interface IFileUploadProperties
   extends Omit<IFileDropzoneBasicProperties, "onChange"> {
   actionsAlignment?: "left" | "right";
-  cancelButtonIcon?: string;
+  cancelButtonIcon?: string | ReactNode;
   cancelButtonLabel?: string;
   cancelButtonProps?: ComponentProps<typeof Button>;
   onCancel?: () => void;
   onFileSelect?: (files: FileExtended[]) => FileExtended[];
   onUpload: (files: FileExtended[]) => void;
-  uploadButtonIcon?: string;
+  uploadButtonIcon?: string | ReactNode;
   uploadButtonLabel?: string;
   uploadButtonProps?: ComponentProps<typeof Button>;
 }

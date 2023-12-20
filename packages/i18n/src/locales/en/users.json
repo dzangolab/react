@@ -1,20 +1,46 @@
 {
   "table": {
     "actions": {
-      "invite": "Invite user"
+      "invite": "Invite user",
+      "enable": "Enable user",
+      "disable": "Disable user"
     },
     "title": "Users",
     "defaultColumns": {
+      "actions":"Actions",
       "email": "Email",
       "roles": "Roles",
       "name": "Name",
       "signedUpOn": "Signed up on",
       "status": "Status"
     },
+    "pagination": {
+      "pageControl": "Go to",
+      "rowsPerPage": "Rows"
+    },
     "searchPlaceholder": "Search"
   },
   "status": {
     "active": "Active",
     "invited": "Invited"
+  },
+  "confirmation": {
+    "header": "Confirmation",
+    "enable": {
+      "message": "Are you sure you want to enable this user?"
+    },
+    "disable": {
+      "message": "Are you sure you want to disable this user?"
+    }
+  },
+  "messages": {
+    "enable": {
+      "success": "User enabled successfully",
+      "error": "Error enabling user"
+    },
+    "disable": {
+      "success": "User disabled successfully",
+      "error": "Error disabling user"
+    }
   }
 }

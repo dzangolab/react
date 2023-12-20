@@ -46,22 +46,7 @@ exports[`Component matches snapshot 1`] = `
               <span>
                 ID
               </span>
-              <button>
-                <img
-                  src="/src/assets/images/arrow-up-down.svg"
-                />
-              </button>
-              <div
-                onClick={[Function]}
-              >
-                <button
-                  onClick={[Function]}
-                >
-                  <img
-                    src="/src/assets/images/filter.svg"
-                  />
-                </button>
-              </div>
+              <button />
             </div>
           </th>
           <th
@@ -74,22 +59,7 @@ exports[`Component matches snapshot 1`] = `
               <span>
                 Name
               </span>
-              <button>
-                <img
-                  src="/src/assets/images/arrow-up-down.svg"
-                />
-              </button>
-              <div
-                onClick={[Function]}
-              >
-                <button
-                  onClick={[Function]}
-                >
-                  <img
-                    src="/src/assets/images/filter.svg"
-                  />
-                </button>
-              </div>
+              <button />
             </div>
           </th>
         </tr>

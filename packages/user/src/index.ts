@@ -5,7 +5,10 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
+import LoginForm from "./components/LoginForm";
+import { LoginWrapper } from "./components/LoginWrapper";
 import SignupForm from "./components/SignupForm";
+import { SignupWrapper } from "./components/SignupWrapper";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import {
@@ -44,6 +47,8 @@ import VerifyEmail from "./views/VerifyEmail";
 import "./assets/css/index.css";
 
 import type {
+  Invitation,
+  InvitationAppOption,
   InvitationPayload,
   LoginCredentials,
   DzangolabReactUserConfig,
@@ -64,7 +69,10 @@ export {
   InvitationForm,
   InvitationModal,
   InvitationsTable,
+  LoginForm,
   SignupForm,
+  SignupWrapper,
+  LoginWrapper,
   TermsAndConditions,
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
@@ -107,9 +115,11 @@ export {
 };
 
 export type {
+  Invitation,
+  InvitationAppOption,
+  InvitationPayload,
+  LoginCredentials,
   UserContextType,
   UserType,
   UsersTableProperties,
-  InvitationPayload,
-  LoginCredentials,
 };

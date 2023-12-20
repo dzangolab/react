@@ -10,13 +10,20 @@
   },
   "responsiveMenu": "Responsive menu",
   "table": {
+    "actions": {
+      "columnActionBtnLabel": "Columns"
+    },
     "title": {
       "tanstackTable": "Tanstack table",
       "localDataTable": "Local data table"
     },
+
     "pagination": {
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
+    },
+    "placeholders": {
+      "givenName": "Type here to search..."
     },
     "headers": {
       "userName": "User name",
@@ -27,7 +34,8 @@
       "givenName": "Given name",
       "middleNames": "Middle names",
       "surname": "Surname",
-      "address": "Address"
+      "address": "Address",
+      "fullName": "Full name"
     },
     "delete": {
       "message": "Are you sure you want to delete?",
@@ -53,6 +61,7 @@
       "bottom": "Bottom",
       "configured": "Configured",
       "left": "Left",
+      "mouseTrack": "MouseTrack",
       "right": "Right",
       "top": "Top"
     },
@@ -70,6 +79,52 @@
     "title": "Input",
     "errorMessage": "Value is required",
     "label": "Your input",
-    "placeholder": "Please enter your value"
+    "placeholder": "Please enter your value",
+    "sortableList": {
+      "title": "Sortable list"
+    },
+    "popup": {
+      "content": "Popup contents.",
+      "title": "Popup"
+    },
+    "stepper": {
+      "title": "Stepper",
+      "demo": {
+        "message": "You are on page: {{page}}",
+        "label": {
+          "personal": "Personal",
+          "children": "Children",
+          "payment": "Payment",
+          "confirmation": "Confirmation"
+        }
+      }
+    },
+    "button": {
+      "title": "Button",
+      "label": {
+        "primary": "Primary",
+        "secondary": "Secondary",
+        "alternate": "Alternate",
+        "success": "Success",
+        "danger": "Danger",
+        "warning": "Warning"
+      },
+      "property": {
+        "disable": "Disabled",
+        "icon": {
+          "title": "Icon",
+          "left": "Icon left",
+          "right": "Icon right"
+        },
+        "outline": "Outlined",
+        "severity": "Severity",
+        "size": {
+          "title": "Size",
+          "small": "Small",
+          "medium": "Medium",
+          "large": "Large"
+        }
+      }
+    }
   }
 }

@@ -11,7 +11,6 @@ import {
   PaginationState,
   Updater,
 } from "@tanstack/react-table";
-import { Checkbox } from "primereact/checkbox";
 import React, {
   SyntheticEvent,
   useCallback,
@@ -37,7 +36,8 @@ import {
   TooltipWrapper,
 } from "./TableElements";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { DebouncedInput } from "../../";
+import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
+import { Button } from "../../Buttons/ButtonBasic";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
@@ -45,15 +45,22 @@ import type { TCustomColumnFilter, TDataTableProperties } from "./types";
 import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
+  border = "grid",
+  className = "",
   columns = [],
+  columnActionBtnLabel: columnActionButtonLabel = "Columns",
   data,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
+  id,
   isLoading = false,
+  initialFilters = [],
+  inputDebounceTime,
   fetchData,
   renderToolbarItems,
   renderTableFooterContent,
   renderCustomPagination,
+  renderSortIcons,
   title,
   paginated = true,
   rowPerPage,
@@ -63,10 +70,14 @@ const DataTable = <TData extends { id: string | number }>({
   totalRecords = 0,
   paginationOptions,
   stripe = "none",
+  showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>([]);
+  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    initialFilters as any,
+  );
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
@@ -174,6 +185,12 @@ const DataTable = <TData extends { id: string | number }>({
     [],
   );
 
+  useEffect(() => {
+    if (visibleColumns.length !== 0) {
+      table.setColumnOrder(["select", ...visibleColumns]);
+    }
+  }, [visibleColumns, columnsWithRowSelection]);
+
   const renderTooltipContent = (
     cell: Cell<TData, unknown>,
   ): React.ReactNode => {
@@ -186,8 +203,16 @@ const DataTable = <TData extends { id: string | number }>({
     return cell.getValue() as string;
   };
 
+  const totalItems = fetchData
+    ? totalRecords
+    : table.getFilteredRowModel().rows?.length;
+
   return (
-    <div className="table-container">
+    <div
+      id={id}
+      data-border={border}
+      className={"table-container " + className}
+    >
       {title ? (
         <h6
           className="title"
@@ -196,8 +221,55 @@ const DataTable = <TData extends { id: string | number }>({
         />
       ) : null}
 
-      {renderToolbarItems ? (
-        <TableToolbar children={renderToolbarItems(table)} />
+      {showColumnsAction || renderToolbarItems ? (
+        <TableToolbar
+          children={
+            <>
+              {showColumnsAction ? (
+                <Popup
+                  trigger={<Button label={columnActionButtonLabel} />}
+                  content={
+                    <SortableList
+                      items={table
+                        .getAllLeafColumns()
+                        .filter((column) => column.id !== "select")
+                        .map((column, index) => ({
+                          id: index,
+                          data: column,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          render: (data: any) => {
+                            let header = data.columnDef.header;
+
+                            if (typeof data.columnDef.header === "function") {
+                              header = data.columnDef.header();
+                            }
+
+                            return (
+                              <>
+                                <Checkbox
+                                  checked={data.getIsVisible()}
+                                  onClick={() => data.toggleVisibility()}
+                                  label={header}
+                                ></Checkbox>
+                              </>
+                            );
+                          },
+                        }))}
+                      onSort={(sorted) => {
+                        table.setColumnOrder([
+                          ...(enableRowSelection ? ["select"] : []),
+                          ...sorted.map((item) => item.data.id),
+                        ]);
+                      }}
+                    />
+                  }
+                />
+              ) : null}
+
+              {renderToolbarItems ? renderToolbarItems(table) : null}
+            </>
+          }
+        />
       ) : null}
 
       <Table data-stripe={stripe}>
@@ -205,14 +277,7 @@ const DataTable = <TData extends { id: string | number }>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
               {headerGroup.headers.map(
-                ({
-                  column,
-                  getContext,
-                  id,
-                  isPlaceholder,
-                  colSpan,
-                  rowSpan,
-                }) => {
+                ({ column, getContext, id, isPlaceholder, colSpan }) => {
                   const {
                     columnDef,
                     getCanSort,
@@ -230,7 +295,11 @@ const DataTable = <TData extends { id: string | number }>({
                     setIsFilterRowVisible(true);
                   }
 
-                  const renderSortIcons = () => {
+                  const getSortIcon = () => {
+                    if (renderSortIcons) {
+                      return renderSortIcons(getIsSorted());
+                    }
+
                     switch (getIsSorted()) {
                       case "asc":
                         return <i className="pi pi-arrow-up"></i>;
@@ -245,7 +314,6 @@ const DataTable = <TData extends { id: string | number }>({
                     <ColumnHeader
                       key={id}
                       colSpan={colSpan}
-                      rowSpan={rowSpan}
                       className={`column-${id} ${activeColumnClass}`}
                       data-align={columnDef.align || "left"}
                       onClick={(event) => {
@@ -255,16 +323,17 @@ const DataTable = <TData extends { id: string | number }>({
                       }}
                     >
                       <>
-                        {isPlaceholder
-                          ? null
-                          : flexRender(columnDef.header, getContext())}
-                        <>
-                          {getCanSort() ? (
-                            <span className="sort-state">
-                              {renderSortIcons()}
-                            </span>
-                          ) : null}
-                        </>
+                        {isPlaceholder ? null : (
+                          <>
+                            {flexRender(columnDef.header, getContext())}
+
+                            {getCanSort() ? (
+                              <span className="sort-state">
+                                {getSortIcon()}
+                              </span>
+                            ) : null}
+                          </>
+                        )}
                       </>
                     </ColumnHeader>
                   );
@@ -272,12 +341,10 @@ const DataTable = <TData extends { id: string | number }>({
               )}
             </TableRow>
           ))}
-        </TableHeader>
 
-        <TableBody>
           {isFilterRowVisible ? (
-            <TableRow key={"filters"} className="filters">
-              {table.getAllLeafColumns().map((column) => {
+            <TableRow key={"filters"} className={`header-row filters`}>
+              {table.getVisibleLeafColumns().map((column) => {
                 if (!column.getCanFilter()) {
                   return <TableCell key={"filter" + column.id}></TableCell>;
                 }
@@ -287,7 +354,7 @@ const DataTable = <TData extends { id: string | number }>({
                 }`;
 
                 return (
-                  <TableCell
+                  <ColumnHeader
                     key={"filter" + column.id}
                     data-label={column.id}
                     data-align={column.columnDef.align || "left"}
@@ -297,16 +364,21 @@ const DataTable = <TData extends { id: string | number }>({
                     }
                   >
                     <DebouncedInput
+                      defaultValue={column.getFilterValue() as string}
                       onInputChange={(value) => {
                         column.setFilterValue(value);
                       }}
+                      placeholder={column.columnDef.filterPlaceholder || ""}
+                      debounceTime={inputDebounceTime}
                     ></DebouncedInput>
-                  </TableCell>
+                  </ColumnHeader>
                 );
               })}
             </TableRow>
           ) : null}
+        </TableHeader>
 
+        <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
@@ -360,7 +432,7 @@ const DataTable = <TData extends { id: string | number }>({
         ) : null}
       </Table>
 
-      {paginated ? (
+      {paginated && totalItems > 0 ? (
         <>
           {renderCustomPagination ? (
             renderCustomPagination(table)
@@ -375,11 +447,7 @@ const DataTable = <TData extends { id: string | number }>({
               onItemsPerPageChange={(itemsPerPage) => {
                 table.setPageSize(itemsPerPage);
               }}
-              totalItems={
-                fetchData
-                  ? totalRecords
-                  : table.getFilteredRowModel().rows?.length
-              }
+              totalItems={totalItems}
               {...paginationOptions}
             ></Pagination>
           )}

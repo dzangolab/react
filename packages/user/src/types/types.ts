@@ -1,6 +1,7 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 export interface UserType extends EmailPasswordUserType {
+  disabled?: boolean;
   givenName: string | null;
   isEmailVerified?: boolean;
   lastLoginAt: number;
@@ -41,4 +42,10 @@ export interface SignInUpPromise {
 
 export interface ErrorResponse {
   data: { message: string; status: "ERROR" };
+}
+
+export interface ExtendedUser extends UserType {
+  appId?: number;
+  isActiveUser: boolean;
+  invitedBy: UserType & { isActiveUser: boolean };
 }

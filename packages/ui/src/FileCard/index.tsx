@@ -1,9 +1,9 @@
-import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { ComponentProps, ReactNode, useState } from "react";
 
 import ConfirmationFileActions from "./ConfirmationFileActions";
 import { ConfirmationModal, formatDate } from "..";
+import { Button } from "../Buttons/ButtonBasic";
 import { IFile } from "../FilesTable";
 import { useColumnsMap } from "../utils";
 
@@ -45,20 +45,15 @@ type FileCardType = {
   onArchive?: (arguments_: IFile) => void;
   archiveButtonProps?: ComponentProps<typeof Button>;
   archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDelete?: (arguments_: IFile) => void;
   deleteButtonProps?: ComponentProps<typeof Button>;
   deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onDownload?: (arguments_: IFile) => void;
   downloadButtonProps?: ComponentProps<typeof Button>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onEditDescription?: (arguments_: IFile) => void;
   editDescriptionButtonProps?: ComponentProps<typeof Button>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onShare?: (arguments_: IFile) => void;
   shareButtonProps?: ComponentProps<typeof Button>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onView?: (arguments_: IFile) => void;
   viewButtonProps?: ComponentProps<typeof Button>;
   renderThumbnail?: (arguments_: IFile) => ReactNode;
@@ -140,7 +135,7 @@ export const FileCard = ({
           <>
             <Button
               size="small"
-              icon="pi pi-book"
+              iconLeft="pi pi-book"
               label="Archive"
               onClick={() => setVisibleArchiveConfirmation(true)}
               {...archiveButtonProps}
@@ -151,9 +146,8 @@ export const FileCard = ({
           <>
             <Button
               size="small"
-              icon="pi pi-trash"
+              iconLeft="pi pi-trash"
               label="Delete"
-              severity="danger"
               onClick={() => setVisibleDeleteConfirmation(true)}
               {...deleteButtonProps}
             />
@@ -162,7 +156,7 @@ export const FileCard = ({
         {!!onDownload && (
           <Button
             size="small"
-            icon="pi pi-download"
+            iconLeft="pi pi-download"
             label="Download"
             onClick={() => onDownload?.(file)}
             {...downloadButtonProps}
@@ -171,7 +165,7 @@ export const FileCard = ({
         {!!onShare && (
           <Button
             size="small"
-            icon="pi pi-share-alt"
+            iconLeft="pi pi-share-alt"
             label="Share"
             onClick={() => onShare?.(file)}
             {...shareButtonProps}
@@ -180,7 +174,7 @@ export const FileCard = ({
         {!!onView && (
           <Button
             size="small"
-            icon="pi pi-eye"
+            iconLeft="pi pi-eye"
             label="View"
             severity="secondary"
             onClick={() => onView?.(file)}
@@ -232,8 +226,7 @@ export const FileCard = ({
                   <span>{file.description}</span>
                   {!!onEditDescription && (
                     <Button
-                      icon="pi pi-pencil"
-                      text
+                      iconLeft="pi pi-pencil"
                       size="small"
                       onClick={() => onEditDescription?.(file)}
                       {...editDescriptionButtonProps}

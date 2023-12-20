@@ -7,8 +7,10 @@ import type {
   ColumnFilter,
   PaginationState,
   Table as ReactTable,
+  SortDirection,
   Table,
   TableOptions,
+  ColumnFiltersState,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -174,6 +176,7 @@ declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
   interface ColumnDefBase<TData, TValue> {
     align?: "left" | "center" | "right";
+    filterPlaceholder?: string;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
       Omit<ComponentProps<typeof Tooltip>, "elementRef">
@@ -184,9 +187,13 @@ declare module "@tanstack/react-table" {
 export interface TDataTableProperties<TData>
   extends Omit<TableOptions<TData>, "getCoreRowModel"> {
   className?: string;
+  columnActionBtnLabel?: string;
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
   isLoading?: boolean;
+  id?: string;
+  initialFilters?: ColumnFiltersState;
+  border?: "grid" | "horizontal" | "vertical" | "none";
   globalFilter?: {
     key: string;
     value: string;
@@ -196,6 +203,7 @@ export interface TDataTableProperties<TData>
   renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
   renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
   renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
+  renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
   title?: {
     text: string;
     align?: "left" | "center" | "right";
@@ -217,4 +225,5 @@ export interface TDataTableProperties<TData>
     | "defaultItemsPerPage"
   >;
   stripe?: "none" | "even" | "odd";
+  showColumnsAction?: boolean;
 }

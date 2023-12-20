@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-user",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "React User Plugin",
   "exports": {
     ".": {
@@ -12,9 +12,7 @@
   "main": "dist//DzangolabReactUser.umd.js",
   "module": "dist//DzangolabReactUser.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -33,11 +31,11 @@
     "zod": "3.22.3"
   },
   "devDependencies": {
-    "@dzangolab/react-config": "0.23.0",
-    "@dzangolab/react-form": "0.23.0",
-    "@dzangolab/react-i18n": "0.23.0",
-    "@dzangolab/react-layout": "0.23.0",
-    "@dzangolab/react-ui": "0.23.0",
+    "@dzangolab/react-config": "0.24.0",
+    "@dzangolab/react-form": "0.24.0",
+    "@dzangolab/react-i18n": "0.24.0",
+    "@dzangolab/react-layout": "0.24.0",
+    "@dzangolab/react-ui": "0.24.0",
     "@testing-library/dom": "9.3.3",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
@@ -50,7 +48,7 @@
     "@vitest/coverage-c8": "0.30.1",
     "axios": "1.6.0",
     "eslint": "8.48.0",
-    "eslint-config-custom": "0.23.0",
+    "eslint-config-custom": "0.24.0",
     "eslint-plugin-react": "7.33.2",
     "jsdom": "22.1.0",
     "prettier": "3.0.3",
@@ -60,22 +58,23 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.15.0",
     "react-test-renderer": "18.2.0",
-    "tsconfig": "0.23.0",
+    "tsconfig": "0.24.0",
     "typescript": "5.2.2",
     "vite": "4.3.9",
     "vitest": "^0.30.0"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.23.0",
-    "@dzangolab/react-i18n": "0.23.0",
-    "@dzangolab/react-layout": "0.23.0",
-    "@dzangolab/react-ui": "0.23.0",
+    "@dzangolab/react-config": "0.24.0",
+    "@dzangolab/react-i18n": "0.24.0",
+    "@dzangolab/react-layout": "0.24.0",
+    "@dzangolab/react-ui": "0.24.0",
     "axios": "1.6.0",
     "primeicons": "6.0.1",
     "primereact": "9.6.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",
-    "react-router-dom": ">=6.9"
+    "react-router-dom": ">=6.9",
+    "@tanstack/react-table": "8.9.3"
   },
   "engines": {
     "node": ">=16",
