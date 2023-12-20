@@ -1,9 +1,5 @@
-:root {
-  --background-color: var(--dz-primary-color)
-}
-
 .google.dark {
-  background-color: var(--background-color) !important;
+  background-color: #4285f4 !important;
   border: none;
   color: #ffffff !important;
 }
