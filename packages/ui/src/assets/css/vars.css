@@ -10,12 +10,13 @@
   --field-valid-border-color: var(--dz-success-color);
   --border-color: #b5b5b5;
   --color: rgb(84, 84, 84);
-  --dz-alternate-color: #0284c7;
-  --dz-danger-color: #dc3545;
   --dz-primary-color: #007aff;
   --dz-secondary-color: #475569;
+  --dz-alternate-color: #0284c7;
+  --dz-danger-color: #dc3545;
   --dz-success-color: #22c55e;
   --dz-warning-color: #ea580c;
+  --error-message-color: var(--dz-danger-color);
   --menu-border-color: #555;
   --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms;
