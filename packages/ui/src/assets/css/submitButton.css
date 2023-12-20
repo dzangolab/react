@@ -1,7 +1,3 @@
-:root {
-  --submit-button-bg-color: var(--dz-primary-color);
-}
-
 .button-submit {
   align-items: center;
   background: var(--submit-button-bg-color, #1c4786);

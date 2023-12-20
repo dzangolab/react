@@ -11,8 +11,9 @@
   --input-autofill-color: #ffffff;
   --input-background-color: var(--dz-primary-color);
   --input-invalid-border-color: #dc3545;
-  --input-outline-color: #007aff;
+  --input-outline-color: var(--dz-primary-color);
   --input-valid-border-color: #198754;
   --menu-border-color: #555;
+  --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms; 
 }
