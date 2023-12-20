@@ -244,17 +244,17 @@ const componentList = [
     ),
   },
   {
-    key: 16,
+    key: 17,
     title: "popup.title",
     component: <PopupDemo />,
   },
   {
-    key: 17,
+    key: 18,
     title: "stepper.title",
     component: <StepperDemo />,
   },
   {
-    key: 18,
+    key: 19,
     title: "button.title",
     component: <ButtonDemo />,
   },

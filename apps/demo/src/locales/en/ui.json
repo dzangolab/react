@@ -79,51 +79,51 @@
     "title": "Input",
     "errorMessage": "Value is required",
     "label": "Your input",
-    "placeholder": "Please enter your value",
-    "sortableList": {
-      "title": "Sortable list"
-    },
-    "popup": {
-      "content": "Popup contents.",
-      "title": "Popup"
-    },
-    "stepper": {
-      "title": "Stepper",
-      "demo": {
-        "message": "You are on page: {{page}}",
-        "label": {
-          "personal": "Personal",
-          "children": "Children",
-          "payment": "Payment",
-          "confirmation": "Confirmation"
-        }
-      }
-    },
-    "button": {
-      "title": "Button",
+    "placeholder": "Please enter your value"
+  },
+  "sortableList": {
+    "title": "Sortable list"
+  },
+  "popup": {
+    "content": "Popup contents.",
+    "title": "Popup"
+  },
+  "stepper": {
+    "title": "Stepper",
+    "demo": {
+      "message": "You are on page: {{page}}",
       "label": {
-        "primary": "Primary",
-        "secondary": "Secondary",
-        "alternate": "Alternate",
-        "success": "Success",
-        "danger": "Danger",
-        "warning": "Warning"
+        "personal": "Personal",
+        "children": "Children",
+        "payment": "Payment",
+        "confirmation": "Confirmation"
+      }
+    }
+  },
+  "button": {
+    "title": "Button",
+    "label": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "alternate": "Alternate",
+      "success": "Success",
+      "danger": "Danger",
+      "warning": "Warning"
+    },
+    "property": {
+      "disable": "Disabled",
+      "icon": {
+        "title": "Icon",
+        "left": "Icon left",
+        "right": "Icon right"
       },
-      "property": {
-        "disable": "Disabled",
-        "icon": {
-          "title": "Icon",
-          "left": "Icon left",
-          "right": "Icon right"
-        },
-        "outline": "Outlined",
-        "severity": "Severity",
-        "size": {
-          "title": "Size",
-          "small": "Small",
-          "medium": "Medium",
-          "large": "Large"
-        }
+      "outline": "Outlined",
+      "severity": "Severity",
+      "size": {
+        "title": "Size",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
       }
     }
   }
