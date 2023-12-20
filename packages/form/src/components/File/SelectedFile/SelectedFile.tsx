@@ -97,7 +97,7 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
         <Button
           onClick={onRemove}
           iconLeft="pi pi-times"
-          severity="secondary"
+          severity="danger"
           size="small"
           variant="outlined"
         ></Button>
