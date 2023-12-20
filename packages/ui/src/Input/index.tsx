@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 
 interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
-  error?: boolean;
+  hasError?: boolean;
   errorMessage?: string;
   label?: string;
   name?: string;
@@ -10,7 +10,7 @@ interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
 
 export const Input = ({
   className,
-  error,
+  hasError,
   errorMessage,
   label,
   name,
@@ -22,7 +22,7 @@ export const Input = ({
   return (
     <div className={`field-wrapper ${className}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className={`input-field ${name}`} aria-invalid={error}>
+      <div className={`input-field ${name}`} aria-invalid={hasError}>
         <input
           id={name}
           name={name}
@@ -32,7 +32,7 @@ export const Input = ({
           {...others}
         />
       </div>
-      {error && errorMessage && (
+      {hasError && errorMessage && (
         <span className="error-message">{errorMessage}</span>
       )}
     </div>

@@ -7,7 +7,7 @@ const InputDemo = () => {
 
   return (
     <Input
-      error={true}
+      hasError={true}
       errorMessage={t("input.errorMessage")}
       onChange={(event: ChangeEvent<HTMLInputElement>) =>
         console.log(event.target.value)
