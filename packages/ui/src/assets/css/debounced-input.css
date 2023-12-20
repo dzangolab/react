@@ -1,3 +1,7 @@
+:root {
+  --input-border-color: var(--dz-primary-color);
+}
+
 .debounced-input {
   padding: 6px;
   border: 1px solid #ced4da;
@@ -8,6 +12,6 @@
 
 .debounced-input:focus {
   outline: none;
-  border-color: var(--dz-primary-color);
+  border-color: var(--input-border-color) ;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }

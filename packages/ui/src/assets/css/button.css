@@ -1,6 +1,6 @@
 :root {
   --button-text-color: #ffffff;
-  --button-primary-color: var(--dz-primary-color);
+  --button-primary-color:black;
   --button-secondary-color: var(--dz-secondary-color);
   --button-alternate-color: var(--dz-alternate-color);
   --button-small-font-size: 0.875rem;

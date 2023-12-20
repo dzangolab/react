@@ -1,6 +1,11 @@
+:root {
+  --input-background-color: var(--dz-primary-color);
+  --error-message-color: var(--dz-danger-color);
+}
+
 .checkbox-wrapper > input[type="checkbox"] {
   transform: scale(1.5);
-  accent-color: var(--dz-primary-color);
+  accent-color: var(--input-background-color);
 }
 
 .error-message{

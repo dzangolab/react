@@ -9,6 +9,8 @@
   --table-row-selected-bg-color: rgb(240, 245, 255);
   --table-text-color: rgb(78, 78, 78);
   --table-stripe-color: #0064ff08;
+  --table-primary-color: var(--dz-primary-color);
+  --table-success-color: var(--dz-success-color);
 }
 
 /* Tanstack table class definitions */
@@ -120,16 +122,16 @@
 
 .table-container .table-wrapper .table .tcell .content > .primary {
   width: 5rem;
-  background: var(--dz-primary-color);
+  background: var(--table-primary-color);
 }
 
 .table-container .table-wrapper .table .tcell .content > .success {
   width: 5rem;
-  background: var(--dz-success-color);
+  background: var(--table-success-color);
 }
 
 .table-container .table-wrapper .table .tcell .content > .p-button {
-  color: var(--dz-primary-color);
+  color: var(--table-primary-color);
 }
 
 .table-container .table-wrapper .table .tcell[data-align="center"] > .content,
