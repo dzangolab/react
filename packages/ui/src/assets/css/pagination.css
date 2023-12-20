@@ -2,11 +2,12 @@
   --pagination-bg-color: #f8f9fa;
   --pagination-padding: 0.8rem;
   --pagination-gap: 0.5rem;
-  --pagination-buttons-bg-color: #007bff;
+  --pagination-buttons-bg-color: var(--dz-primary-color);
   --pagination-buttons-bg-color-hover: #0056b3;
   --pagination-buttons-bg-color-active: #0056b3;
   --pagination-buttons-bg-color-disabled: #e4e4e4;
   --pagination-buttons-color-disabled: inherit;
+  --pagination-border-color: var(--dz-primary-color);
 }
 
 .pagination {
@@ -98,6 +99,6 @@
 
 .items-per-page-control select:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--pagination-border-color);
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }

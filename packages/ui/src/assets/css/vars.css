@@ -1,15 +1,22 @@
 :root {
-  --color: rgb(84,84,84);
+  --color: rgb(84, 84, 84);
   --field-autofill-color: #ffffff;
-  --field-background-color: #007aff;
+  --field-background-color: var(--dz-primary-color);
   --field-border-color: #ccc;
   --field-border-radius: 0.5rem;
-  --field-invalid-border-color: #dc3545;
-  --field-outline-color: #007aff;
+  --field-invalid-border-color: var(--dz-danger-color);
+  --field-outline-color: var(--dz-primary-color);
   --field-padding-height: 0.5em;
-  --field-valid-border-color: #198754;
+  --field-valid-border-color: var(--dz-success-color);
   --border-color: #b5b5b5;
-  --error-message-color: #dc3545;
+  --color: rgb(84, 84, 84);
+  --dz-alternate-color: #0284c7;
+  --dz-danger-color: #dc3545;
+  --dz-primary-color: #007aff;
+  --dz-secondary-color: #475569;
+  --dz-success-color: #22c55e;
+  --dz-warning-color: #ea580c;
   --menu-border-color: #555;
+  --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms;
 }

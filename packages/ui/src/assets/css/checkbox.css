@@ -4,6 +4,6 @@
 }
 
 .error-message{
-    margin-top: 1rem ;
-    color: var(--error-message-color);
+  margin-top: 1rem ;
+  color: var(--error-message-color);
 }

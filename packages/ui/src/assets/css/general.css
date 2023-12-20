@@ -1,5 +1,9 @@
+:root {
+  --text-link-color: var(--dz-primary-color);
+}
+
 a.native-link {
-  color: #385898;
+  color: var(--text-link-color);
   cursor: pointer;
   text-decoration: none;
 }
