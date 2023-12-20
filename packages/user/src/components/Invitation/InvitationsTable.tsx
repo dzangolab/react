@@ -114,7 +114,7 @@ export const InvitationsTable = ({
                 <Tag
                   key={role + index}
                   value={role}
-                  severity={role === "ADMIN" ? null : "success"}
+                  severity={role === "ADMIN" ? undefined : "success"}
                   style={{
                     width: "5rem",
                   }}
@@ -130,7 +130,7 @@ export const InvitationsTable = ({
           <>
             <Tag
               value={role}
-              severity={role === "ADMIN" ? null : "success"}
+              severity={role === "ADMIN" ? undefined : "success"}
               style={{
                 width: "5rem",
               }}
