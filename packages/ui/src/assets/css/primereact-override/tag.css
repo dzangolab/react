@@ -1,0 +1,27 @@
+:root {
+  --tag-color: var(--dz-primary-color);
+  --tag-info-color: var(--dz-alternate-color);
+  --tag-success-color: var(--dz-success-color);
+  --tag-danger-color: var(--dz-danger-color);
+  --tag-warning-color: var(--dz-warning-color);
+}
+
+.p-tag {
+  background-color: var(--tag-color) !important;
+}
+
+.p-tag-info {
+  background-color: var(--tag-info-color) !important;
+ }
+
+.p-tag-success {
+  background-color: var(--tag-success-color) !important;
+}
+
+.p-tag-danger {
+  background-color: var(--tag-danger-color) !important;
+}
+
+.p-tag-warning {
+  background-color: var(--tag-warning-color) !important;
+}

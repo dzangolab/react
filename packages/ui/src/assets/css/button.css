@@ -1,11 +1,11 @@
 :root {
   --button-text-color: #ffffff;
-  --button-primary-color: #007aff;
-  --button-secondary-color: #6e7a8a;
-  --button-alternate-color: #0284c7;
-  --button-success-color: #22c55e;
-  --button-danger-color: #dc3545;
-  --button-warning-color: #ec7b3e;
+  --button-primary-color: var(--dz-primary-color);
+  --button-secondary-color: var(--dz-secondary-color);
+  --button-alternate-color: var(--dz-alternate-color);
+  --button-success-color: var(--dz-success-color);
+  --button-danger-color: var(--dz-danger-color);
+  --button-warning-color: var(--dz-warning-color);
   --button-small-font-size: 0.875rem;
   --button-small-icon-size: 0.8rem;
   --button-medium-icon-size: 0.95rem;

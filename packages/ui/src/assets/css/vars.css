@@ -1,12 +1,19 @@
 :root {
-  --color: rgb(84,84,84);
-  --input-autofill-color: #ffffff;
-  --input-background-color: #007aff;
-  --input-invalid-border-color: #dc3545;
-  --input-outline-color: #007aff;
-  --input-valid-border-color: #198754;
   --border-color: #b5b5b5;
-  --error-message-color: #dc3545;
+  --color: rgb(84,84,84);
+  --dz-alternate-color: #0284c7;
+  --dz-danger-color: #dc3545;
+  --dz-primary-color: #007aff;
+  --dz-secondary-color: #475569;
+  --dz-success-color: #22C55E;
+  --dz-warning-color: #EA580C;
+  --error-message-color: var(--dz-danger-color);
+  --input-autofill-color: #ffffff;
+  --input-background-color: var(--dz-primary-color);
+  --input-invalid-border-color: #dc3545;
+  --input-outline-color: var(--dz-primary-color);
+  --input-valid-border-color: #198754;
   --menu-border-color: #555;
-  --transition-duration: 300ms;
+  --submit-button-bg-color: var(--dz-primary-color);
+  --transition-duration: 300ms; 
 }
