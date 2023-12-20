@@ -2,6 +2,7 @@
   --tag-primary-color: var(--dz-primary-color);
   --tag-success-color: var(--dz-success-color);
 }
+
 .p-tag-info {
   background-color: var(--tag-primary-color) !important;
 }

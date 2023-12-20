@@ -9,7 +9,6 @@
   --table-row-selected-bg-color: rgb(240, 245, 255);
   --table-text-color: rgb(78, 78, 78);
   --table-stripe-color: #0064ff08;
-  --table-success-color: var(--dz-success-color);
 }
 
 /* Tanstack table class definitions */
@@ -117,10 +116,6 @@
   text-overflow: ellipsis;
   gap: 0.2rem;
   text-align: left;
-}
-
-.table-container .table-wrapper .table .tcell .content > .p-button {
-  color: var(--table-primary-color);
 }
 
 .table-container .table-wrapper .table .tcell[data-align="center"] > .content,

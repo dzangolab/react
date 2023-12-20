@@ -1,0 +1,7 @@
+:root {
+  --icon-primary-color: var(--dz-primary-color);
+}
+
+.pi-cog {
+  color: var(--icon-primary-color) !important;
+}
