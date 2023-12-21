@@ -42,26 +42,54 @@
   font-weight: 700;
   cursor: pointer;
   color: var(--_button-color);
-  transition: all 0.3s ease;
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
-.dz-button:active {
+.dz-button:focus {
   outline: 2px solid var(--_button-color);
   outline-offset: 2px;
 }
 
-.dz-button::before {
-  content: '';
+.dz-button:after {
+  content: "";
+  display: block;
   position: absolute;
-  border-radius: 50%;
-  background: white; /* White color for the ripple effect */
+  left: 50%;
+  top: 50%;
+  width: 7rem;
+  height: 7rem;
+  margin-left: -3.5rem;
+  margin-top: -3.5rem;
+  background: white;
+  border-radius: 100%;
+  opacity: 0.6;
   transform: scale(0);
-  transition: transform 0.3s ease;
-  pointer-events: none;
 }
 
-.dz-button:active::before {
-  transform: scale(5);
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+button:not(:active):after {
+  animation: ripple 1s ease-out;
+}
+
+button:after {
+  visibility: hidden;
+}
+
+button:focus:after {
+  visibility: visible;
 }
 
 .dz-button:disabled {
@@ -144,25 +172,4 @@
 
 .dz-button > span > i {
   font-size: var(--_button-icon-size);
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(5);
-    opacity: 0;
-  }
-}
-
-.dz-button::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.2);
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-}
-
-
-.dz-button:active::after {
-  animation: ripple-animation 0.6s linear;
 }
