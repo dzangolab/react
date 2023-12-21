@@ -74,6 +74,12 @@
     "title": "Checkbox (fr)",
     "label": "Please agree with the terms and conditions (fr)"
   },
+  "input": {
+    "title": "Input (fr)",
+    "errorMessage": "Value is required (fr)",
+    "label": "Your input (fr)",
+    "placeholder": "Please enter your value (fr)"
+  },
   "sortableList": {
     "title": "Sortable list (fr)"
   },

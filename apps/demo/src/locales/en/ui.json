@@ -75,6 +75,12 @@
     "title": "Checkbox",
     "label": "Please agree with the terms and conditions"
   },
+  "input": {
+    "title": "Input",
+    "errorMessage": "Value is required",
+    "label": "Your input",
+    "placeholder": "Please enter your value"
+  },
   "sortableList": {
     "title": "Sortable list"
   },
@@ -100,9 +106,9 @@
       "primary": "Primary",
       "secondary": "Secondary",
       "alternate": "Alternate",
-      "success":"Success",
-      "danger":"Danger",
-      "warning":"Warning"
+      "success": "Success",
+      "danger": "Danger",
+      "warning": "Warning"
     },
     "property": {
       "disable": "Disabled",
@@ -114,7 +120,7 @@
       "outline": "Outlined",
       "severity": "Severity",
       "size": {
-        "title" : "Size",
+        "title": "Size",
         "small": "Small",
         "medium": "Medium",
         "large": "Large"

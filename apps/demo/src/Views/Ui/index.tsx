@@ -13,6 +13,7 @@ import CheckboxDemo from "./CheckboxDemo";
 import { ExportButton } from "./ExportButton";
 import FacadeExample from "./Facades/Example";
 import FilesTableDemo from "./FilesTableDemo";
+import InputDemo from "./InputDemo";
 import { LocalDataTable } from "./LocalDataTable/LocalDataTable";
 import TanstackTable from "./LocalDataTable/TanstackTable";
 import MessageDemo from "./MessageDemo";
@@ -226,6 +227,11 @@ const componentList = [
   },
   {
     key: 15,
+    title: "input.title",
+    component: <InputDemo />,
+  },
+  {
+    key: 16,
     title: "sortableList.title",
     component: (
       <SortableList
@@ -238,17 +244,17 @@ const componentList = [
     ),
   },
   {
-    key: 16,
+    key: 17,
     title: "popup.title",
     component: <PopupDemo />,
   },
   {
-    key: 17,
+    key: 18,
     title: "stepper.title",
     component: <StepperDemo />,
   },
   {
-    key: 18,
+    key: 19,
     title: "button.title",
     component: <ButtonDemo />,
   },
