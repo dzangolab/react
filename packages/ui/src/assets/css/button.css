@@ -57,10 +57,10 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: calc(var(--_button-icon-size) * 10);
-  height: calc(var(--_button-icon-size) * 10);
-  margin-left: calc(-5 * var(--_button-icon-size)); 
-  margin-top: calc(-5 * var(--_button-icon-size)); 
+  width: calc(var(--_button-font-size) * 10);
+  height: calc(var(--_button-font-size) * 10);
+  margin-left: calc(-5 * var(--_button-font-size)); 
+  margin-top: calc(-5 * var(--_button-font-size)); 
   background: white;
   border-radius: 100%;
   opacity: 0.6;
@@ -80,15 +80,15 @@
   }
 }
 
-button:not(:active):after {
+.dz-button:not(:active):after {
   animation: ripple 1s ease-out;
 }
 
-button:after {
+.dz-button:after {
   visibility: hidden;
 }
 
-button:focus:after {
+.dz-button:focus:after {
   visibility: visible;
 }
 
