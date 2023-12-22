@@ -21,6 +21,7 @@
   --button-success-outlined-hover-color: #eff6f2;
   --button-danger-outlined-hover-color: #f8eff0;
   --button-warning-outlined-hover-color: #f7f1ef;
+  --button-transition-duration: var(--transition-duration);
 }
 
 .dz-button {
@@ -41,7 +42,12 @@
   font-weight: 700;
   cursor: pointer;
   color: var(--_button-color);
-  transition: all 0.3s ease;
+  transition: all var(--button-transition-duration) ease;
+}
+
+.dz-button:focus {
+  outline: 2px solid var(--_button-color);
+  outline-offset: 2px;
 }
 
 .dz-button:disabled {
@@ -57,6 +63,10 @@
   filter: brightness(0.8);
 }
 
+.dz-button.filled:active {
+  filter: brightness(1);
+}
+
 .dz-button.filled:disabled:hover {
   filter: none;
 }
@@ -70,8 +80,13 @@
   background: var(--_button-outlined-hover-color);
 }
 
+.dz-button.outlined:active {
+  filter: brightness(1.05);
+}
+
 .dz-button.outlined:disabled:hover {
   background: none;
+  filter: none;
 }
 
 .dz-button.primary {
