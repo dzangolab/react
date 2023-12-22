@@ -21,8 +21,8 @@
   gap: var(--pagination-gap);
 }
 
-.pagination .buttons-wrapper,
-.pagination .buttons-wrapper > div {
+.pagination .pagination-buttons-wrapper,
+.pagination .pagination-buttons-wrapper > div {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -32,7 +32,7 @@
   gap: var(--pagination-gap);
 }
 
-.pagination .buttons-wrapper {
+.pagination .pagination-buttons-wrapper {
   padding: 0.5rem 0;
   margin-left: auto;
 }

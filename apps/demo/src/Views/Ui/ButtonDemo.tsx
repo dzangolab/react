@@ -5,7 +5,7 @@ export const ButtonDemo = () => {
   const { t } = useTranslation("ui");
 
   return (
-    <div className="buttons-wrapper">
+    <div className="demo-buttons-wrapper">
       <h3>{t("button.property.severity")}</h3>
       <div className="button-severity">
         <Button label={t("button.label.primary")} severity="primary" />

@@ -94,7 +94,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
         </div>
       )}
       {lastPage > 1 ? (
-        <div className="buttons-wrapper">
+        <div className="pagination-buttons-wrapper">
           {showFirstLastButtons || showPreviousNextButtons ? (
             <div>
               {showFirstLastButtons && (
