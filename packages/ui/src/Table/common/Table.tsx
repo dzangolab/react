@@ -314,7 +314,9 @@ const DataTable = <TData extends { id: string | number }>({
                     <ColumnHeader
                       key={id}
                       colSpan={colSpan}
-                      className={`column-${id} ${activeColumnClass}`}
+                      className={`column-${id} ${activeColumnClass} ${
+                        columnDef.enableSorting ? "sortable" : ""
+                      }`}
                       data-align={columnDef.align || "left"}
                       onClick={(event) => {
                         if (getCanSort()) {
