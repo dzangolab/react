@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-import { DebouncedInput } from "..";
+import { Button, DebouncedInput } from "..";
 
 export interface PaginationProperties {
   currentPage: number;
@@ -98,23 +98,21 @@ export const Pagination: React.FC<PaginationProperties> = ({
           {showFirstLastButtons || showPreviousNextButtons ? (
             <div>
               {showFirstLastButtons && (
-                <button
+                <Button
                   className="first-page"
                   onClick={() => onPageChange(0)}
                   disabled={!(currentPage > 0)}
-                >
-                  <i className="pi pi-angle-double-left" />
-                </button>
+                  iconLeft={<i className="pi pi-angle-double-left" />}
+                />
               )}
 
               {showPreviousNextButtons && (
-                <button
+                <Button
                   className="previous-page"
                   onClick={() => onPageChange(currentPage - 1)}
                   disabled={!(currentPage > 0)}
-                >
-                  <i className="pi pi-angle-left" />
-                </button>
+                  iconLeft={<i className="pi pi-angle-left" />}
+                />
               )}
             </div>
           ) : null}
@@ -122,7 +120,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
           <div>
             {showPageButtons
               ? pages.map((page) => (
-                  <button
+                  <Button
                     key={page}
                     className={`page-button ${
                       page === currentPage + 1 ? "active" : ""
@@ -130,7 +128,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
                     onClick={() => onPageChange(page - 1)}
                   >
                     {page}
-                  </button>
+                  </Button>
                 ))
               : pageStatics}
           </div>
@@ -138,23 +136,21 @@ export const Pagination: React.FC<PaginationProperties> = ({
           {showFirstLastButtons || showPreviousNextButtons ? (
             <div>
               {showPreviousNextButtons && (
-                <button
+                <Button
                   className="next-page"
                   onClick={() => onPageChange(currentPage + 1)}
                   disabled={!(currentPage < lastPage - 1)}
-                >
-                  <i className="pi pi-angle-right" />
-                </button>
+                  iconLeft={<i className="pi pi-angle-right" />}
+                />
               )}
 
               {showFirstLastButtons && (
-                <button
+                <Button
                   className="last-page"
                   onClick={() => onPageChange(lastPage - 1)}
                   disabled={!(currentPage < lastPage - 1)}
-                >
-                  <i className="pi pi-angle-double-right" />
-                </button>
+                  iconLeft={<i className="pi pi-angle-double-right" />}
+                />
               )}
             </div>
           ) : null}
