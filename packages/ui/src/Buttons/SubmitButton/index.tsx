@@ -17,7 +17,6 @@ export const SubmitButton = ({
   return (
     <Button
       type="submit"
-      className="button-submit"
       label={label}
       disabled={disabled || loading}
       iconRight={loading && <LoadingIcon />}
