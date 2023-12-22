@@ -2,11 +2,6 @@
   --pagination-bg-color: #f8f9fa;
   --pagination-padding: 0.8rem;
   --pagination-gap: 0.5rem;
-  --pagination-buttons-bg-color: var(--dz-primary-color);
-  --pagination-buttons-bg-color-hover: #0056b3;
-  --pagination-buttons-bg-color-active: #0056b3;
-  --pagination-buttons-bg-color-disabled: #e4e4e4;
-  --pagination-buttons-color-disabled: inherit;
   --pagination-border-color: var(--dz-primary-color);
 }
 
@@ -37,37 +32,6 @@
   margin-left: auto;
 }
 
-.first-page,
-.last-page,
-.next-page,
-.previous-page,
-.page-button {
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  background-color: var(--pagination-buttons-bg-color);
-  color: #fff;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.first-page:hover,
-.last-page:hover,
-.next-page:hover,
-.previous-page:hover,
-.page-button:hover {
-  background-color: var(--pagination-buttons-bg-color-hover);
-}
-
-.first-page:disabled,
-.last-page:disabled,
-.next-page:disabled,
-.previous-page:disabled,
-.page-button:disabled {
-  background-color: var(--pagination-buttons-bg-color-disabled);
-  cursor: not-allowed;
-  color: var(--pagination-buttons-color-disabled);
-}
 
 .page-button.active {
   background-color: var(--pagination-buttons-bg-color-active);
