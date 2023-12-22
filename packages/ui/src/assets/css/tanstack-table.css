@@ -139,7 +139,7 @@
   text-align: right;
 }
 
-.table-container .table-wrapper .table .tcol-head {
+.table-container .table-wrapper .table .tcol-head.sortable {
   cursor: pointer;
 }
 
@@ -148,7 +148,7 @@
   font-weight: bold !important;
 }
 
-.table-container .table-wrapper .table .tcol-head:active {
+.table-container .table-wrapper .table .tcol-head.sortable:active {
   background-color: var(--table-header-active-bg-color);
 }
 
