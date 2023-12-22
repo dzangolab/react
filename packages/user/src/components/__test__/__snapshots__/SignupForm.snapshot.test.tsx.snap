@@ -86,7 +86,7 @@ exports[`Component matches snapshot 1`] = `
     className="buttons"
   >
     <button
-      className="dz-button  primary filled medium"
+      className="dz-button button-submit primary filled medium"
       type="submit"
     >
       <span
