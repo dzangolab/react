@@ -41,11 +41,7 @@
   font-weight: 700;
   cursor: pointer;
   color: var(--_button-color);
-  transition: all 0.3s ease;
-}
-
-.dz-button:active{
-  opacity: 0.6;
+  transition: all 0.2s ease;
 }
 
 .dz-button:focus {
@@ -66,6 +62,10 @@
   filter: brightness(0.8);
 }
 
+.dz-button.filled:active{
+  filter: brightness(1);
+}
+
 .dz-button.filled:disabled:hover {
   filter: none;
 }
@@ -79,8 +79,13 @@
   background: var(--_button-outlined-hover-color);
 }
 
+.dz-button.dz-button.outlined:active{
+  filter: brightness(1.05);
+}
+
 .dz-button.outlined:disabled:hover {
   background: none;
+  filter: none;
 }
 
 .dz-button.primary {
