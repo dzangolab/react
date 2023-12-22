@@ -41,16 +41,16 @@
   font-weight: 700;
   cursor: pointer;
   color: var(--_button-color);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+.dz-button:active{
+  opacity: 0.6;
 }
 
 .dz-button:focus {
   outline: 2px solid var(--_button-color);
   outline-offset: 2px;
-}
-
-.dz-button:active{
-  opacity: 0.6;
 }
 
 .dz-button:disabled {
