@@ -21,6 +21,7 @@
   --button-success-outlined-hover-color: #eff6f2;
   --button-danger-outlined-hover-color: #f8eff0;
   --button-warning-outlined-hover-color: #f7f1ef;
+  --button-transition-duration: var(--transition-duration);
 }
 
 .dz-button {
@@ -41,7 +42,7 @@
   font-weight: 700;
   cursor: pointer;
   color: var(--_button-color);
-  transition: all 0.2s ease;
+  transition: all var(--button-transition-duration) ease;
 }
 
 .dz-button:focus {
@@ -62,7 +63,7 @@
   filter: brightness(0.8);
 }
 
-.dz-button.filled:active{
+.dz-button.filled:active {
   filter: brightness(1);
 }
 
@@ -79,7 +80,7 @@
   background: var(--_button-outlined-hover-color);
 }
 
-.dz-button.outlined:active{
+.dz-button.outlined:active {
   filter: brightness(1.05);
 }
 
