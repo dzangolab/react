@@ -65,6 +65,7 @@
   border-radius: 100%;
   opacity: 0.6;
   transform: scale(0);
+  visibility: hidden;
 }
 
 @keyframes ripple {
@@ -82,10 +83,6 @@
 
 .dz-button:not(:active):after {
   animation: ripple 1s ease-out;
-}
-
-.dz-button:after {
-  visibility: hidden;
 }
 
 .dz-button:focus:after {
