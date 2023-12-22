@@ -79,7 +79,7 @@
   background: var(--_button-outlined-hover-color);
 }
 
-.dz-button.dz-button.outlined:active{
+.dz-button.outlined:active{
   filter: brightness(1.05);
 }
 
