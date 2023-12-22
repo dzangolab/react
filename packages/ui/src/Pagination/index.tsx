@@ -31,7 +31,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
   pageInputLabel = "Go to page:",
   defaultItemsPerPage = itemsPerPageOptions[0],
   showFirstLastButtons = true,
-  showPageButtons = true,
+  showPageButtons = false,
   showPreviousNextButtons = true,
   className,
   showItemsPerPageControl = true,
