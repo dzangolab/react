@@ -31,7 +31,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
   pageInputLabel = "Go to page:",
   defaultItemsPerPage = itemsPerPageOptions[0],
   showFirstLastButtons = true,
-  showPageButtons = false,
+  showPageButtons = true,
   showPreviousNextButtons = true,
   className,
   showItemsPerPageControl = true,
@@ -126,9 +126,8 @@ export const Pagination: React.FC<PaginationProperties> = ({
                       page === currentPage + 1 ? "active" : ""
                     }`}
                     onClick={() => onPageChange(page - 1)}
-                  >
-                    {page}
-                  </Button>
+                    label={`${page}`}
+                  />
                 ))
               : pageStatics}
           </div>
