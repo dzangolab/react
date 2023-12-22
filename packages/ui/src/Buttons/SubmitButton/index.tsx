@@ -1,6 +1,7 @@
 import React from "react";
 
 import LoadingIcon from "../../LoadingIcon";
+import { Button } from "../ButtonBasic";
 
 interface SubmitButtonProperties {
   disabled?: boolean;
@@ -14,14 +15,11 @@ export const SubmitButton = ({
   loading,
 }: SubmitButtonProperties) => {
   return (
-    <button
+    <Button
       type="submit"
-      className="button-submit"
+      label={label}
       disabled={disabled || loading}
-    >
-      {label}
-
-      {loading ? <LoadingIcon /> : ""}
-    </button>
+      iconRight={loading && <LoadingIcon />}
+    />
   );
 };
