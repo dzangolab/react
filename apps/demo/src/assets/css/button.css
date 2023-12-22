@@ -1,10 +1,14 @@
-.buttons-wrapper {
+.demo-buttons-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.button-severity, .button-size, .button-icon, .button-outline, .button-disable {
+.demo-buttons-wrapper .button-severity,
+.demo-buttons-wrapper .button-size,
+.demo-buttons-wrapper .button-icon,
+.demo-buttons-wrapper .button-outline,
+.demo-buttons-wrapper .button-disable {
   display: flex;
   align-items: center;
   gap: 1rem;
