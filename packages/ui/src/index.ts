@@ -6,6 +6,7 @@ import { SubPane } from "./components/SubPane";
 import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
+import { Input } from "./Input";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
@@ -35,6 +36,7 @@ export {
   Divider,
   DropdownMenu,
   GoogleButton,
+  Input,
   LoadingIcon,
   LoadingPage,
   Message,
