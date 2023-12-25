@@ -1,4 +1,4 @@
-import React, { useId, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./helper";
 
@@ -25,6 +25,10 @@ const TabbedPanel: React.FC<Properties> = ({
   if (!children) {
     throw new Error("TabbedPanel needs at least one children");
   }
+
+  useEffect(() => {
+    setActive(defaultActiveIndex);
+  }, [defaultActiveIndex]);
 
   return (
     <div className={`tabbed-panel ${position}`}>
