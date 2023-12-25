@@ -6,9 +6,9 @@ import type { Properties } from "./types";
 
 const TabbedPanel: React.FC<Properties> = ({
   children,
-  position = "top",
   defaultActiveIndex = 0,
   onTabChange,
+  position = "top",
 }) => {
   const id = useId();
   const [active, setActive] = useState(defaultActiveIndex);
