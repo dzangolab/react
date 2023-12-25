@@ -127,5 +127,11 @@
       }
     }
   },
-  "tabbedPanel": "Tabbed panel"
+  "tabbedPanel": {
+    "title": "Tabbed panel",
+    "label": {
+      "itemOne": "Item 1",
+      "itemTwo": "Item 2"
+    }
+  }
 }
