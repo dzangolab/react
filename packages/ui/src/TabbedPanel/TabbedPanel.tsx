@@ -1,12 +1,17 @@
-import React, { useId, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./helper";
 
 import type { Properties } from "./types";
 
-const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
+const TabbedPanel: React.FC<Properties> = ({
+  children,
+  defaultActiveIndex = 0,
+  onTabChange,
+  position = "top",
+}) => {
   const id = useId();
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(defaultActiveIndex);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
 
@@ -20,6 +25,10 @@ const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
   if (!children) {
     throw new Error("TabbedPanel needs at least one children");
   }
+
+  useEffect(() => {
+    setActive(defaultActiveIndex);
+  }, [defaultActiveIndex]);
 
   return (
     <div className={`tabbed-panel ${position}`}>

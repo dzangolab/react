@@ -31,6 +31,10 @@ export const Button: FC<IButtonProperties> = ({
   className = "",
   ...otherProperties
 }) => {
+  const buttonClassName = ["dz-button", className, severity, variant, size]
+    .filter(Boolean)
+    .join(" ");
+
   const renderIconLeft = () => {
     if (!iconLeft) {
       return null;
@@ -71,7 +75,7 @@ export const Button: FC<IButtonProperties> = ({
     <button
       onClick={onClick}
       disabled={loading || disabled}
-      className={`dz-button ${className} ${severity} ${variant} ${size}`}
+      className={buttonClassName}
       {...otherProperties}
     >
       {renderIconLeft()}
