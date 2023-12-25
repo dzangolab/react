@@ -6,10 +6,11 @@
 
 .sortable-list .sortable-item {
   background-color: #fff;
-  transition: background-color 0.3s ease;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  transition: all 0.2s ease-in-out;
+  flex-wrap: wrap;
 }
 
 .sortable-list .sortable-item > .grab-icon {
@@ -30,4 +31,12 @@
 
 .sortable-list .sortable-item:hover {
   background-color: #f8f8f8;
+}
+
+.sortable-item.dragged-item {
+  opacity: 0.5;
+}
+
+.sortable-item.drop-location {
+  border-top: 5px solid rgb(209, 209, 209);
 }
