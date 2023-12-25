@@ -118,6 +118,12 @@
   text-align: left;
 }
 
+.table-container .table-wrapper .table .tcell > .content{
+  overflow: clip;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
 .table-container .table-wrapper .table .tcell[data-align="center"] > .content,
 .table-container
   .table-wrapper

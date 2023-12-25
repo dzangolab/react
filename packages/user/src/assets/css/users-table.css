@@ -1,4 +1,5 @@
-.table-users .column-email {
+.table-users .column-email 
+.table-users .column-email .content {
   min-width: 30rem;
   width: 30rem;
   max-width: 30rem;
