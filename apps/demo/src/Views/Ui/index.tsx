@@ -20,6 +20,7 @@ import MessageDemo from "./MessageDemo";
 import PopupDemo from "./PopupDemo";
 import StepperDemo from "./StepperDemo";
 import { SubmitButton } from "./SubmitButton";
+import { TabbedPanelDemo } from "./TabbedPannel";
 import { TooltipDemo } from "./TooltipDemo";
 import ComponentList from "../../components/ComponentList";
 import { MENU_ROUTES } from "../../constants";
@@ -257,6 +258,11 @@ const componentList = [
     key: 19,
     title: "button.title",
     component: <ButtonDemo />,
+  },
+  {
+    key: 20,
+    title: "tabbedPanel",
+    component: <TabbedPanelDemo />,
   },
 ];
 
