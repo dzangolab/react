@@ -71,9 +71,7 @@ export const Button: FC<IButtonProperties> = ({
     <button
       onClick={onClick}
       disabled={loading || disabled}
-      className={`dz-button ${
-        className ? className : ""
-      } ${severity} ${variant} ${size}`}
+      className={`dz-button ${className} ${severity} ${variant} ${size}`}
       {...otherProperties}
     >
       {renderIconLeft()}
