@@ -20,8 +20,8 @@ export interface SortableListProperties {
 export const SortableList: FC<SortableListProperties> = ({
   items,
   onSort,
-  itemClassName,
-  className,
+  itemClassName = "",
+  className = "",
   grabHandleIcon,
 }) => {
   const [sortedItems, setSortedItems] = useState(items);
@@ -54,12 +54,14 @@ export const SortableList: FC<SortableListProperties> = ({
   };
 
   return (
-    <ul className={`sortable-list ${className}`}>
+    <ul className={`sortable-list ${className}`.trimEnd()}>
       {sortedItems.map((item, index) => (
         <li
           className={`sortable-item ${itemClassName} ${
             draggedItem === index ? "dragged-item" : ""
-          } ${droppedOver === index ? "drop-location" : ""}`}
+          } ${droppedOver === index ? "drop-location" : ""}`
+            .replace(/\s\s/, " ")
+            .trimEnd()}
           key={item.id}
           draggable
           onDragStart={() => handleDragStart(index)}
