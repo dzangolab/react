@@ -121,7 +121,6 @@
   white-space: nowrap;
   overflow: clip;
   text-overflow: ellipsis;
-  display: inline-block;
 }
 
 .table-container .table-wrapper .table .tcell[data-align="center"] > .content,
