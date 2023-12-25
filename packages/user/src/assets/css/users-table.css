@@ -1,12 +1,13 @@
-.table-users .column-email 
-.table-users .column-email .content {
+.table-users .column-email {
   min-width: 30rem;
   width: 30rem;
   max-width: 30rem;
 }
 
 .table-users .column-name {
-  min-width: 25rem;
+  min-width: 30rem;
+  width: 30rem;
+  max-width: 30rem;
 }
 
 .table-users .column-roles {
@@ -20,3 +21,5 @@
   max-width: 10rem;
   min-width: 10rem;
 }
+
+

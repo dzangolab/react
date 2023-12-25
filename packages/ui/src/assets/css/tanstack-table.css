@@ -107,18 +107,18 @@
   overflow: hidden;
 }
 
-.table-container .table-wrapper .table .tcell > .content,
 .table-container .table-wrapper .table .tcol-head > .content {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: start;
-  text-overflow: ellipsis;
   gap: 0.2rem;
   text-align: left;
 }
 
 .table-container .table-wrapper .table .tcell > .content{
+  width: 100%;
+  white-space: nowrap;
   overflow: clip;
   text-overflow: ellipsis;
   display: inline-block;
