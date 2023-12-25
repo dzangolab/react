@@ -130,7 +130,8 @@
     "title": "Tabbed panel (fr)",
     "label": {
       "itemOne": "Item 1 (fr)",
-      "itemTwo": "Item 2 (fr)"
+      "itemTwo": "Item 2 (fr)",
+      "itemThree": "Item 3 (fr)"
     }
   }
 }

@@ -4,9 +4,14 @@ import { getOrientation, onTabDown } from "./helper";
 
 import type { Properties } from "./types";
 
-const TabbedPanel: React.FC<Properties> = ({ children, position = "top" }) => {
+const TabbedPanel: React.FC<Properties> = ({
+  children,
+  position = "top",
+  defaultActiveIndex = 0,
+  onTabChange,
+}) => {
   const id = useId();
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(defaultActiveIndex);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
 

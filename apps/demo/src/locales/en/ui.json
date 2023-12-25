@@ -131,7 +131,8 @@
     "title": "Tabbed panel",
     "label": {
       "itemOne": "Item 1",
-      "itemTwo": "Item 2"
+      "itemTwo": "Item 2",
+      "itemThree": "Item 3"
     }
   }
 }
