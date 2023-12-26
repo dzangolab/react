@@ -1,3 +1,33 @@
+# [0.25.0](https://github.com/dzangolab/react/compare/v0.24.0...v0.25.0) (2023-12-25)
+
+
+### Bug Fixes
+
+* **cancelButton:** remove disabled feature from upload cancel button ([#686](https://github.com/dzangolab/react/issues/686)) ([90268a6](https://github.com/dzangolab/react/commit/90268a60c166202e1d14fceb93801cddccdf3037))
+* css naming conflict between button demo and pagination button wrapper ([#690](https://github.com/dzangolab/react/issues/690)) ([bbc5a2d](https://github.com/dzangolab/react/commit/bbc5a2d3cd706d99a830e5716fa6bb22bc9b4c54))
+* export the missing type for invitation ([#677](https://github.com/dzangolab/react/issues/677)) ([8867bec](https://github.com/dzangolab/react/commit/8867bec56c6902c64ebff97189dc4ee3ea765bb3))
+* make only sortable column headers clickable ([#691](https://github.com/dzangolab/react/issues/691)) ([778be76](https://github.com/dzangolab/react/commit/778be7684450fb3e6dee19d2e7f44f38a805fd6d))
+* **user/UserMenu:** add return type on the UserMenu component ([a568902](https://github.com/dzangolab/react/commit/a568902d4d251b7a26751667390a69386eeb1638))
+* **users-table:** fix users table ui ([#681](https://github.com/dzangolab/react/issues/681)) ([5458a8e](https://github.com/dzangolab/react/commit/5458a8ed25a935f8b744f5f4cf958a2a3675dca8))
+
+
+### Features
+
+* **button:** add a new button component ([#680](https://github.com/dzangolab/react/issues/680)) ([b972970](https://github.com/dzangolab/react/commit/b972970fcc282404d6938c7b85430d64efbafa7a))
+* **buttonSeverity:** add three more severity color for button ([#685](https://github.com/dzangolab/react/issues/685)) ([5e672c9](https://github.com/dzangolab/react/commit/5e672c9d8beffc8fc6e747a7ab0f58c2a97e24ed))
+* create a new stepper component ([#674](https://github.com/dzangolab/react/issues/674)) ([0d6378f](https://github.com/dzangolab/react/commit/0d6378f6b6b94ac4620108c718a0cbadcca904de))
+* **demo/button:** update demo page for button ([#683](https://github.com/dzangolab/react/issues/683)) ([12edaa9](https://github.com/dzangolab/react/commit/12edaa90312f71d9de41c349a348914692363a80))
+* **input-component:** support number type with valueAsNumber ([#676](https://github.com/dzangolab/react/issues/676)) ([0695aa8](https://github.com/dzangolab/react/commit/0695aa8e5520f3a1044bc527e0518ba731c98167))
+* **input:** add inhouse input component ([#648](https://github.com/dzangolab/react/issues/648)) ([ac8b24f](https://github.com/dzangolab/react/commit/ac8b24f4bfe97cfbff7b2f0656393fe07dab6e2e))
+* **links:** add links as a component ([#670](https://github.com/dzangolab/react/issues/670)) ([ac2f3f0](https://github.com/dzangolab/react/commit/ac2f3f0cca3eed675684fe2585fbba26efb9dc00))
+* **stepper:** make stepper component responsive ([#679](https://github.com/dzangolab/react/issues/679)) ([4d91ab6](https://github.com/dzangolab/react/commit/4d91ab6d1dde163bf1c180250094cb48e14fa246))
+* **ui/color-scheme:** add global color scheme ([#684](https://github.com/dzangolab/react/issues/684)) ([fb351c5](https://github.com/dzangolab/react/commit/fb351c533b86d40b031c922c7264569bbed0ee7c))
+* **ui/submitButton:** update submit button ([#692](https://github.com/dzangolab/react/issues/692)) ([a6b4f3d](https://github.com/dzangolab/react/commit/a6b4f3d959afa7ef9500bc94499b2dff98cacc9b))
+* **ui/tabbed-panel:** update tabbed-panel component ([#693](https://github.com/dzangolab/react/issues/693)) ([43ab673](https://github.com/dzangolab/react/commit/43ab673a40dfe7bfce1bc8c0e486b09df4e92632))
+* **ui/Table:** add support on columns action to toggle column visibi… ([#675](https://github.com/dzangolab/react/issues/675)) ([e630bca](https://github.com/dzangolab/react/commit/e630bca21b3706a413f49ff283ae49ae8fea7810))
+
+
+
 # [0.24.0](https://github.com/dzangolab/react/compare/v0.23.0...v0.24.0) (2023-12-01)
 
 
