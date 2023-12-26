@@ -9,6 +9,7 @@ import I18n from "./Views/I18n";
 import Layout from "./Views/Layout";
 import Ui from "./Views/Ui";
 import User from "./Views/User";
+import { UIPage, UIPages, UIRoutes } from "./Views/UiV2";
 
 const routes = () => {
   return createHashRouter([
@@ -40,6 +41,17 @@ const routes = () => {
         {
           path: "/ui",
           element: <Ui />,
+        },
+        {
+          path: "/ui-v2",
+          element: <UIPages />,
+          children: [
+            {
+              index: true,
+              element: <UIPage></UIPage>,
+            },
+            ...UIRoutes,
+          ],
         },
         {
           path: "/user",

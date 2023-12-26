@@ -57,6 +57,10 @@ const config: AppConfig = {
         name: "header.menu.user",
         route: "/user",
       },
+      {
+        name: "header.menu.uiV2",
+        route: "/ui-v2",
+      },
     ],
   },
   user: {

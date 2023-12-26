@@ -1,0 +1,24 @@
+.demo {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: [sidebar-col-start] 15% [sidebar-col-end content-col-start] auto [content-col-end];
+  grid-template-rows: [sidebar-row-start content-row-start] auto [sidebar-row-end footer-row-start] 10% [footer-row-end];
+  gap: 2rem;
+  justify-content: stretch;
+}
+
+.demo > .demo-aside {
+  grid-column: sidebar-col-start / sidebar-col-end;
+  grid-row: sidebar-row-start / sidebar-row-end;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.5rem;
+  border-right: 1px solid #ccc;
+}
+
+.demo > .demo-main {
+  grid-column: content-col-start / content-col-end;
+  grid-row: content-row-start / footer-row-start;
+}
