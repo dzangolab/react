@@ -1,10 +1,11 @@
 import { WorkSheetOptions } from "node-xlsx";
-import { Button, ButtonProps } from "primereact/button";
-import React, { useCallback } from "react";
+import React, { ComponentProps, useCallback } from "react";
 
+import LoadingIcon from "../../LoadingIcon";
 import { useExporter } from "../../utils";
+import { Button } from "../ButtonBasic";
 
-export interface ExportButtonProperties extends ButtonProps {
+export interface ExportButtonProperties extends ComponentProps<typeof Button> {
   filename?: string;
   sheetName?: string;
   sheetOptions?: WorkSheetOptions;
@@ -40,7 +41,8 @@ export const ExportButton: React.FC<ExportButtonProperties> = ({
   return (
     <Button
       label={label}
-      loading={exporting}
+      disabled={exporting}
+      iconRight={exporting && <LoadingIcon />}
       onClick={onExportButtonClick}
       {...buttonOptions}
     />
