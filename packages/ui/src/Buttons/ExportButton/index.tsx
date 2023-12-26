@@ -2,7 +2,7 @@ import { WorkSheetOptions } from "node-xlsx";
 import React, { ComponentProps, useCallback } from "react";
 
 import LoadingIcon from "../../LoadingIcon";
-import { useExporterAsync } from "../../utils";
+import { useExporter } from "../../utils";
 import { Button } from "../ButtonBasic";
 
 export interface ExportButtonProperties extends ComponentProps<typeof Button> {
@@ -25,7 +25,7 @@ export const ExportButton: React.FC<ExportButtonProperties> = ({
   onExportEnd,
   ...buttonOptions
 }) => {
-  const [exporting, triggerExport] = useExporterAsync({
+  const [exporting, triggerExport] = useExporter({
     filename,
     sheetName,
     sheetOptions,
