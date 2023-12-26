@@ -1,12 +1,11 @@
 import { WorkSheetOptions } from "node-xlsx";
-import React, { useCallback } from "react";
+import React, { ComponentProps, useCallback } from "react";
 
 import { useExporter } from "../../utils";
 import { Button } from "../ButtonBasic";
 
-export interface ExportButtonProperties {
+export interface ExportButtonProperties extends ComponentProps<typeof Button> {
   filename?: string;
-  label: string;
   sheetName?: string;
   sheetOptions?: WorkSheetOptions;
   onExportStart?: () => void;
@@ -23,6 +22,7 @@ export const ExportButton: React.FC<ExportButtonProperties> = ({
   getData,
   onExportStart,
   onExportEnd,
+  ...buttonOptions
 }) => {
   const [exporting, triggerExport] = useExporter({
     filename,
@@ -38,6 +38,11 @@ export const ExportButton: React.FC<ExportButtonProperties> = ({
   }, [triggerExport, getData]);
 
   return (
-    <Button label={label} disabled={exporting} onClick={onExportButtonClick} />
+    <Button
+      label={label}
+      disabled={exporting}
+      onClick={onExportButtonClick}
+      {...buttonOptions}
+    />
   );
 };
