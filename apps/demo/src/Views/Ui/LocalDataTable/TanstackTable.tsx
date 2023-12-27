@@ -12,14 +12,23 @@ const TanstackTable = () => {
     {
       accessorKey: "name",
       header: () => <span>{t("table.headers.fullName")}</span>,
+      width: "10rem",
+      maxWidth: "10rem",
+      minWidth: "10rem",
     },
     {
       accessorKey: "age",
       header: t("table.headers.age"),
+      width: "6rem",
+      maxWidth: "6rem",
+      minWidth: "6rem",
     },
     {
       accessorKey: "city",
       header: () => <span>{t("table.headers.city")}</span>,
+      width: "8rem",
+      maxWidth: "8rem",
+      minWidth: "8rem",
     },
   ];
 

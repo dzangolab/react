@@ -125,6 +125,9 @@ const DataTable = <TData extends { id: string | number }>({
         enableColumnFilter: false,
         enableGlobalFilter: false,
         align: "center",
+        width: "3rem",
+        maxWidth: "3rem",
+        minWidth: "3rem",
       },
       ...parsedColumns,
     ];
@@ -211,7 +214,7 @@ const DataTable = <TData extends { id: string | number }>({
     <div
       id={id}
       data-border={border}
-      className={"table-container " + className}
+      className={("table-container " + className).trimEnd()}
     >
       {title ? (
         <h6
@@ -316,8 +319,15 @@ const DataTable = <TData extends { id: string | number }>({
                       colSpan={colSpan}
                       className={`column-${id} ${activeColumnClass} ${
                         columnDef.enableSorting ? "sortable" : ""
-                      }`}
+                      }`
+                        .replace(/\s\s/, " ")
+                        .trimEnd()}
                       data-align={columnDef.align || "left"}
+                      style={{
+                        width: columnDef.width,
+                        maxWidth: columnDef.maxWidth,
+                        minWidth: columnDef.minWidth,
+                      }}
                       onClick={(event) => {
                         if (getCanSort()) {
                           handleSort(event, getToggleSortingHandler());
@@ -360,6 +370,11 @@ const DataTable = <TData extends { id: string | number }>({
                     key={"filter" + column.id}
                     data-label={column.id}
                     data-align={column.columnDef.align || "left"}
+                    style={{
+                      width: column.columnDef.width,
+                      maxWidth: column.columnDef.maxWidth,
+                      minWidth: column.columnDef.minWidth,
+                    }}
                     className={
                       (column.id ? `column-${column.id} ` : ``) +
                       activeColumnClass
@@ -397,6 +412,11 @@ const DataTable = <TData extends { id: string | number }>({
                       className={
                         cell.column.id ? `column-${cell.column.id}` : ``
                       }
+                      style={{
+                        width: cell.column.columnDef.width,
+                        maxWidth: cell.column.columnDef.maxWidth,
+                        minWidth: cell.column.columnDef.minWidth,
+                      }}
                     >
                       {cell.column.columnDef.tooltip ? (
                         <TooltipWrapper
