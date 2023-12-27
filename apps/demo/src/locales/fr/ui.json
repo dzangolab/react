@@ -157,5 +157,26 @@
       "itemTwo": "Item 2 (fr)",
       "itemThree": "Item 3 (fr)"
     }
+  },
+  "v2": {
+    "button": {
+      "title": "Button (fr)"
+    },
+    "filesTable": {
+      "title": "Files table (fr)"
+    },
+    "loading": {
+      "title": "Loading (fr)"
+    },
+    "responsiveMenu": {
+      "title": "Responsive menu (fr)"
+    },
+    "submitButton": {
+      "title": "Submit button (fr)",
+      "label": {
+        "submit": "Submit (fr)",
+        "submitLoading": "Submit loading (fr)"
+      }
+    }
   }
 }

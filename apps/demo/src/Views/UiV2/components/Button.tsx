@@ -1,11 +1,11 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Page } from "@dzangolab/react-ui";
+import { Button, SubmitButton, Page } from "@dzangolab/react-ui";
 
 export const ButtonDemo = () => {
   const { t } = useTranslation("ui");
 
   return (
-    <Page title="Buttons">
+    <Page title={t("v2.button.title")}>
       <div className="demo-buttons-wrapper">
         <h3>{t("button.property.severity")}</h3>
         <div className="button-severity">

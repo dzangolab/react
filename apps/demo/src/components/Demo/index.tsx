@@ -1,11 +1,19 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export const Demo = ({ routes }: { routes: Array<any> }) => {
   return (
     <div className="demo">
       <div className="demo-aside">
         {routes.map((route: any) => {
-          return <Link to={route.route}>{route.label}</Link>;
+          return (
+            <NavLink
+              key={route.route}
+              to={route.route}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {route.label}
+            </NavLink>
+          );
         })}
       </div>
       <div className="demo-main">
