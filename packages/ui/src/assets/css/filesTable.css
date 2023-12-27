@@ -1,9 +1,3 @@
-.table-files .column-originalFileName{
-  min-width: 20rem;
-  width: 20rem;
-  max-width: 20rem;
-}
-
 .table-files .column-actions {
   max-width: 7rem;
   min-width: 7rem;

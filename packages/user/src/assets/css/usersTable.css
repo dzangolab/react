@@ -4,12 +4,6 @@
   max-width: 30rem;
 }
 
-.table-users .column-name {
-  min-width: 30rem;
-  width: 30rem;
-  max-width: 30rem;
-}
-
 .table-users .column-roles {
   width: 10rem;
   max-width: 10rem;

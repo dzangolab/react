@@ -116,7 +116,8 @@
   text-align: left;
 }
 
-.table-container .table-wrapper .table .tcell > .content{
+.table-container .table-wrapper .table .tcell > .content {
+  max-width: 45rem;
   width: 100%;
   white-space: nowrap;
   overflow: clip;
