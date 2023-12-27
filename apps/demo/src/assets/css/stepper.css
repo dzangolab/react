@@ -1,11 +1,11 @@
-.stepper-content-wrapper { 
+.stepper-demo-content-wrapper { 
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   font-weight: bold;
 }
 
-.stepper-button-wrapper {
+.stepper-demo-button-wrapper {
   margin-top: 3rem;
   display: flex;
   justify-content: space-around;

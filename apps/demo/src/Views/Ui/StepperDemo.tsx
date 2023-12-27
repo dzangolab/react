@@ -25,7 +25,7 @@ const StepperDemo = () => {
     },
   ];
 
-  const getStepContent = (step: number) => {
+  const renderStepContent = (step: number) => {
     switch (step) {
       case 0:
         return t("stepper.demo.content.personal");
@@ -60,10 +60,10 @@ const StepperDemo = () => {
           setActiveIndex(event.index);
         }}
       />
-      <div className="stepper-content-wrapper">
-        {getStepContent(activeIndex)}
+      <div className="stepper-demo-content-wrapper">
+        {renderStepContent(activeIndex)}
       </div>
-      <div className="stepper-button-wrapper">
+      <div className="stepper-demo-button-wrapper">
         <Button onClick={handlePrevious} label="Previous" />
         <Button onClick={handleNext} label="Next" />
       </div>
