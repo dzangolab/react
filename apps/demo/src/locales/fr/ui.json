@@ -96,6 +96,12 @@
         "children": "Children (fr)",
         "payment": "Payment (fr)",
         "confirmation": "Confirmation (fr)"
+      },
+      "content": {
+        "personal": "Please enter your personal information (fr)",
+        "children": "Please enter your family information (fr)",
+        "payment": "Please enter you payment method (fr)",
+        "confirmation": "Do you wish to continue? (fr)"
       }
     }
   },
