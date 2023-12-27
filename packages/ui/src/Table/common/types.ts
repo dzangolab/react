@@ -181,6 +181,9 @@ declare module "@tanstack/react-table" {
     tooltipOptions?: Partial<
       Omit<ComponentProps<typeof Tooltip>, "elementRef">
     >;
+    width?: string;
+    maxWidth?: string;
+    minWidth?: string;
   }
 }
 

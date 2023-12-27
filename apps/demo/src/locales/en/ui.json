@@ -11,13 +11,29 @@
   "responsiveMenu": "Responsive menu",
   "table": {
     "actions": {
+      "addUser": "Add user",
       "columnActionBtnLabel": "Columns"
+    },
+    "contents": {
+      "totalRecords": "Total records",
+      "customPagination": "Custom pagination"
     },
     "title": {
       "tanstackTable": "Tanstack table",
-      "localDataTable": "Local data table"
+      "localDataTable": "Local data table",
+      "defaultTable": "Default table",
+      "filterableTable": "Table with filterable column",
+      "sortableTable": "Table with sortable column",
+      "rowSelection": "Table with row selection",
+      "customPagination": "Table with custom pagination",
+      "customToolbarActions": "Table with custom toolbar actions",
+      "tooltipColumn": "Table with tooltip column",
+      "tableAlignment": "Table cell content alignments",
+      "columnAction": "Table with column action",
+      "tableFooter": "Table with footer",
+      "borderLessTable": "Table without border but stripe",
+      "tableWithoutPagination": "Table without pagination"
     },
-
     "pagination": {
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
@@ -31,6 +47,7 @@
       "roles": "Roles",
       "age": "Age",
       "action": "Action",
+      "city": "City",
       "givenName": "Given name",
       "middleNames": "Middle names",
       "surname": "Surname",

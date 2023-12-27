@@ -19,3 +19,9 @@
   max-width: 10rem;
   min-width: 10rem;
 }
+
+.table-users .column-actions {
+  width: 8rem;
+  max-width: 8rem;
+  min-width: 8rem;
+}
