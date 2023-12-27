@@ -6,11 +6,7 @@ export const Demo = ({ sidebarMenu }: { sidebarMenu: Array<any> }) => {
       <div className="demo-aside">
         {sidebarMenu.map((route: any) => {
           return (
-            <NavLink
-              key={route.route}
-              to={route.route}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink key={route.route} to={route.route} end>
               {route.label}
             </NavLink>
           );

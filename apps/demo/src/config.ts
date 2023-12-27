@@ -48,7 +48,6 @@ const config: AppConfig = {
         name: "header.menu.layout",
         route: "/layout",
       },
-
       {
         name: "header.menu.ui",
         route: "/ui",
@@ -56,10 +55,6 @@ const config: AppConfig = {
       {
         name: "header.menu.user",
         route: "/user",
-      },
-      {
-        name: "header.menu.uiV2",
-        route: "/ui-v2",
       },
     ],
   },

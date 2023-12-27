@@ -7,8 +7,7 @@ import Form from "./Views/Form";
 import Home from "./Views/Home";
 import I18n from "./Views/I18n";
 import Layout from "./Views/Layout";
-import Ui from "./Views/Ui";
-import { UIPage, UIPages, UIRoutes } from "./Views/UiV2";
+import { UIPage, UIPages, UIRoutes } from "./Views/Ui";
 import User from "./Views/User";
 
 const routes = () => {
@@ -40,10 +39,6 @@ const routes = () => {
         },
         {
           path: "/ui",
-          element: <Ui />,
-        },
-        {
-          path: "/ui-v2",
           element: <UIPages />,
           children: [
             {

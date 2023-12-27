@@ -1,221 +1,89 @@
 {
-  "facades": {
-    "youtubeFacade": "Youtube facade (fr)",
-    "alt": "Sorry, unable to load video/image (fr)"
+  "getStarted": "Get started",
+  "button": {
+    "title": "Button (fr)",
+    "usage": {
+      "severity": "Severity (fr)",
+      "size": "Size (fr)",
+      "outlined": "Outlined (fr)",
+      "icons": "Icons (fr)",
+      "disabled": "Disabled (fr)"
+    }
   },
-  "loading": "Loading (fr)",
-  "buttons": {
-    "export": "Export XLSX (fr)",
-    "submit": "Submit button (fr)"
+  "filesTable": {
+    "title": "Files table (fr)"
   },
-  "responsiveMenu": "Responsive menu",
+  "loading": {
+    "title": "Loading (fr)"
+  },
+  "responsiveMenu": {
+    "title": "Responsive menu (fr)"
+  },
+  "submitButton": {
+    "title": "Submit button (fr)"
+  },
+  "youtubeFacade": {
+    "title": "Youtube facade (fr)"
+  },
+  "exportButton": {
+    "title": "Export button (fr)"
+  },
+  "fileCard": {
+    "title": "File card (fr)"
+  },
+  "filesList": {
+    "title": "Files list (fr)"
+  },
+  "filesPresentation": {
+    "title": "Files presentation (fr)"
+  },
   "table": {
-    "actions": {
-      "addUser": "Add user (fr)",
-      "columnActionBtnLabel": "Columns (fr)"
-    },
-    "contents": {
-      "totalRecords": "Total records (fr)",
-      "customPagination": "Custom pagination (fr)"
-    },
-    "title": {
-      "tanstackTable": "Tanstack table (fr)",
-      "localDataTable": "Local data table (fr)",
-      "defaultTable": "Default table (fr)",
-      "filterableTable": "Table with filterable column (fr)",
-      "sortableTable": "Table with sortable column (fr)",
+    "title": "Table (Tanstack) (fr)",
+    "usage": {
+      "basic": "Basic table (fr)",
+      "filterable": "Table with filterable column (fr)",
+      "sortable": "Table with sortable column (fr)",
       "rowSelection": "Table with row selection (fr)",
       "customPagination": "Table with custom pagination (fr)",
       "customToolbarActions": "Table with custom toolbar actions (fr)",
-      "tooltipColumn": "Table with tooltip column (fr)",
-      "tableAlignment": "Table cell content alignments (fr)",
+      "columnTooltip": "Table with tooltip column (fr)",
+      "columnAlignment": "Table cell content alignments (fr)",
       "columnAction": "Table with column action (fr)",
-      "tableFooter": "Table with footer (fr)",
-      "borderLessTable": "Table without border but stripe (fr)",
-      "tableWithoutPagination": "Table without pagination (fr)"
-    },
-    "pagination": {
-      "pageControl": "Go to (fr)",
-      "rowsPerPage": "Rows (fr)"
-    },
-    "placeholders": {
-      "givenName": "Type here to search (fr)..."
-    },
-    "headers": {
-      "userName": "User name (fr)",
-      "email": "Email (fr)",
-      "roles": "Roles (fr)",
-      "age": "Age (fr)",
-      "action": "Action (fr)",
-      "city": "City (fr)",
-      "givenName": "Given name (fr)",
-      "middleNames": "Middle names (fr)",
-      "surname": "Surname (fr)",
-      "address": "Address (fr)",
-      "fullName": "Full name (fr)"
-    },
-    "delete": {
-      "message": "Are you sure you want to delete? (fr)",
-      "header": "Confirm delete (fr)"
-    },
-    "emptyTableMessage": "No records found (fr)."
-  },
-  "files": {
-    "table": "Files table (fr)",
-    "list": "Files list (fr)",
-    "presentation": "Files presentation (fr)"
-  },
-  "file": {
-    "card": "File card (fr)"
-  },
-  "message": {
-    "title": "Message (fr)",
-    "content": "User session is expired (fr)"
-  },
-  "tooltip": {
-    "title": "Tooltip (fr)",
-    "positions": {
-      "bottom": "Bottom (fr)",
-      "configured": "Configured (fr)",
-      "left": "Left (fr)",
-      "mouseTrack": "MouseTrack (fr)",
-      "right": "Right (fr)",
-      "top": "Top (fr)"
-    },
-    "content": "Tooltip component (fr)",
-    "button": {
-      "save": "Save (fr)",
-      "content": "Save the data (fr)"
+      "withFooter": "Table with footer (fr)",
+      "borderless": "Table without border but stripe (fr)",
+      "withoutPagination": "Table without pagination (fr)"
     }
   },
+  "message": {
+    "title": "Message (fr)"
+  },
+  "tooltip": {
+    "title": "Tooltip (fr)"
+  },
   "checkbox": {
-    "title": "Checkbox (fr)",
-    "label": "Please agree with the terms and conditions (fr)"
+    "title": "Checkbox (fr)"
   },
   "input": {
-    "title": "Input (fr)",
-    "errorMessage": "Value is required (fr)",
-    "label": "Your input (fr)",
-    "placeholder": "Please enter your value (fr)"
+    "title": "Input (fr)"
   },
   "sortableList": {
     "title": "Sortable list (fr)"
   },
   "popup": {
-    "content": "Popup contents. (fr)",
     "title": "Popup (fr)"
   },
   "stepper": {
-    "title": "Stepper (fr)",
-    "demo": {
-      "message": "You are on page: {{page}} (fr)",
-      "label": {
-        "personal": "Personal (fr)",
-        "children": "Children (fr)",
-        "payment": "Payment (fr)",
-        "confirmation": "Confirmation (fr)"
-      },
-      "content": {
-        "personal": "Please enter your personal information (fr)",
-        "children": "Please enter your family information (fr)",
-        "payment": "Please enter you payment method (fr)",
-        "confirmation": "Do you wish to continue? (fr)"
-      }
-    }
-  },
-  "button": {
-    "title": "Button (fr)",
-    "label": {
-      "primary": "Primary (fr)",
-      "secondary": "Secondary (fr)",
-      "alternate": "Alternate (fr)",
-      "success": "Success (fr)",
-      "danger": "Danger (fr)",
-      "warning": "Warning (fr)"
-    },
-    "property": {
-      "disable": "Disabled (fr)",
-      "icon": {
-        "title": "Icon (fr)",
-        "left": "Icon left (fr)",
-        "right": "Icon right (fr)"
-      },
-      "outline": "Outlined (fr)",
-      "severity": "Severity (fr)",
-      "size": {
-        "title": "Size (fr)",
-        "small": "Small (fr)",
-        "medium": "Medium (fr)",
-        "large": "Large (fr)"
-      }
-    }
+    "title": "Stepper (fr)"
   },
   "tabbedPanel": {
     "title": "Tabbed panel (fr)",
-    "label": {
-      "itemOne": "Item 1 (fr)",
-      "itemTwo": "Item 2 (fr)",
-      "itemThree": "Item 3 (fr)"
+    "usage": {
+      "basic": "Basic usage (fr)",
+      "customActiveTab": "Custom active tab (fr)"
     }
   },
-  "v2": {
-    "getStarted": "Get started",
-    "button": {
-      "title": "Button (fr)"
-    },
-    "filesTable": {
-      "title": "Files table (fr)"
-    },
-    "loading": {
-      "title": "Loading (fr)"
-    },
-    "responsiveMenu": {
-      "title": "Responsive menu (fr)"
-    },
-    "submitButton": {
-      "title": "Submit button (fr)"
-    },
-    "youtubeFacade": {
-      "title": "Youtube facade (fr)"
-    },
-    "exportButton": {
-      "title": "Export button (fr)"
-    },
-    "fileCard": {
-      "title": "File card (fr)"
-    },
-    "filesList": {
-      "title": "Files list (fr)"
-    },
-    "filesPresentation": {
-      "title": "Files presentation (fr)"
-    },
-    "tanstackTable": {
-      "title": "Tanstack table (fr)"
-    },
-    "message": {
-      "title": "Message (fr)"
-    },
-    "tooltip": {
-      "title": "Tooltip (fr)"
-    },
-    "checkbox": {
-      "title": "Checkbox (fr)"
-    },
-    "input": {
-      "title": "Input (fr)"
-    },
-    "sortableList": {
-      "title": "Sortable list (fr)"
-    },
-    "popup": {
-      "title": "Popup (fr)"
-    },
-    "stepper": {
-      "title": "Stepper (fr)"
-    },
-    "tabbedPanel": {
-      "title": "Tabbed panel (fr)"
-    }
+  "localDataTable": {
+    "title": "Local datatable (Primereact)(fr)",
+    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)"
   }
 }
