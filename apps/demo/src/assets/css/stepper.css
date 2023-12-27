@@ -1,5 +1,9 @@
-.stepper-demo-message {
-  margin-top: 5rem;
+.demo-content-wrapper {
   display: flex;
-  justify-content: center;
+}
+
+.demo-button-wrapper {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: space-between;
 }

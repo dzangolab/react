@@ -66,8 +66,8 @@ const StepperDemo = () => {
           setActiveIndex(event.index);
         }}
       />
-      {getStepContent(activeIndex)}
-      <div>
+      <div className="demo-content-wrapper">{getStepContent(activeIndex)}</div>
+      <div className="demo-button-wrapper">
         <Button
           onClick={() =>
             setActiveIndex((previous) => {
