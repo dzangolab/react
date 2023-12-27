@@ -7,6 +7,7 @@ import {
 } from "@dzangolab/react-ui";
 
 import { data } from "./data";
+import { Section } from "../../../../components/Demo";
 
 export const TableDemo = () => {
   const [t] = useTranslation("ui");
@@ -42,23 +43,17 @@ export const TableDemo = () => {
 
   return (
     <Page title={t("table.title")}>
-      <div
-        className="tanstack-tables-wrapper"
-        style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
-      >
+      <Section title={t("table.usage.basic")}>
         <TDataTable
-          title={{ text: t("table.usage.basic"), align: "left" }}
           columns={columns}
           data={data}
           id="invitations-table"
           initialFilters={[{ id: "email", value: "O" }]}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.filterable")}>
         <TDataTable
-          title={{
-            text: t("table.usage.filterable"),
-            align: "left",
-          }}
           visibleColumns={["name", "email", "age", "city"]}
           columns={[
             ...columns,
@@ -71,9 +66,10 @@ export const TableDemo = () => {
           data={data}
           initialFilters={[{ id: "email", value: "s" }]}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.sortable")}>
         <TDataTable
-          title={{ text: t("table.usage.sortable"), align: "left" }}
           visibleColumns={["name", "email", "age", "city"]}
           columns={[
             ...columns,
@@ -85,22 +81,18 @@ export const TableDemo = () => {
           data={data}
           initialFilters={[{ id: "email", value: "s" }]}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.rowSelection")}>
         <TDataTable
-          title={{
-            text: t("table.usage.rowSelection"),
-            align: "left",
-          }}
           columns={[...columns]}
           data={data.slice(0, 5)}
           enableRowSelection={true}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.customPagination")}>
         <TDataTable
-          title={{
-            text: t("table.usage.customPagination"),
-            align: "left",
-          }}
           columns={[
             ...columns,
             {
@@ -112,12 +104,10 @@ export const TableDemo = () => {
             return <>Custom pagination</>;
           }}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.customToolbarActions")}>
         <TDataTable
-          title={{
-            text: t("table.usage.customToolbarActions"),
-            align: "left",
-          }}
           columns={[
             ...columns,
             {
@@ -133,7 +123,9 @@ export const TableDemo = () => {
             );
           }}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.columnTooltip")}>
         <TDataTable
           title={{
             text: t("table.usage.columnTooltip"),
@@ -173,12 +165,10 @@ export const TableDemo = () => {
           data={data.slice(0, 5)}
           enableRowSelection={true}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.columnAlignment")}>
         <TDataTable
-          title={{
-            text: t("table.usage.columnAlignment"),
-            align: "left",
-          }}
           columns={[
             ...columns,
             {
@@ -193,23 +183,19 @@ export const TableDemo = () => {
           data={data.slice(0, 5)}
           enableRowSelection={true}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.columnAction")}>
         <TDataTable
-          title={{
-            text: t("table.usage.columnAction"),
-            align: "left",
-          }}
           columns={[...columns]}
           data={data.slice(10, 15)}
           showColumnsAction={true}
           columnActionBtnLabel="Columns"
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.withFooter")}>
         <TDataTable
-          title={{
-            text: t("table.usage.withFooter"),
-            align: "left",
-          }}
           columns={[...columns]}
           data={data}
           renderTableFooterContent={(table) => (
@@ -220,28 +206,33 @@ export const TableDemo = () => {
             </div>
           )}
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.borderless")}>
         <TDataTable
-          title={{
-            text: t("table.usage.borderless"),
-            align: "left",
-          }}
           columns={[...columns]}
           data={data.slice(10, 15)}
           border="none"
           stripe="odd"
         ></TDataTable>
+      </Section>
 
+      <Section title={t("table.usage.withoutPagination")}>
         <TDataTable
-          title={{
-            text: t("table.usage.withoutPagination"),
-            align: "left",
-          }}
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
         ></TDataTable>
-      </div>
+      </Section>
+
+      <Section title={t("table.usage.withTitle")}>
+        <TDataTable
+          title={{ text: "Table title", align: "left" }}
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+        ></TDataTable>
+      </Section>
     </Page>
   );
 };

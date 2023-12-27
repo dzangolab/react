@@ -1,6 +1,12 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 
-export const Demo = ({ sidebarMenu }: { sidebarMenu: Array<any> }) => {
+interface Properties {
+  sidebarMenu: Array<any>;
+  children?: ReactNode;
+}
+
+export const Demo: React.FC<Properties> = ({ sidebarMenu, children }) => {
   return (
     <div className="demo">
       <div className="demo-aside">
@@ -12,9 +18,7 @@ export const Demo = ({ sidebarMenu }: { sidebarMenu: Array<any> }) => {
           );
         })}
       </div>
-      <div className="demo-main">
-        <Outlet />
-      </div>
+      <div className="demo-main">{children}</div>
     </div>
   );
 };

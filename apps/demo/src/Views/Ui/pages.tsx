@@ -1,4 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
 import { CheckboxDemo } from "./components/Checkbox";
@@ -6,7 +7,7 @@ import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
 import { FilesPresentationDemo } from "./components/FilesPresentation";
-import FilesTableDemo from "./components/FilesTable";
+import { FilesTableDemo } from "./components/FilesTable";
 import { InputDemo } from "./components/Input";
 import { LoadingDemo } from "./components/Loading";
 import { LocalDataTableDemo } from "./components/LocalDataTable";
@@ -159,5 +160,9 @@ export const UIPages = () => {
     }),
   ];
 
-  return <Demo sidebarMenu={sidebarMenu}></Demo>;
+  return (
+    <Demo sidebarMenu={sidebarMenu}>
+      <Outlet />
+    </Demo>
+  );
 };

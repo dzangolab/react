@@ -3,6 +3,7 @@ import { Button, Stepper, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import "./index.css";
+import { Section } from "../../../../components/Demo";
 
 export const StepperDemo = () => {
   const [t] = useTranslation("ui");
@@ -55,22 +56,28 @@ export const StepperDemo = () => {
 
   return (
     <Page title={t("stepper.title")}>
-      <Stepper
-        steps={list}
-        activeIndex={activeIndex}
-        readOnly={true}
-        onChange={(event: any) => {
-          setActiveIndex(event.index);
-        }}
-        align="start"
-      />
-      <div className="demo-stepper-content-wrapper">
-        {renderStepContent(activeIndex)}
-      </div>
-      <div className="demo-stepper-button-wrapper">
-        <Button onClick={handlePrevious} label="Previous" variant="outlined" />
-        <Button onClick={handleNext} label="Next" />
-      </div>
+      <Section>
+        <Stepper
+          steps={list}
+          activeIndex={activeIndex}
+          readOnly={true}
+          onChange={(event: any) => {
+            setActiveIndex(event.index);
+          }}
+          align="start"
+        />
+        <div className="demo-stepper-content-wrapper">
+          {renderStepContent(activeIndex)}
+        </div>
+        <div className="demo-stepper-button-wrapper">
+          <Button
+            onClick={handlePrevious}
+            label="Previous"
+            variant="outlined"
+          />
+          <Button onClick={handleNext} label="Next" />
+        </div>
+      </Section>
     </Page>
   );
 };

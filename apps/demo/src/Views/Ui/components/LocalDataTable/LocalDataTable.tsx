@@ -5,6 +5,7 @@ import { Tag } from "primereact/tag";
 import type { ColumnProps } from "primereact/column";
 
 import "./index.css";
+import { Section } from "../../../../components/Demo";
 
 export const LocalDataTableDemo = () => {
   const { t } = useTranslation("ui");
@@ -171,12 +172,14 @@ export const LocalDataTableDemo = () => {
         icon="pi pi-exclamation-triangle"
       ></Message>
       <br />
-      <DataTable
-        className="table-localdata"
-        columns={defaultColumns}
-        rows={5}
-        data={users}
-      />
+      <Section>
+        <DataTable
+          className="table-localdata"
+          columns={defaultColumns}
+          rows={5}
+          data={users}
+        />
+      </Section>
     </Page>
   );
 };

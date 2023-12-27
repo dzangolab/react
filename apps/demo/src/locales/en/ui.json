@@ -55,14 +55,23 @@
       "columnAction": "Table with column action",
       "withFooter": "Table with footer",
       "borderless": "Table without border but stripe",
-      "withoutPagination": "Table without pagination"
+      "withoutPagination": "Table without pagination",
+      "withTitle": "Table with title"
     }
   },
   "message": {
     "title": "Message"
   },
   "tooltip": {
-    "title": "Tooltip"
+    "title": "Tooltip",
+    "position": {
+      "right": "Right",
+      "left": "Left",
+      "top": "Top",
+      "bottom": "Bottom",
+      "mouseTrack": "Mouse track",
+      "configured": "Congigured"
+    }
   },
   "checkbox": {
     "title": "Checkbox"

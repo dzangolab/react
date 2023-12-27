@@ -1,22 +1,19 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, SubmitButton } from "@dzangolab/react-ui";
 
+import { Section } from "../../../components/Demo";
+
 export const SubmitButtonDemo = () => {
   const [t] = useTranslation("ui");
 
   return (
     <Page title={t("submitButton.title")}>
-      <div>
-        <p>
-          We have dedicated submit button component <code>SubmitButton</code>{" "}
-          which has <code>type="submit"</code> by default and supports loading
-          state.
-        </p>
-        <br />
+      <Section>
         <SubmitButton label="Submit" />
-        <br />
+      </Section>
+      <Section>
         <SubmitButton label="Submit loading" loading />
-      </div>
+      </Section>
     </Page>
   );
 };

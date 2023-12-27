@@ -51,14 +51,23 @@
       "columnAction": "Table with column action (fr)",
       "withFooter": "Table with footer (fr)",
       "borderless": "Table without border but stripe (fr)",
-      "withoutPagination": "Table without pagination (fr)"
+      "withoutPagination": "Table without pagination (fr)",
+      "withTitle": "Table with title (fr)"
     }
   },
   "message": {
     "title": "Message (fr)"
   },
   "tooltip": {
-    "title": "Tooltip (fr)"
+    "title": "Tooltip (fr)",
+    "position": {
+      "right": "Right (fr)",
+      "left": "Left (fr)",
+      "top": "Top (fr)",
+      "bottom": "Bottom (fr)",
+      "mouseTrack": "Mouse track (fr)",
+      "configured": "Congigured (fr)"
+    }
   },
   "checkbox": {
     "title": "Checkbox (fr)"

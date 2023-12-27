@@ -4,11 +4,7 @@
   gap: 1rem;
 }
 
-.demo-buttons-wrapper .button-severity,
-.demo-buttons-wrapper .button-size,
-.demo-buttons-wrapper .button-icon,
-.demo-buttons-wrapper .button-outline,
-.demo-buttons-wrapper .button-disable {
+.demo-buttons-container {
   display: flex;
   align-items: center;
   gap: 1rem;

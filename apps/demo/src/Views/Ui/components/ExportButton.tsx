@@ -1,6 +1,8 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { ExportButton, Page } from "@dzangolab/react-ui";
 
+import { Section } from "../../../components/Demo";
+
 export const ExportButtonDemo = () => {
   const [t] = useTranslation("ui");
 
@@ -15,7 +17,9 @@ export const ExportButtonDemo = () => {
 
   return (
     <Page title={t("exportButton.title")}>
-      <ExportButton label="Export XLSX" getData={getData} />
+      <Section>
+        <ExportButton label="Export XLSX" getData={getData} />
+      </Section>
     </Page>
   );
 };

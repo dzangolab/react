@@ -2,15 +2,15 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Page } from "@dzangolab/react-ui";
 
 import "./index.css";
+import { Section } from "../../../../components/Demo";
 
 export const ButtonDemo = () => {
   const { t } = useTranslation("ui");
 
   return (
     <Page title={t("button.title")}>
-      <div className="demo-buttons-wrapper">
-        <h3>{t("button.usage.severity")}</h3>
-        <div className="button-severity">
+      <Section title={t("button.usage.severity")}>
+        <div className="demo-buttons-container">
           <Button label="Primary" severity="primary" />
           <Button label="Secondary" severity="secondary" />
           <Button label="Alternate" severity="alternate" />
@@ -18,8 +18,10 @@ export const ButtonDemo = () => {
           <Button label="Danger" severity="danger" />
           <Button label="Warning" severity="warning" />
         </div>
-        <h3>{t("button.usage.size")}</h3>
-        <div className="button-size">
+      </Section>
+
+      <Section title={t("button.usage.size")}>
+        <div className="demo-buttons-container">
           <Button
             label="Small"
             size="small"
@@ -39,8 +41,10 @@ export const ButtonDemo = () => {
             severity="primary"
           />
         </div>
-        <h3>{t("button.usage.outlined")}</h3>
-        <div className="button-outline">
+      </Section>
+
+      <Section title={t("button.usage.outlined")}>
+        <div className="demo-buttons-container">
           <Button
             label="Primary"
             size="medium"
@@ -63,8 +67,10 @@ export const ButtonDemo = () => {
           <Button label="Danger" severity="danger" variant="outlined" />
           <Button label="Warning" severity="warning" variant="outlined" />
         </div>
-        <h3>{t("button.usage.icons")}</h3>
-        <div className="button-icon">
+      </Section>
+
+      <Section title={t("button.usage.icons")}>
+        <div className="demo-buttons-container">
           <Button variant="filled" iconRight="pi pi-user" />
           <Button
             label="Secondary"
@@ -87,8 +93,10 @@ export const ButtonDemo = () => {
             iconLeft="pi pi-spin pi-spinner"
           />
         </div>
-        <h3>{t("button.usage.disabled")}</h3>
-        <div className="button-disable">
+      </Section>
+
+      <Section title={t("button.usage.disabled")}>
+        <div className="demo-buttons-container">
           <Button
             label="Primary"
             variant="filled"
@@ -102,7 +110,7 @@ export const ButtonDemo = () => {
             disabled={true}
           />
         </div>
-      </div>
+      </Section>
     </Page>
   );
 };

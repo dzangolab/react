@@ -1,6 +1,8 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, ResponsiveMenu } from "@dzangolab/react-ui";
 
+import { Section } from "../../../components/Demo";
+
 const MENU_ROUTES = [
   {
     name: "Home",
@@ -17,15 +19,12 @@ export const ResponsiveMenuDemo = () => {
 
   return (
     <Page title={t("responsiveMenu.title")}>
-      <div>
-        <h3>Horizontal menu</h3>
+      <Section title="Horizontal menu">
         <ResponsiveMenu routes={MENU_ROUTES} />
-      </div>
-      <br />
-      <div>
-        <h3>Vertical menu</h3>
+      </Section>
+      <Section title="Vertical menu">
         <ResponsiveMenu routes={MENU_ROUTES} orientation="vertical" />
-      </div>
+      </Section>
     </Page>
   );
 };

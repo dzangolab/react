@@ -35,3 +35,15 @@
 .demo > .demo-aside > a.active {
   font-weight: 600;
 }
+
+.demo-section {
+  margin-bottom: 2rem;
+}
+
+.demo-section > h3 {
+  margin-bottom: 1rem;
+}
+
+.demo-section > h4 {
+  margin-bottom: 1rem;
+}
