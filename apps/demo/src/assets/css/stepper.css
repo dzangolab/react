@@ -5,5 +5,5 @@
 .demo-button-wrapper {
   margin-top: 8rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

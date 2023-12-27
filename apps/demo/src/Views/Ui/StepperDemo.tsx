@@ -83,11 +83,11 @@ const StepperDemo = () => {
         <Button
           onClick={() =>
             setActiveIndex((previous) => {
-              if (previous < list.length) {
+              if (previous < list.length - 1) {
                 return previous + 1;
               }
 
-              return list.length;
+              return list.length - 1;
             })
           }
           label="Next"
