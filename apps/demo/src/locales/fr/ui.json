@@ -11,11 +11,28 @@
   "responsiveMenu": "Responsive menu",
   "table": {
     "actions": {
+      "addUser": "Add user (fr)",
       "columnActionBtnLabel": "Columns (fr)"
+    },
+    "contents": {
+      "totalRecords": "Total records (fr)",
+      "customPagination": "Custom pagination (fr)"
     },
     "title": {
       "tanstackTable": "Tanstack table (fr)",
-      "localDataTable": "Local data table (fr)"
+      "localDataTable": "Local data table (fr)",
+      "defaultTable": "Default table (fr)",
+      "filterableTable": "Table with filterable column (fr)",
+      "sortableTable": "Table with sortable column (fr)",
+      "rowSelection": "Table with row selection (fr)",
+      "customPagination": "Table with custom pagination (fr)",
+      "customToolbarActions": "Table with custom toolbar actions (fr)",
+      "tooltipColumn": "Table with tooltip column (fr)",
+      "tableAlignment": "Table cell content alignments (fr)",
+      "columnAction": "Table with column action (fr)",
+      "tableFooter": "Table with footer (fr)",
+      "borderLessTable": "Table without border but stripe (fr)",
+      "tableWithoutPagination": "Table without pagination (fr)"
     },
     "pagination": {
       "pageControl": "Go to (fr)",
@@ -30,6 +47,7 @@
       "roles": "Roles (fr)",
       "age": "Age (fr)",
       "action": "Action (fr)",
+      "city": "City (fr)",
       "givenName": "Given name (fr)",
       "middleNames": "Middle names (fr)",
       "surname": "Surname (fr)",

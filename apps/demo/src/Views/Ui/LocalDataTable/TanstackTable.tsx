@@ -7,7 +7,7 @@ const TanstackTable = () => {
   const columns = [
     {
       accessorKey: "email",
-      header: "Email",
+      header: t("table.headers.email"),
     },
     {
       accessorKey: "name",
@@ -15,11 +15,11 @@ const TanstackTable = () => {
     },
     {
       accessorKey: "age",
-      header: "Age",
+      header: t("table.headers.age"),
     },
     {
       accessorKey: "city",
-      header: () => <span>{t("table.headers.address")}</span>,
+      header: () => <span>{t("table.headers.city")}</span>,
     },
   ];
 
@@ -172,7 +172,7 @@ const TanstackTable = () => {
       style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
     >
       <TDataTable
-        title={{ text: "Basic table", align: "left" }}
+        title={{ text: t("table.title.defaultTable"), align: "left" }}
         columns={columns}
         data={data}
         id="invitations-table"
@@ -180,7 +180,7 @@ const TanstackTable = () => {
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with filterable column", align: "left" }}
+        title={{ text: t("table.title.filterableTable"), align: "left" }}
         visibleColumns={["name", "email", "age", "city"]}
         columns={[
           ...columns,
@@ -195,7 +195,7 @@ const TanstackTable = () => {
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with sortable columns", align: "left" }}
+        title={{ text: t("table.title.sortableTable"), align: "left" }}
         visibleColumns={["name", "email", "age", "city"]}
         columns={[
           ...columns,
@@ -209,14 +209,14 @@ const TanstackTable = () => {
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with row selection", align: "left" }}
+        title={{ text: t("table.title.rowSelection"), align: "left" }}
         columns={[...columns]}
         data={data.slice(0, 5)}
         enableRowSelection={true}
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with custom pagination", align: "left" }}
+        title={{ text: t("table.title.customPagination"), align: "left" }}
         columns={[
           ...columns,
           {
@@ -225,12 +225,12 @@ const TanstackTable = () => {
         ]}
         data={data.slice(0, 5)}
         renderCustomPagination={(table) => {
-          return <>Custom Pagination definition</>;
+          return <>{t("table.contents.customPagination")}</>;
         }}
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with custom toolbar action", align: "left" }}
+        title={{ text: t("table.title.customToolbarActions"), align: "left" }}
         columns={[
           ...columns,
           {
@@ -241,14 +241,14 @@ const TanstackTable = () => {
         renderToolbarItems={(table) => {
           return (
             <>
-              <Button label="Add User" />
+              <Button label={t("table.actions.addUser")} />
             </>
           );
         }}
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with tooltip column", align: "left" }}
+        title={{ text: t("table.title.tooltipColumn"), align: "left" }}
         columns={[
           ...columns,
           {
@@ -285,7 +285,7 @@ const TanstackTable = () => {
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table cell content alignments", align: "left" }}
+        title={{ text: t("table.title.tableAlignment"), align: "left" }}
         columns={[
           ...columns,
           {
@@ -306,7 +306,7 @@ const TanstackTable = () => {
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with column action", align: "left" }}
+        title={{ text: t("table.title.columnAction"), align: "left" }}
         columns={[...columns]}
         data={data.slice(10, 15)}
         showColumnsAction={true}
@@ -314,29 +314,29 @@ const TanstackTable = () => {
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with table footer", align: "left" }}
+        title={{ text: t("table.title.tableFooter"), align: "left" }}
         columns={[...columns]}
         data={data}
         renderTableFooterContent={(table) => (
           <div style={{ padding: "1rem" }}>
             <span>
-              Total records: {table.getPreFilteredRowModel().flatRows.length}
+              {t("table.contents.totalRecords")}:{" "}
+              {table.getPreFilteredRowModel().flatRows.length}
             </span>
           </div>
         )}
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table with no border but a stipe", align: "left" }}
+        title={{ text: t("table.title.borderLessTable"), align: "left" }}
         columns={[...columns]}
         data={data.slice(10, 15)}
-        showColumnsAction={true}
         border="none"
         stripe="odd"
       ></TDataTable>
 
       <TDataTable
-        title={{ text: "Table without pagination", align: "left" }}
+        title={{ text: t("table.title.tableWithoutPagination"), align: "left" }}
         columns={[...columns]}
         data={data.slice(10, 15)}
         paginated={false}
