@@ -1,9 +1,12 @@
-.demo-content-wrapper {
+.stepper-content-wrapper { 
+  margin-top: 1rem;
   display: flex;
+  justify-content: center;
+  font-weight: bold;
 }
 
-.demo-button-wrapper {
-  margin-top: 8rem;
+.stepper-button-wrapper {
+  margin-top: 3rem;
   display: flex;
   justify-content: space-around;
 }

@@ -97,6 +97,12 @@
         "children": "Children",
         "payment": "Payment",
         "confirmation": "Confirmation"
+      },
+      "content": {
+        "personal": "Please enter your personal information",
+        "children": "Please enter your family information",
+        "payment": "Please enter you payment method",
+        "confirmation": "Do you wish to continue?"
       }
     }
   },

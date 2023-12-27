@@ -25,34 +25,28 @@ const StepperDemo = () => {
     },
   ];
 
-  console.log(activeIndex);
-
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
-        return (
-          <>
-            <p>Hello world</p>
-          </>
-        );
+        return t("stepper.demo.content.personal");
       case 1:
-        return (
-          <>
-            <p>Hello my name</p>
-          </>
-        );
+        return t("stepper.demo.content.children");
       case 2:
-        return (
-          <>
-            <p>Hello any other</p>
-          </>
-        );
+        return t("stepper.demo.content.payment");
       case 3:
-        return (
-          <>
-            <p>Hello any more </p>
-          </>
-        );
+        return t("stepper.demo.content.confirmation");
+    }
+  };
+
+  const handlePrevious = () => {
+    if (activeIndex > 0) {
+      setActiveIndex(activeIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (activeIndex < list.length - 1) {
+      setActiveIndex(activeIndex + 1);
     }
   };
 
@@ -66,32 +60,12 @@ const StepperDemo = () => {
           setActiveIndex(event.index);
         }}
       />
-      <div className="demo-content-wrapper">{getStepContent(activeIndex)}</div>
-      <div className="demo-button-wrapper">
-        <Button
-          onClick={() =>
-            setActiveIndex((previous) => {
-              if (previous > 0) {
-                return previous - 1;
-              }
-
-              return 0;
-            })
-          }
-          label="Previous"
-        />
-        <Button
-          onClick={() =>
-            setActiveIndex((previous) => {
-              if (previous < list.length - 1) {
-                return previous + 1;
-              }
-
-              return list.length - 1;
-            })
-          }
-          label="Next"
-        />
+      <div className="stepper-content-wrapper">
+        {getStepContent(activeIndex)}
+      </div>
+      <div className="stepper-button-wrapper">
+        <Button onClick={handlePrevious} label="Previous" />
+        <Button onClick={handleNext} label="Next" />
       </div>
     </>
   );
