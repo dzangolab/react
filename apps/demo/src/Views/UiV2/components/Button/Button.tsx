@@ -1,5 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, SubmitButton, Page } from "@dzangolab/react-ui";
+import { Button, Page } from "@dzangolab/react-ui";
+
+import "./index.css";
 
 export const ButtonDemo = () => {
   const { t } = useTranslation("ui");

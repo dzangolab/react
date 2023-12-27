@@ -159,6 +159,7 @@
     }
   },
   "v2": {
+    "getStarted": "Get started",
     "button": {
       "title": "Button"
     },
@@ -176,6 +177,52 @@
       "label": {
         "submit": "Submit",
         "submitLoading": "Submit loading"
+      }
+    },
+    "youtubeFacade": {
+      "title": "Youtube facade"
+    },
+    "exportButton": {
+      "title": "Export button"
+    },
+    "fileCard": {
+      "title": "File card"
+    },
+    "filesList": {
+      "title": "Files list"
+    },
+    "filesPresentation": {
+      "title": "Files presentation"
+    },
+    "tanstackTable": {
+      "title": "Tanstack table"
+    },
+    "message": {
+      "title": "Message"
+    },
+    "tooltip": {
+      "title": "Tooltip"
+    },
+    "checkbox": {
+      "title": "Checkbox"
+    },
+    "input": {
+      "title": "Input"
+    },
+    "sortableList": {
+      "title": "Sortable list"
+    },
+    "popup": {
+      "title": "Popup"
+    },
+    "stepper": {
+      "title": "Stepper"
+    },
+    "tabbedPanel": {
+      "title": "Tabbed panel",
+      "usage": {
+        "basic": "Basic usage",
+        "customActiveTab": "Custom active tab"
       }
     }
   }

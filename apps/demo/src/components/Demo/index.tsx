@@ -1,10 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-export const Demo = ({ routes }: { routes: Array<any> }) => {
+export const Demo = ({ sidebarMenu }: { sidebarMenu: Array<any> }) => {
   return (
     <div className="demo">
       <div className="demo-aside">
-        {routes.map((route: any) => {
+        {sidebarMenu.map((route: any) => {
           return (
             <NavLink
               key={route.route}

@@ -6,7 +6,16 @@ export const LoadingDemo = () => {
 
   return (
     <Page title={t("v2.loading.title")}>
-      <LoadingIcon color={"black"} fontSize={"0.5rem"} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flex: 1,
+        }}
+      >
+        <LoadingIcon color={"black"} fontSize={"0.5rem"} />
+      </div>
     </Page>
   );
 };

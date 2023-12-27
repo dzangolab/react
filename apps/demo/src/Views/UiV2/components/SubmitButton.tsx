@@ -12,11 +12,10 @@ export const SubmitButtonDemo = () => {
           which has <code>type="submit"</code> by default and supports loading
           state.
         </p>
-        <SubmitButton label={t("v2.submitButton.label.submit")} />
-        <SubmitButton
-          label={t("v2.submitButton.label.submitLoading")}
-          loading
-        />
+        <br />
+        <SubmitButton label="Submit" />
+        <br />
+        <SubmitButton label="Submit loading" loading />
       </div>
     </Page>
   );

@@ -159,6 +159,7 @@
     }
   },
   "v2": {
+    "getStarted": "Get started",
     "button": {
       "title": "Button (fr)"
     },
@@ -172,11 +173,49 @@
       "title": "Responsive menu (fr)"
     },
     "submitButton": {
-      "title": "Submit button (fr)",
-      "label": {
-        "submit": "Submit (fr)",
-        "submitLoading": "Submit loading (fr)"
-      }
+      "title": "Submit button (fr)"
+    },
+    "youtubeFacade": {
+      "title": "Youtube facade (fr)"
+    },
+    "exportButton": {
+      "title": "Export button (fr)"
+    },
+    "fileCard": {
+      "title": "File card (fr)"
+    },
+    "filesList": {
+      "title": "Files list (fr)"
+    },
+    "filesPresentation": {
+      "title": "Files presentation (fr)"
+    },
+    "tanstackTable": {
+      "title": "Tanstack table (fr)"
+    },
+    "message": {
+      "title": "Message (fr)"
+    },
+    "tooltip": {
+      "title": "Tooltip (fr)"
+    },
+    "checkbox": {
+      "title": "Checkbox (fr)"
+    },
+    "input": {
+      "title": "Input (fr)"
+    },
+    "sortableList": {
+      "title": "Sortable list (fr)"
+    },
+    "popup": {
+      "title": "Popup (fr)"
+    },
+    "stepper": {
+      "title": "Stepper (fr)"
+    },
+    "tabbedPanel": {
+      "title": "Tabbed panel (fr)"
     }
   }
 }

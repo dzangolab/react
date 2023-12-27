@@ -19,3 +19,11 @@
     padding-right: var(--layout-padding-h);
   }
 }
+
+code {
+  background: lightgrey;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.5rem;
+  font-family: monospace;
+}
+

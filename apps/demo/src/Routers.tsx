@@ -8,8 +8,8 @@ import Home from "./Views/Home";
 import I18n from "./Views/I18n";
 import Layout from "./Views/Layout";
 import Ui from "./Views/Ui";
-import User from "./Views/User";
 import { UIPage, UIPages, UIRoutes } from "./Views/UiV2";
+import User from "./Views/User";
 
 const routes = () => {
   return createHashRouter([
