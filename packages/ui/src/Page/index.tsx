@@ -35,7 +35,7 @@ const Page: React.FC<Properties> = ({
 }: Properties) => {
   let child = null;
   let _className = "page";
-  console.log(typeof subtitle);
+
   if (loading) {
     child = loadingComponent ? (
       loadingComponent
@@ -59,11 +59,7 @@ const Page: React.FC<Properties> = ({
       {title && (
         <h1>
           {title}
-          {typeof subtitle === "string" ? (
-            <small>{subtitle}</small>
-          ) : (
-            <span>{subtitle}</span>
-          )}
+          {subtitle && <small>{subtitle}</small>}
         </h1>
       )}
       {toolbar && <div className="toolbar">{toolbar}</div>}

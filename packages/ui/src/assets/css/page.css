@@ -37,10 +37,6 @@
   font-size: 90%;
 }
 
-.page > h1 > span {
-  display: block;
-}
-
 .page > .toolbar {
   grid-area: toolbar;
 }
