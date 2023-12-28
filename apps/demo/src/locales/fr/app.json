@@ -3,12 +3,14 @@
     "title": "Oops! (fr)",
     "subtitle": "Sorry, an unexpected error has occurred. (fr)"
   },
+  "getStarted": "Get started (fr)",
   "header": {
     "menu": {
       "form": "Form (fr)",
       "i18n": "I18n (fr)",
       "layout": "Layout (fr)",
-      "ui": "UI (fr)",
+      "ui": "UI  (fr)",
+      "uiV2": "UI v2 (fr)",
       "user": "User (fr)"
     }
   },
@@ -18,15 +20,6 @@
   "pages": {
     "home": {
       "title": "Demo (fr)"
-    },
-    "forms": {
-      "login": "Login form (fr)",
-      "confirmPassword": "Confirm password form (fr)",
-      "fileAttach": "File attach (fr)",
-      "fileInput": "Form with file input (fr)",
-      "fileInputButton": "File input button (fr)",
-      "formFileInputButton": "Form with file input button (fr)",
-      "upload": "Files upload (fr)"
     }
   },
   "loading": "Loading (fr) ...",

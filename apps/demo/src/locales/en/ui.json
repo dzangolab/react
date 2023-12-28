@@ -1,161 +1,101 @@
 {
-  "facades": {
-    "youtubeFacade": "Youtube facade",
-    "alt": "Sorry, unable to load video/image"
+  "button": {
+    "title": "Button",
+    "usage": {
+      "severity": "Severity",
+      "size": "Size",
+      "outlined": "Outlined",
+      "icons": "Icons",
+      "disabled": "Disabled"
+    }
   },
-  "loading": "Loading",
-  "buttons": {
-    "export": "Export XLSX",
-    "submit": "Submit button"
+  "filesTable": {
+    "title": "Files table"
   },
-  "responsiveMenu": "Responsive menu",
+  "loading": {
+    "title": "Loading"
+  },
+  "responsiveMenu": {
+    "title": "Responsive menu"
+  },
+  "submitButton": {
+    "title": "Submit button",
+    "label": {
+      "submit": "Submit",
+      "submitLoading": "Submit loading"
+    }
+  },
+  "youtubeFacade": {
+    "title": "Youtube facade"
+  },
+  "exportButton": {
+    "title": "Export button"
+  },
+  "fileCard": {
+    "title": "File card"
+  },
+  "filesList": {
+    "title": "Files list"
+  },
+  "filesPresentation": {
+    "title": "Files presentation"
+  },
   "table": {
-    "actions": {
-      "addUser": "Add user",
-      "columnActionBtnLabel": "Columns"
-    },
-    "contents": {
-      "totalRecords": "Total records",
-      "customPagination": "Custom pagination"
-    },
-    "title": {
-      "tanstackTable": "Tanstack table",
-      "localDataTable": "Local data table",
-      "defaultTable": "Default table",
-      "filterableTable": "Table with filterable column",
-      "sortableTable": "Table with sortable column",
+    "title": "Table (Tanstack)",
+    "usage": {
+      "basic": "Basic table",
+      "filterable": "Table with filterable column",
+      "sortable": "Table with sortable column",
       "rowSelection": "Table with row selection",
       "customPagination": "Table with custom pagination",
       "customToolbarActions": "Table with custom toolbar actions",
-      "tooltipColumn": "Table with tooltip column",
-      "tableAlignment": "Table cell content alignments",
+      "columnTooltip": "Table with tooltip column",
+      "columnAlignment": "Table cell content alignments",
       "columnAction": "Table with column action",
-      "tableFooter": "Table with footer",
-      "borderLessTable": "Table without border but stripe",
-      "tableWithoutPagination": "Table without pagination"
-    },
-    "pagination": {
-      "pageControl": "Go to",
-      "rowsPerPage": "Rows"
-    },
-    "placeholders": {
-      "givenName": "Type here to search..."
-    },
-    "headers": {
-      "userName": "User name",
-      "email": "Email",
-      "roles": "Roles",
-      "age": "Age",
-      "action": "Action",
-      "city": "City",
-      "givenName": "Given name",
-      "middleNames": "Middle names",
-      "surname": "Surname",
-      "address": "Address",
-      "fullName": "Full name"
-    },
-    "delete": {
-      "message": "Are you sure you want to delete?",
-      "header": "Confirm delete"
-    },
-    "emptyTableMessage": "No records found."
-  },
-  "files": {
-    "table": "Files table",
-    "list": "Files list",
-    "presentation": "Files presentation"
-  },
-  "file": {
-    "card": "File card"
+      "withFooter": "Table with footer",
+      "borderless": "Table without border but stripe",
+      "withoutPagination": "Table without pagination",
+      "withTitle": "Table with title"
+    }
   },
   "message": {
-    "title": "Message",
-    "content": "User session is expired"
+    "title": "Message"
   },
   "tooltip": {
     "title": "Tooltip",
-    "positions": {
-      "bottom": "Bottom",
-      "configured": "Configured",
-      "left": "Left",
-      "mouseTrack": "MouseTrack",
+    "position": {
       "right": "Right",
-      "top": "Top"
-    },
-    "content": "Tooltip component",
-    "button": {
-      "save": "Save",
-      "content": "Save the data"
+      "left": "Left",
+      "top": "Top",
+      "bottom": "Bottom",
+      "mouseTrack": "Mouse track",
+      "configured": "Congigured"
     }
   },
   "checkbox": {
-    "title": "Checkbox",
-    "label": "Please agree with the terms and conditions"
+    "title": "Checkbox"
   },
   "input": {
-    "title": "Input",
-    "errorMessage": "Value is required",
-    "label": "Your input",
-    "placeholder": "Please enter your value"
+    "title": "Input"
   },
   "sortableList": {
     "title": "Sortable list"
   },
   "popup": {
-    "content": "Popup contents.",
     "title": "Popup"
   },
   "stepper": {
-    "title": "Stepper",
-    "demo": {
-      "message": "You are on page: {{page}}",
-      "label": {
-        "personal": "Personal",
-        "children": "Children",
-        "payment": "Payment",
-        "confirmation": "Confirmation"
-      },
-      "content": {
-        "personal": "Please enter your personal information",
-        "children": "Please enter your family information",
-        "payment": "Please enter you payment method",
-        "confirmation": "Do you wish to continue?"
-      }
-    }
-  },
-  "button": {
-    "title": "Button",
-    "label": {
-      "primary": "Primary",
-      "secondary": "Secondary",
-      "alternate": "Alternate",
-      "success": "Success",
-      "danger": "Danger",
-      "warning": "Warning"
-    },
-    "property": {
-      "disable": "Disabled",
-      "icon": {
-        "title": "Icon",
-        "left": "Icon left",
-        "right": "Icon right"
-      },
-      "outline": "Outlined",
-      "severity": "Severity",
-      "size": {
-        "title": "Size",
-        "small": "Small",
-        "medium": "Medium",
-        "large": "Large"
-      }
-    }
+    "title": "Stepper"
   },
   "tabbedPanel": {
     "title": "Tabbed panel",
-    "label": {
-      "itemOne": "Item 1",
-      "itemTwo": "Item 2",
-      "itemThree": "Item 3"
+    "usage": {
+      "basic": "Basic usage",
+      "customActiveTab": "Custom active tab"
     }
+  },
+  "localDataTable": {
+    "title": "Local datatable (Primereact)",
+    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)'"
   }
 }
