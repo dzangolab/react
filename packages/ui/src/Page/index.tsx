@@ -59,7 +59,11 @@ const Page: React.FC<Properties> = ({
       {title && (
         <h1>
           {title}
-          {typeof subtitle === "string" ? <small>{subtitle}</small> : subtitle}
+          {typeof subtitle === "string" ? (
+            <small>{subtitle}</small>
+          ) : (
+            <span>{subtitle}</span>
+          )}
         </h1>
       )}
       {toolbar && <div className="toolbar">{toolbar}</div>}
