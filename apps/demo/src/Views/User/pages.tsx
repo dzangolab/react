@@ -17,7 +17,7 @@ export const USER_ROUTES = {
   ALL_USERS_TABLE: "/user/all-users-table",
 };
 
-export const UserRoutes = [
+export const routes = [
   {
     path: USER_ROUTES.INVITATION_FORM,
     key: "invitationForm.title",
@@ -45,12 +45,12 @@ export const UserRoutes = [
   },
 ];
 
-export const UserPages = () => {
+export const Pages = () => {
   const [t] = useTranslation("user");
 
   const subnav = [
-    { route: "/user", label: t("getStarted") },
-    ...UserRoutes.map(({ path, key }) => {
+    { route: "/user", label: t("app:getStarted") },
+    ...routes.map(({ path, key }) => {
       return { route: path, label: t(key) };
     }),
   ];

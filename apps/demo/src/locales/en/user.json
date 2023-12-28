@@ -195,7 +195,6 @@
       "validEmail": "Email must be a valid email"
     }
   },
-  "getStarted": "Get started",
   "invitationForm": {
     "title": "Invitation form",
     "usage": {

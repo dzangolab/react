@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 
 import type { FileExtended } from "@dzangolab/react-form";
 
-const FileAttachDemo = () => {
+export const FileAttachDemo = () => {
   const { t } = useTranslation("files");
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>([]);
   const reference = useRef<HTMLButtonElement>(null);
@@ -52,5 +52,3 @@ const FileAttachDemo = () => {
     </>
   );
 };
-
-export default FileAttachDemo;

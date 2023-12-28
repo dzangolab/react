@@ -3,12 +3,28 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import config from "./config";
 import { BasicLayout } from "./layouts/BasicLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
-import Form from "./Views/Form";
+import {
+  FormPage,
+  Pages as FormPages,
+  routes as formRoutes,
+} from "./Views/Form";
 import Home from "./Views/Home";
-import I18n from "./Views/I18n";
-import Layout from "./Views/Layout";
-import { UIPage, UIPages, UIRoutes } from "./Views/Ui";
-import { UserPage, UserPages, UserRoutes } from "./Views/User";
+import {
+  I18nPage,
+  Pages as I18nPages,
+  routes as i18nRoutes,
+} from "./Views/I18n";
+import {
+  LayoutPage,
+  Pages as LayoutPages,
+  routes as layoutRoutes,
+} from "./Views/Layout";
+import { UIPage, Pages as UIPages, routes as uiRoutes } from "./Views/Ui";
+import {
+  UserPage,
+  Pages as UserPages,
+  routes as userRoutes,
+} from "./Views/User";
 
 const routes = () => {
   return createHashRouter([
@@ -26,18 +42,6 @@ const routes = () => {
           ),
         },
         {
-          path: "/form",
-          element: <Form />,
-        },
-        {
-          path: "/i18n",
-          element: <I18n />,
-        },
-        {
-          path: "/layout",
-          element: <Layout />,
-        },
-        {
           path: "/ui",
           element: <UIPages />,
           children: [
@@ -45,7 +49,7 @@ const routes = () => {
               index: true,
               element: <UIPage></UIPage>,
             },
-            ...UIRoutes,
+            ...uiRoutes,
           ],
         },
         {
@@ -56,7 +60,40 @@ const routes = () => {
               index: true,
               element: <UserPage></UserPage>,
             },
-            ...UserRoutes,
+            ...userRoutes,
+          ],
+        },
+        {
+          path: "/form",
+          element: <FormPages />,
+          children: [
+            {
+              index: true,
+              element: <FormPage></FormPage>,
+            },
+            ...formRoutes,
+          ],
+        },
+        {
+          path: "/layout",
+          element: <LayoutPages />,
+          children: [
+            {
+              index: true,
+              element: <LayoutPage></LayoutPage>,
+            },
+            ...layoutRoutes,
+          ],
+        },
+        {
+          path: "/i18n",
+          element: <I18nPages />,
+          children: [
+            {
+              index: true,
+              element: <I18nPage></I18nPage>,
+            },
+            ...i18nRoutes,
           ],
         },
       ],

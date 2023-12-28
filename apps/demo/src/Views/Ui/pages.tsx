@@ -47,7 +47,7 @@ export const UI_ROUTES = {
   TABBED_PANEL: "/ui/tabbed-pannel",
 };
 
-export const UIRoutes = [
+export const routes = [
   {
     path: UI_ROUTES.LOADING,
     key: "loading.title",
@@ -150,12 +150,12 @@ export const UIRoutes = [
   },
 ];
 
-export const UIPages = () => {
+export const Pages = () => {
   const [t] = useTranslation("ui");
 
   const subnav = [
-    { route: "/ui", label: t("getStarted") },
-    ...UIRoutes.map(({ path, key }) => {
+    { route: "/ui", label: t("app:getStarted") },
+    ...routes.map(({ path, key }) => {
       return { route: path, label: t(key) };
     }),
   ];

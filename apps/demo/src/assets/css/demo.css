@@ -8,7 +8,7 @@
 }
 
 .demo > .demo-aside {
-  flex-basis: 12rem;
+  flex-basis: 15rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
 }
 
 .demo-section {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .demo-section > h3 {
