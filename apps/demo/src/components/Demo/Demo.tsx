@@ -2,18 +2,18 @@ import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 
 interface Properties {
-  sidebarMenu: Array<any>;
+  subnav: Array<any>;
   children?: ReactNode;
 }
 
-export const Demo: React.FC<Properties> = ({ sidebarMenu, children }) => {
+export const Demo: React.FC<Properties> = ({ subnav, children }) => {
   return (
     <div className="demo">
       <div className="demo-aside">
-        {sidebarMenu.map((route: any) => {
+        {subnav.map((nav: any) => {
           return (
-            <NavLink key={route.route} to={route.route} end>
-              {route.label}
+            <NavLink key={nav.route} to={nav.route} end>
+              {nav.label}
             </NavLink>
           );
         })}

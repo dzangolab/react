@@ -153,7 +153,7 @@ export const UIRoutes = [
 export const UIPages = () => {
   const [t] = useTranslation("ui");
 
-  const sidebarMenu = [
+  const subnav = [
     { route: "/ui", label: t("getStarted") },
     ...UIRoutes.map(({ path, key }) => {
       return { route: path, label: t(key) };
@@ -161,7 +161,7 @@ export const UIPages = () => {
   ];
 
   return (
-    <Demo sidebarMenu={sidebarMenu}>
+    <Demo subnav={subnav}>
       <Outlet />
     </Demo>
   );

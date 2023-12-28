@@ -196,5 +196,27 @@
       "email": "Email is required (fr)",
       "validEmail": "Email must be a valid email (fr)"
     }
+  },
+  "getStarted": "Get started (fr)",
+  "invitationForm": {
+    "title": "Invitation form (fr)",
+    "usage": {
+      "withAppField": "With app field (fr)",
+      "withRoleField": "With role field (fr)",
+      "withCalendarExpiryDateField": "With calendar expiry date field (fr)",
+      "withInputExpiryDateField": "With input expiry date field (fr)"
+    }
+  },
+  "invitationModal": {
+    "title": "Invitation modal (fr)"
+  },
+  "invitationsTable": {
+    "title": "Invitations table (fr)"
+  },
+  "usersTable": {
+    "title": "Users table (fr)"
+  },
+  "allUsersTable": {
+    "title": "All users table (users + invitations) (fr)"
   }
 }

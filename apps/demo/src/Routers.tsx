@@ -8,7 +8,7 @@ import Home from "./Views/Home";
 import I18n from "./Views/I18n";
 import Layout from "./Views/Layout";
 import { UIPage, UIPages, UIRoutes } from "./Views/Ui";
-import User from "./Views/User";
+import { UserPage, UserPages, UserRoutes } from "./Views/User";
 
 const routes = () => {
   return createHashRouter([
@@ -50,7 +50,14 @@ const routes = () => {
         },
         {
           path: "/user",
-          element: <User />,
+          element: <UserPages />,
+          children: [
+            {
+              index: true,
+              element: <UserPage></UserPage>,
+            },
+            ...UserRoutes,
+          ],
         },
       ],
     },
