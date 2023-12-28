@@ -107,6 +107,7 @@
   overflow: hidden;
 }
 
+.table-container .table-wrapper .table .tcell > .content,
 .table-container .table-wrapper .table .tcol-head > .content {
   width: 100%;
   display: flex;
@@ -114,11 +115,6 @@
   justify-content: start;
   gap: 0.2rem;
   text-align: left;
-}
-
-.table-container .table-wrapper .table .tcell > .content {
-  width: 100%;
-  white-space: pre-wrap;
   word-break: break-word;
 }
 
