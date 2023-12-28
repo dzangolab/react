@@ -117,11 +117,9 @@
 }
 
 .table-container .table-wrapper .table .tcell > .content {
-  max-width: 45rem;
   width: 100%;
-  white-space: nowrap;
-  overflow: clip;
-  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .table-container .table-wrapper .table .tcell[data-align="center"] > .content,
