@@ -1,0 +1,18 @@
+{
+  "loginForm": {
+    "title": "Login form"
+  },
+  "confirmPasswordForm": {
+    "title": "Confirm password form"
+  },
+  "fileInput": {
+    "title": "File input",
+    "usage": {
+      "formWithFileInputButton": "Form with FileInput button",
+      "fileInput": "File input",
+      "fileInputButton": "File input button",
+      "fileUpload": "File upload",
+      "fileAttach": "File attach"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.demo-stepper-content-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.demo-stepper-button-wrapper {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
