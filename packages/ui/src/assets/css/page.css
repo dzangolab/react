@@ -1,6 +1,7 @@
 .page {
   display: grid;
   grid-template-areas:
+    "breadcrumb"
     "title"
     "content"
     "toolbar";
@@ -16,11 +17,16 @@
 @media (min-width: 576px) {
   .page {
     grid-template-areas:
+      "breadcrumb breadcrumb"
       "title toolbar"
       "content content";
     grid-template-columns: 1fr auto;
     grid-template-rows: auto 1fr;
   }
+}
+
+.page > .breadcrumb {
+  grid-area: breadcrumb;
 }
 
 .page > .content {

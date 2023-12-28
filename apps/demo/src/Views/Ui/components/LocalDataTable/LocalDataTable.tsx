@@ -2,10 +2,11 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { ActionsMenu, DataTable, Message, Page } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
+import { Section } from "../../../../components/Demo";
+
 import type { ColumnProps } from "primereact/column";
 
 import "./index.css";
-import { Section } from "../../../../components/Demo";
 
 export const LocalDataTableDemo = () => {
   const { t } = useTranslation("ui");
