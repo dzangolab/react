@@ -9,10 +9,10 @@
 }
 
 .switch-toggle input:before {
-  content: "";
   background-color: white;
   border-radius: 50%;
   bottom: 0.25rem;
+  content: "";
   height: 1.6rem;
   left: 0.25rem;
   position: absolute;
