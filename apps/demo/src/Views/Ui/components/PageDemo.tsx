@@ -33,7 +33,7 @@ export const PageDemo = () => {
       <Page
         title={t("Page with breadcrumb")}
         children={PageContent}
-        breadCrumb={"home/ui/page-demo"}
+        breadcrumb={"home/ui/page-demo"}
       />
     </>
   );
