@@ -16,7 +16,7 @@ interface Properties
   loading?: boolean;
   loadingComponent?: React.ReactElement;
   loadingPageStyle?: LoadingPageProperties;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   title?: string;
   toolbar?: React.ReactNode;
 }
@@ -59,7 +59,7 @@ const Page: React.FC<Properties> = ({
       {title && (
         <h1>
           {title}
-          {subtitle && <small>{subtitle}</small>}
+          {typeof subtitle === "string" ? <small>{subtitle}</small> : subtitle}
         </h1>
       )}
       {toolbar && <div className="toolbar">{toolbar}</div>}
