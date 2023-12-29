@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, LoadingIcon, Page } from "@dzangolab/react-ui";
 
 import { Section } from "../../../components/Demo";
+import { Tag } from "primereact/tag";
 
 export const PageDemo = () => {
   const [t] = useTranslation("ui");
@@ -27,7 +28,11 @@ export const PageDemo = () => {
       />
 
       <hr />
-      <Page title={t("Page with subtile component")} children={PageContent} />
+      <Page
+        title={t("Page with subtile component")}
+        subtitle={<Tag value="subtitle" />}
+        children={PageContent}
+      />
 
       <hr />
       <Page
