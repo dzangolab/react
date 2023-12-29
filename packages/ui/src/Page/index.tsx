@@ -10,7 +10,7 @@ interface Properties
     >,
     "aria-orientation"
   > {
-  breadCrumb?: React.ReactNode;
+  breadcrumb?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
   errorMessage?: string;
@@ -23,7 +23,7 @@ interface Properties
 }
 
 const Page: React.FC<Properties> = ({
-  breadCrumb,
+  breadcrumb,
   children,
   className,
   errorMessage,
@@ -58,7 +58,7 @@ const Page: React.FC<Properties> = ({
 
   return (
     <div className={_className}>
-      {breadCrumb ? <div className="breadcrumb">{breadCrumb}</div> : null}
+      {breadcrumb ? <div className="breadcrumb">{breadcrumb}</div> : null}
       {title && (
         <h1>
           {title}
