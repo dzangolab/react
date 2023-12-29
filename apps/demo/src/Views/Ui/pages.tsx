@@ -22,6 +22,7 @@ import { TableDemo } from "./components/Table";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
+import { PageDemo } from "./components/PageDemo";
 
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
@@ -43,6 +44,7 @@ export const UI_ROUTES = {
   INPUT: "/ui/input",
   SORTABLE_LIST: "/ui/sortable-list",
   POPUP: "/ui/popup",
+  PAGEDEMO: "/ui/page-demo",
   STEPPER: "/ui/stepper",
   TABBED_PANEL: "/ui/tabbed-pannel",
 };
@@ -147,6 +149,11 @@ export const routes = [
     path: UI_ROUTES.TABBED_PANEL,
     key: "tabbedPanel.title",
     element: <TabbedPanelDemo />,
+  },
+  {
+    path: UI_ROUTES.PAGEDEMO,
+    key: "page.title.menu",
+    element: <PageDemo />,
   },
 ];
 

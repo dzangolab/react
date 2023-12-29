@@ -97,5 +97,23 @@
   "localDataTable": {
     "title": "Local datatable (Primereact)",
     "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)'"
+  },
+  "page": {
+    "title": {
+      "menu": "Page",
+      "basic": "Page demo basic",
+      "toolbar": "Page with toolbar",
+      "stringSubtitle": "Page with subtile string",
+      "componentSubtitle": "Page with subtile component",
+      "breadcrumb": "Page with breadcrumb"
+    },
+    "subTitle": {
+      "title": "Page subtitle",
+      "tag": "Subtitle tag"
+    },
+    "toolbar": {
+      "edit": "Edit"
+    },
+    "content": "Page content."
   }
 }
