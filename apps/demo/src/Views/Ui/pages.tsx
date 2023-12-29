@@ -44,7 +44,7 @@ export const UI_ROUTES = {
   INPUT: "/ui/input",
   SORTABLE_LIST: "/ui/sortable-list",
   POPUP: "/ui/popup",
-  PAGEDEMO: "ui/page-demo",
+  PAGEDEMO: "/ui/page-demo",
   STEPPER: "/ui/stepper",
   TABBED_PANEL: "/ui/tabbed-pannel",
 };
@@ -152,7 +152,7 @@ export const routes = [
   },
   {
     path: UI_ROUTES.PAGEDEMO,
-    key: "page",
+    key: "page.title.menu",
     element: <PageDemo />,
   },
 ];
