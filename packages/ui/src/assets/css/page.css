@@ -1,10 +1,11 @@
 .page {
   display: grid;
   grid-template-areas:
-    "title toolbar"
-    "content content";
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr;
+  "breadcrumb breadcrumb"
+  "title toolbar"
+  "content content";
+grid-template-columns: 1fr auto;
+grid-template-rows: auto auto 1fr;
 }
 
 .page > .content > div[role="alert"].error > span {
@@ -15,11 +16,16 @@
 @media (min-width: 576px) {
   .page {
     grid-template-areas:
+      "breadcrumb breadcrumb"
       "title toolbar"
       "content content";
     grid-template-columns: 1fr auto;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
   }
+}
+
+.page > .breadcrumb {
+  grid-area: breadcrumb;
 }
 
 .page > .content {
@@ -35,3 +41,8 @@
   display: block;
   font-size: 90%;
 }
+
+.page > .toolbar {
+  grid-area: toolbar;
+}
+
