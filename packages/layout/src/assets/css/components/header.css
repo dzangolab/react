@@ -7,6 +7,7 @@
   --header-padding-v: 1em;
 
   align-items: center;
+  background-color: #fff;
   border-bottom: 1px solid var(--header-border-color);
   display: grid;
   font-size: var(--header-font-size);
@@ -19,7 +20,9 @@
   justify-items: center;
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .layout > header::before {
