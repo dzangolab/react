@@ -16,16 +16,16 @@ interface Properties {
     route: string;
     icon?: React.ReactNode;
   }[];
-  mainMenuOrientation?: "horizontal" | "vertical";
-  userMenu?: React.ReactNode;
-  mainMenu?: React.ReactNode;
-  logoRoute?: string;
-  sidebar?: React.ReactNode;
   sidebarMenuRoutes?: {
     name: string;
     route: string;
     icon?: React.ReactNode;
   }[];
+  mainMenuOrientation?: "horizontal" | "vertical";
+  userMenu?: React.ReactNode;
+  mainMenu?: React.ReactNode;
+  logoRoute?: string;
+  sidebar?: React.ReactNode;
   displaySidebarMenuIcon?: boolean;
   displaySidebar?: boolean;
 }
