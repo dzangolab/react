@@ -1,13 +1,17 @@
+:root {
+  --page-gap: var(--dz-page-gap);
+}
+
 .page {
   display: grid;
   grid-template-areas:
-  "breadcrumb"
-  "title"
-  "toolbar"
-  "content";
-grid-template-columns: 100%;
-grid-template-rows: auto auto auto 1fr;
-gap: 1rem;
+    "breadcrumb"
+    "title"
+    "toolbar"
+    "content";
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto 1fr;
+  gap: var(--page-gap);
 }
 
 .page > .content > div[role="alert"].error > span {
