@@ -34,8 +34,6 @@ export const FileInputButton: React.FC = () => {
           iconLeft: "pi pi-file",
         }}
         onChange={onChange}
-        severity="secondary"
-        variant="outlined"
       />
     </>
   );

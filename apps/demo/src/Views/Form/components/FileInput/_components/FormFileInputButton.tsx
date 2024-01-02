@@ -42,8 +42,6 @@ export const FormWithFileInputButton: React.FC = () => {
         selectButtonProps={{
           iconLeft: "pi pi-file",
         }}
-        severity="secondary"
-        variant="outlined"
       />
       <div className="mb-4">
         <Button label={t("fileInput.actions.upload")} />

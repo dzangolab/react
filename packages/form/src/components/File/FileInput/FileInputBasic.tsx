@@ -72,9 +72,9 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
               event.preventDefault();
               onClick?.(event);
             }}
+            severity={severity ? severity : "secondary"}
+            variant={variant ? variant : "outlined"}
             {...selectButtonProps}
-            severity={severity}
-            variant={variant}
           />
           <input id={name} name={name} {...getInputProps()} />
         </div>
