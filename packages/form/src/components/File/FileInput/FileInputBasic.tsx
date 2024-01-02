@@ -34,6 +34,12 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   const onDrop = useOnDropFile({ mode, name, onChange, value, multiple });
   const onRemove = useOnRemoveFile({ value, onChange });
 
+  const {
+    severity = "secondary",
+    variant = "outlined",
+    ...buttonProperties
+  } = selectButtonProps || {};
+
   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
     useDropzone({
       noDrag: inputMethod == "button",
@@ -70,17 +76,9 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
               event.preventDefault();
               onClick?.(event);
             }}
-            severity={
-              selectButtonProps?.severity
-                ? selectButtonProps.severity
-                : "secondary"
-            }
-            variant={
-              selectButtonProps?.variant
-                ? selectButtonProps.variant
-                : "outlined"
-            }
-            {...selectButtonProps}
+            severity={severity}
+            variant={variant}
+            {...buttonProperties}
           />
           <input id={name} name={name} {...getInputProps()} />
         </div>
