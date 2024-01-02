@@ -45,12 +45,12 @@ export type IFileDropzoneProperties = Omit<
 
 export interface IFileInputBasicProperties
   extends IFileDropzoneBasicProperties {
-  inputMethod?: FileInputMethod;
-  selectedFileDisplay?: "list" | "popup" | "none";
+  emptySelectionMessage?: string;
   inputButtonLabel?: string;
   inputButtonLabelSelected?: string;
-  emptySelectionMessage?: string;
+  inputMethod?: FileInputMethod;
   selectButtonProps?: ComponentProps<typeof Button>;
+  selectedFileDisplay?: "list" | "popup" | "none";
 }
 
 export type IFileInputProperties = IFileInputBasicProperties;
