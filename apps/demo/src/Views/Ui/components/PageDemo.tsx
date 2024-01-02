@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Page } from "@dzangolab/react-ui";
+
 import { Tag } from "primereact/tag";
 import { Link } from "react-router-dom";
 

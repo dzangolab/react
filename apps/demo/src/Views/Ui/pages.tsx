@@ -12,7 +12,6 @@ import { InputDemo } from "./components/Input";
 import { LoadingDemo } from "./components/Loading";
 import { LocalDataTableDemo } from "./components/LocalDataTable";
 import { MessageDemo } from "./components/Message";
-import { PageDemo } from "./components/PageDemo";
 import { PopupDemo } from "./components/Popup";
 import { ResponsiveMenuDemo } from "./components/ResponsiveMenu";
 import { SortableListDemo } from "./components/SortableList";
@@ -23,6 +22,7 @@ import { TableDemo } from "./components/Table";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
+import { PageDemo } from "./components/PageDemo";
 
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
