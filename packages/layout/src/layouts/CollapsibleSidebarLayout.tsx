@@ -21,6 +21,11 @@ interface Properties {
   mainMenu?: React.ReactNode;
   logoRoute?: string;
   sidebar?: React.ReactNode;
+  sidebarMenuRoutes?: {
+    name: string;
+    route: string;
+    icon?: React.ReactNode;
+  }[];
   displaySidebarMenuIcon?: boolean;
   displaySidebar?: boolean;
 }
@@ -32,6 +37,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     footer,
     header,
     mainMenuRoutes,
+    sidebarMenuRoutes,
     displaySidebarMenuIcon,
     displaySidebar = true,
     localSwitcher,
@@ -61,7 +67,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
           {sidebar || (
             <Sidebar>
               <ResponsiveMenu
-                routes={mainMenuRoutes || []}
+                routes={sidebarMenuRoutes || mainMenuRoutes || []}
                 orientation="vertical"
                 displayIcon={displaySidebarMenuIcon}
               />

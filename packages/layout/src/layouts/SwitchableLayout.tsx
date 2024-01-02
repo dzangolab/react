@@ -12,6 +12,11 @@ interface Properties {
     route: string;
     icon?: React.ReactNode;
   }[];
+  sidebarMenuRoutes?: {
+    name: string;
+    route: string;
+    icon?: React.ReactNode;
+  }[];
   mainMenuOrientation?: "horizontal" | "vertical";
   userMenu?: React.ReactNode;
   mainMenu?: React.ReactNode;
@@ -29,6 +34,7 @@ export const SwitchableLayout = ({
   sidebar,
   layoutType = "basic",
   mainMenuRoutes,
+  sidebarMenuRoutes,
   displaySidebarMenuIcon,
   displaySidebar = true,
   localSwitcher,
@@ -48,6 +54,7 @@ export const SwitchableLayout = ({
             header,
             sidebar,
             mainMenuRoutes,
+            sidebarMenuRoutes,
             displaySidebarMenuIcon,
             localSwitcher,
             logoRoute,
