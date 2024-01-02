@@ -45,4 +45,3 @@ grid-template-rows: auto auto 1fr;
 .page > .toolbar {
   grid-area: toolbar;
 }
-
