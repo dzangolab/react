@@ -1,0 +1,49 @@
+.demo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.demo > .demo-aside {
+  flex-basis: 15rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  border-right: 1px solid #ccc;
+}
+
+.demo > .demo-main {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 50%;
+}
+
+.demo > .demo-aside > a {
+  font-size: 1rem;
+  color: var(--color);
+  text-decoration: none;
+  transition: all 200ms ease;
+  line-height: 1.5;
+}
+
+.demo > .demo-aside > a:hover,
+.demo > .demo-aside > a.active {
+  font-weight: 600;
+}
+
+.demo-section {
+  margin-bottom: 3rem;
+}
+
+.demo-section > h3 {
+  margin-bottom: 1rem;
+}
+
+.demo-section > h4 {
+  margin-bottom: 1rem;
+}

@@ -194,5 +194,26 @@
       "email": "Email is required",
       "validEmail": "Email must be a valid email"
     }
+  },
+  "invitationForm": {
+    "title": "Invitation form",
+    "usage": {
+      "withAppField": "With app field",
+      "withRoleField": "With role field",
+      "withCalendarExpiryDateField": "With calendar expiry date field",
+      "withInputExpiryDateField": "With input expiry date field"
+    }
+  },
+  "invitationModal": {
+    "title": "Invitation modal"
+  },
+  "invitationsTable": {
+    "title": "Invitations table"
+  },
+  "usersTable": {
+    "title": "Users table"
+  },
+  "allUsersTable": {
+    "title": "All users table (users + invitations)"
   }
 }

@@ -3,12 +3,14 @@
     "title": "Oops!",
     "subtitle": "Sorry, an unexpected error has occurred."
   },
+  "getStarted": "Get started",
   "header": {
     "menu": {
       "form": "Form",
       "i18n": "I18n",
       "layout": "Layout",
       "ui": "UI",
+      "uiV2": "UI v2",
       "user": "User"
     }
   },
@@ -18,15 +20,6 @@
   "pages": {
     "home": {
       "title": "Demo"
-    },
-    "forms": {
-      "login": "Login form",
-      "confirmPassword": "Confirm password form",
-      "fileAttach": "File attach",
-      "fileInput": "Form with file input",
-      "fileInputButton": "File input button",
-      "formFileInputButton": "Form with file input button",
-      "fileUpload": "Files upload"
     }
   },
   "loading": "Loading ...",

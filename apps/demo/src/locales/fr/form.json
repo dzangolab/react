@@ -1,0 +1,18 @@
+{
+  "loginForm": {
+    "title": "Login form (fr)"
+  },
+  "confirmPasswordForm": {
+    "title": "Confirm password form (fr)"
+  },
+  "fileInput": {
+    "title": "File input (fr)",
+    "usage": {
+      "formWithFileInputButton": "Form with FileInput button (fr)",
+      "fileInput": "File input (fr)",
+      "fileInputButton": "File input button (fr)",
+      "fileUpload": "File upload (fr)",
+      "fileAttach": "File attach (fr)"
+    }
+  }
+}

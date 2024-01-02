@@ -1,8 +1,29 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  --layout-max-width: 100%;
   --logo-width: 150px;
+  --color: rgb(84, 84, 84);
 }
 
 * {
   box-sizing: border-box;
 }
+
+@media screen and (min-width: 60rem) {
+  :root {
+    --layout-padding-h: 3rem;
+  }
+
+  .layout.basic > :is(footer, header, main) {
+    padding-left: var(--layout-padding-h);
+    padding-right: var(--layout-padding-h);
+  }
+}
+
+code {
+  background: lightgrey;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.5rem;
+  font-family: monospace;
+}
+

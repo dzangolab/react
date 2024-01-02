@@ -10,18 +10,20 @@ interface Properties
     >,
     "aria-orientation"
   > {
+  breadcrumb?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
   errorMessage?: string;
   loading?: boolean;
   loadingComponent?: React.ReactElement;
   loadingPageStyle?: LoadingPageProperties;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   title?: string;
   toolbar?: React.ReactNode;
 }
 
 const Page: React.FC<Properties> = ({
+  breadcrumb,
   children,
   className,
   errorMessage,
@@ -56,10 +58,11 @@ const Page: React.FC<Properties> = ({
 
   return (
     <div className={_className}>
+      {breadcrumb ? <div className="breadcrumb">{breadcrumb}</div> : null}
       {title && (
         <h1>
           {title}
-          {subtitle && <small>{subtitle}</small>}
+          {typeof subtitle === "string" ? <small>{subtitle}</small> : subtitle}
         </h1>
       )}
       {toolbar && <div className="toolbar">{toolbar}</div>}
