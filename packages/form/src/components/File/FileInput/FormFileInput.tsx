@@ -21,8 +21,6 @@ export const FormFileInput = ({
   dropzoneMessage,
   dropzoneOptions,
   selectButtonProps,
-  severity,
-  variant,
 }: IFormFileInputProperties) => {
   const { control } = useFormContext();
 
@@ -50,8 +48,6 @@ export const FormFileInput = ({
             dropzoneMessage={dropzoneMessage}
             onChange={(files) => field.onChange(files)}
             selectButtonProps={selectButtonProps}
-            severity={severity}
-            variant={variant}
           />
         )}
       />

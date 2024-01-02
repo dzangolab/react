@@ -20,8 +20,6 @@ export const FileInput = ({
   dropzoneMessage,
   dropzoneOptions,
   selectButtonProps,
-  severity,
-  variant,
   value = [],
   onChange,
 }: IFileInputProperties) => {
@@ -50,8 +48,6 @@ export const FileInput = ({
           onChange(files);
         }}
         selectButtonProps={selectButtonProps}
-        severity={severity}
-        variant={variant}
       />
     </>
   );

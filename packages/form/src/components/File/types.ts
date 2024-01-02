@@ -51,14 +51,6 @@ export interface IFileInputBasicProperties
   inputMethod?: FileInputMethod;
   selectButtonProps?: ComponentProps<typeof Button>;
   selectedFileDisplay?: "list" | "popup" | "none";
-  severity?:
-    | "primary"
-    | "secondary"
-    | "alternate"
-    | "success"
-    | "danger"
-    | "warning";
-  variant?: "outlined" | "filled";
 }
 
 export type IFileInputProperties = IFileInputBasicProperties;
