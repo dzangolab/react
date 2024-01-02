@@ -28,6 +28,8 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   dropzoneMessage,
   onChange,
   selectButtonProps,
+  severity,
+  variant,
 }) => {
   const overlayReference = useRef<OverlayPanel>();
 
@@ -71,6 +73,8 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
               onClick?.(event);
             }}
             {...selectButtonProps}
+            severity={severity}
+            variant={variant}
           />
           <input id={name} name={name} {...getInputProps()} />
         </div>

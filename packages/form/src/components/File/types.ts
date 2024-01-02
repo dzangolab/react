@@ -47,6 +47,14 @@ export interface IFileInputBasicProperties
   extends IFileDropzoneBasicProperties {
   inputMethod?: FileInputMethod;
   selectedFileDisplay?: "list" | "popup" | "none";
+  severity?:
+    | "primary"
+    | "secondary"
+    | "alternate"
+    | "success"
+    | "danger"
+    | "warning";
+  variant?: "outlined" | "filled";
   inputButtonLabel?: string;
   inputButtonLabelSelected?: string;
   emptySelectionMessage?: string;
