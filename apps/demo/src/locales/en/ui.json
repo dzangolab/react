@@ -56,6 +56,10 @@
       "borderless": "Table without border but stripe",
       "withoutPagination": "Table without pagination",
       "withTitle": "Table with title"
+    },
+    "pagination": {
+      "pageControl": "Go to",
+      "rowsPerPage": "Items per page"
     }
   },
   "message": {

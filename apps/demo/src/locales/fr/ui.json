@@ -52,6 +52,10 @@
       "borderless": "Table without border but stripe (fr)",
       "withoutPagination": "Table without pagination (fr)",
       "withTitle": "Table with title (fr)"
+    },
+    "pagination": {
+      "pageControl": "Go to (fr)",
+      "rowsPerPage": "Items per page (fr)"
     }
   },
   "message": {
