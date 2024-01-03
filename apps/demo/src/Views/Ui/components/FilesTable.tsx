@@ -50,8 +50,8 @@ export const FilesTableDemo = () => {
             },
           ]}
           paginationOptions={{
-            pageInputLabel: t("table.pagination.pageControl"),
-            itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+            pageInputLabel: t("filesTable.pagination.pageControl"),
+            itemsPerPageControlLabel: t("filesTable.pagination.rowsPerPage"),
           }}
         />
       </Section>
