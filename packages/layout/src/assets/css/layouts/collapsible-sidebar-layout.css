@@ -20,6 +20,8 @@
   flex: 1;
   padding-top: var(--_layout-collapsible-padding-h);
   padding-bottom: var(--_layout-collapsible-padding-h);
+  /* height: calc(100vh - 135px);
+  overflow-y: scroll; */
 }
 
 @media screen and (min-width: 576px) {

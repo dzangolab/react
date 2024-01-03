@@ -8,7 +8,6 @@
   align-items: center;
   background-color: #fff;
   border-top: 1px solid var(--footer-border-color);
-  bottom: 0;
   box-shadow: 0 0 0 100vmax var(--footer-bg-color);
   clip-path: inset(0 -100vmax);
   display: flex;
@@ -18,8 +17,12 @@
   justify-content: center;
   padding-bottom: var(--footer-padding-v);
   padding-top: var(--footer-padding-v);
-  position: sticky;
   text-align: center;
+}
+
+.layout .fixed-footer {
+  bottom: 0;
+  position: sticky;
   z-index: 1;
 }
 

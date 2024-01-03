@@ -23,6 +23,8 @@ interface Properties {
   sidebar?: React.ReactNode;
   displaySidebarMenuIcon?: boolean;
   displaySidebar?: boolean;
+  isHeaderFixed?: boolean;
+  isFooterFixed?: boolean;
 }
 
 const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
@@ -40,6 +42,8 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     menuToggle,
     userMenu,
+    isHeaderFixed,
+    isFooterFixed,
   } = properties;
 
   return (
@@ -54,6 +58,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
           mainMenuOrientation={mainMenuOrientation}
           toggle={menuToggle}
           userMenu={userMenu}
+          isHeaderFixed={true}
         />
       )}
       {displaySidebar ? (
@@ -70,7 +75,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
         </>
       ) : null}
       <main>{children}</main>
-      {footer || <AppFooter />}
+      {footer || <AppFooter isFooterFixed={true} />}
     </div>
   );
 };
