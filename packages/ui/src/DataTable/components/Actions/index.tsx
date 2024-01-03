@@ -3,7 +3,6 @@ import { ButtonProps } from "primereact/button";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { Button } from "../../../Buttons";
 import { ConfirmationModal } from "../../../ConfirmationModal";
 import { Menu } from "../../../Menu";
 
@@ -15,8 +14,6 @@ export interface ActionsMenuProperties {
   deleteLabel?: string;
   editIcon?: string;
   editLabel?: string;
-  acceptLabel?: string;
-  rejectLabel?: string;
   deleteConfirmationHeader?: string;
   deleteConfirmationMessage?: string;
   viewIcon?: string;
@@ -36,8 +33,6 @@ export const ActionsMenu = ({
   data,
   deleteIcon,
   deleteLabel,
-  rejectLabel,
-  acceptLabel,
   editIcon,
   editLabel,
   deleteConfirmationHeader,
@@ -91,26 +86,6 @@ export const ActionsMenu = ({
     }
   }
 
-  const renderDialogFooter = () => {
-    return (
-      <div className="delete-dialog-footer">
-        <Button
-          label={rejectLabel || "No"}
-          variant="outlined"
-          severity="secondary"
-          onClick={() => setShowDeleteConfirmation(false)}
-        />
-        <Button
-          label={acceptLabel || "Yes"}
-          onClick={() => {
-            onDelete?.(data);
-            setShowDeleteConfirmation(false);
-          }}
-        />
-      </div>
-    );
-  };
-
   return (
     <>
       <Menu model={items} buttonOptions={buttonOptions} />
@@ -119,8 +94,11 @@ export const ActionsMenu = ({
           visible={showDeleteConfirmation}
           message={deleteConfirmationMessage}
           header={deleteConfirmationHeader}
-          footer={renderDialogFooter()}
           onHide={() => setShowDeleteConfirmation(false)}
+          accept={() => {
+            onDelete(data);
+            setShowDeleteConfirmation(false);
+          }}
         />
       )}
     </>

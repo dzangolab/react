@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { ActionsMenu, ConfirmationModal, Button } from "@dzangolab/react-ui";
+import { ActionsMenu, ConfirmationModal } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -26,7 +26,6 @@ export const UserAction = ({
   const [showEnableConfirmation, setShowEnableConfirmation] = useState(false);
   const [showDisableConfirmation, setShowDisableConfirmation] = useState(false);
 
-  let isEnableUser;
   const actionItems: MenuItem[] = [
     {
       label: t("table.actions.enable"),
@@ -83,68 +82,33 @@ export const UserAction = ({
       });
   };
 
-  const renderDialogFooter = (isEnableUser: boolean) => {
-    return (
-      <div className="delete-dialog-footer">
-        <Button
-          label={t("messages.action.reject")}
-          variant="outlined"
-          severity="secondary"
-          onClick={() => handleCancel(isEnableUser)}
-        />
-        <Button
-          label={t("messages.action.accept")}
-          onClick={() => {
-            if (isEnableUser) {
-              handleEnableUser();
-              setShowEnableConfirmation(false);
-            } else {
-              handleDisableUser();
-              setShowDisableConfirmation(false);
-            }
-          }}
-        />
-      </div>
-    );
-  };
-
-  const handleCancel = (isEnableUser: boolean) => {
-    if (isEnableUser) {
-      setShowEnableConfirmation(false);
-    } else {
-      setShowDisableConfirmation(false);
-    }
-  };
-
-  const renderConfirmationModal = (
-    showConfirmation: boolean,
-    confirmationMessage: string,
-    isEnableUser: boolean,
-  ) => {
-    return (
-      <ConfirmationModal
-        onHide={() => handleCancel(isEnableUser)}
-        visible={showConfirmation}
-        message={confirmationMessage}
-        header={t("confirmation.header")}
-        footer={renderDialogFooter(isEnableUser)}
-      />
-    );
-  };
-
   return (
     <>
       <ActionsMenu actions={actionItems} />
-      {renderConfirmationModal(
-        showEnableConfirmation,
-        t("confirmation.enable.message"),
-        (isEnableUser = true),
-      )}
-      {renderConfirmationModal(
-        showDisableConfirmation,
-        t("confirmation.disable.message"),
-        (isEnableUser = false),
-      )}
+      <ConfirmationModal
+        visible={showEnableConfirmation}
+        message={t("confirmation.enable.message")}
+        header={t("confirmation.header")}
+        onHide={() => {
+          setShowEnableConfirmation(false);
+        }}
+        accept={() => {
+          handleEnableUser();
+          setShowEnableConfirmation(false);
+        }}
+      />
+      <ConfirmationModal
+        visible={showDisableConfirmation}
+        message={t("confirmation.disable.message")}
+        header={t("confirmation.header")}
+        onHide={() => {
+          setShowDisableConfirmation(false);
+        }}
+        accept={() => {
+          handleDisableUser();
+          setShowDisableConfirmation(false);
+        }}
+      />
     </>
   );
 };
