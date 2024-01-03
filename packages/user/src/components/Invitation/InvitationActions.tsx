@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { ConfirmationModal, ActionsMenu } from "@dzangolab/react-ui";
+import { ConfirmationModal, ActionsMenu, Button } from "@dzangolab/react-ui";
 import { MenuItem } from "primereact/menuitem";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -28,6 +28,7 @@ export const InvitationActions = ({
 
   const [resendLoading, setResendLoading] = useState(false);
   const [revokeLoading, setRevokeLoading] = useState(false);
+  let isResend;
 
   const actionItems: MenuItem[] = [
     {
@@ -97,25 +98,73 @@ export const InvitationActions = ({
       });
   };
 
+  const renderDialogFooter = (isResend: boolean) => {
+    return (
+      <div className="delete-dialog-footer">
+        <Button
+          label={t("messages.action.reject")}
+          variant="outlined"
+          severity="secondary"
+          onClick={() => handleCancel(isResend)}
+        />
+        <Button
+          label={t("messages.action.accept")}
+          iconLeft={
+            isResend
+              ? resendLoading && "pi pi-spin pi-spinner"
+              : revokeLoading && "pi pi-spin pi-spinner"
+          }
+          onClick={() => {
+            if (isResend) {
+              onResendConfirm();
+              setShowResendConfirmation(false);
+            } else {
+              onRevokeConfirm();
+              setShowRevokeConfirmation(false);
+            }
+          }}
+        />
+      </div>
+    );
+  };
+
+  const handleCancel = (isResend: boolean) => {
+    if (isResend) {
+      setShowResendConfirmation(false);
+    } else {
+      setShowRevokeConfirmation(false);
+    }
+  };
+
+  const renderConfirmationModal = (
+    showConfirmation: boolean,
+    confirmationMessage: string,
+    isResend: boolean,
+  ) => {
+    return (
+      <ConfirmationModal
+        onHide={() => handleCancel(isResend)}
+        visible={showConfirmation}
+        message={confirmationMessage}
+        header={t("confirmation.header")}
+        footer={renderDialogFooter(isResend)}
+      />
+    );
+  };
+
   return (
     <>
       <ActionsMenu actions={actionItems} />
-      <ConfirmationModal
-        message={t("confirmation.confirm.resend.message")}
-        accept={onResendConfirm}
-        visible={showResendConfirmation}
-        onHide={() => setShowResendConfirmation(false)}
-        header={t("confirmation.header")}
-        acceptIcon={resendLoading ? "pi pi-spin pi-spinner" : undefined}
-      />
-      <ConfirmationModal
-        message={t("confirmation.confirm.revoke.message")}
-        accept={onRevokeConfirm}
-        visible={showRevokeConfirmation}
-        onHide={() => setShowRevokeConfirmation(false)}
-        header={t("confirmation.header")}
-        acceptIcon={revokeLoading ? "pi pi-spin pi-spinner" : undefined}
-      />
+      {renderConfirmationModal(
+        showResendConfirmation,
+        t("confirmation.confirm.resend.message"),
+        (isResend = true),
+      )}
+      {renderConfirmationModal(
+        showRevokeConfirmation,
+        t("confirmation.confirm.revoke.message"),
+        (isResend = false),
+      )}
     </>
   );
 };
