@@ -61,14 +61,8 @@ export const FileUpload: FC<IFileUploadProperties> = ({
         }`}
       >
         <Button
-          disabled={!selectedFiles.length}
-          label={uploadButtonLabel}
-          iconLeft={uploadButtonIcon}
-          onClick={() => onUpload(selectedFiles)}
-          {...uploadButtonProps}
-        />
-        <Button
           severity="secondary"
+          variant="outlined"
           label={cancelButtonLabel}
           iconLeft={cancelButtonIcon}
           onClick={() => {
@@ -76,6 +70,13 @@ export const FileUpload: FC<IFileUploadProperties> = ({
             setSelectedFiles([]);
           }}
           {...cancelButtonProps}
+        />
+        <Button
+          disabled={!selectedFiles.length}
+          label={uploadButtonLabel}
+          iconLeft={uploadButtonIcon}
+          onClick={() => onUpload(selectedFiles)}
+          {...uploadButtonProps}
         />
       </div>
     </div>

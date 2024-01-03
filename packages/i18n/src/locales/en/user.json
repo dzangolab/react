@@ -177,8 +177,22 @@
       "alreadyVerified": "Email is already verified",
       "invalidToken": "The token is invalid",
       "error": "Something went wrong. Please try again",
-      "resendSuccess":"Email resent successfully",
-      "resendError":"Something went wrong. Please try again"
+      "resendSuccess": "Email resent successfully",
+      "resendError": "Something went wrong. Please try again"
+    }
+  },
+  "messages": {
+    "enable": {
+      "success": "User enabled successfully ",
+      "error": "Error enabling user"
+    },
+    "disable": {
+      "success": "User disabled successfully",
+      "error": "Error disabling user"
+    },
+    "action": {
+      "accept": "Yes",
+      "reject": "No"
     }
   }
 }
