@@ -102,13 +102,13 @@ export const InvitationActions = ({
     return (
       <div className="delete-dialog-footer">
         <Button
-          label={t("messages.action.reject")}
+          label={t("confirmation.confirm.action.reject")}
           variant="outlined"
           severity="secondary"
           onClick={() => handleCancel(isResend)}
         />
         <Button
-          label={t("messages.action.accept")}
+          label={t("confirmation.confirm.action.accept")}
           iconLeft={
             isResend
               ? resendLoading && "pi pi-spin pi-spinner"
