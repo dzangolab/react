@@ -22,9 +22,9 @@
   },
   "status": {
     "active": "Active (fr)",
-    "invited": "Invited (fr)",
     "disable": "Disabled (fr)",
-    "enable": "Enabled (fr)"
+    "enable": "Enabled (fr)",
+    "invited": "Invited (fr)"
   },
   "confirmation": {
     "header": "Confirmation (fr)",
