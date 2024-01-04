@@ -10,7 +10,11 @@
     }
   },
   "filesTable": {
-    "title": "Files table (fr)"
+    "title": "Files table (fr)",
+    "pagination": {
+      "pageControl": "Go to page (fr)",
+      "rowsPerPage": "Items per page (fr)"
+    }
   },
   "loading": {
     "title": "Loading (fr)"
