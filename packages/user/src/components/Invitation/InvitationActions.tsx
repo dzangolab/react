@@ -103,7 +103,6 @@ export const InvitationActions = ({
       <ConfirmationModal
         message={t("confirmation.confirm.resend.message")}
         accept={onResendConfirm}
-        reject={() => setShowResendConfirmation(false)}
         visible={showResendConfirmation}
         onHide={() => setShowResendConfirmation(false)}
         header={t("confirmation.header")}
@@ -112,7 +111,6 @@ export const InvitationActions = ({
       <ConfirmationModal
         message={t("confirmation.confirm.revoke.message")}
         accept={onRevokeConfirm}
-        reject={() => setShowRevokeConfirmation(false)}
         visible={showRevokeConfirmation}
         onHide={() => setShowRevokeConfirmation(false)}
         header={t("confirmation.header")}
