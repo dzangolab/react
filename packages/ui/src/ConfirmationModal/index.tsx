@@ -27,19 +27,19 @@ export const ConfirmationModal = ({
     if (footer) return footer;
 
     return (
-      <div className="delete-dialog-footer">
+      <div className="dialog-footer">
         <Button
           label={rejectLabel || "No"}
           variant="outlined"
           severity="secondary"
-          onClick={() => onHide}
+          onClick={(event: any) => onHide?.(event)}
           iconLeft={rejectIcon}
         />
         <Button
           label={acceptLabel || "Yes"}
-          onClick={() => {
+          onClick={(event: any) => {
             accept?.();
-            // onHide;
+            onHide?.(event);
           }}
           iconLeft={acceptIcon}
         />
