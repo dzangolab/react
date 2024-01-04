@@ -157,7 +157,9 @@ export const UsersTable = ({
 
         return (
           <Tag
-            value={original.disabled ? t("status.disable") : t("status.enable")}
+            value={
+              original.disabled ? t("status.disabled") : t("status.enabled")
+            }
             severity={severity}
             style={{
               width: "5rem",
