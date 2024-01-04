@@ -20,7 +20,7 @@
   text-align: center;
 }
 
-.layout .fixed-footer {
+.layout > .fixed-footer {
   bottom: 0;
   position: sticky;
   z-index: 1;

@@ -18,7 +18,7 @@ interface Properties {
   navStyle?: "dropdown" | "left-slider";
   toggle?: React.ReactNode;
   userMenu?: React.ReactNode;
-  isHeaderFixed?: boolean;
+  isLayoutFixed?: boolean;
 }
 
 const AppHeader: React.FC<Properties> = (properties: Properties) => {
@@ -40,11 +40,11 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     toggle = <i className="pi pi-align-justify"></i>,
     userMenu,
     mainMenuRoutes,
-    isHeaderFixed,
+    isLayoutFixed,
   } = properties;
 
   return (
-    <header className={isHeaderFixed ? "fixed-header" : ""}>
+    <header className={isLayoutFixed ? "fixed-header" : ""}>
       {logo || <Logo source={layoutConfig?.logo} route={logoRoute || home} />}
       <nav className={`menu ${navStyle}`} data-expanded={expanded}>
         {mainMenu || (
