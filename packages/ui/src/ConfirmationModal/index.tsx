@@ -12,6 +12,7 @@ interface IModalProperties extends ConfirmDialogProps {
 
 export const ConfirmationModal = ({
   accept,
+  reject,
   acceptLabel,
   acceptIcon,
   rejectLabel,
@@ -32,14 +33,14 @@ export const ConfirmationModal = ({
           label={rejectLabel || "No"}
           variant="outlined"
           severity="secondary"
-          onClick={(event: any) => onHide?.(event)}
+          onClick={() => reject?.()}
           iconLeft={rejectIcon}
         />
         <Button
           label={acceptLabel || "Yes"}
-          onClick={(event: any) => {
+          onClick={() => {
             accept?.();
-            onHide?.(event);
+            reject?.();
           }}
           iconLeft={acceptIcon}
         />

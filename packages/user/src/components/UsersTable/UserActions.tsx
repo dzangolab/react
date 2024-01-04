@@ -96,6 +96,9 @@ export const UserAction = ({
           handleEnableUser();
           setShowEnableConfirmation(false);
         }}
+        reject={() => {
+          setShowEnableConfirmation(false);
+        }}
       />
       <ConfirmationModal
         visible={showDisableConfirmation}
@@ -106,6 +109,9 @@ export const UserAction = ({
         }}
         accept={() => {
           handleDisableUser();
+          setShowDisableConfirmation(false);
+        }}
+        reject={() => {
           setShowDisableConfirmation(false);
         }}
       />

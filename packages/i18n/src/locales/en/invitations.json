@@ -7,10 +7,6 @@
       },
       "revoke": {
         "message": "Are you sure you want to revoke?"
-      },
-      "action": {
-        "accept": "Yes",
-        "reject": "No"
       }
     }
   },

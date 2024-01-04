@@ -7,10 +7,6 @@
       },
       "revoke": {
         "message": "Are you sure you want to revoke? (fr)"
-      },
-      "action": {
-        "accept": "Yes (fr)",
-        "reject": "No (fr)"
       }
     }
   },

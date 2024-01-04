@@ -179,19 +179,5 @@
       "resendSuccess": "Email resent successfully (fr)",
       "resendError": "Something went wrong. Please try again (fr)"
     }
-  },
-  "messages": {
-    "enable": {
-      "success": "User enabled successfully (fr)",
-      "error": "Error enabling user (fr)"
-    },
-    "disable": {
-      "success": "User disabled successfully (fr)",
-      "error": "Error disabling user (fr)"
-    },
-    "action": {
-      "accept": "Yes (fr)",
-      "reject": "No (fr)"
-    }
   }
 }
