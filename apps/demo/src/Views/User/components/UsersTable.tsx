@@ -15,7 +15,14 @@ export const UsersTableDemo = () => {
           users={allUsers}
           fetchUsers={() => {}}
           onInvitationAdded={() => {}}
-          visibleColumns={["email", "name", "roles", "signedUpAt", "actions"]}
+          visibleColumns={[
+            "email",
+            "name",
+            "roles",
+            "signedUpAt",
+            "status",
+            "actions",
+          ]}
           columns={[
             {
               accessorKey: "email",

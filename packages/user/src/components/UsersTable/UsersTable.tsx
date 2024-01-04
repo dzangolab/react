@@ -151,13 +151,13 @@ export const UsersTable = ({
     {
       align: "center",
       accessorKey: "status",
-      header: "status",
+      header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
         const severity = original.disabled ? "danger" : "success";
 
         return (
           <Tag
-            value={original.disabled ? "Disabled" : "Enabled"}
+            value={original.disabled ? t("status.disable") : t("status.enable")}
             severity={severity}
             style={{
               width: "5rem",

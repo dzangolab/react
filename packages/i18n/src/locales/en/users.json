@@ -22,7 +22,9 @@
   },
   "status": {
     "active": "Active",
-    "invited": "Invited"
+    "invited": "Invited",
+    "disable": "Disabled",
+    "enable": "Enabled"
   },
   "confirmation": {
     "header": "Confirmation",
