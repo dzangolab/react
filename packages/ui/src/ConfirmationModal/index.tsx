@@ -53,6 +53,7 @@ export const ConfirmationModal = ({
   return (
     <>
       <ConfirmDialog
+        className="dz-confirmation-modal"
         visible={visible}
         draggable={false}
         resizable={false}
