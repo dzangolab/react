@@ -101,9 +101,7 @@ export const UserAction = ({
         visible={showDisableConfirmation}
         message={t("confirmation.disable.message")}
         header={t("confirmation.header")}
-        onHide={() => {
-          setShowDisableConfirmation(false);
-        }}
+        onHide={() => setShowDisableConfirmation(false)}
         accept={() => {
           handleDisableUser();
           setShowDisableConfirmation(false);
