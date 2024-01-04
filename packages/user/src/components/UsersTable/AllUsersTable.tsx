@@ -141,7 +141,6 @@ export const AllUsersTable = ({
             </>
           );
         }
-        console.log("letttttttttttttttt");
 
         const role = (getValue() as string) || "";
 
