@@ -141,6 +141,7 @@ export const AllUsersTable = ({
             </>
           );
         }
+        console.log("letttttttttttttttt");
 
         const role = (getValue() as string) || "";
 
@@ -162,13 +163,29 @@ export const AllUsersTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
+        const getValue = () => {
+          if (original.isActiveUser) {
+            if (original.disabled) {
+              return t("status.disable");
+            } else {
+              return t("status.active");
+            }
+          } else {
+            return t("status.invited");
+          }
+        };
+
+        const severity = original.isActiveUser
+          ? original.disabled
+            ? "danger"
+            : "success"
+          : undefined;
+
         return (
           <>
             <Tag
-              value={
-                original.isActiveUser ? t("status.active") : t("status.invited")
-              }
-              severity={original.isActiveUser === true ? undefined : "success"}
+              value={getValue()}
+              severity={severity}
               style={{
                 width: "5rem",
               }}
