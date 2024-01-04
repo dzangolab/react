@@ -4,9 +4,7 @@ import { ReactNode } from "react";
 import { Button } from "..";
 
 interface IModalProperties extends ConfirmDialogProps {
-  acceptLabel?: string;
   acceptIcon?: string | ReactNode;
-  rejectLabel?: string;
   rejectIcon?: string | ReactNode;
   onHide?: () => void;
 }
