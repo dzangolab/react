@@ -164,13 +164,17 @@ export const AllUsersTable = ({
       cell: ({ row: { original } }) => {
         const getValue = () => {
           if (!original.isActiveUser) return t("status.invited");
+
           if (original.disabled) return t("status.disabled");
+
           return t("status.active");
         };
 
         const getSeverity = () => {
           if (!original.isActiveUser) return undefined;
+
           if (original.disabled) return "danger";
+
           return "success";
         };
 
