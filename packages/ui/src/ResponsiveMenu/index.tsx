@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { NavLink, useInRouterContext } from "react-router-dom";
 
 interface Properties {
@@ -19,6 +19,8 @@ const ResponsiveMenu = ({
   routes,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
+
+  const [showSubMenu, setShowSubMenu] = useState<boolean>(false);
 
   let _className = "responsive-menu";
 
@@ -61,20 +63,36 @@ const ResponsiveMenu = ({
   const getRouterList = useCallback(
     () =>
       routes.map((route) => (
-        <li key={route.name}>
-          <NavLink to={route.route} end={route.route === "/"}>
-            {displayIcon ? (
-              <span role="icon" title={route.name}>
-                {route.icon}
-              </span>
-            ) : null}
-            <span role="label">{route.name}</span>
-          </NavLink>
-        </li>
+        <>
+          <li
+            key={route.name}
+            onClick={() => setShowSubMenu((previous) => !previous)}
+          >
+            <NavLink to={route.route} end={route.route === "/"}>
+              {displayIcon ? (
+                <span role="icon" title={route.name}>
+                  {route.icon}
+                </span>
+              ) : null}
+              <span role="label">{route.name}</span>
+            </NavLink>
+          </li>
+          {showSubMenu && (
+            <ul key={route.name}>
+              <li>invitation</li>
+              <li>name of invitee</li>
+              <li>invitation</li>
+              <li>name of invitee</li>
+            </ul>
+          )}
+        </>
       )),
-    [routes],
+    [routes, showSubMenu],
   );
 
+  console.log(showSubMenu);
+
+  // console.log(hasRouterContext);
   return (
     <nav className={_className} aria-orientation={orientation}>
       <ul>{hasRouterContext ? getRouterList() : getAnchorList()}</ul>
