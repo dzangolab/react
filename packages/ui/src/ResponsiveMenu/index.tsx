@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import { NavLink, useInRouterContext, useLocation } from "react-router-dom";
+import React, { useCallback, useState } from "react";
+import { NavLink, useInRouterContext } from "react-router-dom";
 
 import { SubMenu } from "../SubMenu";
 
@@ -26,7 +26,13 @@ const ResponsiveMenu = ({
   routes,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
-  // const location = useLocation();
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const handleToggleActiveMenu = useCallback((routeName: any) => {
+    setActiveMenu((previousSubmenu) =>
+      previousSubmenu === routeName ? null : routeName,
+    );
+  }, []);
 
   let _className = "responsive-menu";
 
@@ -70,7 +76,10 @@ const ResponsiveMenu = ({
     () =>
       routes.map((route) => (
         <>
-          <li key={route.name}>
+          <li
+            key={route.name}
+            onClick={() => handleToggleActiveMenu(route.name)}
+          >
             <NavLink to={route.route} end={route.route === "/"}>
               {displayIcon ? (
                 <span role="icon" title={route.name}>
@@ -79,16 +88,17 @@ const ResponsiveMenu = ({
               ) : null}
               <span role="label">{route.name}</span>
             </NavLink>
-
-            {/* {route.route === location.pathname &&
-              route?.submenu?.length &&
-              route?.submenu?.map((menu) => (
-                <SubMenu key={menu.name} route={menu} />
-              ))} */}
+            <ul>
+              {activeMenu === route.name &&
+                route?.submenu?.length &&
+                route?.submenu?.map((menu) => (
+                  <SubMenu key={menu.name} route={menu} />
+                ))}
+            </ul>
           </li>
         </>
       )),
-    [routes, location],
+    [routes, activeMenu],
   );
 
   return (

@@ -28,6 +28,7 @@
 @import "./stepper.css";
 @import "./button.css";
 @import "./confirmationModal.css";
+@import "./subMenu.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";
