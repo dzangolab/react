@@ -12,6 +12,7 @@ import { Button } from "@dzangolab/react-ui";
 import React, { useEffect, useMemo, useState } from "react";
 
 import {
+  InvitationAppLabel,
   InvitationAppOption,
   InvitationExpiryDateField,
   InvitationRoleOption,
@@ -25,6 +26,7 @@ interface IProperties {
   loading?: boolean;
   onCancel?: () => void;
   roles?: InvitationRoleOption[];
+  appLabels?: Array<InvitationAppLabel>;
 }
 export const InvitationFormFields: React.FC<IProperties> = ({
   renderAdditionalFields,
@@ -33,6 +35,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   roles,
   loading,
   onCancel,
+  appLabels,
 }) => {
   const { t } = useTranslation("invitations");
 
@@ -102,7 +105,17 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       ];
     }
 
-    return modifiedApps;
+    const modifiedLabels = modifiedApps.map((app) => {
+      const appLabel = appLabels?.find((label) => label.id === app.id);
+
+      if (appLabel) {
+        return { ...app, name: appLabel.name };
+      }
+
+      return app;
+    });
+
+    return modifiedLabels;
   }, [apps]);
 
   return (

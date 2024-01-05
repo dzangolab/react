@@ -5,6 +5,7 @@ import React, { ReactNode, useState } from "react";
 
 import {
   AddInvitationResponse,
+  InvitationAppLabel,
   InvitationAppOption,
   InvitationRoleOption,
   AdditionalInvitationFields,
@@ -22,6 +23,7 @@ interface Properties {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareData?: (data: any) => any;
   roles?: InvitationRoleOption[];
+  appLabels?: Array<InvitationAppLabel>;
 }
 
 export const InvitationModal = ({
@@ -32,6 +34,7 @@ export const InvitationModal = ({
   onSubmitted,
   prepareData,
   roles,
+  appLabels,
 }: Properties) => {
   const { t } = useTranslation("invitations");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -68,6 +71,7 @@ export const InvitationModal = ({
           }}
           prepareData={prepareData}
           roles={roles}
+          appLabels={appLabels}
         />
       </Dialog>
     </div>

@@ -37,6 +37,11 @@ export interface InvitationAppOption {
   supportedRoles: InvitationRoleOption[];
 }
 
+export interface InvitationAppLabel {
+  id: number;
+  name: string;
+}
+
 export interface AdditionalInvitationFields {
   renderFields: RenderAdditionalInvitationFields;
   schema: AdditionalInvitationSchema;
