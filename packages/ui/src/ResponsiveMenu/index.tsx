@@ -88,7 +88,7 @@ const ResponsiveMenu = ({
               ) : null}
               <span role="label">{route.name}</span>
             </NavLink>
-            <ul>
+            <ul key={route.name} className="sub-menu">
               {activeMenu === route.name &&
                 route?.submenu?.length &&
                 route?.submenu?.map((menu) => (

@@ -8,14 +8,14 @@ interface ISubMenuProperties {
 
 export const SubMenu: React.FC<ISubMenuProperties> = ({
   route,
-  displayIcon = false,
+  displayIcon = true,
 }) => {
   return (
     <li key={route.name}>
       <NavLink to={route.route} end={route.route === "/"}>
         {displayIcon ? (
           <span role="icon" title={route.name}>
-            {route.icon}
+            <i className="pi pi-times" />
           </span>
         ) : null}
         <span role="label">{route.name}</span>

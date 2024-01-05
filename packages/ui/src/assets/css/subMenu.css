@@ -2,3 +2,21 @@
   display: flex;
   flex-direction: column;
 }
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-menu > li {
+  padding: 0.5rem 0.7rem;
+}
+
+.sub-menu > li > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sub-menu:hover {
+  background: none !important;
+}
