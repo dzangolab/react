@@ -1,5 +1,7 @@
-import React, { useCallback, useState } from "react";
-import { NavLink, useInRouterContext } from "react-router-dom";
+import React, { useCallback } from "react";
+import { NavLink, useInRouterContext, useLocation } from "react-router-dom";
+
+import { SubMenu } from "../SubMenu";
 
 interface Properties {
   className: string;
@@ -8,6 +10,11 @@ interface Properties {
     name: string;
     route: string;
     icon?: React.ReactNode;
+    submenu?: Array<{
+      name: string;
+      route: string;
+      icon?: React.ReactNode;
+    }>;
   }[];
   displayIcon?: boolean;
 }
@@ -19,8 +26,7 @@ const ResponsiveMenu = ({
   routes,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
-
-  const [showSubMenu, setShowSubMenu] = useState<boolean>(false);
+  // const location = useLocation();
 
   let _className = "responsive-menu";
 
@@ -64,10 +70,7 @@ const ResponsiveMenu = ({
     () =>
       routes.map((route) => (
         <>
-          <li
-            key={route.name}
-            onClick={() => setShowSubMenu((previous) => !previous)}
-          >
+          <li key={route.name}>
             <NavLink to={route.route} end={route.route === "/"}>
               {displayIcon ? (
                 <span role="icon" title={route.name}>
@@ -76,23 +79,18 @@ const ResponsiveMenu = ({
               ) : null}
               <span role="label">{route.name}</span>
             </NavLink>
+
+            {/* {route.route === location.pathname &&
+              route?.submenu?.length &&
+              route?.submenu?.map((menu) => (
+                <SubMenu key={menu.name} route={menu} />
+              ))} */}
           </li>
-          {showSubMenu && (
-            <ul key={route.name}>
-              <li>invitation</li>
-              <li>name of invitee</li>
-              <li>invitation</li>
-              <li>name of invitee</li>
-            </ul>
-          )}
         </>
       )),
-    [routes, showSubMenu],
+    [routes, location],
   );
 
-  console.log(showSubMenu);
-
-  // console.log(hasRouterContext);
   return (
     <nav className={_className} aria-orientation={orientation}>
       <ul>{hasRouterContext ? getRouterList() : getAnchorList()}</ul>
