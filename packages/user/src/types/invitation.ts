@@ -37,11 +37,6 @@ export interface InvitationAppOption {
   supportedRoles: InvitationRoleOption[];
 }
 
-export interface InvitationAppLabel {
-  id: number;
-  name: string;
-}
-
 export interface AdditionalInvitationFields {
   renderFields: RenderAdditionalInvitationFields;
   schema: AdditionalInvitationSchema;
@@ -56,6 +51,8 @@ export interface InvitationExpiryDateField {
 export type RenderAdditionalInvitationFields = (
   formContext: typeof useFormContext,
 ) => React.ComponentType;
+
+export type InvitationAppLabel = InvitationRoleOption;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AdditionalInvitationSchema = Zod.ZodObject<any>;
