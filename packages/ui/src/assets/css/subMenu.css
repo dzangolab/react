@@ -1,3 +1,7 @@
+.sidebar[aria-expanded="false"] > .responsive-menu > ul > li > ul {
+  display: none;
+}
+
 .responsive-menu > ul > li {
   display: flex;
   flex-direction: column;
@@ -6,6 +10,7 @@
 .sub-menu {
   display: flex;
   flex-direction: column;
+  transition: all var(--transition-duration) ease 0s;
 }
 
 .sub-menu > li {
@@ -13,6 +18,7 @@
 }
 
 .sub-menu > li > a {
+  width: 100%;
   text-decoration: none;
   color: inherit;
 }
