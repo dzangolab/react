@@ -1,3 +1,12 @@
+# [0.27.0](https://github.com/dzangolab/react/compare/v0.26.0...v0.27.0) (2024-01-05)
+
+
+### Features
+
+* **ui/table:** update cell classname ([0ac54ab](https://github.com/dzangolab/react/commit/0ac54abc7b25ec3336b80db225fac835d7c77ea0))
+
+
+
 # [0.26.0](https://github.com/dzangolab/react/compare/v0.25.0...v0.26.0) (2024-01-05)
 
 
