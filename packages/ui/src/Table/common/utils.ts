@@ -234,3 +234,45 @@ export const getParsedColumns = ({
 
   return parsedColumnsList;
 };
+
+export const formatNumber = (number: number) => {
+  if (typeof number !== "number" || isNaN(number)) {
+    return number;
+  }
+
+  console.log(number.toLocaleString());
+  return number.toLocaleString();
+};
+
+export const formatCurrency = (
+  amount: number,
+  currencyCode = "USD",
+  locale = "en-US",
+) => {
+  if (typeof amount !== "number" || isNaN(amount)) {
+    return amount;
+  }
+
+  // Use Intl.NumberFormat to format the number as currency
+  const formatter = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currencyCode,
+  });
+
+  return formatter.format(amount);
+};
+
+export const formatDate = (
+  date: Date,
+  locale: string,
+  options?: Intl.DateTimeFormatOptions,
+) => {
+  if (!(date instanceof Date)) {
+    return date;
+  }
+
+  // Use Intl.DateTimeFormat to format the date
+  const formatter = new Intl.DateTimeFormat(locale, options);
+
+  return formatter.format(date);
+};

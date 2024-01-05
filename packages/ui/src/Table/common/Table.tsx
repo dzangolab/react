@@ -35,14 +35,20 @@ import {
   TableFooter,
   TooltipWrapper,
 } from "./TableElements";
-import { getRequestJSON, getParsedColumns } from "./utils";
+import {
+  getRequestJSON,
+  getParsedColumns,
+  formatNumber,
+  formatDate,
+  formatCurrency,
+} from "./utils";
 import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
 import { Button } from "../../Buttons/ButtonBasic";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
 import type { TCustomColumnFilter, TDataTableProperties } from "./types";
-import type { Cell, ColumnDef } from "@tanstack/react-table";
+import type { Cell, ColumnDef, NoInfer } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   border = "grid",
@@ -404,6 +410,40 @@ const DataTable = <TData extends { id: string | number }>({
                 data-id={row.original.id ?? row.id}
               >
                 {row.getVisibleCells().map((cell) => {
+                  const getFormatedValueContext: typeof cell.getContext =
+                    () => {
+                      const cellContext = cell.getContext();
+                      const renderValue = cellContext.renderValue;
+
+                      return {
+                        ...cellContext,
+                        renderValue: () => {
+                          switch (cell.column.columnDef.dataType) {
+                            case "number":
+                              return formatNumber(
+                                Number(renderValue()),
+                              ) as NoInfer<never>;
+
+                            case "date":
+                              return formatDate(
+                                renderValue() as Date,
+                                "en-US'",
+                              ) as NoInfer<never>;
+
+                            case "currency":
+                              return formatCurrency(
+                                Number(renderValue()),
+                              ) as NoInfer<never>;
+
+                            default:
+                              return renderValue();
+                          }
+                        },
+                      };
+                    };
+
+                  console.log(getFormatedValueContext().getValue());
+
                   return (
                     <TableCell
                       key={cell.id}
@@ -426,13 +466,13 @@ const DataTable = <TData extends { id: string | number }>({
                           }}
                           cellContent={flexRender(
                             cell.column.columnDef.cell,
-                            cell.getContext(),
+                            getFormatedValueContext(),
                           )}
                         ></TooltipWrapper>
                       ) : (
                         flexRender(
                           cell.column.columnDef.cell,
-                          cell.getContext(),
+                          getFormatedValueContext(),
                         )
                       )}
                     </TableCell>

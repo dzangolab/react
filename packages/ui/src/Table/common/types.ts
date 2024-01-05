@@ -176,6 +176,7 @@ declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
   interface ColumnDefBase<TData, TValue> {
     align?: "left" | "center" | "right";
+    dataType?: "string" | "number" | "date" | "currency";
     filterPlaceholder?: string;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
