@@ -25,6 +25,11 @@ interface Properties {
     route: string;
     icon?: React.ReactNode;
   }[];
+  sidebarMenuRoutes?: {
+    name: string;
+    route: string;
+    icon?: React.ReactNode;
+  }[];
   mainMenu?: React.ReactNode;
   mainMenuOrientation?: "horizontal" | "vertical";
   onLogout?: () => void;
@@ -57,6 +62,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
     localSwitcher,
     logoRoute,
     mainMenuRoutes,
+    sidebarMenuRoutes,
     mainMenuOrientation,
     menuToggle,
     mainMenu,
@@ -83,6 +89,7 @@ export const UserEnabledSwitchableLayout: FC<Properties> = (properties) => {
       children={children}
       footer={footer}
       mainMenuRoutes={mainMenuRoutes}
+      sidebarMenuRoutes={sidebarMenuRoutes}
       logoRoute={logoRoute || home}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}

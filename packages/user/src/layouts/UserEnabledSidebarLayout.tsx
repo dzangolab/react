@@ -17,6 +17,11 @@ interface Properties {
     route: string;
     icon?: React.ReactNode;
   }[];
+  sidebarMenuRoutes?: {
+    name: string;
+    route: string;
+    icon?: React.ReactNode;
+  }[];
   onLogout?: () => void;
   customSidebar?: React.ReactNode;
   displaySidebarMenuIcon?: boolean;
@@ -47,6 +52,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     displaySidebarMenuIcon = true,
     footer,
     mainMenuRoutes,
+    sidebarMenuRoutes,
     onLogout,
     customSidebar,
     userMenu,
@@ -75,6 +81,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
       children={children}
       footer={footer}
       mainMenuRoutes={mainMenuRoutes}
+      sidebarMenuRoutes={sidebarMenuRoutes}
       logoRoute={logoRoute || home}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}
