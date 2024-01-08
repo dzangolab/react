@@ -103,16 +103,13 @@ const ResponsiveMenu = ({
               ) : null}
               <span role="label">{route.name}</span>
             </NavLink>
-            <ul
-              key={route.name}
-              className={"sub-menu"}
-              aria-expanded={route.showSubMenu}
-            >
-              {route?.showSubMenu &&
-                route?.submenu?.map((menu) => (
+            {route?.showSubMenu && (
+              <ul key={route.name} className={"sub-menu"}>
+                {route?.submenu?.map((menu) => (
                   <SubMenu key={menu.name} route={menu} />
                 ))}
-            </ul>
+              </ul>
+            )}
           </li>
         </>
       )),

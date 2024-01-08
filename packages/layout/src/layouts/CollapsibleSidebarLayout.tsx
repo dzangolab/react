@@ -46,7 +46,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     menuToggle,
     userMenu,
   } = properties;
-  console.log("Hello i am  this and that", mainMenuRoutes);
+
   return (
     <div className="layout collapsible">
       {header || (

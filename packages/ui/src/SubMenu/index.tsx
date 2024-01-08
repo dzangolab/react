@@ -12,7 +12,7 @@ export const SubMenu: React.FC<ISubMenuProperties> = ({
 }) => {
   return (
     <li key={route.name}>
-      <NavLink to={route.route} end={route.route === "/"}>
+      <NavLink to="things/131" end={route.route === "/"}>
         {displayIcon ? (
           <span role="icon" title={route.name}>
             <i className="pi pi-times" />

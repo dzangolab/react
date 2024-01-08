@@ -7,11 +7,6 @@ interface Properties {
   routes?: {
     name: string;
     route: string;
-    submenu?: Array<{
-      name: string;
-      route: string;
-      icon?: React.ReactNode;
-    }>;
   }[];
 }
 
@@ -32,11 +27,10 @@ const MainMenu = (properties: Properties) => {
   const { routes = DEFAULT_ROUTES, orientation = "horizontal" } = properties;
 
   const getTranslatedRoutes = () => {
-    return routes.map(({ name, route, submenu }: any) => {
+    return routes.map(({ name, route }: any) => {
       return {
         name: t(name),
         route,
-        submenu,
       };
     });
   };

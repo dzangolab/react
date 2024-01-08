@@ -13,11 +13,6 @@ interface Properties {
   mainMenuRoutes?: {
     name: string;
     route: string;
-    submenu?: Array<{
-      name: string;
-      route: string;
-      icon?: React.ReactNode;
-    }>;
   }[];
   mainMenuOrientation?: "horizontal" | "vertical";
   navStyle?: "dropdown" | "left-slider";
@@ -45,8 +40,6 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     userMenu,
     mainMenuRoutes,
   } = properties;
-
-  console.log("I am in header", mainMenuRoutes);
 
   return (
     <header>
