@@ -39,7 +39,6 @@ const ResponsiveMenu = ({
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
   const [improvedRoutes, setImprovedRoutes] = useState<ImprovedRoutes>(routes);
-
   const handleToggleActiveMenu = useCallback((routeName: string) => {
     setImprovedRoutes((previousRoutes) =>
       previousRoutes.map((route) =>
@@ -104,7 +103,11 @@ const ResponsiveMenu = ({
               ) : null}
               <span role="label">{route.name}</span>
             </NavLink>
-            <ul key={route.name} className="sub-menu">
+            <ul
+              key={route.name}
+              className={"sub-menu"}
+              aria-expanded={route.showSubMenu}
+            >
               {route?.showSubMenu &&
                 route?.submenu?.map((menu) => (
                   <SubMenu key={menu.name} route={menu} />

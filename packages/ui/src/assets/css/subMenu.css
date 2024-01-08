@@ -11,6 +11,12 @@
   display: flex;
   flex-direction: column;
   padding-left: 1.4rem;
+  max-height: 0;
+  transition: max-height 0.9s ease-out;
+}
+
+.sub-menu[aria-expanded="true"] {
+  max-height: 20rem;
 }
 
 .sub-menu > li {
@@ -21,6 +27,10 @@
   width: 100%;
   text-decoration: none;
   color: inherit;
+}
+
+.sub-menu > li > span[role="label"]:hover {
+  font-weight: bolder;
 }
 
 .sub-menu:hover {
