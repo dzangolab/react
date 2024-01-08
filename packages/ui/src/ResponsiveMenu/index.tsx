@@ -19,6 +19,18 @@ interface Properties {
   displayIcon?: boolean;
 }
 
+type ImprovedRoutes = {
+  name: string;
+  route: string;
+  icon?: React.ReactNode;
+  showSubMenu?: boolean;
+  submenu?: Array<{
+    name: string;
+    route: string;
+    icon?: React.ReactNode;
+  }>;
+}[];
+
 const ResponsiveMenu = ({
   className,
   displayIcon = false,
@@ -26,11 +38,15 @@ const ResponsiveMenu = ({
   routes,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
-  const [activeMenu, setActiveMenu] = useState(null);
+  const [improvedRoutes, setImprovedRoutes] = useState<ImprovedRoutes>(routes);
 
-  const handleToggleActiveMenu = useCallback((routeName: any) => {
-    setActiveMenu((previousSubmenu) =>
-      previousSubmenu === routeName ? null : routeName,
+  const handleToggleActiveMenu = useCallback((routeName: string) => {
+    setImprovedRoutes((previousRoutes) =>
+      previousRoutes.map((route) =>
+        route.name === routeName
+          ? { ...route, showSubMenu: !route.showSubMenu }
+          : route,
+      ),
     );
   }, []);
 
@@ -74,7 +90,7 @@ const ResponsiveMenu = ({
 
   const getRouterList = useCallback(
     () =>
-      routes.map((route) => (
+      improvedRoutes.map((route) => (
         <>
           <li
             key={route.name}
@@ -89,8 +105,7 @@ const ResponsiveMenu = ({
               <span role="label">{route.name}</span>
             </NavLink>
             <ul key={route.name} className="sub-menu">
-              {activeMenu === route.name &&
-                route?.submenu?.length &&
+              {route?.showSubMenu &&
                 route?.submenu?.map((menu) => (
                   <SubMenu key={menu.name} route={menu} />
                 ))}
@@ -98,9 +113,8 @@ const ResponsiveMenu = ({
           </li>
         </>
       )),
-    [routes, activeMenu],
+    [improvedRoutes],
   );
-  console.log(routes);
 
   return (
     <nav className={_className} aria-orientation={orientation}>

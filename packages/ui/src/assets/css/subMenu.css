@@ -10,10 +10,11 @@
 .sub-menu {
   display: flex;
   flex-direction: column;
+  padding-left: 1.4rem;
 }
 
 .sub-menu > li {
-  padding: 0.5rem 0.7rem;
+  padding: 0.1rem 0.7rem;
 }
 
 .sub-menu > li > a {

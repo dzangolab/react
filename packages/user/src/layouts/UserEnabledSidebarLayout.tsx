@@ -74,7 +74,6 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
 
     return mainMenu;
   };
-  // console.log("Hello my name is", mainMenuRoutes)
 
   return (
     <CollapsibleSidebarLayout
