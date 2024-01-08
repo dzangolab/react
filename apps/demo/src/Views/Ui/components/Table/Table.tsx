@@ -234,9 +234,8 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.defaultFormating")}>
+      <Section title={t("table.usage.cellDataFormating")}>
         <TDataTable
-          title={{ text: "Table title", align: "left" }}
           columns={[
             {
               accessorKey: "description",
@@ -269,7 +268,7 @@ export const TableDemo = () => {
             },
             {
               accessorKey: "date",
-              header: () => <span>Date</span>,
+              header: "Date",
               width: "12rem",
               maxWidth: "12rem",
               minWidth: "12rem",

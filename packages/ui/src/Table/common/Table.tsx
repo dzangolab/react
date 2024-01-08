@@ -228,10 +228,12 @@ const DataTable = <TData extends { id: string | number }>({
   const renderTooltipContent = (
     cell: Cell<TData, unknown>,
   ): React.ReactNode => {
-    if (typeof cell.column.columnDef.tooltip === "string") {
-      return cell.column.columnDef.tooltip;
-    } else if (typeof cell.column.columnDef.tooltip === "function") {
-      return cell.column.columnDef.tooltip(cell);
+    const tooltip = cell.column.columnDef.tooltip;
+
+    if (typeof tooltip === "string") {
+      return tooltip;
+    } else if (typeof tooltip === "function") {
+      return tooltip(cell);
     }
 
     return cell.getValue() as string;
