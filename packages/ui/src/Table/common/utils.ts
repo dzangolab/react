@@ -246,7 +246,6 @@ export const formatNumber = ({
     return value;
   }
 
-  // Use Intl.NumberFormat to format the number as currency
   const formatter = new Intl.NumberFormat(locale, formatOptions);
 
   return formatter.format(value);
@@ -261,7 +260,6 @@ export const formatDate = ({
     return date;
   }
 
-  // Use Intl.DateTimeFormat to format the date
   const formatter = new Intl.DateTimeFormat(locale, formatOptions);
 
   return formatter.format(date);
