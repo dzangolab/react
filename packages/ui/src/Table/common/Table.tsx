@@ -350,7 +350,9 @@ const DataTable = <TData extends { id: string | number }>({
                     <ColumnHeader
                       key={id}
                       colSpan={colSpan}
-                      className={`column-${id} ${activeColumnClass} ${
+                      className={`column-${id} ${
+                        columnDef.className || ""
+                      } ${activeColumnClass} ${
                         columnDef.enableSorting ? "sortable" : ""
                       }`
                         .replace(/\s\s/, " ")
@@ -414,10 +416,11 @@ const DataTable = <TData extends { id: string | number }>({
                       maxWidth: column.columnDef.maxWidth,
                       minWidth: column.columnDef.minWidth,
                     }}
-                    className={
-                      (column.id ? `column-${column.id} ` : ``) +
-                      activeColumnClass
-                    }
+                    className={`${
+                      column.id ? `column-${column.id}` : ``
+                    } ${activeColumnClass} ${column.columnDef.className || ""}`
+                      .replace(/\s\s/, " ")
+                      .trimEnd()}
                   >
                     <DebouncedInput
                       defaultValue={column.getFilterValue() as string}
@@ -498,9 +501,11 @@ const DataTable = <TData extends { id: string | number }>({
                         align: cell.column.columnDef.align,
                         dataType: cell.column.columnDef.dataType,
                       })}
-                      className={
-                        cell.column.id ? `column-${cell.column.id}` : ``
-                      }
+                      className={`${
+                        cell.column.id ? `cell-${cell.column.id}` : ``
+                      } ${cell.column.columnDef.className || ""}`
+                        .replace(/\s\s/, " ")
+                        .trimEnd()}
                       style={{
                         width: cell.column.columnDef.width,
                         maxWidth: cell.column.columnDef.maxWidth,

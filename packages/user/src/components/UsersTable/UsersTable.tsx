@@ -25,6 +25,7 @@ type VisibleColumn =
   | "email"
   | "roles"
   | "signedUpAt"
+  | "status"
   | "actions"
   | string;
 
@@ -63,7 +64,14 @@ export const UsersTable = ({
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns = ["name", "email", "roles", "signedUpAt", "actions"],
+  visibleColumns = [
+    "name",
+    "email",
+    "roles",
+    "signedUpAt",
+    "status",
+    "actions",
+  ],
   ...tableProperties
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
@@ -138,6 +146,26 @@ export const UsersTable = ({
         }
 
         return "-";
+      },
+    },
+    {
+      align: "center",
+      accessorKey: "status",
+      header: t("table.defaultColumns.status"),
+      cell: ({ row: { original } }) => {
+        const severity = original.disabled ? "danger" : "success";
+
+        return (
+          <Tag
+            value={
+              original.disabled ? t("status.disabled") : t("status.enabled")
+            }
+            severity={severity}
+            style={{
+              width: "5rem",
+            }}
+          />
+        );
       },
     },
     {

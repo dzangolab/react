@@ -192,6 +192,7 @@ declare module "@tanstack/react-table" {
   interface ColumnDefBase<TData, TValue> {
     align?: CellAlignmentType;
     dataType?: CellDataType;
+    className?: string;
     filterPlaceholder?: string;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<

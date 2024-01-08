@@ -177,8 +177,8 @@
       "alreadyVerified": "Email is already verified",
       "invalidToken": "The token is invalid",
       "error": "Something went wrong. Please try again",
-      "resendSuccess":"Email resent successfully",
-      "resendError":"Something went wrong. Please try again"
+      "resendSuccess": "Email resent successfully",
+      "resendError": "Something went wrong. Please try again"
     }
   }
 }

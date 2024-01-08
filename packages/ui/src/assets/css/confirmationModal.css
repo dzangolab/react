@@ -1,0 +1,4 @@
+.dz-confirmation-modal .p-dialog-footer .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
