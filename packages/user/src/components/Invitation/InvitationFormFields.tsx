@@ -90,7 +90,6 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
   const updatedApps = useMemo(() => {
     let modifiedApps = apps || [];
-
     const currentOrigin = window.location.origin;
 
     const appToMove = modifiedApps.find((app) => app.origin === currentOrigin);
@@ -98,10 +97,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     if (appToMove) {
       modifiedApps = modifiedApps.filter((app) => app.origin !== currentOrigin);
       modifiedApps = [
-        {
-          ...appToMove,
-          name: t("app:thisApp"),
-        },
+        { ...appToMove, name: t("app:thisApp") },
         ...modifiedApps,
       ];
     }
