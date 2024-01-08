@@ -15,6 +15,11 @@ interface Properties {
     name: string;
     route: string;
     icon?: React.ReactNode;
+    submenu?: Array<{
+      name: string;
+      route: string;
+      icon?: React.ReactNode;
+    }>;
   }[];
   mainMenuOrientation?: "horizontal" | "vertical";
   userMenu?: React.ReactNode;
@@ -41,7 +46,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     menuToggle,
     userMenu,
   } = properties;
-
+  console.log("Hello i am  this and that", mainMenuRoutes);
   return (
     <div className="layout collapsible">
       {header || (

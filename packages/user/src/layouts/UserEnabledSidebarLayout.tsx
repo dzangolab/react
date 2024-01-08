@@ -16,6 +16,11 @@ interface Properties {
     name: string;
     route: string;
     icon?: React.ReactNode;
+    submenu?: Array<{
+      name: string;
+      route: string;
+      icon?: React.ReactNode;
+    }>;
   }[];
   onLogout?: () => void;
   customSidebar?: React.ReactNode;
@@ -69,6 +74,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
 
     return mainMenu;
   };
+  // console.log("Hello my name is", mainMenuRoutes)
 
   return (
     <CollapsibleSidebarLayout

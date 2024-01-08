@@ -100,6 +100,7 @@ const ResponsiveMenu = ({
       )),
     [routes, activeMenu],
   );
+  console.log(routes);
 
   return (
     <nav className={_className} aria-orientation={orientation}>

@@ -10,7 +10,6 @@
 .sub-menu {
   display: flex;
   flex-direction: column;
-  /* transition: ; */
 }
 
 .sub-menu > li {
