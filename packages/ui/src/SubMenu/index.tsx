@@ -1,3 +1,4 @@
+import { end } from "@popperjs/core";
 import { NavLink } from "react-router-dom";
 
 interface ISubMenuProperties {
@@ -12,10 +13,14 @@ export const SubMenu: React.FC<ISubMenuProperties> = ({
 }) => {
   return (
     <li key={route.name}>
-      <NavLink to="things/131" end={route.route === "/"}>
+      <NavLink
+        to={route.route}
+        className={({ isActive }) => (isActive ? "active" : "")}
+        end
+      >
         {displayIcon ? (
           <span role="icon" title={route.name}>
-            <i className="pi pi-times" />
+            {route.icon}
           </span>
         ) : null}
         <span role="label">{route.name}</span>

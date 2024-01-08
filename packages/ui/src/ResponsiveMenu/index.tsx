@@ -91,11 +91,12 @@ const ResponsiveMenu = ({
     () =>
       improvedRoutes.map((route) => (
         <>
-          <li
-            key={route.name}
-            onClick={() => handleToggleActiveMenu(route.name)}
-          >
-            <NavLink to={route.route} end={route.route === "/"}>
+          <li key={route.name}>
+            <NavLink
+              to={route.route}
+              end={route.route === "/"}
+              onClick={() => handleToggleActiveMenu(route.name)}
+            >
               {displayIcon ? (
                 <span role="icon" title={route.name}>
                   {route.icon}

@@ -10,11 +10,11 @@
 .sub-menu {
   display: flex;
   flex-direction: column;
-  padding-left: 1.4rem;
+  padding-left: 3rem;
 }
 
 .sub-menu > li {
-  padding: 0.1rem 0.7rem;
+  transition: all 0.3s ease;
 }
 
 .sub-menu > li > a {
@@ -23,10 +23,19 @@
   text-decoration: none;
   color: inherit;
   background: none !important;
+  padding: 0.3rem 0;
 }
 
-.sub-menu > li > span[role="label"]:hover {
-  font-weight: bolder;
+.sub-menu > li :hover {
+  font-weight: bold;
+}
+
+.sub-menu > li > a > span[role="label"] {
+  transition: all var(--transition-duration) ease;
+}
+
+.sub-menu > li > a.active {
+  font-weight: bold;
 }
 
 .sub-menu:hover {
