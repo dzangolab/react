@@ -12,7 +12,6 @@ import { Button } from "@dzangolab/react-ui";
 import React, { useEffect, useMemo, useState } from "react";
 
 import {
-  InvitationAppLabel,
   InvitationAppOption,
   InvitationExpiryDateField,
   InvitationRoleOption,
@@ -26,7 +25,6 @@ interface IProperties {
   loading?: boolean;
   onCancel?: () => void;
   roles?: InvitationRoleOption[];
-  appLabels?: Array<InvitationAppLabel>;
 }
 export const InvitationFormFields: React.FC<IProperties> = ({
   renderAdditionalFields,
@@ -35,7 +33,6 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   roles,
   loading,
   onCancel,
-  appLabels,
 }) => {
   const { t } = useTranslation("invitations");
 
@@ -93,6 +90,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
   const updatedApps = useMemo(() => {
     let modifiedApps = apps || [];
+
     const currentOrigin = window.location.origin;
 
     const appToMove = modifiedApps.find((app) => app.origin === currentOrigin);
@@ -100,23 +98,16 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     if (appToMove) {
       modifiedApps = modifiedApps.filter((app) => app.origin !== currentOrigin);
       modifiedApps = [
-        { ...appToMove, name: t("app:thisApp") },
+        {
+          ...appToMove,
+          name: appToMove.label ? appToMove.label : t("app:thisApp"),
+        },
         ...modifiedApps,
       ];
     }
 
-    const modifiedLabels = modifiedApps.map((app) => {
-      const appLabel = appLabels?.find((label) => label.id === app.id);
-
-      if (appLabel) {
-        return { ...app, name: appLabel.name };
-      }
-
-      return app;
-    });
-
-    return modifiedLabels;
-  }, [apps, appLabels]);
+    return modifiedApps;
+  }, [apps]);
 
   return (
     <>

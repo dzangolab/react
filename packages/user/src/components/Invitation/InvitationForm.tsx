@@ -12,7 +12,6 @@ import { InvitationFormFields } from "./InvitationFormFields";
 import type {
   AdditionalInvitationFields,
   AddInvitationResponse,
-  InvitationAppLabel,
   InvitationAppOption,
   InvitationRoleOption,
   InvitationExpiryDateField,
@@ -27,7 +26,6 @@ interface Properties {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareData?: (rawFormData: any) => any;
   roles?: InvitationRoleOption[];
-  appLabels?: Array<InvitationAppLabel>;
 }
 
 export const InvitationForm = ({
@@ -38,7 +36,6 @@ export const InvitationForm = ({
   onCancel,
   prepareData,
   roles,
-  appLabels,
 }: Properties) => {
   const { t } = useTranslation("invitations");
 
@@ -198,7 +195,6 @@ export const InvitationForm = ({
         loading={submitting}
         onCancel={onCancel}
         roles={roles}
-        appLabels={appLabels}
       />
     </Provider>
   );

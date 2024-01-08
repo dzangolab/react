@@ -15,7 +15,6 @@ import type {
   AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
-  InvitationAppLabel,
   InvitationRoleOption,
   InvitationExpiryDateField,
   ResendInvitationResponse,
@@ -55,7 +54,6 @@ export type InvitationsTableProperties = Partial<
   showAppColumn?: boolean;
   showInviteAction?: boolean;
   visibleColumns?: VisibleColumn[];
-  appLabels?: Array<InvitationAppLabel>;
 };
 
 export const InvitationsTable = ({
@@ -74,7 +72,6 @@ export const InvitationsTable = ({
   roles,
   showInviteAction = true,
   totalRecords = 0,
-  appLabels,
   visibleColumns = [
     "email",
     "app",
@@ -198,7 +195,6 @@ export const InvitationsTable = ({
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}
-            appLabels={appLabels}
           />
         </div>
       );
