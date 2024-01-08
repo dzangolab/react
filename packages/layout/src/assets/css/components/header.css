@@ -76,6 +76,10 @@
   flex: 1;
 }
 
+.layout > header .main-menu > ul > li a[aria-current="page"] {
+  border-bottom: 2px solid #007aff;
+}
+
 @media screen and (min-width: 576px) {
   .layout > header {
     grid-template-areas: "logo nav";
