@@ -5,12 +5,23 @@
 .responsive-menu > ul > li {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .sub-menu {
   display: flex;
   flex-direction: column;
   padding-left: 3rem;
+  opacity: 0;
+  max-height: 0;
+  transition:
+    opacity 0.3s ease-in-out,
+    max-height 0.3s ease-in-out;
+}
+
+.sub-menu[aria-expanded="true"] {
+  opacity: 1;
+  max-height: 400px
 }
 
 .sub-menu > li {

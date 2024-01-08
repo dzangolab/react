@@ -16,7 +16,6 @@ export const SubMenu: React.FC<ISubMenuProperties> = ({
       <NavLink
         to={route.route}
         className={({ isActive }) => (isActive ? "active" : "")}
-        end
       >
         {displayIcon ? (
           <span role="icon" title={route.name}>
