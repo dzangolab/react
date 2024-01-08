@@ -116,7 +116,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     });
 
     return modifiedLabels;
-  }, [apps]);
+  }, [apps, appLabels]);
 
   return (
     <>
