@@ -162,13 +162,27 @@ export const AllUsersTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
+        const getValue = () => {
+          if (!original.isActiveUser) return t("status.invited");
+
+          if (original.disabled) return t("status.disabled");
+
+          return t("status.active");
+        };
+
+        const getSeverity = () => {
+          if (!original.isActiveUser) return undefined;
+
+          if (original.disabled) return "danger";
+
+          return "success";
+        };
+
         return (
           <>
             <Tag
-              value={
-                original.isActiveUser ? t("status.active") : t("status.invited")
-              }
-              severity={original.isActiveUser === true ? undefined : "success"}
+              value={getValue()}
+              severity={getSeverity()}
               style={{
                 width: "5rem",
               }}
