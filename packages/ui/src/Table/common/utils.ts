@@ -1,4 +1,6 @@
 import type {
+  FormatDateType,
+  FormatNumberType,
   TCustomColumnFilter,
   TFilterFn as TFilterFunction,
   TRequestJSON,
@@ -235,44 +237,32 @@ export const getParsedColumns = ({
   return parsedColumnsList;
 };
 
-export const formatNumber = (number: number) => {
-  if (typeof number !== "number" || isNaN(number)) {
-    return number;
-  }
-
-  console.log(number.toLocaleString());
-  return number.toLocaleString();
-};
-
-export const formatCurrency = (
-  amount: number,
-  currencyCode = "USD",
+export const formatNumber = ({
+  value,
   locale = "en-US",
-) => {
-  if (typeof amount !== "number" || isNaN(amount)) {
-    return amount;
+  formatOptions,
+}: FormatNumberType) => {
+  if (typeof value !== "number" || isNaN(value)) {
+    return value;
   }
 
   // Use Intl.NumberFormat to format the number as currency
-  const formatter = new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency: currencyCode,
-  });
+  const formatter = new Intl.NumberFormat(locale, formatOptions);
 
-  return formatter.format(amount);
+  return formatter.format(value);
 };
 
-export const formatDate = (
-  date: Date,
-  locale: string,
-  options?: Intl.DateTimeFormatOptions,
-) => {
+export const formatDate = ({
+  date,
+  locale = "en-US",
+  formatOptions,
+}: FormatDateType) => {
   if (!(date instanceof Date)) {
     return date;
   }
 
   // Use Intl.DateTimeFormat to format the date
-  const formatter = new Intl.DateTimeFormat(locale, options);
+  const formatter = new Intl.DateTimeFormat(locale, formatOptions);
 
   return formatter.format(date);
 };
