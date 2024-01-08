@@ -90,7 +90,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
   const updatedApps = useMemo(() => {
     let modifiedApps = apps || [];
-    console.log(modifiedApps);
+
     const currentOrigin = window.location.origin;
 
     const appToMove = modifiedApps.find((app) => app.origin === currentOrigin);
@@ -107,7 +107,6 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     }
 
     const modifiedLabels = modifiedApps.map((app) => {
-      console.log("app", app);
       if (app.label) {
         return { ...app, name: app.label };
       }
