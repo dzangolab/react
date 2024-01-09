@@ -16,7 +16,7 @@ export const SubMenu: React.FC<ISubMenuProperties> = ({ key, submenu }) => {
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             <span role="icon" title={route.name}>
-              <i className="pi pi-home" />
+              {/* <i className="pi pi-home" /> */}
             </span>
             <span role="label">{route.name}</span>
           </NavLink>

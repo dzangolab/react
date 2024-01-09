@@ -10,13 +10,16 @@
 }
 
 .sub-menu {
-  overflow: hidden;
+  display: flex;
   max-height: 0;
   overflow: hidden;
-  display: flex;
   flex-direction: column;
   padding-left: 3rem;
   transition: all var(--transition-duration) ease-in-out;
+}
+
+.sub-menu:hover {
+  background: none !important;
 }
 
 .responsive-menu > ul > li[aria-expanded="true"] .sub-menu {
@@ -48,6 +51,3 @@
   font-weight: bold;
 }
 
-.sub-menu:hover {
-  background: none !important;
-}
