@@ -29,18 +29,22 @@
   text-decoration: none;
   color: inherit;
   background: none !important;
-  padding: 0.3rem 0;
+  padding: 0.5rem;
 }
 
-.sub-menu > li :hover {
+.sub-menu > li:hover > a > span[role="label"],
+.sub-menu > li:hover > a > span[role="icon"] > i {
   font-weight: bold;
 }
 
-.sub-menu > li > a > span[role="label"] {
+.sub-menu > li > a > span[role="label"],
+.sub-menu > li > a > span[role="icon"] > i {
   transition: all var(--transition-duration) ease;
+  padding: 0 !important;
 }
 
-.sub-menu > li > a.active {
+.sub-menu > li > a.active,
+.sub-menu > li > a.active > span[role="icon"] > i {
   font-weight: bold;
 }
 
