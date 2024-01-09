@@ -74,7 +74,11 @@ const ResponsiveMenu = ({
   const getRouterList = useCallback(
     () =>
       routes.map((route) => (
-        <ResponsiveMenuItem route={route} displayIcon={displayIcon} />
+        <ResponsiveMenuItem
+          key={route.name}
+          route={route}
+          displayIcon={displayIcon}
+        />
       )),
     [routes],
   );

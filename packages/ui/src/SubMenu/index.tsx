@@ -1,14 +1,13 @@
 import { NavLink } from "react-router-dom";
 
 interface ISubMenuProperties {
-  key?: string;
   submenu?: Array<{ name: string; route: string; icon?: React.ReactNode }>;
   displayIcon?: boolean;
 }
 
-export const SubMenu: React.FC<ISubMenuProperties> = ({ key, submenu }) => {
+export const SubMenu: React.FC<ISubMenuProperties> = ({ submenu }) => {
   return (
-    <ul key={key} className="sub-menu">
+    <ul className="sub-menu">
       {submenu?.map((route) => (
         <li key={route.name}>
           <NavLink
