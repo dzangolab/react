@@ -5,7 +5,7 @@
   --header-gap: 0.5rem;
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
-  --menu-item-border-color: #007aff;
+  --menu-item-border-color: #424243;
 
   align-items: center;
   border-bottom: 1px solid var(--header-border-color);
@@ -90,8 +90,8 @@
   width: 100%;
 }
 
-.main-menu > ul > li a[aria-current="page"] {
-  font-weight: 600;
+.main-menu > ul > li .active {
+  font-weight: 800;
 }
 
 @media screen and (min-width: 576px) {
