@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useInRouterContext } from "react-router-dom";
 
-import { ResponsiveMenuItem, MenuItemRouteType } from "./Item";
+import { ResponsiveMenuItem } from "./Item";
 
 export type MenuRouteType = {
   name: string;
@@ -9,10 +9,19 @@ export type MenuRouteType = {
   icon?: React.ReactNode;
 };
 
+export type ExtendedMenuRouteType = Omit<MenuRouteType, "route"> & {
+  route?: string;
+  submenu?: Array<MenuRouteType>;
+};
+
+export type CombinedMenuRouteType =
+  | Array<MenuRouteType>
+  | Array<ExtendedMenuRouteType>;
+
 interface Properties {
   className: string;
   orientation?: "horizontal" | "vertical";
-  routes: Array<MenuRouteType> | Array<MenuItemRouteType>;
+  routes: CombinedMenuRouteType;
   displayIcon?: boolean;
 }
 
@@ -41,7 +50,7 @@ const ResponsiveMenu = ({
     };
 
     return routes.map((route) => {
-      const isActive = checkIsActive(route.route);
+      const isActive = checkIsActive(route.route || "");
 
       return (
         <li key={route.name}>

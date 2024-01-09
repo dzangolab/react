@@ -3,14 +3,10 @@ import { NavLink } from "react-router-dom";
 
 import { SubMenu } from "../SubMenu";
 
-import { MenuRouteType } from ".";
-
-export type MenuItemRouteType = MenuRouteType & {
-  submenu?: Array<MenuRouteType>;
-};
+import { ExtendedMenuRouteType } from ".";
 
 interface IProperties {
-  route: MenuItemRouteType;
+  route: ExtendedMenuRouteType;
   displayIcon?: boolean;
 }
 
