@@ -5,6 +5,7 @@
   --header-gap: 0.5rem;
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
+  --menu-item-border-color: #007aff;
 
   align-items: center;
   border-bottom: 1px solid var(--header-border-color);
@@ -77,7 +78,7 @@
 }
 
 .main-menu > ul span[role="label"]::after{
-  background: var(--menu-item-color);
+  background: var(--menu-item-border-color);
   content: '';
   display: block;
   height: 3px;
