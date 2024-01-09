@@ -86,11 +86,10 @@
 }
 
 .main-menu > ul span[role="label"]:hover::after {
- width: 100%;
+  width: 100%;
 }
 
 .main-menu > ul > li a[aria-current="page"] {
-  color:var(--menu-item-color);
   font-weight: 600;
 }
 
