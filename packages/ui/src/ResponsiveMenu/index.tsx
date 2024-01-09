@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from "react";
-import { NavLink, useInRouterContext } from "react-router-dom";
+import React, { useCallback } from "react";
+import { useInRouterContext } from "react-router-dom";
 
-import { SubMenu } from "../SubMenu";
+import { ResponsiveMenuItem } from "./Item";
 
 type MenuRouteType = {
   name: string;
@@ -35,7 +35,6 @@ const ResponsiveMenu = ({
   routes,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
-  const [showSubMenu, setShowSubMenu] = useState(false);
 
   let _className = "responsive-menu";
 
@@ -78,29 +77,9 @@ const ResponsiveMenu = ({
   const getRouterList = useCallback(
     () =>
       routes.map((route) => (
-        <>
-          <li key={route.name}>
-            <NavLink
-              to={route.route}
-              end={route.route === "/"}
-              onClick={() => setShowSubMenu(!showSubMenu)}
-            >
-              {displayIcon ? (
-                <span role="icon" title={route.name}>
-                  {route.icon}
-                </span>
-              ) : null}
-              <span role="label">{route.name}</span>
-            </NavLink>
-            <SubMenu
-              submenu={route.submenu}
-              key={route.name}
-              showSubMenu={showSubMenu}
-            />
-          </li>
-        </>
+        <ResponsiveMenuItem route={route} displayIcon={displayIcon} />
       )),
-    [routes, showSubMenu],
+    [routes],
   );
 
   return (

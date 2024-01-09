@@ -12,15 +12,13 @@ interface ISubMenuProperties {
 export const SubMenu: React.FC<ISubMenuProperties> = ({
   key,
   submenu,
-  displayIcon = true,
   showSubMenu,
+  displayIcon = true,
 }) => {
-  const [showMenu, setShowMenu] = useState(false);
-
   return (
-    showMenu && (
-      <ul key={key} className="sub-menu">
-        {submenu?.map((route) => (
+    <ul key={key} className="sub-menu">
+      {showSubMenu &&
+        submenu?.map((route) => (
           <li key={route.name}>
             <NavLink
               to={route.route}
@@ -35,7 +33,6 @@ export const SubMenu: React.FC<ISubMenuProperties> = ({
             </NavLink>
           </li>
         ))}
-      </ul>
-    )
+    </ul>
   );
 };
