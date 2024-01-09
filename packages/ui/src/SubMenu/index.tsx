@@ -4,7 +4,6 @@ import { MenuRouteType } from "../ResponsiveMenu";
 
 interface ISubMenuProperties {
   submenu?: Array<MenuRouteType>;
-  displayIcon?: boolean;
 }
 
 export const SubMenu: React.FC<ISubMenuProperties> = ({ submenu }) => {
