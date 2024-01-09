@@ -3,33 +3,30 @@ import { NavLink, useInRouterContext } from "react-router-dom";
 
 import { SubMenu } from "../SubMenu";
 
-interface Properties {
-  className: string;
-  orientation?: "horizontal" | "vertical";
-  routes: {
-    name: string;
-    route: string;
-    icon?: React.ReactNode;
-    submenu?: Array<{
-      name: string;
-      route: string;
-      icon?: React.ReactNode;
-    }>;
-  }[];
-  displayIcon?: boolean;
-}
-
-type ImprovedRoutes = {
+type MenuRouteType = {
   name: string;
   route: string;
   icon?: React.ReactNode;
-  showSubMenu?: boolean;
   submenu?: Array<{
     name: string;
     route: string;
     icon?: React.ReactNode;
   }>;
-}[];
+};
+
+interface Properties {
+  className: string;
+  orientation?: "horizontal" | "vertical";
+  routes:
+    | Array<MenuRouteType>
+    | Array<{
+        name: string;
+        route: string;
+        icon?: React.ReactNode;
+        submenu?: Array<MenuRouteType>;
+      }>;
+  displayIcon?: boolean;
+}
 
 const ResponsiveMenu = ({
   className,
@@ -38,16 +35,7 @@ const ResponsiveMenu = ({
   routes,
 }: Properties) => {
   const hasRouterContext = useInRouterContext();
-  const [improvedRoutes, setImprovedRoutes] = useState<ImprovedRoutes>(routes);
-  const handleToggleActiveMenu = useCallback((routeName: string) => {
-    setImprovedRoutes((previousRoutes) =>
-      previousRoutes.map((route) =>
-        route.name === routeName
-          ? { ...route, showSubMenu: !route.showSubMenu }
-          : route,
-      ),
-    );
-  }, []);
+  const [showSubMenu, setShowSubMenu] = useState(false);
 
   let _className = "responsive-menu";
 
@@ -89,13 +77,13 @@ const ResponsiveMenu = ({
 
   const getRouterList = useCallback(
     () =>
-      improvedRoutes.map((route) => (
+      routes.map((route) => (
         <>
-          <li key={route.name} aria-expanded={route.showSubMenu}>
+          <li key={route.name}>
             <NavLink
               to={route.route}
               end={route.route === "/"}
-              onClick={() => handleToggleActiveMenu(route.name)}
+              onClick={() => setShowSubMenu(!showSubMenu)}
             >
               {displayIcon ? (
                 <span role="icon" title={route.name}>
@@ -104,15 +92,15 @@ const ResponsiveMenu = ({
               ) : null}
               <span role="label">{route.name}</span>
             </NavLink>
-            <ul key={route.name} className="sub-menu">
-              {route?.submenu?.map((menu) => (
-                <SubMenu key={menu.name} route={menu} />
-              ))}
-            </ul>
+            <SubMenu
+              submenu={route.submenu}
+              key={route.name}
+              showSubMenu={showSubMenu}
+            />
           </li>
         </>
       )),
-    [improvedRoutes],
+    [routes, showSubMenu],
   );
 
   return (

@@ -1,29 +1,41 @@
-import { end } from "@popperjs/core";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 interface ISubMenuProperties {
   key?: string;
-  route: { route: string; name?: string; icon?: string | React.ReactNode };
+  submenu?: Array<{ name: string; route: string; icon?: React.ReactNode }>;
   displayIcon?: boolean;
+  toggleMenu?: (_parameter?: any) => void;
+  showSubMenu?: boolean;
 }
 
 export const SubMenu: React.FC<ISubMenuProperties> = ({
-  route,
+  key,
+  submenu,
   displayIcon = true,
+  showSubMenu,
 }) => {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
-    <li key={route.name}>
-      <NavLink
-        to={route.route}
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        {displayIcon ? (
-          <span role="icon" title={route.name}>
-            {route.icon}
-          </span>
-        ) : null}
-        <span role="label">{route.name}</span>
-      </NavLink>
-    </li>
+    showMenu && (
+      <ul key={key} className="sub-menu">
+        {submenu?.map((route) => (
+          <li key={route.name}>
+            <NavLink
+              to={route.route}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {displayIcon ? (
+                <span role="icon" title={route.name}>
+                  {route.icon}
+                </span>
+              ) : null}
+              <span role="label">{route.name}</span>
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    )
   );
 };

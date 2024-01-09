@@ -1,4 +1,4 @@
-.sidebar[aria-expanded="false"] > .responsive-menu > ul > li > ul {
+.sidebar[aria-expanded="false"] > .responsive-menu > ul > li > .sub-menu {
   display: none;
 }
 
@@ -10,17 +10,13 @@
 
 .sub-menu {
   overflow: hidden;
-  opacity: 0;
-  max-height: 0;
+  display: flex;
   flex-direction: column;
   padding-left: 3rem;
   transition: all var(--transition-duration) ease-in-out;
 }
 
 .responsive-menu > ul > li[aria-expanded="true"] .sub-menu {
-  display: flex;
-  opacity: 1;
-  max-height: 20rem;
 }
 
 .sub-menu > li > a {
