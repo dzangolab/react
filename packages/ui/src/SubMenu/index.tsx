@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 
+import { MenuRouteType } from "../ResponsiveMenu";
+
 interface ISubMenuProperties {
-  submenu?: Array<{ name: string; route: string; icon?: React.ReactNode }>;
+  submenu?: Array<MenuRouteType>;
   displayIcon?: boolean;
 }
 
@@ -14,9 +16,11 @@ export const SubMenu: React.FC<ISubMenuProperties> = ({ submenu }) => {
             to={route.route}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            <span role="icon" title={route.name}>
-              {route.icon}
-            </span>
+            {route.icon && (
+              <span role="icon" title={route.name}>
+                {route.icon}
+              </span>
+            )}
             <span role="label">{route.name}</span>
           </NavLink>
         </li>

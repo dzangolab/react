@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.responsive-menu > ul > li[aria-expanded="true"] .sub-menu {
+  max-height: 20rem;
+}
+
 .sub-menu {
   display: flex;
   max-height: 0;
@@ -22,10 +26,6 @@
   background: none !important;
 }
 
-.responsive-menu > ul > li[aria-expanded="true"] .sub-menu {
-  max-height: 20rem;
-}
-
 .sub-menu > li > a {
   display: block;
   width: 100%;
@@ -33,11 +33,6 @@
   color: inherit;
   background: none !important;
   padding: 0.5rem;
-}
-
-.sub-menu > li:hover > a > span[role="label"],
-.sub-menu > li:hover > a > span[role="icon"] > i {
-  font-weight: bold;
 }
 
 .sub-menu > li > a > span[role="label"],
@@ -51,3 +46,7 @@
   font-weight: bold;
 }
 
+.sub-menu > li:hover > a > span[role="label"],
+.sub-menu > li:hover > a > span[role="icon"] > i {
+  font-weight: bold;
+}
