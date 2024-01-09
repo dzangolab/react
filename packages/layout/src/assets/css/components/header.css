@@ -76,6 +76,11 @@
   flex: 1;
 }
 
+.main-menu > ul > li:hover,
+.main-menu > ul > li .active {
+  font-weight: 600;
+}
+
 @media screen and (min-width: 576px) {
   .layout > header {
     grid-template-areas: "logo nav";
