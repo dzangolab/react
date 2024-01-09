@@ -76,8 +76,22 @@
   flex: 1;
 }
 
-.layout > header .main-menu > ul > li a[aria-current="page"] {
-  border-bottom: 2px solid #007aff;
+.main-menu > ul span[role="label"]::after{
+  background: var(--menu-item-color);
+  content: '';
+  display: block;
+  height: 3px;
+  transition: width 0.3s ease;
+  width: 0;
+}
+
+.main-menu > ul span[role="label"]:hover::after {
+ width: 100%;
+}
+
+.main-menu > ul > li a[aria-current="page"] {
+  color:var(--menu-item-color);
+  font-weight: 600;
 }
 
 @media screen and (min-width: 576px) {
