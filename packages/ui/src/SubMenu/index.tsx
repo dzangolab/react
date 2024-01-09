@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 interface ISubMenuProperties {
@@ -7,11 +6,7 @@ interface ISubMenuProperties {
   displayIcon?: boolean;
 }
 
-export const SubMenu: React.FC<ISubMenuProperties> = ({
-  key,
-  submenu,
-  displayIcon = true,
-}) => {
+export const SubMenu: React.FC<ISubMenuProperties> = ({ key, submenu }) => {
   return (
     <ul key={key} className="sub-menu">
       {submenu?.map((route) => (
@@ -20,11 +15,9 @@ export const SubMenu: React.FC<ISubMenuProperties> = ({
             to={route.route}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            {displayIcon ? (
-              <span role="icon" title={route.name}>
-                {route.icon}
-              </span>
-            ) : null}
+            <span role="icon" title={route.name}>
+              {route.icon}
+            </span>
             <span role="label">{route.name}</span>
           </NavLink>
         </li>

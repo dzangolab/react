@@ -1,30 +1,18 @@
 import React, { useCallback } from "react";
 import { useInRouterContext } from "react-router-dom";
 
-import { ResponsiveMenuItem } from "./Item";
+import { ResponsiveMenuItem, MenuItemRouteType } from "./Item";
 
 export type MenuRouteType = {
   name: string;
   route: string;
   icon?: React.ReactNode;
-  submenu?: Array<{
-    name: string;
-    route: string;
-    icon?: React.ReactNode;
-  }>;
 };
 
 interface Properties {
   className: string;
   orientation?: "horizontal" | "vertical";
-  routes:
-    | Array<MenuRouteType>
-    | Array<{
-        name: string;
-        route: string;
-        icon?: React.ReactNode;
-        submenu?: Array<MenuRouteType>;
-      }>;
+  routes: Array<MenuRouteType> | Array<MenuItemRouteType>;
   displayIcon?: boolean;
 }
 

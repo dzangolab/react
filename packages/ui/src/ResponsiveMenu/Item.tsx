@@ -5,8 +5,12 @@ import { SubMenu } from "../SubMenu";
 
 import { MenuRouteType } from ".";
 
+export type MenuItemRouteType = MenuRouteType & {
+  submenu?: Array<MenuRouteType>;
+};
+
 interface IProperties {
-  route: MenuRouteType;
+  route: MenuItemRouteType;
   displayIcon?: boolean;
 }
 
@@ -19,7 +23,7 @@ export const ResponsiveMenuItem: React.FC<IProperties> = ({
   return (
     <li key={route.name} aria-expanded={showSubMenu}>
       <NavLink
-        to={route.route}
+        to={route.route || ""}
         end={route.route === "/"}
         onClick={() => setShowSubMenu(!showSubMenu)}
       >
