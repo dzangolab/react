@@ -91,7 +91,7 @@
 }
 
 .main-menu > ul > li .active {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 576px) {
