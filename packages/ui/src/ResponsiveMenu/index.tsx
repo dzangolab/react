@@ -3,7 +3,7 @@ import { useInRouterContext } from "react-router-dom";
 
 import { ResponsiveMenuItem } from "./Item";
 
-type MenuRouteType = {
+export type MenuRouteType = {
   name: string;
   route: string;
   icon?: React.ReactNode;

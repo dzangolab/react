@@ -3,7 +3,17 @@ import { NavLink } from "react-router-dom";
 
 import { SubMenu } from "../SubMenu";
 
-export const ResponsiveMenuItem = ({ route, displayIcon }: any) => {
+import { MenuRouteType } from ".";
+
+interface IProperties {
+  route: MenuRouteType;
+  displayIcon?: boolean;
+}
+
+export const ResponsiveMenuItem: React.FC<IProperties> = ({
+  route,
+  displayIcon,
+}) => {
   const [showSubMenu, setShowSubMenu] = useState(false);
 
   return (
@@ -20,11 +30,7 @@ export const ResponsiveMenuItem = ({ route, displayIcon }: any) => {
         ) : null}
         <span role="label">{route.name}</span>
       </NavLink>
-      <SubMenu
-        submenu={route.submenu}
-        key={route.name}
-        showSubMenu={showSubMenu}
-      />
+      <SubMenu submenu={route.submenu} key={route.name} />
     </li>
   );
 };

@@ -1,5 +1,6 @@
 .sidebar[aria-expanded="false"] > .responsive-menu > ul > li > .sub-menu {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
 }
 
 .responsive-menu > ul > li {
@@ -10,13 +11,16 @@
 
 .sub-menu {
   overflow: hidden;
-  display: flex;
+  max-height: 0;
+  overflow: hidden;
   flex-direction: column;
   padding-left: 3rem;
   transition: all var(--transition-duration) ease-in-out;
 }
 
 .responsive-menu > ul > li[aria-expanded="true"] .sub-menu {
+  display: flex;
+  max-height: 20rem;
 }
 
 .sub-menu > li > a {
