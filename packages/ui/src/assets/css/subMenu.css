@@ -9,23 +9,18 @@
 }
 
 .sub-menu {
-  display: flex;
-  flex-direction: column;
-  padding-left: 3rem;
+  overflow: hidden;
   opacity: 0;
   max-height: 0;
-  transition:
-    opacity 0.3s ease-in-out,
-    max-height 0.3s ease-in-out;
+  flex-direction: column;
+  padding-left: 3rem;
+  transition: all var(--transition-duration) ease-in-out;
 }
 
-.sub-menu[aria-expanded="true"] {
+.responsive-menu > ul > li[aria-expanded="true"] .sub-menu {
+  display: flex;
   opacity: 1;
-  max-height: 400px
-}
-
-.sub-menu > li {
-  transition: all 0.3s ease;
+  max-height: 20rem;
 }
 
 .sub-menu > li > a {

@@ -91,7 +91,7 @@ const ResponsiveMenu = ({
     () =>
       improvedRoutes.map((route) => (
         <>
-          <li key={route.name}>
+          <li key={route.name} aria-expanded={route.showSubMenu}>
             <NavLink
               to={route.route}
               end={route.route === "/"}
@@ -104,17 +104,11 @@ const ResponsiveMenu = ({
               ) : null}
               <span role="label">{route.name}</span>
             </NavLink>
-            {route?.showSubMenu && (
-              <ul
-                key={route.name}
-                className="sub-menu"
-                aria-expanded={route.showSubMenu}
-              >
-                {route?.submenu?.map((menu) => (
-                  <SubMenu key={menu.name} route={menu} />
-                ))}
-              </ul>
-            )}
+            <ul key={route.name} className="sub-menu">
+              {route?.submenu?.map((menu) => (
+                <SubMenu key={menu.name} route={menu} />
+              ))}
+            </ul>
           </li>
         </>
       )),
