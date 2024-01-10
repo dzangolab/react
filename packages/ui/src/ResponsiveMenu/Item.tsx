@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import Submenu from "../Submenu/index";
+import { Submenu } from "../../src/Submenu";
 
 import { ExtendedMenuRouteType } from ".";
 
