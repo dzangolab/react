@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MenuItemGroup } from "./ItemGroup";
+import { MenuItem } from "./Item";
 
 export type MenuRouteType = {
   name: string;
@@ -36,11 +36,15 @@ const ResponsiveMenu = ({
     _className += " " + className;
   }
 
+  const renderMenu = (routes: CombinedMenuRouteType, displayIcon: boolean) => {
+    return routes.map((route) => {
+      return <MenuItem route={route} displayIcon={displayIcon} />;
+    });
+  };
+
   return (
     <nav className={_className} aria-orientation={orientation}>
-      <ul>
-        <MenuItemGroup routes={routes} displayIcon={displayIcon} />
-      </ul>
+      <ul>{renderMenu(routes, displayIcon)}</ul>
     </nav>
   );
 };

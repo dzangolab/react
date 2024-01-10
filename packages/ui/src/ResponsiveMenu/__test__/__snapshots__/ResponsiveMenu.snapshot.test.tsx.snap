@@ -6,7 +6,9 @@ exports[`Component matches snapshot 1`] = `
   className="responsive-menu"
 >
   <ul>
-    <li>
+    <li
+      aria-expanded={false}
+    >
       <a
         aria-current="page"
         className="active"
@@ -20,7 +22,9 @@ exports[`Component matches snapshot 1`] = `
         </span>
       </a>
     </li>
-    <li>
+    <li
+      aria-expanded={false}
+    >
       <a
         href="/about"
         onClick={[Function]}
