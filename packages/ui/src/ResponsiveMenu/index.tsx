@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MenuGroup } from "./Group";
+import { MenuItemGroup } from "./ItemGroup";
 
 export type MenuRouteType = {
   name: string;
@@ -39,7 +39,7 @@ const ResponsiveMenu = ({
   return (
     <nav className={_className} aria-orientation={orientation}>
       <ul>
-        <MenuGroup routes={routes} displayIcon={displayIcon} />
+        <MenuItemGroup routes={routes} displayIcon={displayIcon} />
       </ul>
     </nav>
   );

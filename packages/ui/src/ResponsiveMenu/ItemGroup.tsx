@@ -16,7 +16,7 @@ interface IMenuGroupProperties {
   displayIcon: boolean;
 }
 
-export const MenuGroup: React.FC<IMenuGroupProperties> = ({
+export const MenuItemGroup: React.FC<IMenuGroupProperties> = ({
   routes,
   displayIcon,
 }) => {
@@ -79,6 +79,7 @@ const ResponsiveMenuAnchorItem: React.FC<IProperties> = ({
 
 const ResponsiveMenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
+
   return (
     <li key={route.name} aria-expanded={showSubmenu}>
       <NavLink
