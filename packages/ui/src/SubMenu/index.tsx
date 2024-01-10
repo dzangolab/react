@@ -6,7 +6,7 @@ interface ISubmenuProperties {
   submenu?: Array<MenuRouteType>;
 }
 
-export const Submenu: React.FC<ISubmenuProperties> = ({ submenu }) => {
+const Submenu: React.FC<ISubmenuProperties> = ({ submenu }) => {
   return (
     <ul className="submenu">
       {submenu?.map((route) => (
@@ -27,3 +27,5 @@ export const Submenu: React.FC<ISubmenuProperties> = ({ submenu }) => {
     </ul>
   );
 };
+
+export default Submenu;
