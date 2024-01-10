@@ -1,0 +1,52 @@
+.sidebar[aria-expanded="false"] > .responsive-menu > ul > li > .submenu {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.responsive-menu > ul > li {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.responsive-menu > ul > li[aria-expanded="true"] .submenu {
+  max-height: 20rem;
+}
+
+.submenu {
+  display: flex;
+  max-height: 0;
+  overflow: hidden;
+  flex-direction: column;
+  padding-left: 3rem;
+  transition: all var(--transition-duration) ease-in-out;
+}
+
+.submenu:hover {
+  background: none !important;
+}
+
+.submenu > li > a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  background: none !important;
+  padding: 0.5rem;
+}
+
+.submenu > li > a > span[role="label"],
+.submenu > li > a > span[role="icon"] > i {
+  transition: all var(--transition-duration) ease;
+  padding: 0 !important;
+}
+
+.submenu > li > a.active,
+.submenu > li > a.active > span[role="icon"] > i {
+  font-weight: bold;
+}
+
+.submenu > li:hover > a > span[role="label"],
+.submenu > li:hover > a > span[role="icon"] > i {
+  font-weight: bold;
+}
