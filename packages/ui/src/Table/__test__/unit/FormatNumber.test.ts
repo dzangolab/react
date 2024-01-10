@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest";
 
 import { formatNumber } from "../../common/utils";
 
-describe("formatNumber unit test", () => {
+describe("FormatNumber unit test", () => {
   test("Should return a US locale based formatted number", () => {
     const value = 10_000_000;
     const locale = "en-US";
