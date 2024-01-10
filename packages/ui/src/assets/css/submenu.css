@@ -1,6 +1,5 @@
 .sidebar[aria-expanded="false"] > .responsive-menu > ul > li > .submenu {
-  max-height: 0;
-  overflow: hidden;
+  display: none;
 }
 
 .responsive-menu > ul > li {
