@@ -35,11 +35,7 @@ const routes = () => {
       children: [
         {
           index: true,
-          element: (
-            <Home
-              routes={config.layout?.mainMenu ? config.layout.mainMenu : []}
-            />
-          ),
+          element: <Home />,
         },
         {
           path: "/ui",

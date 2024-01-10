@@ -23,7 +23,7 @@
   min-inline-size: 50%;
 }
 
-.demo > .demo-aside > a {
+.demo > ul > li > a {
   font-size: 1rem;
   color: var(--color);
   text-decoration: none;
@@ -31,19 +31,17 @@
   line-height: 1.5;
 }
 
-.demo > .demo-aside > a:hover,
-.demo > .demo-aside > a.active {
-  font-weight: 600;
+.demo > ul > li > a:hover,
+.demo > ul > li > a[aria-current="page"] {
+  text-decoration: underline;
 }
 
 .demo-section {
   margin-bottom: 3rem;
 }
 
-.demo-section > h3 {
-  margin-bottom: 1rem;
-}
-
+.demo-section > h2,
+.demo-section > h3,
 .demo-section > h4 {
   margin-bottom: 1rem;
 }

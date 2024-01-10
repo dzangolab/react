@@ -9,15 +9,17 @@ interface Properties {
 export const Demo: React.FC<Properties> = ({ subnav, children }) => {
   return (
     <div className="demo">
-      <div className="demo-aside">
+      <ul className="demo-aside">
         {subnav.map((nav: any) => {
           return (
-            <NavLink key={nav.route} to={nav.route} end>
-              {nav.label}
-            </NavLink>
+            <li>
+              <NavLink key={nav.route} to={nav.route} end>
+                {nav.label}
+              </NavLink>
+            </li>
           );
         })}
-      </div>
+      </ul>
       <div className="demo-main">{children}</div>
     </div>
   );
