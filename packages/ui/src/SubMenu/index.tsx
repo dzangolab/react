@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 import { MenuRouteType } from "../ResponsiveMenu";
 
-interface ISubMenuProperties {
+interface ISubmenuProperties {
   submenu?: Array<MenuRouteType>;
 }
 
-export const Submenu: React.FC<ISubMenuProperties> = ({ submenu }) => {
+export const Submenu: React.FC<ISubmenuProperties> = ({ submenu }) => {
   return (
     <ul className="submenu">
       {submenu?.map((route) => (
