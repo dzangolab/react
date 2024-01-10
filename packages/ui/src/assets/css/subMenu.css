@@ -1,4 +1,4 @@
-.sidebar[aria-expanded="false"] > .responsive-menu > ul > li > .sub-menu {
+.sidebar[aria-expanded="false"] > .responsive-menu > ul > li > .submenu {
   max-height: 0;
   overflow: hidden;
 }
@@ -9,11 +9,11 @@
   cursor: pointer;
 }
 
-.responsive-menu > ul > li[aria-expanded="true"] .sub-menu {
+.responsive-menu > ul > li[aria-expanded="true"] .submenu {
   max-height: 20rem;
 }
 
-.sub-menu {
+.submenu {
   display: flex;
   max-height: 0;
   overflow: hidden;
@@ -22,11 +22,11 @@
   transition: all var(--transition-duration) ease-in-out;
 }
 
-.sub-menu:hover {
+.submenu:hover {
   background: none !important;
 }
 
-.sub-menu > li > a {
+.submenu > li > a {
   display: block;
   width: 100%;
   text-decoration: none;
@@ -35,18 +35,18 @@
   padding: 0.5rem;
 }
 
-.sub-menu > li > a > span[role="label"],
-.sub-menu > li > a > span[role="icon"] > i {
+.submenu > li > a > span[role="label"],
+.submenu > li > a > span[role="icon"] > i {
   transition: all var(--transition-duration) ease;
   padding: 0 !important;
 }
 
-.sub-menu > li > a.active,
-.sub-menu > li > a.active > span[role="icon"] > i {
+.submenu > li > a.active,
+.submenu > li > a.active > span[role="icon"] > i {
   font-weight: bold;
 }
 
-.sub-menu > li:hover > a > span[role="label"],
-.sub-menu > li:hover > a > span[role="icon"] > i {
+.submenu > li:hover > a > span[role="label"],
+.submenu > li:hover > a > span[role="icon"] > i {
   font-weight: bold;
 }

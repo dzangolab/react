@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { SubMenu } from "../SubMenu";
+import { Submenu } from "../Submenu";
 
 import { ExtendedMenuRouteType } from ".";
 
@@ -14,14 +14,14 @@ export const ResponsiveMenuItem: React.FC<IProperties> = ({
   route,
   displayIcon,
 }) => {
-  const [showSubMenu, setShowSubMenu] = useState(false);
+  const [showSubmenu, setShowSubmenu] = useState(false);
 
   return (
-    <li key={route.name} aria-expanded={showSubMenu}>
+    <li key={route.name} aria-expanded={showSubmenu}>
       <NavLink
         to={route.route || ""}
         end={route.route === "/"}
-        onClick={() => setShowSubMenu(!showSubMenu)}
+        onClick={() => setShowSubmenu(!showSubmenu)}
       >
         {displayIcon ? (
           <span role="icon" title={route.name}>
@@ -30,7 +30,7 @@ export const ResponsiveMenuItem: React.FC<IProperties> = ({
         ) : null}
         <span role="label">{route.name}</span>
       </NavLink>
-      <SubMenu submenu={route.submenu} key={route.name} />
+      {route.submenu && <Submenu submenu={route.submenu} key={route.name} />}
     </li>
   );
 };

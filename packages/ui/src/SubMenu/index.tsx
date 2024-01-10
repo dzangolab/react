@@ -6,9 +6,9 @@ interface ISubMenuProperties {
   submenu?: Array<MenuRouteType>;
 }
 
-export const SubMenu: React.FC<ISubMenuProperties> = ({ submenu }) => {
+export const Submenu: React.FC<ISubMenuProperties> = ({ submenu }) => {
   return (
-    <ul className="sub-menu">
+    <ul className="submenu">
       {submenu?.map((route) => (
         <li key={route.name}>
           <NavLink
