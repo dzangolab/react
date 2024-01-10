@@ -37,24 +37,24 @@ const config: AppConfig = {
     logo: "/react/logo.png",
     mainMenu: [
       {
-        name: "header.menu.form",
-        route: "/form",
-      },
-      {
-        name: "header.menu.i18n",
-        route: "/i18n",
-      },
-      {
-        name: "header.menu.layout",
-        route: "/layout",
-      },
-      {
         name: "header.menu.ui",
         route: "/ui",
       },
       {
         name: "header.menu.user",
         route: "/user",
+      },
+      {
+        name: "header.menu.form",
+        route: "/form",
+      },
+      {
+        name: "header.menu.layout",
+        route: "/layout",
+      },
+      {
+        name: "header.menu.i18n",
+        route: "/i18n",
       },
     ],
   },
