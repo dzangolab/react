@@ -28,6 +28,7 @@ exports[`Component matches snapshot 1`] = `
             aria-current="page"
             className="active"
             href="/"
+            onClick={[Function]}
           >
             <span
               role="label"
@@ -39,6 +40,7 @@ exports[`Component matches snapshot 1`] = `
         <li>
           <a
             href="/about"
+            onClick={[Function]}
           >
             <span
               role="label"
