@@ -21,7 +21,7 @@ export const ResponsiveMenuItem: React.FC<IProperties> = ({
       <NavLink
         to={route.route || ""}
         end={route.route === "/"}
-        onClick={() => setShowSubmenu(!showSubmenu)}
+        onClick={() => route.submenu && setShowSubmenu(!showSubmenu)}
       >
         {displayIcon ? (
           <span role="icon" title={route.name}>
