@@ -1,7 +1,6 @@
-import React, { useCallback } from "react";
-import { useInRouterContext } from "react-router-dom";
+import React from "react";
 
-import { ResponsiveMenuItem } from "./Item";
+import { MenuGroup } from "./Group";
 
 export type MenuRouteType = {
   name: string;
@@ -11,12 +10,12 @@ export type MenuRouteType = {
 
 export type ExtendedMenuRouteType = Omit<MenuRouteType, "route"> & {
   route?: string;
-  submenu?: Array<MenuRouteType>;
+  submenu: Array<MenuRouteType>;
 };
 
-export type CombinedMenuRouteType =
-  | Array<MenuRouteType>
-  | Array<ExtendedMenuRouteType>;
+export type CombinedMenuRouteType = Array<
+  MenuRouteType | ExtendedMenuRouteType
+>;
 
 interface Properties {
   className: string;
@@ -31,61 +30,17 @@ const ResponsiveMenu = ({
   orientation = "horizontal",
   routes,
 }: Properties) => {
-  const hasRouterContext = useInRouterContext();
-
   let _className = "responsive-menu";
 
   if (className) {
     _className += " " + className;
   }
 
-  const getAnchorList = useCallback(() => {
-    const checkIsActive = (link: string) => {
-      const pathnameArray = window.location.pathname.split("/");
-      const isActive =
-        window.location.pathname.startsWith(link) ||
-        (pathnameArray.length && pathnameArray.includes(link));
-
-      return isActive;
-    };
-
-    return routes.map((route) => {
-      const isActive = checkIsActive(route.route || "");
-
-      return (
-        <li key={route.name}>
-          <a
-            href={route.route}
-            className={isActive ? "active" : undefined}
-            aria-current={isActive ? "page" : undefined}
-          >
-            {displayIcon ? (
-              <span role="icon" title={route.name}>
-                {route.icon}
-              </span>
-            ) : null}
-            <span role="label">{route.name}</span>
-          </a>
-        </li>
-      );
-    });
-  }, [routes]);
-
-  const getRouterList = useCallback(
-    () =>
-      routes.map((route) => (
-        <ResponsiveMenuItem
-          key={route.name}
-          route={route}
-          displayIcon={displayIcon}
-        />
-      )),
-    [routes],
-  );
-
   return (
     <nav className={_className} aria-orientation={orientation}>
-      <ul>{hasRouterContext ? getRouterList() : getAnchorList()}</ul>
+      <ul>
+        <MenuGroup routes={routes} displayIcon={displayIcon} />
+      </ul>
     </nav>
   );
 };

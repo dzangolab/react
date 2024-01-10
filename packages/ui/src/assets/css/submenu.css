@@ -10,13 +10,11 @@
 }
 
 .responsive-menu > ul > li[aria-expanded="true"] .submenu {
-  max-height: 20rem;
+  display: flex;
 }
 
 .submenu {
-  display: flex;
-  max-height: 0;
-  overflow: hidden;
+  display: none;
   flex-direction: column;
   padding-left: 3rem;
   transition: all var(--transition-duration) ease-in-out;
