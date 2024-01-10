@@ -413,7 +413,7 @@ const DataTable = <TData extends { id: string | number }>({
                       data-label={cell.column.id}
                       data-align={cell.column.columnDef.align || "left"}
                       className={`${
-                        cell.column.id ? `column-${cell.column.id}` : ``
+                        cell.column.id ? `cell-${cell.column.id}` : ``
                       } ${cell.column.columnDef.className || ""}`
                         .replace(/\s\s/, " ")
                         .trimEnd()}
