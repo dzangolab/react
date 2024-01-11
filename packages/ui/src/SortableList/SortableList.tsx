@@ -58,10 +58,11 @@ export const SortableList: FC<SortableListProperties> = ({
       .replace(/\s\s/, " ")
       .trimEnd();
 
-    if (index === draggedItem) {
-      if (droppedOver !== null) {
-        const isDraggingUp = droppedOver > draggedItem;
-        itemClass += isDraggingUp ? " dragged-down" : " dragged-up";
+    if (index === droppedOver && draggedItem !== null) {
+      if (draggedItem > droppedOver) {
+        itemClass += " dragged-up";
+      } else {
+        itemClass += " dragged-down";
       }
     }
 
