@@ -182,7 +182,7 @@ export type FormatNumberType = {
 };
 
 export type FormatDateType = {
-  date: Date;
+  date: Date | string | number;
   locale?: string;
   formatOptions?: Intl.DateTimeFormatOptions;
 };

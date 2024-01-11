@@ -256,11 +256,19 @@ export const formatDate = ({
   locale = "en-US",
   formatOptions,
 }: FormatDateType) => {
-  if (!(date instanceof Date)) {
-    return date;
+  let parsedDate: Date;
+
+  if (date instanceof Date) {
+    parsedDate = date;
+  } else {
+    parsedDate = new Date(date);
   }
 
-  const formatter = new Intl.DateTimeFormat(locale, formatOptions);
+  if (!isNaN(parsedDate.getTime())) {
+    const formatter = new Intl.DateTimeFormat(locale, formatOptions);
 
-  return formatter.format(date);
+    return formatter.format(parsedDate);
+  } else {
+    return date;
+  }
 };
