@@ -4,17 +4,17 @@ import { Button, IButtonProperties } from "..";
 
 interface IModalProperties extends ConfirmDialogProps {
   onHide?: () => void;
-  cancelButtonProps?: IButtonProperties;
-  acceptButtonProps?: IButtonProperties;
+  cancelButtonOptions?: IButtonProperties;
+  acceptButtonOptions?: IButtonProperties;
 }
 
 export const ConfirmationModal = ({
   accept,
   acceptLabel,
-  acceptButtonProps,
+  acceptButtonOptions,
   reject,
   rejectLabel,
-  cancelButtonProps,
+  cancelButtonOptions,
   message,
   header,
   visible,
@@ -35,7 +35,7 @@ export const ConfirmationModal = ({
             reject?.();
             onHide?.();
           }}
-          {...cancelButtonProps}
+          {...cancelButtonOptions}
         />
         <Button
           label={acceptLabel || "Yes"}
@@ -43,7 +43,7 @@ export const ConfirmationModal = ({
             accept?.();
             onHide?.();
           }}
-          {...acceptButtonProps}
+          {...acceptButtonOptions}
         />
       </div>
     );

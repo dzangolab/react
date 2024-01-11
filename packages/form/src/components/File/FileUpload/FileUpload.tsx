@@ -9,7 +9,6 @@ import type { FC } from "react";
 export const FileUpload: FC<IFileUploadProperties> = ({
   addDescriptionLabel,
   actionsAlignment = "right",
-  cancelButtonIcon,
   cancelButtonLabel = "Cancel",
   cancelButtonOptions,
   value,
@@ -24,7 +23,6 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   onCancel,
   onFileSelect,
   onUpload,
-  uploadButtonIcon,
   uploadButtonLabel = "Upload",
   uploadButtonOptions,
 }) => {
@@ -64,7 +62,6 @@ export const FileUpload: FC<IFileUploadProperties> = ({
           severity="secondary"
           variant="outlined"
           label={cancelButtonLabel}
-          iconLeft={cancelButtonIcon}
           onClick={() => {
             onCancel && onCancel();
             setSelectedFiles([]);
@@ -74,7 +71,6 @@ export const FileUpload: FC<IFileUploadProperties> = ({
         <Button
           disabled={!selectedFiles.length}
           label={uploadButtonLabel}
-          iconLeft={uploadButtonIcon}
           onClick={() => onUpload(selectedFiles)}
           {...uploadButtonOptions}
         />
