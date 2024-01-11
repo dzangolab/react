@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <nav
   aria-orientation="horizontal"
-  className="responsive-menu"
+  className="dz-responsive-menu"
 >
   <ul>
     <li

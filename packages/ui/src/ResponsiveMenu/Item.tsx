@@ -1,19 +1,20 @@
 import { Dispatch, SetStateAction, useCallback, useState } from "react";
 import { NavLink, useInRouterContext } from "react-router-dom";
 
+import { IsNavLinkActive } from "..";
 import { Submenu } from "../Submenu";
 
 import { ExtendedMenuRouteType, MenuRouteType } from ".";
 
 interface IProperties {
-  route: ExtendedMenuRouteType | MenuRouteType | any;
+  route: ExtendedMenuRouteType | MenuRouteType;
   displayIcon?: boolean;
   isActive?: boolean;
 }
 
 interface IItemLinkProperties {
   children: React.ReactNode;
-  route: ExtendedMenuRouteType | MenuRouteType | any;
+  route: ExtendedMenuRouteType | MenuRouteType;
   setShowSubmenu: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -30,7 +31,9 @@ export const MenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
         ) : null}
         <span role="label">{route.name}</span>
       </MenuItemLink>
-      {route.submenu && <Submenu submenu={route.submenu} key={route.name} />}
+      {"submenu" in route && (
+        <Submenu submenu={route.submenu} key={route.name} />
+      )}
     </li>
   );
 };
@@ -47,35 +50,25 @@ const MenuItemLink = ({
       <NavLink
         to={route.route || ""}
         end={route.route === "/"}
-        onClick={() => route.submenu && setShowSubmenu((previous) => !previous)}
+        onClick={() =>
+          "submenu" in route && setShowSubmenu((previous) => !previous)
+        }
       >
         {children}
       </NavLink>
     );
   }
 
-  const checkIsActive = useCallback(
-    (link: string) => {
-      {
-        const pathnameArray = window.location.pathname.split("/");
-        const isActive =
-          window.location.pathname.startsWith(link) ||
-          (pathnameArray.length && pathnameArray.includes(link));
-
-        return isActive;
-      }
-    },
-    [route],
-  );
-
-  const isActive = checkIsActive(route.route || "");
+  const isActive = IsNavLinkActive(route.route || "");
 
   return (
     <a
       href={route.route}
       className={isActive ? "active" : undefined}
       aria-current={isActive ? "page" : undefined}
-      onClick={() => route.submenu && setShowSubmenu((previous) => !previous)}
+      onClick={() =>
+        "submenu" in route && setShowSubmenu((previous) => !previous)
+      }
     >
       {children}
     </a>

@@ -1,4 +1,4 @@
-.responsive-menu > ul {
+.dz-responsive-menu > ul {
   flex: 1;
   flex-direction: row;
   gap: var(--responsive-menu-gap, 1rem);
@@ -8,11 +8,11 @@
   display: flex;
 }
 
-.responsive-menu > ul > li {
+.dz-responsive-menu > ul > li {
   display: flex;
 }
 
-.responsive-menu > ul > li > a {
+.dz-responsive-menu > ul > li > a {
   padding: 0 0.2rem;
   flex-wrap: nowrap;
   display: flex;
@@ -23,57 +23,57 @@
   text-decoration: none;
 }
 
-.responsive-menu[aria-orientation="vertical"] > ul span[role="icon"] {
+.dz-responsive-menu[aria-orientation="vertical"] > ul span[role="icon"] {
   margin-right: 0.5rem;
 }
 
-.responsive-menu > ul span[role="icon"] > :first-child {
+.dz-responsive-menu > ul span[role="icon"] > :first-child {
   font-size: 1em;
   padding: 0.75rem;
 }
 
-.responsive-menu > ul span[role="label"] {
+.dz-responsive-menu > ul span[role="label"] {
   overflow: hidden;
   font-size: 1em;
   padding: 0.75rem 0;
 }
 
-.responsive-menu[aria-orientation="vertical"] > ul {
+.dz-responsive-menu[aria-orientation="vertical"] > ul {
   flex-direction: column;
   gap: var(--responsive-menu-gap, 0.5rem);
   flex: 1;
 }
 
-.responsive-menu[aria-orientation="vertical"] > ul > li {
+.dz-responsive-menu[aria-orientation="vertical"] > ul > li {
   width: 100%;
   background-color: white;
   transition: all var(--transition-duration) ease 0s;
 }
 
-.responsive-menu[aria-orientation="vertical"] > ul > li > a:hover {
+.dz-responsive-menu[aria-orientation="vertical"] > ul > li > a:hover {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
-.responsive-menu[aria-orientation="vertical"] > ul > li a[aria-current="page"] {
+.dz-responsive-menu[aria-orientation="vertical"] > ul > li a[aria-current="page"] {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
 @media screen and (max-width: 576px) {
-  .responsive-menu {
+  .dz-responsive-menu {
     flex: 1;
   }
 
-  .responsive-menu > ul {
+  .dz-responsive-menu > ul {
     flex-direction: column;
     gap: var(--grid-gap);
   }
 
-  .responsive-menu > ul > li {
+  .dz-responsive-menu > ul > li {
     display: flex;
     padding: 0 0.75rem;
   }
 
-  .responsive-menu > ul > li > a {
+  .dz-responsive-menu > ul > li > a {
     flex: 1;
     text-align: left;
     padding: 0;

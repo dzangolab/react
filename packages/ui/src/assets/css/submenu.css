@@ -1,14 +1,14 @@
-.sidebar[aria-expanded="false"] > .responsive-menu > ul > li > .dz-submenu {
+.sidebar[aria-expanded="false"] > .dz-responsive-menu > ul > li > .dz-submenu {
   display: none;
 }
 
-.responsive-menu > ul > li {
+.dz-responsive-menu > ul > li {
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
 
-.responsive-menu > ul > li[aria-expanded="true"] .dz-submenu {
+.dz-responsive-menu > ul > li[aria-expanded="true"] .dz-submenu {
   display: flex;
 }
 
@@ -16,7 +16,6 @@
   display: none;
   flex-direction: column;
   padding-left: 3rem;
-  transition: all var(--transition-duration) ease-in-out;
 }
 
 .dz-submenu:hover {

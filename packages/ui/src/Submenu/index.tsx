@@ -11,10 +11,7 @@ export const Submenu: React.FC<ISubmenuProperties> = ({ submenu }) => {
     <ul className="dz-submenu">
       {submenu?.map((route) => (
         <li key={route.name}>
-          <NavLink
-            to={route.route}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
+          <NavLink to={route.route}>
             {route.icon && (
               <span role="icon" title={route.name}>
                 {route.icon}

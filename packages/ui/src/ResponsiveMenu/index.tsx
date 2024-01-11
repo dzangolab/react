@@ -30,7 +30,7 @@ const ResponsiveMenu = ({
   orientation = "horizontal",
   routes,
 }: Properties) => {
-  let _className = "responsive-menu";
+  let _className = "dz-responsive-menu";
 
   if (className) {
     _className += " " + className;
