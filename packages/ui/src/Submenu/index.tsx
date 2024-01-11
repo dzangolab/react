@@ -8,7 +8,7 @@ interface ISubmenuProperties {
 
 export const Submenu: React.FC<ISubmenuProperties> = ({ submenu }) => {
   return (
-    <ul className="submenu">
+    <ul className="dz-submenu">
       {submenu?.map((route) => (
         <li key={route.name}>
           <NavLink
