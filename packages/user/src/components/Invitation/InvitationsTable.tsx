@@ -3,8 +3,8 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
+  Button,
 } from "@dzangolab/react-ui";
-import { Button } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 import { ComponentType } from "react";
 

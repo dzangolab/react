@@ -3,8 +3,6 @@ import { Button } from "@dzangolab/react-ui";
 import { Dialog } from "primereact/dialog";
 import React, { ComponentType, useState } from "react";
 
-import { InvitationForm } from "./InvitationForm";
-
 import {
   AddInvitationResponse,
   InvitationAppOption,
@@ -12,6 +10,8 @@ import {
   AdditionalInvitationFields,
   InvitationExpiryDateField,
 } from "@/types";
+
+import { InvitationForm } from "./InvitationForm";
 
 interface Properties {
   additionalInvitationFields?: AdditionalInvitationFields;

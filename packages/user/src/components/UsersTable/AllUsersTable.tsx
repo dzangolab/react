@@ -3,8 +3,10 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
+  Button,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
+import { ComponentType } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -47,6 +49,7 @@ export type AllUsersTableProperties = Partial<
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
   onUserDisabled?: (data: any) => void;
   onUserEnabled?: (data: any) => void;
+  invitationButtonOptions?: ComponentType<typeof Button>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
@@ -67,6 +70,7 @@ export const AllUsersTable = ({
   onInvitationRevoked,
   onUserDisabled,
   onUserEnabled,
+  invitationButtonOptions,
   prepareInvitationData,
   roles,
   showInviteAction = true,
@@ -252,6 +256,7 @@ export const AllUsersTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             onSubmitted={onInvitationAdded}
+            invitationButtonOptions={invitationButtonOptions}
             prepareData={prepareInvitationData}
             roles={roles}
           />
