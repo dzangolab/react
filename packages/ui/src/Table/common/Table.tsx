@@ -41,7 +41,7 @@ import { Button } from "../../Buttons/ButtonBasic";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
-import type { TCustomColumnFilter, TDataTableProperties } from "./types";
+import type { TDataTableProperties } from "./types";
 import type { Cell, ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
@@ -74,9 +74,9 @@ const DataTable = <TData extends { id: string | number }>({
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>(
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    initialFilters as any,
+    initialFilters,
   );
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
@@ -87,8 +87,23 @@ const DataTable = <TData extends { id: string | number }>({
   const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setColumnFilters(event_ as any);
+    const updatedColumnFilter =
+      typeof event_ === "function" ? event_(columnFilters) : event_;
+
+    if (!Array.isArray(updatedColumnFilter)) {
+      return [];
+    }
+
+    const updatedFilters = updatedColumnFilter.map((filter) => {
+      const column = table.getColumn(filter.id);
+
+      return {
+        ...filter,
+        filterFn: column?.columnDef.meta?.filterFn,
+      };
+    });
+
+    setColumnFilters(updatedFilters);
   };
 
   const parsedColumns = useMemo(
@@ -383,14 +398,18 @@ const DataTable = <TData extends { id: string | number }>({
                       .replace(/\s\s/, " ")
                       .trimEnd()}
                   >
-                    <DebouncedInput
-                      defaultValue={column.getFilterValue() as string}
-                      onInputChange={(value) => {
-                        column.setFilterValue(value);
-                      }}
-                      placeholder={column.columnDef.filterPlaceholder || ""}
-                      debounceTime={inputDebounceTime}
-                    ></DebouncedInput>
+                    {column.columnDef.customFilterComponent ? (
+                      column.columnDef.customFilterComponent(column)
+                    ) : (
+                      <DebouncedInput
+                        defaultValue={column.getFilterValue() as string}
+                        onInputChange={(value) => {
+                          column.setFilterValue(value);
+                        }}
+                        placeholder={column.columnDef.filterPlaceholder || ""}
+                        debounceTime={inputDebounceTime}
+                      ></DebouncedInput>
+                    )}
                   </ColumnHeader>
                 );
               })}

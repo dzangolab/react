@@ -11,6 +11,7 @@ import type {
   Table,
   TableOptions,
   ColumnFiltersState,
+  Column,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -177,6 +178,7 @@ declare module "@tanstack/react-table" {
   interface ColumnDefBase<TData, TValue> {
     align?: "left" | "center" | "right";
     className?: string;
+    customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
     filterPlaceholder?: string;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
@@ -185,6 +187,10 @@ declare module "@tanstack/react-table" {
     width?: string;
     maxWidth?: string;
     minWidth?: string;
+  }
+
+  interface ColumnFilter {
+    filterFn?: TFilterFn;
   }
 }
 
