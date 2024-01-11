@@ -38,9 +38,9 @@
 }
 
 .sortable-item.dragged-up {
-  border-top: 2px solid blue; 
+  border-top: 5px solid rgb(209, 209, 209); 
 }
 
 .sortable-item.dragged-down {
-  border-bottom: 2px solid red; 
+  border-bottom: 5px solid rgb(209, 209, 209);
 }
