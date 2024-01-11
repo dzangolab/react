@@ -38,7 +38,9 @@ const ResponsiveMenu = ({
 
   const renderMenu = (routes: CombinedMenuRouteType, displayIcon: boolean) => {
     return routes.map((route) => {
-      return <MenuItem route={route} displayIcon={displayIcon} />;
+      return (
+        <MenuItem key={route.name} route={route} displayIcon={displayIcon} />
+      );
     });
   };
 
