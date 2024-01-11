@@ -1,3 +1,10 @@
+:root {
+  --sortable-item-bg-color: #fff;
+  --grab-icon-color: #e6e6e6;
+  --sortable-item-border-color: #ececec;
+  --sortable-item-hover-color: #f8f8f8;
+}
+
 .sortable-list {
   list-style: none;
   margin: 0;
@@ -5,7 +12,7 @@
 }
 
 .sortable-list .sortable-item {
-  background-color: #fff;
+  background-color: var(--sortable-item-bg-color);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -15,13 +22,13 @@
 
 .sortable-list .sortable-item > .grab-icon {
   cursor: grab;
-  color: rgb(230, 230, 230);
+  color: var(--grab-icon-color);
   font-size: 0.6rem;
 }
 
 .sortable-list .item {
   padding: 0.5rem;
-  border-left: 1px solid rgb(236, 236, 236);
+  border-left: 1px solid var(--sortable-item-border-color);
   margin: 2px 0;
   display: flex;
   justify-content: center;
@@ -30,13 +37,13 @@
 }
 
 .sortable-list .sortable-item:hover {
-  background-color: #f8f8f8;
+  background-color: var(--sortable-item-hover-color);
 }
 
 .sortable-item.dragged-up {
-  border-top: 5px solid rgb(209, 209, 209); 
+  border-top: 5px solid var(--sortable-item-border-color);
 }
 
 .sortable-item.dragged-down {
-  border-bottom: 5px solid rgb(209, 209, 209); 
+  border-bottom: 5px solid var(--sortable-item-border-color); 
 }
