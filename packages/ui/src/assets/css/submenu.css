@@ -8,18 +8,24 @@
   cursor: pointer;
 }
 
-.dz-responsive-menu > ul > li[aria-expanded="true"] .dz-submenu {
-  display: flex;
-}
-
 .dz-submenu {
-  display: none;
+  display: flex;
   flex-direction: column;
   padding-left: 3rem;
+  animation: submenu-open 0.5s ;
 }
 
 .dz-submenu:hover {
   background: none !important;
+}
+
+@keyframes submenu-open {
+  from {
+    transform: translateY(-0.6rem);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .dz-submenu > li > a {
