@@ -6,8 +6,10 @@ import {
 } from "@dzangolab/react-ui";
 import { ColumnDef } from "@tanstack/react-table";
 import { Tag } from "primereact/tag";
+import { ComponentType } from "react";
 
 import { UserAction } from "./UserActions";
+import { Button } from "../../../../ui/dist/src";
 import { InvitationModal } from "../Invitation";
 
 import type {
@@ -18,8 +20,6 @@ import type {
   InvitationExpiryDateField,
   UserType,
 } from "@/types";
-import { ComponentType } from "react";
-import { Button } from "../../../../ui/dist/src";
 
 type VisibleColumn =
   | "name"
