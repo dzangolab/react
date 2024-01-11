@@ -43,8 +43,8 @@ export type InvitationsTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchInvitations: (arguments_: TRequestJSON) => void;
-  invitationExpiryDateField?: InvitationExpiryDateField;
   invitationButtonOptions?: ComponentType<typeof Button>;
+  invitationExpiryDateField?: InvitationExpiryDateField;
   invitations: Array<Invitation>;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
@@ -62,9 +62,9 @@ export const InvitationsTable = ({
   apps,
   className = "table-invitations",
   columns = [],
-  invitationExpiryDateField,
   fetchInvitations,
   invitationButtonOptions,
+  invitationExpiryDateField,
   invitations,
   onInvitationAdded,
   onInvitationResent,

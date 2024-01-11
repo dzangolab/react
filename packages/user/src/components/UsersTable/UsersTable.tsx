@@ -36,8 +36,8 @@ export type UsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers: (arguments_: TRequestJSON) => void;
-  invitationExpiryDateField?: InvitationExpiryDateField;
   invitationButtonOptions?: ComponentType<typeof Button>;
+  invitationExpiryDateField?: InvitationExpiryDateField;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (data: any) => void;
@@ -55,8 +55,8 @@ export const UsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
-  invitationExpiryDateField,
   invitationButtonOptions,
+  invitationExpiryDateField,
   onInvitationAdded,
   onUserDisabled,
   onUserEnabled,

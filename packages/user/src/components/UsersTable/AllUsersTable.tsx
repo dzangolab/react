@@ -44,12 +44,12 @@ export type AllUsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
+  invitationButtonOptions?: ComponentType<typeof Button>;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
   onUserDisabled?: (data: any) => void;
   onUserEnabled?: (data: any) => void;
-  invitationButtonOptions?: ComponentType<typeof Button>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
@@ -65,12 +65,12 @@ export const AllUsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
+  invitationButtonOptions,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
   onUserDisabled,
   onUserEnabled,
-  invitationButtonOptions,
   prepareInvitationData,
   roles,
   showInviteAction = true,

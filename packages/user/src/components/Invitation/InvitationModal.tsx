@@ -17,8 +17,8 @@ interface Properties {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
   expiryDateField?: InvitationExpiryDateField;
-  onSubmitted?: (response: AddInvitationResponse) => void;
   invitationButtonOptions?: ComponentType<typeof Button>;
+  onSubmitted?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareData?: (data: any) => any;
   roles?: InvitationRoleOption[];
@@ -28,8 +28,8 @@ export const InvitationModal = ({
   additionalInvitationFields,
   apps,
   expiryDateField,
-  onSubmitted,
   invitationButtonOptions,
+  onSubmitted,
   prepareData,
   roles,
 }: Properties) => {
