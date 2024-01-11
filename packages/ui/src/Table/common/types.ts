@@ -147,7 +147,10 @@ export type TFilterFn =
   | "greaterThanOrEqual"
   | "lessThanOrEqual"
   | "in"
-  | "between";
+  | "notEqual"
+  | "notIn"
+  | "between"
+  | "notBetween";
 
 export type TFilterVariant =
   | "text"

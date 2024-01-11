@@ -19,6 +19,8 @@ const getFilterOperator = (filterFunction: TFilterFunction): string => {
       return "ew";
     case "equals":
       return "eq";
+    case "notEqual":
+      return "ne";
     case "greaterThan":
       return "gt";
     case "greaterThanOrEqual":
@@ -29,8 +31,12 @@ const getFilterOperator = (filterFunction: TFilterFunction): string => {
       return "lt";
     case "in":
       return "in";
+    case "notIn":
+      return "nin";
     case "between":
       return "bt";
+    case "notBetween":
+      return "nbt";
     default:
       return "ct";
   }

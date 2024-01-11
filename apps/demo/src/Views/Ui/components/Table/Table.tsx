@@ -4,6 +4,7 @@ import {
   Page,
   Button,
   TableColumnDefinition,
+  DebouncedInput,
 } from "@dzangolab/react-ui";
 
 import { data } from "./data";
@@ -229,6 +230,33 @@ export const TableDemo = () => {
         <TDataTable
           title={{ text: "Table title", align: "left" }}
           columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.withCustomFilter")}>
+        <TDataTable
+          columns={[
+            ...columns,
+            {
+              accessorKey: "email",
+              enableColumnFilter: true,
+              customFilterComponent: (column) => (
+                <DebouncedInput
+                  defaultValue={column.getFilterValue() as string}
+                  onInputChange={(value) => {
+                    column.setFilterValue(value);
+                  }}
+                  placeholder={"Custom filter..."}
+                  debounceTime={200}
+                ></DebouncedInput>
+              ),
+              meta: {
+                filterFn: "equals",
+              },
+            },
+          ]}
           data={data.slice(10, 15)}
           paginated={false}
         ></TDataTable>
