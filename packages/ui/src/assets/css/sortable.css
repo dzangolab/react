@@ -33,14 +33,10 @@
   background-color: #f8f8f8;
 }
 
-.sortable-item.dragged-item {
-  opacity: 0.5;
-}
-
 .sortable-item.dragged-up {
   border-top: 5px solid rgb(209, 209, 209); 
 }
 
 .sortable-item.dragged-down {
-  border-bottom: 5px solid rgb(209, 209, 209);
+  border-bottom: 5px solid rgb(209, 209, 209); 
 }
