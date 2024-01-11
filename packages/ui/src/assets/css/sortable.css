@@ -37,6 +37,10 @@
   opacity: 0.5;
 }
 
-.sortable-item.drop-location {
-  border-top: 5px solid rgb(209, 209, 209);
+.sortable-item.dragged-up {
+  border-top: 2px solid blue; 
+}
+
+.sortable-item.dragged-down {
+  border-bottom: 2px solid red; 
 }

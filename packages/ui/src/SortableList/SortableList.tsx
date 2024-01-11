@@ -53,15 +53,26 @@ export const SortableList: FC<SortableListProperties> = ({
     setDroppedOver(-1);
   };
 
+  const getItemClassName = (index: number) => {
+    let itemClass = `sortable-item ${itemClassName}`
+      .replace(/\s\s/, " ")
+      .trimEnd();
+
+    if (index === draggedItem) {
+      if (droppedOver !== null) {
+        const isDraggingUp = droppedOver > draggedItem;
+        itemClass += isDraggingUp ? " dragged-down" : " dragged-up";
+      }
+    }
+
+    return itemClass;
+  };
+
   return (
     <ul className={`sortable-list ${className}`.trimEnd()}>
       {sortedItems.map((item, index) => (
         <li
-          className={`sortable-item ${itemClassName} ${
-            draggedItem === index ? "dragged-item" : ""
-          } ${droppedOver === index ? "drop-location" : ""}`
-            .replace(/\s\s/, " ")
-            .trimEnd()}
+          className={getItemClassName(index)}
           key={item.id}
           draggable
           onDragStart={() => handleDragStart(index)}
