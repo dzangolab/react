@@ -6,7 +6,6 @@ import {
 } from "@dzangolab/react-ui";
 import { ColumnDef } from "@tanstack/react-table";
 import { Tag } from "primereact/tag";
-import { ReactNode } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -19,6 +18,8 @@ import type {
   InvitationExpiryDateField,
   UserType,
 } from "@/types";
+import { ComponentType } from "react";
+import { Button } from "../../../../ui/dist/src";
 
 type VisibleColumn =
   | "name"
@@ -36,7 +37,7 @@ export type UsersTableProperties = Partial<
   apps?: Array<InvitationAppOption>;
   fetchUsers: (arguments_: TRequestJSON) => void;
   invitationExpiryDateField?: InvitationExpiryDateField;
-  inviteButtonIcon?: string | ReactNode;
+  invitationButtonOptions?: ComponentType<typeof Button>;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (data: any) => void;
@@ -55,7 +56,7 @@ export const UsersTable = ({
   columns = [],
   fetchUsers,
   invitationExpiryDateField,
-  inviteButtonIcon,
+  invitationButtonOptions,
   onInvitationAdded,
   onUserDisabled,
   onUserEnabled,
@@ -192,7 +193,7 @@ export const UsersTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             expiryDateField={invitationExpiryDateField}
-            buttonIcon={inviteButtonIcon}
+            invitationButtonOptions={invitationButtonOptions}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}
