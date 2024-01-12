@@ -47,3 +47,7 @@
 .sortable-item.dragged-down {
   border-bottom: 5px solid var(--sortable-item-border-color); 
 }
+
+.sortable-item.dragged-item {
+  opacity: 0.5;
+}
