@@ -72,7 +72,7 @@ export const SortableList: FC<SortableListProperties> = ({
   };
 
   return (
-    <ul className={`sortable-list ${className}`.trimEnd()}>
+    <ul className={`dz-sortable-list ${className}`.trimEnd()}>
       {sortedItems.map((item, index) => (
         <li
           className={getItemClassName(index)}
