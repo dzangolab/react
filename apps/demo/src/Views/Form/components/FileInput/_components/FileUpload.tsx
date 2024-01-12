@@ -23,6 +23,7 @@ export const FileUploadDemo = () => {
         iconLeft: "pi pi-plus",
       }}
       cancelButtonOptions={{
+        label: t("fileUpload.actions.cancel"),
         iconLeft: "pi pi-times",
       }}
     />
