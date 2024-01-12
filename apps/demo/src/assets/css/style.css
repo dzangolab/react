@@ -9,6 +9,23 @@
   box-sizing: border-box;
 }
 
+p {
+  color: var(--color);  
+}
+
+.main-menu > ul > li:hover,
+.main-menu > ul > li .active {
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+code {
+  background: lightgrey;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.5rem;
+  font-family: monospace;
+}
+
 @media screen and (min-width: 60rem) {
   :root {
     --layout-padding-h: 3rem;
@@ -19,11 +36,3 @@
     padding-right: var(--layout-padding-h);
   }
 }
-
-code {
-  background: lightgrey;
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.5rem;
-  font-family: monospace;
-}
-
