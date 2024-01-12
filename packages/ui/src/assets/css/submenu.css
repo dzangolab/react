@@ -1,0 +1,58 @@
+.sidebar[aria-expanded="false"] > .dz-responsive-menu > ul > li > .dz-submenu {
+  display: none;
+}
+
+.dz-responsive-menu > ul > li {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.dz-responsive-menu > ul > li[aria-expanded="true"]> .dz-submenu{
+  display: flex;
+}
+
+.dz-submenu {
+  display: none;
+  flex-direction: column;
+  padding-left: 3rem;
+  animation: submenu-open var(--transition-duration) ;
+}
+
+.dz-submenu:hover {
+  background: none !important;
+}
+
+@keyframes submenu-open {
+  from {
+    transform: translateY(-0.6rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.dz-submenu > li > a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  background: none !important;
+  padding: 0.5rem;
+}
+
+.dz-submenu > li > a > span[role="label"],
+.dz-submenu > li > a > span[role="icon"] > i {
+  transition: all var(--transition-duration) ease;
+  padding: 0 !important;
+}
+
+.dz-submenu > li > a.active,
+.dz-submenu > li > a.active > span[role="icon"] > i {
+  font-weight: bold;
+}
+
+.dz-submenu > li:hover > a > span[role="label"],
+.dz-submenu > li:hover > a > span[role="icon"] > i {
+  font-weight: bold;
+}

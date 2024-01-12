@@ -3,14 +3,17 @@
 exports[`Component matches snapshot 1`] = `
 <nav
   aria-orientation="horizontal"
-  className="responsive-menu"
+  className="dz-responsive-menu"
 >
   <ul>
-    <li>
+    <li
+      aria-expanded={false}
+    >
       <a
         aria-current="page"
         className="active"
         href="/"
+        onClick={[Function]}
       >
         <span
           role="label"
@@ -19,9 +22,12 @@ exports[`Component matches snapshot 1`] = `
         </span>
       </a>
     </li>
-    <li>
+    <li
+      aria-expanded={false}
+    >
       <a
         href="/about"
+        onClick={[Function]}
       >
         <span
           role="label"
