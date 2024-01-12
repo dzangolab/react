@@ -1,7 +1,6 @@
-import { Dispatch, SetStateAction, useCallback, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { NavLink, useInRouterContext } from "react-router-dom";
 
-import { IsNavLinkActive } from "..";
 import { Submenu } from "../Submenu";
 
 import { ExtendedMenuRouteType, MenuRouteType } from ".";
@@ -59,7 +58,7 @@ const MenuItemLink = ({
     );
   }
 
-  const isActive = IsNavLinkActive(route.route || "");
+  const isActive = isNavLinkActive(route.route || "");
 
   return (
     <a
@@ -73,4 +72,15 @@ const MenuItemLink = ({
       {children}
     </a>
   );
+};
+
+const isNavLinkActive = (link: string) => {
+  {
+    const pathnameArray = window.location.pathname.split("/");
+    const isActive =
+      window.location.pathname.startsWith(link) ||
+      (pathnameArray.length && pathnameArray.includes(link));
+
+    return isActive;
+  }
 };
