@@ -59,9 +59,11 @@ export const SortableList: FC<SortableListProperties> = ({
       .trimEnd();
 
     if (droppedOver === index && draggedItem !== null) {
-      if (draggedItem > droppedOver) return (itemClass += " dragged-up");
+      if (draggedItem > droppedOver)
+        return (itemClass = itemClass + " " + "dragged-up");
 
-      if (droppedOver > draggedItem) return (itemClass += " dragged-down");
+      if (droppedOver > draggedItem)
+        return (itemClass = itemClass + " " + "dragged-down");
     }
 
     return itemClass;
