@@ -8,11 +8,15 @@
   cursor: pointer;
 }
 
-.dz-submenu {
+.dz-responsive-menu > ul > li[aria-expanded="true"]> .dz-submenu{
   display: flex;
+}
+
+.dz-submenu {
+  display: none;
   flex-direction: column;
   padding-left: 3rem;
-  animation: submenu-open 0.5s ;
+  animation: submenu-open var(--transition-duration) ;
 }
 
 .dz-submenu:hover {
