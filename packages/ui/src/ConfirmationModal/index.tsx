@@ -10,10 +10,8 @@ interface IModalProperties extends ConfirmDialogProps {
 
 export const ConfirmationModal = ({
   accept,
-  acceptLabel,
   acceptButtonOptions,
   reject,
-  rejectLabel,
   cancelButtonOptions,
   message,
   header,
@@ -28,7 +26,7 @@ export const ConfirmationModal = ({
     return (
       <div className="dialog-footer">
         <Button
-          label={rejectLabel || "No"}
+          label="No"
           variant="outlined"
           severity="secondary"
           onClick={() => {
@@ -38,7 +36,7 @@ export const ConfirmationModal = ({
           {...cancelButtonOptions}
         />
         <Button
-          label={acceptLabel || "Yes"}
+          label="Yes"
           onClick={() => {
             accept?.();
             onHide?.();

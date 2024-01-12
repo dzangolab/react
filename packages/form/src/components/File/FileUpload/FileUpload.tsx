@@ -9,7 +9,6 @@ import type { FC } from "react";
 export const FileUpload: FC<IFileUploadProperties> = ({
   addDescriptionLabel,
   actionsAlignment = "right",
-  cancelButtonLabel = "Cancel",
   cancelButtonOptions,
   value,
   descriptionPlaceholder,
@@ -23,7 +22,6 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   onCancel,
   onFileSelect,
   onUpload,
-  uploadButtonLabel = "Upload",
   uploadButtonOptions,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>(
@@ -61,7 +59,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
         <Button
           severity="secondary"
           variant="outlined"
-          label={cancelButtonLabel}
+          label="Cancel"
           onClick={() => {
             onCancel && onCancel();
             setSelectedFiles([]);
@@ -70,7 +68,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
         />
         <Button
           disabled={!selectedFiles.length}
-          label={uploadButtonLabel}
+          label="Upload"
           onClick={() => onUpload(selectedFiles)}
           {...uploadButtonOptions}
         />
