@@ -56,7 +56,7 @@ export const SortableList: FC<SortableListProperties> = ({
   const getItemClassName = (index: number) => {
     let itemClass = `${itemClassName} ${
       draggedItem === index ? "dragged-item" : ""
-    }`.trim();
+    }`;
 
     if (droppedOver === index && draggedItem !== null) {
       if (draggedItem > droppedOver)
@@ -66,7 +66,7 @@ export const SortableList: FC<SortableListProperties> = ({
         return (itemClass = (itemClass + " " + "dragged-down").trim());
     }
 
-    return itemClass;
+    return itemClass.trim();
   };
 
   return (
