@@ -20,7 +20,7 @@ export interface SortableListProperties {
 export const SortableList: FC<SortableListProperties> = ({
   items,
   onSort,
-  itemClassName = "",
+  itemClassName = "test",
   className = "",
   grabHandleIcon,
 }) => {
@@ -54,18 +54,16 @@ export const SortableList: FC<SortableListProperties> = ({
   };
 
   const getItemClassName = (index: number) => {
-    let itemClass = `sortable-item ${itemClassName} ${
+    let itemClass = `${itemClassName} ${
       draggedItem === index ? "dragged-item" : ""
-    }`
-      .replace(/\s\s/, " ")
-      .trimEnd();
+    }`.trim();
 
     if (droppedOver === index && draggedItem !== null) {
       if (draggedItem > droppedOver)
-        return (itemClass = itemClass + " " + "dragged-up");
+        return (itemClass = (itemClass + " " + "dragged-up").trim());
 
       if (droppedOver > draggedItem)
-        return (itemClass = itemClass + " " + "dragged-down");
+        return (itemClass = (itemClass + " " + "dragged-down").trim());
     }
 
     return itemClass;
