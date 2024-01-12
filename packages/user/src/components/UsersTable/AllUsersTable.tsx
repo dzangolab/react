@@ -3,9 +3,9 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
+  IButtonProperties,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
-import { ReactNode } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -43,7 +43,7 @@ export type AllUsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
-  inviteButtonIcon?: string | ReactNode;
+  invitationButtonOptions?: IButtonProperties;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
@@ -64,7 +64,7 @@ export const AllUsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
-  inviteButtonIcon,
+  invitationButtonOptions,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
@@ -254,8 +254,8 @@ export const AllUsersTable = ({
           <InvitationModal
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
+            invitationButtonOptions={invitationButtonOptions}
             prepareData={prepareInvitationData}
             roles={roles}
           />

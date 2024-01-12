@@ -3,10 +3,10 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
+  IButtonProperties,
 } from "@dzangolab/react-ui";
 import { ColumnDef } from "@tanstack/react-table";
 import { Tag } from "primereact/tag";
-import { ReactNode } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -35,8 +35,8 @@ export type UsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers: (arguments_: TRequestJSON) => void;
+  invitationButtonOptions?: IButtonProperties;
   invitationExpiryDateField?: InvitationExpiryDateField;
-  inviteButtonIcon?: string | ReactNode;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (data: any) => void;
@@ -54,8 +54,8 @@ export const UsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
+  invitationButtonOptions,
   invitationExpiryDateField,
-  inviteButtonIcon,
   onInvitationAdded,
   onUserDisabled,
   onUserEnabled,
@@ -192,7 +192,7 @@ export const UsersTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             expiryDateField={invitationExpiryDateField}
-            buttonIcon={inviteButtonIcon}
+            invitationButtonOptions={invitationButtonOptions}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}

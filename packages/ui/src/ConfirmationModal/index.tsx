@@ -1,21 +1,18 @@
 import { ConfirmDialog, ConfirmDialogProps } from "primereact/confirmdialog";
-import { ReactNode } from "react";
 
-import { Button } from "..";
+import { Button, IButtonProperties } from "..";
 
 interface IModalProperties extends ConfirmDialogProps {
-  acceptIcon?: string | ReactNode;
-  rejectIcon?: string | ReactNode;
+  acceptButtonOptions?: IButtonProperties;
+  cancelButtonOptions?: IButtonProperties;
   onHide?: () => void;
 }
 
 export const ConfirmationModal = ({
   accept,
-  acceptLabel,
-  acceptIcon,
+  acceptButtonOptions,
   reject,
-  rejectLabel,
-  rejectIcon,
+  cancelButtonOptions,
   message,
   header,
   visible,
@@ -29,22 +26,22 @@ export const ConfirmationModal = ({
     return (
       <div className="dialog-footer">
         <Button
-          label={rejectLabel || "No"}
+          label="No"
           variant="outlined"
           severity="secondary"
           onClick={() => {
             reject?.();
             onHide?.();
           }}
-          iconLeft={rejectIcon}
+          {...cancelButtonOptions}
         />
         <Button
-          label={acceptLabel || "Yes"}
+          label="Yes"
           onClick={() => {
             accept?.();
             onHide?.();
           }}
-          iconLeft={acceptIcon}
+          {...acceptButtonOptions}
         />
       </div>
     );
