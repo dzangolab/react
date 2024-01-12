@@ -1,7 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button } from "@dzangolab/react-ui";
+import { Button, IButtonProperties } from "@dzangolab/react-ui";
 import { Dialog } from "primereact/dialog";
-import React, { ComponentType, useState } from "react";
+import React, { useState } from "react";
+
+import { InvitationForm } from "./InvitationForm";
 
 import {
   AddInvitationResponse,
@@ -11,13 +13,11 @@ import {
   InvitationExpiryDateField,
 } from "@/types";
 
-import { InvitationForm } from "./InvitationForm";
-
 interface Properties {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: InvitationAppOption[];
   expiryDateField?: InvitationExpiryDateField;
-  invitationButtonOptions?: ComponentType<typeof Button>;
+  invitationButtonOptions?: IButtonProperties;
   onSubmitted?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareData?: (data: any) => any;

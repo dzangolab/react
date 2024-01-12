@@ -3,11 +3,10 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
-  Button,
+  IButtonProperties,
 } from "@dzangolab/react-ui";
 import { ColumnDef } from "@tanstack/react-table";
 import { Tag } from "primereact/tag";
-import { ComponentType } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -36,7 +35,7 @@ export type UsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers: (arguments_: TRequestJSON) => void;
-  invitationButtonOptions?: ComponentType<typeof Button>;
+  invitationButtonOptions?: IButtonProperties;
   invitationExpiryDateField?: InvitationExpiryDateField;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

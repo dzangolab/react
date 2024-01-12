@@ -3,10 +3,9 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
-  Button,
+  IButtonProperties,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
-import { ComponentType } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -44,7 +43,7 @@ export type AllUsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
-  invitationButtonOptions?: ComponentType<typeof Button>;
+  invitationButtonOptions?: IButtonProperties;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
