@@ -20,7 +20,7 @@ export interface SortableListProperties {
 export const SortableList: FC<SortableListProperties> = ({
   items,
   onSort,
-  itemClassName = "test",
+  itemClassName = "",
   className = "",
   grabHandleIcon,
 }) => {
