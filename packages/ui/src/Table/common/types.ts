@@ -198,9 +198,10 @@ declare module "@tanstack/react-table" {
 }
 
 export interface TDataTableProperties<TData>
-  extends Omit<TableOptions<TData>, "getCoreRowModel"> {
+  extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
+  data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
   isLoading?: boolean;
@@ -240,3 +241,8 @@ export interface TDataTableProperties<TData>
   stripe?: "none" | "even" | "odd";
   showColumnsAction?: boolean;
 }
+
+export type {
+  FilterFn as FilterFunction,
+  FilterFns as FilterFunctions,
+} from "@tanstack/react-table";

@@ -6,9 +6,16 @@ import {
   TableColumnDefinition,
   DebouncedInput,
 } from "@dzangolab/react-ui";
+import { FilterFunction } from "@dzangolab/react-ui";
 
 import { data } from "./data";
 import { Section } from "../../../../components/Demo";
+
+declare module "@dzangolab/react-ui" {
+  interface FilterFunctions {
+    equalStringFilter: FilterFunction<unknown>;
+  }
+}
 
 export const TableDemo = () => {
   const [t] = useTranslation("ui");
@@ -42,6 +49,15 @@ export const TableDemo = () => {
     },
   ];
 
+  const customEqualsFilter: FilterFunction<any> = (row, columnId, value) => {
+    console.log("running");
+    if (value.includes(row.getValue(columnId))) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <Page title={t("table.title")}>
       <Section title={t("table.usage.basic")}>
@@ -62,10 +78,12 @@ export const TableDemo = () => {
               accessorKey: "email",
               enableColumnFilter: true,
               filterPlaceholder: "Search by email...",
+              filterFn: "equalStringFilter",
             },
           ]}
           data={data}
           initialFilters={[{ id: "email", value: "s" }]}
+          filterFns={{ equalStringFilter: customEqualsFilter }}
         ></TDataTable>
       </Section>
 
