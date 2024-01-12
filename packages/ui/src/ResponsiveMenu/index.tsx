@@ -8,14 +8,12 @@ export type MenuRouteType = {
   icon?: React.ReactNode;
 };
 
-export type ExtendedMenuRouteType = Omit<MenuRouteType, "route"> & {
+export type NestedMenuRouteType = Omit<MenuRouteType, "route"> & {
   route?: string;
   submenu: Array<MenuRouteType>;
 };
 
-export type CombinedMenuRouteType = Array<
-  MenuRouteType | ExtendedMenuRouteType
->;
+export type CombinedMenuRouteType = Array<MenuRouteType | NestedMenuRouteType>;
 
 interface Properties {
   className: string;

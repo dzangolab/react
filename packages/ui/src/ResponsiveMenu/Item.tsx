@@ -3,17 +3,17 @@ import { NavLink, useInRouterContext } from "react-router-dom";
 
 import { Submenu } from "../Submenu";
 
-import { ExtendedMenuRouteType, MenuRouteType } from ".";
+import { NestedMenuRouteType, MenuRouteType } from ".";
 
 interface IProperties {
-  route: ExtendedMenuRouteType | MenuRouteType;
+  route: NestedMenuRouteType | MenuRouteType;
   displayIcon?: boolean;
   isActive?: boolean;
 }
 
 interface IItemLinkProperties {
   children: React.ReactNode;
-  route: ExtendedMenuRouteType | MenuRouteType;
+  route: NestedMenuRouteType | MenuRouteType;
   setShowSubmenu: Dispatch<SetStateAction<boolean>>;
 }
 
