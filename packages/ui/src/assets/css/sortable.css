@@ -1,6 +1,6 @@
 :root {
   --sortable-item-bg-color: #fff;
-  --grab-icon-color: #e6e6e6;
+  --sortable-item-grab-icon-color: #e6e6e6;
   --sortable-item-border-color: #ececec;
   --sortable-item-hover-color: #f8f8f8;
 }
@@ -22,7 +22,7 @@
 
 .dz-sortable-list > li .grab-icon {
   cursor: grab;
-  color: var(--grab-icon-color);
+  color: var(--sortable-item-grab-icon-color);
   font-size: 0.6rem;
 }
 
@@ -49,5 +49,5 @@
 }
 
 .dz-sortable-list .dragged-item {
-  opacity: 0.7;
+  opacity: 0.4;
 }
