@@ -56,7 +56,7 @@ export const SortableList: FC<SortableListProperties> = ({
   const getItemClassName = (index: number) => {
     let itemClass = `sortable-item ${itemClassName} ${
       draggedItem === index ? "dragged-item" : ""
-    } `
+    }`
       .replace(/\s\s/, " ")
       .trimEnd();
 
