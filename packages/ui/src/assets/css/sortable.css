@@ -1,11 +1,18 @@
-.sortable-list {
+:root {
+  --sortable-item-bg-color: #fff;
+  --sortable-item-grab-icon-color: #e6e6e6;
+  --sortable-item-border-color: #ececec;
+  --sortable-item-hover-color: #f8f8f8;
+}
+
+.dz-sortable-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.sortable-list .sortable-item {
-  background-color: #fff;
+.dz-sortable-list > li {
+  background-color: var(--sortable-item-bg-color);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -13,15 +20,15 @@
   flex-wrap: wrap;
 }
 
-.sortable-list .sortable-item > .grab-icon {
+.dz-sortable-list > li .grab-icon {
   cursor: grab;
-  color: rgb(230, 230, 230);
+  color: var(--sortable-item-grab-icon-color);
   font-size: 0.6rem;
 }
 
-.sortable-list .item {
+.dz-sortable-list > li > div {
   padding: 0.5rem;
-  border-left: 1px solid rgb(236, 236, 236);
+  border-left: 1px solid var(--sortable-item-border-color);
   margin: 2px 0;
   display: flex;
   justify-content: center;
@@ -29,14 +36,18 @@
   gap: 0.5rem;
 }
 
-.sortable-list .sortable-item:hover {
-  background-color: #f8f8f8;
+.dz-sortable-list > li:hover {
+  background-color: var(--sortable-item-hover-color);
 }
 
-.sortable-item.dragged-item {
-  opacity: 0.5;
+.dz-sortable-list > .dragged-item {
+  opacity: 0.4;
 }
 
-.sortable-item.drop-location {
-  border-top: 5px solid rgb(209, 209, 209);
+[data-drag-direction="down"] {
+  border-bottom: 5px solid var(--sortable-item-border-color);
+}
+
+[data-drag-direction="up"] {
+  border-top: 5px solid var(--sortable-item-border-color);
 }
