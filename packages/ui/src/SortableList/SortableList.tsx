@@ -53,20 +53,27 @@ export const SortableList: FC<SortableListProperties> = ({
     setDroppedOver(-1);
   };
 
+  const getDragDirection = (index: number) => {
+    if (droppedOver === index && draggedItem !== null) {
+      if (draggedItem > droppedOver) return "up";
+
+      if (droppedOver > draggedItem) return "down";
+    }
+  };
+
   return (
-    <ul className={`sortable-list ${className}`.trimEnd()}>
+    <ul className={`dz-sortable-list ${className}`.trimEnd()}>
       {sortedItems.map((item, index) => (
         <li
-          className={`sortable-item ${itemClassName} ${
+          className={`${itemClassName} ${
             draggedItem === index ? "dragged-item" : ""
-          } ${droppedOver === index ? "drop-location" : ""}`
-            .replace(/\s\s/, " ")
-            .trimEnd()}
+          }`.trim()}
           key={item.id}
           draggable
           onDragStart={() => handleDragStart(index)}
           onDragOver={() => handleDragOver(index)}
           onDragEnd={handleDragEnd}
+          data-drag-direction={getDragDirection(index)}
         >
           {grabHandleIcon ? (
             grabHandleIcon
@@ -76,9 +83,7 @@ export const SortableList: FC<SortableListProperties> = ({
               <i className="pi pi-ellipsis-v" />
             </span>
           )}
-          <div className="item">
-            {item.render ? item.render(item.data) : item.data}
-          </div>
+          <div>{item.render ? item.render(item.data) : item.data}</div>
         </li>
       ))}
     </ul>
