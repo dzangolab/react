@@ -44,10 +44,10 @@
   opacity: 0.4;
 }
 
-[data-dragged-direction="down"] {
+[data-drag-direction="down"] {
   border-bottom: 5px solid var(--sortable-item-border-color);
 }
 
-[data-dragged-direction="up"] {
+[data-drag-direction="up"] {
   border-top: 5px solid var(--sortable-item-border-color);
 }
