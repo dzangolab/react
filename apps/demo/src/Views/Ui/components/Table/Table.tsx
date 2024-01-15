@@ -15,7 +15,7 @@ import { Section } from "../../../../components/Demo";
 declare module "@dzangolab/react-ui" {
   interface FilterFunctions {
     inDateRangeFilter: FilterFunction<unknown>;
-    customEqualString: FilterFunction<unknown>;
+    customEqualStringFilter: FilterFunction<unknown>;
   }
 }
 
@@ -70,7 +70,7 @@ export const TableDemo = () => {
     }
   };
 
-  const customEqualString: FilterFunction<any> = (
+  const customEqualStringFilter: FilterFunction<any> = (
     row,
     columnId,
     value: string,
@@ -360,7 +360,7 @@ export const TableDemo = () => {
             {
               accessorKey: "description",
               header: "Description",
-              filterFn: "customEqualString",
+              filterFn: "customEqualStringFilter",
               enableColumnFilter: true,
               filterPlaceholder: "Match description ..",
             },
@@ -439,7 +439,7 @@ export const TableDemo = () => {
           paginated={false}
           filterFns={{
             inDateRangeFilter: inDateRangeFilter,
-            customEqualString: customEqualString,
+            customEqualStringFilter: customEqualStringFilter,
           }}
         ></TDataTable>
       </Section>
