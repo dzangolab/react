@@ -251,6 +251,8 @@ export const formatNumber = ({
   locale = "en-US",
   formatOptions,
 }: FormatNumberType) => {
+  // for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+
   if (typeof value !== "number" || isNaN(value)) {
     return value;
   }
@@ -259,12 +261,13 @@ export const formatNumber = ({
 
   return formatter.format(value);
 };
-
 export const formatDate = ({
   date,
   locale = "en-US",
   formatOptions,
 }: FormatDateType) => {
+  //for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+
   let parsedDate: Date;
 
   if (date instanceof Date) {

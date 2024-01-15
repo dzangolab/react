@@ -382,7 +382,6 @@ export const TableDemo = () => {
               dataType: "date",
               enableColumnFilter: true,
               filterFn: "inDateRangeFilter",
-              meta: { filterFn: "inDateRangeFilter" },
               customFilterComponent(column) {
                 return (
                   <>

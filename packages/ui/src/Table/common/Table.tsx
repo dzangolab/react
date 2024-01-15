@@ -108,7 +108,7 @@ const DataTable = <TData extends { id: string | number }>({
 
       return {
         ...filter,
-        filterFn: column?.columnDef.meta?.filterFn,
+        filterFn: column?.columnDef.meta?.serverFilterFn,
       };
     });
 
