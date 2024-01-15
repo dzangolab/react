@@ -2,14 +2,18 @@
 
 exports[`Component matches snapshot 1`] = `
 <div
-  className="page"
+  className="dz-page"
 >
-  <h1>
-    This is the title
-    <small>
-      This is the subtitle
-    </small>
-  </h1>
+  <div
+    className="page-header"
+  >
+    <h1>
+      This is the title
+      <small>
+        This is the subtitle
+      </small>
+    </h1>
+  </div>
   <div
     className="content"
     data-testid="page-content"
