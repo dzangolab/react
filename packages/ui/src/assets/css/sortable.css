@@ -11,7 +11,7 @@
   padding: 0;
 }
 
-.dz-sortable-list li {
+.dz-sortable-list > li {
   background-color: var(--sortable-item-bg-color);
   display: flex;
   justify-content: flex-start;
@@ -26,7 +26,7 @@
   font-size: 0.6rem;
 }
 
-.dz-sortable-list .item {
+.dz-sortable-list > li > div {
   padding: 0.5rem;
   border-left: 1px solid var(--sortable-item-border-color);
   margin: 2px 0;
@@ -36,18 +36,18 @@
   gap: 0.5rem;
 }
 
-.dz-sortable-list li:hover {
+.dz-sortable-list > li:hover {
   background-color: var(--sortable-item-hover-color);
-}
-
-.dz-sortable-list .dragged-up {
-  border-top: 5px solid var(--sortable-item-border-color);
-}
-
-.dz-sortable-list .dragged-down {
-  border-bottom: 5px solid var(--sortable-item-border-color); 
 }
 
 .dz-sortable-list .dragged-item {
   opacity: 0.4;
+}
+
+[data-dragged="down"] {
+  border-bottom: 5px solid var(--sortable-item-border-color);
+}
+
+[data-dragged="up"] {
+  border-top: 5px solid var(--sortable-item-border-color);
 }
