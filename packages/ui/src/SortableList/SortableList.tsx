@@ -73,7 +73,7 @@ export const SortableList: FC<SortableListProperties> = ({
           onDragStart={() => handleDragStart(index)}
           onDragOver={() => handleDragOver(index)}
           onDragEnd={handleDragEnd}
-          data-dragged={getItemDirection(index)}
+          data-dragged-direction={getItemDirection(index)}
         >
           {grabHandleIcon ? (
             grabHandleIcon

@@ -40,14 +40,14 @@
   background-color: var(--sortable-item-hover-color);
 }
 
-.dz-sortable-list .dragged-item {
+.dz-sortable-list > .dragged-item {
   opacity: 0.4;
 }
 
-[data-dragged="down"] {
+[data-dragged-direction="down"] {
   border-bottom: 5px solid var(--sortable-item-border-color);
 }
 
-[data-dragged="up"] {
+[ data-dragged-direction="up"] {
   border-top: 5px solid var(--sortable-item-border-color);
 }
