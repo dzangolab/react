@@ -280,7 +280,7 @@ export const TableDemo = () => {
                 ></DebouncedInput>
               ),
               meta: {
-                filterFn: "equals",
+                serverFilterFn: "equals",
               },
             },
           ]}
