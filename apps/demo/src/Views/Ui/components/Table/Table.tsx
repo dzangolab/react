@@ -293,10 +293,28 @@ export const TableDemo = () => {
                 ></DebouncedInput>
               ),
               meta: {
+                serverFilterFn: "contains",
+              },
+            },
+          ]}
+          fetchData={() => {}}
+          data={data.slice(10, 15)}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.withEqualServerFilter")}>
+        <TDataTable
+          columns={[
+            ...columns,
+            {
+              accessorKey: "email",
+              enableColumnFilter: true,
+              meta: {
                 serverFilterFn: "equals",
               },
             },
           ]}
+          fetchData={() => {}}
           data={data.slice(10, 15)}
         ></TDataTable>
       </Section>
