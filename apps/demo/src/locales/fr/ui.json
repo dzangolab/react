@@ -57,7 +57,8 @@
       "borderless": "Table without border but stripe (fr)",
       "withoutPagination": "Table without pagination (fr)",
       "withTitle": "Table with title (fr)",
-      "withCustomFilter": "Table with custom filter component and filterFn (fr)"
+      "withCustomFilter": "Table with custom filter component and filterFn (fr)",
+      "customStaticFilter": "Table with custom static filter component and filterFn (fr)"
     }
   },
   "message": {

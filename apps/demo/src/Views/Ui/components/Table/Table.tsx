@@ -1,3 +1,4 @@
+import { DatePickerBasic } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
   TDataTable,
@@ -13,7 +14,7 @@ import { Section } from "../../../../components/Demo";
 
 declare module "@dzangolab/react-ui" {
   interface FilterFunctions {
-    equalStringFilter: FilterFunction<unknown>;
+    inDateRangeFilter: FilterFunction<unknown>;
   }
 }
 
@@ -49,9 +50,19 @@ export const TableDemo = () => {
     },
   ];
 
-  const customEqualsFilter: FilterFunction<any> = (row, columnId, value) => {
-    console.log("running");
-    if (value.includes(row.getValue(columnId))) {
+  const inDateRangeFilter: FilterFunction<any> = (
+    row,
+    columnId,
+    value: [Date, Date],
+  ) => {
+    if (!value[0] || !value[1]) {
+      return true;
+    }
+
+    if (
+      value[0].getTime() <= (row.original.date as Date).getTime() &&
+      (row.original.date as Date).getTime() < value[1].getTime()
+    ) {
       return true;
     } else {
       return false;
@@ -78,12 +89,10 @@ export const TableDemo = () => {
               accessorKey: "email",
               enableColumnFilter: true,
               filterPlaceholder: "Search by email...",
-              filterFn: "equalStringFilter",
             },
           ]}
           data={data}
           initialFilters={[{ id: "email", value: "s" }]}
-          filterFns={{ equalStringFilter: customEqualsFilter }}
         ></TDataTable>
       </Section>
 
@@ -329,6 +338,93 @@ export const TableDemo = () => {
           ]}
           data={formatDemoData}
           paginated={false}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.customStaticFilter")}>
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+            {
+              accessorKey: "quantity",
+              header: () => "Quantity",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "number",
+              numberOptions: {
+                locale: "en-IN",
+              },
+            },
+            {
+              accessorKey: "amount",
+              header: "Amount",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "currency",
+              numberOptions: {
+                locale: "en-US",
+                formatOptions: {
+                  currency: "EUR",
+                },
+              },
+            },
+            {
+              accessorKey: "date",
+              header: "Date",
+              width: "16rem",
+              maxWidth: "16rem",
+              minWidth: "16rem",
+              dataType: "date",
+              enableColumnFilter: true,
+              filterFn: "inDateRangeFilter",
+              meta: { filterFn: "inDateRangeFilter" },
+              customFilterComponent(column) {
+                return (
+                  <>
+                    <DatePickerBasic
+                      inputRef={null}
+                      name="start-date"
+                      onChange={(date) =>
+                        column.setFilterValue((old: [Date, Date]) => [
+                          date,
+                          old?.[1],
+                        ])
+                      }
+                      value={(column.getFilterValue() as [Date, Date])?.[0]}
+                    />
+                    <DatePickerBasic
+                      inputRef={null}
+                      name="end-date"
+                      onChange={(date) =>
+                        column.setFilterValue((old: [Date, Date]) => [
+                          old?.[0],
+                          date,
+                        ])
+                      }
+                      value={(column.getFilterValue() as [Date, Date])?.[1]}
+                    />
+                  </>
+                );
+              },
+            },
+            {
+              id: "action",
+              header: "",
+              width: "8rem",
+              dataType: "other",
+              cell: () => <Button iconLeft="pi pi-eye" />,
+            },
+          ]}
+          data={formatDemoData}
+          paginated={false}
+          filterFns={{
+            inDateRangeFilter: inDateRangeFilter,
+          }}
         ></TDataTable>
       </Section>
     </Page>

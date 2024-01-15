@@ -61,7 +61,8 @@
       "borderless": "Table without border but stripe",
       "withoutPagination": "Table without pagination",
       "withTitle": "Table with title",
-      "withCustomFilter": "Table with custom filter component and filterFn"
+      "withCustomFilter": "Table with custom filter component and filterFn",
+      "customStaticFilter": "Table with custom static filter component and filterFn"
     }
   },
   "message": {
