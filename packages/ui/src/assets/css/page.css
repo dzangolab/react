@@ -10,7 +10,12 @@
   font-size: var(--error-font-size, 1rem);
 }
 
-@media screen and (min-width: 576px) {
+.dz-page > h1 > small {
+  display: block;
+  font-size: 90%;
+}
+
+@media (min-width: 576px) {
   .dz-page {
     grid-template-columns: 1fr auto;
   }
@@ -24,7 +29,3 @@
   }
 }
 
-.dz-page > h1 > small {
-  display: block;
-  font-size: 90%;
-}
