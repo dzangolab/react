@@ -48,6 +48,6 @@
   border-bottom: 5px solid var(--sortable-item-border-color);
 }
 
-[ data-dragged-direction="up"] {
+[data-dragged-direction="up"] {
   border-top: 5px solid var(--sortable-item-border-color);
 }
