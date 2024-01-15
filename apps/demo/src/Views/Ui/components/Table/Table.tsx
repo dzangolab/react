@@ -8,7 +8,7 @@ import {
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
 
-import { data } from "./data";
+import { data, formatDemoData } from "./data";
 import { Section } from "../../../../components/Demo";
 
 declare module "@dzangolab/react-ui" {
@@ -276,6 +276,58 @@ export const TableDemo = () => {
             },
           ]}
           data={data.slice(10, 15)}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.cellDataFormating")}>
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+            {
+              accessorKey: "quantity",
+              header: () => "Quantity",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "number",
+              numberOptions: {
+                locale: "en-IN",
+              },
+            },
+            {
+              accessorKey: "amount",
+              header: "Amount",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "currency",
+              numberOptions: {
+                locale: "en-US",
+                formatOptions: {
+                  currency: "EUR",
+                },
+              },
+            },
+            {
+              accessorKey: "date",
+              header: "Date",
+              width: "12rem",
+              maxWidth: "12rem",
+              minWidth: "12rem",
+              dataType: "date",
+            },
+            {
+              id: "action",
+              header: "",
+              width: "8rem",
+              dataType: "other",
+              cell: () => <Button iconLeft="pi pi-eye" />,
+            },
+          ]}
+          data={formatDemoData}
           paginated={false}
         ></TDataTable>
       </Section>

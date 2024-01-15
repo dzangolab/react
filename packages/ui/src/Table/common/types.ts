@@ -176,10 +176,26 @@ export type TCustomColumnFilter = ChangeTypeOfKeys<
 
 //TDataTable props
 
+export type CellAlignmentType = "left" | "center" | "right";
+export type CellDataType = "text" | "number" | "date" | "currency" | "other";
+
+export type FormatNumberType = {
+  value: number;
+  locale?: string;
+  formatOptions?: Intl.NumberFormatOptions;
+};
+
+export type FormatDateType = {
+  date: Date | string | number;
+  locale?: string;
+  formatOptions?: Intl.DateTimeFormatOptions;
+};
+
 declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
   interface ColumnDefBase<TData, TValue> {
-    align?: "left" | "center" | "right";
+    align?: CellAlignmentType;
+    dataType?: CellDataType;
     className?: string;
     customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
     filterPlaceholder?: string;
@@ -190,6 +206,8 @@ declare module "@tanstack/react-table" {
     width?: string;
     maxWidth?: string;
     minWidth?: string;
+    dateOptions?: Omit<FormatDateType, "date">;
+    numberOptions?: Omit<FormatNumberType, "value">;
   }
 
   interface ColumnFilter {

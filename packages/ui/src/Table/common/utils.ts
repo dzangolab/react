@@ -1,4 +1,6 @@
 import type {
+  FormatDateType,
+  FormatNumberType,
   TFilterFn as TFilterFunction,
   TRequestJSON,
   TSortDirection,
@@ -242,4 +244,40 @@ export const getParsedColumns = ({
   }
 
   return parsedColumnsList;
+};
+
+export const formatNumber = ({
+  value,
+  locale = "en-US",
+  formatOptions,
+}: FormatNumberType) => {
+  if (typeof value !== "number" || isNaN(value)) {
+    return value;
+  }
+
+  const formatter = new Intl.NumberFormat(locale, formatOptions);
+
+  return formatter.format(value);
+};
+
+export const formatDate = ({
+  date,
+  locale = "en-US",
+  formatOptions,
+}: FormatDateType) => {
+  let parsedDate: Date;
+
+  if (date instanceof Date) {
+    parsedDate = date;
+  } else {
+    parsedDate = new Date(date);
+  }
+
+  if (!isNaN(parsedDate.getTime())) {
+    const formatter = new Intl.DateTimeFormat(locale, formatOptions);
+
+    return formatter.format(parsedDate);
+  } else {
+    return date;
+  }
 };

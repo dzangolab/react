@@ -35,14 +35,23 @@ import {
   TableFooter,
   TooltipWrapper,
 } from "./TableElements";
-import { getRequestJSON, getParsedColumns } from "./utils";
+import {
+  getRequestJSON,
+  getParsedColumns,
+  formatNumber,
+  formatDate,
+} from "./utils";
 import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
 import { Button } from "../../Buttons/ButtonBasic";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
-import type { TDataTableProperties } from "./types";
-import type { Cell, ColumnDef } from "@tanstack/react-table";
+import type {
+  CellAlignmentType,
+  CellDataType,
+  TDataTableProperties,
+} from "./types";
+import type { Cell, ColumnDef, NoInfer } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   border = "grid",
@@ -104,6 +113,27 @@ const DataTable = <TData extends { id: string | number }>({
     });
 
     setColumnFilters(updatedFilters);
+  };
+
+  const getAlignValue = ({
+    align,
+    dataType,
+  }: {
+    align?: CellAlignmentType;
+    dataType?: CellDataType;
+    header?: boolean;
+  }) => {
+    if (align) {
+      return align;
+    }
+
+    if (dataType == "other") {
+      return "center";
+    } else if (dataType == "number" || dataType == "currency") {
+      return "right";
+    } else {
+      return "left";
+    }
   };
 
   const parsedColumns = useMemo(
@@ -212,10 +242,12 @@ const DataTable = <TData extends { id: string | number }>({
   const renderTooltipContent = (
     cell: Cell<TData, unknown>,
   ): React.ReactNode => {
-    if (typeof cell.column.columnDef.tooltip === "string") {
-      return cell.column.columnDef.tooltip;
-    } else if (typeof cell.column.columnDef.tooltip === "function") {
-      return cell.column.columnDef.tooltip(cell);
+    const tooltip = cell.column.columnDef.tooltip;
+
+    if (typeof tooltip === "string") {
+      return tooltip;
+    } else if (typeof tooltip === "function") {
+      return tooltip(cell);
     }
 
     return cell.getValue() as string;
@@ -339,7 +371,10 @@ const DataTable = <TData extends { id: string | number }>({
                       }`
                         .replace(/\s\s/, " ")
                         .trimEnd()}
-                      data-align={columnDef.align || "left"}
+                      data-align={getAlignValue({
+                        align: columnDef.align,
+                        dataType: columnDef.dataType,
+                      })}
                       style={{
                         width: columnDef.width,
                         maxWidth: columnDef.maxWidth,
@@ -386,7 +421,10 @@ const DataTable = <TData extends { id: string | number }>({
                   <ColumnHeader
                     key={"filter" + column.id}
                     data-label={column.id}
-                    data-align={column.columnDef.align || "left"}
+                    data-align={getAlignValue({
+                      align: column.columnDef.align,
+                      dataType: column.columnDef.dataType,
+                    })}
                     style={{
                       width: column.columnDef.width,
                       maxWidth: column.columnDef.maxWidth,
@@ -426,11 +464,61 @@ const DataTable = <TData extends { id: string | number }>({
                 data-id={row.original.id ?? row.id}
               >
                 {row.getVisibleCells().map((cell) => {
+                  const getFormatedValueContext: typeof cell.getContext =
+                    () => {
+                      const cellContext = cell.getContext();
+                      const renderValue = cellContext.getValue;
+                      const dateOptions = cell.column.columnDef.dateOptions;
+                      const numberOptions = cell.column.columnDef.numberOptions;
+
+                      const getFormattedValue = (): NoInfer<never> => {
+                        switch (cell.column.columnDef.dataType) {
+                          case "number":
+                            return formatNumber({
+                              value: Number(renderValue()),
+                              locale: numberOptions?.locale,
+                              formatOptions: numberOptions?.formatOptions,
+                            }) as NoInfer<never>;
+
+                          case "date":
+                            return formatDate({
+                              date: renderValue() as Date,
+                              locale: dateOptions?.locale,
+                              formatOptions: dateOptions?.formatOptions,
+                            }) as NoInfer<never>;
+
+                          case "currency":
+                            return formatNumber({
+                              value: Number(renderValue()),
+                              locale: numberOptions?.locale,
+                              formatOptions: {
+                                style: "currency",
+                                currency: "USD",
+                                ...(numberOptions?.formatOptions &&
+                                  numberOptions.formatOptions),
+                              },
+                            }) as NoInfer<never>;
+
+                          default:
+                            return renderValue() as NoInfer<never>;
+                        }
+                      };
+
+                      return {
+                        ...cellContext,
+                        renderValue: () => getFormattedValue(),
+                        getValue: () => getFormattedValue(),
+                      };
+                    };
+
                   return (
                     <TableCell
                       key={cell.id}
                       data-label={cell.column.id}
-                      data-align={cell.column.columnDef.align || "left"}
+                      data-align={getAlignValue({
+                        align: cell.column.columnDef.align,
+                        dataType: cell.column.columnDef.dataType,
+                      })}
                       className={`${
                         cell.column.id ? `cell-${cell.column.id}` : ``
                       } ${cell.column.columnDef.className || ""}`
@@ -450,13 +538,13 @@ const DataTable = <TData extends { id: string | number }>({
                           }}
                           cellContent={flexRender(
                             cell.column.columnDef.cell,
-                            cell.getContext(),
+                            getFormatedValueContext(),
                           )}
                         ></TooltipWrapper>
                       ) : (
                         flexRender(
                           cell.column.columnDef.cell,
-                          cell.getContext(),
+                          getFormatedValueContext(),
                         )
                       )}
                     </TableCell>
