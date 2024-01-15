@@ -12,7 +12,7 @@ export const PageHeader = ({
   breadcrumb,
 }: IHeaderProperties) => {
   return (
-    <div className="page-header">
+    <>
       {breadcrumb ? <div className="breadcrumb">{breadcrumb}</div> : null}
       {title && (
         <h1>
@@ -21,6 +21,6 @@ export const PageHeader = ({
         </h1>
       )}
       {toolbar && <div className="toolbar">{toolbar}</div>}
-    </div>
+    </>
   );
 };

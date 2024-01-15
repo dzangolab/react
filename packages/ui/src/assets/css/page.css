@@ -10,25 +10,21 @@
   font-size: var(--error-font-size, 1rem);
 }
 
+@media screen and (min-width: 576px) {
+  .dz-page {
+    grid-template-columns: 1fr auto;
+  }
+
+  .dz-page > .breadcrumb {
+    grid-column: 1 / span 2;
+  }
+
+  .dz-page > .content {
+    grid-column: 1 / span 2;
+  }
+}
+
 .dz-page > h1 > small {
   display: block;
   font-size: 90%;
 }
-
-.dz-page > .page-header {
-  --_page-header-gap: var(--dz-page-gap);
-  display: grid;
-  grid-template-columns: 100%;
-  gap: var(--_page-header-gap);
-}
-
-@media screen and (min-width: 576px) {
-  .dz-page > .page-header {
-    grid-template-columns: 1fr auto;
-  }
-  
-  .dz-page> .page-header> .breadcrumb{
-    grid-column: 1/span 2;
-  }
-}
-

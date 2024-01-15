@@ -9,6 +9,7 @@
     "dev": "vite",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "preview": "vite preview",
     "sort-package": "npx sort-package-json",
     "test": "CI=true vitest",
