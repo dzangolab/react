@@ -108,16 +108,20 @@
       "menu": "Page",
       "basic": "Page demo basic",
       "toolbar": "Page with toolbar",
-      "stringSubtitle": "Page with subtile string",
-      "componentSubtitle": "Page with subtile component",
-      "breadcrumb": "Page with breadcrumb"
+      "stringSubtitle": "Page with subtitle string",
+      "componentSubtitle": "Page with subtitle component",
+      "breadcrumb": "Page with breadcrumb",
+      "complete": "Page with every component"
     },
     "subTitle": {
       "title": "Page subtitle",
       "tag": "Subtitle tag"
     },
     "toolbar": {
-      "edit": "Edit"
+      "edit": "Edit",
+      "button":{
+        "label":"Click"
+      }
     },
     "content": "Page content."
   }
