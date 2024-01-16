@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.table-container .title {
+.table-container > span {
   font-weight: bold;
   text-align: center;
   padding: 0.2rem 0;
@@ -29,11 +29,11 @@
   font-size: 1rem;
 }
 
-.table-container .title[data-align="left"] {
+.table-container > span[data-align="left"] {
   text-align: left;
 }
 
-.table-container .title[data-align="right"] {
+.table-container > span[data-align="right"] {
   text-align: right;
 }
 

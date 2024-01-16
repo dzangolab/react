@@ -250,11 +250,7 @@ const DataTable = <TData extends { id: string | number }>({
       className={("table-container " + className).trimEnd()}
     >
       {title ? (
-        <h6
-          className="title"
-          children={title.text}
-          data-align={title.align || "center"}
-        />
+        <span children={title.text} data-align={title.align || "center"} />
       ) : null}
 
       {showColumnsAction || renderToolbarItems ? (
