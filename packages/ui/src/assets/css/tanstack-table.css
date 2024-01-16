@@ -195,6 +195,7 @@
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
+  background-color: #fff;
 }
 
 .table-container .table-wrapper .table .tcell,
