@@ -12,8 +12,8 @@ export const Demo: React.FC<Properties> = ({ subnav, children }) => {
       <ul className="demo-aside">
         {subnav.map((nav: any) => {
           return (
-            <li>
-              <NavLink key={nav.route} to={nav.route} end>
+            <li key={nav.route}>
+              <NavLink to={nav.route} end>
                 {nav.label}
               </NavLink>
             </li>

@@ -15,7 +15,11 @@ export const PageHeader = ({
     <>
       {breadcrumb ? <div className="breadcrumb">{breadcrumb}</div> : null}
       {title && <h1>{title}</h1>}
-      {subtitle && <div className="subtitle">{subtitle}</div>}
+      {subtitle && (
+        <div title="subtitle" className="subtitle">
+          {subtitle}
+        </div>
+      )}
       {toolbar && <div className="toolbar">{toolbar}</div>}
     </>
   );

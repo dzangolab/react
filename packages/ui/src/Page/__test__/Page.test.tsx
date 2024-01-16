@@ -20,7 +20,11 @@ test("correct title, subtitle and content are displayed", async () => {
   expect(header).toBeDefined();
   const { getByText } = within(header);
   expect(getByText(pageData.title)).toBeDefined();
-  // expect(getByText(pageData.subtitle)).toBeDefined();
+
+  const subtitle = screen.getByTitle("subtitle");
+  expect(subtitle).toBeDefined();
+  const { getByText: getByTextOfSubtitle } = within(subtitle);
+  expect(getByTextOfSubtitle(pageData.subtitle)).toBeDefined();
 
   const content = screen.getByTestId("page-content");
   expect(content).toBeDefined();
