@@ -10,11 +10,6 @@
   font-size: var(--error-font-size, 1rem);
 }
 
-.dz-page > h1 > small {
-  display: block;
-  font-size: 90%;
-}
-
 .dz-page > .content {
   margin-top: 1rem;
 }
