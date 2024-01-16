@@ -250,7 +250,7 @@ const DataTable = <TData extends { id: string | number }>({
       className={("table-container " + className).trimEnd()}
     >
       {title ? (
-        <h6
+        <span
           className="title"
           children={title.text}
           data-align={title.align || "center"}
