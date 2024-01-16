@@ -15,6 +15,10 @@
   font-size: 90%;
 }
 
+.dz-page > .content {
+  margin-top: 1rem;
+}
+
 @media (min-width: 576px) {
   .dz-page {
     grid-template-columns: 1fr auto;
@@ -24,8 +28,13 @@
     grid-column: 1 / span 2;
   }
 
+  .dz-page > .subtitle {
+    grid-column: 1 / span 2;
+    order: 1;
+  }
+
   .dz-page > .content {
     grid-column: 1 / span 2;
+    order: 2;
   }
 }
-

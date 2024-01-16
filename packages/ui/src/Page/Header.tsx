@@ -14,12 +14,8 @@ export const PageHeader = ({
   return (
     <>
       {breadcrumb ? <div className="breadcrumb">{breadcrumb}</div> : null}
-      {title && (
-        <h1>
-          {title}
-          {typeof subtitle === "string" ? <small>{subtitle}</small> : subtitle}
-        </h1>
-      )}
+      {title && <h1>{title}</h1>}
+      {subtitle && <div className="subtitle">{subtitle}</div>}
       {toolbar && <div className="toolbar">{toolbar}</div>}
     </>
   );

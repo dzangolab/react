@@ -6,10 +6,12 @@ exports[`Component matches snapshot 1`] = `
 >
   <h1>
     This is the title
-    <small>
-      This is the subtitle
-    </small>
   </h1>
+  <div
+    className="subtitle"
+  >
+    This is the subtitle
+  </div>
   <div
     className="content"
     data-testid="page-content"
