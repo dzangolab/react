@@ -87,11 +87,6 @@ export const ButtonDemo = () => {
             severity="secondary"
             iconLeft="pi pi-user"
           />
-          <Button
-            variant="textOnly"
-            severity="success"
-            iconRight="pi pi-times"
-          />
           <Button variant="filled" iconRight="pi pi-user" />
           <Button
             label="Secondary"
