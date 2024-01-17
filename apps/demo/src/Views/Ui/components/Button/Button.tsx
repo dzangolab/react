@@ -114,6 +114,12 @@ export const ButtonDemo = () => {
       <Section title={t("button.usage.disabled")}>
         <div className="demo-buttons-container">
           <Button
+            variant="textOnly"
+            severity="primary"
+            iconLeft="pi pi-user"
+            disabled={true}
+          />
+          <Button
             label="Primary"
             variant="filled"
             severity="primary"
