@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 export interface IButtonProperties
   extends ButtonHTMLAttributes<HTMLButtonElement> {
+  iconLeft?: string | ReactNode;
+  iconRight?: string | ReactNode;
   label?: string;
+  loading?: boolean;
   severity?:
     | "primary"
     | "secondary"
@@ -11,27 +14,23 @@ export interface IButtonProperties
     | "success"
     | "danger"
     | "warning";
-  variant?: "outlined" | "filled";
-  iconLeft?: string | ReactNode;
-  iconRight?: string | ReactNode;
-  loading?: boolean;
-  loadingIcon?: string | ReactNode;
   size?: "small" | "medium" | "large";
   to?: string;
+  variant?: "outlined" | "filled";
 }
 
 export const Button: FC<IButtonProperties> = ({
-  label,
-  severity = "primary",
-  variant = "filled",
+  className = "",
+  disabled,
   iconLeft,
   iconRight,
+  label,
   loading,
-  disabled,
-  size = "medium",
   onClick,
-  className = "",
+  severity = "primary",
+  size = "medium",
   to,
+  variant = "filled",
   ...otherProperties
 }) => {
   const buttonClassName = ["dz-button", className, severity, variant, size]
@@ -77,9 +76,9 @@ export const Button: FC<IButtonProperties> = ({
   const renderButton = () => {
     return (
       <button
-        onClick={onClick}
-        disabled={loading || disabled}
         className={buttonClassName}
+        disabled={loading || disabled}
+        onClick={onClick}
         {...otherProperties}
       >
         {renderIconLeft()}
