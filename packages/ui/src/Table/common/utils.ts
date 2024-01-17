@@ -1,12 +1,15 @@
 import type {
   FormatDateType,
   FormatNumberType,
-  TCustomColumnFilter,
   TFilterFn as TFilterFunction,
   TRequestJSON,
   TSortDirection,
 } from "./types";
-import type { PaginationState, SortingState } from "@tanstack/react-table";
+import type {
+  ColumnFiltersState,
+  PaginationState,
+  SortingState,
+} from "@tanstack/react-table";
 
 const getFilterOperator = (filterFunction: TFilterFunction): string => {
   switch (filterFunction) {
@@ -18,6 +21,8 @@ const getFilterOperator = (filterFunction: TFilterFunction): string => {
       return "ew";
     case "equals":
       return "eq";
+    case "notEqual":
+      return "ne";
     case "greaterThan":
       return "gt";
     case "greaterThanOrEqual":
@@ -28,8 +33,12 @@ const getFilterOperator = (filterFunction: TFilterFunction): string => {
       return "lt";
     case "in":
       return "in";
+    case "notIn":
+      return "nin";
     case "between":
       return "bt";
+    case "notBetween":
+      return "nbt";
     default:
       return "ct";
   }
@@ -48,7 +57,7 @@ const getSortDirection = (desc: boolean): TSortDirection => {
 
 export const getRequestJSON = (
   sortingState?: SortingState,
-  filterState?: TCustomColumnFilter[],
+  filterState?: ColumnFiltersState,
   paginationState?: PaginationState,
 ): TRequestJSON => {
   const getFilter = () => {
@@ -57,8 +66,8 @@ export const getRequestJSON = (
     if (filterState.length === 1) {
       return {
         key: filterState[0].id,
-        operator: getFilterOperator(filterState[0].value.filterFn),
-        value: String(filterState[0].value.value || filterState[0].value),
+        operator: getFilterOperator(filterState[0].filterFn || "contains"),
+        value: String(filterState[0].value),
       };
     }
 
@@ -66,8 +75,8 @@ export const getRequestJSON = (
       AND: filterState.map((filter) => {
         return {
           key: filter.id,
-          operator: getFilterOperator(filter.value.filterFn),
-          value: String(filter.value.value || filter.value),
+          operator: getFilterOperator(filter.filterFn || "contains"),
+          value: String(filter.value),
         };
       }),
     };
@@ -242,6 +251,8 @@ export const formatNumber = ({
   locale = "en-US",
   formatOptions,
 }: FormatNumberType) => {
+  // for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+
   if (typeof value !== "number" || isNaN(value)) {
     return value;
   }
@@ -250,12 +261,13 @@ export const formatNumber = ({
 
   return formatter.format(value);
 };
-
 export const formatDate = ({
   date,
   locale = "en-US",
   formatOptions,
 }: FormatDateType) => {
+  //for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+
   let parsedDate: Date;
 
   if (date instanceof Date) {

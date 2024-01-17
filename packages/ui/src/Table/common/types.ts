@@ -11,6 +11,7 @@ import type {
   Table,
   TableOptions,
   ColumnFiltersState,
+  Column,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -146,7 +147,10 @@ export type TFilterFn =
   | "greaterThanOrEqual"
   | "lessThanOrEqual"
   | "in"
-  | "between";
+  | "notEqual"
+  | "notIn"
+  | "between"
+  | "notBetween";
 
 export type TFilterVariant =
   | "text"
@@ -193,6 +197,7 @@ declare module "@tanstack/react-table" {
     align?: CellAlignmentType;
     dataType?: CellDataType;
     className?: string;
+    customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
     filterPlaceholder?: string;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
@@ -204,12 +209,17 @@ declare module "@tanstack/react-table" {
     dateOptions?: Omit<FormatDateType, "date">;
     numberOptions?: Omit<FormatNumberType, "value">;
   }
+
+  interface ColumnFilter {
+    filterFn?: TFilterFn;
+  }
 }
 
 export interface TDataTableProperties<TData>
-  extends Omit<TableOptions<TData>, "getCoreRowModel"> {
+  extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
+  data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
   isLoading?: boolean;
@@ -249,3 +259,8 @@ export interface TDataTableProperties<TData>
   stripe?: "none" | "even" | "odd";
   showColumnsAction?: boolean;
 }
+
+export type {
+  FilterFn as FilterFunction,
+  FilterFns as FilterFunctions,
+} from "@tanstack/react-table";

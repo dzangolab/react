@@ -60,7 +60,10 @@
       "withFooter": "Table with footer",
       "borderless": "Table without border but stripe",
       "withoutPagination": "Table without pagination",
-      "withTitle": "Table with title"
+      "withTitle": "Table with title",
+      "withCustomFilter": "Table with custom filter component and filterFn",
+      "withEqualServerFilter": "Table with equal server filterFn",
+      "customStaticFilter": "Table with custom  filter component and static filterFn"
     }
   },
   "message": {
