@@ -203,6 +203,6 @@
   padding: var(--table-column-padding);
 }
 
-/* .table-container .pagination .page-input-control input {
+.table-container .pagination .page-input-control input {
   background-color: #ffffff;
-} */
+}
