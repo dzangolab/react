@@ -120,8 +120,8 @@
       "title": "Page subtitle",
       "tag": "Subtitle tag"
     },
-    "headingSubtitle": {
-      "tag": "Heading subtitle tag"
+    "heading": {
+      "tag": "Heading  tag"
     },
     "toolbar": {
       "edit": "Edit",

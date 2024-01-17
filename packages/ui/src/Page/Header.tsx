@@ -1,6 +1,6 @@
 interface IHeaderProperties {
   breadcrumb?: React.ReactNode;
-  headingSubtitle?: string | React.ReactNode;
+  titleTag?: string | React.ReactNode;
   subtitle?: React.ReactNode | string;
   toolbar?: React.ReactNode;
   title?: string;
@@ -8,7 +8,7 @@ interface IHeaderProperties {
 
 export const PageHeader = ({
   breadcrumb,
-  headingSubtitle,
+  titleTag,
   subtitle,
   toolbar,
   title,
@@ -23,7 +23,7 @@ export const PageHeader = ({
       {title && (
         <h1>
           {title}
-          {headingSubtitle && <span>{headingSubtitle}</span>}
+          {titleTag && <span>{titleTag}</span>}
         </h1>
       )}
       {subtitle && (

@@ -12,7 +12,7 @@ interface Properties
   children?: React.ReactNode;
   className?: string;
   errorMessage?: string;
-  headingSubtitle?: string | React.ReactNode;
+  titleTag?: string | React.ReactNode;
   loading?: boolean;
   loadingComponent?: React.ReactElement;
   loadingPageStyle?: LoadingPageProperties;
@@ -26,7 +26,7 @@ const Page: React.FC<Properties> = ({
   children,
   className,
   errorMessage,
-  headingSubtitle,
+  titleTag,
   loading = false,
   loadingComponent,
   loadingPageStyle,
@@ -58,9 +58,7 @@ const Page: React.FC<Properties> = ({
 
   return (
     <div className={_className}>
-      <PageHeader
-        {...{ title, headingSubtitle, subtitle, toolbar, breadcrumb }}
-      />
+      <PageHeader {...{ title, titleTag, subtitle, toolbar, breadcrumb }} />
       <div data-testid="page-content" className="content" {...others}>
         {child ? child : children}
       </div>
