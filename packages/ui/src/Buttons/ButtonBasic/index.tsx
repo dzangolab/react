@@ -10,7 +10,7 @@ export interface IButtonProperties
     | "success"
     | "danger"
     | "warning";
-  variant?: "outlined" | "filled";
+  variant?: "outlined" | "filled" | "textOnly";
   iconLeft?: string | ReactNode;
   iconRight?: string | ReactNode;
   loading?: boolean;

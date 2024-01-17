@@ -89,6 +89,19 @@
   filter: none;
 }
 
+.dz-button.textOnly {
+  background: transparent;
+}
+
+.dz-button.textOnly:hover {
+  background: var(--_button-outlined-hover-color);
+}
+
+.dz-button.textOnly:active {
+  filter: brightness(1.05);
+  background: var(--_button-outlined-hover-color);
+}
+
 .dz-button.primary {
   --button-color: var(--button-primary-color);
   --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
