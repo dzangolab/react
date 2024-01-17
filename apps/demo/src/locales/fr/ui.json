@@ -116,6 +116,9 @@
       "title": "Page subtitle (fr)",
       "tag": "Subtitle tag (fr)"
     },
+    "headingSubtitle": {
+      "tag": "Heading subtitle tag (fr)"
+    },
     "toolbar": {
       "edit": "Edit (fr)",
       "button": {

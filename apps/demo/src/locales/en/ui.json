@@ -120,10 +120,13 @@
       "title": "Page subtitle",
       "tag": "Subtitle tag"
     },
+    "headingSubtitle": {
+      "tag": "Heading subtitle tag"
+    },
     "toolbar": {
       "edit": "Edit",
-      "button":{
-        "label":"Click"
+      "button": {
+        "label": "Click"
       }
     },
     "content": "Page content."

@@ -49,6 +49,7 @@ export const PageDemo = () => {
       <hr />
       <Page
         title={t("page.title.complete")}
+        headingSubtitle={<Tag value={t("page.headingSubtitle.tag")} />}
         toolbar={<Button label={t("page.toolbar.button.label")} />}
         subtitle={<Tag value={t("page.subTitle.tag")} />}
         children={PageContent}
