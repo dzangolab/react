@@ -32,7 +32,8 @@ test("when title, subtitle, toolbar and content are provided", async () => {
 
   const toolbar = screen.getByTestId("toolbar");
   expect(toolbar).toBeDefined();
-  expect(within(toolbar)).toBeDefined();
+  const button = within(toolbar).queryByText("Click me");
+  expect(button).toBeDefined();
 
   const content = screen.getByTestId("page-content");
   expect(content).toBeDefined();
