@@ -73,9 +73,10 @@ export const Button: FC<IButtonProperties> = ({
     );
   };
 
-  const renderButton = () => {
+  const renderButton = (role: string) => {
     return (
       <button
+        role={role}
         className={buttonClassName}
         disabled={loading || disabled}
         onClick={onClick}
@@ -88,5 +89,11 @@ export const Button: FC<IButtonProperties> = ({
     );
   };
 
-  return to ? <Link to={to}>{renderButton()}</Link> : renderButton();
+  return to ? (
+    <Link to={to} className="dz-button-link">
+      {renderButton("link")}
+    </Link>
+  ) : (
+    renderButton("button")
+  );
 };
