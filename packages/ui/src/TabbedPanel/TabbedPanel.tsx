@@ -7,7 +7,6 @@ import type { Properties } from "./types";
 const TabbedPanel: React.FC<Properties> = ({
   children,
   defaultActiveIndex = 0,
-  onTabChange,
   position = "top",
 }) => {
   const id = useId();

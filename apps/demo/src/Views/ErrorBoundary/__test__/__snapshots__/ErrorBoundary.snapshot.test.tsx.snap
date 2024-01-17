@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <div
-  className="page"
+  className="dz-page"
 >
   <div
     className="content"

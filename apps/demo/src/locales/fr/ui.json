@@ -107,16 +107,20 @@
       "menu": "Page (fr)",
       "basic": "Page demo basic (fr)",
       "toolbar": "Page with toolbar (fr)",
-      "stringSubtitle": "Page with subtile string (fr)",
-      "componentSubtitle": "Page with subtile component (fr)",
-      "breadcrumb": "Page with breadcrumb (fr)"
+      "stringSubtitle": "Page with subtitle string (fr)",
+      "componentSubtitle": "Page with subtitle component (fr)",
+      "breadcrumb": "Page with breadcrumb (fr)",
+      "complete": "Page with every component (fr)"
     },
     "subTitle": {
       "title": "Page subtitle (fr)",
       "tag": "Subtitle tag (fr)"
     },
     "toolbar": {
-      "edit": "Edit (fr)"
+      "edit": "Edit (fr)",
+      "button": {
+        "label": "Click (fr)"
+      }
     },
     "content": "Page content. (fr)"
   }
