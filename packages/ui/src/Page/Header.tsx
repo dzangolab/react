@@ -13,15 +13,19 @@ export const PageHeader = ({
 }: IHeaderProperties) => {
   return (
     <>
-      {breadcrumb ? <div className="breadcrumb">{breadcrumb}</div> : null}
+      {breadcrumb ? (
+        <div className="breadcrumb" data-testid="page-breadcrumb">
+          {breadcrumb}
+        </div>
+      ) : null}
       {title && <h1>{title}</h1>}
       {subtitle && (
-        <div data-testid="subtitle" className="subtitle">
+        <div data-testid="page-subtitle" className="subtitle">
           {subtitle}
         </div>
       )}
       {toolbar && (
-        <div data-testid="toolbar" className="toolbar">
+        <div data-testid="page-toolbar" className="toolbar">
           {toolbar}
         </div>
       )}
