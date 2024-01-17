@@ -99,7 +99,15 @@
 
 .dz-button.textOnly:active {
   filter: brightness(1.05);
+}
+
+.dz-button.textOnly:focus {
   background: var(--_button-outlined-hover-color);
+}
+
+.dz-button.textOnly:disabled:hover {
+  background: none;
+  filter: none;
 }
 
 .dz-button.primary {
