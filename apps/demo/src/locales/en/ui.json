@@ -6,7 +6,8 @@
       "size": "Size",
       "outlined": "Outlined",
       "icons": "Icons",
-      "disabled": "Disabled"
+      "disabled": "Disabled",
+      "text": "Text"
     }
   },
   "filesTable": {

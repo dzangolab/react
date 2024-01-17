@@ -69,8 +69,29 @@ export const ButtonDemo = () => {
         </div>
       </Section>
 
+      <Section title={t("button.usage.text")}>
+        <div className="demo-buttons-container">
+          <Button label="Primary" variant="textOnly" />
+          <Button label="Secondary" severity="secondary" variant="textOnly" />
+          <Button label="Alternate" severity="alternate" variant="textOnly" />
+          <Button label="Success" severity="success" variant="textOnly" />
+          <Button label="Danger" severity="danger" variant="textOnly" />
+          <Button label="Warning" severity="warning" variant="textOnly" />
+        </div>
+      </Section>
+
       <Section title={t("button.usage.icons")}>
         <div className="demo-buttons-container">
+          <Button
+            variant="textOnly"
+            severity="secondary"
+            iconLeft="pi pi-user"
+          />
+          <Button
+            variant="textOnly"
+            severity="success"
+            iconRight="pi pi-times"
+          />
           <Button variant="filled" iconRight="pi pi-user" />
           <Button
             label="Secondary"
