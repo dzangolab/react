@@ -1,15 +1,17 @@
 interface IHeaderProperties {
-  title?: string;
+  breadcrumb?: React.ReactNode;
+  titleTag?: string | React.ReactNode;
   subtitle?: React.ReactNode | string;
   toolbar?: React.ReactNode;
-  breadcrumb?: React.ReactNode;
+  title?: string;
 }
 
 export const PageHeader = ({
-  title,
+  breadcrumb,
+  titleTag,
   subtitle,
   toolbar,
-  breadcrumb,
+  title,
 }: IHeaderProperties) => {
   return (
     <>
@@ -18,7 +20,12 @@ export const PageHeader = ({
           {breadcrumb}
         </div>
       ) : null}
-      {title && <h1>{title}</h1>}
+      {title && (
+        <h1>
+          {title}
+          {titleTag && <span>{titleTag}</span>}
+        </h1>
+      )}
       {subtitle && (
         <div data-testid="page-subtitle" className="subtitle">
           {subtitle}
