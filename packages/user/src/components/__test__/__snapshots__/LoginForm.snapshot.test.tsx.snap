@@ -55,6 +55,7 @@ exports[`Component matches snapshot 1`] = `
   </div>
   <button
     className="dz-button primary filled medium"
+    role="button"
     type="submit"
   >
     <span
