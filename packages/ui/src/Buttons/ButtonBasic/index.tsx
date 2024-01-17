@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
 export interface IButtonProperties
   extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: string;
   label?: string;
   severity?:
     | "primary"
@@ -19,6 +20,7 @@ export interface IButtonProperties
 }
 
 export const Button: FC<IButtonProperties> = ({
+  children,
   label,
   severity = "primary",
   variant = "filled",
@@ -79,7 +81,7 @@ export const Button: FC<IButtonProperties> = ({
       {...otherProperties}
     >
       {renderIconLeft()}
-      {renderLabel()}
+      {children || renderLabel()}
       {renderIconRight()}
     </button>
   );
