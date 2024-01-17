@@ -23,7 +23,6 @@ export const ButtonDemo = () => {
       <Section title={t("button.usage.size")}>
         <div className="demo-buttons-container">
           <Button
-            to="/"
             label="Small"
             size="small"
             variant="filled"
