@@ -1,3 +1,20 @@
+# [0.28.0](https://github.com/dzangolab/react/compare/v0.27.0...v0.28.0) (2024-01-17)
+
+
+### Features
+
+* **demo:** update ui ([#719](https://github.com/dzangolab/react/issues/719)) ([60db785](https://github.com/dzangolab/react/commit/60db7854d472e7b888b0170ed715ad5393d7e79e))
+* **layout:** make menu items interactive ([#718](https://github.com/dzangolab/react/issues/718)) ([740feeb](https://github.com/dzangolab/react/commit/740feeba5d7286686ec9f894558dbbd634861a4a))
+* **submenu:** add support for submenu in sidebar ([#712](https://github.com/dzangolab/react/issues/712)) ([d7eb584](https://github.com/dzangolab/react/commit/d7eb584d3223f939d59675b71f0aafa85719d1b5))
+* **ui/Page:** add separate page header component ([#723](https://github.com/dzangolab/react/issues/723)) ([fb23614](https://github.com/dzangolab/react/commit/fb23614fd46e622032b2f430d5f3382ff244093b))
+* **ui/sortable-list:** improve sortable list's ui when drag/drop ([#720](https://github.com/dzangolab/react/issues/720)) ([dd744dd](https://github.com/dzangolab/react/commit/dd744dda7baf82dd77f7bbab1ebf755d075f241f))
+* **ui/Table:** add custom filter support ([e247b05](https://github.com/dzangolab/react/commit/e247b0500d8713cf3438e7e5c1d33b5d3f6100f9))
+* **ui/Table:** add data formating options ([#716](https://github.com/dzangolab/react/issues/716)) ([8e31631](https://github.com/dzangolab/react/commit/8e3163150a2f5d541def394b02359d18cabd6614))
+* **user/invitationTable:** support client side data rendering ([#725](https://github.com/dzangolab/react/issues/725)) ([b087b19](https://github.com/dzangolab/react/commit/b087b1966db054f505bb10f6d6491c4839daa387))
+* **users-table:** make fetchuser prop optional ([#724](https://github.com/dzangolab/react/issues/724)) ([760c547](https://github.com/dzangolab/react/commit/760c54752397004c2b4154ba8fecce6f92cb5776))
+
+
+
 # [0.27.0](https://github.com/dzangolab/react/compare/v0.26.0...v0.27.0) (2024-01-05)
 
 
