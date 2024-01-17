@@ -9,7 +9,7 @@ exports[`Component matches snapshot 1`] = `
   </h1>
   <div
     className="subtitle"
-    title="subtitle"
+    data-testid="subtitle"
   >
     This is the subtitle
   </div>
