@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 export interface IButtonProperties
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,6 +17,7 @@ export interface IButtonProperties
   loading?: boolean;
   loadingIcon?: string | ReactNode;
   size?: "small" | "medium" | "large";
+  to?: string;
 }
 
 export const Button: FC<IButtonProperties> = ({
@@ -29,6 +31,7 @@ export const Button: FC<IButtonProperties> = ({
   size = "medium",
   onClick,
   className = "",
+  to,
   ...otherProperties
 }) => {
   const buttonClassName = ["dz-button", className, severity, variant, size]
@@ -71,16 +74,20 @@ export const Button: FC<IButtonProperties> = ({
     );
   };
 
-  return (
-    <button
-      onClick={onClick}
-      disabled={loading || disabled}
-      className={buttonClassName}
-      {...otherProperties}
-    >
-      {renderIconLeft()}
-      {renderLabel()}
-      {renderIconRight()}
-    </button>
-  );
+  const renderButton = () => {
+    return (
+      <button
+        onClick={onClick}
+        disabled={loading || disabled}
+        className={buttonClassName}
+        {...otherProperties}
+      >
+        {renderIconLeft()}
+        {renderLabel()}
+        {renderIconRight()}
+      </button>
+    );
+  };
+
+  return to ? <Link to={to}>{renderButton()}</Link> : renderButton();
 };
