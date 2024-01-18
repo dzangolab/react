@@ -24,6 +24,10 @@
   --button-transition-duration: var(--transition-duration);
 }
 
+.dz-button-link {
+  text-decoration: none;
+}
+
 .dz-button {
   --_button-color: var(--button-color);
   --_button-outlined-hover-color: var(--button-outlined-hover-color);

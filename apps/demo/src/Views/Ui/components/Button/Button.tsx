@@ -111,6 +111,13 @@ export const ButtonDemo = () => {
           />
         </div>
       </Section>
+
+      <Section title={t("button.usage.link")}>
+        <div className="demo-buttons-container">
+          <Button label="Home" to="/" />
+          <Button label="Back" severity="secondary" to="/ui" />
+        </div>
+      </Section>
     </Page>
   );
 };
