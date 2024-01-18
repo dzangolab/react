@@ -73,8 +73,7 @@
     "primereact": "9.6.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",
-    "react-router-dom": ">=6.9",
-    "@tanstack/react-table": "8.9.3"
+    "react-router-dom": ">=6.9"
   },
   "engines": {
     "node": ">=16",
