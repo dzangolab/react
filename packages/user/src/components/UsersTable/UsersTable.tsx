@@ -5,7 +5,7 @@ import {
   TRequestJSON,
   IButtonProperties,
 } from "@dzangolab/react-ui";
-import { ColumnDef } from "@tanstack/react-table";
+import type { TableColumnDefinition } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
 import { UserAction } from "./UserActions";
@@ -76,7 +76,7 @@ export const UsersTable = ({
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const defaultColumns: Array<ColumnDef<UserType>> = [
+  const defaultColumns: Array<TableColumnDefinition<UserType>> = [
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),

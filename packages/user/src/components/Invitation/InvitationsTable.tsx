@@ -22,7 +22,7 @@ import type {
   Invitation,
   UserType,
 } from "../../types";
-import type { ColumnDef } from "@tanstack/react-table";
+import type { TableColumnDefinition } from "@dzangolab/react-ui";
 
 type VisibleColumn =
   | "email"
@@ -84,7 +84,7 @@ export const InvitationsTable = ({
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("invitations");
 
-  const defaultColumns: Array<ColumnDef<Invitation>> = [
+  const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
