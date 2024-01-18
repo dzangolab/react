@@ -248,7 +248,7 @@ export const getParsedColumns = ({
 
 export const formatNumber = ({
   value,
-  locale = "en-US",
+  locale = "en-GB",
   formatOptions,
 }: FormatNumberType) => {
   // for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
@@ -263,7 +263,7 @@ export const formatNumber = ({
 };
 export const formatDate = ({
   date,
-  locale = "en-US",
+  locale = "en-GB",
   formatOptions,
 }: FormatDateType) => {
   //for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
