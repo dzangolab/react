@@ -17,7 +17,7 @@ export interface IButtonProperties
     | "warning";
   size?: "small" | "medium" | "large";
   to?: string;
-  variant?: "outlined" | "filled";
+  variant?: "outlined" | "filled" | "textOnly";
 }
 
 export const Button: FC<IButtonProperties> = ({
