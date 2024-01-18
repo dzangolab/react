@@ -45,6 +45,16 @@ export const PageDemo = () => {
         children={PageContent}
         breadcrumb={breadcrumb}
       />
+
+      <hr />
+      <Page
+        title={t("page.title.complete")}
+        titleTag={<Tag value={t("page.heading.tag")} />}
+        toolbar={<Button label={t("page.toolbar.button.label")} />}
+        subtitle={<Tag value={t("page.subTitle.tag")} />}
+        children={PageContent}
+        breadcrumb={breadcrumb}
+      />
     </>
   );
 };

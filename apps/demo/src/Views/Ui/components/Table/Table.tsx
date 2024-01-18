@@ -1,13 +1,23 @@
+import { DatePickerBasic } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
   TDataTable,
   Page,
   Button,
   TableColumnDefinition,
+  DebouncedInput,
 } from "@dzangolab/react-ui";
+import { FilterFunction } from "@dzangolab/react-ui";
 
 import { data, formatDemoData } from "./data";
 import { Section } from "../../../../components/Demo";
+
+declare module "@dzangolab/react-ui" {
+  interface FilterFunctions {
+    inDateRangeFilter: FilterFunction<unknown>;
+    customEqualStringFilter: FilterFunction<unknown>;
+  }
+}
 
 export const TableDemo = () => {
   const [t] = useTranslation("ui");
@@ -40,6 +50,37 @@ export const TableDemo = () => {
       minWidth: "8rem",
     },
   ];
+
+  const inDateRangeFilter: FilterFunction<any> = (
+    row,
+    columnId,
+    value: [Date, Date],
+  ) => {
+    if (!value[0] || !value[1]) {
+      return true;
+    }
+
+    if (
+      value[0].getTime() <= (row.original.date as Date).getTime() &&
+      (row.original.date as Date).getTime() < value[1].getTime()
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const customEqualStringFilter: FilterFunction<any> = (
+    row,
+    columnId,
+    value: string,
+  ) => {
+    if (value.includes(row.getValue(columnId) as string)) {
+      return true;
+    }
+
+    return false;
+  };
 
   return (
     <Page title={t("table.title")}>
@@ -289,6 +330,50 @@ export const TableDemo = () => {
               },
             ],
           }}
+        />
+      </Section>
+
+      <Section title={t("table.usage.withCustomFilter")}>
+        <TDataTable
+          columns={[
+            ...columns,
+            {
+              accessorKey: "email",
+              enableColumnFilter: true,
+              customFilterComponent: (column) => (
+                <DebouncedInput
+                  defaultValue={column.getFilterValue() as string}
+                  onInputChange={(value) => {
+                    column.setFilterValue(value);
+                  }}
+                  placeholder={"Custom filter..."}
+                  debounceTime={200}
+                ></DebouncedInput>
+              ),
+              meta: {
+                serverFilterFn: "contains",
+              },
+            },
+          ]}
+          fetchData={() => {}}
+          data={data.slice(10, 15)}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.withEqualServerFilter")}>
+        <TDataTable
+          columns={[
+            ...columns,
+            {
+              accessorKey: "email",
+              enableColumnFilter: true,
+              meta: {
+                serverFilterFn: "equals",
+              },
+            },
+          ]}
+          fetchData={() => {}}
+          data={data.slice(10, 15)}
         ></TDataTable>
       </Section>
 
@@ -342,6 +427,96 @@ export const TableDemo = () => {
           ]}
           data={formatDemoData}
           paginated={false}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.customStaticFilter")}>
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "description",
+              header: "Description",
+              filterFn: "customEqualStringFilter",
+              enableColumnFilter: true,
+              filterPlaceholder: "Match description ..",
+            },
+            {
+              accessorKey: "quantity",
+              header: () => "Quantity",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "number",
+              numberOptions: {
+                locale: "en-IN",
+              },
+            },
+            {
+              accessorKey: "amount",
+              header: "Amount",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "currency",
+              numberOptions: {
+                locale: "en-US",
+                formatOptions: {
+                  currency: "EUR",
+                },
+              },
+            },
+            {
+              accessorKey: "date",
+              header: "Date",
+              width: "16rem",
+              maxWidth: "16rem",
+              minWidth: "16rem",
+              dataType: "date",
+              enableColumnFilter: true,
+              filterFn: "inDateRangeFilter",
+              customFilterComponent(column) {
+                return (
+                  <>
+                    <DatePickerBasic
+                      inputRef={null}
+                      name="start-date"
+                      onChange={(date) =>
+                        column.setFilterValue((old: [Date, Date]) => [
+                          date,
+                          old?.[1],
+                        ])
+                      }
+                      value={(column.getFilterValue() as [Date, Date])?.[0]}
+                    />
+                    <DatePickerBasic
+                      inputRef={null}
+                      name="end-date"
+                      onChange={(date) =>
+                        column.setFilterValue((old: [Date, Date]) => [
+                          old?.[0],
+                          date,
+                        ])
+                      }
+                      value={(column.getFilterValue() as [Date, Date])?.[1]}
+                    />
+                  </>
+                );
+              },
+            },
+            {
+              id: "action",
+              header: "",
+              width: "8rem",
+              dataType: "other",
+              cell: () => <Button iconLeft="pi pi-eye" />,
+            },
+          ]}
+          data={formatDemoData}
+          paginated={false}
+          filterFns={{
+            inDateRangeFilter: inDateRangeFilter,
+            customEqualStringFilter: customEqualStringFilter,
+          }}
         ></TDataTable>
       </Section>
     </Page>

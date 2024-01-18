@@ -41,7 +41,7 @@ export type InvitationsTableProperties = Partial<
 > & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
-  fetchInvitations: (arguments_: TRequestJSON) => void;
+  fetchInvitations?: (arguments_: TRequestJSON) => void;
   invitationButtonOptions?: IButtonProperties;
   invitationExpiryDateField?: InvitationExpiryDateField;
   invitations: Array<Invitation>;

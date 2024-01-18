@@ -1,10 +1,10 @@
-.page.home .packages {
+.dz-page.home .packages {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-.page.home .packages .package {
+.dz-page.home .packages .package {
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -14,12 +14,12 @@
   gap: 0.25rem;
 }
 
-.page.home .packages .package:hover {
+.dz-page.home .packages .package:hover {
   border-color: var(--dz-secondary-color);
 }
 
 @media screen and (min-width: 60rem) {
-  .page.home .packages {
+  .dz-page.home .packages {
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
 }

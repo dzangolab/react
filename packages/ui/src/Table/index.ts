@@ -22,4 +22,6 @@ export type {
   TableColumnDefinition,
   TRequestJSON,
   TDataTableProperties,
+  FilterFunction,
+  FilterFunctions,
 } from "./common/types";

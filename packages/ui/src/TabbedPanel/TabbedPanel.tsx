@@ -7,8 +7,6 @@ import type { Properties } from "./types";
 const TabbedPanel: React.FC<Properties> = ({
   children,
   defaultActiveIndex = 0,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onTabChange,
   position = "top",
 }) => {
   const id = useId();

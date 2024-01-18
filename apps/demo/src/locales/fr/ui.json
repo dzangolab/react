@@ -6,7 +6,9 @@
       "size": "Size (fr)",
       "outlined": "Outlined (fr)",
       "icons": "Icons (fr)",
-      "disabled": "Disabled (fr)"
+      "disabled": "Disabled (fr)",
+      "text": "Text (fr)",
+      "link": "Link (fr)"
     }
   },
   "filesTable": {
@@ -57,7 +59,10 @@
       "withFooter": "Table with footer (fr)",
       "borderless": "Table without border but stripe (fr)",
       "withoutPagination": "Table without pagination (fr)",
-      "withTitle": "Table with title (fr)"
+      "withTitle": "Table with title (fr)",
+      "withCustomFilter": "Table with custom filter component and filterFn (fr)",
+      "withEqualServerFilter": "Table with equal server filterFn (fr)",
+      "customStaticFilter": "Table with custom  filter component and static filterFn (fr)"
     }
   },
   "message": {
@@ -105,16 +110,23 @@
       "menu": "Page (fr)",
       "basic": "Page demo basic (fr)",
       "toolbar": "Page with toolbar (fr)",
-      "stringSubtitle": "Page with subtile string (fr)",
-      "componentSubtitle": "Page with subtile component (fr)",
-      "breadcrumb": "Page with breadcrumb (fr)"
+      "stringSubtitle": "Page with subtitle string (fr)",
+      "componentSubtitle": "Page with subtitle component (fr)",
+      "breadcrumb": "Page with breadcrumb (fr)",
+      "complete": "Page with every component (fr)"
     },
     "subTitle": {
       "title": "Page subtitle (fr)",
       "tag": "Subtitle tag (fr)"
     },
+    "heading": {
+      "tag": "Heading tag (fr)"
+    },
     "toolbar": {
-      "edit": "Edit (fr)"
+      "edit": "Edit (fr)",
+      "button": {
+        "label": "Click (fr)"
+      }
     },
     "content": "Page content. (fr)"
   }
