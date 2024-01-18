@@ -50,6 +50,11 @@ describe("FormatDate unit test", () => {
       }).toThrowError("Invalid language tag: ne-n");
     }
   });
+
+  test("Should return null if date is not provided", () => {
+    const date = null as unknown as Date;
+    expect(formatDate({ date })).toBeNull;
+  });
 });
 
 describe("FormatNumber unit test", () => {
