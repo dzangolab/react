@@ -226,7 +226,7 @@ export const AllUsersTable = ({
     {
       align: "center",
       accessorKey: "actions",
-      header: t("invitations:table.defaultColumns.actions"),
+      header: "",
       cell: ({ row: { original } }) => {
         return (
           <>
