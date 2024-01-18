@@ -146,7 +146,7 @@ export const formatDemoData = [
     id: 1001,
     amount: 1_234_567.89,
     quantity: 420,
-    date: new Date(),
+    date: null,
     description: "Purchase of equipment",
   },
   {

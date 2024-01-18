@@ -477,6 +477,10 @@ const DataTable = <TData extends { id: string | number }>({
                             }) as NoInfer<never>;
 
                           case "date":
+                            if (!renderValue()) {
+                              return null as NoInfer<never>;
+                            }
+
                             return formatDate({
                               date: renderValue() as Date,
                               locale: dateOptions?.locale,
