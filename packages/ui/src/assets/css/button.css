@@ -15,12 +15,12 @@
   --button-small-padding: 0.65625rem 1.09375rem;
   --button-medium-padding: 0.75rem 1.25rem;
   --button-large-padding: 0.9375rem 1.5625rem;
-  --button-primary-outlined-hover-color: #e6eef6;
-  --button-secondary-outlined-hover-color: #eaeff6;
-  --button-alternate-outlined-hover-color: #e9f2f6;
-  --button-success-outlined-hover-color: #eff6f2;
-  --button-danger-outlined-hover-color: #f8eff0;
-  --button-warning-outlined-hover-color: #f7f1ef;
+  --button-primary-outlined-hover-color: #e6f1fc;
+  --button-secondary-outlined-hover-color: #f3f4f5;
+  --button-alternate-outlined-hover-color: #e8f4f9;
+  --button-success-outlined-hover-color: #f0fcf6;
+  --button-danger-outlined-hover-color: #fae6e7;
+  --button-warning-outlined-hover-color: #faede8;
   --button-transition-duration: var(--transition-duration);
 }
 
