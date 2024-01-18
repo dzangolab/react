@@ -267,6 +267,9 @@ export const formatDate = ({
   formatOptions,
 }: FormatDateType) => {
   //for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+  if (!date) {
+    return null;
+  }
 
   let parsedDate: Date;
 
