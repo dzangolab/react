@@ -151,7 +151,13 @@ export type TFilterFn =
   | "notEqual"
   | "notIn"
   | "between"
-  | "notBetween";
+  | "notBetween"
+  | "isNull"
+  | "isNotNull"
+  | "isEmpty"
+  | "isNotEmpty"
+  | "like"
+  | "notLike";
 
 export type TFilterVariant =
   | "text"
