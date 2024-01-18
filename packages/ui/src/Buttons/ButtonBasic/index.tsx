@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export interface IButtonProperties
   extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: string;
   iconLeft?: string | ReactNode;
   iconRight?: string | ReactNode;
   label?: string;
@@ -20,6 +21,7 @@ export interface IButtonProperties
 }
 
 export const Button: FC<IButtonProperties> = ({
+  children,
   className = "",
   disabled,
   iconLeft,
@@ -83,7 +85,7 @@ export const Button: FC<IButtonProperties> = ({
         {...otherProperties}
       >
         {renderIconLeft()}
-        {renderLabel()}
+        {children || renderLabel()}
         {renderIconRight()}
       </button>
     );
