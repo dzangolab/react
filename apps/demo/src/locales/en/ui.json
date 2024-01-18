@@ -48,6 +48,7 @@
     "title": "Table (Tanstack)",
     "usage": {
       "basic": "Basic table",
+      "builtInActionColumn": "Table demonstrating built in actions column use case",
       "cellDataFormating": "Table demonstrating cell content formating",
       "filterable": "Table with filterable column",
       "sortable": "Table with sortable column",

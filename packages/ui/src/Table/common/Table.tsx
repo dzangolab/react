@@ -24,6 +24,7 @@ import {
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "./constants";
+import { DataActionsMenu } from "./TableDataActions";
 import {
   Table,
   TableBody,
@@ -60,6 +61,8 @@ const DataTable = <TData extends { id: string | number }>({
   columns = [],
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
   data,
+  dataActionsMenu,
+  displayRowActions = true,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
   id,
@@ -122,53 +125,77 @@ const DataTable = <TData extends { id: string | number }>({
     }
   };
 
-  const parsedColumns = useMemo(
-    () => getParsedColumns({ visibleColumns, columns }),
-    [visibleColumns, columns],
-  );
+  const parsedColumns = useMemo(() => {
+    let parsedColumns: ColumnDef<TData, unknown>[] = getParsedColumns({
+      visibleColumns,
+      columns,
+    });
 
-  const columnsWithRowSelection = useMemo(() => {
-    if (!enableRowSelection) {
-      return parsedColumns;
+    const defaultActionColumn: ColumnDef<TData, unknown> = {
+      id: "actions",
+      header: "",
+      width: "3rem",
+      maxWidth: "3rem",
+      minWidth: "3rem",
+      cell: ({ row: { original } }) => {
+        const isVisibleActions =
+          typeof displayRowActions === "function"
+            ? displayRowActions(original)
+            : displayRowActions;
+
+        if (!isVisibleActions) {
+          return <></>;
+        }
+
+        return <DataActionsMenu {...dataActionsMenu} data={original} />;
+      },
+    };
+
+    if (enableRowSelection) {
+      parsedColumns = [
+        {
+          id: "select",
+          header: ({ table }) => (
+            <Checkbox
+              checked={table.getIsAllPageRowsSelected()}
+              onChange={() =>
+                table.toggleAllPageRowsSelected(
+                  !table.getIsAllPageRowsSelected(),
+                )
+              }
+              aria-label="Select all"
+            />
+          ),
+          cell: ({ row }) => (
+            <Checkbox
+              checked={row.getIsSelected()}
+              onChange={() => row.toggleSelected(!row.getIsSelected())}
+              aria-label="Select row"
+            />
+          ),
+          enableSorting: false,
+          enableHiding: false,
+          enableColumnFilter: false,
+          enableGlobalFilter: false,
+          align: "center",
+          width: "3rem",
+          maxWidth: "3rem",
+          minWidth: "3rem",
+        },
+        ...parsedColumns,
+      ];
     }
 
-    const columns: ColumnDef<TData>[] = [
-      {
-        id: "select",
-        header: ({ table }) => (
-          <Checkbox
-            checked={table.getIsAllPageRowsSelected()}
-            onChange={() =>
-              table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected())
-            }
-            aria-label="Select all"
-          />
-        ),
-        cell: ({ row }) => (
-          <Checkbox
-            checked={row.getIsSelected()}
-            onChange={() => row.toggleSelected(!row.getIsSelected())}
-            aria-label="Select row"
-          />
-        ),
-        enableSorting: false,
-        enableHiding: false,
-        enableColumnFilter: false,
-        enableGlobalFilter: false,
-        align: "center",
-        width: "3rem",
-        maxWidth: "3rem",
-        minWidth: "3rem",
-      },
-      ...parsedColumns,
-    ];
+    if (dataActionsMenu) {
+      parsedColumns = [...parsedColumns, defaultActionColumn];
+    }
 
-    return columns;
-  }, [parsedColumns]);
+    return parsedColumns;
+  }, [visibleColumns, columns]);
 
   const table = useReactTable({
     data,
-    columns: columnsWithRowSelection,
+    columns: parsedColumns,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -221,9 +248,9 @@ const DataTable = <TData extends { id: string | number }>({
 
   useEffect(() => {
     if (visibleColumns.length !== 0) {
-      table.setColumnOrder(["select", ...visibleColumns]);
+      table.setColumnOrder(["select", ...visibleColumns, "actions"]);
     }
-  }, [visibleColumns, columnsWithRowSelection]);
+  }, [visibleColumns, parsedColumns]);
 
   const renderTooltipContent = (
     cell: Cell<TData, unknown>,
@@ -264,7 +291,10 @@ const DataTable = <TData extends { id: string | number }>({
                     <SortableList
                       items={table
                         .getAllLeafColumns()
-                        .filter((column) => column.id !== "select")
+                        .filter(
+                          (column) =>
+                            column.id !== "select" && column.id !== "actions",
+                        )
                         .map((column, index) => ({
                           id: index,
                           data: column,
@@ -291,6 +321,7 @@ const DataTable = <TData extends { id: string | number }>({
                         table.setColumnOrder([
                           ...(enableRowSelection ? ["select"] : []),
                           ...sorted.map((item) => item.data.id),
+                          ...(dataActionsMenu ? ["actions"] : []),
                         ]);
                       }}
                     />
@@ -532,7 +563,7 @@ const DataTable = <TData extends { id: string | number }>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columnsWithRowSelection.length}>
+              <TableCell colSpan={parsedColumns.length}>
                 {emptyTableMessage}
               </TableCell>
             </TableRow>

@@ -1,3 +1,4 @@
+import { DataActionsMenuProperties } from "./TableDataActions";
 import { Pagination } from "../../Pagination";
 import { Tooltip } from "../../Tooltip";
 
@@ -210,6 +211,8 @@ export interface TDataTableProperties<TData>
   extends Omit<TableOptions<TData>, "getCoreRowModel"> {
   className?: string;
   columnActionBtnLabel?: string;
+  dataActionsMenu?: DataActionsMenuProperties;
+  displayRowActions?: boolean | ((data: TData) => boolean);
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
   isLoading?: boolean;
