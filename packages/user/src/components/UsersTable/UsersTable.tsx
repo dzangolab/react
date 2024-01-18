@@ -4,8 +4,8 @@ import {
   TDataTableProperties,
   TRequestJSON,
   IButtonProperties,
+  TableColumnDefinition,
 } from "@dzangolab/react-ui";
-import type { TableColumnDefinition } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
 import { UserAction } from "./UserActions";

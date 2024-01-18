@@ -4,6 +4,7 @@ import {
   TDataTableProperties,
   TRequestJSON,
   IButtonProperties,
+  TableColumnDefinition,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
@@ -21,7 +22,6 @@ import type {
   ExtendedUser,
   Invitation,
 } from "@/types";
-import type { TableColumnDefinition } from "@dzangolab/react-ui";
 
 type VisibleColumn =
   | "name"

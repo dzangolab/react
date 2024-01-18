@@ -4,6 +4,7 @@ import {
   TDataTableProperties,
   TRequestJSON,
   IButtonProperties,
+  TableColumnDefinition,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
@@ -22,7 +23,6 @@ import type {
   Invitation,
   UserType,
 } from "../../types";
-import type { TableColumnDefinition } from "@dzangolab/react-ui";
 
 type VisibleColumn =
   | "email"
