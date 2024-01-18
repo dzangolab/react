@@ -53,6 +53,7 @@ describe("FormatDate unit test", () => {
 
   test("Should return null if date is not provided", () => {
     const date = null as unknown as Date;
+
     expect(formatDate({ date })).toBeNull;
   });
 });
