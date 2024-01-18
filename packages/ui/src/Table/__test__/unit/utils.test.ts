@@ -50,6 +50,12 @@ describe("FormatDate unit test", () => {
       }).toThrowError("Invalid language tag: ne-n");
     }
   });
+
+  test("Should return null if date is empty", () => {
+    const date = "";
+
+    expect(formatDate({ date })).toBeNull;
+  });
 });
 
 describe("FormatNumber unit test", () => {
