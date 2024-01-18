@@ -137,6 +137,18 @@
   justify-content: flex-start;
   flex-direction: row-reverse;
   text-align: right;
+  padding-right: 1rem;
+}
+
+.table-container
+  .table-wrapper
+  .table
+  .tcol-head[data-align="right"]
+  > .content {
+  justify-content: center;
+  flex-direction: row-reverse;
+  text-align: center;
+  padding-right: 0;
 }
 
 .table-container .table-wrapper .table .tcol-head.sortable {
