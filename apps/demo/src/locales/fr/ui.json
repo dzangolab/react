@@ -7,7 +7,8 @@
       "outlined": "Outlined (fr)",
       "icons": "Icons (fr)",
       "disabled": "Disabled (fr)",
-      "text": "Text (fr)"
+      "text": "Text (fr)",
+      "link": "Link (fr)"
     }
   },
   "filesTable": {
@@ -116,6 +117,9 @@
     "subTitle": {
       "title": "Page subtitle (fr)",
       "tag": "Subtitle tag (fr)"
+    },
+    "heading": {
+      "tag": "Heading tag (fr)"
     },
     "toolbar": {
       "edit": "Edit (fr)",

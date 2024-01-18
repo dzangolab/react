@@ -7,7 +7,8 @@
       "outlined": "Outlined",
       "icons": "Icons",
       "disabled": "Disabled",
-      "text": "Text"
+      "text": "Text",
+      "link": "Link"
     }
   },
   "filesTable": {
@@ -121,10 +122,13 @@
       "title": "Page subtitle",
       "tag": "Subtitle tag"
     },
+    "heading": {
+      "tag": "Heading tag"
+    },
     "toolbar": {
       "edit": "Edit",
-      "button":{
-        "label":"Click"
+      "button": {
+        "label": "Click"
       }
     },
     "content": "Page content."
