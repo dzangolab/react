@@ -92,4 +92,16 @@ export const allUsers = [
       isActiveUser: true,
     },
   },
+  {
+    id: "user-6",
+    email: "george@dzangolab.com",
+    givenName: "george",
+    roles: ["USER"],
+    surname: "williams",
+    username: "george",
+    isActiveUser: true,
+    invitedBy: null,
+    signedUpAt: "2023-10-10T08:00:00Z",
+    disabled: true,
+  },
 ];

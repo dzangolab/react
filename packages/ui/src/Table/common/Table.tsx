@@ -24,6 +24,7 @@ import {
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "./constants";
+import { DataActionsMenu } from "./TableDataActions";
 import {
   Table,
   TableBody,
@@ -35,14 +36,23 @@ import {
   TableFooter,
   TooltipWrapper,
 } from "./TableElements";
-import { getRequestJSON, getParsedColumns } from "./utils";
+import {
+  getRequestJSON,
+  getParsedColumns,
+  formatNumber,
+  formatDate,
+} from "./utils";
 import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
 import { Button } from "../../Buttons/ButtonBasic";
 import LoadingIcon from "../../LoadingIcon";
 import { Pagination } from "../../Pagination";
 
-import type { TCustomColumnFilter, TDataTableProperties } from "./types";
-import type { Cell, ColumnDef } from "@tanstack/react-table";
+import type {
+  CellAlignmentType,
+  CellDataType,
+  TDataTableProperties,
+} from "./types";
+import type { Cell, ColumnDef, NoInfer } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   border = "grid",
@@ -50,6 +60,8 @@ const DataTable = <TData extends { id: string | number }>({
   columns = [],
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
   data,
+  dataActionsMenu,
+  displayRowActions = true,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
   id,
@@ -74,9 +86,9 @@ const DataTable = <TData extends { id: string | number }>({
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<TCustomColumnFilter[]>(
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    initialFilters as any,
+    initialFilters,
   );
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
@@ -87,57 +99,117 @@ const DataTable = <TData extends { id: string | number }>({
   const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setColumnFilters(event_ as any);
-  };
+    const updatedColumnFilter =
+      typeof event_ === "function" ? event_(columnFilters) : event_;
 
-  const parsedColumns = useMemo(
-    () => getParsedColumns({ visibleColumns, columns }),
-    [visibleColumns, columns],
-  );
-
-  const columnsWithRowSelection = useMemo(() => {
-    if (!enableRowSelection) {
-      return parsedColumns;
+    if (!Array.isArray(updatedColumnFilter)) {
+      return [];
     }
 
-    const columns: ColumnDef<TData>[] = [
-      {
-        id: "select",
-        header: ({ table }) => (
-          <Checkbox
-            checked={table.getIsAllPageRowsSelected()}
-            onChange={() =>
-              table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected())
-            }
-            aria-label="Select all"
-          />
-        ),
-        cell: ({ row }) => (
-          <Checkbox
-            checked={row.getIsSelected()}
-            onChange={() => row.toggleSelected(!row.getIsSelected())}
-            aria-label="Select row"
-          />
-        ),
-        enableSorting: false,
-        enableHiding: false,
-        enableColumnFilter: false,
-        enableGlobalFilter: false,
-        align: "center",
-        width: "3rem",
-        maxWidth: "3rem",
-        minWidth: "3rem",
-      },
-      ...parsedColumns,
-    ];
+    const updatedFilters = updatedColumnFilter.map((filter) => {
+      const column = table.getColumn(filter.id);
 
-    return columns;
-  }, [parsedColumns]);
+      return {
+        ...filter,
+        filterFn: column?.columnDef.meta?.serverFilterFn,
+      };
+    });
+
+    setColumnFilters(updatedFilters);
+  };
+
+  const getAlignValue = ({
+    align,
+    dataType,
+  }: {
+    align?: CellAlignmentType;
+    dataType?: CellDataType;
+    header?: boolean;
+  }) => {
+    if (align) {
+      return align;
+    }
+
+    if (dataType == "other") {
+      return "center";
+    } else if (dataType == "number" || dataType == "currency") {
+      return "right";
+    } else {
+      return "left";
+    }
+  };
+
+  const parsedColumns = useMemo(() => {
+    let parsedColumns: ColumnDef<TData, unknown>[] = getParsedColumns({
+      visibleColumns,
+      columns,
+    });
+
+    const defaultActionColumn: ColumnDef<TData, unknown> = {
+      id: "actions",
+      header: "",
+      width: "3rem",
+      maxWidth: "3rem",
+      minWidth: "3rem",
+      cell: ({ row: { original } }) => {
+        const isVisibleActions =
+          typeof displayRowActions === "function"
+            ? displayRowActions(original)
+            : displayRowActions;
+
+        if (!isVisibleActions) {
+          return <></>;
+        }
+
+        return <DataActionsMenu {...dataActionsMenu} data={original} />;
+      },
+    };
+
+    if (enableRowSelection) {
+      parsedColumns = [
+        {
+          id: "select",
+          header: ({ table }) => (
+            <Checkbox
+              checked={table.getIsAllPageRowsSelected()}
+              onChange={() =>
+                table.toggleAllPageRowsSelected(
+                  !table.getIsAllPageRowsSelected(),
+                )
+              }
+              aria-label="Select all"
+            />
+          ),
+          cell: ({ row }) => (
+            <Checkbox
+              checked={row.getIsSelected()}
+              onChange={() => row.toggleSelected(!row.getIsSelected())}
+              aria-label="Select row"
+            />
+          ),
+          enableSorting: false,
+          enableHiding: false,
+          enableColumnFilter: false,
+          enableGlobalFilter: false,
+          align: "center",
+          width: "3rem",
+          maxWidth: "3rem",
+          minWidth: "3rem",
+        },
+        ...parsedColumns,
+      ];
+    }
+
+    if (dataActionsMenu) {
+      parsedColumns = [...parsedColumns, defaultActionColumn];
+    }
+
+    return parsedColumns;
+  }, [visibleColumns, columns]);
 
   const table = useReactTable({
     data,
-    columns: columnsWithRowSelection,
+    columns: parsedColumns,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -190,17 +262,19 @@ const DataTable = <TData extends { id: string | number }>({
 
   useEffect(() => {
     if (visibleColumns.length !== 0) {
-      table.setColumnOrder(["select", ...visibleColumns]);
+      table.setColumnOrder(["select", ...visibleColumns, "actions"]);
     }
-  }, [visibleColumns, columnsWithRowSelection]);
+  }, [visibleColumns, parsedColumns]);
 
   const renderTooltipContent = (
     cell: Cell<TData, unknown>,
   ): React.ReactNode => {
-    if (typeof cell.column.columnDef.tooltip === "string") {
-      return cell.column.columnDef.tooltip;
-    } else if (typeof cell.column.columnDef.tooltip === "function") {
-      return cell.column.columnDef.tooltip(cell);
+    const tooltip = cell.column.columnDef.tooltip;
+
+    if (typeof tooltip === "string") {
+      return tooltip;
+    } else if (typeof tooltip === "function") {
+      return tooltip(cell);
     }
 
     return cell.getValue() as string;
@@ -217,11 +291,7 @@ const DataTable = <TData extends { id: string | number }>({
       className={("table-container " + className).trimEnd()}
     >
       {title ? (
-        <h6
-          className="title"
-          children={title.text}
-          data-align={title.align || "center"}
-        />
+        <span children={title.text} data-align={title.align || "center"} />
       ) : null}
 
       {showColumnsAction || renderToolbarItems ? (
@@ -235,7 +305,10 @@ const DataTable = <TData extends { id: string | number }>({
                     <SortableList
                       items={table
                         .getAllLeafColumns()
-                        .filter((column) => column.id !== "select")
+                        .filter(
+                          (column) =>
+                            column.id !== "select" && column.id !== "actions",
+                        )
                         .map((column, index) => ({
                           id: index,
                           data: column,
@@ -262,6 +335,7 @@ const DataTable = <TData extends { id: string | number }>({
                         table.setColumnOrder([
                           ...(enableRowSelection ? ["select"] : []),
                           ...sorted.map((item) => item.data.id),
+                          ...(dataActionsMenu ? ["actions"] : []),
                         ]);
                       }}
                     />
@@ -317,12 +391,17 @@ const DataTable = <TData extends { id: string | number }>({
                     <ColumnHeader
                       key={id}
                       colSpan={colSpan}
-                      className={`column-${id} ${activeColumnClass} ${
+                      className={`column-${id} ${
+                        columnDef.className || ""
+                      } ${activeColumnClass} ${
                         columnDef.enableSorting ? "sortable" : ""
                       }`
                         .replace(/\s\s/, " ")
                         .trimEnd()}
-                      data-align={columnDef.align || "left"}
+                      data-align={getAlignValue({
+                        align: columnDef.align,
+                        dataType: columnDef.dataType,
+                      })}
                       style={{
                         width: columnDef.width,
                         maxWidth: columnDef.maxWidth,
@@ -369,25 +448,33 @@ const DataTable = <TData extends { id: string | number }>({
                   <ColumnHeader
                     key={"filter" + column.id}
                     data-label={column.id}
-                    data-align={column.columnDef.align || "left"}
+                    data-align={getAlignValue({
+                      align: column.columnDef.align,
+                      dataType: column.columnDef.dataType,
+                    })}
                     style={{
                       width: column.columnDef.width,
                       maxWidth: column.columnDef.maxWidth,
                       minWidth: column.columnDef.minWidth,
                     }}
-                    className={
-                      (column.id ? `column-${column.id} ` : ``) +
-                      activeColumnClass
-                    }
+                    className={`${
+                      column.id ? `column-${column.id}` : ``
+                    } ${activeColumnClass} ${column.columnDef.className || ""}`
+                      .replace(/\s\s/, " ")
+                      .trimEnd()}
                   >
-                    <DebouncedInput
-                      defaultValue={column.getFilterValue() as string}
-                      onInputChange={(value) => {
-                        column.setFilterValue(value);
-                      }}
-                      placeholder={column.columnDef.filterPlaceholder || ""}
-                      debounceTime={inputDebounceTime}
-                    ></DebouncedInput>
+                    {column.columnDef.customFilterComponent ? (
+                      column.columnDef.customFilterComponent(column)
+                    ) : (
+                      <DebouncedInput
+                        defaultValue={column.getFilterValue() as string}
+                        onInputChange={(value) => {
+                          column.setFilterValue(value);
+                        }}
+                        placeholder={column.columnDef.filterPlaceholder || ""}
+                        debounceTime={inputDebounceTime}
+                      ></DebouncedInput>
+                    )}
                   </ColumnHeader>
                 );
               })}
@@ -404,14 +491,66 @@ const DataTable = <TData extends { id: string | number }>({
                 data-id={row.original.id ?? row.id}
               >
                 {row.getVisibleCells().map((cell) => {
+                  const getFormatedValueContext: typeof cell.getContext =
+                    () => {
+                      const cellContext = cell.getContext();
+                      const renderValue = cellContext.getValue;
+                      const dateOptions = cell.column.columnDef.dateOptions;
+                      const numberOptions = cell.column.columnDef.numberOptions;
+
+                      const getFormattedValue = (): NoInfer<never> => {
+                        switch (cell.column.columnDef.dataType) {
+                          case "number":
+                            return formatNumber({
+                              value: Number(renderValue()),
+                              locale: numberOptions?.locale,
+                              formatOptions: numberOptions?.formatOptions,
+                            }) as NoInfer<never>;
+
+                          case "date":
+                            return formatDate({
+                              date: renderValue() as Date,
+                              locale: dateOptions?.locale,
+                              formatOptions: dateOptions?.formatOptions,
+                            }) as NoInfer<never>;
+
+                          case "currency":
+                            return formatNumber({
+                              value: Number(renderValue()),
+                              locale: numberOptions?.locale,
+                              formatOptions: {
+                                style: "currency",
+                                currency: "USD",
+                                ...(numberOptions?.formatOptions &&
+                                  numberOptions.formatOptions),
+                              },
+                            }) as NoInfer<never>;
+
+                          default:
+                            return renderValue() as NoInfer<never>;
+                        }
+                      };
+
+                      return {
+                        ...cellContext,
+                        renderValue: () => getFormattedValue(),
+                        getValue: () => getFormattedValue(),
+                      };
+                    };
+
                   return (
                     <TableCell
                       key={cell.id}
                       data-label={cell.column.id}
-                      data-align={cell.column.columnDef.align || "left"}
-                      className={
-                        cell.column.id ? `column-${cell.column.id}` : ``
-                      }
+                      data-align={getAlignValue({
+                        align: cell.column.columnDef.align,
+                        dataType: cell.column.columnDef.dataType,
+                      })}
+                      className={`${
+                        cell.column.id ? `cell-${cell.column.id}` : ``
+                      } ${cell.column.columnDef.className || ""}`
+                        .replace(/\s\s/, " ")
+                        .trimEnd()}
                       style={{
                         width: cell.column.columnDef.width,
                         maxWidth: cell.column.columnDef.maxWidth,
@@ -426,13 +565,13 @@ const DataTable = <TData extends { id: string | number }>({
                           }}
                           cellContent={flexRender(
                             cell.column.columnDef.cell,
-                            cell.getContext(),
+                            getFormatedValueContext(),
                           )}
                         ></TooltipWrapper>
                       ) : (
                         flexRender(
                           cell.column.columnDef.cell,
-                          cell.getContext(),
+                          getFormatedValueContext(),
                         )
                       )}
                     </TableCell>
@@ -442,7 +581,7 @@ const DataTable = <TData extends { id: string | number }>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columnsWithRowSelection.length}>
+              <TableCell colSpan={parsedColumns.length}>
                 {emptyTableMessage}
               </TableCell>
             </TableRow>

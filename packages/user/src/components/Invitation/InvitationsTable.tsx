@@ -3,9 +3,10 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
+  IButtonProperties,
+  TableColumnDefinition,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
-import { ReactNode } from "react";
 
 import { InvitationActions } from "./InvitationActions";
 
@@ -22,7 +23,6 @@ import type {
   Invitation,
   UserType,
 } from "../../types";
-import type { ColumnDef } from "@tanstack/react-table";
 
 type VisibleColumn =
   | "email"
@@ -41,9 +41,9 @@ export type InvitationsTableProperties = Partial<
 > & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
-  fetchInvitations: (arguments_: TRequestJSON) => void;
+  fetchInvitations?: (arguments_: TRequestJSON) => void;
+  invitationButtonOptions?: IButtonProperties;
   invitationExpiryDateField?: InvitationExpiryDateField;
-  inviteButtonIcon?: string | ReactNode;
   invitations: Array<Invitation>;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
@@ -61,9 +61,9 @@ export const InvitationsTable = ({
   apps,
   className = "table-invitations",
   columns = [],
-  invitationExpiryDateField,
   fetchInvitations,
-  inviteButtonIcon,
+  invitationButtonOptions,
+  invitationExpiryDateField,
   invitations,
   onInvitationAdded,
   onInvitationResent,
@@ -84,7 +84,7 @@ export const InvitationsTable = ({
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("invitations");
 
-  const defaultColumns: Array<ColumnDef<Invitation>> = [
+  const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
@@ -168,7 +168,7 @@ export const InvitationsTable = ({
     {
       align: "center",
       id: "actions",
-      header: t("table.defaultColumns.actions"),
+      header: "",
       cell: ({ row: { original } }) => {
         return (
           <>
@@ -190,7 +190,7 @@ export const InvitationsTable = ({
           <InvitationModal
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            buttonIcon={inviteButtonIcon}
+            invitationButtonOptions={invitationButtonOptions}
             expiryDateField={invitationExpiryDateField}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}

@@ -1,6 +1,5 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
-import config from "./config";
 import { BasicLayout } from "./layouts/BasicLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
 import {
@@ -35,11 +34,7 @@ const routes = () => {
       children: [
         {
           index: true,
-          element: (
-            <Home
-              routes={config.layout?.mainMenu ? config.layout.mainMenu : []}
-            />
-          ),
+          element: <Home />,
         },
         {
           path: "/ui",

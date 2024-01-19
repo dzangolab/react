@@ -18,10 +18,14 @@ export const FileUploadDemo = () => {
       addDescriptionLabel={t("fileInput.description.label")}
       descriptionPlaceholder={t("fileInput.description.placeholder")}
       onUpload={() => {}}
-      cancelButtonLabel={t("fileUpload.actions.cancel")}
-      cancelButtonIcon="pi pi-times"
-      uploadButtonIcon="pi pi-plus"
-      uploadButtonLabel={t("fileUpload.actions.upload")}
+      uploadButtonOptions={{
+        label: t("fileUpload.actions.upload"),
+        iconLeft: "pi pi-plus",
+      }}
+      cancelButtonOptions={{
+        label: t("fileUpload.actions.cancel"),
+        iconLeft: "pi pi-times",
+      }}
     />
   );
 };

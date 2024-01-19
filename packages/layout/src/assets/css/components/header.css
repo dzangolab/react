@@ -32,7 +32,11 @@
   content: "";
   background-color: var(--header-bg-color);
   box-shadow: 0 0 0 100vmax var(--header-bg-color);
-  clip-path: inset(calc(-1 * var(--header-padding-top)) -100vmax calc(-1 * var(--header-padding-bottom, 1em)) -100vmax);
+  clip-path: inset(
+    calc(-1 * var(--header-padding-top)) -100vmax calc(
+        -1 * var(--header-padding-bottom, 1em)
+      ) -100vmax
+  );
   grid-column: 1 / span 2;
   grid-row: 1 / 1;
   height: 100%;
@@ -80,6 +84,11 @@
 
 .layout > header .main-menu {
   flex: 1;
+}
+
+.main-menu > ul > li:hover,
+.main-menu > ul > li .active {
+  font-weight: 600;
 }
 
 @media screen and (min-width: 576px) {

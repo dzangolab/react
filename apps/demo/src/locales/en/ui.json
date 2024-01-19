@@ -6,11 +6,17 @@
       "size": "Size",
       "outlined": "Outlined",
       "icons": "Icons",
-      "disabled": "Disabled"
+      "disabled": "Disabled",
+      "text": "Text",
+      "link": "Link"
     }
   },
   "filesTable": {
-    "title": "Files table"
+    "title": "Files table",
+    "pagination": {
+      "pageControl": "Go to page",
+      "rowsPerPage": "Items per page"
+    }
   },
   "loading": {
     "title": "Loading"
@@ -44,6 +50,8 @@
     "title": "Table (Tanstack)",
     "usage": {
       "basic": "Basic table",
+      "builtInActionColumn": "Table demonstrating built in actions column use case",
+      "cellDataFormating": "Table demonstrating cell content formating",
       "filterable": "Table with filterable column",
       "sortable": "Table with sortable column",
       "rowSelection": "Table with row selection",
@@ -55,7 +63,10 @@
       "withFooter": "Table with footer",
       "borderless": "Table without border but stripe",
       "withoutPagination": "Table without pagination",
-      "withTitle": "Table with title"
+      "withTitle": "Table with title",
+      "withCustomFilter": "Table with custom filter component and filterFn",
+      "withEqualServerFilter": "Table with equal server filterFn",
+      "customStaticFilter": "Table with custom  filter component and static filterFn"
     }
   },
   "message": {
@@ -103,16 +114,23 @@
       "menu": "Page",
       "basic": "Page demo basic",
       "toolbar": "Page with toolbar",
-      "stringSubtitle": "Page with subtile string",
-      "componentSubtitle": "Page with subtile component",
-      "breadcrumb": "Page with breadcrumb"
+      "stringSubtitle": "Page with subtitle string",
+      "componentSubtitle": "Page with subtitle component",
+      "breadcrumb": "Page with breadcrumb",
+      "complete": "Page with every component"
     },
     "subTitle": {
       "title": "Page subtitle",
       "tag": "Subtitle tag"
     },
+    "heading": {
+      "tag": "Heading tag"
+    },
     "toolbar": {
-      "edit": "Edit"
+      "edit": "Edit",
+      "button": {
+        "label": "Click"
+      }
     },
     "content": "Page content."
   }

@@ -1,3 +1,50 @@
+# [0.28.0](https://github.com/dzangolab/react/compare/v0.27.0...v0.28.0) (2024-01-17)
+
+
+### Features
+
+* **demo:** update ui ([#719](https://github.com/dzangolab/react/issues/719)) ([60db785](https://github.com/dzangolab/react/commit/60db7854d472e7b888b0170ed715ad5393d7e79e))
+* **layout:** make menu items interactive ([#718](https://github.com/dzangolab/react/issues/718)) ([740feeb](https://github.com/dzangolab/react/commit/740feeba5d7286686ec9f894558dbbd634861a4a))
+* **submenu:** add support for submenu in sidebar ([#712](https://github.com/dzangolab/react/issues/712)) ([d7eb584](https://github.com/dzangolab/react/commit/d7eb584d3223f939d59675b71f0aafa85719d1b5))
+* **ui/Page:** add separate page header component ([#723](https://github.com/dzangolab/react/issues/723)) ([fb23614](https://github.com/dzangolab/react/commit/fb23614fd46e622032b2f430d5f3382ff244093b))
+* **ui/sortable-list:** improve sortable list's ui when drag/drop ([#720](https://github.com/dzangolab/react/issues/720)) ([dd744dd](https://github.com/dzangolab/react/commit/dd744dda7baf82dd77f7bbab1ebf755d075f241f))
+* **ui/Table:** add custom filter support ([e247b05](https://github.com/dzangolab/react/commit/e247b0500d8713cf3438e7e5c1d33b5d3f6100f9))
+* **ui/Table:** add data formating options ([#716](https://github.com/dzangolab/react/issues/716)) ([8e31631](https://github.com/dzangolab/react/commit/8e3163150a2f5d541def394b02359d18cabd6614))
+* **user/invitationTable:** support client side data rendering ([#725](https://github.com/dzangolab/react/issues/725)) ([b087b19](https://github.com/dzangolab/react/commit/b087b1966db054f505bb10f6d6491c4839daa387))
+* **users-table:** make fetchuser prop optional ([#724](https://github.com/dzangolab/react/issues/724)) ([760c547](https://github.com/dzangolab/react/commit/760c54752397004c2b4154ba8fecce6f92cb5776))
+
+
+
+# [0.27.0](https://github.com/dzangolab/react/compare/v0.26.0...v0.27.0) (2024-01-05)
+
+
+### Features
+
+* **ui/table:** update cell classname ([0ac54ab](https://github.com/dzangolab/react/commit/0ac54abc7b25ec3336b80db225fac835d7c77ea0))
+
+
+
+# [0.26.0](https://github.com/dzangolab/react/compare/v0.25.0...v0.26.0) (2024-01-05)
+
+
+### Bug Fixes
+
+* **buttonConsistency:** make button pattern consistent across all pac… ([#708](https://github.com/dzangolab/react/issues/708)) ([72355a7](https://github.com/dzangolab/react/commit/72355a7af6823cfb486e337d99b6e90053d92500))
+
+
+### Features
+
+* add breadcrumb support ([#703](https://github.com/dzangolab/react/issues/703)) ([e884c01](https://github.com/dzangolab/react/commit/e884c01d618c029417c9258a9d2be78fc2fcaf5d))
+* **demo/files-table:** add translation in pagination ([#709](https://github.com/dzangolab/react/issues/709)) ([1fcf276](https://github.com/dzangolab/react/commit/1fcf276825696fd7970e7c75f7781ce5980613b0))
+* **demo:** revamp ui ([#701](https://github.com/dzangolab/react/issues/701)) ([69e0a85](https://github.com/dzangolab/react/commit/69e0a859e0159b22fcc658cf97b060ec5ddec8c1))
+* **form/file-input:** update default variant of file input button ([#705](https://github.com/dzangolab/react/issues/705)) ([7cc20ef](https://github.com/dzangolab/react/commit/7cc20efc824b9cc3a047a9426e35f036562d9308))
+* **switch:** update switch background color ([#704](https://github.com/dzangolab/react/issues/704)) ([27b7127](https://github.com/dzangolab/react/commit/27b7127bad7c7a26260aa05336113d555cc51f44))
+* **ui/export-button:** update export button ([#697](https://github.com/dzangolab/react/issues/697)) ([b6a882e](https://github.com/dzangolab/react/commit/b6a882e7f27f96f0e8d444253d4b18882941598d))
+* **ui/page:** update the page subtitle ([#702](https://github.com/dzangolab/react/issues/702)) ([f9b08d3](https://github.com/dzangolab/react/commit/f9b08d31b7ed8ad87ec7af1ecb4f5aa2d91c1953))
+* **user/users-table:** add status column on users table ([#710](https://github.com/dzangolab/react/issues/710)) ([16baf1d](https://github.com/dzangolab/react/commit/16baf1d9312b471b554d4d1cb10e810716c9cc13))
+
+
+
 # [0.25.0](https://github.com/dzangolab/react/compare/v0.24.0...v0.25.0) (2023-12-25)
 
 

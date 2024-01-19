@@ -102,7 +102,7 @@ function TableHeader() {
                         {column.getCanFilter() ? (
                           <Filter
                             filterVariant={column.columnDef.meta?.filterVariant}
-                            filterFn={column.columnDef.meta?.filterFn}
+                            filterFn={column.columnDef.meta?.serverFilterFn}
                             placeholder={
                               column.columnDef.meta?.filterPlaceholder
                             }

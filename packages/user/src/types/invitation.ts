@@ -35,6 +35,7 @@ export interface InvitationAppOption {
   name: string;
   origin: string;
   supportedRoles: InvitationRoleOption[];
+  label?: string;
 }
 
 export interface AdditionalInvitationFields {

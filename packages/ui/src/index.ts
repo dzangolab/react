@@ -11,7 +11,7 @@ import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
 import Page from "./Page";
-import ResponsiveMenu from "./ResponsiveMenu";
+import ResponsiveMenu, { CombinedMenuRouteType } from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
@@ -48,4 +48,4 @@ export {
   ConfirmationModal,
 };
 
-export type { DropdownMenuProperties };
+export type { DropdownMenuProperties, CombinedMenuRouteType };

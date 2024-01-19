@@ -140,3 +140,76 @@ export const data = [
     city: "Nashville",
   },
 ];
+
+export const formatDemoData = [
+  {
+    id: 1001,
+    amount: 1_234_567.89,
+    quantity: 420,
+    date: null,
+    description: "Purchase of equipment",
+  },
+  {
+    id: 1002,
+    amount: 987_654.32,
+    quantity: 175,
+    date: new Date("2023-12-01T12:30:00"),
+    description: "Office rent payment",
+  },
+  {
+    id: 1003,
+    amount: 54321.0,
+    quantity: 7890,
+    date: new Date("2023-12-15T08:45:00"),
+    description: "Marketing campaign expenses",
+  },
+  {
+    id: 1004,
+    amount: 654_321.12,
+    quantity: 2950,
+    date: new Date(),
+    description: "Product development costs",
+  },
+  {
+    id: 1005,
+    amount: 789_012.34,
+    quantity: 53210,
+    date: new Date("2023-12-05T09:15:00"),
+    description: "Travel and accommodation",
+  },
+  {
+    id: 1006,
+    amount: 12345.67,
+    quantity: 6430,
+    date: new Date("2023-12-20T14:00:00"),
+    description: "Employee salaries",
+  },
+  {
+    id: 1007,
+    amount: 234_567.89,
+    quantity: 98760,
+    date: new Date(),
+    description: "Product inventory replenishment",
+  },
+  {
+    id: 1008,
+    amount: 876_543.21,
+    quantity: 123_450,
+    date: new Date("2023-12-10T18:45:00"),
+    description: "New marketing materials",
+  },
+  {
+    id: 1009,
+    amount: 13579.24,
+    quantity: 45670,
+    date: new Date("2023-12-25T11:30:00"),
+    description: "Holiday season promotions",
+  },
+  {
+    id: 1010,
+    amount: 24680.36,
+    quantity: 78901,
+    date: new Date(),
+    description: "Office furniture upgrade",
+  },
+];

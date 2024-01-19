@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.table-container .title {
+.table-container > span {
   font-weight: bold;
   text-align: center;
   padding: 0.2rem 0;
@@ -29,11 +29,11 @@
   font-size: 1rem;
 }
 
-.table-container .title[data-align="left"] {
+.table-container > span[data-align="left"] {
   text-align: left;
 }
 
-.table-container .title[data-align="right"] {
+.table-container > span[data-align="right"] {
   text-align: right;
 }
 
@@ -137,6 +137,18 @@
   justify-content: flex-start;
   flex-direction: row-reverse;
   text-align: right;
+  padding-right: 1rem;
+}
+
+.table-container
+  .table-wrapper
+  .table
+  .tcol-head[data-align="right"]
+  > .content {
+  justify-content: center;
+  flex-direction: row-reverse;
+  text-align: center;
+  padding-right: 0;
 }
 
 .table-container .table-wrapper .table .tcol-head.sortable {
@@ -195,9 +207,14 @@
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
+  background-color: #ffffff;
 }
 
 .table-container .table-wrapper .table .tcell,
 .table-container .table-wrapper .table .tcol-head {
   padding: var(--table-column-padding);
+}
+
+.table-container .pagination .page-input-control input {
+  background-color: #ffffff;
 }

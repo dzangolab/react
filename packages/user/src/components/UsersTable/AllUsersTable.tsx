@@ -3,9 +3,10 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
+  IButtonProperties,
+  TableColumnDefinition,
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
-import { ReactNode } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -21,7 +22,6 @@ import type {
   ExtendedUser,
   Invitation,
 } from "@/types";
-import type { ColumnDef } from "@tanstack/react-table";
 
 type VisibleColumn =
   | "name"
@@ -43,11 +43,13 @@ export type AllUsersTableProperties = Partial<
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
-  inviteButtonIcon?: string | ReactNode;
+  invitationButtonOptions?: IButtonProperties;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserDisabled?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (data: any) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
@@ -64,7 +66,7 @@ export const AllUsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
-  inviteButtonIcon,
+  invitationButtonOptions,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
@@ -89,7 +91,7 @@ export const AllUsersTable = ({
 }: AllUsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const defaultColumns: Array<ColumnDef<ExtendedUser>> = [
+  const defaultColumns: Array<TableColumnDefinition<ExtendedUser>> = [
     {
       accessorKey: "name",
       header: t("table.defaultColumns.name"),
@@ -162,13 +164,27 @@ export const AllUsersTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
+        const getValue = () => {
+          if (!original.isActiveUser) return t("status.invited");
+
+          if (original.disabled) return t("status.disabled");
+
+          return t("status.active");
+        };
+
+        const getSeverity = () => {
+          if (!original.isActiveUser) return undefined;
+
+          if (original.disabled) return "danger";
+
+          return "success";
+        };
+
         return (
           <>
             <Tag
-              value={
-                original.isActiveUser ? t("status.active") : t("status.invited")
-              }
-              severity={original.isActiveUser === true ? undefined : "success"}
+              value={getValue()}
+              severity={getSeverity()}
               style={{
                 width: "5rem",
               }}
@@ -210,7 +226,7 @@ export const AllUsersTable = ({
     {
       align: "center",
       accessorKey: "actions",
-      header: t("invitations:table.defaultColumns.actions"),
+      header: "",
       cell: ({ row: { original } }) => {
         return (
           <>
@@ -240,8 +256,8 @@ export const AllUsersTable = ({
           <InvitationModal
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            buttonIcon={inviteButtonIcon}
             onSubmitted={onInvitationAdded}
+            invitationButtonOptions={invitationButtonOptions}
             prepareData={prepareInvitationData}
             roles={roles}
           />

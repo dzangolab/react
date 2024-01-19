@@ -3,10 +3,10 @@ import {
   TDataTable as DataTable,
   TDataTableProperties,
   TRequestJSON,
+  IButtonProperties,
+  TableColumnDefinition,
 } from "@dzangolab/react-ui";
-import { ColumnDef } from "@tanstack/react-table";
 import { Tag } from "primereact/tag";
-import { ReactNode } from "react";
 
 import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
@@ -25,6 +25,7 @@ type VisibleColumn =
   | "email"
   | "roles"
   | "signedUpAt"
+  | "status"
   | "actions"
   | string;
 
@@ -33,13 +34,15 @@ export type UsersTableProperties = Partial<
 > & {
   additionalInvitationFields?: AdditionalInvitationFields;
   apps?: Array<InvitationAppOption>;
-  fetchUsers: (arguments_: TRequestJSON) => void;
+  fetchUsers?: (arguments_: TRequestJSON) => void;
+  invitationButtonOptions?: IButtonProperties;
   invitationExpiryDateField?: InvitationExpiryDateField;
-  inviteButtonIcon?: string | ReactNode;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserDisabled?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
@@ -53,8 +56,8 @@ export const UsersTable = ({
   className = "table-users",
   columns = [],
   fetchUsers,
+  invitationButtonOptions,
   invitationExpiryDateField,
-  inviteButtonIcon,
   onInvitationAdded,
   onUserDisabled,
   onUserEnabled,
@@ -63,12 +66,19 @@ export const UsersTable = ({
   showInviteAction = true,
   totalRecords = 0,
   users,
-  visibleColumns = ["name", "email", "roles", "signedUpAt", "actions"],
+  visibleColumns = [
+    "name",
+    "email",
+    "roles",
+    "signedUpAt",
+    "status",
+    "actions",
+  ],
   ...tableProperties
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
 
-  const defaultColumns: Array<ColumnDef<UserType>> = [
+  const defaultColumns: Array<TableColumnDefinition<UserType>> = [
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
@@ -142,8 +152,28 @@ export const UsersTable = ({
     },
     {
       align: "center",
+      accessorKey: "status",
+      header: t("table.defaultColumns.status"),
+      cell: ({ row: { original } }) => {
+        const severity = original.disabled ? "danger" : "success";
+
+        return (
+          <Tag
+            value={
+              original.disabled ? t("status.disabled") : t("status.enabled")
+            }
+            severity={severity}
+            style={{
+              width: "5rem",
+            }}
+          />
+        );
+      },
+    },
+    {
+      align: "center",
       id: "actions",
-      header: t("table.defaultColumns.actions"),
+      header: "",
       cell: ({ row: { original } }) => {
         return (
           <UserAction
@@ -164,7 +194,7 @@ export const UsersTable = ({
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
             expiryDateField={invitationExpiryDateField}
-            buttonIcon={inviteButtonIcon}
+            invitationButtonOptions={invitationButtonOptions}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}

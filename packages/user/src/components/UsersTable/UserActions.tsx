@@ -8,8 +8,11 @@ import { enableUser, disableUser } from "@/api/user";
 import { useConfig } from "@/hooks";
 
 type UserActionsProperites = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (response: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserDisabled?: (response: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user: any;
 };
 
@@ -101,9 +104,7 @@ export const UserAction = ({
         visible={showDisableConfirmation}
         message={t("confirmation.disable.message")}
         header={t("confirmation.header")}
-        onHide={() => {
-          setShowDisableConfirmation(false);
-        }}
+        onHide={() => setShowDisableConfirmation(false)}
         accept={() => {
           handleDisableUser();
           setShowDisableConfirmation(false);

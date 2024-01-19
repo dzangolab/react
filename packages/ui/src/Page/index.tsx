@@ -1,23 +1,22 @@
-import React from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
+import { PageHeader } from "./Header";
 import LoadingPage, { LoadingPageProperties } from "../LoadingPage";
 
 interface Properties
   extends Pick<
-    React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLDivElement>,
-      HTMLDivElement
-    >,
+    DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
     "aria-orientation"
   > {
   breadcrumb?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
   errorMessage?: string;
+  titleTag?: string | React.ReactNode;
   loading?: boolean;
   loadingComponent?: React.ReactElement;
   loadingPageStyle?: LoadingPageProperties;
-  subtitle?: React.ReactNode;
+  subtitle?: React.ReactNode | string;
   title?: string;
   toolbar?: React.ReactNode;
 }
@@ -27,6 +26,7 @@ const Page: React.FC<Properties> = ({
   children,
   className,
   errorMessage,
+  titleTag,
   loading = false,
   loadingComponent,
   loadingPageStyle,
@@ -36,7 +36,7 @@ const Page: React.FC<Properties> = ({
   ...others
 }: Properties) => {
   let child = null;
-  let _className = "page";
+  let _className = "dz-page";
 
   if (loading) {
     child = loadingComponent ? (
@@ -58,14 +58,7 @@ const Page: React.FC<Properties> = ({
 
   return (
     <div className={_className}>
-      {breadcrumb ? <div className="breadcrumb">{breadcrumb}</div> : null}
-      {title && (
-        <h1>
-          {title}
-          {typeof subtitle === "string" ? <small>{subtitle}</small> : subtitle}
-        </h1>
-      )}
-      {toolbar && <div className="toolbar">{toolbar}</div>}
+      <PageHeader {...{ title, titleTag, subtitle, toolbar, breadcrumb }} />
       <div data-testid="page-content" className="content" {...others}>
         {child ? child : children}
       </div>

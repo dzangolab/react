@@ -1,3 +1,4 @@
+import { DataActionsMenuProperties } from "./TableDataActions";
 import { Pagination } from "../../Pagination";
 import { Tooltip } from "../../Tooltip";
 
@@ -11,6 +12,7 @@ import type {
   Table,
   TableOptions,
   ColumnFiltersState,
+  Column,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -146,7 +148,16 @@ export type TFilterFn =
   | "greaterThanOrEqual"
   | "lessThanOrEqual"
   | "in"
-  | "between";
+  | "notEqual"
+  | "notIn"
+  | "between"
+  | "notBetween"
+  | "isNull"
+  | "isNotNull"
+  | "isEmpty"
+  | "isNotEmpty"
+  | "like"
+  | "notLike";
 
 export type TFilterVariant =
   | "text"
@@ -172,10 +183,28 @@ export type TCustomColumnFilter = ChangeTypeOfKeys<
 
 //TDataTable props
 
+export type CellAlignmentType = "left" | "center" | "right";
+export type CellDataType = "text" | "number" | "date" | "currency" | "other";
+
+export type FormatNumberType = {
+  value: number;
+  locale?: string;
+  formatOptions?: Intl.NumberFormatOptions;
+};
+
+export type FormatDateType = {
+  date: Date | string | number;
+  locale?: string;
+  formatOptions?: Intl.DateTimeFormatOptions;
+};
+
 declare module "@tanstack/react-table" {
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
   interface ColumnDefBase<TData, TValue> {
-    align?: "left" | "center" | "right";
+    align?: CellAlignmentType;
+    dataType?: CellDataType;
+    className?: string;
+    customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
     filterPlaceholder?: string;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
@@ -184,13 +213,22 @@ declare module "@tanstack/react-table" {
     width?: string;
     maxWidth?: string;
     minWidth?: string;
+    dateOptions?: Omit<FormatDateType, "date">;
+    numberOptions?: Omit<FormatNumberType, "value">;
+  }
+
+  interface ColumnFilter {
+    filterFn?: TFilterFn;
   }
 }
 
 export interface TDataTableProperties<TData>
-  extends Omit<TableOptions<TData>, "getCoreRowModel"> {
+  extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
+  dataActionsMenu?: DataActionsMenuProperties;
+  displayRowActions?: boolean | ((data: TData) => boolean);
+  data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
   isLoading?: boolean;
@@ -230,3 +268,8 @@ export interface TDataTableProperties<TData>
   stripe?: "none" | "even" | "odd";
   showColumnsAction?: boolean;
 }
+
+export type {
+  FilterFn as FilterFunction,
+  FilterFns as FilterFunctions,
+} from "@tanstack/react-table";

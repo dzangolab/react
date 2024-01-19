@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Page } from "@dzangolab/react-ui";
-
 import { Tag } from "primereact/tag";
 import { Link } from "react-router-dom";
 
@@ -43,6 +42,16 @@ export const PageDemo = () => {
       <hr />
       <Page
         title={t("page.title.breadcrumb")}
+        children={PageContent}
+        breadcrumb={breadcrumb}
+      />
+
+      <hr />
+      <Page
+        title={t("page.title.complete")}
+        titleTag={<Tag value={t("page.heading.tag")} />}
+        toolbar={<Button label={t("page.toolbar.button.label")} />}
+        subtitle={<Tag value={t("page.subTitle.tag")} />}
         children={PageContent}
         breadcrumb={breadcrumb}
       />

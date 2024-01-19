@@ -22,6 +22,8 @@
   },
   "status": {
     "active": "Active",
+    "disabled": "Disabled",
+    "enabled": "Enabled",
     "invited": "Invited"
   },
   "confirmation": {

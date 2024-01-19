@@ -22,6 +22,8 @@
   },
   "status": {
     "active": "Active (fr)",
+    "disabled": "Disabled (fr)",
+    "enabled": "Enabled (fr)",
     "invited": "Invited (fr)"
   },
   "confirmation": {

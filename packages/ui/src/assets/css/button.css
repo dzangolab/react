@@ -15,13 +15,17 @@
   --button-small-padding: 0.65625rem 1.09375rem;
   --button-medium-padding: 0.75rem 1.25rem;
   --button-large-padding: 0.9375rem 1.5625rem;
-  --button-primary-outlined-hover-color: #e6eef6;
-  --button-secondary-outlined-hover-color: #eaeff6;
-  --button-alternate-outlined-hover-color: #e9f2f6;
-  --button-success-outlined-hover-color: #eff6f2;
-  --button-danger-outlined-hover-color: #f8eff0;
-  --button-warning-outlined-hover-color: #f7f1ef;
+  --button-primary-outlined-hover-color: #eef6fe;
+  --button-secondary-outlined-hover-color: #f3f4f5;
+  --button-alternate-outlined-hover-color: #f1f9fc;
+  --button-success-outlined-hover-color: #f0fcf6;
+  --button-danger-outlined-hover-color: #fef1f1;
+  --button-warning-outlined-hover-color: #fef7f5;
   --button-transition-duration: var(--transition-duration);
+}
+
+.dz-button-link {
+  text-decoration: none;
 }
 
 .dz-button {
@@ -85,6 +89,27 @@
 }
 
 .dz-button.outlined:disabled:hover {
+  background: none;
+  filter: none;
+}
+
+.dz-button.textOnly {
+  background: transparent;
+}
+
+.dz-button.textOnly:hover {
+  background: var(--_button-outlined-hover-color);
+}
+
+.dz-button.textOnly:active {
+  filter: brightness(1.05);
+}
+
+.dz-button.textOnly:focus {
+  background: var(--_button-outlined-hover-color);
+}
+
+.dz-button.textOnly:disabled:hover {
   background: none;
   filter: none;
 }

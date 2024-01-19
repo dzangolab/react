@@ -13,7 +13,7 @@ export const Section: React.FC<Properties> = ({
 }) => {
   return (
     <section className="demo-section">
-      {title && <h3>{title}</h3>}
+      {title && <h2>{title}</h2>}
       {subtitle && <small>{subtitle}</small>}
       <div className="demo-section-content">{children}</div>
     </section>
