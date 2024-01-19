@@ -29,6 +29,11 @@ export const MenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
           </span>
         ) : null}
         <span role="label">{route.name}</span>
+        {"submenu" in route && route.submenu.length && (
+          <span aria-label="toggle-expand">
+            <i className="pi pi-angle-down" />
+          </span>
+        )}
       </MenuItemLink>
       {"submenu" in route && (
         <Submenu submenu={route.submenu} key={route.name} />

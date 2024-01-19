@@ -2,13 +2,7 @@
   display: none;
 }
 
-.dz-responsive-menu > ul > li {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.dz-responsive-menu > ul > li[aria-expanded="true"]> .dz-submenu{
+.dz-responsive-menu > ul > li[aria-expanded="true"] > .dz-submenu {
   display: flex;
 }
 
@@ -16,7 +10,7 @@
   display: none;
   flex-direction: column;
   padding-left: 3rem;
-  animation: submenu-open var(--transition-duration) ;
+  animation: submenu-open var(--transition-duration);
 }
 
 .dz-submenu:hover {
