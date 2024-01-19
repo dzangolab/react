@@ -2,28 +2,8 @@
   display: none;
 }
 
-.dz-responsive-menu > ul > li {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-
 .dz-responsive-menu > ul > li[aria-expanded="true"] > .dz-submenu {
   display: flex;
-}
-
-.dz-responsive-menu > ul > li > a > span[aria-label="toggle-expand"] {
-  margin: auto 1rem auto auto;
-}
-
-.dz-responsive-menu
-  > ul
-  > li[aria-expanded="true"]
-  > a
-  > span[aria-label="toggle-expand"]
-  > i {
-  transform: rotate(90deg);
-  transition: transform 0.1s ease-in;
 }
 
 .dz-submenu {
