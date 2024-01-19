@@ -7,7 +7,7 @@
   --header-padding-v: 1em;
 
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff;
   border-bottom: 1px solid var(--header-border-color);
   display: grid;
   font-size: var(--header-font-size);

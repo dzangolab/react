@@ -18,6 +18,7 @@ interface Properties {
   userMenu?: React.ReactNode;
   mainMenu?: React.ReactNode;
   logoRoute?: string;
+  isLayoutFixed?: boolean;
 }
 
 const BasicLayout: React.FC<Properties> = (properties) => {
@@ -32,6 +33,7 @@ const BasicLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     footer,
     header,
+    isLayoutFixed,
   } = properties;
 
   return (
@@ -46,12 +48,13 @@ const BasicLayout: React.FC<Properties> = (properties) => {
           localeSwitcher={localSwitcher}
           logoRoute={logoRoute}
           mainMenuOrientation={mainMenuOrientation}
+          isLayoutFixed={isLayoutFixed}
         />
       )}
 
       <main>{children}</main>
 
-      {footer || <AppFooter />}
+      {footer || <AppFooter isLayoutFixed={isLayoutFixed} />}
     </div>
   );
 };

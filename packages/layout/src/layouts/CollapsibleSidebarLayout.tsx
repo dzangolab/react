@@ -56,13 +56,13 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
           mainMenuOrientation={mainMenuOrientation}
           toggle={menuToggle}
           userMenu={userMenu}
-          isLayoutFixed={true}
+          isLayoutFixed={isLayoutFixed}
         />
       )}
       {displaySidebar ? (
         <>
           {sidebar || (
-            <Sidebar>
+            <Sidebar isLayoutFixed={isLayoutFixed}>
               <ResponsiveMenu
                 routes={mainMenuRoutes || []}
                 orientation="vertical"
@@ -73,7 +73,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
         </>
       ) : null}
       <main>{children}</main>
-      {footer || <AppFooter isLayoutFixed={true} />}
+      {footer || <AppFooter isLayoutFixed={isLayoutFixed} />}
     </div>
   );
 };
