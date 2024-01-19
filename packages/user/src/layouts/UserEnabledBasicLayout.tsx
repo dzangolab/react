@@ -68,6 +68,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
       logoRoute={logoRoute || home}
       menuToggle={menuToggle}
       localSwitcher={localSwitcher}
+      isLayoutFixed={isLayoutFixed}
       userMenu={
         <UserMenu
           authenticatedUserMenu={
@@ -85,7 +86,6 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
           anonymousUserMenu={anonymousUserMenu}
         />
       }
-      isLayoutFixed={isLayoutFixed}
     />
   );
 };

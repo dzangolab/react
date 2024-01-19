@@ -6,7 +6,7 @@
   --footer-padding-v: 1em;
 
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff;
   border-top: 1px solid var(--footer-border-color);
   box-shadow: 0 0 0 100vmax var(--footer-bg-color);
   clip-path: inset(0 -100vmax);

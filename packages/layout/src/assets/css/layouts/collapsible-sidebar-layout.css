@@ -22,6 +22,11 @@
   padding-bottom: var(--_layout-collapsible-padding-h);
 }
 
+.layout.collapsible > .fixed-layout {
+  height: calc(100vh - 134px);
+  overflow-y: scroll;
+}
+
 @media screen and (min-width: 576px) {
   .layout.collapsible > header {
     grid-area: header;
