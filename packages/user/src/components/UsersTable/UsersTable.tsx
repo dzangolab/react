@@ -8,7 +8,6 @@ import {
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
-import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
 
 import type {
@@ -19,6 +18,7 @@ import type {
   InvitationExpiryDateField,
   UserType,
 } from "@/types";
+import { useUserActions } from "./useUserActionsMethods";
 
 type VisibleColumn =
   | "name"
@@ -77,6 +77,11 @@ export const UsersTable = ({
   ...tableProperties
 }: UsersTableProperties) => {
   const { t } = useTranslation("users");
+
+  const { handleDisableUser, handleEnableUser } = useUserActions({
+    onUserDisabled,
+    onUserEnabled,
+  });
 
   const defaultColumns: Array<TableColumnDefinition<UserType>> = [
     {
@@ -170,20 +175,6 @@ export const UsersTable = ({
         );
       },
     },
-    {
-      align: "center",
-      id: "actions",
-      header: "",
-      cell: ({ row: { original } }) => {
-        return (
-          <UserAction
-            user={original}
-            onUserDisabled={onUserDisabled}
-            onUserEnabled={onUserEnabled}
-          />
-        );
-      },
-    },
   ];
 
   const renderToolbar = () => {
@@ -219,6 +210,33 @@ export const UsersTable = ({
       paginationOptions={{
         pageInputLabel: t("table.pagination.pageControl"),
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
+      dataActionsMenu={{
+        actions: [
+          {
+            label: t("table.actions.enable"),
+            icon: "pi pi-check",
+            disabled: (user: any) => !user.disabled,
+            onClick: (user) => handleEnableUser(user),
+            requireConfirmationModal: true,
+            confirmationOptions: {
+              message: t("confirmation.enable.message"),
+              header: t("confirmation.header"),
+            },
+          },
+          {
+            label: t("table.actions.disable"),
+            className: "danger",
+            icon: "pi pi-times",
+            disabled: (user: any) => user.disabled,
+            onClick: (user) => handleDisableUser(user),
+            requireConfirmationModal: true,
+            confirmationOptions: {
+              message: t("confirmation.disable.message"),
+              header: t("confirmation.header"),
+            },
+          },
+        ],
       }}
       {...tableProperties}
     ></DataTable>
