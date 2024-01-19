@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  position: relative;
 }
 
 .dz-responsive-menu > ul > li[aria-expanded="true"] > .dz-submenu {
@@ -14,8 +13,7 @@
 }
 
 .dz-responsive-menu > ul > li > a > span[aria-label="toggle-expand"] {
-  position: absolute;
-  right: 1rem;
+  margin: auto 1rem auto auto;
 }
 
 .dz-responsive-menu
