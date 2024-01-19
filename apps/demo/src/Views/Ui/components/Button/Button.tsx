@@ -46,9 +46,9 @@ export const ButtonDemo = () => {
       <Section title={t("button.usage.outlined")}>
         <div className="demo-buttons-container">
           <Button
-            label="Secondary"
+            label="Primary"
             size="medium"
-            variant="filled"
+            variant="outlined"
             severity="primary"
           />
           <Button
@@ -65,28 +65,12 @@ export const ButtonDemo = () => {
           />
           <Button label="Success" severity="success" variant="outlined" />
           <Button label="Danger" severity="danger" variant="outlined" />
-          <Button label="Secondary" severity="warning" variant="outlined" />
-        </div>
-      </Section>
-
-      <Section title={t("button.usage.text")}>
-        <div className="demo-buttons-container">
-          <Button label="Primary" variant="textOnly" />
-          <Button label="Secondary" severity="secondary" variant="textOnly" />
-          <Button label="Alternate" severity="alternate" variant="textOnly" />
-          <Button label="Success" severity="success" variant="textOnly" />
-          <Button label="Danger" severity="danger" variant="textOnly" />
-          <Button label="Warning" severity="warning" variant="textOnly" />
+          <Button label="Warning" severity="warning" variant="outlined" />
         </div>
       </Section>
 
       <Section title={t("button.usage.icons")}>
         <div className="demo-buttons-container">
-          <Button
-            variant="textOnly"
-            severity="secondary"
-            iconLeft="pi pi-user"
-          />
           <Button variant="filled" iconRight="pi pi-user" />
           <Button
             label="Secondary"
@@ -107,18 +91,14 @@ export const ButtonDemo = () => {
             variant="outlined"
             loading={true}
             iconLeft="pi pi-spin pi-spinner"
-          />
+          >
+            Hello
+          </Button>
         </div>
       </Section>
 
       <Section title={t("button.usage.disabled")}>
         <div className="demo-buttons-container">
-          <Button
-            variant="textOnly"
-            severity="primary"
-            iconLeft="pi pi-user"
-            disabled={true}
-          />
           <Button
             label="Primary"
             variant="filled"
@@ -131,13 +111,6 @@ export const ButtonDemo = () => {
             severity="primary"
             disabled={true}
           />
-        </div>
-      </Section>
-
-      <Section title={t("button.usage.link")}>
-        <div className="demo-buttons-container">
-          <Button label="Home" to="/" />
-          <Button label="Back" severity="secondary" to="/ui" />
         </div>
       </Section>
     </Page>
