@@ -15,7 +15,7 @@
 }
 
 .dz-responsive-menu > ul > li > a {
-  padding: 0 0.2rem;
+  padding: 1rem;
   flex-wrap: nowrap;
   display: flex;
   align-items: center;
@@ -32,14 +32,12 @@
 
 .dz-responsive-menu > ul span[role="icon"] > :first-child {
   font-size: 1em;
-  padding: 0.75rem;
 }
 
 .dz-responsive-menu > ul span[role="label"] {
   overflow: hidden;
   flex: 1;
   font-size: 1em;
-  padding: 0.75rem 0;
 }
 
 .dz-responsive-menu[aria-orientation="vertical"] > ul {
@@ -63,10 +61,6 @@
   > li
   a[aria-current="page"] {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
-}
-
-.dz-responsive-menu > ul > li > a > span[aria-label="toggle-expand"] {
-  margin-right: 1rem;
 }
 
 .dz-responsive-menu
