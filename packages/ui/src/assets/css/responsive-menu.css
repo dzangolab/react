@@ -15,7 +15,7 @@
 }
 
 .dz-responsive-menu > ul > li > a {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   flex-wrap: nowrap;
   display: flex;
   align-items: center;
@@ -78,7 +78,7 @@
   > a
   > span[aria-label="toggle-expand"]
   > i {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
   transition: transform 0.1s ease-in;
 }
 
