@@ -63,6 +63,15 @@
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
+.sidebar[aria-expanded="false"]
+  > .dz-responsive-menu
+  > ul
+  > li
+  > a
+  > span[aria-label="toggle-expand"] {
+  display: none;
+}
+
 .dz-responsive-menu
   > ul
   > li[aria-expanded="true"]
