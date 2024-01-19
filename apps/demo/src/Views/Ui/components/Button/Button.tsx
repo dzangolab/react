@@ -46,9 +46,9 @@ export const ButtonDemo = () => {
       <Section title={t("button.usage.outlined")}>
         <div className="demo-buttons-container">
           <Button
-            label="Primary"
+            label="Secondary"
             size="medium"
-            variant="outlined"
+            variant="filled"
             severity="primary"
           />
           <Button
@@ -65,7 +65,7 @@ export const ButtonDemo = () => {
           />
           <Button label="Success" severity="success" variant="outlined" />
           <Button label="Danger" severity="danger" variant="outlined" />
-          <Button label="Warning" severity="warning" variant="outlined" />
+          <Button label="Secondary" severity="warning" variant="outlined" />
         </div>
       </Section>
 

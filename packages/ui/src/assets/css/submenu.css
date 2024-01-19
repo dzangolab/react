@@ -1,3 +1,7 @@
+:root{
+  --menu-caret-transition-duration: 0.1s
+}
+
 .sidebar[aria-expanded="false"] > .dz-responsive-menu > ul > li > .dz-submenu {
   display: none;
 }
@@ -15,6 +19,16 @@
 .dz-responsive-menu > ul > li > a > span[aria-label="toggle-expand"] {
   position: absolute;
   right: 1rem;
+}
+
+.dz-responsive-menu
+  > ul
+  > li[aria-expanded="true"]
+  > a
+  > span[aria-label="toggle-expand"]
+  > i {
+  transform: rotate(90deg);
+  transition: transform var(--menu-caret-transition-duration) ease-in;
 }
 
 .dz-submenu {
