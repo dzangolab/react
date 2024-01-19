@@ -1,3 +1,19 @@
+# [0.29.0](https://github.com/dzangolab/react/compare/v0.28.0...v0.29.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* **tableDateFormatting:** change the date column to be empty when the… ([#733](https://github.com/dzangolab/react/issues/733)) ([a7c1d8c](https://github.com/dzangolab/react/commit/a7c1d8cafbaddb1a9957c7d6c4509fc38cdd3054))
+
+
+### Features
+
+* **buttonLink:** add link support for the button ([#730](https://github.com/dzangolab/react/issues/730)) ([ef0d7b1](https://github.com/dzangolab/react/commit/ef0d7b15fed0e525cdb4c4bad1bc4be022d1e002))
+* **ui/button:** add icon-only button ([#731](https://github.com/dzangolab/react/issues/731)) ([62579ca](https://github.com/dzangolab/react/commit/62579ca6d63a7e66aee24260b2009843a700df31))
+* **ui/Table:** add in build actions column support ([#735](https://github.com/dzangolab/react/issues/735)) ([552727e](https://github.com/dzangolab/react/commit/552727e6960e74366c3891eeaf08fa7b67750dd1))
+
+
+
 # [0.28.0](https://github.com/dzangolab/react/compare/v0.27.0...v0.28.0) (2024-01-17)
 
 
