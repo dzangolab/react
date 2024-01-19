@@ -19,6 +19,7 @@
   justify-items: center;
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
+  position: relative;
 }
 
 .layout > .fixed-header {
