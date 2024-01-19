@@ -1,3 +1,4 @@
+import { DataActionsMenuProperties } from "./TableDataActions";
 import { Pagination } from "../../Pagination";
 import { Tooltip } from "../../Tooltip";
 
@@ -150,7 +151,13 @@ export type TFilterFn =
   | "notEqual"
   | "notIn"
   | "between"
-  | "notBetween";
+  | "notBetween"
+  | "isNull"
+  | "isNotNull"
+  | "isEmpty"
+  | "isNotEmpty"
+  | "like"
+  | "notLike";
 
 export type TFilterVariant =
   | "text"
@@ -219,6 +226,8 @@ export interface TDataTableProperties<TData>
   extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
+  dataActionsMenu?: DataActionsMenuProperties;
+  displayRowActions?: boolean | ((data: TData) => boolean);
   data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;

@@ -2,7 +2,7 @@ import { ConfirmDialog, ConfirmDialogProps } from "primereact/confirmdialog";
 
 import { Button, IButtonProperties } from "..";
 
-interface IModalProperties extends ConfirmDialogProps {
+export interface IModalProperties extends ConfirmDialogProps {
   acceptButtonOptions?: IButtonProperties;
   cancelButtonOptions?: IButtonProperties;
   onHide?: () => void;

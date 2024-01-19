@@ -205,7 +205,7 @@ export const FilesTable = ({
     {
       align: "center",
       id: "actions",
-      header: messages?.actionsHeader || "Actions",
+      header: messages?.actionsHeader || "",
       cell: ({ row: { original } }) => {
         return <ActionsMenu actions={getActionsItem(original)} />;
       },

@@ -40,7 +40,9 @@ export type UsersTableProperties = Partial<
   onInvitationAdded?: (response: AddInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserDisabled?: (data: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
   showInviteAction?: boolean;
@@ -171,7 +173,7 @@ export const UsersTable = ({
     {
       align: "center",
       id: "actions",
-      header: t("table.defaultColumns.actions"),
+      header: "",
       cell: ({ row: { original } }) => {
         return (
           <UserAction

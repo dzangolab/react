@@ -240,11 +240,11 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data}
           renderTableFooterContent={(table) => (
-            <div style={{ padding: "1rem" }}>
-              <span>
+            <tr>
+              <td>
                 Total records: {table.getPreFilteredRowModel().flatRows.length}
-              </span>
-            </div>
+              </td>
+            </tr>
           )}
         ></TDataTable>
       </Section>
@@ -273,6 +273,64 @@ export const TableDemo = () => {
           data={data.slice(10, 15)}
           paginated={false}
         ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.builtInActionColumn")}>
+        <TDataTable
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+          displayRowActions={(rowData) => {
+            return rowData.id !== 12;
+          }}
+          dataActionsMenu={{
+            actions: [
+              {
+                label: "View",
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "view action");
+                },
+              },
+              {
+                label: "Edit",
+                disabled: true,
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "edit action");
+                },
+              },
+              {
+                label: "Share",
+                disabled: (rowData) => {
+                  ///your logic here
+                  return rowData.id !== 11;
+                },
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "share action");
+                },
+              },
+              {
+                label: "Delete",
+                className: "danger",
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "delete action");
+                },
+                requireConfirmationModal: true,
+                confirmationOptions: {
+                  header: "Are you sure!",
+                  message: "You are going to delete this data.",
+                },
+              },
+            ],
+          }}
+        />
       </Section>
 
       <Section title={t("table.usage.withCustomFilter")}>

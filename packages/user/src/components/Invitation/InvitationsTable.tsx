@@ -168,7 +168,7 @@ export const InvitationsTable = ({
     {
       align: "center",
       id: "actions",
-      header: t("table.defaultColumns.actions"),
+      header: "",
       cell: ({ row: { original } }) => {
         return (
           <>

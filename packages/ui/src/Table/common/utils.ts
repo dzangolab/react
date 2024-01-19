@@ -11,36 +11,50 @@ import type {
   SortingState,
 } from "@tanstack/react-table";
 
-const getFilterOperator = (filterFunction: TFilterFunction): string => {
+const getFilterOperator = (
+  filterFunction: TFilterFunction,
+): { operator: string; not?: boolean } => {
   switch (filterFunction) {
     case "contains":
-      return "ct";
+      return { operator: "ct" };
     case "startsWith":
-      return "sw";
+      return { operator: "sw" };
     case "endsWith":
-      return "ew";
+      return { operator: "ew" };
     case "equals":
-      return "eq";
+      return { operator: "eq" };
     case "notEqual":
-      return "ne";
+      return { operator: "eq", not: true };
     case "greaterThan":
-      return "gt";
+      return { operator: "gt" };
     case "greaterThanOrEqual":
-      return "gte";
+      return { operator: "gte" };
     case "lessThanOrEqual":
-      return "lte";
+      return { operator: "lte" };
     case "lessThan":
-      return "lt";
+      return { operator: "lt" };
     case "in":
-      return "in";
+      return { operator: "in" };
     case "notIn":
-      return "nin";
+      return { operator: "in", not: true };
     case "between":
-      return "bt";
+      return { operator: "bt" };
     case "notBetween":
-      return "nbt";
+      return { operator: "bt", not: true };
+    case "isNull":
+      return { operator: "null" };
+    case "isNotNull":
+      return { operator: "null", not: true };
+    case "isEmpty":
+      return { operator: "empty" };
+    case "isNotEmpty":
+      return { operator: "empty", not: true };
+    case "like":
+      return { operator: "like" };
+    case "notLike":
+      return { operator: "like", not: true };
     default:
-      return "ct";
+      return { operator: "ct" };
   }
 };
 
@@ -66,7 +80,7 @@ export const getRequestJSON = (
     if (filterState.length === 1) {
       return {
         key: filterState[0].id,
-        operator: getFilterOperator(filterState[0].filterFn || "contains"),
+        ...getFilterOperator(filterState[0].filterFn || "contains"),
         value: String(filterState[0].value),
       };
     }
@@ -75,7 +89,7 @@ export const getRequestJSON = (
       AND: filterState.map((filter) => {
         return {
           key: filter.id,
-          operator: getFilterOperator(filter.filterFn || "contains"),
+          ...getFilterOperator(filter.filterFn || "contains"),
           value: String(filter.value),
         };
       }),
@@ -248,7 +262,7 @@ export const getParsedColumns = ({
 
 export const formatNumber = ({
   value,
-  locale = "en-US",
+  locale = "en-GB",
   formatOptions,
 }: FormatNumberType) => {
   // for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
@@ -263,7 +277,7 @@ export const formatNumber = ({
 };
 export const formatDate = ({
   date,
-  locale = "en-US",
+  locale = "en-GB",
   formatOptions,
 }: FormatDateType) => {
   //for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
