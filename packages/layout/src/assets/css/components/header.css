@@ -1,5 +1,5 @@
 .layout > header {
-  --header-bg-color: transparent;
+  --header-bg-color: #ffffff;
   --header-border-color: var(--border-color);
   --header-font-size: var(--font-size);
   --header-gap: 0.5rem;
@@ -7,7 +7,6 @@
   --header-padding-v: 1em;
 
   align-items: center;
-  background-color: #ffffff;
   border-bottom: 1px solid var(--header-border-color);
   display: grid;
   font-size: var(--header-font-size);
@@ -33,7 +32,7 @@
   background-color: var(--header-bg-color);
   box-shadow: 0 0 0 100vmax var(--header-bg-color);
   clip-path: inset(
-    calc(-1 * var(--header-padding-top)) -100vmax calc(
+    calc(-1 * var(--header-padding-top, 1em)) -100vmax calc(
         -1 * var(--header-padding-bottom, 1em)
       ) -100vmax
   );

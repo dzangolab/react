@@ -12,6 +12,7 @@ const Sidebar: React.FC<Properties> = ({
   collapseIcon = <i className="pi pi-angle-left"></i>,
 }) => {
   const [open, setOpen] = useState(true);
+
   return (
     <div className="sidebar" aria-expanded={open}>
       <div className="toggle-button">
