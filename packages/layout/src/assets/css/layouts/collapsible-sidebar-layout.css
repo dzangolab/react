@@ -23,7 +23,7 @@
 }
 
 .layout.collapsible > .fixed-layout {
-  height: calc(100vh - 134px);
+  height: calc(100vh - 135px);
   overflow-y: scroll;
 }
 
