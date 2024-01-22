@@ -19,12 +19,16 @@
   flex-wrap: nowrap;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
   flex: 1;
   overflow: hidden;
   color: inherit;
   text-decoration: none;
+}
+
+.dz-responsive-menu > ul span[role="icon"] {
+  margin-left: 0.2rem;
 }
 
 .dz-responsive-menu > ul span[role="icon"] > :first-child {
@@ -65,14 +69,12 @@
   > ul
   > li
   > a
-  > span[aria-label="toggle-expand"],
-.sidebar[aria-expanded="false"]
-  > .dz-responsive-menu
-  > ul
-  > li
-  > a
-  > span[role="label"] {
+  > span[aria-label="toggle-expand"] {
   display: none;
+}
+
+.dz-responsive-menu > ul > li > a > span[aria-label="toggle-expand"] > i {
+  color: var(--dz-secondary-color);
 }
 
 .dz-responsive-menu

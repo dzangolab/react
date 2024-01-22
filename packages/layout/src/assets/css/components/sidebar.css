@@ -19,16 +19,17 @@
     display: flex;
     justify-content: flex-end;
     padding: 0.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sidebar[aria-expanded="false"] > .toggle-button {
+    justify-content: center;
   }
 
   .sidebar > .toggle-button > button {
     align-items: center;
-    background-color: #dbe9fa;
-    border-radius: 100%;
     cursor: pointer;
     display: flex;
-    opacity: 0.5;
     justify-content: center;
     position: relative;
     padding: 1rem;
@@ -37,8 +38,8 @@
     width: 3rem;
   }
 
-  .sidebar > .toggle-button > button:hover {
-    opacity: 1;
+  .sidebar > .toggle-button > button:focus {
+    outline: none;
   }
 
   .sidebar[aria-expanded="true"] {

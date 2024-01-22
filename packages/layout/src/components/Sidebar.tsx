@@ -1,3 +1,4 @@
+import { Button } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 
 interface Properties {
@@ -16,9 +17,12 @@ const Sidebar: React.FC<Properties> = ({
   return (
     <div className="sidebar" aria-expanded={open}>
       <div className="toggle-button">
-        <button onClick={() => setOpen(!open)}>
-          {open ? collapseIcon : expandIcon}
-        </button>
+        <Button
+          onClick={() => setOpen(!open)}
+          iconLeft={open ? collapseIcon : expandIcon}
+          variant="textOnly"
+          severity="secondary"
+        />
       </div>
       {children}
     </div>

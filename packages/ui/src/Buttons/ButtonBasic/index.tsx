@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export interface IButtonProperties
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: string;
+  children?: string | ReactNode;
   iconLeft?: string | ReactNode;
   iconRight?: string | ReactNode;
   label?: string;
