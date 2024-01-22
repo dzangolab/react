@@ -26,18 +26,6 @@
     justify-content: center;
   }
 
-  .sidebar > .toggle-button > button {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    padding: 1rem;
-    border: none;
-    height: 3rem;
-    width: 3rem;
-  }
-
   .sidebar[aria-expanded="true"] {
     width: 250px;
   }
