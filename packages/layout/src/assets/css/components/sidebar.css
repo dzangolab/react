@@ -37,11 +37,7 @@
     height: 3rem;
     width: 3rem;
   }
-
-  .sidebar > .toggle-button > button:focus {
-    outline: none;
-  }
-
+  
   .sidebar[aria-expanded="true"] {
     width: 250px;
   }

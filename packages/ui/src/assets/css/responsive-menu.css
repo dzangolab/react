@@ -75,7 +75,7 @@
 
 .dz-responsive-menu > ul > li > a > span[aria-label="toggle-expand"] > i {
   font-size: 0.9rem;
-  color: var(--dz-secondary-color);
+  font-weight: lighter;
 }
 
 .dz-responsive-menu
