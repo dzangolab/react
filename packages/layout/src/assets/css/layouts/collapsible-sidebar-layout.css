@@ -22,10 +22,6 @@
   padding-bottom: var(--_layout-collapsible-padding-h);
 }
 
-.layout.collapsible.fixed > main {
-  overflow-y: scroll;
-}
-
 @media screen and (min-width: 576px) {
   .layout.collapsible > header {
     grid-area: header;
@@ -52,10 +48,14 @@
     gap: var(--_layout-collapsible-gap);
     grid-template-rows: auto 1fr auto;
     grid-template-columns: max-content 1fr;
-    height: 100vh;
+    height: 100dvh;
   }
 
   .layout.collapsible > header > .menu-container {
     grid-template-columns: auto;
+  }
+
+  .layout.collapsible.fixed > main {
+    overflow-y: scroll;
   }
 }
