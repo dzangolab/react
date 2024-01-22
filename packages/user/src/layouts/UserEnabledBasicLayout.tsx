@@ -27,6 +27,7 @@ interface Properties {
   mainMenu?: React.ReactNode;
   logoRoute?: string;
   showUserMenuIcon?: boolean;
+  fixed?: boolean;
 }
 
 const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
@@ -53,6 +54,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     logoRoute,
     menuToggle,
     showUserMenuIcon,
+    fixed,
   } = properties;
 
   return (
@@ -66,6 +68,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
       logoRoute={logoRoute || home}
       menuToggle={menuToggle}
       localSwitcher={localSwitcher}
+      fixed={fixed}
       userMenu={
         <UserMenu
           authenticatedUserMenu={

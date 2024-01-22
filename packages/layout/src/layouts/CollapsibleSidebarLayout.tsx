@@ -23,6 +23,7 @@ interface Properties {
   sidebar?: React.ReactNode;
   displaySidebarMenuIcon?: boolean;
   displaySidebar?: boolean;
+  fixed?: boolean;
 }
 
 const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
@@ -40,10 +41,11 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     menuToggle,
     userMenu,
+    fixed,
   } = properties;
 
   return (
-    <div className="layout collapsible">
+    <div className={`layout collapsible ${fixed ? "fixed" : ""}`.trimEnd()}>
       {header || (
         <AppHeader
           navStyle="left-slider"

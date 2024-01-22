@@ -2,11 +2,11 @@
   --_layout-basic-gap: var(--layout-gap, 1em);
   --_layout-basic-max-width: var(--layout-max-width, 60rem);
   --_layout-basic-padding-h: var(--layout-padding-h, 1em);
+  --_layout-basic-padding-v: var(--layout-padding-v, 1em);
 
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  gap: var(--_layout-basic-gap);
 }
 
 .layout.basic > :is(footer, header, main) {
@@ -19,11 +19,21 @@
 
 .layout.basic > main {
   flex: 1;
+  padding-top: var(--_layout-basic-padding-v);
+  padding-bottom: var(--_layout-basic-padding-v);
 }
 
 @media screen and (min-width: 60rem) {
+  .layout.basic {
+    height: 100dvh;
+  }
+
   .layout.basic > :is(footer, header, main) {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .layout.basic.fixed > main {
+    overflow-y: scroll;
   }
 }
