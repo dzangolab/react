@@ -8,6 +8,7 @@ import {
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
+import { useUserActions } from "./useUserActionsMethods";
 import { InvitationModal } from "../Invitation";
 
 import type {
@@ -18,7 +19,6 @@ import type {
   InvitationExpiryDateField,
   UserType,
 } from "@/types";
-import { useUserActions } from "./useUserActionsMethods";
 
 type VisibleColumn =
   | "name"
@@ -216,7 +216,7 @@ export const UsersTable = ({
           {
             label: t("table.actions.enable"),
             icon: "pi pi-check",
-            disabled: (user: any) => !user.disabled,
+            disabled: (user) => !user.disabled,
             onClick: (user) => handleEnableUser(user),
             requireConfirmationModal: true,
             confirmationOptions: {
@@ -228,7 +228,7 @@ export const UsersTable = ({
             label: t("table.actions.disable"),
             className: "danger",
             icon: "pi pi-times",
-            disabled: (user: any) => user.disabled,
+            disabled: (user) => user.disabled,
             onClick: (user) => handleDisableUser(user),
             requireConfirmationModal: true,
             confirmationOptions: {

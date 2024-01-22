@@ -1,22 +1,23 @@
-import { disableUser, enableUser } from "@/api/user";
-import { useConfig } from "@/hooks";
-import { UserType } from "@/types";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { MenuItem } from "primereact/menuitem";
-import { useState } from "react";
 import { toast } from "react-toastify";
+
+import { disableUser, enableUser } from "../../api/user";
+import { useConfig } from "../../hooks";
 
 export const useUserActions = ({
   onUserDisabled,
   onUserEnabled,
 }: {
-  onUserDisabled: any;
-  onUserEnabled: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onUserDisabled?: (response: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onUserEnabled?: (response: any) => void;
 }) => {
   const appConfig = useConfig();
 
   const { t } = useTranslation("users");
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDisableUser = (user: any) => {
     disableUser(user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
@@ -35,6 +36,7 @@ export const useUserActions = ({
       });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleEnableUser = (user: any) => {
     enableUser(user.id, appConfig?.apiBaseUrl || "")
       .then((response) => {

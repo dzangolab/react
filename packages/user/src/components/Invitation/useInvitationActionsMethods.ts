@@ -1,19 +1,22 @@
-import { resendInvitation, revokeInvitation } from "@/api/invitation";
-import { useConfig } from "@/hooks";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { toast } from "react-toastify";
+
+import { resendInvitation, revokeInvitation } from "../../api/invitation";
+import { useConfig } from "../../hooks";
+import { ResendInvitationResponse } from "../../types";
 
 export const useInvitationActionsMethods = ({
   onInvitationResent,
   onInvitationRevoked,
 }: {
-  onInvitationResent: any;
-  onInvitationRevoked: any;
+  onInvitationResent?: (response: ResendInvitationResponse) => void;
+  onInvitationRevoked?: (response: ResendInvitationResponse) => void;
 }) => {
   const appConfig = useConfig();
 
   const { t } = useTranslation("invitations");
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onResendConfirm = (invitation: any) => {
     resendInvitation(invitation.id, appConfig?.apiBaseUrl || "")
       .then((response) => {
@@ -33,6 +36,7 @@ export const useInvitationActionsMethods = ({
       });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onRevokeConfirm = (invitation: any) => {
     revokeInvitation(invitation.id, appConfig?.apiBaseUrl || "")
       .then((response) => {

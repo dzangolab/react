@@ -8,6 +8,8 @@ import {
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
+import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
+
 import { InvitationModal } from ".";
 
 import type {
@@ -21,7 +23,6 @@ import type {
   Invitation,
   UserType,
 } from "../../types";
-import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
 
 type VisibleColumn =
   | "email"
@@ -209,6 +210,7 @@ export const InvitationsTable = ({
             icon: "pi pi-replay",
             disabled: (invitation) => !!invitation.acceptedAt,
             onClick: (invitation) => onResendConfirm(invitation),
+            requireConfirmationModal: true,
             confirmationOptions: {
               message: t("confirmation.confirm.resend.message"),
               header: t("confirmation.header"),
@@ -220,6 +222,7 @@ export const InvitationsTable = ({
             className: "danger",
             disabled: (invitation) => !!invitation.acceptedAt,
             onClick: (invitation) => onRevokeConfirm(invitation),
+            requireConfirmationModal: true,
             confirmationOptions: {
               message: t("confirmation.confirm.revoke.message"),
               header: t("confirmation.header"),
