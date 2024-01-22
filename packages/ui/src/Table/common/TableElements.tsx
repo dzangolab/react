@@ -86,7 +86,7 @@ const TableCell = React.forwardRef<
     className={`tcell ${className || ""}`}
     ref={reference}
     {...properties}
-    children={<div className="content"> {children}</div>}
+    children={children}
   />
 ));
 TableCell.displayName = "TableCell";
