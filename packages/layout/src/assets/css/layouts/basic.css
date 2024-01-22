@@ -2,6 +2,7 @@
   --_layout-basic-gap: var(--layout-gap, 1em);
   --_layout-basic-max-width: var(--layout-max-width, 60rem);
   --_layout-basic-padding-h: var(--layout-padding-h, 1em);
+  --_layout-basic-padding-v: var(--layout-padding-v, 1em);
 
   min-height: 100dvh;
   display: flex;
@@ -19,7 +20,8 @@
 
 .layout.basic > main {
   flex: 1;
-  padding-top: 1em;
+  padding-top: var(--_layout-basic-padding-v);
+  padding-bottom: var(--_layout-basic-padding-v);
 }
 
 .layout.basic.fixed > main {
