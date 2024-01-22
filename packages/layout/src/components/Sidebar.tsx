@@ -9,8 +9,8 @@ interface Properties {
 
 const Sidebar: React.FC<Properties> = ({
   children,
-  expandIcon = <i className="pi pi-angle-right"></i>,
-  collapseIcon = <i className="pi pi-angle-left"></i>,
+  expandIcon = <i className="pi pi-angle-double-right"></i>,
+  collapseIcon = <i className="pi pi-angle-double-left"></i>,
 }) => {
   const [open, setOpen] = useState(true);
 
@@ -22,6 +22,7 @@ const Sidebar: React.FC<Properties> = ({
           iconLeft={open ? collapseIcon : expandIcon}
           variant="textOnly"
           severity="secondary"
+          size="small"
         />
       </div>
       {children}

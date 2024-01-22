@@ -18,7 +18,7 @@
   .sidebar > .toggle-button {
     display: flex;
     justify-content: flex-end;
-    padding: 0.2rem;
+    padding: 0.4rem;
     margin-bottom: 0.5rem;
   }
   
@@ -37,7 +37,7 @@
     height: 3rem;
     width: 3rem;
   }
-  
+
   .sidebar[aria-expanded="true"] {
     width: 250px;
   }
