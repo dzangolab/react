@@ -22,7 +22,7 @@
   flex: 1;
 }
 
-.layout.basic > .fixed-layout {
+.layout.basic.fixed > main {
   overflow-y: scroll;
 }
 

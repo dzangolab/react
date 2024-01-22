@@ -31,7 +31,7 @@ interface Properties {
   mainMenu?: React.ReactNode;
   logoRoute?: string;
   showUserMenuIcon?: boolean;
-  isLayoutFixed?: boolean;
+  fixed?: boolean;
 }
 
 const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
@@ -61,7 +61,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     menuToggle,
     showUserMenuIcon,
-    isLayoutFixed,
+    fixed,
   } = properties;
 
   const renderMainMenu = () => {
@@ -103,7 +103,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
       }
       sidebar={customSidebar}
       displaySidebar={!!(user && !isSmallScreen)}
-      isLayoutFixed={isLayoutFixed}
+      fixed={fixed}
     />
   );
 };

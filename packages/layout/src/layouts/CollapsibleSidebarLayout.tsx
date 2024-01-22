@@ -23,7 +23,7 @@ interface Properties {
   sidebar?: React.ReactNode;
   displaySidebarMenuIcon?: boolean;
   displaySidebar?: boolean;
-  isLayoutFixed?: boolean;
+  fixed?: boolean;
 }
 
 const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
@@ -41,11 +41,11 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     menuToggle,
     userMenu,
-    isLayoutFixed,
+    fixed,
   } = properties;
 
   return (
-    <div className="layout collapsible">
+    <div className={fixed ? "layout collapsible fixed" : "layout collapsible"}>
       {header || (
         <AppHeader
           navStyle="left-slider"
@@ -71,7 +71,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
           )}
         </>
       ) : null}
-      <main className={isLayoutFixed ? "fixed-layout" : ""}>{children}</main>
+      <main>{children}</main>
       {footer || <AppFooter />}
     </div>
   );

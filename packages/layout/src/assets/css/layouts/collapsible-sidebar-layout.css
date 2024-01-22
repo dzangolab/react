@@ -22,7 +22,7 @@
   padding-bottom: var(--_layout-collapsible-padding-h);
 }
 
-.layout.collapsible > .fixed-layout {
+.layout.collapsible.fixed > main {
   overflow-y: scroll;
 }
 

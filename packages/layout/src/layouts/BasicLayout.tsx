@@ -18,7 +18,7 @@ interface Properties {
   userMenu?: React.ReactNode;
   mainMenu?: React.ReactNode;
   logoRoute?: string;
-  isLayoutFixed?: boolean;
+  fixed?: boolean;
 }
 
 const BasicLayout: React.FC<Properties> = (properties) => {
@@ -33,11 +33,11 @@ const BasicLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     footer,
     header,
-    isLayoutFixed,
+    fixed,
   } = properties;
 
   return (
-    <div className="layout basic">
+    <div className={fixed ? "layout basic fixed" : "layout basic"}>
       {header || (
         <AppHeader
           navStyle="left-slider"
@@ -51,7 +51,7 @@ const BasicLayout: React.FC<Properties> = (properties) => {
         />
       )}
 
-      <main className={isLayoutFixed ? "fixed-layout" : ""}>{children}</main>
+      <main>{children}</main>
 
       {footer || <AppFooter />}
     </div>
