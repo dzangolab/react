@@ -22,12 +22,6 @@
   position: relative;
 }
 
-.layout > .fixed-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
 .layout > header::before {
   content: "";
   background-color: var(--header-bg-color);

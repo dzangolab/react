@@ -7,7 +7,6 @@ import useConfig from "../hooks/useConfig";
 interface Properties {
   copyright?: React.ReactNode;
   version?: React.ReactNode;
-  isLayoutFixed?: boolean;
 }
 
 const year = new Date().getFullYear();
@@ -24,11 +23,10 @@ const AppFooter: React.FC<Properties> = (properties: Properties) => {
       />
     ),
     version = <Version version={appConfig?.appVersion} />,
-    isLayoutFixed,
   } = properties;
 
   return (
-    <footer className={isLayoutFixed ? "fixed-footer" : ""}>
+    <footer>
       {copyright}
       {version}
     </footer>

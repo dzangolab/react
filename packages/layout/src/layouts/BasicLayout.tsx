@@ -48,13 +48,12 @@ const BasicLayout: React.FC<Properties> = (properties) => {
           localeSwitcher={localSwitcher}
           logoRoute={logoRoute}
           mainMenuOrientation={mainMenuOrientation}
-          isLayoutFixed={isLayoutFixed}
         />
       )}
 
-      <main>{children}</main>
+      <main className={isLayoutFixed ? "fixed-layout" : ""}>{children}</main>
 
-      {footer || <AppFooter isLayoutFixed={isLayoutFixed} />}
+      {footer || <AppFooter />}
     </div>
   );
 };

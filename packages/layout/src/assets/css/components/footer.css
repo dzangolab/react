@@ -20,12 +20,6 @@
   text-align: center;
 }
 
-.layout > .fixed-footer {
-  bottom: 0;
-  position: sticky;
-  z-index: 1;
-}
-
 .layout > footer .version {
   font-size: calc(0.8 * var(--footer-font-size));
 }
