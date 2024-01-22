@@ -3,7 +3,7 @@
 
 ### Features
 
-* **layout:** set header and footer fixed ([#706](https://github.com/dzangolab/react/issues/706)) ([9599e87](https://github.com/dzangolab/react/commit/9599e87ca2740425ba6af031564e0c7449853f7b))
+* **layout:** add option to set header and footer fixed ([#706](https://github.com/dzangolab/react/issues/706)) ([9599e87](https://github.com/dzangolab/react/commit/9599e87ca2740425ba6af031564e0c7449853f7b))
 
 
 
