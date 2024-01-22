@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap:0.5rem;
+  gap: 0.5rem;
   flex: 1;
   overflow: hidden;
   color: inherit;
@@ -70,7 +70,7 @@
   > li
   > a
   > span[aria-label="toggle-expand"],
-.sidebar[aria-expanded="false"]
+  .sidebar[aria-expanded="false"]
   > .dz-responsive-menu
   > ul
   > li
@@ -78,7 +78,6 @@
   > span[role="label"] {
   display: none;
 }
-
 
 .dz-responsive-menu
   > ul
