@@ -19,8 +19,8 @@
   flex-wrap: nowrap;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 1rem;
   flex: 1;
   overflow: hidden;
   color: inherit;
@@ -60,17 +60,13 @@
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }
 
-.dz-responsive-menu > ul > li[aria-expanded="false"] > a {
-  justify-content: center;
-}
-
 .sidebar[aria-expanded="false"]
   > .dz-responsive-menu
   > ul
   > li
   > a
   > span[aria-label="toggle-expand"],
-  .sidebar[aria-expanded="false"]
+.sidebar[aria-expanded="false"]
   > .dz-responsive-menu
   > ul
   > li
