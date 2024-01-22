@@ -37,7 +37,7 @@ const BasicLayout: React.FC<Properties> = (properties) => {
   } = properties;
 
   return (
-    <div className={fixed ? "layout basic fixed" : "layout basic"}>
+    <div className={`layout basic ${fixed ? "fixed" : ""}`.trimEnd()}>
       {header || (
         <AppHeader
           navStyle="left-slider"

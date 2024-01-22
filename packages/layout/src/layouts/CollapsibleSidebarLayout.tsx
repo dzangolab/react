@@ -45,7 +45,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
   } = properties;
 
   return (
-    <div className={fixed ? "layout collapsible fixed" : "layout collapsible"}>
+    <div className={`layout collapsible ${fixed ? "fixed" : ""}`.trimEnd()}>
       {header || (
         <AppHeader
           navStyle="left-slider"
