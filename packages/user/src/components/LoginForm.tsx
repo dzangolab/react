@@ -42,7 +42,11 @@ const LoginForm = ({ handleSubmit, loading }: Properties) => {
         name="email"
         placeholder={t("login.form.email.placeholder")}
       />
-      <Password label={t("login.form.password.label")} name="password" />
+      <Password
+        label={t("login.form.password.label")}
+        name="password"
+        isSignup={false}
+      />
       <SubmitButton label={t("login.form.actions.submit")} loading={loading} />
     </Form>
   );
