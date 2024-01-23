@@ -71,7 +71,7 @@
 .table-container[data-border="grid"] .toolbar,
 .table-container[data-border="grid"] .table-wrapper .table,
 .table-container[data-border="grid"] .table-wrapper .table tr,
-.table-container[data-border="grid"] .table-wrapper .table .tcell,
+.table-container[data-border="grid"] .table-wrapper .table tr > td,
 .table-container[data-border="grid"] .table-wrapper .table .tcol-head,
 .table-container[data-border="grid"] .pagination {
   border: var(--table-border);
@@ -79,7 +79,7 @@
 
 .table-container[data-border="vertical"] .toolbar,
 .table-container[data-border="vertical"] .pagination,
-.table-container[data-border="vertical"] .table-wrapper .table .tcell,
+.table-container[data-border="vertical"] .table-wrapper .table tr > td,
 .table-container[data-border="vertical"] .table-wrapper .table .tcol-head {
   border-left: var(--table-border);
   border-right: var(--table-border);
@@ -102,7 +102,7 @@
   border-bottom: none;
 }
 
-.table-container .table-wrapper .table .tcell,
+.table-container .table-wrapper .table tr > td,
 .table-container .table-wrapper .table .tcol-head {
   overflow: hidden;
 }
@@ -117,7 +117,7 @@
   text-align: left;
 }
 
-.table-container .table-wrapper .table .tcell[data-align="center"],
+.table-container .table-wrapper .table tr > td[data-align="center"],
 .table-container
   .table-wrapper
   .table
@@ -127,7 +127,7 @@
   text-align: center;
 }
 
-.table-container .table-wrapper .table .tcell[data-align="right"],
+.table-container .table-wrapper .table tr > td[data-align="right"],
 .table-container
   .table-wrapper
   .table
@@ -164,7 +164,7 @@
 }
 
 .table-container .table-wrapper .table .tcol-head.highlight,
-.table-container .table-wrapper .table .tcell.highlight {
+.table-container .table-wrapper .table tr > td.highlight {
   background-color: var(--table-header-active-bg-color);
 }
 
@@ -209,7 +209,7 @@
   background-color: #ffffff;
 }
 
-.table-container .table-wrapper .table .tcell,
+.table-container .table-wrapper .table tr > td,
 .table-container .table-wrapper .table .tcol-head {
   padding: var(--table-column-padding);
 }
