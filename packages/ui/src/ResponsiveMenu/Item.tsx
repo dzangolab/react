@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction, useState } from "react";
-import { NavLink, useInRouterContext } from "react-router-dom";
+import { Dispatch, SetStateAction, useId, useState } from "react";
+import { NavLink, useInRouterContext, useNavigate } from "react-router-dom";
 
+import { DropdownMenu, useMediaQuery } from "..";
 import { Submenu } from "../Submenu";
 
 import { NestedMenuRouteType, MenuRouteType } from ".";
@@ -19,8 +20,25 @@ interface IItemLinkProperties {
 
 export const MenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
+  const isSmallScreen = useMediaQuery("(max-width: 576px)");
+  const navigate = useNavigate();
+  const id = useId();
 
-  return (
+  const improvedSubmenu = () => {
+    console.log("Hello");
+    if ("submenu" in route) {
+      return route.submenu.map((element) => ({
+        label: element.name,
+        onClick: () => {
+          navigate(element.route);
+        },
+      }));
+    }
+
+    return [];
+  };
+
+  return !isSmallScreen ? (
     <li key={route.name} aria-expanded={showSubmenu}>
       <MenuItemLink route={route} setShowSubmenu={setShowSubmenu}>
         {displayIcon ? (
@@ -29,7 +47,7 @@ export const MenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
           </span>
         ) : null}
         <span role="label">{route.name}</span>
-        {"submenu" in route && route.submenu.length && (
+        {"submenu" in route && !!route.submenu.length && (
           <span aria-label="toggle-expand">
             <i className="pi pi-angle-down" />
           </span>
@@ -39,6 +57,21 @@ export const MenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
         <Submenu submenu={route.submenu} key={route.name} />
       )}
     </li>
+  ) : (
+    "submenu" in route && (
+      <DropdownMenu
+        className="sub-menu"
+        dropdownMenu={{
+          menuItems: improvedSubmenu(),
+          keyExtractor: ({ name }) => {
+            return `${id}__${name}`;
+          },
+        }}
+        label={route.name}
+        expandIcon={route.submenu.length ? <>&#9662;</> : <></>}
+        collapseIcon={route.submenu.length ? <>&#9652;</> : <></>}
+      />
+    )
   );
 };
 
