@@ -8,6 +8,7 @@ interface RouteOverrides {
   home?: ((user: UserType) => string) | string;
   login?: RouteOverride;
   signup?: RouteOverride & { disabled?: boolean };
+  signupFirstUser?: RouteOverride & { disabled?: boolean };
   forgetPassword?: RouteOverride & { disabled?: boolean };
 }
 

@@ -4,6 +4,7 @@ enum ROUTES {
   LOGIN = "/login",
   FORGET_PASSWORD = "/forget-password",
   SIGNUP = "/signup",
+  SIGNUP_FIRST_USER = "/signup-first-user",
 }
 
 enum EMAIL_VERIFICATION {

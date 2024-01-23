@@ -53,14 +53,14 @@
     "signup": {
       "messages": {
         "error": "Error signing up first user",
-        "success": "Succefully added first admin user. Automatically logging in ..."
+        "success": "Succefully added first user. Automatically logging in ..."
       }
     }
   },
   "login": {
     "form": {
       "actions": {
-        "submit": "Sign in"
+        "submit": "Log in"
       },
       "email": {
         "label": "Your email",
@@ -70,19 +70,19 @@
         "label": "Your password"
       }
     },
-    "instructions": "Enter your credentials to continue.",
+    "instructions": "Enter your credentials to continue",
     "links": {
       "forgotPassword": "Forgot password",
       "signup": "Sign up"
     },
     "messages": {
-      "success": "Logged in successfully.",
+      "success": "Logged in successfully",
       "validation": {
         "email": "Email is required",
         "password": "Password is required"
       }
     },
-    "title": "Login"
+    "title": "Log in"
   },
   "logout": {
     "message": "Successfully logged out"
@@ -93,7 +93,7 @@
         "submit": "Create my account"
       },
       "confirmation": {
-        "label": "Confirm your password"
+        "label": "Confirm password"
       },
       "email": {
         "label": "Your email",
@@ -108,21 +108,21 @@
     },
     "links": {
       "forgotPassword": "Forgot password",
-      "login": "Login"
+      "login": "Log in"
     },
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
         "email": "Email is required",
         "password": "Password is required",
-        "confirmPassword": "ConfirmPassword is required"
+        "confirmPassword": "Confirm password is required"
       }
     },
-    "title": "Register"
+    "title": "Sign up"
   },
   "menu": {
-    "signin": "Signin",
-    "signup": "Signup"
+    "signin": "Log in",
+    "signup": "Sign up"
   },
   "resetPassword": {
     "form": {

@@ -1,7 +1,10 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { getIsFirstUser } from "@/api/user";
+import { ROUTES } from "@/constants";
 
 import { LoginWrapper } from "..";
 import GoogleLogin from "../components/GoogleLogin";
@@ -38,6 +41,10 @@ const Login: React.FC<IProperties> = ({
   const appConfig = useConfig();
   const location = useLocation();
 
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
   let className = "login";
   let path: string | null = null;
 
@@ -51,6 +58,30 @@ const Login: React.FC<IProperties> = ({
 
     return null;
   }, [location.search]);
+
+  useEffect(() => {
+    if (
+      appConfig?.user?.routes?.signup?.disabled &&
+      !appConfig?.user?.routes?.signupFirstUser?.disabled
+    ) {
+      setLoading(true);
+      getIsFirstUser(appConfig?.apiBaseUrl || "")
+        .then((response) => {
+          if (response?.signUp) {
+            navigate(
+              appConfig.user.routes?.signupFirstUser?.path ||
+                ROUTES.SIGNUP_FIRST_USER,
+            );
+          }
+        })
+        .catch(() => {
+          // do nothing
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  }, []);
 
   const renderRedirectionMessage = () => {
     if (path && path.length) {
@@ -80,6 +111,7 @@ const Login: React.FC<IProperties> = ({
       title={t("login.title")}
       className={className}
       data-aria-orientation={orientation}
+      loading={loading}
     >
       <LoginWrapper
         onLoginFailed={onLoginFailed}
