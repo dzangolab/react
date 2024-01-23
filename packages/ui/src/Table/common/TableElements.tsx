@@ -25,11 +25,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...properties }, reference) => (
-  <thead
-    className={`thead ${className || ""}`}
-    ref={reference}
-    {...properties}
-  />
+  <thead className={`${className || ""}`} ref={reference} {...properties} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -37,11 +33,7 @@ const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...properties }, reference) => (
-  <tbody
-    className={`tbody ${className || ""}`}
-    ref={reference}
-    {...properties}
-  />
+  <tbody className={`${className || ""}`} ref={reference} {...properties} />
 ));
 TableBody.displayName = "TableBody";
 
@@ -61,7 +53,7 @@ const TableRow = React.forwardRef<
   HTMLTableRowElement,
   React.HTMLAttributes<HTMLTableRowElement>
 >(({ className, ...properties }, reference) => (
-  <tr className={`trow ${className || ""}`} ref={reference} {...properties} />
+  <tr className={`${className || ""}`} ref={reference} {...properties} />
 ));
 TableRow.displayName = "TableRow";
 

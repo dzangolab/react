@@ -70,7 +70,7 @@
 
 .table-container[data-border="grid"] .toolbar,
 .table-container[data-border="grid"] .table-wrapper .table,
-.table-container[data-border="grid"] .table-wrapper .table .trow,
+.table-container[data-border="grid"] .table-wrapper .table tr,
 .table-container[data-border="grid"] .table-wrapper .table .tcell,
 .table-container[data-border="grid"] .table-wrapper .table .tcol-head,
 .table-container[data-border="grid"] .pagination {
@@ -87,7 +87,7 @@
 
 .table-container[data-border="horizontal"] .toolbar,
 .table-container[data-border="horizontal"] .pagination,
-.table-container[data-border="horizontal"] .table-wrapper .table .trow,
+.table-container[data-border="horizontal"] .table-wrapper .table tr,
 .table-container.toolbar {
   border: var(--table-border);
 }
@@ -171,29 +171,29 @@
 .table-container
   .table-wrapper
   .table[data-stripe="even"]
-  .tbody
-  .trow:nth-child(even) {
+  > tbody
+  > tr:nth-child(even) {
   background-color: var(--table-stripe-color);
 }
 
 .table-container
   .table-wrapper
   .table[data-stripe="odd"]
-  .tbody
-  .trow:nth-child(odd) {
+  > tbody
+  > tr:nth-child(odd) {
   background-color: var(--table-stripe-color);
 }
 
-.table-container .table-wrapper .table .tbody .trow[data-state="selected"] {
+.table-container .table-wrapper .table > tbody > tr[data-state="selected"] {
   background-color: var(--table-row-selected-bg-color) !important;
 }
 
 .table-container
   .table-wrapper
   .table
-  .tbody
-  .trow[data-state="selected"]:hover,
-.table-wrapper .table .tbody .trow:hover {
+  > tbody
+  > tr[data-state="selected"]:hover,
+.table-wrapper .table > tbody > tr:hover {
   background-color: var(--table-row-hover-bg-color) !important;
 }
 
@@ -202,7 +202,7 @@
   font-size: 1rem;
 }
 
-.table-wrapper .table .trow.filters .content input {
+.table-wrapper .table tr.filters .content input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
