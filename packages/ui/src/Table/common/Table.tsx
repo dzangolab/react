@@ -288,7 +288,7 @@ const DataTable = <TData extends { id: string | number }>({
     <div
       id={id}
       data-border={border}
-      className={("table-container " + className).trimEnd()}
+      className={("dz-table-container " + className).trimEnd()}
     >
       {title ? (
         <span children={title.text} data-align={title.align || "center"} />

@@ -13,7 +13,7 @@
 
 /* Tanstack table class definitions */
 
-.table-container {
+.dz-table-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.table-container > span {
+.dz-table-container > span {
   font-weight: bold;
   text-align: center;
   padding: 0.2rem 0;
@@ -29,15 +29,15 @@
   font-size: 1rem;
 }
 
-.table-container > span[data-align="left"] {
+.dz-table-container > span[data-align="left"] {
   text-align: left;
 }
 
-.table-container > span[data-align="right"] {
+.dz-table-container > span[data-align="right"] {
   text-align: right;
 }
 
-.table-container .loading-overlay {
+.dz-table-container .loading-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.table-container .toolbar {
+.dz-table-container .toolbar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -58,56 +58,56 @@
   padding: var(--table-column-padding);
 }
 
-.table-container .table-wrapper {
+.dz-table-container .table-wrapper {
   width: 100%;
   overflow-x: auto;
 }
 
-.table-container .table-wrapper .table {
+.dz-table-container .table-wrapper .table {
   min-width: 100%;
   border-collapse: collapse;
 }
 
-.table-container[data-border="grid"] .toolbar,
-.table-container[data-border="grid"] .table-wrapper .table,
-.table-container[data-border="grid"] .table-wrapper .table tr,
-.table-container[data-border="grid"] .table-wrapper .table tr > td,
-.table-container[data-border="grid"] .table-wrapper .table tr > th,
-.table-container[data-border="grid"] .pagination {
+.dz-table-container[data-border="grid"] .toolbar,
+.dz-table-container[data-border="grid"] .table-wrapper .table,
+.dz-table-container[data-border="grid"] .table-wrapper .table tr,
+.dz-table-container[data-border="grid"] .table-wrapper .table tr > td,
+.dz-table-container[data-border="grid"] .table-wrapper .table tr > th,
+.dz-table-container[data-border="grid"] .pagination {
   border: var(--table-border);
 }
 
-.table-container[data-border="vertical"] .toolbar,
-.table-container[data-border="vertical"] .pagination,
-.table-container[data-border="vertical"] .table-wrapper .table tr > td,
-.table-container[data-border="vertical"] .table-wrapper .table tr > th {
+.dz-table-container[data-border="vertical"] .toolbar,
+.dz-table-container[data-border="vertical"] .pagination,
+.dz-table-container[data-border="vertical"] .table-wrapper .table tr > td,
+.dz-table-container[data-border="vertical"] .table-wrapper .table tr > th {
   border-left: var(--table-border);
   border-right: var(--table-border);
 }
 
-.table-container[data-border="horizontal"] .toolbar,
-.table-container[data-border="horizontal"] .pagination,
-.table-container[data-border="horizontal"] .table-wrapper .table tr,
-.table-container.toolbar {
+.dz-table-container[data-border="horizontal"] .toolbar,
+.dz-table-container[data-border="horizontal"] .pagination,
+.dz-table-container[data-border="horizontal"] .table-wrapper .table tr,
+.dz-table-container.toolbar {
   border: var(--table-border);
 }
 
-.table-container[data-border="horizontal"] .pagination,
-.table-container[data-border="grid"] .pagination {
+.dz-table-container[data-border="horizontal"] .pagination,
+.dz-table-container[data-border="grid"] .pagination {
   border-top: none;
 }
 
-.table-container[data-border="horizontal"] .toolbar,
-.table-container[data-border="grid"] .toolbar {
+.dz-table-container[data-border="horizontal"] .toolbar,
+.dz-table-container[data-border="grid"] .toolbar {
   border-bottom: none;
 }
 
-.table-container .table-wrapper .table tr > td,
-.table-container .table-wrapper .table tr > th {
+.dz-table-container .table-wrapper .table tr > td,
+.dz-table-container .table-wrapper .table tr > th {
   overflow: hidden;
 }
 
-.table-container .table-wrapper .table tr > th > .content {
+.dz-table-container .table-wrapper .table tr > th > .content {
   width: 100%;
   display: flex;
   align-items: center;
@@ -117,8 +117,8 @@
   text-align: left;
 }
 
-.table-container .table-wrapper .table tr > td[data-align="center"],
-.table-container
+.dz-table-container .table-wrapper .table tr > td[data-align="center"],
+.dz-table-container
   .table-wrapper
   .table tr
   > th[data-align="center"]
@@ -127,8 +127,8 @@
   text-align: center;
 }
 
-.table-container .table-wrapper .table tr > td[data-align="right"],
-.table-container
+.dz-table-container .table-wrapper .table tr > td[data-align="right"],
+.dz-table-container
   .table-wrapper
   .table tr > th[data-align="right"]
   > .content {
@@ -138,7 +138,7 @@
   padding-right: 1rem;
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
   .table tr > th[data-align="right"]
   > .content {
@@ -148,25 +148,25 @@
   padding-right: 0;
 }
 
-.table-container .table-wrapper .table tr > th.sortable {
+.dz-table-container .table-wrapper .table tr > th.sortable {
   cursor: pointer;
 }
 
-.table-container .table-wrapper .table tr > th .sort-state i {
+.dz-table-container .table-wrapper .table tr > th .sort-state i {
   font-size: 0.7rem !important;
   font-weight: bold !important;
 }
 
-.table-container .table-wrapper .table tr > th.sortable:active {
+.dz-table-container .table-wrapper .table tr > th.sortable:active {
   background-color: var(--table-header-active-bg-color);
 }
 
-.table-container .table-wrapper .table tr > th.highlight,
-.table-container .table-wrapper .table tr > td.highlight {
+.dz-table-container .table-wrapper .table tr > th.highlight,
+.dz-table-container .table-wrapper .table tr > td.highlight {
   background-color: var(--table-header-active-bg-color);
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
   .table[data-stripe="even"]
   > tbody
@@ -174,7 +174,7 @@
   background-color: var(--table-stripe-color);
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
   .table[data-stripe="odd"]
   > tbody
@@ -182,11 +182,11 @@
   background-color: var(--table-stripe-color);
 }
 
-.table-container .table-wrapper .table > tbody > tr[data-state="selected"] {
+.dz-table-container .table-wrapper .table > tbody > tr[data-state="selected"] {
   background-color: var(--table-row-selected-bg-color) !important;
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
   .table
   > tbody
@@ -207,11 +207,11 @@
   background-color: #ffffff;
 }
 
-.table-container .table-wrapper .table tr > td,
-.table-container .table-wrapper .table tr > th {
+.dz-table-container .table-wrapper .table tr > td,
+.dz-table-container .table-wrapper .table tr > th {
   padding: var(--table-column-padding);
 }
 
-.table-container .pagination .page-input-control input {
+.dz-table-container .pagination .page-input-control input {
   background-color: #ffffff;
 }
