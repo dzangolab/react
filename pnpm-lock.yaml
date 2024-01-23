@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -72,8 +68,8 @@ importers:
         specifier: 6.15.0
         version: 6.15.0(react-dom@18.2.0)(react@18.2.0)
       react-toastify:
-        specifier: 9.0.5
-        version: 9.0.5(react-dom@18.2.0)(react@18.2.0)
+        specifier: 10.0.4
+        version: 10.0.4(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@babel/core':
         specifier: 7.23.3
@@ -360,20 +356,20 @@ importers:
         specifier: 0.30.0
         version: link:../ui
       i18next:
-        specifier: 21.10.0
-        version: 21.10.0
+        specifier: 23.7.18
+        version: 23.7.18
       i18next-browser-languagedetector:
-        specifier: 6.1.8
-        version: 6.1.8
+        specifier: 7.2.0
+        version: 7.2.0
       i18next-chained-backend:
-        specifier: ^4.0.0
-        version: 4.0.0
+        specifier: 4.6.2
+        version: 4.6.2
       i18next-resources-to-backend:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: 1.2.0
+        version: 1.2.0
       react-i18next:
-        specifier: 11.18.6
-        version: 11.18.6(i18next@21.10.0)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 14.0.1
+        version: 14.0.1(i18next@23.7.18)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
         specifier: 0.30.0
@@ -381,9 +377,6 @@ importers:
       '@testing-library/react':
         specifier: 14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@types/i18n':
-        specifier: 0.13.8
-        version: 0.13.8
       '@types/jsdom':
         specifier: 21.1.4
         version: 21.1.4
@@ -623,8 +616,8 @@ importers:
   packages/user:
     dependencies:
       react-toastify:
-        specifier: 9.0.5
-        version: 9.0.5(react-dom@18.2.0)(react@18.2.0)
+        specifier: 10.0.4
+        version: 10.0.4(react-dom@18.2.0)(react@18.2.0)
       supertokens-web-js:
         specifier: 0.6.0
         version: 0.6.0
@@ -2233,12 +2226,6 @@ packages:
   /@babel/regjsgen@0.8.0:
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
     dev: true
-
-  /@babel/runtime@7.14.0:
-    resolution: {integrity: sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==}
-    dependencies:
-      regenerator-runtime: 0.13.11
-    dev: false
 
   /@babel/runtime@7.23.6:
     resolution: {integrity: sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==}
@@ -5338,10 +5325,6 @@ packages:
     resolution: {integrity: sha512-D0CFMMtydbJAegzOyHjtiKPLlvnm3iTZyZRSZoLq2mRhDdmLfIWOCYPfQJ4cu2erKghU++QvjcUjp/5h7hESpA==}
     dev: true
 
-  /@types/i18n@0.13.8:
-    resolution: {integrity: sha512-F/Xl2QNy7+p2lp1AAjOYEaDRWUp2RoYH853/dWUD7IY2NwKBSmmnDDWOwc8Fw6ARgdc4CPjiATLaIjg9+cbJ8w==}
-    dev: true
-
   /@types/istanbul-lib-coverage@2.0.6:
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
     dev: true
@@ -6944,8 +6927,8 @@ packages:
     engines: {node: '>=0.8'}
     dev: true
 
-  /clsx@1.2.1:
-    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+  /clsx@2.1.0:
+    resolution: {integrity: sha512-m3iNNWpd9rl3jvvcBnu70ylMdrXt8Vlq4HYadnU5fwcOtvkSQWPmj7amUcDT2qYI7risszBjI5AUIUox9D16pg==}
     engines: {node: '>=6'}
     dev: false
 
@@ -9327,26 +9310,26 @@ packages:
     hasBin: true
     dev: true
 
-  /i18next-browser-languagedetector@6.1.8:
-    resolution: {integrity: sha512-Svm+MduCElO0Meqpj1kJAriTC6OhI41VhlT/A0UPjGoPZBhAHIaGE5EfsHlTpgdH09UVX7rcc72pSDDBeKSQQA==}
+  /i18next-browser-languagedetector@7.2.0:
+    resolution: {integrity: sha512-U00DbDtFIYD3wkWsr2aVGfXGAj2TgnELzOX9qv8bT0aJtvPV9CRO77h+vgmHFBMe7LAxdwvT/7VkCWGya6L3tA==}
     dependencies:
       '@babel/runtime': 7.23.6
     dev: false
 
-  /i18next-chained-backend@4.0.0:
-    resolution: {integrity: sha512-gOfkl2tvRDSMKQ2vaYbP+n5fsHeYM/836/Co8/NVP8LplRE8Ck7IrKWswp4vKw4D5Ji7cEdzA4drrG4ssgsXIg==}
+  /i18next-chained-backend@4.6.2:
+    resolution: {integrity: sha512-2P092fR+nAPQlGzPUoIIxbwo7PTBqQYgLxwv1XhSTQUAUoelLo5LkX+FqRxxSDg9WEAsrc8+2WL6mJtMGIa6WQ==}
     dependencies:
       '@babel/runtime': 7.23.6
     dev: false
 
-  /i18next-resources-to-backend@1.0.0:
-    resolution: {integrity: sha512-mxntiPK84guqzYP/0T4OwU6BWda57ar7Tw5pU8BjM8dS4rULOtYU4JHMXfCbqZhNQEPCrp1WrVBEPk6yOze8jw==}
+  /i18next-resources-to-backend@1.2.0:
+    resolution: {integrity: sha512-8f1l03s+QxDmCfpSXCh9V+AFcxAwIp0UaroWuyOx+hmmv8484GcELHs+lnu54FrNij8cDBEXvEwhzZoXsKcVpg==}
     dependencies:
-      '@babel/runtime': 7.14.0
+      '@babel/runtime': 7.23.6
     dev: false
 
-  /i18next@21.10.0:
-    resolution: {integrity: sha512-YeuIBmFsGjUfO3qBmMOc0rQaun4mIpGKET5WDwvu8lU7gvwpcariZLNtL0Fzj+zazcHUrlXHiptcFhBMFaxzfg==}
+  /i18next@23.7.18:
+    resolution: {integrity: sha512-b9N2KjRCYQNlUvE1Kc83g8knyUkL5NiZQOp9BsTR/v/LXk6Fzz+doOzTg2/826XK28mCgBkYLNAtixjE58qpCw==}
     dependencies:
       '@babel/runtime': 7.23.6
     dev: false
@@ -11439,10 +11422,10 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-i18next@11.18.6(i18next@21.10.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-yHb2F9BiT0lqoQDt8loZ5gWP331GwctHz9tYQ8A2EIEUu+CcEdjBLQWli1USG3RdWQt3W+jqQLg/d4rrQR96LA==}
+  /react-i18next@14.0.1(i18next@23.7.18)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-TMV8hFismBmpMdIehoFHin/okfvgjFhp723RYgIqB4XyhDobVMyukyM3Z8wtTRmajyFMZrBl/OaaXF2P6WjUAw==}
     peerDependencies:
-      i18next: '>= 19.0.0'
+      i18next: '>= 23.2.3'
       react: '>= 16.8.0'
       react-dom: '*'
       react-native: '*'
@@ -11454,7 +11437,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.6
       html-parse-stringify: 3.0.1
-      i18next: 21.10.0
+      i18next: 23.7.18
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -11640,13 +11623,13 @@ packages:
       scheduler: 0.23.0
     dev: true
 
-  /react-toastify@9.0.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-dszPCeQINY+Nm6HmsiAXT/7wsazPqv0S/RuhIYLAW+fTKcd3T1iRjZG0XqrN9nvAzqaE5J6uxMaiBrOevxjY8g==}
+  /react-toastify@10.0.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-etR3RgueY8pe88SA67wLm8rJmL1h+CLqUGHuAoNsseW35oTGJEri6eBTyaXnFKNQ80v/eO10hBYLgz036XRGgA==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
-      clsx: 1.2.1
+      clsx: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -11807,10 +11790,6 @@ packages:
   /regenerate@1.4.2:
     resolution: {integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==}
     dev: true
-
-  /regenerator-runtime@0.13.11:
-    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: false
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
@@ -13884,3 +13863,7 @@ packages:
     engines: {node: '>=0.8'}
     hasBin: true
     dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

@@ -33,6 +33,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
       await removeUserData();
       await setUser(undefined);
       onLogout && (await onLogout());
+
       toast.success(t("logout.message"));
     }
   };
