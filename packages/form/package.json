@@ -58,7 +58,7 @@
     "react-test-renderer": "18.2.0",
     "tsconfig": "0.30.0",
     "typescript": "5.2.2",
-    "vite": "4.3.9",
+    "vite": "4.5.2",
     "vitest": "1.2.1"
   },
   "peerDependencies": {
