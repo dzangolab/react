@@ -36,8 +36,6 @@ const MainMenu = (properties: Properties) => {
     });
   };
 
-  console.log(getTranslatedRoutes());
-
   return (
     <ResponsiveMenu
       className="main-menu"

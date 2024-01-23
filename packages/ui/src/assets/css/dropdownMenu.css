@@ -5,6 +5,17 @@
   position: relative;
 }
 
+.dropdown-container > .label-container > a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-container > .label-container > a:hover,
+.dropdown-container > .label-container > a[aria-current="page"] {
+  font-weight: 600;
+}
+
 .dropdown-container > ul.dropdown-menu {
   display: none;
   background-color: var(--dropdown-bg-color, #fff);
