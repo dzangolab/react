@@ -62,7 +62,7 @@ const ColumnHeader = React.forwardRef<
   React.ThHTMLAttributes<HTMLTableCellElement>
 >(({ className, children, ...properties }, reference) => (
   <th
-    className={`tcol-head ${className || ""}`}
+    className={className || ""}
     ref={reference}
     children={<div className="content"> {children}</div>}
     {...properties}
