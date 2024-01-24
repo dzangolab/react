@@ -1,13 +1,14 @@
 import { Provider } from "@dzangolab/react-form";
+import { useTranslation } from "@dzangolab/react-i18n";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
+import { ProfileFormFields } from "./ProfileFormFields";
+import { setUserData, useUser } from "..";
 
 import { editUserProfile } from "@/api/user";
 import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
-
-import { ProfileFormFields } from "./ProfileFormFields";
-import { removeUserData, setUserData, useUser } from "..";
 
 type UserProfileType = {
   email: string;
@@ -16,7 +17,8 @@ type UserProfileType = {
 };
 
 export const ProfileForm = () => {
-  const { user } = useUser();
+  const { t } = useTranslation("user");
+  const { user, setUser } = useUser();
   const appConfig = useConfig();
   const navigate = useNavigate();
   const homeRoute: string =
@@ -30,17 +32,15 @@ export const ProfileForm = () => {
     }
   };
 
-  console.log("user from local storage", user);
-
   const handleSubmit = async (data: UserProfileType) => {
     editUserProfile(data, appConfig.apiBaseUrl).then((response) => {
       if ("data" in response) {
-        toast.success("Profile changed successfully");
-        removeUserData();
+        toast.success(t("profile.toastMessages.success"));
         setUserData(response.data);
+        setUser(response.data);
         navigateHome();
       } else {
-        toast.error("Something went wrong");
+        toast.error(t("profile.toastMessages.error"));
       }
     });
   };
