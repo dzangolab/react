@@ -1,3 +1,20 @@
+# [0.31.0](https://github.com/dzangolab/react/compare/v0.30.0...v0.31.0) (2024-01-24)
+
+
+### Breaking changes
+
+* **user:** rename forgetPassword to forgotPassword ([#761](https://github.com/dzangolab/react/issues/761)) ([e0df8ba](https://github.com/dzangolab/react/commit/e0df8ba7158c44861026561b62eeb8ce7f916f4c))
+* **user:** rename ForgetPassword to ForgotPassword ([#761](https://github.com/dzangolab/react/issues/761)) ([e0df8ba](https://github.com/dzangolab/react/commit/e0df8ba7158c44861026561b62eeb8ce7f916f4c))
+
+
+### Features
+
+* **demo:** update copyright holder ([#766](https://github.com/dzangolab/react/issues/766)) ([670cfe2](https://github.com/dzangolab/react/commit/670cfe24e676157f99b226add2e43785d7044ee2))
+* improve ui and consistency ([#761](https://github.com/dzangolab/react/issues/761)) ([e0df8ba](https://github.com/dzangolab/react/commit/e0df8ba7158c44861026561b62eeb8ce7f916f4c))
+* **layout:** show default logo if not provided ([#764](https://github.com/dzangolab/react/issues/764)) ([a668c22](https://github.com/dzangolab/react/commit/a668c22f20f4482cf6fa83f1e1d28c1873bb7199))
+
+
+
 # [0.30.0](https://github.com/dzangolab/react/compare/v0.29.0...v0.30.0) (2024-01-22)
 
 
