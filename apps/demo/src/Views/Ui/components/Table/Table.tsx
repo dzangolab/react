@@ -419,7 +419,7 @@ export const TableDemo = () => {
             },
             {
               id: "action",
-              header: "",
+              header: () => <i className="pi pi-cog"></i>,
               width: "8rem",
               dataType: "other",
               cell: () => <Button iconLeft="pi pi-eye" />,
@@ -505,7 +505,7 @@ export const TableDemo = () => {
             },
             {
               id: "action",
-              header: "",
+              header: () => <i className="pi pi-cog"></i>,
               width: "8rem",
               dataType: "other",
               cell: () => <Button iconLeft="pi pi-eye" />,
