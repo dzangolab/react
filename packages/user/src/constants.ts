@@ -2,8 +2,9 @@ const SUPERTOKENS_API_BASE_PATH_DEFAULT = "/auth";
 
 enum ROUTES {
   LOGIN = "/login",
-  FORGET_PASSWORD = "/forget-password",
+  FORGOT_PASSWORD = "/forgot-password",
   SIGNUP = "/signup",
+  SIGNUP_FIRST_USER = "/signup-first-user",
 }
 
 enum EMAIL_VERIFICATION {

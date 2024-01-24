@@ -1,4 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { LoadingIcon } from "@dzangolab/react-ui";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -43,7 +44,7 @@ const AuthGoogleCallback = () => {
     authCallback();
   }, []);
 
-  return <>Loading .....</>;
+  return <LoadingIcon />;
 };
 
 export default AuthGoogleCallback;

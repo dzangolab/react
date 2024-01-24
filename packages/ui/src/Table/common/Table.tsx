@@ -147,7 +147,7 @@ const DataTable = <TData extends { id: string | number }>({
 
     const defaultActionColumn: ColumnDef<TData, unknown> = {
       id: "actions",
-      header: "",
+      header: () => <i className="pi pi-cog"></i>,
       width: "3rem",
       maxWidth: "3rem",
       minWidth: "3rem",
@@ -161,7 +161,14 @@ const DataTable = <TData extends { id: string | number }>({
           return <></>;
         }
 
-        return <DataActionsMenu {...dataActionsMenu} data={original} />;
+        return (
+          <DataActionsMenu
+            {...(typeof dataActionsMenu === "function"
+              ? dataActionsMenu(original)
+              : dataActionsMenu)}
+            data={original}
+          />
+        );
       },
     };
 

@@ -8,9 +8,7 @@ import {
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
-import { UserAction } from "./UserActions";
 import { InvitationModal } from "../Invitation";
-import { InvitationActions } from "../Invitation/InvitationActions";
 
 import type {
   AdditionalInvitationFields,
@@ -20,7 +18,6 @@ import type {
   ResendInvitationResponse,
   RevokeInvitationResponse,
   ExtendedUser,
-  Invitation,
 } from "@/types";
 
 type VisibleColumn =
@@ -93,15 +90,20 @@ export const AllUsersTable = ({
 
   const defaultColumns: Array<TableColumnDefinition<ExtendedUser>> = [
     {
-      accessorKey: "name",
+      id: "name",
       header: t("table.defaultColumns.name"),
+      accessorFn: (original) => {
+        return (
+          (original.givenName ? original.givenName : "") +
+            (original.middleNames ? " " + original.middleNames : "") +
+            (original.surname ? " " + original.surname : "") || "-"
+        );
+      },
       cell: ({ row: { original } }) => {
         return (
           (original.givenName ? original.givenName : "") +
             (original.middleNames ? " " + original.middleNames : "") +
-            (original.surname ? " " + original.surname : "") || (
-            <code>&#8212;</code>
-          )
+            (original.surname ? " " + original.surname : "") || "-"
         );
       },
       enableColumnFilter: true,
@@ -198,7 +200,7 @@ export const AllUsersTable = ({
       header: t("invitations:table.defaultColumns.invitedBy"),
       cell: ({ row: { original } }) => {
         if (original.isActiveUser) {
-          return <code>&#8212;</code>;
+          return "-";
         }
 
         if (original.invitedBy?.givenName || original.invitedBy?.surname) {
@@ -221,30 +223,6 @@ export const AllUsersTable = ({
         }
 
         return "-";
-      },
-    },
-    {
-      align: "center",
-      accessorKey: "actions",
-      header: "",
-      cell: ({ row: { original } }) => {
-        return (
-          <>
-            {original.isActiveUser ? (
-              <UserAction
-                user={original}
-                onUserDisabled={onUserDisabled}
-                onUserEnabled={onUserEnabled}
-              />
-            ) : (
-              <InvitationActions
-                onInvitationResent={onInvitationResent}
-                onInvitationRevoked={onInvitationRevoked}
-                invitation={original as unknown as Invitation}
-              />
-            )}
-          </>
-        );
       },
     },
   ];
@@ -281,6 +259,67 @@ export const AllUsersTable = ({
       paginationOptions={{
         pageInputLabel: t("table.pagination.pageControl"),
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
+      dataActionsMenu={(user) => {
+        if (user.isActiveUser) {
+          return {
+            actions: [
+              {
+                label: t("table.actions.enable"),
+                icon: "pi pi-check",
+                disabled: (user) => !user.disabled,
+                onClick: (user) => onUserEnabled && onUserEnabled(user),
+                requireConfirmationModal: true,
+                confirmationOptions: {
+                  message: t("confirmation.enable.message"),
+                  header: t("confirmation.header"),
+                },
+              },
+              {
+                label: t("table.actions.disable"),
+                className: "danger",
+                icon: "pi pi-times",
+                disabled: (user) => user.disabled,
+                onClick: (user) => onUserDisabled && onUserDisabled(user),
+                requireConfirmationModal: true,
+                confirmationOptions: {
+                  message: t("confirmation.disable.message"),
+                  header: t("confirmation.header"),
+                },
+              },
+            ],
+          };
+        }
+
+        return {
+          actions: [
+            {
+              label: t("invitations:invitations.actions.resend"),
+              icon: "pi pi-replay",
+              disabled: (invitation) => !!invitation.acceptedAt,
+              onClick: (invitation: ResendInvitationResponse) =>
+                onInvitationResent && onInvitationResent(invitation),
+              requireConfirmationModal: true,
+              confirmationOptions: {
+                message: t("invitations:confirmation.confirm.resend.message"),
+                header: t("invitations:confirmation.header"),
+              },
+            },
+            {
+              label: t("invitations:invitations.actions.revoke"),
+              icon: "pi pi-times",
+              className: "danger",
+              disabled: (invitation) => !!invitation.acceptedAt,
+              onClick: (invitation) =>
+                onInvitationRevoked && onInvitationRevoked(invitation),
+              requireConfirmationModal: true,
+              confirmationOptions: {
+                message: t("invitations:confirmation.confirm.revoke.message"),
+                header: t("invitations:confirmation.header"),
+              },
+            },
+          ],
+        };
       }}
       {...tableOptions}
     ></DataTable>

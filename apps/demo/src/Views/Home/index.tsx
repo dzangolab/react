@@ -43,7 +43,7 @@ const Home: React.FC = () => {
           return (
             <Package
               key={package_.route}
-              title={t(package_.name)}
+              title={t(`header.menu.${package_.name}`)}
               description={package_.description}
               onClick={() => (window.location.hash = package_.route)}
             />

@@ -16,7 +16,7 @@ interface IProperties {
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
-  showForgetPasswordLink?: boolean;
+  showForgotPasswordLink?: boolean;
   showSignupLink?: boolean;
 }
 
@@ -25,7 +25,7 @@ export const LoginWrapper: FC<IProperties> = ({
   onLoginFailed,
   onLoginSuccess,
   loading,
-  showForgetPasswordLink = true,
+  showForgotPasswordLink = true,
   showSignupLink = true,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
@@ -83,11 +83,11 @@ export const LoginWrapper: FC<IProperties> = ({
             {t("login.links.signup")}
           </Link>
         )}
-        {!showForgetPasswordLink ||
-        userConfig?.routes?.forgetPassword?.disabled ? null : (
+        {!showForgotPasswordLink ||
+        userConfig?.routes?.forgotPassword?.disabled ? null : (
           <Link
             to={
-              userConfig?.routes?.forgetPassword?.path || ROUTES.FORGET_PASSWORD
+              userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD
             }
             className="native-link"
           >

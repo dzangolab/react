@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import React from "react";
 import { expect, test, vi } from "vitest";
 
-import ForgetPasswordForm from "../ForgetPasswordForm";
+import { ForgotPasswordForm } from "../ForgotPasswordForm";
 
 const setup = (component: React.ReactElement) => {
   return {
@@ -14,12 +14,12 @@ const setup = (component: React.ReactElement) => {
 
 test("validation error message is displayed when input field is empty", async () => {
   const handleSubmit = vi.fn();
-  const { user } = setup(<ForgetPasswordForm handleSubmit={handleSubmit} />);
+  const { user } = setup(<ForgotPasswordForm handleSubmit={handleSubmit} />);
 
-  const submitButton = screen.getByText("forgetPassword.form.actions.submit");
+  const submitButton = screen.getByText("forgotPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("forgetPassword.form.email.label"),
+    screen.getByLabelText("forgotPassword.form.email.label"),
   ).toBeDefined();
 
   act(() => {
@@ -35,13 +35,13 @@ test("validation error message is displayed when input field is empty", async ()
 
 test("validation error message is displayed for invalid email", async () => {
   const handleSubmit = vi.fn();
-  const { user } = setup(<ForgetPasswordForm handleSubmit={handleSubmit} />);
+  const { user } = setup(<ForgotPasswordForm handleSubmit={handleSubmit} />);
 
-  const emailInput = screen.getByLabelText("forgetPassword.form.email.label");
-  const submitButton = screen.getByText("forgetPassword.form.actions.submit");
+  const emailInput = screen.getByLabelText("forgotPassword.form.email.label");
+  const submitButton = screen.getByText("forgotPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("forgetPassword.form.email.label"),
+    screen.getByLabelText("forgotPassword.form.email.label"),
   ).toBeDefined();
 
   await act(async () => {
@@ -59,13 +59,13 @@ test("validation error message is displayed for invalid email", async () => {
 
 test("form is successfully submitted", async () => {
   const handleSubmit = vi.fn();
-  const { user } = setup(<ForgetPasswordForm handleSubmit={handleSubmit} />);
+  const { user } = setup(<ForgotPasswordForm handleSubmit={handleSubmit} />);
 
-  const emailInput = screen.getByLabelText("forgetPassword.form.email.label");
-  const submitButton = screen.getByText("forgetPassword.form.actions.submit");
+  const emailInput = screen.getByLabelText("forgotPassword.form.email.label");
+  const submitButton = screen.getByText("forgotPassword.form.actions.submit");
 
   expect(
-    screen.getByLabelText("forgetPassword.form.email.label"),
+    screen.getByLabelText("forgotPassword.form.email.label"),
   ).toBeDefined();
 
   await act(async () => {

@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "react-toastify": "9.0.5",
+    "react-toastify": "10.0.4",
     "supertokens-web-js": "0.6.0",
     "zod": "3.22.3"
   },
