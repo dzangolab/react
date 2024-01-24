@@ -27,17 +27,19 @@ export const ProfileFormFields = ({
       <Input
         label={t("profile.form.firstName.label")}
         name="givenName"
-        type="string"
+        type="text"
         placeholder={t("profile.form.firstName.placeHolder")}
         register={register}
+        submitcount={submitCount}
         getFieldState={getFieldState}
       />
       <Input
         label={t("profile.form.lastName.label")}
         name="surname"
-        type="string"
+        type="text"
         placeholder={t("profile.form.lastName.placeHolder")}
         register={register}
+        submitcount={submitCount}
         getFieldState={getFieldState}
       />
       <div className="profile-buttons-wrapper">

@@ -22,13 +22,17 @@ export const ProfileForm = () => {
     getHomeRoute(user, appConfig?.layout, appConfig?.user) || "/";
 
   const profileValidationSchema: any = z.object({
-    givenName: z.string().nonempty({
-      message: t("profile.form.validations.firstName"),
-    }),
+    givenName: z
+      .string({ invalid_type_error: "Name must be a string" })
+      .nonempty({
+        message: t("profile.form.validations.firstName"),
+      }),
 
-    surname: z.string().nonempty({
-      message: t("profile.form.validations.lastName"),
-    }),
+    surname: z
+      .string({ invalid_type_error: "Name must be a string" })
+      .nonempty({
+        message: t("profile.form.validations.lastName"),
+      }),
   });
 
   const navigateHome = useCallback(() => {
@@ -37,6 +41,10 @@ export const ProfileForm = () => {
     } else {
       navigate(homeRoute);
     }
+  }, []);
+
+  const handleCancel = useCallback(() => {
+    navigateHome();
   }, []);
 
   const handleSubmit = async (data: EditProfileType) => {
@@ -56,10 +64,6 @@ export const ProfileForm = () => {
         navigateHome();
       });
   };
-
-  const handleCancel = useCallback(() => {
-    navigateHome();
-  }, []);
 
   return (
     <Provider
