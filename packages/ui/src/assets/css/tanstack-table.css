@@ -208,8 +208,8 @@
   background-color: #ffffff;
 }
 
-.dz-table-container .table-wrapper .table tr > td,
-.dz-table-container .table-wrapper .table tr > th {
+.dz-table-container .table-wrapper .table > tbody > tr > td,
+.dz-table-container .table-wrapper .table > thead > tr > th {
   padding: var(--table-column-padding);
 }
 
