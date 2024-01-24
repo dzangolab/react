@@ -161,7 +161,14 @@ const DataTable = <TData extends { id: string | number }>({
           return <></>;
         }
 
-        return <DataActionsMenu {...dataActionsMenu} data={original} />;
+        return (
+          <DataActionsMenu
+            {...(typeof dataActionsMenu === "function"
+              ? dataActionsMenu(original)
+              : dataActionsMenu)}
+            data={original}
+          />
+        );
       },
     };
 
