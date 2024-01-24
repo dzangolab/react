@@ -29,23 +29,22 @@
   },
   "dependencies": {
     "@dzangolab/react-ui": "0.30.0",
-    "i18next": "21.10.0",
-    "i18next-browser-languagedetector": "6.1.8",
-    "i18next-chained-backend": "^4.0.0",
-    "i18next-resources-to-backend": "^1.0.0",
-    "react-i18next": "11.18.6"
+    "i18next": "23.7.18",
+    "i18next-browser-languagedetector": "7.2.0",
+    "i18next-chained-backend": "4.6.2",
+    "i18next-resources-to-backend": "1.2.0",
+    "react-i18next": "14.0.1"
   },
   "devDependencies": {
     "@dzangolab/react-config": "0.30.0",
     "@testing-library/react": "14.0.0",
-    "@types/i18n": "0.13.8",
     "@types/jsdom": "21.1.4",
     "@types/node": "18.17.12",
     "@types/react": "18.2.34",
     "@types/react-dom": "18.2.14",
     "@types/react-test-renderer": "18.0.5",
     "@vitejs/plugin-react": "4.0.4",
-    "@vitest/coverage-c8": "0.30.1",
+    "@vitest/coverage-v8": "1.2.1",
     "eslint": "8.48.0",
     "eslint-config-custom": "0.30.0",
     "eslint-plugin-react": "7.33.2",
@@ -56,7 +55,7 @@
     "tsconfig": "0.30.0",
     "typescript": "5.2.2",
     "vite": "4.3.9",
-    "vitest": "0.30.1"
+    "vitest": "1.2.1"
   },
   "peerDependencies": {
     "@dzangolab/react-config": "0.30.0",

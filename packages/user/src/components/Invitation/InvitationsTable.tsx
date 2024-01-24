@@ -8,7 +8,7 @@ import {
 } from "@dzangolab/react-ui";
 import { Tag } from "primereact/tag";
 
-import { InvitationActions } from "./InvitationActions";
+import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
 
 import { InvitationModal } from ".";
 
@@ -83,6 +83,10 @@ export const InvitationsTable = ({
   ...tableOptions
 }: InvitationsTableProperties) => {
   const { t } = useTranslation("invitations");
+  const { onResendConfirm, onRevokeConfirm } = useInvitationActionsMethods({
+    onInvitationResent,
+    onInvitationRevoked,
+  });
 
   const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
@@ -165,22 +169,6 @@ export const InvitationsTable = ({
         return date.toLocaleDateString("en-GB");
       },
     },
-    {
-      align: "center",
-      id: "actions",
-      header: "",
-      cell: ({ row: { original } }) => {
-        return (
-          <>
-            <InvitationActions
-              onInvitationResent={onInvitationResent}
-              onInvitationRevoked={onInvitationRevoked}
-              invitation={original}
-            />
-          </>
-        );
-      },
-    },
   ];
 
   const renderToolbar = () => {
@@ -214,6 +202,33 @@ export const InvitationsTable = ({
       paginationOptions={{
         pageInputLabel: t("table.pagination.pageControl"),
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
+      }}
+      dataActionsMenu={{
+        actions: [
+          {
+            label: t("invitations.actions.resend"),
+            icon: "pi pi-replay",
+            disabled: (invitation) => !!invitation.acceptedAt,
+            onClick: (invitation) => onResendConfirm(invitation),
+            requireConfirmationModal: true,
+            confirmationOptions: {
+              message: t("confirmation.confirm.resend.message"),
+              header: t("confirmation.header"),
+            },
+          },
+          {
+            label: t("invitations.actions.revoke"),
+            icon: "pi pi-times",
+            className: "danger",
+            disabled: (invitation) => !!invitation.acceptedAt,
+            onClick: (invitation) => onRevokeConfirm(invitation),
+            requireConfirmationModal: true,
+            confirmationOptions: {
+              message: t("confirmation.confirm.revoke.message"),
+              header: t("confirmation.header"),
+            },
+          },
+        ],
       }}
       {...tableOptions}
     ></DataTable>

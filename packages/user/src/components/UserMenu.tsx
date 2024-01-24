@@ -1,5 +1,5 @@
+import { AuthMenu } from "./AuthMenu";
 import DropdownUserMenu from "./DropdownUserMenu";
-import SignInUpMenu from "./SignInUpMenu";
 import { useUser } from "../hooks";
 
 interface Properties {
@@ -10,7 +10,7 @@ interface Properties {
 const UserMenu: React.FC<Properties> = (properties: Properties) => {
   const {
     authenticatedUserMenu = <DropdownUserMenu />,
-    anonymousUserMenu = <SignInUpMenu />,
+    anonymousUserMenu = <AuthMenu />,
   } = properties;
   const { user } = useUser();
 

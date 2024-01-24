@@ -1,7 +1,10 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
-import React, { useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { getIsFirstUser } from "@/api/user";
+import { ROUTES } from "@/constants";
 
 import { LoginWrapper } from "..";
 import GoogleLogin from "../components/GoogleLogin";
@@ -17,7 +20,7 @@ interface IProperties {
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
   showSessionInfoIcon?: boolean;
-  showForgetPasswordLink?: boolean;
+  showForgotPasswordLink?: boolean;
   showSignupLink?: boolean;
   socialLoginFirst?: boolean;
 }
@@ -25,7 +28,7 @@ interface IProperties {
 const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
-  showForgetPasswordLink,
+  showForgotPasswordLink,
   showSignupLink,
   customDivider,
   divider = true,
@@ -37,6 +40,10 @@ const Login: React.FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const appConfig = useConfig();
   const location = useLocation();
+
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   let className = "login";
   let path: string | null = null;
@@ -51,6 +58,30 @@ const Login: React.FC<IProperties> = ({
 
     return null;
   }, [location.search]);
+
+  useEffect(() => {
+    if (
+      appConfig?.user?.routes?.signup?.disabled &&
+      !appConfig?.user?.routes?.signupFirstUser?.disabled
+    ) {
+      setLoading(true);
+      getIsFirstUser(appConfig?.apiBaseUrl || "")
+        .then((response) => {
+          if (response?.signUp) {
+            navigate(
+              appConfig.user.routes?.signupFirstUser?.path ||
+                ROUTES.SIGNUP_FIRST_USER,
+            );
+          }
+        })
+        .catch(() => {
+          // do nothing
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  }, []);
 
   const renderRedirectionMessage = () => {
     if (path && path.length) {
@@ -80,11 +111,12 @@ const Login: React.FC<IProperties> = ({
       title={t("login.title")}
       className={className}
       data-aria-orientation={orientation}
+      loading={loading}
     >
       <LoginWrapper
         onLoginFailed={onLoginFailed}
         onLoginSuccess={onLoginSuccess}
-        showForgetPasswordLink={showForgetPasswordLink}
+        showForgotPasswordLink={showForgotPasswordLink}
         showSignupLink={showSignupLink}
       />
 
