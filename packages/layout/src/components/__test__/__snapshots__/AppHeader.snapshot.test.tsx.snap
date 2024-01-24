@@ -8,10 +8,16 @@ exports[`Component matches snapshot 1`] = `
     <a
       href="/"
     >
-      <img
-        alt="logo"
-        src="/logo.png"
-      />
+      <span
+        className="logo-default"
+      >
+        <span>
+          M
+        </span>
+        <span>
+          My app
+        </span>
+      </span>
     </a>
   </div>
   <nav

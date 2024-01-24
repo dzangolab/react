@@ -14,7 +14,5 @@ exports[`Component matches snapshot 1`] = `
   >
     Dzango technologies
   </a>
-  . 
-  footer.copyright
 </div>
 `;

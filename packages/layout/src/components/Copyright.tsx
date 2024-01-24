@@ -10,22 +10,24 @@ const Copyright = ({ holder, url, year }: Properties) => {
   const { t } = useTranslation("app");
 
   if (holder) {
-    const link = (
+    const holderElement = url ? (
       <a href={url} target="_blank" rel="noreferrer">
         {holder}
       </a>
+    ) : (
+      holder
     );
 
     return (
       <div className="copyright">
-        &copy; {year} {link}. {t("footer.copyright")}
+        &copy; {year} {holderElement}
       </div>
     );
   }
 
   return (
     <div className="copyright">
-      &copy; {year}. {t("footer.copyright")}
+      &copy; {year} {t("footer.copyright")}
     </div>
   );
 };
