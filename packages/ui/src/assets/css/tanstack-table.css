@@ -79,8 +79,8 @@
 
 .dz-table-container[data-border="vertical"] .toolbar,
 .dz-table-container[data-border="vertical"] .pagination,
-.dz-table-container[data-border="vertical"] .table-wrapper .table tr > td,
-.dz-table-container[data-border="vertical"] .table-wrapper .table tr > th {
+.dz-table-container[data-border="vertical"] .table-wrapper .table > tbody > tr > td,
+.dz-table-container[data-border="vertical"] .table-wrapper .table > thead > tr > th {
   border-left: var(--table-border);
   border-right: var(--table-border);
 }
@@ -102,8 +102,8 @@
   border-bottom: none;
 }
 
-.dz-table-container .table-wrapper .table tr > td,
-.dz-table-container .table-wrapper .table tr > th {
+.dz-table-container .table-wrapper .table > tbody > tr > td,
+.dz-table-container .table-wrapper .table > thead > tr > th {
   overflow: hidden;
 }
 
