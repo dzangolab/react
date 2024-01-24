@@ -1,13 +1,13 @@
 import { Provider } from "@dzangolab/react-form";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { editUserProfile } from "@/api/user";
+import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
 
 import { ProfileFormFields } from "./ProfileFormFields";
-import { getUserData, removeUserData, setUserData, useUser } from "..";
+import { removeUserData, setUserData, useUser } from "..";
 
 type UserProfileType = {
   email: string;
@@ -19,22 +19,34 @@ export const ProfileForm = () => {
   const { user } = useUser();
   const appConfig = useConfig();
   const navigate = useNavigate();
-  const [data, setData] = useState(user);
+  const homeRoute: string =
+    getHomeRoute(user, appConfig?.layout, appConfig?.user) || "/";
 
-  console.log("User", user);
-  console.log("LocalStorage user", getUserData());
+  const navigateHome = () => {
+    if (homeRoute === "profile") {
+      navigate("/");
+    } else {
+      navigate(homeRoute);
+    }
+  };
 
-  //   useEffect(() => {
-  //     setUserData(da)
-  //   }, [data]);
+  console.log("user from local storage", user);
 
   const handleSubmit = async (data: UserProfileType) => {
-    editUserProfile(data, appConfig.apiBaseUrl).then((response: any) => {
-      toast.success("Profile changed successfully");
-      removeUserData();
-      setUserData(response);
-      setData(response);
+    editUserProfile(data, appConfig.apiBaseUrl).then((response) => {
+      if ("data" in response) {
+        toast.success("Profile changed successfully");
+        removeUserData();
+        setUserData(response.data);
+        navigateHome();
+      } else {
+        toast.error("Something went wrong");
+      }
     });
+  };
+
+  const handleCancel = () => {
+    navigateHome();
   };
 
   return (
@@ -46,7 +58,7 @@ export const ProfileForm = () => {
         surname: user?.surname,
       }}
     >
-      <ProfileFormFields />
+      <ProfileFormFields handleCancel={handleCancel} />
     </Provider>
   );
 };

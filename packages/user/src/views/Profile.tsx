@@ -8,7 +8,7 @@ const Profile = () => {
   const { t } = useTranslation("user");
 
   return (
-    <Page title={t("profile.title")}>
+    <Page title={t("profile.title")} className="profile">
       <ProfileForm />
     </Page>
   );

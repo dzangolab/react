@@ -180,5 +180,29 @@
       "resendSuccess": "Email resent successfully",
       "resendError": "Something went wrong. Please try again"
     }
+  },
+  "profile": {
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeHolder": ""
+      },
+      "firstName": {
+        "label": "First name",
+        "placeHolder": "Enter your first name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeHolder": "Enter your last name"
+      }
+    },
+    "button": {
+      "update": "Update",
+      "cancel": "Cancel"
+    },
+    "toastMessages": {
+      "success": "Profile edited successfully",
+      "error": "Something went wrong. Please try again"
+    }
   }
 }
