@@ -20,7 +20,7 @@ interface IProperties {
   orientation?: "horizontal" | "vertical";
   sessionInfoIcon?: string;
   showSessionInfoIcon?: boolean;
-  showForgetPasswordLink?: boolean;
+  showForgotPasswordLink?: boolean;
   showSignupLink?: boolean;
   socialLoginFirst?: boolean;
 }
@@ -28,7 +28,7 @@ interface IProperties {
 const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
-  showForgetPasswordLink,
+  showForgotPasswordLink,
   showSignupLink,
   customDivider,
   divider = true,
@@ -116,7 +116,7 @@ const Login: React.FC<IProperties> = ({
       <LoginWrapper
         onLoginFailed={onLoginFailed}
         onLoginSuccess={onLoginSuccess}
-        showForgetPasswordLink={showForgetPasswordLink}
+        showForgotPasswordLink={showForgotPasswordLink}
         showSignupLink={showSignupLink}
       />
 

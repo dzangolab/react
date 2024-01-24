@@ -25,7 +25,7 @@
     },
     "title": "Change password"
   },
-  "forgetPassword": {
+  "forgotPassword": {
     "messages": {
       "success": "Email sent sucessfully",
       "validation": {

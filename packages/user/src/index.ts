@@ -24,7 +24,7 @@ import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
 import { UserEnabledSwitchableLayout } from "./layouts/UserEnabledSwitchableLayout";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
-import forgetPassword from "./supertokens/forget-password";
+import { forgotPassword } from "./supertokens/forgot-password";
 import googleLogin from "./supertokens/google-login";
 import { verifySessionRoles } from "./supertokens/helpers";
 import login from "./supertokens/login";
@@ -36,7 +36,7 @@ import { UserToastContainer } from "./toastify";
 import AcceptInvitation from "./views/AcceptInvitation";
 import ChangePassword from "./views/ChangePassword";
 import EmailVerificationReminder from "./views/EmailVerificationReminder";
-import ForgetPassword from "./views/ForgetPassword";
+import { ForgotPassword } from "./views/ForgotPassword";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
 import ResetPassword from "./views/ResetPassword";
@@ -86,7 +86,7 @@ export {
   // views
   AcceptInvitation,
   ChangePassword,
-  ForgetPassword,
+  ForgotPassword,
   Login,
   Profile,
   ResetPassword,
@@ -97,7 +97,7 @@ export {
 
   // utilities
   changePassword,
-  forgetPassword,
+  forgotPassword,
   getUserData,
   googleLogin,
   login,
