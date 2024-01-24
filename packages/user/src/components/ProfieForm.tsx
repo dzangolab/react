@@ -9,6 +9,8 @@ import { setUserData, useUser } from "..";
 import { editUserProfile } from "@/api/user";
 import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
+import { useCallback } from "react";
+import { z } from "zod";
 
 type UserProfileType = {
   email: string;
@@ -23,6 +25,16 @@ export const ProfileForm = () => {
   const navigate = useNavigate();
   const homeRoute: string =
     getHomeRoute(user, appConfig?.layout, appConfig?.user) || "/";
+
+  const profileValidationSchema: any = z.object({
+    givenName: z.string().nonempty({
+      message: t("thing.form.validations.name.required"),
+    }),
+
+    surname: z.string().nonempty({
+      message: t("thing.form.validations.name.required"),
+    }),
+  });
 
   const navigateHome = () => {
     if (homeRoute === "profile") {
@@ -45,12 +57,13 @@ export const ProfileForm = () => {
     });
   };
 
-  const handleCancel = () => {
+  const handleCancel = useCallback(() => {
     navigateHome();
-  };
+  }, []);
 
   return (
     <Provider
+      validationSchema={profileValidationSchema}
       onSubmit={handleSubmit}
       defaultValues={{
         email: user?.email,
