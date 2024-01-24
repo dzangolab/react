@@ -9,9 +9,9 @@
 }
 
 .table-invitations .column-role {
-  width: 5rem;
-  max-width: 5rem;
-  min-width: 5rem;
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
 }
 
 .table-invitations .column-invitedBy {
@@ -27,7 +27,7 @@
 }
 
 .table-invitations .column-actions {
-  width: 7rem;
-  max-width: 7rem;
-  min-width: 7rem;
+  width: 5rem;
+  max-width: 5rem;
+  min-width: 5rem;
 }

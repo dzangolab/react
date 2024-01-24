@@ -20,8 +20,14 @@
   min-width: 10rem;
 }
 
+.table-users .column-status {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
 .table-users .column-actions {
-  width: 8rem;
-  max-width: 8rem;
-  min-width: 8rem;
+  width: 5rem;
+  max-width: 5rem;
+  min-width: 5rem;
 }

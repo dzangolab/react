@@ -1,9 +1,9 @@
-import { ToastContainer } from "react-toastify";
-
+import { ToastContainer, ToastContainerProps } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const UserToastContainer = () => {
-  return <ToastContainer position="bottom-right" />;
+export const UserToastContainer = ({
+  position = "bottom-right",
+  ...rest
+}: ToastContainerProps) => {
+  return <ToastContainer position={position} {...rest} />;
 };
-
-export default UserToastContainer;

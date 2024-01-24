@@ -15,7 +15,7 @@ interface IProperties {
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
-  showForgetPasswordLink?: boolean;
+  showForgotPasswordLink?: boolean;
   showLoginLink?: boolean;
 }
 
@@ -25,7 +25,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
   onSignupSuccess,
   loading,
   showLoginLink = true,
-  showForgetPasswordLink = true,
+  showForgotPasswordLink = true,
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
@@ -75,11 +75,11 @@ export const SignupWrapper: React.FC<IProperties> = ({
             {t("signup.links.login")}
           </Link>
         )}
-        {!showForgetPasswordLink ||
-        userConfig?.routes?.forgetPassword?.disabled ? null : (
+        {!showForgotPasswordLink ||
+        userConfig?.routes?.forgotPassword?.disabled ? null : (
           <Link
             to={
-              userConfig?.routes?.forgetPassword?.path || ROUTES.FORGET_PASSWORD
+              userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD
             }
             className="native-link"
           >

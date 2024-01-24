@@ -2,7 +2,7 @@ import React from "react";
 import { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import ForgetPasswordForm from "../ForgetPasswordForm";
+import { ForgotPasswordForm } from "../ForgotPasswordForm";
 
 import type {
   ReactTestRenderer,
@@ -21,7 +21,7 @@ function toJson(component: ReactTestRenderer) {
 test("Component matches snapshot", () => {
   const component = create(
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    <ForgetPasswordForm handleSubmit={() => {}} />,
+    <ForgotPasswordForm handleSubmit={() => {}} />,
   );
 
   const tree = toJson(component);
