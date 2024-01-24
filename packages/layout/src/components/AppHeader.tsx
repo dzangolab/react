@@ -1,5 +1,5 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import Logo from "./Logo";
 import MainMenu from "./MainMenu";
@@ -22,12 +22,18 @@ interface Properties {
 
 const AppHeader: React.FC<Properties> = (properties: Properties) => {
   const [expanded, setExpanded] = useState<boolean>(false);
-  const { layout: layoutConfig } = useConfig();
+  const { appName, layout: layoutConfig } = useConfig();
 
-  const home =
-    layoutConfig && layoutConfig?.homeRoute
-      ? layoutConfig.homeRoute
-      : undefined;
+  const parseLogoAlt = useCallback(() => {
+    if (!appName) {
+      return;
+    }
+
+    let logoAlt = appName.indexOf("/") === -1 ? appName : appName.split("/")[1];
+    logoAlt = logoAlt.replace(/-/g, " ");
+
+    return logoAlt[0].toUpperCase() + logoAlt.substring(1);
+  }, [appName]);
 
   const {
     localeSwitcher,
@@ -43,7 +49,13 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      {logo || <Logo source={layoutConfig?.logo} route={logoRoute || home} />}
+      {logo || (
+        <Logo
+          src={layoutConfig?.logo}
+          route={logoRoute || layoutConfig?.homeRoute}
+          alt={layoutConfig?.logoAlt || parseLogoAlt()}
+        />
+      )}
       <nav className={`menu ${navStyle}`} data-expanded={expanded}>
         {mainMenu || (
           <MainMenu

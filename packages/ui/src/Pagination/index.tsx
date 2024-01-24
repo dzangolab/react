@@ -103,6 +103,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
                   onClick={() => onPageChange(0)}
                   disabled={!(currentPage > 0)}
                   iconLeft={<i className="pi pi-angle-double-left" />}
+                  size="small"
                 />
               )}
 
@@ -112,6 +113,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
                   onClick={() => onPageChange(currentPage - 1)}
                   disabled={!(currentPage > 0)}
                   iconLeft={<i className="pi pi-angle-left" />}
+                  size="small"
                 />
               )}
             </div>
@@ -127,6 +129,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
                     }`}
                     onClick={() => onPageChange(page - 1)}
                     label={`${page}`}
+                    size="small"
                   />
                 ))
               : pageStatics}
@@ -140,6 +143,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
                   onClick={() => onPageChange(currentPage + 1)}
                   disabled={!(currentPage < lastPage - 1)}
                   iconLeft={<i className="pi pi-angle-right" />}
+                  size="small"
                 />
               )}
 
@@ -149,6 +153,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
                   onClick={() => onPageChange(lastPage - 1)}
                   disabled={!(currentPage < lastPage - 1)}
                   iconLeft={<i className="pi pi-angle-double-right" />}
+                  size="small"
                 />
               )}
             </div>

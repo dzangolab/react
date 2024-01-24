@@ -25,7 +25,7 @@
     },
     "title": "Change password (fr)"
   },
-  "forgetPassword": {
+  "forgotPassword": {
     "messages": {
       "success": "Email sent sucessfully (fr)",
       "validation": {
@@ -53,7 +53,7 @@
     "signup": {
       "messages": {
         "error": "Error signing up first user (fr)",
-        "success": "Succefully added first admin user. Automatically logging in ... (fr)"
+        "success": "Succefully added first user. Automatically logging in ... (fr)"
       }
     }
   },

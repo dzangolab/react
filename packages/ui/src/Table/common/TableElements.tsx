@@ -12,11 +12,7 @@ const Table = React.forwardRef<
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...properties }, reference) => (
   <div className="table-wrapper">
-    <table
-      className={`table ${className || ""}`}
-      ref={reference}
-      {...properties}
-    />
+    <table className={className || ""} ref={reference} {...properties} />
   </div>
 ));
 Table.displayName = "Table";
@@ -25,11 +21,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...properties }, reference) => (
-  <thead
-    className={`thead ${className || ""}`}
-    ref={reference}
-    {...properties}
-  />
+  <thead className={className || ""} ref={reference} {...properties} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -37,11 +29,7 @@ const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...properties }, reference) => (
-  <tbody
-    className={`tbody ${className || ""}`}
-    ref={reference}
-    {...properties}
-  />
+  <tbody className={className || ""} ref={reference} {...properties} />
 ));
 TableBody.displayName = "TableBody";
 
@@ -49,11 +37,7 @@ const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...properties }, reference) => (
-  <tfoot
-    className={`tfoot ${className || ""}`}
-    ref={reference}
-    {...properties}
-  />
+  <tfoot className={className || ""} ref={reference} {...properties} />
 ));
 TableFooter.displayName = "TableFooter";
 
@@ -61,7 +45,7 @@ const TableRow = React.forwardRef<
   HTMLTableRowElement,
   React.HTMLAttributes<HTMLTableRowElement>
 >(({ className, ...properties }, reference) => (
-  <tr className={`trow ${className || ""}`} ref={reference} {...properties} />
+  <tr className={className || ""} ref={reference} {...properties} />
 ));
 TableRow.displayName = "TableRow";
 
@@ -70,7 +54,7 @@ const ColumnHeader = React.forwardRef<
   React.ThHTMLAttributes<HTMLTableCellElement>
 >(({ className, children, ...properties }, reference) => (
   <th
-    className={`tcol-head ${className || ""}`}
+    className={className || ""}
     ref={reference}
     children={<div className="content"> {children}</div>}
     {...properties}
@@ -83,7 +67,7 @@ const TableCell = React.forwardRef<
   React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, children, ...properties }, reference) => (
   <td
-    className={`tcell ${className || ""}`}
+    className={className || ""}
     ref={reference}
     {...properties}
     children={<div className="content"> {children}</div>}

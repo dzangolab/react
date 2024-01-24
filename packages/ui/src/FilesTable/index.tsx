@@ -205,7 +205,7 @@ export const FilesTable = ({
     {
       align: "center",
       id: "actions",
-      header: messages?.actionsHeader || "",
+      header: messages?.actionsHeader || (() => <i className="pi pi-cog"></i>),
       cell: ({ row: { original } }) => {
         return <ActionsMenu actions={getActionsItem(original)} />;
       },

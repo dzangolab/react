@@ -14,7 +14,7 @@
   grid-template-areas:
     "logo toggle"
     "nav nav";
-  grid-template-columns: var(--logo-width, 150px) 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   justify-items: center;
   padding-bottom: var(--header-padding-v);
@@ -70,6 +70,40 @@
   grid-area: logo;
 }
 
+.layout > header .logo > a {
+  text-decoration: none;
+  color: var(--color, #545454);
+}
+
+.layout > header .logo img {
+  max-width: var(--header-logo-max-width);
+}
+
+.layout > header .logo .logo-default {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 500;
+}
+
+.layout > header .logo .logo-default > span:first-child {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #dedede;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.layout > header .logo .logo-default > span:not(:first-child) {
+  max-width: 200px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .layout > header .toggle {
   cursor: pointer;
   grid-area: toggle;
@@ -82,7 +116,7 @@
 
 .main-menu > ul > li:hover,
 .main-menu > ul > li .active {
-  font-weight: 600;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 576px) {

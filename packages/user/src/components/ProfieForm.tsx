@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
 
-import { ProfileFormFields } from "./ProfileFormFields";
-import { setUserData, useUser } from "..";
-
 import { editUserProfile } from "@/api/user";
 import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
+
+import { ProfileFormFields } from "./ProfileFormFields";
+import { useUser } from "..";
 
 type UserProfileType = {
   email: string;
@@ -45,16 +45,19 @@ export const ProfileForm = () => {
   }, []);
 
   const handleSubmit = async (data: UserProfileType) => {
-    editUserProfile(data, appConfig.apiBaseUrl).then((response) => {
-      if ("data" in response) {
-        toast.success(t("profile.toastMessages.success"));
-        setUserData(response.data);
-        setUser(response.data);
-        navigateHome();
-      } else {
+    editUserProfile(data, appConfig.apiBaseUrl)
+      .then((response) => {
+        if ("data" in response) {
+          toast.success(t("profile.toastMessages.success"));
+          setUser(response.data);
+          navigateHome();
+        } else {
+          toast.error(t("profile.toastMessages.error"));
+        }
+      })
+      .catch(() => {
         toast.error(t("profile.toastMessages.error"));
-      }
-    });
+      });
   };
 
   const handleCancel = useCallback(() => {

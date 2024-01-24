@@ -22,7 +22,6 @@ export const ProfileFormFields = ({
         placeholder={t("profile.form.email.placeholder")}
         register={register}
         getFieldState={getFieldState}
-        submitcount={submitCount}
         readOnly={true}
       />
       <Input

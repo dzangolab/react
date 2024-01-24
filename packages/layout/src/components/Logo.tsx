@@ -3,22 +3,32 @@ import { Link, useInRouterContext } from "react-router-dom";
 
 interface Properties {
   route?: string;
-  source?: string;
+  src?: string;
+  alt?: string;
 }
 
-const Logo = ({ route = "/", source = "/logo.png" }: Properties) => {
+const Logo = ({ route = "/", src, alt = "My app" }: Properties) => {
   const hasRouterContext = useInRouterContext();
+
+  const renderLogo = () => {
+    if (src) {
+      return <img src={src} alt={alt} />;
+    }
+
+    return (
+      <span className="logo-default">
+        <span>{alt[0]}</span>
+        <span>{alt}</span>
+      </span>
+    );
+  };
 
   return (
     <div className="logo">
       {hasRouterContext ? (
-        <Link to={route}>
-          <img src={source} alt="logo" />
-        </Link>
+        <Link to={route}>{renderLogo()}</Link>
       ) : (
-        <a href={route}>
-          <img src={source} alt="logo" />
-        </a>
+        <a href={route}>{renderLogo()}</a>
       )}
     </div>
   );

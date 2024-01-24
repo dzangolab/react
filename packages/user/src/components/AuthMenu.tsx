@@ -4,7 +4,7 @@ import { ResponsiveMenu } from "@dzangolab/react-ui";
 import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
 
-const SignInUpMenu = () => {
+export const AuthMenu = () => {
   const { t } = useTranslation("user");
   const { user: userConfig } = useConfig();
 
@@ -23,10 +23,8 @@ const SignInUpMenu = () => {
     : [loginRoute, signUpRoute];
 
   return (
-    <nav className="sign-in-up-menu">
+    <span className="dz-auth-menu">
       <ResponsiveMenu routes={routes} />
-    </nav>
+    </span>
   );
 };
-
-export default SignInUpMenu;
