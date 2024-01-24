@@ -12,7 +12,8 @@ export const ProfileFormFields = ({
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount },
+    reset,
+    formState: { errors, submitCount, isDirty },
   } = useFormContext();
 
   const { t } = useTranslation("user");
@@ -50,9 +51,14 @@ export const ProfileFormFields = ({
           severity="secondary"
           variant="outlined"
           type="button"
-          onClick={handleCancel}
+          disabled={!isDirty}
+          onClick={() => reset()}
         />
-        <SubmitButton label={t("profile.button.update")} loading={submitting} />
+        <SubmitButton
+          disabled={!isDirty}
+          label={t("profile.button.update")}
+          loading={submitting}
+        />
       </div>
     </>
   );
