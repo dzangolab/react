@@ -74,7 +74,7 @@ const TableCell = React.forwardRef<
     className={className || ""}
     ref={reference}
     {...properties}
-    children={children}
+    children={<div className="content"> {children}</div>}
   />
 ));
 TableCell.displayName = "TableCell";

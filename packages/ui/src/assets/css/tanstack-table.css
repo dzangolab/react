@@ -107,6 +107,7 @@
   overflow: hidden;
 }
 
+.dz-table-container .table-wrapper .table tr > td > .content,
 .dz-table-container .table-wrapper .table tr > th > .content {
   width: 100%;
   display: flex;
@@ -117,7 +118,7 @@
   text-align: left;
 }
 
-.dz-table-container .table-wrapper .table tr > td[data-align="center"],
+.dz-table-container .table-wrapper .table tr > td[data-align="center"] > .content,
 .dz-table-container
   .table-wrapper
   .table tr
@@ -127,7 +128,7 @@
   text-align: center;
 }
 
-.dz-table-container .table-wrapper .table tr > td[data-align="right"],
+.dz-table-container .table-wrapper .table tr > td[data-align="right"] > .content,
 .dz-table-container
   .table-wrapper
   .table tr > th[data-align="right"]
