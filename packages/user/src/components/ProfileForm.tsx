@@ -27,7 +27,7 @@ export const ProfileForm = () => {
       .nonempty({
         message: t("profile.form.validations.firstName.required"),
       })
-      .refine((value) => /^[A-Za-z]+$/.test(value), {
+      .refine((value) => /^[A-Za-z ]+$/.test(value), {
         message: t("profile.form.validations.firstName.string"),
       }),
 
@@ -36,7 +36,7 @@ export const ProfileForm = () => {
       .nonempty({
         message: t("profile.form.validations.lastName.required"),
       })
-      .refine((value) => /^[A-Za-z]+$/.test(value), {
+      .refine((value) => /^[A-Za-z ]+$/.test(value), {
         message: t("profile.form.validations.lastName.string"),
       }),
   });
