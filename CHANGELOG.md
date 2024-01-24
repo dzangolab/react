@@ -1,3 +1,13 @@
+# [0.32.0](https://github.com/dzangolab/react/compare/v0.31.0...v0.32.0) (2024-01-24)
+
+
+### Features
+
+* **ui/Table:** improve ui ([15a77f5](https://github.com/dzangolab/react/commit/15a77f5d420a102d73796428a8f4859a880aedfc))
+* **user:** make profile page editable ([#762](https://github.com/dzangolab/react/issues/762)) ([53e2ff0](https://github.com/dzangolab/react/commit/53e2ff01ae176b727c1a2ac0ce2ed6c1aced41a5))
+
+
+
 # [0.31.0](https://github.com/dzangolab/react/compare/v0.30.0...v0.31.0) (2024-01-24)
 
 
