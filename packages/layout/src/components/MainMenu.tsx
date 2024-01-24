@@ -27,10 +27,11 @@ const MainMenu = (properties: Properties) => {
   const { routes = DEFAULT_ROUTES, orientation = "horizontal" } = properties;
 
   const getTranslatedRoutes = () => {
-    return routes.map(({ name, route }) => {
+    return routes.map(({ name, route, submenu }: any) => {
       return {
         name: t(name),
         route,
+        submenu: submenu || [],
       };
     });
   };
