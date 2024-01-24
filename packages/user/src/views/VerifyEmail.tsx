@@ -11,7 +11,7 @@ import verifyEmail from "@/supertokens/verify-email";
 
 import { UserContextType, userContext } from "..";
 
-const VerifyEmail = ({
+export const VerifyEmail = ({
   redirectionDelayTime = 5,
 }: {
   redirectionDelayTime?: number;
@@ -175,5 +175,3 @@ const VerifyEmail = ({
     </Page>
   );
 };
-
-export default VerifyEmail;

@@ -25,7 +25,7 @@ interface IProperties {
   socialLoginFirst?: boolean;
 }
 
-const Login: React.FC<IProperties> = ({
+export const Login: React.FC<IProperties> = ({
   sessionInfoIcon = "pi pi-info-circle",
   showSessionInfoIcon = true,
   showForgotPasswordLink,
@@ -148,5 +148,3 @@ const Login: React.FC<IProperties> = ({
     </Page>
   );
 };
-
-export default Login;

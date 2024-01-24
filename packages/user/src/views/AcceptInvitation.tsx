@@ -12,7 +12,7 @@ import { Invitation, LoginCredentials } from "@/types";
 
 import { login } from "..";
 
-const AcceptInvitation = () => {
+export const AcceptInvitation = () => {
   const { t } = useTranslation("invitations");
 
   const appConfig = useConfig();
@@ -134,5 +134,3 @@ const AcceptInvitation = () => {
     </Page>
   );
 };
-
-export default AcceptInvitation;
