@@ -15,7 +15,7 @@ const getHomeRoute = (
         : userConfig.routes.home;
     }
 
-    return "profile";
+    return "/";
   };
 
   return user ? getUserHomeRoute(user) : layoutConfig?.homeRoute;

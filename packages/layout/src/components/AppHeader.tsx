@@ -24,11 +24,6 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   const { appName, layout: layoutConfig } = useConfig();
 
-  const home =
-    layoutConfig && layoutConfig?.homeRoute
-      ? layoutConfig.homeRoute
-      : undefined;
-
   const parseLogoAlt = useCallback(() => {
     if (!appName) {
       return;
@@ -57,7 +52,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
       {logo || (
         <Logo
           src={layoutConfig?.logo}
-          route={logoRoute || home}
+          route={logoRoute || layoutConfig?.homeRoute}
           alt={layoutConfig?.logoAlt || parseLogoAlt()}
         />
       )}

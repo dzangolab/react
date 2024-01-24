@@ -1,5 +1,5 @@
 interface DzangolabReactLayoutConfig {
-  homeRoute?: "home" | string;
+  homeRoute?: "/" | string;
   logo?: string;
   logoAlt?: string;
   mainMenu?: {
