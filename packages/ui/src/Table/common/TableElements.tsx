@@ -12,11 +12,7 @@ const Table = React.forwardRef<
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...properties }, reference) => (
   <div className="table-wrapper">
-    <table
-      className={`table ${className || ""}`.trimEnd()}
-      ref={reference}
-      {...properties}
-    />
+    <table className={className || ""} ref={reference} {...properties} />
   </div>
 ));
 Table.displayName = "Table";

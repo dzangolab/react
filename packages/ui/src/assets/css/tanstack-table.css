@@ -63,31 +63,31 @@
   overflow-x: auto;
 }
 
-.dz-table-container .table-wrapper .table {
+.dz-table-container .table-wrapper > table {
   min-width: 100%;
   border-collapse: collapse;
 }
 
 .dz-table-container[data-border="grid"] .toolbar,
-.dz-table-container[data-border="grid"] .table-wrapper .table,
-.dz-table-container[data-border="grid"] .table-wrapper .table tr,
-.dz-table-container[data-border="grid"] .table-wrapper .table > tbody > tr > td,
-.dz-table-container[data-border="grid"] .table-wrapper .table > thead > tr > th,
+.dz-table-container[data-border="grid"] .table-wrapper > table,
+.dz-table-container[data-border="grid"] .table-wrapper > table tr,
+.dz-table-container[data-border="grid"] .table-wrapper > table > tbody > tr > td,
+.dz-table-container[data-border="grid"] .table-wrapper > table > thead > tr > th,
 .dz-table-container[data-border="grid"] .pagination {
   border: var(--table-border);
 }
 
 .dz-table-container[data-border="vertical"] .toolbar,
 .dz-table-container[data-border="vertical"] .pagination,
-.dz-table-container[data-border="vertical"] .table-wrapper .table > tbody > tr > td,
-.dz-table-container[data-border="vertical"] .table-wrapper .table > thead > tr > th {
+.dz-table-container[data-border="vertical"] .table-wrapper > table > tbody > tr > td,
+.dz-table-container[data-border="vertical"] .table-wrapper > table > thead > tr > th {
   border-left: var(--table-border);
   border-right: var(--table-border);
 }
 
 .dz-table-container[data-border="horizontal"] .toolbar,
 .dz-table-container[data-border="horizontal"] .pagination,
-.dz-table-container[data-border="horizontal"] .table-wrapper .table tr,
+.dz-table-container[data-border="horizontal"] .table-wrapper > table tr,
 .dz-table-container.toolbar {
   border: var(--table-border);
 }
@@ -102,13 +102,13 @@
   border-bottom: none;
 }
 
-.dz-table-container .table-wrapper .table > tbody > tr > td,
-.dz-table-container .table-wrapper .table > thead > tr > th {
+.dz-table-container .table-wrapper > table > tbody > tr > td,
+.dz-table-container .table-wrapper > table > thead > tr > th {
   overflow: hidden;
 }
 
-.dz-table-container .table-wrapper .table tr > td > .content,
-.dz-table-container .table-wrapper .table tr > th > .content {
+.dz-table-container .table-wrapper > table tr > td > .content,
+.dz-table-container .table-wrapper > table tr > th > .content {
   width: 100%;
   display: flex;
   align-items: center;
@@ -118,20 +118,20 @@
   text-align: left;
 }
 
-.dz-table-container .table-wrapper .table tr > td[data-align="center"] > .content,
+.dz-table-container .table-wrapper > table tr > td[data-align="center"] > .content,
 .dz-table-container
   .table-wrapper
-  .table tr
+  > table tr
   > th[data-align="center"]
   > .content {
   justify-content: center;
   text-align: center;
 }
 
-.dz-table-container .table-wrapper .table tr > td[data-align="right"] > .content,
+.dz-table-container .table-wrapper > table tr > td[data-align="right"] > .content,
 .dz-table-container
   .table-wrapper
-  .table tr > th[data-align="right"]
+  > table tr > th[data-align="right"]
   > .content {
   justify-content: flex-start;
   flex-direction: row-reverse;
@@ -141,7 +141,7 @@
 
 .dz-table-container
   .table-wrapper
-  .table tr > th[data-align="right"]
+  > table tr > th[data-align="right"]
   > .content {
   justify-content: center;
   flex-direction: row-reverse;
@@ -149,27 +149,27 @@
   padding-right: 0;
 }
 
-.dz-table-container .table-wrapper .table tr > th.sortable {
+.dz-table-container .table-wrapper > table tr > th.sortable {
   cursor: pointer;
 }
 
-.dz-table-container .table-wrapper .table tr > th .sort-state i {
+.dz-table-container .table-wrapper > table tr > th .sort-state i {
   font-size: 0.7rem !important;
   font-weight: bold !important;
 }
 
-.dz-table-container .table-wrapper .table tr > th.sortable:active {
+.dz-table-container .table-wrapper > table tr > th.sortable:active {
   background-color: var(--table-header-active-bg-color);
 }
 
-.dz-table-container .table-wrapper .table tr > th.highlight,
-.dz-table-container .table-wrapper .table tr > td.highlight {
+.dz-table-container .table-wrapper > table tr > th.highlight,
+.dz-table-container .table-wrapper > table tr > td.highlight {
   background-color: var(--table-header-active-bg-color);
 }
 
 .dz-table-container
   .table-wrapper
-  .table[data-stripe="even"]
+  > table[data-stripe="even"]
   > tbody
   > tr:nth-child(even) {
   background-color: var(--table-stripe-color);
@@ -177,39 +177,39 @@
 
 .dz-table-container
   .table-wrapper
-  .table[data-stripe="odd"]
+  > table[data-stripe="odd"]
   > tbody
   > tr:nth-child(odd) {
   background-color: var(--table-stripe-color);
 }
 
-.dz-table-container .table-wrapper .table > tbody > tr[data-state="selected"] {
+.dz-table-container .table-wrapper > table > tbody > tr[data-state="selected"] {
   background-color: var(--table-row-selected-bg-color) !important;
 }
 
 .dz-table-container
   .table-wrapper
-  .table
+  > table
   > tbody
   > tr[data-state="selected"]:hover,
-.table-wrapper .table > tbody > tr:hover {
+.table-wrapper > table > tbody > tr:hover {
   background-color: var(--table-row-hover-bg-color) !important;
 }
 
-.table-wrapper .table .header-row {
+.table-wrapper > table .header-row {
   background-color: var(--table-header-bg-color);
   font-size: 1rem;
 }
 
-.table-wrapper .table tr.filters .content input {
+.table-wrapper > table tr.filters .content input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
   background-color: #ffffff;
 }
 
-.dz-table-container .table-wrapper .table > tbody > tr > td,
-.dz-table-container .table-wrapper .table > thead > tr > th {
+.dz-table-container .table-wrapper > table > tbody > tr > td,
+.dz-table-container .table-wrapper > table > thead > tr > th {
   padding: var(--table-column-padding);
 }
 
