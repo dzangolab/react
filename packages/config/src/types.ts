@@ -7,7 +7,7 @@ interface AppConfig {
   appVersion: string;
   copyright?: {
     holder: string;
-    url: string;
+    url?: string;
   };
   features: AppFeatures;
   websiteDomain: string;
