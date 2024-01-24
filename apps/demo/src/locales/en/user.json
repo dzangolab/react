@@ -35,13 +35,13 @@
     },
     "title": "Change password"
   },
-  "forgetPassword": {
+  "forgotPassword": {
     "messages": {
       "success": "Email sent successfully"
     },
     "form": {
       "actions": {
-        "submit": "Email me"
+        "submit": "Send reset link"
       },
       "email": {
         "label": "Your email",

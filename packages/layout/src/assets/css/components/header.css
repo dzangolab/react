@@ -82,7 +82,7 @@
 
 .main-menu > ul > li:hover,
 .main-menu > ul > li .active {
-  font-weight: 600;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 576px) {

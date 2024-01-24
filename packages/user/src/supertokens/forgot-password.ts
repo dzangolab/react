@@ -5,7 +5,9 @@ interface IPromise {
   status: string | undefined;
 }
 
-const forgetpassword = async (email: string): Promise<IPromise | undefined> => {
+export const forgotPassword = async (
+  email: string,
+): Promise<IPromise | undefined> => {
   let status: string | undefined;
 
   const data = {
@@ -36,5 +38,3 @@ const forgetpassword = async (email: string): Promise<IPromise | undefined> => {
 
   return { status };
 };
-
-export default forgetpassword;

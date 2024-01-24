@@ -35,7 +35,7 @@
     },
     "title": "Change password (fr)"
   },
-  "forgetPassword": {
+  "forgotPassword": {
     "messages": {
       "success": "Email sent successfully (fr)"
     },
@@ -48,7 +48,7 @@
         "placeholder": ""
       }
     },
-    "title": "Forget password (fr)"
+    "title": "Forgot password (fr)"
   },
   "invitation": {
     "form": {

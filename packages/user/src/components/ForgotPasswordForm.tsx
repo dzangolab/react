@@ -9,10 +9,10 @@ interface Properties {
   loading?: boolean;
 }
 
-const ForgetPasswordForm = ({ handleSubmit, loading }: Properties) => {
+export const ForgotPasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
-  const ForgetPasswordFormSchema = zod.object({
+  const ForgotPasswordFormSchema = zod.object({
     email: emailSchema({
       required: t("validation.messages.email"),
       invalid: t("validation.messages.validEmail"),
@@ -21,20 +21,18 @@ const ForgetPasswordForm = ({ handleSubmit, loading }: Properties) => {
 
   return (
     <Form
-      validationSchema={ForgetPasswordFormSchema}
+      validationSchema={ForgotPasswordFormSchema}
       onSubmit={(data) => handleSubmit(data.email)}
     >
       <Email
-        label={t("forgetPassword.form.email.label")}
+        label={t("forgotPassword.form.email.label")}
         name="email"
-        placeholder={t("forgetPassword.form.email.placeholder")}
+        placeholder={t("forgotPassword.form.email.placeholder")}
       />
       <SubmitButton
-        label={t("forgetPassword.form.actions.submit")}
+        label={t("forgotPassword.form.actions.submit")}
         loading={loading}
       />
     </Form>
   );
 };
-
-export default ForgetPasswordForm;

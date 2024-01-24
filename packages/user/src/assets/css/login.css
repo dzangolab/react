@@ -50,7 +50,6 @@
   grid-auto-rows: max-content;
   gap: 1rem;
   justify-items: center;
-  margin-top: 3rem;
   grid-auto-columns: 1fr auto 1fr;
 }
 
