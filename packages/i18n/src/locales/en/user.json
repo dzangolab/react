@@ -205,7 +205,7 @@
       "cancel": "Cancel"
     },
     "toastMessages": {
-      "success": "Profile edited successfully",
+      "success": "Profile updated successfully",
       "error": "Something went wrong. Please try again"
     }
   }

@@ -1,3 +1,5 @@
+import { EditProfileType } from "@/types/types";
+
 import client from "../axios";
 
 import type { LoginCredentials, UserType } from "../../types";
@@ -62,14 +64,14 @@ export const disableUser = async (id: number, apiBaseUrl: string) => {
 };
 
 export const editUserProfile = async (
-  credential: any,
+  credential: EditProfileType,
   apiBaseUrl: string,
 ): Promise<{ data: UserType }> => {
   const response = await client(apiBaseUrl).put(`me`, credential, {
     withCredentials: true,
   });
 
-  if (response.data.status === "ERROR") {
+  if ("error" in response.data) {
     throw new Error(response.data.message);
   } else {
     return response;

@@ -204,7 +204,7 @@
       "cancel": "Cancel (fr)"
     },
     "toastMessages": {
-      "success": "Profile edited successfully (fr)",
+      "success": "Profile updated successfully (fr)",
       "error": "Something went wrong. Please try again (fr)"
     }
   }

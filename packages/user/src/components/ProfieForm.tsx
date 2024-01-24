@@ -8,6 +8,7 @@ import { z } from "zod";
 import { editUserProfile } from "@/api/user";
 import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
+import { EditProfileType } from "@/types/types";
 
 import { ProfileFormFields } from "./ProfileFormFields";
 import { useUser } from "..";
@@ -44,8 +45,8 @@ export const ProfileForm = () => {
     }
   }, []);
 
-  const handleSubmit = async (data: UserProfileType) => {
-    editUserProfile(data, appConfig.apiBaseUrl)
+  const handleSubmit = async (data: EditProfileType) => {
+    editUserProfile(data, appConfig?.apiBaseUrl)
       .then((response) => {
         if ("data" in response) {
           toast.success(t("profile.toastMessages.success"));

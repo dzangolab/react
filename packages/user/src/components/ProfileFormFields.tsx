@@ -45,9 +45,10 @@ export const ProfileFormFields = ({
           label={t("profile.button.cancel")}
           severity="secondary"
           variant="outlined"
+          size="small"
           onClick={handleCancel}
         />
-        <Button label={t("profile.button.update")} />
+        <Button label={t("profile.button.update")} size="small" />
       </div>
     </>
   );
