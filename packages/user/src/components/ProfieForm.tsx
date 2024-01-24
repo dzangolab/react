@@ -13,12 +13,6 @@ import { EditProfileType } from "@/types/types";
 import { ProfileFormFields } from "./ProfileFormFields";
 import { useUser } from "..";
 
-type UserProfileType = {
-  email: string;
-  givenName?: string;
-  surname?: string;
-};
-
 export const ProfileForm = () => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
@@ -51,13 +45,15 @@ export const ProfileForm = () => {
         if ("data" in response) {
           toast.success(t("profile.toastMessages.success"));
           setUser(response.data);
-          navigateHome();
         } else {
           toast.error(t("profile.toastMessages.error"));
         }
       })
       .catch(() => {
         toast.error(t("profile.toastMessages.error"));
+      })
+      .finally(() => {
+        navigateHome();
       });
   };
 
