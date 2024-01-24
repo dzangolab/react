@@ -60,3 +60,18 @@ export const disableUser = async (id: number, apiBaseUrl: string) => {
     return response;
   }
 };
+
+export const editUserProfile = async (
+  credential: any,
+  apiBaseUrl: string,
+): Promise<UserType> => {
+  const response = await client(apiBaseUrl).put(`me`, credential, {
+    withCredentials: true,
+  });
+
+  if (response.data.status === "ERROR") {
+    throw new Error(response.data.message);
+  } else {
+    return response.data;
+  }
+};
