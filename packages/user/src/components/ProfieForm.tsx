@@ -1,7 +1,9 @@
 import { Provider } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { z } from "zod";
 
 import { ProfileFormFields } from "./ProfileFormFields";
 import { setUserData, useUser } from "..";
@@ -9,8 +11,6 @@ import { setUserData, useUser } from "..";
 import { editUserProfile } from "@/api/user";
 import { getHomeRoute } from "@/helpers";
 import { useConfig } from "@/hooks";
-import { useCallback } from "react";
-import { z } from "zod";
 
 type UserProfileType = {
   email: string;
@@ -28,21 +28,21 @@ export const ProfileForm = () => {
 
   const profileValidationSchema: any = z.object({
     givenName: z.string().nonempty({
-      message: t("thing.form.validations.name.required"),
+      message: t("profile.form.validations.firstName"),
     }),
 
     surname: z.string().nonempty({
-      message: t("thing.form.validations.name.required"),
+      message: t("profile.form.validations.lastName"),
     }),
   });
 
-  const navigateHome = () => {
+  const navigateHome = useCallback(() => {
     if (homeRoute === "profile") {
       navigate("/");
     } else {
       navigate(homeRoute);
     }
-  };
+  }, []);
 
   const handleSubmit = async (data: UserProfileType) => {
     editUserProfile(data, appConfig.apiBaseUrl).then((response) => {

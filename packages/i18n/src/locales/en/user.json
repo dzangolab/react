@@ -194,6 +194,10 @@
       "lastName": {
         "label": "Last name",
         "placeHolder": "Enter your last name"
+      },
+      "validations": {
+        "firstName": "First name cannot be null",
+        "lastName": "Last name cannot be null"
       }
     },
     "button": {

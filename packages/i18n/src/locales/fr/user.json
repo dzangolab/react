@@ -193,6 +193,10 @@
       "lastName": {
         "label": "Last name (fr)",
         "placeHolder": "Enter your last name (fr)"
+      },
+      "validations": {
+        "firstName": "First name cannot be null (fr)",
+        "lastName": "Last name cannot be null (fr)"
       }
     },
     "button": {
