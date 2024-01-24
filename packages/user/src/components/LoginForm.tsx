@@ -41,6 +41,7 @@ const LoginForm = ({ handleSubmit, loading }: Properties) => {
         label={t("login.form.email.label")}
         name="email"
         placeholder={t("login.form.email.placeholder")}
+        isSignup={false}
       />
       <Password
         label={t("login.form.password.label")}

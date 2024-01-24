@@ -4,7 +4,7 @@ import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
 export const Email: React.FC<
-  CustomInputProperties & { readOnly?: boolean }
+  CustomInputProperties & { readOnly?: boolean; isSignup?: boolean }
 > = ({
   register,
   getFieldState,
@@ -13,6 +13,7 @@ export const Email: React.FC<
   name,
   readOnly = false,
   submitcount = 0,
+  isSignup = true,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -26,7 +27,9 @@ export const Email: React.FC<
         id={`input-field-${name}`}
         type="email"
         placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? invalid : undefined}
+        {...(isSignup && {
+          "aria-invalid": submitcount > 0 ? invalid : undefined,
+        })}
         readOnly={readOnly}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
