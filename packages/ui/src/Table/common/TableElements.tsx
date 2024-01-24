@@ -13,7 +13,7 @@ const Table = React.forwardRef<
 >(({ className, ...properties }, reference) => (
   <div className="table-wrapper">
     <table
-      className={`table ${className || ""}`}
+      className={`table ${className || ""}`.trimEnd()}
       ref={reference}
       {...properties}
     />
