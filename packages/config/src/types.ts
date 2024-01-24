@@ -1,6 +1,7 @@
 interface AppConfig {
   authBasePath?: string;
   apiBaseUrl: string;
+  appName?: string;
   appPort: string;
   appTitle: string;
   appVersion: string;
