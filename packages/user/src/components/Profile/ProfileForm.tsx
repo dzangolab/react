@@ -26,10 +26,6 @@ export const ProfileForm = () => {
     }),
   });
 
-  const handleCancel = useCallback(() => {
-    // reset form
-  }, []);
-
   const handleSubmit = async (data: UpdateProfileInputType) => {
     setSubmitting(true);
     updateUserProfile(data, appConfig?.apiBaseUrl)
@@ -59,7 +55,7 @@ export const ProfileForm = () => {
         surname: user?.surname,
       }}
     >
-      <ProfileFormFields handleCancel={handleCancel} submitting={submitting} />
+      <ProfileFormFields submitting={submitting} />
     </Provider>
   );
 };

@@ -148,9 +148,10 @@ const DataTable = <TData extends { id: string | number }>({
     const defaultActionColumn: ColumnDef<TData, unknown> = {
       id: "actions",
       header: () => <i className="pi pi-cog"></i>,
-      width: "3rem",
-      maxWidth: "3rem",
-      minWidth: "3rem",
+      align: "center",
+      width: "4rem",
+      maxWidth: "4rem",
+      minWidth: "4rem",
       cell: ({ row: { original } }) => {
         const isVisibleActions =
           typeof displayRowActions === "function"
@@ -199,9 +200,9 @@ const DataTable = <TData extends { id: string | number }>({
           enableColumnFilter: false,
           enableGlobalFilter: false,
           align: "center",
-          width: "3rem",
-          maxWidth: "3rem",
-          minWidth: "3rem",
+          width: "4rem",
+          maxWidth: "4rem",
+          minWidth: "4rem",
         },
         ...parsedColumns,
       ];
