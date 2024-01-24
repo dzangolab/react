@@ -13,7 +13,7 @@
 
 /* Tanstack table class definitions */
 
-.table-container {
+.dz-table-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.table-container > span {
+.dz-table-container > span {
   font-weight: bold;
   text-align: center;
   padding: 0.2rem 0;
@@ -29,15 +29,15 @@
   font-size: 1rem;
 }
 
-.table-container > span[data-align="left"] {
+.dz-table-container > span[data-align="left"] {
   text-align: left;
 }
 
-.table-container > span[data-align="right"] {
+.dz-table-container > span[data-align="right"] {
   text-align: right;
 }
 
-.table-container .loading-overlay {
+.dz-table-container .loading-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.table-container .toolbar {
+.dz-table-container .toolbar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -58,57 +58,57 @@
   padding: var(--table-column-padding);
 }
 
-.table-container .table-wrapper {
+.dz-table-container .table-wrapper {
   width: 100%;
   overflow-x: auto;
 }
 
-.table-container .table-wrapper .table {
+.dz-table-container .table-wrapper > table {
   min-width: 100%;
   border-collapse: collapse;
 }
 
-.table-container[data-border="grid"] .toolbar,
-.table-container[data-border="grid"] .table-wrapper .table,
-.table-container[data-border="grid"] .table-wrapper .table .trow,
-.table-container[data-border="grid"] .table-wrapper .table .tcell,
-.table-container[data-border="grid"] .table-wrapper .table .tcol-head,
-.table-container[data-border="grid"] .pagination {
+.dz-table-container[data-border="grid"] .toolbar,
+.dz-table-container[data-border="grid"] .table-wrapper > table,
+.dz-table-container[data-border="grid"] .table-wrapper > table tr,
+.dz-table-container[data-border="grid"] .table-wrapper > table > tbody > tr > td,
+.dz-table-container[data-border="grid"] .table-wrapper > table > thead > tr > th,
+.dz-table-container[data-border="grid"] .pagination {
   border: var(--table-border);
 }
 
-.table-container[data-border="vertical"] .toolbar,
-.table-container[data-border="vertical"] .pagination,
-.table-container[data-border="vertical"] .table-wrapper .table .tcell,
-.table-container[data-border="vertical"] .table-wrapper .table .tcol-head {
+.dz-table-container[data-border="vertical"] .toolbar,
+.dz-table-container[data-border="vertical"] .pagination,
+.dz-table-container[data-border="vertical"] .table-wrapper > table > tbody > tr > td,
+.dz-table-container[data-border="vertical"] .table-wrapper > table > thead > tr > th {
   border-left: var(--table-border);
   border-right: var(--table-border);
 }
 
-.table-container[data-border="horizontal"] .toolbar,
-.table-container[data-border="horizontal"] .pagination,
-.table-container[data-border="horizontal"] .table-wrapper .table .trow,
-.table-container.toolbar {
+.dz-table-container[data-border="horizontal"] .toolbar,
+.dz-table-container[data-border="horizontal"] .pagination,
+.dz-table-container[data-border="horizontal"] .table-wrapper > table tr,
+.dz-table-container.toolbar {
   border: var(--table-border);
 }
 
-.table-container[data-border="horizontal"] .pagination,
-.table-container[data-border="grid"] .pagination {
+.dz-table-container[data-border="horizontal"] .pagination,
+.dz-table-container[data-border="grid"] .pagination {
   border-top: none;
 }
 
-.table-container[data-border="horizontal"] .toolbar,
-.table-container[data-border="grid"] .toolbar {
+.dz-table-container[data-border="horizontal"] .toolbar,
+.dz-table-container[data-border="grid"] .toolbar {
   border-bottom: none;
 }
 
-.table-container .table-wrapper .table .tcell,
-.table-container .table-wrapper .table .tcol-head {
+.dz-table-container .table-wrapper > table > tbody > tr > td,
+.dz-table-container .table-wrapper > table > thead > tr > th {
   overflow: hidden;
 }
 
-.table-container .table-wrapper .table .tcell > .content,
-.table-container .table-wrapper .table .tcol-head > .content {
+.dz-table-container .table-wrapper > table tr > td > .content,
+.dz-table-container .table-wrapper > table tr > th > .content {
   width: 100%;
   display: flex;
   align-items: center;
@@ -118,21 +118,20 @@
   text-align: left;
 }
 
-.table-container .table-wrapper .table .tcell[data-align="center"] > .content,
-.table-container
+.dz-table-container .table-wrapper > table tr > td[data-align="center"] > .content,
+.dz-table-container
   .table-wrapper
-  .table
-  .tcol-head[data-align="center"]
+  > table tr
+  > th[data-align="center"]
   > .content {
   justify-content: center;
   text-align: center;
 }
 
-.table-container .table-wrapper .table .tcell[data-align="right"] > .content,
-.table-container
+.dz-table-container .table-wrapper > table tr > td[data-align="right"] > .content,
+.dz-table-container
   .table-wrapper
-  .table
-  .tcol-head[data-align="right"]
+  > table tr > th[data-align="right"]
   > .content {
   justify-content: flex-start;
   flex-direction: row-reverse;
@@ -140,10 +139,9 @@
   padding-right: 1rem;
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
-  .table
-  .tcol-head[data-align="right"]
+  > table tr > th[data-align="right"]
   > .content {
   justify-content: center;
   flex-direction: row-reverse;
@@ -151,70 +149,70 @@
   padding-right: 0;
 }
 
-.table-container .table-wrapper .table .tcol-head.sortable {
+.dz-table-container .table-wrapper > table tr > th.sortable {
   cursor: pointer;
 }
 
-.table-container .table-wrapper .table .tcol-head .sort-state i {
+.dz-table-container .table-wrapper > table tr > th .sort-state i {
   font-size: 0.7rem !important;
   font-weight: bold !important;
 }
 
-.table-container .table-wrapper .table .tcol-head.sortable:active {
+.dz-table-container .table-wrapper > table tr > th.sortable:active {
   background-color: var(--table-header-active-bg-color);
 }
 
-.table-container .table-wrapper .table .tcol-head.highlight,
-.table-container .table-wrapper .table .tcell.highlight {
+.dz-table-container .table-wrapper > table tr > th.highlight,
+.dz-table-container .table-wrapper > table tr > td.highlight {
   background-color: var(--table-header-active-bg-color);
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
-  .table[data-stripe="even"]
-  .tbody
-  .trow:nth-child(even) {
+  > table[data-stripe="even"]
+  > tbody
+  > tr:nth-child(even) {
   background-color: var(--table-stripe-color);
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
-  .table[data-stripe="odd"]
-  .tbody
-  .trow:nth-child(odd) {
+  > table[data-stripe="odd"]
+  > tbody
+  > tr:nth-child(odd) {
   background-color: var(--table-stripe-color);
 }
 
-.table-container .table-wrapper .table .tbody .trow[data-state="selected"] {
+.dz-table-container .table-wrapper > table > tbody > tr[data-state="selected"] {
   background-color: var(--table-row-selected-bg-color) !important;
 }
 
-.table-container
+.dz-table-container
   .table-wrapper
-  .table
-  .tbody
-  .trow[data-state="selected"]:hover,
-.table-wrapper .table .tbody .trow:hover {
+  > table
+  > tbody
+  > tr[data-state="selected"]:hover,
+.table-wrapper > table > tbody > tr:hover {
   background-color: var(--table-row-hover-bg-color) !important;
 }
 
-.table-wrapper .table .header-row {
+.table-wrapper > table .header-row {
   background-color: var(--table-header-bg-color);
   font-size: 1rem;
 }
 
-.table-wrapper .table .trow.filters .content input {
+.table-wrapper > table tr.filters .content input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
   background-color: #ffffff;
 }
 
-.table-container .table-wrapper .table .tcell,
-.table-container .table-wrapper .table .tcol-head {
+.dz-table-container .table-wrapper > table > tbody > tr > td,
+.dz-table-container .table-wrapper > table > thead > tr > th {
   padding: var(--table-column-padding);
 }
 
-.table-container .pagination .page-input-control input {
+.dz-table-container .pagination .page-input-control input {
   background-color: #ffffff;
 }
