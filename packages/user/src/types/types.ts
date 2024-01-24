@@ -50,7 +50,7 @@ export interface ExtendedUser extends UserType {
   invitedBy: UserType & { isActiveUser: boolean };
 }
 
-export type EditProfileType = {
+export type UpdateProfileInputType = {
   email: string;
   givenName: string;
   surname: string;

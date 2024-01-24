@@ -185,24 +185,22 @@
     "form": {
       "email": {
         "label": "Email",
-        "placeHolder": ""
+        "placeholder": ""
       },
       "firstName": {
         "label": "First name",
-        "placeHolder": "Enter your first name"
+        "placeholder": "Enter your first name"
       },
       "lastName": {
         "label": "Last name",
-        "placeHolder": "Enter your last name"
+        "placeholder": "Enter your last name"
       },
       "validations": {
         "firstName": {
-          "required": "First name cannot be null",
-          "string": "Value must be string"
+          "required": "First name is required"
         },
         "lastName": {
-          "required": "Last name cannot be null",
-          "string": "Value must be string"
+          "required": "Last name is required"
         }
       }
     },
@@ -210,6 +208,7 @@
       "update": "Update",
       "cancel": "Cancel"
     },
+    "title": "Profile",
     "toastMessages": {
       "success": "Profile updated successfully",
       "error": "Something went wrong. Please try again"

@@ -2,9 +2,9 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import React from "react";
 
-import { ProfileForm } from "@/components/ProfileForm";
+import { ProfileForm } from "@/components/Profile";
 
-const Profile = () => {
+export const Profile = () => {
   const { t } = useTranslation("user");
 
   return (
@@ -13,5 +13,3 @@ const Profile = () => {
     </Page>
   );
 };
-
-export default Profile;

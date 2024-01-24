@@ -183,7 +183,37 @@
     "title": "Reset password"
   },
   "profile": {
-    "title": "Profile"
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": ""
+      },
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Enter your first name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Enter your last name"
+      },
+      "validations": {
+        "firstName": {
+          "required": "First name is required"
+        },
+        "lastName": {
+          "required": "Last name is required"
+        }
+      }
+    },
+    "button": {
+      "update": "Update",
+      "cancel": "Cancel"
+    },
+    "title": "Profile",
+    "toastMessages": {
+      "success": "Profile updated successfully",
+      "error": "Something went wrong. Please try again"
+    }
   },
   "userMenu": {
     "profile": "Profile",

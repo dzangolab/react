@@ -32,17 +32,16 @@ import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import verifyEmail from "./supertokens/verify-email";
-import { UserToastContainer } from "./toastify";
-import AcceptInvitation from "./views/AcceptInvitation";
-import ChangePassword from "./views/ChangePassword";
-import EmailVerificationReminder from "./views/EmailVerificationReminder";
+import { AcceptInvitation } from "./views/AcceptInvitation";
+import { ChangePassword } from "./views/ChangePassword";
+import { EmailVerificationReminder } from "./views/EmailVerificationReminder";
 import { ForgotPassword } from "./views/ForgotPassword";
-import Login from "./views/Login";
-import Profile from "./views/Profile";
-import ResetPassword from "./views/ResetPassword";
-import Signup from "./views/Signup";
-import SignUpFirstUser from "./views/SignUpFirstUser";
-import VerifyEmail from "./views/VerifyEmail";
+import { Login } from "./views/Login";
+import { Profile } from "./views/Profile";
+import { ResetPassword } from "./views/ResetPassword";
+import { Signup } from "./views/Signup";
+import { SignUpFirstUser } from "./views/SignUpFirstUser";
+import { VerifyEmail } from "./views/VerifyEmail";
 
 import "./assets/css/index.css";
 
@@ -79,7 +78,6 @@ export {
   UserEnabledSwitchableLayout,
   UserMenu,
   UserProvider,
-  UserToastContainer,
   UsersTable,
   AllUsersTable,
 

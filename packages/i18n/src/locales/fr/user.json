@@ -184,24 +184,22 @@
     "form": {
       "email": {
         "label": "Email (fr)",
-        "placeHolder": ""
+        "placeholder": ""
       },
       "firstName": {
         "label": "First name (fr)",
-        "placeHolder": "Enter your first name (fr)"
+        "placeholder": "Enter your first name (fr)"
       },
       "lastName": {
         "label": "Last name (fr)",
-        "placeHolder": "Enter your last name (fr)"
+        "placeholder": "Enter your last name (fr)"
       },
       "validations": {
         "firstName": {
-          "required": "First name cannot be null (fr)",
-          "string": "Value must be string (fr)"
+          "required": "First name is required (fr)"
         },
         "lastName": {
-          "required": "Last name cannot be null (fr)",
-          "string": "Value must be string (fr)"
+          "required": "Last name is required (fr)"
         }
       }
     },
@@ -209,6 +207,7 @@
       "update": "Update (fr)",
       "cancel": "Cancel (fr)"
     },
+    "title": "Profile (fr)",
     "toastMessages": {
       "success": "Profile updated successfully (fr)",
       "error": "Something went wrong. Please try again (fr)"

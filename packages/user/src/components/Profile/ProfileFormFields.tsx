@@ -1,11 +1,13 @@
 import { Email, Input, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button } from "@dzangolab/react-ui";
+import { Button, SubmitButton } from "@dzangolab/react-ui";
 
 export const ProfileFormFields = ({
   handleCancel,
+  submitting,
 }: {
   handleCancel: () => void;
+  submitting?: boolean;
 }) => {
   const {
     register,
@@ -28,7 +30,7 @@ export const ProfileFormFields = ({
         label={t("profile.form.firstName.label")}
         name="givenName"
         type="text"
-        placeholder={t("profile.form.firstName.placeHolder")}
+        placeholder={t("profile.form.firstName.placeholder")}
         register={register}
         submitcount={submitCount}
         getFieldState={getFieldState}
@@ -37,20 +39,20 @@ export const ProfileFormFields = ({
         label={t("profile.form.lastName.label")}
         name="surname"
         type="text"
-        placeholder={t("profile.form.lastName.placeHolder")}
+        placeholder={t("profile.form.lastName.placeholder")}
         register={register}
         submitcount={submitCount}
         getFieldState={getFieldState}
       />
-      <div className="profile-buttons-wrapper">
+      <div className="profile-form-actions">
         <Button
           label={t("profile.button.cancel")}
           severity="secondary"
           variant="outlined"
-          size="small"
+          type="button"
           onClick={handleCancel}
         />
-        <Button label={t("profile.button.update")} size="small" />
+        <SubmitButton label={t("profile.button.update")} loading={submitting} />
       </div>
     </>
   );

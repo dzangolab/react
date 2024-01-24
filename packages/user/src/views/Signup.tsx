@@ -12,7 +12,7 @@ interface IProperties {
   showLoginLink?: boolean;
 }
 
-const Signup: React.FC<IProperties> = ({
+export const Signup: React.FC<IProperties> = ({
   onSignupFailed,
   onSignupSuccess,
   showForgotPasswordLink,
@@ -31,5 +31,3 @@ const Signup: React.FC<IProperties> = ({
     </Page>
   );
 };
-
-export default Signup;

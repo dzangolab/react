@@ -1,8 +1,10 @@
-import { EditProfileType } from "@/types/types";
-
 import client from "../axios";
 
-import type { LoginCredentials, UserType } from "../../types";
+import type {
+  LoginCredentials,
+  UpdateProfileInputType,
+  UserType,
+} from "@/types";
 
 export const getIsFirstUser = async (
   apiBaseUrl: string,
@@ -63,11 +65,11 @@ export const disableUser = async (id: number, apiBaseUrl: string) => {
   }
 };
 
-export const editUserProfile = async (
-  credential: EditProfileType,
+export const updateUserProfile = async (
+  data: UpdateProfileInputType,
   apiBaseUrl: string,
 ): Promise<{ data: UserType }> => {
-  const response = await client(apiBaseUrl).put(`me`, credential, {
+  const response = await client(apiBaseUrl).put(`me`, data, {
     withCredentials: true,
   });
 
