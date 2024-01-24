@@ -196,8 +196,14 @@
         "placeHolder": "Enter your last name"
       },
       "validations": {
-        "firstName": "First name cannot be null",
-        "lastName": "Last name cannot be null"
+        "firstName": {
+          "required": "First name cannot be null",
+          "string": "Value must be string"
+        },
+        "lastName": {
+          "required": "Last name cannot be null",
+          "string": "Value must be string"
+        }
       }
     },
     "button": {

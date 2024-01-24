@@ -22,13 +22,23 @@ export const ProfileForm = () => {
     getHomeRoute(user, appConfig?.layout, appConfig?.user) || "/";
 
   const profileValidationSchema: any = z.object({
-    givenName: z.string().nonempty({
-      message: t("profile.form.validations.firstName"),
-    }),
+    givenName: z
+      .string()
+      .nonempty({
+        message: t("profile.form.validations.firstName.required"),
+      })
+      .refine((value) => /^[A-Za-z]+$/.test(value), {
+        message: t("profile.form.validations.firstName.string"),
+      }),
 
-    surname: z.string().nonempty({
-      message: t("profile.form.validations.lastName"),
-    }),
+    surname: z
+      .string()
+      .nonempty({
+        message: t("profile.form.validations.lastName.required"),
+      })
+      .refine((value) => /^[A-Za-z]+$/.test(value), {
+        message: t("profile.form.validations.lastName.string"),
+      }),
   });
 
   const navigateHome = useCallback(() => {

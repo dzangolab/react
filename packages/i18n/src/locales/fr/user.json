@@ -195,8 +195,14 @@
         "placeHolder": "Enter your last name (fr)"
       },
       "validations": {
-        "firstName": "First name cannot be null (fr)",
-        "lastName": "Last name cannot be null (fr)"
+        "firstName": {
+          "required": "First name cannot be null (fr)",
+          "string": "Value must be string (fr)"
+        },
+        "lastName": {
+          "required": "Last name cannot be null (fr)",
+          "string": "Value must be string (fr)"
+        }
       }
     },
     "button": {
