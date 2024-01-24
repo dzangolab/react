@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-ui",
-  "version": "0.31.0",
+  "version": "0.32.0",
   "description": "React UI Component Library",
   "exports": {
     ".": {
@@ -37,7 +37,7 @@
     "react-popper": "^2.3.0"
   },
   "devDependencies": {
-    "@dzangolab/react-config": "0.31.0",
+    "@dzangolab/react-config": "0.32.0",
     "@storybook/react": "7.4.0",
     "@testing-library/react": "14.0.0",
     "@types/file-saver": "2.0.6",
@@ -50,7 +50,7 @@
     "@vitejs/plugin-react": "4.0.4",
     "@vitest/coverage-v8": "1.2.1",
     "eslint": "8.48.0",
-    "eslint-config-custom": "0.31.0",
+    "eslint-config-custom": "0.32.0",
     "eslint-plugin-react": "7.33.2",
     "jsdom": "22.1.0",
     "prettier": "3.0.3",
@@ -59,13 +59,13 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.15.0",
     "react-test-renderer": "18.2.0",
-    "tsconfig": "0.31.0",
+    "tsconfig": "0.32.0",
     "typescript": "5.2.2",
     "vite": "4.3.9",
     "vitest": "1.2.1"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.31.0",
+    "@dzangolab/react-config": "0.32.0",
     "primereact": "9.6.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",
