@@ -83,12 +83,6 @@
   > thead
   > tr
   > th,
-.dz-table-container[data-border="grid"]
-  .table-wrapper
-  > table
-  > thead
-  > tr
-  > td,
 .dz-table-container[data-border="grid"] .pagination {
   border: var(--table-border);
 }
@@ -99,12 +93,6 @@
   .table-wrapper
   > table
   > tbody
-  > tr
-  > td,
-.dz-table-container[data-border="vertical"]
-  .table-wrapper
-  > table
-  > thead
   > tr
   > td,
 .dz-table-container[data-border="vertical"]

@@ -3,15 +3,17 @@ import { defineConfig } from "vitest/config";
 
 import viteConfig from "./vite.config";
 
-export default mergeConfig(
-  viteConfig,
-  defineConfig({
-    test: {
-      coverage: {
-        reporter: ["text", "json", "html"],
+export default defineConfig((configEnvironment) =>
+  mergeConfig(
+    viteConfig(configEnvironment),
+    defineConfig({
+      test: {
+        coverage: {
+          reporter: ["text", "json", "html"],
+        },
+        environment: "jsdom",
+        globals: true,
       },
-      environment: "jsdom",
-      globals: true,
-    },
-  }),
+    }),
+  ),
 );
