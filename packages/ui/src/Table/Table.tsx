@@ -42,10 +42,10 @@ import {
   formatNumber,
   formatDate,
 } from "./utils";
-import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
-import { Button } from "../../Buttons/ButtonBasic";
-import LoadingIcon from "../../LoadingIcon";
-import { Pagination } from "../../Pagination";
+import { Checkbox, DebouncedInput, Popup, SortableList } from "..";
+import { Button } from "../Buttons/ButtonBasic";
+import LoadingIcon from "../LoadingIcon";
+import { Pagination } from "../Pagination";
 
 import type {
   CellAlignmentType,
@@ -149,9 +149,6 @@ const DataTable = <TData extends { id: string | number }>({
       id: "actions",
       header: () => <i className="pi pi-cog"></i>,
       align: "center",
-      width: "4rem",
-      maxWidth: "4rem",
-      minWidth: "4rem",
       cell: ({ row: { original } }) => {
         const isVisibleActions =
           typeof displayRowActions === "function"
@@ -200,9 +197,6 @@ const DataTable = <TData extends { id: string | number }>({
           enableColumnFilter: false,
           enableGlobalFilter: false,
           align: "center",
-          width: "4rem",
-          maxWidth: "4rem",
-          minWidth: "4rem",
         },
         ...parsedColumns,
       ];

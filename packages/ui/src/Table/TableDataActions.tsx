@@ -2,8 +2,8 @@ import { ButtonProps } from "primereact/button";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { ConfirmationModal, IModalProperties } from "../../ConfirmationModal";
-import { Menu } from "../../Menu";
+import { ConfirmationModal, IModalProperties } from "../ConfirmationModal";
+import { Menu } from "../Menu";
 
 export interface DataActionsMenuItem
   extends Omit<MenuItem, "command" | "disabled"> {

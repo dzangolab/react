@@ -1,14 +1,15 @@
 /* Table variables */
 
 :root {
-  --table-border: 1px solid rgb(226, 226, 226);
-  --table-header-bg-color: #f0f2f7ad;
-  --table-header-active-bg-color: rgb(232, 240, 255);
-  --table-row-hover-bg-color: #318aff0f;
-  --table-column-padding: 0.8rem;
-  --table-row-selected-bg-color: rgb(240, 245, 255);
-  --table-text-color: rgb(78, 78, 78);
-  --table-stripe-color: #0064ff08;
+  --dz-table-border: 1px solid rgb(226, 226, 226);
+  --dz-table-header-bg-color: #f0f2f7ad;
+  --dz-table-header-active-bg-color: rgb(232, 240, 255);
+  --dz-table-row-hover-bg-color: #318aff0f;
+  --dz-table-column-padding: 0.8rem;
+  --dz-table-row-selected-bg-color: rgb(240, 245, 255);
+  --dz-table-text-color: rgb(78, 78, 78);
+  --dz-table-stripe-color: #0064ff08;
+  --dz-table-actions-column-width: 4rem;
 }
 
 /* Tanstack table class definitions */
@@ -17,7 +18,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: var(--table-text-color);
+  color: var(--dz-table-text-color);
   position: relative;
 }
 
@@ -54,8 +55,8 @@
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  background-color: var(--table-header-bg-color);
-  padding: var(--table-column-padding);
+  background-color: var(--dz-table-header-bg-color);
+  padding: var(--dz-table-column-padding);
 }
 
 .dz-table-container .table-wrapper {
@@ -71,25 +72,45 @@
 .dz-table-container[data-border="grid"] .toolbar,
 .dz-table-container[data-border="grid"] .table-wrapper > table,
 .dz-table-container[data-border="grid"] .table-wrapper > table tr,
-.dz-table-container[data-border="grid"] .table-wrapper > table > tbody > tr > td,
-.dz-table-container[data-border="grid"] .table-wrapper > table > thead > tr > th,
+.dz-table-container[data-border="grid"]
+  .table-wrapper
+  > table
+  > tbody
+  > tr
+  > td,
+.dz-table-container[data-border="grid"]
+  .table-wrapper
+  > table
+  > thead
+  > tr
+  > th,
 .dz-table-container[data-border="grid"] .pagination {
-  border: var(--table-border);
+  border: var(--dz-table-border);
 }
 
 .dz-table-container[data-border="vertical"] .toolbar,
 .dz-table-container[data-border="vertical"] .pagination,
-.dz-table-container[data-border="vertical"] .table-wrapper > table > tbody > tr > td,
-.dz-table-container[data-border="vertical"] .table-wrapper > table > thead tr > th {
-  border-left: var(--table-border);
-  border-right: var(--table-border);
+.dz-table-container[data-border="vertical"]
+  .table-wrapper
+  > table
+  > tbody
+  > tr
+  > td,
+.dz-table-container[data-border="vertical"]
+  .table-wrapper
+  > table
+  > thead
+  tr
+  > th {
+  border-left: var(--dz-table-border);
+  border-right: var(--dz-table-border);
 }
 
 .dz-table-container[data-border="horizontal"] .toolbar,
 .dz-table-container[data-border="horizontal"] .pagination,
 .dz-table-container[data-border="horizontal"] .table-wrapper > table tr,
 .dz-table-container.toolbar {
-  border: var(--table-border);
+  border: var(--dz-table-border);
 }
 
 .dz-table-container[data-border="horizontal"] .pagination,
@@ -118,20 +139,33 @@
   text-align: left;
 }
 
-.dz-table-container .table-wrapper > table tr > td[data-align="center"] > .content,
 .dz-table-container
   .table-wrapper
-  > table tr
+  > table
+  tr
+  > td[data-align="center"]
+  > .content,
+.dz-table-container
+  .table-wrapper
+  > table
+  tr
   > th[data-align="center"]
   > .content {
   justify-content: center;
   text-align: center;
 }
 
-.dz-table-container .table-wrapper > table tr > td[data-align="right"] > .content,
 .dz-table-container
   .table-wrapper
-  > table tr > th[data-align="right"]
+  > table
+  tr
+  > td[data-align="right"]
+  > .content,
+.dz-table-container
+  .table-wrapper
+  > table
+  tr
+  > th[data-align="right"]
   > .content {
   justify-content: flex-start;
   flex-direction: row-reverse;
@@ -141,7 +175,9 @@
 
 .dz-table-container
   .table-wrapper
-  > table tr > th[data-align="right"]
+  > table
+  tr
+  > th[data-align="right"]
   > .content {
   justify-content: center;
   flex-direction: row-reverse;
@@ -159,12 +195,12 @@
 }
 
 .dz-table-container .table-wrapper > table tr > th.sortable:active {
-  background-color: var(--table-header-active-bg-color);
+  background-color: var(--dz-table-header-active-bg-color);
 }
 
 .dz-table-container .table-wrapper > table tr > th.highlight,
 .dz-table-container .table-wrapper > table tr > td.highlight {
-  background-color: var(--table-header-active-bg-color);
+  background-color: var(--dz-table-header-active-bg-color);
 }
 
 .dz-table-container
@@ -172,7 +208,7 @@
   > table[data-stripe="even"]
   > tbody
   > tr:nth-child(even) {
-  background-color: var(--table-stripe-color);
+  background-color: var(--dz-table-stripe-color);
 }
 
 .dz-table-container
@@ -180,11 +216,11 @@
   > table[data-stripe="odd"]
   > tbody
   > tr:nth-child(odd) {
-  background-color: var(--table-stripe-color);
+  background-color: var(--dz-table-stripe-color);
 }
 
 .dz-table-container .table-wrapper > table > tbody > tr[data-state="selected"] {
-  background-color: var(--table-row-selected-bg-color) !important;
+  background-color: var(--dz-table-row-selected-bg-color) !important;
 }
 
 .dz-table-container
@@ -193,11 +229,11 @@
   > tbody
   > tr[data-state="selected"]:hover,
 .table-wrapper > table > tbody > tr:hover {
-  background-color: var(--table-row-hover-bg-color) !important;
+  background-color: var(--dz-table-row-hover-bg-color) !important;
 }
 
 .table-wrapper > table .header-row {
-  background-color: var(--table-header-bg-color);
+  background-color: var(--dz-table-header-bg-color);
   font-size: 1rem;
 }
 
@@ -210,7 +246,14 @@
 
 .dz-table-container .table-wrapper > table > tbody > tr > td,
 .dz-table-container .table-wrapper > table > thead > tr > th {
-  padding: var(--table-column-padding);
+  padding: var(--dz-table-column-padding);
+}
+
+.dz-table-container .table-wrapper > table > thead > tr > th.column-actions,
+.dz-table-container .table-wrapper > table > thead > tr > th.column-select {
+  width: var(--dz-table-actions-column-width);
+  max-width: var(--dz-table-actions-column-width);
+  min-width: var(--dz-table-actions-column-width);
 }
 
 .dz-table-container .pagination .page-input-control input {

@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { formatDate, formatNumber } from "../../common/utils";
+import { formatDate, formatNumber } from "../../utils";
 
 describe("FormatDate unit test", () => {
   test("Should return a US locale based formatted date", () => {
