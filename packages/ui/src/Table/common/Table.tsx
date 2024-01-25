@@ -445,7 +445,9 @@ const DataTable = <TData extends { id: string | number }>({
             <TableRow key={"filters"} className={`header-row filters`}>
               {table.getVisibleLeafColumns().map((column) => {
                 if (!column.getCanFilter()) {
-                  return <TableCell key={"filter" + column.id}></TableCell>;
+                  return (
+                    <ColumnHeader key={"filter" + column.id}></ColumnHeader>
+                  );
                 }
 
                 const activeColumnClass = `${
