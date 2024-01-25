@@ -248,8 +248,8 @@
   padding: var(--table-column-padding);
 }
 
-.dz-table-container .table-wrapper > table > tbody > tr > td.cell-actions,
-.dz-table-container .table-wrapper > table > tbody > tr > td.cell-select {
+.dz-table-container .table-wrapper > table > thead > tr > th.column-actions,
+.dz-table-container .table-wrapper > table > thead > tr > th.column-select {
   width: 4rem;
   max-width: 4rem;
   min-width: 4rem;
