@@ -71,18 +71,48 @@
 .dz-table-container[data-border="grid"] .toolbar,
 .dz-table-container[data-border="grid"] .table-wrapper > table,
 .dz-table-container[data-border="grid"] .table-wrapper > table tr,
-.dz-table-container[data-border="grid"] .table-wrapper > table > tbody > tr > td,
-.dz-table-container[data-border="grid"] .table-wrapper > table > thead > tr > th,
-.dz-table-container[data-border="grid"] .table-wrapper > table > thead > tr > td,
+.dz-table-container[data-border="grid"]
+  .table-wrapper
+  > table
+  > tbody
+  > tr
+  > td,
+.dz-table-container[data-border="grid"]
+  .table-wrapper
+  > table
+  > thead
+  > tr
+  > th,
+.dz-table-container[data-border="grid"]
+  .table-wrapper
+  > table
+  > thead
+  > tr
+  > td,
 .dz-table-container[data-border="grid"] .pagination {
   border: var(--table-border);
 }
 
 .dz-table-container[data-border="vertical"] .toolbar,
 .dz-table-container[data-border="vertical"] .pagination,
-.dz-table-container[data-border="vertical"] .table-wrapper > table > tbody > tr > td,
-.dz-table-container[data-border="vertical"] .table-wrapper > table > thead > tr > td,
-.dz-table-container[data-border="vertical"] .table-wrapper > table > thead tr > th {
+.dz-table-container[data-border="vertical"]
+  .table-wrapper
+  > table
+  > tbody
+  > tr
+  > td,
+.dz-table-container[data-border="vertical"]
+  .table-wrapper
+  > table
+  > thead
+  > tr
+  > td,
+.dz-table-container[data-border="vertical"]
+  .table-wrapper
+  > table
+  > thead
+  tr
+  > th {
   border-left: var(--table-border);
   border-right: var(--table-border);
 }
@@ -120,20 +150,33 @@
   text-align: left;
 }
 
-.dz-table-container .table-wrapper > table tr > td[data-align="center"] > .content,
 .dz-table-container
   .table-wrapper
-  > table tr
+  > table
+  tr
+  > td[data-align="center"]
+  > .content,
+.dz-table-container
+  .table-wrapper
+  > table
+  tr
   > th[data-align="center"]
   > .content {
   justify-content: center;
   text-align: center;
 }
 
-.dz-table-container .table-wrapper > table tr > td[data-align="right"] > .content,
 .dz-table-container
   .table-wrapper
-  > table tr > th[data-align="right"]
+  > table
+  tr
+  > td[data-align="right"]
+  > .content,
+.dz-table-container
+  .table-wrapper
+  > table
+  tr
+  > th[data-align="right"]
   > .content {
   justify-content: flex-start;
   flex-direction: row-reverse;
@@ -143,7 +186,9 @@
 
 .dz-table-container
   .table-wrapper
-  > table tr > th[data-align="right"]
+  > table
+  tr
+  > th[data-align="right"]
   > .content {
   justify-content: center;
   flex-direction: row-reverse;
@@ -213,6 +258,13 @@
 .dz-table-container .table-wrapper > table > tbody > tr > td,
 .dz-table-container .table-wrapper > table > thead > tr > th {
   padding: var(--table-column-padding);
+}
+
+.dz-table-container .table-wrapper > table > tbody > tr > td.cell-actions,
+.dz-table-container .table-wrapper > table > tbody > tr > td.cell-select {
+  width: 4rem;
+  max-width: 4rem;
+  min-width: 4rem;
 }
 
 .dz-table-container .pagination .page-input-control input {

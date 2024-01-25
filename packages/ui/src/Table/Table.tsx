@@ -149,7 +149,6 @@ const DataTable = <TData extends { id: string | number }>({
       id: "actions",
       header: () => <i className="pi pi-cog"></i>,
       align: "center",
-
       cell: ({ row: { original } }) => {
         const isVisibleActions =
           typeof displayRowActions === "function"
@@ -198,9 +197,6 @@ const DataTable = <TData extends { id: string | number }>({
           enableColumnFilter: false,
           enableGlobalFilter: false,
           align: "center",
-          width: "4rem",
-          maxWidth: "4rem",
-          minWidth: "4rem",
         },
         ...parsedColumns,
       ];
