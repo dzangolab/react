@@ -34,7 +34,7 @@
     "react-toastify": "10.0.4"
   },
   "devDependencies": {
-    "@babel/core": "7.23.3",
+    "@babel/core": "7.23.9",
     "@babel/plugin-syntax-flow": "7.23.3",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@testing-library/react": "14.0.0",
