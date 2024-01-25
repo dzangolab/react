@@ -17,7 +17,6 @@ export interface IButtonProperties
     | "warning";
   size?: "small" | "medium" | "large";
   to?: string;
-  title?: string;
   variant?: "outlined" | "filled" | "textOnly";
 }
 
