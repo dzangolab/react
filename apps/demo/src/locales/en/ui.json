@@ -11,7 +11,7 @@
       "link": "Link",
       "tooltip": "Button with tooltip"
     },
-    "message": "Tooltip content"
+    "message": "Click to view profile"
   },
   "filesTable": {
     "title": "Files table",
