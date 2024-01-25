@@ -1,14 +1,33 @@
 import { Email, Input, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, SubmitButton } from "@dzangolab/react-ui";
+import { useEffect } from "react";
 
-export const ProfileFormFields = ({ submitting }: { submitting?: boolean }) => {
+import { UserType } from "@/types";
+
+interface IProfileFieldsProperties {
+  submitting: boolean;
+  user?: UserType;
+}
+
+export const ProfileFormFields = ({
+  submitting,
+  user,
+}: IProfileFieldsProperties) => {
   const {
     register,
     getFieldState,
     reset,
     formState: { errors, submitCount, isDirty },
   } = useFormContext();
+
+  useEffect(() => {
+    reset({
+      email: user?.email,
+      givenName: user?.givenName,
+      surname: user?.surname,
+    });
+  }, [user]);
 
   const { t } = useTranslation("user");
   return (
