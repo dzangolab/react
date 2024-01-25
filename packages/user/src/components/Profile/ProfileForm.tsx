@@ -1,14 +1,14 @@
 import { Provider } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { z } from "zod";
+
+import { ProfileFormFields } from "./ProfileFormFields";
 
 import { updateUserProfile } from "@/api/user";
 import { useConfig, useUser } from "@/hooks";
 import { UpdateProfileInputType } from "@/types";
-
-import { ProfileFormFields } from "./ProfileFormFields";
 
 export const ProfileForm = () => {
   const { t } = useTranslation("user");
@@ -49,7 +49,7 @@ export const ProfileForm = () => {
     <Provider
       validationSchema={profileValidationSchema}
       onSubmit={handleSubmit}
-      defaultValues={{
+      values={{
         email: user?.email,
         givenName: user?.givenName,
         surname: user?.surname,
