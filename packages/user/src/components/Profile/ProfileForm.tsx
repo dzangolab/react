@@ -49,13 +49,13 @@ export const ProfileForm = () => {
     <Provider
       validationSchema={profileValidationSchema}
       onSubmit={handleSubmit}
-      defaultValues={{
+      values={{
         email: user?.email,
         givenName: user?.givenName,
         surname: user?.surname,
       }}
     >
-      <ProfileFormFields submitting={submitting} user={user} />
+      <ProfileFormFields submitting={submitting} />
     </Provider>
   );
 };
