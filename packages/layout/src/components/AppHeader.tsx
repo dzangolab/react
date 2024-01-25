@@ -29,10 +29,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
       return;
     }
 
-    let logoAlt = appName.indexOf("/") === -1 ? appName : appName.split("/")[1];
-    logoAlt = logoAlt.replace(/-/g, " ");
-
-    return logoAlt[0].toUpperCase() + logoAlt.substring(1);
+    return appName.replace("@", "").replace("/", " ");
   }, [appName]);
 
   const {
