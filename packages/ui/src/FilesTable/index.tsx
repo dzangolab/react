@@ -35,25 +35,21 @@ export interface IFile {
 export type FilesTableProperties = Partial<
   Omit<TDataTableProperties<IFile>, "data" | "visibleColumns" | "fetchData">
 > & {
-  fetchFiles?: (arguments_: TRequestJSON) => void;
   files: Array<IFile>;
+  messages?: TableMessages;
+  visibleColumns?: VisibleFileDetails[];
+  fetchFiles?: (arguments_: TRequestJSON) => void;
   onFileArchive?: (arguments_: IFile) => void;
-  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onFileDownload?: (arguments_: IFile) => void;
   onFileDelete?: (arguments_: IFile) => void;
-  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onEditDescription?: (arguments_: IFile) => void;
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
-  messages?: TableMessages;
-  visibleColumns?: VisibleFileDetails[];
 };
 
 export const FilesTable = ({
-  archiveConfirmationProps,
   className = "table-files",
   columns = [],
-  deleteConfirmationProps,
   id = "table-files",
   isLoading,
   files,
@@ -78,7 +74,7 @@ export const FilesTable = ({
         icon: "pi pi-book",
         requireConfirmationModal: true,
         confirmationOptions: {
-          header: messages?.archiveConfirmationHeader || "Archive file?",
+          header: messages?.archiveConfirmationHeader || "Archive file",
           message:
             messages?.archiveConfirmationMessage ||
             "Are you sure you want to archive this file?",
@@ -128,7 +124,7 @@ export const FilesTable = ({
         className: "danger",
         requireConfirmationModal: true,
         confirmationOptions: {
-          header: messages?.deleteConfirmationHeader || "Delete file?",
+          header: messages?.deleteConfirmationHeader || "Delete file",
           message:
             messages?.deleteConfirmationMessage ||
             "Are you sure you want to delete this file?",
