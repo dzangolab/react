@@ -84,6 +84,7 @@
   gap: 0.5rem;
   align-items: center;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .layout > header .logo .logo-default > span:first-child {
