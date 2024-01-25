@@ -1,3 +1,19 @@
+# [0.33.0](https://github.com/dzangolab/react/compare/v0.32.0...v0.33.0) (2024-01-25)
+
+
+### Bug Fixes
+
+* **ui/FilesTable:** remove unwanted props ([c6b9c85](https://github.com/dzangolab/react/commit/c6b9c85a629871ed72437bd6581e3c8d87bfabc8))
+
+
+### Features
+
+* **layout:** update default logo ([eedb472](https://github.com/dzangolab/react/commit/eedb472cf019624e8c289ac89550cb1b0e46b8d6))
+* **table:** update table td with th ([#771](https://github.com/dzangolab/react/issues/771)) ([eec431e](https://github.com/dzangolab/react/commit/eec431e8ca13725060f3556ea02cdf74adb1bd1e))
+* **ui/Button:** add support for tooltip ([#777](https://github.com/dzangolab/react/issues/777)) ([b04d4d8](https://github.com/dzangolab/react/commit/b04d4d856f2eafb5fa7aea6ff35cde4fe41f49bd))
+
+
+
 # [0.32.0](https://github.com/dzangolab/react/compare/v0.31.0...v0.32.0) (2024-01-24)
 
 
