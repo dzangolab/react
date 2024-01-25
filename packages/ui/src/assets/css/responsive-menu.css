@@ -1,7 +1,7 @@
 .dz-responsive-menu > ul {
   flex: 1;
   flex-direction: row;
-  gap: var(--responsive-menu-gap, 1rem);
+  /* gap: var(--responsive-menu-gap, 1rem); */
   list-style: none;
   padding: 0;
   margin: 0;

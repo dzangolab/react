@@ -2,7 +2,7 @@
   --header-bg-color: #ffffff;
   --header-border-color: var(--border-color);
   --header-font-size: var(--font-size);
-  --header-gap: 0.5rem;
+  --header-gap: 1.5rem;
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
 
@@ -131,7 +131,7 @@
     border: none;
     display: flex;
     flex-direction: row;
-    gap: var(--menu-gap, 1em);
+    gap: var(--menu-gap, 1.5rem);
     justify-content: flex-end;
     margin: 0;
     padding: 0;
