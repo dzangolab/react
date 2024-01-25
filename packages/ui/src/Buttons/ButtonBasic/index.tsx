@@ -17,6 +17,7 @@ export interface IButtonProperties
     | "warning";
   size?: "small" | "medium" | "large";
   to?: string;
+  title?: string;
   variant?: "outlined" | "filled" | "textOnly";
 }
 
@@ -32,6 +33,7 @@ export const Button: FC<IButtonProperties> = ({
   severity = "primary",
   size = "medium",
   to,
+  title,
   variant = "filled",
   ...otherProperties
 }) => {
@@ -82,6 +84,7 @@ export const Button: FC<IButtonProperties> = ({
         className={buttonClassName}
         disabled={loading || disabled}
         onClick={onClick}
+        title={title}
         {...otherProperties}
       >
         {renderIconLeft()}

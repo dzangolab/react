@@ -8,8 +8,10 @@
       "icons": "Icons",
       "disabled": "Disabled",
       "text": "Text",
-      "link": "Link"
-    }
+      "link": "Link",
+      "tooltip": "Button with tooltip"
+    },
+    "message": "Tooltip content"
   },
   "filesTable": {
     "title": "Files table",
