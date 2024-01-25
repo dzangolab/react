@@ -2,7 +2,7 @@ import { Email, Input, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, SubmitButton } from "@dzangolab/react-ui";
 
-export const ProfileFormFields = ({ submitting }: { submitting: boolean }) => {
+export const ProfileFormFields = ({ submitting }: { submitting?: boolean }) => {
   const {
     register,
     getFieldState,
