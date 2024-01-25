@@ -140,6 +140,17 @@ export const ButtonDemo = () => {
           <Button label="Back" severity="secondary" to="/ui" />
         </div>
       </Section>
+
+      <Section title={t("button.usage.tooltip")}>
+        <div className="demo-buttons-container">
+          <Button
+            variant="textOnly"
+            severity="primary"
+            iconLeft="pi pi-user"
+            title={t("button.message")}
+          />
+        </div>
+      </Section>
     </Page>
   );
 };
