@@ -6,20 +6,33 @@
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
 
-  align-items: center;
+  /* align-items: center;
   border-bottom: 1px solid var(--header-border-color);
   display: grid;
   font-size: var(--header-font-size);
-  gap: 0 var(--header-gap);
-  grid-template-areas:
+  gap: 0 var(--header-gap); */
+  /* grid-template-areas:
     "logo toggle"
-    "nav nav";
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  justify-items: center;
+    "nav nav"; */
+  /* grid-template-columns: auto 1fr; */
+  /* grid-template-rows: auto auto; */
+  /* /* justify-items: center; */
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
-  position: relative;
+  /* position: relative;  */
+  border-bottom: 1px solid var(--menu-border-color, #000);
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.layout > header > :not(:first-child) {
+  grid-column: 1 / span 2;
+}
+
+.layout > header > .toggle {
+  grid-row: 1;
+  grid-column: 2;
+  margin: auto;
 }
 
 .layout > header::before {
@@ -39,14 +52,19 @@
   z-index: -1;
 }
 
-.layout > header > nav {
-  align-items: stretch;
+/* .layout > header[data-expanded="false"] > :not(:first-child),
+.layout > header[data-expanded="false"] > :not(.toggle) {
+  display: none;
+} */
+
+.layout > header {
+  /* align-items: stretch;
   background-color: #fff;
   border-bottom: 1px solid var(--menu-border-color, #000);
-  opacity: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  opacity: 1; */
+  /* display: flex;
+  flex-direction: column; */
+  /* gap: 0;
   grid-area: nav;
   justify-content: flex-start;
   left: 0;
@@ -59,16 +77,16 @@
   position: absolute;
   right: 0;
   top: var(--header-padding-top, 1em);
-  z-index: 999;
+  z-index: 999; */
 }
 
-.layout > header > nav[data-expanded="false"] {
+/* .layout > header > nav[data-expanded="false"] {
   display: none;
 }
 
 .layout > header .logo {
   grid-area: logo;
-}
+} */
 
 .layout > header .logo > a {
   text-decoration: none;
@@ -105,7 +123,7 @@
   text-overflow: ellipsis;
 }
 
-.layout > header .toggle {
+/* .layout > header .toggle {
   cursor: pointer;
   grid-area: toggle;
   justify-self: right;
@@ -118,7 +136,7 @@
 .main-menu > ul > li:hover,
 .main-menu > ul > li .active {
   text-decoration: underline;
-}
+} */
 
 @media screen and (min-width: 576px) {
   .layout > header {

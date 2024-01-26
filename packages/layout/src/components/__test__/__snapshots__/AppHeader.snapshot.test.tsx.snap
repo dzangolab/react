@@ -1,7 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<header>
+<header
+  aria-expanded={false}
+  className="menu dropdown"
+>
   <div
     className="logo"
   >
@@ -20,90 +23,6 @@ exports[`Component matches snapshot 1`] = `
       </span>
     </a>
   </div>
-  <nav
-    className="menu dropdown"
-    data-expanded={false}
-  >
-    <nav
-      aria-orientation="horizontal"
-      className="dz-responsive-menu main-menu"
-    >
-      <ul>
-        <li
-          aria-expanded={false}
-        >
-          <a
-            aria-current="page"
-            className="active"
-            href="/"
-            onClick={[Function]}
-          >
-            <span
-              role="label"
-            >
-              header.menu.home
-            </span>
-          </a>
-        </li>
-        <li
-          aria-expanded={false}
-        >
-          <a
-            href="/about"
-            onClick={[Function]}
-          >
-            <span
-              role="label"
-            >
-              header.menu.about
-            </span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div
-      className="locale-switcher dropdown-container"
-      data-aria-expanded={false}
-      lang="en"
-      onClick={[Function]}
-    >
-      <div
-        className="label-container"
-      >
-        <span
-          className="label"
-        >
-          locales.en
-        </span>
-        <span
-          className="icon"
-        >
-          ▾
-        </span>
-      </div>
-      <ul
-        className="dropdown-menu"
-        data-aria-hidden={true}
-      >
-        <li
-          className="option"
-          data-aria-selected={true}
-          label="locales.en"
-          onClick={[Function]}
-        >
-          locales.en
-        </li>
-        <li
-          className="option"
-          data-aria-selected={false}
-          label="locales.fr"
-          onClick={[Function]}
-        >
-          locales.fr
-        </li>
-      </ul>
-    </div>
-  </nav>
   <div
     className="toggle"
     onClick={[Function]}
@@ -111,6 +30,85 @@ exports[`Component matches snapshot 1`] = `
     <i
       className="pi pi-align-justify"
     />
+  </div>
+  <nav
+    aria-orientation="horizontal"
+    className="dz-responsive-menu main-menu"
+  >
+    <ul>
+      <li
+        aria-expanded={false}
+      >
+        <a
+          aria-current="page"
+          className="active"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            role="label"
+          >
+            header.menu.home
+          </span>
+        </a>
+      </li>
+      <li
+        aria-expanded={false}
+      >
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          <span
+            role="label"
+          >
+            header.menu.about
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="locale-switcher dropdown-container"
+    data-aria-expanded={false}
+    lang="en"
+    onClick={[Function]}
+  >
+    <div
+      className="label-container"
+    >
+      <span
+        className="label"
+      >
+        locales.en
+      </span>
+      <span
+        className="icon"
+      >
+        ▾
+      </span>
+    </div>
+    <ul
+      className="dropdown-menu"
+      data-aria-hidden={true}
+    >
+      <li
+        className="option"
+        data-aria-selected={true}
+        label="locales.en"
+        onClick={[Function]}
+      >
+        locales.en
+      </li>
+      <li
+        className="option"
+        data-aria-selected={false}
+        label="locales.fr"
+        onClick={[Function]}
+      >
+        locales.fr
+      </li>
+    </ul>
   </div>
 </header>
 `;
