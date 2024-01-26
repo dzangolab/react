@@ -35,7 +35,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm build --filter=@dzangolab/demo-app
+        run: pnpm build --filter=@dzangolab/demo
         env:
           VITE_API_BASE_URL: "https://api.monorepo.dzangolab.org"
           VITE_APP_TITLE: 'React Demo'
