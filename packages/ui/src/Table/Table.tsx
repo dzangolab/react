@@ -250,7 +250,13 @@ const DataTable = <TData extends { id: string | number }>({
     });
 
     fetchData && fetchData(requestJSON);
-  }, [columnFilters, pagination.pageIndex, pagination.pageSize, sorting]);
+  }, [
+    columnFilters,
+    pagination.pageIndex,
+    pagination.pageSize,
+    sorting,
+    fetchData,
+  ]);
 
   const handleSort = useCallback(
     (event: SyntheticEvent, sortHandler?: (event: SyntheticEvent) => void) => {
