@@ -2,7 +2,7 @@
   --header-bg-color: #ffffff;
   --header-border-color: var(--border-color);
   --header-font-size: var(--font-size);
-  --header-gap: 0.5rem;
+  --header-gap: 1.5rem;
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
 
@@ -14,7 +14,7 @@
   grid-template-areas:
     "logo toggle"
     "nav nav";
-  grid-template-columns: var(--logo-width, 150px) 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   justify-items: center;
   padding-bottom: var(--header-padding-v);
@@ -70,6 +70,41 @@
   grid-area: logo;
 }
 
+.layout > header .logo > a {
+  text-decoration: none;
+  color: var(--color, #545454);
+}
+
+.layout > header .logo img {
+  max-width: var(--header-logo-max-width);
+}
+
+.layout > header .logo .logo-default {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.layout > header .logo .logo-default > span:first-child {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #dedede;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.layout > header .logo .logo-default > span:not(:first-child) {
+  max-width: 200px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .layout > header .toggle {
   cursor: pointer;
   grid-area: toggle;
@@ -97,7 +132,7 @@
     border: none;
     display: flex;
     flex-direction: row;
-    gap: var(--menu-gap, 1em);
+    gap: var(--menu-gap, 1.5rem);
     justify-content: flex-end;
     margin: 0;
     padding: 0;

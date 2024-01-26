@@ -8,8 +8,10 @@
       "icons": "Icons (fr)",
       "disabled": "Disabled (fr)",
       "text": "Text (fr)",
-      "link": "Link (fr)"
-    }
+      "link": "Link (fr)",
+      "tooltip": "Button with tooltip (fr)"
+    },
+    "message": "Click to view profile (fr)"
   },
   "filesTable": {
     "title": "Files table (fr)",

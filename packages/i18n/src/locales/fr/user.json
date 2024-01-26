@@ -179,5 +179,38 @@
       "resendSuccess": "Email resent successfully (fr)",
       "resendError": "Something went wrong. Please try again (fr)"
     }
+  },
+  "profile": {
+    "form": {
+      "email": {
+        "label": "Email (fr)",
+        "placeholder": ""
+      },
+      "firstName": {
+        "label": "First name (fr)",
+        "placeholder": "Enter your first name (fr)"
+      },
+      "lastName": {
+        "label": "Last name (fr)",
+        "placeholder": "Enter your last name (fr)"
+      },
+      "validations": {
+        "firstName": {
+          "required": "First name is required (fr)"
+        },
+        "lastName": {
+          "required": "Last name is required (fr)"
+        }
+      }
+    },
+    "button": {
+      "update": "Update (fr)",
+      "cancel": "Cancel (fr)"
+    },
+    "title": "Profile (fr)",
+    "toastMessages": {
+      "success": "Profile updated successfully (fr)",
+      "error": "Something went wrong. Please try again (fr)"
+    }
   }
 }

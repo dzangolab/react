@@ -1,6 +1,6 @@
 import { DataActionsMenuProperties } from "./TableDataActions";
-import { Pagination } from "../../Pagination";
-import { Tooltip } from "../../Tooltip";
+import { Pagination } from "../Pagination";
+import { Tooltip } from "../Tooltip";
 
 import type {
   Cell,
@@ -13,8 +13,38 @@ import type {
   TableOptions,
   ColumnFiltersState,
   Column,
+  RowData,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
+
+declare module "@tanstack/react-table" {
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  interface ColumnMeta<TData extends RowData, TValue> {
+    serverFilterFn?: TFilterFn;
+  }
+
+  // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
+  interface ColumnDefBase<TData, TValue> {
+    align?: CellAlignmentType;
+    dataType?: CellDataType;
+    className?: string;
+    customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
+    filterPlaceholder?: string;
+    tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
+    tooltipOptions?: Partial<
+      Omit<ComponentProps<typeof Tooltip>, "elementRef">
+    >;
+    width?: string;
+    maxWidth?: string;
+    minWidth?: string;
+    dateOptions?: Omit<FormatDateType, "date">;
+    numberOptions?: Omit<FormatNumberType, "value">;
+  }
+
+  interface ColumnFilter {
+    filterFn?: TFilterFn;
+  }
+}
 
 export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
 
@@ -197,30 +227,6 @@ export type FormatDateType = {
   locale?: string;
   formatOptions?: Intl.DateTimeFormatOptions;
 };
-
-declare module "@tanstack/react-table" {
-  // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
-  interface ColumnDefBase<TData, TValue> {
-    align?: CellAlignmentType;
-    dataType?: CellDataType;
-    className?: string;
-    customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
-    filterPlaceholder?: string;
-    tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
-    tooltipOptions?: Partial<
-      Omit<ComponentProps<typeof Tooltip>, "elementRef">
-    >;
-    width?: string;
-    maxWidth?: string;
-    minWidth?: string;
-    dateOptions?: Omit<FormatDateType, "date">;
-    numberOptions?: Omit<FormatNumberType, "value">;
-  }
-
-  interface ColumnFilter {
-    filterFn?: TFilterFn;
-  }
-}
 
 export interface TDataTableProperties<TData>
   extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {

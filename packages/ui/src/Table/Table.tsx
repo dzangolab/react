@@ -42,10 +42,10 @@ import {
   formatNumber,
   formatDate,
 } from "./utils";
-import { Checkbox, DebouncedInput, Popup, SortableList } from "../../";
-import { Button } from "../../Buttons/ButtonBasic";
-import LoadingIcon from "../../LoadingIcon";
-import { Pagination } from "../../Pagination";
+import { Checkbox, DebouncedInput, Popup, SortableList } from "..";
+import { Button } from "../Buttons/ButtonBasic";
+import LoadingIcon from "../LoadingIcon";
+import { Pagination } from "../Pagination";
 
 import type {
   CellAlignmentType,
@@ -148,9 +148,7 @@ const DataTable = <TData extends { id: string | number }>({
     const defaultActionColumn: ColumnDef<TData, unknown> = {
       id: "actions",
       header: () => <i className="pi pi-cog"></i>,
-      width: "3rem",
-      maxWidth: "3rem",
-      minWidth: "3rem",
+      align: "center",
       cell: ({ row: { original } }) => {
         const isVisibleActions =
           typeof displayRowActions === "function"
@@ -199,9 +197,6 @@ const DataTable = <TData extends { id: string | number }>({
           enableColumnFilter: false,
           enableGlobalFilter: false,
           align: "center",
-          width: "3rem",
-          maxWidth: "3rem",
-          minWidth: "3rem",
         },
         ...parsedColumns,
       ];
@@ -255,7 +250,13 @@ const DataTable = <TData extends { id: string | number }>({
     });
 
     fetchData && fetchData(requestJSON);
-  }, [columnFilters, pagination.pageIndex, pagination.pageSize, sorting]);
+  }, [
+    columnFilters,
+    pagination.pageIndex,
+    pagination.pageSize,
+    sorting,
+    fetchData,
+  ]);
 
   const handleSort = useCallback(
     (event: SyntheticEvent, sortHandler?: (event: SyntheticEvent) => void) => {
@@ -444,7 +445,9 @@ const DataTable = <TData extends { id: string | number }>({
             <TableRow key={"filters"} className={`header-row filters`}>
               {table.getVisibleLeafColumns().map((column) => {
                 if (!column.getCanFilter()) {
-                  return <TableCell key={"filter" + column.id}></TableCell>;
+                  return (
+                    <ColumnHeader key={"filter" + column.id}></ColumnHeader>
+                  );
                 }
 
                 const activeColumnClass = `${

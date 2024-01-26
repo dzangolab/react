@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useRef } from "react";
 
-import { Tooltip } from "../../Tooltip";
+import { Tooltip } from "../Tooltip";
 
 const TableToolbar = ({ children }: { children?: React.ReactNode }) => {
   return <div className="toolbar">{children}</div>;

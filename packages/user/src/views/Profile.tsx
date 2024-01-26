@@ -2,16 +2,14 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import React from "react";
 
-import ProfileInformation from "../components/ProfileInformation";
+import { ProfileForm } from "@/components/Profile";
 
-const Profile = () => {
+export const Profile = () => {
   const { t } = useTranslation("user");
 
   return (
-    <Page title={t("profile.title")}>
-      <ProfileInformation />
+    <Page title={t("profile.title")} className="profile">
+      <ProfileForm />
     </Page>
   );
 };
-
-export default Profile;
