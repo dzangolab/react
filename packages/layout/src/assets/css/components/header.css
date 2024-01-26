@@ -52,6 +52,10 @@
   z-index: -1;
 }
 
+.layout > header:not([aria-expanded="true"]) > *:not(.toggle):not(.logo) {
+  display: none;
+}
+
 /* .layout > header[data-expanded="false"] > :not(:first-child),
 .layout > header[data-expanded="false"] > :not(.toggle) {
   display: none;
