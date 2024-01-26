@@ -53,7 +53,6 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
           alt={layoutConfig?.logoAlt || parseLogoAlt()}
         />
       )}
-      {/* <nav className={`menu ${navStyle}`} data-expanded={expanded}></nav> */}
       <div className="toggle" onClick={() => setExpanded(!expanded)}>
         {toggle}
       </div>
