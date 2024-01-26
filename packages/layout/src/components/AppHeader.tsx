@@ -45,7 +45,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
   } = properties;
 
   return (
-    <header>
+    <header aria-expanded={expanded} className={`menu ${navStyle}`}>
       {logo || (
         <Logo
           src={layoutConfig?.logo}
@@ -53,19 +53,18 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
           alt={layoutConfig?.logoAlt || parseLogoAlt()}
         />
       )}
-      <nav className={`menu ${navStyle}`} data-expanded={expanded}>
-        {mainMenu || (
-          <MainMenu
-            routes={mainMenuRoutes || layoutConfig?.mainMenu}
-            orientation={mainMenuOrientation}
-          />
-        )}
-        {userMenu}
-        {localeSwitcher || <LocaleSwitcher />}
-      </nav>
+      {/* <nav className={`menu ${navStyle}`} data-expanded={expanded}></nav> */}
       <div className="toggle" onClick={() => setExpanded(!expanded)}>
         {toggle}
       </div>
+      {mainMenu || (
+        <MainMenu
+          routes={mainMenuRoutes || layoutConfig?.mainMenu}
+          orientation={mainMenuOrientation}
+        />
+      )}
+      {userMenu}
+      {localeSwitcher || <LocaleSwitcher />}
     </header>
   );
 };
