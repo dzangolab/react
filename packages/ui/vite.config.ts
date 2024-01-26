@@ -31,7 +31,6 @@ export default defineConfig(({ mode }) => {
             "node-xlsx": "NodeXLSX",
             "react-debounce-input": "ReactDebounceInput",
             "react-dom": "ReactDOM",
-            "react-outside-click-handler": "ReactOutsideClickHandler",
             "react-router-dom": "ReactRouterDom",
             "react-popper": "reactPopper",
           },
