@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Tooltip } from "../Tooltip";
 
@@ -94,12 +94,35 @@ const TooltipWrapper = ({
   tooltipOptions: Omit<React.ComponentProps<typeof Tooltip>, "elementRef">;
   cellContent: React.ReactNode | JSX.Element;
 }) => {
-  const reference = useRef<HTMLDivElement>(null);
+  const reference = useRef<HTMLTableCellElement>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    const checkVisibility = () => {
+      const item = reference.current;
+      if (item) {
+        const isContentOverflowing = item.scrollWidth > item.clientWidth;
+
+        setShowTooltip(isContentOverflowing);
+      }
+    };
+
+    // Check visibility initially and on window resize
+    checkVisibility();
+    window.addEventListener("resize", checkVisibility);
+
+    return () => {
+      // Clean up the event listener
+      window.removeEventListener("resize", checkVisibility);
+    };
+  }, [reference]);
 
   return (
     <>
-      <Tooltip elementRef={reference} {...tooltipOptions} />
-      <div ref={reference}>{cellContent}</div>
+      {showTooltip ? (
+        <Tooltip elementRef={reference} {...tooltipOptions} />
+      ) : null}
+      <TableCell ref={reference}>{cellContent}</TableCell>
     </>
   );
 };
