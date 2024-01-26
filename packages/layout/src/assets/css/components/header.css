@@ -6,20 +6,18 @@
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
 
-  /* align-items: center;
+  align-items: center;
   border-bottom: 1px solid var(--header-border-color);
-  display: grid;
+  /* display: grid; */
   font-size: var(--header-font-size);
-  gap: 0 var(--header-gap); */
+  /* gap: 0 var(--header-gap); */
   /* grid-template-areas:
     "logo toggle"
     "nav nav"; */
-  /* grid-template-columns: auto 1fr; */
-  /* grid-template-rows: auto auto; */
-  /* /* justify-items: center; */
+  /* justify-items: center;  */
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
-  /* position: relative;  */
+  position: relative;
   border-bottom: 1px solid var(--menu-border-color, #000);
   display: grid;
   grid-template-columns: 1fr auto;
@@ -30,6 +28,7 @@
 }
 
 .layout > header > .toggle {
+  cursor: pointer;
   grid-row: 1;
   grid-column: 2;
   margin: auto;
@@ -52,7 +51,7 @@
   z-index: -1;
 }
 
-.layout > header:not([aria-expanded="true"]) > *:not(.toggle):not(.logo) {
+.layout > header[aria-expanded="false"] > *:not(.toggle):not(.logo) {
   display: none;
 }
 
@@ -61,14 +60,14 @@
   display: none;
 } */
 
-.layout > header {
-  /* align-items: stretch;
+/* .layout > header {
+  align-items: stretch;
   background-color: #fff;
   border-bottom: 1px solid var(--menu-border-color, #000);
-  opacity: 1; */
-  /* display: flex;
-  flex-direction: column; */
-  /* gap: 0;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   grid-area: nav;
   justify-content: flex-start;
   left: 0;
@@ -81,8 +80,8 @@
   position: absolute;
   right: 0;
   top: var(--header-padding-top, 1em);
-  z-index: 999; */
-}
+  z-index: 999;
+} */
 
 /* .layout > header > nav[data-expanded="false"] {
   display: none;
@@ -136,34 +135,30 @@
 .layout > header .main-menu {
   flex: 1;
 }
+*/
 
 .main-menu > ul > li:hover,
 .main-menu > ul > li .active {
   text-decoration: underline;
-} */
+}
 
 @media screen and (min-width: 576px) {
   .layout > header {
-    grid-template-areas: "logo nav";
-    justify-items: stretch;
-  }
-
-  .layout > header > nav {
     align-items: center;
     background-color: var(--header-bg-color);
-    border: none;
     display: flex;
-    flex-direction: row;
     gap: var(--menu-gap, 1.5rem);
-    justify-content: flex-end;
     margin: 0;
-    padding: 0;
     position: relative;
     top: 0;
   }
 
-  .layout > header > nav[data-expanded="false"] {
+  .layout > header [aria-expanded="false"] > .main-menu {
     display: flex;
+  }
+
+  .layout > header > .main-menu {
+    flex: 1;
   }
 
   .layout > header .toggle {
