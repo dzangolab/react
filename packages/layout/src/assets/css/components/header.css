@@ -126,16 +126,6 @@
   text-overflow: ellipsis;
 }
 
-/* .layout > header .toggle {
-  cursor: pointer;
-  grid-area: toggle;
-  justify-self: right;
-}
-
-.layout > header .main-menu {
-  flex: 1;
-}
-*/
 
 .main-menu > ul > li:hover,
 .main-menu > ul > li .active {
@@ -153,7 +143,7 @@
     top: 0;
   }
 
-  .layout > header [aria-expanded="false"] > .main-menu {
+  .layout > header[aria-expanded="false"] > *:not(.toggle):not(.logo) {
     display: flex;
   }
 
