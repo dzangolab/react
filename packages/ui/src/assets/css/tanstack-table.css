@@ -128,9 +128,8 @@
   overflow: hidden;
 }
 
-.dz-table-container .table-wrapper > table tr > td > * {
-  display: block;
-  margin: 0 auto;
+.dz-table-container .table-wrapper > table tr > td[data-align="center"] > * {
+  margin: auto;
 }
 
 .dz-table-container .table-wrapper > table tr > th > .content {
