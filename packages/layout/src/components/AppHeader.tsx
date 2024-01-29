@@ -10,6 +10,7 @@ interface Properties {
   logo?: React.ReactNode;
   logoRoute?: string;
   mainMenu?: React.ReactNode;
+  hasMainMenu?: boolean;
   mainMenuRoutes?: {
     name: string;
     route: string;
@@ -32,20 +33,26 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     return appName.replace("@", "").replace("/", " ");
   }, [appName]);
 
+  let className = "dz-header";
   const {
     localeSwitcher,
     logoRoute,
     logo,
     mainMenuOrientation,
     mainMenu,
-    navStyle = "dropdown",
+    // navStyle = "dropdown",
     toggle = <i className="pi pi-align-justify"></i>,
+    hasMainMenu = false,
     userMenu,
     mainMenuRoutes,
   } = properties;
 
+  if (!hasMainMenu) {
+    className += " " + "main";
+  }
+
   return (
-    <header aria-expanded={expanded} className={`menu ${navStyle}`}>
+    <header aria-expanded={expanded} className={className}>
       {logo || (
         <Logo
           src={layoutConfig?.logo}
