@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import { ConfirmationModal, IModalProperties } from "../ConfirmationModal";
 import { Menu } from "../Menu";
+import { Button } from "..";
 
 export interface DataActionsMenuItem
   extends Omit<MenuItem, "command" | "disabled"> {
@@ -59,7 +60,11 @@ export const DataActionsMenu = ({
 
   return (
     <>
-      <Menu model={items} buttonOptions={buttonOptions} />
+      {items.length == 1 ? (
+        <Button {...items[0]} />
+      ) : (
+        <Menu model={items} buttonOptions={buttonOptions} />
+      )}
       {!!confirmation && (
         <ConfirmationModal {...confirmation} visible={!!confirmation} />
       )}
