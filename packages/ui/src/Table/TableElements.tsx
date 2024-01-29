@@ -56,7 +56,7 @@ const ColumnHeader = React.forwardRef<
   <th
     className={className || ""}
     ref={reference}
-    children={<div className="content"> {children}</div>}
+    children={children}
     {...properties}
   />
 ));

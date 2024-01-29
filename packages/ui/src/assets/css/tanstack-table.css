@@ -132,34 +132,22 @@
   margin: auto;
 }
 
-.dz-table-container .table-wrapper > table tr > th > .content {
+.dz-table-container .table-wrapper > table tr > th > input {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  text-overflow: ellipsis;
-  gap: 0.2rem;
+}
+
+.dz-table-container .table-wrapper > table tr > th {
   text-align: left;
 }
 
 .dz-table-container .table-wrapper > table tr > td[data-align="center"],
-.dz-table-container
-  .table-wrapper
-  > table
-  tr
-  > th[data-align="center"]
-  > .content {
+.dz-table-container .table-wrapper > table tr > th[data-align="center"] {
   justify-content: center;
   text-align: center;
 }
 
 .dz-table-container .table-wrapper > table tr > td[data-align="right"],
-.dz-table-container
-  .table-wrapper
-  > table
-  tr
-  > th[data-align="right"]
-  > .content {
+.dz-table-container .table-wrapper > table tr > th[data-align="right"] {
   justify-content: flex-start;
   flex-direction: row-reverse;
   text-align: right;
