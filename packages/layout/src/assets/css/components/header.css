@@ -5,6 +5,7 @@
   --header-gap: 1.5rem;
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
+  --menu-border-color: #b5b5b5;
 
   align-items: center;
   border-bottom: 1px solid var(--header-border-color);
@@ -49,36 +50,9 @@
   display: none;
 }
 
-/* .layout > header {
-  align-items: stretch;
-  background-color: #fff;
-  border-bottom: 1px solid var(--menu-border-color, #000);
-  opacity: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  grid-area: nav;
-  justify-content: flex-start;
-  left: 0;
-  margin-left: calc(-1 * var(--layout-basic-padding-left, 1em));
-  margin-right: calc(-1 * var(--layout-basic-padding-right, 1em));
-  padding-bottom: var(--header-padding-bottom, 1em);
-  padding-left: var(--layout-basic-padding-left, 1em);
-  padding-right: var(--layout-basic-padding-right, 1em);
-  padding-top: var(--header-padding-top, 1em);
-  position: absolute;
-  right: 0;
-  top: var(--header-padding-top, 1em);
-  z-index: 999;
-} */
-
-/* .layout > header > nav[data-expanded="false"] {
-  display: none;
+.layout > header[aria-expanded="true"] > .logo {
+  margin-bottom: 0.5rem;
 }
-
-.layout > header .logo {
-  grid-area: logo;
-} */
 
 .layout > header .logo > a {
   text-decoration: none;
@@ -122,7 +96,6 @@
 
 @media screen and (min-width: 576px) {
   .layout > header {
-    /* align-items: center; */
     background-color: var(--header-bg-color);
     display: flex;
     gap: var(--menu-gap, 1.5rem);
@@ -134,6 +107,10 @@
   .layout > header[aria-expanded="false"] > *:not(.toggle):not(.logo) {
     display: flex;
   }
+  
+    .layout > header > .logo {
+      margin-bottom: 0;
+    }
 
   .layout > header > .main-menu {
     flex: 1;
