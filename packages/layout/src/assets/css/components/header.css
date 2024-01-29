@@ -24,10 +24,8 @@
 .layout > header > .toggle {
   cursor: pointer;
   grid-row: 1;
+  grid-column: 2;
   margin: auto;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
 }
 
 .layout > header::before {
@@ -51,8 +49,7 @@
   display: none;
 }
 
-.layout > header[aria-expanded="true"] > .logo,
-.layout > header[aria-expanded="true"] > .toggle {
+.layout > header[aria-expanded="true"] > .logo {
   margin-bottom: 0.5rem;
 }
 
