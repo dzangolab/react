@@ -45,3 +45,8 @@
 .demo-section > h4 {
   margin-bottom: 1rem;
 }
+
+.demo-section-content .filter-date {
+  display: flex;
+  gap: 0.2rem;
+}

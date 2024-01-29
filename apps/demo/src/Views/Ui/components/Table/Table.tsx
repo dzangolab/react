@@ -476,7 +476,7 @@ export const TableDemo = () => {
               filterFn: "inDateRangeFilter",
               customFilterComponent(column) {
                 return (
-                  <>
+                  <div className="filter-date">
                     <DatePickerBasic
                       inputRef={null}
                       name="start-date"
@@ -499,7 +499,7 @@ export const TableDemo = () => {
                       }
                       value={(column.getFilterValue() as [Date, Date])?.[1]}
                     />
-                  </>
+                  </div>
                 );
               },
             },
