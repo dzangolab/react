@@ -139,6 +139,10 @@
     flex: 1;
   }
 
+  .layout > header.main> .logo {
+    flex: 1;
+  }
+
   .layout > header .toggle {
     display: none;
   }
