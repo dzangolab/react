@@ -9,12 +9,12 @@ export const AuthMenu = () => {
   const { user: userConfig } = useConfig();
 
   const loginRoute = {
-    name: t("menu.signin"),
+    label: t("menu.signin"),
     route: userConfig.routes?.login?.path || ROUTES.LOGIN,
   };
 
   const signUpRoute = {
-    name: t("menu.signup"),
+    label: t("menu.signup"),
     route: userConfig.routes?.signup?.path || ROUTES.SIGNUP,
   };
 

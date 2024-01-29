@@ -5,11 +5,11 @@ import { Section } from "../../../components/Demo";
 
 const MENU_ROUTES = [
   {
-    name: "Home",
+    label: "Home",
     route: "/ui/resonponsive-menu",
   },
   {
-    name: "About",
+    label: "About",
     route: "/ui/resonponsive-menu",
   },
 ];

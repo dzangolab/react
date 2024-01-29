@@ -8,7 +8,7 @@ interface Properties {
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
   mainMenuRoutes?: {
-    name: string;
+    label: string;
     route: string;
     icon?: React.ReactNode;
   }[];

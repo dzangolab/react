@@ -13,7 +13,7 @@ interface Properties {
   children: React.ReactNode;
   footer?: React.ReactNode;
   mainMenuRoutes?: {
-    name: string;
+    label: string;
     route: string;
     icon?: React.ReactNode;
   }[];

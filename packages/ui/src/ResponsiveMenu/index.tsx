@@ -3,7 +3,7 @@ import React from "react";
 import { MenuItem } from "./Item";
 
 export type MenuRouteType = {
-  name: string;
+  label: string;
   route: string;
   icon?: React.ReactNode;
 };
@@ -37,7 +37,7 @@ const ResponsiveMenu = ({
   const renderMenu = (routes: CombinedMenuRouteType, displayIcon: boolean) => {
     return routes.map((route) => {
       return (
-        <MenuItem key={route.name} route={route} displayIcon={displayIcon} />
+        <MenuItem key={route.label} route={route} displayIcon={displayIcon} />
       );
     });
   };
