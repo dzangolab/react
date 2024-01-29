@@ -132,10 +132,6 @@
   margin: auto;
 }
 
-.dz-table-container .table-wrapper > table tr > th > input {
-  width: 100%;
-}
-
 .dz-table-container .table-wrapper > table tr > th {
   text-align: left;
 }
@@ -158,8 +154,7 @@
   .table-wrapper
   > table
   tr
-  > th[data-align="right"]
-  > .content {
+  > th[data-align="right"] {
   justify-content: center;
   flex-direction: row-reverse;
   text-align: center;
@@ -218,7 +213,7 @@
   font-size: 1rem;
 }
 
-.table-wrapper > table tr.filters .content input {
+.table-wrapper > table tr.filters > th > input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
