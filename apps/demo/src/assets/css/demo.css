@@ -46,7 +46,7 @@
   margin-bottom: 1rem;
 }
 
-.demo-section-content .filter-date {
+.demo-section .demo-section-content .filter-date {
   display: flex;
   gap: 0.2rem;
 }
