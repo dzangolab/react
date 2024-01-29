@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <header
   aria-expanded={false}
-  className="dz-header main"
+  className="dz-header"
 >
   <div
     className="logo"

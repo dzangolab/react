@@ -139,7 +139,7 @@
     flex: 1;
   }
 
-  .layout > header.main> .logo {
+  .layout > header.no-main-menu > .logo {
     flex: 1;
   }
 
