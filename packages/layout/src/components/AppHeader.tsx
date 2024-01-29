@@ -40,7 +40,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     logo,
     mainMenuOrientation,
     mainMenu,
-    // navStyle = "dropdown",
+    navStyle = "dropdown",
     toggle = <i className="pi pi-align-justify"></i>,
     hasMainMenu = true,
     userMenu,
@@ -48,7 +48,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
   } = properties;
 
   if (!hasMainMenu) {
-    className += " " + "no-main-menu";
+    className += " " + "without-main-menu";
   }
 
   return (

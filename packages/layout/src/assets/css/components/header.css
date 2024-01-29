@@ -25,8 +25,10 @@
 .layout > header > .toggle {
   cursor: pointer;
   grid-row: 1;
-  grid-column: 2;
   margin: auto;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .layout > header::before {
@@ -50,7 +52,8 @@
   display: none;
 }
 
-.layout > header[aria-expanded="true"] > .logo {
+.layout > header[aria-expanded="true"] > .logo,
+.layout > header[aria-expanded="true"] > .toggle {
   margin-bottom: 0.5rem;
 }
 
@@ -107,16 +110,13 @@
   .layout > header[aria-expanded="false"] > *:not(.toggle):not(.logo) {
     display: flex;
   }
-  
-    .layout > header > .logo {
-      margin-bottom: 0;
-    }
 
-  .layout > header > .main-menu {
-    flex: 1;
+  .layout > header > .logo {
+    margin-bottom: 0;
   }
 
-  .layout > header.no-main-menu > .logo {
+  .layout > header.without-main-menu > .logo,
+  .layout > header > .main-menu {
     flex: 1;
   }
 
