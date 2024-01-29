@@ -1,4 +1,8 @@
 .dz-confirmation-modal .p-dialog-footer .dialog-footer {
-    display: flex;
-    justify-content: flex-end;
-  }
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dz-confirmation-modal .p-confirm-dialog-message {
+  line-height: 1.5;
+}
