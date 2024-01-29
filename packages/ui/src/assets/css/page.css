@@ -5,6 +5,10 @@
   grid-template-columns: 100%;
 }
 
+.dz-page[data-alignment="center"] {
+  justify-items: center;
+}
+
 .dz-page > .content > div[role="alert"].error > span {
   color: var(--error-text-color, red);
   font-size: var(--error-font-size, 1rem);

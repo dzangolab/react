@@ -21,7 +21,11 @@ export const Signup: React.FC<IProperties> = ({
   const { t } = useTranslation("user");
 
   return (
-    <Page className="signup" title={t("signup.title")}>
+    <Page
+      className="signup"
+      title={t("signup.title")}
+      contentAlignment="center"
+    >
       <SignupWrapper
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}
