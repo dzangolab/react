@@ -10,7 +10,6 @@ import { Input } from "./Input";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
-import { NavMenu } from "./NavMenu";
 import Page from "./Page";
 import ResponsiveMenu, { CombinedMenuRouteType } from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
@@ -41,7 +40,6 @@ export {
   LoadingIcon,
   LoadingPage,
   Message,
-  NavMenu,
   Page,
   ResponsiveMenu,
   Stepper,
