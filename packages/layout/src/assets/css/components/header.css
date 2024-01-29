@@ -5,7 +5,7 @@
   --header-gap: 1.5rem;
   --header-logo-max-width: 150px;
   --header-padding-v: 1em;
-  --menu-border-color: #b5b5b5;
+  --header-border-color: #b5b5b5;
 
   align-items: center;
   border-bottom: 1px solid var(--header-border-color);
@@ -13,7 +13,6 @@
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
   position: relative;
-  border-bottom: 1px solid var(--menu-border-color, #000);
   display: grid;
   grid-template-columns: 1fr auto;
 }
