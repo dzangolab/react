@@ -42,13 +42,13 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     mainMenu,
     // navStyle = "dropdown",
     toggle = <i className="pi pi-align-justify"></i>,
-    hasMainMenu = false,
+    hasMainMenu = true,
     userMenu,
     mainMenuRoutes,
   } = properties;
 
   if (!hasMainMenu) {
-    className += " " + "main";
+    className += " " + "no-main-menu";
   }
 
   return (
