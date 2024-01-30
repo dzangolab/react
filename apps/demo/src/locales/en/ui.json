@@ -69,7 +69,7 @@
       "withCustomFilter": "Table with custom filter component and filterFn",
       "withEqualServerFilter": "Table with equal server filterFn",
       "customStaticFilter": "Table with custom  filter component and static filterFn",
-      "divContent": "Table with div content aligned center"
+      "divContent": "Table demonstrating center aligned content"
     }
   },
   "message": {
