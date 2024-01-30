@@ -40,7 +40,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
 
   const signoutRoute = {
     icon: "pi pi-power-off",
-    name: "userMenu.logout",
+    label: "userMenu.logout",
     onClick: signout,
     route: undefined,
   };
@@ -51,7 +51,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
   const dropdownUserMenu = (item: any) => (
     <DropdownUserMenuItem route={item.route}>
       {showUserMenuIcon && <i className={item.icon}></i>}
-      {t(item.name)}
+      {t(item.label)}
     </DropdownUserMenuItem>
   );
 
@@ -62,8 +62,8 @@ const DropdownUserMenu: React.FC<Properties> = ({
       dropdownMenu={{
         menuItems: menuItems,
         renderOption: dropdownUserMenu,
-        keyExtractor: ({ name }) => {
-          return `${id}__${name}`;
+        keyExtractor: ({ label }) => {
+          return `${id}__${label}`;
         },
       }}
       expandIcon={expandIcon}
