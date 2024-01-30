@@ -9,7 +9,6 @@ interface Properties {
   children: React.ReactNode;
   header?: React.ReactNode;
   footer?: React.ReactNode;
-  hasMainMenu?: boolean;
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
   mainMenuRoutes?: {
@@ -33,7 +32,6 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     children,
     footer,
     header,
-    hasMainMenu,
     mainMenuRoutes,
     displaySidebarMenuIcon,
     displaySidebar = true,
@@ -55,7 +53,6 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
           localeSwitcher={localSwitcher}
           logoRoute={logoRoute}
           mainMenu={mainMenu}
-          hasMainMenu={hasMainMenu}
           mainMenuOrientation={mainMenuOrientation}
           toggle={menuToggle}
           userMenu={userMenu}
