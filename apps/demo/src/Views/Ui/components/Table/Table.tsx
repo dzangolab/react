@@ -8,6 +8,7 @@ import {
   DebouncedInput,
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
+import { Tag } from "primereact/tag";
 
 import { data, formatDemoData } from "./data";
 import { Section } from "../../../../components/Demo";
@@ -517,6 +518,39 @@ export const TableDemo = () => {
             inDateRangeFilter: inDateRangeFilter,
             customEqualStringFilter: customEqualStringFilter,
           }}
+        ></TDataTable>
+      </Section>
+
+      <Section title="test">
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "email",
+              header: "Email",
+            },
+            {
+              accessorKey: "name",
+              header: "Name",
+              align: "center",
+              cell: ({ row: { original } }) => <div>{original.name}</div>,
+            },
+            {
+              accessorKey: "age",
+              header: "Age",
+              align: "right",
+              width: "6rem",
+              maxWidth: "6rem",
+              minWidth: "6rem",
+            },
+            {
+              accessorKey: "city",
+              header: () => <span>City</span>,
+              width: "8rem",
+              maxWidth: "8rem",
+              minWidth: "8rem",
+            },
+          ]}
+          data={data.slice(10, 15)}
         ></TDataTable>
       </Section>
     </Page>
