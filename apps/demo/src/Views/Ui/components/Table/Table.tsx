@@ -532,7 +532,7 @@ export const TableDemo = () => {
               header: "Name",
               align: "center",
               cell: ({ row: { original } }) => (
-                <div className="name-field">{original.name}</div>
+                <div className="cell-name">{original.name}</div>
               ),
             },
             {
