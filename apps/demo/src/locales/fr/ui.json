@@ -64,7 +64,8 @@
       "withTitle": "Table with title (fr)",
       "withCustomFilter": "Table with custom filter component and filterFn (fr)",
       "withEqualServerFilter": "Table with equal server filterFn (fr)",
-      "customStaticFilter": "Table with custom  filter component and static filterFn (fr)"
+      "customStaticFilter": "Table with custom  filter component and static filterFn (fr)",
+      "divContent": "Table demonstrating center aligned content (fr)"
     }
   },
   "message": {

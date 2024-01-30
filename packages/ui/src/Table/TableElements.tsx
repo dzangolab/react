@@ -56,7 +56,7 @@ const ColumnHeader = React.forwardRef<
   <th
     className={className || ""}
     ref={reference}
-    children={<div className="content"> {children}</div>}
+    children={children}
     {...properties}
   />
 ));
@@ -70,7 +70,7 @@ const TableCell = React.forwardRef<
     className={className || ""}
     ref={reference}
     {...properties}
-    children={<div className="content"> {children}</div>}
+    children={children}
   />
 ));
 TableCell.displayName = "TableCell";
