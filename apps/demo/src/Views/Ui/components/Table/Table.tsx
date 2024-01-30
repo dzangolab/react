@@ -8,7 +8,6 @@ import {
   DebouncedInput,
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
-import { Tag } from "primereact/tag";
 
 import { data, formatDemoData } from "./data";
 import { Section } from "../../../../components/Demo";
