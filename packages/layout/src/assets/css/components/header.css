@@ -42,7 +42,8 @@
   grid-row: 1 / 1;
   height: 100%;
   position: absolute;
-  /* width: 100%; */
+  left: 0;
+  width: 100%;
   z-index: -1;
 }
 
@@ -101,7 +102,7 @@
   }
 
   .layout > header[aria-expanded="false"] > *:not(.toggle):not(.logo) {
-    display: flex;
+    display: unset;
   }
 
   .layout > header.without-main-menu > .logo,
