@@ -521,7 +521,7 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title="test">
+      <Section title={t("table.usage.divContent")}>
         <TDataTable
           columns={[
             {
@@ -532,7 +532,9 @@ export const TableDemo = () => {
               accessorKey: "name",
               header: "Name",
               align: "center",
-              cell: ({ row: { original } }) => <div>{original.name}</div>,
+              cell: ({ row: { original } }) => (
+                <div className="name-field">{original.name}</div>
+              ),
             },
             {
               accessorKey: "age",
