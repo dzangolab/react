@@ -1,5 +1,5 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import React, { Children, ReactNode, useCallback, useState } from "react";
+import React, { Children, isValidElement, useCallback, useState } from "react";
 
 import Logo from "./Logo";
 import MainMenu from "./MainMenu";
@@ -45,11 +45,11 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     mainMenuRoutes,
   } = properties;
 
-  // if (mainMenu && !Children.count(mainMenu.props.children)) {
-  //   className += " " + "without-main-menu";
-  // }
-
-  if (Children.count(mainMenu)) {
+  if (
+    mainMenu &&
+    isValidElement(mainMenu) &&
+    !Children.count(mainMenu.props.children)
+  ) {
     className += " " + "without-main-menu";
   }
 
