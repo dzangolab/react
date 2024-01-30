@@ -1,5 +1,5 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import React, { useCallback, useState } from "react";
+import React, { Children, ReactNode, useCallback, useState } from "react";
 
 import Logo from "./Logo";
 import MainMenu from "./MainMenu";
@@ -10,7 +10,6 @@ interface Properties {
   logo?: React.ReactNode;
   logoRoute?: string;
   mainMenu?: React.ReactNode;
-  hasMainMenu?: boolean;
   mainMenuRoutes?: {
     name: string;
     route: string;
@@ -42,12 +41,15 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     mainMenu,
     navStyle = "dropdown",
     toggle = <i className="pi pi-align-justify"></i>,
-    hasMainMenu = true,
     userMenu,
     mainMenuRoutes,
   } = properties;
 
-  if (!hasMainMenu) {
+  // if (mainMenu && !Children.count(mainMenu.props.children)) {
+  //   className += " " + "without-main-menu";
+  // }
+
+  if (Children.count(mainMenu)) {
     className += " " + "without-main-menu";
   }
 
