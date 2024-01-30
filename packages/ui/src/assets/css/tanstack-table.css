@@ -141,8 +141,7 @@
   text-align: center;
 }
 
-.dz-table-container .table-wrapper > table tr > td[data-align="right"],
-.dz-table-container .table-wrapper > table tr > th[data-align="right"] {
+.dz-table-container .table-wrapper > table tr > td[data-align="right"] {
   text-align: right;
   padding-right: 1rem;
 }
@@ -153,7 +152,6 @@
   tr
   > th[data-align="right"] {
   text-align: center;
-  padding-right: 0;
 }
 
 .dz-table-container .table-wrapper > table tr > th.sortable {
