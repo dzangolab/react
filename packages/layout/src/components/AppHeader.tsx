@@ -1,5 +1,5 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import React, { useCallback, useState } from "react";
+import React, { Children, isValidElement, useCallback, useState } from "react";
 
 import Logo from "./Logo";
 import MainMenu from "./MainMenu";
@@ -32,6 +32,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     return appName.replace("@", "").replace("/", " ");
   }, [appName]);
 
+  let className = "dz-header";
   const {
     localeSwitcher,
     logoRoute,
@@ -44,8 +45,16 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
     mainMenuRoutes,
   } = properties;
 
+  if (
+    mainMenu &&
+    isValidElement(mainMenu) &&
+    !Children.count(mainMenu.props.children)
+  ) {
+    className += " " + "without-main-menu";
+  }
+
   return (
-    <header>
+    <header aria-expanded={expanded} className={className}>
       {logo || (
         <Logo
           src={layoutConfig?.logo}
@@ -53,19 +62,17 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
           alt={layoutConfig?.logoAlt || parseLogoAlt()}
         />
       )}
-      <nav className={`menu ${navStyle}`} data-expanded={expanded}>
-        {mainMenu || (
-          <MainMenu
-            routes={mainMenuRoutes || layoutConfig?.mainMenu}
-            orientation={mainMenuOrientation}
-          />
-        )}
-        {userMenu}
-        {localeSwitcher || <LocaleSwitcher />}
-      </nav>
       <div className="toggle" onClick={() => setExpanded(!expanded)}>
         {toggle}
       </div>
+      {mainMenu || (
+        <MainMenu
+          routes={mainMenuRoutes || layoutConfig?.mainMenu}
+          orientation={mainMenuOrientation}
+        />
+      )}
+      {userMenu}
+      {localeSwitcher || <LocaleSwitcher />}
     </header>
   );
 };
