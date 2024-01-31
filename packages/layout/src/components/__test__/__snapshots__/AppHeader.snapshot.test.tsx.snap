@@ -1,7 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<header>
+<header
+  aria-expanded={false}
+>
   <div
     className="logo"
   >
@@ -21,89 +23,84 @@ exports[`Component matches snapshot 1`] = `
     </a>
   </div>
   <nav
-    className="menu dropdown"
-    data-expanded={false}
+    aria-orientation="horizontal"
+    className="dz-responsive-menu main-menu"
   >
-    <nav
-      aria-orientation="horizontal"
-      className="dz-responsive-menu main-menu"
-    >
-      <ul>
-        <li
-          aria-expanded={false}
-        >
-          <a
-            aria-current="page"
-            className="active"
-            href="/"
-            onClick={[Function]}
-          >
-            <span
-              role="label"
-            >
-              header.menu.home
-            </span>
-          </a>
-        </li>
-        <li
-          aria-expanded={false}
-        >
-          <a
-            href="/about"
-            onClick={[Function]}
-          >
-            <span
-              role="label"
-            >
-              header.menu.about
-            </span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div
-      className="locale-switcher dropdown-container"
-      data-aria-expanded={false}
-      lang="en"
-      onClick={[Function]}
-    >
-      <div
-        className="label-container"
+    <ul>
+      <li
+        aria-expanded={false}
       >
-        <span
-          className="label"
-        >
-          locales.en
-        </span>
-        <span
-          className="icon"
-        >
-          ▾
-        </span>
-      </div>
-      <ul
-        className="dropdown-menu"
-        data-aria-hidden={true}
-      >
-        <li
-          className="option"
-          data-aria-selected={true}
-          label="locales.en"
+        <a
+          aria-current="page"
+          className="active"
+          href="/"
           onClick={[Function]}
         >
-          locales.en
-        </li>
-        <li
-          className="option"
-          data-aria-selected={false}
-          label="locales.fr"
+          <span
+            role="label"
+          >
+            header.menu.home
+          </span>
+        </a>
+      </li>
+      <li
+        aria-expanded={false}
+      >
+        <a
+          href="/about"
           onClick={[Function]}
         >
-          locales.fr
-        </li>
-      </ul>
-    </div>
+          <span
+            role="label"
+          >
+            header.menu.about
+          </span>
+        </a>
+      </li>
+    </ul>
   </nav>
+  <div
+    className="locale-switcher dropdown-container"
+    data-aria-expanded={false}
+    lang="en"
+    onClick={[Function]}
+  >
+    <div
+      className="label-container"
+    >
+      <span
+        className="label"
+      >
+        locales.en
+      </span>
+      <span
+        className="icon"
+      >
+        ▾
+      </span>
+    </div>
+    <ul
+      className="dropdown-menu"
+      data-aria-hidden={true}
+    >
+      <li
+        className="option"
+        data-aria-selected={true}
+        label="locales.en"
+        onClick={[Function]}
+      >
+        locales.en
+      </li>
+      <li
+        className="option"
+        data-aria-selected={false}
+        label="locales.fr"
+        onClick={[Function]}
+      >
+        locales.fr
+      </li>
+    </ul>
+  </div>
   <div
     className="toggle"
     onClick={[Function]}

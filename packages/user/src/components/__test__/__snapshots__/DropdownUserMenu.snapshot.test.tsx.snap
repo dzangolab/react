@@ -2,7 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <div
-  className="user-menu dropdown-container"
+  className="dz-user-menu dropdown-container"
   data-aria-expanded={false}
   onClick={[Function]}
 >

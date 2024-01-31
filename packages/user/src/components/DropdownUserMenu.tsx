@@ -57,7 +57,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
 
   return (
     <DropdownMenu
-      className="user-menu"
+      className="dz-user-menu"
       collapseIcon={collapseIcon}
       dropdownMenu={{
         menuItems: menuItems,

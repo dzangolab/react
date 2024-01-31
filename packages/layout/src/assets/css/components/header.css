@@ -10,12 +10,9 @@
   border-bottom: 1px solid var(--header-border-color);
   display: grid;
   font-size: var(--header-font-size);
-  gap: 0 var(--header-gap);
-  grid-template-areas:
-    "logo toggle"
-    "nav nav";
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
+  column-gap: 0;
+  row-gap: 0.5rem;
+  grid-template-columns: 1fr auto;
   justify-items: center;
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
@@ -31,7 +28,7 @@
         -1 * var(--header-padding-bottom, 1em)
       ) -100vmax
   );
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 4;
   grid-row: 1 / 1;
   height: 100%;
   position: absolute;
@@ -39,35 +36,24 @@
   z-index: -1;
 }
 
-.layout > header > nav {
-  align-items: stretch;
-  background-color: #fff;
-  border-bottom: 1px solid var(--menu-border-color, #000);
-  opacity: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  grid-area: nav;
-  justify-content: flex-start;
-  left: 0;
-  margin-left: calc(-1 * var(--layout-basic-padding-left, 1em));
-  margin-right: calc(-1 * var(--layout-basic-padding-right, 1em));
-  padding-bottom: var(--header-padding-bottom, 1em);
-  padding-left: var(--layout-basic-padding-left, 1em);
-  padding-right: var(--layout-basic-padding-right, 1em);
-  padding-top: var(--header-padding-top, 1em);
-  position: absolute;
-  right: 0;
-  top: var(--header-padding-top, 1em);
-  z-index: 999;
+.layout > header > .toggle {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.layout > header > .main-menu,
+.layout > header > .dz-user-menu,
+.layout > header > .dz-auth-menu,
+.layout > header > .locale-switcher {
+  grid-column: 1 / span2;
+}
+
+.layout > header[aria-expanded="false"] > :not(.logo):not(.toggle) {
+  display: none;
 }
 
 .layout > header > nav[data-expanded="false"] {
   display: none;
-}
-
-.layout > header .logo {
-  grid-area: logo;
 }
 
 .layout > header .logo > a {
@@ -107,12 +93,7 @@
 
 .layout > header .toggle {
   cursor: pointer;
-  grid-area: toggle;
   justify-self: right;
-}
-
-.layout > header .main-menu {
-  flex: 1;
 }
 
 .main-menu > ul > li:hover,
@@ -122,28 +103,27 @@
 
 @media screen and (min-width: 576px) {
   .layout > header {
-    grid-template-areas: "logo nav";
-    justify-items: stretch;
+    grid-template-columns: auto 1fr auto auto;
+    column-gap: 1.5rem;
+    row-gap: 0;
   }
 
-  .layout > header > nav {
-    align-items: center;
-    background-color: var(--header-bg-color);
-    border: none;
-    display: flex;
-    flex-direction: row;
-    gap: var(--menu-gap, 1.5rem);
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 0;
+  .layout > header > .main-menu,
+  .layout > header > .dz-user-menu,
+  .layout > header > .locale-switcher,
+  .layout > header > .dz-auth-menu {
+    grid-column: span 1;
   }
 
-  .layout > header > nav[data-expanded="false"] {
-    display: flex;
+  .layout > header > .dz-user-menu,
+  .layout > header > .dz-auth-menu {
+    grid-column: 3;
   }
 
+  .layout > header[aria-expanded="false"] > :not(.logo):not(.toggle) {
+    display: unset;
+  }
+ 
   .layout > header .toggle {
     display: none;
   }
