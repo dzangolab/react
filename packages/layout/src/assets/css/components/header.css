@@ -13,7 +13,6 @@
   column-gap: 0;
   row-gap: 0.5rem;
   grid-template-columns: 1fr auto;
-  justify-items: center;
   padding-bottom: var(--header-padding-v);
   padding-top: var(--header-padding-v);
   position: relative;
@@ -45,7 +44,7 @@
 .layout > header > .dz-user-menu,
 .layout > header > .dz-auth-menu,
 .layout > header > .locale-switcher {
-  grid-column: 1 / span2;
+  grid-column: 1 / span 2;
 }
 
 .layout > header[aria-expanded="false"] > :not(.logo):not(.toggle) {
@@ -123,7 +122,7 @@
   .layout > header[aria-expanded="false"] > :not(.logo):not(.toggle) {
     display: unset;
   }
- 
+
   .layout > header .toggle {
     display: none;
   }

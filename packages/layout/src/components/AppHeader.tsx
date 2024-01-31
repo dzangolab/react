@@ -45,7 +45,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
   } = properties;
 
   return (
-    <header aria-expanded={expanded}>
+    <header aria-expanded={expanded} className={`${navStyle}`}>
       {logo || (
         <Logo
           src={layoutConfig?.logo}
