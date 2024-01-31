@@ -23,8 +23,8 @@ export const AuthMenu = () => {
     : [loginRoute, signUpRoute];
 
   return (
-    <span className="dz-auth-menu">
+    <div className="dz-auth-menu">
       <ResponsiveMenu routes={routes} />
-    </span>
+    </div>
   );
 };
