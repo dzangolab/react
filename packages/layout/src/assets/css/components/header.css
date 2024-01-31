@@ -27,7 +27,7 @@
         -1 * var(--header-padding-bottom, 1em)
       ) -100vmax
   );
-  grid-column: 1 / span 4;
+  grid-column: 1 / span 2;
   grid-row: 1 / 1;
   height: 100%;
   position: absolute;
@@ -104,6 +104,10 @@
   .layout > header {
     grid-template-columns: auto 1fr auto auto;
     gap: 0 var(--header-gap-v);
+  }
+
+  .layout > header::before {
+    grid-column: 1 / span 4;
   }
 
   .layout > header > .main-menu,
