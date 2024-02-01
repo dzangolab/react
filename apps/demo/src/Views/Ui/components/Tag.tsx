@@ -9,7 +9,7 @@ export const TagDemo = () => {
   return (
     <Page title={t("tag.title")}>
       <Section>
-        <Tag label="Active" icon="pi pi-user" />
+        <Tag icon="pi pi-user" label="tag" />
       </Section>
     </Page>
   );

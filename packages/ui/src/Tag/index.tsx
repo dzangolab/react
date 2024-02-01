@@ -1,11 +1,13 @@
+import { FC, ReactNode } from "react";
+
 type TagProperties = {
   className?: string;
   icon?: string;
   label?: string;
-  renderContent?: () => React.ReactNode;
+  renderContent?: () => ReactNode;
 };
 
-export const Tag: React.FC<TagProperties> = ({
+export const Tag: FC<TagProperties> = ({
   className = "",
   icon,
   label,
@@ -24,10 +26,15 @@ export const Tag: React.FC<TagProperties> = ({
   };
 
   return (
-    <span className={`dz-tag ${className}`.trimEnd()}>
-      {renderIcon()}
-      {label}
-      {renderContent && renderContent()}
-    </span>
+    <div className={`dz-tag ${className}`.trimEnd()}>
+      {renderContent ? (
+        renderContent()
+      ) : (
+        <>
+          {renderIcon()}
+          {label}
+        </>
+      )}
+    </div>
   );
 };

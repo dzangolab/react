@@ -1,5 +1,7 @@
 .dz-tag {
+  background-color: green;
   border-radius: 0.35rem;
   color: #ffffff;
+  display: inline-block;
   padding: 0.25rem;
 }
