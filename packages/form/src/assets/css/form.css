@@ -79,7 +79,8 @@ form span[role="alert"] {
   font-size: var(--form-input-error-font-size, 0.8em);
 }
 
-form input:read-only {
-  border: 1px solid #dddddd;
-  color: #554d4d;
+form input[readonly] {
+  border: none;
+  padding-bottom: 0;
+  padding-left: 0;
 }
