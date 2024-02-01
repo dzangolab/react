@@ -2,6 +2,7 @@ import { FC, ReactNode } from "react";
 
 type TagProperties = {
   className?: string;
+  color?: string;
   icon?: string;
   label?: string;
   renderContent?: () => ReactNode;
@@ -9,10 +10,15 @@ type TagProperties = {
 
 export const Tag: FC<TagProperties> = ({
   className = "",
+  color = "#c1f5c3",
   icon,
   label,
   renderContent,
 }) => {
+  const tagStyle = {
+    backgroundColor: color,
+  };
+
   const renderIcon = () => {
     if (!icon) {
       return null;
@@ -26,7 +32,7 @@ export const Tag: FC<TagProperties> = ({
   };
 
   return (
-    <div className={`dz-tag ${className}`.trimEnd()}>
+    <div className={`dz-tag ${className}`.trimEnd()} style={tagStyle}>
       {renderContent ? (
         renderContent()
       ) : (
