@@ -24,12 +24,13 @@ import {
   Pages as UserPages,
   routes as userRoutes,
 } from "./Views/User";
+import { SidebarLayout } from "./layouts/SidebarLayout";
 
 const routes = () => {
   return createHashRouter([
     {
       path: "/",
-      element: <BasicLayout />,
+      element: <SidebarLayout />,
       errorElement: <ErrorBoundary />,
       children: [
         {

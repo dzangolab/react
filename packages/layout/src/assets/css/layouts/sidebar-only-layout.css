@@ -1,0 +1,87 @@
+.layout.sidebar-only {
+  --_layout-sidebar-bg-color: var(--dz-layout-sidebar-bg-color, #007aff);
+  --_layout-sidebar-width: var(--dz-layout-sidebar-width, 15rem);
+  --_layout-main-bg-color: var(--dz-layout-main-bg-color, #fff);
+  --_layout-main-padding-h: var(--dz-layout-main-padding-h, 2rem);
+  --_layout-main-padding-v: var(--dz-layout-main-padding-v, 2rem);
+  --_layout-sidebar-color: var(--dz-layout-sidebar-color, #fff);
+  --_layout-sidebar-border-color: var(
+    --dz-layout-sidebar-border-color,
+    transparent
+  );
+
+  --_layout-sidebar-elements-border-color: var(
+    --dz-layout-sidebar-border-color,
+    #fff
+  );
+
+  height: 100dvh;
+}
+
+@media screen and (min-width: 576px) {
+  .layout.sidebar-only {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "sidebar main";
+  }
+
+  .layout.sidebar-only > aside {
+    grid-area: sidebar;
+
+    background-color: var(--_layout-sidebar-bg-color);
+    border-right: 1px solid var(--_layout-sidebar-border-color);
+    color: var(--_layout-sidebar-color);
+    display: flex;
+    flex-direction: column;
+    width: var(--_layout-sidebar-width);
+    overflow-y: auto;
+  }
+
+  .layout.sidebar-only > main {
+    grid-area: main;
+
+    background-color: var(--_layout-main-bg-color);
+    padding: var(--_layout-main-padding-v) var(--_layout-main-padding-h);
+    overflow-y: auto;
+  }
+
+  .layout.sidebar-only > aside > .header {
+    padding: 1rem;
+  }
+
+  .layout.sidebar-only > aside > .header img {
+    max-width: 150px;
+  }
+
+  .layout.sidebar-only > aside > .toggle {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .layout.sidebar-only > aside > .top-navigation,
+  .layout.sidebar-only > aside > .bottom-navigation {
+    padding: 1rem 0;
+  }
+
+  .layout.sidebar-only > aside > .top-navigation {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .layout.sidebar-only > aside > .bottom-navigation {
+    border-top: 1px solid var(--_layout-sidebar-elements-border-color);
+  }
+
+  .layout.sidebar-only > aside > .footer {
+    padding: 1rem;
+    border-top: 1px solid var(--_layout-sidebar-elements-border-color);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+  }
+
+  .layout.sidebar-only > aside > .footer > .version {
+    font-size: 0.75rem;
+  }
+}
