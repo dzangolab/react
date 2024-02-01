@@ -1,6 +1,6 @@
 import { Button } from "@dzangolab/react-ui";
 
-type SidebarToggleProps = {
+type SidebarToggleProperties = {
   icon?: string;
   onToggle: () => void;
 };
@@ -8,7 +8,7 @@ type SidebarToggleProps = {
 export const SidebarToggle = ({
   icon = "pi pi-angle-double-left",
   onToggle,
-}: SidebarToggleProps) => {
+}: SidebarToggleProperties) => {
   return (
     <div className="toggle">
       <Button

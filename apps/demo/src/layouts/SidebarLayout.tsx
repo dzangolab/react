@@ -1,8 +1,9 @@
+import { useTranslation } from "@dzangolab/react-i18n";
 import { SidebarOnlyLayout } from "@dzangolab/react-layout";
 import { useMemo } from "react";
 import { Outlet } from "react-router-dom";
+
 import config from "../config";
-import { useTranslation } from "@dzangolab/react-i18n";
 
 export const SidebarLayout = (): JSX.Element => {
   const { layout: layoutConfig } = config;
@@ -14,6 +15,7 @@ export const SidebarLayout = (): JSX.Element => {
     return layoutConfig.mainMenu.map((item: any) => ({
       route: item.route,
       label: t(item.name),
+      icon: "pi pi-users",
     }));
   }, [layoutConfig?.mainMenu]);
 

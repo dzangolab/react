@@ -1,10 +1,12 @@
-import useConfig from "@/hooks/useConfig";
 import { useMemo } from "react";
+
+import useConfig from "@/hooks/useConfig";
+
 import Logo from "../Logo";
 
-type SidebarHeaderProps = {};
+type SidebarHeaderProperties = {};
 
-export const SidebarHeader = ({}: SidebarHeaderProps) => {
+export const SidebarHeader = ({}: SidebarHeaderProperties) => {
   const { appName, layout: layoutConfig } = useConfig();
 
   const parseLogoAlt = useMemo(() => {

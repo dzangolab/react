@@ -1,21 +1,28 @@
 @media screen and (min-width: 576px) {
   ul.navigation {
-    padding: 0;
+    --_layout-sidebar-navigation-padding-h: var(
+      --dz-layout-sidebar-padding-h,
+      1.5rem
+    );
+
     display: flex;
     flex-direction: column;
+    padding: 0;
   }
 
-  ul.navigation > li > a {
+  ul.navigation > li > .nav-item {
     color: var(--layout-sidebar-color);
-    padding: 0.5rem 1rem;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: auto 1fr auto;
+    padding: 0.5rem var(--_layout-sidebar-navigation-padding-h);
     text-decoration: none;
-    display: block;
     width: 100%;
   }
 
-  ul.navigation > li > a:hover,
-  ul.navigation > li > a[aria-current="page"] {
-    text-decoration: none;
+  ul.navigation > li > .nav-item:hover,
+  ul.navigation > li > .nav-item[aria-current="page"] {
     font-weight: bold;
+    text-decoration: none;
   }
 }

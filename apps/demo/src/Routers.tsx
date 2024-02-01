@@ -1,6 +1,7 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import { BasicLayout } from "./layouts/BasicLayout";
+import { SidebarLayout } from "./layouts/SidebarLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
 import {
   FormPage,
@@ -24,7 +25,6 @@ import {
   Pages as UserPages,
   routes as userRoutes,
 } from "./Views/User";
-import { SidebarLayout } from "./layouts/SidebarLayout";
 
 const routes = () => {
   return createHashRouter([

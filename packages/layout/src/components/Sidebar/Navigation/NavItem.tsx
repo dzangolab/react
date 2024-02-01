@@ -15,8 +15,8 @@ export const NavItem = ({ navItem, displayIcon = true }: NavItemProps) => {
 
   if ("onClick" in navItem) {
     return (
-      <div>
-        {displayIcon && navItem.icon && <span className={navItem.icon}></span>}
+      <div className="nav-item">
+        {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         {navItem.label}
       </div>
     );
@@ -40,8 +40,8 @@ export const NavItem = ({ navItem, displayIcon = true }: NavItemProps) => {
         end={navItem.route === "/"}
         className="nav-item"
       >
-        {navItem.icon && <span className={navItem.icon}></span>}
-        {navItem.label}
+        {navItem.icon && <i className={navItem.icon}></i>}
+        <span>{navItem.label}</span>
       </NavLink>
     );
   }
@@ -51,10 +51,10 @@ export const NavItem = ({ navItem, displayIcon = true }: NavItemProps) => {
   return (
     <a
       href={navItem.route}
-      className={isActive ? "active" : undefined}
+      className={isActive ? "nav-item active" : "nav-item"}
       aria-current={isActive ? "page" : undefined}
     >
-      {navItem.icon && <span className={navItem.icon}></span>}
+      {navItem.icon && <i className={navItem.icon}></i>}
       {navItem.label}
     </a>
   );
