@@ -2,7 +2,7 @@ type TagProperties = {
   className?: string;
   icon?: string;
   label?: string;
-  renderContent: () => React.ReactNode;
+  renderContent?: () => React.ReactNode;
 };
 
 export const Tag: React.FC<TagProperties> = ({
