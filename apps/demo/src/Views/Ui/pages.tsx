@@ -20,6 +20,7 @@ import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
 import { TabbedPanelDemo } from "./components/TabbedPanel";
 import { TableDemo } from "./components/Table";
+import { TagDemo } from "./components/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
@@ -47,6 +48,7 @@ export const UI_ROUTES = {
   PAGEDEMO: "/ui/page-demo",
   STEPPER: "/ui/stepper",
   TABBED_PANEL: "/ui/tabbed-pannel",
+  TAG: "/ui/tag",
 };
 
 export const routes = [
@@ -154,6 +156,11 @@ export const routes = [
     path: UI_ROUTES.PAGEDEMO,
     key: "page.title.menu",
     element: <PageDemo />,
+  },
+  {
+    path: UI_ROUTES.TAG,
+    key: "tag.title",
+    element: <TagDemo />,
   },
 ];
 

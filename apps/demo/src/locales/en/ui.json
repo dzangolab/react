@@ -136,5 +136,8 @@
       }
     },
     "content": "Page content."
+  },
+  "tag": {
+    "title": "Tag"
   }
 }

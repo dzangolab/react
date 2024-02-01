@@ -132,5 +132,8 @@
       }
     },
     "content": "Page content. (fr)"
+  },
+  "tag": {
+    "title": "Tag (fr)"
   }
 }
