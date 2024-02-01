@@ -14,7 +14,7 @@ type NavigationMenuGroup = {
 
 export type NavigationMenu = Array<NavigationMenuItem | NavigationMenuGroup>;
 
-export type SidebarNavigationProps = {
+export type SidebarNavigationProperties = {
   navigationMenu: NavigationMenu;
   displayIcons?: boolean;
 };
@@ -22,7 +22,7 @@ export type SidebarNavigationProps = {
 export const SidebarNavigation = ({
   navigationMenu,
   displayIcons = true,
-}: SidebarNavigationProps) => {
+}: SidebarNavigationProperties) => {
   const renderNavGroup = (navGroup: NavigationMenuGroup) => {
     return null;
   };

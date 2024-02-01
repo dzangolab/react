@@ -13,12 +13,75 @@
   --_layout-sidebar-padding-h: var(--dz-layout-sidebar-padding-h, 1.5rem);
   --_layout-sidebar-padding-v: var(--dz-layout-sidebar-padding-v, 1rem);
   --_layout-sidebar-separator-color: var(
-    --dz-layout-sidebar-border-color,
+    --dz-layout-sidebar-separator-color,
     #ccc
   );
   --_layout-sidebar-width: var(--dz-layout-sidebar-width, 15rem);
 
-  height: 100dvh;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  width: 100%;
+}
+
+.layout.sidebar-only > aside {
+  grid-area: header;
+  background-color: var(--_layout-sidebar-bg-color);
+  color: var(--_layout-sidebar-color);
+}
+
+.layout.sidebar-only[aria-expanded="false"] > aside > .top-navigation,
+.layout.sidebar-only[aria-expanded="false"] > aside > .bottom-navigation,
+.layout.sidebar-only[aria-expanded="false"] > aside > .footer {
+  display: none;
+}
+
+.layout.sidebar-only > aside > .header {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--_layout-sidebar-separator-color);
+  padding: var(--_layout-sidebar-padding-v) var(--_layout-sidebar-padding-h);
+}
+
+.layout.sidebar-only > aside > .header > .logo {
+  max-width: var(--_layout-sidebar-logo-max-width);
+}
+
+.layout.sidebar-only > main {
+  background-color: var(--_layout-main-bg-color);
+  grid-area: main;
+  overflow-y: auto;
+  padding: var(--_layout-main-padding-v) var(--_layout-main-padding-h);
+}
+
+.layout.sidebar-only > aside > .top-navigation,
+.layout.sidebar-only > aside > .bottom-navigation {
+  padding: 1rem 0;
+}
+
+.layout.sidebar-only > aside > .top-navigation {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.layout.sidebar-only > aside > .bottom-navigation {
+  border-top: 1px solid var(--_layout-sidebar-separator-color);
+}
+
+.layout.sidebar-only > aside > .footer {
+  border-top: 1px solid var(--_layout-sidebar-separator-color);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: var(--_layout-sidebar-padding-v) var(--_layout-sidebar-padding-h);
+}
+
+.layout.sidebar-only > aside > .footer > .version {
+  font-size: 0.875rem;
 }
 
 @media screen and (min-width: 576px) {
@@ -26,12 +89,11 @@
     display: grid;
     grid-template-areas: "sidebar main";
     grid-template-columns: auto 1fr;
+    height: 100dvh;
   }
 
   .layout.sidebar-only > aside {
-    background-color: var(--_layout-sidebar-bg-color);
     border-right: var(--_layout-sidebar-border);
-    color: var(--_layout-sidebar-color);
     display: flex;
     flex-direction: column;
     grid-area: sidebar;
@@ -39,44 +101,17 @@
     width: var(--_layout-sidebar-width);
   }
 
-  .layout.sidebar-only > main {
-    background-color: var(--_layout-main-bg-color);
-    grid-area: main;
-    overflow-y: auto;
-    padding: var(--_layout-main-padding-v) var(--_layout-main-padding-h);
-  }
-
   .layout.sidebar-only > aside > .header {
-    padding: var(--_layout-sidebar-padding-v) var(--_layout-sidebar-padding-h);
+    border-bottom: none;
   }
 
-  .layout.sidebar-only > aside > .header > .logo {
-    max-width: var(--_layout-sidebar-logo-max-width);
+  .layout.sidebar-only > aside > .header > .toggle {
+    display: none;
   }
 
-  .layout.sidebar-only > aside > .top-navigation,
-  .layout.sidebar-only > aside > .bottom-navigation {
-    padding: 1rem 0;
-  }
-
-  .layout.sidebar-only > aside > .top-navigation {
-    flex: 1;
-    overflow-y: auto;
-  }
-
-  .layout.sidebar-only > aside > .bottom-navigation {
-    border-top: 1px solid var(--_layout-sidebar-separator-color);
-  }
-
-  .layout.sidebar-only > aside > .footer {
-    border-top: 1px solid var(--_layout-sidebar-separator-color);
+  .layout.sidebar-only[aria-expanded="false"] > aside > .top-navigation,
+  .layout.sidebar-only[aria-expanded="false"] > aside > .bottom-navigation,
+  .layout.sidebar-only[aria-expanded="false"] > aside > .footer {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: var(--_layout-sidebar-padding-v) var(--_layout-sidebar-padding-h);
-  }
-
-  .layout.sidebar-only > aside > .footer > .version {
-    font-size: 0.75rem;
   }
 }

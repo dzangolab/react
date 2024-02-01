@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { SidebarFooter } from "@/components/Sidebar/Footer";
 import { SidebarHeader } from "@/components/Sidebar/Header";
 import {
@@ -10,6 +12,7 @@ type SidebarOnlyLayoutProperties = {
   navigation?: React.ReactNode;
   bottomNavigation?: React.ReactNode;
   footer?: React.ReactNode;
+  toggle?: React.ReactNode;
   children: React.ReactNode;
   navigationMenu: NavigationMenu;
   bottomNavigationMenu?: NavigationMenu;
@@ -22,14 +25,23 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   footer,
   navigation,
   bottomNavigation,
+  toggle,
   navigationMenu,
   bottomNavigationMenu,
   displayNavIcons,
 }) => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <div className="layout sidebar-only">
+    <div className="layout sidebar-only" aria-expanded={expanded}>
       <aside>
-        {header || <SidebarHeader />}
+        {header || (
+          <SidebarHeader
+            toggle={toggle}
+            expanded={expanded}
+            onToggle={() => setExpanded(!expanded)}
+          />
+        )}
         {navigation || (
           <nav className="top-navigation">
             <SidebarNavigation

@@ -5,12 +5,12 @@ type NavItem = {
   icon?: string;
 } & ({ route: string } | { onClick: () => void });
 
-export type NavItemProps = {
+export type NavItemProperties = {
   navItem: NavItem;
   displayIcon?: boolean;
 };
 
-export const NavItem = ({ navItem, displayIcon = true }: NavItemProps) => {
+export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {
   const hasRouterContext = useInRouterContext();
 
   if ("onClick" in navItem) {

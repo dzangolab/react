@@ -4,9 +4,17 @@ import useConfig from "@/hooks/useConfig";
 
 import Logo from "../Logo";
 
-type SidebarHeaderProperties = {};
+type SidebarHeaderProperties = {
+  toggle?: React.ReactNode;
+  expanded: boolean;
+  onToggle: () => void;
+};
 
-export const SidebarHeader = ({}: SidebarHeaderProperties) => {
+export const SidebarHeader = ({
+  toggle,
+  expanded,
+  onToggle,
+}: SidebarHeaderProperties) => {
   const { appName, layout: layoutConfig } = useConfig();
 
   const parseLogoAlt = useMemo(() => {
@@ -24,6 +32,9 @@ export const SidebarHeader = ({}: SidebarHeaderProperties) => {
         route={layoutConfig?.logoRoute || layoutConfig?.homeRoute}
         alt={layoutConfig?.logoAlt || parseLogoAlt}
       />
+      <span className="toggle" onClick={onToggle}>
+        {toggle || <i className={expanded ? "pi pi-times" : "pi pi-bars"}></i>}
+      </span>
     </div>
   );
 };

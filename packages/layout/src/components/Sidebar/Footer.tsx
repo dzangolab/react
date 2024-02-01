@@ -3,11 +3,9 @@ import useConfig from "@/hooks/useConfig";
 import Copyright from "../Copyright";
 import Version from "../Version";
 
-type SidebarFooterProperties = {};
-
 const year = new Date().getFullYear();
 
-export const SidebarFooter = ({}: SidebarFooterProperties) => {
+export const SidebarFooter = () => {
   const appConfig = useConfig();
 
   return (
