@@ -7,6 +7,7 @@ type TagProperties = {
   color?: string;
   icon?: string;
   label?: string;
+  rounded?: boolean;
   renderContent?: () => ReactNode;
 };
 
@@ -15,6 +16,7 @@ export const Tag: FC<TagProperties> = ({
   color = "default",
   icon,
   label,
+  rounded,
   renderContent,
 }) => {
   const tagStyle = {
@@ -22,7 +24,10 @@ export const Tag: FC<TagProperties> = ({
   };
 
   return (
-    <span className={`dz-tag ${className}`.trimEnd()} style={tagStyle}>
+    <span
+      className={`dz-tag ${className} ${rounded ? "rounded" : ""}`.trimEnd()}
+      style={tagStyle}
+    >
       {renderContent ? (
         renderContent()
       ) : (

@@ -139,7 +139,8 @@
       "basic": "Basic (fr)",
       "color": "Color (fr)",
       "custom": "Custom tag (fr)",
-      "icon": "Icon (fr)"
+      "icon": "Icon (fr)",
+      "pill": "Pill (fr)"
     }
   }
 }
