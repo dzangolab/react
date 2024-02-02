@@ -1,5 +1,5 @@
 .dz-tag {
-  --_tag-color: var(--dz-tag-color, #545454);
+  --_tag-color: var(--dz-tag-color, #4a4747);
   align-items: center;
   border-radius: 5px;
   color: var(--_tag-color);

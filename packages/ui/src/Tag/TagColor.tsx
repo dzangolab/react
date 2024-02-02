@@ -9,5 +9,5 @@ export const tagColors: { [key: string]: string } = {
   green: "#a4f3a4",
   yellow: "#eded85",
   orange: "#fcd182",
-  brown: "#bc9e76",
+  brown: "#dab481",
 };
