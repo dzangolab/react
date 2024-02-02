@@ -15,13 +15,15 @@ type NavigationMenuGroup = {
 export type NavigationMenu = Array<NavigationMenuItem | NavigationMenuGroup>;
 
 export type SidebarNavigationProperties = {
-  navigationMenu: NavigationMenu;
   displayIcons?: boolean;
+  navigationMenu: NavigationMenu;
+  primaryNavigation?: boolean;
 };
 
 export const SidebarNavigation = ({
-  navigationMenu,
   displayIcons = true,
+  navigationMenu,
+  primaryNavigation = false,
 }: SidebarNavigationProperties) => {
   const renderNavGroup = (navGroup: NavigationMenuGroup) => {
     return null;
@@ -35,11 +37,25 @@ export const SidebarNavigation = ({
     return <NavItem navItem={nav} displayIcon={displayIcons} />;
   };
 
+  if (primaryNavigation) {
+    return (
+      <nav className="sidebar-navigation">
+        <ul>
+          {navigationMenu.map((nav, index) => {
+            return <li key={index}>{renderNavigation(nav)}</li>;
+          })}
+        </ul>
+      </nav>
+    );
+  }
+
   return (
-    <ul className="navigation">
-      {navigationMenu.map((nav, index) => {
-        return <li key={index}>{renderNavigation(nav)}</li>;
-      })}
-    </ul>
+    <div className="sidebar-navigation">
+      <ul>
+        {navigationMenu.map((nav, index) => {
+          return <li key={index}>{renderNavigation(nav)}</li>;
+        })}
+      </ul>
+    </div>
   );
 };

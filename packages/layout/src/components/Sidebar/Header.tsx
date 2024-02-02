@@ -5,14 +5,14 @@ import useConfig from "@/hooks/useConfig";
 import Logo from "../Logo";
 
 type SidebarHeaderProperties = {
-  toggle?: React.ReactNode;
   expanded: boolean;
+  header?: React.ReactNode;
   onToggle: () => void;
 };
 
 export const SidebarHeader = ({
-  toggle,
   expanded,
+  header,
   onToggle,
 }: SidebarHeaderProperties) => {
   const { appName, layout: layoutConfig } = useConfig();
@@ -26,14 +26,16 @@ export const SidebarHeader = ({
   }, [appName]);
 
   return (
-    <div className="header">
-      <Logo
-        src={layoutConfig?.logo}
-        route={layoutConfig?.logoRoute || layoutConfig?.homeRoute}
-        alt={layoutConfig?.logoAlt || parseLogoAlt}
-      />
+    <div className="sidebar-header">
+      {header || (
+        <Logo
+          src={layoutConfig?.logo}
+          route={layoutConfig?.logoRoute || layoutConfig?.homeRoute}
+          alt={layoutConfig?.logoAlt || parseLogoAlt}
+        />
+      )}
       <span className="toggle" onClick={onToggle}>
-        {toggle || <i className={expanded ? "pi pi-times" : "pi pi-bars"}></i>}
+        <i className={expanded ? "pi pi-times" : "pi pi-bars"}></i>
       </span>
     </div>
   );

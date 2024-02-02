@@ -9,7 +9,7 @@ export const SidebarFooter = () => {
   const appConfig = useConfig();
 
   return (
-    <div className="footer">
+    <div className="sidebar-footer">
       <Copyright
         holder={appConfig?.copyright?.holder}
         url={appConfig?.copyright?.url}
