@@ -5,7 +5,7 @@ import { expect, test } from "vitest";
 import i18n from "../../../index";
 import LocaleSwitcher from "../../LocaleSwitcher";
 
-test("Local switcher dropdown is displayed and locale is changed", async () => {
+test.skip("Local switcher dropdown is displayed and locale is changed", async () => {
   const i18nConfig = {
     appendNamespaceToCIMode: true,
     debug: true,

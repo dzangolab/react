@@ -1,7 +1,16 @@
 .layout.sidebar-only {
+  --_default-padding-h: 1rem;
+  --_default-padding-v: 1.5rem;
+
   --_layout-main-bg-color: var(--dz-layout-main-bg-color, #fff);
-  --_layout-main-padding-h: var(--dz-layout-main-padding-h, 2rem);
-  --_layout-main-padding-v: var(--dz-layout-main-padding-v, 2rem);
+  --_layout-main-padding-h: var(
+    --dz-layout-main-padding-h,
+    var(--_default-padding-h)
+  );
+  --_layout-main-padding-v: var(
+    --dz-layout-main-padding-v,
+    var(--_default-padding-v)
+  );
 
   --_layout-sidebar-bg-color: var(--dz-layout-sidebar-bg-color, #007aff);
   --_layout-sidebar-border: var(--dz-layout-sidebar-border, none);
@@ -69,11 +78,8 @@
   overflow-y: auto;
 }
 
-.layout.sidebar-only > aside > .sidebar-navigation:not(nav) {
-  border-top: 1px solid var(--_layout-sidebar-separator-color);
-}
-
 .layout.sidebar-only > aside > .sidebar-footer {
+  align-items: center;
   border-top: 1px solid var(--_layout-sidebar-separator-color);
   display: flex;
   justify-content: space-between;
@@ -85,6 +91,9 @@
 
 @media screen and (min-width: 576px) {
   .layout.sidebar-only {
+    --_default-padding-h: 2rem;
+    --_default-padding-v: 2.5rem;
+
     display: grid;
     grid-template-areas: "sidebar main";
     grid-template-columns: auto 1fr;
@@ -106,6 +115,10 @@
 
   .layout.sidebar-only > aside > .sidebar-header > .toggle {
     display: none;
+  }
+
+  .layout.sidebar-only > aside > .sidebar-navigation:not(nav) {
+    border-top: 1px solid var(--_layout-sidebar-separator-color);
   }
 
   .layout.sidebar-only[aria-expanded="false"] > aside > .sidebar-navigation,

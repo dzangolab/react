@@ -12,6 +12,7 @@ type SidebarOnlyLayoutProperties = {
   displayNavIcons?: boolean;
   footer?: React.ReactNode;
   header?: React.ReactNode;
+  localeSwitcher?: React.ReactNode;
   navigation?: React.ReactNode;
   navigationMenu: NavigationMenu;
 };
@@ -23,6 +24,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   displayNavIcons,
   footer,
   header,
+  localeSwitcher,
   navigation,
   navigationMenu,
 }) => {
@@ -50,7 +52,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
               navigationMenu={bottomNavigationMenu}
             />
           ))}
-        {footer || <SidebarFooter />}
+        {footer || <SidebarFooter localeSwitcher={localeSwitcher} />}
       </aside>
       <main>{children}</main>
     </div>

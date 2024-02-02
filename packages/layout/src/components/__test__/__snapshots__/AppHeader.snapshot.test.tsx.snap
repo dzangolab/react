@@ -61,48 +61,23 @@ exports[`Component matches snapshot 1`] = `
         </li>
       </ul>
     </nav>
-    <div
-      className="locale-switcher dropdown-container"
-      data-aria-expanded={false}
-      lang="en"
-      onClick={[Function]}
+    <span
+      className="locale-switcher"
     >
-      <div
-        className="label-container"
+      <span
+        onClick={[Function]}
       >
-        <span
-          className="label"
-        >
-          locales.en
-        </span>
-        <span
-          className="icon"
-        >
-          ▾
-        </span>
-      </div>
-      <ul
-        className="dropdown-menu"
-        data-aria-hidden={true}
-      >
-        <li
-          className="option"
-          data-aria-selected={true}
-          label="locales.en"
-          onClick={[Function]}
-        >
-          locales.en
-        </li>
-        <li
-          className="option"
-          data-aria-selected={false}
-          label="locales.fr"
-          onClick={[Function]}
-        >
-          locales.fr
-        </li>
-      </ul>
-    </div>
+        locales.en
+        <i
+          className="pi pi-angle-down"
+          style={
+            {
+              "fontSize": "12px",
+            }
+          }
+        />
+      </span>
+    </span>
   </nav>
   <div
     className="toggle"

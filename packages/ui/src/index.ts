@@ -22,6 +22,7 @@ export * from "./FilesTable";
 export * from "./FileCard";
 export * from "./FilesList";
 export * from "./FilesPresentation";
+export * from "./Menu";
 export * from "./Table";
 export * from "./utils";
 export * from "./Pagination";
