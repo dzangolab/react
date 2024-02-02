@@ -1,6 +1,11 @@
 .dz-tag {
   border-radius: 0.35rem;
   color: #ffffff;
-  display: inline-block;
-  padding: 0.25rem;
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.35rem;
+}
+
+.dz-tag .tag-icon {
+  padding: 0;
 }

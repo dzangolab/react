@@ -1,5 +1,7 @@
 import { FC, ReactNode } from "react";
 
+import { tagColors } from "./TagColor";
+
 type TagProperties = {
   className?: string;
   color?: string;
@@ -10,13 +12,13 @@ type TagProperties = {
 
 export const Tag: FC<TagProperties> = ({
   className = "",
-  color = "#c1f5c3",
+  color = "default",
   icon,
   label,
   renderContent,
 }) => {
   const tagStyle = {
-    backgroundColor: color,
+    backgroundColor: tagColors[color] || color,
   };
 
   const renderIcon = () => {
@@ -25,7 +27,7 @@ export const Tag: FC<TagProperties> = ({
     }
 
     return (
-      <span className="icon">
+      <span className="tag-icon">
         <i className={icon} />
       </span>
     );
