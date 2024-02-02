@@ -10,14 +10,14 @@ export const Submenu: React.FC<ISubmenuProperties> = ({ submenu }) => {
   return (
     <ul className="dz-submenu">
       {submenu?.map((route) => (
-        <li key={route.name}>
+        <li key={route.label}>
           <NavLink to={route.route}>
             {route.icon && (
-              <span role="icon" title={route.name}>
+              <span role="icon" title={route.label}>
                 {route.icon}
               </span>
             )}
-            <span role="label">{route.name}</span>
+            <span role="label">{route.label}</span>
           </NavLink>
         </li>
       ))}

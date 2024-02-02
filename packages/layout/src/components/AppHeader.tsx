@@ -11,7 +11,7 @@ interface Properties {
   logoRoute?: string;
   mainMenu?: React.ReactNode;
   mainMenuRoutes?: {
-    name: string;
+    label: string;
     route: string;
   }[];
   mainMenuOrientation?: "horizontal" | "vertical";

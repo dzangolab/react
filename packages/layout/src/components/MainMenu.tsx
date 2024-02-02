@@ -5,18 +5,18 @@ import React from "react";
 interface Properties {
   orientation?: "horizontal" | "vertical";
   routes?: {
-    name: string;
+    label: string;
     route: string;
   }[];
 }
 
 const DEFAULT_ROUTES = [
   {
-    name: "header.menu.home",
+    label: "header.menu.home",
     route: "/",
   },
   {
-    name: "header.menu.about",
+    label: "header.menu.about",
     route: "/about",
   },
 ];
@@ -27,9 +27,9 @@ const MainMenu = (properties: Properties) => {
   const { routes = DEFAULT_ROUTES, orientation = "horizontal" } = properties;
 
   const getTranslatedRoutes = () => {
-    return routes.map(({ name, route }) => {
+    return routes.map(({ label, route }) => {
       return {
-        name: t(name),
+        label: t(label),
         route,
       };
     });

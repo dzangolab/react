@@ -20,7 +20,7 @@ interface Properties {
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
   mainMenuRoutes?: {
-    name: string;
+    label: string;
     route: string;
   }[];
   mainMenuOrientation?: "horizontal" | "vertical";

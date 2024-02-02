@@ -6,11 +6,11 @@ import ResponsiveMenu from "../index";
 
 export const menuRoutes = [
   {
-    name: "Home",
+    label: "Home",
     route: "/",
   },
   {
-    name: "About",
+    label: "About",
     route: "/about",
   },
 ];

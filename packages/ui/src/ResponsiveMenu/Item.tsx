@@ -21,14 +21,14 @@ export const MenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
 
   return (
-    <li key={route.name} aria-expanded={showSubmenu}>
+    <li key={route.label} aria-expanded={showSubmenu}>
       <MenuItemLink route={route} setShowSubmenu={setShowSubmenu}>
         {displayIcon ? (
-          <span role="icon" title={route.name}>
+          <span role="icon" title={route.label}>
             {route.icon}
           </span>
         ) : null}
-        <span role="label">{route.name}</span>
+        <span role="label">{route.label}</span>
         {"submenu" in route && route.submenu.length && (
           <span aria-label="toggle-expand">
             <i className="pi pi-angle-down" />
@@ -36,7 +36,7 @@ export const MenuItem: React.FC<IProperties> = ({ route, displayIcon }) => {
         )}
       </MenuItemLink>
       {"submenu" in route && (
-        <Submenu submenu={route.submenu} key={route.name} />
+        <Submenu submenu={route.submenu} key={route.label} />
       )}
     </li>
   );

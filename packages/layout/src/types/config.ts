@@ -3,7 +3,7 @@ interface DzangolabReactLayoutConfig {
   logo?: string;
   logoAlt?: string;
   mainMenu?: {
-    name: string;
+    label: string;
     route: string;
   }[];
 }
