@@ -2,10 +2,8 @@ import { useState } from "react";
 
 import { SidebarFooter } from "@/components/Sidebar/Footer";
 import { SidebarHeader } from "@/components/Sidebar/Header";
-import {
-  NavigationMenu,
-  SidebarNavigation,
-} from "@/components/Sidebar/Navigation";
+import { SidebarNavigation } from "@/components/Sidebar/Navigation";
+import { NavigationMenu } from "@/types";
 
 type SidebarOnlyLayoutProperties = {
   bottomNavigation?: React.ReactNode;
@@ -49,7 +47,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
           (bottomNavigationMenu && (
             <SidebarNavigation
               displayIcons={displayNavIcons}
-              navigationMenu={navigationMenu}
+              navigationMenu={bottomNavigationMenu}
             />
           ))}
         {footer || <SidebarFooter />}

@@ -1,18 +1,10 @@
+import {
+  NavigationMenu,
+  NavigationMenuGroup,
+  NavigationMenuItem,
+} from "@/types";
+
 import { NavItem } from "./NavItem";
-
-type NavigationMenuItem = {
-  label: string;
-  route: string;
-  icon?: string;
-};
-
-type NavigationMenuGroup = {
-  label: string;
-  icon: string;
-  submenu: NavigationMenuItem[];
-};
-
-export type NavigationMenu = Array<NavigationMenuItem | NavigationMenuGroup>;
 
 export type SidebarNavigationProperties = {
   displayIcons?: boolean;
@@ -40,22 +32,26 @@ export const SidebarNavigation = ({
   if (primaryNavigation) {
     return (
       <nav className="sidebar-navigation">
-        <ul>
-          {navigationMenu.map((nav, index) => {
-            return <li key={index}>{renderNavigation(nav)}</li>;
-          })}
-        </ul>
+        {navigationMenu.length ? (
+          <ul>
+            {navigationMenu.map((nav, index) => {
+              return <li key={index}>{renderNavigation(nav)}</li>;
+            })}
+          </ul>
+        ) : null}
       </nav>
     );
   }
 
   return (
     <div className="sidebar-navigation">
-      <ul>
-        {navigationMenu.map((nav, index) => {
-          return <li key={index}>{renderNavigation(nav)}</li>;
-        })}
-      </ul>
+      {navigationMenu.length ? (
+        <ul>
+          {navigationMenu.map((nav, index) => {
+            return <li key={index}>{renderNavigation(nav)}</li>;
+          })}
+        </ul>
+      ) : null}
     </div>
   );
 };

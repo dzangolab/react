@@ -1,7 +1,6 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import { BasicLayout } from "./layouts/BasicLayout";
-import { SidebarLayout } from "./layouts/SidebarLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
 import {
   FormPage,
@@ -30,7 +29,7 @@ const routes = () => {
   return createHashRouter([
     {
       path: "/",
-      element: <SidebarLayout />,
+      element: <BasicLayout />,
       errorElement: <ErrorBoundary />,
       children: [
         {

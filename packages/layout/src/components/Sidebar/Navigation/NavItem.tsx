@@ -15,7 +15,7 @@ export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {
 
   if ("onClick" in navItem) {
     return (
-      <div className="nav-item">
+      <div className="nav-item" onClick={navItem.onClick}>
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         {navItem.label}
       </div>

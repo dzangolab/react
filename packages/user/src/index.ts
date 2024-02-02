@@ -12,16 +12,19 @@ import { SignupWrapper } from "./components/SignupWrapper";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import {
+  AllUsersTable,
   UsersTable,
   UsersTableProperties,
-  AllUsersTable,
 } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
 import { useUser, useEmailVerification } from "./hooks";
-import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
-import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
-import { UserEnabledSwitchableLayout } from "./layouts/UserEnabledSwitchableLayout";
+import {
+  UserEnabledBasicLayout,
+  UserEnabledSidebarLayout,
+  UserEnabledSidebarOnlyLayout,
+  UserEnabledSwitchableLayout,
+} from "./layouts";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
@@ -46,11 +49,11 @@ import { VerifyEmail } from "./views/VerifyEmail";
 import "./assets/css/index.css";
 
 import type {
+  DzangolabReactUserConfig,
   Invitation,
   InvitationAppOption,
   InvitationPayload,
   LoginCredentials,
-  DzangolabReactUserConfig,
   UserContextType,
   UserType,
 } from "./types";
@@ -63,35 +66,38 @@ declare module "@dzangolab/react-config" {
 
 export {
   // components
+  AllUsersTable,
   AuthGoogleCallback,
   DropdownUserMenu,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
   LoginForm,
+  LoginWrapper,
   SignupForm,
   SignupWrapper,
-  LoginWrapper,
   TermsAndConditions,
-  UserEnabledBasicLayout,
-  UserEnabledSidebarLayout,
-  UserEnabledSwitchableLayout,
   UserMenu,
   UserProvider,
   UsersTable,
-  AllUsersTable,
+
+  // layouts
+  UserEnabledBasicLayout,
+  UserEnabledSidebarLayout,
+  UserEnabledSidebarOnlyLayout,
+  UserEnabledSwitchableLayout,
 
   // views
   AcceptInvitation,
   ChangePassword,
+  EmailVerificationReminder,
   ForgotPassword,
   Login,
   Profile,
   ResetPassword,
-  Signup,
   SignUpFirstUser,
+  Signup,
   VerifyEmail,
-  EmailVerificationReminder,
 
   // utilities
   changePassword,
@@ -105,11 +111,11 @@ export {
   setUserData,
   signup,
   superTokens,
-  useUser,
   useEmailVerification,
+  useUser,
   userContext,
-  verifySessionRoles,
   verifyEmail,
+  verifySessionRoles,
 };
 
 export type {

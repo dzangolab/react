@@ -38,4 +38,4 @@ export {
   Version,
 };
 
-export type { DzangolabReactLayoutConfig } from "./types";
+export type { DzangolabReactLayoutConfig, NavigationMenu } from "./types";
