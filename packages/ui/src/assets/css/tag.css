@@ -3,9 +3,11 @@
   color: #ffffff;
   display: inline-flex;
   gap: 0.25rem;
-  padding: 0.35rem;
+  padding: 0.35rem 0.5rem;
 }
 
 .dz-tag .tag-icon {
+  align-items: center;
+  display: flex;
   padding: 0;
 }

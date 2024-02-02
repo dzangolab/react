@@ -20,7 +20,7 @@ import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
 import { TabbedPanelDemo } from "./components/TabbedPanel";
 import { TableDemo } from "./components/Table";
-import { TagDemo } from "./components/Tag";
+import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";

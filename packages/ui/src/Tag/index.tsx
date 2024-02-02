@@ -34,7 +34,7 @@ export const Tag: FC<TagProperties> = ({
   };
 
   return (
-    <div className={`dz-tag ${className}`.trimEnd()} style={tagStyle}>
+    <span className={`dz-tag ${className}`.trimEnd()} style={tagStyle}>
       {renderContent ? (
         renderContent()
       ) : (
@@ -43,6 +43,6 @@ export const Tag: FC<TagProperties> = ({
           {label}
         </>
       )}
-    </div>
+    </span>
   );
 };
