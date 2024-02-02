@@ -136,5 +136,15 @@
       }
     },
     "content": "Page content."
+  },
+  "tag": {
+    "title": "Tag",
+    "usage": {
+      "basic": "Basic",
+      "color": "Color",
+      "custom": "Custom tag",
+      "icon": "Icon",
+      "pill": "Pill"
+    }
   }
 }

@@ -132,5 +132,15 @@
       }
     },
     "content": "Page content. (fr)"
+  },
+  "tag": {
+    "title": "Tag (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "color": "Color (fr)",
+      "custom": "Custom tag (fr)",
+      "icon": "Icon (fr)",
+      "pill": "Pill (fr)"
+    }
   }
 }
