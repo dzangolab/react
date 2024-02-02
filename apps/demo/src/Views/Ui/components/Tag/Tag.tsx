@@ -9,31 +9,46 @@ export const TagDemo = () => {
 
   return (
     <Page title={t("tag.title")}>
-      <Section title="Basic">
+      <Section title={t("tag.usage.basic")}>
         <div className="demo-tag-container">
-          <Tag label="tag" color="default" />
+          <Tag label="default" color="default" />
         </div>
       </Section>
 
-      <Section title="Color">
+      <Section title={t("tag.usage.color")}>
         <div className="demo-tag-container">
-          <Tag label="tag" color="default" />
-          <Tag label="tag" color="gray" />
-          <Tag label="tag" color="red" />
-          <Tag label="tag" color="pink" />
-          <Tag label="tag" color="purple" />
-          <Tag label="tag" color="green" />
-          <Tag label="tag" color="yellow" />
-          <Tag label="tag" color="orange" />
-          <Tag label="tag" color="brown" />
+          <Tag label="default" color="default" />
+          <Tag label="gray" color="gray" />
+          <Tag label="red" color="red" />
+          <Tag label="pink" color="pink" />
+          <Tag label="purple" color="purple" />
+          <Tag label="blue" color="blue" />
+          <Tag label="cyan" color="cyan" />
+          <Tag label="green" color="green" />
+          <Tag label="yellow" color="yellow" />
+          <Tag label="orange" color="orange" />
+          <Tag label="brown" color="brown" />
         </div>
       </Section>
 
-      <Section title="Icon">
+      <Section title={t("tag.usage.icon")}>
         <div className="demo-tag-container">
-          <Tag label="tag" icon="pi pi-user" color="default" />
-          <Tag label="tag" icon="pi pi-check" color="green" />
-          <Tag label="tag" icon="pi pi-times" color="red" />
+          <Tag label="green" icon="pi pi-check" color="green" />
+          <Tag label="red" icon="pi pi-times" color="red" />
+        </div>
+      </Section>
+
+      <Section title={t("tag.usage.custom")}>
+        <div className="demo-tag-container">
+          <Tag
+            renderContent={() => (
+              <>
+                <span>custom tag</span>
+                <i className="pi pi-user"></i>
+              </>
+            )}
+            color="#9e7846"
+          />
         </div>
       </Section>
     </Page>

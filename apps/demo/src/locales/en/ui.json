@@ -138,6 +138,12 @@
     "content": "Page content."
   },
   "tag": {
-    "title": "Tag"
+    "title": "Tag",
+    "usage": {
+      "basic": "Basic",
+      "color": "Color",
+      "icon": "Icon",
+      "custom": "Custom tag"
+    }
   }
 }

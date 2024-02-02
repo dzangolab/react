@@ -134,6 +134,12 @@
     "content": "Page content. (fr)"
   },
   "tag": {
-    "title": "Tag (fr)"
+    "title": "Tag (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "color": "Color (fr)",
+      "icon": "Icon (fr)",
+      "custom": "Custom tag (fr)"
+    }
   }
 }

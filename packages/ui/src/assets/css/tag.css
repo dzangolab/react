@@ -1,13 +1,9 @@
 .dz-tag {
+  align-items: center;
   border-radius: 0.35rem;
   color: #ffffff;
   display: inline-flex;
   gap: 0.25rem;
-  padding: 0.35rem 0.5rem;
-}
-
-.dz-tag .tag-icon {
-  align-items: center;
-  display: flex;
-  padding: 0;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
 }

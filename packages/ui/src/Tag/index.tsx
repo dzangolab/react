@@ -21,26 +21,14 @@ export const Tag: FC<TagProperties> = ({
     backgroundColor: tagColors[color] || color,
   };
 
-  const renderIcon = () => {
-    if (!icon) {
-      return null;
-    }
-
-    return (
-      <span className="tag-icon">
-        <i className={icon} />
-      </span>
-    );
-  };
-
   return (
     <span className={`dz-tag ${className}`.trimEnd()} style={tagStyle}>
       {renderContent ? (
         renderContent()
       ) : (
         <>
-          {renderIcon()}
-          {label}
+          {icon && <i className={icon}></i>}
+          {label && label}
         </>
       )}
     </span>
