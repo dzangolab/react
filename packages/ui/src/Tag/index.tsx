@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
-
-import { tagColors } from "./TagColor";
+import { tagColors } from "./TagColors";
 
 type TagProperties = {
   className?: string;
