@@ -1,17 +1,14 @@
-:root {
-  --tag-color: #000000;
-}
-
 .dz-tag {
+  --_tag-color: var(--dz-tag-color, #545454);
   align-items: center;
-  border-radius: 0.35rem;
-  color: var(--tag-color);
+  border-radius: 5px;
+  color: var(--_tag-color);
   display: flex;
   gap: 0.25rem;
   padding: 0.25rem 0.5rem;
 }
 
 .dz-tag.rounded {
-  border-radius: 3rem;
+  border-radius: 25px;
   padding: 0.25rem 0.6rem;
 }
