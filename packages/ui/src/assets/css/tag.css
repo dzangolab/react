@@ -1,9 +1,8 @@
 .dz-tag {
   align-items: center;
   border-radius: 0.35rem;
-  color: #ffffff;
-  display: inline-flex;
+  color: #000000;
+  display: flex;
   gap: 0.25rem;
-  justify-content: center;
   padding: 0.25rem 0.5rem;
 }

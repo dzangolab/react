@@ -11,7 +11,7 @@ export const TagDemo = () => {
     <Page title={t("tag.title")}>
       <Section title={t("tag.usage.basic")}>
         <div className="demo-tag-container">
-          <Tag label="default" color="default" />
+          <Tag label="default" />
         </div>
       </Section>
 
@@ -35,6 +35,7 @@ export const TagDemo = () => {
         <div className="demo-tag-container">
           <Tag label="green" icon="pi pi-check" color="green" />
           <Tag label="red" icon="pi pi-times" color="red" />
+          <Tag icon="pi pi-user" />
         </div>
       </Section>
 
@@ -43,11 +44,11 @@ export const TagDemo = () => {
           <Tag
             renderContent={() => (
               <>
-                <span>custom tag</span>
+                <span>{t("tag.usage.custom")}</span>
                 <i className="pi pi-user"></i>
               </>
             )}
-            color="#9e7846"
+            color="#c9beae"
           />
         </div>
       </Section>

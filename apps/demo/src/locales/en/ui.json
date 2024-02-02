@@ -142,8 +142,8 @@
     "usage": {
       "basic": "Basic",
       "color": "Color",
-      "icon": "Icon",
-      "custom": "Custom tag"
+      "custom": "Custom tag",
+      "icon": "Icon"
     }
   }
 }
