@@ -55,7 +55,7 @@ export const TagDemo = () => {
                 <i className="pi pi-user"></i>
               </>
             )}
-            color="#c9beae"
+            color="#eddec8"
           />
         </div>
       </Section>
