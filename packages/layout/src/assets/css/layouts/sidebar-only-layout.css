@@ -58,6 +58,10 @@
   max-width: var(--_layout-sidebar-logo-max-width);
 }
 
+.layout.sidebar-only > aside > .sidebar-header > .logo > a {
+  color: var(--_layout-sidebar-color);
+}
+
 .layout.sidebar-only > main {
   background-color: var(--_layout-main-bg-color);
   grid-area: main;
