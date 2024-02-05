@@ -10,26 +10,18 @@ import type { NavigationMenu } from "@dzangolab/react-layout";
 
 interface Properties {
   authNavigationMenu?: NavigationMenu;
-  userNavigation?: React.ReactNode;
   userNavigationMenu?: NavigationMenu;
   children: React.ReactNode;
   displayNavIcons?: boolean;
-  footer?: React.ReactNode;
-  header?: React.ReactNode;
-  navigation?: React.ReactNode;
   navigationMenu: NavigationMenu;
   onLogout?: () => Promise<any>;
 }
 
 export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   authNavigationMenu,
-  userNavigation,
   userNavigationMenu,
   children,
   displayNavIcons,
-  footer,
-  header,
-  navigation,
   navigationMenu,
   onLogout,
 }) => {
@@ -66,14 +58,10 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 
   return (
     <SidebarOnlyLayout
-      header={header}
-      footer={footer}
-      navigationMenu={navigationMenu}
-      children={children}
-      navigation={navigation}
-      displayNavIcons={displayNavIcons}
-      bottomNavigation={userNavigation}
       bottomNavigationMenu={getBottomNavigationMenu()}
+      children={children}
+      displayNavIcons={displayNavIcons}
+      navigationMenu={navigationMenu}
     />
   );
 };

@@ -1,4 +1,4 @@
-.dz-layout.sidebar-only {
+.dz-layout {
   --_default-padding-h: 1rem;
   --_default-padding-v: 1.5rem;
 
@@ -19,11 +19,11 @@
   width: 100%;
 }
 
-.dz-layout.sidebar-only > aside {
+.dz-layout > aside {
   grid-area: header;
 }
 
-.dz-layout.sidebar-only > main {
+.dz-layout > main {
   background: var(--_layout-main-bg);
   grid-area: main;
   overflow-y: auto;
@@ -31,7 +31,7 @@
 }
 
 @media screen and (min-width: 576px) {
-  .dz-layout.sidebar-only {
+  .dz-layout {
     --_default-padding-h: 2rem;
     --_default-padding-v: 2.5rem;
 
@@ -41,7 +41,7 @@
     height: 100dvh;
   }
 
-  .dz-layout.sidebar-only > aside {
+  .dz-layout > aside {
     grid-area: sidebar;
   }
 }

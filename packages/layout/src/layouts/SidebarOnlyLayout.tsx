@@ -1,60 +1,26 @@
-import { useState } from "react";
-
-import { SidebarFooter } from "@/components/Sidebar/Footer";
-import { SidebarHeader } from "@/components/Sidebar/Header";
-import { SidebarNavigation } from "@/components/Sidebar/Navigation";
-import { NavigationMenu } from "@/types";
+import { Layout, Sidebar, NavigationMenuType } from "@/components/Layout";
 
 type SidebarOnlyLayoutProperties = {
-  bottomNavigation?: React.ReactNode;
-  bottomNavigationMenu?: NavigationMenu;
+  bottomNavigationMenu?: NavigationMenuType;
   children: React.ReactNode;
   displayNavIcons?: boolean;
-  footer?: React.ReactNode;
-  header?: React.ReactNode;
-  localeSwitcher?: React.ReactNode;
-  navigation?: React.ReactNode;
-  navigationMenu: NavigationMenu;
+  navigationMenu: NavigationMenuType;
 };
 
 export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
-  bottomNavigation,
   bottomNavigationMenu,
   children,
   displayNavIcons,
-  footer,
-  header,
-  localeSwitcher,
-  navigation,
   navigationMenu,
 }) => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
-    <div className="layout sidebar-only" aria-expanded={expanded}>
-      <aside>
-        <SidebarHeader
-          header={header}
-          expanded={expanded}
-          onToggle={() => setExpanded(!expanded)}
-        />
-        {navigation || (
-          <SidebarNavigation
-            displayIcons={displayNavIcons}
-            navigationMenu={navigationMenu}
-            primaryNavigation={true}
-          />
-        )}
-        {bottomNavigation ||
-          (bottomNavigationMenu && (
-            <SidebarNavigation
-              displayIcons={displayNavIcons}
-              navigationMenu={bottomNavigationMenu}
-            />
-          ))}
-        {footer || <SidebarFooter localeSwitcher={localeSwitcher} />}
-      </aside>
+    <Layout className="sidebar-only">
+      <Sidebar
+        displayNavIcons={displayNavIcons}
+        navigationMenu={navigationMenu}
+        bottomNavigationMenu={bottomNavigationMenu}
+      ></Sidebar>
       <main>{children}</main>
-    </div>
+    </Layout>
   );
 };
