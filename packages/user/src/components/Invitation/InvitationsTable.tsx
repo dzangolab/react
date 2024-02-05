@@ -160,10 +160,7 @@ export const InvitationsTable = ({
       cell: ({ row: { original } }) => {
         const getLabel = () => {
           const { acceptedAt, revokedAt, expiresAt } = original;
-          // console.log("create",new Date(revokedAt))
-          // console.log("revoke",new Date(revokedAt))
-          // console.log("expire",new Date(expiresAt))
-          // console.log("accept",new Date(acceptedAt))
+
           if (acceptedAt) return "Accepted";
           if (revokedAt) return "Revoked";
           if (expiresAt && new Date(expiresAt) < new Date()) return "Expired";
