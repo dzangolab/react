@@ -26,7 +26,7 @@ export const ForgotPassword = () => {
     <Page
       className="forgot-password"
       title={t("forgotPassword.title")}
-      contentAlignment="center"
+      centered={true}
     >
       <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>

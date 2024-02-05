@@ -5,8 +5,10 @@
   grid-template-columns: 100%;
 }
 
-.dz-page[data-alignment="center"] {
+.dz-page[data-alignment="true"] {
   justify-items: center;
+  max-width: var(--dz-page-max-width);
+  margin: auto;
 }
 
 .dz-page > .content > div[role="alert"].error > span {

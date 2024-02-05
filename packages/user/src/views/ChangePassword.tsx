@@ -32,7 +32,7 @@ export const ChangePassword = () => {
     <Page
       className="change-password"
       title={t("changePassword.title")}
-      contentAlignment="center"
+      centered={true}
     >
       <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>

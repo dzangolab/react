@@ -11,7 +11,7 @@ interface Properties
   breadcrumb?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
-  contentAlignment?: "center" | "left";
+  centered?: boolean;
   errorMessage?: string;
   titleTag?: string | React.ReactNode;
   loading?: boolean;
@@ -26,7 +26,7 @@ const Page: React.FC<Properties> = ({
   breadcrumb,
   children,
   className,
-  contentAlignment = "left",
+  centered = false,
   errorMessage,
   titleTag,
   loading = false,
@@ -59,7 +59,7 @@ const Page: React.FC<Properties> = ({
   }
 
   return (
-    <div className={_className} data-alignment={contentAlignment}>
+    <div className={_className} data-alignment={centered}>
       <PageHeader {...{ title, titleTag, subtitle, toolbar, breadcrumb }} />
       <div data-testid="page-content" className="content" {...others}>
         {child ? child : children}

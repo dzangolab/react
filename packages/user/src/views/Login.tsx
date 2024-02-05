@@ -112,7 +112,7 @@ export const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
       loading={loading}
-      contentAlignment="center"
+      centered={true}
     >
       <LoginWrapper
         onLoginFailed={onLoginFailed}

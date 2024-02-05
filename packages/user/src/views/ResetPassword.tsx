@@ -33,7 +33,7 @@ export const ResetPassword = () => {
     <Page
       className="reset-password"
       title={t("resetPassword.title")}
-      contentAlignment="center"
+      centered={true}
     >
       <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>

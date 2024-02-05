@@ -7,6 +7,7 @@
   --dz-success-color: #22c55e;
   --dz-warning-color: #ea580c;
   --dz-page-gap: 0.5rem;
+  --dz-page-max-width: 400px;
   --field-autofill-color: #ffffff;
   --field-background-color: var(--dz-primary-color);
   --field-border-color: #ccc;

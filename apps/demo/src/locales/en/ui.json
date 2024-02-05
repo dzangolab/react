@@ -116,7 +116,7 @@
     "title": {
       "menu": "Page",
       "basic": "Page demo basic",
-      "centerAligned": "Table with center aligned contents",
+      "centerAligned": "Page with center aligned contents",
       "toolbar": "Page with toolbar",
       "stringSubtitle": "Page with subtitle string",
       "componentSubtitle": "Page with subtitle component",

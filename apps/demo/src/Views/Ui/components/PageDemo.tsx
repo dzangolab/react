@@ -30,7 +30,7 @@ export const PageDemo = () => {
         title={t("page.title.centerAligned")}
         toolbar={<Button label={t("page.toolbar.edit")} />}
         children={PageContent}
-        contentAlignment="center"
+        centered={true}
       />
 
       <hr />
