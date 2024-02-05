@@ -5,8 +5,8 @@ import {
   TRequestJSON,
   IButtonProperties,
   TableColumnDefinition,
+  Tag,
 } from "@dzangolab/react-ui";
-import { Tag } from "primereact/tag";
 
 import { InvitationModal } from "../Invitation";
 
@@ -135,11 +135,8 @@ export const AllUsersTable = ({
               {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
-                  value={role}
-                  severity={role === "ADMIN" ? undefined : "success"}
-                  style={{
-                    width: "5rem",
-                  }}
+                  label={role}
+                  color={role === "ADMIN" ? "default" : "green"}
                 />
               ))}
             </>
@@ -150,13 +147,7 @@ export const AllUsersTable = ({
 
         return (
           <>
-            <Tag
-              value={role}
-              severity={role === "ADMIN" ? undefined : "success"}
-              style={{
-                width: "5rem",
-              }}
-            />
+            <Tag label={role} color={role === "ADMIN" ? "default" : "green"} />
           </>
         );
       },
@@ -166,7 +157,7 @@ export const AllUsersTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
-        const getValue = () => {
+        const getLabel = () => {
           if (!original.isActiveUser) return t("status.invited");
 
           if (original.disabled) return t("status.disabled");
@@ -174,23 +165,17 @@ export const AllUsersTable = ({
           return t("status.active");
         };
 
-        const getSeverity = () => {
-          if (!original.isActiveUser) return undefined;
+        const getColor = () => {
+          if (!original.isActiveUser) return "default";
 
-          if (original.disabled) return "danger";
+          if (original.disabled) return "red";
 
-          return "success";
+          return "green";
         };
 
         return (
           <>
-            <Tag
-              value={getValue()}
-              severity={getSeverity()}
-              style={{
-                width: "5rem",
-              }}
-            />
+            <Tag label={getLabel()} color={getColor()} />
           </>
         );
       },
