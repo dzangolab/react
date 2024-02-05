@@ -2,9 +2,9 @@ import { ButtonProps } from "primereact/button";
 import { MenuItem } from "primereact/menuitem";
 import React, { useState } from "react";
 
+import { Button } from "..";
 import { ConfirmationModal, IModalProperties } from "../ConfirmationModal";
 import { Menu } from "../Menu";
-import { Button } from "..";
 
 export interface DataActionsMenuItem
   extends Omit<MenuItem, "command" | "disabled"> {
@@ -20,12 +20,14 @@ export interface DataActionsMenuProperties {
   actions?: DataActionsMenuItem[];
   buttonOptions?: Omit<ButtonProps, "onClick">;
   data?: object;
+  displaySingleActionButton?: boolean;
 }
 
 export const DataActionsMenu = ({
   actions,
   buttonOptions: pButtonOptions,
   data,
+  displaySingleActionButton = true,
 }: DataActionsMenuProperties) => {
   const [confirmation, setConfirmation] = useState<IModalProperties | null>();
 
@@ -60,7 +62,7 @@ export const DataActionsMenu = ({
 
   return (
     <>
-      {items.length == 1 ? (
+      {items.length == 1 && displaySingleActionButton ? (
         <Button {...items[0]} />
       ) : (
         <Menu model={items} buttonOptions={buttonOptions} />

@@ -65,7 +65,9 @@
       "withCustomFilter": "Table with custom filter component and filterFn (fr)",
       "withEqualServerFilter": "Table with equal server filterFn (fr)",
       "customStaticFilter": "Table with custom  filter component and static filterFn (fr)",
-      "divContent": "Table demonstrating center aligned content (fr)"
+      "divContent": "Table demonstrating center aligned content (fr)",
+      "singleActionColumn": "Table with single action button (fr)",
+      "singleActionColumnWithMenu": "Table with single action menu (fr)"
     }
   },
   "message": {
