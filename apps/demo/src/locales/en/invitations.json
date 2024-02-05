@@ -80,7 +80,8 @@
       "invitedBy": "Invited by",
       "expiresAt": "Expires at",
       "actions": "Actions",
-      "app": "App"
+      "app": "App",
+      "status": "Status"
     },
     "pagination": {
       "pageControl": "Go to",

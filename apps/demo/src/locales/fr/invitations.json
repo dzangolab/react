@@ -80,7 +80,8 @@
       "invitedBy": "Invited by (fr)",
       "expiresAt": "Expires at (fr)",
       "actions": "Actions (fr)",
-      "app": "App (fr)"
+      "app": "App (fr)",
+      "status": "Status (fr)"
     },
     "pagination": {
       "pageControl": "Go to (fr)",

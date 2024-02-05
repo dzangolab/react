@@ -6,7 +6,8 @@ import {
   IButtonProperties,
   TableColumnDefinition,
 } from "@dzangolab/react-ui";
-import { Tag } from "primereact/tag";
+// import { Tag } from "primereact/tag";
+import { Tag } from "@dzangolab/react-ui";
 
 import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
 
@@ -119,11 +120,8 @@ export const InvitationsTable = ({
               {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
-                  value={role}
-                  severity={role === "ADMIN" ? undefined : "success"}
-                  style={{
-                    width: "5rem",
-                  }}
+                  label={role}
+                  color={role === "ADMIN" ? "default" : "green"}
                 />
               ))}
             </>
@@ -134,13 +132,7 @@ export const InvitationsTable = ({
 
         return (
           <>
-            <Tag
-              value={role}
-              severity={role === "ADMIN" ? undefined : "success"}
-              style={{
-                width: "5rem",
-              }}
-            />
+            <Tag label={role} color={role === "ADMIN" ? "default" : "green"} />
           </>
         );
       },
@@ -165,37 +157,31 @@ export const InvitationsTable = ({
     {
       accessorKey: "status",
       align: "center",
-      header: "status",
+      header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
         const getValue = () => {
           const { acceptedAt, revokedAt, expiresAt } = original;
 
-          if (acceptedAt) return "accepted";
-          if (revokedAt) return "revoked";
-          if (expiresAt && new Date(expiresAt) < new Date()) return "expired";
+          if (acceptedAt) return "Accepted";
+          if (revokedAt) return "Revoked";
+          if (expiresAt && new Date(expiresAt) < new Date()) return "Expired";
 
-          return "pending";
+          return "Pending";
         };
 
-        const getSeverity = () => {
+        const getColor = () => {
           const { acceptedAt, revokedAt, expiresAt } = original;
 
-          if (acceptedAt) return "success";
-          if (revokedAt) return "danger";
-          if (expiresAt && new Date(expiresAt) < new Date()) return "warning";
+          if (acceptedAt) return "green";
+          if (revokedAt) return "red";
+          if (expiresAt && new Date(expiresAt) < new Date()) return "gray";
 
-          return undefined;
+          return "yellow";
         };
 
         return (
           <>
-            <Tag
-              value={getValue()}
-              severity={getSeverity()}
-              style={{
-                width: "5rem",
-              }}
-            />
+            <Tag label={getValue()} color={getColor()} />
           </>
         );
       },
@@ -228,7 +214,7 @@ export const InvitationsTable = ({
       );
     }
   };
-
+  console.log("invitation", invitations);
   return (
     <DataTable
       className={className}

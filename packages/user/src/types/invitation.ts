@@ -22,7 +22,7 @@ export interface Invitation {
   revokedAt: number | null;
   role: string;
   token?: string;
-  updatedAt: number | null;
+  updatedAt: number;
 }
 
 export interface InvitationRoleOption {
