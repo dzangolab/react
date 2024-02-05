@@ -168,33 +168,21 @@ export const InvitationsTable = ({
       header: "status",
       cell: ({ row: { original } }) => {
         const getValue = () => {
-          if (original.acceptedAt) return "accepted";
+          const { acceptedAt, revokedAt, expiresAt } = original;
 
-          if (original.revokedAt) return "revoked";
-
-          if (original.expiresAt) {
-            const date = new Date(original.expiresAt);
-            const present = new Date();
-            if (present > date) {
-              return "expired";
-            }
-          }
+          if (acceptedAt) return "accepted";
+          if (revokedAt) return "revoked";
+          if (expiresAt && new Date(expiresAt) < new Date()) return "expired";
 
           return "pending";
         };
 
         const getSeverity = () => {
-          if (original.acceptedAt) return "success";
+          const { acceptedAt, revokedAt, expiresAt } = original;
 
-          if (original.revokedAt) return "danger";
-
-          if (original.expiresAt) {
-            const date = new Date(original.expiresAt);
-            const present = new Date();
-            if (present > date) {
-              return "warning";
-            }
-          }
+          if (acceptedAt) return "success";
+          if (revokedAt) return "danger";
+          if (expiresAt && new Date(expiresAt) < new Date()) return "warning";
 
           return undefined;
         };
