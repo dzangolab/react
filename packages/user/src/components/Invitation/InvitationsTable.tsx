@@ -5,9 +5,8 @@ import {
   TRequestJSON,
   IButtonProperties,
   TableColumnDefinition,
+  Tag,
 } from "@dzangolab/react-ui";
-// import { Tag } from "primereact/tag";
-import { Tag } from "@dzangolab/react-ui";
 
 import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
 
@@ -214,7 +213,7 @@ export const InvitationsTable = ({
       );
     }
   };
-  console.log("invitation", invitations);
+
   return (
     <DataTable
       className={className}
