@@ -30,6 +30,7 @@ type VisibleColumn =
   | "role"
   | "invitedBy"
   | "expiresAt"
+  | "status"
   | "actions"
   | string;
 
@@ -78,6 +79,7 @@ export const InvitationsTable = ({
     "role",
     "invitedBy",
     "expiresAt",
+    "status",
     "actions",
   ],
   ...tableOptions
@@ -158,6 +160,56 @@ export const InvitationsTable = ({
         }
 
         return invitedBy?.email;
+      },
+    },
+    {
+      accessorKey: "status",
+      align: "center",
+      header: "status",
+      cell: ({ row: { original } }) => {
+        const getValue = () => {
+          if (original.acceptedAt) return "accepted";
+
+          if (original.revokedAt) return "revoked";
+
+          if (original.expiresAt) {
+            const date = new Date(original.expiresAt);
+            const present = new Date();
+            if (present > date) {
+              return "expired";
+            }
+          }
+
+          return "pending";
+        };
+
+        const getSeverity = () => {
+          if (original.acceptedAt) return "success";
+
+          if (original.revokedAt) return "danger";
+
+          if (original.expiresAt) {
+            const date = new Date(original.expiresAt);
+            const present = new Date();
+            if (present > date) {
+              return "warning";
+            }
+          }
+
+          return undefined;
+        };
+
+        return (
+          <>
+            <Tag
+              value={getValue()}
+              severity={getSeverity()}
+              style={{
+                width: "5rem",
+              }}
+            />
+          </>
+        );
       },
     },
     {
