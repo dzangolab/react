@@ -159,7 +159,7 @@ export const InvitationsTable = ({
       align: "center",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
-        const getValue = () => {
+        const getLabel = () => {
           const { acceptedAt, revokedAt, expiresAt } = original;
 
           if (acceptedAt) return "Accepted";
@@ -181,7 +181,7 @@ export const InvitationsTable = ({
 
         return (
           <>
-            <Tag label={getValue()} color={getColor()} />
+            <Tag label={getLabel()} color={getColor()} />
           </>
         );
       },
