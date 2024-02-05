@@ -158,9 +158,9 @@ export const InvitationsTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
-        const getLabel = () => {
-          const { acceptedAt, revokedAt, expiresAt } = original;
+        const { acceptedAt, revokedAt, expiresAt } = original;
 
+        const getLabel = () => {
           if (acceptedAt) return "Accepted";
           if (revokedAt) return "Revoked";
           if (expiresAt && new Date(expiresAt) < new Date()) return "Expired";
@@ -169,8 +169,6 @@ export const InvitationsTable = ({
         };
 
         const getColor = () => {
-          const { acceptedAt, revokedAt, expiresAt } = original;
-
           if (acceptedAt) return "green";
           if (revokedAt) return "red";
           if (expiresAt && new Date(expiresAt) < new Date()) return "gray";
