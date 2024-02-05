@@ -29,6 +29,7 @@ export * from "./Popup";
 export * from "./DebouncedInput";
 export * from "./SortableList";
 export * from "./Tooltip";
+export * from "./Tag";
 
 export {
   Accordion,

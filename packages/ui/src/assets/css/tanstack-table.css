@@ -128,47 +128,20 @@
   overflow: hidden;
 }
 
-.dz-table-container .table-wrapper > table tr > td > .content,
-.dz-table-container .table-wrapper > table tr > th > .content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  text-overflow: ellipsis;
-  gap: 0.2rem;
+.dz-table-container .table-wrapper > table tr > td[data-align="center"] > * {
+  margin: auto;
+}
+
+.dz-table-container .table-wrapper > table tr > th {
   text-align: left;
 }
 
-.dz-table-container
-  .table-wrapper
-  > table
-  tr
-  > td[data-align="center"]
-  > .content,
-.dz-table-container
-  .table-wrapper
-  > table
-  tr
-  > th[data-align="center"]
-  > .content {
-  justify-content: center;
+.dz-table-container .table-wrapper > table tr > td[data-align="center"],
+.dz-table-container .table-wrapper > table tr > th[data-align="center"] {
   text-align: center;
 }
 
-.dz-table-container
-  .table-wrapper
-  > table
-  tr
-  > td[data-align="right"]
-  > .content,
-.dz-table-container
-  .table-wrapper
-  > table
-  tr
-  > th[data-align="right"]
-  > .content {
-  justify-content: flex-start;
-  flex-direction: row-reverse;
+.dz-table-container .table-wrapper > table tr > td[data-align="right"] {
   text-align: right;
   padding-right: 1rem;
 }
@@ -177,12 +150,8 @@
   .table-wrapper
   > table
   tr
-  > th[data-align="right"]
-  > .content {
-  justify-content: center;
-  flex-direction: row-reverse;
+  > th[data-align="right"] {
   text-align: center;
-  padding-right: 0;
 }
 
 .dz-table-container .table-wrapper > table tr > th.sortable {
@@ -237,7 +206,7 @@
   font-size: 1rem;
 }
 
-.table-wrapper > table tr.filters .content input {
+.table-wrapper > table tr.filters > th > input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;

@@ -68,7 +68,8 @@
       "withTitle": "Table with title",
       "withCustomFilter": "Table with custom filter component and filterFn",
       "withEqualServerFilter": "Table with equal server filterFn",
-      "customStaticFilter": "Table with custom  filter component and static filterFn"
+      "customStaticFilter": "Table with custom  filter component and static filterFn",
+      "divContent": "Table demonstrating center aligned content"
     }
   },
   "message": {
@@ -136,5 +137,15 @@
       }
     },
     "content": "Page content."
+  },
+  "tag": {
+    "title": "Tag",
+    "usage": {
+      "basic": "Basic",
+      "color": "Color",
+      "custom": "Custom tag",
+      "icon": "Icon",
+      "pill": "Pill"
+    }
   }
 }

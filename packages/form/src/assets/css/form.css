@@ -78,3 +78,9 @@ form span[role="alert"] {
   color: var(--color-alert-danger, red);
   font-size: var(--form-input-error-font-size, 0.8em);
 }
+
+form input[readonly] {
+  border: none;
+  padding-bottom: 0;
+  padding-left: 0;
+}

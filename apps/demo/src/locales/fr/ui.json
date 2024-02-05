@@ -64,7 +64,8 @@
       "withTitle": "Table with title (fr)",
       "withCustomFilter": "Table with custom filter component and filterFn (fr)",
       "withEqualServerFilter": "Table with equal server filterFn (fr)",
-      "customStaticFilter": "Table with custom  filter component and static filterFn (fr)"
+      "customStaticFilter": "Table with custom  filter component and static filterFn (fr)",
+      "divContent": "Table demonstrating center aligned content (fr)"
     }
   },
   "message": {
@@ -132,5 +133,15 @@
       }
     },
     "content": "Page content. (fr)"
+  },
+  "tag": {
+    "title": "Tag (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "color": "Color (fr)",
+      "custom": "Custom tag (fr)",
+      "icon": "Icon (fr)",
+      "pill": "Pill (fr)"
+    }
   }
 }
