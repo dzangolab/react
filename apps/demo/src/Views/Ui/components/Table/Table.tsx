@@ -476,7 +476,7 @@ export const TableDemo = () => {
               filterFn: "inDateRangeFilter",
               customFilterComponent(column) {
                 return (
-                  <>
+                  <div className="filter-date">
                     <DatePickerBasic
                       inputRef={null}
                       name="start-date"
@@ -499,7 +499,7 @@ export const TableDemo = () => {
                       }
                       value={(column.getFilterValue() as [Date, Date])?.[1]}
                     />
-                  </>
+                  </div>
                 );
               },
             },
@@ -517,6 +517,41 @@ export const TableDemo = () => {
             inDateRangeFilter: inDateRangeFilter,
             customEqualStringFilter: customEqualStringFilter,
           }}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.divContent")}>
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "email",
+              header: "Email",
+            },
+            {
+              accessorKey: "name",
+              header: "Name",
+              align: "center",
+              cell: ({ row: { original } }) => (
+                <div className="cell-name">{original.name}</div>
+              ),
+            },
+            {
+              accessorKey: "age",
+              header: "Age",
+              align: "right",
+              width: "6rem",
+              maxWidth: "6rem",
+              minWidth: "6rem",
+            },
+            {
+              accessorKey: "city",
+              header: () => <span>City</span>,
+              width: "8rem",
+              maxWidth: "8rem",
+              minWidth: "8rem",
+            },
+          ]}
+          data={data.slice(10, 15)}
         ></TDataTable>
       </Section>
     </Page>

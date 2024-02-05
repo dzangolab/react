@@ -45,3 +45,29 @@
 .demo-section > h4 {
   margin-bottom: 1rem;
 }
+
+.demo-section 
+  .demo-section-content 
+  .dz-table-container 
+  .table-wrapper 
+  > table 
+  > thead 
+  > tr 
+  > th 
+  > .filter-date {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.demo-section
+  .demo-section-content
+  .dz-table-container
+  .table-wrapper
+  > table
+  > tbody
+  > tr
+  > td
+  > .cell-name {
+  background-color: #ccc;
+  width: 300px;
+}
