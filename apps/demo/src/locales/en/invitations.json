@@ -83,12 +83,18 @@
       "app": "App",
       "status": "Status"
     },
+    "emptyMessage": "Table is empty",
     "pagination": {
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
     },
     "searchPlaceholder": "",
-    "emptyMessage": "Table is empty",
+    "status": {
+      "accepted": "Accepted",
+      "expired": "Expired",
+      "pending": "Pending",
+      "revoked": "Revoked"
+    },
     "title": "Invitations"
   },
   "validation": {

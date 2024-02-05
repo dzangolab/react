@@ -83,12 +83,18 @@
       "app": "App (fr)",
       "status": "Status (fr)"
     },
+    "emptyMessage": "Table is empty (fr)",
     "pagination": {
       "pageControl": "Go to (fr)",
       "rowsPerPage": "Rows (fr)"
     },
     "searchPlaceholder": "",
-    "emptyMessage": "Table is empty (fr)",
+    "status": {
+      "accepted": "Accepted (fr)",
+      "expired": "Expired (fr)",
+      "pending": "Pending (fr)",
+      "revoked": "Revoked (fr)"
+    },
     "title": "Invitations (fr)"
   },
   "validation": {
