@@ -116,6 +116,7 @@
     "title": {
       "menu": "Page (fr)",
       "basic": "Page demo basic (fr)",
+      "centerAligned": "Page with center aligned contents (fr)",
       "toolbar": "Page with toolbar (fr)",
       "stringSubtitle": "Page with subtitle string (fr)",
       "componentSubtitle": "Page with subtitle component (fr)",

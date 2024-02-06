@@ -26,6 +26,14 @@ export const PageDemo = () => {
 
       <hr />
       <Page
+        title={t("page.title.centerAligned")}
+        toolbar={<Button label={t("page.toolbar.edit")} />}
+        children={PageContent}
+        centered={true}
+      />
+
+      <hr />
+      <Page
         title={t("page.title.stringSubtitle")}
         subtitle={t("page.subTitle.title")}
         children={PageContent}
