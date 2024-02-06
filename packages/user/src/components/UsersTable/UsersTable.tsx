@@ -93,6 +93,13 @@ export const UsersTable = ({
     {
       id: "name",
       header: t("table.defaultColumns.name"),
+      accessorFn: (original) => {
+        return (
+          (original.givenName ? original.givenName : "") +
+            (original.middleNames ? " " + original.middleNames : "") +
+            (original.surname ? " " + original.surname : "") || "-"
+        );
+      },
       cell: ({ row: { original } }) => {
         return (
           (original.givenName ? original.givenName : "") +
@@ -102,6 +109,7 @@ export const UsersTable = ({
           )
         );
       },
+      enableColumnFilter: true,
     },
     {
       align: "center",
