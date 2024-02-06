@@ -6,14 +6,17 @@ import { removeUserData } from "@/helpers";
 import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
-import type { NavigationMenu } from "@dzangolab/react-layout";
+import type {
+  NavigationMenuType,
+  NavigationType,
+} from "@dzangolab/react-layout";
 
 interface Properties {
-  authNavigationMenu?: NavigationMenu;
-  userNavigationMenu?: NavigationMenu;
+  authNavigationMenu?: NavigationMenuType;
+  userNavigationMenu?: NavigationMenuType;
   children: React.ReactNode;
   displayNavIcons?: boolean;
-  navigationMenu: NavigationMenu;
+  navigation?: NavigationType;
   onLogout?: () => Promise<any>;
 }
 
@@ -22,7 +25,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   userNavigationMenu,
   children,
   displayNavIcons,
-  navigationMenu,
+  navigation,
   onLogout,
 }) => {
   const { t } = useTranslation("user");
@@ -31,7 +34,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 
   const getBottomNavigationMenu = () => {
     if (!user) {
-      return authNavigationMenu;
+      return { primary: true, menu: authNavigationMenu || [] };
     }
 
     const signout = async () => {
@@ -51,17 +54,33 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       onClick: signout,
     };
 
-    return userNavigationMenu
-      ? [...userNavigationMenu, signoutRoute]
-      : [signoutRoute];
+    return {
+      primary: false,
+      menu: userNavigationMenu
+        ? [...userNavigationMenu, signoutRoute]
+        : [signoutRoute],
+    };
+  };
+
+  const getNavigation = () => {
+    let navigationMenu: NavigationType = [getBottomNavigationMenu()];
+
+    if (navigation) {
+      if (Array.isArray(navigation)) {
+        navigationMenu = [...navigation, ...navigationMenu];
+      } else {
+        navigationMenu.unshift(navigation);
+      }
+    }
+
+    return navigationMenu;
   };
 
   return (
     <SidebarOnlyLayout
-      bottomNavigationMenu={getBottomNavigationMenu()}
       children={children}
       displayNavIcons={displayNavIcons}
-      navigationMenu={navigationMenu}
+      navigation={getNavigation()}
     />
   );
 };

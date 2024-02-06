@@ -1,7 +1,9 @@
 .dz-layout .logo {
-  --_layout-logo-max-width: var(--dz-layout-logo-max-width, 150px);
+  --_layout-logo-max-height: var(--dz-layout-logo-max-height, 40px);
+}
 
-  max-width: var(--_layout-logo-max-width);
+.dz-layout .logo img {
+  max-height: var(--_layout-logo-max-height);
 }
 
 .dz-layout .logo > a {

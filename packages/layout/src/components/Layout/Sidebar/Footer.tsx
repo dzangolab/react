@@ -4,13 +4,17 @@ import { Copyright, Version } from "../common";
 
 type SidebarFooterProperties = {
   children?: React.ReactNode;
+  noLocaleSwitcher?: boolean;
 };
 
-export const SidebarFooter = ({ children }: SidebarFooterProperties) => {
+export const SidebarFooter = ({
+  children,
+  noLocaleSwitcher,
+}: SidebarFooterProperties) => {
   const renderContent = () => {
     return (
       <>
-        <LocaleSwitcher />
+        {!noLocaleSwitcher && <LocaleSwitcher />}
         <Copyright />
         <Version />
       </>

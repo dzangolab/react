@@ -12,3 +12,7 @@ export type NavigationMenuGroup = {
 export type NavigationMenuType = Array<
   NavigationMenuItem | NavigationMenuGroup
 >;
+
+export type NavigationType =
+  | { primary?: boolean; menu: NavigationMenuType }
+  | Array<{ primary?: boolean; menu: NavigationMenuType }>;

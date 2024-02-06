@@ -28,6 +28,10 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
         };
       });
 
+  if (!locales || !(locales.length > 1)) {
+    return null;
+  }
+
   return (
     <span className="locale-switcher">
       <PMenu model={locales || []} popup ref={menu} {...menuOptions} />

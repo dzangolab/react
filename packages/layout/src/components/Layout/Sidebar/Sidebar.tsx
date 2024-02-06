@@ -1,43 +1,54 @@
 import { SidebarFooter } from "./Footer";
 import { SidebarHeader } from "./Header";
 import { NavigationMenu } from "../common";
-import { NavigationMenuType } from "../types";
+import { NavigationType } from "../types";
 
 type SidebarProperties = {
-  bottomNavigationMenu?: NavigationMenuType;
   children?: React.ReactNode;
   displayNavIcons?: boolean;
-  navigationMenu?: NavigationMenuType;
+  navigation?: NavigationType;
   noHeader?: boolean;
   noFooter?: boolean;
+  noLocaleSwitcher?: boolean;
 };
 
 export const Sidebar = ({
-  bottomNavigationMenu,
   children,
   displayNavIcons = false,
-  navigationMenu,
+  navigation,
   noHeader = false,
   noFooter = false,
+  noLocaleSwitcher = false,
 }: SidebarProperties) => {
+  const renderNavigationMenu = () => {
+    if (!navigation) return null;
+
+    if (Array.isArray(navigation)) {
+      return navigation.map(({ primary, menu }, index) => (
+        <NavigationMenu
+          key={index}
+          displayIcons={displayNavIcons}
+          navigationMenu={menu}
+          primaryNavigation={primary}
+        />
+      ));
+    }
+
+    return (
+      <NavigationMenu
+        displayIcons={displayNavIcons}
+        navigationMenu={navigation.menu}
+        primaryNavigation={navigation.primary}
+      />
+    );
+  };
+
   const renderContent = () => {
     return (
       <>
         {!noHeader && <SidebarHeader />}
-        {navigationMenu && (
-          <NavigationMenu
-            displayIcons={displayNavIcons}
-            navigationMenu={navigationMenu}
-            primaryNavigation
-          />
-        )}
-        {bottomNavigationMenu && (
-          <NavigationMenu
-            displayIcons={displayNavIcons}
-            navigationMenu={bottomNavigationMenu}
-          />
-        )}
-        {!noFooter && <SidebarFooter />}
+        {renderNavigationMenu()}
+        {!noFooter && <SidebarFooter noLocaleSwitcher={noLocaleSwitcher} />}
       </>
     );
   };

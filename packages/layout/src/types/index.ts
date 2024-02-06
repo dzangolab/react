@@ -1,13 +1,15 @@
 import type { DzangolabReactLayoutConfig } from "./config";
 import type {
-  NavigationMenu,
+  NavigationMenuType,
   NavigationMenuGroup,
   NavigationMenuItem,
-} from "./layout";
+  NavigationType,
+} from "../components/Layout";
 
 export type {
   DzangolabReactLayoutConfig,
-  NavigationMenu,
+  NavigationMenuType,
   NavigationMenuGroup,
   NavigationMenuItem,
+  NavigationType,
 };

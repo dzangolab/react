@@ -4,4 +4,5 @@
 @import "./components/sidebar.css";
 @import "./layouts/basic.css";
 @import "./layouts/collapsible-sidebar-layout.css";
+@import "./layouts/sidebar-only-layout.css";
 @import "./components/layout/index.css";

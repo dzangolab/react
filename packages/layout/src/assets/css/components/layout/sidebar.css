@@ -5,9 +5,9 @@
   --_layout-sidebar-bg: var(--dz-layout-sidebar-bg, #007aff);
   --_layout-sidebar-border: var(--dz-layout-sidebar-border, none);
   --_layout-sidebar-color: var(--dz-layout-sidebar-color, #fff);
-  --_layout-sidebar-logo-max-width: var(
-    --dz-layout-sidebar-logo-max-width,
-    120px
+  --_layout-sidebar-logo-max-height: var(
+    --dz-layout-sidebar-logo-max-height,
+    40px
   );
   --_layout-sidebar-padding-h: var(--dz-layout-sidebar-padding-h, 1.5rem);
   --_layout-sidebar-padding-v: var(--dz-layout-sidebar-padding-v, 0.75rem);
@@ -40,7 +40,9 @@
 }
 
 .dz-layout > aside > .sidebar-header > .logo {
-  max-width: var(--_layout-sidebar-logo-max-width);
+  --_layout-logo-max-height: var(--_layout-sidebar-logo-max-height);
+
+  width: 100%;
 }
 
 .dz-layout > aside > .sidebar-header > .logo > a {
@@ -84,7 +86,7 @@
     display: none;
   }
 
-  .dz-layout > aside > .navigation-menu:not(nav) {
+  .dz-layout > aside > .navigation-menu + .navigation-menu {
     border-top: 1px solid var(--_layout-sidebar-separator-color);
   }
 
