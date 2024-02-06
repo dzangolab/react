@@ -13,19 +13,21 @@ import type {
 
 interface Properties {
   authNavigationMenu?: NavigationMenuType;
-  userNavigationMenu?: NavigationMenuType;
   children: React.ReactNode;
+  customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
   navigation?: NavigationType;
+  userNavigationMenu?: NavigationMenuType;
   onLogout?: () => Promise<any>;
 }
 
 export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   authNavigationMenu,
-  userNavigationMenu,
   children,
+  customSidebar,
   displayNavIcons,
   navigation,
+  userNavigationMenu,
   onLogout,
 }) => {
   const { t } = useTranslation("user");
@@ -81,6 +83,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       children={children}
       displayNavIcons={displayNavIcons}
       navigation={getNavigation()}
+      customSidebar={customSidebar}
     />
   );
 };

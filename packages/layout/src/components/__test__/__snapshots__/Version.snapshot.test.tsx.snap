@@ -4,6 +4,6 @@ exports[`Component matches snapshot 1`] = `
 <div
   className="version"
 >
-  0.0.1-local
+  1.0.0+local
 </div>
 `;

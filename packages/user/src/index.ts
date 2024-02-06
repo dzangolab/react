@@ -23,7 +23,6 @@ import {
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
-  UserEnabledSwitchableLayout,
 } from "./layouts";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
@@ -85,7 +84,6 @@ export {
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
-  UserEnabledSwitchableLayout,
 
   // views
   AcceptInvitation,

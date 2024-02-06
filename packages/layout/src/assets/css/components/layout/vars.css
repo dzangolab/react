@@ -6,10 +6,10 @@
   --dz-layout-sidebar-color: #fff;
   --dz-layout-sidebar-color: #ffffff;
   --dz-layout-sidebar-logo-max-height: var(
-      var(var(--dz-layout-logo-max-height)),
-      40px;
-    )
-    --dz-layout-sidebar-padding-h: 1.5rem;
+    var(var(--dz-layout-logo-max-height)),
+    40px;
+  );
+  --dz-layout-sidebar-padding-h: 1.5rem;
   --dz-layout-sidebar-padding-v: 0.75rem;
   --dz-layout-sidebar-separator-color: #dbdbdb;
   --dz-layout-sidebar-width: 15rem;
@@ -18,7 +18,7 @@
   --dz-layout-nav-item-color: var(--color, #000000);
   --dz-layout-nav-item-hover-bg: rgba(45, 45, 45, 0.125);
   --dz-layout-nav-item-padding-h: 1.5rem;
-  --dz-layout-nav-item-padding-v: 0.5rem;
+  --dz-layout-nav-item-padding-v: 0.625rem;
 
   --dz-layout-main-bg: #ffffff;
   --dz-layout-main-padding-h: 1rem;

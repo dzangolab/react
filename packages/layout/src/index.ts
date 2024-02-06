@@ -1,20 +1,29 @@
+import "./assets/css/index.css";
+
 import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
-import Copyright from "./components/Copyright";
-import Logo from "./components/Logo";
+import {
+  Logo,
+  Copyright,
+  Version,
+  Layout,
+  Sidebar,
+  SidebarFooter,
+  SidebarHeader,
+  ToggleMenuMobile,
+  LayoutContext,
+  LayoutProvider,
+  useLayoutContext,
+} from "./components/Layout";
 import MainMenu from "./components/MainMenu";
-import Sidebar from "./components/Sidebar";
-import Version from "./components/Version";
-import Layout from "./Layout";
-import BasicLayout from "./layouts/BasicLayout";
-import CollapsibleSidebarLayout from "./layouts/CollapsibleSidebarLayout";
-import { SidebarOnlyLayout } from "./layouts/SidebarOnlyLayout";
-import { SwitchableLayout } from "./layouts/SwitchableLayout";
-import NullLayout from "./NullLayout";
+import SidebarLegacy from "./components/Sidebar";
+import {
+  BasicLayout,
+  CollapsibleSidebarLayout,
+  SidebarOnlyLayout,
+} from "./layouts";
 
 import type { DzangolabReactLayoutConfig } from "./types";
-
-import "./assets/css/index.css";
 
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
@@ -23,23 +32,48 @@ declare module "@dzangolab/react-config" {
 }
 
 export {
+  // legacy
+  // components
   AppFooter,
   AppHeader,
+  MainMenu,
+
+  /**
+   * @description
+   * Previously `<Sidebar></Sidebar>`
+   */
+  SidebarLegacy,
+
+  // layouts
   BasicLayout,
   CollapsibleSidebarLayout,
+
+  // new
+  // components
   Copyright,
-  Layout,
   Logo,
-  MainMenu,
-  NullLayout,
+  SidebarFooter,
+  SidebarHeader,
   Sidebar,
-  SwitchableLayout,
-  SidebarOnlyLayout,
+  ToggleMenuMobile,
   Version,
+
+  // wrapper
+  Layout,
+
+  // layouts
+  SidebarOnlyLayout,
+
+  // context
+  LayoutContext,
+  LayoutProvider,
+  useLayoutContext,
 };
 
 export type {
   DzangolabReactLayoutConfig,
+  NavigationMenuGroup,
+  NavigationMenuItem,
   NavigationMenuType,
   NavigationType,
 } from "./types";

@@ -1,7 +1,9 @@
+import { AppConfig, configContext } from "@dzangolab/react-config";
+import i18n from "@dzangolab/react-i18n";
 import { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import Version from "../Version";
+import { Version } from "../Layout";
 
 import type {
   ReactTestRenderer,
@@ -17,8 +19,41 @@ function toJson(component: ReactTestRenderer) {
   return result as ReactTestRendererJSON;
 }
 
+const appConfig: AppConfig = {
+  apiBaseUrl: "/",
+  appPort: "20072",
+  appTitle: "Dzango Skeletons",
+  appVersion: "0.0.1",
+  features: {
+    showVersion: true,
+  },
+  i18n: {
+    appendNamespaceToCIMode: true,
+    debug: true,
+    defaultNS: "app",
+    fallbackLng: "en",
+    supportedLngs: ["en", "fr"],
+    react: {
+      useSuspense: false,
+    },
+    resources: { en: {}, fr: {} },
+  },
+  websiteDomain: "//",
+  copyright: {
+    holder: "Dzango",
+    url: "www.dzango.com",
+  },
+};
+
 test("Component matches snapshot", () => {
-  const component = create(<Version version="0.0.1-local" />);
+  i18n(appConfig.i18n);
+
+  const component = create(
+    <configContext.Provider value={appConfig}>
+      <Version version="1.0.0+local" />
+    </configContext.Provider>,
+  );
+
   const tree = toJson(component);
   expect(tree).toMatchSnapshot();
 });
