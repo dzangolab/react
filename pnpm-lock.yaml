@@ -367,6 +367,9 @@ importers:
       i18next-resources-to-backend:
         specifier: 1.2.0
         version: 1.2.0
+      primereact:
+        specifier: 9.6.1
+        version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react-i18next:
         specifier: 14.0.1
         version: 14.0.1(i18next@23.7.18)(react-dom@18.2.0)(react@18.2.0)

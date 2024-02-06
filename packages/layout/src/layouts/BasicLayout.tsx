@@ -21,7 +21,7 @@ interface Properties {
   fixed?: boolean;
 }
 
-const BasicLayout: React.FC<Properties> = (properties) => {
+export const BasicLayout: React.FC<Properties> = (properties) => {
   const {
     children,
     localSwitcher,
@@ -33,7 +33,7 @@ const BasicLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     footer,
     header,
-    fixed,
+    fixed = true,
   } = properties;
 
   return (
@@ -57,5 +57,3 @@ const BasicLayout: React.FC<Properties> = (properties) => {
     </div>
   );
 };
-
-export default BasicLayout;

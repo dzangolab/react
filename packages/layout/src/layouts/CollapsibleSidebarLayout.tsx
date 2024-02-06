@@ -26,7 +26,7 @@ interface Properties {
   fixed?: boolean;
 }
 
-const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
+export const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
   const {
     sidebar,
     children,
@@ -41,7 +41,7 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     mainMenuOrientation,
     menuToggle,
     userMenu,
-    fixed,
+    fixed = true,
   } = properties;
 
   return (
@@ -76,5 +76,3 @@ const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
     </div>
   );
 };
-
-export default CollapsibleSidebarLayout;

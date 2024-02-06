@@ -20,8 +20,8 @@ export interface UserMenuItemType {
 
 export interface UserContextType {
   loading: boolean;
-  setUser: (user: UserType | undefined) => void;
-  user: UserType | undefined;
+  user: UserType | null;
+  setUser: (user: UserType | null) => void;
 }
 
 export interface LoginCredentials {
