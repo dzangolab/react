@@ -5,8 +5,8 @@ import {
   TRequestJSON,
   IButtonProperties,
   TableColumnDefinition,
+  Tag,
 } from "@dzangolab/react-ui";
-import { Tag } from "primereact/tag";
 
 import { useUserActions } from "./useUserActionsMethods";
 import { InvitationModal } from "../Invitation";
@@ -116,11 +116,9 @@ export const UsersTable = ({
               {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
-                  value={role}
-                  severity={role === "ADMIN" ? undefined : "success"}
-                  style={{
-                    width: "5rem",
-                  }}
+                  label={role}
+                  color={role === "ADMIN" ? "default" : "green"}
+                  fullWidth
                 />
               ))}
             </>
@@ -132,11 +130,9 @@ export const UsersTable = ({
         return (
           <>
             <Tag
-              value={role}
-              severity={role === "ADMIN" ? undefined : "success"}
-              style={{
-                width: "5rem",
-              }}
+              label={role}
+              color={role === "ADMIN" ? "default" : "green"}
+              fullWidth
             />
           </>
         );
@@ -160,17 +156,15 @@ export const UsersTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
-        const severity = original.disabled ? "danger" : "success";
+        const color = original.disabled ? "red" : "green";
 
         return (
           <Tag
-            value={
+            label={
               original.disabled ? t("status.disabled") : t("status.enabled")
             }
-            severity={severity}
-            style={{
-              width: "5rem",
-            }}
+            color={color}
+            fullWidth
           />
         );
       },

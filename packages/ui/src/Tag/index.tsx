@@ -5,6 +5,7 @@ import { tagColors } from "./TagColors";
 type TagProperties = {
   className?: string;
   color?: string;
+  fullWidth?: boolean;
   icon?: string;
   label?: string;
   rounded?: boolean;
@@ -14,6 +15,7 @@ type TagProperties = {
 export const Tag: FC<TagProperties> = ({
   className = "",
   color = "default",
+  fullWidth,
   icon,
   label,
   rounded,
@@ -21,6 +23,7 @@ export const Tag: FC<TagProperties> = ({
 }) => {
   const tagStyle = {
     backgroundColor: tagColors[color] || color,
+    width: fullWidth ? "100%" : "max-content",
   };
 
   return (

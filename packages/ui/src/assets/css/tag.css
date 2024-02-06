@@ -3,7 +3,7 @@
   align-items: center;
   border-radius: 5px;
   color: var(--_tag-color);
-  display: flex;
+  display: inline-flex;
   gap: 0.25rem;
   justify-content: center;
   padding: 0.25rem 0.5rem;
