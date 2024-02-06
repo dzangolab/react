@@ -45,7 +45,7 @@ export const LocalDataTableDemo = () => {
                   ? t("localDataTable.role.admin")
                   : t("localDataTable.role.user")
               }
-              color={data.isAdmin ? "blue" : "green"}
+              color={data.isAdmin ? "default" : "green"}
               fullWidth
             />
           </>
