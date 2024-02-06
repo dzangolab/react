@@ -6,7 +6,7 @@
   --dz-layout-sidebar-color: #fff;
   --dz-layout-sidebar-color: #ffffff;
   --dz-layout-sidebar-logo-max-height: var(
-    var(var(--dz-layout-logo-max-height)),
+    var(--dz-layout-logo-max-height),
     40px;
   );
   --dz-layout-sidebar-padding-h: 1.5rem;
