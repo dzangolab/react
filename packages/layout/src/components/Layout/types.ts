@@ -1,6 +1,7 @@
 export type NavigationMenuItem = {
   label: string;
   icon?: string;
+  display?: boolean;
 } & ({ route: string } | { onClick: () => void });
 
 export type NavigationMenuGroup = {

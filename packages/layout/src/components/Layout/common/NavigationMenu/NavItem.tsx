@@ -10,6 +10,10 @@ export type NavItemProperties = {
 export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {
   const hasRouterContext = useInRouterContext();
 
+  if ("display" in navItem && !navItem.display) {
+    return null;
+  }
+
   if ("onClick" in navItem) {
     return (
       <div className="nav-item" onClick={navItem.onClick}>
@@ -37,7 +41,7 @@ export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {
         end={navItem.route === "/"}
         className="nav-item"
       >
-        {navItem.icon && <i className={navItem.icon}></i>}
+        {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         <span>{navItem.label}</span>
       </NavLink>
     );
@@ -51,7 +55,7 @@ export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {
       className={isActive ? "nav-item active" : "nav-item"}
       aria-current={isActive ? "page" : undefined}
     >
-      {navItem.icon && <i className={navItem.icon}></i>}
+      {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
       {navItem.label}
     </a>
   );
