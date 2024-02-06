@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SidebarOnlyLayout } from "@dzangolab/react-layout";
+import { useMemo } from "react";
 import { toast } from "react-toastify";
 
 import { removeUserData } from "@/helpers";
@@ -34,9 +35,19 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 
   const { user, setUser } = useUser();
 
-  const getBottomNavigationMenu = () => {
+  const hasPrimaryNavigation = useMemo(() => {
+    if (!navigation) return false;
+
+    if (Array.isArray(navigation)) {
+      return navigation.some((nav) => nav.primary);
+    }
+
+    return navigation.primary;
+  }, [navigation]);
+
+  const getUserNavigationMenu = () => {
     if (!user) {
-      return { primary: true, menu: authNavigationMenu || [] };
+      return { primary: !hasPrimaryNavigation, menu: authNavigationMenu || [] };
     }
 
     const signout = async () => {
@@ -65,7 +76,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   };
 
   const getNavigation = () => {
-    let navigationMenu: NavigationType = [getBottomNavigationMenu()];
+    let navigationMenu: NavigationType = [getUserNavigationMenu()];
 
     if (navigation) {
       if (Array.isArray(navigation)) {
