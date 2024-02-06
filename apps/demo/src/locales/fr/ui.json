@@ -106,7 +106,11 @@
   },
   "localDataTable": {
     "title": "Local datatable (Primereact)(fr)",
-    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)"
+    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)",
+    "role": {
+      "admin": "ADMIN (fr)",
+      "user": "USER (fr)"
+    }
   },
   "page": {
     "title": {

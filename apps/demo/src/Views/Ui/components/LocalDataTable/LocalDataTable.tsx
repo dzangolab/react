@@ -1,6 +1,11 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { ActionsMenu, DataTable, Message, Page } from "@dzangolab/react-ui";
-import { Tag } from "primereact/tag";
+import {
+  ActionsMenu,
+  DataTable,
+  Message,
+  Page,
+  Tag,
+} from "@dzangolab/react-ui";
 
 import { Section } from "../../../../components/Demo";
 
@@ -35,11 +40,13 @@ export const LocalDataTableDemo = () => {
         return (
           <>
             <Tag
-              value={data.isAdmin ? "ADMIN" : "USER"}
-              style={{
-                background: data.isAdmin ? "#6366F1" : "#22C55E",
-                width: "5rem",
-              }}
+              label={
+                data.isAdmin
+                  ? t("localDataTable.role.admin")
+                  : t("localDataTable.role.user")
+              }
+              color={data.isAdmin ? "blue" : "green"}
+              fullWidth
             />
           </>
         );
