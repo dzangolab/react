@@ -118,6 +118,7 @@ export const UsersTable = ({
                   key={role + index}
                   label={role}
                   color={role === "ADMIN" ? "default" : "green"}
+                  fullWidth
                 />
               ))}
             </>
@@ -128,7 +129,11 @@ export const UsersTable = ({
 
         return (
           <>
-            <Tag label={role} color={role === "ADMIN" ? "default" : "green"} />
+            <Tag
+              label={role}
+              color={role === "ADMIN" ? "default" : "green"}
+              fullWidth
+            />
           </>
         );
       },
@@ -151,14 +156,15 @@ export const UsersTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
-        const severity = original.disabled ? "red" : "green";
+        const color = original.disabled ? "red" : "green";
 
         return (
           <Tag
             label={
               original.disabled ? t("status.disabled") : t("status.enabled")
             }
-            color={severity}
+            color={color}
+            fullWidth
           />
         );
       },

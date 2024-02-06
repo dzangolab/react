@@ -121,6 +121,7 @@ export const InvitationsTable = ({
                   key={role + index}
                   label={role}
                   color={role === "ADMIN" ? "default" : "green"}
+                  fullWidth
                 />
               ))}
             </>
@@ -131,7 +132,11 @@ export const InvitationsTable = ({
 
         return (
           <>
-            <Tag label={role} color={role === "ADMIN" ? "default" : "green"} />
+            <Tag
+              label={role}
+              color={role === "ADMIN" ? "default" : "green"}
+              fullWidth
+            />
           </>
         );
       },
@@ -179,7 +184,7 @@ export const InvitationsTable = ({
 
         return (
           <>
-            <Tag label={getLabel()} color={getColor()} />
+            <Tag label={getLabel()} color={getColor()} fullWidth />
           </>
         );
       },
