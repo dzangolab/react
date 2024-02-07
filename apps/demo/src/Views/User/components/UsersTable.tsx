@@ -13,7 +13,6 @@ export const UsersTableDemo = () => {
       <Section>
         <UsersTable
           users={allUsers}
-          fetchUsers={() => {}}
           onInvitationAdded={() => {}}
           visibleColumns={[
             "email",
