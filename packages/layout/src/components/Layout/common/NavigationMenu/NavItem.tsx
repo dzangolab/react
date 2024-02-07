@@ -1,10 +1,10 @@
 import { NavLink, useInRouterContext } from "react-router-dom";
 
-import { NavigationMenuItem } from "../../types";
+import { NavItemType } from "../../types";
 
 export type NavItemProperties = {
   displayIcon?: boolean;
-  navItem: NavigationMenuItem;
+  navItem: NavItemType;
 };
 
 export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {

@@ -72,8 +72,8 @@ export {
 
 export type {
   DzangolabReactLayoutConfig,
-  NavigationMenuGroup,
-  NavigationMenuItem,
-  NavigationMenuType,
-  NavigationType,
+  NavGroupType,
+  NavItemType,
+  NavMenuItemType,
+  NavMenuType,
 } from "./types";

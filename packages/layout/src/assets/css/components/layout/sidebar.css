@@ -10,12 +10,12 @@
     40px
   );
   --_layout-sidebar-padding-h: var(--dz-layout-sidebar-padding-h, 1.5rem);
-  --_layout-sidebar-padding-v: var(--dz-layout-sidebar-padding-v, 0.75rem);
+  --_layout-sidebar-padding-v: var(--dz-layout-sidebar-padding-v, 1rem);
   --_layout-sidebar-separator-color: var(
     --dz-layout-sidebar-separator-color,
     #dbdbdb
   );
-  --_layout-sidebar-width: var(--dz-layout-sidebar-width, 15rem);
+  --_layout-sidebar-width: var(--dz-layout-sidebar-width, 16rem);
 
   background: var(--_layout-sidebar-bg);
   color: var(--_layout-sidebar-color);
@@ -24,10 +24,6 @@
 .dz-layout[aria-expanded="false"] > aside > .navigation-menu,
 .dz-layout[aria-expanded="false"] > aside > .sidebar-footer {
   display: none;
-}
-
-.dz-layout > aside > .navigation-menu {
-  --_layout-nav-item-color: var(--_layout-sidebar-color);
 }
 
 .dz-layout > aside > .sidebar-header {
@@ -50,17 +46,23 @@
 }
 
 .dz-layout > aside > .navigation-menu {
-  padding: 1rem 0;
-}
+  --_layout-nav-item-color: var(--_layout-sidebar-color);
+  --_layout-nav-item-hover-color: var(--_layout-sidebar-color);
+  --_layout-nav-item-active-color: var(--_layout-sidebar-color);
+  --_layout-nav-item-padding-h: var(--_layout-sidebar-padding-h);
+  --_layout-nav-menu-padding-v: var(--_layout-sidebar-padding-v);
+  --_layout-nav-menu-separator-color: var(--_layout-sidebar-separator-color);
 
-.dz-layout > aside > nav.navigation-menu {
   flex: 1;
   overflow-y: auto;
 }
 
+.dz-layout > aside > :not(.sidebar-header) {
+  border-top: 1px solid var(--_layout-sidebar-separator-color);
+}
+
 .dz-layout > aside > .sidebar-footer {
   align-items: center;
-  border-top: 1px solid var(--_layout-sidebar-separator-color);
   display: flex;
   flex-wrap: wrap;
   font-size: 0.875rem;
@@ -84,10 +86,6 @@
 
   .dz-layout > aside > .sidebar-header > .toggle-menu {
     display: none;
-  }
-
-  .dz-layout > aside > .navigation-menu + .navigation-menu {
-    border-top: 1px solid var(--_layout-sidebar-separator-color);
   }
 
   .dz-layout[aria-expanded="false"] > aside > .navigation-menu,
