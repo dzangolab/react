@@ -100,14 +100,10 @@ export const UsersTable = ({
             (original.surname ? " " + original.surname : "") || "-"
         );
       },
-      cell: ({ row: { original } }) => {
-        return (
-          (original.givenName ? original.givenName : "") +
-            (original.middleNames ? " " + original.middleNames : "") +
-            (original.surname ? " " + original.surname : "") || (
-            <code>&#8212;</code>
-          )
-        );
+      cell: ({ getValue }) => {
+        const value = getValue();
+
+        return value;
       },
       enableColumnFilter: true,
     },
