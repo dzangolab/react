@@ -2,7 +2,17 @@ import { Email, Input, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, SubmitButton } from "@dzangolab/react-ui";
 
-export const ProfileFormFields = ({ submitting }: { submitting?: boolean }) => {
+import { RenderAdditionalInvitationFields } from "@/types";
+
+interface Properties {
+  submitting?: boolean;
+  renderAdditionalFields?: RenderAdditionalInvitationFields;
+}
+
+export const ProfileFormFields = ({
+  submitting,
+  renderAdditionalFields,
+}: Properties) => {
   const {
     register,
     getFieldState,
@@ -39,6 +49,9 @@ export const ProfileFormFields = ({ submitting }: { submitting?: boolean }) => {
         submitcount={submitCount}
         getFieldState={getFieldState}
       />
+
+      {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
+
       <div className="profile-form-actions">
         <Button
           label={t("profile.button.cancel")}

@@ -10,13 +10,19 @@ import { UpdateProfileInputType } from "@/types";
 
 import { ProfileFormFields } from "./ProfileFormFields";
 
-export const ProfileForm = () => {
+import type { AdditionalInvitationFields } from "@/types";
+
+interface Properties {
+  additionalInvitationFields?: AdditionalInvitationFields;
+}
+
+export const ProfileForm = ({ additionalInvitationFields }: Properties) => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const appConfig = useConfig();
   const [submitting, setSubmitting] = useState(false);
 
-  const profileValidationSchema: any = z.object({
+  let profileValidationSchema: any = z.object({
     givenName: z.string().nonempty({
       message: t("profile.form.validations.firstName.required"),
     }),
@@ -25,6 +31,12 @@ export const ProfileForm = () => {
       message: t("profile.form.validations.lastName.required"),
     }),
   });
+
+  if (additionalInvitationFields?.schema) {
+    profileValidationSchema = profileValidationSchema.merge(
+      additionalInvitationFields.schema,
+    );
+  }
 
   const handleSubmit = async (data: UpdateProfileInputType) => {
     setSubmitting(true);
@@ -45,17 +57,22 @@ export const ProfileForm = () => {
       });
   };
 
+  const formValues = {
+    email: user?.email,
+    givenName: user?.givenName,
+    surname: user?.surname,
+    ...additionalInvitationFields?.defaultValues,
+  };
   return (
     <Provider
       validationSchema={profileValidationSchema}
       onSubmit={handleSubmit}
-      values={{
-        email: user?.email,
-        givenName: user?.givenName,
-        surname: user?.surname,
-      }}
+      values={formValues}
     >
-      <ProfileFormFields submitting={submitting} />
+      <ProfileFormFields
+        submitting={submitting}
+        renderAdditionalFields={additionalInvitationFields?.renderFields}
+      />
     </Provider>
   );
 };
