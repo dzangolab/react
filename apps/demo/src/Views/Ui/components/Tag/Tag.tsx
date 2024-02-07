@@ -34,7 +34,7 @@ export const TagDemo = () => {
       <Section title={t("tag.usage.pill")}>
         <div className="demo-tag-container">
           <Tag label="default" rounded />
-          <Tag label="purple" color="purple" icon="pi pi-times" rounded />
+          <Tag label="blue" color="blue" icon="pi pi-times" rounded />
         </div>
       </Section>
 
