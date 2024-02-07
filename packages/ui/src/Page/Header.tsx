@@ -20,17 +20,19 @@ export const PageHeader = ({
           {breadcrumb}
         </div>
       ) : null}
-      {title && (
-        <h1>
-          {title}
-          {titleTag && <span>{titleTag}</span>}
-        </h1>
-      )}
-      {subtitle && (
-        <div data-testid="page-subtitle" className="subtitle">
-          {subtitle}
-        </div>
-      )}
+      <div>
+        {title && (
+          <h1>
+            {title}
+            {titleTag && <span>{titleTag}</span>}
+          </h1>
+        )}
+        {subtitle && (
+          <div data-testid="page-subtitle" className="subtitle">
+            {subtitle}
+          </div>
+        )}
+      </div>
       {toolbar && (
         <div data-testid="page-toolbar" className="toolbar">
           {toolbar}

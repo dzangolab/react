@@ -3,8 +3,9 @@
 exports[`Component matches snapshot 1`] = `
 <div
   className="dz-page"
-  data-alignment={false}
+  data-centered={false}
 >
+  <div />
   <div
     className="content"
     data-testid="page-content"
