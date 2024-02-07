@@ -9,7 +9,10 @@ const LayoutComponent = ({ children, className }: LayoutProperties) => {
   const { menuMobileOpen } = useLayoutContext();
 
   return (
-    <div className={`dz-layout ${className}`} aria-expanded={menuMobileOpen}>
+    <div
+      className={`dz-layout ${className || ""}`}
+      aria-expanded={menuMobileOpen}
+    >
       {children}
     </div>
   );

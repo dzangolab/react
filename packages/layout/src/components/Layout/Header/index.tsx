@@ -2,11 +2,11 @@ import { LocaleSwitcher } from "@dzangolab/react-i18n";
 import React from "react";
 
 import { Logo, NavigationMenu, ToggleMenuMobile } from "../common";
-import { NavigationMenuType } from "../types";
+import { NavMenuType } from "../types";
 
 interface HeaderProperties {
   children?: React.ReactNode;
-  navigationMenu?: NavigationMenuType;
+  navigationMenu?: NavMenuType;
   userMenu?: React.ReactNode; // TODO update to NavigationMenuItem[] when we have UserMenu component in layout package
 }
 
