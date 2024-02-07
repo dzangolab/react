@@ -5,9 +5,14 @@ import { NavItemType } from "../../types";
 export type NavItemProperties = {
   displayIcon?: boolean;
   navItem: NavItemType;
+  isGroupHeader?: boolean;
 };
 
-export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {
+export const NavItem = ({
+  navItem,
+  displayIcon = true,
+  isGroupHeader,
+}: NavItemProperties) => {
   const hasRouterContext = useInRouterContext();
 
   if ("display" in navItem && !navItem.display) {
@@ -19,6 +24,7 @@ export const NavItem = ({ navItem, displayIcon = true }: NavItemProperties) => {
       <div className="nav-item" onClick={navItem.onClick}>
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         {navItem.label}
+        {isGroupHeader && <i className="pi pi-angle-down nav-group-toggle" />}
       </div>
     );
   }
