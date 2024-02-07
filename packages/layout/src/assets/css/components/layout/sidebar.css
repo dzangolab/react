@@ -28,7 +28,6 @@
 
 .dz-layout > aside > .sidebar-header {
   align-items: center;
-  border-bottom: 1px solid var(--_layout-sidebar-separator-color);
   display: flex;
   gap: 1rem;
   justify-content: space-between;
