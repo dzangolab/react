@@ -1,5 +1,5 @@
-.dz-page.login {
-  justify-items: center;
+.dz-page[data-centered="true"].login {
+  max-width: fit-content;
 }
 
 .login > .content > .redirect-message {
