@@ -19,6 +19,7 @@
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",
@@ -33,6 +34,7 @@
     "i18next-browser-languagedetector": "7.2.0",
     "i18next-chained-backend": "4.6.2",
     "i18next-resources-to-backend": "1.2.0",
+    "primereact": "9.6.1",
     "react-i18next": "14.0.1"
   },
   "devDependencies": {

@@ -31,7 +31,7 @@ const DropdownUserMenu: React.FC<Properties> = ({
   const signout = async () => {
     if (await logout()) {
       await removeUserData();
-      await setUser(undefined);
+      await setUser(null);
       onLogout && (await onLogout());
 
       toast.success(t("logout.message"));

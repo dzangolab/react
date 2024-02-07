@@ -1,5 +1,8 @@
+@import "./components/logo.css";
 @import "./components/header.css";
 @import "./components/footer.css";
+@import "./components/layout/index.css";
 @import "./components/sidebar.css";
 @import "./layouts/basic.css";
 @import "./layouts/collapsible-sidebar-layout.css";
+@import "./layouts/sidebar-only-layout.css";

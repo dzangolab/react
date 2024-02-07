@@ -5,7 +5,7 @@ import { userContext } from "../context/UserProvider";
 const useUser = () => {
   const context = useContext(userContext);
 
-  if (context === undefined) {
+  if (context === null) {
     throw new Error("UserProvider is required!");
   }
 

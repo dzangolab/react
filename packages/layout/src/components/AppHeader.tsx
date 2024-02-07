@@ -1,7 +1,7 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
-import Logo from "./Logo";
+import { Logo } from "./Layout";
 import MainMenu from "./MainMenu";
 import useConfig from "../hooks/useConfig";
 
@@ -22,15 +22,7 @@ interface Properties {
 
 const AppHeader: React.FC<Properties> = (properties: Properties) => {
   const [expanded, setExpanded] = useState<boolean>(false);
-  const { appName, layout: layoutConfig } = useConfig();
-
-  const parseLogoAlt = useCallback(() => {
-    if (!appName) {
-      return;
-    }
-
-    return appName.replace("@", "").replace("/", " ");
-  }, [appName]);
+  const { layout: layoutConfig } = useConfig();
 
   const {
     localeSwitcher,
@@ -46,13 +38,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      {logo || (
-        <Logo
-          src={layoutConfig?.logo}
-          route={logoRoute || layoutConfig?.homeRoute}
-          alt={layoutConfig?.logoAlt || parseLogoAlt()}
-        />
-      )}
+      {logo || <Logo route={logoRoute} />}
       <nav className={`menu ${navStyle}`} data-expanded={expanded}>
         {mainMenu || (
           <MainMenu
