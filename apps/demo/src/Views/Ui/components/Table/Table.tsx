@@ -345,6 +345,7 @@ export const TableDemo = () => {
             actions: [
               {
                 label: "View",
+                icon: "pi pi-eye",
                 onClick: (rowData) => {
                   //your logic here
                   // eslint-disable-next-line no-console
