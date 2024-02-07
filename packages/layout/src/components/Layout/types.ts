@@ -6,12 +6,12 @@ export type NavItemType = {
 
 export type NavGroupType = {
   label: string;
-  icon: string;
+  icon?: string;
   submenu: NavItemType[];
 };
 
 export type NavMenuItemType = {
-  label?: boolean;
+  label?: string;
   id?: string;
   menu: Array<NavItemType | NavGroupType>;
 };

@@ -1,3 +1,4 @@
+import { NavGroup } from "./NavGroup";
 import { NavItem } from "./NavItem";
 import {
   NavMenuType,
@@ -18,7 +19,7 @@ export const NavigationMenu = ({
   navigationMenu,
 }: NavigationMenuProperties) => {
   const renderNavGroup = (navGroup: NavGroupType) => {
-    return null;
+    return <NavGroup navGroup={navGroup} displayIcon={displayIcons} />;
   };
 
   const renderNavigation = (nav: NavItemType | NavGroupType) => {
