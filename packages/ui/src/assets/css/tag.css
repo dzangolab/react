@@ -1,11 +1,10 @@
 .dz-tag {
-  --_tag-color: var(--dz-tag-color, #4a4747);
-  --_tag-font-size: var(--dz-tag-font-size, 0.85rem);
   align-items: center;
   border-radius: 5px;
-  color: var(--_tag-color);
+  color: #4a4747;
   display: inline-flex;
-  font-size: var(--_tag-font-size);
+  font-size: 0.875rem;
+  font-weight: normal;
   gap: 0.25rem;
   justify-content: center;
   padding: 0.25rem 0.5rem;
