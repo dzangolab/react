@@ -6,10 +6,9 @@ import { z } from "zod";
 
 import { updateUserProfile } from "@/api/user";
 import { useConfig, useUser } from "@/hooks";
+import { UpdateProfileInputType, AdditionalProfileFields } from "@/types";
 
 import { ProfileFormFields } from "./ProfileFormFields";
-
-import type { AdditionalProfileFields } from "@/types";
 
 interface Properties {
   additionalProfileFields?: AdditionalProfileFields;
@@ -37,7 +36,7 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
     );
   }
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: UpdateProfileInputType) => {
     setSubmitting(true);
     updateUserProfile(data, appConfig?.apiBaseUrl)
       .then((response) => {
@@ -62,6 +61,7 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
     surname: user?.surname,
     ...additionalProfileFields?.defaultValues,
   };
+
   return (
     <Provider
       validationSchema={profileValidationSchema}
