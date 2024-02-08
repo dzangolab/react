@@ -4,6 +4,7 @@ import {
   AdditionalInvitationFields,
   RenderAdditionalInvitationFields,
 } from "./invitation";
+
 export interface UserType extends EmailPasswordUserType {
   disabled?: boolean;
   givenName: string | null;
