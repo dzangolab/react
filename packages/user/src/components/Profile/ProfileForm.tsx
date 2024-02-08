@@ -6,17 +6,16 @@ import { z } from "zod";
 
 import { updateUserProfile } from "@/api/user";
 import { useConfig, useUser } from "@/hooks";
-import { UpdateProfileInputType } from "@/types";
 
 import { ProfileFormFields } from "./ProfileFormFields";
 
-import type { AdditionalInvitationFields } from "@/types";
+import type { AdditionalProfileFields } from "@/types";
 
 interface Properties {
-  additionalInvitationFields?: AdditionalInvitationFields;
+  additionalProfileFields?: AdditionalProfileFields;
 }
 
-export const ProfileForm = ({ additionalInvitationFields }: Properties) => {
+export const ProfileForm = ({  additionalProfileFields }: Properties) => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const appConfig = useConfig();
@@ -32,16 +31,18 @@ export const ProfileForm = ({ additionalInvitationFields }: Properties) => {
     }),
   });
 
-  if (additionalInvitationFields?.schema) {
+  if ( additionalProfileFields?.schema) {
     profileValidationSchema = profileValidationSchema.merge(
-      additionalInvitationFields.schema,
+      additionalProfileFields.schema,
     );
   }
 
-  const handleSubmit = async (data: UpdateProfileInputType) => {
+  const handleSubmit = async (data: any) => {
+    console.log("data",data)
     setSubmitting(true);
     updateUserProfile(data, appConfig?.apiBaseUrl)
       .then((response) => {
+        console.log("response",response)
         if ("data" in response) {
           toast.success(t("profile.toastMessages.success"));
           setUser(response.data);
@@ -50,6 +51,7 @@ export const ProfileForm = ({ additionalInvitationFields }: Properties) => {
         }
       })
       .catch(() => {
+        console.log("this s error")
         toast.error(t("profile.toastMessages.error"));
       })
       .finally(() => {
@@ -61,7 +63,7 @@ export const ProfileForm = ({ additionalInvitationFields }: Properties) => {
     email: user?.email,
     givenName: user?.givenName,
     surname: user?.surname,
-    ...additionalInvitationFields?.defaultValues,
+    ... additionalProfileFields?.defaultValues,
   };
   return (
     <Provider
@@ -71,7 +73,7 @@ export const ProfileForm = ({ additionalInvitationFields }: Properties) => {
     >
       <ProfileFormFields
         submitting={submitting}
-        renderAdditionalFields={additionalInvitationFields?.renderFields}
+        renderAdditionalFields={additionalProfileFields?.renderFields}
       />
     </Provider>
   );

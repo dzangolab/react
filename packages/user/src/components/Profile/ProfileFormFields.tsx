@@ -2,11 +2,11 @@ import { Email, Input, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, SubmitButton } from "@dzangolab/react-ui";
 
-import { RenderAdditionalInvitationFields } from "@/types";
+import { RenderAdditionalProfileFields } from "@/types";
 
 interface Properties {
   submitting?: boolean;
-  renderAdditionalFields?: RenderAdditionalInvitationFields;
+  renderAdditionalFields?: RenderAdditionalProfileFields;
 }
 
 export const ProfileFormFields = ({

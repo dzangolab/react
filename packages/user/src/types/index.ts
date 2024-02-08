@@ -14,10 +14,12 @@ import {
   RevokeInvitationResponse,
 } from "./invitation";
 import {
+  AdditionalProfileFields,
   AuthState,
   ErrorResponse,
   ExtendedUser,
   LoginCredentials,
+  RenderAdditionalProfileFields,
   SignInUpPromise,
   UpdateProfileInputType,
   UserContextType,
@@ -27,6 +29,7 @@ import {
 
 export type {
   AdditionalInvitationFields,
+  AdditionalProfileFields,
   AccpetInvitationResponse,
   AddInvitationResponse,
   AuthState,
@@ -41,6 +44,7 @@ export type {
   InvitationRoleOption,
   LoginCredentials,
   RenderAdditionalInvitationFields,
+  RenderAdditionalProfileFields,
   ResendInvitationResponse,
   RevokeInvitationResponse,
   SignInUpPromise,

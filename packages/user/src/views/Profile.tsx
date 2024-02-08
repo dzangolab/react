@@ -3,18 +3,18 @@ import { Page } from "@dzangolab/react-ui";
 import React from "react";
 
 import { ProfileForm } from "@/components/Profile";
-import { AdditionalInvitationFields } from "@/types";
+import { AdditionalProfileFields } from "@/types";
 
 interface Properties {
-  additionalInvitationFields?: AdditionalInvitationFields;
+  additionalProfileFields?: AdditionalProfileFields;
 }
 
-export const Profile = ({ additionalInvitationFields }: Properties) => {
+export const Profile = ({ additionalProfileFields }: Properties) => {
   const { t } = useTranslation("user");
 
   return (
     <Page title={t("profile.title")} className="profile">
-      <ProfileForm additionalInvitationFields={additionalInvitationFields} />
+      <ProfileForm additionalProfileFields={additionalProfileFields} />
     </Page>
   );
 };
