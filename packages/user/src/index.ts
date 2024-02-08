@@ -5,8 +5,7 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
-import LoginForm from "./components/LoginForm";
-import { LoginWrapper } from "./components/LoginWrapper";
+import { LoginForm, LoginWrapper } from "./components/Login";
 import SignupForm from "./components/SignupForm";
 import { SignupWrapper } from "./components/SignupWrapper";
 import TermsAndConditions from "./components/TermsAndConditions";
@@ -18,7 +17,11 @@ import {
 } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
-import { useUser, useEmailVerification } from "./hooks";
+import {
+  useUser,
+  useEmailVerification,
+  useFirstUserSignupRedirection,
+} from "./hooks";
 import {
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
@@ -110,6 +113,7 @@ export {
   signup,
   superTokens,
   useEmailVerification,
+  useFirstUserSignupRedirection,
   useUser,
   userContext,
   verifyEmail,

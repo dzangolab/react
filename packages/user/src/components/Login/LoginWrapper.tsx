@@ -3,13 +3,13 @@ import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import LoginForm from "./LoginForm";
-import { ROUTES } from "../constants";
-import { useConfig, useUser } from "../hooks";
-import { verifySessionRoles } from "../supertokens/helpers";
-import login from "../supertokens/login";
+import { LoginForm } from "./LoginForm";
+import { ROUTES } from "../../constants";
+import { useConfig, useUser } from "../../hooks";
+import { verifySessionRoles } from "../../supertokens/helpers";
+import login from "../../supertokens/login";
 
-import type { LoginCredentials, SignInUpPromise } from "../types";
+import type { LoginCredentials, SignInUpPromise } from "../../types";
 
 interface IProperties {
   handleSubmit?: (credential: LoginCredentials) => void;

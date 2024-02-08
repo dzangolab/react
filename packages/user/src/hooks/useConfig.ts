@@ -1,7 +1,7 @@
 import { configContext } from "@dzangolab/react-config";
 import { useContext } from "react";
 
-const useConfig = () => {
+export const useConfig = () => {
   const context = useContext(configContext);
 
   if (context === undefined) {
@@ -10,5 +10,3 @@ const useConfig = () => {
 
   return context;
 };
-
-export default useConfig;
