@@ -56,8 +56,11 @@ export const Login: React.FC<IProperties> = ({
           customDivider
         ) : (
           <>
-            <Divider orientation="horizontal" />
-            <Divider orientation="vertical" />
+            <Divider
+              orientation={
+                orientation === "vertical" ? "horizontal" : "vertical"
+              }
+            />
           </>
         )}
         <SocialLogins />
