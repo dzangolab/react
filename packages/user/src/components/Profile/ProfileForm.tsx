@@ -15,7 +15,7 @@ interface Properties {
   additionalProfileFields?: AdditionalProfileFields;
 }
 
-export const ProfileForm = ({  additionalProfileFields }: Properties) => {
+export const ProfileForm = ({ additionalProfileFields }: Properties) => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const appConfig = useConfig();
@@ -31,18 +31,16 @@ export const ProfileForm = ({  additionalProfileFields }: Properties) => {
     }),
   });
 
-  if ( additionalProfileFields?.schema) {
+  if (additionalProfileFields?.schema) {
     profileValidationSchema = profileValidationSchema.merge(
       additionalProfileFields.schema,
     );
   }
 
   const handleSubmit = async (data: any) => {
-    console.log("data",data)
     setSubmitting(true);
     updateUserProfile(data, appConfig?.apiBaseUrl)
       .then((response) => {
-        console.log("response",response)
         if ("data" in response) {
           toast.success(t("profile.toastMessages.success"));
           setUser(response.data);
@@ -51,7 +49,6 @@ export const ProfileForm = ({  additionalProfileFields }: Properties) => {
         }
       })
       .catch(() => {
-        console.log("this s error")
         toast.error(t("profile.toastMessages.error"));
       })
       .finally(() => {
@@ -63,7 +60,7 @@ export const ProfileForm = ({  additionalProfileFields }: Properties) => {
     email: user?.email,
     givenName: user?.givenName,
     surname: user?.surname,
-    ... additionalProfileFields?.defaultValues,
+    ...additionalProfileFields?.defaultValues,
   };
   return (
     <Provider
