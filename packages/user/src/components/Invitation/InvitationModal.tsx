@@ -1,3 +1,4 @@
+import { AdditionalFormFields } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, IButtonProperties } from "@dzangolab/react-ui";
 import { Dialog } from "primereact/dialog";
@@ -7,14 +8,13 @@ import {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
-  AdditionalInvitationFields,
   InvitationExpiryDateField,
 } from "@/types";
 
 import { InvitationForm } from "./InvitationForm";
 
 interface Properties {
-  additionalInvitationFields?: AdditionalInvitationFields;
+  additionalInvitationFields?: AdditionalFormFields;
   apps?: InvitationAppOption[];
   expiryDateField?: InvitationExpiryDateField;
   invitationButtonOptions?: IButtonProperties;

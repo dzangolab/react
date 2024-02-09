@@ -6,6 +6,7 @@ import {
   RolePicker,
   useFormContext,
   useWatch,
+  RenderAdditionalFormFields,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button } from "@dzangolab/react-ui";
@@ -15,11 +16,10 @@ import {
   InvitationAppOption,
   InvitationExpiryDateField,
   InvitationRoleOption,
-  RenderAdditionalInvitationFields,
 } from "@/types";
 
 interface IProperties {
-  renderAdditionalFields?: RenderAdditionalInvitationFields;
+  renderAdditionalFields?: RenderAdditionalFormFields;
   apps?: InvitationAppOption[];
   expiryDateField?: InvitationExpiryDateField;
   loading?: boolean;

@@ -1,10 +1,5 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import {
-  AdditionalInvitationFields,
-  RenderAdditionalInvitationFields,
-} from "./invitation";
-
 export interface UserType extends EmailPasswordUserType {
   disabled?: boolean;
   givenName: string | null;
@@ -60,6 +55,3 @@ export type UpdateProfileInputType = {
   givenName: string;
   surname: string;
 };
-
-export type AdditionalProfileFields = AdditionalInvitationFields;
-export type RenderAdditionalProfileFields = RenderAdditionalInvitationFields;

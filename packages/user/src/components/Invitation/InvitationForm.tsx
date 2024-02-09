@@ -1,4 +1,8 @@
-import { Provider, emailSchema } from "@dzangolab/react-form";
+import {
+  Provider,
+  emailSchema,
+  AdditionalFormFields,
+} from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React, { useCallback, useState } from "react";
 import { toast } from "react-toastify";
@@ -10,7 +14,6 @@ import { useConfig } from "@/hooks";
 import { InvitationFormFields } from "./InvitationFormFields";
 
 import type {
-  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
@@ -18,7 +21,7 @@ import type {
 } from "@/types";
 
 interface Properties {
-  additionalInvitationFields?: AdditionalInvitationFields;
+  additionalInvitationFields?: AdditionalFormFields;
   apps?: InvitationAppOption[];
   expiryDateField?: InvitationExpiryDateField;
   onCancel?: () => void;

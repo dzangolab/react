@@ -1,12 +1,12 @@
+import { AdditionalFormFields } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import React from "react";
 
 import { ProfileForm } from "@/components/Profile";
-import { AdditionalProfileFields } from "@/types";
 
 interface Properties {
-  additionalProfileFields?: AdditionalProfileFields;
+  additionalProfileFields?: AdditionalFormFields;
 }
 
 export const Profile = ({ additionalProfileFields }: Properties) => {

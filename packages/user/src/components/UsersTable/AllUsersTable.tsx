@@ -1,3 +1,4 @@
+import { AdditionalFormFields } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
   TDataTable as DataTable,
@@ -11,7 +12,6 @@ import {
 import { InvitationModal } from "../Invitation";
 
 import type {
-  AdditionalInvitationFields,
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
@@ -37,7 +37,7 @@ export type AllUsersTableProperties = Partial<
     "data" | "visibleColumns" | "fetchData"
   >
 > & {
-  additionalInvitationFields?: AdditionalInvitationFields;
+  additionalInvitationFields?: AdditionalFormFields;
   apps?: Array<InvitationAppOption>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
   invitationButtonOptions?: IButtonProperties;

@@ -1,4 +1,3 @@
-import { useFormContext } from "@dzangolab/react-form";
 import Zod from "zod";
 
 import { ErrorResponse } from "./types";
@@ -38,26 +37,10 @@ export interface InvitationAppOption {
   label?: string;
 }
 
-export interface AdditionalInvitationFields {
-  renderFields: RenderAdditionalInvitationFields;
-  schema: AdditionalInvitationSchema;
-  defaultValues: AdditionalDefaultValues;
-}
-
 export interface InvitationExpiryDateField {
   display: boolean;
   mode: "calendar" | "input";
 }
-
-export type RenderAdditionalInvitationFields = (
-  formContext: typeof useFormContext,
-) => React.ComponentType;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type AdditionalInvitationSchema = Zod.ZodObject<any>;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type AdditionalDefaultValues = Record<string, any>;
 
 export type AddInvitationResponse = Invitation | ErrorResponse;
 

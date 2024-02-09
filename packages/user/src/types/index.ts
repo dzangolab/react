@@ -1,6 +1,5 @@
 import { DzangolabReactUserConfig } from "./config";
 import {
-  AdditionalInvitationFields,
   AccpetInvitationResponse,
   AddInvitationResponse,
   GetInvitationResponse,
@@ -9,17 +8,14 @@ import {
   InvitationExpiryDateField,
   InvitationPayload,
   InvitationRoleOption,
-  RenderAdditionalInvitationFields,
   ResendInvitationResponse,
   RevokeInvitationResponse,
 } from "./invitation";
 import {
-  AdditionalProfileFields,
   AuthState,
   ErrorResponse,
   ExtendedUser,
   LoginCredentials,
-  RenderAdditionalProfileFields,
   SignInUpPromise,
   UpdateProfileInputType,
   UserContextType,
@@ -28,8 +24,6 @@ import {
 } from "./types";
 
 export type {
-  AdditionalInvitationFields,
-  AdditionalProfileFields,
   AccpetInvitationResponse,
   AddInvitationResponse,
   AuthState,
@@ -43,8 +37,6 @@ export type {
   InvitationPayload,
   InvitationRoleOption,
   LoginCredentials,
-  RenderAdditionalInvitationFields,
-  RenderAdditionalProfileFields,
   ResendInvitationResponse,
   RevokeInvitationResponse,
   SignInUpPromise,

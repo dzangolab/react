@@ -1,4 +1,4 @@
-import { Provider } from "@dzangolab/react-form";
+import { Provider, AdditionalFormFields } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -6,12 +6,12 @@ import { z } from "zod";
 
 import { updateUserProfile } from "@/api/user";
 import { useConfig, useUser } from "@/hooks";
-import { UpdateProfileInputType, AdditionalProfileFields } from "@/types";
+import { UpdateProfileInputType } from "@/types";
 
 import { ProfileFormFields } from "./ProfileFormFields";
 
 interface Properties {
-  additionalProfileFields?: AdditionalProfileFields;
+  additionalProfileFields?: AdditionalFormFields;
 }
 
 export const ProfileForm = ({ additionalProfileFields }: Properties) => {

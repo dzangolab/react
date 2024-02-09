@@ -1,12 +1,15 @@
-import { Email, Input, useFormContext } from "@dzangolab/react-form";
+import {
+  Email,
+  Input,
+  useFormContext,
+  RenderAdditionalFormFields,
+} from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, SubmitButton } from "@dzangolab/react-ui";
 
-import { RenderAdditionalProfileFields } from "@/types";
-
 interface Properties {
   submitting?: boolean;
-  renderAdditionalFields?: RenderAdditionalProfileFields;
+  renderAdditionalFields?: RenderAdditionalFormFields;
 }
 
 export const ProfileFormFields = ({

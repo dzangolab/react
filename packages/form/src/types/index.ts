@@ -1,4 +1,8 @@
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
+import {
+  UseFormGetFieldState,
+  UseFormRegister,
+  useFormContext,
+} from "react-hook-form";
 
 interface EmailErrorMessages {
   invalid?: string;
@@ -21,7 +25,22 @@ interface CustomInputProperties {
   submitcount?: number;
 }
 
+export type AdditionalFormSchema = Zod.ZodObject<any>;
+
+export type AdditionalDefaultValues = Record<string, any>;
+
+export type RenderAdditionalFormFields = (
+  formContext: typeof useFormContext,
+) => React.ComponentType;
+
+interface AdditionalFormFields {
+  defaultValues: AdditionalDefaultValues;
+  schema: AdditionalFormSchema;
+  renderFields: RenderAdditionalFormFields;
+}
+
 export type {
+  AdditionalFormFields,
   CustomInputProperties,
   EmailErrorMessages,
   PasswordErrorMessages,
