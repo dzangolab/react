@@ -1,17 +1,4 @@
 .dz-layout.sidebar-only {
-  --_default-padding-h: 1rem;
-  --_default-padding-v: 1.5rem;
-
-  --_layout-main-bg: var(--dz-layout-main-bg, #ffffff);
-  --_layout-main-padding-h: var(
-    --dz-layout-main-padding-h,
-    var(--_default-padding-h)
-  );
-  --_layout-main-padding-v: var(
-    --dz-layout-main-padding-v,
-    var(--_default-padding-v)
-  );
-
   display: grid;
   grid-template-areas:
     "header"
@@ -24,17 +11,11 @@
 }
 
 .dz-layout.sidebar-only > main {
-  background: var(--_layout-main-bg);
   grid-area: main;
-  overflow-y: auto;
-  padding: var(--_layout-main-padding-v) var(--_layout-main-padding-h);
 }
 
 @media screen and (min-width: 576px) {
   .dz-layout.sidebar-only {
-    --_default-padding-h: 2rem;
-    --_default-padding-v: 2.5rem;
-
     display: grid;
     grid-template-areas: "sidebar main";
     grid-template-columns: auto 1fr;
@@ -43,5 +24,9 @@
 
   .dz-layout.sidebar-only > aside {
     grid-area: sidebar;
+  }
+
+  .dz-layout.sidebar-only > main {
+    overflow-y: auto;
   }
 }
