@@ -5,9 +5,9 @@
   --_layout-sidebar-bg: var(--dz-layout-sidebar-bg, #007aff);
   --_layout-sidebar-border: var(--dz-layout-sidebar-border, none);
   --_layout-sidebar-color: var(--dz-layout-sidebar-color, #fff);
-  --_layout-sidebar-logo-max-height: var(
-    --dz-layout-sidebar-logo-max-height,
-    40px
+  --_layout-sidebar-logo-max-width: var(
+    --dz-layout-sidebar-logo-max-width,
+    150px
   );
   --_layout-sidebar-padding-h: var(--dz-layout-sidebar-padding-h, 1.5rem);
   --_layout-sidebar-padding-v: var(--dz-layout-sidebar-padding-v, 1rem);
@@ -35,7 +35,7 @@
 }
 
 .dz-layout > aside > .sidebar-header > .logo {
-  --_layout-logo-max-height: var(--_layout-sidebar-logo-max-height);
+  --_layout-logo-max-width: var(--_layout-sidebar-logo-max-width);
 
   width: 100%;
 }
@@ -48,6 +48,14 @@
   --_layout-nav-item-color: var(--_layout-sidebar-color);
   --_layout-nav-item-hover-color: var(--_layout-sidebar-color);
   --_layout-nav-item-active-color: var(--_layout-sidebar-color);
+  --_layout-nav-item-hover-bg: var(
+    --dz-layout-nav-item-hover-bg,
+    rgba(45, 45, 45, 0.125)
+  );
+  --_layout-nav-item-active-bg: var(
+    --dz-layout-nav-item-active-bg,
+    rgba(45, 45, 45, 0.125)
+  );
   --_layout-nav-item-padding-h: var(--_layout-sidebar-padding-h);
   --_layout-nav-menu-padding-v: var(--_layout-sidebar-padding-v);
   --_layout-nav-menu-separator-color: var(--_layout-sidebar-separator-color);
