@@ -3,7 +3,7 @@ import { Divider, Page } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import { LoginWrapper, SocialLogins } from "../components/Login";
-import { useConfig, useFirstUserSignupRedirection } from "../hooks";
+import { useConfig, useFirstUserSignup } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
 
@@ -30,9 +30,10 @@ export const Login: React.FC<IProperties> = ({
   const appConfig = useConfig();
   const navigate = useNavigate();
 
-  const [firstUserRedirectionLoading] = useFirstUserSignupRedirection({
+  const [redirecting] = useFirstUserSignup({
     appConfig,
-    navigate,
+    autoRedirect: true,
+    redirectFn: navigate,
   });
 
   let className = "login";
@@ -73,7 +74,7 @@ export const Login: React.FC<IProperties> = ({
       title={t("login.title")}
       className={className}
       data-aria-orientation={orientation}
-      loading={firstUserRedirectionLoading}
+      loading={!!redirecting}
       centered={true}
     >
       <LoginWrapper
