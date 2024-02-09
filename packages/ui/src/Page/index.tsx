@@ -61,7 +61,7 @@ const Page: React.FC<Properties> = ({
   return (
     <div className={_className} data-alignment={centered}>
       <PageHeader {...{ title, titleTag, subtitle, toolbar, breadcrumb }} />
-      <div data-testid="page-content" className="content" {...others}>
+      <div data-testid="page-content" className="dz-page-content" {...others}>
         {child ? child : children}
       </div>
     </div>
