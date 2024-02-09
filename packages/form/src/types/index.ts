@@ -31,7 +31,7 @@ export type AdditionalDefaultValues = Record<string, any>;
 
 export type RenderAdditionalFormFields = (
   formContext: typeof useFormContext,
-) => React.ComponentType;
+) => JSX.Element;
 
 interface AdditionalFormFields {
   defaultValues: AdditionalDefaultValues;

@@ -2,19 +2,19 @@ import {
   Email,
   Input,
   useFormContext,
-  RenderAdditionalFormFields,
+  AdditionalFormFields,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, SubmitButton } from "@dzangolab/react-ui";
 
 interface Properties {
   submitting?: boolean;
-  renderAdditionalFields?: RenderAdditionalFormFields;
+  additionalProfileFields?: AdditionalFormFields;
 }
 
 export const ProfileFormFields = ({
   submitting,
-  renderAdditionalFields,
+  additionalProfileFields,
 }: Properties) => {
   const {
     register,
@@ -53,7 +53,9 @@ export const ProfileFormFields = ({
         getFieldState={getFieldState}
       />
 
-      {renderAdditionalFields ? renderAdditionalFields(useFormContext) : null}
+      {additionalProfileFields
+        ? additionalProfileFields.renderFields(useFormContext)
+        : null}
 
       <div className="profile-form-actions">
         <Button

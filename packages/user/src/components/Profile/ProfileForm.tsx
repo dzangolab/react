@@ -70,7 +70,7 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
     >
       <ProfileFormFields
         submitting={submitting}
-        renderAdditionalFields={additionalProfileFields?.renderFields}
+        additionalProfileFields={additionalProfileFields}
       />
     </Provider>
   );
