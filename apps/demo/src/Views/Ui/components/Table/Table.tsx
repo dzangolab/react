@@ -365,7 +365,7 @@ export const TableDemo = () => {
             return rowData.id !== 12;
           }}
           dataActionsMenu={{
-            displaySingleActionButton: false,
+            displayActionMenu: true,
             actions: [
               {
                 label: "View",

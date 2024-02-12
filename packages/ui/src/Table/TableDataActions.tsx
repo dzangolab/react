@@ -20,14 +20,14 @@ export interface DataActionsMenuProperties {
   actions?: DataActionsMenuItem[];
   buttonOptions?: Omit<ButtonProps, "onClick">;
   data?: object;
-  displaySingleActionButton?: boolean;
+  displayActionMenu?: boolean;
 }
 
 export const DataActionsMenu = ({
   actions,
   buttonOptions: pButtonOptions,
   data,
-  displaySingleActionButton = true,
+  displayActionMenu = false,
 }: DataActionsMenuProperties) => {
   const [confirmation, setConfirmation] = useState<IModalProperties | null>();
 
@@ -60,13 +60,19 @@ export const DataActionsMenu = ({
       }))
     : [];
 
+  const renderActions = () => {
+    const { icon, label, ...rest } = items[0];
+
+    if (items.length == 1 && icon && !displayActionMenu) {
+      return <Button iconLeft={icon} data-pr-tooltip={label} {...rest} />;
+    }
+
+    return <Menu model={items} buttonOptions={buttonOptions} />;
+  };
+
   return (
     <>
-      {items.length == 1 && displaySingleActionButton ? (
-        <Button {...items[0]} />
-      ) : (
-        <Menu model={items} buttonOptions={buttonOptions} />
-      )}
+      {renderActions()}
       {!!confirmation && (
         <ConfirmationModal {...confirmation} visible={!!confirmation} />
       )}
