@@ -1,3 +1,38 @@
+# [0.34.0](https://github.com/dzangolab/react/compare/v0.33.0...v0.34.0) (2024-02-12)
+
+### Breaking changes
+* **layout:** remove `<Layout>` and `<NullLayout>` components. Can be safely replaced with `<></>`
+* **user:** update translation key for social login from `user:login.button.googleLoginLabel` to `user:login.social.google`
+
+
+### Bug Fixes
+
+* **layout:** use correct css var ([9723dd9](https://github.com/dzangolab/react/commit/9723dd9fbefb48f9996f26c3ec9969ee6c7f7259))
+* **ui/page:** page title taking only 50% with all the time ([#816](https://github.com/dzangolab/react/issues/816)) ([52a1b64](https://github.com/dzangolab/react/commit/52a1b641a05822b8a0ed9f0f0e6d39507ed2baf4))
+* **ui/Table:** fetchData not being triggred when fetchData function is updated ([#784](https://github.com/dzangolab/react/issues/784)) ([166f0e4](https://github.com/dzangolab/react/commit/166f0e4c20caac2b52f0fd7eec39cd9d37c27cac))
+* **user/Signup:** confirm-password revalidation on password change ([#760](https://github.com/dzangolab/react/issues/760)) ([2ded4f0](https://github.com/dzangolab/react/commit/2ded4f088ef7deb59c80d53a0996713c4ca9e06a))
+
+
+### Features
+
+* **confirmation-modal:** add line height property for message ([#785](https://github.com/dzangolab/react/issues/785)) ([7b2e2d2](https://github.com/dzangolab/react/commit/7b2e2d23fe34b0ef6d431725468401e968fd561e))
+* **form/input:** make readonly input field look different ([#794](https://github.com/dzangolab/react/issues/794)) ([465ea55](https://github.com/dzangolab/react/commit/465ea551cfd21a375e2a8df51d007603e39754c7))
+* **layout:** add new header layout ([#812](https://github.com/dzangolab/react/issues/812)) ([434101b](https://github.com/dzangolab/react/commit/434101b866feb0aaa3f5ed8069d587ec9a3ad6e4))
+* **layout:** add new layout components and sidebar-only layout ([#802](https://github.com/dzangolab/react/issues/802)) ([62b5500](https://github.com/dzangolab/react/commit/62b5500309e4bca1511b4b24e9cbe8b65a54d107))
+* **layout:** add support for nav group ([#805](https://github.com/dzangolab/react/issues/805)) ([3592202](https://github.com/dzangolab/react/commit/35922025a9326d8032eda1f1708333a8d37b80c6))
+* **layout:** update css variables usage ([#818](https://github.com/dzangolab/react/issues/818)) ([327e1bd](https://github.com/dzangolab/react/commit/327e1bd7d6b568dae5c4113c7b81544e984248a7))
+* **layout:** update sidebar-only layout ([#803](https://github.com/dzangolab/react/issues/803)) ([6e42172](https://github.com/dzangolab/react/commit/6e421720c0621992032be84f8e247c353ee839e6))
+* **tag:** add font size ([#808](https://github.com/dzangolab/react/issues/808)) ([ea67090](https://github.com/dzangolab/react/commit/ea670900b429d3ed8c835772ba359fcd5d90e6ae))
+* **ui + users:** update components to use in-house tag component ([#798](https://github.com/dzangolab/react/issues/798)) ([13104a5](https://github.com/dzangolab/react/commit/13104a526fa4c4c23c8c1a806459897ac2be78b6))
+* **ui/Page:** add support for center aligned page content ([#790](https://github.com/dzangolab/react/issues/790)) ([a2f1255](https://github.com/dzangolab/react/commit/a2f1255597758114d8a567d27d7f0f982bb6c386))
+* **ui/Table:** add display options for actions menu ([b9f9a64](https://github.com/dzangolab/react/commit/b9f9a64bb96b42b621183fa70aa5d4d081da5a1d))
+* **ui/tag:** add tag component ([#795](https://github.com/dzangolab/react/issues/795)) ([ef4b282](https://github.com/dzangolab/react/commit/ef4b282d01b466e380e17b808ee7f979e598d490))
+* **user/Login:** refactor Login page + introduce useFirstUserSignup hook ([#810](https://github.com/dzangolab/react/issues/810)) ([b292654](https://github.com/dzangolab/react/commit/b292654f415d0e68d9a8ad12910321fd9e4a4216))
+* **user/Profile:**  add support for additional fields in form ([#806](https://github.com/dzangolab/react/issues/806)) ([d68ba9d](https://github.com/dzangolab/react/commit/d68ba9dceeded052b984e02c696a7fc9fb5856b2))
+* **users-table:** make name column filterable ([#801](https://github.com/dzangolab/react/issues/801)) ([6081a99](https://github.com/dzangolab/react/commit/6081a99ba3a681706b9acf561273075eaf5d6b8b))
+
+
+
 # [0.33.0](https://github.com/dzangolab/react/compare/v0.32.0...v0.33.0) (2024-01-25)
 
 
