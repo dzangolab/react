@@ -10,7 +10,7 @@ export interface InvitationPayload {
 }
 
 export interface Invitation {
-  acceptedAt: number;
+  acceptedAt: number | null;
   appId: number;
   createdAt: number;
   email: string;
@@ -19,7 +19,7 @@ export interface Invitation {
   invitedById: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload: any;
-  revokedAt: number;
+  revokedAt: number | null;
   role: string;
   token?: string;
   updatedAt: number;

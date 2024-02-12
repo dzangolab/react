@@ -29,7 +29,11 @@ export const ChangePassword = () => {
   };
 
   return (
-    <Page className="change-password" title={t("changePassword.title")}>
+    <Page
+      className="change-password"
+      title={t("changePassword.title")}
+      centered={true}
+    >
       <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>
   );

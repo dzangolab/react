@@ -1,8 +1,15 @@
-import { DropdownMenu } from "@dzangolab/react-ui";
+import { Menu as PMenu, MenuProps as PMenuProperties } from "primereact/menu";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-const LocaleSwitcher = () => {
+import "../css/locale-switcher.css";
+
+export type LocalSwitcherProperties = PMenuProperties;
+
+const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
   const { i18n, t } = useTranslation("locales");
+
+  const menu = useRef<PMenu>(null);
 
   const changeLocale = (newLocale: string) => {
     i18n.changeLanguage(newLocale);
@@ -16,20 +23,23 @@ const LocaleSwitcher = () => {
       .filter((locale) => locale !== "cimode" && i18n.options.debug) // Filter out cimode from options. The mode shows key e.g. locale.english as value.
       .map((locale) => {
         return {
-          selected: i18n.language === locale,
-          key: locale,
-          onClick: () => changeLocale(locale),
+          command: () => changeLocale(locale),
           label: t(`locales.${locale}`),
         };
       });
 
+  if (!locales || !(locales.length > 1)) {
+    return null;
+  }
+
   return (
-    <DropdownMenu
-      className="locale-switcher"
-      dropdownMenu={{ menuItems: locales || [] }}
-      label={t(`locales.${i18n.language}`)}
-      lang={i18n.language}
-    />
+    <span className="locale-switcher">
+      <PMenu model={locales || []} popup ref={menu} {...menuOptions} />
+      <span onClick={(event) => menu?.current?.toggle(event)}>
+        {t(`locales.${i18n.language}`)}
+        <i className="pi pi-angle-down" style={{ fontSize: "12px" }}></i>
+      </span>
+    </span>
   );
 };
 

@@ -65,7 +65,9 @@
       "withCustomFilter": "Table with custom filter component and filterFn (fr)",
       "withEqualServerFilter": "Table with equal server filterFn (fr)",
       "customStaticFilter": "Table with custom  filter component and static filterFn (fr)",
-      "divContent": "Table demonstrating center aligned content (fr)"
+      "divContent": "Table demonstrating center aligned content (fr)",
+      "singleActionColumn": "Table with single action button (fr)",
+      "singleActionColumnWithMenu": "Table with single action menu (fr)"
     }
   },
   "message": {
@@ -106,12 +108,17 @@
   },
   "localDataTable": {
     "title": "Local datatable (Primereact)(fr)",
-    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)"
+    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)",
+    "role": {
+      "admin": "ADMIN (fr)",
+      "user": "USER (fr)"
+    }
   },
   "page": {
     "title": {
       "menu": "Page (fr)",
       "basic": "Page demo basic (fr)",
+      "centerAligned": "Page with center aligned contents (fr)",
       "toolbar": "Page with toolbar (fr)",
       "stringSubtitle": "Page with subtitle string (fr)",
       "componentSubtitle": "Page with subtitle component (fr)",
@@ -132,5 +139,15 @@
       }
     },
     "content": "Page content. (fr)"
+  },
+  "tag": {
+    "title": "Tag (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "color": "Color (fr)",
+      "custom": "Custom tag (fr)",
+      "icon": "Icon (fr)",
+      "pill": "Pill (fr)"
+    }
   }
 }

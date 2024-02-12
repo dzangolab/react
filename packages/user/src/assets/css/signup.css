@@ -1,7 +1,3 @@
-.signup {
-  justify-items: center;
-}
-
 .signup .buttons {
   display: flex;
   flex-direction: column;

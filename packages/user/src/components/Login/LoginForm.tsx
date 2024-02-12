@@ -9,14 +9,14 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { SubmitButton } from "@dzangolab/react-ui";
 import * as zod from "zod";
 
-import { LoginCredentials } from "../types";
+import { LoginCredentials } from "../../types";
 
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
   loading?: boolean;
 }
 
-const LoginForm = ({ handleSubmit, loading }: Properties) => {
+export const LoginForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const LoginFormSchema = zod.object({
@@ -47,5 +47,3 @@ const LoginForm = ({ handleSubmit, loading }: Properties) => {
     </Form>
   );
 };
-
-export default LoginForm;

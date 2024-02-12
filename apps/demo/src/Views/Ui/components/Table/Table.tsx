@@ -333,6 +333,53 @@ export const TableDemo = () => {
         />
       </Section>
 
+      <Section title={t("table.usage.singleActionColumn")}>
+        <TDataTable
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+          displayRowActions={(rowData) => {
+            return rowData.id !== 12;
+          }}
+          dataActionsMenu={{
+            actions: [
+              {
+                label: "View",
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "view action");
+                },
+              },
+            ],
+          }}
+        />
+      </Section>
+
+      <Section title={t("table.usage.singleActionColumnWithMenu")}>
+        <TDataTable
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+          displayRowActions={(rowData) => {
+            return rowData.id !== 12;
+          }}
+          dataActionsMenu={{
+            displaySingleActionButton: false,
+            actions: [
+              {
+                label: "View",
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "view action");
+                },
+              },
+            ],
+          }}
+        />
+      </Section>
+
       <Section title={t("table.usage.withCustomFilter")}>
         <TDataTable
           columns={[

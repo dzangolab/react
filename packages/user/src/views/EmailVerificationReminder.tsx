@@ -47,6 +47,7 @@ export const EmailVerificationReminder = () => {
     <Page
       className="email-verification-reminder"
       title={t("emailVerification.title")}
+      centered={true}
     >
       <Card className="email-verification-reminder-card">
         <div className="message-wrapper">

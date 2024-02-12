@@ -5,8 +5,8 @@ import {
   TRequestJSON,
   IButtonProperties,
   TableColumnDefinition,
+  Tag,
 } from "@dzangolab/react-ui";
-import { Tag } from "primereact/tag";
 
 import { useUserActions } from "./useUserActionsMethods";
 import { InvitationModal } from "../Invitation";
@@ -93,15 +93,19 @@ export const UsersTable = ({
     {
       id: "name",
       header: t("table.defaultColumns.name"),
-      cell: ({ row: { original } }) => {
+      accessorFn: (original) => {
         return (
           (original.givenName ? original.givenName : "") +
             (original.middleNames ? " " + original.middleNames : "") +
-            (original.surname ? " " + original.surname : "") || (
-            <code>&#8212;</code>
-          )
+            (original.surname ? " " + original.surname : "") || "-"
         );
       },
+      cell: ({ getValue }) => {
+        const value = getValue();
+
+        return value;
+      },
+      enableColumnFilter: true,
     },
     {
       align: "center",
@@ -116,11 +120,9 @@ export const UsersTable = ({
               {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
-                  value={role}
-                  severity={role === "ADMIN" ? undefined : "success"}
-                  style={{
-                    width: "5rem",
-                  }}
+                  label={role}
+                  color={role === "ADMIN" ? "default" : "green"}
+                  fullWidth
                 />
               ))}
             </>
@@ -132,11 +134,9 @@ export const UsersTable = ({
         return (
           <>
             <Tag
-              value={role}
-              severity={role === "ADMIN" ? undefined : "success"}
-              style={{
-                width: "5rem",
-              }}
+              label={role}
+              color={role === "ADMIN" ? "default" : "green"}
+              fullWidth
             />
           </>
         );
@@ -160,17 +160,15 @@ export const UsersTable = ({
       accessorKey: "status",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
-        const severity = original.disabled ? "danger" : "success";
+        const color = original.disabled ? "red" : "green";
 
         return (
           <Tag
-            value={
+            label={
               original.disabled ? t("status.disabled") : t("status.enabled")
             }
-            severity={severity}
-            style={{
-              width: "5rem",
-            }}
+            color={color}
+            fullWidth
           />
         );
       },

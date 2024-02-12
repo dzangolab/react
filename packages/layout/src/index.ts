@@ -1,19 +1,33 @@
+import "./assets/css/index.css";
+
 import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
-import Copyright from "./components/Copyright";
-import Logo from "./components/Logo";
+import {
+  Copyright,
+  Header,
+  HeaderMenu,
+  HeaderTitle,
+  Layout,
+  LayoutContext,
+  LayoutProvider,
+  Logo,
+  Sidebar,
+  SidebarFooter,
+  SidebarHeader,
+  ToggleMenuMobile,
+  Version,
+  useLayoutContext,
+} from "./components/Layout";
 import MainMenu from "./components/MainMenu";
-import Sidebar from "./components/Sidebar";
-import Version from "./components/Version";
-import Layout from "./Layout";
-import BasicLayout from "./layouts/BasicLayout";
-import CollapsibleSidebarLayout from "./layouts/CollapsibleSidebarLayout";
-import { SwitchableLayout } from "./layouts/SwitchableLayout";
-import NullLayout from "./NullLayout";
+import SidebarLegacy from "./components/Sidebar";
+import {
+  BasicLayout,
+  CollapsibleSidebarLayout,
+  HeaderLayout,
+  SidebarOnlyLayout,
+} from "./layouts";
 
 import type { DzangolabReactLayoutConfig } from "./types";
-
-import "./assets/css/index.css";
 
 declare module "@dzangolab/react-config" {
   export interface AppConfig {
@@ -22,18 +36,52 @@ declare module "@dzangolab/react-config" {
 }
 
 export {
+  // legacy
+  // components
   AppFooter,
   AppHeader,
+  MainMenu,
+
+  /**
+   * @description
+   * Previously `<Sidebar></Sidebar>`
+   */
+  SidebarLegacy,
+
+  // layouts
   BasicLayout,
   CollapsibleSidebarLayout,
+
+  // new
+  // components
   Copyright,
-  Layout,
+  Header,
+  HeaderMenu,
+  HeaderTitle,
   Logo,
-  MainMenu,
-  NullLayout,
+  SidebarFooter,
+  SidebarHeader,
   Sidebar,
-  SwitchableLayout,
+  ToggleMenuMobile,
   Version,
+
+  // wrapper
+  Layout,
+
+  // layouts
+  HeaderLayout,
+  SidebarOnlyLayout,
+
+  // context
+  LayoutContext,
+  LayoutProvider,
+  useLayoutContext,
 };
 
-export type { DzangolabReactLayoutConfig } from "./types";
+export type {
+  DzangolabReactLayoutConfig,
+  NavGroupType,
+  NavItemType,
+  NavMenuItemType,
+  NavMenuType,
+} from "./types";

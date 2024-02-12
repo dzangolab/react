@@ -25,3 +25,9 @@
   max-width: 10rem;
   min-width: 10rem;
 }
+
+.table-invitations .column-status {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
