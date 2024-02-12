@@ -81,6 +81,6 @@ form span[role="alert"] {
 
 form input[readonly] {
   border: none;
-  padding-bottom: 0;
+  font-weight: 500;
   padding-left: 0;
 }
