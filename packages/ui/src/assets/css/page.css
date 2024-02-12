@@ -13,7 +13,6 @@
 
 .dz-page[data-centered="true"] {
   justify-items: center;
-  align-items: center;
   max-width: var(--dz-page-max-width);
   margin: auto;
 }
