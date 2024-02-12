@@ -1,28 +1,28 @@
+import { NavGroup } from "./NavGroup";
 import { NavItem } from "./NavItem";
 import {
-  NavigationMenuType,
-  NavigationMenuGroup,
-  NavigationMenuItem,
+  NavMenuType,
+  NavGroupType,
+  NavItemType,
+  NavMenuItemType,
 } from "../../types";
 
 export type NavigationMenuProperties = {
   displayIcons?: boolean;
   horizontal?: boolean;
-  navigationMenu: NavigationMenuType;
-  primaryNavigation?: boolean;
+  navigationMenu: NavMenuType;
 };
 
 export const NavigationMenu = ({
   displayIcons = true,
   horizontal = false,
   navigationMenu,
-  primaryNavigation = false,
 }: NavigationMenuProperties) => {
-  const renderNavGroup = (navGroup: NavigationMenuGroup) => {
-    return null;
+  const renderNavGroup = (navGroup: NavGroupType) => {
+    return <NavGroup navGroup={navGroup} displayIcon={displayIcons} />;
   };
 
-  const renderNavigation = (nav: NavigationMenuItem | NavigationMenuGroup) => {
+  const renderNavigation = (nav: NavItemType | NavGroupType) => {
     if ("submenu" in nav) {
       return renderNavGroup(nav);
     }
@@ -30,31 +30,37 @@ export const NavigationMenu = ({
     return <NavItem navItem={nav} displayIcon={displayIcons} />;
   };
 
-  const renderContent = () => {
-    if (!navigationMenu?.length) {
-      return null;
-    }
-
+  const renderNavMenuItem = (
+    { id, label, menu }: NavMenuItemType,
+    index?: number,
+  ) => {
     return (
-      <ul>
-        {navigationMenu.map((nav, index) => {
-          return <li key={index}>{renderNavigation(nav)}</li>;
-        })}
-      </ul>
+      <div className="nav-menu-item" data-nav-menu-id={id} key={index}>
+        {label && <span>{label}</span>}
+        <ul>
+          {menu.map((nav, _index) => {
+            return <li key={_index}>{renderNavigation(nav)}</li>;
+          })}
+        </ul>
+      </div>
     );
   };
 
-  if (primaryNavigation) {
-    return (
-      <nav className="navigation-menu" data-horizontal={horizontal}>
-        {renderContent()}
-      </nav>
-    );
-  }
+  const renderNavMenu = () => {
+    if (!navigationMenu) return null;
+
+    if (Array.isArray(navigationMenu)) {
+      return navigationMenu.map((navMenuItem, index) =>
+        renderNavMenuItem(navMenuItem, index),
+      );
+    }
+
+    return renderNavMenuItem(navigationMenu);
+  };
 
   return (
-    <div className="navigation-menu" data-horizontal={horizontal}>
-      {renderContent()}
-    </div>
+    <nav className="navigation-menu" data-horizontal={horizontal}>
+      {renderNavMenu()}
+    </nav>
   );
 };

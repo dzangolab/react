@@ -5,19 +5,25 @@ exports[`Component matches snapshot 1`] = `
   className="dz-page"
   data-centered={false}
 >
-  <div>
-    <h1>
-      This is the title
-    </h1>
+  <div
+    className="dz-page-header"
+  >
     <div
-      className="subtitle"
-      data-testid="page-subtitle"
+      className="dz-page-title-wrapper"
     >
-      This is the subtitle
+      <h1>
+        This is the title
+      </h1>
+      <div
+        className="dz-page-subtitle"
+        data-testid="page-subtitle"
+      >
+        This is the subtitle
+      </div>
     </div>
   </div>
   <div
-    className="content"
+    className="dz-page-content"
     data-testid="page-content"
   >
     <p>

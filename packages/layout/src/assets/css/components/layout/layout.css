@@ -12,21 +12,12 @@
     var(--_default-padding-v)
   );
 
-  display: grid;
-  grid-template-areas:
-    "header"
-    "main";
+  height: 100%;
   width: 100%;
-}
-
-.dz-layout > aside {
-  grid-area: header;
 }
 
 .dz-layout > main {
   background: var(--_layout-main-bg);
-  grid-area: main;
-  overflow-y: auto;
   padding: var(--_layout-main-padding-v) var(--_layout-main-padding-h);
 }
 
@@ -34,14 +25,13 @@
   .dz-layout {
     --_default-padding-h: 2rem;
     --_default-padding-v: 2.5rem;
+  }
 
-    display: grid;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: auto 1fr;
+  .dz-layout.fixed {
     height: 100dvh;
   }
 
-  .dz-layout > aside {
-    grid-area: sidebar;
+  .dz-layout.fixed > main {
+    overflow-y: scroll;
   }
 }

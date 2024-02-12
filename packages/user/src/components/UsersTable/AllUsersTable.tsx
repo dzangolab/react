@@ -137,7 +137,7 @@ export const AllUsersTable = ({
                   key={role + index}
                   label={role}
                   color={role === "ADMIN" ? "default" : "green"}
-                  fullWidth
+                  style={{ width: "5rem" }}
                 />
               ))}
             </>
@@ -151,7 +151,7 @@ export const AllUsersTable = ({
             <Tag
               label={role}
               color={role === "ADMIN" ? "default" : "green"}
-              fullWidth
+              style={{ width: "5rem" }}
             />
           </>
         );
@@ -180,7 +180,11 @@ export const AllUsersTable = ({
 
         return (
           <>
-            <Tag label={getLabel()} color={getColor()} fullWidth />
+            <Tag
+              label={getLabel()}
+              color={getColor()}
+              style={{ width: "5rem" }}
+            />
           </>
         );
       },

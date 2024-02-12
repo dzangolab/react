@@ -1,11 +1,13 @@
 import { ReactNode } from "react";
 
+import { SocialLoginType } from "@/components/Login";
+
 import type { RouteOverrides } from "./router";
 
 interface DzangolabReactUserConfig {
   supportedRoles: string[];
   routes?: RouteOverrides;
-  supportedLoginProviders?: string[];
+  supportedLoginProviders?: SocialLoginType[];
   termsAndConditions?: {
     display: boolean;
     label: () => ReactNode;

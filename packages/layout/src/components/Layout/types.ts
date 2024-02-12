@@ -1,19 +1,19 @@
-export type NavigationMenuItem = {
+export type NavItemType = {
   label: string;
   icon?: string;
   display?: boolean;
 } & ({ route: string } | { onClick: () => void });
 
-export type NavigationMenuGroup = {
+export type NavGroupType = {
   label: string;
-  icon: string;
-  submenu: NavigationMenuItem[];
+  icon?: string;
+  submenu: NavItemType[];
 };
 
-export type NavigationMenuType = Array<
-  NavigationMenuItem | NavigationMenuGroup
->;
+export type NavMenuItemType = {
+  label?: string;
+  id?: string;
+  menu: Array<NavItemType | NavGroupType>;
+};
 
-export type NavigationType =
-  | { primary?: boolean; menu: NavigationMenuType }
-  | Array<{ primary?: boolean; menu: NavigationMenuType }>;
+export type NavMenuType = NavMenuItemType | Array<NavMenuItemType>;

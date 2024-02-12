@@ -3,16 +3,19 @@ import "./assets/css/index.css";
 import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
 import {
-  Logo,
   Copyright,
-  Version,
+  Header,
+  HeaderMenu,
+  HeaderTitle,
   Layout,
+  LayoutContext,
+  LayoutProvider,
+  Logo,
   Sidebar,
   SidebarFooter,
   SidebarHeader,
   ToggleMenuMobile,
-  LayoutContext,
-  LayoutProvider,
+  Version,
   useLayoutContext,
 } from "./components/Layout";
 import MainMenu from "./components/MainMenu";
@@ -20,6 +23,7 @@ import SidebarLegacy from "./components/Sidebar";
 import {
   BasicLayout,
   CollapsibleSidebarLayout,
+  HeaderLayout,
   SidebarOnlyLayout,
 } from "./layouts";
 
@@ -51,6 +55,9 @@ export {
   // new
   // components
   Copyright,
+  Header,
+  HeaderMenu,
+  HeaderTitle,
   Logo,
   SidebarFooter,
   SidebarHeader,
@@ -62,6 +69,7 @@ export {
   Layout,
 
   // layouts
+  HeaderLayout,
   SidebarOnlyLayout,
 
   // context
@@ -72,8 +80,8 @@ export {
 
 export type {
   DzangolabReactLayoutConfig,
-  NavigationMenuGroup,
-  NavigationMenuItem,
-  NavigationMenuType,
-  NavigationType,
+  NavGroupType,
+  NavItemType,
+  NavMenuItemType,
+  NavMenuType,
 } from "./types";

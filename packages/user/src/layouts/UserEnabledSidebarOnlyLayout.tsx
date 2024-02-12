@@ -1,24 +1,22 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { SidebarOnlyLayout } from "@dzangolab/react-layout";
-import { useMemo } from "react";
 import { toast } from "react-toastify";
 
 import { removeUserData } from "@/helpers";
 import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
-import type {
-  NavigationMenuType,
-  NavigationType,
-} from "@dzangolab/react-layout";
+import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-layout";
 
 interface Properties {
-  authNavigationMenu?: NavigationMenuType;
+  authNavigationMenu?: NavMenuItemType;
   children: React.ReactNode;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
-  navigation?: NavigationType;
-  userNavigationMenu?: NavigationMenuType;
+  navigationMenu?: NavMenuType;
+  userNavigationMenu?: NavMenuItemType;
+  noSidebarHeader?: boolean;
+  noSidebarFooter?: boolean;
   onLogout?: () => Promise<any>;
 }
 
@@ -27,7 +25,9 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   children,
   customSidebar,
   displayNavIcons,
-  navigation,
+  navigationMenu,
+  noSidebarHeader,
+  noSidebarFooter,
   userNavigationMenu,
   onLogout,
 }) => {
@@ -35,19 +35,9 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 
   const { user, setUser } = useUser();
 
-  const hasPrimaryNavigation = useMemo(() => {
-    if (!navigation) return false;
-
-    if (Array.isArray(navigation)) {
-      return navigation.some((nav) => nav.primary);
-    }
-
-    return navigation.primary;
-  }, [navigation]);
-
   const getUserNavigationMenu = () => {
     if (!user) {
-      return { primary: !hasPrimaryNavigation, menu: authNavigationMenu || [] };
+      return authNavigationMenu;
     }
 
     const signout = async () => {
@@ -67,34 +57,38 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       onClick: signout,
     };
 
+    if (!userNavigationMenu) {
+      return { menu: [signoutRoute] };
+    }
+
     return {
-      primary: false,
-      menu: userNavigationMenu
-        ? [...userNavigationMenu, signoutRoute]
-        : [signoutRoute],
+      ...userNavigationMenu,
+      menu: [...userNavigationMenu.menu, signoutRoute],
     };
   };
 
-  const getNavigation = () => {
-    let navigationMenu: NavigationType = [getUserNavigationMenu()];
+  const getNavigationMenu = () => {
+    const userNavigationMenu = getUserNavigationMenu();
 
-    if (navigation) {
-      if (Array.isArray(navigation)) {
-        navigationMenu = [...navigation, ...navigationMenu];
-      } else {
-        navigationMenu.unshift(navigation);
-      }
+    if (!navigationMenu) {
+      return userNavigationMenu;
     }
 
-    return navigationMenu;
+    if (Array.isArray(navigationMenu)) {
+      return [...navigationMenu, userNavigationMenu];
+    }
+
+    return [navigationMenu, userNavigationMenu];
   };
 
   return (
     <SidebarOnlyLayout
       children={children}
       displayNavIcons={displayNavIcons}
-      navigation={getNavigation()}
+      navigationMenu={getNavigationMenu()}
       customSidebar={customSidebar}
+      noSidebarHeader={noSidebarHeader}
+      noSidebarFooter={noSidebarFooter}
     />
   );
 };
