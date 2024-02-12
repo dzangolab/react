@@ -84,3 +84,7 @@ form input[readonly] {
   font-weight: 500;
   padding-left: 0;
 }
+
+form input:autofill {
+  box-shadow: 0 0 0 1000px #ffffff inset;
+}
