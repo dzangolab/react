@@ -8,8 +8,10 @@
       "icons": "Icons",
       "disabled": "Disabled",
       "text": "Text",
-      "link": "Link"
-    }
+      "link": "Link",
+      "tooltip": "Button with tooltip"
+    },
+    "message": "Click to view profile"
   },
   "filesTable": {
     "title": "Files table",
@@ -66,7 +68,10 @@
       "withTitle": "Table with title",
       "withCustomFilter": "Table with custom filter component and filterFn",
       "withEqualServerFilter": "Table with equal server filterFn",
-      "customStaticFilter": "Table with custom  filter component and static filterFn"
+      "customStaticFilter": "Table with custom  filter component and static filterFn",
+      "divContent": "Table demonstrating center aligned content",
+      "singleActionColumn": "Table with single action button",
+      "singleActionColumnWithMenu": "Table with single action menu"
     }
   },
   "message": {
@@ -107,12 +112,17 @@
   },
   "localDataTable": {
     "title": "Local datatable (Primereact)",
-    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)'"
+    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)'",
+    "role": {
+      "admin": "ADMIN",
+      "user": "USER"
+    }
   },
   "page": {
     "title": {
       "menu": "Page",
       "basic": "Page demo basic",
+      "centerAligned": "Page with center aligned contents",
       "toolbar": "Page with toolbar",
       "stringSubtitle": "Page with subtitle string",
       "componentSubtitle": "Page with subtitle component",
@@ -133,5 +143,15 @@
       }
     },
     "content": "Page content."
+  },
+  "tag": {
+    "title": "Tag",
+    "usage": {
+      "basic": "Basic",
+      "color": "Color",
+      "custom": "Custom tag",
+      "icon": "Icon",
+      "pill": "Pill"
+    }
   }
 }

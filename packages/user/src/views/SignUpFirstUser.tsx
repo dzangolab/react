@@ -14,7 +14,7 @@ import { login } from "..";
 
 import type { LoginCredentials } from "@/types";
 
-const SignUpFirstUser = () => {
+export const SignUpFirstUser = () => {
   const { t } = useTranslation("user");
 
   const appConfig = useConfig();
@@ -99,10 +99,9 @@ const SignUpFirstUser = () => {
       className="signup"
       title={t("firstUser.title")}
       loading={loading || loginLoading}
+      centered={true}
     >
       {renderPageContent()}
     </Page>
   );
 };
-
-export default SignUpFirstUser;

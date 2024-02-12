@@ -1,0 +1,37 @@
+.dz-layout {
+  --_default-padding-h: 1rem;
+  --_default-padding-v: 1.5rem;
+
+  --_layout-main-bg: var(--dz-layout-main-bg, #ffffff);
+  --_layout-main-padding-h: var(
+    --dz-layout-main-padding-h,
+    var(--_default-padding-h)
+  );
+  --_layout-main-padding-v: var(
+    --dz-layout-main-padding-v,
+    var(--_default-padding-v)
+  );
+
+  height: 100%;
+  width: 100%;
+}
+
+.dz-layout > main {
+  background: var(--_layout-main-bg);
+  padding: var(--_layout-main-padding-v) var(--_layout-main-padding-h);
+}
+
+@media screen and (min-width: 576px) {
+  .dz-layout {
+    --_default-padding-h: 2rem;
+    --_default-padding-v: 2.5rem;
+  }
+
+  .dz-layout.fixed {
+    height: 100dvh;
+  }
+
+  .dz-layout.fixed > main {
+    overflow-y: scroll;
+  }
+}

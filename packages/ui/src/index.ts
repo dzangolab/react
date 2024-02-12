@@ -22,6 +22,7 @@ export * from "./FilesTable";
 export * from "./FileCard";
 export * from "./FilesList";
 export * from "./FilesPresentation";
+export * from "./Menu";
 export * from "./Table";
 export * from "./utils";
 export * from "./Pagination";
@@ -29,6 +30,7 @@ export * from "./Popup";
 export * from "./DebouncedInput";
 export * from "./SortableList";
 export * from "./Tooltip";
+export * from "./Tag";
 
 export {
   Accordion,

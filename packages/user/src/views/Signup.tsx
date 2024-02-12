@@ -12,7 +12,7 @@ interface IProperties {
   showLoginLink?: boolean;
 }
 
-const Signup: React.FC<IProperties> = ({
+export const Signup: React.FC<IProperties> = ({
   onSignupFailed,
   onSignupSuccess,
   showForgotPasswordLink,
@@ -21,7 +21,7 @@ const Signup: React.FC<IProperties> = ({
   const { t } = useTranslation("user");
 
   return (
-    <Page className="signup" title={t("signup.title")}>
+    <Page className="signup" title={t("signup.title")} centered={true}>
       <SignupWrapper
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}
@@ -31,5 +31,3 @@ const Signup: React.FC<IProperties> = ({
     </Page>
   );
 };
-
-export default Signup;

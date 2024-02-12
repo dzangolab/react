@@ -11,6 +11,7 @@ interface PasswordErrorMessages {
 }
 
 interface CustomInputProperties {
+  disabled?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
   label?: string;

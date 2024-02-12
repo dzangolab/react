@@ -1,9 +1,6 @@
-import { MenuItem } from "primereact/menuitem";
-import React, { useState } from "react";
+import React from "react";
 
-import ConfirmationFileActions from "../FileCard/ConfirmationFileActions";
 import {
-  ActionsMenu,
   ConfirmationModal,
   TDataTable as DataTable,
   FileMessages,
@@ -12,6 +9,7 @@ import {
   VisibleFileDetails,
   formatDate,
 } from "../index";
+import { DataActionsMenuItem } from "../Table/TableDataActions";
 
 import type { ColumnDef } from "@tanstack/react-table";
 import type { ComponentProps } from "react";
@@ -37,25 +35,21 @@ export interface IFile {
 export type FilesTableProperties = Partial<
   Omit<TDataTableProperties<IFile>, "data" | "visibleColumns" | "fetchData">
 > & {
-  fetchFiles?: (arguments_: TRequestJSON) => void;
   files: Array<IFile>;
+  messages?: TableMessages;
+  visibleColumns?: VisibleFileDetails[];
+  fetchFiles?: (arguments_: TRequestJSON) => void;
   onFileArchive?: (arguments_: IFile) => void;
-  archiveConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onFileDownload?: (arguments_: IFile) => void;
   onFileDelete?: (arguments_: IFile) => void;
-  deleteConfirmationProps?: ComponentProps<typeof ConfirmationModal>;
   onEditDescription?: (arguments_: IFile) => void;
   onFileShare?: (arguments_: IFile) => void;
   onFileView?: (arguments_: IFile) => void;
-  messages?: TableMessages;
-  visibleColumns?: VisibleFileDetails[];
 };
 
 export const FilesTable = ({
-  archiveConfirmationProps,
   className = "table-files",
   columns = [],
-  deleteConfirmationProps,
   id = "table-files",
   isLoading,
   files,
@@ -71,24 +65,22 @@ export const FilesTable = ({
   onEditDescription,
   ...tableProperties
 }: FilesTableProperties) => {
-  const [visibleArchiveConfirmation, setVisibleArchiveConfirmation] =
-    useState(false);
-  const [visibleDeleteConfirmation, setVisibleDeleteConfirmation] =
-    useState(false);
-
-  const [removeableFile, setRemoveableFile] = useState<IFile>();
-
-  const getActionsItem = (file: IFile) => {
-    const actionItems: MenuItem[] = [];
+  const getActionsItem = () => {
+    const actionItems: DataActionsMenuItem[] = [];
 
     if (onFileArchive) {
       actionItems.push({
         label: messages?.archiveAction || "Archive",
         icon: "pi pi-book",
-        command: () => {
-          setRemoveableFile(file);
-          setVisibleDeleteConfirmation(false);
-          setVisibleArchiveConfirmation(true);
+        requireConfirmationModal: true,
+        confirmationOptions: {
+          header: messages?.archiveConfirmationHeader || "Archive file",
+          message:
+            messages?.archiveConfirmationMessage ||
+            "Are you sure you want to archive this file?",
+        },
+        onClick: (file) => {
+          onFileArchive(file);
         },
       });
     }
@@ -97,7 +89,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.downloadAction || "Download",
         icon: "pi pi-download",
-        command: () => onFileDownload?.(file),
+        onClick: (file) => onFileDownload?.(file),
       });
     }
 
@@ -105,7 +97,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.editDescriptionAction || "Edit description",
         icon: "pi pi-pencil",
-        command: () => onEditDescription?.(file),
+        onClick: (file) => onEditDescription?.(file),
       });
     }
 
@@ -113,7 +105,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.shareAction || "Share",
         icon: "pi pi-share-alt",
-        command: () => onFileShare?.(file),
+        onClick: (file) => onFileShare?.(file),
       });
     }
 
@@ -121,7 +113,7 @@ export const FilesTable = ({
       actionItems.push({
         label: messages?.viewAction || "Share",
         icon: "pi pi-eye",
-        command: () => onFileView?.(file),
+        onClick: (file) => onFileView?.(file),
       });
     }
 
@@ -130,10 +122,15 @@ export const FilesTable = ({
         label: messages?.deleteAction || "Delete",
         icon: "pi pi-trash",
         className: "danger",
-        command: () => {
-          setRemoveableFile(file);
-          setVisibleDeleteConfirmation(true);
-          setVisibleArchiveConfirmation(false);
+        requireConfirmationModal: true,
+        confirmationOptions: {
+          header: messages?.deleteConfirmationHeader || "Delete file",
+          message:
+            messages?.deleteConfirmationMessage ||
+            "Are you sure you want to delete this file?",
+        },
+        onClick: (file) => {
+          onFileDelete(file);
         },
       });
     }
@@ -202,14 +199,6 @@ export const FilesTable = ({
         return <code>&#8212;</code>;
       },
     },
-    {
-      align: "center",
-      id: "actions",
-      header: messages?.actionsHeader || "",
-      cell: ({ row: { original } }) => {
-        return <ActionsMenu actions={getActionsItem(original)} />;
-      },
-    },
   ];
 
   return (
@@ -224,28 +213,11 @@ export const FilesTable = ({
         isLoading={isLoading}
         totalRecords={totalRecords}
         visibleColumns={visibleColumns}
+        dataActionsMenu={{
+          actions: [...getActionsItem()],
+        }}
         {...tableProperties}
       ></DataTable>
-
-      <ConfirmationFileActions
-        file={removeableFile as IFile}
-        setVisibleArchiveConfirmation={(isVisible) =>
-          setVisibleArchiveConfirmation(isVisible)
-        }
-        setVisibleDeleteConfirmation={(isVisible) =>
-          setVisibleDeleteConfirmation(isVisible)
-        }
-        visibleArchiveConfirmation={visibleArchiveConfirmation}
-        visibleDeleteConfirmation={visibleDeleteConfirmation}
-        archiveConfirmationProps={archiveConfirmationProps}
-        deleteConfirmationProps={deleteConfirmationProps}
-        archiveConfirmationHeader={messages?.archiveConfirmationHeader}
-        archiveConfirmationMessage={messages?.archiveConfirmationMessage}
-        deleteConfirmationHeader={messages?.deleteConfirmationHeader}
-        deleteConfirmationMessage={messages?.deleteConfirmationMessage}
-        onArchive={onFileArchive}
-        onDelete={onFileDelete}
-      />
     </>
   );
 };

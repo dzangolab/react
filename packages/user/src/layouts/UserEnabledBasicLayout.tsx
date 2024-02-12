@@ -30,11 +30,11 @@ interface Properties {
   fixed?: boolean;
 }
 
-const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
+export const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();
   const { user } = useUser();
 
-  const home = getHomeRoute(user, layoutConfig, userConfig);
+  const homeRoute = getHomeRoute(user, layoutConfig, userConfig);
 
   const {
     anonymousUserMenu,
@@ -65,7 +65,7 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
       mainMenu={mainMenu}
       mainMenuOrientation={mainMenuOrientation}
       header={header}
-      logoRoute={logoRoute || home}
+      logoRoute={logoRoute || homeRoute}
       menuToggle={menuToggle}
       localSwitcher={localSwitcher}
       fixed={fixed}
@@ -89,5 +89,3 @@ const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     />
   );
 };
-
-export default UserEnabledBasicLayout;

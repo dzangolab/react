@@ -54,7 +54,7 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
       }}
       validationSchema={SignUpFormSchema}
     >
-      <SignupFormFields readOnlyEmailField={!!email} loading={loading} />
+      <SignupFormFields disableEmailField={!!email} loading={loading} />
     </Provider>
   );
 };

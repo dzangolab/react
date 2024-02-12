@@ -13,10 +13,10 @@ interface Properties {
   children: React.ReactNode;
 }
 
-const userContext = createContext<UserContextType | undefined>(undefined);
+const userContext = createContext<UserContextType | null>(null);
 
 const UserProvider = ({ children }: Properties) => {
-  const [user, setUser] = useState<UserType | undefined>(undefined);
+  const [user, setUser] = useState<UserType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const appConfig = useConfig();
 
@@ -43,25 +43,26 @@ const UserProvider = ({ children }: Properties) => {
     getUser();
   }, []);
 
-  const updateUser = async (user: UserType | undefined) => {
-    let roles, isEmailVerified, userData;
-
+  const updateUser = async (user: UserType | null) => {
     if (user) {
-      roles = await getUserRoles();
+      const roles = await getUserRoles();
 
-      userData = {
+      const userData = {
         ...user,
         roles: roles,
       };
 
       if (appConfig.user.features?.signUp?.emailVerification) {
-        isEmailVerified = await isUserVerified();
+        const isEmailVerified = await isUserVerified();
+
         userData.isEmailVerified = isEmailVerified;
       }
+
       await setUserData(userData);
+
       setUser(userData);
     } else {
-      setUser(undefined);
+      setUser(null);
     }
   };
 
@@ -73,4 +74,5 @@ const UserProvider = ({ children }: Properties) => {
 };
 
 export default UserProvider;
+
 export { userContext };

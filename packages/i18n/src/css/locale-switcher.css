@@ -1,3 +1,13 @@
-.locale-switcher > ul.dropdown-menu li[data-aria-selected="true"] {
-  display: none;
+.locale-switcher {
+  cursor: pointer;
+}
+
+.locale-switcher > span {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.locale-switcher > span:hover {
+  text-decoration: underline;
 }

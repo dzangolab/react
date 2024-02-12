@@ -1,0 +1,32 @@
+.dz-layout.sidebar-only {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  width: 100%;
+}
+
+.dz-layout.sidebar-only > aside {
+  grid-area: header;
+}
+
+.dz-layout.sidebar-only > main {
+  grid-area: main;
+}
+
+@media screen and (min-width: 576px) {
+  .dz-layout.sidebar-only {
+    display: grid;
+    grid-template-areas: "sidebar main";
+    grid-template-columns: auto 1fr;
+    height: 100dvh;
+  }
+
+  .dz-layout.sidebar-only > aside {
+    grid-area: sidebar;
+  }
+
+  .dz-layout.sidebar-only > main {
+    overflow-y: auto;
+  }
+}

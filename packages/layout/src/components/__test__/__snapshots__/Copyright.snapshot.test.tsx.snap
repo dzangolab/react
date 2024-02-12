@@ -4,17 +4,19 @@ exports[`Component matches snapshot 1`] = `
 <div
   className="copyright"
 >
-  © 
-  2022
-   
-  <a
-    href="https://www.dzangolab.com"
-    rel="noreferrer"
-    target="_blank"
+  <div
+    className="copyright"
   >
-    Dzango technologies
-  </a>
-  . 
-  footer.copyright
+    © 
+    2024
+     
+    <a
+      href="www.dzango.com"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Dzango
+    </a>
+  </div>
 </div>
 `;
