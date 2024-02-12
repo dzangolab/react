@@ -6,7 +6,7 @@ import { CustomInputProperties } from "../types";
 export const Email: React.FC<
   CustomInputProperties & { readOnly?: boolean }
 > = ({
-  disabled,
+  disabled = false,
   register,
   getFieldState,
   label = "",
