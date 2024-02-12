@@ -41,12 +41,12 @@ export const LoginForm = ({ handleSubmit, loading }: Properties) => {
         label={t("login.form.email.label")}
         name="email"
         placeholder={t("login.form.email.placeholder")}
-        isSignup={false}
+        showInvalidState={false}
       />
       <Password
         label={t("login.form.password.label")}
         name="password"
-        isSignup={false}
+        showInvalidState={false}
       />
       <SubmitButton label={t("login.form.actions.submit")} loading={loading} />
     </Form>
