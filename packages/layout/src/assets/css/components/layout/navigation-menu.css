@@ -1,3 +1,4 @@
+/* default colors are for sidebar */
 .dz-layout .navigation-menu {
   --_layout-nav-item-color: var(--dz-layout-nav-item-color, #ffffff);
   --_layout-nav-item-hover-color: var(
@@ -49,6 +50,7 @@
 
 .dz-layout .navigation-menu > .nav-menu-item > span {
   color: var(--_layout-nav-menu-label-color);
+  font-weight: 500;
   padding: var(--_layout-nav-item-padding-v) var(--_layout-nav-item-padding-h);
 }
 
@@ -137,7 +139,7 @@
   .nav-item[aria-current="page"] {
   background: var(--_layout-nav-item-active-bg);
   color: var(--_layout-nav-item-active-color);
-  font-weight: bold;
+  font-weight: 500;
   text-decoration: none;
 }
 

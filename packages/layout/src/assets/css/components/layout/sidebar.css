@@ -45,17 +45,6 @@
 }
 
 .dz-layout > aside > .navigation-menu {
-  --_layout-nav-item-color: var(--_layout-sidebar-color);
-  --_layout-nav-item-hover-color: var(--_layout-sidebar-color);
-  --_layout-nav-item-active-color: var(--_layout-sidebar-color);
-  --_layout-nav-item-hover-bg: var(
-    --dz-layout-nav-item-hover-bg,
-    rgba(45, 45, 45, 0.125)
-  );
-  --_layout-nav-item-active-bg: var(
-    --dz-layout-nav-item-active-bg,
-    rgba(45, 45, 45, 0.125)
-  );
   --_layout-nav-item-padding-h: var(--_layout-sidebar-padding-h);
   --_layout-nav-menu-padding-v: var(--_layout-sidebar-padding-v);
   --_layout-nav-menu-separator-color: var(--_layout-sidebar-separator-color);

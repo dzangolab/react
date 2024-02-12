@@ -49,16 +49,8 @@
 }
 
 .dz-layout > header > .header-container > .navigation-menu {
-  --_layout-nav-item-color: var(--_layout-header-color);
-
-  --_layout-nav-item-hover-bg: var(--dz-layout-nav-item-hover-bg, transparent);
-  --_layout-nav-item-active-bg: var(
-    --dz-layout-nav-item-active-bg,
-    transparent
-  );
-
-  --_layout-nav-menu-label-color: var(--_layout-header-color);
   --_layout-nav-menu-padding-v: 0;
+
   --_layout-nav-item-padding-h: 0.625rem;
   --_layout-nav-item-padding-v: 0.5rem;
 
