@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import {
   UseFormGetFieldState,
   UseFormRegister,
@@ -31,7 +32,7 @@ export type AdditionalDefaultValues = Record<string, any>;
 
 export type RenderAdditionalFormFields = (
   formContext: typeof useFormContext,
-) => React.ComponentType;
+) => ReactElement;
 
 interface AdditionalFormFields {
   defaultValues: AdditionalDefaultValues;
