@@ -45,7 +45,7 @@ const SignupFormFields: React.FC<IProperties> = ({
         register={register}
         getFieldState={getFieldState}
         submitcount={submitCount}
-        readOnly={readOnlyEmailField}
+        disabled={readOnlyEmailField}
       />
       <Password
         label={t("signup.form.password.label")}
