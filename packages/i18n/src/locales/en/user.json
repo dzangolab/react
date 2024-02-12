@@ -82,6 +82,9 @@
         "password": "Password is required"
       }
     },
+    "social": {
+      "google": "Continue with Google"
+    },
     "title": "Log in"
   },
   "logout": {

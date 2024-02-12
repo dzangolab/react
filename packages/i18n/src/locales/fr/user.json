@@ -81,6 +81,9 @@
         "password": "Password is required (fr)"
       }
     },
+    "social": {
+      "google": "Continue with Google"
+    },
     "title": "Connexion"
   },
   "logout": {

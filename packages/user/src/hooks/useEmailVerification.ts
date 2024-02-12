@@ -1,7 +1,7 @@
-import useConfig from "./useConfig";
-import useUser from "./useUser";
+import { useConfig } from "./useConfig";
+import { useUser } from "./useUser";
 
-const useEmailVerification = () => {
+export const useEmailVerification = () => {
   const config = useConfig();
   const { user } = useUser();
 
@@ -14,5 +14,3 @@ const useEmailVerification = () => {
 
   return [emailVerificationEnabled, userEmailVerified];
 };
-
-export default useEmailVerification;

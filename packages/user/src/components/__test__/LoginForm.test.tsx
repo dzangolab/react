@@ -2,7 +2,7 @@ import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { expect, test, vi } from "vitest";
 
-import LoginForm from "../LoginForm";
+import { LoginForm } from "../Login";
 
 test("validation error messages are displayed", async () => {
   const handleSubmit = vi.fn();

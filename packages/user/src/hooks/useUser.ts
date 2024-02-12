@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { userContext } from "../context/UserProvider";
 
-const useUser = () => {
+export const useUser = () => {
   const context = useContext(userContext);
 
   if (context === null) {
@@ -11,5 +11,3 @@ const useUser = () => {
 
   return context;
 };
-
-export default useUser;
