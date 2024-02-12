@@ -11,7 +11,7 @@
   grid-template-columns: 100%;
 }
 
-.dz-page[data-alignment="true"] {
+.dz-page[data-centered="true"] {
   justify-items: center;
   max-width: var(--dz-page-max-width);
   margin: auto;
