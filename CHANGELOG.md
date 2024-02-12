@@ -1,3 +1,51 @@
+# [0.33.0](https://github.com/dzangolab/react/compare/v0.32.0...v0.33.0) (2024-01-25)
+
+
+### Bug Fixes
+
+* **ui/FilesTable:** remove unwanted props ([c6b9c85](https://github.com/dzangolab/react/commit/c6b9c85a629871ed72437bd6581e3c8d87bfabc8))
+
+
+### Features
+
+* **layout:** update default logo ([eedb472](https://github.com/dzangolab/react/commit/eedb472cf019624e8c289ac89550cb1b0e46b8d6))
+* **table:** update table td with th ([#771](https://github.com/dzangolab/react/issues/771)) ([eec431e](https://github.com/dzangolab/react/commit/eec431e8ca13725060f3556ea02cdf74adb1bd1e))
+* **ui/Button:** add support for tooltip ([#777](https://github.com/dzangolab/react/issues/777)) ([b04d4d8](https://github.com/dzangolab/react/commit/b04d4d856f2eafb5fa7aea6ff35cde4fe41f49bd))
+
+
+
+# [0.32.0](https://github.com/dzangolab/react/compare/v0.31.0...v0.32.0) (2024-01-24)
+
+
+### Breaking changes
+
+ **user:** remove UserToastContainer and move react-toastify to peer dependency ([#762](https://github.com/dzangolab/react/issues/762)) ([53e2ff0](https://github.com/dzangolab/react/commit/53e2ff01ae176b727c1a2ac0ce2ed6c1aced41a5))
+
+
+### Features
+
+* **ui/Table:** improve ui ([15a77f5](https://github.com/dzangolab/react/commit/15a77f5d420a102d73796428a8f4859a880aedfc))
+* **user:** make profile page editable ([#762](https://github.com/dzangolab/react/issues/762)) ([53e2ff0](https://github.com/dzangolab/react/commit/53e2ff01ae176b727c1a2ac0ce2ed6c1aced41a5))
+
+
+
+# [0.31.0](https://github.com/dzangolab/react/compare/v0.30.0...v0.31.0) (2024-01-24)
+
+
+### Breaking changes
+
+* **user:** rename forgetPassword to forgotPassword ([#761](https://github.com/dzangolab/react/issues/761)) ([e0df8ba](https://github.com/dzangolab/react/commit/e0df8ba7158c44861026561b62eeb8ce7f916f4c))
+* **user:** rename ForgetPassword to ForgotPassword ([#761](https://github.com/dzangolab/react/issues/761)) ([e0df8ba](https://github.com/dzangolab/react/commit/e0df8ba7158c44861026561b62eeb8ce7f916f4c))
+
+
+### Features
+
+* **demo:** update copyright holder ([#766](https://github.com/dzangolab/react/issues/766)) ([670cfe2](https://github.com/dzangolab/react/commit/670cfe24e676157f99b226add2e43785d7044ee2))
+* improve ui and consistency ([#761](https://github.com/dzangolab/react/issues/761)) ([e0df8ba](https://github.com/dzangolab/react/commit/e0df8ba7158c44861026561b62eeb8ce7f916f4c))
+* **layout:** show default logo if not provided ([#764](https://github.com/dzangolab/react/issues/764)) ([a668c22](https://github.com/dzangolab/react/commit/a668c22f20f4482cf6fa83f1e1d28c1873bb7199))
+
+
+
 # [0.30.0](https://github.com/dzangolab/react/compare/v0.29.0...v0.30.0) (2024-01-22)
 
 

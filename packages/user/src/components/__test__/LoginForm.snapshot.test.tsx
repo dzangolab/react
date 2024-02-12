@@ -2,7 +2,7 @@ import React from "react";
 import { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
-import LoginForm from "../LoginForm";
+import { LoginForm } from "../Login";
 
 import type {
   ReactTestRenderer,

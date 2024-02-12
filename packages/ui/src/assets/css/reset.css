@@ -21,8 +21,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul:not([role='list']),
-ol:not([role='list']) {
+ul:not([role="list"]),
+ol:not([role="list"]) {
   list-style: none;
   margin: 0;
 }
@@ -34,7 +34,14 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI',  Roboto, Oxygen, Ubuntu;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
 }
@@ -49,12 +56,8 @@ a[target="_blank"] {
   text-decoration: inherit;
 }
 
-a[target="_blank"]::after {
-  content: url('https://api.iconify.design/tabler/external-link.svg');
-  padding-left: 0.25rem;
-  padding-right: 0;
-  padding-top: 0.1rem;
-  top: 0.1rem;
+a[target="_blank"]:hover {
+  text-decoration: underline;
 }
 
 /* Make images easier to work with */

@@ -4,7 +4,7 @@ import type { DzangolabReactLayoutConfig } from "@dzangolab/react-layout";
 const USER_KEY = "user";
 
 const getHomeRoute = (
-  user: UserType | undefined,
+  user: UserType | null,
   layoutConfig: DzangolabReactLayoutConfig | undefined,
   userConfig: DzangolabReactUserConfig | undefined,
 ) => {
@@ -15,7 +15,7 @@ const getHomeRoute = (
         : userConfig.routes.home;
     }
 
-    return "profile";
+    return "/";
   };
 
   return user ? getUserHomeRoute(user) : layoutConfig?.homeRoute;

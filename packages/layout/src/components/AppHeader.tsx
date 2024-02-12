@@ -1,7 +1,7 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
 
-import Logo from "./Logo";
+import { Logo } from "./Layout";
 import MainMenu from "./MainMenu";
 import useConfig from "../hooks/useConfig";
 
@@ -24,11 +24,6 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   const { layout: layoutConfig } = useConfig();
 
-  const home =
-    layoutConfig && layoutConfig?.homeRoute
-      ? layoutConfig.homeRoute
-      : undefined;
-
   const {
     localeSwitcher,
     logoRoute,
@@ -43,7 +38,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
 
   return (
     <header>
-      {logo || <Logo source={layoutConfig?.logo} route={logoRoute || home} />}
+      {logo || <Logo route={logoRoute} />}
       <nav className={`menu ${navStyle}`} data-expanded={expanded}>
         {mainMenu || (
           <MainMenu

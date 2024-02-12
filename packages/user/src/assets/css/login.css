@@ -2,22 +2,6 @@
   justify-items: center;
 }
 
-.login > .content > .redirect-message {
-  background-color: var(--blue-100);
-  border: 1px solid var(--blue-800);
-  border-radius: 0.5rem;
-  color: var(--blue-800);
-  display: flex;
-  grid-area: message;
-  margin-bottom: 2rem;
-  padding: 0.8rem;
-  width: 100%;
-}
-
-.login > .content > .redirect-message > .info-icon {
-  margin-right: 0.3rem;
-}
-
 .login > .content > .login-wrapper {
   grid-area: form-wrapper;
 }
@@ -43,7 +27,6 @@
   width: max-content;
   display: grid;
   grid-template-areas:
-    "message"
     "form-wrapper"
     "divider"
     "sso-wrapper";
@@ -55,7 +38,6 @@
 
 .login.sso-first > .content {
   grid-template-areas:
-    "message"
     "sso-wrapper"
     "divider"
     "form-wrapper";
@@ -67,17 +49,13 @@
 
 @media (min-width: 576px) {
   .login > .content[data-aria-orientation="horizontal"] {
-    grid-template-areas:
-      "message message message"
-      "form-wrapper  divider sso-wrapper";
+    grid-template-areas: "form-wrapper  divider sso-wrapper";
     align-items: flex-start;
     min-width: 44rem;
   }
 
   .login.sso-first > .content[data-aria-orientation="horizontal"] {
-    grid-template-areas:
-      "message message message"
-      "sso-wrapper divider form-wrapper ";
+    grid-template-areas: "sso-wrapper divider form-wrapper ";
   }
 
   .login

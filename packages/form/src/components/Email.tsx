@@ -6,6 +6,7 @@ import { CustomInputProperties } from "../types";
 export const Email: React.FC<
   CustomInputProperties & { readOnly?: boolean; isSignup?: boolean }
 > = ({
+  disabled = false,
   register,
   getFieldState,
   label = "",
@@ -31,6 +32,7 @@ export const Email: React.FC<
           "aria-invalid": submitcount > 0 ? invalid : undefined,
         })}
         readOnly={readOnly}
+        disabled={disabled}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>

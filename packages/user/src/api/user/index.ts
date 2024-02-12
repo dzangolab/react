@@ -1,6 +1,10 @@
 import client from "../axios";
 
-import type { LoginCredentials, UserType } from "../../types";
+import type {
+  LoginCredentials,
+  UpdateProfileInputType,
+  UserType,
+} from "@/types";
 
 export const getIsFirstUser = async (
   apiBaseUrl: string,
@@ -55,6 +59,21 @@ export const disableUser = async (id: number, apiBaseUrl: string) => {
   );
 
   if (response.data.status === "ERROR") {
+    throw new Error(response.data.message);
+  } else {
+    return response;
+  }
+};
+
+export const updateUserProfile = async (
+  data: UpdateProfileInputType,
+  apiBaseUrl: string,
+): Promise<{ data: UserType }> => {
+  const response = await client(apiBaseUrl).put(`me`, data, {
+    withCredentials: true,
+  });
+
+  if ("error" in response.data) {
     throw new Error(response.data.message);
   } else {
     return response;

@@ -82,6 +82,9 @@
         "password": "Password is required"
       }
     },
+    "social": {
+      "google": "Continue with Google"
+    },
     "title": "Log in"
   },
   "logout": {
@@ -179,6 +182,39 @@
       "error": "Something went wrong. Please try again",
       "resendSuccess": "Email resent successfully",
       "resendError": "Something went wrong. Please try again"
+    }
+  },
+  "profile": {
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": ""
+      },
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Enter your first name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Enter your last name"
+      },
+      "validations": {
+        "firstName": {
+          "required": "First name is required"
+        },
+        "lastName": {
+          "required": "Last name is required"
+        }
+      }
+    },
+    "button": {
+      "update": "Update",
+      "cancel": "Cancel"
+    },
+    "title": "Profile",
+    "toastMessages": {
+      "success": "Profile updated successfully",
+      "error": "Something went wrong. Please try again"
     }
   }
 }

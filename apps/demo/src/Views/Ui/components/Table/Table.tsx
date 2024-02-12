@@ -333,6 +333,53 @@ export const TableDemo = () => {
         />
       </Section>
 
+      <Section title={t("table.usage.singleActionColumn")}>
+        <TDataTable
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+          displayRowActions={(rowData) => {
+            return rowData.id !== 12;
+          }}
+          dataActionsMenu={{
+            actions: [
+              {
+                label: "View",
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "view action");
+                },
+              },
+            ],
+          }}
+        />
+      </Section>
+
+      <Section title={t("table.usage.singleActionColumnWithMenu")}>
+        <TDataTable
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+          displayRowActions={(rowData) => {
+            return rowData.id !== 12;
+          }}
+          dataActionsMenu={{
+            displaySingleActionButton: false,
+            actions: [
+              {
+                label: "View",
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "view action");
+                },
+              },
+            ],
+          }}
+        />
+      </Section>
+
       <Section title={t("table.usage.withCustomFilter")}>
         <TDataTable
           columns={[
@@ -419,7 +466,7 @@ export const TableDemo = () => {
             },
             {
               id: "action",
-              header: "",
+              header: () => <i className="pi pi-cog"></i>,
               width: "8rem",
               dataType: "other",
               cell: () => <Button iconLeft="pi pi-eye" />,
@@ -476,7 +523,7 @@ export const TableDemo = () => {
               filterFn: "inDateRangeFilter",
               customFilterComponent(column) {
                 return (
-                  <>
+                  <div className="filter-date">
                     <DatePickerBasic
                       inputRef={null}
                       name="start-date"
@@ -499,13 +546,13 @@ export const TableDemo = () => {
                       }
                       value={(column.getFilterValue() as [Date, Date])?.[1]}
                     />
-                  </>
+                  </div>
                 );
               },
             },
             {
               id: "action",
-              header: "",
+              header: () => <i className="pi pi-cog"></i>,
               width: "8rem",
               dataType: "other",
               cell: () => <Button iconLeft="pi pi-eye" />,
@@ -517,6 +564,41 @@ export const TableDemo = () => {
             inDateRangeFilter: inDateRangeFilter,
             customEqualStringFilter: customEqualStringFilter,
           }}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.divContent")}>
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "email",
+              header: "Email",
+            },
+            {
+              accessorKey: "name",
+              header: "Name",
+              align: "center",
+              cell: ({ row: { original } }) => (
+                <div className="cell-name">{original.name}</div>
+              ),
+            },
+            {
+              accessorKey: "age",
+              header: "Age",
+              align: "right",
+              width: "6rem",
+              maxWidth: "6rem",
+              minWidth: "6rem",
+            },
+            {
+              accessorKey: "city",
+              header: () => <span>City</span>,
+              width: "8rem",
+              maxWidth: "8rem",
+              minWidth: "8rem",
+            },
+          ]}
+          data={data.slice(10, 15)}
         ></TDataTable>
       </Section>
     </Page>

@@ -5,8 +5,8 @@ import {
   TRequestJSON,
   IButtonProperties,
   TableColumnDefinition,
+  Tag,
 } from "@dzangolab/react-ui";
-import { Tag } from "primereact/tag";
 
 import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
 
@@ -30,6 +30,7 @@ type VisibleColumn =
   | "role"
   | "invitedBy"
   | "expiresAt"
+  | "status"
   | "actions"
   | string;
 
@@ -78,6 +79,7 @@ export const InvitationsTable = ({
     "role",
     "invitedBy",
     "expiresAt",
+    "status",
     "actions",
   ],
   ...tableOptions
@@ -117,11 +119,9 @@ export const InvitationsTable = ({
               {roles?.map((role: string, index: number) => (
                 <Tag
                   key={role + index}
-                  value={role}
-                  severity={role === "ADMIN" ? undefined : "success"}
-                  style={{
-                    width: "5rem",
-                  }}
+                  label={role}
+                  color={role === "ADMIN" ? "default" : "green"}
+                  fullWidth
                 />
               ))}
             </>
@@ -133,11 +133,9 @@ export const InvitationsTable = ({
         return (
           <>
             <Tag
-              value={role}
-              severity={role === "ADMIN" ? undefined : "success"}
-              style={{
-                width: "5rem",
-              }}
+              label={role}
+              color={role === "ADMIN" ? "default" : "green"}
+              fullWidth
             />
           </>
         );
@@ -158,6 +156,37 @@ export const InvitationsTable = ({
         }
 
         return invitedBy?.email;
+      },
+    },
+    {
+      align: "center",
+      accessorKey: "status",
+      header: t("table.defaultColumns.status"),
+      cell: ({ row: { original } }) => {
+        const { acceptedAt, revokedAt, expiresAt } = original;
+
+        const getLabel = () => {
+          if (acceptedAt) return t("table.status.accepted");
+          if (revokedAt) return t("table.status.revoked");
+          if (expiresAt && new Date(expiresAt) < new Date())
+            return t("table.status.expired");
+
+          return t("table.status.pending");
+        };
+
+        const getColor = () => {
+          if (acceptedAt) return "green";
+          if (revokedAt) return "red";
+          if (expiresAt && new Date(expiresAt) < new Date()) return "gray";
+
+          return "yellow";
+        };
+
+        return (
+          <>
+            <Tag label={getLabel()} color={getColor()} fullWidth />
+          </>
+        );
       },
     },
     {

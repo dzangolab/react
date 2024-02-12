@@ -1,0 +1,38 @@
+.dz-layout .logo {
+  --_layout-logo-max-width: var(--dz-layout-logo-max-width, 150px);
+}
+
+.dz-layout .logo img {
+  max-width: var(--_layout-logo-max-width);
+}
+
+.dz-layout .logo > a {
+  color: var(--color, #545454);
+  text-decoration: none;
+}
+
+.dz-layout .logo .logo-default {
+  align-items: center;
+  display: flex;
+  font-weight: 500;
+  gap: 0.5rem;
+  text-transform: capitalize;
+}
+
+.dz-layout .logo .logo-default > span:first-child {
+  align-items: center;
+  background: rgba(45, 45, 45, 0.25);
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.dz-layout .logo .logo-default > span:not(:first-child) {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}

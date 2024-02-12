@@ -12,7 +12,7 @@ import { resendEmail } from "@/supertokens/resend-email-verification";
 
 import { UserContextType, userContext } from "..";
 
-const EmailVerificationReminder = () => {
+export const EmailVerificationReminder = () => {
   const { t } = useTranslation("user");
   const { user } = useContext(userContext) as UserContextType;
   const appConfig = useContext(configContext);
@@ -47,6 +47,7 @@ const EmailVerificationReminder = () => {
     <Page
       className="email-verification-reminder"
       title={t("emailVerification.title")}
+      centered={true}
     >
       <Card className="email-verification-reminder-card">
         <div className="message-wrapper">
@@ -62,5 +63,3 @@ const EmailVerificationReminder = () => {
     </Page>
   );
 };
-
-export default EmailVerificationReminder;

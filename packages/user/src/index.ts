@@ -5,23 +5,24 @@ import {
   InvitationModal,
   InvitationsTable,
 } from "./components/Invitation";
-import LoginForm from "./components/LoginForm";
-import { LoginWrapper } from "./components/LoginWrapper";
+import { LoginForm, LoginWrapper } from "./components/Login";
 import SignupForm from "./components/SignupForm";
 import { SignupWrapper } from "./components/SignupWrapper";
 import TermsAndConditions from "./components/TermsAndConditions";
 import UserMenu from "./components/UserMenu";
 import {
+  AllUsersTable,
   UsersTable,
   UsersTableProperties,
-  AllUsersTable,
 } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
-import { useUser, useEmailVerification } from "./hooks";
-import UserEnabledBasicLayout from "./layouts/UserEnabledBasicLayout";
-import UserEnabledSidebarLayout from "./layouts/UserEnabledSidebarLayout";
-import { UserEnabledSwitchableLayout } from "./layouts/UserEnabledSwitchableLayout";
+import { useUser, useEmailVerification, useFirstUserSignup } from "./hooks";
+import {
+  UserEnabledBasicLayout,
+  UserEnabledSidebarLayout,
+  UserEnabledSidebarOnlyLayout,
+} from "./layouts";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
@@ -32,26 +33,25 @@ import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import verifyEmail from "./supertokens/verify-email";
-import { UserToastContainer } from "./toastify";
-import AcceptInvitation from "./views/AcceptInvitation";
-import ChangePassword from "./views/ChangePassword";
-import EmailVerificationReminder from "./views/EmailVerificationReminder";
+import { AcceptInvitation } from "./views/AcceptInvitation";
+import { ChangePassword } from "./views/ChangePassword";
+import { EmailVerificationReminder } from "./views/EmailVerificationReminder";
 import { ForgotPassword } from "./views/ForgotPassword";
-import Login from "./views/Login";
-import Profile from "./views/Profile";
-import ResetPassword from "./views/ResetPassword";
-import Signup from "./views/Signup";
-import SignUpFirstUser from "./views/SignUpFirstUser";
-import VerifyEmail from "./views/VerifyEmail";
+import { Login } from "./views/Login";
+import { Profile } from "./views/Profile";
+import { ResetPassword } from "./views/ResetPassword";
+import { Signup } from "./views/Signup";
+import { SignUpFirstUser } from "./views/SignUpFirstUser";
+import { VerifyEmail } from "./views/VerifyEmail";
 
 import "./assets/css/index.css";
 
 import type {
+  DzangolabReactUserConfig,
   Invitation,
   InvitationAppOption,
   InvitationPayload,
   LoginCredentials,
-  DzangolabReactUserConfig,
   UserContextType,
   UserType,
 } from "./types";
@@ -64,36 +64,37 @@ declare module "@dzangolab/react-config" {
 
 export {
   // components
+  AllUsersTable,
   AuthGoogleCallback,
   DropdownUserMenu,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
   LoginForm,
+  LoginWrapper,
   SignupForm,
   SignupWrapper,
-  LoginWrapper,
   TermsAndConditions,
-  UserEnabledBasicLayout,
-  UserEnabledSidebarLayout,
-  UserEnabledSwitchableLayout,
   UserMenu,
   UserProvider,
-  UserToastContainer,
   UsersTable,
-  AllUsersTable,
+
+  // layouts
+  UserEnabledBasicLayout,
+  UserEnabledSidebarLayout,
+  UserEnabledSidebarOnlyLayout,
 
   // views
   AcceptInvitation,
   ChangePassword,
+  EmailVerificationReminder,
   ForgotPassword,
   Login,
   Profile,
   ResetPassword,
-  Signup,
   SignUpFirstUser,
+  Signup,
   VerifyEmail,
-  EmailVerificationReminder,
 
   // utilities
   changePassword,
@@ -107,11 +108,12 @@ export {
   setUserData,
   signup,
   superTokens,
-  useUser,
   useEmailVerification,
+  useFirstUserSignup,
+  useUser,
   userContext,
-  verifySessionRoles,
   verifyEmail,
+  verifySessionRoles,
 };
 
 export type {

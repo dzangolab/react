@@ -9,7 +9,7 @@ import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
 import resetPassword from "../supertokens/reset-password";
 
-const ResetPassword = () => {
+export const ResetPassword = () => {
   const { t } = useTranslation("user");
   const { user: userConfig } = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
@@ -30,10 +30,12 @@ const ResetPassword = () => {
   };
 
   return (
-    <Page className="reset-password" title={t("resetPassword.title")}>
+    <Page
+      className="reset-password"
+      title={t("resetPassword.title")}
+      centered={true}
+    >
       <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>
   );
 };
-
-export default ResetPassword;

@@ -34,12 +34,12 @@ interface Properties {
   fixed?: boolean;
 }
 
-const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
+export const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();
   const { user } = useUser();
   const isSmallScreen = useMediaQuery("(max-width: 576px)");
 
-  const home = getHomeRoute(user, layoutConfig, userConfig);
+  const homeRoute = getHomeRoute(user, layoutConfig, userConfig);
 
   const {
     anonymousUserMenu,
@@ -77,7 +77,7 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
       children={children}
       footer={footer}
       mainMenuRoutes={mainMenuRoutes}
-      logoRoute={logoRoute || home}
+      logoRoute={logoRoute || homeRoute}
       header={header}
       displaySidebarMenuIcon={displaySidebarMenuIcon}
       localSwitcher={localSwitcher}
@@ -107,5 +107,3 @@ const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
     />
   );
 };
-
-export default UserEnabledSidebarLayout;

@@ -1,0 +1,27 @@
+.dz-layout.header-only {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-rows: auto 1fr;
+}
+
+.dz-layout.header-only > header {
+  --_layout-header-padding-h: var(--_layout-main-padding-h);
+
+  grid-area: header;
+}
+
+.dz-layout.header-only > main {
+  grid-area: main;
+}
+
+@media screen and (min-width: 576px) {
+  .dz-layout.header-only {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-rows: auto 1fr;
+  }
+}
