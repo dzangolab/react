@@ -1,5 +1,9 @@
 # [0.34.0](https://github.com/dzangolab/react/compare/v0.33.0...v0.34.0) (2024-02-12)
 
+### Breaking changes
+* **layout:** remove `<Layout>` and `<NullLayout>` components. Can be safely replaced with `<></>`
+* **user:** update translation key for social login from `user:login.button.googleLoginLabel` to `user:login.social.google`
+
 
 ### Bug Fixes
 
