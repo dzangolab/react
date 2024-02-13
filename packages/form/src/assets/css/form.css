@@ -32,6 +32,7 @@ form .field .p-dropdown {
 }
 
 form input {
+  background-color: transparent;
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);
   font-size: 1rem;
@@ -83,4 +84,12 @@ form input[readonly] {
   border: none;
   font-weight: 500;
   padding-left: 0;
+}
+
+form input:autofill,
+form input:autofill:hover, 
+form input:autofill:focus, 
+form input:autofill:active  {
+  background: transparent;
+  transition: background-color 5000s;
 }
