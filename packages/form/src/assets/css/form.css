@@ -38,6 +38,7 @@ form input {
   padding: var(--form-input-padding-v, 0.5em) var(--form-input-padding-h, 0.5em);
   padding-right: calc(var(--form-input-padding-h, 0.5em) * 4);
   width: 100%;
+  background-color: transparent;
 }
 
 form input:focus{
@@ -85,6 +86,10 @@ form input[readonly] {
   padding-left: 0;
 }
 
-form input:autofill {
-  box-shadow: 0 0 0 1000px #ffffff inset;
-}
+input:autofill,
+input:autofill:hover, 
+input:autofill:focus, 
+input:autofill:active  {
+  background: transparent;
+  transition: background-color 5000s;
+} 
