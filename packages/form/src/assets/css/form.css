@@ -32,13 +32,13 @@ form .field .p-dropdown {
 }
 
 form input {
+  background-color: transparent;
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);
   font-size: 1rem;
   padding: var(--form-input-padding-v, 0.5em) var(--form-input-padding-h, 0.5em);
   padding-right: calc(var(--form-input-padding-h, 0.5em) * 4);
   width: 100%;
-  background-color: transparent;
 }
 
 form input:focus{
@@ -86,10 +86,10 @@ form input[readonly] {
   padding-left: 0;
 }
 
-input:autofill,
-input:autofill:hover, 
-input:autofill:focus, 
-input:autofill:active  {
+form input:autofill,
+form input:autofill:hover, 
+form input:autofill:focus, 
+form input:autofill:active  {
   background: transparent;
   transition: background-color 5000s;
-} 
+}
