@@ -5,7 +5,7 @@ import { CustomInputProperties } from "../types";
 
 export const Password: React.FC<
   CustomInputProperties & {
-    showInvalidState?: boolean;
+    showValidationState?: boolean;
   }
 > = ({
   getFieldState,
@@ -14,7 +14,7 @@ export const Password: React.FC<
   placeholder = "",
   register,
   submitcount = 0,
-  showInvalidState = true,
+  showValidationState = true,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -26,7 +26,7 @@ export const Password: React.FC<
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <div
         className="input-field-password"
-        {...(showInvalidState && {
+        {...(showValidationState && {
           "aria-invalid": submitcount > 0 ? invalid : undefined,
         })}
       >
@@ -35,7 +35,7 @@ export const Password: React.FC<
           id={`input-field-${name}`}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
-          {...(showInvalidState && {
+          {...(showValidationState && {
             "aria-invalid": submitcount > 0 ? invalid : undefined,
           })}
         ></input>
