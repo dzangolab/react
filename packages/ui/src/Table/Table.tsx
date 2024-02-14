@@ -116,6 +116,7 @@ const DataTable = <TData extends { id: string | number }>({
     });
 
     setColumnFilters(updatedFilters);
+    table.setPageIndex(0);
   };
 
   const getAlignValue = ({
