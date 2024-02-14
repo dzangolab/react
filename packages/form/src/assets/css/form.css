@@ -2,7 +2,7 @@ form {
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  gap: var(--form-gap, 1.25em);
+  gap: var(--form-gap, 1.5em);
   justify-content: flex-start;
   width: 100%;
 }
