@@ -36,9 +36,8 @@ form input {
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);
   font-size: 1rem;
-  padding: var(--form-input-padding-v, 0.75rem) var(--form-input-padding-h, 0.75rem);
+  padding: var(--form-input-padding-v, 0.5rem) var(--form-input-padding-h, 0.75rem);
   padding-right: calc(var(--form-input-padding-h, 0.5em) * 4);
-  padding-top: 0.65rem;
   width: 100%;
 }
 
