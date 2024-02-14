@@ -4,7 +4,7 @@ import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
 export const Email: React.FC<
-  CustomInputProperties & { readOnly?: boolean; showValidationState?: boolean }
+  CustomInputProperties & { readOnly?: boolean }
 > = ({
   disabled = false,
   register,

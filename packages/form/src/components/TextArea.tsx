@@ -7,6 +7,7 @@ interface ITextArea {
   label?: string;
   name: string;
   placeholder?: string;
+  showValidationState?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,13 +20,18 @@ export const TextArea: React.FC<ITextArea> = ({
   label = "",
   placeholder = "",
   name,
+  showValidationState = false,
 }) => {
   if (!register || !getFieldState) return null;
 
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let textareaClassName = "";
-  if (isDirty && !invalid) textareaClassName = "valid";
+  if (showValidationState) {
+    if (isDirty && !invalid) {
+      textareaClassName = "valid";
+    }
+  }
   if (isTouched && invalid) textareaClassName = "invalid";
 
   return (

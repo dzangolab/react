@@ -7,6 +7,7 @@ interface ITextInput {
   label?: string;
   placeholder?: string;
   name: string;
+  showValidationState?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,13 +20,18 @@ export const TextInput: React.FC<ITextInput> = ({
   label = "",
   placeholder = "",
   name,
+  showValidationState = false,
 }) => {
   if (!register || !getFieldState) return null;
 
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
-  if (isDirty && !invalid) inputClassName = "valid";
+  if (showValidationState) {
+    if (isDirty && !invalid) {
+      inputClassName = "valid";
+    }
+  }
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
@@ -33,7 +39,7 @@ export const TextInput: React.FC<ITextInput> = ({
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register(name)}
-        className={inputClassName}
+        className={showValidationState ? inputClassName : ""}
         type="text"
         placeholder={placeholder}
       ></input>

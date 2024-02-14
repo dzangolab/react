@@ -15,6 +15,7 @@ export const Input: React.FC<IInputField> = ({
   name,
   placeholder,
   register,
+  showValidationState = false,
   type,
   ...others
 }) => {
@@ -23,7 +24,11 @@ export const Input: React.FC<IInputField> = ({
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
-  if (isDirty && !invalid) inputClassName = "valid";
+  if (showValidationState) {
+    if (isDirty && !invalid) {
+      inputClassName = "valid";
+    }
+  }
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (

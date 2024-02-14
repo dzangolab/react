@@ -18,6 +18,7 @@ interface IProperties {
   loading?: boolean;
   showForgotPasswordLink?: boolean;
   showSignupLink?: boolean;
+  showValidationState?: boolean;
 }
 
 export const LoginWrapper: FC<IProperties> = ({
@@ -27,6 +28,7 @@ export const LoginWrapper: FC<IProperties> = ({
   loading,
   showForgotPasswordLink = true,
   showSignupLink = true,
+  showValidationState = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
@@ -103,6 +105,7 @@ export const LoginWrapper: FC<IProperties> = ({
       <LoginForm
         handleSubmit={handleLoginSubmit}
         loading={handleSubmit ? loading : loginLoading}
+        showValidationState={showValidationState}
       />
       {renderLinks()}
     </div>

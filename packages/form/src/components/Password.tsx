@@ -3,11 +3,7 @@ import React, { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
-export const Password: React.FC<
-  CustomInputProperties & {
-    showValidationState?: boolean;
-  }
-> = ({
+export const Password: React.FC<CustomInputProperties> = ({
   getFieldState,
   label = "",
   name,
