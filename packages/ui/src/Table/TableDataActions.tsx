@@ -64,7 +64,14 @@ export const DataActionsMenu = ({
     const { icon, label, ...rest } = items[0];
 
     if (items.length == 1 && icon && !displayActionMenu) {
-      return <Button iconLeft={icon} data-pr-tooltip={label} {...rest} />;
+      return (
+        <Button
+          variant="textOnly"
+          iconLeft={icon}
+          data-pr-tooltip={label}
+          {...rest}
+        />
+      );
     }
 
     return <Menu model={items} buttonOptions={buttonOptions} />;
