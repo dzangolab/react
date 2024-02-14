@@ -338,13 +338,11 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
-          displayRowActions={(rowData) => {
-            return rowData.id !== 12;
-          }}
           dataActionsMenu={{
             actions: [
               {
                 label: "View",
+                icon: "pi pi-eye",
                 onClick: (rowData) => {
                   //your logic here
                   // eslint-disable-next-line no-console
@@ -361,9 +359,6 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
-          displayRowActions={(rowData) => {
-            return rowData.id !== 12;
-          }}
           dataActionsMenu={{
             displayActionMenu: true,
             actions: [
