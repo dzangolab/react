@@ -38,6 +38,7 @@ form input {
   font-size: 1rem;
   padding: var(--form-input-padding-v, 0.75rem) var(--form-input-padding-h, 0.75rem);
   padding-right: calc(var(--form-input-padding-h, 0.5em) * 4);
+  padding-top: 0.65rem;
   width: 100%;
 }
 
