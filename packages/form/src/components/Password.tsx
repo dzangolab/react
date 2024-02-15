@@ -11,7 +11,7 @@ export const Password: React.FC<CustomInputProperties> = ({
   register,
   submitcount = 0,
   showInvalidState = true,
-  showValidState = false,
+  showValidState = true,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -19,9 +19,9 @@ export const Password: React.FC<CustomInputProperties> = ({
   const [showPassword, setShowPassword] = useState(false);
 
   const renderAriaInvalid = () => {
-    if (invalid && showInvalidState) return true;
+    if (showInvalidState && invalid) return true;
 
-    if (!invalid && showValidState) return false;
+    if (showValidState && !invalid) return false;
   };
 
   return (

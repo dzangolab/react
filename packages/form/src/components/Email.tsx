@@ -22,9 +22,9 @@ export const Email: React.FC<
   const { error, invalid } = getFieldState(name);
 
   const renderAriaInvalid = () => {
-    if (invalid && showInvalidState) return true;
+    if (showInvalidState && invalid) return true;
 
-    if (!invalid && showValidState) return false;
+    if (showValidState && !invalid) return false;
   };
 
   return (
