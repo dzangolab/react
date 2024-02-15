@@ -21,10 +21,11 @@ import {
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
 import {
-  useUser,
   useEmailVerification,
   useFirstUserSignup,
+  useLogin,
   useProfileCompletion,
+  useUser,
 } from "./hooks";
 import {
   UserEnabledBasicLayout,
@@ -129,14 +130,17 @@ export {
   setUserData,
   signup,
   superTokens,
-  useEmailVerification,
-  useFirstUserSignup,
   isProfileCompleted,
   useProfileCompletion,
-  useUser,
   userContext,
   verifyEmail,
   verifySessionRoles,
+
+  // hooks
+  useEmailVerification,
+  useFirstUserSignup,
+  useLogin,
+  useUser,
 };
 
 export type {
