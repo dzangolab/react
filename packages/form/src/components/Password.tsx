@@ -10,7 +10,6 @@ export const Password: React.FC<CustomInputProperties> = ({
   placeholder = "",
   register,
   submitcount = 0,
-  showValidationState = true,
   showInvalidState = true,
   showValidState = false,
 }) => {

@@ -7,7 +7,6 @@ interface ITextInput {
   label?: string;
   placeholder?: string;
   name: string;
-  showValidationState?: boolean;
   showValidState?: boolean;
   showInvalidState?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +21,6 @@ export const TextInput: React.FC<ITextInput> = ({
   label = "",
   placeholder = "",
   name,
-  showValidationState = false,
   showInvalidState = true,
   showValidState = true,
 }) => {

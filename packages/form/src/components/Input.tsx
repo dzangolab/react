@@ -15,7 +15,6 @@ export const Input: React.FC<IInputField> = ({
   name,
   placeholder,
   register,
-  showValidationState = false,
   showInvalidState = true,
   showValidState = true,
   type,

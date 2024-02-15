@@ -14,14 +14,9 @@ import { LoginCredentials } from "../../types";
 interface Properties {
   handleSubmit: (credentials: LoginCredentials) => void;
   loading?: boolean;
-  showValidationState?: boolean;
 }
 
-export const LoginForm = ({
-  handleSubmit,
-  loading,
-  showValidationState,
-}: Properties) => {
+export const LoginForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const LoginFormSchema = zod.object({
@@ -46,13 +41,8 @@ export const LoginForm = ({
         label={t("login.form.email.label")}
         name="email"
         placeholder={t("login.form.email.placeholder")}
-        showValidationState={showValidationState}
       />
-      <Password
-        label={t("login.form.password.label")}
-        name="password"
-        showValidationState={showValidationState}
-      />
+      <Password label={t("login.form.password.label")} name="password" />
       <SubmitButton label={t("login.form.actions.submit")} loading={loading} />
     </Form>
   );

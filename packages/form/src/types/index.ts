@@ -26,7 +26,6 @@ interface CustomInputProperties {
   register?: UseFormRegister<any>;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  showValidationState?: boolean;
   submitcount?: number;
 }
 

@@ -14,14 +14,12 @@ interface IProperties {
   orientation?: "horizontal" | "vertical";
   showForgotPasswordLink?: boolean;
   showSignupLink?: boolean;
-  showValidationState?: boolean;
   socialLoginFirst?: boolean;
 }
 
 export const Login: React.FC<IProperties> = ({
   showForgotPasswordLink,
   showSignupLink,
-  showValidationState,
   customDivider,
   onLoginFailed,
   onLoginSuccess,
@@ -84,7 +82,6 @@ export const Login: React.FC<IProperties> = ({
         onLoginSuccess={onLoginSuccess}
         showForgotPasswordLink={showForgotPasswordLink}
         showSignupLink={showSignupLink}
-        showValidationState={showValidationState}
       />
 
       {renderSocialLogins()}

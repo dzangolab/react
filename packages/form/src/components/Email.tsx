@@ -16,7 +16,6 @@ export const Email: React.FC<
   submitcount = 0,
   showInvalidState = true,
   showValidState = false,
-  showValidationState,
 }) => {
   if (!register || !getFieldState) return null;
 

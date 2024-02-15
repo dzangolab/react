@@ -7,7 +7,6 @@ interface ITextArea {
   label?: string;
   name: string;
   placeholder?: string;
-  showValidationState?: boolean;
   showValidState?: boolean;
   showInvalidState?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +21,6 @@ export const TextArea: React.FC<ITextArea> = ({
   label = "",
   placeholder = "",
   name,
-  showValidationState = false,
   showInvalidState = true,
   showValidState = true,
 }) => {
