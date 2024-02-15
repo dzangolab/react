@@ -25,13 +25,13 @@ export const Input: React.FC<IInputField> = ({
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
-  if (showValidState) {
-    if (isDirty && !invalid) {
-      inputClassName = "valid";
-    }
+
+  if (showValidState && isDirty && !invalid) {
+    inputClassName = "valid";
   }
-  if (showInvalidState) {
-    if (isTouched && invalid) inputClassName = "invalid";
+
+  if (showInvalidState && isTouched && invalid) {
+    inputClassName = "invalid";
   }
 
   return (

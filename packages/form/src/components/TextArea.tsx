@@ -29,13 +29,13 @@ export const TextArea: React.FC<ITextArea> = ({
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let textareaClassName = "";
-  if (showValidState) {
-    if (isDirty && !invalid) {
-      textareaClassName = "valid";
-    }
+
+  if (showValidState && isDirty && !invalid) {
+    textareaClassName = "valid";
   }
-  if (showInvalidState) {
-    if (isTouched && invalid) textareaClassName = "invalid";
+
+  if (showInvalidState && isTouched && invalid) {
+    textareaClassName = "invalid";
   }
 
   return (

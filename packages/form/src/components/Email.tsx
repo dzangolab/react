@@ -15,7 +15,7 @@ export const Email: React.FC<
   readOnly = false,
   submitcount = 0,
   showInvalidState = true,
-  showValidState = false,
+  showValidState = true,
 }) => {
   if (!register || !getFieldState) return null;
 
