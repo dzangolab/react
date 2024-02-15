@@ -26,17 +26,11 @@ export const TextInput: React.FC<ITextInput> = ({
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
 
   let inputClassName = "";
-
-  if (showValidState && isDirty && !invalid) {
-    inputClassName = "valid";
-  }
-
-  if (showInvalidState && isTouched && invalid) {
-    inputClassName = "invalid";
-  }
+  if (showValidState && !invalid) inputClassName = "valid";
+  if (showInvalidState && invalid) inputClassName = "invalid";
 
   return (
     <div className={`field text-input ${name}`}>

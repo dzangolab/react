@@ -26,17 +26,11 @@ export const TextArea: React.FC<ITextArea> = ({
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
 
   let textareaClassName = "";
-
-  if (showValidState && isDirty && !invalid) {
-    textareaClassName = "valid";
-  }
-
-  if (showInvalidState && isTouched && invalid) {
-    textareaClassName = "invalid";
-  }
+  if (showValidState && !invalid) textareaClassName = "valid";
+  if (showInvalidState && invalid) textareaClassName = "invalid";
 
   return (
     <div className={`field textarea-input ${name}`}>
