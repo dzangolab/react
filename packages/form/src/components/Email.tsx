@@ -14,11 +14,19 @@ export const Email: React.FC<
   name,
   readOnly = false,
   submitcount = 0,
-  showValidationState = true,
+  showInvalidState = true,
+  showValidState = false,
+  showValidationState,
 }) => {
   if (!register || !getFieldState) return null;
 
   const { error, invalid } = getFieldState(name);
+
+  const renderAriaInvalid = () => {
+    if (invalid && showInvalidState) return true;
+
+    if (!invalid && showValidState) return false;
+  };
 
   return (
     <div className={`field ${name}`}>
@@ -28,9 +36,7 @@ export const Email: React.FC<
         id={`input-field-${name}`}
         type="email"
         placeholder={placeholder}
-        {...(showValidationState && {
-          "aria-invalid": submitcount > 0 ? invalid : undefined,
-        })}
+        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
         readOnly={readOnly}
         disabled={disabled}
       ></input>

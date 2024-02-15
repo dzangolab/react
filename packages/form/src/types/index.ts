@@ -24,6 +24,8 @@ interface CustomInputProperties {
   placeholder?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
+  showValidState?: boolean;
+  showInvalidState?: boolean;
   showValidationState?: boolean;
   submitcount?: number;
 }

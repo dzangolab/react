@@ -28,7 +28,7 @@ export const LoginWrapper: FC<IProperties> = ({
   loading,
   showForgotPasswordLink = true,
   showSignupLink = true,
-  showValidationState = false,
+  showValidationState,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
