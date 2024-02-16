@@ -55,3 +55,8 @@ export type UpdateProfileInputType = {
   givenName: string;
   surname: string;
 };
+
+export type ChangePasswordInputType = {
+  newPassword: string;
+  oldPassword: string;
+};

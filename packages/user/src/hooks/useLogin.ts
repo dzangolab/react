@@ -11,8 +11,8 @@ import type { LoginCredentials } from "../types";
 
 type UseLoginConfig = {
   showToasts?: boolean;
-  onLoginSuccess?: (user: any) => Promise<void> | void;
-  onLoginFailed?: (error: any) => Promise<void> | void;
+  onSuccess?: (user: any) => Promise<void> | void;
+  onFailed?: (error?: any) => Promise<void> | void;
 };
 
 type UseLoginMeta = {
@@ -21,7 +21,7 @@ type UseLoginMeta = {
 };
 
 export function useLogin(config?: UseLoginConfig) {
-  const { showToasts = true, onLoginFailed, onLoginSuccess } = config || {};
+  const { showToasts = true, onFailed, onSuccess } = config || {};
 
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
@@ -34,26 +34,28 @@ export function useLogin(config?: UseLoginConfig) {
     setIsLoading(true);
 
     return login(credentials)
-      .then(async (result) => {
-        if (result?.user) {
+      .then(async (response) => {
+        if (response?.user) {
           if (
             userConfig &&
             (await verifySessionRoles(userConfig.supportedRoles))
           ) {
-            setUser(result.user);
+            setUser(response.user);
 
-            onLoginSuccess && (await onLoginSuccess(result));
+            onSuccess && (await onSuccess(response));
 
             showToasts && toast.success(t("login.messages.success"));
           } else {
             setIsError(true);
+            onFailed && (await onFailed(response));
+
             showToasts && toast.error(t("login.messages.permissionDenied"));
           }
         }
       })
       .catch(async (error) => {
         setIsError(true);
-        onLoginFailed && (await onLoginFailed(error));
+        onFailed && (await onFailed(error));
 
         if (showToasts) {
           let errorMessage = "errors.otherErrors";

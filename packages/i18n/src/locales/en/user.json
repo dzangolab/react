@@ -15,6 +15,7 @@
       }
     },
     "messages": {
+      "error": "Could not change your password.",
       "success": "Your password was successfully changed.",
       "validation": {
         "oldPassword": "Old password is required",
