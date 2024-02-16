@@ -22,11 +22,11 @@ export const Input: React.FC<IInputField> = ({
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, invalid } = getFieldState(name);
+  const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
   let inputClassName = "";
-  if (showValidState && !invalid) inputClassName = "valid";
-  if (showInvalidState && invalid) inputClassName = "invalid";
+  if (showValidState && isDirty && !invalid) inputClassName = "valid";
+  if (showInvalidState && isTouched && invalid) inputClassName = "invalid";
 
   return (
     <div className={`field ${name}`}>
