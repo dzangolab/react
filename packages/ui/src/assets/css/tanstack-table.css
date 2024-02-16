@@ -3,11 +3,12 @@
 :root {
   --dz-table-border: 1px solid rgb(226, 226, 226);
   --dz-table-header-bg: #f0f2f7ad;
+  --dz-table-overlay-bg: rgba(255, 255, 255, 0.6);
   --dz-table-header-active-bg: rgb(232, 240, 255);
   --dz-table-row-hover-bg: #318aff0f;
   --dz-table-column-padding: 0.8rem;
   --dz-table-row-selected-bg: rgb(240, 245, 255);
-  --dz-table-body-bg: rgb(255, 255, 255);
+  --dz-table-body-bg: transparent;
   --dz-table-stripe-color: #0064ff08;
   --dz-table-actions-column-width: 4rem;
 }
@@ -44,7 +45,7 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--dz-table-overlay-bg);
 }
 
 .dz-table-container .toolbar {
