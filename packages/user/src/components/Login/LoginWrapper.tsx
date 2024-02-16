@@ -30,7 +30,7 @@ export const LoginWrapper: FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const { user: userConfig } = useConfig();
 
-  const [loginLoading, loginUser] = useLogin({
+  const [loginUser, { isLoading: loginLoading }] = useLogin({
     onLoginFailed,
     onLoginSuccess,
   });
