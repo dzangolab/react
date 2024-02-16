@@ -19,12 +19,12 @@ export const Email: React.FC<
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
 
   const renderAriaInvalid = () => {
-    if (showInvalidState && isDirty && invalid) return true;
+    if (showInvalidState && invalid) return true;
 
-    if (showValidState && isTouched && !invalid) return false;
+    if (showValidState && !invalid) return false;
   };
 
   return (

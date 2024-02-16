@@ -15,13 +15,13 @@ export const Password: React.FC<CustomInputProperties> = ({
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
   const [showPassword, setShowPassword] = useState(false);
 
   const renderAriaInvalid = () => {
-    if (showInvalidState && isDirty && invalid) return true;
+    if (showInvalidState && invalid) return true;
 
-    if (showValidState && isTouched && !invalid) return false;
+    if (showValidState && !invalid) return false;
   };
 
   return (
