@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ErrorMessage } from "./ErrorMessage";
+import { Input } from "./Input";
 import { CustomInputProperties } from "../types";
 
 export const Email: React.FC<
@@ -13,33 +13,22 @@ export const Email: React.FC<
   placeholder = "",
   name,
   readOnly = false,
-  submitcount = 0,
   showInvalidState = true,
   showValidState = true,
 }) => {
-  if (!register || !getFieldState) return null;
-
-  const { error, invalid } = getFieldState(name);
-
-  const renderAriaInvalid = () => {
-    if (showInvalidState && invalid) return true;
-
-    if (showValidState && !invalid) return false;
-  };
-
   return (
-    <div className={`field ${name}`}>
-      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
-      <input
-        {...register(name)}
-        id={`input-field-${name}`}
-        type="email"
-        placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
-        readOnly={readOnly}
-        disabled={disabled}
-      ></input>
-      {error?.message && <ErrorMessage message={error.message} />}
-    </div>
+    <Input
+      name={name}
+      label={label}
+      id={`input-field-${name}`}
+      type="email"
+      register={register}
+      getFieldState={getFieldState}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      disabled={disabled}
+      showInvalidState={showInvalidState}
+      showValidState={showValidState}
+    />
   );
 };
