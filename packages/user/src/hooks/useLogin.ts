@@ -15,6 +15,11 @@ type UseLoginConfig = {
   onLoginFailed?: (error: any) => Promise<void> | void;
 };
 
+type UseLoginMeta = {
+  isError: boolean;
+  isLoading: boolean;
+};
+
 export function useLogin(config?: UseLoginConfig) {
   const { showToasts = true, onLoginFailed, onLoginSuccess } = config || {};
 
@@ -22,12 +27,13 @@ export function useLogin(config?: UseLoginConfig) {
   const { setUser } = useUser();
   const { user: userConfig } = useConfig();
 
-  const [loginLoading, setLoginLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const loginUser = async (credentials: LoginCredentials) => {
-    setLoginLoading(true);
+  const loginUser = (credentials: LoginCredentials) => {
+    setIsLoading(true);
 
-    await login(credentials)
+    return login(credentials)
       .then(async (result) => {
         if (result?.user) {
           if (
@@ -40,25 +46,29 @@ export function useLogin(config?: UseLoginConfig) {
 
             showToasts && toast.success(t("login.messages.success"));
           } else {
+            setIsError(true);
             showToasts && toast.error(t("login.messages.permissionDenied"));
           }
         }
       })
       .catch(async (error) => {
-        let errorMessage = "errors.otherErrors";
-
-        if (error.message) {
-          errorMessage = `errors.${error.message}`;
-        }
-
+        setIsError(true);
         onLoginFailed && (await onLoginFailed(error));
 
-        showToasts && toast.error(t(errorMessage, { ns: "errors" }));
+        if (showToasts) {
+          let errorMessage = "errors.otherErrors";
+
+          if (error.message) {
+            errorMessage = `errors.${error.message}`;
+          }
+
+          toast.error(t(errorMessage, { ns: "errors" }));
+        }
       });
   };
 
-  return [loginLoading, loginUser] as [
-    boolean,
+  return [loginUser, { isError, isLoading }] as [
     (credentials: LoginCredentials) => Promise<any>,
+    UseLoginMeta,
   ];
 }
