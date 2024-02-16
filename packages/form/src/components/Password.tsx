@@ -3,13 +3,18 @@ import React, { useState } from "react";
 import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
-export const Password: React.FC<CustomInputProperties> = ({
+export const Password: React.FC<
+  CustomInputProperties & {
+    showValidationState?: boolean;
+  }
+> = ({
   getFieldState,
   label = "",
   name,
   placeholder = "",
   register,
   submitcount = 0,
+  showValidationState = true,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -21,14 +26,18 @@ export const Password: React.FC<CustomInputProperties> = ({
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <div
         className="input-field-password"
-        aria-invalid={submitcount > 0 ? invalid : undefined}
+        {...(showValidationState && {
+          "aria-invalid": submitcount > 0 ? invalid : undefined,
+        })}
       >
         <input
           {...register(name)}
           id={`input-field-${name}`}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
-          aria-invalid={submitcount > 0 ? invalid : undefined}
+          {...(showValidationState && {
+            "aria-invalid": submitcount > 0 ? invalid : undefined,
+          })}
         ></input>
         <span
           className="eye-icon"
