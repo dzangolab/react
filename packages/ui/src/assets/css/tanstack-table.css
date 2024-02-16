@@ -7,7 +7,7 @@
   --dz-table-row-hover-bg: #318aff0f;
   --dz-table-column-padding: 0.8rem;
   --dz-table-row-selected-bg: rgb(240, 245, 255);
-  --dz-table-body-bg: rgb(78, 78, 78);
+  --dz-table-body-bg: rgb(255, 255, 255);
   --dz-table-stripe-color: #0064ff08;
   --dz-table-actions-column-width: 4rem;
 }
@@ -66,6 +66,10 @@
 .dz-table-container .table-wrapper > table {
   min-width: 100%;
   border-collapse: collapse;
+}
+
+.dz-table-container .table-wrapper > table > tbody {
+  background: var(--dz-table-body-bg);
 }
 
 .dz-table-container[data-border="grid"] .toolbar,
