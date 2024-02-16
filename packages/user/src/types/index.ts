@@ -13,6 +13,7 @@ import {
 } from "./invitation";
 import {
   AuthState,
+  ChangePasswordInputType,
   ErrorResponse,
   ExtendedUser,
   LoginCredentials,
@@ -27,6 +28,7 @@ export type {
   AcceptInvitationResponse,
   AddInvitationResponse,
   AuthState,
+  ChangePasswordInputType,
   DzangolabReactUserConfig,
   ErrorResponse,
   ExtendedUser,

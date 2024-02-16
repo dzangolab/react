@@ -62,4 +62,9 @@ export type LinkType = {
   display?: boolean;
   label: string;
   to: string;
+}
+
+export type ChangePasswordInputType = {
+  newPassword: string;
+  oldPassword: string;
 };

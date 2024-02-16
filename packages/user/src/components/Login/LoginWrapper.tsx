@@ -31,8 +31,8 @@ export const LoginWrapper: FC<IProperties> = ({
   const { user: userConfig } = useConfig();
 
   const [loginUser, { isLoading: loginLoading }] = useLogin({
-    onLoginFailed,
-    onLoginSuccess,
+    onSuccess: onLoginFailed,
+    onFailed: onLoginSuccess,
   });
 
   const links: Array<LinkType> = [

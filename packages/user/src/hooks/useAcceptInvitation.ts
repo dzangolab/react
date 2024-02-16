@@ -14,8 +14,11 @@ import { useLogin } from "./useLogin";
 import type { Invitation, LoginCredentials } from "../types";
 
 type UseAcceptInvitationConfig = {
+  autoLogin?: boolean;
   showToasts?: boolean;
   tokenParamKey?: string;
+  onSuccess?: (user: any) => Promise<void> | void;
+  onFailed?: (error?: any) => Promise<void> | void;
 };
 
 type UseAcceptInvitationMeta = {
@@ -26,8 +29,13 @@ type UseAcceptInvitationMeta = {
 };
 
 export function useAcceptInvitation(config?: UseAcceptInvitationConfig) {
-  const { showToasts = true, tokenParamKey: tokenParameterKey = "token" } =
-    config || {};
+  const {
+    autoLogin = true,
+    showToasts = true,
+    tokenParamKey: tokenParameterKey = "token",
+    onSuccess,
+    onFailed,
+  } = config || {};
 
   const { t } = useTranslation("invitations");
   const appConfig: any = useConfig();
@@ -77,15 +85,25 @@ export function useAcceptInvitation(config?: UseAcceptInvitationConfig) {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
           setIsError(true);
+
+          onFailed && (await onFailed(response));
+
           showToasts && toast.error(response.data.message);
         } else {
-          // TODO acceptInvitation should return authenticated user from api
-          await loginUser(credentials);
+          onSuccess && (await onSuccess(response));
+
+          if (autoLogin) {
+            // TODO acceptInvitation should return authenticated user from api
+            await loginUser(credentials);
+          }
         }
       })
-      .catch(() => {
+      .catch(async (error) => {
         setIsError(true);
         setIsLoading(false);
+
+        onFailed && (await onFailed(error));
+
         showToasts &&
           toast.error(`${t("invitations.messages.errorAcceptingInvitation")}`);
       });
