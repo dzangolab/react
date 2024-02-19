@@ -7,6 +7,7 @@ import {
   useFormContext,
   useWatch,
   RenderAdditionalFormFields,
+  FormActions,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button } from "@dzangolab/react-ui";
@@ -146,26 +147,23 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
       {expiryDateField?.display ? renderExpiryDateField() : null}
 
-      <div className="actions">
-        {onCancel && (
-          <Button
-            onClick={(event) => {
+      <FormActions
+        actions={[
+          {
+            id: "cancel",
+            onClick: (event) => {
               event.preventDefault();
-              onCancel();
-            }}
-            label={t("form.actions.cancel")}
-            severity="secondary"
-            variant="outlined"
-          ></Button>
-        )}
-
-        <Button
-          type="submit"
-          label={t("form.actions.submit")}
-          disabled={!!Object.values(errors).length}
-          loading={loading}
-        ></Button>
-      </div>
+              onCancel && onCancel();
+            },
+            label: t("form.actions.cancel"),
+          },
+          {
+            id: "submit",
+            label: t("form.actions.submit"),
+          },
+        ]}
+        loading={loading}
+      />
     </>
   );
 };
