@@ -30,17 +30,19 @@ export const TextArea: React.FC<ITextArea> = ({
 
   const { error, invalid } = getFieldState(name);
 
-  let textareaClassName = "";
-  if (showValidState && !invalid) textareaClassName = "valid";
-  if (showInvalidState && invalid) textareaClassName = "invalid";
+  const renderAriaInvalid = () => {
+    if (showInvalidState && invalid) return true;
+
+    if (showValidState && !invalid) return false;
+  };
 
   return (
     <div className={`field textarea-input ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <textarea
         {...register(name)}
-        className={submitcount > 0 ? textareaClassName : ""}
         placeholder={placeholder}
+        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
       ></textarea>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
