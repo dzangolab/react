@@ -13,14 +13,14 @@ export const Email: React.FC<
   placeholder = "",
   name,
   readOnly = false,
-  showInvalidState = true,
-  showValidState = true,
+  showInvalidState,
+  showValidState,
+  submitcount,
 }) => {
   return (
     <Input
       name={name}
       label={label}
-      id={`input-field-${name}`}
       type="email"
       register={register}
       getFieldState={getFieldState}
@@ -29,6 +29,7 @@ export const Email: React.FC<
       disabled={disabled}
       showInvalidState={showInvalidState}
       showValidState={showValidState}
+      submitcount={submitcount}
     />
   );
 };
