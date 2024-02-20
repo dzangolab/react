@@ -42,67 +42,67 @@ export const DataActionsMenu = ({
 
   if (!isVisibleActions) {
     return null;
-  } else {
-    const buttonOptions = {
-      icon: "pi pi-cog",
-      ...pButtonOptions,
-    };
-
-    const items: MenuItem[] = actions
-      ? actions
-          .filter((action) => {
-            if (typeof action.display === "function") {
-              return action.display(data);
-            } else if (typeof action.display === "boolean") {
-              return action.display;
-            } else {
-              return true;
-            }
-          })
-          .map((action) => ({
-            ...action,
-            disabled:
-              typeof action.disabled === "function"
-                ? action.disabled(data)
-                : action.disabled,
-            command: () => {
-              if (action.requireConfirmationModal) {
-                setConfirmation({
-                  ...action.confirmationOptions,
-                  onHide: () => setConfirmation(null),
-                  accept: () => {
-                    action.onClick && action.onClick(data);
-                    setConfirmation(null);
-                  },
-                });
-              } else {
-                action.onClick && action.onClick(data);
-              }
-            },
-          }))
-      : [];
-
-    const renderActions = () => {
-      const { icon, label, ...rest } = items[0];
-
-      if (!items.length) {
-        return null;
-      }
-
-      if (items.length == 1 && icon && !displayActionMenu) {
-        return <Button iconLeft={icon} data-pr-tooltip={label} {...rest} />;
-      }
-
-      return <Menu model={items} buttonOptions={buttonOptions} />;
-    };
-
-    return (
-      <>
-        {renderActions()}
-        {!!confirmation && (
-          <ConfirmationModal {...confirmation} visible={!!confirmation} />
-        )}
-      </>
-    );
   }
+
+  const buttonOptions = {
+    icon: "pi pi-cog",
+    ...pButtonOptions,
+  };
+
+  const items: MenuItem[] = actions
+    ? actions
+        .filter((action) => {
+          if (typeof action.display === "function") {
+            return action.display(data);
+          } else if (typeof action.display === "boolean") {
+            return action.display;
+          } else {
+            return true;
+          }
+        })
+        .map((action) => ({
+          ...action,
+          disabled:
+            typeof action.disabled === "function"
+              ? action.disabled(data)
+              : action.disabled,
+          command: () => {
+            if (action.requireConfirmationModal) {
+              setConfirmation({
+                ...action.confirmationOptions,
+                onHide: () => setConfirmation(null),
+                accept: () => {
+                  action.onClick && action.onClick(data);
+                  setConfirmation(null);
+                },
+              });
+            } else {
+              action.onClick && action.onClick(data);
+            }
+          },
+        }))
+    : [];
+
+  const renderActions = () => {
+    const { icon, label, ...rest } = items[0];
+
+    if (!items.length) {
+      return null;
+    }
+
+    if (items.length == 1 && icon && !displayActionMenu) {
+      return <Button iconLeft={icon} data-pr-tooltip={label} {...rest} />;
+    }
+
+    return <Menu model={items} buttonOptions={buttonOptions} />;
+  };
+
+  return (
+    <>
+      {renderActions()}
+      {!!confirmation && (
+        <ConfirmationModal {...confirmation} visible={!!confirmation} />
+      )}
+    </>
+  );
 };
