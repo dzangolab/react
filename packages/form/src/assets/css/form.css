@@ -99,6 +99,10 @@ form input[readonly] {
   padding-left: 0;
 }
 
+form input[readonly]:focus {
+  outline: none;
+}
+
 form input:autofill,
 form input:autofill:hover,
 form input:autofill:focus,
