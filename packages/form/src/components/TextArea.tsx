@@ -9,6 +9,7 @@ interface ITextArea {
   placeholder?: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
+  submitcount?: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,6 +24,7 @@ export const TextArea: React.FC<ITextArea> = ({
   name,
   showInvalidState = true,
   showValidState = true,
+  submitcount = 0,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -37,7 +39,7 @@ export const TextArea: React.FC<ITextArea> = ({
       {label && <label htmlFor={name}>{label}</label>}
       <textarea
         {...register(name)}
-        className={textareaClassName}
+        className={submitcount > 0 ? textareaClassName : ""}
         placeholder={placeholder}
       ></textarea>
       {error?.message && <ErrorMessage message={error.message} />}
