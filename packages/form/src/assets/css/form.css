@@ -5,6 +5,8 @@ form {
   gap: var(--form-gap, 1.5rem);
   justify-content: flex-start;
   width: 100%;
+  min-width: 20rem;
+  max-width: 20rem;
 }
 
 form .actions {
