@@ -497,7 +497,9 @@ const DataTable = <TData extends { id: string | number }>({
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
-                data-state={row.getIsSelected() && "selected"}
+                {...(enableRowSelection && {
+                  "data-selected": row.getIsSelected(),
+                })}
                 data-id={row.original.id ?? row.id}
               >
                 {row.getVisibleCells().map((cell) => {
