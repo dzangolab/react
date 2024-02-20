@@ -9,13 +9,14 @@ interface ITextInput {
   name: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
+  submitcount?: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
 }
 
-export const TextInput: React.FC<ITextInput & { submitcount?: number }> = ({
+export const TextInput: React.FC<ITextInput> = ({
   register,
   getFieldState,
   label = "",

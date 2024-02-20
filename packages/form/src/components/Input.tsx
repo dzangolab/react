@@ -9,7 +9,7 @@ export type IInputField = CustomInputProperties &
     HTMLInputElement
   >;
 
-export const Input: React.FC<IInputField & { submitcount?: number }> = ({
+export const Input: React.FC<IInputField> = ({
   getFieldState,
   label = "",
   name,
