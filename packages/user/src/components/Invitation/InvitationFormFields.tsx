@@ -10,7 +10,6 @@ import {
   FormActions,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button } from "@dzangolab/react-ui";
 import React, { useEffect, useMemo, useState } from "react";
 
 import {
@@ -160,6 +159,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           {
             id: "submit",
             label: t("form.actions.submit"),
+            disabled: !!Object.values(errors).length,
           },
         ]}
         loading={loading}

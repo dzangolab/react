@@ -3,9 +3,9 @@ import {
   Input,
   useFormContext,
   AdditionalFormFields,
+  FormActions,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, SubmitButton } from "@dzangolab/react-ui";
 
 interface Properties {
   submitting?: boolean;
@@ -57,21 +57,22 @@ export const ProfileFormFields = ({
         ? additionalProfileFields.renderFields(useFormContext)
         : null}
 
-      <div className="profile-form-actions">
-        <Button
-          label={t("profile.button.cancel")}
-          severity="secondary"
-          variant="outlined"
-          type="button"
-          disabled={!isDirty}
-          onClick={() => reset()}
-        />
-        <SubmitButton
-          disabled={!isDirty}
-          label={t("profile.button.update")}
-          loading={submitting}
-        />
-      </div>
+      <FormActions
+        actions={[
+          {
+            id: "cancel",
+            label: t("profile.button.cancel"),
+            type: "button",
+            disabled: !isDirty,
+            onClick: () => reset(),
+          },
+          {
+            id: "submit",
+            label: t("profile.button.update"),
+          },
+        ]}
+        loading={submitting}
+      />
     </>
   );
 };

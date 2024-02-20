@@ -1,6 +1,5 @@
-import { Email, Form, emailSchema } from "@dzangolab/react-form";
+import { Email, Form, FormActions, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
 
@@ -29,8 +28,14 @@ export const ForgotPasswordForm = ({ handleSubmit, loading }: Properties) => {
         name="email"
         placeholder={t("forgotPassword.form.email.placeholder")}
       />
-      <SubmitButton
-        label={t("forgotPassword.form.actions.submit")}
+
+      <FormActions
+        actions={[
+          {
+            id: "submit",
+            label: t("forgotPassword.form.actions.submit"),
+          },
+        ]}
         loading={loading}
       />
     </Form>

@@ -7,7 +7,7 @@ form {
   width: 100%;
 }
 
-form .dz-form-actions {
+.dz-form-actions {
   align-items: stretch;
   display: flex;
   flex-direction: row;
@@ -15,7 +15,15 @@ form .dz-form-actions {
   justify-content: stretch;
 }
 
-form .dz-form-actions[data-alignment="right"] {
+.dz-form-actions[data-alignment="fill"] button {
+  flex: 1;
+}
+
+.dz-form-actions[data-direction="vertical"] {
+  flex-direction: column;
+}
+
+.dz-form-actions[data-alignment="right"] {
   justify-content: flex-end;
 }
 

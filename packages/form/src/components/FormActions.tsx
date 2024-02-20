@@ -1,22 +1,21 @@
 import { Button, IButtonProperties } from "@dzangolab/react-ui";
 import React, { useMemo } from "react";
-import { useFormContext } from "react-hook-form";
 
 interface FormActionsProperties {
   actions?: IButtonProperties[];
+  alignment?: "center" | "left" | "right" | "fill";
+  flowDirection?: "horizontal" | "vertical";
+  className?: string;
   loading?: boolean;
-  alignment?: "center" | "left" | "right";
 }
 
 export const FormActions = ({
-  loading,
-  alignment = "left",
   actions,
+  alignment = "fill",
+  className,
+  flowDirection = "horizontal",
+  loading,
 }: FormActionsProperties) => {
-  const {
-    formState: { errors },
-  } = useFormContext();
-
   const defaultActions: IButtonProperties[] = [
     {
       id: "cancel",
@@ -28,7 +27,6 @@ export const FormActions = ({
       id: "submit",
       type: "submit",
       label: "Submit",
-      disabled: !!Object.values(errors).length,
       loading: loading,
     },
   ];
@@ -61,9 +59,13 @@ export const FormActions = ({
   }, [actions]);
 
   return (
-    <div className="dz-form-actions" data-alignment={alignment}>
+    <div
+      className={`dz-form-actions ${className || ""}`.trimEnd()}
+      data-alignment={alignment}
+      data-direction={flowDirection}
+    >
       {parsedActions.map((action) => {
-        return <Button {...action} />;
+        return <Button key={action.id || action.label} {...action} />;
       })}
     </div>
   );

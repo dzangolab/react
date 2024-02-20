@@ -1,11 +1,11 @@
 import {
   Email,
+  FormActions,
   Password,
   useFormContext,
   useWatch,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
 import React, { useEffect } from "react";
 
 import TermsAndConditions from "./TermsAndConditions";
@@ -74,27 +74,29 @@ const SignupFormFields: React.FC<IProperties> = ({
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
-      <div className="buttons">
-        {showTermsAndConditions ? (
-          <TermsAndConditions
-            hasCheckbox={user.termsAndConditions?.showCheckbox}
-            label={user.termsAndConditions?.label()}
-            name="termsAndConditions"
-            register={register}
-          />
-        ) : null}
-
-        <SubmitButton
-          label={`${t("signup.form.actions.submit")}`}
-          loading={loading}
-          disabled={
-            !!Object.values(errors).length ||
-            (showTermsAndConditions &&
-              user.termsAndConditions?.showCheckbox &&
-              !isChecked)
-          }
+      {showTermsAndConditions ? (
+        <TermsAndConditions
+          hasCheckbox={user.termsAndConditions?.showCheckbox}
+          label={user.termsAndConditions?.label()}
+          name="termsAndConditions"
+          register={register}
         />
-      </div>
+      ) : null}
+
+      <FormActions
+        actions={[
+          {
+            id: "submit",
+            disabled:
+              !!Object.values(errors).length ||
+              (showTermsAndConditions &&
+                user.termsAndConditions?.showCheckbox &&
+                !isChecked),
+            label: t("signup.form.actions.submit"),
+          },
+        ]}
+        loading={loading}
+      />
     </>
   );
 };
