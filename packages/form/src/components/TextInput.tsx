@@ -30,18 +30,20 @@ export const TextInput: React.FC<ITextInput> = ({
 
   const { error, invalid } = getFieldState(name);
 
-  let inputClassName = "";
-  if (showValidState && !invalid) inputClassName = "valid";
-  if (showInvalidState && invalid) inputClassName = "invalid";
+  const renderAriaInvalid = () => {
+    if (showInvalidState && invalid) return true;
+
+    if (showValidState && !invalid) return false;
+  };
 
   return (
     <div className={`field text-input ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register(name)}
-        className={submitcount > 0 ? inputClassName : ""}
         type="text"
         placeholder={placeholder}
+        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
