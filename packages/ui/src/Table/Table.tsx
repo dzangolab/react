@@ -509,6 +509,11 @@ const DataTable = <TData extends { id: string | number }>({
                       const numberOptions = cell.column.columnDef.numberOptions;
 
                       const getFormattedValue = (): NoInfer<never> => {
+                        if (cell.column.columnDef.customFormatter) {
+                          return cell.column.columnDef.customFormatter(
+                            cell,
+                          ) as NoInfer<never>;
+                        }
                         switch (cell.column.columnDef.dataType) {
                           case "number":
                             return formatNumber({

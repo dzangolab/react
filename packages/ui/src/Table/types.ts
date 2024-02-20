@@ -39,6 +39,7 @@ declare module "@tanstack/react-table" {
     minWidth?: string;
     dateOptions?: Omit<FormatDateType, "date">;
     numberOptions?: Omit<FormatNumberType, "value">;
+    customFormatter?: (cellData: Cell<TData, unknown>) => string;
   }
 
   interface ColumnFilter {
