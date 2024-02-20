@@ -232,7 +232,9 @@ export interface TDataTableProperties<TData>
   extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
-  dataActionsMenu?: DataActionsMenuProperties<TData>;
+  dataActionsMenu?:
+    | ((data: TData) => DataActionsMenuProperties<TData>)
+    | DataActionsMenuProperties<TData>;
   data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;

@@ -149,7 +149,14 @@ const DataTable = <TData extends { id: string | number }>({
       header: () => <i className="pi pi-cog"></i>,
       align: "center",
       cell: ({ row: { original } }) => {
-        return <DataActionsMenu {...dataActionsMenu} data={original} />;
+        return (
+          <DataActionsMenu
+            {...(typeof dataActionsMenu === "function"
+              ? dataActionsMenu(original)
+              : dataActionsMenu)}
+            data={original}
+          />
+        );
       },
     };
 
