@@ -1,7 +1,7 @@
 import React from "react";
 import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
-import { ErrorMessage } from "./ErrorMessage";
+import { Input } from "./Input";
 
 interface ITextInput {
   label?: string;
@@ -26,24 +26,17 @@ export const TextInput: React.FC<ITextInput> = ({
   showInvalidState = true,
   showValidState = true,
 }) => {
-  if (!register || !getFieldState) return null;
-
-  const { error, invalid } = getFieldState(name);
-
-  let inputClassName = "";
-  if (showValidState && !invalid) inputClassName = "valid";
-  if (showInvalidState && invalid) inputClassName = "invalid";
-
   return (
-    <div className={`field text-input ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
-      <input
-        {...register(name)}
-        className={submitcount > 0 ? inputClassName : ""}
-        type="text"
-        placeholder={placeholder}
-      ></input>
-      {error?.message && <ErrorMessage message={error.message} />}
-    </div>
+    <Input
+      name={name}
+      label={label}
+      type="text"
+      register={register}
+      getFieldState={getFieldState}
+      placeholder={placeholder}
+      showInvalidState={showInvalidState}
+      showValidState={showValidState}
+      submitcount={submitcount}
+    />
   );
 };
