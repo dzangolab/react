@@ -17,22 +17,17 @@ export const Input: React.FC<IInputField> = ({
   register,
   showInvalidState = true,
   showValidState = true,
+  submitcount = 0,
   type,
   ...others
 }) => {
   if (!register || !getFieldState) return null;
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
 
   let inputClassName = "";
-
-  if (showValidState && isDirty && !invalid) {
-    inputClassName = "valid";
-  }
-
-  if (showInvalidState && isTouched && invalid) {
-    inputClassName = "invalid";
-  }
+  if (showValidState && !invalid) inputClassName = "valid";
+  if (showInvalidState && invalid) inputClassName = "invalid";
 
   return (
     <div className={`field ${name}`}>
@@ -42,7 +37,7 @@ export const Input: React.FC<IInputField> = ({
           valueAsNumber: type === "number" ? true : false,
         })}
         id={`input-field-${name}`}
-        className={inputClassName}
+        className={submitcount > 0 ? inputClassName : ""}
         type={type}
         placeholder={placeholder}
         {...others}
