@@ -25,7 +25,7 @@ export const Input: React.FC<IInputField> = ({
 
   const { error, invalid } = getFieldState(name);
 
-  const renderAriaInvalid = () => {
+  const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
 
     if (showValidState && !invalid) return false;
@@ -41,7 +41,7 @@ export const Input: React.FC<IInputField> = ({
         id={`input-field-${name}`}
         type={type}
         placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
+        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
         {...others}
       />
       {error?.message && <ErrorMessage message={error.message} />}

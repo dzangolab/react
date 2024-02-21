@@ -21,7 +21,7 @@ export const Email: React.FC<
 
   const { error, invalid } = getFieldState(name);
 
-  const renderAriaInvalid = () => {
+  const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
 
     if (showValidState && !invalid) return false;
@@ -35,7 +35,7 @@ export const Email: React.FC<
         id={`input-field-${name}`}
         type="email"
         placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
+        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
         readOnly={readOnly}
         disabled={disabled}
       ></input>

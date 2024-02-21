@@ -30,7 +30,7 @@ export const TextInput: React.FC<ITextInput> = ({
 
   const { error, invalid } = getFieldState(name);
 
-  const renderAriaInvalid = () => {
+  const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
 
     if (showValidState && !invalid) return false;
@@ -43,7 +43,7 @@ export const TextInput: React.FC<ITextInput> = ({
         {...register(name)}
         type="text"
         placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
+        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
