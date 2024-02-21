@@ -72,6 +72,7 @@ export const ProfileFormFields = ({
           },
         ]}
         loading={submitting}
+        alignment="fill"
       />
     </>
   );

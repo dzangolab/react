@@ -11,7 +11,7 @@ interface FormActionsProperties {
 
 export const FormActions = ({
   actions,
-  alignment = "fill",
+  alignment = "right",
   className,
   flowDirection = "horizontal",
   loading,
@@ -20,14 +20,15 @@ export const FormActions = ({
     {
       id: "cancel",
       label: "Cancel",
+      loading: loading,
       severity: "secondary",
       variant: "outlined",
     },
     {
       id: "submit",
-      type: "submit",
       label: "Submit",
       loading: loading,
+      type: "submit",
     },
   ];
 

@@ -66,6 +66,7 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
           },
         ]}
         loading={loading}
+        alignment="fill"
       />
     </Form>
   );

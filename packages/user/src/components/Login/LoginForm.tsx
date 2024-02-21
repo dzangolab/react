@@ -57,6 +57,7 @@ export const LoginForm = ({ handleSubmit, loading }: Properties) => {
           },
         ]}
         loading={loading}
+        alignment="fill"
       />
     </Form>
   );

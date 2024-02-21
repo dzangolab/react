@@ -37,6 +37,7 @@ export const ForgotPasswordForm = ({ handleSubmit, loading }: Properties) => {
           },
         ]}
         loading={loading}
+        alignment="fill"
       />
     </Form>
   );

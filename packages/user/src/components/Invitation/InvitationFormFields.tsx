@@ -163,6 +163,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           },
         ]}
         loading={loading}
+        alignment="fill"
       />
     </>
   );

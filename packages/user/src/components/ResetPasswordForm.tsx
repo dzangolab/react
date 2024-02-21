@@ -58,6 +58,7 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
           },
         ]}
         loading={loading}
+        alignment="fill"
       />
     </Form>
   );
