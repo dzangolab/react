@@ -14,13 +14,16 @@ export interface DataActionsMenuItem
   confirmationOptions?: IModalProperties;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   disabled?: boolean | ((data: any) => boolean);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  display?: boolean | ((data: any) => boolean);
 }
 
-export interface DataActionsMenuProperties {
+export interface DataActionsMenuProperties<TData> {
   actions?: DataActionsMenuItem[];
   buttonOptions?: Omit<ButtonProps, "onClick">;
   data?: object;
   displayActionMenu?: boolean;
+  displayActions?: boolean | ((data: TData) => boolean);
 }
 
 export const DataActionsMenu = ({
@@ -28,8 +31,18 @@ export const DataActionsMenu = ({
   buttonOptions: pButtonOptions,
   data,
   displayActionMenu = false,
-}: DataActionsMenuProperties) => {
+  displayActions = true, // eslint-disable-next-line @typescript-eslint/no-explicit-any
+}: DataActionsMenuProperties<any>) => {
   const [confirmation, setConfirmation] = useState<IModalProperties | null>();
+
+  const isVisibleActions =
+    typeof displayActions === "function"
+      ? displayActions(data)
+      : displayActions;
+
+  if (!isVisibleActions) {
+    return null;
+  }
 
   const buttonOptions = {
     icon: "pi pi-cog",
@@ -37,31 +50,45 @@ export const DataActionsMenu = ({
   };
 
   const items: MenuItem[] = actions
-    ? actions.map((action) => ({
-        ...action,
-        disabled:
-          typeof action.disabled === "function"
-            ? action.disabled(data)
-            : action.disabled,
-        command: () => {
-          if (action.requireConfirmationModal) {
-            setConfirmation({
-              ...action.confirmationOptions,
-              onHide: () => setConfirmation(null),
-              accept: () => {
-                action.onClick && action.onClick(data);
-                setConfirmation(null);
-              },
-            });
+    ? actions
+        .filter((action) => {
+          if (typeof action.display === "function") {
+            return action.display(data);
+          } else if (typeof action.display === "boolean") {
+            return action.display;
           } else {
-            action.onClick && action.onClick(data);
+            return true;
           }
-        },
-      }))
+        })
+        .map((action) => ({
+          ...action,
+          disabled:
+            typeof action.disabled === "function"
+              ? action.disabled(data)
+              : action.disabled,
+          command: () => {
+            if (action.requireConfirmationModal) {
+              setConfirmation({
+                ...action.confirmationOptions,
+                onHide: () => setConfirmation(null),
+                accept: () => {
+                  action.onClick && action.onClick(data);
+                  setConfirmation(null);
+                },
+              });
+            } else {
+              action.onClick && action.onClick(data);
+            }
+          },
+        }))
     : [];
 
   const renderActions = () => {
     const { icon, label, command, ...rest } = items[0];
+
+    if (!items.length) {
+      return null;
+    }
 
     if (items.length == 1 && icon && !displayActionMenu) {
       return (
