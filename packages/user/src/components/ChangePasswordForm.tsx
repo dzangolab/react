@@ -1,6 +1,5 @@
-import { Form, Password } from "@dzangolab/react-form";
+import { Form, FormActions, Password } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
 
@@ -59,9 +58,15 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
         name="confirmPassword"
       />
 
-      <SubmitButton
-        label={t("changePassword.form.actions.submit")}
+      <FormActions
+        actions={[
+          {
+            id: "submit",
+            label: t("changePassword.form.actions.submit"),
+          },
+        ]}
         loading={loading}
+        alignment="fill"
       />
     </Form>
   );

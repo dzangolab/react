@@ -5,9 +5,3 @@
 .field.expiresAt .p-calendar {
   width: 100%;
 }
-
-@media screen and (max-width: 576px) {
-  .invitation-modal .actions {
-    flex-direction: column-reverse;
-  }
-}

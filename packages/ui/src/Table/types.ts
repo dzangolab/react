@@ -234,9 +234,8 @@ export interface TDataTableProperties<TData>
   className?: string;
   columnActionBtnLabel?: string;
   dataActionsMenu?:
-    | ((data: TData) => DataActionsMenuProperties)
-    | DataActionsMenuProperties;
-  displayRowActions?: boolean | ((data: TData) => boolean);
+    | ((data: TData) => DataActionsMenuProperties<TData>)
+    | DataActionsMenuProperties<TData>;
   data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;

@@ -1,5 +1,6 @@
-import { Button } from "@dzangolab/react-ui";
 import { useState } from "react";
+
+import { FormActions } from "@/components/FormActions";
 
 import { FileDropzoneBasic } from "../FileDropzone";
 
@@ -51,28 +52,29 @@ export const FileUpload: FC<IFileUploadProperties> = ({
           setSelectedFiles(modifiedFiles);
         }}
       />
-      <div
-        className={`actions ${
-          actionsAlignment === "right" ? "align-right" : ""
-        }`}
-      >
-        <Button
-          severity="secondary"
-          variant="outlined"
-          label="Cancel"
-          onClick={() => {
-            onCancel && onCancel();
-            setSelectedFiles([]);
-          }}
-          {...cancelButtonOptions}
-        />
-        <Button
-          disabled={!selectedFiles.length}
-          label="Upload"
-          onClick={() => onUpload(selectedFiles)}
-          {...uploadButtonOptions}
-        />
-      </div>
+
+      <FormActions
+        actions={[
+          {
+            id: "cancel",
+            label: "Cancel",
+            onClick: () => {
+              onCancel && onCancel();
+              setSelectedFiles([]);
+            },
+            ...cancelButtonOptions,
+          },
+          {
+            id: "upload",
+            type: "button",
+            disabled: !selectedFiles.length,
+            label: "Upload",
+            onClick: () => onUpload(selectedFiles),
+            ...uploadButtonOptions,
+          },
+        ]}
+        alignment={actionsAlignment}
+      />
     </div>
   );
 };
