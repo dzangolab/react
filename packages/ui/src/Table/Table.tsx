@@ -61,7 +61,6 @@ const DataTable = <TData extends { id: string | number }>({
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
   data,
   dataActionsMenu,
-  displayRowActions = true,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
   id,
@@ -116,6 +115,7 @@ const DataTable = <TData extends { id: string | number }>({
     });
 
     setColumnFilters(updatedFilters);
+    table.setPageIndex(0);
   };
 
   const getAlignValue = ({
@@ -150,15 +150,6 @@ const DataTable = <TData extends { id: string | number }>({
       header: () => <i className="pi pi-cog"></i>,
       align: "center",
       cell: ({ row: { original } }) => {
-        const isVisibleActions =
-          typeof displayRowActions === "function"
-            ? displayRowActions(original)
-            : displayRowActions;
-
-        if (!isVisibleActions) {
-          return <></>;
-        }
-
         return (
           <DataActionsMenu
             {...(typeof dataActionsMenu === "function"

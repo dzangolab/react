@@ -132,6 +132,33 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
+      <Section title={t("table.usage.horizontalBorder")}>
+        <TDataTable
+          columns={columns}
+          data={data}
+          id="invitations-table"
+          border="horizontal"
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.verticalBorder")}>
+        <TDataTable
+          columns={columns}
+          data={data}
+          id="invitations-table"
+          border="vertical"
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.borderless")}>
+        <TDataTable
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          border="none"
+          stripe="odd"
+        ></TDataTable>
+      </Section>
+
       <Section title={t("table.usage.customPagination")}>
         <TDataTable
           columns={[
@@ -249,15 +276,6 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.borderless")}>
-        <TDataTable
-          columns={[...columns]}
-          data={data.slice(10, 15)}
-          border="none"
-          stripe="odd"
-        ></TDataTable>
-      </Section>
-
       <Section title={t("table.usage.withoutPagination")}>
         <TDataTable
           columns={[...columns]}
@@ -280,9 +298,6 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
-          displayRowActions={(rowData) => {
-            return rowData.id !== 12;
-          }}
           dataActionsMenu={{
             actions: [
               {
@@ -329,6 +344,73 @@ export const TableDemo = () => {
                 },
               },
             ],
+            displayActions: (rowData) => {
+              return rowData.id !== 12;
+            },
+          }}
+        />
+      </Section>
+
+      <Section title={t("table.usage.rowSpecificActions")}>
+        <TDataTable
+          columns={[...columns]}
+          data={data.slice(10, 15)}
+          paginated={false}
+          dataActionsMenu={{
+            actions: [
+              {
+                label: "View",
+                display: (rowData) => {
+                  return rowData.id !== 12;
+                },
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "view action");
+                },
+              },
+              {
+                label: "Edit",
+                display: (rowData) => {
+                  return rowData.id !== 12;
+                },
+                disabled: true,
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "edit action");
+                },
+              },
+              {
+                label: "Share",
+                display: (rowData) => {
+                  return rowData.id !== 12;
+                },
+                disabled: (rowData) => {
+                  ///your logic here
+                  return rowData.id !== 11;
+                },
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "share action");
+                },
+              },
+              {
+                label: "Delete",
+                className: "danger",
+                onClick: (rowData) => {
+                  //your logic here
+                  // eslint-disable-next-line no-console
+                  console.log(rowData, "delete action");
+                },
+                requireConfirmationModal: true,
+                confirmationOptions: {
+                  header: "Are you sure!",
+                  message: "You are going to delete this data.",
+                },
+              },
+            ],
           }}
         />
       </Section>
@@ -338,13 +420,11 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
-          displayRowActions={(rowData) => {
-            return rowData.id !== 12;
-          }}
           dataActionsMenu={{
             actions: [
               {
                 label: "View",
+                icon: "pi pi-eye",
                 onClick: (rowData) => {
                   //your logic here
                   // eslint-disable-next-line no-console
@@ -361,11 +441,7 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
-          displayRowActions={(rowData) => {
-            return rowData.id !== 12;
-          }}
           dataActionsMenu={{
-            displayActionMenu: true,
             actions: [
               {
                 label: "View",
@@ -376,6 +452,7 @@ export const TableDemo = () => {
                 },
               },
             ],
+            displayActionMenu: true,
           }}
         />
       </Section>

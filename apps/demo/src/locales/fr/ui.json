@@ -60,6 +60,8 @@
       "columnAction": "Table with column action (fr)",
       "withFooter": "Table with footer (fr)",
       "borderless": "Table without border but stripe (fr)",
+      "horizontalBorder": "Table with horizontal borders (fr)",
+      "verticalBorder": "Table with vertical borders (fr)",
       "withoutPagination": "Table without pagination (fr)",
       "withTitle": "Table with title (fr)",
       "withCustomFilter": "Table with custom filter component and filterFn (fr)",
@@ -67,7 +69,8 @@
       "customStaticFilter": "Table with custom  filter component and static filterFn (fr)",
       "divContent": "Table demonstrating center aligned content (fr)",
       "singleActionColumn": "Table with single action button (fr)",
-      "singleActionColumnWithMenu": "Table with single action menu (fr)"
+      "singleActionColumnWithMenu": "Table with single action menu (fr)",
+      "rowSpecificActions": "Table with actions menu items filtered based on row data logic (fr)"
     }
   },
   "message": {
