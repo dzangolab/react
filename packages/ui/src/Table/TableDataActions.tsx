@@ -1,5 +1,5 @@
 import { ButtonProps } from "primereact/button";
-import { MenuItem } from "primereact/menuitem";
+import { MenuItem, MenuItemCommandEvent } from "primereact/menuitem";
 import React, { useState } from "react";
 
 import { Button } from "..";
@@ -61,10 +61,20 @@ export const DataActionsMenu = ({
     : [];
 
   const renderActions = () => {
-    const { icon, label, ...rest } = items[0];
+    const { icon, label, command, ...rest } = items[0];
 
     if (items.length == 1 && icon && !displayActionMenu) {
-      return <Button iconLeft={icon} data-pr-tooltip={label} {...rest} />;
+      return (
+        <Button
+          variant="textOnly"
+          iconLeft={icon}
+          data-pr-tooltip={label}
+          {...rest}
+          onClick={(event) =>
+            command && command(event as unknown as MenuItemCommandEvent)
+          }
+        />
+      );
     }
 
     return <Menu model={items} buttonOptions={buttonOptions} />;
