@@ -1,12 +1,12 @@
 import {
   Email,
   Form,
+  FormActions,
   Password,
   emailSchema,
   passwordSchema,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
 import * as zod from "zod";
 
 import { LoginCredentials } from "../../types";
@@ -48,7 +48,17 @@ export const LoginForm = ({ handleSubmit, loading }: Properties) => {
         name="password"
         showValidState={false}
       />
-      <SubmitButton label={t("login.form.actions.submit")} loading={loading} />
+
+      <FormActions
+        actions={[
+          {
+            id: "submit",
+            label: t("login.form.actions.submit"),
+          },
+        ]}
+        loading={loading}
+        alignment="fill"
+      />
     </Form>
   );
 };
