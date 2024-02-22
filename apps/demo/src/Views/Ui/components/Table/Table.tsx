@@ -567,9 +567,7 @@ export const TableDemo = () => {
               width: "10rem",
               maxWidth: "10rem",
               minWidth: "10rem",
-              customFormatter: (cellData) => {
-                return `~${cellData.getValue()}`;
-              },
+              dataType: "number",
             },
             {
               accessorKey: "amount",
@@ -577,9 +575,7 @@ export const TableDemo = () => {
               width: "10rem",
               maxWidth: "10rem",
               minWidth: "10rem",
-              customFormatter: (cellData) => {
-                return `$${cellData.getValue()}`;
-              },
+              dataType: "currency",
             },
             {
               accessorKey: "date",
@@ -599,6 +595,10 @@ export const TableDemo = () => {
           ]}
           data={formatDemoData}
           paginated={false}
+          customFormatters={{
+            number: (value) => `~${value}`,
+            currency: (value) => `$${value}`,
+          }}
         ></TDataTable>
       </Section>
 
