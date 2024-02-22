@@ -503,20 +503,24 @@ const DataTable = <TData extends { id: string | number }>({
                       const getFormattedValue = (): NoInfer<never> => {
                         const defaultCustomFormatters: Record<
                           string,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           (value: any) => NoInfer<never>
                         > = {
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           number: (value: any) =>
                             formatNumber({
                               value: Number(value),
                               locale: numberOptions?.locale,
                               formatOptions: numberOptions?.formatOptions,
                             }) as NoInfer<never>,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           date: (value: any) =>
                             formatDate({
                               date: value as Date,
                               locale: dateOptions?.locale,
                               formatOptions: dateOptions?.formatOptions,
                             }) as NoInfer<never>,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           currency: (value: any) =>
                             formatNumber({
                               value: Number(value),

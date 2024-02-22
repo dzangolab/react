@@ -232,6 +232,7 @@ export interface TDataTableProperties<TData>
   extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   customFormatters?: Record<string, (value: any) => string>;
   dataActionsMenu?:
     | ((data: TData) => DataActionsMenuProperties<TData>)
