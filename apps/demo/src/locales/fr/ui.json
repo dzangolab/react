@@ -53,6 +53,7 @@
       "filterable": "Table with filterable column (fr)",
       "sortable": "Table with sortable column (fr)",
       "rowSelection": "Table with row selection (fr)",
+      "customCellDataFormating": "Table with custom cell data formatter (fr)",
       "customPagination": "Table with custom pagination (fr)",
       "customToolbarActions": "Table with custom toolbar actions (fr)",
       "columnTooltip": "Table with tooltip column (fr)",

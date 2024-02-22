@@ -57,6 +57,7 @@
       "filterable": "Table with filterable column",
       "sortable": "Table with sortable column",
       "rowSelection": "Table with row selection",
+      "customCellDataFormating": "Table with custom cell data formatter",
       "customPagination": "Table with custom pagination",
       "customToolbarActions": "Table with custom toolbar actions",
       "columnTooltip": "Table with tooltip column",

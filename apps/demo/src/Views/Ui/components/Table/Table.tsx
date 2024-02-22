@@ -554,6 +554,54 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
+      <Section title={t("table.usage.customCellDataFormating")}>
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+            {
+              accessorKey: "quantity",
+              header: () => "Quantity",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "number",
+            },
+            {
+              accessorKey: "amount",
+              header: "Amount",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
+              dataType: "currency",
+            },
+            {
+              accessorKey: "date",
+              header: "Date",
+              width: "12rem",
+              maxWidth: "12rem",
+              minWidth: "12rem",
+              dataType: "date",
+            },
+            {
+              id: "action",
+              header: () => <i className="pi pi-cog"></i>,
+              width: "8rem",
+              dataType: "other",
+              cell: () => <Button iconLeft="pi pi-eye" />,
+            },
+          ]}
+          data={formatDemoData}
+          paginated={false}
+          customFormatters={{
+            number: (value) => `~${value}`,
+            currency: (value) => `$${value}`,
+          }}
+        ></TDataTable>
+      </Section>
+
       <Section title={t("table.usage.customStaticFilter")}>
         <TDataTable
           columns={[
