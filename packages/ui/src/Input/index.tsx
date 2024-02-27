@@ -1,32 +1,32 @@
 import { HTMLAttributes } from "react";
 
 interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
-  hasError?: boolean;
+  disabled?: boolean;
   errorMessage?: string;
+  hasError?: boolean;
   label?: string;
   name?: string;
-  type?: "text" | "number" | "email";
-  disabled?: boolean;
   readOnly?: boolean;
+  type?: "text" | "number" | "email";
   value?: string;
 }
 
 export const Input = ({
-  className,
+  className = "",
   disabled,
-  readOnly,
-  value = "",
-  hasError,
   errorMessage,
+  hasError,
   label,
   name,
-  onChange,
   placeholder,
+  readOnly,
   type,
+  value = "",
+  onChange,
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`field-wrapper ${className}`}>
+    <div className={`field-wrapper ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}
