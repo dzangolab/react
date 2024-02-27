@@ -1,35 +1,48 @@
+import { Input } from "@dzangolab/react-ui";
 import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 
-import { Input } from "./Input";
 import { CustomInputProperties } from "../types";
 
 export const Email: React.FC<
   CustomInputProperties & { readOnly?: boolean }
 > = ({
   disabled = false,
-  register,
-  getFieldState,
   label = "",
   placeholder = "",
   name,
   readOnly = false,
-  showInvalidState,
-  showValidState,
-  submitcount,
+  submitcount = 0,
+  showInvalidState = true,
+  showValidState = true,
 }) => {
+  const { control, getFieldState } = useFormContext();
+
+  const { error, invalid } = getFieldState(name);
+
+  const checkInvalidState = () => {
+    if (showInvalidState && invalid) return true;
+    if (showValidState && !invalid) return false;
+  };
+
   return (
-    <Input
+    <Controller
       name={name}
-      label={label}
-      type="email"
-      register={register}
-      getFieldState={getFieldState}
-      placeholder={placeholder}
-      readOnly={readOnly}
-      disabled={disabled}
-      showInvalidState={showInvalidState}
-      showValidState={showValidState}
-      submitcount={submitcount}
+      control={control}
+      render={({ field }) => (
+        <Input
+          name={field.name}
+          label={label}
+          placeholder={placeholder}
+          type="email"
+          value={field.value}
+          errorMessage={error?.message}
+          onChange={field.onChange}
+          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+          disabled={disabled}
+          readOnly={readOnly}
+        />
+      )}
     />
   );
 };

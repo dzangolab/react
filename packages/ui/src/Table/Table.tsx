@@ -59,9 +59,9 @@ const DataTable = <TData extends { id: string | number }>({
   className = "",
   columns = [],
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
+  customFormatters = {},
   data,
   dataActionsMenu,
-  displayRowActions = true,
   emptyTableMessage = "No results.",
   enableRowSelection = false,
   id,
@@ -116,6 +116,7 @@ const DataTable = <TData extends { id: string | number }>({
     });
 
     setColumnFilters(updatedFilters);
+    table.setPageIndex(0);
   };
 
   const getAlignValue = ({
@@ -150,15 +151,6 @@ const DataTable = <TData extends { id: string | number }>({
       header: () => <i className="pi pi-cog"></i>,
       align: "center",
       cell: ({ row: { original } }) => {
-        const isVisibleActions =
-          typeof displayRowActions === "function"
-            ? displayRowActions(original)
-            : displayRowActions;
-
-        if (!isVisibleActions) {
-          return <></>;
-        }
-
         return (
           <DataActionsMenu
             {...(typeof dataActionsMenu === "function"
@@ -497,7 +489,9 @@ const DataTable = <TData extends { id: string | number }>({
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
-                data-state={row.getIsSelected() && "selected"}
+                {...(enableRowSelection && {
+                  "data-selected": row.getIsSelected(),
+                })}
                 data-id={row.original.id ?? row.id}
               >
                 {row.getVisibleCells().map((cell) => {
@@ -509,24 +503,29 @@ const DataTable = <TData extends { id: string | number }>({
                       const numberOptions = cell.column.columnDef.numberOptions;
 
                       const getFormattedValue = (): NoInfer<never> => {
-                        switch (cell.column.columnDef.dataType) {
-                          case "number":
-                            return formatNumber({
-                              value: Number(renderValue()),
+                        const defaultCustomFormatters: Record<
+                          string,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          (value: any) => NoInfer<never>
+                        > = {
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          number: (value: any) =>
+                            formatNumber({
+                              value: Number(value),
                               locale: numberOptions?.locale,
                               formatOptions: numberOptions?.formatOptions,
-                            }) as NoInfer<never>;
-
-                          case "date":
-                            return formatDate({
-                              date: renderValue() as Date,
+                            }) as NoInfer<never>,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          date: (value: any) =>
+                            formatDate({
+                              date: value as Date,
                               locale: dateOptions?.locale,
                               formatOptions: dateOptions?.formatOptions,
-                            }) as NoInfer<never>;
-
-                          case "currency":
-                            return formatNumber({
-                              value: Number(renderValue()),
+                            }) as NoInfer<never>,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          currency: (value: any) =>
+                            formatNumber({
+                              value: Number(value),
                               locale: numberOptions?.locale,
                               formatOptions: {
                                 style: "currency",
@@ -534,11 +533,18 @@ const DataTable = <TData extends { id: string | number }>({
                                 ...(numberOptions?.formatOptions &&
                                   numberOptions.formatOptions),
                               },
-                            }) as NoInfer<never>;
+                            }) as NoInfer<never>,
+                          ...customFormatters,
+                        };
 
-                          default:
-                            return renderValue() as NoInfer<never>;
-                        }
+                        const dataType: string =
+                          cell.column.columnDef.dataType || "text";
+
+                        return (
+                          defaultCustomFormatters?.[dataType]?.(
+                            renderValue(),
+                          ) || renderValue()
+                        );
                       };
 
                       return {

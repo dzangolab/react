@@ -5,11 +5,17 @@ interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   label?: string;
   name?: string;
-  type?: "text" | "number";
+  type?: "text" | "number" | "email";
+  disabled?: boolean;
+  readOnly?: boolean;
+  value?: string;
 }
 
 export const Input = ({
   className,
+  disabled,
+  readOnly,
+  value,
   hasError,
   errorMessage,
   label,
@@ -29,12 +35,13 @@ export const Input = ({
           onChange={onChange}
           placeholder={placeholder}
           type={type}
+          value={value}
+          disabled={disabled}
+          readOnly={readOnly}
           {...others}
         />
       </div>
-      {hasError && errorMessage && (
-        <span className="error-message">{errorMessage}</span>
-      )}
+      {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
 };

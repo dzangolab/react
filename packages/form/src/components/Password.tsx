@@ -18,7 +18,7 @@ export const Password: React.FC<CustomInputProperties> = ({
   const { error, invalid } = getFieldState(name);
   const [showPassword, setShowPassword] = useState(false);
 
-  const renderAriaInvalid = () => {
+  const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
 
     if (showValidState && !invalid) return false;
@@ -29,14 +29,14 @@ export const Password: React.FC<CustomInputProperties> = ({
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <div
         className="input-field-password"
-        aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
+        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
       >
         <input
           {...register(name)}
           id={`input-field-${name}`}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
-          aria-invalid={submitcount > 0 ? renderAriaInvalid() : undefined}
+          aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
         ></input>
         <span
           className="eye-icon"

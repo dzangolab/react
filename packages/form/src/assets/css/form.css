@@ -7,7 +7,7 @@ form {
   width: 100%;
 }
 
-form .actions {
+.dz-form-actions {
   align-items: stretch;
   display: flex;
   flex-direction: row;
@@ -15,8 +15,20 @@ form .actions {
   justify-content: stretch;
 }
 
-form .actions button {
+.dz-form-actions[data-alignment="fill"] button {
   flex: 1;
+}
+
+.dz-form-actions[data-direction="vertical"] {
+  flex-direction: column;
+}
+
+.dz-form-actions[data-alignment="right"] {
+  justify-content: flex-end;
+}
+
+form .dz-form-actions[data-alignment="center"] {
+  justify-content: center;
 }
 
 form .field {
@@ -36,12 +48,13 @@ form input {
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);
   font-size: 1rem;
-  padding: var(--form-input-padding-v, 0.5rem) var(--form-input-padding-h, 0.75rem);
+  padding: var(--form-input-padding-v, 0.5rem)
+    var(--form-input-padding-h, 0.75rem);
   padding-right: calc(var(--form-input-padding-h, 0.5em) * 4);
   width: 100%;
 }
 
-form input:focus{
+form input:focus {
   outline: 2px solid var(--form-input-focus-color);
 }
 
@@ -91,9 +104,15 @@ form input[readonly]:focus {
 }
 
 form input:autofill,
-form input:autofill:hover, 
-form input:autofill:focus, 
-form input:autofill:active  {
+form input:autofill:hover,
+form input:autofill:focus,
+form input:autofill:active {
   background: transparent;
   transition: background-color 5000s;
+}
+
+@media screen and (max-width: 576px) {
+  form .dz-form-actions {
+    flex-direction: column-reverse;
+  }
 }

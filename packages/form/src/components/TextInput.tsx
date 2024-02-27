@@ -1,7 +1,6 @@
+import { Input } from "@dzangolab/react-ui";
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
-
-import { Input } from "./Input";
+import { Controller, useFormContext } from "react-hook-form";
 
 interface ITextInput {
   label?: string;
@@ -10,15 +9,9 @@ interface ITextInput {
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitcount?: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getFieldState?: UseFormGetFieldState<any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register?: UseFormRegister<any>;
 }
 
 export const TextInput: React.FC<ITextInput> = ({
-  register,
-  getFieldState,
   label = "",
   placeholder = "",
   name,
@@ -26,17 +19,31 @@ export const TextInput: React.FC<ITextInput> = ({
   showInvalidState = true,
   showValidState = true,
 }) => {
+  const { control, getFieldState } = useFormContext();
+
+  const { error, invalid } = getFieldState(name);
+
+  const checkInvalidState = () => {
+    if (showInvalidState && invalid) return true;
+    if (showValidState && !invalid) return false;
+  };
+
   return (
-    <Input
+    <Controller
       name={name}
-      label={label}
-      type="text"
-      register={register}
-      getFieldState={getFieldState}
-      placeholder={placeholder}
-      showInvalidState={showInvalidState}
-      showValidState={showValidState}
-      submitcount={submitcount}
+      control={control}
+      render={({ field }) => (
+        <Input
+          name={field.name}
+          label={label}
+          placeholder={placeholder}
+          type="text"
+          value={field.value}
+          errorMessage={error?.message}
+          onChange={field.onChange}
+          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+        />
+      )}
     />
   );
 };

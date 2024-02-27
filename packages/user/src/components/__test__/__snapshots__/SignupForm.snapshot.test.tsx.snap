@@ -7,23 +7,27 @@ exports[`Component matches snapshot 1`] = `
   onSubmit={[Function]}
 >
   <div
-    className="field email"
+    className="field-wrapper undefined"
   >
     <label
-      htmlFor="input-field-email"
+      htmlFor="email"
     >
       signup.form.email.label
     </label>
-    <input
-      disabled={false}
-      id="input-field-email"
-      name="email"
-      onBlur={[Function]}
-      onChange={[Function]}
-      placeholder="signup.form.email.placeholder"
-      readOnly={false}
-      type="email"
-    />
+    <div
+      className="input-field email"
+    >
+      <input
+        disabled={false}
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder="signup.form.email.placeholder"
+        readOnly={false}
+        type="email"
+        value=""
+      />
+    </div>
   </div>
   <div
     className="field password"
@@ -84,10 +88,13 @@ exports[`Component matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="buttons"
+    className="dz-form-actions"
+    data-alignment="fill"
+    data-direction="horizontal"
   >
     <button
       className="dz-button primary filled medium"
+      id="submit"
       role="button"
       type="submit"
     >

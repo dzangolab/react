@@ -1,14 +1,8 @@
-import {
-  Email,
-  Form,
-  Password,
-  emailSchema,
-  passwordSchema,
-} from "@dzangolab/react-form";
+import { Provider, emailSchema, passwordSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SubmitButton } from "@dzangolab/react-ui";
 import * as zod from "zod";
 
+import { LoginFormFields } from "./LoginFormFields";
 import { LoginCredentials } from "../../types";
 
 interface Properties {
@@ -36,19 +30,8 @@ export const LoginForm = ({ handleSubmit, loading }: Properties) => {
   });
 
   return (
-    <Form validationSchema={LoginFormSchema} onSubmit={handleSubmit}>
-      <Email
-        label={t("login.form.email.label")}
-        name="email"
-        placeholder={t("login.form.email.placeholder")}
-        showValidState={false}
-      />
-      <Password
-        label={t("login.form.password.label")}
-        name="password"
-        showValidState={false}
-      />
-      <SubmitButton label={t("login.form.actions.submit")} loading={loading} />
-    </Form>
+    <Provider validationSchema={LoginFormSchema} onSubmit={handleSubmit}>
+      <LoginFormFields loading={loading} />
+    </Provider>
   );
 };

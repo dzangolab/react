@@ -57,6 +57,7 @@
       "filterable": "Table with filterable column",
       "sortable": "Table with sortable column",
       "rowSelection": "Table with row selection",
+      "customCellDataFormating": "Table with custom cell data formatter",
       "customPagination": "Table with custom pagination",
       "customToolbarActions": "Table with custom toolbar actions",
       "columnTooltip": "Table with tooltip column",
@@ -64,6 +65,8 @@
       "columnAction": "Table with column action",
       "withFooter": "Table with footer",
       "borderless": "Table without border but stripe",
+      "horizontalBorder": "Table with horizontal borders",
+      "verticalBorder": "Table with vertical borders",
       "withoutPagination": "Table without pagination",
       "withTitle": "Table with title",
       "withCustomFilter": "Table with custom filter component and filterFn",
@@ -71,7 +74,8 @@
       "customStaticFilter": "Table with custom  filter component and static filterFn",
       "divContent": "Table demonstrating center aligned content",
       "singleActionColumn": "Table with single action button",
-      "singleActionColumnWithMenu": "Table with single action menu"
+      "singleActionColumnWithMenu": "Table with single action menu",
+      "rowSpecificActions": "Table with actions menu items filtered based on row data logic"
     }
   },
   "message": {

@@ -214,7 +214,7 @@ export type TCustomColumnFilter = ChangeTypeOfKeys<
 //TDataTable props
 
 export type CellAlignmentType = "left" | "center" | "right";
-export type CellDataType = "text" | "number" | "date" | "currency" | "other";
+export type CellDataType = "text" | "number" | "date" | "currency" | string;
 
 export type FormatNumberType = {
   value: number;
@@ -232,10 +232,11 @@ export interface TDataTableProperties<TData>
   extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  customFormatters?: Record<string, (value: any) => string>;
   dataActionsMenu?:
-    | ((data: TData) => DataActionsMenuProperties)
-    | DataActionsMenuProperties;
-  displayRowActions?: boolean | ((data: TData) => boolean);
+    | ((data: TData) => DataActionsMenuProperties<TData>)
+    | DataActionsMenuProperties<TData>;
   data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;

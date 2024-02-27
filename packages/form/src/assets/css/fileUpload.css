@@ -3,12 +3,3 @@
   gap: 0.5rem;
   flex-direction: column;
 }
-
-.file-upload .actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.file-upload .actions.align-right {
-  justify-content: flex-end;
-}
