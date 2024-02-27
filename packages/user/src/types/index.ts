@@ -1,6 +1,6 @@
 import { DzangolabReactUserConfig } from "./config";
 import {
-  AccpetInvitationResponse,
+  AcceptInvitationResponse,
   AddInvitationResponse,
   GetInvitationResponse,
   Invitation,
@@ -24,7 +24,7 @@ import {
 } from "./types";
 
 export type {
-  AccpetInvitationResponse,
+  AcceptInvitationResponse,
   AddInvitationResponse,
   AuthState,
   DzangolabReactUserConfig,
