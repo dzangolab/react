@@ -6,11 +6,11 @@
 }
 
 .input-field {
-  width: 20rem;
-  border: 2px solid black;
+  background-color: transparent;
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   padding: 0.5rem;
+  width: 20rem;
 }
 
 .input-field[aria-invalid="true"] {

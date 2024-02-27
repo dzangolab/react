@@ -25,6 +25,7 @@ export const LoginFormFields = ({ loading }: Properties) => {
         name="email"
         placeholder={t("login.form.email.placeholder")}
         submitcount={submitCount}
+        showValidState={false}
       />
       <Password
         label={t("login.form.password.label")}
@@ -32,6 +33,7 @@ export const LoginFormFields = ({ loading }: Properties) => {
         submitcount={submitCount}
         register={register}
         getFieldState={getFieldState}
+        showValidState={false}
       />
 
       <FormActions

@@ -14,19 +14,16 @@ exports[`Component matches snapshot 1`] = `
     >
       login.form.email.label
     </label>
-    <div
+    <input
       className="input-field email"
-    >
-      <input
-        disabled={false}
-        id="email"
-        name="email"
-        onChange={[Function]}
-        placeholder="login.form.email.placeholder"
-        readOnly={false}
-        type="email"
-      />
-    </div>
+      disabled={false}
+      id="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="login.form.email.placeholder"
+      readOnly={false}
+      type="email"
+    />
   </div>
   <div
     className="field password"

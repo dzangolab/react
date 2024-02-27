@@ -28,19 +28,19 @@ export const Input = ({
   return (
     <div className={`field-wrapper ${className}`}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className={`input-field ${name}`} aria-invalid={hasError}>
-        <input
-          id={name}
-          name={name}
-          onChange={onChange}
-          placeholder={placeholder}
-          type={type}
-          value={value}
-          disabled={disabled}
-          readOnly={readOnly}
-          {...others}
-        />
-      </div>
+      <input
+        id={name}
+        className={`input-field ${name}`}
+        aria-invalid={hasError}
+        name={name}
+        onChange={onChange}
+        placeholder={placeholder}
+        type={type}
+        value={value}
+        disabled={disabled}
+        readOnly={readOnly}
+        {...others}
+      />
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
