@@ -18,6 +18,7 @@
   --field-valid-border-color: var(--dz-success-color);
   --border-color: #b5b5b5;
   --error-message-color: var(--dz-danger-color);
+  --error-message-font-size: 0.8em;
   --menu-border-color: #555;
   --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms;
