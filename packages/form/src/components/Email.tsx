@@ -1,6 +1,6 @@
+import { Input } from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { Input } from "@dzangolab/react-ui";
 
 import { CustomInputProperties } from "../types";
 

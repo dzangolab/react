@@ -23,6 +23,7 @@ exports[`Component matches snapshot 1`] = `
       placeholder="login.form.email.placeholder"
       readOnly={false}
       type="email"
+      value=""
     />
   </div>
   <div

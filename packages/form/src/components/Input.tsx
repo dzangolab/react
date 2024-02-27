@@ -33,7 +33,7 @@ export const Input: React.FC<IInputField> = ({
 
   return (
     <div className={`field ${name}`}>
-      {label && <label htmlFor={`input-field-${name} test`}>{label}</label>}
+      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name, {
           valueAsNumber: type === "number" ? true : false,
