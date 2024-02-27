@@ -15,7 +15,7 @@ export const Input = ({
   className,
   disabled,
   readOnly,
-  value,
+  value = "",
   hasError,
   errorMessage,
   label,
