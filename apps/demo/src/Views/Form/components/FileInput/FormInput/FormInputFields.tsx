@@ -20,32 +20,32 @@ export const FormInputFields = () => {
   return (
     <>
       <Email
-        name="email"
         label={t("formInput.label.email")}
+        name="email"
         placeholder={t("formInput.placeHolder.email")}
         submitcount={submitCount}
       />
       <TextInput
-        name="name"
         label={t("formInput.label.text")}
+        name="name"
         placeholder={t("formInput.placeHolder.text")}
         submitcount={submitCount}
       />
       <Password
+        getFieldState={getFieldState}
         label={t("formInput.label.password")}
         name="password"
-        submitcount={submitCount}
         register={register}
-        getFieldState={getFieldState}
+        submitcount={submitCount}
       />
       <Input
+        getFieldState={getFieldState}
         label={t("formInput.label.input")}
         name="surname"
-        type="text"
         placeholder={t("formInput.placeHolder.input")}
         register={register}
-        getFieldState={getFieldState}
         submitcount={submitCount}
+        type="text"
       />
       <FormActions
         actions={[
