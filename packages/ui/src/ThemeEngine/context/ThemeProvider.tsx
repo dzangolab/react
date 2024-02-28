@@ -8,7 +8,7 @@ const ThemeContext = createContext<{
   theme: DzTheme;
   setTheme: (theme: DzTheme) => void;
 }>({
-  theme: "auto",
+  theme: getThemeConfig().defaultTheme,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setTheme: () => {},
 });
@@ -21,7 +21,7 @@ export const DzThemeProvider = ({
   const [theme, setTheme] = useState<DzTheme>(getThemeConfig().defaultTheme);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme: setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -61,7 +61,8 @@
     "tsconfig": "0.34.0",
     "typescript": "5.2.2",
     "vite": "5.0.12",
-    "vitest": "1.2.1"
+    "vitest": "1.2.1",
+    "vite-plugin-stylex-dev": "^0.3.0"
   },
   "peerDependencies": {
     "@dzangolab/react-config": "0.34.0",

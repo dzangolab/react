@@ -78,6 +78,52 @@ exports[`Component matches snapshot 1`] = `
         />
       </span>
     </span>
+    <div
+      className="theme-menu dropdown-container"
+      data-aria-expanded={false}
+      onClick={[Function]}
+    >
+      <div
+        className="label-container"
+      >
+        <span
+          className="label"
+        >
+          Auto
+        </span>
+        <span
+          className="icon"
+        >
+          ▾
+        </span>
+      </div>
+      <ul
+        className="dropdown-menu"
+        data-aria-hidden={true}
+      >
+        <li
+          className="option"
+          label="Auto"
+          onClick={[Function]}
+        >
+          Auto
+        </li>
+        <li
+          className="option"
+          label="DzLight"
+          onClick={[Function]}
+        >
+          DzLight
+        </li>
+        <li
+          className="option"
+          label="DzDark"
+          onClick={[Function]}
+        >
+          DzDark
+        </li>
+      </ul>
+    </div>
   </nav>
   <div
     className="toggle"

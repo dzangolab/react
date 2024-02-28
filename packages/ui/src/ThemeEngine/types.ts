@@ -1,4 +1,4 @@
-export type DzTheme = "DzLight" | "DzDark" | "auto";
+export type DzTheme = "DzLight" | "DzDark" | "Auto";
 
 export interface DzColorType {
   light: string;

@@ -1,8 +1,10 @@
+import { mergeObjects } from "@/utils/object-utilities";
+
 import { DzThemeConfig } from "./types";
 
 const themeConfigProvider = () => {
   const themeConfig: DzThemeConfig = {
-    defaultTheme: "auto",
+    defaultTheme: "Auto",
     colors: {
       primary: {
         light: "#007bff",
@@ -103,19 +105,10 @@ const themeConfigProvider = () => {
 
   return {
     getThemeConfig: (): Readonly<DzThemeConfig> => ({ ...themeConfig }),
+    updateThemeConfig: (userThemeConfig: Partial<DzThemeConfig>) => {
+      mergeObjects(themeConfig, userThemeConfig);
+    },
     setThemeConfig: (userThemeConfig: DzThemeConfig) => {
-      function mergeObjects(target: any, source: any): void {
-        for (const key in source) {
-          if (typeof source[key] === "object" && !Array.isArray(source[key])) {
-            // If the current property is an object, recursively merge it
-            mergeObjects(target[key], source[key]);
-          } else {
-            // Otherwise, assign the value directly
-            target[key] = source[key];
-          }
-        }
-      }
-
       mergeObjects(themeConfig, userThemeConfig);
     },
   };

@@ -2,14 +2,14 @@ import { defineVars } from "@stylexjs/stylex";
 
 import { getThemeConfig } from "../theme-config";
 
-export const DzFontFamilyVariables = defineVars({
+export const dzFontFamilyVariables = defineVars({
   ...getThemeConfig().fonts.family,
 });
 
-export const DzFontSizeVariables = defineVars({
+export const dzFontSizeVariables = defineVars({
   ...getThemeConfig().fonts.size,
 });
 
-export const DzIconSizeVariables = defineVars({
+export const dzIconSizeVariables = defineVars({
   ...getThemeConfig().iconSizes,
 });

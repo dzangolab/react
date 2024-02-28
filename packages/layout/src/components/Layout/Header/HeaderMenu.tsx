@@ -1,4 +1,5 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
+import { ThemeSwitcher } from "@dzangolab/react-ui";
 
 interface HeaderProperties {
   children?: React.ReactNode;
@@ -16,6 +17,7 @@ export const HeaderMenu = ({
       <>
         {menu}
         {!noLocaleSwitcher && <LocaleSwitcher />}
+        {<ThemeSwitcher />}
       </>
     );
   };

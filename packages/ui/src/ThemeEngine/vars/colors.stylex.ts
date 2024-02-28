@@ -16,10 +16,10 @@ const parseConfigVariables = (theme: "light" | "dark") => {
   return processedColor;
 };
 
-export const DzLightColorVariables = defineVars({
+export const dzLightColorVariables = defineVars({
   ...parseConfigVariables("light"),
 });
 
-export const DzDarkColorVariables = defineVars({
+export const dzDarkColorVariables = defineVars({
   ...parseConfigVariables("dark"),
 });

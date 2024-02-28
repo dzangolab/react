@@ -31,6 +31,7 @@ export * from "./DebouncedInput";
 export * from "./SortableList";
 export * from "./Tooltip";
 export * from "./Tag";
+export * from "./ThemeEngine";
 
 export {
   Accordion,

@@ -2,6 +2,6 @@ import { defineVars } from "@stylexjs/stylex";
 
 import { getThemeConfig } from "../theme-config";
 
-export const DzTransitionVariables = defineVars({
+export const dzTransitionVariables = defineVars({
   ...getThemeConfig().transitions,
 });
