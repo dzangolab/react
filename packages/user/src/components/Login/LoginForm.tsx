@@ -30,7 +30,11 @@ export const LoginForm = ({ handleSubmit, loading }: Properties) => {
   });
 
   return (
-    <Provider validationSchema={LoginFormSchema} onSubmit={handleSubmit}>
+    <Provider
+      validationSchema={LoginFormSchema}
+      onSubmit={handleSubmit}
+      defaultValues={{ email: "", password: "" }}
+    >
       <LoginFormFields loading={loading} />
     </Provider>
   );

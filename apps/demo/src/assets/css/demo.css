@@ -71,3 +71,7 @@
   background-color: #ccc;
   width: 300px;
 }
+
+.demo > .demo-main > form.input-form-field {
+  width: 20rem;
+}

@@ -4,7 +4,7 @@ import { expect, test, vi } from "vitest";
 
 import { LoginForm } from "../Login";
 
-test("validation error messages are not displayed", async () => {
+test("validation error messages are displayed", async () => {
   const handleSubmit = vi.fn();
   render(<LoginForm handleSubmit={handleSubmit} />);
 
@@ -17,7 +17,7 @@ test("validation error messages are not displayed", async () => {
   await waitFor(() => {
     expect(handleSubmit).toHaveBeenCalledTimes(0);
 
-    expect(screen.queryByText("validation.messages.email")).toBeNull();
+    expect(screen.getByText("validation.messages.email")).toBeDefined();
     expect(
       screen.getByText("login.messages.validation.password"),
     ).toBeDefined();

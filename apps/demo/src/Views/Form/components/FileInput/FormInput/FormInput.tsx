@@ -31,6 +31,7 @@ export const FormInputDemo = () => {
       validationSchema={FormSchema}
       onSubmit={handleSubmit}
       defaultValues={{ email: "", name: "" }}
+      className="input-form-field"
     >
       <FormInputFields />
     </Provider>
