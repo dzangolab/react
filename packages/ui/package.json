@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@stylexjs/stylex": "^0.5.1",
     "@tanstack/react-table": "8.9.3",
     "file-saver": "2.0.5",
     "node-xlsx": "0.23.0",
@@ -64,6 +65,7 @@
   },
   "peerDependencies": {
     "@dzangolab/react-config": "0.34.0",
+    "@stylexjs/stylex": "^0.5.1",
     "primereact": "9.6.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",
