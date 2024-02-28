@@ -14,7 +14,6 @@ export const FormInputFields = () => {
   const {
     register,
     getFieldState,
-    reset,
     formState: { errors, submitCount },
   } = useFormContext();
 
@@ -53,13 +52,16 @@ export const FormInputFields = () => {
           {
             id: "cancel",
             label: t("formInput.action.cancel"),
+            onClick: (event) => {
+              event.preventDefault();
+            },
           },
           {
             id: "submit",
             label: t("formInput.action.submit"),
           },
         ]}
-        alignment="left"
+        alignment="fill"
       />
     </>
   );
