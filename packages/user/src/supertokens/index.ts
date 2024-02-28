@@ -1,6 +1,7 @@
 import { AppConfig } from "@dzangolab/react-config";
 import SuperTokens from "supertokens-web-js";
 import EmailVerification from "supertokens-web-js/recipe/emailverification";
+import Multitenancy from "supertokens-web-js/recipe/multitenancy";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
@@ -9,6 +10,7 @@ import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
 const superTokens = (config: AppConfig) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recipeLists: Array<any> = [
+    Multitenancy.init(),
     Session.init(),
     ThirdPartyEmailPassword.init(),
   ];

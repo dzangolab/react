@@ -4,8 +4,8 @@ import { getAuthorisationURLWithQueryParamsAndSetState } from "supertokens-web-j
 const googleLogin = async (redirectUrl: string) => {
   try {
     const authUrl = await getAuthorisationURLWithQueryParamsAndSetState({
-      authorisationURL: redirectUrl,
-      providerId: "google",
+      frontendRedirectURI: redirectUrl,
+      thirdPartyId: "google",
     });
 
     window.location.assign(authUrl);
