@@ -24,6 +24,9 @@ export const FormInputDemo = () => {
         minLength: 0,
       },
     ),
+    surname: zod.string().nonempty({
+      message: t("formInput.message.required"),
+    }),
   });
 
   const handleSubmit = (formData: any) => {

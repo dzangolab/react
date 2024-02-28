@@ -14,6 +14,7 @@ export const FormInputFields = () => {
   const {
     register,
     getFieldState,
+    reset,
     formState: { errors, submitCount },
   } = useFormContext();
 
@@ -37,13 +38,25 @@ export const FormInputFields = () => {
         submitcount={submitCount}
         register={register}
         getFieldState={getFieldState}
-        showValidState={false}
+      />
+      <Input
+        label={t("formInput.label.input")}
+        name="surname"
+        type="text"
+        placeholder={t("formInput.placeHolder.input")}
+        register={register}
+        getFieldState={getFieldState}
+        submitcount={submitCount}
       />
       <FormActions
         actions={[
           {
+            id: "cancel",
+            label: t("formInput.action.cancel"),
+          },
+          {
             id: "submit",
-            label: "submit",
+            label: t("formInput.action.submit"),
           },
         ]}
         alignment="left"

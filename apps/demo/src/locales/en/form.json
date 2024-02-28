@@ -23,12 +23,18 @@
     },
     "label": {
       "email": "Email",
+      "input": "Input",
       "password": "Password",
       "text": "TextInput"
     },
     "placeHolder": {
       "email": "Enter email input",
+      "input": "Input",
       "text": "Enter text input"
+    },
+    "action": {
+      "cancel": "Cancel",
+      "submit": "Submit"
     }
   }
 }
