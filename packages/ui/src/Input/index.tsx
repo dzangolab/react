@@ -21,7 +21,7 @@ export const Input = ({
   placeholder,
   readOnly,
   type,
-  value = "",
+  value,
   onChange,
   ...others
 }: IInputProperties) => {

@@ -9,11 +9,7 @@ export const InputDemo = () => {
   return (
     <Page title={t("input.title")}>
       <Section>
-        <Input
-          placeholder="Input placeholder"
-          label="Input label"
-          onChange={() => {}}
-        />
+        <Input placeholder="Input placeholder" label="Input label" />
       </Section>
       <Section>
         <Input
@@ -21,7 +17,6 @@ export const InputDemo = () => {
           errorMessage="Invalid input"
           placeholder="Input placeholder"
           label="Input label"
-          onChange={() => {}}
         />
       </Section>
     </Page>
