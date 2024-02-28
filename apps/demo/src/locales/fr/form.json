@@ -23,6 +23,7 @@
     },
     "label": {
       "email": "Email (fr)",
+      "password": "Password (fr)",
       "text": "TextInput (fr)"
     },
     "placeHolder": {

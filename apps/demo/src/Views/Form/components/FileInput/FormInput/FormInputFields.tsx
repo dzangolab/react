@@ -2,6 +2,8 @@ import {
   Email,
   FormActions,
   TextInput,
+  Password,
+  Input,
   useFormContext,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
@@ -28,6 +30,14 @@ export const FormInputFields = () => {
         label={t("formInput.label.text")}
         placeholder={t("formInput.placeHolder.text")}
         submitcount={submitCount}
+      />
+      <Password
+        label={t("formInput.label.password")}
+        name="password"
+        submitcount={submitCount}
+        register={register}
+        getFieldState={getFieldState}
+        showValidState={false}
       />
       <FormActions
         actions={[

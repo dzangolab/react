@@ -1,13 +1,8 @@
-import { Provider, emailSchema } from "@dzangolab/react-form";
+import { Provider, emailSchema, passwordSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import * as zod from "zod";
 
 import { FormInputFields } from "./FormInputFields";
-
-type FormDataType = {
-  email?: string;
-  name?: string;
-};
 
 export const FormInputDemo = () => {
   const [t] = useTranslation("form");
@@ -20,9 +15,18 @@ export const FormInputDemo = () => {
     name: zod.string().nonempty({
       message: t("formInput.message.required"),
     }),
+    password: passwordSchema(
+      {
+        required: t("formInput.message.required"),
+        weak: "",
+      },
+      {
+        minLength: 0,
+      },
+    ),
   });
 
-  const handleSubmit = (formData: FormDataType) => {
+  const handleSubmit = (formData: any) => {
     console.log(formData);
   };
 

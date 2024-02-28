@@ -23,6 +23,7 @@
     },
     "label": {
       "email": "Email",
+      "password": "Password",
       "text": "TextInput"
     },
     "placeHolder": {
