@@ -1,2 +1,2 @@
 export * from "./FileInput";
-export * from "./FormInput";
+export * from "./FormInput/FormInput";
