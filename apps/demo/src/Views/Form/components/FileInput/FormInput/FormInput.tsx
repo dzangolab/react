@@ -1,24 +1,29 @@
 import { Provider, emailSchema } from "@dzangolab/react-form";
+import { useTranslation } from "@dzangolab/react-i18n";
 import * as zod from "zod";
 
 import { FormInputFields } from "./FormInputFields";
 
+type FormDataType = {
+  email?: string;
+  name?: string;
+};
+
 export const FormInputDemo = () => {
+  const [t] = useTranslation("form");
+
   const FormSchema = zod.object({
     email: emailSchema({
-      invalid: "invalid email eteyyt",
-      required: "field is required",
+      invalid: t("formInput.message.invalid"),
+      required: t("formInput.message.required"),
     }),
-    name: zod
-      .string()
-      .max(50, { message: "should not exceed 50 character" })
-      .nonempty({
-        message: "field is required",
-      }),
+    name: zod.string().nonempty({
+      message: t("formInput.message.required"),
+    }),
   });
 
-  const handleSubmit = () => {
-    console.log("form submitted");
+  const handleSubmit = (formData: FormDataType) => {
+    console.log(formData);
   };
 
   return (

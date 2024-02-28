@@ -19,7 +19,7 @@ export const routes = [
   },
   {
     path: FORM_ROUTES.FORM_INPUT,
-    key: "Form Input",
+    key: "formInput.title",
     element: <FormInputDemo />,
   },
 ];

@@ -4,8 +4,11 @@ import {
   TextInput,
   useFormContext,
 } from "@dzangolab/react-form";
+import { useTranslation } from "@dzangolab/react-i18n";
 
 export const FormInputFields = () => {
+  const [t] = useTranslation("form");
+
   const {
     register,
     getFieldState,
@@ -16,14 +19,14 @@ export const FormInputFields = () => {
     <>
       <Email
         name="email"
-        label="Email"
-        placeholder="Enter email"
+        label={t("formInput.label.email")}
+        placeholder={t("formInput.placeHolder.email")}
         submitcount={submitCount}
       />
       <TextInput
         name="name"
-        label="TextInput"
-        placeholder="Enter text"
+        label={t("formInput.label.text")}
+        placeholder={t("formInput.placeHolder.text")}
         submitcount={submitCount}
       />
       <FormActions
