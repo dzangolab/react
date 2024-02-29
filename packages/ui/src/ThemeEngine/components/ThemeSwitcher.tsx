@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import DropdownMenu from "@/DropdownMenu";
 
@@ -22,8 +22,6 @@ export const ThemeSwitcher = ({
   className?: string;
 }) => {
   const { theme, setTheme } = useDzThemeContext();
-
-  console.log(theme);
 
   return (
     <DropdownMenu

@@ -1,8 +1,8 @@
 export type DzTheme = "DzLight" | "DzDark" | "Auto";
 
-export interface DzColorType {
-  light: string;
-  dark: string;
+export interface DzColorType<T> {
+  light: T;
+  dark: T;
 }
 
 export interface Dzcolors<T> {
@@ -17,85 +17,95 @@ export interface Dzcolors<T> {
   info: T;
 }
 
-export interface DzFontFamily {
-  primary: string;
-  secondary: string;
+export interface DzFontFamily<T> {
+  primary: T;
+  secondary: T;
 }
 
-export interface DzFontSize {
-  base: string;
-  heading1: string;
-  heading2: string;
-  heading3: string;
-  heading4: string;
-  heading5: string;
-  heading6: string;
-  body: string;
-  small: string;
+export interface DzFontSize<T> {
+  base: T;
+  heading1: T;
+  heading2: T;
+  heading3: T;
+  heading4: T;
+  heading5: T;
+  heading6: T;
+  body: T;
+  small: T;
 }
 
-export interface DzSpacing {
-  base: string;
+export interface DzSpacing<T> {
+  base: T;
   //margin
-  xSmallMargin: string;
-  smallMargin: string;
-  mediumMargin: string;
-  largeMargin: string;
-  xLargeMargin: string;
+  xSmallMargin: T;
+  smallMargin: T;
+  mediumMargin: T;
+  largeMargin: T;
+  xLargeMargin: T;
   //padding
-  xSmallPadding: string;
-  smallPadding: string;
-  mediumPadding: string;
-  largePadding: string;
-  xLargePadding: string;
+  xSmallPadding: T;
+  smallPadding: T;
+  mediumPadding: T;
+  largePadding: T;
+  xLargePadding: T;
 }
 
-export interface DzBorder {
-  thin: string;
-  medium: string;
-  thick: string;
-  smallRadius: string;
-  mediumRadius: string;
-  largeRadius: string;
+export interface DzBorder<T> {
+  thin: T;
+  medium: T;
+  thick: T;
+  smallRadius: T;
+  mediumRadius: T;
+  largeRadius: T;
 }
 
-export interface DzShadows {
-  small: string;
-  medium: string;
-  large: string;
+export interface DzShadows<T> {
+  small: T;
+  medium: T;
+  large: T;
 }
 
-export interface DzTransitions {
-  duration: string;
-  timingFunction: string;
+export interface DzTransitions<T> {
+  duration: T;
+  timingFunction: T;
 }
 
-export interface DzBreakpoints {
-  mobile: string;
-  tablet: string;
-  desktop: string;
+export interface DzBreakpoints<T> {
+  mobile: T;
+  tablet: T;
+  desktop: T;
 }
 
-export interface DzIconSizes {
-  small: string;
-  medium: string;
-  large: string;
+export interface DzIconSizes<T> {
+  small: T;
+  medium: T;
+  large: T;
 }
 
 export interface DzThemeConfig {
   defaultTheme: DzTheme;
-  colors: Dzcolors<DzColorType>;
+  colors: Dzcolors<DzColorType<string>>;
   fonts: {
-    family: DzFontFamily;
-    size: DzFontSize;
+    family: DzFontFamily<string>;
+    size: DzFontSize<string>;
   };
-  spacing: DzSpacing;
-  borders: DzBorder;
-  shadows: DzShadows;
-  transitions: DzTransitions;
-  breakpoints: DzBreakpoints;
-  iconSizes: DzIconSizes;
+  spacing: DzSpacing<string>;
+  borders: DzBorder<string>;
+  shadows: DzShadows<string>;
+  transitions: DzTransitions<string>;
+  breakpoints: DzBreakpoints<string>;
+  iconSizes: DzIconSizes<string>;
 }
+
+export type DzThemeBaseStyles<T> = Dzcolors<T>;
+// DzBorder<T>,
+// DzFontFamily<T>,
+// DzFontSize<T>,
+// DzIconSizes<T>,
+// DzSpacing<T>,
+// DzShadows<T>,
+// DzBreakpoints<T>,
+// DzTransitions<T> {}
 
 export type DzThemeVariableType =
   | Record<"default" | ":hover" | ":active", string>

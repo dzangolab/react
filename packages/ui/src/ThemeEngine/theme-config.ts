@@ -105,13 +105,14 @@ const themeConfigProvider = () => {
 
   return {
     getThemeConfig: (): Readonly<DzThemeConfig> => ({ ...themeConfig }),
-    updateThemeConfig: (userThemeConfig: Partial<DzThemeConfig>) => {
+    mergeThemes: (userThemeConfig: Partial<DzThemeConfig>) => {
       mergeObjects(themeConfig, userThemeConfig);
     },
-    setThemeConfig: (userThemeConfig: DzThemeConfig) => {
+    initializeTheme: (userThemeConfig: DzThemeConfig) => {
       mergeObjects(themeConfig, userThemeConfig);
     },
   };
 };
 
-export const { getThemeConfig, setThemeConfig } = themeConfigProvider();
+export const { getThemeConfig, initializeTheme, mergeThemes } =
+  themeConfigProvider();
