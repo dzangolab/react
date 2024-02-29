@@ -5,8 +5,9 @@ import { Controller, useFormContext } from "react-hook-form";
 import { CustomInputProperties } from "../types";
 
 export const Email: React.FC<
-  CustomInputProperties & { readOnly?: boolean }
+  CustomInputProperties & { readOnly?: boolean; defaultValue?: string }
 > = ({
+  defaultValue = "",
   disabled = false,
   label = "",
   placeholder = "",
@@ -29,14 +30,15 @@ export const Email: React.FC<
     <Controller
       name={name}
       control={control}
+      defaultValue={defaultValue}
       render={({ field }) => (
         <Input
           name={field.name}
           label={label}
           placeholder={placeholder}
           type="email"
-          defaultValue={field.value}
           errorMessage={error?.message}
+          defaultValue={field.value}
           onChange={field.onChange}
           hasError={submitcount > 0 ? checkInvalidState() : undefined}
           disabled={disabled}

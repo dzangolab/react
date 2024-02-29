@@ -12,6 +12,7 @@ interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
 
 export const Input = ({
   className = "",
+  defaultValue,
   disabled,
   errorMessage,
   hasError,
@@ -20,7 +21,6 @@ export const Input = ({
   placeholder,
   readOnly,
   type,
-  defaultValue,
   onChange,
   ...others
 }: IInputProperties) => {

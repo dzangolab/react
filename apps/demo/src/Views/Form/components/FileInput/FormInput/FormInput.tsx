@@ -1,4 +1,4 @@
-import { Provider, passwordSchema } from "@dzangolab/react-form";
+import { Provider, emailSchema, passwordSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import * as zod from "zod";
 
@@ -8,11 +8,12 @@ export const FormInputDemo = () => {
   const [t] = useTranslation("form");
 
   const FormSchema = zod.object({
-    email: zod.string({
-      required_error: t("formInput.message.required"),
+    email: emailSchema({
+      invalid: t("formInput.message.invalid"),
+      required: t("formInput.message.required"),
     }),
-    name: zod.string({
-      required_error: t("formInput.message.required"),
+    name: zod.string().nonempty({
+      message: t("formInput.message.required"),
     }),
     password: passwordSchema(
       {
@@ -33,11 +34,7 @@ export const FormInputDemo = () => {
   };
 
   return (
-    <Provider
-      validationSchema={FormSchema}
-      onSubmit={handleSubmit}
-      className="input-form-field"
-    >
+    <Provider validationSchema={FormSchema} onSubmit={handleSubmit}>
       <FormInputFields />
     </Provider>
   );

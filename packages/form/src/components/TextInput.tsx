@@ -3,6 +3,7 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 interface ITextInput {
+  defaultValue?: string;
   label?: string;
   placeholder?: string;
   name: string;
@@ -12,6 +13,7 @@ interface ITextInput {
 }
 
 export const TextInput: React.FC<ITextInput> = ({
+  defaultValue = "",
   label = "",
   placeholder = "",
   name,
@@ -32,13 +34,14 @@ export const TextInput: React.FC<ITextInput> = ({
     <Controller
       name={name}
       control={control}
+      defaultValue={defaultValue}
       render={({ field }) => (
         <Input
           name={field.name}
           label={label}
           placeholder={placeholder}
-          type="text"
           defaultValue={field.value}
+          type="text"
           errorMessage={error?.message}
           onChange={field.onChange}
           hasError={submitcount > 0 ? checkInvalidState() : undefined}
