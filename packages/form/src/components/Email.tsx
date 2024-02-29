@@ -35,7 +35,7 @@ export const Email: React.FC<
           label={label}
           placeholder={placeholder}
           type="email"
-          value={field.value}
+          defaultValue={field.value}
           errorMessage={error?.message}
           onChange={field.onChange}
           hasError={submitcount > 0 ? checkInvalidState() : undefined}

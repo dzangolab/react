@@ -61,7 +61,7 @@ export const FormInputFields = () => {
             label: t("formInput.action.submit"),
           },
         ]}
-        alignment="fill"
+        alignment="left"
       />
     </>
   );

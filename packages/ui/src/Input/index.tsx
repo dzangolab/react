@@ -8,7 +8,6 @@ interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
   name?: string;
   readOnly?: boolean;
   type?: "text" | "number" | "email";
-  value?: string;
 }
 
 export const Input = ({
@@ -21,7 +20,7 @@ export const Input = ({
   placeholder,
   readOnly,
   type,
-  value,
+  defaultValue,
   onChange,
   ...others
 }: IInputProperties) => {
@@ -36,7 +35,7 @@ export const Input = ({
         onChange={onChange}
         placeholder={placeholder}
         type={type}
-        value={value}
+        value={defaultValue}
         disabled={disabled}
         readOnly={readOnly}
         {...others}
