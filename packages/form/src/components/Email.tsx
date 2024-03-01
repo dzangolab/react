@@ -4,8 +4,10 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import { CustomInputProperties } from "../types";
 
+type IProperties = Omit<CustomInputProperties, "register" | "getFieldState">;
+
 export const Email: React.FC<
-  CustomInputProperties & { readOnly?: boolean; defaultValue?: string }
+  IProperties & { readOnly?: boolean; defaultValue?: string }
 > = ({
   defaultValue = "",
   disabled = false,
