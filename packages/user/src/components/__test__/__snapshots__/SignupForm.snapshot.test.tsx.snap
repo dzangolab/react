@@ -7,7 +7,7 @@ exports[`Component matches snapshot 1`] = `
   onSubmit={[Function]}
 >
   <div
-    className="field"
+    className="field email"
   >
     <label
       htmlFor="email"
@@ -15,7 +15,6 @@ exports[`Component matches snapshot 1`] = `
       signup.form.email.label
     </label>
     <input
-      className="input-field email"
       disabled={false}
       id="email"
       name="email"
