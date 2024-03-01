@@ -1,4 +1,4 @@
-.field-wrapper {
+.field {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,6 @@
   outline: 2px solid var(--field-outline-color);
 }
 
-
 .input-field[type="number"]{
   appearance: textfield;
 }
@@ -41,7 +40,7 @@
   background-color: var(--field-autofill-color);
 }
 
-.field-wrapper .error-message {
+.field .error-message {
   color: var(--error-message-color);
   font-size: var(--error-message-font-size);
   margin-top: 0 !important;

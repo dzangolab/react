@@ -25,7 +25,7 @@ export const Input = ({
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`field-wrapper ${className}`.trimEnd()}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}
