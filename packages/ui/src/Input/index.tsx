@@ -11,7 +11,6 @@ interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = ({
-  className = "",
   defaultValue,
   disabled,
   errorMessage,
@@ -25,7 +24,7 @@ export const Input = ({
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`field ${className}`.trimEnd()}>
+    <div className={`field ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}
