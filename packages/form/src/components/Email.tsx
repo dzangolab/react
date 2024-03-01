@@ -1,12 +1,26 @@
 import { Input } from "@dzangolab/react-ui";
 import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import {
+  UseFormGetFieldState,
+  UseFormRegister,
+  Controller,
+  useFormContext,
+} from "react-hook-form";
 
-import { CustomInputProperties } from "../types";
-
-type IProperties = Omit<CustomInputProperties, "register" | "getFieldState"> & {
-  readOnly?: boolean;
+type IProperties = {
+  disabled?: boolean;
   defaultValue?: string;
+  label?: string;
+  name: string;
+  placeholder?: string;
+  readOnly?: boolean;
+  showValidState?: boolean;
+  showInvalidState?: boolean;
+  submitcount?: number;
+  /** @deprecated */
+  getFieldState?: UseFormGetFieldState<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  /** @deprecated */
+  register?: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
 export const Email: React.FC<IProperties> = ({

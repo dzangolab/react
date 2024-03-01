@@ -1,6 +1,11 @@
 import { Input } from "@dzangolab/react-ui";
 import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import {
+  UseFormGetFieldState,
+  UseFormRegister,
+  Controller,
+  useFormContext,
+} from "react-hook-form";
 
 interface ITextInput {
   defaultValue?: string;
@@ -10,6 +15,10 @@ interface ITextInput {
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitcount?: number;
+  /** @deprecated */
+  getFieldState?: UseFormGetFieldState<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  /** @deprecated */
+  register?: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export const TextInput: React.FC<ITextInput> = ({
