@@ -15,6 +15,7 @@ exports[`Component matches snapshot 1`] = `
       signup.form.email.label
     </label>
     <input
+      className="input-field email"
       disabled={false}
       id="email"
       name="email"
