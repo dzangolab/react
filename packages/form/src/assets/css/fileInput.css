@@ -74,7 +74,7 @@
   border-radius: 2;
   border-color: #eeeeee;
   border-style: dashed;
-  background-color: transparent;
+  background-color: var(--dz-input-fill-color);
   color: #bdbdbd;
   outline: none;
   transition: border 0.24s ease-in-out;

@@ -1,5 +1,5 @@
 .field.select-input > select {
-  background: transparent;
+  background-color: var(--dz-input-fill-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: var(--form-input-border-radius);
   height: 2.45rem;

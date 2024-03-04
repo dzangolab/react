@@ -40,16 +40,16 @@ form .field {
 }
 
 form .field .p-dropdown {
-  background-color: transparent;
+  background-color: var(--dz-input-fill-color);
   width: 100%;
 }
 
 form .field .p-calendar > input {
-  background-color: transparent;
+  background-color: var(--dz-input-fill-color);
 }
 
 form input {
-  background-color: transparent;
+  background-color: var(--dz-input-fill-color);
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);
   font-size: 1rem;

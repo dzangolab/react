@@ -44,6 +44,7 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
         panelClassName={name}
         maxDate={maxDate}
         minDate={minDate}
+        dateFormat="dd/mm/yy"
       />
 
       {error?.message && <ErrorMessage message={error.message} />}

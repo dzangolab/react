@@ -1,4 +1,5 @@
 :root {
+  --dz-input-fill-color: transparent;
   --form-input-border-color: #ccc;
   --form-input-border-color-danger: #dc3545;
   --form-input-border-color-highlight: #555;
