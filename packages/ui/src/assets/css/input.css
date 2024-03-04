@@ -6,8 +6,7 @@
 }
 
 .input-field {
-  width: 20rem;
-  border: 2px solid black;
+  background-color: var(--dz-input-fill-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   padding: 0.5rem;
