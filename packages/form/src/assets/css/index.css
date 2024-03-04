@@ -3,4 +3,6 @@
 @import "./fileInput.css";
 @import "./fileUpload.css";
 @import "./switchInput.css";
-@import "./password.css"
+@import "./password.css";
+@import "./select.css";
+@import "./textarea.css";

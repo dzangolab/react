@@ -1,0 +1,5 @@
+.field.textarea-input > textarea {
+  background: transparent;
+  border: 1px solid var(--form-input-border-color);
+  border-radius: var(--form-input-border-radius);
+}
