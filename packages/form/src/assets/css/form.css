@@ -44,6 +44,10 @@ form .field .p-dropdown {
   width: 100%;
 }
 
+form .field .p-calendar > input {
+  background-color: transparent;
+}
+
 form input {
   background-color: transparent;
   border-radius: var(--form-input-border-radius, 0.25em);
