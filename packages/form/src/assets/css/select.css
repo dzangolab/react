@@ -1,0 +1,7 @@
+.field.select-input > select {
+  background-color: var(--dz-input-fill-color);
+  border: 1px solid var(--form-input-border-color);
+  border-radius: var(--form-input-border-radius);
+  padding: 0.5rem;
+  width: 100%;
+}
