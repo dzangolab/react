@@ -21,7 +21,7 @@ export interface DatePickerBasicProperties {
 }
 
 export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
-  dateFormat,
+  dateFormat = "dd/mm/yy",
   error,
   inputRef,
   label,
