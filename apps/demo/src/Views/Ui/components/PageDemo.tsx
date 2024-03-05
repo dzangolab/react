@@ -1,4 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { StylexDemoPage } from "@dzangolab/react-ui";
 import { Button, Page, Tag } from "@dzangolab/react-ui";
 import { Link } from "react-router-dom";
 
@@ -15,6 +16,8 @@ export const PageDemo = () => {
 
   return (
     <>
+      <StylexDemoPage />
+      <hr />
       <Page title={t("page.title.basic")}>{PageContent}</Page>
 
       <hr />

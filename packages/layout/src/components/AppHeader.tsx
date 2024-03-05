@@ -1,4 +1,5 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
+import { ThemeSwitcher } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 
 import { Logo } from "./Layout";
@@ -48,6 +49,7 @@ const AppHeader: React.FC<Properties> = (properties: Properties) => {
         )}
         {userMenu}
         {localeSwitcher || <LocaleSwitcher />}
+        <ThemeSwitcher />
       </nav>
       <div className="toggle" onClick={() => setExpanded(!expanded)}>
         {toggle}
