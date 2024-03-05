@@ -55,8 +55,6 @@ const SignupFormFields: React.FC<IProperties> = ({
         label={t("signup.form.email.label")}
         name="email"
         placeholder={t("signup.form.email.placeholder")}
-        register={register}
-        getFieldState={getFieldState}
         submitcount={submitCount}
         disabled={disableEmailField}
       />

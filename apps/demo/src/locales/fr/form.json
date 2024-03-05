@@ -14,5 +14,27 @@
       "fileUpload": "File upload (fr)",
       "fileAttach": "File attach (fr)"
     }
+  },
+  "formInput": {
+    "title": "Form input (fr)",
+    "message": {
+      "invalid": "Invalid form value (fr)",
+      "required": "Required field (fr)"
+    },
+    "label": {
+      "email": "Email (fr)",
+      "input": "Input (fr)",
+      "password": "Password (fr)",
+      "text": "TextInput (fr)"
+    },
+    "placeHolder": {
+      "email": "Enter email input (fr)",
+      "input": "Input (fr)",
+      "text": "Enter text input (fr)"
+    },
+    "action": {
+      "cancel": "Cancel (fr)",
+      "submit": "Submit (fr)"
+    }
   }
 }

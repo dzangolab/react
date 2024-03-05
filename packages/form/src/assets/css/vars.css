@@ -1,5 +1,6 @@
 :root {
   --form-input-border-color: #ccc;
+  --form-input-border-color-danger: #dc3545;
   --form-input-border-color-highlight: #555;
   --form-input-error-font-size: 0.8em;
   --form-input-focus-color: #007aff;

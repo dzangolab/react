@@ -30,8 +30,6 @@ export const ProfileFormFields = ({
         label={t("profile.form.email.label")}
         name="email"
         placeholder={t("profile.form.email.placeholder")}
-        register={register}
-        getFieldState={getFieldState}
         readOnly={true}
       />
       <Input

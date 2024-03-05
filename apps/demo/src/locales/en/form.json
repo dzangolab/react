@@ -14,5 +14,27 @@
       "fileUpload": "File upload",
       "fileAttach": "File attach"
     }
+  },
+  "formInput": {
+    "title": "Form input",
+    "message": {
+      "invalid": "Invalid form value",
+      "required": "Required field"
+    },
+    "label": {
+      "email": "Email",
+      "input": "Input",
+      "password": "Password",
+      "text": "TextInput"
+    },
+    "placeHolder": {
+      "email": "Enter email input",
+      "input": "Input",
+      "text": "Enter text input"
+    },
+    "action": {
+      "cancel": "Cancel",
+      "submit": "Submit"
+    }
   }
 }

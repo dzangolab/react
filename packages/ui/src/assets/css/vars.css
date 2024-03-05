@@ -11,13 +11,14 @@
   --field-autofill-color: #ffffff;
   --field-background-color: var(--dz-primary-color);
   --field-border-color: #ccc;
-  --field-border-radius: 0.5rem;
+  --field-border-radius: 0.25em;
   --field-invalid-border-color: var(--dz-danger-color);
   --field-outline-color: var(--dz-primary-color);
   --field-padding-height: 0.5em;
   --field-valid-border-color: var(--dz-success-color);
   --border-color: #b5b5b5;
   --error-message-color: var(--dz-danger-color);
+  --error-message-font-size: 0.8em;
   --menu-border-color: #555;
   --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms;
