@@ -8,6 +8,7 @@ import { ErrorMessage } from "../ErrorMessage";
 import type { ErrorOption } from "react-hook-form";
 
 export interface DatePickerBasicProperties {
+  dateFormat?: string;
   error?: ErrorOption;
   inputRef: React.Ref<HTMLInputElement>;
   label?: string;
@@ -20,6 +21,7 @@ export interface DatePickerBasicProperties {
 }
 
 export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
+  dateFormat,
   error,
   inputRef,
   label,
@@ -44,6 +46,7 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
         panelClassName={name}
         maxDate={maxDate}
         minDate={minDate}
+        dateFormat={dateFormat}
       />
 
       {error?.message && <ErrorMessage message={error.message} />}
