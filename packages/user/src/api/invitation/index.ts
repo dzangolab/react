@@ -1,5 +1,5 @@
 import {
-  AccpetInvitationResponse,
+  AcceptInvitationResponse,
   AddInvitationResponse,
   GetInvitationResponse,
   LoginCredentials,
@@ -84,7 +84,7 @@ export const acceptInvitation = async (
   token: string,
   credential: LoginCredentials,
   apiBaseUrl: string,
-): Promise<AccpetInvitationResponse> => {
+): Promise<AcceptInvitationResponse> => {
   const response = await client(apiBaseUrl).post(
     `invitations/token/${token}`,
     credential,

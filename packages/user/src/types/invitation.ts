@@ -51,4 +51,4 @@ export type RevokeInvitationResponse = Invitation | ErrorResponse;
 export type GetInvitationResponse = Invitation | ErrorResponse;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type AccpetInvitationResponse = any | ErrorResponse;
+export type AcceptInvitationResponse = any | ErrorResponse;
