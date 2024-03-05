@@ -4,6 +4,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import { DatePickerBasic } from "./DatePickerBasic";
 
 export interface DatePicker {
+  dateFormat?: string;
   label?: string;
   name: string;
   maxDate?: Date;
@@ -12,6 +13,7 @@ export interface DatePicker {
 }
 
 export const DatePicker: FC<DatePicker> = ({
+  dateFormat,
   label,
   name,
   maxDate,
@@ -37,6 +39,7 @@ export const DatePicker: FC<DatePicker> = ({
             label={label}
             placeholder={placeholder}
             value={field.value}
+            dateFormat={dateFormat}
           />
         )}
       />
