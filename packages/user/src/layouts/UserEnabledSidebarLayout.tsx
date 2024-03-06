@@ -17,7 +17,8 @@ interface Properties {
     route: string;
     icon?: React.ReactNode;
   }[];
-  onLogout?: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onLogout?: (() => any) | (() => Promise<any>);
   customSidebar?: React.ReactNode;
   displaySidebarMenuIcon?: boolean;
   userMenu?: UserMenuItemType[];

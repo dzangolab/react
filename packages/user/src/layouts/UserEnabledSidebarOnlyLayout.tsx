@@ -17,7 +17,7 @@ interface Properties {
   userNavigationMenu?: NavMenuItemType;
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
-  onLogout?: () => Promise<any>;
+  onLogout?: (() => any) | (() => Promise<any>);
 }
 
 export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
