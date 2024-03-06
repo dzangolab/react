@@ -24,12 +24,14 @@
     "label": {
       "email": "Email",
       "input": "Input",
+      "number": "Number",
       "password": "Password",
       "text": "TextInput"
     },
     "placeHolder": {
       "email": "Enter email input",
       "input": "Input",
+      "number": "Enter number input",
       "text": "Enter text input"
     },
     "action": {

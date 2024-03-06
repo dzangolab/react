@@ -50,8 +50,8 @@ export const FormInputFields = () => {
       />
       <NumberInput
         name="number"
-        label="number"
-        placeholder="number input"
+        label={t("formInput.label.number")}
+        placeholder={t("formInput.placeHolder.number")}
         submitcount={submitCount}
       />
       <FormActions
