@@ -32,9 +32,7 @@ export const NumberInput = ({
       control={control}
       name={name}
       render={({ field }) => {
-        const parsedValue = isNaN(field.value)
-          ? undefined
-          : parseInt(field.value, 10);
+        const parsedValue = isNaN(field.value) ? "" : parseInt(field.value, 10);
 
         return (
           <Input
