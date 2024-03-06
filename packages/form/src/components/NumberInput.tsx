@@ -1,6 +1,7 @@
 import { Input } from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
+
 interface Properties {
   label: string;
   name: string;
@@ -20,11 +21,11 @@ export const NumberInput = ({
 }: Properties) => {
   const { control, getFieldState } = useFormContext();
 
-  const { error, invalid } = getFieldState(name);
+  const { error } = getFieldState(name);
 
-  const checkInvalidState = () => {
-    if (showInvalidState && invalid) return true;
-    if (showValidState && !invalid) return false;
+  const checkInvalidState = (field: number) => {
+    if (showInvalidState && !field) return true;
+    if (showValidState && field) return false;
   };
 
   return (
@@ -32,20 +33,20 @@ export const NumberInput = ({
       control={control}
       name={name}
       render={({ field }) => {
-        const parsedValue = isNaN(field.value) ? "" : parseInt(field.value, 10);
-
         return (
           <Input
             label={label}
             name={name}
             placeholder={placeholder}
             type="number"
-            defaultValue={parsedValue}
+            defaultValue={field.value || ""}
             errorMessage={error?.message}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
               field.onChange(+event.target.value)
             }
-            hasError={submitcount > 0 ? checkInvalidState() : undefined}
+            hasError={
+              submitcount > 0 ? checkInvalidState(field.value) : undefined
+            }
           />
         );
       }}
