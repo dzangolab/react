@@ -5,6 +5,7 @@ import {
   Password,
   Input,
   useFormContext,
+  NumberInput,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 
@@ -46,6 +47,12 @@ export const FormInputFields = () => {
         register={register}
         submitcount={submitCount}
         type="text"
+      />
+      <NumberInput
+        name="number"
+        label="number"
+        placeholder="number input"
+        submitcount={submitCount}
       />
       <FormActions
         actions={[
