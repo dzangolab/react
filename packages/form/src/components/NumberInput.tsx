@@ -2,7 +2,6 @@ import { Input } from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 interface Properties {
-  defaultValue?: number;
   label: string;
   name: string;
   placeholder?: string;
@@ -15,7 +14,6 @@ export const NumberInput = ({
   name,
   label,
   placeholder,
-  defaultValue = 0,
   submitcount = 0,
   showInvalidState = true,
   showValidState = true,
@@ -33,15 +31,18 @@ export const NumberInput = ({
     <Controller
       control={control}
       name={name}
-      defaultValue={defaultValue}
       render={({ field }) => {
+        const parsedValue = isNaN(field.value)
+          ? undefined
+          : parseInt(field.value, 10);
+
         return (
           <Input
             label={label}
             name={name}
             placeholder={placeholder}
             type="number"
-            defaultValue={field.value}
+            defaultValue={parsedValue}
             errorMessage={error?.message}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
               field.onChange(+event.target.value)
