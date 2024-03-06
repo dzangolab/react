@@ -17,6 +17,7 @@ interface Properties {
   userNavigationMenu?: NavMenuItemType;
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: (() => any) | (() => Promise<any>);
 }
 
