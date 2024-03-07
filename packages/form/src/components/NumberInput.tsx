@@ -43,7 +43,7 @@ export const NumberInput = ({
             errorMessage={error?.message}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               const value = event.target.valueAsNumber;
-              field.onChange(!isNaN(value) ? value : undefined);
+              field.onChange(!isNaN(value) ? value : null);
             }}
             hasError={submitcount > 0 ? checkInvalidState() : undefined}
           />
