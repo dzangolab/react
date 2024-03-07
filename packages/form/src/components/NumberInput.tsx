@@ -41,11 +41,10 @@ export const NumberInput = ({
             type="number"
             defaultValue={field.value || ""}
             errorMessage={error?.message}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              field.onChange(
-                event.target.value === "" ? undefined : +event.target.value,
-              )
-            }
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              const value = event.target.valueAsNumber;
+              field.onChange(!isNaN(value) ? value : undefined);
+            }}
             hasError={submitcount > 0 ? checkInvalidState() : undefined}
           />
         );
