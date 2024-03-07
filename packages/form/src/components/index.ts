@@ -10,6 +10,7 @@ export * from "./Form";
 export * from "./FormActions";
 export * from "./FormProvider";
 export * from "./Input";
+export * from "./NumberInput";
 export * from "./Password";
 export * from "./RolePicker";
 export * from "./Select";

@@ -33,7 +33,7 @@
 }
 
 .input-field[type="number"]{
-  appearance: textfield;
+  padding-right: calc(var(--field-padding-h, 0.5em) * 4);
 }
 
 .input-field:-webkit-autofill {
