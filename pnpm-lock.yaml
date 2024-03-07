@@ -620,8 +620,8 @@ importers:
   packages/user:
     dependencies:
       supertokens-web-js:
-        specifier: 0.7.0
-        version: 0.7.0
+        specifier: 0.7.2
+        version: 0.7.2
       zod:
         specifier: 3.22.3
         version: 3.22.3
@@ -12204,8 +12204,8 @@ packages:
     resolution: {integrity: sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==}
     dev: false
 
-  /supertokens-web-js@0.7.0:
-    resolution: {integrity: sha512-+ojphygeSEpP7D7QJz1Yf9rI+ohwkqd+ONsthrNE+yDhKhf0Y9c3thqYMhODoCiScZFlNOFh0E+NvSPcdt1dvQ==}
+  /supertokens-web-js@0.7.2:
+    resolution: {integrity: sha512-8TQFfuDzOkdbP/br7AHI8PJaslAYOVmHKT9rxb+v2cuFXYbZzHKoZeY12C1hepqHED8Cbt+rnIIVb2VUYlzd/w==}
     dependencies:
       supertokens-js-override: 0.0.4
       supertokens-website: 17.0.4

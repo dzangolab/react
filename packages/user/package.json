@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "supertokens-web-js": "0.7.0",
+    "supertokens-web-js": "0.7.2",
     "zod": "3.22.3"
   },
   "devDependencies": {
