@@ -27,9 +27,14 @@ export const FormInputDemo = () => {
     surname: zod.string().nonempty({
       message: t("formInput.message.required"),
     }),
-    number: zod.number({
-      required_error: t("formInput.message.required"),
-    }),
+    number: zod
+      .number({
+        required_error: t("formInput.message.required"),
+      })
+      .nullable()
+      .refine((data) => data !== null, {
+        message: t("formInput.message.required"),
+      }),
   });
 
   const handleSubmit = (formData: any) => {
