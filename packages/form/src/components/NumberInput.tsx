@@ -21,11 +21,11 @@ export const NumberInput = ({
 }: Properties) => {
   const { control, getFieldState } = useFormContext();
 
-  const { error } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
 
-  const checkInvalidState = (field: number) => {
-    if (showInvalidState && !field) return true;
-    if (showValidState && field) return false;
+  const checkInvalidState = () => {
+    if (showInvalidState && invalid) return true;
+    if (showValidState && !invalid) return false;
   };
 
   return (
@@ -42,11 +42,11 @@ export const NumberInput = ({
             defaultValue={field.value || ""}
             errorMessage={error?.message}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              field.onChange(+event.target.value)
+              field.onChange(
+                event.target.value === "" ? undefined : +event.target.value,
+              )
             }
-            hasError={
-              submitcount > 0 ? checkInvalidState(field.value) : undefined
-            }
+            hasError={submitcount > 0 ? checkInvalidState() : undefined}
           />
         );
       }}
