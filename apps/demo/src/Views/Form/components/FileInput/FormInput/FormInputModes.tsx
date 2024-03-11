@@ -10,6 +10,7 @@ export const FormInputModes = ({
   setIsValid,
 }: any) => {
   const [t] = useTranslation("form");
+
   const { clearErrors } = useFormContext();
 
   const handleToggleFilledInput = (event: any) => {
@@ -47,7 +48,7 @@ export const FormInputModes = ({
           onClick: handleInputState,
         },
       ]}
-      alignment="center"
+      alignment="left"
     />
   );
 };

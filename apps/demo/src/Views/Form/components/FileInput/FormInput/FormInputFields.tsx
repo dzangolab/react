@@ -14,6 +14,7 @@ import { FormInputModes } from "./FormInputModes";
 
 export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
   const [t] = useTranslation("form");
+
   const [validState, setValidState] = useState(false);
   const [invalidState, setInvalidState] = useState(false);
   const [isValid, setIsValid] = useState(false);

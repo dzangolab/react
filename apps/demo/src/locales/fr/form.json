@@ -28,7 +28,6 @@
       "invalid": "Invalid form state (fr)",
       "number": "Number (fr)",
       "password": "Password (fr)",
-      "reset": "Reset (fr)",
       "text": "TextInput (fr)",
       "transparent": "Transparent Input (fr)",
       "valid": "Valid form state (fr)"

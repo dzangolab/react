@@ -28,7 +28,6 @@
       "invalid": "Invalid form state",
       "number": "Number",
       "password": "Password",
-      "reset": "Reset",
       "text": "TextInput",
       "transparent": "Transparent Input",
       "valid": "Valid form state"
