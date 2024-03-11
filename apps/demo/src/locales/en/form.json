@@ -16,7 +16,7 @@
     }
   },
   "formInput": {
-    "title": "Form input",
+    "title": "Different Modes of Input In Form",
     "message": {
       "invalid": "Invalid form value",
       "required": "Required field"
@@ -25,12 +25,12 @@
       "email": "Email",
       "filled": "Filled Input",
       "input": "Input",
-      "invalid": "Invalid form state",
+      "invalid": "Invalid input state",
       "number": "Number",
       "password": "Password",
       "text": "TextInput",
       "transparent": "Transparent Input",
-      "valid": "Valid form state"
+      "valid": "Valid input state"
     },
     "placeHolder": {
       "email": "Enter email input",

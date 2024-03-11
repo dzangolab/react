@@ -16,7 +16,7 @@
     }
   },
   "formInput": {
-    "title": "Form input (fr)",
+    "title": "Different Modes of Input In Form(fr)",
     "message": {
       "invalid": "Invalid form value (fr)",
       "required": "Required field (fr)"
@@ -25,12 +25,12 @@
       "email": "Email (fr)",
       "filled": "Filled Input (fr)",
       "input": "Input (fr)",
-      "invalid": "Invalid form state (fr)",
+      "invalid": "Invalid input state (fr)",
       "number": "Number (fr)",
       "password": "Password (fr)",
       "text": "TextInput (fr)",
       "transparent": "Transparent Input (fr)",
-      "valid": "Valid form state (fr)"
+      "valid": "Valid input state (fr)"
     },
     "placeHolder": {
       "email": "Enter email input (fr)",

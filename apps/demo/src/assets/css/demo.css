@@ -76,3 +76,8 @@
 .demo > .demo-main > .filled .input-field-password {
   background-color: #ccc;
 }
+
+.demo > .demo-main > form > span.form-mode-title {
+  font-size: 2rem;
+  font-weight: 600;
+}

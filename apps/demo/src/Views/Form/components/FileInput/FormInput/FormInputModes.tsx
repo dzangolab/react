@@ -31,24 +31,27 @@ export const FormInputModes = ({
   };
 
   return (
-    <FormActions
-      actions={[
-        {
-          id: "filled",
-          label: filledInput
-            ? t("formInput.label.transparent")
-            : t("formInput.label.filled"),
-          onClick: handleToggleFilledInput,
-        },
-        {
-          id: "inputState",
-          label: isValid
-            ? t("formInput.label.invalid")
-            : t("formInput.label.valid"),
-          onClick: handleInputState,
-        },
-      ]}
-      alignment="left"
-    />
+    <>
+      <span className="form-mode-title">{t("formInput.title")}</span>
+      <FormActions
+        actions={[
+          {
+            id: "filled",
+            label: filledInput
+              ? t("formInput.label.transparent")
+              : t("formInput.label.filled"),
+            onClick: handleToggleFilledInput,
+          },
+          {
+            id: "inputState",
+            label: isValid
+              ? t("formInput.label.invalid")
+              : t("formInput.label.valid"),
+            onClick: handleInputState,
+          },
+        ]}
+        alignment="left"
+      />
+    </>
   );
 };
