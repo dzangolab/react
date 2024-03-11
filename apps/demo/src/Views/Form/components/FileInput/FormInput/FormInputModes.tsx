@@ -4,25 +4,29 @@ import { useTranslation } from "@dzangolab/react-i18n";
 export const FormInputModes = ({
   filledInput,
   setFilledInput,
-  validState,
   setValidState,
-  invalidState,
   setInvalidState,
+  isValid,
+  setIsValid,
 }: any) => {
   const [t] = useTranslation("form");
+  const { clearErrors } = useFormContext();
 
-  const {
-    register,
-    getFieldState,
-    formState: { errors, submitCount, isSubmitSuccessful },
-    clearErrors,
-  } = useFormContext();
-
-  const handleReset = (event: any) => {
+  const handleToggleFilledInput = (event: any) => {
     event.preventDefault();
+    setFilledInput(!filledInput);
+  };
+
+  const handleInputState = (event: any) => {
     clearErrors();
-    setInvalidState(false);
-    setValidState(false);
+    setIsValid(!isValid);
+
+    if (isValid) {
+      setInvalidState(true);
+    } else {
+      event.preventDefault();
+      setValidState(true);
+    }
   };
 
   return (
@@ -33,30 +37,14 @@ export const FormInputModes = ({
           label: filledInput
             ? t("formInput.label.transparent")
             : t("formInput.label.filled"),
-          onClick: (event) => {
-            event.preventDefault();
-            setFilledInput(!filledInput);
-          },
+          onClick: handleToggleFilledInput,
         },
         {
-          id: "valid",
-          label: t("formInput.label.valid"),
-          onClick: (event) => {
-            event.preventDefault();
-            setValidState(true);
-          },
-        },
-        {
-          id: "invalid",
-          label: t("formInput.label.invalid"),
-          onClick: () => {
-            setInvalidState(true);
-          },
-        },
-        {
-          id: "reset",
-          label: t("formInput.label.reset"),
-          onClick: handleReset,
+          id: "inputState",
+          label: isValid
+            ? t("formInput.label.invalid")
+            : t("formInput.label.valid"),
+          onClick: handleInputState,
         },
       ]}
       alignment="center"

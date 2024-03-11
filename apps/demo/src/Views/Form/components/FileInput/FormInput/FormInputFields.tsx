@@ -16,12 +16,12 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
   const [t] = useTranslation("form");
   const [validState, setValidState] = useState(false);
   const [invalidState, setInvalidState] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   const {
     register,
     getFieldState,
     formState: { errors, submitCount },
-    clearErrors,
   } = useFormContext();
 
   return (
@@ -93,10 +93,10 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
       <FormInputModes
         filledInput={filledInput}
         setFilledInput={setFilledInput}
-        validstate={validState}
         setValidState={setValidState}
-        invalidState={invalidState}
         setInvalidState={setInvalidState}
+        isValid={isValid}
+        setIsValid={setIsValid}
       />
     </>
   );
