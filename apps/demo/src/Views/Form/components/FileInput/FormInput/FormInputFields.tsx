@@ -10,6 +10,8 @@ import {
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useState } from "react";
 
+import { FormInputModes } from "./FormInputModes";
+
 export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
   const [t] = useTranslation("form");
   const [validState, setValidState] = useState(false);
@@ -18,7 +20,7 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount, isSubmitSuccessful },
+    formState: { errors, submitCount },
     clearErrors,
   } = useFormContext();
 
@@ -88,45 +90,13 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
         ]}
         alignment="left"
       />
-      <FormActions
-        actions={[
-          {
-            id: "filled",
-            label: filledInput
-              ? t("formInput.label.transparent")
-              : t("formInput.label.filled"),
-            onClick: (event) => {
-              event.preventDefault();
-              setFilledInput(!filledInput);
-            },
-          },
-          {
-            id: "valid",
-            label: "Valid form state",
-            onClick: (event) => {
-              event.preventDefault();
-              setValidState(true);
-            },
-          },
-          {
-            id: "invalid",
-            label: "Invalid form state",
-            onClick: () => {
-              setInvalidState(true);
-            },
-          },
-          {
-            id: "reset",
-            label: "Reset",
-            onClick: (event) => {
-              event.preventDefault();
-              clearErrors();
-              setInvalidState(false);
-              setValidState(false);
-            },
-          },
-        ]}
-        alignment="center"
+      <FormInputModes
+        filledInput={filledInput}
+        setFilledInput={setFilledInput}
+        validstate={validState}
+        setValidState={setValidState}
+        invalidState={invalidState}
+        setInvalidState={setInvalidState}
       />
     </>
   );

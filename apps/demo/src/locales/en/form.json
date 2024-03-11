@@ -25,10 +25,13 @@
       "email": "Email",
       "filled": "Filled Input",
       "input": "Input",
+      "invalid": "Invalid form state",
       "number": "Number",
       "password": "Password",
+      "reset": "Reset",
       "text": "TextInput",
-      "transparent": "Transparent Input"
+      "transparent": "Transparent Input",
+      "valid": "Valid form state"
     },
     "placeHolder": {
       "email": "Enter email input",
