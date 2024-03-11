@@ -23,10 +23,12 @@
     },
     "label": {
       "email": "Email",
+      "filled": "Filled Input",
       "input": "Input",
       "number": "Number",
       "password": "Password",
-      "text": "TextInput"
+      "text": "TextInput",
+      "transparent": "Transparent Input"
     },
     "placeHolder": {
       "email": "Enter email input",
