@@ -71,3 +71,8 @@
   background-color: #ccc;
   width: 300px;
 }
+
+.demo > .demo-main > .filled input, 
+.demo > .demo-main > .filled .input-field-password {
+  background-color: #ccc;
+}
