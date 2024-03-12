@@ -43,6 +43,10 @@ export const FormInputDemo = () => {
     console.log(formData);
   };
 
+  const checkFilledState = (filled: boolean) => {
+    setFilledInput(filled);
+  };
+
   return (
     <Provider
       validationSchema={FormSchema}
@@ -50,10 +54,7 @@ export const FormInputDemo = () => {
       className={filledInput ? "filled" : ""}
       defaultValues={{ filled: false, valid: false, invalid: false }}
     >
-      <FormInputFields
-        filledInput={filledInput}
-        setFilledInput={setFilledInput}
-      />
+      <FormInputFields checkFilledState={checkFilledState} />
     </Provider>
   );
 };

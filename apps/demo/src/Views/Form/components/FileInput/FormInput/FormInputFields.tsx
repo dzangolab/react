@@ -12,7 +12,11 @@ import { useEffect } from "react";
 
 import { FormInputModes } from "./FormInputModes";
 
-export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
+type Properties = {
+  checkFilledState: (data: boolean) => void;
+};
+
+export const FormInputFields = ({ checkFilledState }: Properties) => {
   const [t] = useTranslation("form");
 
   const {
@@ -25,7 +29,7 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
   const [filled, valid, invalid] = watch(["filled", "valid", "invalid"]);
 
   useEffect(() => {
-    setFilledInput(filled);
+    checkFilledState(filled);
   }, [filled]);
 
   return (
@@ -102,7 +106,7 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
         ]}
         alignment="left"
       />
-      <FormInputModes filledInput={filledInput} />
+      <FormInputModes filled={filled} />
     </>
   );
 };

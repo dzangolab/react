@@ -1,7 +1,11 @@
 import { SwitchInput } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 
-export const FormInputModes = ({ filledInput }: any) => {
+type Properties = {
+  filled: boolean;
+};
+
+export const FormInputModes = ({ filled }: Properties) => {
   const [t] = useTranslation("form");
 
   return (
@@ -9,7 +13,7 @@ export const FormInputModes = ({ filledInput }: any) => {
       <span className="form-mode-title">{t("formInput.subTitle")}</span>
       <SwitchInput
         label={
-          filledInput
+          filled
             ? t("formInput.label.transparent")
             : t("formInput.label.filled")
         }
