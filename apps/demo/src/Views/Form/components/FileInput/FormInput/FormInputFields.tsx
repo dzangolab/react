@@ -8,7 +8,7 @@ import {
   NumberInput,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { FormInputModes } from "./FormInputModes";
 
@@ -23,11 +23,10 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
   } = useFormContext();
 
   const [filled, valid, invalid] = watch(["filled", "valid", "invalid"]);
-  console.log("invalid", invalid);
-  console.log("valie", valid);
+
   useEffect(() => {
     setFilledInput(filled);
-  }, [filled, valid, invalid]);
+  }, [filled]);
 
   return (
     <>
@@ -103,10 +102,7 @@ export const FormInputFields = ({ filledInput, setFilledInput }: any) => {
         ]}
         alignment="left"
       />
-      <FormInputModes
-        filledInput={filledInput}
-        setFilledInput={setFilledInput}
-      />
+      <FormInputModes filledInput={filledInput} />
     </>
   );
 };

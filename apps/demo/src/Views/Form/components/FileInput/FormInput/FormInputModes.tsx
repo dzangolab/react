@@ -7,18 +7,16 @@ export const FormInputModes = ({ filledInput }: any) => {
   return (
     <>
       <span className="form-mode-title">{t("formInput.subTitle")}</span>
-      <div className="form-modes">
-        <SwitchInput
-          label={
-            filledInput
-              ? t("formInput.label.transparent")
-              : t("formInput.label.filled")
-          }
-          name="filled"
-        />
-        <SwitchInput label={t("formInput.label.valid")} name="valid" />
-        <SwitchInput label={t("formInput.label.invalid")} name="invalid" />
-      </div>
+      <SwitchInput
+        label={
+          filledInput
+            ? t("formInput.label.transparent")
+            : t("formInput.label.filled")
+        }
+        name="filled"
+      />
+      <SwitchInput label={t("formInput.label.valid")} name="valid" />
+      <SwitchInput label={t("formInput.label.invalid")} name="invalid" />
     </>
   );
 };
