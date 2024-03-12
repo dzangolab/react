@@ -114,7 +114,7 @@ form input[readonly]:focus {
 }
 
 form input[disabled] {
-  background-color: var(--form-input-bg-color-disabled) ;
+  background-color: var(--form-input-bg-color-disabled);
 }
 
 form input:autofill,
