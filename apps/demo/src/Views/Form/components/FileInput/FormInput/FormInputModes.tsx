@@ -32,7 +32,7 @@ export const FormInputModes = ({
 
   return (
     <>
-      <span className="form-mode-title">{t("formInput.title")}</span>
+      <span className="form-mode-title">{t("formInput.subTitle")}</span>
       <FormActions
         actions={[
           {

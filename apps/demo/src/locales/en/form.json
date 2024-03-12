@@ -16,7 +16,8 @@
     }
   },
   "formInput": {
-    "title": "Different Modes of Input In Form",
+    "title": "Form input",
+    "subTitle": "Different Modes of Input In Form",
     "message": {
       "invalid": "Invalid form value",
       "required": "Required field"

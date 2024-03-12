@@ -16,7 +16,8 @@
     }
   },
   "formInput": {
-    "title": "Different Modes of Input In Form(fr)",
+    "title": "Form input (fr)",
+    "subTitle": "Different Modes of Input In Form (fr)",
     "message": {
       "invalid": "Invalid form value (fr)",
       "required": "Required field (fr)"
