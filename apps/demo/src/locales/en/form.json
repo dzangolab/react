@@ -23,15 +23,17 @@
       "required": "Required field"
     },
     "label": {
+      "disabled": "Disabled Input",
       "email": "Email",
       "filled": "Filled Input",
       "input": "Input",
-      "invalid": "Invalid input state",
+      "invalid": "Show invalid state",
       "number": "Number",
       "password": "Password",
+      "readOnly": "ReadOnly Input",
       "text": "TextInput",
       "transparent": "Transparent Input",
-      "valid": "Valid input state"
+      "valid": "Show valid state"
     },
     "placeHolder": {
       "email": "Enter email input",

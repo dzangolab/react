@@ -113,6 +113,10 @@ form input[readonly]:focus {
   outline: none;
 }
 
+form input[disabled] {
+  background-color: var(--form-input-bg-color-disabled) ;
+}
+
 form input:autofill,
 form input:autofill:hover,
 form input:autofill:focus,

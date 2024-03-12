@@ -48,6 +48,7 @@ export const FormInputDemo = () => {
       validationSchema={FormSchema}
       onSubmit={handleSubmit}
       className={filledInput ? "filled" : ""}
+      defaultValues={{ filled: false, valid: false, invalid: false }}
     >
       <FormInputFields
         filledInput={filledInput}
