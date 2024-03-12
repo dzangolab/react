@@ -71,3 +71,13 @@
   background-color: #ccc;
   width: 300px;
 }
+
+.demo > .demo-main > .filled input, 
+.demo > .demo-main > .filled .input-field-password {
+  background-color: #ccc;
+}
+
+.demo > .demo-main > form > span.form-mode-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
