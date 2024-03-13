@@ -61,6 +61,7 @@
 
 .dz-button.filled {
   color: var(--button-text-color);
+  border: 1px solid var(--_button-color);
 }
 
 .dz-button.filled:hover {
