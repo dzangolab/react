@@ -593,7 +593,7 @@ importers:
         specifier: 3.0.3
         version: 3.0.3
       primereact:
-        specifier: 9.6.1
+        specifier: '>=9.6'
         version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
