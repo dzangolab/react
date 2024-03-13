@@ -1,3 +1,18 @@
+import {
+  acceptInvitation,
+  addInvitation,
+  getInvitationByToken,
+  resendInvitation,
+  revokeInvitation,
+} from "./api/invitation";
+import {
+  changePassword,
+  disableUser,
+  enableUser,
+  getIsFirstUser,
+  signUpFirstUser,
+  updateUserProfile,
+} from "./api/user";
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
@@ -17,14 +32,20 @@ import {
 } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
-import { useUser, useEmailVerification, useFirstUserSignup } from "./hooks";
+import {
+  useAcceptInvitation,
+  useChangePassword,
+  useEmailVerification,
+  useFirstUserSignup,
+  useLogin,
+  useUser,
+} from "./hooks";
 import {
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
 } from "./layouts";
 import superTokens from "./supertokens";
-import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
 import googleLogin from "./supertokens/google-login";
 import { verifySessionRoles } from "./supertokens/helpers";
@@ -76,8 +97,11 @@ export {
   SignupWrapper,
   TermsAndConditions,
   UserMenu,
-  UserProvider,
   UsersTable,
+
+  // context
+  userContext,
+  UserProvider,
 
   // layouts
   UserEnabledBasicLayout,
@@ -96,8 +120,7 @@ export {
   Signup,
   VerifyEmail,
 
-  // utilities
-  changePassword,
+  // supertoken utilities
   forgotPassword,
   getUserData,
   googleLogin,
@@ -108,12 +131,29 @@ export {
   setUserData,
   signup,
   superTokens,
-  useEmailVerification,
-  useFirstUserSignup,
-  useUser,
-  userContext,
   verifyEmail,
   verifySessionRoles,
+
+  // hooks
+  useAcceptInvitation,
+  useChangePassword,
+  useEmailVerification,
+  useFirstUserSignup,
+  useLogin,
+  useUser,
+
+  // apis
+  changePassword,
+  disableUser,
+  enableUser,
+  getIsFirstUser,
+  signUpFirstUser,
+  updateUserProfile,
+  acceptInvitation,
+  addInvitation,
+  getInvitationByToken,
+  resendInvitation,
+  revokeInvitation,
 };
 
 export type {

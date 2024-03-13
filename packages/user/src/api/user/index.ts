@@ -1,10 +1,30 @@
 import client from "../axios";
 
 import type {
+  ChangePasswordInputType,
   LoginCredentials,
   UpdateProfileInputType,
   UserType,
 } from "@/types";
+
+export const changePassword = async (
+  { newPassword, oldPassword }: ChangePasswordInputType,
+  apiBaseUrl: string,
+) => {
+  const response = await client(apiBaseUrl).post(
+    "/change_password",
+    { oldPassword, newPassword },
+    {
+      withCredentials: true,
+    },
+  );
+
+  if (response.data.status === "ERROR") {
+    throw new Error(response.data.message);
+  } else {
+    return response;
+  }
+};
 
 export const getIsFirstUser = async (
   apiBaseUrl: string,
