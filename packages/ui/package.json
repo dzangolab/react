@@ -52,7 +52,7 @@
     "eslint-plugin-react": "7.33.2",
     "jsdom": "22.1.0",
     "prettier": "3.0.3",
-    "primereact": ">=9.6",
+    "primereact": "9.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.15.0",
