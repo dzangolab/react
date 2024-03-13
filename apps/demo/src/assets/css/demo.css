@@ -81,6 +81,10 @@
   background-color: transparent;
 }
 
+.demo > .demo-main > .filled input[disabled] {
+  background-color: #f7f7f7;
+}
+
 .demo > .demo-main > form > .form-modes {
   display: flex;
   gap: 2rem;
