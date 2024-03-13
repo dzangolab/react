@@ -57,8 +57,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -336,8 +336,8 @@ importers:
         specifier: 3.0.3
         version: 3.0.3
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -378,8 +378,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react-i18next:
         specifier: 14.0.1
         version: 14.0.1(i18next@23.7.18)(react-dom@18.2.0)(react@18.2.0)
@@ -593,8 +593,8 @@ importers:
         specifier: 3.0.3
         version: 3.0.3
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -696,8 +696,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -10909,8 +10909,8 @@ packages:
   /primeicons@6.0.1:
     resolution: {integrity: sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==}
 
-  /primereact@9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-MRmloop4tJgvqB5v3kIlgAseQzCAQMfY8mo/KVCvRtj2Pn15dpwLLchsbTCZw3t6nxAs3AZ+CK9MENJQU5Lh7w==}
+  /primereact@9.6.4(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-jW5t1Ct1coMGi1e+GWyLgVmxHQpEGtP3Pu2S/zsX8/yUgzDvn/ef0gaQ8l9/gihSnt/n4z4lFsHmn8Vb3j89yg==}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
       react: ^17.0.0 || ^18.0.0
