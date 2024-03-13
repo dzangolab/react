@@ -1,24 +1,28 @@
+import { Input } from "@dzangolab/react-ui";
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
-
-import { ErrorMessage } from "./ErrorMessage";
+import {
+  UseFormGetFieldState,
+  UseFormRegister,
+  Controller,
+  useFormContext,
+} from "react-hook-form";
 
 interface ITextInput {
+  defaultValue?: string;
   label?: string;
   placeholder?: string;
   name: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitcount?: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getFieldState?: UseFormGetFieldState<any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register?: UseFormRegister<any>;
+  /** @deprecated */
+  getFieldState?: UseFormGetFieldState<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  /** @deprecated */
+  register?: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export const TextInput: React.FC<ITextInput> = ({
-  register,
-  getFieldState,
+  defaultValue = "",
   label = "",
   placeholder = "",
   name,
@@ -26,26 +30,32 @@ export const TextInput: React.FC<ITextInput> = ({
   showInvalidState = true,
   showValidState = true,
 }) => {
-  if (!register || !getFieldState) return null;
+  const { control, getFieldState } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
 
   const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
-
     if (showValidState && !invalid) return false;
   };
 
   return (
-    <div className={`field text-input ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
-      <input
-        {...register(name)}
-        type="text"
-        placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
-      ></input>
-      {error?.message && <ErrorMessage message={error.message} />}
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      render={({ field }) => (
+        <Input
+          name={field.name}
+          label={label}
+          placeholder={placeholder}
+          defaultValue={field.value}
+          type="text"
+          errorMessage={error?.message}
+          onChange={field.onChange}
+          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+        />
+      )}
+    />
   );
 };

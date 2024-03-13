@@ -1,4 +1,9 @@
-import { Email, Form, FormActions, emailSchema } from "@dzangolab/react-form";
+import {
+  Email,
+  Provider,
+  FormActions,
+  emailSchema,
+} from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
@@ -19,7 +24,7 @@ export const ForgotPasswordForm = ({ handleSubmit, loading }: Properties) => {
   });
 
   return (
-    <Form
+    <Provider
       validationSchema={ForgotPasswordFormSchema}
       onSubmit={(data) => handleSubmit(data.email)}
     >
@@ -39,6 +44,6 @@ export const ForgotPasswordForm = ({ handleSubmit, loading }: Properties) => {
         loading={loading}
         alignment="fill"
       />
-    </Form>
+    </Provider>
   );
 };

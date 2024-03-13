@@ -1,0 +1,9 @@
+.field.textarea-input > textarea {
+  background-color: var(--dz-input-fill-color);
+  border: 1px solid var(--form-input-border-color);
+  border-radius: var(--form-input-border-radius);
+}
+
+.field.textarea-input > textarea:focus {
+  outline: 2px solid var(--form-input-focus-color);
+}

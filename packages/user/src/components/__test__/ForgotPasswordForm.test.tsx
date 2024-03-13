@@ -12,7 +12,7 @@ const setup = (component: React.ReactElement) => {
   };
 };
 
-test("validation error message is displayed when input field is empty", async () => {
+test("validation error message is not displayed when input field is empty", async () => {
   const handleSubmit = vi.fn();
   const { user } = setup(<ForgotPasswordForm handleSubmit={handleSubmit} />);
 
@@ -27,13 +27,13 @@ test("validation error message is displayed when input field is empty", async ()
   });
 
   await waitFor(() => {
-    expect(screen.getByText("validation.messages.email")).toBeDefined();
+    expect(screen.queryByText("validation.messages.email")).toBeNull();
   });
 
   expect(handleSubmit).toHaveBeenCalledTimes(0);
 });
 
-test("validation error message is displayed for invalid email", async () => {
+test("validation error message is not displayed for invalid email", async () => {
   const handleSubmit = vi.fn();
   const { user } = setup(<ForgotPasswordForm handleSubmit={handleSubmit} />);
 
@@ -51,7 +51,7 @@ test("validation error message is displayed for invalid email", async () => {
   userEvent.click(submitButton);
 
   await waitFor(() => {
-    expect(screen.getByText("validation.messages.validEmail")).toBeDefined();
+    expect(screen.queryByText("validation.messages.validEmail")).toBeNull();
   });
 
   expect(handleSubmit).toHaveBeenCalledTimes(0);

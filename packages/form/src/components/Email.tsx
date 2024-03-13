@@ -1,14 +1,31 @@
+import { Input } from "@dzangolab/react-ui";
 import React from "react";
+import {
+  UseFormGetFieldState,
+  UseFormRegister,
+  Controller,
+  useFormContext,
+} from "react-hook-form";
 
-import { ErrorMessage } from "./ErrorMessage";
-import { CustomInputProperties } from "../types";
+type IProperties = {
+  disabled?: boolean;
+  defaultValue?: string;
+  label?: string;
+  name: string;
+  placeholder?: string;
+  readOnly?: boolean;
+  showValidState?: boolean;
+  showInvalidState?: boolean;
+  submitcount?: number;
+  /** @deprecated */
+  getFieldState?: UseFormGetFieldState<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  /** @deprecated */
+  register?: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+};
 
-export const Email: React.FC<
-  CustomInputProperties & { readOnly?: boolean }
-> = ({
+export const Email: React.FC<IProperties> = ({
+  defaultValue = "",
   disabled = false,
-  register,
-  getFieldState,
   label = "",
   placeholder = "",
   name,
@@ -17,29 +34,34 @@ export const Email: React.FC<
   showInvalidState = true,
   showValidState = true,
 }) => {
-  if (!register || !getFieldState) return null;
+  const { control, getFieldState } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
 
   const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
-
     if (showValidState && !invalid) return false;
   };
 
   return (
-    <div className={`field ${name}`}>
-      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
-      <input
-        {...register(name)}
-        id={`input-field-${name}`}
-        type="email"
-        placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
-        readOnly={readOnly}
-        disabled={disabled}
-      ></input>
-      {error?.message && <ErrorMessage message={error.message} />}
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      render={({ field }) => (
+        <Input
+          name={field.name}
+          label={label}
+          placeholder={placeholder}
+          type="email"
+          errorMessage={error?.message}
+          defaultValue={field.value}
+          onChange={field.onChange}
+          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+          disabled={disabled}
+          readOnly={readOnly}
+        />
+      )}
+    />
   );
 };

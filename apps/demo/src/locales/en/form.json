@@ -14,5 +14,36 @@
       "fileUpload": "File upload",
       "fileAttach": "File attach"
     }
+  },
+  "formInput": {
+    "title": "Form input",
+    "subTitle": "Different Modes of Input In Form",
+    "message": {
+      "invalid": "Invalid form value",
+      "required": "Required field"
+    },
+    "label": {
+      "disabled": "Disabled Input",
+      "email": "Email",
+      "filled": "Filled Input",
+      "input": "Input",
+      "invalid": "Show invalid state",
+      "number": "Number",
+      "password": "Password",
+      "readOnly": "ReadOnly Input",
+      "text": "TextInput",
+      "transparent": "Transparent Input",
+      "valid": "Show valid state"
+    },
+    "placeHolder": {
+      "email": "Enter email input",
+      "input": "Input",
+      "number": "Enter number input",
+      "text": "Enter text input"
+    },
+    "action": {
+      "cancel": "Cancel",
+      "submit": "Submit"
+    }
   }
 }

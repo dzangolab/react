@@ -74,6 +74,9 @@ importers:
       react-toastify:
         specifier: 10.0.4
         version: 10.0.4(react-dom@18.2.0)(react@18.2.0)
+      zod:
+        specifier: 3.22.3
+        version: 3.22.3
     devDependencies:
       '@babel/core':
         specifier: 7.23.9

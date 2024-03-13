@@ -14,5 +14,36 @@
       "fileUpload": "File upload (fr)",
       "fileAttach": "File attach (fr)"
     }
+  },
+  "formInput": {
+    "title": "Form input (fr)",
+    "subTitle": "Different Modes of Input In Form (fr)",
+    "message": {
+      "invalid": "Invalid form value (fr)",
+      "required": "Required field (fr)"
+    },
+    "label": {
+      "disabled": "Disabled Input (fr)",
+      "email": "Email (fr)",
+      "filled": "Filled Input (fr)",
+      "input": "Input (fr)",
+      "invalid": "Show invalid state (fr)",
+      "number": "Number (fr)",
+      "password": "Password (fr)",
+      "readOnly": "ReadOnly Input (fr)",
+      "text": "TextInput (fr)",
+      "transparent": "Transparent Input (fr)",
+      "valid": "Show valid state (fr)"
+    },
+    "placeHolder": {
+      "email": "Enter email input (fr)",
+      "input": "Input (fr)",
+      "number": "Enter number input (fr)",
+      "text": "Enter text input (fr)"
+    },
+    "action": {
+      "cancel": "Cancel (fr)",
+      "submit": "Submit (fr)"
+    }
   }
 }

@@ -1,22 +1,21 @@
-.field-wrapper {
+.field {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.75rem;
 }
 
 .input-field {
-  width: 20rem;
-  border: 2px solid black;
+  background-color: var(--dz-input-fill-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
-  padding: 0.5rem;
+  padding: 0.75rem 0.65rem;
 }
 
 .input-field[aria-invalid="true"] {
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/></svg>");
   background-repeat: no-repeat;
-  background-position: right calc(0.75 * var(---field-padding-h, 0.5em)) center;
+  background-position: right calc(0.75 * var(--field-padding-h, 0.5em)) center;
   background-size: 1em;
   border-color: var(--field-invalid-border-color);
 }
@@ -24,7 +23,7 @@
 .input-field[aria-invalid="false"] {
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>");
   background-repeat: no-repeat;
-  background-position: right calc(0.75 * var(---field-padding-h, 0.5em)) center;
+  background-position: right calc(0.75 * var(--field-padding-h, 0.5em)) center;
   background-size: 1em;
   border-color: var(--field-valid-border-color);
 }
@@ -33,24 +32,16 @@
   outline: 2px solid var(--field-outline-color);
 }
 
-.input-field > input {
-  border: none;
-  width: 90%;
+.input-field[type="number"]{
+  padding-right: calc(var(--field-padding-h, 0.5em) * 4);
 }
 
-.input-field > input[type="number"]{
-  appearance: textfield;
-}
-
-.input-field > input:focus {
-  outline: none;
-}
-
-.input-field > input:-webkit-autofill {
+.input-field:-webkit-autofill {
   background-color: var(--field-autofill-color);
 }
 
-.field-wrapper .error-message {
+.field .error-message {
   color: var(--error-message-color);
+  font-size: var(--error-message-font-size);
   margin-top: 0 !important;
 }

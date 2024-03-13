@@ -1,40 +1,45 @@
 import { HTMLAttributes } from "react";
 
 interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
-  hasError?: boolean;
+  disabled?: boolean;
   errorMessage?: string;
+  hasError?: boolean;
   label?: string;
   name?: string;
-  type?: "text" | "number";
+  readOnly?: boolean;
+  type?: "text" | "number" | "email";
 }
 
 export const Input = ({
-  className,
-  hasError,
+  defaultValue,
+  disabled,
   errorMessage,
+  hasError,
   label,
   name,
-  onChange,
   placeholder,
+  readOnly,
   type,
+  onChange,
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`field-wrapper ${className}`}>
+    <div className={`field ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className={`input-field ${name}`} aria-invalid={hasError}>
-        <input
-          id={name}
-          name={name}
-          onChange={onChange}
-          placeholder={placeholder}
-          type={type}
-          {...others}
-        />
-      </div>
-      {hasError && errorMessage && (
-        <span className="error-message">{errorMessage}</span>
-      )}
+      <input
+        id={name}
+        className={`input-field ${name}`}
+        aria-invalid={hasError}
+        name={name}
+        onChange={onChange}
+        placeholder={placeholder}
+        type={type}
+        value={defaultValue}
+        disabled={disabled}
+        readOnly={readOnly}
+        {...others}
+      />
+      {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
 };
