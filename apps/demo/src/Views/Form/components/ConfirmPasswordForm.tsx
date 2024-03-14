@@ -1,8 +1,5 @@
+import { Form, Input, passwordSchema } from "@dzangolab/react-form";
 import * as z from "zod";
-
-import { Form } from "..";
-import { Input } from "../components/Input";
-import { passwordSchema } from "../schemas";
 
 const schema = z
   .object({

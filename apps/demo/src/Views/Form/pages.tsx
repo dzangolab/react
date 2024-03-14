@@ -2,7 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
 import { FileInputDemo } from "./components/FileInput";
-import { FormInputDemo } from "./components/FileInput";
+import { FormInputDemo } from "./components/FormInput";
 import { Demo } from "../../components/Demo";
 
 export const FORM_ROUTES = {
