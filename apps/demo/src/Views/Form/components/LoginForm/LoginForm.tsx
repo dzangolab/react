@@ -1,11 +1,7 @@
-import {
-  Email,
-  Provider,
-  Password,
-  emailSchema,
-  passwordSchema,
-} from "@dzangolab/react-form";
+import { Provider, emailSchema, passwordSchema } from "@dzangolab/react-form";
 import * as z from "zod";
+
+import { LoginFormFields } from "./LoginFormFields";
 
 const schema = z.object({
   email: emailSchema(),
@@ -20,9 +16,7 @@ export const LoginForm = () => {
       onSubmit={(data) => console.log(data)}
       validationSchema={schema}
     >
-      <Email name="email" label="Email" />
-      <Password name="password" label="Password" />
-      <input type="submit" value="Log in" />
+      <LoginFormFields />
     </Provider>
   );
 };
