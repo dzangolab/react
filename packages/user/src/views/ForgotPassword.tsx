@@ -5,10 +5,15 @@ import { toast } from "react-toastify";
 
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
 import { forgotPassword } from "../supertokens/forgot-password";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/constants";
+import { useConfig } from "@/hooks";
 
 export const ForgotPassword = () => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
+
+  const { user: userConfig } = useConfig();
 
   const handleSubmit = async (email: string) => {
     setLoading(true);
@@ -22,6 +27,21 @@ export const ForgotPassword = () => {
     }
   };
 
+  const renderLinks = () => {
+    return (
+      <div className="links">
+        {
+          <Link
+            to={userConfig.routes?.login?.path || ROUTES.LOGIN}
+            className="native-link"
+          >
+            {t("forgotPassword.links.login")}
+          </Link>
+        }
+      </div>
+    );
+  };
+
   return (
     <Page
       className="forgot-password"
@@ -29,6 +49,7 @@ export const ForgotPassword = () => {
       centered={true}
     >
       <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
+      {renderLinks()}
     </Page>
   );
 };

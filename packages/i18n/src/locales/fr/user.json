@@ -26,6 +26,9 @@
     "title": "Change password (fr)"
   },
   "forgotPassword": {
+    "links": {
+      "login": "Back to login (fr)"
+    },
     "messages": {
       "success": "Email sent sucessfully (fr)",
       "validation": {
