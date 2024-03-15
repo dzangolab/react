@@ -15,7 +15,7 @@
       "password": "Password (fr)"
     },
     "validation": {
-      "invalid": "Passwords do not match (fr)",
+      "invalid": "Password do not match (fr)",
       "required": "Confirm password is required (fr)"
     }
   },

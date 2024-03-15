@@ -15,7 +15,7 @@
       "password": "Password"
     },
     "validation": {
-      "invalid": "Passwords do not match",
+      "invalid": "Password do not match",
       "required": "Confirm password is required"
     }
   },
