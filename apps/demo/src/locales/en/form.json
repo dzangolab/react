@@ -1,9 +1,23 @@
 {
   "loginForm": {
-    "title": "Login form"
+    "title": "Login form",
+    "label": {
+      "email": "Email",
+      "login": "Log in",
+      "password": "Password"
+    }
   },
   "confirmPasswordForm": {
-    "title": "Confirm password form"
+    "title": "Confirm password form",
+    "label": {
+      "confirmPassword": "Confirm Password",
+      "login": "Log in",
+      "password": "Password"
+    },
+    "validation": {
+      "invalid": "Passwords do not match",
+      "required": "Confirm password is required"
+    }
   },
   "fileInput": {
     "title": "File input",

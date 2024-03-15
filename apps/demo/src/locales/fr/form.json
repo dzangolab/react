@@ -1,9 +1,23 @@
 {
   "loginForm": {
-    "title": "Login form (fr)"
+    "title": "Login form (fr)",
+    "label": {
+      "email": "Email (fr)",
+      "login": "Log in (fr)",
+      "password": "Password (fr)"
+    }
   },
   "confirmPasswordForm": {
-    "title": "Confirm password form (fr)"
+    "title": "Confirm password form (fr)",
+    "label": {
+      "confirmPassword": "Confirm Password (fr)",
+      "login": "Log in (fr)",
+      "password": "Password (fr)"
+    },
+    "validation": {
+      "invalid": "Passwords do not match (fr)",
+      "required": "Confirm password is required (fr)"
+    }
   },
   "fileInput": {
     "title": "File input (fr)",

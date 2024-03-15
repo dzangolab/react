@@ -1,6 +1,8 @@
 import { Email, Password, useFormContext } from "@dzangolab/react-form";
+import { useTranslation } from "@dzangolab/react-i18n";
 
 export const LoginFormFields = () => {
+  const [t] = useTranslation("form");
   const {
     register,
     getFieldState,
@@ -9,15 +11,19 @@ export const LoginFormFields = () => {
 
   return (
     <>
-      <Email name="email" label="Email" submitcount={submitCount} />
+      <Email
+        name="email"
+        label={t("loginForm.label.email")}
+        submitcount={submitCount}
+      />
       <Password
         name="password"
-        label="Password"
+        label={t("loginForm.label.password")}
         register={register}
         getFieldState={getFieldState}
         submitcount={submitCount}
       />
-      <input type="submit" value="Log in" />
+      <input type="submit" value={t("loginForm.label.login")} />
     </>
   );
 };
