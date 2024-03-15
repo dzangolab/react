@@ -11,7 +11,7 @@ export const FORM_ROUTES = {
   GET_STARTED: "/form",
   FILE_INPUT: "/form/file-input",
   FORM_INPUT: "/form/form-input",
-  LOGIN_FORM: "/form/login-form",
+  LOGIN_FORM: "/form/login",
   CONFIRM_PASSWORD_FORM: "/form/confirmpassword",
 };
 
