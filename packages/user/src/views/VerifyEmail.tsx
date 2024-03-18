@@ -13,8 +13,10 @@ import { UserContextType, userContext } from "..";
 
 export const VerifyEmail = ({
   redirectionDelayTime = 5,
+  centered,
 }: {
   redirectionDelayTime?: number;
+  centered?: boolean;
 }) => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);

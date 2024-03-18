@@ -6,6 +6,7 @@ import { SignupWrapper } from "..";
 import type { SignInUpPromise } from "../types";
 
 interface IProperties {
+  centered?: boolean;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   showForgotPasswordLink?: boolean;
@@ -13,6 +14,7 @@ interface IProperties {
 }
 
 export const Signup: React.FC<IProperties> = ({
+  centered,
   onSignupFailed,
   onSignupSuccess,
   showForgotPasswordLink,

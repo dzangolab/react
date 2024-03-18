@@ -9,7 +9,7 @@ import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
 import resetPassword from "../supertokens/reset-password";
 
-export const ResetPassword = () => {
+export const ResetPassword = ({ centered }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const { user: userConfig } = useConfig();
   const [loading, setLoading] = useState<boolean>(false);

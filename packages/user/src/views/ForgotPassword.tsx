@@ -1,15 +1,16 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
-import { forgotPassword } from "../supertokens/forgot-password";
-import { Link } from "react-router-dom";
 import { ROUTES } from "@/constants";
 import { useConfig } from "@/hooks";
 
-export const ForgotPassword = () => {
+import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
+import { forgotPassword } from "../supertokens/forgot-password";
+
+export const ForgotPassword = ({ centered }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
 

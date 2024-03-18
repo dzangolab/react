@@ -12,7 +12,11 @@ import { resendEmail } from "@/supertokens/resend-email-verification";
 
 import { UserContextType, userContext } from "..";
 
-export const EmailVerificationReminder = () => {
+export const EmailVerificationReminder = ({
+  centered,
+}: {
+  centered?: boolean;
+}) => {
   const { t } = useTranslation("user");
   const { user } = useContext(userContext) as UserContextType;
   const appConfig = useContext(configContext);
