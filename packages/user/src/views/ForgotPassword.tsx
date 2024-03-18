@@ -10,7 +10,7 @@ import { useConfig } from "@/hooks";
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
 import { forgotPassword } from "../supertokens/forgot-password";
 
-export const ForgotPassword = ({ centered }: { centered?: boolean }) => {
+export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
 

@@ -7,7 +7,7 @@ import ChangePasswordForm from "../components/ChangePasswordForm";
 import { useConfig } from "../hooks";
 import changePassword from "../supertokens/change-password";
 
-export const ChangePassword = ({ centered }: { centered?: boolean }) => {
+export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);

@@ -13,7 +13,7 @@ import { resendEmail } from "@/supertokens/resend-email-verification";
 import { UserContextType, userContext } from "..";
 
 export const EmailVerificationReminder = ({
-  centered,
+  centered = true,
 }: {
   centered?: boolean;
 }) => {

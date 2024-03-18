@@ -14,7 +14,11 @@ import { login } from "..";
 
 import type { LoginCredentials } from "@/types";
 
-export const SignUpFirstUser = ({ centered }: { centered?: boolean }) => {
+export const SignUpFirstUser = ({
+  centered = true,
+}: {
+  centered?: boolean;
+}) => {
   const { t } = useTranslation("user");
 
   const appConfig = useConfig();

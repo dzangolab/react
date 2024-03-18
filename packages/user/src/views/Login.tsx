@@ -19,7 +19,7 @@ interface IProperties {
 }
 
 export const Login: React.FC<IProperties> = ({
-  centered,
+  centered = true,
   showForgotPasswordLink,
   showSignupLink,
   customDivider,

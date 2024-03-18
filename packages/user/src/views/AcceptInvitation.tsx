@@ -12,7 +12,11 @@ import { Invitation, LoginCredentials } from "@/types";
 
 import { login } from "..";
 
-export const AcceptInvitation = ({ centered }: { centered?: boolean }) => {
+export const AcceptInvitation = ({
+  centered = true,
+}: {
+  centered?: boolean;
+}) => {
   const { t } = useTranslation("invitations");
 
   const appConfig = useConfig();

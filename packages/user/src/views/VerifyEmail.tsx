@@ -13,7 +13,7 @@ import { UserContextType, userContext } from "..";
 
 export const VerifyEmail = ({
   redirectionDelayTime = 5,
-  centered,
+  centered = true,
 }: {
   redirectionDelayTime?: number;
   centered?: boolean;

@@ -14,7 +14,7 @@ interface IProperties {
 }
 
 export const Signup: React.FC<IProperties> = ({
-  centered,
+  centered = true,
   onSignupFailed,
   onSignupSuccess,
   showForgotPasswordLink,
