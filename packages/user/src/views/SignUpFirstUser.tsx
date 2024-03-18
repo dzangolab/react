@@ -99,7 +99,7 @@ export const SignUpFirstUser = ({ centered }: { centered?: boolean }) => {
       className="signup"
       title={t("firstUser.title")}
       loading={loading || loginLoading}
-      centered={true}
+      centered={centered}
     >
       {renderPageContent()}
     </Page>

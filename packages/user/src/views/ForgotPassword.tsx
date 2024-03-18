@@ -47,7 +47,7 @@ export const ForgotPassword = ({ centered }: { centered?: boolean }) => {
     <Page
       className="forgot-password"
       title={t("forgotPassword.title")}
-      centered={true}
+      centered={centered}
     >
       <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
       {renderLinks()}

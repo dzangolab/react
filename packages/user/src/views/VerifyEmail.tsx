@@ -172,7 +172,7 @@ export const VerifyEmail = ({
       className="email-verification"
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
-      centered={true}
+      centered={centered}
     >
       <Card className="email-verification-card">{renderMessage()}</Card>
     </Page>

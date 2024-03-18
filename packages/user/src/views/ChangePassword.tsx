@@ -32,7 +32,7 @@ export const ChangePassword = ({ centered }: { centered?: boolean }) => {
     <Page
       className="change-password"
       title={t("changePassword.title")}
-      centered={true}
+      centered={centered}
     >
       <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>

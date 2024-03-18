@@ -10,11 +10,11 @@ interface Properties {
   centered?: boolean;
 }
 
-export const Profile = ({ additionalProfileFields }: Properties) => {
+export const Profile = ({ additionalProfileFields, centered }: Properties) => {
   const { t } = useTranslation("user");
 
   return (
-    <Page title={t("profile.title")} className="profile">
+    <Page title={t("profile.title")} className="profile" centered={centered}>
       <ProfileForm additionalProfileFields={additionalProfileFields} />
     </Page>
   );

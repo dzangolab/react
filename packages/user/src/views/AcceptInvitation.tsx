@@ -129,7 +129,7 @@ export const AcceptInvitation = ({ centered }: { centered?: boolean }) => {
       className="signup"
       title={t("user:signup.title")}
       loading={loading || loginLoading}
-      centered={true}
+      centered={centered}
     >
       {renderPageContent()}
     </Page>

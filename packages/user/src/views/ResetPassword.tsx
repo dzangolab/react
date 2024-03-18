@@ -33,7 +33,7 @@ export const ResetPassword = ({ centered }: { centered?: boolean }) => {
     <Page
       className="reset-password"
       title={t("resetPassword.title")}
-      centered={true}
+      centered={centered}
     >
       <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>
