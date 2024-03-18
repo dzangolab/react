@@ -32,8 +32,9 @@
   gap: var(--dz-page-gap);
 }
 
-.dz-page > .dz-page-header > .dz-page-title-wrapper > h1 > span {
-  display: block;
+.dz-page > .dz-page-header > .dz-page-title-wrapper > h1 {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 576px) {
