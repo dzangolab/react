@@ -17,6 +17,7 @@ interface Properties {
   userNavigationMenu?: NavMenuItemType;
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
+  noLocaleSwitcher?: boolean;
   onLogout?: () => Promise<any>;
 }
 
@@ -28,6 +29,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   navigationMenu,
   noSidebarHeader,
   noSidebarFooter,
+  noLocaleSwitcher,
   userNavigationMenu,
   onLogout,
 }) => {
@@ -89,6 +91,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       customSidebar={customSidebar}
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
+      noLocaleSwitcher={noLocaleSwitcher}
     />
   );
 };
