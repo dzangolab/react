@@ -1,0 +1,1 @@
+{"version":3,"file":"DropdownUserMenuItem.d.ts","sourceRoot":"","sources":["../../../src/components/DropdownUserMenuItem.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,UAAU,UAAU;IAClB,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;IAC1B,KAAK,CAAC,EAAE,MAAM,CAAC;CAChB;AAED,QAAA,MAAM,oBAAoB,wBAAyB,UAAU,sBAM5D,CAAC;AAEF,eAAe,oBAAoB,CAAC"}

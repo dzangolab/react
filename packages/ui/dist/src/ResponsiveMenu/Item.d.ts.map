@@ -1,0 +1,1 @@
+{"version":3,"file":"Item.d.ts","sourceRoot":"","sources":["../../../src/ResponsiveMenu/Item.tsx"],"names":[],"mappings":"AAKA,OAAO,EAAE,mBAAmB,EAAE,aAAa,EAAE,MAAM,GAAG,CAAC;AAEvD,UAAU,WAAW;IACnB,KAAK,EAAE,mBAAmB,GAAG,aAAa,CAAC;IAC3C,WAAW,CAAC,EAAE,OAAO,CAAC;IACtB,QAAQ,CAAC,EAAE,OAAO,CAAC;CACpB;AAQD,eAAO,MAAM,QAAQ,EAAE,KAAK,CAAC,EAAE,CAAC,WAAW,CAuB1C,CAAC"}

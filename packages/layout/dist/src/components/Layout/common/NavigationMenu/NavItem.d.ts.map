@@ -1,0 +1,1 @@
+{"version":3,"file":"NavItem.d.ts","sourceRoot":"","sources":["../../../../../../src/components/Layout/common/NavigationMenu/NavItem.tsx"],"names":[],"mappings":"AAEA,OAAO,EAAE,WAAW,EAAE,MAAM,aAAa,CAAC;AAE1C,MAAM,MAAM,iBAAiB,GAAG;IAC9B,WAAW,CAAC,EAAE,OAAO,CAAC;IACtB,OAAO,EAAE,WAAW,CAAC;IACrB,aAAa,CAAC,EAAE,OAAO,CAAC;CACzB,CAAC;AAEF,eAAO,MAAM,OAAO,6CAIjB,iBAAiB,uCAqDnB,CAAC"}

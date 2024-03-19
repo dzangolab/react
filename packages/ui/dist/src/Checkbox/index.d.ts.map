@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/Checkbox/index.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAE,MAAM,OAAO,CAAC;AAC5C,UAAU,WAAY,SAAQ,mBAAmB,CAAC,gBAAgB,CAAC;IACjE,KAAK,CAAC,EAAE,MAAM,CAAC;IACf,YAAY,CAAC,EAAE,MAAM,CAAC;CACvB;AAED,QAAA,MAAM,QAAQ,EAAE,KAAK,CAAC,EAAE,CAAC,WAAW,CAoBnC,CAAC;AAEF,eAAe,QAAQ,CAAC"}

@@ -1,0 +1,183 @@
+import { DataActionsMenuProperties } from "./TableDataActions";
+import { Pagination } from "../Pagination";
+import { Tooltip } from "../Tooltip";
+import type { Cell, ColumnDef, ColumnFilter, PaginationState, Table as ReactTable, SortDirection, Table, TableOptions, ColumnFiltersState, Column, RowData } from "@tanstack/react-table";
+import type { ComponentProps, ReactNode } from "react";
+declare module "@tanstack/react-table" {
+    interface ColumnMeta<TData extends RowData, TValue> {
+        serverFilterFn?: TFilterFn;
+    }
+    interface ColumnDefBase<TData, TValue> {
+        align?: CellAlignmentType;
+        dataType?: CellDataType;
+        className?: string;
+        customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
+        filterPlaceholder?: string;
+        tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
+        tooltipOptions?: Partial<Omit<ComponentProps<typeof Tooltip>, "elementRef">>;
+        width?: string;
+        maxWidth?: string;
+        minWidth?: string;
+        dateOptions?: Omit<FormatDateType, "date">;
+        numberOptions?: Omit<FormatNumberType, "value">;
+    }
+    interface ColumnFilter {
+        filterFn?: TFilterFn;
+    }
+}
+export type { ColumnDef as TableColumnDefinition } from "@tanstack/react-table";
+/**
+ * Change the type of Keys of T from NewType
+ */
+export type ChangeTypeOfKeys<T extends object, Keys extends keyof T, NewType> = {
+    [key in keyof T]: key extends Keys ? NewType : T[key];
+};
+export type TSortDirection = "ASC" | "DESC" | "";
+type TSingleFilter = {
+    key: string;
+    operator: string;
+    value: string;
+};
+type TMultiFilter = {
+    AND: TSingleFilter[];
+};
+type TFilterRequest = TSingleFilter | TMultiFilter | null;
+type TSingleSort = {
+    key: string;
+    direction: TSortDirection;
+};
+type TLimit = number | null;
+type TOffset = number | null;
+type TSortRequest = TSingleSort[] | null;
+export type TRequestJSON = {
+    filter: TFilterRequest;
+    sort: TSortRequest;
+    offset: TOffset;
+    limit: TLimit;
+};
+export type TSortIcons = {
+    asc: string;
+    desc: string;
+    default: string;
+};
+export interface TableProviderProperties<T> {
+    children?: ReactNode;
+    actionsHeader?: ReactNode;
+    columns: ColumnDef<T>[];
+    data: T[];
+    fetcher: (requestJSON: TRequestJSON) => void;
+    filterMenuToggleIcon?: string;
+    enableMultiSort?: boolean;
+    inputDebounceTime?: number;
+    fixedHeader?: boolean;
+    filterIcons?: {
+        expanded: string;
+        notExpanded: string;
+    };
+    hideScrollBar?: boolean;
+    isLoading?: boolean;
+    paginated?: boolean;
+    paginationIcons?: {
+        start: string;
+        previous: string;
+        next: string;
+        end: string;
+    };
+    rowsPerPageOptions?: number[];
+    showPageControl?: boolean;
+    showTotalNumber?: boolean;
+    sortable?: boolean;
+    sortIcons?: TSortIcons;
+    tableClassName?: string;
+    title?: string;
+    totalItems: number;
+    visibleColumns?: string[];
+}
+export interface TableContextProperties<T> extends Partial<TableProviderProperties<T>> {
+    table?: ReactTable<T>;
+    paginationState?: PaginationState;
+}
+export interface TBaseTable {
+    header: ReactNode;
+    body: ReactNode;
+    footer: ReactNode;
+}
+export interface FilterProperties {
+    filterFn?: TFilterFn;
+    filterVariant?: TFilterVariant;
+    placeholder?: string;
+    selectOptions?: TSelectOption[];
+    columnFilterValue?: TFilterValue;
+    columnType: number | string;
+    handleChange: ({ value, filterFn }: TFilterValue) => void;
+}
+export interface TFooterProperties {
+    paginationComponent?: ReactNode;
+    detailComponent?: ReactNode;
+}
+export interface TTableDetail {
+    detail: string;
+    showPrefix: string;
+}
+export type TFilterFn = "contains" | "equals" | "startsWith" | "endsWith" | "greaterThan" | "lessThan" | "greaterThanOrEqual" | "lessThanOrEqual" | "in" | "notEqual" | "notIn" | "between" | "notBetween" | "isNull" | "isNotNull" | "isEmpty" | "isNotEmpty" | "like" | "notLike";
+export type TFilterVariant = "text" | "select" | "multiSelect" | "date" | "dateRange" | "range" | "checkBox";
+export type TSelectOption = {
+    label: string;
+    value: string;
+};
+export type TFilterValue = {
+    filterFn: TFilterFn;
+    value: boolean | string | number;
+};
+export type TCustomColumnFilter = ChangeTypeOfKeys<ColumnFilter, "value", TFilterValue>;
+export type CellAlignmentType = "left" | "center" | "right";
+export type CellDataType = "text" | "number" | "date" | "currency" | string;
+export type FormatNumberType = {
+    value: number;
+    locale?: string;
+    formatOptions?: Intl.NumberFormatOptions;
+};
+export type FormatDateType = {
+    date: Date | string | number;
+    locale?: string;
+    formatOptions?: Intl.DateTimeFormatOptions;
+};
+export interface TDataTableProperties<TData> extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
+    className?: string;
+    columnActionBtnLabel?: string;
+    customFormatters?: Record<string, (value: any) => string>;
+    dataActionsMenu?: ((data: TData) => DataActionsMenuProperties<TData>) | DataActionsMenuProperties<TData>;
+    data: TData[];
+    emptyTableMessage?: string;
+    enableRowSelection?: boolean;
+    isLoading?: boolean;
+    id?: string;
+    initialFilters?: ColumnFiltersState;
+    border?: "grid" | "horizontal" | "vertical" | "none";
+    globalFilter?: {
+        key: string;
+        value: string;
+        placeholder: string;
+    };
+    fetchData?: (data: TRequestJSON) => void;
+    renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
+    renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
+    renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
+    renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
+    title?: {
+        text: string;
+        align?: "left" | "center" | "right";
+    };
+    paginated?: boolean;
+    rowPerPage?: number;
+    rowPerPageOptions?: number[];
+    visibleColumns?: string[];
+    onRowSelectChange?: (table: Table<TData>) => void;
+    totalRecords?: number;
+    inputDebounceTime?: number;
+    paginationOptions?: Omit<ComponentProps<typeof Pagination>, "currentPage" | "totalItems" | "onPageChange" | "onItemsPerPageChange" | "itemsPerPageOptions" | "defaultItemsPerPage">;
+    stripe?: "none" | "even" | "odd";
+    showColumnsAction?: boolean;
+}
+export type { FilterFn as FilterFunction, FilterFns as FilterFunctions, } from "@tanstack/react-table";
+//# sourceMappingURL=types.d.ts.map

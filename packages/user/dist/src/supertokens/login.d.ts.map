@@ -1,0 +1,1 @@
+{"version":3,"file":"login.d.ts","sourceRoot":"","sources":["../../../src/supertokens/login.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,gBAAgB,EAAE,eAAe,EAAY,MAAM,UAAU,CAAC;AAE5E,QAAA,MAAM,KAAK,gBACI,gBAAgB,KAC5B,QAAQ,eAAe,GAAG,SAAS,CA2BrC,CAAC;AAEF,eAAe,KAAK,CAAC"}

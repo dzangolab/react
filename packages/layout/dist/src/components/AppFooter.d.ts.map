@@ -1,0 +1,1 @@
+{"version":3,"file":"AppFooter.d.ts","sourceRoot":"","sources":["../../../src/components/AppFooter.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAI1B,UAAU,UAAU;IAClB,SAAS,CAAC,EAAE,KAAK,CAAC,SAAS,CAAC;IAC5B,OAAO,CAAC,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B;AAED,QAAA,MAAM,SAAS,EAAE,KAAK,CAAC,EAAE,CAAC,UAAU,CASnC,CAAC;AAEF,eAAe,SAAS,CAAC"}

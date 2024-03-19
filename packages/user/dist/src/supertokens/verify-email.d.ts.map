@@ -1,0 +1,1 @@
+{"version":3,"file":"verify-email.d.ts","sourceRoot":"","sources":["../../../src/supertokens/verify-email.ts"],"names":[],"mappings":"AAEA,UAAU,QAAQ;IAChB,MAAM,EACF,wBAAwB,GACxB,IAAI,GACJ,wCAAwC,GACxC,SAAS,CAAC;CACf;AAED,QAAA,MAAM,WAAW,QAAa,QAAQ,QAAQ,GAAG,SAAS,CAUzD,CAAC;AAEF,eAAe,WAAW,CAAC"}
