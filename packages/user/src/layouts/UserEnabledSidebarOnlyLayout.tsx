@@ -11,6 +11,7 @@ import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-layout";
 interface Properties {
   authNavigationMenu?: NavMenuItemType;
   children: React.ReactNode;
+  className?: string;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
@@ -23,6 +24,7 @@ interface Properties {
 export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   authNavigationMenu,
   children,
+  className,
   customSidebar,
   displayNavIcons,
   navigationMenu,
@@ -84,6 +86,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   return (
     <SidebarOnlyLayout
       children={children}
+      className={className}
       displayNavIcons={displayNavIcons}
       navigationMenu={getNavigationMenu()}
       customSidebar={customSidebar}
