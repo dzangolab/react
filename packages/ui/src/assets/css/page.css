@@ -28,8 +28,16 @@
 
 .dz-page > .dz-page-header > .dz-page-title-wrapper {
   display: flex;
-  flex-direction: column;
   gap: var(--dz-page-gap);
+  flex-wrap: wrap;
+}
+
+.dz-page > .dz-page-header > .dz-page-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--dz-page-gap);
+  flex-wrap: wrap;
 }
 
 @media (min-width: 576px) {
@@ -43,6 +51,7 @@
 
   .dz-page > .dz-page-header > .dz-page-toolbar {
     margin-left: auto;
+    height: fit-content;
   }
 
   .dz-page > .dz-page-header > .dz-page-title-wrapper > h1 > span {
