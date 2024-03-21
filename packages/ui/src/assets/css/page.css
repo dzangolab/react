@@ -32,11 +32,6 @@
   gap: var(--dz-page-gap);
 }
 
-.dz-page > .dz-page-header > .dz-page-title-wrapper > h1 {
-  display: flex;
-  flex-direction: column;
-}
-
 @media (min-width: 576px) {
   .dz-page > .dz-page-header {
     grid-template-columns: repeat(2, minmax(0, auto));
@@ -48,5 +43,9 @@
 
   .dz-page > .dz-page-header > .dz-page-toolbar {
     margin-left: auto;
+  }
+
+  .dz-page > .dz-page-header > .dz-page-title-wrapper > h1 > span {
+    vertical-align: super;
   }
 }

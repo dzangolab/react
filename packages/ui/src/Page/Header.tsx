@@ -23,8 +23,8 @@ export const PageHeader = ({
       <div className="dz-page-title-wrapper">
         {title && (
           <h1>
-            {titleTag && <span>{titleTag}</span>}
             {title}
+            {titleTag && <span>{titleTag}</span>}
           </h1>
         )}
         {subtitle && (
