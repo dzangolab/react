@@ -12,7 +12,7 @@
 
 .dz-layout.sidebar-only > main {
   grid-area: main;
-  overflow-y: auto;
+  min-width: 100%;
 }
 
 @media screen and (min-width: 576px) {
