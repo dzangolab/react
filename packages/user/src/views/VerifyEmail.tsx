@@ -13,8 +13,10 @@ import { UserContextType, userContext } from "..";
 
 export const VerifyEmail = ({
   redirectionDelayTime = 5,
+  centered = true,
 }: {
   redirectionDelayTime?: number;
+  centered?: boolean;
 }) => {
   const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
@@ -170,7 +172,7 @@ export const VerifyEmail = ({
       className="email-verification"
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
-      centered={true}
+      centered={centered}
     >
       <Card className="email-verification-card">{renderMessage()}</Card>
     </Page>

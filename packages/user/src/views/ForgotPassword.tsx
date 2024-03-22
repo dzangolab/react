@@ -10,7 +10,7 @@ import { useConfig } from "@/hooks";
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
 import { forgotPassword } from "../supertokens/forgot-password";
 
-export const ForgotPassword = () => {
+export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -47,7 +47,7 @@ export const ForgotPassword = () => {
     <Page
       className="forgot-password"
       title={t("forgotPassword.title")}
-      centered={true}
+      centered={centered}
     >
       <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
       {renderLinks()}
