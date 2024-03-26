@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 interface ISelect {
+  disabled?: boolean;
   label?: string;
   multiple?: boolean;
   name: string;
@@ -10,6 +11,7 @@ interface ISelect {
 }
 
 export const Select = ({
+  disabled,
   label = "",
   multiple,
   name,
@@ -32,7 +34,17 @@ export const Select = ({
     <div className={`select-input ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <div className="select">
-        <input type="text" value={value.join(", ")} readOnly />
+        <input
+          type="text"
+          value={value.join(", ")}
+          readOnly
+          disabled={disabled}
+        />
+        {value.length > 1 && (
+          <span className="cancel" onClick={() => onChange([])} style={{}}>
+            <i className="pi pi-times"></i>
+          </span>
+        )}
         <span onClick={() => setShowOptions(!showOptions)}>
           <i className="pi pi-chevron-down"></i>
         </span>
@@ -43,11 +55,7 @@ export const Select = ({
           {options?.map((option, index) => {
             const { value, label } = option;
             return (
-              <span
-                key={index}
-                onClick={() => handleSelectedOption(value)}
-                style={{ cursor: "pointer" }}
-              >
+              <span key={index} onClick={() => handleSelectedOption(value)}>
                 {label}
               </span>
             );
