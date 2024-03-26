@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-interface ISelect {
+interface ISelectProperties {
   disabled?: boolean;
   label?: string;
   multiple?: boolean;
   name: string;
   options: { value: string; label: string }[];
+  placeholder?: string;
   value: string[];
   onChange: (newValue: string[]) => void;
 }
@@ -16,9 +17,10 @@ export const Select = ({
   multiple,
   name,
   options,
+  placeholder,
   value,
   onChange,
-}: ISelect) => {
+}: ISelectProperties) => {
   const [showOptions, setShowOptions] = useState(false);
 
   const handleSelectedOption = (option: string) => {
@@ -39,6 +41,7 @@ export const Select = ({
           value={value.join(", ")}
           readOnly
           disabled={disabled}
+          placeholder={placeholder}
         />
         {value.length > 1 && (
           <span className="cancel" onClick={() => onChange([])} style={{}}>
