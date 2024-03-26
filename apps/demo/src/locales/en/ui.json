@@ -157,5 +157,10 @@
       "icon": "Icon",
       "pill": "Pill"
     }
+  },
+  "select": {
+    "title": "Select",
+    "label": "Select",
+    "placeHolder": "-- select value --"
   }
 }

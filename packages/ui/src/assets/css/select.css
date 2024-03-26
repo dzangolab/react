@@ -1,44 +1,54 @@
-.select {
-  border: 1px solid black;
-  border-radius: 5px;
-  align-items: center;
-  display: flex;
-  padding: 0 0.65rem;
-}
-
-.select-input {
+.field-select {
   position: relative;
 }
 
-.select input {
+.input-field-select {
+  align-items: center;
+  background-color: var(--dz-input-fill-color);
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--field-border-radius);
+  display: flex;
+  padding: 0.5rem 0.65rem;
+}
+
+.input-field-select input {
   border: none;
+  width: 100%;
 }
   
-.select input:focus {
+.input-field-select input:focus {
   outline: none;
 }
 
-.select .cancel {
-  cursor: pointer;
-  position: absolute;
-  right: 2rem;
+.input-field-select span > i {
+  color: #b5b5b5;
+  padding: 0.25rem;
 }
 
-.select .cancel > i {
-  font-size:12px;
+.input-field-select span.cancel > i {
+  font-size: 12px;
 }
 
-.select-options {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.select-field-options {
+  background-color: #ffffff;
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--field-border-radius);
+  padding: 0.75rem 0.65rem;
   position: absolute;
   width: 100%;
   z-index: 1000;
 }
 
-.select-options > span {
-  display: block;
+.select-field-options > span {
   cursor: pointer;
+  display: block;
+  padding: 0.25rem 0;
+}
+
+.input-field-select[aria-invalid=true] {
+  border-color: var(--form-input-border-color-danger, #dc3545);
+}
+
+.input-field-select[aria-invalid=false] {
+  border-color: var(--form-input-border-color-success, #198754);
 }

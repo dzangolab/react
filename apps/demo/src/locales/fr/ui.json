@@ -153,5 +153,10 @@
       "icon": "Icon (fr)",
       "pill": "Pill (fr)"
     }
+  },
+  "select": {
+    "title": "Select (fr)",
+    "label": "Select (fr)",
+    "placeHolder": "-- select value -- (fr)"
   }
 }

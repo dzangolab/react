@@ -2,6 +2,7 @@ import { useState } from "react";
 
 interface ISelectProperties {
   disabled?: boolean;
+  hasError?: boolean;
   label?: string;
   multiple?: boolean;
   name: string;
@@ -13,6 +14,7 @@ interface ISelectProperties {
 
 export const Select = ({
   disabled,
+  hasError,
   label = "",
   multiple,
   name,
@@ -33,15 +35,16 @@ export const Select = ({
   };
 
   return (
-    <div className={`select-input ${name}`}>
+    <div className={`field-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className="select">
+      <div className="input-field-select" aria-invalid={hasError}>
         <input
           type="text"
           value={value.join(", ")}
           readOnly
           disabled={disabled}
           placeholder={placeholder}
+          aria-invalid={hasError}
         />
         {value.length > 1 && (
           <span className="cancel" onClick={() => onChange([])} style={{}}>
@@ -54,7 +57,7 @@ export const Select = ({
       </div>
 
       {showOptions && (
-        <div className="select-options">
+        <div className="select-field-options">
           {options?.map((option, index) => {
             const { value, label } = option;
             return (
