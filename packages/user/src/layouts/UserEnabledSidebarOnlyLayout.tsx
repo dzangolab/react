@@ -11,23 +11,27 @@ import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-layout";
 interface Properties {
   authNavigationMenu?: NavMenuItemType;
   children: React.ReactNode;
+  className?: string;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   userNavigationMenu?: NavMenuItemType;
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
+  noLocaleSwitcher?: boolean;
   onLogout?: () => Promise<any>;
 }
 
 export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   authNavigationMenu,
   children,
+  className,
   customSidebar,
   displayNavIcons,
   navigationMenu,
   noSidebarHeader,
   noSidebarFooter,
+  noLocaleSwitcher,
   userNavigationMenu,
   onLogout,
 }) => {
@@ -84,11 +88,13 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   return (
     <SidebarOnlyLayout
       children={children}
+      className={className}
       displayNavIcons={displayNavIcons}
       navigationMenu={getNavigationMenu()}
       customSidebar={customSidebar}
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
+      noLocaleSwitcher={noLocaleSwitcher}
     />
   );
 };

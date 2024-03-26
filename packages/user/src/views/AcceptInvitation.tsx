@@ -12,7 +12,11 @@ import { Invitation, LoginCredentials } from "@/types";
 
 import { login } from "..";
 
-export const AcceptInvitation = () => {
+export const AcceptInvitation = ({
+  centered = true,
+}: {
+  centered?: boolean;
+}) => {
   const { t } = useTranslation("invitations");
 
   const appConfig = useConfig();
@@ -129,7 +133,7 @@ export const AcceptInvitation = () => {
       className="signup"
       title={t("user:signup.title")}
       loading={loading || loginLoading}
-      centered={true}
+      centered={centered}
     >
       {renderPageContent()}
     </Page>

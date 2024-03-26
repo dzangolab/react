@@ -7,7 +7,7 @@ import ChangePasswordForm from "../components/ChangePasswordForm";
 import { useConfig } from "../hooks";
 import changePassword from "../supertokens/change-password";
 
-export const ChangePassword = () => {
+export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
@@ -32,7 +32,7 @@ export const ChangePassword = () => {
     <Page
       className="change-password"
       title={t("changePassword.title")}
-      centered={true}
+      centered={centered}
     >
       <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
     </Page>

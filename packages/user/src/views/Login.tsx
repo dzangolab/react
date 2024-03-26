@@ -8,6 +8,7 @@ import { useConfig, useFirstUserSignup } from "../hooks";
 import type { SignInUpPromise } from "../types";
 
 interface IProperties {
+  centered?: boolean;
   customDivider?: React.ReactNode;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
@@ -18,6 +19,7 @@ interface IProperties {
 }
 
 export const Login: React.FC<IProperties> = ({
+  centered = true,
   showForgotPasswordLink,
   showSignupLink,
   customDivider,
@@ -75,7 +77,7 @@ export const Login: React.FC<IProperties> = ({
       className={className}
       data-aria-orientation={orientation}
       loading={!!redirecting}
-      centered={true}
+      centered={centered}
     >
       <LoginWrapper
         onLoginFailed={onLoginFailed}

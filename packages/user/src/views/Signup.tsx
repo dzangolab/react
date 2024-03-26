@@ -6,6 +6,7 @@ import { SignupWrapper } from "..";
 import type { SignInUpPromise } from "../types";
 
 interface IProperties {
+  centered?: boolean;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   showForgotPasswordLink?: boolean;
@@ -13,6 +14,7 @@ interface IProperties {
 }
 
 export const Signup: React.FC<IProperties> = ({
+  centered = true,
   onSignupFailed,
   onSignupSuccess,
   showForgotPasswordLink,
@@ -21,7 +23,7 @@ export const Signup: React.FC<IProperties> = ({
   const { t } = useTranslation("user");
 
   return (
-    <Page className="signup" title={t("signup.title")} centered={true}>
+    <Page className="signup" title={t("signup.title")} centered={centered}>
       <SignupWrapper
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}

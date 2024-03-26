@@ -7,6 +7,7 @@ import { ProfileForm } from "@/components/Profile";
 
 interface Properties {
   additionalProfileFields?: AdditionalFormFields;
+  centered?: boolean;
 }
 
 export const Profile = ({ additionalProfileFields }: Properties) => {
