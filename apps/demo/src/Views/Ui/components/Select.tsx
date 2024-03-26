@@ -17,7 +17,7 @@ export const SelectDemo = () => {
       <Section>
         <Select
           label={t("select.label")}
-          name="selectcolor"
+          name="select"
           options={[
             { value: "FR", label: "FR" },
             { value: "DE", label: "DE" },

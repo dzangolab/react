@@ -47,7 +47,11 @@ export const Select = ({
           aria-invalid={hasError}
         />
         {value.length > 1 && (
-          <span className="cancel" onClick={() => onChange([])} style={{}}>
+          <span
+            className="remove-options"
+            onClick={() => onChange([])}
+            style={{}}
+          >
             <i className="pi pi-times"></i>
           </span>
         )}
