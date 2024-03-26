@@ -1,0 +1,47 @@
+.select {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.select select {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+}
+
+.select select:focus {
+  outline: none;
+}
+
+.select-input {
+  position: relative;
+}
+
+.select-options {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+.select-options>span {
+  display: block;
+}
+
+.select {
+  align-items: center;
+  display: flex;
+  padding-right: 0.5rem;
+}
+
+.select input {
+  border: none;
+}
+
+.select input:focus {
+  outline: none;
+}
