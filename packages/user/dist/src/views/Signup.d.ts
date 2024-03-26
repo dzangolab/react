@@ -1,6 +1,7 @@
 /// <reference types="react" />
 import type { SignInUpPromise } from "../types";
 interface IProperties {
+    centered?: boolean;
     onSignupFailed?: (error: Error) => void;
     onSignupSuccess?: (user: SignInUpPromise) => void;
     showForgotPasswordLink?: boolean;

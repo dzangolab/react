@@ -18,16 +18,16 @@ function Nr() {
   if (Oe)
     return D;
   Oe = 1;
-  var t = Pe, o = Symbol.for("react.element"), i = Symbol.for("react.fragment"), s = Object.prototype.hasOwnProperty, l = t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, c = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function m(d, f, j) {
+  var t = Pe, o = Symbol.for("react.element"), i = Symbol.for("react.fragment"), s = Object.prototype.hasOwnProperty, c = t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, f = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function m(l, d, j) {
     var g, b = {}, R = null, P = null;
-    j !== void 0 && (R = "" + j), f.key !== void 0 && (R = "" + f.key), f.ref !== void 0 && (P = f.ref);
-    for (g in f)
-      s.call(f, g) && !c.hasOwnProperty(g) && (b[g] = f[g]);
-    if (d && d.defaultProps)
-      for (g in f = d.defaultProps, f)
-        b[g] === void 0 && (b[g] = f[g]);
-    return { $$typeof: o, type: d, key: R, ref: P, props: b, _owner: l.current };
+    j !== void 0 && (R = "" + j), d.key !== void 0 && (R = "" + d.key), d.ref !== void 0 && (P = d.ref);
+    for (g in d)
+      s.call(d, g) && !f.hasOwnProperty(g) && (b[g] = d[g]);
+    if (l && l.defaultProps)
+      for (g in d = l.defaultProps, d)
+        b[g] === void 0 && (b[g] = d[g]);
+    return { $$typeof: o, type: l, key: R, ref: P, props: b, _owner: c.current };
   }
   return D.Fragment = i, D.jsx = m, D.jsxs = m, D;
 }
@@ -44,7 +44,7 @@ var L = {};
 var we;
 function kr() {
   return we || (we = 1, process.env.NODE_ENV !== "production" && function() {
-    var t = Pe, o = Symbol.for("react.element"), i = Symbol.for("react.portal"), s = Symbol.for("react.fragment"), l = Symbol.for("react.strict_mode"), c = Symbol.for("react.profiler"), m = Symbol.for("react.provider"), d = Symbol.for("react.context"), f = Symbol.for("react.forward_ref"), j = Symbol.for("react.suspense"), g = Symbol.for("react.suspense_list"), b = Symbol.for("react.memo"), R = Symbol.for("react.lazy"), P = Symbol.for("react.offscreen"), W = Symbol.iterator, Ve = "@@iterator";
+    var t = Pe, o = Symbol.for("react.element"), i = Symbol.for("react.portal"), s = Symbol.for("react.fragment"), c = Symbol.for("react.strict_mode"), f = Symbol.for("react.profiler"), m = Symbol.for("react.provider"), l = Symbol.for("react.context"), d = Symbol.for("react.forward_ref"), j = Symbol.for("react.suspense"), g = Symbol.for("react.suspense_list"), b = Symbol.for("react.memo"), R = Symbol.for("react.lazy"), P = Symbol.for("react.offscreen"), W = Symbol.iterator, Ve = "@@iterator";
     function Be(e) {
       if (e === null || typeof e != "object")
         return null;
@@ -72,7 +72,7 @@ function kr() {
     var qe = !1, ze = !1, Je = !1, Ge = !1, Ke = !1, ae;
     ae = Symbol.for("react.module.reference");
     function Xe(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === s || e === c || Ke || e === l || e === j || e === g || Ge || e === P || qe || ze || Je || typeof e == "object" && e !== null && (e.$$typeof === R || e.$$typeof === b || e.$$typeof === m || e.$$typeof === d || e.$$typeof === f || // This needs to include all possible module reference object
+      return !!(typeof e == "string" || typeof e == "function" || e === s || e === f || Ke || e === c || e === j || e === g || Ge || e === P || qe || ze || Je || typeof e == "object" && e !== null && (e.$$typeof === R || e.$$typeof === b || e.$$typeof === m || e.$$typeof === l || e.$$typeof === d || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -100,9 +100,9 @@ function kr() {
           return "Fragment";
         case i:
           return "Portal";
-        case c:
+        case f:
           return "Profiler";
-        case l:
+        case c:
           return "StrictMode";
         case j:
           return "Suspense";
@@ -111,13 +111,13 @@ function kr() {
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case d:
+          case l:
             var n = e;
             return oe(n) + ".Consumer";
           case m:
             var a = e;
             return oe(a._context) + ".Provider";
-          case f:
+          case d:
             return Ze(e, e.render, "ForwardRef");
           case b:
             var u = e.displayName || null;
@@ -307,7 +307,7 @@ function kr() {
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case f:
+          case d:
             return nr(e.render);
           case b:
             return U(e.type, n, a);
@@ -559,7 +559,7 @@ Check the top-level render call using <` + a + ">.");
         var a;
         if (typeof n == "function")
           a = n.propTypes;
-        else if (typeof n == "object" && (n.$$typeof === f || // Note: Memo only checks outer props here.
+        else if (typeof n == "object" && (n.$$typeof === d || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
         n.$$typeof === b))
           a = n.propTypes;
@@ -631,7 +631,7 @@ Check the top-level render call using <` + a + ">.");
 process.env.NODE_ENV === "production" ? ee.exports = Nr() : ee.exports = kr();
 var r = ee.exports;
 const Ae = _r(null), Fr = ({ children: t }) => {
-  const [o, i] = $(!0), [s, l] = $(!1);
+  const [o, i] = $(!0), [s, c] = $(!1);
   return /* @__PURE__ */ r.jsx(
     Ae.Provider,
     {
@@ -639,7 +639,7 @@ const Ae = _r(null), Fr = ({ children: t }) => {
         menuDesktopOpen: o,
         menuMobileOpen: s,
         setMenuDesktopOpen: i,
-        setMenuMobileOpen: l
+        setMenuMobileOpen: c
       },
       children: t
     }
@@ -659,12 +659,12 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   defaultMessage: o = "All rights reserved",
   holder: i,
   url: s,
-  year: l
+  year: c
 }) => {
-  const c = H(), m = () => {
-    const d = i || c?.copyright?.holder, f = s || c?.copyright?.url, j = l || (/* @__PURE__ */ new Date()).getFullYear();
-    if (d) {
-      const g = f ? /* @__PURE__ */ r.jsx("a", { href: f, target: "_blank", rel: "noreferrer", children: d }) : d;
+  const f = H(), m = () => {
+    const l = i || f?.copyright?.holder, d = s || f?.copyright?.url, j = c || (/* @__PURE__ */ new Date()).getFullYear();
+    if (l) {
+      const g = d ? /* @__PURE__ */ r.jsx("a", { href: d, target: "_blank", rel: "noreferrer", children: l }) : l;
       return /* @__PURE__ */ r.jsxs("div", { className: "copyright", children: [
         "© ",
         j,
@@ -686,13 +686,13 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   route: i,
   src: s
 }) => {
-  const { appName: l, layout: c } = H(), m = ke(), d = Cr(() => {
-    if (l)
-      return l.replace("@", "").replace("/", " ");
-  }, [l]), f = i || c?.logoRoute || "/", j = s || c?.logo, g = t || c?.logoAlt || d || "My app", b = () => j ? /* @__PURE__ */ r.jsx("img", { src: j, alt: g }) : /* @__PURE__ */ r.jsxs("span", { className: "logo-default", children: [
+  const { appName: c, layout: f } = H(), m = ke(), l = Cr(() => {
+    if (c)
+      return c.replace("@", "").replace("/", " ");
+  }, [c]), d = i || f?.logoRoute || "/", j = s || f?.logo, g = t || f?.logoAlt || l || "My app", b = () => j ? /* @__PURE__ */ r.jsx("img", { src: j, alt: g }) : /* @__PURE__ */ r.jsxs("span", { className: "logo-default", children: [
     /* @__PURE__ */ r.jsx("span", { children: g[0] }),
     /* @__PURE__ */ r.jsx("span", { children: g })
-  ] }), R = () => /* @__PURE__ */ r.jsx(r.Fragment, { children: m ? /* @__PURE__ */ r.jsx(Tr, { to: f, children: b() }) : /* @__PURE__ */ r.jsx("a", { href: f, children: b() }) });
+  ] }), R = () => /* @__PURE__ */ r.jsx(r.Fragment, { children: m ? /* @__PURE__ */ r.jsx(Tr, { to: d, children: b() }) : /* @__PURE__ */ r.jsx("a", { href: d, children: b() }) });
   return /* @__PURE__ */ r.jsx("div", { className: "logo", children: o || R() });
 }, re = ({
   navItem: t,
@@ -708,10 +708,10 @@ const Ae = _r(null), Fr = ({ children: t }) => {
       t.label,
       i && /* @__PURE__ */ r.jsx("i", { className: "pi pi-angle-down nav-group-toggle" })
     ] });
-  const l = (m) => {
+  const c = (m) => {
     {
-      const d = window.location.pathname.split("/");
-      return window.location.pathname.startsWith(m) || d.length && d.includes(m);
+      const l = window.location.pathname.split("/");
+      return window.location.pathname.startsWith(m) || l.length && l.includes(m);
     }
   };
   if (s)
@@ -727,13 +727,13 @@ const Ae = _r(null), Fr = ({ children: t }) => {
         ]
       }
     );
-  const c = l(t.route || "");
+  const f = c(t.route || "");
   return /* @__PURE__ */ r.jsxs(
     "a",
     {
       href: t.route,
-      className: c ? "nav-item active" : "nav-item",
-      "aria-current": c ? "page" : void 0,
+      className: f ? "nav-item active" : "nav-item",
+      "aria-current": f ? "page" : void 0,
       children: [
         o && t.icon && /* @__PURE__ */ r.jsx("i", { className: t.icon }),
         t.label
@@ -744,7 +744,7 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   navGroup: t,
   displayIcon: o = !0
 }) => {
-  const [i, s] = $(!1), l = () => /* @__PURE__ */ r.jsx("ul", { children: t.submenu && t.submenu.map((c, m) => /* @__PURE__ */ r.jsx("li", { children: /* @__PURE__ */ r.jsx(re, { navItem: c, displayIcon: o }) }, m)) });
+  const [i, s] = $(!1), c = () => /* @__PURE__ */ r.jsx("ul", { children: t.submenu && t.submenu.map((f, m) => /* @__PURE__ */ r.jsx("li", { children: /* @__PURE__ */ r.jsx(re, { navItem: f, displayIcon: o }) }, m)) });
   return /* @__PURE__ */ r.jsxs("div", { className: "nav-group", "aria-expanded": i, children: [
     /* @__PURE__ */ r.jsx(
       re,
@@ -758,19 +758,19 @@ const Ae = _r(null), Fr = ({ children: t }) => {
         isGroupHeader: !0
       }
     ),
-    l()
+    c()
   ] });
 }, Le = ({
   displayIcons: t = !0,
   horizontal: o = !1,
   navigationMenu: i
 }) => {
-  const s = (d) => /* @__PURE__ */ r.jsx(Ar, { navGroup: d, displayIcon: t }), l = (d) => "submenu" in d ? s(d) : /* @__PURE__ */ r.jsx(re, { navItem: d, displayIcon: t }), c = ({ id: d, label: f, menu: j }, g) => /* @__PURE__ */ r.jsxs("div", { className: "nav-menu-item", "data-nav-menu-id": d, children: [
-    f && /* @__PURE__ */ r.jsx("span", { children: f }),
-    /* @__PURE__ */ r.jsx("ul", { children: j.map((b, R) => /* @__PURE__ */ r.jsx("li", { children: l(b) }, R)) })
+  const s = (l) => /* @__PURE__ */ r.jsx(Ar, { navGroup: l, displayIcon: t }), c = (l) => "submenu" in l ? s(l) : /* @__PURE__ */ r.jsx(re, { navItem: l, displayIcon: t }), f = ({ id: l, label: d, menu: j }, g) => /* @__PURE__ */ r.jsxs("div", { className: "nav-menu-item", "data-nav-menu-id": l, children: [
+    d && /* @__PURE__ */ r.jsx("span", { children: d }),
+    /* @__PURE__ */ r.jsx("ul", { children: j.map((b, R) => /* @__PURE__ */ r.jsx("li", { children: c(b) }, R)) })
   ] }, g), m = () => i ? Array.isArray(i) ? i.map(
-    (d, f) => c(d, f)
-  ) : c(i) : null;
+    (l, d) => f(l, d)
+  ) : f(i) : null;
   return /* @__PURE__ */ r.jsx("nav", { className: "navigation-menu", "data-horizontal": o, children: m() });
 }, $e = () => {
   const { menuMobileOpen: t, setMenuMobileOpen: o } = Me();
@@ -803,12 +803,12 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   displayNavIcons: o,
   title: i,
   navigationMenu: s,
-  menu: l,
-  noLocaleSwitcher: c,
+  menu: c,
+  noLocaleSwitcher: f,
   noLogo: m,
-  noToggle: d
+  noToggle: l
 }) => {
-  const f = () => /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
+  const d = () => /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
     !m && /* @__PURE__ */ r.jsx(te, {}),
     i && /* @__PURE__ */ r.jsx(Dr, { title: i }),
     s && /* @__PURE__ */ r.jsx(
@@ -819,10 +819,10 @@ const Ae = _r(null), Fr = ({ children: t }) => {
         horizontal: !0
       }
     ),
-    (l || !c) && /* @__PURE__ */ r.jsx(Mr, { menu: l, noLocaleSwitcher: c }),
-    !d && /* @__PURE__ */ r.jsx($e, {})
+    (c || !f) && /* @__PURE__ */ r.jsx(Mr, { menu: c, noLocaleSwitcher: f }),
+    !l && /* @__PURE__ */ r.jsx($e, {})
   ] });
-  return /* @__PURE__ */ r.jsx("header", { "data-nav": !!s, children: /* @__PURE__ */ r.jsx("div", { className: "header-container", children: t || f() }) });
+  return /* @__PURE__ */ r.jsx("header", { "data-nav": !!s, children: /* @__PURE__ */ r.jsx("div", { className: "header-container", children: t || d() }) });
 }, $r = ({ children: t, className: o, fixed: i }) => {
   const { menuMobileOpen: s } = Me();
   return /* @__PURE__ */ r.jsx(
@@ -854,8 +854,8 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   displayNavIcons: o = !1,
   navigationMenu: i,
   noHeader: s = !1,
-  noFooter: l = !1,
-  noLocaleSwitcher: c = !1
+  noFooter: c = !1,
+  noLocaleSwitcher: f = !1
 }) => {
   const m = () => /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
     !s && /* @__PURE__ */ r.jsx(Yr, {}),
@@ -866,7 +866,7 @@ const Ae = _r(null), Fr = ({ children: t }) => {
         navigationMenu: i || []
       }
     ),
-    !l && /* @__PURE__ */ r.jsx(Wr, { noLocaleSwitcher: c })
+    !c && /* @__PURE__ */ r.jsx(Wr, { noLocaleSwitcher: f })
   ] });
   return /* @__PURE__ */ r.jsx("aside", { children: t || m() });
 }, Ie = (t) => {
@@ -885,42 +885,42 @@ const Ae = _r(null), Fr = ({ children: t }) => {
     route: "/about"
   }
 ], Vr = (t) => {
-  const { t: o } = wr("app"), { routes: i = Ur, orientation: s = "horizontal" } = t, l = () => i.map(({ name: c, route: m }) => ({
-    name: o(c),
+  const { t: o } = wr("app"), { routes: i = Ur, orientation: s = "horizontal" } = t, c = () => i.map(({ name: f, route: m }) => ({
+    name: o(f),
     route: m
   }));
   return /* @__PURE__ */ r.jsx(
     Fe,
     {
       className: "main-menu",
-      routes: l(),
+      routes: c(),
       orientation: s
     }
   );
 }, Ue = (t) => {
   const [o, i] = $(!1), { layout: s } = H(), {
-    localeSwitcher: l,
-    logoRoute: c,
+    localeSwitcher: c,
+    logoRoute: f,
     logo: m,
-    mainMenuOrientation: d,
-    mainMenu: f,
+    mainMenuOrientation: l,
+    mainMenu: d,
     navStyle: j = "dropdown",
     toggle: g = /* @__PURE__ */ r.jsx("i", { className: "pi pi-align-justify" }),
     userMenu: b,
     mainMenuRoutes: R
   } = t;
   return /* @__PURE__ */ r.jsxs("header", { children: [
-    m || /* @__PURE__ */ r.jsx(te, { route: c }),
+    m || /* @__PURE__ */ r.jsx(te, { route: f }),
     /* @__PURE__ */ r.jsxs("nav", { className: `menu ${j}`, "data-expanded": o, children: [
-      f || /* @__PURE__ */ r.jsx(
+      d || /* @__PURE__ */ r.jsx(
         Vr,
         {
           routes: R || s?.mainMenu,
-          orientation: d
+          orientation: l
         }
       ),
       b,
-      l || /* @__PURE__ */ r.jsx(ne, {})
+      c || /* @__PURE__ */ r.jsx(ne, {})
     ] }),
     /* @__PURE__ */ r.jsx("div", { className: "toggle", onClick: () => i(!o), children: g })
   ] });
@@ -929,12 +929,12 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   expandIcon: o = /* @__PURE__ */ r.jsx("i", { className: "pi pi-angle-double-right" }),
   collapseIcon: i = /* @__PURE__ */ r.jsx("i", { className: "pi pi-angle-double-left" })
 }) => {
-  const [s, l] = $(!0);
+  const [s, c] = $(!0);
   return /* @__PURE__ */ r.jsxs("div", { className: "sidebar", "aria-expanded": s, children: [
     /* @__PURE__ */ r.jsx("div", { className: "toggle-button", children: /* @__PURE__ */ r.jsx(
       Pr,
       {
-        onClick: () => l(!s),
+        onClick: () => c(!s),
         iconLeft: s ? i : o,
         variant: "textOnly",
         severity: "secondary",
@@ -948,11 +948,11 @@ const Ae = _r(null), Fr = ({ children: t }) => {
     children: o,
     localSwitcher: i,
     logoRoute: s,
-    menuToggle: l,
-    mainMenuRoutes: c,
+    menuToggle: c,
+    mainMenuRoutes: f,
     userMenu: m,
-    mainMenu: d,
-    mainMenuOrientation: f,
+    mainMenu: l,
+    mainMenuOrientation: d,
     footer: j,
     header: g,
     fixed: b = !0
@@ -963,12 +963,12 @@ const Ae = _r(null), Fr = ({ children: t }) => {
       {
         navStyle: "left-slider",
         userMenu: m,
-        mainMenuRoutes: c,
-        mainMenu: d,
-        toggle: l,
+        mainMenuRoutes: f,
+        mainMenu: l,
+        toggle: c,
         localeSwitcher: i,
         logoRoute: s,
-        mainMenuOrientation: f
+        mainMenuOrientation: d
       }
     ),
     /* @__PURE__ */ r.jsx("main", { children: o }),
@@ -979,11 +979,11 @@ const Ae = _r(null), Fr = ({ children: t }) => {
     sidebar: o,
     children: i,
     footer: s,
-    header: l,
-    mainMenuRoutes: c,
+    header: c,
+    mainMenuRoutes: f,
     displaySidebarMenuIcon: m,
-    displaySidebar: d = !0,
-    localSwitcher: f,
+    displaySidebar: l = !0,
+    localSwitcher: d,
     logoRoute: j,
     mainMenu: g,
     mainMenuOrientation: b,
@@ -992,12 +992,12 @@ const Ae = _r(null), Fr = ({ children: t }) => {
     fixed: W = !0
   } = t;
   return /* @__PURE__ */ r.jsxs("div", { className: `layout collapsible ${W ? "fixed" : ""}`.trimEnd(), children: [
-    l || /* @__PURE__ */ r.jsx(
+    c || /* @__PURE__ */ r.jsx(
       Ue,
       {
         navStyle: "left-slider",
-        mainMenuRoutes: c,
-        localeSwitcher: f,
+        mainMenuRoutes: f,
+        localeSwitcher: d,
         logoRoute: j,
         mainMenu: g,
         mainMenuOrientation: b,
@@ -1005,10 +1005,10 @@ const Ae = _r(null), Fr = ({ children: t }) => {
         userMenu: P
       }
     ),
-    d ? /* @__PURE__ */ r.jsx(r.Fragment, { children: o || /* @__PURE__ */ r.jsx(Br, { children: /* @__PURE__ */ r.jsx(
+    l ? /* @__PURE__ */ r.jsx(r.Fragment, { children: o || /* @__PURE__ */ r.jsx(Br, { children: /* @__PURE__ */ r.jsx(
       Fe,
       {
-        routes: c || [],
+        routes: f || [],
         orientation: "vertical",
         displayIcon: m
       }
@@ -1021,11 +1021,11 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   children: o,
   displayNavIcons: i,
   navigationMenu: s,
-  title: l,
-  menu: c,
+  title: c,
+  menu: f,
   noLogo: m,
-  noLocaleSwitcher: d,
-  noToggle: f,
+  noLocaleSwitcher: l,
+  noToggle: d,
   customHeader: j,
   fixed: g = !0
 }) => /* @__PURE__ */ r.jsxs(
@@ -1039,11 +1039,11 @@ const Ae = _r(null), Fr = ({ children: t }) => {
         {
           displayNavIcons: i,
           navigationMenu: s,
-          title: l,
-          menu: c,
+          title: c,
+          menu: f,
           noLogo: m,
-          noLocaleSwitcher: d,
-          noToggle: f
+          noLocaleSwitcher: l,
+          noToggle: d
         }
       ),
       /* @__PURE__ */ r.jsx("main", { children: o })
@@ -1054,17 +1054,19 @@ const Ae = _r(null), Fr = ({ children: t }) => {
   children: o,
   displayNavIcons: i,
   navigationMenu: s,
-  customSidebar: l,
-  noSidebarHeader: c,
-  noSidebarFooter: m
+  customSidebar: c,
+  noLocaleSwitcher: f,
+  noSidebarHeader: m,
+  noSidebarFooter: l
 }) => /* @__PURE__ */ r.jsxs(Ye, { className: `sidebar-only ${t || ""}`.trimEnd(), children: [
-  l || /* @__PURE__ */ r.jsx(
+  c || /* @__PURE__ */ r.jsx(
     Ir,
     {
       displayNavIcons: i,
       navigationMenu: s,
-      noHeader: c,
-      noFooter: m
+      noHeader: m,
+      noFooter: l,
+      noLocaleSwitcher: f
     }
   ),
   /* @__PURE__ */ r.jsx("main", { children: o })

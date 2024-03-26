@@ -1,5 +1,5 @@
 export type NavItemType = {
-    label: string;
+    label: string | React.ReactNode;
     icon?: string;
     display?: boolean;
 } & ({
@@ -8,7 +8,7 @@ export type NavItemType = {
     onClick: () => void;
 });
 export type NavGroupType = {
-    label: string;
+    label: string | React.ReactNode;
     icon?: string;
     submenu: NavItemType[];
 };

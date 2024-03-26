@@ -1,6 +1,7 @@
 /// <reference types="react" />
 import type { SignInUpPromise } from "../types";
 interface IProperties {
+    centered?: boolean;
     customDivider?: React.ReactNode;
     onLoginFailed?: (error: Error) => void;
     onLoginSuccess?: (user: SignInUpPromise) => void;

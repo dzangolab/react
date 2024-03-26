@@ -5,6 +5,7 @@ interface SidebarOnlyLayoutProperties {
     displayNavIcons?: boolean;
     navigationMenu?: NavMenuType;
     customSidebar?: React.ReactNode;
+    noLocaleSwitcher?: boolean;
     noSidebarHeader?: boolean;
     noSidebarFooter?: boolean;
 }
