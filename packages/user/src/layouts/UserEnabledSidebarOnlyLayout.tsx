@@ -19,6 +19,7 @@ interface Properties {
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
   noLocaleSwitcher?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
 }
 

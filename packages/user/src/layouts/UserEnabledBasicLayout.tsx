@@ -11,7 +11,8 @@ interface Properties {
   authenticatedUserMenu?: React.ReactNode;
   children: React.ReactNode;
   footer?: React.ReactNode;
-  onLogout?: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onLogout?: (() => any) | (() => Promise<any>);
   userMenu?: UserMenuItemType[];
   userMenuCollapsedIcon?: React.ReactNode;
   userMenuExpandIcon?: React.ReactNode;
