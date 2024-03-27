@@ -1,4 +1,9 @@
-.field-select {
+:root {
+  --select-option-bg-color: #ffffff;
+  --select-icon-color: #b5b5b5;
+}
+
+.dz-select {
   position: relative;
 }
 
@@ -20,19 +25,29 @@
   outline: none;
 }
 
+.input-field-select.disabled {
+  background-color: var(--field-bg-color-disabled);
+}
+
+.input-field-select input[disabled] {
+  background-color: var(--field-bg-color-disabled);
+}
+
 .input-field-select span > i {
-  color: #b5b5b5;
+  color: var(--select-icon-color);
   padding: 0.25rem;
 }
 
 .input-field-select span.remove-options > i {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .select-field-options {
-  background-color: #ffffff;
+  background-color: var(--select-option-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
+  height: 100px;
+  overflow: auto;
   padding: 0.75rem 0.65rem;
   position: absolute;
   width: 100%;
@@ -46,9 +61,9 @@
 }
 
 .input-field-select[aria-invalid=true] {
-  border-color: var(--form-input-border-color-danger, #dc3545);
+  border-color: var(--field-invalid-border-color)
 }
 
 .input-field-select[aria-invalid=false] {
-  border-color: var(--form-input-border-color-success, #198754);
+  border-color: var(--field-valid-border-color);
 }

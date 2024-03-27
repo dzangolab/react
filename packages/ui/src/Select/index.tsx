@@ -52,9 +52,12 @@ export const Select = ({
   };
 
   return (
-    <div ref={selectReference} className={`field-select ${name}`.trimEnd()}>
+    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className="input-field-select" aria-invalid={hasError}>
+      <div
+        className={`input-field-select ${disabled ? "disabled" : ""}`.trimEnd()}
+        aria-invalid={hasError}
+      >
         <input
           type="text"
           value={
@@ -73,7 +76,11 @@ export const Select = ({
             <i className="pi pi-times"></i>
           </span>
         )}
-        <span onClick={() => setShowOptions(!showOptions)}>
+        <span
+          onClick={() => {
+            disabled ? setShowOptions(false) : setShowOptions(!showOptions);
+          }}
+        >
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>

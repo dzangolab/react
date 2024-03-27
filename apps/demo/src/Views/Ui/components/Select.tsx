@@ -6,29 +6,62 @@ import { Section } from "../../../components/Demo";
 
 export const SelectDemo = () => {
   const [t] = useTranslation("ui");
-  const [selectedValues, setSelectedValues] = useState<(string | number)[]>([]);
+  const [multipleSelectedValues, setMultipleSelectedValues] = useState([]);
+  const [singleSelectedValues, setSingleSelectedValues] = useState([]);
 
-  const handleChange = (newValue: (string | number)[]) => {
-    setSelectedValues(newValue);
+  const handleMultipleChange = (newValue: any) => {
+    setMultipleSelectedValues(newValue);
+  };
+
+  const handleSingleChange = (newValue: any) => {
+    setSingleSelectedValues(newValue);
   };
 
   return (
     <Page title={t("select.title")}>
       <Section>
         <Select
-          label={t("select.label")}
+          label={t("select.label.single")}
+          name="select"
+          options={[
+            { value: "FR", label: "FR" },
+            { value: "DE", label: "DE" },
+          ]}
+          value={singleSelectedValues}
+          onChange={handleSingleChange}
+          placeholder={t("select.placeHolder")}
+        />
+      </Section>
+      <Section>
+        <Select
+          label={t("select.label.multiple")}
           name="select"
           options={[
             { value: "FR", label: "FR" },
             { value: "DE", label: "DE" },
             { value: "BE", label: "BE" },
-            { value: "FE", label: "FE" },
+            { value: "AR", label: "AR" },
             { value: "RE", label: "RE" },
+            { value: "SA", label: "SA" },
+            { value: "ME", label: "ME" },
+            { value: "TR", label: "TR" },
+            { value: "BR", label: "BR" },
           ]}
           multiple={true}
-          value={selectedValues}
-          onChange={handleChange}
+          value={multipleSelectedValues}
+          onChange={handleMultipleChange}
           placeholder={t("select.placeHolder")}
+        />
+      </Section>
+      <Section>
+        <Select
+          label={t("select.label.disabled")}
+          name="select"
+          options={[{ value: "FR", label: "FR" }]}
+          value={[]}
+          onChange={() => {}}
+          placeholder={t("select.label.disabled")}
+          disabled={true}
         />
       </Section>
     </Page>

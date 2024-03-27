@@ -156,7 +156,11 @@
   },
   "select": {
     "title": "Select (fr)",
-    "label": "Select (fr)",
+    "label": {
+      "single": "Single select (fr)",
+      "multiple": "Multiple select (fr)",
+      "disabled": "Disabled (fr)"
+      },
     "placeHolder": "-- select value -- (fr)"
   }
 }
