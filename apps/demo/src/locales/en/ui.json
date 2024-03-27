@@ -161,9 +161,10 @@
   "select": {
     "title": "Select",
     "label": {
-    "single": "Single select",
-    "multiple": "Multiple select",
-    "disabled": "Disabled"
+      "disabled": "Disabled",
+      "invalid": "Invalid",
+      "multiple": "Multiple select",
+      "single": "Single select"
     },
     "placeHolder": "-- select value --"
   }

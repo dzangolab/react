@@ -157,9 +157,10 @@
   "select": {
     "title": "Select (fr)",
     "label": {
-      "single": "Single select (fr)",
+      "disabled": "Disabled (fr)",
+      "invalid": "Invalid (fr)",
       "multiple": "Multiple select (fr)",
-      "disabled": "Disabled (fr)"
+      "single": "Single select (fr)"
       },
     "placeHolder": "-- select value -- (fr)"
   }
