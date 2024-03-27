@@ -6,9 +6,9 @@ import { Section } from "../../../components/Demo";
 
 export const SelectDemo = () => {
   const [t] = useTranslation("ui");
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [selectedValues, setSelectedValues] = useState<(string | number)[]>([]);
 
-  const handleChange = (newValue: string[]) => {
+  const handleChange = (newValue: (string | number)[]) => {
     setSelectedValues(newValue);
   };
 
@@ -22,6 +22,8 @@ export const SelectDemo = () => {
             { value: "FR", label: "FR" },
             { value: "DE", label: "DE" },
             { value: "BE", label: "BE" },
+            { value: "FE", label: "FE" },
+            { value: "RE", label: "RE" },
           ]}
           multiple={true}
           value={selectedValues}

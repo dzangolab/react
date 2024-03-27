@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface ISelectProperties {
   disabled?: boolean;
@@ -6,10 +6,10 @@ interface ISelectProperties {
   label?: string;
   multiple?: boolean;
   name: string;
-  options: { value: string; label: string }[];
+  options: { value: string | number; label: string }[];
   placeholder?: string;
-  value: string[];
-  onChange: (newValue: string[]) => void;
+  value: (string | number)[];
+  onChange: (newValue: (string | number)[]) => void;
 }
 
 export const Select = ({
@@ -24,8 +24,25 @@ export const Select = ({
   onChange,
 }: ISelectProperties) => {
   const [showOptions, setShowOptions] = useState(false);
+  const selectReference = useRef<HTMLDivElement>(null);
 
-  const handleSelectedOption = (option: string) => {
+  useEffect(() => {
+    const handleMouseDown = (event: MouseEvent) => {
+      if (
+        selectReference.current &&
+        !selectReference.current.contains(event.target as HTMLElement)
+      ) {
+        setShowOptions(false);
+      }
+    };
+    document.addEventListener("mousedown", handleMouseDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+    };
+  }, [selectReference]);
+
+  const handleSelectedOption = (option: string | number) => {
     if (!multiple) {
       onChange([option]);
     } else {
@@ -35,23 +52,24 @@ export const Select = ({
   };
 
   return (
-    <div className={`field-select ${name}`.trimEnd()}>
+    <div ref={selectReference} className={`field-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <div className="input-field-select" aria-invalid={hasError}>
         <input
           type="text"
-          value={value.join(", ")}
+          value={
+            value.length > 3
+              ? `${value.length} items selected`
+              : value.join(", ")
+          }
           readOnly
           disabled={disabled}
           placeholder={placeholder}
           aria-invalid={hasError}
+          onFocus={() => setShowOptions(true)}
         />
         {value.length > 1 && (
-          <span
-            className="remove-options"
-            onClick={() => onChange([])}
-            style={{}}
-          >
+          <span className="remove-options" onClick={() => onChange([])}>
             <i className="pi pi-times"></i>
           </span>
         )}
