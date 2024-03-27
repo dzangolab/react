@@ -2,6 +2,11 @@
   background-color: var(--dz-input-fill-color);
   border: 1px solid var(--form-input-border-color);
   border-radius: var(--form-input-border-radius);
-  padding: 0.5rem;
+  padding: var(--form-input-padding-v, 0.75rem)
+    var(--form-input-padding-h, 0.65rem);
   width: 100%;
+}
+
+.field.select-input > select:focus {
+  outline: 2px solid var(--form-input-focus-color);
 }

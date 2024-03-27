@@ -1,14 +1,20 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+
+import { ROUTES } from "@/constants";
+import { useConfig } from "@/hooks";
 
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
 import { forgotPassword } from "../supertokens/forgot-password";
 
-export const ForgotPassword = () => {
+export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
+
+  const { user: userConfig } = useConfig();
 
   const handleSubmit = async (email: string) => {
     setLoading(true);
@@ -22,13 +28,29 @@ export const ForgotPassword = () => {
     }
   };
 
+  const renderLinks = () => {
+    return (
+      <div className="links">
+        {
+          <Link
+            to={userConfig.routes?.login?.path || ROUTES.LOGIN}
+            className="native-link"
+          >
+            {t("forgotPassword.links.login")}
+          </Link>
+        }
+      </div>
+    );
+  };
+
   return (
     <Page
       className="forgot-password"
       title={t("forgotPassword.title")}
-      centered={true}
+      centered={centered}
     >
       <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
+      {renderLinks()}
     </Page>
   );
 };

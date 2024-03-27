@@ -1,9 +1,23 @@
 {
   "loginForm": {
-    "title": "Login form (fr)"
+    "title": "Login form (fr)",
+    "label": {
+      "email": "Email (fr)",
+      "login": "Log in (fr)",
+      "password": "Password (fr)"
+    }
   },
   "confirmPasswordForm": {
-    "title": "Confirm password form (fr)"
+    "title": "Confirm password form (fr)",
+    "label": {
+      "confirmPassword": "Confirm Password (fr)",
+      "login": "Log in (fr)",
+      "password": "Password (fr)"
+    },
+    "validation": {
+      "invalid": "Password do not match (fr)",
+      "required": "Confirm password is required (fr)"
+    }
   },
   "fileInput": {
     "title": "File input (fr)",
@@ -17,19 +31,28 @@
   },
   "formInput": {
     "title": "Form input (fr)",
+    "subTitle": "Different Modes of Input In Form (fr)",
     "message": {
       "invalid": "Invalid form value (fr)",
       "required": "Required field (fr)"
     },
     "label": {
+      "disabled": "Disabled Input (fr)",
       "email": "Email (fr)",
+      "filled": "Filled Input (fr)",
       "input": "Input (fr)",
+      "invalid": "Show invalid state (fr)",
+      "number": "Number (fr)",
       "password": "Password (fr)",
-      "text": "TextInput (fr)"
+      "readOnly": "ReadOnly Input (fr)",
+      "text": "TextInput (fr)",
+      "transparent": "Transparent Input (fr)",
+      "valid": "Show valid state (fr)"
     },
     "placeHolder": {
       "email": "Enter email input (fr)",
       "input": "Input (fr)",
+      "number": "Enter number input (fr)",
       "text": "Enter text input (fr)"
     },
     "action": {

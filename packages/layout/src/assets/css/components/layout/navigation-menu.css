@@ -117,7 +117,10 @@
   gap: 0.75rem;
   padding: var(--_layout-nav-item-padding-v) var(--_layout-nav-item-padding-h);
   text-decoration: none;
-  transition: background 200ms linear;
+  transition:
+    background 200ms linear,
+    font-weight 200ms linear,
+    color 200ms linear;
   width: 100%;
 }
 

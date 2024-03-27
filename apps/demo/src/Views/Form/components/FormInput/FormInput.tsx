@@ -1,11 +1,13 @@
 import { Provider, emailSchema, passwordSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { useState } from "react";
 import * as zod from "zod";
 
 import { FormInputFields } from "./FormInputFields";
 
 export const FormInputDemo = () => {
   const [t] = useTranslation("form");
+  const [filledInput, setFilledInput] = useState(false);
 
   const FormSchema = zod.object({
     email: emailSchema({
@@ -27,15 +29,32 @@ export const FormInputDemo = () => {
     surname: zod.string().nonempty({
       message: t("formInput.message.required"),
     }),
+    number: zod
+      .number({
+        required_error: t("formInput.message.required"),
+      })
+      .nullable()
+      .refine((data) => data !== null, {
+        message: t("formInput.message.required"),
+      }),
   });
 
   const handleSubmit = (formData: any) => {
     console.log(formData);
   };
 
+  const checkFilledState = (filled: boolean) => {
+    setFilledInput(filled);
+  };
+
   return (
-    <Provider validationSchema={FormSchema} onSubmit={handleSubmit}>
-      <FormInputFields />
+    <Provider
+      validationSchema={FormSchema}
+      onSubmit={handleSubmit}
+      className={filledInput ? "filled" : ""}
+      defaultValues={{ filled: false, valid: false, invalid: false }}
+    >
+      <FormInputFields checkFilledState={checkFilledState} />
     </Provider>
   );
 };

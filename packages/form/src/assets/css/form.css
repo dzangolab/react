@@ -44,6 +44,11 @@ form .field .p-dropdown {
   width: 100%;
 }
 
+form .field .p-dropdown > span.p-dropdown-label {
+  padding: var(--form-input-padding-v, 0.75rem)
+  var(--form-input-padding-h, 0.65rem);
+}
+
 form .field .p-calendar > input {
   background-color: var(--dz-input-fill-color);
 }
@@ -53,8 +58,8 @@ form input {
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);
   font-size: 1rem;
-  padding: var(--form-input-padding-v, 0.5rem)
-    var(--form-input-padding-h, 0.75rem);
+  padding: var(--form-input-padding-v, 0.75rem)
+    var(--form-input-padding-h, 0.65rem);
   padding-right: calc(var(--form-input-padding-h, 0.5em) * 4);
   width: 100%;
 }
@@ -106,6 +111,10 @@ form input[readonly] {
 
 form input[readonly]:focus {
   outline: none;
+}
+
+form input[disabled] {
+  background-color: var(--form-input-bg-color-disabled);
 }
 
 form input:autofill,
