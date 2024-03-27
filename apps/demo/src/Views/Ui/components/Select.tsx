@@ -6,14 +6,18 @@ import { Section } from "../../../components/Demo";
 
 export const SelectDemo = () => {
   const [t] = useTranslation("ui");
-  const [multipleSelectedValues, setMultipleSelectedValues] = useState([]);
-  const [singleSelectedValues, setSingleSelectedValues] = useState([]);
+  const [multipleSelectedValues, setMultipleSelectedValues] = useState<
+    string[]
+  >([]);
+  const [singleSelectedValues, setSingleSelectedValues] = useState<number[]>(
+    [],
+  );
 
-  const handleMultipleChange = (newValue: any) => {
+  const handleMultipleChange = (newValue: string[]) => {
     setMultipleSelectedValues(newValue);
   };
 
-  const handleSingleChange = (newValue: any) => {
+  const handleSingleChange = (newValue: number[]) => {
     setSingleSelectedValues(newValue);
   };
 
@@ -24,8 +28,8 @@ export const SelectDemo = () => {
           label={t("select.label.single")}
           name="select"
           options={[
-            { value: "FR", label: "FR" },
-            { value: "DE", label: "DE" },
+            { value: 1, label: "option 1" },
+            { value: 2, label: "option 2" },
           ]}
           value={singleSelectedValues}
           onChange={handleSingleChange}

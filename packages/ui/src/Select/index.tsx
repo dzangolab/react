@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 
-interface ISelectProperties {
+interface ISelectProperties<T> {
   disabled?: boolean;
   hasError?: boolean;
   label?: string;
   multiple?: boolean;
   name: string;
-  options: { value: string | number; label: string }[];
+  options: { value: T; label: string }[];
   placeholder?: string;
-  value: (string | number)[];
-  onChange: (newValue: (string | number)[]) => void;
+  value: T[];
+  onChange: (newValue: T[]) => void;
 }
 
-export const Select = ({
+export const Select = <T extends string | number>({
   disabled,
   hasError,
   label = "",
@@ -22,7 +22,7 @@ export const Select = ({
   placeholder,
   value,
   onChange,
-}: ISelectProperties) => {
+}: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
 
@@ -42,7 +42,7 @@ export const Select = ({
     };
   }, [selectReference]);
 
-  const handleSelectedOption = (option: string | number) => {
+  const handleSelectedOption = (option: T) => {
     if (!multiple) {
       onChange([option]);
     } else {
