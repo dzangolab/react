@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 
+import { Tag } from "..";
+
 interface ISelectProperties<T> {
   disabled?: boolean;
   hasError?: boolean;
   label?: string;
   multiple?: boolean;
   name: string;
-  options: { value: T; label: string }[];
+  options: {
+    value: T;
+    label: string;
+    disabled?: boolean;
+    renderOption?: (option: T) => React.ReactNode;
+  }[];
   placeholder?: string;
   value: T[];
   onChange: (newValue: T[]) => void;
@@ -25,6 +32,7 @@ export const Select = <T extends string | number>({
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
+  const [selectedOptions, setSelectedOptions] = useState<T[]>([]);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
@@ -45,10 +53,18 @@ export const Select = <T extends string | number>({
   const handleSelectedOption = (option: T) => {
     if (!multiple) {
       onChange([option]);
+      setSelectedOptions([option]);
     } else {
       const newValue = value.includes(option) ? value : [...value, option];
       onChange(newValue);
+      setSelectedOptions(newValue);
     }
+  };
+
+  const handleRemoveOption = (option: T) => {
+    const updatedOptions = selectedOptions.filter((opt) => opt !== option);
+    onChange(updatedOptions);
+    setSelectedOptions(updatedOptions);
   };
 
   return (
@@ -58,25 +74,33 @@ export const Select = <T extends string | number>({
         className={`input-field-select ${disabled ? "disabled" : ""}`.trimEnd()}
         aria-invalid={hasError}
       >
-        <input
-          type="text"
-          value={
-            value.length > 3
-              ? `${value.length} items selected`
-              : value.join(", ")
-          }
-          readOnly
-          disabled={disabled}
-          placeholder={placeholder}
-          aria-invalid={hasError}
-          onFocus={() => setShowOptions(true)}
-        />
-        {value.length > 1 && (
-          <span className="remove-options" onClick={() => onChange([])}>
-            <i className="pi pi-times"></i>
-          </span>
+        <input type="text" value={value.join(", ")} hidden readOnly />
+
+        {selectedOptions && multiple ? (
+          <div className="selected-options">
+            {selectedOptions.map((option: T, index) => {
+              return (
+                <Tag
+                  key={index}
+                  renderContent={() => (
+                    <>
+                      <span>{option}</span>
+                      <i
+                        className="pi pi-times"
+                        onClick={() => handleRemoveOption(option)}
+                      ></i>
+                    </>
+                  )}
+                  rounded
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <span>{selectedOptions}</span>
         )}
         <span
+          className="arrow"
           onClick={() => {
             disabled ? setShowOptions(false) : setShowOptions(!showOptions);
           }}
@@ -84,14 +108,21 @@ export const Select = <T extends string | number>({
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>
-
       {showOptions && (
         <div className="select-field-options">
           {options?.map((option, index) => {
-            const { value, label } = option;
+            const { value, label, disabled, renderOption } = option;
             return (
-              <span key={index} onClick={() => handleSelectedOption(value)}>
-                {label}
+              <span
+                className={`${disabled ? "disabled-option" : ""}`}
+                key={index}
+                onClick={() => {
+                  if (!disabled) {
+                    handleSelectedOption(value);
+                  }
+                }}
+              >
+                {renderOption ? renderOption(value) : label}
               </span>
             );
           })}

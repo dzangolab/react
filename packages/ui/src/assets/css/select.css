@@ -5,6 +5,7 @@
 
 .dz-select {
   position: relative;
+  width: 100%;
 }
 
 .input-field-select {
@@ -13,7 +14,8 @@
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   display: flex;
-  padding: 0.5rem 0.65rem;
+  height: 50px;
+  padding: 0 0.65rem;
 }
 
 .input-field-select input {
@@ -33,9 +35,11 @@
   background-color: var(--field-bg-color-disabled);
 }
 
-.input-field-select span > i {
+.input-field-select span.arrow {
   color: var(--select-icon-color);
-  padding: 0.25rem;
+  padding: 0.75rem;
+  position: absolute;
+  right: 0;
 }
 
 .input-field-select span.remove-options > i {
@@ -60,10 +64,19 @@
   padding: 0.25rem 0;
 }
 
+.select-field-options > span.disabled-option {
+  background-color: var(--field-bg-color-disabled);
+}
+
 .input-field-select[aria-invalid=true] {
   border-color: var(--field-invalid-border-color)
 }
 
 .input-field-select[aria-invalid=false] {
   border-color: var(--field-valid-border-color);
+}
+
+.selected-options{
+  display: flex;
+  flex-wrap: wrap;
 }
