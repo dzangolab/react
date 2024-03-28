@@ -79,4 +79,5 @@
 .selected-options{
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
 }
