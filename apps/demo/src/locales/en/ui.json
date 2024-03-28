@@ -157,5 +157,15 @@
       "icon": "Icon",
       "pill": "Pill"
     }
+  },
+  "select": {
+    "title": "Select",
+    "label": {
+      "disabled": "Disabled",
+      "invalid": "Invalid",
+      "multiple": "Multiple select",
+      "single": "Single select"
+    },
+    "placeHolder": "-- select value --"
   }
 }

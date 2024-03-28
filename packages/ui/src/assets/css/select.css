@@ -1,0 +1,83 @@
+:root {
+  --select-option-bg-color: #ffffff;
+  --select-icon-color: #b5b5b5;
+}
+
+.dz-select {
+  position: relative;
+  width: 100%;
+}
+
+.input-field-select {
+  align-items: center;
+  background-color: var(--dz-input-fill-color);
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--field-border-radius);
+  display: flex;
+  height: 50px;
+  padding: 0 0.65rem;
+}
+
+.input-field-select input {
+  border: none;
+  width: 100%;
+}
+  
+.input-field-select input:focus {
+  outline: none;
+}
+
+.input-field-select.disabled {
+  background-color: var(--field-bg-color-disabled);
+}
+
+.input-field-select input[disabled] {
+  background-color: var(--field-bg-color-disabled);
+}
+
+.input-field-select span.arrow {
+  color: var(--select-icon-color);
+  padding: 0.75rem;
+  position: absolute;
+  right: 0;
+}
+
+.input-field-select span.remove-options > i {
+  font-size: 0.75rem;
+}
+
+.select-field-options {
+  background-color: var(--select-option-bg-color);
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--field-border-radius);
+  height: 100px;
+  overflow: auto;
+  padding: 0.75rem 0.65rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+.select-field-options > span {
+  cursor: pointer;
+  display: block;
+  padding: 0.25rem 0;
+}
+
+.select-field-options > span.disabled-option {
+  background-color: var(--field-bg-color-disabled);
+}
+
+.input-field-select[aria-invalid=true] {
+  border-color: var(--field-invalid-border-color)
+}
+
+.input-field-select[aria-invalid=false] {
+  border-color: var(--field-valid-border-color);
+}
+
+.selected-options{
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+}

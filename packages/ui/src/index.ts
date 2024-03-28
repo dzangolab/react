@@ -12,6 +12,7 @@ import LoadingPage from "./LoadingPage";
 import Message from "./Message";
 import Page from "./Page";
 import ResponsiveMenu, { CombinedMenuRouteType } from "./ResponsiveMenu";
+import { Select } from "./Select";
 import { GoogleButton } from "./SSOButtons";
 import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
@@ -44,6 +45,7 @@ export {
   Message,
   Page,
   ResponsiveMenu,
+  Select,
   Stepper,
   SubPane,
   TabbedPanel,

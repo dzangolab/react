@@ -15,6 +15,7 @@ import { MessageDemo } from "./components/Message";
 import { PageDemo } from "./components/PageDemo";
 import { PopupDemo } from "./components/Popup";
 import { ResponsiveMenuDemo } from "./components/ResponsiveMenu";
+import { SelectDemo } from "./components/Select";
 import { SortableListDemo } from "./components/SortableList";
 import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
@@ -43,6 +44,7 @@ export const UI_ROUTES = {
   TOOLTIP: "/ui/tooltip",
   CHECKBOX: "/ui/checkbox",
   INPUT: "/ui/input",
+  SELECT: "/ui/select",
   SORTABLE_LIST: "/ui/sortable-list",
   POPUP: "/ui/popup",
   PAGEDEMO: "/ui/page-demo",
@@ -161,6 +163,11 @@ export const routes = [
     path: UI_ROUTES.TAG,
     key: "tag.title",
     element: <TagDemo />,
+  },
+  {
+    path: UI_ROUTES.SELECT,
+    key: "select.title",
+    element: <SelectDemo />,
   },
 ];
 
