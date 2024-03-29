@@ -35,6 +35,7 @@ export const Select = <T extends string | number>({
   const [selectedOptions, setSelectedOptions] = useState<
     { value: T; label: string }[]
   >([]);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
@@ -43,6 +44,7 @@ export const Select = <T extends string | number>({
         !selectReference.current.contains(event.target as HTMLElement)
       ) {
         setShowOptions(false);
+        setClicked(false);
       }
     };
     document.addEventListener("mousedown", handleMouseDown);
@@ -62,10 +64,7 @@ export const Select = <T extends string | number>({
         : [...value, option.value];
       onChange(newValue);
       setSelectedOptions(
-        newValue
-          .map((value_) => options.find((opt) => opt.value === value_))
-          .filter((option) => option !== undefined)
-          .map((option) => option as { value: T; label: string }),
+        newValue.map((value) => options.find((opt) => opt.value === value)!),
       );
     }
   };
@@ -76,42 +75,66 @@ export const Select = <T extends string | number>({
     );
     onChange(updatedOptions.map((opt) => opt.value));
     setSelectedOptions(updatedOptions);
+    setShowOptions(false);
   };
 
   return (
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <div
-        className={`input-field-select ${disabled ? "disabled" : ""}`.trimEnd()}
+        className={`input-field-select ${disabled ? "disabled" : ""} ${
+          clicked ? "clicked" : ""
+        }`.trimEnd()}
         aria-invalid={hasError}
       >
-        <input type="text" value={value.join(", ")} hidden readOnly />
-
-        {selectedOptions && multiple ? (
+        <input
+          type="text"
+          readOnly
+          disabled={disabled}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              setShowOptions(true);
+            }
+          }}
+          onFocus={() => setClicked(true)}
+          placeholder={selectedOptions.length > 0 ? "" : placeholder}
+        />
+        {selectedOptions.length > 0 && multiple ? (
           <div className="selected-options">
-            {selectedOptions.map((option, index) => (
-              <Tag
-                key={index}
-                renderContent={() => (
-                  <>
-                    <span>{option.label}</span>
-                    <i
-                      className="pi pi-times"
-                      onClick={() => handleRemoveOption(option)}
-                    ></i>
-                  </>
-                )}
-                rounded
-              />
-            ))}
+            {selectedOptions.length > 3 ? (
+              <span>{`${selectedOptions.length} items selected`}</span>
+            ) : (
+              selectedOptions.map((option, index) => (
+                <Tag
+                  key={index}
+                  renderContent={() => (
+                    <>
+                      <span>{option.label}</span>
+                      <i
+                        className="pi pi-times"
+                        onClick={() => handleRemoveOption(option)}
+                      ></i>
+                    </>
+                  )}
+                  rounded
+                />
+              ))
+            )}
           </div>
         ) : (
-          <span>{selectedOptions[0].label}</span>
+          selectedOptions.length > 0 && (
+            <span className="selected-options">
+              {selectedOptions.length > 0 ? selectedOptions[0].label : ""}
+            </span>
+          )
         )}
         <span
           className="arrow"
           onClick={() => {
-            disabled ? setShowOptions(false) : setShowOptions(!showOptions);
+            if (!disabled) {
+              setShowOptions(!showOptions);
+              setClicked(true);
+            }
           }}
         >
           <i className="pi pi-chevron-down"></i>
@@ -128,6 +151,7 @@ export const Select = <T extends string | number>({
                 onClick={() => {
                   if (!disabled) {
                     handleSelectedOption(option);
+                    setShowOptions(false);
                   }
                 }}
               >

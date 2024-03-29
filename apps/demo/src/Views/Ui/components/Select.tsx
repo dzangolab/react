@@ -34,13 +34,13 @@ export const SelectDemo = () => {
           label={t("select.label.multiple")}
           name="select"
           options={[
-            { value: "FR", label: "FR" },
-            { value: "DE", label: "DE" },
-            { value: "BE", label: "BE" },
-            { value: "AR", label: "AR" },
-            { value: "RE", label: "RE" },
-            { value: "SA", label: "SA" },
-            { value: "ME", label: "ME" },
+            { value: "FR", label: "FRANCE" },
+            { value: "DE", label: "DENMARK" },
+            { value: "BE", label: "BELGIUM" },
+            { value: "AR", label: "ARGENTINA" },
+            { value: "RE", label: "RELEIGN", disabled: true },
+            { value: "SA", label: "SANFRAN" },
+            { value: "ME", label: "ME", disabled: true },
           ]}
           multiple={true}
           value={multipleSelectedValues}
@@ -55,7 +55,6 @@ export const SelectDemo = () => {
           options={[{ value: "FR", label: "FR" }]}
           value={[]}
           onChange={() => {}}
-          placeholder={t("select.label.disabled")}
           disabled={true}
         />
       </Section>
@@ -71,8 +70,8 @@ export const SelectDemo = () => {
           ]}
           value={selectedValues}
           onChange={(value: string[]) => setSelectedValues(value)}
-          placeholder={t("select.placeHolder")}
           hasError={true}
+          placeholder={t("select.placeHolder")}
         />
       </Section>
     </Page>

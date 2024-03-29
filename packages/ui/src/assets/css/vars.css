@@ -17,6 +17,7 @@
   --field-border-color: #ccc;
   --field-border-radius: 0.25em;
   --field-bg-color-disabled: #f7f7f7;
+  --field-focus-border-color: var(--dz-primary-color);
   --field-invalid-border-color: var(--dz-danger-color);
   --field-outline-color: var(--dz-primary-color);
   --field-padding-height: 0.5em;

@@ -24,7 +24,11 @@
 }
   
 .input-field-select input:focus {
-  outline: none;
+  outline: transparent;
+}
+
+.input-field-select.clicked {
+  border: 2px solid var(--field-focus-border-color);
 }
 
 .input-field-select.disabled {
@@ -65,7 +69,8 @@
 }
 
 .select-field-options > span.disabled-option {
-  background-color: var(--field-bg-color-disabled);
+  font-weight: 300;
+  color: #ccc;
 }
 
 .input-field-select[aria-invalid=true] {
@@ -79,5 +84,10 @@
 .selected-options{
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
   position: absolute;
+}
+
+.selected-options > .dz-tag > i {
+  font-size: 12px;
 }
