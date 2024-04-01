@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import { Tag, Checkbox } from "..";
+
 interface ISelectProperties<T> {
   disabled?: boolean;
   hasError?: boolean;
@@ -83,6 +84,20 @@ export const Select = <T extends string | number>({
     }
   };
 
+  const handleClick = () => {
+    if (!disabled) {
+      setShowOptions(!showOptions);
+      setFocused(true);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" && !disabled) {
+      setShowOptions(true);
+      setFocused(true);
+    }
+  };
+
   return (
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
@@ -92,41 +107,34 @@ export const Select = <T extends string | number>({
           focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
-        onClick={() => {
-          if (!disabled) {
-            setShowOptions(!showOptions);
-            setFocused(true);
-          }
-        }}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
       >
-        {selectedOptions.length > 4 ? (
-          <span>{`${selectedOptions.length} items selected`}</span>
-        ) : (
-          selectedOptions.map((option, index) => (
-            <Tag
-              key={index}
-              renderContent={() => (
-                <>
-                  <span>{option.label}</span>
-                  <i
-                    className="pi pi-times"
-                    onClick={(event) => handleRemoveOption(option, event)}
-                  ></i>
-                </>
-              )}
-              rounded
-            />
-          ))
+        {selectedOptions.length > 0 && (
+          <>
+            {selectedOptions.length > 4 ? (
+              <span>{`${selectedOptions.length} items selected`}</span>
+            ) : (
+              selectedOptions.map((option, index) => (
+                <Tag
+                  key={index}
+                  renderContent={() => (
+                    <>
+                      <span>{option.label}</span>
+                      <i
+                        className="pi pi-times"
+                        onClick={(event) => handleRemoveOption(option, event)}
+                      ></i>
+                    </>
+                  )}
+                  rounded
+                />
+              ))
+            )}
+          </>
         )}
-        <span
-          className="arrow"
-          onClick={() => {
-            if (!disabled) {
-              setShowOptions(!showOptions);
-              setFocused(true);
-            }
-          }}
-        >
+        <span className="arrow" onClick={handleClick}>
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>
