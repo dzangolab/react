@@ -14,20 +14,22 @@
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   display: flex;
-  height: 50px;
-  padding: 0 0.65rem;
+  flex-wrap: wrap;
+  gap:0.5rem;
+  min-height: 50px;
+  padding: 0.5rem 0.65rem;
 }
 
 .input-field-select input {
   border: none;
-  width: 100%;
+  width: auto;
 }
   
 .input-field-select input:focus {
   outline: transparent;
 }
 
-.input-field-select.clicked {
+.input-field-select.focused {
   border: 2px solid var(--field-focus-border-color);
 }
 
@@ -46,14 +48,11 @@
   right: 0;
 }
 
-.input-field-select span.remove-options > i {
-  font-size: 0.75rem;
-}
-
 .select-field-options {
   background-color: var(--select-option-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
+  box-shadow:1px 1px 5px 1px var(--field-border-color);
   height: 100px;
   overflow: auto;
   padding: 0.75rem 0.65rem;
@@ -68,24 +67,12 @@
   padding: 0.25rem 0;
 }
 
-.select-field-options > span.disabled-option {
-  font-weight: 300;
-  color: #ccc;
-}
-
 .input-field-select[aria-invalid=true] {
   border-color: var(--field-invalid-border-color)
 }
 
 .input-field-select[aria-invalid=false] {
   border-color: var(--field-valid-border-color);
-}
-
-.selected-options{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  position: absolute;
 }
 
 .selected-options > .dz-tag > i {

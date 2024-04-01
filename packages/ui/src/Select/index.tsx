@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Tag } from "..";
-
+import { Tag, Checkbox } from "..";
 interface ISelectProperties<T> {
   disabled?: boolean;
   hasError?: boolean;
@@ -14,7 +13,6 @@ interface ISelectProperties<T> {
     disabled?: boolean;
     renderOption?: (option: T) => React.ReactNode;
   }[];
-  placeholder?: string;
   value: T[];
   onChange: (newValue: T[]) => void;
 }
@@ -26,7 +24,6 @@ export const Select = <T extends string | number>({
   multiple,
   name,
   options,
-  placeholder,
   value,
   onChange,
 }: ISelectProperties<T>) => {
@@ -35,7 +32,7 @@ export const Select = <T extends string | number>({
   const [selectedOptions, setSelectedOptions] = useState<
     { value: T; label: string }[]
   >([]);
-  const [clicked, setClicked] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
@@ -44,7 +41,7 @@ export const Select = <T extends string | number>({
         !selectReference.current.contains(event.target as HTMLElement)
       ) {
         setShowOptions(false);
-        setClicked(false);
+        setFocused(false);
       }
     };
     document.addEventListener("mousedown", handleMouseDown);
@@ -56,11 +53,14 @@ export const Select = <T extends string | number>({
 
   const handleSelectedOption = (option: { value: T; label: string }) => {
     if (!multiple) {
-      onChange([option.value]);
-      setSelectedOptions([option]);
+      const newValue = value[0] === option.value ? [] : [option.value];
+      onChange(newValue);
+      setSelectedOptions(
+        newValue.map((value) => options.find((opt) => opt.value === value)!),
+      );
     } else {
       const newValue = value.includes(option.value)
-        ? value
+        ? value.filter((value_) => value_ !== option.value)
         : [...value, option.value];
       onChange(newValue);
       setSelectedOptions(
@@ -81,27 +81,16 @@ export const Select = <T extends string | number>({
   return (
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
+
       <div
         className={`input-field-select ${disabled ? "disabled" : ""} ${
-          clicked ? "clicked" : ""
+          focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
       >
-        <input
-          type="text"
-          readOnly
-          disabled={disabled}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              setShowOptions(true);
-            }
-          }}
-          onFocus={() => setClicked(true)}
-          placeholder={selectedOptions.length > 0 ? "" : placeholder}
-        />
         {selectedOptions.length > 0 && multiple ? (
-          <div className="selected-options">
-            {selectedOptions.length > 3 ? (
+          <>
+            {selectedOptions.length > 4 ? (
               <span>{`${selectedOptions.length} items selected`}</span>
             ) : (
               selectedOptions.map((option, index) => (
@@ -120,7 +109,7 @@ export const Select = <T extends string | number>({
                 />
               ))
             )}
-          </div>
+          </>
         ) : (
           selectedOptions.length > 0 && (
             <span className="selected-options">
@@ -128,12 +117,23 @@ export const Select = <T extends string | number>({
             </span>
           )
         )}
+        <input
+          type="text"
+          disabled={disabled}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              setShowOptions(true);
+            }
+          }}
+          onFocus={() => setFocused(true)}
+          hidden
+        />
         <span
           className="arrow"
           onClick={() => {
             if (!disabled) {
               setShowOptions(!showOptions);
-              setClicked(true);
+              setFocused(true);
             }
           }}
         >
@@ -144,19 +144,24 @@ export const Select = <T extends string | number>({
         <div className="select-field-options">
           {options?.map((option, index) => {
             const { value, label, disabled, renderOption } = option;
+            const isChecked = selectedOptions
+              .map((selected) => selected.value === value)
+              .includes(true);
             return (
-              <span
-                className={`${disabled ? "disabled-option" : ""}`}
-                key={index}
-                onClick={() => {
-                  if (!disabled) {
-                    handleSelectedOption(option);
-                    setShowOptions(false);
-                  }
-                }}
-              >
-                {renderOption ? renderOption(value) : label}
-              </span>
+              <>
+                {renderOption ? (
+                  renderOption(value)
+                ) : (
+                  <Checkbox
+                    key={index}
+                    name={label}
+                    label={label}
+                    checked={isChecked}
+                    onChange={() => handleSelectedOption(option)}
+                    disabled={disabled}
+                  />
+                )}
+              </>
             );
           })}
         </div>

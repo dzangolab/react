@@ -26,7 +26,6 @@ export const SelectDemo = () => {
           ]}
           value={singleSelectedValues}
           onChange={(value: number[]) => setSingleSelectedValues(value)}
-          placeholder={t("select.placeHolder")}
         />
       </Section>
       <Section>
@@ -41,11 +40,16 @@ export const SelectDemo = () => {
             { value: "RE", label: "RELEIGN", disabled: true },
             { value: "SA", label: "SANFRAN" },
             { value: "ME", label: "ME", disabled: true },
+            { value: "FE", label: "FERARRI" },
+            { value: "DU", label: "DUTCH" },
+            { value: "BA", label: "BALE" },
+            { value: "KU", label: "KUALA" },
+            { value: "SR", label: "SRILANKA" },
+            { value: "NP", label: "NEPAL" },
           ]}
           multiple={true}
           value={multipleSelectedValues}
           onChange={(value: string[]) => setMultipleSelectedValues(value)}
-          placeholder={t("select.placeHolder")}
         />
       </Section>
       <Section>
@@ -71,7 +75,6 @@ export const SelectDemo = () => {
           value={selectedValues}
           onChange={(value: string[]) => setSelectedValues(value)}
           hasError={true}
-          placeholder={t("select.placeHolder")}
         />
       </Section>
     </Page>
