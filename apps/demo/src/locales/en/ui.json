@@ -165,7 +165,6 @@
       "invalid": "Invalid",
       "multiple": "Multiple select",
       "single": "Single select"
-    },
-    "placeHolder": "-- select value --"
+    }
   }
 }

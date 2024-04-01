@@ -40,10 +40,7 @@ export const SelectDemo = () => {
             { value: "RE", label: "RELEIGN", disabled: true },
             { value: "SA", label: "SANFRAN" },
             { value: "ME", label: "ME", disabled: true },
-            { value: "FE", label: "FERARRI" },
             { value: "DU", label: "DUTCH" },
-            { value: "BA", label: "BALE" },
-            { value: "KU", label: "KUALA" },
             { value: "SR", label: "SRILANKA" },
             { value: "NP", label: "NEPAL" },
           ]}
