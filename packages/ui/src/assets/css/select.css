@@ -20,24 +20,11 @@
   padding: 0.5rem 0.65rem;
 }
 
-.input-field-select input {
-  border: none;
-  width: auto;
-}
-  
-.input-field-select input:focus {
-  outline: transparent;
-}
-
 .input-field-select.focused {
   border: 2px solid var(--field-focus-border-color);
 }
 
 .input-field-select.disabled {
-  background-color: var(--field-bg-color-disabled);
-}
-
-.input-field-select input[disabled] {
   background-color: var(--field-bg-color-disabled);
 }
 
@@ -75,6 +62,6 @@
   border-color: var(--field-valid-border-color);
 }
 
-.selected-options > .dz-tag > i {
-  font-size: 12px;
+.input-field-select > .dz-tag > i {
+  font-size: 0.75rem;
 }

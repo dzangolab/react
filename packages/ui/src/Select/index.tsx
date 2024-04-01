@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { Tag, Checkbox } from "..";
 interface ISelectProperties<T> {
@@ -52,30 +52,35 @@ export const Select = <T extends string | number>({
   }, [selectReference]);
 
   const handleSelectedOption = (option: { value: T; label: string }) => {
+    let newValue: T[];
+
     if (!multiple) {
-      const newValue = value[0] === option.value ? [] : [option.value];
-      onChange(newValue);
-      setSelectedOptions(
-        newValue.map((value) => options.find((opt) => opt.value === value)!),
-      );
+      newValue = value[0] === option.value ? [] : [option.value];
     } else {
-      const newValue = value.includes(option.value)
+      newValue = value.includes(option.value)
         ? value.filter((value_) => value_ !== option.value)
         : [...value, option.value];
-      onChange(newValue);
-      setSelectedOptions(
-        newValue.map((value) => options.find((opt) => opt.value === value)!),
-      );
     }
+    onChange(newValue);
+    setSelectedOptions(
+      newValue.map((value) => options.find((opt) => opt.value === value)!),
+    );
   };
 
-  const handleRemoveOption = (option: { value: T; label: string }) => {
+  const handleRemoveOption = (
+    option: { value: T; label: string },
+    event: React.MouseEvent,
+  ) => {
+    event.stopPropagation();
     const updatedOptions = selectedOptions.filter(
       (opt) => opt.value !== option.value,
     );
     onChange(updatedOptions.map((opt) => opt.value));
     setSelectedOptions(updatedOptions);
-    setShowOptions(false);
+
+    if (updatedOptions.length === 0) {
+      setShowOptions(false);
+    }
   };
 
   return (
@@ -87,47 +92,32 @@ export const Select = <T extends string | number>({
           focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
+        onClick={() => {
+          if (!disabled) {
+            setShowOptions(!showOptions);
+            setFocused(true);
+          }
+        }}
       >
-        {selectedOptions.length > 0 && multiple ? (
-          <>
-            {selectedOptions.length > 4 ? (
-              <span>{`${selectedOptions.length} items selected`}</span>
-            ) : (
-              selectedOptions.map((option, index) => (
-                <Tag
-                  key={index}
-                  renderContent={() => (
-                    <>
-                      <span>{option.label}</span>
-                      <i
-                        className="pi pi-times"
-                        onClick={() => handleRemoveOption(option)}
-                      ></i>
-                    </>
-                  )}
-                  rounded
-                />
-              ))
-            )}
-          </>
+        {selectedOptions.length > 4 ? (
+          <span>{`${selectedOptions.length} items selected`}</span>
         ) : (
-          selectedOptions.length > 0 && (
-            <span className="selected-options">
-              {selectedOptions.length > 0 ? selectedOptions[0].label : ""}
-            </span>
-          )
+          selectedOptions.map((option, index) => (
+            <Tag
+              key={index}
+              renderContent={() => (
+                <>
+                  <span>{option.label}</span>
+                  <i
+                    className="pi pi-times"
+                    onClick={(event) => handleRemoveOption(option, event)}
+                  ></i>
+                </>
+              )}
+              rounded
+            />
+          ))
         )}
-        <input
-          type="text"
-          disabled={disabled}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              setShowOptions(true);
-            }
-          }}
-          onFocus={() => setFocused(true)}
-          hidden
-        />
         <span
           className="arrow"
           onClick={() => {
@@ -144,16 +134,18 @@ export const Select = <T extends string | number>({
         <div className="select-field-options">
           {options?.map((option, index) => {
             const { value, label, disabled, renderOption } = option;
-            const isChecked = selectedOptions
-              .map((selected) => selected.value === value)
-              .includes(true);
+            let isChecked = false;
+            selectedOptions.forEach((selected) => {
+              if (selected.value === value) {
+                isChecked = true;
+              }
+            });
             return (
-              <>
+              <React.Fragment key={index}>
                 {renderOption ? (
                   renderOption(value)
                 ) : (
                   <Checkbox
-                    key={index}
                     name={label}
                     label={label}
                     checked={isChecked}
@@ -161,7 +153,7 @@ export const Select = <T extends string | number>({
                     disabled={disabled}
                   />
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </div>
