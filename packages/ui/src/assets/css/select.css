@@ -65,3 +65,10 @@
 .input-field-select > .dz-tag > i {
   font-size: 0.75rem;
 }
+
+.checkbox-wrapper {
+  width: 100%; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
