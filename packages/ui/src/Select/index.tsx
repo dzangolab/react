@@ -171,7 +171,13 @@ export const Select = <T extends string | number>({
                     disabled={disabled}
                   />
                 ) : null}
-                <span onClick={() => handleSelectedOption(option)}>
+                <span
+                  onClick={() => {
+                    if (!disabled) {
+                      handleSelectedOption(option);
+                    }
+                  }}
+                >
                   {renderOption ? renderOption(value) : label}
                 </span>
               </div>
