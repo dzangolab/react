@@ -15,7 +15,6 @@
   border-radius: var(--field-border-radius);
   display: flex;
   flex-wrap: wrap;
-  gap:0.5rem;
   min-height: 50px;
   padding: 0.5rem 0.65rem;
 }
@@ -28,11 +27,18 @@
   background-color: var(--field-bg-color-disabled);
 }
 
-.input-field-select span.arrow {
+.input-field-select .arrow {
   color: var(--select-icon-color);
   padding: 0.75rem;
   position: absolute;
   right: 0;
+}
+
+.selected-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 95%;
 }
 
 .select-field-options {
@@ -48,10 +54,16 @@
   z-index: 1000;
 }
 
-.select-field-options > span {
+.select-field-options > .option {
   cursor: pointer;
-  display: block;
-  padding: 0.25rem 0;
+  display: flex;
+}
+
+.select-field-options > .option > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%; 
 }
 
 .input-field-select[aria-invalid=true] {
@@ -62,13 +74,10 @@
   border-color: var(--field-valid-border-color);
 }
 
-.input-field-select > .dz-tag > i {
+.selected-options > .dz-tag > i {
   font-size: 0.75rem;
 }
 
-.checkbox-wrapper {
-  width: 100%; 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.input-field-select i {
+  cursor: pointer;
 }

@@ -53,19 +53,18 @@ export const Select = <T extends string | number>({
   }, [selectReference]);
 
   const handleSelectedOption = (option: { value: T; label: string }) => {
-    let newValue: T[];
-
     if (!multiple) {
-      newValue = value[0] === option.value ? [] : [option.value];
+      onChange([option.value]);
+      setSelectedOptions([option]);
     } else {
-      newValue = value.includes(option.value)
-        ? value.filter((value_) => value_ !== option.value)
+      const newValue = value.includes(option.value)
+        ? value.filter((value) => value !== option.value)
         : [...value, option.value];
+      onChange(newValue);
+      setSelectedOptions(
+        newValue.map((value) => options.find((opt) => opt.value === value)!),
+      );
     }
-    onChange(newValue);
-    setSelectedOptions(
-      newValue.map((value) => options.find((opt) => opt.value === value)!),
-    );
   };
 
   const handleRemoveOption = (
@@ -111,8 +110,8 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {selectedOptions.length > 0 && (
-          <>
+        {selectedOptions.length > 0 && multiple ? (
+          <div className="selected-options">
             {selectedOptions.length > 4 ? (
               <span>{`${selectedOptions.length} items selected`}</span>
             ) : (
@@ -132,9 +131,23 @@ export const Select = <T extends string | number>({
                 />
               ))
             )}
-          </>
+          </div>
+        ) : (
+          selectedOptions.length > 0 && (
+            <span className="selected-options">
+              {selectedOptions.length > 0 ? selectedOptions[0].label : ""}
+            </span>
+          )
         )}
-        <span className="arrow" onClick={handleClick}>
+        <span
+          className="arrow"
+          onClick={() => {
+            if (!disabled) {
+              setShowOptions(!showOptions);
+              setFocused(true);
+            }
+          }}
+        >
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>
@@ -149,19 +162,19 @@ export const Select = <T extends string | number>({
               }
             });
             return (
-              <React.Fragment key={index}>
-                {renderOption ? (
-                  renderOption(value)
-                ) : (
+              <div key={index} className="option">
+                {multiple ? (
                   <Checkbox
                     name={label}
-                    label={label}
                     checked={isChecked}
                     onChange={() => handleSelectedOption(option)}
                     disabled={disabled}
                   />
-                )}
-              </React.Fragment>
+                ) : null}
+                <span onClick={() => handleSelectedOption(option)}>
+                  {renderOption ? renderOption(value) : label}
+                </span>
+              </div>
             );
           })}
         </div>
