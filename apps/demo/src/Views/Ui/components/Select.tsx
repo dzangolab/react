@@ -36,12 +36,9 @@ export const SelectDemo = () => {
             { value: "FR", label: "FRANCE" },
             { value: "DE", label: "DENMARK" },
             { value: "BE", label: "BELGIUM" },
+            { value: "SA", label: "SANTIAGO" },
             { value: "AR", label: "ARGENTINA" },
-            { value: "RE", label: "RELEIGN", disabled: true },
-            { value: "SA", label: "SANFRAN" },
-            { value: "ME", label: "ME", disabled: true },
-            { value: "DU", label: "DUTCH" },
-            { value: "SR", label: "SRILANKA" },
+            { value: "SR", label: "SRILANKA", disabled: true },
             { value: "NP", label: "NEPAL" },
           ]}
           multiple={true}

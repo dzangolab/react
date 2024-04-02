@@ -62,8 +62,6 @@
 .select-field-options > .option > span {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%; 
 }
 
 .input-field-select[aria-invalid=true] {
