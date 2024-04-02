@@ -102,6 +102,79 @@ export const Select = <T extends string | number>({
     }
   };
 
+  const renderSingleSelectValue = () => {
+    if (selectedOptions.length > 0) {
+      return (
+        <span className="selected-options">{selectedOptions[0].label}</span>
+      );
+    }
+    return null;
+  };
+
+  const renderMultiSelectValue = () => {
+    return (
+      <div className="selected-options">
+        {selectedOptions.length > 4 ? (
+          <span>{`${selectedOptions.length} items selected`}</span>
+        ) : (
+          selectedOptions.map((option, index) => (
+            <Tag
+              key={index}
+              renderContent={() => (
+                <>
+                  <span>{option.label}</span>
+                  <i
+                    className="pi pi-times"
+                    onClick={(event) => handleRemoveOption(option, event)}
+                  ></i>
+                </>
+              )}
+              rounded
+            />
+          ))
+        )}
+      </div>
+    );
+  };
+
+  const renderOptions = () => {
+    return (
+      <div className="select-field-options">
+        {options?.map((option, index) => {
+          const { value, label, disabled } = option;
+          let isChecked = false;
+          selectedOptions.forEach((selected) => {
+            if (selected.value === value) {
+              isChecked = true;
+            }
+          });
+
+          return (
+            <div key={index} className="option">
+              {multiple ? (
+                <Checkbox
+                  name={label}
+                  checked={isChecked}
+                  onChange={() => handleSelectedOption(option)}
+                  disabled={disabled}
+                />
+              ) : null}
+              <span
+                onClick={() => {
+                  if (!disabled) {
+                    handleSelectedOption(option);
+                  }
+                }}
+              >
+                {renderOption ? renderOption(option) : label}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
@@ -115,35 +188,9 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {selectedOptions.length > 0 && multiple ? (
-          <div className="selected-options">
-            {selectedOptions.length > 4 ? (
-              <span>{`${selectedOptions.length} items selected`}</span>
-            ) : (
-              selectedOptions.map((option, index) => (
-                <Tag
-                  key={index}
-                  renderContent={() => (
-                    <>
-                      <span>{option.label}</span>
-                      <i
-                        className="pi pi-times"
-                        onClick={(event) => handleRemoveOption(option, event)}
-                      ></i>
-                    </>
-                  )}
-                  rounded
-                />
-              ))
-            )}
-          </div>
-        ) : (
-          selectedOptions.length > 0 && (
-            <span className="selected-options">
-              {selectedOptions.length > 0 ? selectedOptions[0].label : ""}
-            </span>
-          )
-        )}
+        {selectedOptions.length > 0 && multiple
+          ? renderMultiSelectValue()
+          : renderSingleSelectValue()}
         <span
           className="select-menu-toggle"
           onClick={() => {
@@ -156,41 +203,7 @@ export const Select = <T extends string | number>({
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>
-      {showOptions && (
-        <div className="select-field-options">
-          {options?.map((option, index) => {
-            const { value, label, disabled } = option;
-            let isChecked = false;
-            selectedOptions.forEach((selected) => {
-              if (selected.value === value) {
-                isChecked = true;
-              }
-            });
-
-            return (
-              <div key={index} className="option">
-                {multiple ? (
-                  <Checkbox
-                    name={label}
-                    checked={isChecked}
-                    onChange={() => handleSelectedOption(option)}
-                    disabled={disabled}
-                  />
-                ) : null}
-                <span
-                  onClick={() => {
-                    if (!disabled) {
-                      handleSelectedOption(option);
-                    }
-                  }}
-                >
-                  {renderOption ? renderOption(option) : label}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      )}
+      {showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
