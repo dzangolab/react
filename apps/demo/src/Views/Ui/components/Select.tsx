@@ -69,6 +69,7 @@ export const SelectDemo = () => {
           value={selectedValues}
           onChange={(value: string[]) => setSelectedValues(value)}
           hasError={true}
+          errorMessage="Required field"
         />
       </Section>
     </Page>

@@ -2,30 +2,35 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Tag, Checkbox } from "..";
 
+type Option<T> = {
+  value: T;
+  label: string;
+  disabled?: boolean;
+};
+
 interface ISelectProperties<T> {
   disabled?: boolean;
+  errorMessage?: string;
   hasError?: boolean;
   label?: string;
   multiple?: boolean;
   name: string;
-  options: {
-    value: T;
-    label: string;
-    disabled?: boolean;
-    renderOption?: (option: T) => React.ReactNode;
-  }[];
+  options: Option<T>[];
   value: T[];
   onChange: (newValue: T[]) => void;
+  renderOption?: (option: Option<T>) => React.ReactNode;
 }
 
 export const Select = <T extends string | number>({
   disabled,
+  errorMessage,
   hasError,
   label = "",
   multiple,
   name,
   options,
   value,
+  renderOption,
   onChange,
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -140,7 +145,7 @@ export const Select = <T extends string | number>({
           )
         )}
         <span
-          className="arrow"
+          className="select-menu-toggle"
           onClick={() => {
             if (!disabled) {
               setShowOptions(!showOptions);
@@ -154,13 +159,14 @@ export const Select = <T extends string | number>({
       {showOptions && (
         <div className="select-field-options">
           {options?.map((option, index) => {
-            const { value, label, disabled, renderOption } = option;
+            const { value, label, disabled } = option;
             let isChecked = false;
             selectedOptions.forEach((selected) => {
               if (selected.value === value) {
                 isChecked = true;
               }
             });
+
             return (
               <div key={index} className="option">
                 {multiple ? (
@@ -178,13 +184,14 @@ export const Select = <T extends string | number>({
                     }
                   }}
                 >
-                  {renderOption ? renderOption(value) : label}
+                  {renderOption ? renderOption(option) : label}
                 </span>
               </div>
             );
           })}
         </div>
       )}
+      {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
 };

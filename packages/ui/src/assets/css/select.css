@@ -1,6 +1,8 @@
 :root {
-  --select-option-bg-color: #ffffff;
-  --select-icon-color: #b5b5b5;
+  --_field-bg-color: var(--dz-input-fill-color);
+  --field-icon-color: #b5b5b5;
+  --field-option-bg-color: #ffffff;
+  --_field-error-message-color: var(--error-message-color);
 }
 
 .dz-select {
@@ -10,7 +12,7 @@
 
 .input-field-select {
   align-items: center;
-  background-color: var(--dz-input-fill-color);
+  background-color: var(--_field-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   display: flex;
@@ -27,8 +29,9 @@
   background-color: var(--field-bg-color-disabled);
 }
 
-.input-field-select .arrow {
-  color: var(--select-icon-color);
+.input-field-select .select-menu-toggle {
+  color: var(--field-icon-color);
+  cursor: pointer;
   padding: 0.75rem;
   position: absolute;
   right: 0;
@@ -42,7 +45,7 @@
 }
 
 .select-field-options {
-  background-color: var(--select-option-bg-color);
+  background-color: var(--field-option-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   box-shadow:1px 1px 5px 1px var(--field-border-color);
@@ -75,9 +78,12 @@
 }
 
 .selected-options > .dz-tag > i {
+  cursor: pointer;
   font-size: 0.75rem;
 }
 
-.input-field-select i {
-  cursor: pointer;
+.dz-select .error-message {
+  color: var(--_field-error-message-color);
+  font-size: 0.8em;
+  margin-top: 0 !important;
 }
