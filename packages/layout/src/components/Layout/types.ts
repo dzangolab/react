@@ -1,11 +1,11 @@
 export type NavItemType = {
-  label: string;
+  label: string | React.ReactNode;
   icon?: string;
   display?: boolean;
 } & ({ route: string } | { onClick: () => void });
 
 export type NavGroupType = {
-  label: string;
+  label: string | React.ReactNode;
   icon?: string;
   submenu: NavItemType[];
 };
