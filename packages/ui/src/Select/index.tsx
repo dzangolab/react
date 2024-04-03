@@ -88,53 +88,11 @@ export const Select = <T extends string | number>({
     }
   };
 
-  const handleClick = () => {
-    if (!disabled) {
-      setShowOptions(!showOptions);
-      setFocused(true);
-    }
-  };
-
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" && !disabled) {
       setShowOptions(true);
       setFocused(true);
     }
-  };
-
-  const renderSingleSelectValue = () => {
-    if (selectedOptions.length > 0) {
-      return (
-        <span className="selected-options">{selectedOptions[0].label}</span>
-      );
-    }
-    return null;
-  };
-
-  const renderMultiSelectValue = () => {
-    return (
-      <div className="selected-options">
-        {selectedOptions.length > 4 ? (
-          <span>{`${selectedOptions.length} items selected`}</span>
-        ) : (
-          selectedOptions.map((option, index) => (
-            <Tag
-              key={index}
-              renderContent={() => (
-                <>
-                  <span>{option.label}</span>
-                  <i
-                    className="pi pi-times"
-                    onClick={(event) => handleRemoveOption(option, event)}
-                  ></i>
-                </>
-              )}
-              rounded
-            />
-          ))
-        )}
-      </div>
-    );
   };
 
   const renderOptions = () => {
@@ -175,22 +133,60 @@ export const Select = <T extends string | number>({
     );
   };
 
-  return (
-    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
-      {label && <label htmlFor={name}>{label}</label>}
+  const renderSelect = () => {
+    const renderSingleSelectValue = () => {
+      if (selectedOptions.length > 0) {
+        return (
+          <span className="selected-options">{selectedOptions[0].label}</span>
+        );
+      }
+      return null;
+    };
 
+    const renderMultiSelectValue = () => {
+      return (
+        selectedOptions.length > 0 && (
+          <div className="selected-options">
+            {selectedOptions.length > 4 ? (
+              <span>{`${selectedOptions.length} items selected`}</span>
+            ) : (
+              selectedOptions.map((option, index) => (
+                <Tag
+                  key={index}
+                  renderContent={() => (
+                    <>
+                      <span>{option.label}</span>
+                      <i
+                        className="pi pi-times"
+                        onClick={(event) => handleRemoveOption(option, event)}
+                      ></i>
+                    </>
+                  )}
+                  rounded
+                />
+              ))
+            )}
+          </div>
+        )
+      );
+    };
+
+    return (
       <div
         className={`input-field-select ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
-        onClick={handleClick}
+        onClick={() => {
+          if (!disabled) {
+            setShowOptions(!showOptions);
+            setFocused(true);
+          }
+        }}
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {selectedOptions.length > 0 && multiple
-          ? renderMultiSelectValue()
-          : renderSingleSelectValue()}
+        {multiple ? renderMultiSelectValue() : renderSingleSelectValue()}
         <span
           className="select-menu-toggle"
           onClick={() => {
@@ -203,6 +199,13 @@ export const Select = <T extends string | number>({
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>
+    );
+  };
+
+  return (
+    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
+      {label && <label htmlFor={name}>{label}</label>}
+      {renderSelect()}
       {showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
