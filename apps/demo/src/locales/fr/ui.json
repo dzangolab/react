@@ -160,8 +160,8 @@
       "disabled": "Disabled (fr)",
       "invalid": "Invalid (fr)",
       "multiple": "Multiple select (fr)",
-      "renderOption": "Select with custom option(fr)",
-      "renderValue": "Select with custom selected value(fr)",
+      "renderOption": "Select with custom option (fr)",
+      "renderValue": "Select with custom selected value (fr)",
       "single": "Single select (fr)"
     },
     "placeHolder": "-- select value -- (fr)"
