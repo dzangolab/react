@@ -38,11 +38,24 @@
   right: 0;
 }
 
+.input-field-select[aria-invalid=true] {
+  border-color: var(--field-invalid-border-color)
+}
+
+.input-field-select[aria-invalid=false] {
+  border-color: var(--field-valid-border-color);
+}
+
 .selected-options {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   width: 95%;
+}
+
+.selected-options > .dz-tag > i {
+  cursor: pointer;
+  font-size: 0.75rem;
 }
 
 .select-field-options {
@@ -70,29 +83,16 @@
   width: 100%; 
 }
 
-.input-field-select[aria-invalid=true] {
-  border-color: var(--field-invalid-border-color)
-}
-
-.input-field-select[aria-invalid=false] {
-  border-color: var(--field-valid-border-color);
-}
-
-.selected-options > .dz-tag > i {
-  cursor: pointer;
-  font-size: 0.75rem;
-}
-
-.dz-select .error-message {
-  color: var(--_field-error-message-color);
-  font-size: 0.8em;
-  margin-top: 0 !important;
+.select-field-options > .option > .disabled {
+  color: var(--field-option-disabled-color);
 }
 
 .select-field-placeholder {
   color: var(--field-placeholder-color,#7b7676);
 }
 
-.select-field-options > .option > .disabled {
-  color: var(--field-option-disabled-color);
+.dz-select .error-message {
+  color: var(--_field-error-message-color);
+  font-size: 0.8em;
+  margin-top: 0 !important;
 }
