@@ -42,8 +42,9 @@ export const SelectDemo = () => {
           label={t("select.label.single")}
           name="select"
           options={[
-            { value: 11, label: "option 1" },
+            { value: 11, label: "option 1", disabled: true },
             { value: 23, label: "option 2" },
+            { value: 27, label: "option 3" },
           ]}
           value={singleSelectedValues}
           onChange={(value: number[]) => setSingleSelectedValues(value)}

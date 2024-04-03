@@ -124,11 +124,8 @@ export const Select = <T extends string | number>({
                 />
               ) : null}
               <span
-                onClick={() => {
-                  if (!disabled) {
-                    handleSelectedOption(option);
-                  }
-                }}
+                onClick={() => !disabled && handleSelectedOption(option)}
+                className={disabled ? "disabled" : ""}
               >
                 {renderOption ? renderOption(option) : label}
               </span>
@@ -191,7 +188,7 @@ export const Select = <T extends string | number>({
         {selectedOptions.length > 0
           ? renderSelect()
           : placeholder && (
-              <span className="field-placeholder">{placeholder}</span>
+              <span className="select-field-placeholder">{placeholder}</span>
             )}
         <span
           className="select-menu-toggle"
