@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FormActions } from "@/components/FormActions";
 
@@ -28,6 +28,12 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>(
     value || [],
   );
+
+  useEffect(() => {
+    if (value) {
+      setSelectedFiles(value);
+    }
+  }, [value]);
 
   return (
     <div className="file-upload">
