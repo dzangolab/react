@@ -153,5 +153,14 @@
       "icon": "Icon (fr)",
       "pill": "Pill (fr)"
     }
+  },
+  "select": {
+    "title": "Select (fr)",
+    "label": {
+      "disabled": "Disabled (fr)",
+      "invalid": "Invalid (fr)",
+      "multiple": "Multiple select (fr)",
+      "single": "Single select (fr)"
+      }
   }
 }
