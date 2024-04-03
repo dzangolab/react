@@ -26,6 +26,7 @@ export const SelectDemo = () => {
           ]}
           value={singleSelectedValues}
           onChange={(value: number[]) => setSingleSelectedValues(value)}
+          placeholder={t("select.placeHolder")}
         />
       </Section>
       <Section>
@@ -40,10 +41,14 @@ export const SelectDemo = () => {
             { value: "AR", label: "ARGENTINA" },
             { value: "SR", label: "SRILANKA", disabled: true },
             { value: "NP", label: "NEPAL" },
+            { value: "NS", label: "NETHERLAND" },
+            { value: "SN", label: "SUDAN" },
+            { value: "PN", label: "POLAND" },
           ]}
           multiple={true}
           value={multipleSelectedValues}
           onChange={(value: string[]) => setMultipleSelectedValues(value)}
+          placeholder={t("select.placeHolder")}
         />
       </Section>
       <Section>

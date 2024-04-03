@@ -3,6 +3,7 @@
   --field-icon-color: #b5b5b5;
   --field-option-bg-color: #ffffff;
   --_field-error-message-color: var(--error-message-color);
+  --field-placeholder-color: #7b7676;
 }
 
 .dz-select {
@@ -86,4 +87,8 @@
   color: var(--_field-error-message-color);
   font-size: 0.8em;
   margin-top: 0 !important;
+}
+
+.field-placeholder {
+  color: var(--field-placeholder-color);
 }

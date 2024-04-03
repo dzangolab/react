@@ -16,9 +16,13 @@ interface ISelectProperties<T> {
   multiple?: boolean;
   name: string;
   options: Option<T>[];
+  placeholder?: string;
   value: T[];
   onChange: (newValue: T[]) => void;
   renderOption?: (option: Option<T>) => React.ReactNode;
+  renderValue?: (
+    selectedOption: { value: T; label: string }[],
+  ) => React.ReactNode;
 }
 
 export const Select = <T extends string | number>({
@@ -29,8 +33,10 @@ export const Select = <T extends string | number>({
   multiple,
   name,
   options,
+  placeholder,
   value,
   renderOption,
+  renderValue,
   onChange,
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -134,44 +140,40 @@ export const Select = <T extends string | number>({
   };
 
   const renderSelect = () => {
-    const renderSingleSelectValue = () => {
-      if (selectedOptions.length > 0) {
-        return (
-          <span className="selected-options">{selectedOptions[0].label}</span>
-        );
-      }
-      return null;
-    };
-
-    const renderMultiSelectValue = () => {
-      return (
-        selectedOptions.length > 0 && (
-          <div className="selected-options">
-            {selectedOptions.length > 4 ? (
-              <span>{`${selectedOptions.length} items selected`}</span>
-            ) : (
-              selectedOptions.map((option, index) => (
-                <Tag
-                  key={index}
-                  renderContent={() => (
-                    <>
-                      <span>{option.label}</span>
-                      <i
-                        className="pi pi-times"
-                        onClick={(event) => handleRemoveOption(option, event)}
-                      ></i>
-                    </>
-                  )}
-                  rounded
-                />
-              ))
-            )}
-          </div>
-        )
-      );
-    };
+    if (renderValue) {
+      return renderValue(selectedOptions);
+    }
 
     return (
+      <>
+        {multiple ? (
+          <div className="selected-options">
+            {selectedOptions.map((option, index) => (
+              <Tag
+                key={index}
+                renderContent={() => (
+                  <>
+                    <span>{option.label}</span>
+                    <i
+                      className="pi pi-times"
+                      onClick={(event) => handleRemoveOption(option, event)}
+                    ></i>
+                  </>
+                )}
+                rounded
+              />
+            ))}
+          </div>
+        ) : (
+          <span>{selectedOptions[0].label}</span>
+        )}
+      </>
+    );
+  };
+
+  return (
+    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
+      {label && <label htmlFor={name}>{label}</label>}
       <div
         className={`input-field-select ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
@@ -186,7 +188,11 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {multiple ? renderMultiSelectValue() : renderSingleSelectValue()}
+        {selectedOptions.length > 0 ? (
+          renderSelect()
+        ) : (
+          <span className="field-placeholder">{placeholder}</span>
+        )}
         <span
           className="select-menu-toggle"
           onClick={() => {
@@ -199,13 +205,6 @@ export const Select = <T extends string | number>({
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>
-    );
-  };
-
-  return (
-    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
-      {label && <label htmlFor={name}>{label}</label>}
-      {renderSelect()}
       {showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>

@@ -161,6 +161,7 @@
       "invalid": "Invalid (fr)",
       "multiple": "Multiple select (fr)",
       "single": "Single select (fr)"
-      }
+    },
+    "placeHolder": "-- select value -- (fr)"
   }
 }
