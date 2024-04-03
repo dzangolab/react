@@ -164,6 +164,8 @@
       "disabled": "Disabled",
       "invalid": "Invalid",
       "multiple": "Multiple select",
+      "renderOption": "Select with custom option",
+      "renderValue": "Select with custom selected value",
       "single": "Single select"
     },
     "placeHolder": "-- select value --"

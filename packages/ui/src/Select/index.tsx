@@ -188,11 +188,11 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {selectedOptions.length > 0 ? (
-          renderSelect()
-        ) : (
-          <span className="field-placeholder">{placeholder}</span>
-        )}
+        {selectedOptions.length > 0
+          ? renderSelect()
+          : placeholder && (
+              <span className="field-placeholder">{placeholder}</span>
+            )}
         <span
           className="select-menu-toggle"
           onClick={() => {
