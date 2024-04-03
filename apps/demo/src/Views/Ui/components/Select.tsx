@@ -20,9 +20,7 @@ export const SelectDemo = () => {
     selectedOptions: { value: string; label: string }[],
   ) => {
     return (
-      <span className="test">
-        {selectedOptions.map((option) => option.label).join(", ")}
-      </span>
+      <span>{selectedOptions.map((option) => option.label).join(", ")}</span>
     );
   };
 

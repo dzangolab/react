@@ -137,40 +137,39 @@ export const Select = <T extends string | number>({
   };
 
   const renderSelect = () => {
-    if (renderValue) {
-      return renderValue(selectedOptions);
-    }
+    const renderSelectValue = () => {
+      if (renderValue) {
+        return renderValue(selectedOptions);
+      }
+
+      return (
+        <>
+          {multiple ? (
+            <div className="selected-options">
+              {selectedOptions.map((option, index) => (
+                <Tag
+                  key={index}
+                  renderContent={() => (
+                    <>
+                      <span>{option.label}</span>
+                      <i
+                        className="pi pi-times"
+                        onClick={(event) => handleRemoveOption(option, event)}
+                      ></i>
+                    </>
+                  )}
+                  rounded
+                />
+              ))}
+            </div>
+          ) : (
+            <span>{selectedOptions[0].label}</span>
+          )}
+        </>
+      );
+    };
 
     return (
-      <>
-        {multiple ? (
-          <div className="selected-options">
-            {selectedOptions.map((option, index) => (
-              <Tag
-                key={index}
-                renderContent={() => (
-                  <>
-                    <span>{option.label}</span>
-                    <i
-                      className="pi pi-times"
-                      onClick={(event) => handleRemoveOption(option, event)}
-                    ></i>
-                  </>
-                )}
-                rounded
-              />
-            ))}
-          </div>
-        ) : (
-          <span>{selectedOptions[0].label}</span>
-        )}
-      </>
-    );
-  };
-
-  return (
-    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
-      {label && <label htmlFor={name}>{label}</label>}
       <div
         className={`input-field-select ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
@@ -186,7 +185,7 @@ export const Select = <T extends string | number>({
         tabIndex={0}
       >
         {selectedOptions.length > 0
-          ? renderSelect()
+          ? renderSelectValue()
           : placeholder && (
               <span className="select-field-placeholder">{placeholder}</span>
             )}
@@ -202,6 +201,13 @@ export const Select = <T extends string | number>({
           <i className="pi pi-chevron-down"></i>
         </span>
       </div>
+    );
+  };
+
+  return (
+    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
+      {label && <label htmlFor={name}>{label}</label>}
+      {renderSelect()}
       {showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
