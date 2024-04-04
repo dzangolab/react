@@ -23,7 +23,7 @@
     "@dzangolab/react-layout": "workspace:*",
     "@dzangolab/react-ui": "workspace:*",
     "@dzangolab/react-user": "workspace:*",
-    "@reduxjs/toolkit": "1.9.5",
+    "@reduxjs/toolkit": "1.9.7",
     "normalize.css": "8.0.1",
     "primeicons": "6.0.1",
     "primereact": "9.6.1",
