@@ -103,8 +103,8 @@ importers:
         specifier: 18.2.14
         version: 18.2.14
       '@types/react-test-renderer':
-        specifier: 18.0.5
-        version: 18.0.5
+        specifier: 18.0.7
+        version: 18.0.7
       '@vitejs/plugin-react':
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.12)
@@ -309,8 +309,8 @@ importers:
         specifier: 18.2.14
         version: 18.2.14
       '@types/react-test-renderer':
-        specifier: 18.0.5
-        version: 18.0.5
+        specifier: 18.0.7
+        version: 18.0.7
       '@types/validator':
         specifier: 13.7.17
         version: 13.7.17
@@ -403,8 +403,8 @@ importers:
         specifier: 18.2.14
         version: 18.2.14
       '@types/react-test-renderer':
-        specifier: 18.0.5
-        version: 18.0.5
+        specifier: 18.0.7
+        version: 18.0.7
       '@vitejs/plugin-react':
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.12)
@@ -472,8 +472,8 @@ importers:
         specifier: 18.2.14
         version: 18.2.14
       '@types/react-test-renderer':
-        specifier: 18.0.5
-        version: 18.0.5
+        specifier: 18.0.7
+        version: 18.0.7
       '@vitejs/plugin-react':
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.12)
@@ -569,8 +569,8 @@ importers:
         specifier: 18.2.14
         version: 18.2.14
       '@types/react-test-renderer':
-        specifier: 18.0.5
-        version: 18.0.5
+        specifier: 18.0.7
+        version: 18.0.7
       '@vitejs/plugin-react':
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.12)
@@ -666,8 +666,8 @@ importers:
         specifier: 18.2.14
         version: 18.2.14
       '@types/react-test-renderer':
-        specifier: 18.0.5
-        version: 18.0.5
+        specifier: 18.0.7
+        version: 18.0.7
       '@vitejs/plugin-react':
         specifier: 4.2.1
         version: 4.2.1(vite@5.0.12)
@@ -5252,8 +5252,8 @@ packages:
     dependencies:
       '@types/react': 18.2.34
 
-  /@types/react-test-renderer@18.0.5:
-    resolution: {integrity: sha512-PsnmF4Hpi61PTRX+dTxkjgDdtZ09kFFgPXczoF+yBfOVxn7xBLPvKP1BUrSasYHmerj33rhoJuvpIMsJuyRqHw==}
+  /@types/react-test-renderer@18.0.7:
+    resolution: {integrity: sha512-1+ANPOWc6rB3IkSnElhjv6VLlKg2dSv/OWClUyZimbLsQyBn8Js9Vtdsi3UICJ2rIQ3k2la06dkB+C92QfhKmg==}
     dependencies:
       '@types/react': 18.2.34
     dev: true
