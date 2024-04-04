@@ -15,6 +15,9 @@ interface ISelect {
   name: string;
   options: Option[];
   placeholder?: string;
+  submitcount?: number;
+  showValidState?: boolean;
+  showInvalidState?: boolean;
   renderOption?: (option: Option) => React.ReactNode;
   renderValue?: (
     selectedOption: { value: string | number; label: string }[],
@@ -28,10 +31,20 @@ export const Select: React.FC<ISelect> = ({
   name,
   options,
   placeholder,
+  submitcount = 0,
+  showInvalidState = true,
+  showValidState = true,
   renderOption,
   renderValue,
 }) => {
   const { control, getFieldState } = useFormContext();
+
+  const { error, invalid } = getFieldState(name);
+
+  const checkInvalidState = () => {
+    if (showInvalidState && invalid) return true;
+    if (showValidState && !invalid) return false;
+  };
 
   return (
     <Controller
@@ -50,6 +63,8 @@ export const Select: React.FC<ISelect> = ({
             onChange={field.onChange}
             renderOption={renderOption}
             renderValue={renderValue}
+            hasError={submitcount > 0 ? checkInvalidState() : undefined}
+            errorMessage={error?.message}
           />
         );
       }}

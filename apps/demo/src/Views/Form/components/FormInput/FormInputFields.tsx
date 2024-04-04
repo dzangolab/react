@@ -91,6 +91,9 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         ]}
         multiple={true}
         placeholder={t("formInput.placeHolder.select")}
+        submitcount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
       />
       <Email
         label={t("formInput.label.disabled")}
