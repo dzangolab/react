@@ -31,7 +31,7 @@
   "dependencies": {
     "@dzangolab/react-ui": "0.34.0",
     "i18next": "23.7.18",
-    "i18next-browser-languagedetector": "7.2.0",
+    "i18next-browser-languagedetector": "7.2.1",
     "i18next-chained-backend": "4.6.2",
     "i18next-resources-to-backend": "1.2.0",
     "primereact": "9.6.1",
