@@ -45,6 +45,7 @@
       "number": "Number (fr)",
       "password": "Password (fr)",
       "readOnly": "ReadOnly Input (fr)",
+      "select": "Select (fr)",
       "text": "TextInput (fr)",
       "transparent": "Transparent Input (fr)",
       "valid": "Show valid state (fr)"
@@ -53,6 +54,7 @@
       "email": "Enter email input (fr)",
       "input": "Input (fr)",
       "number": "Enter number input (fr)",
+      "select": "-- Select value -- (fr)",
       "text": "Enter text input (fr)"
     },
     "action": {

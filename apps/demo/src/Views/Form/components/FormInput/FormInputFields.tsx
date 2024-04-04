@@ -80,7 +80,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         showInvalidState={invalid}
       />
       <Select
-        label="Select"
+        label={t("formInput.label.select")}
         name="select"
         options={[
           { value: "FR", label: "FR" },
@@ -90,6 +90,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
           { value: "RE", label: "RE" },
         ]}
         multiple={true}
+        placeholder={t("formInput.placeHolder.select")}
       />
       <Email
         label={t("formInput.label.disabled")}
