@@ -6,6 +6,7 @@ import {
   Input,
   useFormContext,
   NumberInput,
+  Select,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useEffect } from "react";
@@ -77,6 +78,18 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitcount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
+      />
+      <Select
+        label="Select"
+        name="select"
+        options={[
+          { value: "FR", label: "FR" },
+          { value: "DE", label: "DE" },
+          { value: "BE", label: "BE" },
+          { value: "FE", label: "FE" },
+          { value: "RE", label: "RE" },
+        ]}
+        multiple={true}
       />
       <Email
         label={t("formInput.label.disabled")}

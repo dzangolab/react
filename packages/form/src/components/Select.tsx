@@ -1,44 +1,45 @@
+import { Select as BasicSelect } from "@dzangolab/react-ui";
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
-
-import { ErrorMessage } from "./ErrorMessage";
+import { Controller, useFormContext } from "react-hook-form";
 
 interface ISelect {
   label?: string;
+  multiple?: boolean;
   name: string;
-  options: { value: string; label: string; disabled?: boolean }[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getFieldState?: UseFormGetFieldState<any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register?: UseFormRegister<any>;
+  options: {
+    value: number | string;
+    label: string;
+    disabled?: boolean;
+  }[];
+  placeholder?: string;
 }
 
 export const Select: React.FC<ISelect> = ({
-  register,
-  getFieldState,
   label = "",
+  multiple,
   name,
   options,
+  placeholder,
 }) => {
-  if (!register || !getFieldState) return null;
-
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
-
-  let selectClassName = "";
-  if (isDirty && !invalid) selectClassName = "valid";
-  if (isTouched && invalid) selectClassName = "invalid";
+  const { control, getFieldState } = useFormContext();
 
   return (
-    <div className={`field select-input ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
-      <select {...register(name)} className={selectClassName}>
-        {options.map(({ value, label, disabled }) => (
-          <option key={value} value={value} disabled={disabled}>
-            {label}
-          </option>
-        ))}
-      </select>
-      {error?.message && <ErrorMessage message={error.message} />}
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => {
+        return (
+          <BasicSelect
+            label={label}
+            name={name}
+            multiple={multiple}
+            options={options}
+            placeholder={placeholder}
+            value={field.value ? field.value : []}
+            onChange={field.onChange}
+          />
+        );
+      }}
+    />
   );
 };
