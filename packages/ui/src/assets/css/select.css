@@ -3,6 +3,7 @@
   --field-icon-color: #b5b5b5;
   --field-option-bg-color: #ffffff;
   --_field-error-message-color: var(--error-message-color);
+  --field-option-disabled-color: #7b7676;
 }
 
 .dz-select {
@@ -37,11 +38,24 @@
   right: 0;
 }
 
+.input-field-select[aria-invalid=true] {
+  border-color: var(--field-invalid-border-color)
+}
+
+.input-field-select[aria-invalid=false] {
+  border-color: var(--field-valid-border-color);
+}
+
 .selected-options {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   width: 95%;
+}
+
+.selected-options > .dz-tag > i {
+  cursor: pointer;
+  font-size: 0.75rem;
 }
 
 .select-field-options {
@@ -69,17 +83,12 @@
   width: 100%; 
 }
 
-.input-field-select[aria-invalid=true] {
-  border-color: var(--field-invalid-border-color)
+.select-field-options > .option > .disabled {
+  color: var(--field-option-disabled-color);
 }
 
-.input-field-select[aria-invalid=false] {
-  border-color: var(--field-valid-border-color);
-}
-
-.selected-options > .dz-tag > i {
-  cursor: pointer;
-  font-size: 0.75rem;
+.select-field-placeholder {
+  color: var(--field-placeholder-color,#7b7676);
 }
 
 .dz-select .error-message {
