@@ -6272,7 +6272,7 @@ packages:
   /axios@0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.3
+      follow-redirects: 1.15.6
     transitivePeerDependencies:
       - debug
     dev: true
@@ -8611,16 +8611,6 @@ packages:
   /flow-parser@0.225.0:
     resolution: {integrity: sha512-wTr10/1z9wBuaNf+RGdGwD5FOI6TsNcWrMDhE+JBc2vEKe1e4SZuO5zVZCBq9SrFqPyWy0wFO9+hTH4zuPDbMA==}
     engines: {node: '>=0.4.0'}
-    dev: true
-
-  /follow-redirects@1.15.3:
-    resolution: {integrity: sha512-1VzOtuEM8pC9SFU1E+8KfTjZyMztRsgEfwQl44z8A25uy13jSzTj6dyK2Df52iV0vgHCfBwLhDWevLn95w5v6Q==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
     dev: true
 
   /follow-redirects@1.15.6:
