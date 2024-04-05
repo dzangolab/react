@@ -37,12 +37,10 @@ export const FormInputDemo = () => {
       .refine((data) => data !== null, {
         message: t("formInput.message.required"),
       }),
-    select: zod
+    selectCountry: zod
       .string()
       .array()
-      .nonempty({
-        message: t("formInput.message.required"),
-      }),
+      .nonempty({ message: t("formInput.message.required") }),
   });
 
   const handleSubmit = (formData: any) => {

@@ -50,24 +50,22 @@ export const Select: React.FC<ISelect> = ({
     <Controller
       name={name}
       control={control}
-      render={({ field }) => {
-        return (
-          <BasicSelect
-            label={label}
-            name={name}
-            multiple={multiple}
-            disabled={disabled}
-            options={options}
-            placeholder={placeholder}
-            value={field.value ? field.value : []}
-            onChange={field.onChange}
-            renderOption={renderOption}
-            renderValue={renderValue}
-            hasError={submitcount > 0 ? checkInvalidState() : undefined}
-            errorMessage={error?.message}
-          />
-        );
-      }}
+      render={({ field }) => (
+        <BasicSelect
+          label={label}
+          name={name}
+          multiple={multiple}
+          disabled={disabled}
+          options={options}
+          placeholder={placeholder}
+          value={field.value ? field.value : []}
+          onChange={field.onChange}
+          renderOption={renderOption}
+          renderValue={renderValue}
+          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+          errorMessage={error?.message}
+        />
+      )}
     />
   );
 };
