@@ -50,6 +50,7 @@ export const Select: React.FC<ISelect> = ({
     <Controller
       name={name}
       control={control}
+      defaultValue={[]}
       render={({ field }) => (
         <BasicSelect
           label={label}
@@ -58,7 +59,7 @@ export const Select: React.FC<ISelect> = ({
           disabled={disabled}
           options={options}
           placeholder={placeholder}
-          value={field.value ? field.value : []}
+          value={field.value}
           onChange={field.onChange}
           renderOption={renderOption}
           renderValue={renderValue}

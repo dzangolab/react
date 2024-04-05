@@ -37,7 +37,7 @@ export const FormInputDemo = () => {
       .refine((data) => data !== null, {
         message: t("formInput.message.required"),
       }),
-    selectCountry: zod
+    select: zod
       .string()
       .array()
       .nonempty({ message: t("formInput.message.required") }),

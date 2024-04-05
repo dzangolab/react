@@ -81,7 +81,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
       />
       <Select
         label={t("formInput.label.select")}
-        name="selectCountry"
+        name="select"
         options={[
           { value: "FR", label: "FR" },
           { value: "DE", label: "DE" },
