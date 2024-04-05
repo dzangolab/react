@@ -6,6 +6,7 @@ import {
   Input,
   useFormContext,
   NumberInput,
+  Select,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useEffect } from "react";
@@ -74,6 +75,22 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="number"
         label={t("formInput.label.number")}
         placeholder={t("formInput.placeHolder.number")}
+        submitcount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+      />
+      <Select
+        label={t("formInput.label.select")}
+        name="select"
+        options={[
+          { value: "FR", label: "FR" },
+          { value: "DE", label: "DE" },
+          { value: "BE", label: "BE" },
+          { value: "FE", label: "FE" },
+          { value: "RE", label: "RE" },
+        ]}
+        multiple={true}
+        placeholder={t("formInput.placeHolder.select")}
         submitcount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}

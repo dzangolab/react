@@ -1,44 +1,72 @@
+import { Select as BasicSelect } from "@dzangolab/react-ui";
 import React from "react";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 
-import { ErrorMessage } from "./ErrorMessage";
+type Option = {
+  value: string | number;
+  label: string;
+  disabled?: boolean;
+};
 
 interface ISelect {
+  disabled?: boolean;
   label?: string;
+  multiple?: boolean;
   name: string;
-  options: { value: string; label: string; disabled?: boolean }[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getFieldState?: UseFormGetFieldState<any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register?: UseFormRegister<any>;
+  options: Option[];
+  placeholder?: string;
+  submitcount?: number;
+  showValidState?: boolean;
+  showInvalidState?: boolean;
+  renderOption?: (option: Option) => React.ReactNode;
+  renderValue?: (
+    selectedOption: { value: string | number; label: string }[],
+  ) => React.ReactNode;
 }
 
 export const Select: React.FC<ISelect> = ({
-  register,
-  getFieldState,
+  disabled,
   label = "",
+  multiple,
   name,
   options,
+  placeholder,
+  submitcount = 0,
+  showInvalidState = true,
+  showValidState = true,
+  renderOption,
+  renderValue,
 }) => {
-  if (!register || !getFieldState) return null;
+  const { control, getFieldState } = useFormContext();
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
 
-  let selectClassName = "";
-  if (isDirty && !invalid) selectClassName = "valid";
-  if (isTouched && invalid) selectClassName = "invalid";
+  const checkInvalidState = () => {
+    if (showInvalidState && invalid) return true;
+    if (showValidState && !invalid) return false;
+  };
 
   return (
-    <div className={`field select-input ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
-      <select {...register(name)} className={selectClassName}>
-        {options.map(({ value, label, disabled }) => (
-          <option key={value} value={value} disabled={disabled}>
-            {label}
-          </option>
-        ))}
-      </select>
-      {error?.message && <ErrorMessage message={error.message} />}
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={[]}
+      render={({ field }) => (
+        <BasicSelect
+          label={label}
+          name={name}
+          multiple={multiple}
+          disabled={disabled}
+          options={options}
+          placeholder={placeholder}
+          value={field.value}
+          onChange={field.onChange}
+          renderOption={renderOption}
+          renderValue={renderValue}
+          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+          errorMessage={error?.message}
+        />
+      )}
+    />
   );
 };

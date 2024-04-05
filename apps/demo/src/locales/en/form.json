@@ -45,6 +45,7 @@
       "number": "Number",
       "password": "Password",
       "readOnly": "ReadOnly Input",
+      "select": "Select",
       "text": "TextInput",
       "transparent": "Transparent Input",
       "valid": "Show valid state"
@@ -53,6 +54,7 @@
       "email": "Enter email input",
       "input": "Input",
       "number": "Enter number input",
+      "select": "-- Select value --", 
       "text": "Enter text input"
     },
     "action": {
