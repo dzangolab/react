@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@hookform/error-message": "2.0.1",
-    "@hookform/resolvers": "3.3.2",
+    "@hookform/resolvers": "3.3.4",
     "react-debounce-input": "3.3.0",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "7.45.4",
