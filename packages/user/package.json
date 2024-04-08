@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "supertokens-web-js": "0.6.0",
-    "zod": "3.22.3"
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@dzangolab/react-config": "0.34.0",
