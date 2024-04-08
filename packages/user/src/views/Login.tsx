@@ -57,19 +57,20 @@ export const Login: React.FC<IProperties> = ({
       ) : null;
     }
 
+    if (socialLoginOnly) {
+      return <SocialLogins />;
+    }
+
     return (
       <>
         {customDivider ? (
           customDivider
         ) : (
-          <>
-            <Divider
-              orientation={
-                orientation === "vertical" ? "horizontal" : "vertical"
-              }
-            />
-          </>
+          <Divider
+            orientation={orientation === "vertical" ? "horizontal" : "vertical"}
+          />
         )}
+
         <SocialLogins />
       </>
     );
