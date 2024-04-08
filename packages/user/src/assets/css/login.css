@@ -20,10 +20,6 @@
   width: 100%;
 }
 
-.login > .dz-page-content > .social-login-wrapper {
-  min-width: 19rem;
-}
-
 .login > .content {
   align-items: center;
   text-align: center;
