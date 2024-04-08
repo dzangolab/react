@@ -52,7 +52,13 @@ export const Login: React.FC<IProperties> = ({
 
   const renderSocialLogins = () => {
     if (!appConfig?.user.supportedLoginProviders?.length) {
-      return null;
+      return socialLoginOnly ? (
+        <span role="alert">{t("login.social.alert")}</span>
+      ) : null;
+    }
+
+    if (socialLoginOnly) {
+      return <SocialLogins />;
     }
 
     if (socialLoginOnly) {

@@ -28,16 +28,16 @@
   },
   "dependencies": {
     "@hookform/error-message": "2.0.1",
-    "@hookform/resolvers": "3.3.2",
+    "@hookform/resolvers": "3.3.4",
     "react-debounce-input": "3.3.0",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "7.45.4",
     "validator": "13.9.0",
-    "zod": "3.22.3"
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@dzangolab/react-ui": "0.34.0",
-    "@storybook/react": "7.4.0",
+    "@storybook/react": "7.6.17",
     "@testing-library/react": "14.0.0",
     "@types/jsdom": "21.1.6",
     "@types/node": "18.17.12",
