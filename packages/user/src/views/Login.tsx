@@ -16,6 +16,7 @@ interface IProperties {
   showForgotPasswordLink?: boolean;
   showSignupLink?: boolean;
   socialLoginFirst?: boolean;
+  socialLoginOnly?: boolean;
 }
 
 export const Login: React.FC<IProperties> = ({
@@ -27,6 +28,7 @@ export const Login: React.FC<IProperties> = ({
   onLoginSuccess,
   orientation = "vertical",
   socialLoginFirst = false,
+  socialLoginOnly = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const appConfig = useConfig();
@@ -50,7 +52,9 @@ export const Login: React.FC<IProperties> = ({
 
   const renderSocialLogins = () => {
     if (!appConfig?.user.supportedLoginProviders?.length) {
-      return null;
+      return socialLoginOnly ? (
+        <span role="alert">{t("login.social.alert")}</span>
+      ) : null;
     }
 
     return (
@@ -79,12 +83,14 @@ export const Login: React.FC<IProperties> = ({
       loading={!!redirecting}
       centered={centered}
     >
-      <LoginWrapper
-        onLoginFailed={onLoginFailed}
-        onLoginSuccess={onLoginSuccess}
-        showForgotPasswordLink={showForgotPasswordLink}
-        showSignupLink={showSignupLink}
-      />
+      {socialLoginOnly ? null : (
+        <LoginWrapper
+          onLoginFailed={onLoginFailed}
+          onLoginSuccess={onLoginSuccess}
+          showForgotPasswordLink={showForgotPasswordLink}
+          showSignupLink={showSignupLink}
+        />
+      )}
 
       {renderSocialLogins()}
     </Page>
