@@ -67,6 +67,7 @@ export const ProfileFormFields = ({
           {
             id: "submit",
             label: t("profile.button.update"),
+            disabled: !isDirty,
           },
         ]}
         loading={submitting}
