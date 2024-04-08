@@ -86,7 +86,8 @@
       }
     },
     "social": {
-      "google": "Continue with Google"
+      "google": "Continue with Google",
+      "alert": "No social login providers found"
     },
     "title": "Log in"
   },
