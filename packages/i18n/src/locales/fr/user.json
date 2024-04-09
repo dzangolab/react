@@ -85,8 +85,7 @@
       }
     },
     "social": {
-      "google": "Continue with Google",
-      "alert": "No social login providers found (fr)"
+      "google": "Continue with Google"
     },
     "title": "Connexion"
   },
