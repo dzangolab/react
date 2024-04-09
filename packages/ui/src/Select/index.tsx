@@ -20,7 +20,7 @@ interface ISelectProperties<T> {
   value: T[];
   onChange: (newValue: T[]) => void;
   renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (selectedValues: string[]) => React.ReactNode;
+  renderValue?: (value?: T[], options?: Option<T>[]) => React.ReactNode;
 }
 
 export const Select = <T extends string | number>({
@@ -125,13 +125,7 @@ export const Select = <T extends string | number>({
   const renderSelect = () => {
     const renderSelectValue = () => {
       if (renderValue) {
-        const selectedLabels = value.map((_value) => {
-          const option = options.find((opt) => opt.value === _value);
-
-          return option ? option.label : "";
-        });
-
-        return renderValue(selectedLabels);
+        return renderValue(value, options);
       }
 
       return (

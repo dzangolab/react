@@ -19,7 +19,10 @@ interface ISelect {
   showValidState?: boolean;
   showInvalidState?: boolean;
   renderOption?: (option: Option) => React.ReactNode;
-  renderValue?: (selectedValues: string[]) => React.ReactNode;
+  renderValue?: (
+    value?: (string | number)[],
+    options?: Option[],
+  ) => React.ReactNode;
 }
 
 export const Select: React.FC<ISelect> = ({
