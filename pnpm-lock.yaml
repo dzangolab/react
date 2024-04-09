@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -125,7 +121,7 @@ importers:
         version: 2.12.1(eslint@8.48.0)
       eslint-plugin-import:
         specifier: 2.27.5
-        version: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint@8.48.0)
+        version: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.48.0)
       eslint-plugin-prettier:
         specifier: 5.0.0
         version: 5.0.0(eslint-config-prettier@8.10.0)(eslint@8.48.0)(prettier@3.0.3)
@@ -239,7 +235,7 @@ importers:
         specifier: 8.48.0
         version: 8.48.0
       eslint-config-custom:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/eslint-config-custom
       jsdom:
         specifier: 22.1.0
@@ -251,7 +247,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0
       tsconfig:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.2.2
@@ -288,7 +284,7 @@ importers:
         version: 3.22.4
     devDependencies:
       '@dzangolab/react-ui':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../ui
       '@storybook/react':
         specifier: 7.6.17
@@ -324,7 +320,7 @@ importers:
         specifier: 8.48.0
         version: 8.48.0
       eslint-config-custom:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.33.2
@@ -348,7 +344,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.2.2
@@ -363,7 +359,7 @@ importers:
   packages/i18n:
     dependencies:
       '@dzangolab/react-ui':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../ui
       i18next:
         specifier: 23.7.18
@@ -385,7 +381,7 @@ importers:
         version: 14.0.1(i18next@23.7.18)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../config
       '@testing-library/react':
         specifier: 14.3.0
@@ -415,7 +411,7 @@ importers:
         specifier: 8.48.0
         version: 8.48.0
       eslint-config-custom:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.33.2
@@ -433,7 +429,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.2.2
@@ -448,13 +444,13 @@ importers:
   packages/layout:
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../config
       '@dzangolab/react-i18n':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../i18n
       '@dzangolab/react-ui':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../ui
       '@testing-library/react':
         specifier: 14.3.0
@@ -484,7 +480,7 @@ importers:
         specifier: 8.48.0
         version: 8.48.0
       eslint-config-custom:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.33.2
@@ -511,7 +507,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.2.2
@@ -545,7 +541,7 @@ importers:
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../config
       '@storybook/react':
         specifier: 7.6.17
@@ -581,7 +577,7 @@ importers:
         specifier: 8.48.0
         version: 8.48.0
       eslint-config-custom:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.33.2
@@ -608,7 +604,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.2.2
@@ -630,19 +626,19 @@ importers:
         version: 3.22.4
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../config
       '@dzangolab/react-form':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../form
       '@dzangolab/react-i18n':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../i18n
       '@dzangolab/react-layout':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../layout
       '@dzangolab/react-ui':
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../ui
       '@testing-library/dom':
         specifier: 9.3.4
@@ -681,7 +677,7 @@ importers:
         specifier: 8.48.0
         version: 8.48.0
       eslint-config-custom:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.33.2
@@ -714,7 +710,7 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(react-dom@18.2.0)(react@18.2.0)
       tsconfig:
-        specifier: 0.34.0
+        specifier: 0.35.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.2.2
@@ -5276,7 +5272,6 @@ packages:
       typescript: 5.2.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@typescript-eslint/scope-manager@5.62.0:
     resolution: {integrity: sha512-VXuvVvZeQCQb5Zgf4HAxc04q5j+WrNAtNh9OwCsCgpKqESMTu3tF/jhZ3xG6T4NZwWl65Bg8KuS2uEvhSfLl0w==}
@@ -7506,7 +7501,7 @@ packages:
       confusing-browser-globals: 1.0.11
       eslint: 8.48.0
       eslint-plugin-flowtype: 8.0.3(@babel/plugin-syntax-flow@7.24.1)(@babel/plugin-transform-react-jsx@7.23.4)(eslint@8.48.0)
-      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint@8.48.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.48.0)
       eslint-plugin-jest: 25.7.0(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.48.0)(typescript@5.1.6)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.48.0)
       eslint-plugin-react: 7.33.2(eslint@8.48.0)
@@ -7570,7 +7565,6 @@ packages:
       - eslint-import-resolver-node
       - eslint-import-resolver-webpack
       - supports-color
-    dev: false
 
   /eslint-module-utils@2.8.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.48.0):
     resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
@@ -7600,36 +7594,6 @@ packages:
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@5.62.0)(eslint-plugin-import@2.27.5)(eslint@8.48.0)
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /eslint-module-utils@2.8.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint@8.48.0):
-    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      '@typescript-eslint/parser': '*'
-      eslint: '*'
-      eslint-import-resolver-node: '*'
-      eslint-import-resolver-typescript: '*'
-      eslint-import-resolver-webpack: '*'
-    peerDependenciesMeta:
-      '@typescript-eslint/parser':
-        optional: true
-      eslint:
-        optional: true
-      eslint-import-resolver-node:
-        optional: true
-      eslint-import-resolver-typescript:
-        optional: true
-      eslint-import-resolver-webpack:
-        optional: true
-    dependencies:
-      '@typescript-eslint/parser': 5.62.0(eslint@8.48.0)(typescript@5.1.6)
-      debug: 3.2.7
-      eslint: 8.48.0
-      eslint-import-resolver-node: 0.3.9
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /eslint-plugin-cypress@2.12.1(eslint@8.48.0):
     resolution: {integrity: sha512-c2W/uPADl5kospNDihgiLc7n87t5XhUbFDoTl6CfVkmG+kDAb5Ux10V9PoLPu9N+r7znpc+iQlcmAqT1A/89HA==}
@@ -7686,40 +7650,6 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
-    dev: false
-
-  /eslint-plugin-import@2.27.5(@typescript-eslint/parser@5.62.0)(eslint@8.48.0):
-    resolution: {integrity: sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      '@typescript-eslint/parser': '*'
-      eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
-    peerDependenciesMeta:
-      '@typescript-eslint/parser':
-        optional: true
-    dependencies:
-      '@typescript-eslint/parser': 5.62.0(eslint@8.48.0)(typescript@5.1.6)
-      array-includes: 3.1.7
-      array.prototype.flat: 1.3.2
-      array.prototype.flatmap: 1.3.2
-      debug: 3.2.7
-      doctrine: 2.1.0
-      eslint: 8.48.0
-      eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint@8.48.0)
-      has: 1.0.4
-      is-core-module: 2.13.1
-      is-glob: 4.0.3
-      minimatch: 3.1.2
-      object.values: 1.1.7
-      resolve: 1.22.8
-      semver: 6.3.1
-      tsconfig-paths: 3.15.0
-    transitivePeerDependencies:
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - supports-color
-    dev: true
 
   /eslint-plugin-jest@25.7.0(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.48.0)(typescript@5.1.6):
     resolution: {integrity: sha512-PWLUEXeeF7C9QGKqvdSbzLOiLTx+bno7/HC9eefePfEb257QFHg7ye3dh80AZVkaa/RQsBB1Q/ORQvg2X7F0NQ==}
@@ -8540,7 +8470,6 @@ packages:
     resolution: {integrity: sha512-wuMsz4leaj5hbGgg4IvDU0bqJagpftG5l5cXIAvo8uZrqn0NJqwtfupTN00VnkQJPcIRrxYrm1Ue24btpCha2A==}
     dependencies:
       resolve-pkg-maps: 1.0.0
-    dev: false
 
   /giget@1.1.3:
     resolution: {integrity: sha512-zHuCeqtfgqgDwvXlR84UNgnJDuUHQcNI5OqWqFxxuk2BshuKbYhJWdxBsEo4PvKqoGh23lUAIvBNpChMLv7/9Q==}
@@ -11447,7 +11376,6 @@ packages:
 
   /resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
-    dev: false
 
   /resolve@1.22.8:
     resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
@@ -13372,3 +13300,7 @@ packages:
     engines: {node: '>=0.8'}
     hasBin: true
     dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

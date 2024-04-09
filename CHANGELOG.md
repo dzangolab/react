@@ -1,3 +1,50 @@
+# [0.35.0](https://github.com/dzangolab/react/compare/v0.34.0...v0.35.0) (2024-04-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hookform/resolvers to v3.3.4 ([#874](https://github.com/dzangolab/react/issues/874)) ([4ab2529](https://github.com/dzangolab/react/commit/4ab2529e861cb7adf1310c39502c6757f1548133))
+* **deps:** update dependency @reduxjs/toolkit to v1.9.7 ([#875](https://github.com/dzangolab/react/issues/875)) ([c226ab8](https://github.com/dzangolab/react/commit/c226ab849deee0bbce561b2e512e6b77ab584af6))
+* **deps:** update dependency i18next-browser-languagedetector to v7.2.1 ([#878](https://github.com/dzangolab/react/issues/878)) ([acf4cee](https://github.com/dzangolab/react/commit/acf4cee101f460909593a7f4e388782f6244784b))
+* **deps:** update dependency react-redux to v8.1.3 ([#883](https://github.com/dzangolab/react/issues/883)) ([4f74f32](https://github.com/dzangolab/react/commit/4f74f328f0008d94d8ba407ec80c1289fd3155bd))
+* **deps:** update dependency zod to v3.22.4 ([#884](https://github.com/dzangolab/react/issues/884)) ([4841c5d](https://github.com/dzangolab/react/commit/4841c5dff3ee2ad3ae8c93d6f9f8de805ed839f6))
+* **file-upload:** update state of value ([#861](https://github.com/dzangolab/react/issues/861)) ([55d6065](https://github.com/dzangolab/react/commit/55d6065bb5ee0fb324eef498ab1a61794a20fff0))
+* **form/input:** update number input to allow 0 as value ([#842](https://github.com/dzangolab/react/issues/842)) ([4f8880c](https://github.com/dzangolab/react/commit/4f8880cde33a52fa3263d74c1ebe1ab19bd3b14e))
+* **form:** remove outline on focus from readonly input ([#825](https://github.com/dzangolab/react/issues/825)) ([23aac6c](https://github.com/dzangolab/react/commit/23aac6cbefeab40c57e4b067e8f31d279cdad29c))
+* **google-button:** fix width of button ([#849](https://github.com/dzangolab/react/issues/849)) ([041829b](https://github.com/dzangolab/react/commit/041829bdd8bf419218122a277ec378e9973de13c))
+* **invitation:** fix typo ([#832](https://github.com/dzangolab/react/issues/832)) ([7de77a0](https://github.com/dzangolab/react/commit/7de77a0fb00da78d65ccfaef913664d854153f89))
+* **layout:** fix demo layout ([#880](https://github.com/dzangolab/react/issues/880)) ([9883cbc](https://github.com/dzangolab/react/commit/9883cbc6ab8517b769f735e358d45f69639cc9cd))
+* **layout:** fix layout width in mobile view ([#853](https://github.com/dzangolab/react/issues/853)) ([36bd908](https://github.com/dzangolab/react/commit/36bd908464aee00d36e7ce2ec8e1bdc674129321))
+* **profile:** fix the profile button ([#879](https://github.com/dzangolab/react/issues/879)) ([f4821aa](https://github.com/dzangolab/react/commit/f4821aa40cb0fe3adc29550b70ceca81a32e3aed))
+* **select:** remove the selectedOption state ([#891](https://github.com/dzangolab/react/issues/891)) ([27c93bb](https://github.com/dzangolab/react/commit/27c93bb28b4aa5a6f61235a96ea82e6f07eb95d3))
+* **ui/layout:** nav items transitions ([#857](https://github.com/dzangolab/react/issues/857)) ([d0fd7ba](https://github.com/dzangolab/react/commit/d0fd7ba21adfacdc31b4a250def25a21d6308555))
+* **ui/Table:** improve ui and functionality ([6c13654](https://github.com/dzangolab/react/commit/6c13654020aa183c0a7bffed7744a27313be3b53))
+
+
+### Features
+
+* **button:** add border to button ([#846](https://github.com/dzangolab/react/issues/846)) ([feaf675](https://github.com/dzangolab/react/commit/feaf675f450454c450a75e7bb16ba3b34b60fea7))
+* **demo/form-input:** add different modes of input in form input page ([#843](https://github.com/dzangolab/react/issues/843)) ([e6ef02d](https://github.com/dzangolab/react/commit/e6ef02d8cb58dbc012bdc03d9ab53e69944a9228))
+* **demo/ui/table:** add borders examples ([#829](https://github.com/dzangolab/react/issues/829)) ([b2b840b](https://github.com/dzangolab/react/commit/b2b840b9363f244ccc532f7a9752e3254b358b67))
+* **form/date-picker:** add custom formatting for the date in DatePicker component ([#838](https://github.com/dzangolab/react/issues/838)) ([3eec766](https://github.com/dzangolab/react/commit/3eec7662bf800f66e49ce3a9814b52995a4ddb45))
+* **form/input:** add spacing in input widgets ([#841](https://github.com/dzangolab/react/issues/841)) ([0f1dae9](https://github.com/dzangolab/react/commit/0f1dae9ba99e5ed3d36b8399b856dada30b16863))
+* **form/select:** add select component to be used in form ([#876](https://github.com/dzangolab/react/issues/876)) ([9899e19](https://github.com/dzangolab/react/commit/9899e19ab0cdccd0bd96a3eea2c3f8dee6de4f9b))
+* **form:** add new FormActions to use accross application ([#826](https://github.com/dzangolab/react/issues/826)) ([4a78670](https://github.com/dzangolab/react/commit/4a786702a48817ca2353356a41a3bb260a5716bc))
+* **form:** add number input component ([#840](https://github.com/dzangolab/react/issues/840)) ([e334dd3](https://github.com/dzangolab/react/commit/e334dd3c8a0f7fecf5bf143b19557fd36a03c4e7))
+* **form:** add option to hide check mark and green border for valid inputs ([#821](https://github.com/dzangolab/react/issues/821)) ([bf7d7a3](https://github.com/dzangolab/react/commit/bf7d7a31c1680b964873b881ab98bd9baa074e01))
+* **layout:** add noLocaleSwitcher prop for SidebarOnly layout ([#854](https://github.com/dzangolab/react/issues/854)) ([87168eb](https://github.com/dzangolab/react/commit/87168ebfa459bc1d95f5d8ac9ceaa110d559901d))
+* **select:** add placeholder and renderValue prop ([#860](https://github.com/dzangolab/react/issues/860)) ([affdc64](https://github.com/dzangolab/react/commit/affdc64d113f0abcd851f7c2fe2d095b9cc27e52))
+* **ui/Table:** add custom data formatter support ([#831](https://github.com/dzangolab/react/issues/831)) ([9f7f019](https://github.com/dzangolab/react/commit/9f7f019aa13e2be3d4af15831abe8ab83fe6972a))
+* **ui:** add select component ([#859](https://github.com/dzangolab/react/issues/859)) ([0da7913](https://github.com/dzangolab/react/commit/0da79136f7dd4a82da75f30dc39d9997b004a538))
+* **uiTable:** add display option at action item level ([#830](https://github.com/dzangolab/react/issues/830)) ([2403e84](https://github.com/dzangolab/react/commit/2403e8497ae4f5a45e05d1105f851d0bc78892b6))
+* **user/forgotPassword:** add login link after submit button ([#847](https://github.com/dzangolab/react/issues/847)) ([622cde8](https://github.com/dzangolab/react/commit/622cde81e932594c44f0e275e71538725db34982))
+* **user/Login:** fix check mark being visible in login form password… ([#759](https://github.com/dzangolab/react/issues/759)) ([a4eda7d](https://github.com/dzangolab/react/commit/a4eda7df50023dbe44948e9e42ac884d89201e0c))
+* **user:** add `centered` props in all page components in user package ([#851](https://github.com/dzangolab/react/issues/851)) ([7c00824](https://github.com/dzangolab/react/commit/7c0082435092dd4f051bd461bc06a74779d2d23c))
+* **user:** show social login only ([#881](https://github.com/dzangolab/react/issues/881)) ([26ee24d](https://github.com/dzangolab/react/commit/26ee24d8d92d2728b84cdb3da0df6eaabe5d841e))
+* **user:** verify role after successful social login ([#885](https://github.com/dzangolab/react/issues/885)) ([5c1b0a3](https://github.com/dzangolab/react/commit/5c1b0a3fdd0cd688916dae578965c449c5eca70d))
+
+
+
 # [0.34.0](https://github.com/dzangolab/react/compare/v0.33.0...v0.34.0) (2024-02-12)
 
 ### Breaking changes
