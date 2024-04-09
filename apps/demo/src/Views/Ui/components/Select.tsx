@@ -16,12 +16,8 @@ export const SelectDemo = () => {
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
 
-  const renderSelectedValue = (
-    selectedOptions: { value: string; label: string }[],
-  ) => {
-    return (
-      <span>{selectedOptions.map((option) => option.label).join(", ")}</span>
-    );
+  const renderSelectedValue = (selectedOptions: string[]) => {
+    return <span>{selectedOptions.map((option) => option).join(", ")}</span>;
   };
 
   const renderOption = (option: any) => {

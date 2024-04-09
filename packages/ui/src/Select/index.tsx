@@ -20,9 +20,7 @@ interface ISelectProperties<T> {
   value: T[];
   onChange: (newValue: T[]) => void;
   renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (
-    selectedOption: { value: T; label: string }[],
-  ) => React.ReactNode;
+  renderValue?: (selectedValues: string[]) => React.ReactNode;
 }
 
 export const Select = <T extends string | number>({
@@ -41,9 +39,6 @@ export const Select = <T extends string | number>({
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
-  const [selectedOptions, setSelectedOptions] = useState<
-    { value: T; label: string }[]
-  >([]);
   const [focused, setFocused] = useState(false);
 
   useEffect(() => {
@@ -63,31 +58,23 @@ export const Select = <T extends string | number>({
     };
   }, [selectReference]);
 
-  const handleSelectedOption = (option: { value: T; label: string }) => {
+  const handleSelectedOption = (option: T) => {
+    let newValue: T[];
+
     if (!multiple) {
-      onChange([option.value]);
-      setSelectedOptions([option]);
+      newValue = [option];
     } else {
-      const newValue = value.includes(option.value)
-        ? value.filter((value) => value !== option.value)
-        : [...value, option.value];
-      onChange(newValue);
-      setSelectedOptions(
-        newValue.map((value) => options.find((opt) => opt.value === value)!),
-      );
+      newValue = value.includes(option)
+        ? value.filter((value_) => value_ !== option)
+        : [...value, option];
     }
+    onChange(newValue);
   };
 
-  const handleRemoveOption = (
-    option: { value: T; label: string },
-    event: React.MouseEvent,
-  ) => {
+  const handleRemoveOption = (option: T, event: React.MouseEvent) => {
     event.stopPropagation();
-    const updatedOptions = selectedOptions.filter(
-      (opt) => opt.value !== option.value,
-    );
-    onChange(updatedOptions.map((opt) => opt.value));
-    setSelectedOptions(updatedOptions);
+    const updatedOptions = value.filter((value_) => value_ !== option);
+    onChange(updatedOptions);
 
     if (updatedOptions.length === 0) {
       setShowOptions(false);
@@ -105,10 +92,10 @@ export const Select = <T extends string | number>({
     return (
       <div className="select-field-options">
         {options?.map((option, index) => {
-          const { value, label, disabled } = option;
+          const { disabled, label } = option;
           let isChecked = false;
-          selectedOptions.forEach((selected) => {
-            if (selected.value === value) {
+          value.forEach((value_) => {
+            if (value_ === option.value) {
               isChecked = true;
             }
           });
@@ -119,12 +106,12 @@ export const Select = <T extends string | number>({
                 <Checkbox
                   name={label}
                   checked={isChecked}
-                  onChange={() => handleSelectedOption(option)}
+                  onChange={() => handleSelectedOption(option.value)}
                   disabled={disabled}
                 />
               ) : null}
               <span
-                onClick={() => !disabled && handleSelectedOption(option)}
+                onClick={() => !disabled && handleSelectedOption(option.value)}
                 className={disabled ? "disabled" : ""}
               >
                 {renderOption ? renderOption(option) : label}
@@ -139,31 +126,42 @@ export const Select = <T extends string | number>({
   const renderSelect = () => {
     const renderSelectValue = () => {
       if (renderValue) {
-        return renderValue(selectedOptions);
+        const selectedLabels = value.map((value_) => {
+          const option = options.find((opt) => opt.value === value_);
+          return option ? option.label : "";
+        });
+        console.log("khu", selectedLabels);
+        return renderValue(selectedLabels);
       }
 
       return (
         <>
           {multiple ? (
             <div className="selected-options">
-              {selectedOptions.map((option, index) => (
-                <Tag
-                  key={index}
-                  renderContent={() => (
-                    <>
-                      <span>{option.label}</span>
-                      <i
-                        className="pi pi-times"
-                        onClick={(event) => handleRemoveOption(option, event)}
-                      ></i>
-                    </>
-                  )}
-                  rounded
-                />
-              ))}
+              {value.map((value_, index) => {
+                const option = options.find((opt) => opt.value === value_);
+                if (!option) return null;
+                return (
+                  <Tag
+                    key={index}
+                    renderContent={() => (
+                      <>
+                        <span>{option.label}</span>
+                        <i
+                          className="pi pi-times"
+                          onClick={(event) =>
+                            handleRemoveOption(option.value, event)
+                          }
+                        ></i>
+                      </>
+                    )}
+                    rounded
+                  />
+                );
+              })}
             </div>
           ) : (
-            <span>{selectedOptions[0].label}</span>
+            <span>{options.find((opt) => opt.value === value[0])?.label}</span>
           )}
         </>
       );
@@ -184,7 +182,7 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {selectedOptions.length > 0
+        {value.length > 0
           ? renderSelectValue()
           : placeholder && (
               <span className="select-field-placeholder">{placeholder}</span>
