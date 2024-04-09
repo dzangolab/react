@@ -60,12 +60,11 @@ export const Select = <T extends string | number>({
 
   const handleSelectedOption = (option: T) => {
     let newValue: T[];
-
     if (!multiple) {
       newValue = [option];
     } else {
       newValue = value.includes(option)
-        ? value.filter((value_) => value_ !== option)
+        ? value.filter((value) => value !== option)
         : [...value, option];
     }
     onChange(newValue);
@@ -73,7 +72,7 @@ export const Select = <T extends string | number>({
 
   const handleRemoveOption = (option: T, event: React.MouseEvent) => {
     event.stopPropagation();
-    const updatedOptions = value.filter((value_) => value_ !== option);
+    const updatedOptions = value.filter((value) => value !== option);
     onChange(updatedOptions);
 
     if (updatedOptions.length === 0) {
@@ -94,8 +93,8 @@ export const Select = <T extends string | number>({
         {options?.map((option, index) => {
           const { disabled, label } = option;
           let isChecked = false;
-          value.forEach((value_) => {
-            if (value_ === option.value) {
+          value.forEach((value) => {
+            if (value === option.value) {
               isChecked = true;
             }
           });
@@ -126,11 +125,12 @@ export const Select = <T extends string | number>({
   const renderSelect = () => {
     const renderSelectValue = () => {
       if (renderValue) {
-        const selectedLabels = value.map((value_) => {
-          const option = options.find((opt) => opt.value === value_);
+        const selectedLabels = value.map((value) => {
+          const option = options.find((opt) => opt.value === value);
+
           return option ? option.label : "";
         });
-        console.log("khu", selectedLabels);
+
         return renderValue(selectedLabels);
       }
 
@@ -138,9 +138,10 @@ export const Select = <T extends string | number>({
         <>
           {multiple ? (
             <div className="selected-options">
-              {value.map((value_, index) => {
-                const option = options.find((opt) => opt.value === value_);
+              {value.map((value, index) => {
+                const option = options.find((opt) => opt.value === value);
                 if (!option) return null;
+
                 return (
                   <Tag
                     key={index}
