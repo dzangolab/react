@@ -4,6 +4,12 @@ import { useState } from "react";
 
 import { Section } from "../../../components/Demo";
 
+type Option = {
+  value: number | string;
+  label: string;
+  disabled?: boolean;
+};
+
 export const SelectDemo = () => {
   const [t] = useTranslation("ui");
   const [multipleSelectedValues, setMultipleSelectedValues] = useState<
@@ -16,11 +22,16 @@ export const SelectDemo = () => {
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
 
-  const renderSelectedValue = (
-    selectedOptions: { value: string; label: string }[],
-  ) => {
+  const renderSelectedValue = (value?: string[], options?: Option[]) => {
     return (
-      <span>{selectedOptions.map((option) => option.label).join(", ")}</span>
+      <span>
+        {value
+          ?.map(
+            (value_) =>
+              options?.find((option) => option.value === value_)?.label,
+          )
+          .join(", ")}
+      </span>
     );
   };
 

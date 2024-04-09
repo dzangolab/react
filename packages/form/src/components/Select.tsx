@@ -20,7 +20,8 @@ interface ISelect {
   showInvalidState?: boolean;
   renderOption?: (option: Option) => React.ReactNode;
   renderValue?: (
-    selectedOption: { value: string | number; label: string }[],
+    value?: (string | number)[],
+    options?: Option[],
   ) => React.ReactNode;
 }
 
