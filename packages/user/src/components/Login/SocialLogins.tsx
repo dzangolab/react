@@ -23,6 +23,7 @@ export const SocialLogins = () => {
   const renderGoogleLogin = () => {
     return (
       <GoogleLogin
+        key={"google"}
         label={t("login.social.google")}
         redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
       />
