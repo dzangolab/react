@@ -17,7 +17,7 @@
   text-align: center;
   transition: all 0.218s ease-in-out;
   vertical-align: middle;
-  width: auto;
+  width: 100%;
   white-space: nowrap;
   display: flex;
   flex-direction: row;

@@ -7,7 +7,9 @@ import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemail
 
 import { ROUTES } from "../constants";
 import { useConfig, useUser } from "../hooks";
-import { UserType } from "../types";
+import { verifySessionRoles } from "../supertokens/helpers";
+
+import type { UserType } from "../types";
 
 const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
@@ -22,10 +24,21 @@ const AuthGoogleCallback = () => {
 
       if (response.status === "OK") {
         const user: unknown = response.user;
-        await setUser(user as UserType);
-        toast.success(`${t("authGoogleCallback.email.success")}`);
+
+        if (
+          user &&
+          userConfig &&
+          (await verifySessionRoles(userConfig.supportedRoles))
+        ) {
+          await setUser(user as UserType);
+
+          toast.success(`${t("authGoogleCallback.email.success")}`);
+        } else {
+          toast.error(t("login.messages.permissionDenied"));
+        }
       } else {
         toast.error(`${t("authGoogleCallback.email.error")}`);
+
         navigate(loginPath);
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
