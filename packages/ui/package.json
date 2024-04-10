@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@tanstack/react-table": "8.9.3",
+    "@tanstack/react-table": "8.15.3",
     "file-saver": "2.0.5",
     "node-xlsx": "0.23.0",
     "react-debounce-input": "3.3.0",
