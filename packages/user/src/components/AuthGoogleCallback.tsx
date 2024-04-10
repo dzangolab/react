@@ -35,6 +35,8 @@ const AuthGoogleCallback = () => {
           toast.success(`${t("authGoogleCallback.email.success")}`);
         } else {
           toast.error(t("login.messages.permissionDenied"));
+
+          navigate(loginPath);
         }
       } else {
         toast.error(`${t("authGoogleCallback.email.error")}`);
