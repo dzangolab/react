@@ -29,7 +29,7 @@
     "@hookform/resolvers": "3.3.4",
     "react-debounce-input": "3.3.0",
     "react-dropzone": "^14.2.3",
-    "react-hook-form": "7.45.4",
+    "react-hook-form": "7.51.2",
     "validator": "13.9.0",
     "zod": "3.22.4"
   },
