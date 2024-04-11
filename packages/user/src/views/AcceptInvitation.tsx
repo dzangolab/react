@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { login } from "..";
+
 import { acceptInvitation, getInvitationByToken } from "@/api/invitation";
 import SignupForm from "@/components/SignupForm";
 import { useConfig, useUser } from "@/hooks";
 import { Invitation, LoginCredentials } from "@/types";
-
-import { login } from "..";
 
 export const AcceptInvitation = ({
   centered = true,
@@ -120,6 +120,7 @@ export const AcceptInvitation = ({
 
     return (
       <AuthFormWrapper
+        className="accept-invitation"
         form={
           <SignupForm
             key={invitation.id}
