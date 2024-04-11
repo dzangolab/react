@@ -44,7 +44,7 @@
     "@types/react-test-renderer": "18.0.7",
     "@types/validator": "13.7.17",
     "@vitejs/plugin-react": "4.2.1",
-    "@vitest/coverage-v8": "1.2.1",
+    "@vitest/coverage-v8": "1.4.0",
     "eslint": "8.57.0",
     "eslint-config-custom": "0.35.0",
     "eslint-plugin-react": "7.33.2",
@@ -57,7 +57,7 @@
     "tsconfig": "0.35.0",
     "typescript": "5.4.4",
     "vite": "5.2.8",
-    "vitest": "1.2.1"
+    "vitest": "1.4.0"
   },
   "peerDependencies": {
     "@dzangolab/react-ui": "0.35.0",
