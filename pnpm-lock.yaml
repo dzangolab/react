@@ -375,8 +375,8 @@ importers:
         specifier: 4.6.2
         version: 4.6.2
       i18next-resources-to-backend:
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 1.2.1
+        version: 1.2.1
       primereact:
         specifier: 9.6.1
         version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
@@ -8944,8 +8944,8 @@ packages:
       '@babel/runtime': 7.23.6
     dev: false
 
-  /i18next-resources-to-backend@1.2.0:
-    resolution: {integrity: sha512-8f1l03s+QxDmCfpSXCh9V+AFcxAwIp0UaroWuyOx+hmmv8484GcELHs+lnu54FrNij8cDBEXvEwhzZoXsKcVpg==}
+  /i18next-resources-to-backend@1.2.1:
+    resolution: {integrity: sha512-okHbVA+HZ7n1/76MsfhPqDou0fptl2dAlhRDu2ideXloRRduzHsqDOznJBef+R3DFZnbvWoBW+KxJ7fnFjd6Yw==}
     dependencies:
       '@babel/runtime': 7.23.6
     dev: false
