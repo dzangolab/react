@@ -27,7 +27,7 @@
     "storybook": "7.6.17",
     "typescript": "5.4.4",
     "vite": "5.2.8",
-    "webpack": "5.88.2"
+    "webpack": "5.91.0"
   },
   "keywords": [],
   "author": "Kiran Ojha",
