@@ -1,4 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { AuthFormWrapper } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -66,7 +67,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   const renderLinks = () => {
     return (
-      <div className="links">
+      <>
         {showLoginLink && (
           <Link
             to={userConfig?.routes?.login?.path || ROUTES.LOGIN}
@@ -86,17 +87,20 @@ export const SignupWrapper: React.FC<IProperties> = ({
             {t("signup.links.forgotPassword")}
           </Link>
         )}
-      </div>
+      </>
     );
   };
 
   return (
-    <div className="signup-wrapper">
-      <SignupForm
-        handleSubmit={handleSignupSubmit}
-        loading={handleSubmit ? loading : signupLoading}
-      />
-      {renderLinks()}
-    </div>
+    <AuthFormWrapper
+      className="signup"
+      formElement={
+        <SignupForm
+          handleSubmit={handleSignupSubmit}
+          loading={handleSubmit ? loading : signupLoading}
+        />
+      }
+      links={renderLinks()}
+    />
   );
 };
