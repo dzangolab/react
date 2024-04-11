@@ -1,3 +1,17 @@
+## [0.35.1](https://github.com/dzangolab/react/compare/v0.35.0...v0.35.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-table to v8.15.3 ([#903](https://github.com/dzangolab/react/issues/903)) ([8c9cd9b](https://github.com/dzangolab/react/commit/8c9cd9bc98439351bd57b3cf74a2e149d447e393))
+* **deps:** update dependency eslint-plugin-import to v2.29.1 ([#904](https://github.com/dzangolab/react/issues/904)) ([1e979d8](https://github.com/dzangolab/react/commit/1e979d85b2ab9e3b95f0dccc5efd2453821b0397))
+* **deps:** update dependency eslint-plugin-prettier to v5.1.3 ([#907](https://github.com/dzangolab/react/issues/907)) ([82946ec](https://github.com/dzangolab/react/commit/82946ecbbacb3658b648b58a7b7205ee4ac0ce45))
+* **deps:** update dependency i18next-resources-to-backend to v1.2.1 ([#906](https://github.com/dzangolab/react/issues/906)) ([6c73abf](https://github.com/dzangolab/react/commit/6c73abf55f117542388a42dc1f125c001d80df30))
+* **form:** fix type ([#895](https://github.com/dzangolab/react/issues/895)) ([915aba9](https://github.com/dzangolab/react/commit/915aba936cdf2daa8074b08acc270f2825c30e19))
+* navigation upon verification failure ([#900](https://github.com/dzangolab/react/issues/900)) ([2e58011](https://github.com/dzangolab/react/commit/2e5801103b7dd941d9371b6e803b4eb81c6433f0))
+
+
+
 # [0.35.0](https://github.com/dzangolab/react/compare/v0.34.0...v0.35.0) (2024-04-09)
 
 
