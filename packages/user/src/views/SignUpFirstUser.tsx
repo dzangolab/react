@@ -1,18 +1,18 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { AuthFormWrapper, Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { login } from "..";
+
+import type { LoginCredentials } from "@/types";
+
 import { getIsFirstUser, signUpFirstUser } from "@/api/user";
 import SignupForm from "@/components/SignupForm";
 import { ROUTES } from "@/constants";
 import { useConfig, useUser } from "@/hooks";
-
-import { login } from "..";
-
-import type { LoginCredentials } from "@/types";
 
 export const SignUpFirstUser = ({
   centered = true,
@@ -90,10 +90,15 @@ export const SignUpFirstUser = ({
     }
 
     return (
-      <SignupForm
-        email={""}
-        handleSubmit={handleSubmit}
-        loading={signUpFirstUserLoading}
+      <AuthFormWrapper
+        className="signup-first-user"
+        form={
+          <SignupForm
+            email={""}
+            handleSubmit={handleSubmit}
+            loading={signUpFirstUserLoading}
+          />
+        }
       />
     );
   };

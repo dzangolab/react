@@ -103,7 +103,7 @@ export const LoginWrapper: FC<IProperties> = ({
     <>
       <AuthFormWrapper
         className="login"
-        formElement={
+        form={
           <LoginForm
             handleSubmit={handleLoginSubmit}
             loading={handleSubmit ? loading : loginLoading}

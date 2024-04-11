@@ -1,5 +1,6 @@
 import { Form, FormActions, Password } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { AuthFormWrapper } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
 
@@ -37,31 +38,35 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
       },
     );
 
-  return (
-    <Form
-      validationSchema={ResetPasswordFormSchema}
-      onSubmit={(data) => handleSubmit(data.password)}
-    >
-      <Password
-        label={t("resetPassword.form.newPassword.label")}
-        name="password"
-      />
-      <Password
-        label={t("resetPassword.form.confirmPassword.label")}
-        name="confirmPassword"
-      />
-      <FormActions
-        actions={[
-          {
-            id: "submit",
-            label: t("resetPassword.form.actions.submit"),
-          },
-        ]}
-        loading={loading}
-        alignment="fill"
-      />
-    </Form>
-  );
+  const renderForm = () => {
+    return (
+      <Form
+        validationSchema={ResetPasswordFormSchema}
+        onSubmit={(data) => handleSubmit(data.password)}
+      >
+        <Password
+          label={t("resetPassword.form.newPassword.label")}
+          name="password"
+        />
+        <Password
+          label={t("resetPassword.form.confirmPassword.label")}
+          name="confirmPassword"
+        />
+        <FormActions
+          actions={[
+            {
+              id: "submit",
+              label: t("resetPassword.form.actions.submit"),
+            },
+          ]}
+          loading={loading}
+          alignment="fill"
+        />
+      </Form>
+    );
+  };
+
+  return <AuthFormWrapper form={renderForm()} className="reset-password" />;
 };
 
 export default ResetPasswordForm;

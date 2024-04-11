@@ -1,5 +1,6 @@
 import { Provider, AdditionalFormFields } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { AuthFormWrapper } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { z } from "zod";
@@ -62,16 +63,22 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
     ...additionalProfileFields?.defaultValues,
   };
 
-  return (
-    <Provider
-      validationSchema={profileValidationSchema}
-      onSubmit={handleSubmit}
-      values={formValues}
-    >
-      <ProfileFormFields
-        submitting={submitting}
-        additionalProfileFields={additionalProfileFields}
-      />
-    </Provider>
-  );
+  const renderForm = () => {
+    return (
+      <>
+        <Provider
+          validationSchema={profileValidationSchema}
+          onSubmit={handleSubmit}
+          values={formValues}
+        >
+          <ProfileFormFields
+            submitting={submitting}
+            additionalProfileFields={additionalProfileFields}
+          />
+        </Provider>
+      </>
+    );
+  };
+
+  return <AuthFormWrapper form={renderForm()} className="profile" />;
 };

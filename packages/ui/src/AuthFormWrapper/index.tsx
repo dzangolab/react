@@ -2,13 +2,13 @@ import { HTMLAttributes } from "react";
 
 interface IProperties extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  formElement: React.ReactNode;
+  form: React.ReactNode;
   links?: React.ReactNode;
 }
 
 export const AuthFormWrapper = ({
   className,
-  formElement,
+  form,
   links,
   ...otherProperties
 }: IProperties) => {
@@ -20,7 +20,7 @@ export const AuthFormWrapper = ({
 
   return (
     <div className={wrapperClassName} {...otherProperties}>
-      {formElement}
+      {form}
       {links ? <div className="links">{links}</div> : null}
     </div>
   );

@@ -1,5 +1,6 @@
 import { Form, FormActions, Password } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { AuthFormWrapper } from "@dzangolab/react-ui";
 import React from "react";
 import * as zod from "zod";
 
@@ -40,36 +41,40 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
       },
     );
 
-  return (
-    <Form
-      validationSchema={ChangePasswordFormSchema}
-      onSubmit={(data) => handleSubmit(data.oldPassword, data.password)}
-    >
-      <Password
-        label={t("changePassword.form.oldPassword.label")}
-        name="oldPassword"
-      />
-      <Password
-        label={t("changePassword.form.newPassword.label")}
-        name="password"
-      />
-      <Password
-        label={t("changePassword.form.confirmPassword.label")}
-        name="confirmPassword"
-      />
+  const renderForm = () => {
+    return (
+      <Form
+        validationSchema={ChangePasswordFormSchema}
+        onSubmit={(data) => handleSubmit(data.oldPassword, data.password)}
+      >
+        <Password
+          label={t("changePassword.form.oldPassword.label")}
+          name="oldPassword"
+        />
+        <Password
+          label={t("changePassword.form.newPassword.label")}
+          name="password"
+        />
+        <Password
+          label={t("changePassword.form.confirmPassword.label")}
+          name="confirmPassword"
+        />
 
-      <FormActions
-        actions={[
-          {
-            id: "submit",
-            label: t("changePassword.form.actions.submit"),
-          },
-        ]}
-        loading={loading}
-        alignment="fill"
-      />
-    </Form>
-  );
+        <FormActions
+          actions={[
+            {
+              id: "submit",
+              label: t("changePassword.form.actions.submit"),
+            },
+          ]}
+          loading={loading}
+          alignment="fill"
+        />
+      </Form>
+    );
+  };
+
+  return <AuthFormWrapper className="change-password" form={renderForm()} />;
 };
 
 export default ChangePasswordForm;

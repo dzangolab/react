@@ -94,7 +94,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
   return (
     <AuthFormWrapper
       className="signup"
-      formElement={
+      form={
         <SignupForm
           handleSubmit={handleSignupSubmit}
           loading={handleSubmit ? loading : signupLoading}

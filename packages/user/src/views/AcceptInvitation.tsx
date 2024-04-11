@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { AuthFormWrapper, Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -119,11 +119,15 @@ export const AcceptInvitation = ({
     }
 
     return (
-      <SignupForm
-        key={invitation.id}
-        email={invitation.email || ""}
-        handleSubmit={handleSubmit}
-        loading={acceptInvitationLoading}
+      <AuthFormWrapper
+        form={
+          <SignupForm
+            key={invitation.id}
+            email={invitation.email || ""}
+            handleSubmit={handleSubmit}
+            loading={acceptInvitationLoading}
+          />
+        }
       />
     );
   };
