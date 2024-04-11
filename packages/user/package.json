@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-user",
-  "version": "0.35.0",
+  "version": "0.35.1",
   "description": "React User Plugin",
   "exports": {
     ".": {
@@ -30,11 +30,11 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@dzangolab/react-config": "0.35.0",
-    "@dzangolab/react-form": "0.35.0",
-    "@dzangolab/react-i18n": "0.35.0",
-    "@dzangolab/react-layout": "0.35.0",
-    "@dzangolab/react-ui": "0.35.0",
+    "@dzangolab/react-config": "0.35.1",
+    "@dzangolab/react-form": "0.35.1",
+    "@dzangolab/react-i18n": "0.35.1",
+    "@dzangolab/react-layout": "0.35.1",
+    "@dzangolab/react-ui": "0.35.1",
     "@testing-library/dom": "9.3.4",
     "@testing-library/react": "14.3.0",
     "@testing-library/user-event": "14.5.2",
@@ -47,7 +47,7 @@
     "@vitest/coverage-v8": "1.4.0",
     "axios": "1.6.8",
     "eslint": "8.57.0",
-    "eslint-config-custom": "0.35.0",
+    "eslint-config-custom": "0.35.1",
     "eslint-plugin-react": "7.33.2",
     "jsdom": "22.1.0",
     "prettier": "3.2.5",
@@ -58,16 +58,16 @@
     "react-router-dom": "6.22.3",
     "react-test-renderer": "18.2.0",
     "react-toastify": "10.0.5",
-    "tsconfig": "0.35.0",
+    "tsconfig": "0.35.1",
     "typescript": "5.4.5",
     "vite": "5.2.8",
     "vitest": "1.4.0"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.35.0",
-    "@dzangolab/react-i18n": "0.35.0",
-    "@dzangolab/react-layout": "0.35.0",
-    "@dzangolab/react-ui": "0.35.0",
+    "@dzangolab/react-config": "0.35.1",
+    "@dzangolab/react-i18n": "0.35.1",
+    "@dzangolab/react-layout": "0.35.1",
+    "@dzangolab/react-ui": "0.35.1",
     "axios": "1.6.8",
     "primeicons": "6.0.1",
     "primereact": "9.6.1",
