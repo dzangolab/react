@@ -12,6 +12,7 @@ import login from "../../supertokens/login";
 import type { LoginCredentials, SignInUpPromise } from "../../types";
 
 interface IProperties {
+  getLinks?: (links: React.ReactNode) => void;
   handleSubmit?: (credential: LoginCredentials) => void;
   onLoginFailed?: (error: Error) => void;
   onLoginSuccess?: (user: SignInUpPromise) => void;
@@ -21,6 +22,7 @@ interface IProperties {
 }
 
 export const LoginWrapper: FC<IProperties> = ({
+  getLinks,
   handleSubmit,
   onLoginFailed,
   onLoginSuccess,
@@ -98,13 +100,17 @@ export const LoginWrapper: FC<IProperties> = ({
     );
   };
 
+  if (getLinks) {
+    getLinks(renderLinks());
+  }
+
   return (
     <div className="login-wrapper">
       <LoginForm
         handleSubmit={handleLoginSubmit}
         loading={handleSubmit ? loading : loginLoading}
       />
-      {renderLinks()}
+      {!!getLinks || renderLinks()}
     </div>
   );
 };

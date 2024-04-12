@@ -17,6 +17,7 @@ import { GoogleButton } from "./SSOButtons";
 import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
 
+export * from "./AuthPage";
 export * from "./Buttons";
 export * from "./DataTable";
 export * from "./FilesTable";

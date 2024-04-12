@@ -1,5 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
+import { AuthPage } from "@dzangolab/react-ui";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { LoginWrapper, SocialLogins } from "../components/Login";
@@ -33,6 +35,7 @@ export const Login: React.FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const appConfig = useConfig();
   const navigate = useNavigate();
+  const [links, setLinks] = useState<React.ReactNode>();
 
   const [redirecting] = useFirstUserSignup({
     appConfig,
@@ -74,24 +77,45 @@ export const Login: React.FC<IProperties> = ({
     );
   };
 
+  const getLinks = (_links: React.ReactNode) => {
+    setLinks(_links);
+  };
+
   return (
-    <Page
-      title={t("login.title")}
+    <AuthPage
       className={className}
-      data-aria-orientation={orientation}
+      title={t("login.title")}
+      // links={links}
       loading={!!redirecting}
-      centered={centered}
-    >
-      {socialLoginOnly ? null : (
+      form={
         <LoginWrapper
           onLoginFailed={onLoginFailed}
           onLoginSuccess={onLoginSuccess}
           showForgotPasswordLink={showForgotPasswordLink}
           showSignupLink={showSignupLink}
+          // getLinks={getLinks}
         />
-      )}
-
+      }
+    >
       {renderSocialLogins()}
-    </Page>
+    </AuthPage>
+    // <Page
+    //   title={t("login.title")}
+    //   className={className}
+    //   data-aria-orientation={orientation}
+    //   loading={!!redirecting}
+    //   centered={centered}
+    // >
+    //   {socialLoginOnly ? null : (
+    //     <LoginWrapper
+    //       onLoginFailed={onLoginFailed}
+    //       onLoginSuccess={onLoginSuccess}
+    //       showForgotPasswordLink={showForgotPasswordLink}
+    //       showSignupLink={showSignupLink}
+    //       // getLinks={getLinks}
+    //     />
+    //   )}
+
+    // </Page>
   );
 };

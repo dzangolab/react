@@ -27,14 +27,17 @@ export const Signup: React.FC<IProperties> = ({
   };
 
   return (
-    <Page className="signup" title={t("signup.title")} centered={centered}>
-      <SignupWrapper
-        onSignupFailed={onSignupFailed}
-        onSignupSuccess={onSignupSuccess}
-        showForgotPasswordLink={showForgotPasswordLink}
-        showLoginLink={showLoginLink}
-        getLinks={getLinks}
-      />
-    </Page>
+    <>
+      {/* <AuthPage */}
+      <Page className="signup" title={t("signup.title")} centered={centered}>
+        <SignupWrapper
+          onSignupFailed={onSignupFailed}
+          onSignupSuccess={onSignupSuccess}
+          showForgotPasswordLink={showForgotPasswordLink}
+          showLoginLink={showLoginLink}
+          getLinks={getLinks}
+        />
+      </Page>
+    </>
   );
 };

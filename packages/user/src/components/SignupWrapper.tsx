@@ -11,7 +11,7 @@ import signup from "../supertokens/signup";
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
 interface IProperties {
-  getLinks?: (links: React.ReactNode) => React.ReactNode;
+  getLinks?: (links: React.ReactNode) => void;
   handleSubmit?: (credentials: LoginCredentials) => void;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;

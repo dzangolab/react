@@ -4,11 +4,11 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { z } from "zod";
 
+import { ProfileFormFields } from "./ProfileFormFields";
+
 import { updateUserProfile } from "@/api/user";
 import { useConfig, useUser } from "@/hooks";
 import { UpdateProfileInputType } from "@/types";
-
-import { ProfileFormFields } from "./ProfileFormFields";
 
 interface Properties {
   additionalProfileFields?: AdditionalFormFields;
