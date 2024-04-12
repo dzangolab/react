@@ -17,10 +17,10 @@ interface ISelectProperties<T> {
   name: string;
   options: Option<T>[];
   placeholder?: string;
-  value: T[];
-  onChange: (newValue: T[]) => void;
+  value: T | T[];
+  onChange: (newValue: T | T[]) => void;
   renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (value?: T[], options?: Option<T>[]) => React.ReactNode;
+  renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
 }
 
 export const Select = <T extends string | number>({
@@ -59,24 +59,26 @@ export const Select = <T extends string | number>({
   }, [selectReference]);
 
   const handleSelectedOption = (option: T) => {
-    let newValue: T[];
-    if (!multiple) {
-      newValue = [option];
-    } else {
+    let newValue: T | T[];
+    if (multiple && Array.isArray(value)) {
       newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
+    } else {
+      newValue = option;
     }
     onChange(newValue);
   };
 
   const handleRemoveOption = (option: T, event: React.MouseEvent) => {
     event.stopPropagation();
-    const updatedOptions = value.filter((_value) => _value !== option);
-    onChange(updatedOptions);
+    if (Array.isArray(value)) {
+      const updatedOptions = value.filter((_value) => _value !== option);
+      onChange(updatedOptions);
 
-    if (updatedOptions.length === 0) {
-      setShowOptions(false);
+      if (updatedOptions.length === 0) {
+        setShowOptions(false);
+      }
     }
   };
 
@@ -93,11 +95,12 @@ export const Select = <T extends string | number>({
         {options?.map((option, index) => {
           const { disabled, label } = option;
           let isChecked = false;
-          value.forEach((_value) => {
-            if (_value === option.value) {
-              isChecked = true;
-            }
-          });
+          Array.isArray(value) &&
+            value.forEach((_value) => {
+              if (_value === option.value) {
+                isChecked = true;
+              }
+            });
 
           return (
             <div key={index} className="option">
@@ -122,15 +125,21 @@ export const Select = <T extends string | number>({
     );
   };
 
-  const renderSelect = () => {
-    const renderSelectValue = () => {
-      if (renderValue) {
-        return renderValue(value, options);
-      }
+  const renderPlaceholder = () => {
+    return (
+      <>
+        {placeholder && (
+          <span className="select-field-placeholder">{placeholder}</span>
+        )}
+      </>
+    );
+  };
 
+  const renderSelect = () => {
+    const renderMultiSelectValue = () => {
       return (
         <>
-          {multiple ? (
+          {Array.isArray(value) && value.length > 0 ? (
             <div className="selected-options">
               {value.map((_value, index) => {
                 const option = options.find((opt) => opt.value === _value);
@@ -156,9 +165,23 @@ export const Select = <T extends string | number>({
               })}
             </div>
           ) : (
-            <span>{options.find((opt) => opt.value === value[0])?.label}</span>
+            renderPlaceholder()
           )}
         </>
+      );
+    };
+
+    const renderSingleSelectValue = () => {
+      return <span>{options.find((opt) => opt.value === value)?.label}</span>;
+    };
+
+    const renderSelectValue = () => {
+      if (renderValue) {
+        return renderValue(value, options);
+      }
+
+      return (
+        <>{multiple ? renderMultiSelectValue() : renderSingleSelectValue()}</>
       );
     };
 
@@ -177,11 +200,7 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {value.length > 0
-          ? renderSelectValue()
-          : placeholder && (
-              <span className="select-field-placeholder">{placeholder}</span>
-            )}
+        {renderSelectValue()}
         <span
           className="select-menu-toggle"
           onClick={() => {
