@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@dzangolab/react-ui": "0.35.1",
-    "i18next": "23.7.18",
+    "i18next": "23.11.1",
     "i18next-browser-languagedetector": "7.2.1",
     "i18next-chained-backend": "4.6.2",
     "i18next-resources-to-backend": "1.2.1",
@@ -47,7 +47,7 @@
     "@vitest/coverage-v8": "1.4.0",
     "eslint": "8.57.0",
     "eslint-config-custom": "0.35.1",
-    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react": "7.34.1",
     "prettier": "3.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",

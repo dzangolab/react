@@ -29,7 +29,7 @@
     "@hookform/resolvers": "3.3.4",
     "react-debounce-input": "3.3.0",
     "react-dropzone": "^14.2.3",
-    "react-hook-form": "7.45.4",
+    "react-hook-form": "7.51.2",
     "validator": "13.9.0",
     "zod": "3.22.4"
   },
@@ -47,7 +47,7 @@
     "@vitest/coverage-v8": "1.4.0",
     "eslint": "8.57.0",
     "eslint-config-custom": "0.35.1",
-    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react": "7.34.1",
     "jsdom": "22.1.0",
     "prettier": "3.2.5",
     "primereact": "9.6.1",
