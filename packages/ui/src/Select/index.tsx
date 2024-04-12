@@ -125,63 +125,52 @@ export const Select = <T extends string | number>({
     );
   };
 
-  const renderPlaceholder = () => {
-    return (
-      <>
-        {placeholder && (
-          <span className="select-field-placeholder">{placeholder}</span>
-        )}
-      </>
-    );
+  const hasValue = () => {
+    if ((Array.isArray(value) && !value.length) || !value) {
+      return false;
+    }
+
+    return true;
   };
 
   const renderSelect = () => {
-    const renderMultiSelectValue = () => {
-      return (
-        <>
-          {Array.isArray(value) && value.length > 0 ? (
-            <div className="selected-options">
-              {value.map((_value, index) => {
-                const option = options.find((opt) => opt.value === _value);
-                if (!option) return null;
-
-                return (
-                  <Tag
-                    key={index}
-                    renderContent={() => (
-                      <>
-                        <span>{option.label}</span>
-                        <i
-                          className="pi pi-times"
-                          onClick={(event) =>
-                            handleRemoveOption(option.value, event)
-                          }
-                        ></i>
-                      </>
-                    )}
-                    rounded
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            renderPlaceholder()
-          )}
-        </>
-      );
-    };
-
-    const renderSingleSelectValue = () => {
-      return <span>{options.find((opt) => opt.value === value)?.label}</span>;
-    };
-
     const renderSelectValue = () => {
       if (renderValue) {
         return renderValue(value, options);
       }
 
       return (
-        <>{multiple ? renderMultiSelectValue() : renderSingleSelectValue()}</>
+        <>
+          {multiple ? (
+            <div className="selected-options">
+              {Array.isArray(value) &&
+                value.map((_value, index) => {
+                  const option = options.find((opt) => opt.value === _value);
+                  if (!option) return null;
+
+                  return (
+                    <Tag
+                      key={index}
+                      renderContent={() => (
+                        <>
+                          <span>{option.label}</span>
+                          <i
+                            className="pi pi-times"
+                            onClick={(event) =>
+                              handleRemoveOption(option.value, event)
+                            }
+                          ></i>
+                        </>
+                      )}
+                      rounded
+                    />
+                  );
+                })}
+            </div>
+          ) : (
+            <span>{options.find((opt) => opt.value === value)?.label}</span>
+          )}
+        </>
       );
     };
 
@@ -200,7 +189,11 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {renderSelectValue()}
+        {hasValue()
+          ? renderSelectValue()
+          : placeholder && (
+              <span className="select-field-placeholder">{placeholder}</span>
+            )}
         <span
           className="select-menu-toggle"
           onClick={() => {
