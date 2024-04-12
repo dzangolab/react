@@ -57,7 +57,15 @@ export const PageDemo = () => {
       <Page
         title={t("page.title.complete")}
         titleTag={<Tag label={t("page.heading.tag")} />}
-        toolbar={<Button label={t("page.toolbar.button.label")} />}
+        toolbar={
+          <>
+            <Button
+              severity="secondary"
+              label={t("page.toolbar.button.label")}
+            />
+            <Button label={t("page.toolbar.edit")} />
+          </>
+        }
         subtitle={<Tag label={t("page.subTitle.tag")} />}
         children={PageContent}
         breadcrumb={breadcrumb}
