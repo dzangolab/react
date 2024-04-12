@@ -22,6 +22,10 @@ export const Signup: React.FC<IProperties> = ({
 }) => {
   const { t } = useTranslation("user");
 
+  const getLinks = (links: React.ReactNode) => {
+    return links;
+  };
+
   return (
     <Page className="signup" title={t("signup.title")} centered={centered}>
       <SignupWrapper
@@ -29,6 +33,7 @@ export const Signup: React.FC<IProperties> = ({
         onSignupSuccess={onSignupSuccess}
         showForgotPasswordLink={showForgotPasswordLink}
         showLoginLink={showLoginLink}
+        getLinks={getLinks}
       />
     </Page>
   );
