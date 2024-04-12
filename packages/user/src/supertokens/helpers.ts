@@ -1,8 +1,8 @@
 import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
-import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
 import logout from "./logout";
+import UserRoleClaim from "./UserRoleClaim";
 import { removeUserData } from "../helpers";
 
 /**
@@ -59,7 +59,7 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
       return true;
     } else {
       // all user roles claim check failed
-      await removeUserData();
+      removeUserData();
       await logout();
     }
   }
