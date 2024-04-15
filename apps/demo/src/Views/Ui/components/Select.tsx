@@ -13,29 +13,33 @@ type Option = {
 export const SelectDemo = () => {
   const [t] = useTranslation("ui");
   const [multipleSelectedValues, setMultipleSelectedValues] = useState<
-    string[]
+    string | string[]
   >([]);
-  const [singleSelectedValues, setSingleSelectedValues] = useState<number[]>(
-    [],
-  );
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
-  const [renderedValue, setRenderedValue] = useState<string[]>([]);
-  const [renderedOption, setRenderedOption] = useState<string[]>([]);
+  const [singleSelectedValues, setSingleSelectedValues] = useState<
+    number | number[]
+  >(0);
+  const [selectedValues, setSelectedValues] = useState<string | string[]>([]);
+  const [renderedValue, setRenderedValue] = useState<string | string[]>([]);
+  const [renderedOption, setRenderedOption] = useState<string | string[]>([]);
 
-  const renderSelectedValue = (value?: string[], options?: Option[]) => {
+  const renderSelectedValue = (
+    value?: string | string[],
+    options?: Option[],
+  ) => {
     return (
       <span>
-        {value
-          ?.map(
-            (value_) =>
-              options?.find((option) => option.value === value_)?.label,
-          )
-          .join(", ")}
+        {Array.isArray(value) &&
+          value
+            ?.map(
+              (value_) =>
+                options?.find((option) => option.value === value_)?.label,
+            )
+            .join(", ")}
       </span>
     );
   };
 
-  const renderOption = (option: any) => {
+  const renderOption = (option: Option) => {
     return (
       <div>
         <i className="pi pi-user"></i>
@@ -56,7 +60,9 @@ export const SelectDemo = () => {
             { value: 27, label: "option 3" },
           ]}
           value={singleSelectedValues}
-          onChange={(value: number[]) => setSingleSelectedValues(value)}
+          onChange={(value: number | number[]) =>
+            setSingleSelectedValues(value)
+          }
           placeholder={t("select.placeHolder")}
         />
       </Section>
@@ -78,7 +84,9 @@ export const SelectDemo = () => {
           ]}
           multiple={true}
           value={multipleSelectedValues}
-          onChange={(value: string[]) => setMultipleSelectedValues(value)}
+          onChange={(value: string | string[]) =>
+            setMultipleSelectedValues(value)
+          }
           placeholder={t("select.placeHolder")}
         />
       </Section>
@@ -93,7 +101,7 @@ export const SelectDemo = () => {
             { value: "AR", label: "AR" },
           ]}
           value={selectedValues}
-          onChange={(value: string[]) => setSelectedValues(value)}
+          onChange={(value: string | string[]) => setSelectedValues(value)}
           hasError={true}
           errorMessage="Required field"
           placeholder={t("select.placeHolder")}
@@ -111,7 +119,7 @@ export const SelectDemo = () => {
             { value: "RE", label: "RE" },
           ]}
           value={renderedValue}
-          onChange={(value: string[]) => setRenderedValue(value)}
+          onChange={(value: string | string[]) => setRenderedValue(value)}
           renderValue={renderSelectedValue}
           multiple
           placeholder={t("select.placeHolder")}
@@ -127,7 +135,7 @@ export const SelectDemo = () => {
             { value: "SA", label: "option 3" },
           ]}
           value={renderedOption}
-          onChange={(value: string[]) => setRenderedOption(value)}
+          onChange={(value: string | string[]) => setRenderedOption(value)}
           renderOption={renderOption}
           multiple
           placeholder={t("select.placeHolder")}
