@@ -1,15 +1,19 @@
 .dz-auth-page {
   --_auth-page-gap: var(--dz-auth-page-gap, 2rem);
-  align-items: center;
   display: flex;
   flex-direction: column;
   gap: var(--_auth-page-gap);
+}
+
+.dz-auth-page[data-centered="true"] {
+  align-items: center;
 }
 
 .dz-auth-page > .dz-auth-page-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-width: fit-content;
 }
 
 .dz-auth-page > .dz-auth-page-content > .links {

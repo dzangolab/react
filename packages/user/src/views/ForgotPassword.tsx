@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Page } from "@dzangolab/react-ui";
+import { AuthPage } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -45,6 +45,7 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
         <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
       }
       links={renderLinks()}
+      centered={centered}
       className="forgot-password"
       title={t("forgotPassword.title")}
     />

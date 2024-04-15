@@ -1,6 +1,6 @@
-import { LoadingPage } from "..";
-
 import { LoadingPageProperties } from "@/LoadingPage";
+
+import { LoadingPage } from "..";
 
 interface IProperties {
   title?: string;
@@ -8,7 +8,7 @@ interface IProperties {
   loadingComponent?: React.ReactNode;
   loadingPageStyle?: LoadingPageProperties;
   errorMessage?: string;
-  form: React.ReactNode;
+  form?: React.ReactNode;
   links?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
@@ -56,6 +56,14 @@ export const AuthPage = ({
     return <h1 className="dz-auth-page-header">{title}</h1>;
   };
 
+  const renderForm = () => {
+    if (!form) {
+      return null;
+    }
+
+    return form;
+  };
+
   const renderLinks = () => {
     if (!links) {
       return null;
@@ -65,13 +73,13 @@ export const AuthPage = ({
   };
 
   return (
-    <div className={pageClassName}>
+    <div className={pageClassName} data-centered={centered}>
       {renderTitle()}
       {child ? (
         child
       ) : (
         <div className="dz-auth-page-content">
-          {form}
+          {renderForm()}
           {renderLinks()}
           {children}
         </div>
