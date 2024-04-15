@@ -18,7 +18,7 @@ export const SelectDemo = () => {
   const [singleSelectedValues, setSingleSelectedValues] = useState<
     number | number[]
   >(0);
-  const [selectedValues, setSelectedValues] = useState<string | string[]>([]);
+  const [selectedValue, setSelectedValue] = useState<string | string[]>("");
   const [renderedValue, setRenderedValue] = useState<string | string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string | string[]>([]);
 
@@ -100,8 +100,8 @@ export const SelectDemo = () => {
             { value: "BE", label: "BE" },
             { value: "AR", label: "AR" },
           ]}
-          value={selectedValues}
-          onChange={(value: string | string[]) => setSelectedValues(value)}
+          value={selectedValue}
+          onChange={(value: string | string[]) => setSelectedValue(value)}
           hasError={true}
           errorMessage="Required field"
           placeholder={t("select.placeHolder")}
