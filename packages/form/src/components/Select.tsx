@@ -53,7 +53,7 @@ export const Select: React.FC<ISelect> = ({
     <Controller
       name={name}
       control={control}
-      defaultValue={[]}
+      defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
           label={label}
