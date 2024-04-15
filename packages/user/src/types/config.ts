@@ -16,7 +16,7 @@ interface DzangolabReactUserConfig {
   features?: {
     signUp?: {
       emailVerification: boolean;
-      mandateProfileUpdate: boolean;
+      profileCompletionRequired: boolean;
     };
   };
 }
