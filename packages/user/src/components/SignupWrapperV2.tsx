@@ -15,7 +15,6 @@ interface IProperties {
 }
 
 export const SignupWrapperV2: React.FC<IProperties> = ({
-  handleSubmit,
   onSignupFailed,
   onSignupSuccess,
 }) => {
@@ -24,35 +23,31 @@ export const SignupWrapperV2: React.FC<IProperties> = ({
   const { setUser } = useUser();
 
   const handleSignupSubmit = async (credentials: LoginCredentials) => {
-    if (handleSubmit) {
-      handleSubmit(credentials);
-    } else {
-      setSignupLoading(true);
+    setSignupLoading(true);
 
-      await signup(credentials)
-        .then(async (result) => {
-          if (result?.user) {
-            await setUser(result.user);
-            onSignupSuccess && (await onSignupSuccess(result));
+    await signup(credentials)
+      .then(async (result) => {
+        if (result?.user) {
+          await setUser(result.user);
+          onSignupSuccess && (await onSignupSuccess(result));
 
-            toast.success(`${t("signup.messages.success")}`);
-          }
-        })
-        .catch(async (error) => {
-          const errorMessage = t("errors.otherErrors", { ns: "errors" });
+          toast.success(`${t("signup.messages.success")}`);
+        }
+      })
+      .catch(async (error) => {
+        const errorMessage = t("errors.otherErrors", { ns: "errors" });
 
-          onSignupFailed && (await onSignupFailed(error));
+        onSignupFailed && (await onSignupFailed(error));
 
-          if (error.name) {
-            throw error as Error;
-          }
+        if (error.name) {
+          throw error as Error;
+        }
 
-          toast.error(error.message || errorMessage);
-        })
-        .finally(() => {
-          setSignupLoading(false);
-        });
-    }
+        toast.error(error.message || errorMessage);
+      })
+      .finally(() => {
+        setSignupLoading(false);
+      });
   };
 
   return (

@@ -1,8 +1,8 @@
-.dz-auth-page[data-centered="true"].login {
+/* .dz-auth-page[data-centered="true"].login {
   max-width: fit-content;
 }
 
-/* .login > .content > .login-wrapper {
+.login > .content > .login-wrapper {
   grid-area: form-wrapper;
 }
 
