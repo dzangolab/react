@@ -2,11 +2,11 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage } from "@dzangolab/react-ui";
 import { Link } from "react-router-dom";
 
+import type { SignInUpPromise } from "../types";
+
 import { SignupWrapperV2 } from "@/components/SignupWrapperV2";
 import { ROUTES } from "@/constants";
 import { useConfig } from "@/hooks";
-
-import type { SignInUpPromise } from "../types";
 
 interface IProperties {
   centered?: boolean;
@@ -53,19 +53,17 @@ export const Signup: React.FC<IProperties> = ({
   };
 
   return (
-    <>
-      <AuthPage
-        className="signup"
-        title={t("signup.title")}
-        links={renderLinks()}
-        centered={centered}
-        form={
-          <SignupWrapperV2
-            onSignupFailed={onSignupFailed}
-            onSignupSuccess={onSignupSuccess}
-          />
-        }
-      ></AuthPage>
-    </>
+    <AuthPage
+      className="signup"
+      title={t("signup.title")}
+      links={renderLinks()}
+      centered={centered}
+      form={
+        <SignupWrapperV2
+          onSignupFailed={onSignupFailed}
+          onSignupSuccess={onSignupSuccess}
+        />
+      }
+    />
   );
 };

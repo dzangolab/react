@@ -58,9 +58,5 @@ export const LoginWrapperV2: FC<IProperties> = ({
     setLoginLoading(false);
   };
 
-  return (
-    <div className="login-wrapper">
-      <LoginForm handleSubmit={handleLoginSubmit} loading={loginLoading} />
-    </div>
-  );
+  return <LoginForm handleSubmit={handleLoginSubmit} loading={loginLoading} />;
 };

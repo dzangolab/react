@@ -29,7 +29,7 @@ export const Login: React.FC<IProperties> = ({
   customDivider,
   onLoginFailed,
   onLoginSuccess,
-  orientation = "vertical",
+  orientation = "horizontal",
   socialLoginFirst = false,
   socialLoginOnly = false,
 }) => {

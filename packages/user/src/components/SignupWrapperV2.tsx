@@ -56,8 +56,6 @@ export const SignupWrapperV2: React.FC<IProperties> = ({
   };
 
   return (
-    <div className="signup-wrapper">
-      <SignupForm handleSubmit={handleSignupSubmit} loading={signupLoading} />
-    </div>
+    <SignupForm handleSubmit={handleSignupSubmit} loading={signupLoading} />
   );
 };
