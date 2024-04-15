@@ -17,7 +17,12 @@ import {
 } from "./components/UsersTable";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
-import { useUser, useEmailVerification, useFirstUserSignup } from "./hooks";
+import {
+  useUser,
+  useEmailVerification,
+  useFirstUserSignup,
+  useProfileCompletionRequired,
+} from "./hooks";
 import {
   UserEnabledBasicLayout,
   UserEnabledSidebarLayout,
@@ -110,6 +115,7 @@ export {
   superTokens,
   useEmailVerification,
   useFirstUserSignup,
+  useProfileCompletionRequired,
   useUser,
   userContext,
   verifyEmail,
