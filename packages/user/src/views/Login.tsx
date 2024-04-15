@@ -2,13 +2,13 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, AuthPage } from "@dzangolab/react-ui";
 import { Link, useNavigate } from "react-router-dom";
 
-import { LoginWrapperV2 } from "@/components/Login/LoginWrapperV2";
-import { ROUTES } from "@/constants";
-
 import { SocialLogins } from "../components/Login";
 import { useConfig, useFirstUserSignup } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
+
+import { LoginWrapperV2 } from "@/components/Login/LoginWrapperV2";
+import { ROUTES } from "@/constants";
 
 interface IProperties {
   centered?: boolean;

@@ -1,6 +1,6 @@
-import { LoadingPageProperties } from "@/LoadingPage";
-
 import { LoadingPage } from "..";
+
+import { LoadingPageProperties } from "@/LoadingPage";
 
 interface IProperties {
   title?: string;

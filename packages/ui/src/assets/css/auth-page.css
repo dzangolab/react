@@ -1,0 +1,18 @@
+.dz-auth-page {
+  --_auth-page-gap: var(--dz-auth-page-gap, 2rem);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--_auth-page-gap);
+}
+
+.dz-auth-page > .dz-auth-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dz-auth-page > .dz-auth-page-content > .links {
+  display: flex;
+  justify-content: space-between;
+}
