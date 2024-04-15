@@ -1,15 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Divider, Page } from "@dzangolab/react-ui";
-import { AuthPage } from "@dzangolab/react-ui";
+import { Divider, AuthPage } from "@dzangolab/react-ui";
 import { Link, useNavigate } from "react-router-dom";
+
+import { LoginWrapperV2 } from "@/components/Login/LoginWrapperV2";
+import { ROUTES } from "@/constants";
 
 import { SocialLogins } from "../components/Login";
 import { useConfig, useFirstUserSignup } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
-
-import { LoginWrapperV2 } from "@/components/Login/LoginWrapperV2";
-import { ROUTES } from "@/constants";
 
 interface IProperties {
   centered?: boolean;
@@ -25,8 +24,8 @@ interface IProperties {
 
 export const Login: React.FC<IProperties> = ({
   centered = true,
-  showForgotPasswordLink,
-  showSignupLink,
+  showForgotPasswordLink = true,
+  showSignupLink = true,
   customDivider,
   onLoginFailed,
   onLoginSuccess,
@@ -81,7 +80,7 @@ export const Login: React.FC<IProperties> = ({
 
   const renderLinks = () => {
     return (
-      <div className="links">
+      <>
         {!showSignupLink || userConfig?.routes?.signup?.disabled ? null : (
           <Link
             to={userConfig?.routes?.signup?.path || ROUTES.SIGNUP}
@@ -101,12 +100,13 @@ export const Login: React.FC<IProperties> = ({
             {t("login.links.forgotPassword")}
           </Link>
         )}
-      </div>
+      </>
     );
   };
 
   return (
     <AuthPage
+      centered={centered}
       className={className}
       title={t("login.title")}
       links={renderLinks()}

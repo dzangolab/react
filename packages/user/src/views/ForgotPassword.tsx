@@ -1,14 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { AuthPage, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
-import { forgotPassword } from "../supertokens/forgot-password";
-
 import { ROUTES } from "@/constants";
 import { useConfig } from "@/hooks";
+
+import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
+import { forgotPassword } from "../supertokens/forgot-password";
 
 export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
@@ -44,13 +44,13 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   };
 
   return (
-    <Page
+    <AuthPage
+      form={
+        <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
+      }
+      links={renderLinks()}
       className="forgot-password"
       title={t("forgotPassword.title")}
-      centered={centered}
-    >
-      <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
-      {renderLinks()}
-    </Page>
+    />
   );
 };

@@ -1,12 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Page } from "@dzangolab/react-ui";
+import { AuthPage } from "@dzangolab/react-ui";
 import { Link } from "react-router-dom";
-
-import type { SignInUpPromise } from "../types";
 
 import { SignupWrapperV2 } from "@/components/SignupWrapperV2";
 import { ROUTES } from "@/constants";
 import { useConfig } from "@/hooks";
+
+import type { SignInUpPromise } from "../types";
 
 interface IProperties {
   centered?: boolean;
@@ -20,15 +20,15 @@ export const Signup: React.FC<IProperties> = ({
   centered = true,
   onSignupFailed,
   onSignupSuccess,
-  showForgotPasswordLink,
-  showLoginLink,
+  showForgotPasswordLink = true,
+  showLoginLink = true,
 }) => {
   const { t } = useTranslation("user");
   const { user: userConfig } = useConfig();
 
   const renderLinks = () => {
     return (
-      <div className="links">
+      <>
         {showLoginLink && (
           <Link
             to={userConfig?.routes?.login?.path || ROUTES.LOGIN}
@@ -48,7 +48,7 @@ export const Signup: React.FC<IProperties> = ({
             {t("signup.links.forgotPassword")}
           </Link>
         )}
-      </div>
+      </>
     );
   };
 
@@ -58,6 +58,7 @@ export const Signup: React.FC<IProperties> = ({
         className="signup"
         title={t("signup.title")}
         links={renderLinks()}
+        centered={centered}
         form={
           <SignupWrapperV2
             onSignupFailed={onSignupFailed}

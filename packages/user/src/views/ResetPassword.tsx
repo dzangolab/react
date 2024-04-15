@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { AuthPage } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -30,12 +30,11 @@ export const ResetPassword = ({ centered = true }: { centered?: boolean }) => {
   };
 
   return (
-    <Page
+    <AuthPage
       className="reset-password"
       title={t("resetPassword.title")}
       centered={centered}
-    >
-      <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
-    </Page>
+      form={<ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />}
+    />
   );
 };

@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { AuthPage } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -29,12 +29,13 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   };
 
   return (
-    <Page
+    <AuthPage
       className="change-password"
       title={t("changePassword.title")}
       centered={centered}
-    >
-      <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
-    </Page>
+      form={
+        <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
+      }
+    />
   );
 };

@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { AuthPage, Page } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -129,13 +129,12 @@ export const AcceptInvitation = ({
   };
 
   return (
-    <Page
+    <AuthPage
       className="signup"
       title={t("user:signup.title")}
       loading={loading || loginLoading}
       centered={centered}
-    >
-      {renderPageContent()}
-    </Page>
+      form={renderPageContent()}
+    />
   );
 };
