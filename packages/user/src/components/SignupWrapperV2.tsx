@@ -1,11 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 import SignupForm from "./SignupForm";
-import { ROUTES } from "../constants";
-import { useConfig, useUser } from "../hooks";
+import { useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
@@ -14,23 +12,16 @@ interface IProperties {
   handleSubmit?: (credentials: LoginCredentials) => void;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
-  loading?: boolean;
-  showForgotPasswordLink?: boolean;
-  showLoginLink?: boolean;
 }
 
-export const SignupWrapper: React.FC<IProperties> = ({
+export const SignupWrapperV2: React.FC<IProperties> = ({
   handleSubmit,
   onSignupFailed,
   onSignupSuccess,
-  loading,
-  showLoginLink = true,
-  showForgotPasswordLink = true,
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
   const { setUser } = useUser();
-  const { user: userConfig } = useConfig();
 
   const handleSignupSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
@@ -64,39 +55,9 @@ export const SignupWrapper: React.FC<IProperties> = ({
     }
   };
 
-  const renderLinks = () => {
-    return (
-      <div className="links">
-        {showLoginLink && (
-          <Link
-            to={userConfig?.routes?.login?.path || ROUTES.LOGIN}
-            className="native-link"
-          >
-            {t("signup.links.login")}
-          </Link>
-        )}
-        {!showForgotPasswordLink ||
-        userConfig?.routes?.forgotPassword?.disabled ? null : (
-          <Link
-            to={
-              userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("signup.links.forgotPassword")}
-          </Link>
-        )}
-      </div>
-    );
-  };
-
   return (
     <div className="signup-wrapper">
-      <SignupForm
-        handleSubmit={handleSignupSubmit}
-        loading={handleSubmit ? loading : signupLoading}
-      />
-      {renderLinks()}
+      <SignupForm handleSubmit={handleSignupSubmit} loading={signupLoading} />
     </div>
   );
 };

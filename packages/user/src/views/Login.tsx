@@ -1,13 +1,15 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, Page } from "@dzangolab/react-ui";
 import { AuthPage } from "@dzangolab/react-ui";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { LoginWrapper, SocialLogins } from "../components/Login";
+import { SocialLogins } from "../components/Login";
 import { useConfig, useFirstUserSignup } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
+
+import { LoginWrapperV2 } from "@/components/Login/LoginWrapperV2";
+import { ROUTES } from "@/constants";
 
 interface IProperties {
   centered?: boolean;
@@ -35,7 +37,7 @@ export const Login: React.FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const appConfig = useConfig();
   const navigate = useNavigate();
-  const [links, setLinks] = useState<React.ReactNode>();
+  const { user: userConfig } = useConfig();
 
   const [redirecting] = useFirstUserSignup({
     appConfig,
@@ -77,45 +79,46 @@ export const Login: React.FC<IProperties> = ({
     );
   };
 
-  const getLinks = (_links: React.ReactNode) => {
-    setLinks(_links);
+  const renderLinks = () => {
+    return (
+      <div className="links">
+        {!showSignupLink || userConfig?.routes?.signup?.disabled ? null : (
+          <Link
+            to={userConfig?.routes?.signup?.path || ROUTES.SIGNUP}
+            className="native-link"
+          >
+            {t("login.links.signup")}
+          </Link>
+        )}
+        {!showForgotPasswordLink ||
+        userConfig?.routes?.forgotPassword?.disabled ? null : (
+          <Link
+            to={
+              userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD
+            }
+            className="native-link"
+          >
+            {t("login.links.forgotPassword")}
+          </Link>
+        )}
+      </div>
+    );
   };
 
   return (
     <AuthPage
       className={className}
       title={t("login.title")}
-      // links={links}
+      links={renderLinks()}
       loading={!!redirecting}
       form={
-        <LoginWrapper
+        <LoginWrapperV2
           onLoginFailed={onLoginFailed}
           onLoginSuccess={onLoginSuccess}
-          showForgotPasswordLink={showForgotPasswordLink}
-          showSignupLink={showSignupLink}
-          // getLinks={getLinks}
         />
       }
     >
       {renderSocialLogins()}
     </AuthPage>
-    // <Page
-    //   title={t("login.title")}
-    //   className={className}
-    //   data-aria-orientation={orientation}
-    //   loading={!!redirecting}
-    //   centered={centered}
-    // >
-    //   {socialLoginOnly ? null : (
-    //     <LoginWrapper
-    //       onLoginFailed={onLoginFailed}
-    //       onLoginSuccess={onLoginSuccess}
-    //       showForgotPasswordLink={showForgotPasswordLink}
-    //       showSignupLink={showSignupLink}
-    //       // getLinks={getLinks}
-    //     />
-    //   )}
-
-    // </Page>
   );
 };
