@@ -21,7 +21,7 @@ import {
   useUser,
   useEmailVerification,
   useFirstUserSignup,
-  useProfileCompletionRequired,
+  useProfileCompletion,
 } from "./hooks";
 import {
   UserEnabledBasicLayout,
@@ -115,7 +115,7 @@ export {
   superTokens,
   useEmailVerification,
   useFirstUserSignup,
-  useProfileCompletionRequired,
+  useProfileCompletion,
   useUser,
   userContext,
   verifyEmail,

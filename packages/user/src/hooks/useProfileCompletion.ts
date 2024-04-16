@@ -1,7 +1,7 @@
 import { useConfig } from "./useConfig";
 import { useUser } from "./useUser";
 
-export const useProfileCompletionRequired = () => {
+export const useProfileCompletion = () => {
   const config = useConfig();
   const { user } = useUser();
 
