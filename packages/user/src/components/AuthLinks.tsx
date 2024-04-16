@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 
+import { LinkType } from "@/types/types";
+
 interface ILinkProperties {
-  links: Array<{
-    display?: boolean;
-    to: string;
-    className?: string;
-    label: string;
-  }>;
+  links: Array<LinkType>;
 }
 
 export const AuthLinks = ({ links }: ILinkProperties) => {
   return (
-    <div className="links">
+    <div className="auth-links">
       {links.map((link) => {
         return (
           <>

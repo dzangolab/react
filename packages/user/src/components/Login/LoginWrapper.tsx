@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { LoginForm } from "./LoginForm";
@@ -8,8 +7,11 @@ import { ROUTES } from "../../constants";
 import { useConfig, useUser } from "../../hooks";
 import { verifySessionRoles } from "../../supertokens/helpers";
 import login from "../../supertokens/login";
+import { AuthLinks } from "../AuthLinks";
 
 import type { LoginCredentials, SignInUpPromise } from "../../types";
+
+import { LinkType } from "@/types/types";
 
 interface IProperties {
   handleSubmit?: (credential: LoginCredentials) => void;
@@ -32,6 +34,22 @@ export const LoginWrapper: FC<IProperties> = ({
   const { setUser } = useUser();
   const { user: userConfig } = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
+
+  const links: Array<LinkType> = [
+    {
+      display: showSignupLink || !userConfig?.routes?.signup?.disabled,
+      to: userConfig?.routes?.signup?.path || ROUTES.SIGNUP,
+      className: "native-link",
+      label: t("login.links.signup"),
+    },
+    {
+      display:
+        showForgotPasswordLink || !userConfig?.routes?.forgotPassword?.disabled,
+      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
+      className: "native-link",
+      label: t("login.links.forgotPassword"),
+    },
+  ];
 
   const handleLoginSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
@@ -72,39 +90,13 @@ export const LoginWrapper: FC<IProperties> = ({
     }
   };
 
-  const renderLinks = () => {
-    return (
-      <div className="links">
-        {!showSignupLink || userConfig?.routes?.signup?.disabled ? null : (
-          <Link
-            to={userConfig?.routes?.signup?.path || ROUTES.SIGNUP}
-            className="native-link"
-          >
-            {t("login.links.signup")}
-          </Link>
-        )}
-        {!showForgotPasswordLink ||
-        userConfig?.routes?.forgotPassword?.disabled ? null : (
-          <Link
-            to={
-              userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("login.links.forgotPassword")}
-          </Link>
-        )}
-      </div>
-    );
-  };
-
   return (
-    <div className="login-wrapper">
+    <>
       <LoginForm
         handleSubmit={handleLoginSubmit}
         loading={handleSubmit ? loading : loginLoading}
       />
-      {renderLinks()}
-    </div>
+      <AuthLinks links={links} />
+    </>
   );
 };
