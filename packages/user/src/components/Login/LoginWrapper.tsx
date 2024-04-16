@@ -96,7 +96,7 @@ export const LoginWrapper: FC<IProperties> = ({
         handleSubmit={handleLoginSubmit}
         loading={handleSubmit ? loading : loginLoading}
       />
-      <AuthLinks links={links} />
+      <AuthLinks className="login" links={links} />
     </>
   );
 };

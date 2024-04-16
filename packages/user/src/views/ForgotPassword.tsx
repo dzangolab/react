@@ -1,20 +1,30 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage } from "@dzangolab/react-ui";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
-import { ROUTES } from "@/constants";
-import { useConfig } from "@/hooks";
 
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
 import { forgotPassword } from "../supertokens/forgot-password";
+
+import { AuthLinks } from "@/components/AuthLinks";
+import { ROUTES } from "@/constants";
+import { useConfig } from "@/hooks";
+import { LinkType } from "@/types/types";
 
 export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
 
   const { user: userConfig } = useConfig();
+
+  const links: Array<LinkType> = [
+    {
+      display: true,
+      to: userConfig.routes?.login?.path || ROUTES.LOGIN,
+      className: "native-link",
+      label: t("forgotPassword.links.login"),
+    },
+  ];
 
   const handleSubmit = async (email: string) => {
     setLoading(true);
@@ -28,17 +38,6 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
     }
   };
 
-  const renderLinks = () => {
-    return (
-      <Link
-        to={userConfig.routes?.login?.path || ROUTES.LOGIN}
-        className="native-link"
-      >
-        {t("forgotPassword.links.login")}
-      </Link>
-    );
-  };
-
   return (
     <AuthPage
       centered={centered}
@@ -46,7 +45,7 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
       title={t("forgotPassword.title")}
     >
       <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
-      {renderLinks()}
+      <AuthLinks className="forgot-password" links={links} />
     </AuthPage>
   );
 };
