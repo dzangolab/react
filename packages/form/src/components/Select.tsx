@@ -2,10 +2,10 @@ import { Select as BasicSelect } from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-type value = string | number;
+type Value = string | number;
 
 type Option = {
-  value: value;
+  value: Value;
   label: string;
   disabled?: boolean;
 };
@@ -13,7 +13,7 @@ type Option = {
 interface ISelect {
   disabled?: boolean;
   label?: string;
-  multiple?: boolean;
+  multiple: boolean;
   name: string;
   options: Option[];
   placeholder?: string;
@@ -22,7 +22,7 @@ interface ISelect {
   showInvalidState?: boolean;
   renderOption?: (option: Option) => React.ReactNode;
   renderValue?: (
-    value?: value | value[],
+    value?: Value | Value[],
     options?: Option[],
   ) => React.ReactNode;
 }
