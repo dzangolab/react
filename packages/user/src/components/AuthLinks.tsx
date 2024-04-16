@@ -13,6 +13,7 @@ export const AuthLinks = ({ className, links }: ILinkProperties) => {
   if (className) {
     linksClassName += " " + className;
   }
+
   return (
     <div className={linksClassName}>
       {links.map((link) => {
