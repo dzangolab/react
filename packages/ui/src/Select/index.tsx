@@ -70,7 +70,7 @@ export const Select = <T extends string | number>({
   const handleSelectedOption = (option: T) => {
     if (multiple) {
       const newValue = value.includes(option)
-        ? value.filter((value_) => value_ !== option)
+        ? value.filter((_value) => _value !== option)
         : [...value, option];
       onChange(newValue);
     } else {
@@ -98,7 +98,7 @@ export const Select = <T extends string | number>({
   };
 
   const hasValue = useMemo(() => {
-    if ((Array.isArray(value) && !value.length) || !value) {
+    if ((multiple && !value.length) || !value) {
       return false;
     }
 
