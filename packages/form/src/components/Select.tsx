@@ -13,7 +13,7 @@ type Option = {
 interface ISelect {
   disabled?: boolean;
   label?: string;
-  multiple: boolean;
+  multiple?: boolean;
   name: string;
   options: Option[];
   placeholder?: string;
@@ -30,7 +30,7 @@ interface ISelect {
 export const Select: React.FC<ISelect> = ({
   disabled,
   label = "",
-  multiple,
+  multiple = false,
   name,
   options,
   placeholder,
