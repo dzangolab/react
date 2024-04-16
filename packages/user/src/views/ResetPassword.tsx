@@ -34,7 +34,8 @@ export const ResetPassword = ({ centered = true }: { centered?: boolean }) => {
       className="reset-password"
       title={t("resetPassword.title")}
       centered={centered}
-      form={<ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />}
-    />
+    >
+      <ResetPasswordForm handleSubmit={handleSubmit} loading={loading} />
+    </AuthPage>
   );
 };

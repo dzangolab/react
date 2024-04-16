@@ -1,11 +1,8 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Divider, AuthPage } from "@dzangolab/react-ui";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { LoginWrapperV2 } from "@/components/Login/LoginWrapperV2";
-import { ROUTES } from "@/constants";
-
-import { SocialLogins } from "../components/Login";
+import { LoginWrapper, SocialLogins } from "../components/Login";
 import { useConfig, useFirstUserSignup } from "../hooks";
 
 import type { SignInUpPromise } from "../types";
@@ -36,7 +33,6 @@ export const Login: React.FC<IProperties> = ({
   const { t } = useTranslation(["user", "errors"]);
   const appConfig = useConfig();
   const navigate = useNavigate();
-  const { user: userConfig } = useConfig();
 
   const [redirecting] = useFirstUserSignup({
     appConfig,
@@ -78,46 +74,19 @@ export const Login: React.FC<IProperties> = ({
     );
   };
 
-  const renderLinks = () => {
-    return (
-      <>
-        {!showSignupLink || userConfig?.routes?.signup?.disabled ? null : (
-          <Link
-            to={userConfig?.routes?.signup?.path || ROUTES.SIGNUP}
-            className="native-link"
-          >
-            {t("login.links.signup")}
-          </Link>
-        )}
-        {!showForgotPasswordLink ||
-        userConfig?.routes?.forgotPassword?.disabled ? null : (
-          <Link
-            to={
-              userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("login.links.forgotPassword")}
-          </Link>
-        )}
-      </>
-    );
-  };
-
   return (
     <AuthPage
       centered={centered}
       className={className}
       title={t("login.title")}
-      links={renderLinks()}
       loading={!!redirecting}
-      form={
-        <LoginWrapperV2
-          onLoginFailed={onLoginFailed}
-          onLoginSuccess={onLoginSuccess}
-        />
-      }
     >
+      <LoginWrapper
+        onLoginFailed={onLoginFailed}
+        onLoginSuccess={onLoginSuccess}
+        showForgotPasswordLink={showForgotPasswordLink}
+        showSignupLink={showSignupLink}
+      />
       {renderSocialLogins()}
     </AuthPage>
   );

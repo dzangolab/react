@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
-import { forgotPassword } from "../supertokens/forgot-password";
-
 import { ROUTES } from "@/constants";
 import { useConfig } from "@/hooks";
+
+import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
+import { forgotPassword } from "../supertokens/forgot-password";
 
 export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
@@ -41,13 +41,12 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
 
   return (
     <AuthPage
-      form={
-        <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
-      }
-      links={renderLinks()}
       centered={centered}
       className="forgot-password"
       title={t("forgotPassword.title")}
-    />
+    >
+      <ForgotPasswordForm handleSubmit={handleSubmit} loading={loading} />
+      {renderLinks()}
+    </AuthPage>
   );
 };

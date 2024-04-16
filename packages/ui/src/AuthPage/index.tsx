@@ -8,8 +8,6 @@ interface IProperties {
   loadingComponent?: React.ReactNode;
   loadingPageStyle?: LoadingPageProperties;
   errorMessage?: string;
-  form?: React.ReactNode;
-  links?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
   centered?: boolean;
@@ -21,8 +19,6 @@ export const AuthPage = ({
   loadingComponent,
   loadingPageStyle,
   errorMessage,
-  form,
-  links,
   children,
   className,
   centered = true,
@@ -56,34 +52,10 @@ export const AuthPage = ({
     return <h1 className="dz-auth-page-header">{title}</h1>;
   };
 
-  const renderForm = () => {
-    if (!form) {
-      return null;
-    }
-
-    return form;
-  };
-
-  const renderLinks = () => {
-    if (!links) {
-      return null;
-    }
-
-    return <div className="links">{links}</div>;
-  };
-
   return (
     <div className={pageClassName} data-centered={centered}>
       {renderTitle()}
-      {child ? (
-        child
-      ) : (
-        <div className="dz-auth-page-content">
-          {renderForm()}
-          {renderLinks()}
-          {children}
-        </div>
-      )}
+      {child ? child : <div className="dz-auth-page-content">{children}</div>}
     </div>
   );
 };

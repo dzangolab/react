@@ -33,9 +33,8 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
       className="change-password"
       title={t("changePassword.title")}
       centered={centered}
-      form={
-        <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
-      }
-    />
+    >
+      <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
+    </AuthPage>
   );
 };
