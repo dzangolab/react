@@ -155,29 +155,28 @@ export const Select = <T extends string | number>({
         <>
           {multiple ? (
             <div className="selected-options">
-              {multiple &&
-                value.map((_value, index) => {
-                  const option = options.find((opt) => opt.value === _value);
-                  if (!option) return null;
+              {value.map((_value, index) => {
+                const option = options.find((opt) => opt.value === _value);
+                if (!option) return null;
 
-                  return (
-                    <Tag
-                      key={index}
-                      renderContent={() => (
-                        <>
-                          <span>{option.label}</span>
-                          <i
-                            className="pi pi-times"
-                            onClick={(event) =>
-                              handleRemoveOption(option.value, event)
-                            }
-                          ></i>
-                        </>
-                      )}
-                      rounded
-                    />
-                  );
-                })}
+                return (
+                  <Tag
+                    key={index}
+                    renderContent={() => (
+                      <>
+                        <span>{option.label}</span>
+                        <i
+                          className="pi pi-times"
+                          onClick={(event) =>
+                            handleRemoveOption(option.value, event)
+                          }
+                        ></i>
+                      </>
+                    )}
+                    rounded
+                  />
+                );
+              })}
             </div>
           ) : (
             <span>{options.find((opt) => opt.value === value)?.label}</span>
