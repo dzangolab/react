@@ -1,12 +1,19 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+export interface Role {
+  id: number;
+  role: string;
+  default: boolean;
+  permissions?: string;
+}
+
 export interface UserType extends EmailPasswordUserType {
   disabled?: boolean;
   givenName: string | null;
   isEmailVerified?: boolean;
   lastLoginAt: number;
   middleNames: string | null;
-  roles: string[];
+  roles: Role[];
   signedUpAt: number;
   surname: string | null;
 }

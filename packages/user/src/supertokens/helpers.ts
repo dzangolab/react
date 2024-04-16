@@ -4,15 +4,17 @@ import Session from "supertokens-web-js/recipe/session";
 import logout from "./logout";
 import UserRoleClaim from "./UserRoleClaim";
 import { removeUserData } from "../helpers";
+// eslint-disable-next-line import/no-unresolved
+import { Role } from "../types";
 
 /**
  * Get User roles
  */
-async function getUserRoles(): Promise<string[]> {
+async function getUserRoles(): Promise<Role[]> {
   if (await Session.doesSessionExist()) {
     const roles = await Session.getClaimValue({ claim: UserRoleClaim });
 
-    return roles ? roles : [];
+    return (roles ? roles.map((role) => ({ role })) : []) as Role[];
   }
 
   return [];

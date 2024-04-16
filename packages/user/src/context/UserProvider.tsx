@@ -7,7 +7,7 @@ import {
   isUserVerified,
   verifySessionRoles,
 } from "../supertokens/helpers";
-import { UserContextType, UserType } from "../types";
+import { Role, UserContextType, UserType } from "../types";
 
 interface Properties {
   children: React.ReactNode;
@@ -49,7 +49,7 @@ const UserProvider = ({ children }: Properties) => {
 
       const userData = {
         ...user,
-        roles: roles,
+        roles,
       };
 
       if (appConfig.user.features?.signUp?.emailVerification) {
