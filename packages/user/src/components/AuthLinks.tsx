@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 import { LinkType } from "@/types/types";
@@ -18,13 +19,13 @@ export const AuthLinks = ({ className, links }: ILinkProperties) => {
     <div className={linksClassName}>
       {links.map((link) => {
         return (
-          <>
+          <Fragment key={link.label}>
             {link.display ? (
-              <Link to={link.to} className={link.className} key={link.label}>
+              <Link to={link.to} className={link.className}>
                 {link.label}
               </Link>
             ) : null}
-          </>
+          </Fragment>
         );
       })}
     </div>
