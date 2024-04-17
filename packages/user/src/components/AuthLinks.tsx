@@ -8,7 +8,7 @@ interface ILinkProperties {
 }
 
 export const AuthLinks = ({ className, links }: ILinkProperties) => {
-  let linksClassName = "links";
+  let linksClassName = "auth-links";
 
   if (className) {
     linksClassName += " " + className;

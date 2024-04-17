@@ -16,7 +16,7 @@
   max-width: fit-content;
 }
 
-.dz-auth-page > .dz-auth-page-content > .links {
+.dz-auth-page > .dz-auth-page-content > .auth-links {
   display: flex;
   justify-content: space-between;
 }
