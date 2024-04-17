@@ -21,12 +21,12 @@ interface IProperties {
 
 export const Login: React.FC<IProperties> = ({
   centered = true,
-  showForgotPasswordLink = true,
-  showSignupLink = true,
+  showForgotPasswordLink,
+  showSignupLink,
   customDivider,
   onLoginFailed,
   onLoginSuccess,
-  orientation = "horizontal",
+  orientation = "vertical",
   socialLoginFirst = false,
   socialLoginOnly = false,
 }) => {

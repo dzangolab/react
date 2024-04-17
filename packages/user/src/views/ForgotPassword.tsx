@@ -19,10 +19,10 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
 
   const links: Array<LinkType> = [
     {
-      display: true,
-      to: userConfig.routes?.login?.path || ROUTES.LOGIN,
       className: "native-link",
+      display: true,
       label: t("forgotPassword.links.login"),
+      to: userConfig.routes?.login?.path || ROUTES.LOGIN,
     },
   ];
 

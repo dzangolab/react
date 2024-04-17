@@ -37,17 +37,17 @@ export const LoginWrapper: FC<IProperties> = ({
 
   const links: Array<LinkType> = [
     {
-      display: showSignupLink || !userConfig?.routes?.signup?.disabled,
-      to: userConfig?.routes?.signup?.path || ROUTES.SIGNUP,
       className: "native-link",
+      display: showSignupLink || !userConfig?.routes?.signup?.disabled,
       label: t("login.links.signup"),
+      to: userConfig?.routes?.signup?.path || ROUTES.SIGNUP,
     },
     {
+      className: "native-link",
       display:
         showForgotPasswordLink || !userConfig?.routes?.forgotPassword?.disabled,
-      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
-      className: "native-link",
       label: t("login.links.forgotPassword"),
+      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
     },
   ];
 

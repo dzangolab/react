@@ -57,8 +57,8 @@ export type UpdateProfileInputType = {
 };
 
 export type LinkType = {
-  display?: boolean;
-  to: string;
   className?: string;
+  display?: boolean;
   label: string;
+  to: string;
 };

@@ -17,8 +17,8 @@ export const Signup: React.FC<IProperties> = ({
   centered = true,
   onSignupFailed,
   onSignupSuccess,
-  showForgotPasswordLink = true,
-  showLoginLink = true,
+  showForgotPasswordLink,
+  showLoginLink,
 }) => {
   const { t } = useTranslation("user");
 

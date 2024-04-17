@@ -36,17 +36,17 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   const links: Array<LinkType> = [
     {
-      display: showLoginLink,
-      to: userConfig?.routes?.login?.path || ROUTES.LOGIN,
       className: "native-link",
+      display: showLoginLink,
       label: t("signup.links.login"),
+      to: userConfig?.routes?.login?.path || ROUTES.LOGIN,
     },
     {
+      className: "native-link",
       display:
         showForgotPasswordLink || !userConfig?.routes?.forgotPassword?.disabled,
-      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
-      className: "native-link",
       label: t("signup.links.forgotPassword"),
+      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
     },
   ];
 

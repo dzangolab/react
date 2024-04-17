@@ -1,27 +1,27 @@
-import { LoadingPageProperties } from "@/LoadingPage";
-
 import { LoadingPage } from "..";
 
+import { LoadingPageProperties } from "@/LoadingPage";
+
 interface IProperties {
-  title?: string;
+  centered?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+  errorMessage?: string;
   loading?: boolean;
   loadingComponent?: React.ReactNode;
   loadingPageStyle?: LoadingPageProperties;
-  errorMessage?: string;
-  children?: React.ReactNode;
-  className?: string;
-  centered?: boolean;
+  title?: string;
 }
 
 export const AuthPage = ({
-  title,
+  centered = true,
+  children,
+  className,
+  errorMessage,
   loading,
   loadingComponent,
   loadingPageStyle,
-  errorMessage,
-  children,
-  className,
-  centered = true,
+  title,
 }: IProperties) => {
   let child = null;
   let pageClassName = "dz-auth-page";
