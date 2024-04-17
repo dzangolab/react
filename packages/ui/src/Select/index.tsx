@@ -17,18 +17,17 @@ type ISelectProperties<T> = {
   options: Option<T>[];
   placeholder?: string;
   renderOption?: (option: Option<T>) => React.ReactNode;
+  renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
 } & (
   | {
       multiple: true;
       value: T[];
       onChange: (newValue: T[]) => void;
-      renderValue?: (value?: T[], options?: Option<T>[]) => React.ReactNode;
     }
   | {
       multiple: false;
       value: T;
       onChange: (newValue: T) => void;
-      renderValue?: (value?: T, options?: Option<T>[]) => React.ReactNode;
     }
 );
 
@@ -144,11 +143,7 @@ export const Select = <T extends string | number>({
   const renderSelect = () => {
     const renderSelectValue = () => {
       if (renderValue) {
-        const renderedValue = multiple
-          ? renderValue(value, options)
-          : renderValue(value, options);
-
-        return renderedValue;
+        return renderValue(value, options);
       }
 
       return (

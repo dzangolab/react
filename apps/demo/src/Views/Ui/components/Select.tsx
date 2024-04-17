@@ -20,15 +20,19 @@ export const SelectDemo = () => {
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
 
-  const renderSelectedValue = (value?: string[], options?: Option[]) => {
+  const renderSelectedValue = (
+    value?: string | string[],
+    options?: Option[],
+  ) => {
     return (
       <span>
-        {value
-          ?.map(
-            (value_) =>
-              options?.find((option) => option.value === value_)?.label,
-          )
-          .join(", ")}
+        {Array.isArray(value) &&
+          value
+            ?.map(
+              (value_) =>
+                options?.find((option) => option.value === value_)?.label,
+            )
+            .join(", ")}
       </span>
     );
   };
