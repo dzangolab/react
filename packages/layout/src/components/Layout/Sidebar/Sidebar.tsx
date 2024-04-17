@@ -1,6 +1,7 @@
 import { SidebarFooter } from "./Footer";
 import { SidebarHeader } from "./Header";
 import { NavigationMenu } from "../common";
+import { useLayoutContext } from "../Context";
 import { NavMenuType } from "../types";
 
 type SidebarProperties = {
@@ -20,6 +21,8 @@ export const Sidebar = ({
   noFooter = false,
   noLocaleSwitcher = false,
 }: SidebarProperties) => {
+  const { menuDesktopOpen } = useLayoutContext();
+
   const renderContent = () => {
     return (
       <>
@@ -33,5 +36,7 @@ export const Sidebar = ({
     );
   };
 
-  return <aside>{children || renderContent()}</aside>;
+  return (
+    <aside aria-expanded={menuDesktopOpen}>{children || renderContent()}</aside>
+  );
 };
