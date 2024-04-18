@@ -19,6 +19,10 @@
     --dz-layout-sidebar-separator-color,
     #dbdbdb
   );
+  --_layout-sidebar-toggle-menu-hover-color: var(
+    --layout-sidebar-toggle-menu-hover-color,
+    #0870e5
+  );
   --_layout-sidebar-transition-duration: var(
     --dz-layout-sidebar-transition-duration,
     100ms
@@ -105,7 +109,7 @@
     > aside
     > .sidebar-header
     > .toggle-menu:hover {
-    background-color: rgba(45, 45, 45);
+    background-color: var(--_layout-sidebar-toggle-menu-hover-color);
   }
 
   .dz-layout[aria-expanded="false"] > aside > .sidebar-header > .toggle-menu {
