@@ -1,7 +1,6 @@
 import { SidebarFooter } from "./Footer";
 import { SidebarHeader } from "./Header";
 import { NavigationMenu } from "../common";
-import { useLayoutContext } from "../Context";
 import { NavMenuType } from "../types";
 
 type SidebarProperties = {

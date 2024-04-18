@@ -5,6 +5,10 @@
   --_layout-sidebar-bg: var(--dz-layout-sidebar-bg, #007aff);
   --_layout-sidebar-border: var(--dz-layout-sidebar-border, none);
   --_layout-sidebar-color: var(--dz-layout-sidebar-color, #fff);
+  --_layout-sidebar-collapsed-width: var(
+    --dz-layout-sidebar-collapsed-width,
+    1rem
+  );
   --_layout-sidebar-logo-max-width: var(
     --dz-layout-sidebar-logo-max-width,
     150px
@@ -15,8 +19,11 @@
     --dz-layout-sidebar-separator-color,
     #dbdbdb
   );
+  --_layout-sidebar-transition-duration: var(
+    --dz-layout-sidebar-transition-duration,
+    100ms
+  );
   --_layout-sidebar-width: var(--dz-layout-sidebar-width, 16rem);
-
   background: var(--_layout-sidebar-bg);
   color: var(--_layout-sidebar-color);
 }
@@ -74,17 +81,12 @@
     flex-direction: column;
     overflow-y: auto;
     width: var(--_layout-sidebar-width);
-    transition: width 0.1s ease-in-out;
+    transition: all var(--_layout-sidebar-transition-duration) ease-in;
   }
 
   .dz-layout[aria-expanded="false"] > aside {
-    width: 1rem;
+    width: var(--_layout-sidebar-collapsed-width);
     overflow-x: hidden;
-  }
-
-  .dz-layout[aria-expanded="false"] > aside > .navigation-menu,
-  .dz-layout[aria-expanded="false"] > aside > .sidebar-footer {
-    visibility: hidden;
   }
 
   .dz-layout > aside > .sidebar-header {
@@ -95,7 +97,7 @@
     cursor: pointer;
     display: flex;
     padding: 0.4rem;
-    transition: all 0.1s ease-in;
+    transition: all var(--_layout-sidebar-transition-duration) ease-in;
   }
 
   .dz-layout > aside > .sidebar-header > .toggle-menu:hover,
@@ -120,6 +122,6 @@
 
   .dz-layout[aria-expanded="false"] > aside > .navigation-menu,
   .dz-layout[aria-expanded="false"] > aside > .sidebar-footer {
-    display: flex;
+    visibility: hidden;
   }
 }
