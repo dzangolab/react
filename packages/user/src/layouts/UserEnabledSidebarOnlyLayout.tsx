@@ -12,6 +12,7 @@ interface Properties {
   authNavigationMenu?: NavMenuItemType;
   children: React.ReactNode;
   className?: string;
+  collapsible?: boolean;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
   fixed?: boolean;
@@ -29,6 +30,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   children,
   className,
   customSidebar,
+  collapsible,
   displayNavIcons,
   fixed,
   navigationMenu,
@@ -92,6 +94,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     <SidebarOnlyLayout
       children={children}
       className={className}
+      collapsible={collapsible}
       displayNavIcons={displayNavIcons}
       fixed={fixed}
       navigationMenu={getNavigationMenu()}

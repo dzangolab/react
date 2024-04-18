@@ -3,6 +3,7 @@ import { Layout, Sidebar, NavMenuType } from "@/components/Layout";
 interface SidebarOnlyLayoutProperties {
   className?: string;
   children: React.ReactNode;
+  collapsible?: boolean;
   fixed?: boolean;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
@@ -15,6 +16,7 @@ interface SidebarOnlyLayoutProperties {
 export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   className,
   children,
+  collapsible,
   fixed,
   displayNavIcons,
   navigationMenu,
@@ -30,6 +32,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
     >
       {customSidebar || (
         <Sidebar
+          collapsible={collapsible}
           displayNavIcons={displayNavIcons}
           navigationMenu={navigationMenu}
           noHeader={noSidebarHeader}

@@ -104,7 +104,7 @@
     transition: all var(--_layout-sidebar-transition-duration) ease-in;
   }
 
-  .dz-layout.fixed > aside > .sidebar-header > .toggle-menu {
+  .dz-layout > aside.fixed > .sidebar-header > .toggle-menu {
     display: none;
   }
 
