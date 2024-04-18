@@ -77,18 +77,17 @@
     transition: width 0.1s ease-in-out;
   }
 
-  .dz-layout > aside[aria-expanded="false"] {
+  .dz-layout[aria-expanded="false"] > aside {
     width: 1rem;
     overflow-x: hidden;
   }
 
-  .dz-layout > aside[aria-expanded="false"] > .navigation-menu,
+  .dz-layout[aria-expanded="false"] > aside > .navigation-menu,
   .dz-layout[aria-expanded="false"] > aside > .sidebar-footer {
     visibility: hidden;
   }
 
   .dz-layout > aside > .sidebar-header {
-    position: relative;
     border-bottom: none;
   }
 
@@ -99,23 +98,24 @@
     transition: all 0.1s ease-in;
   }
 
-  .dz-layout
+  .dz-layout > aside > .sidebar-header > .toggle-menu:hover,
+  .dz-layout[aria-expanded="false"]
     > aside
     > .sidebar-header
-    > .toggle-menu:hover,
-    .dz-layout
-    > aside[aria-expanded="false"]
-    > .sidebar-header
     > .toggle-menu:hover {
-    background-color: blue;
+    background-color: rgba(45, 45, 45);
   }
 
-  .dz-layout > aside[aria-expanded="false"] > .sidebar-header > .toggle-menu {
+  .dz-layout[aria-expanded="false"] > aside > .sidebar-header > .toggle-menu {
     background-color: var(--_layout-sidebar-bg);
     border: 1px solid;
     border-radius: 50%;
     left: 0.3rem;
     position: fixed;
+  }
+
+  .dz-layout > aside > .sidebar-header > .toggle-menu > i {
+    font-size: 0.9rem;
   }
 
   .dz-layout[aria-expanded="false"] > aside > .navigation-menu,
