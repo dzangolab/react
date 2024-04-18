@@ -8,11 +8,7 @@ type LayoutProperties = {
   fixed?: boolean;
 };
 
-const LayoutComponent = ({
-  children,
-  className,
-  fixed = false,
-}: LayoutProperties) => {
+const LayoutComponent = ({ children, className, fixed }: LayoutProperties) => {
   const { menuDesktopOpen, menuMobileOpen } = useLayoutContext();
   const isSmallScreen = useMediaQuery("(max-width: 576px)");
 
