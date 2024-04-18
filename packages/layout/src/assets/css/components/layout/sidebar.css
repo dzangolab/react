@@ -104,20 +104,20 @@
     transition: all var(--_layout-sidebar-transition-duration) ease-in;
   }
 
-  .dz-layout > aside > .sidebar-header > .toggle-menu:hover,
-  .dz-layout[aria-expanded="false"]
-    > aside
-    > .sidebar-header
-    > .toggle-menu:hover {
-    background-color: var(--_layout-sidebar-toggle-menu-hover-color);
-  }
-
   .dz-layout[aria-expanded="false"] > aside > .sidebar-header > .toggle-menu {
     background-color: var(--_layout-sidebar-bg);
     border: 1px solid;
     border-radius: 50%;
     left: 0.3rem;
     position: fixed;
+  }
+
+  .dz-layout > aside > .sidebar-header > .toggle-menu:hover,
+  .dz-layout[aria-expanded="false"]
+    > aside
+    > .sidebar-header
+    > .toggle-menu:hover {
+    background-color: var(--_layout-sidebar-toggle-menu-hover-color);
   }
 
   .dz-layout > aside > .sidebar-header > .toggle-menu > i {
