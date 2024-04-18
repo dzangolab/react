@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import { Tag, Checkbox } from "..";
 
@@ -8,20 +8,28 @@ type Option<T> = {
   disabled?: boolean;
 };
 
-interface ISelectProperties<T> {
+type ISelectProperties<T> = {
   disabled?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
-  multiple?: boolean;
   name: string;
   options: Option<T>[];
   placeholder?: string;
-  value: T[];
-  onChange: (newValue: T[]) => void;
   renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (value?: T[], options?: Option<T>[]) => React.ReactNode;
-}
+  renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
+} & (
+  | {
+      multiple: true;
+      value: T[];
+      onChange: (newValue: T[]) => void;
+    }
+  | {
+      multiple: false;
+      value: T;
+      onChange: (newValue: T) => void;
+    }
+);
 
 export const Select = <T extends string | number>({
   disabled,
@@ -59,24 +67,25 @@ export const Select = <T extends string | number>({
   }, [selectReference]);
 
   const handleSelectedOption = (option: T) => {
-    let newValue: T[];
-    if (!multiple) {
-      newValue = [option];
-    } else {
-      newValue = value.includes(option)
+    if (multiple) {
+      const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
+      onChange(newValue);
+    } else {
+      onChange(option);
     }
-    onChange(newValue);
   };
 
   const handleRemoveOption = (option: T, event: React.MouseEvent) => {
     event.stopPropagation();
-    const updatedOptions = value.filter((_value) => _value !== option);
-    onChange(updatedOptions);
+    if (multiple) {
+      const updatedOptions = value.filter((_value) => _value !== option);
+      onChange(updatedOptions);
 
-    if (updatedOptions.length === 0) {
-      setShowOptions(false);
+      if (updatedOptions.length === 0) {
+        setShowOptions(false);
+      }
     }
   };
 
@@ -87,17 +96,26 @@ export const Select = <T extends string | number>({
     }
   };
 
+  const hasValue = useMemo(() => {
+    if ((multiple && !value.length) || !value) {
+      return false;
+    }
+
+    return true;
+  }, [value]);
+
   const renderOptions = () => {
     return (
       <div className="select-field-options">
         {options?.map((option, index) => {
           const { disabled, label } = option;
           let isChecked = false;
-          value.forEach((_value) => {
-            if (_value === option.value) {
-              isChecked = true;
-            }
-          });
+          multiple &&
+            value.forEach((_value) => {
+              if (_value === option.value) {
+                isChecked = true;
+              }
+            });
 
           return (
             <div key={index} className="option">
@@ -156,7 +174,7 @@ export const Select = <T extends string | number>({
               })}
             </div>
           ) : (
-            <span>{options.find((opt) => opt.value === value[0])?.label}</span>
+            <span>{options.find((opt) => opt.value === value)?.label}</span>
           )}
         </>
       );
@@ -177,7 +195,7 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {value.length > 0
+        {hasValue
           ? renderSelectValue()
           : placeholder && (
               <span className="select-field-placeholder">{placeholder}</span>

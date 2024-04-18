@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, Button } from "@dzangolab/react-ui";
+import { AuthPage, Button } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -168,13 +168,13 @@ export const VerifyEmail = ({
   };
 
   return (
-    <Page
+    <AuthPage
       className="email-verification"
       title={t("emailVerification.title")}
       loading={verifyEmailLoading}
       centered={centered}
     >
       <Card className="email-verification-card">{renderMessage()}</Card>
-    </Page>
+    </AuthPage>
   );
 };

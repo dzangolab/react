@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Divider, Page } from "@dzangolab/react-ui";
+import { Divider, AuthPage } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import { LoginWrapper, SocialLogins } from "../components/Login";
@@ -75,23 +75,19 @@ export const Login: React.FC<IProperties> = ({
   };
 
   return (
-    <Page
-      title={t("login.title")}
-      className={className}
-      data-aria-orientation={orientation}
-      loading={!!redirecting}
+    <AuthPage
       centered={centered}
+      className={className}
+      title={t("login.title")}
+      loading={!!redirecting}
     >
-      {socialLoginOnly ? null : (
-        <LoginWrapper
-          onLoginFailed={onLoginFailed}
-          onLoginSuccess={onLoginSuccess}
-          showForgotPasswordLink={showForgotPasswordLink}
-          showSignupLink={showSignupLink}
-        />
-      )}
-
+      <LoginWrapper
+        onLoginFailed={onLoginFailed}
+        onLoginSuccess={onLoginSuccess}
+        showForgotPasswordLink={showForgotPasswordLink}
+        showSignupLink={showSignupLink}
+      />
       {renderSocialLogins()}
-    </Page>
+    </AuthPage>
   );
 };

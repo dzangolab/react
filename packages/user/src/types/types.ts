@@ -55,3 +55,10 @@ export type UpdateProfileInputType = {
   givenName: string;
   surname: string;
 };
+
+export type LinkType = {
+  className?: string;
+  display?: boolean;
+  label: string;
+  to: string;
+};
