@@ -104,6 +104,10 @@
     transition: all var(--_layout-sidebar-transition-duration) ease-in;
   }
 
+  .dz-layout.fixed > aside > .sidebar-header > .toggle-menu {
+    display: none;
+  }
+
   .dz-layout[aria-expanded="false"] > aside > .sidebar-header > .toggle-menu {
     background-color: var(--_layout-sidebar-bg);
     border: 1px solid;

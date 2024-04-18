@@ -3,6 +3,7 @@ import { Layout, Sidebar, NavMenuType } from "@/components/Layout";
 interface SidebarOnlyLayoutProperties {
   className?: string;
   children: React.ReactNode;
+  fixed?: boolean;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   customSidebar?: React.ReactNode;
@@ -14,6 +15,7 @@ interface SidebarOnlyLayoutProperties {
 export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   className,
   children,
+  fixed,
   displayNavIcons,
   navigationMenu,
   customSidebar,
@@ -22,7 +24,10 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   noSidebarFooter,
 }) => {
   return (
-    <Layout className={`sidebar-only ${className || ""}`.trimEnd()}>
+    <Layout
+      fixed={fixed}
+      className={`sidebar-only ${className || ""}`.trimEnd()}
+    >
       {customSidebar || (
         <Sidebar
           displayNavIcons={displayNavIcons}

@@ -14,6 +14,7 @@ interface Properties {
   className?: string;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
+  fixed?: boolean;
   navigationMenu?: NavMenuType;
   userNavigationMenu?: NavMenuItemType;
   noSidebarHeader?: boolean;
@@ -29,6 +30,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   className,
   customSidebar,
   displayNavIcons,
+  fixed,
   navigationMenu,
   noSidebarHeader,
   noSidebarFooter,
@@ -91,6 +93,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       children={children}
       className={className}
       displayNavIcons={displayNavIcons}
+      fixed={fixed}
       navigationMenu={getNavigationMenu()}
       customSidebar={customSidebar}
       noSidebarHeader={noSidebarHeader}
