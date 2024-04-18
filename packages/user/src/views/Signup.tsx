@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { AuthPage } from "@dzangolab/react-ui";
 
 import { SignupWrapper } from "..";
 
@@ -23,13 +23,13 @@ export const Signup: React.FC<IProperties> = ({
   const { t } = useTranslation("user");
 
   return (
-    <Page className="signup" title={t("signup.title")} centered={centered}>
+    <AuthPage className="signup" title={t("signup.title")} centered={centered}>
       <SignupWrapper
         onSignupFailed={onSignupFailed}
         onSignupSuccess={onSignupSuccess}
         showForgotPasswordLink={showForgotPasswordLink}
         showLoginLink={showLoginLink}
       />
-    </Page>
+    </AuthPage>
   );
 };

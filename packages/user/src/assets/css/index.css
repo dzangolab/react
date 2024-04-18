@@ -1,13 +1,9 @@
 @import "@dzangolab/react-form/dist/DzangolabReactForm.css";
 @import "./invitation.css";
-@import "./login.css";
 @import "./profile.css";
 @import "./signup.css";
 @import "./terms-and-conditions.css";
 @import "./invitations-table.css";
 @import "./verify-email.css";
 @import "./dropdown-user-menu.css";
-@import "./signup-wrapper.css";
-@import "./login-wrapper.css";
 @import "./users-table.css";
-@import "./forgot-password.css";
