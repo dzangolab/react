@@ -1,14 +1,16 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { AuthLinks } from "./AuthLinks";
 import SignupForm from "./SignupForm";
 import { ROUTES } from "../constants";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
+
+import { LinkType } from "@/types/types";
 
 interface IProperties {
   handleSubmit?: (credentials: LoginCredentials) => void;
@@ -31,6 +33,22 @@ export const SignupWrapper: React.FC<IProperties> = ({
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
   const { setUser } = useUser();
   const { user: userConfig } = useConfig();
+
+  const links: Array<LinkType> = [
+    {
+      className: "native-link",
+      display: showLoginLink,
+      label: t("signup.links.login"),
+      to: userConfig?.routes?.login?.path || ROUTES.LOGIN,
+    },
+    {
+      className: "native-link",
+      display:
+        showForgotPasswordLink || !userConfig?.routes?.forgotPassword?.disabled,
+      label: t("signup.links.forgotPassword"),
+      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
+    },
+  ];
 
   const handleSignupSubmit = async (credentials: LoginCredentials) => {
     if (handleSubmit) {
@@ -64,39 +82,13 @@ export const SignupWrapper: React.FC<IProperties> = ({
     }
   };
 
-  const renderLinks = () => {
-    return (
-      <div className="links">
-        {showLoginLink && (
-          <Link
-            to={userConfig?.routes?.login?.path || ROUTES.LOGIN}
-            className="native-link"
-          >
-            {t("signup.links.login")}
-          </Link>
-        )}
-        {!showForgotPasswordLink ||
-        userConfig?.routes?.forgotPassword?.disabled ? null : (
-          <Link
-            to={
-              userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD
-            }
-            className="native-link"
-          >
-            {t("signup.links.forgotPassword")}
-          </Link>
-        )}
-      </div>
-    );
-  };
-
   return (
-    <div className="signup-wrapper">
+    <>
       <SignupForm
         handleSubmit={handleSignupSubmit}
         loading={handleSubmit ? loading : signupLoading}
       />
-      {renderLinks()}
-    </div>
+      <AuthLinks className="sign-up" links={links} />
+    </>
   );
 };

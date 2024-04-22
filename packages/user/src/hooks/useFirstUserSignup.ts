@@ -24,8 +24,8 @@ export const useFirstUserSignup = ({
 
   useEffect(() => {
     if (
-      appConfig?.routes?.signup?.disabled &&
-      !appConfig?.routes?.signupFirstUser?.disabled
+      appConfig?.user?.routes?.signup?.disabled &&
+      !appConfig?.user?.routes?.signupFirstUser?.disabled
     ) {
       setRedirecting(true);
 

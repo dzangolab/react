@@ -15,27 +15,29 @@ export const SelectDemo = () => {
   const [multipleSelectedValues, setMultipleSelectedValues] = useState<
     string[]
   >([]);
-  const [singleSelectedValues, setSingleSelectedValues] = useState<number[]>(
-    [],
-  );
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [singleSelectedValues, setSingleSelectedValues] = useState<number>(0);
+  const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
 
-  const renderSelectedValue = (value?: string[], options?: Option[]) => {
+  const renderSelectedValue = (
+    value?: string | string[],
+    options?: Option[],
+  ) => {
     return (
       <span>
-        {value
-          ?.map(
-            (value_) =>
-              options?.find((option) => option.value === value_)?.label,
-          )
-          .join(", ")}
+        {Array.isArray(value) &&
+          value
+            ?.map(
+              (value_) =>
+                options?.find((option) => option.value === value_)?.label,
+            )
+            .join(", ")}
       </span>
     );
   };
 
-  const renderOption = (option: any) => {
+  const renderOption = (option: Option) => {
     return (
       <div>
         <i className="pi pi-user"></i>
@@ -56,8 +58,9 @@ export const SelectDemo = () => {
             { value: 27, label: "option 3" },
           ]}
           value={singleSelectedValues}
-          onChange={(value: number[]) => setSingleSelectedValues(value)}
+          onChange={(value: number) => setSingleSelectedValues(value)}
           placeholder={t("select.placeHolder")}
+          multiple={false}
         />
       </Section>
       <Section>
@@ -92,11 +95,12 @@ export const SelectDemo = () => {
             { value: "BE", label: "BE" },
             { value: "AR", label: "AR" },
           ]}
-          value={selectedValues}
-          onChange={(value: string[]) => setSelectedValues(value)}
+          value={selectedValue}
+          onChange={(value: string) => setSelectedValue(value)}
           hasError={true}
           errorMessage="Required field"
           placeholder={t("select.placeHolder")}
+          multiple={false}
         />
       </Section>
       <Section>
@@ -113,7 +117,7 @@ export const SelectDemo = () => {
           value={renderedValue}
           onChange={(value: string[]) => setRenderedValue(value)}
           renderValue={renderSelectedValue}
-          multiple
+          multiple={true}
           placeholder={t("select.placeHolder")}
         />
       </Section>
@@ -129,7 +133,7 @@ export const SelectDemo = () => {
           value={renderedOption}
           onChange={(value: string[]) => setRenderedOption(value)}
           renderOption={renderOption}
-          multiple
+          multiple={true}
           placeholder={t("select.placeHolder")}
         />
       </Section>
@@ -141,6 +145,7 @@ export const SelectDemo = () => {
           value={[]}
           onChange={() => {}}
           disabled={true}
+          multiple={true}
         />
       </Section>
     </Page>
