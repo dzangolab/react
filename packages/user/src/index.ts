@@ -32,6 +32,8 @@ import login from "./supertokens/login";
 import logout from "./supertokens/logout";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
+import UserPermissionClaim from "./supertokens/UserPermissionClaim";
+import UserRoleClaim from "./supertokens/UserRoleClaim";
 import verifyEmail from "./supertokens/verify-email";
 import { AcceptInvitation } from "./views/AcceptInvitation";
 import { ChangePassword } from "./views/ChangePassword";
@@ -107,6 +109,8 @@ export {
   resetPassword,
   setUserData,
   signup,
+  UserPermissionClaim,
+  UserRoleClaim,
   superTokens,
   useEmailVerification,
   useFirstUserSignup,
