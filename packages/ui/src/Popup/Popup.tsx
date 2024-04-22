@@ -11,6 +11,7 @@ import { usePopper } from "react-popper";
 
 export interface PopupProperties {
   trigger: ReactNode;
+  triggerEvent?: "click" | "mouseover";
   content: ReactNode;
   position?: "top" | "bottom" | "left" | "right";
   offset?: number;
@@ -19,6 +20,7 @@ export interface PopupProperties {
 
 export const Popup: React.FC<PopupProperties> = ({
   trigger,
+  triggerEvent = "click",
   content,
   position = "bottom",
   offset = 10,
@@ -42,7 +44,7 @@ export const Popup: React.FC<PopupProperties> = ({
     setIsOpen(false);
   };
 
-  const handleOutsideClick = (event: MouseEvent) => {
+  const handleOutsideEvent = (event: MouseEvent) => {
     if (popperElement && referenceElement) {
       if (
         !popperElement.contains(event.target as Node) &&
@@ -53,12 +55,12 @@ export const Popup: React.FC<PopupProperties> = ({
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener(triggerEvent, handleOutsideEvent);
 
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener(triggerEvent, handleOutsideEvent);
     };
-  }, [handleOutsideClick]);
+  }, [handleOutsideEvent]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     modifiers: [
@@ -91,12 +93,16 @@ export const Popup: React.FC<PopupProperties> = ({
     );
   };
 
+  const triggerEventProperty = {
+    [triggerEvent === "mouseover" ? "onMouseOver" : "onClick"]: togglePopup,
+  };
+
   return (
     <div className="popup-container">
       <div
         className="popup-trigger"
         ref={setReferenceElement as LegacyRef<HTMLDivElement>}
-        onClick={togglePopup}
+        {...triggerEventProperty}
       >
         {trigger}
       </div>
