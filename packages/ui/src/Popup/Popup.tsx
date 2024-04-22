@@ -22,6 +22,7 @@ export const Popup: React.FC<PopupProperties> = ({
   content,
   position = "bottom",
   offset = 10,
+  margin,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [referenceElement, setReferenceElement] = useState<Element | null>(

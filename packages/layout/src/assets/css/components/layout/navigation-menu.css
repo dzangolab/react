@@ -82,17 +82,6 @@
   animation: expand 120ms ease;
 }
 
-.dz-layout
-  .navigation-menu
-  > .nav-menu-item
-  > ul
-  > li
-  > .nav-group
-  > .popup-container
-  > .popup-trigger {
-  display: flex !important;
-}
-
 .dz-layout .navigation-menu > .nav-menu-item > ul > li > .nav-group > ul {
   display: none;
 }
@@ -178,6 +167,43 @@
   .dz-layout .navigation-menu[data-horizontal="true"] > .nav-menu-item ul {
     align-items: center;
     flex-direction: row;
+  }
+
+  .dz-layout
+    .navigation-menu
+    > .nav-menu-item
+    > ul
+    > li
+    > .nav-group
+    > .popup-container
+    > .popup-trigger {
+    display: flex !important;
+  }
+
+  .popup-content {
+    margin: 1.3rem 0 0 0;
+  }
+
+  .popup-content > ul {
+    padding: 0.3rem;
+  }
+
+  .popup-content > ul > li {
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .popup-content > ul > li:hover {
+    background: #EAE9EC;
+  }
+
+  .popup-content > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .popup-content > ul > li > a > i {
+    margin-right: 1rem;
   }
 }
 
