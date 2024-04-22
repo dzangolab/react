@@ -1,3 +1,4 @@
+import { Popup } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { NavItem } from "./NavItem";
@@ -13,8 +14,6 @@ export const NavGroup = ({
   displayIcon = true,
 }: NavGroupProperties) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
-
-  const isActive = false;
 
   const renderSubmenu = () => {
     return (
@@ -33,15 +32,22 @@ export const NavGroup = ({
 
   return (
     <div className="nav-group" aria-expanded={showSubmenu}>
-      <NavItem
-        navItem={{
-          label: navGroup.label,
-          icon: navGroup.icon,
-          onClick: () => setShowSubmenu(!showSubmenu),
-        }}
-        displayIcon={displayIcon}
-        isGroupHeader
-      ></NavItem>
+      <Popup
+        trigger={
+          <NavItem
+            navItem={{
+              label: navGroup.label,
+              icon: navGroup.icon,
+              onClick: () => setShowSubmenu(!showSubmenu),
+            }}
+            displayIcon={displayIcon}
+            isGroupHeader
+          />
+        }
+        content={renderSubmenu()}
+        position="right"
+        offset={5}
+      />
       {renderSubmenu()}
     </div>
   );

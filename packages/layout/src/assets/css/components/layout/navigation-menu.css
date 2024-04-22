@@ -82,6 +82,17 @@
   animation: expand 120ms ease;
 }
 
+.dz-layout
+  .navigation-menu
+  > .nav-menu-item
+  > ul
+  > li
+  > .nav-group
+  > .popup-container
+  > .popup-trigger {
+  display: flex !important;
+}
+
 .dz-layout .navigation-menu > .nav-menu-item > ul > li > .nav-group > ul {
   display: none;
 }
@@ -101,6 +112,7 @@
 .dz-layout .navigation-menu .nav-menu-item .nav-group .nav-group-toggle {
   transition: transform 120ms linear;
 }
+
 .dz-layout
   .navigation-menu
   .nav-menu-item
