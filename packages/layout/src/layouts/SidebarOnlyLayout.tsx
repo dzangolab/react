@@ -4,7 +4,6 @@ interface SidebarOnlyLayoutProperties {
   className?: string;
   children: React.ReactNode;
   collapsible?: boolean;
-  fixed?: boolean;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   customSidebar?: React.ReactNode;
@@ -17,7 +16,6 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   className,
   children,
   collapsible,
-  fixed,
   displayNavIcons,
   navigationMenu,
   customSidebar,
@@ -26,10 +24,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   noSidebarFooter,
 }) => {
   return (
-    <Layout
-      fixed={fixed}
-      className={`sidebar-only ${className || ""}`.trimEnd()}
-    >
+    <Layout className={`sidebar-only ${className || ""}`.trimEnd()}>
       {customSidebar || (
         <Sidebar
           collapsible={collapsible}

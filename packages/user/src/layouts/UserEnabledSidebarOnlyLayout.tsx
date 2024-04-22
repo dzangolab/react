@@ -15,7 +15,6 @@ interface Properties {
   collapsible?: boolean;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
-  fixed?: boolean;
   navigationMenu?: NavMenuType;
   userNavigationMenu?: NavMenuItemType;
   noSidebarHeader?: boolean;
@@ -32,7 +31,6 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   customSidebar,
   collapsible,
   displayNavIcons,
-  fixed,
   navigationMenu,
   noSidebarHeader,
   noSidebarFooter,
@@ -96,7 +94,6 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       className={className}
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
-      fixed={fixed}
       navigationMenu={getNavigationMenu()}
       customSidebar={customSidebar}
       noSidebarHeader={noSidebarHeader}
