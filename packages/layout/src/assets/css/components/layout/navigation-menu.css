@@ -194,7 +194,11 @@
   }
 
   .popup-content > ul > li:hover {
-    background: #EAE9EC;
+    background: #eae9ec;
+  }
+
+  .popup-content > ul > li > .nav-item[aria-current="page"] {
+    background: #eae9ec;
   }
 
   .popup-content > ul > li > a {

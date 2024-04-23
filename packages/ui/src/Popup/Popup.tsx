@@ -94,7 +94,7 @@ export const Popup: React.FC<PopupProperties> = ({
   };
 
   const triggerEventProperty = {
-    [triggerEvent === "mouseover" ? "onMouseOver" : "onClick"]: togglePopup,
+    [triggerEvent === "mouseover" ? "onMouseEnter" : "onClick"]: togglePopup,
   };
 
   return (
