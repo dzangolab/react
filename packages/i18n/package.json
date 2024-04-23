@@ -33,7 +33,7 @@
     "i18next-chained-backend": "4.6.2",
     "i18next-resources-to-backend": "1.2.1",
     "primereact": "9.6.1",
-    "react-i18next": "14.0.1"
+    "react-i18next": "14.1.1"
   },
   "devDependencies": {
     "@dzangolab/react-config": "0.35.1",
