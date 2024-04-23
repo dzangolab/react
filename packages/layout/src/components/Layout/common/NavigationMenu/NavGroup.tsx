@@ -44,7 +44,7 @@ export const NavGroup = ({
             isGroupHeader
           />
         }
-        content={renderSubmenu()}
+        content={showSubmenu || renderSubmenu()}
         position="right"
         offset={5}
         triggerEvent="mouseover"

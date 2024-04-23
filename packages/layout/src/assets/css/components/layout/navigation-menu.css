@@ -107,7 +107,7 @@
   .nav-menu-item
   .nav-group[aria-expanded="true"]
   .nav-group-toggle {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 }
 
 .dz-layout .navigation-menu > .nav-menu-item > ul > li .nav-item {

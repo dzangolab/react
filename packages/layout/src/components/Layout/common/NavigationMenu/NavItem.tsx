@@ -23,8 +23,8 @@ export const NavItem = ({
     return (
       <div className="nav-item" onClick={navItem.onClick}>
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
-        {navItem.label}
-        {isGroupHeader && <i className="pi pi-angle-down nav-group-toggle" />}
+        <span>{navItem.label}</span>
+        {isGroupHeader && <i className="pi pi-angle-right nav-group-toggle" />}
       </div>
     );
   }
