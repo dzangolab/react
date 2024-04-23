@@ -1,3 +1,25 @@
+# [0.36.0](https://github.com/dzangolab/react/compare/v0.35.1...v0.36.0) (2024-04-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-react to v7.34.1 ([#909](https://github.com/dzangolab/react/issues/909)) ([6da139e](https://github.com/dzangolab/react/commit/6da139e49fc6fd2e52e74db0e3b3e6462c57f56e))
+* **deps:** update dependency i18next to v23.11.1 ([#910](https://github.com/dzangolab/react/issues/910)) ([5c41c5b](https://github.com/dzangolab/react/commit/5c41c5bd2c0c282cfa0f2970e97fd8884d92cfed))
+* **deps:** update dependency react-hook-form to v7.51.2 ([#912](https://github.com/dzangolab/react/issues/912)) ([55d0b83](https://github.com/dzangolab/react/commit/55d0b8363cb9a9e39f8c2e10dcf67456098c48f4))
+* **deps:** update dependency react-i18next to v14.1.1 ([#913](https://github.com/dzangolab/react/issues/913)) ([94b7320](https://github.com/dzangolab/react/commit/94b7320ea127bde7ab5b507218acee295220d9c4))
+* **deps:** update dependency validator to v13.11.0 ([#915](https://github.com/dzangolab/react/issues/915)) ([a7c8d31](https://github.com/dzangolab/react/commit/a7c8d31f724612515bcef2b7d6ce72ab12515ce9))
+* **select:** update select value to support both array and non-array ([#919](https://github.com/dzangolab/react/issues/919)) ([c720c73](https://github.com/dzangolab/react/commit/c720c73986519d6a0c0fd13eac1beb61e5a7f99f))
+* **ui/page:** make page subtitle appear below page title ([#911](https://github.com/dzangolab/react/issues/911)) ([919adc6](https://github.com/dzangolab/react/commit/919adc62faaebe6c9725c6650b1b0e9831d55c34))
+* **useFirstUserSignup:** update the condition for redirecting ([#924](https://github.com/dzangolab/react/issues/924)) ([16a30e0](https://github.com/dzangolab/react/commit/16a30e0d29845a90caa544acc7dbab869b246762))
+
+
+### Features
+
+* add useProfileCompletion hook ([#922](https://github.com/dzangolab/react/issues/922)) ([dfba66b](https://github.com/dzangolab/react/commit/dfba66b08c61058bb15ef725c72753185b31bd1d))
+* **layout:** make sidebar collapsible ([#923](https://github.com/dzangolab/react/issues/923)) ([2c369e0](https://github.com/dzangolab/react/commit/2c369e0489ab08c5128ff7a1f7b0f6ae5cab5ac5))
+
+
+
 ## [0.35.1](https://github.com/dzangolab/react/compare/v0.35.0...v0.35.1) (2024-04-11)
 
 
