@@ -5,6 +5,7 @@ import { NavMenuType } from "../types";
 
 type SidebarProperties = {
   children?: React.ReactNode;
+  collapsible?: boolean;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   noHeader?: boolean;
@@ -14,6 +15,7 @@ type SidebarProperties = {
 
 export const Sidebar = ({
   children,
+  collapsible = true,
   displayNavIcons = false,
   navigationMenu,
   noHeader = false,
@@ -33,5 +35,9 @@ export const Sidebar = ({
     );
   };
 
-  return <aside>{children || renderContent()}</aside>;
+  return (
+    <aside className={!collapsible ? "fixed" : ""}>
+      {children || renderContent()}
+    </aside>
+  );
 };

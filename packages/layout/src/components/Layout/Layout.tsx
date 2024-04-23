@@ -1,3 +1,5 @@
+import { useMediaQuery } from "@dzangolab/react-ui";
+
 import { LayoutProvider, useLayoutContext } from "./Context";
 
 type LayoutProperties = {
@@ -7,14 +9,15 @@ type LayoutProperties = {
 };
 
 const LayoutComponent = ({ children, className, fixed }: LayoutProperties) => {
-  const { menuMobileOpen } = useLayoutContext();
+  const { menuDesktopOpen, menuMobileOpen } = useLayoutContext();
+  const isSmallScreen = useMediaQuery("(max-width: 576px)");
 
   return (
     <div
       className={`dz-layout ${className || ""} ${
         fixed ? "fixed" : ""
       }`.trimEnd()}
-      aria-expanded={menuMobileOpen}
+      aria-expanded={isSmallScreen ? menuMobileOpen : menuDesktopOpen}
     >
       {children}
     </div>
