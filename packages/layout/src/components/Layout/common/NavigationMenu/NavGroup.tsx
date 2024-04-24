@@ -1,4 +1,4 @@
-import { Popup } from "@dzangolab/react-ui";
+import { Popup, useMediaQuery } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { NavItem } from "./NavItem";
@@ -14,6 +14,7 @@ export const NavGroup = ({
   displayIcon = true,
 }: NavGroupProperties) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
+  const isSmallScreen = useMediaQuery("(max-width:576px)");
 
   const renderSubmenu = () => {
     return (
@@ -30,8 +31,25 @@ export const NavGroup = ({
     );
   };
 
-  return (
-    <div className="nav-group" aria-expanded={showSubmenu}>
+  const renderNavItem = () => {
+    if (isSmallScreen || showSubmenu) {
+      return (
+        <>
+          <NavItem
+            navItem={{
+              label: navGroup.label,
+              icon: navGroup.icon,
+              onClick: () => setShowSubmenu(!showSubmenu),
+            }}
+            displayIcon={displayIcon}
+            isGroupHeader
+          />
+          {renderSubmenu()}
+        </>
+      );
+    }
+
+    return (
       <Popup
         trigger={
           <NavItem
@@ -44,12 +62,18 @@ export const NavGroup = ({
             isGroupHeader
           />
         }
-        content={showSubmenu || renderSubmenu()}
+        content={renderSubmenu()}
         position="right"
         offset={1}
         triggerEvent="mouseover"
+        skidding={21}
       />
-      {renderSubmenu()}
+    );
+  };
+
+  return (
+    <div className="nav-group" aria-expanded={showSubmenu}>
+      {renderNavItem()}
     </div>
   );
 };

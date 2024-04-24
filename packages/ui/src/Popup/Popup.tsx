@@ -15,7 +15,7 @@ export interface PopupProperties {
   content: ReactNode;
   position?: "top" | "bottom" | "left" | "right";
   offset?: number;
-  margin?: number;
+  skidding?: number;
 }
 
 export const Popup: React.FC<PopupProperties> = ({
@@ -24,7 +24,7 @@ export const Popup: React.FC<PopupProperties> = ({
   content,
   position = "bottom",
   offset = 10,
-  margin,
+  skidding = 0,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [referenceElement, setReferenceElement] = useState<Element | null>(
@@ -33,7 +33,7 @@ export const Popup: React.FC<PopupProperties> = ({
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
 
   const setOffset: OffsetsFunction = useCallback(() => {
-    return [0, offset];
+    return [skidding, offset];
   }, []);
 
   const togglePopup = () => {

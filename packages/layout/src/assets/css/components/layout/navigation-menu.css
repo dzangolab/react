@@ -180,10 +180,6 @@
     display: flex !important;
   }
 
-  .popup-content {
-    margin: 1.3rem 0 0 0;
-  }
-
   .popup-content > ul {
     padding: 0.3rem;
   }
@@ -194,10 +190,6 @@
   }
 
   .popup-content > ul > li:hover {
-    background: #eae9ec;
-  }
-
-  .popup-content > ul > li > .nav-item[aria-current="page"] {
     background: #eae9ec;
   }
 
