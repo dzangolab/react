@@ -47,7 +47,6 @@
 
 .dz-layout > aside > .sidebar-header > .logo {
   --_layout-logo-max-width: var(--_layout-sidebar-logo-max-width);
-
   width: 100%;
 }
 
