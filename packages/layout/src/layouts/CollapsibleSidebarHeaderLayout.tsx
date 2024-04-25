@@ -1,4 +1,4 @@
-import { Layout, NavMenuType, Sidebar } from "..";
+import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
 interface IProperties {
   className?: string;
@@ -6,14 +6,13 @@ interface IProperties {
   collapsible?: boolean;
   customHeader?: React.ReactNode;
   customSidebar?: React.ReactNode;
-  displayHeader?: boolean;
   displayLocaleSwitcher?: boolean;
   displayNavIcons?: boolean;
   displaySidebar?: boolean;
   displaySidebarFooter?: boolean;
   localeSwitcher?: boolean;
   navigationMenu?: NavMenuType;
-  userMenu?: React.ReactNode;
+  userMenu?: NavMenuItemType;
 }
 
 const CollapsibleSidebarHeaderLayout = ({
@@ -22,29 +21,27 @@ const CollapsibleSidebarHeaderLayout = ({
   collapsible,
   customHeader,
   customSidebar,
-  displayHeader = true,
   displayLocaleSwitcher = false,
   displayNavIcons = true,
-  displaySidebar = true,
-  displaySidebarFooter = false,
+  displaySidebarFooter = true,
   localeSwitcher,
   navigationMenu,
   userMenu,
 }: IProperties) => {
   return (
     <Layout className={`header-sidebar ${className || ""}`.trimEnd()}>
-      {displayHeader && (customHeader || <header></header>)}
-      {displaySidebar &&
-        (customSidebar || (
-          <Sidebar
-            collapsible={collapsible}
-            displayNavIcons={displayNavIcons}
-            navigationMenu={navigationMenu}
-            noHeader={true}
-            noFooter={!displaySidebarFooter}
-            noLocaleSwitcher={!displayLocaleSwitcher}
-          ></Sidebar>
-        ))}
+      {customHeader || (
+        <Header menu={userMenu} noLogo={true} localeSwitcher={localeSwitcher} />
+      )}
+      {customSidebar || (
+        <Sidebar
+          collapsible={collapsible}
+          displayNavIcons={displayNavIcons}
+          navigationMenu={navigationMenu}
+          noFooter={!displaySidebarFooter}
+          noLocaleSwitcher={!displayLocaleSwitcher}
+        ></Sidebar>
+      )}
       <main>{children}</main>
     </Layout>
   );

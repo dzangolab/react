@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -445,6 +449,10 @@ importers:
         version: 1.6.0(@types/node@18.19.31)(jsdom@24.0.0)
 
   packages/layout:
+    dependencies:
+      primereact:
+        specifier: 9.6.1
+        version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
         specifier: 0.37.0
@@ -13361,7 +13369,3 @@ packages:
     engines: {node: '>=0.8'}
     hasBin: true
     dev: false
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false

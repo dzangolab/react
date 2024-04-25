@@ -88,6 +88,8 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     return [navigationMenu, userNavigationMenu];
   };
 
+  console.log(getNavigationMenu());
+
   return (
     <SidebarOnlyLayout
       children={children}

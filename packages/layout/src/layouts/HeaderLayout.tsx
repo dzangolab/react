@@ -1,4 +1,9 @@
-import { Layout, NavMenuType, Header } from "@/components/Layout";
+import {
+  Layout,
+  NavMenuType,
+  Header,
+  NavMenuItemType,
+} from "@/components/Layout";
 
 interface HeaderLayoutProperties {
   className?: string;
@@ -6,7 +11,7 @@ interface HeaderLayoutProperties {
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   title?: string | React.ReactNode;
-  menu?: React.ReactNode;
+  menu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;

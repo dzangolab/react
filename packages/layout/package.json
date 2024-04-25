@@ -12,7 +12,9 @@
   "main": "dist//DzangolabReactLayout.umd.js",
   "module": "dist//DzangolabReactLayout.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -25,7 +27,9 @@
     "test:unit": "vitest --environment jsdom run unit/",
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
-  "dependencies": {},
+  "dependencies": {
+    "primereact": "9.6.1"
+  },
   "devDependencies": {
     "@dzangolab/react-config": "0.37.0",
     "@dzangolab/react-i18n": "0.37.0",

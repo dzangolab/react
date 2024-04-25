@@ -23,6 +23,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   noSidebarHeader,
   noSidebarFooter,
 }) => {
+  console.log(navigationMenu);
   return (
     <Layout className={`sidebar-only ${className || ""}`.trimEnd()}>
       {customSidebar || (
