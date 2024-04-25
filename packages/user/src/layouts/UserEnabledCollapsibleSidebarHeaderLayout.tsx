@@ -1,12 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SidebarOnlyLayout } from "@dzangolab/react-layout";
+import {
+  CollapsibleSidebarHeaderLayout,
+  NavMenuType,
+  NavMenuItemType,
+} from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
 import { removeUserData } from "@/helpers";
 import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
-
-import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-layout";
 
 interface Properties {
   authNavigationMenu?: NavMenuItemType;
@@ -24,7 +26,9 @@ interface Properties {
   onLogout?: () => Promise<any>;
 }
 
-export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
+export const UserEnabledCollapsibleSidebarHeaderLayout: React.FC<
+  Properties
+> = ({
   authNavigationMenu,
   children,
   className,
@@ -32,9 +36,6 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   collapsible,
   displayNavIcons,
   navigationMenu,
-  noSidebarHeader,
-  noSidebarFooter,
-  noLocaleSwitcher,
   userNavigationMenu,
   onLogout,
 }) => {
@@ -42,7 +43,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 
   const { user, setUser } = useUser();
 
-  const getUserNavigationMenu = () => {
+  const getUserMenu = () => {
     if (!user) {
       return authNavigationMenu;
     }
@@ -74,31 +75,15 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     };
   };
 
-  const getNavigationMenu = () => {
-    const userNavigationMenu = getUserNavigationMenu();
-
-    if (!navigationMenu) {
-      return userNavigationMenu;
-    }
-
-    if (Array.isArray(navigationMenu)) {
-      return [...navigationMenu, userNavigationMenu];
-    }
-
-    return [navigationMenu, userNavigationMenu];
-  };
-
   return (
-    <SidebarOnlyLayout
+    <CollapsibleSidebarHeaderLayout
       children={children}
       className={className}
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
-      navigationMenu={getNavigationMenu()}
+      navigationMenu={navigationMenu}
+      userMenu={getUserMenu()}
       customSidebar={customSidebar}
-      noSidebarHeader={noSidebarHeader}
-      noSidebarFooter={noSidebarFooter}
-      noLocaleSwitcher={noLocaleSwitcher}
     />
   );
 };
