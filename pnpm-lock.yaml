@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -362,8 +366,8 @@ importers:
         specifier: 0.36.0
         version: link:../ui
       i18next:
-        specifier: 23.11.1
-        version: 23.11.1
+        specifier: 23.11.2
+        version: 23.11.2
       i18next-browser-languagedetector:
         specifier: 7.2.1
         version: 7.2.1
@@ -378,7 +382,7 @@ importers:
         version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       react-i18next:
         specifier: 14.1.1
-        version: 14.1.1(i18next@23.11.1)(react-dom@18.2.0)(react@18.2.0)
+        version: 14.1.1(i18next@23.11.2)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
         specifier: 0.36.0
@@ -9015,10 +9019,10 @@ packages:
       '@babel/runtime': 7.23.6
     dev: false
 
-  /i18next@23.11.1:
-    resolution: {integrity: sha512-mXw4A24BiPZKRsbb9ewgSvjYd6fxFCNwJyfK6nYfSTIAX2GkCWcb598m3DFkDZmqADatvuASrKo6qwORz3VwTQ==}
+  /i18next@23.11.2:
+    resolution: {integrity: sha512-qMBm7+qT8jdpmmDw/kQD16VpmkL9BdL+XNAK5MNbNFaf1iQQq35ZbPrSlqmnNPOSUY4m342+c0t0evinF5l7sA==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
     dev: false
 
   /iconv-lite@0.4.24:
@@ -11154,7 +11158,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-i18next@14.1.1(i18next@23.11.1)(react-dom@18.2.0)(react@18.2.0):
+  /react-i18next@14.1.1(i18next@23.11.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-QSiKw+ihzJ/CIeIYWrarCmXJUySHDwQr5y8uaNIkbxoGRm/5DukkxZs+RPla79IKyyDPzC/DRlgQCABHtrQuQQ==}
     peerDependencies:
       i18next: '>= 23.2.3'
@@ -11169,7 +11173,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.24.4
       html-parse-stringify: 3.0.1
-      i18next: 23.11.1
+      i18next: 23.11.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -13611,7 +13615,3 @@ packages:
     engines: {node: '>=0.8'}
     hasBin: true
     dev: false
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
