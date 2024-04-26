@@ -75,13 +75,27 @@ export const UserEnabledCollapsibleSidebarHeaderLayout: React.FC<
     };
   };
 
+  const getNavigationMenu = () => {
+    const userNavigationMenu = getUserMenu();
+
+    if (!navigationMenu) {
+      return userNavigationMenu;
+    }
+
+    if (Array.isArray(navigationMenu)) {
+      return [...navigationMenu, userNavigationMenu];
+    }
+
+    return [navigationMenu, userNavigationMenu];
+  };
+
   return (
     <CollapsibleSidebarHeaderLayout
       children={children}
       className={className}
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
-      navigationMenu={navigationMenu}
+      // navigationMenu={getNavigationMenu()}
       userMenu={getUserMenu()}
       customSidebar={customSidebar}
     />

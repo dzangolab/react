@@ -1,7 +1,6 @@
-.dz-layout.sidebar-only > aside {
+.dz-layout > aside {
   --_default-padding-h: 1rem;
   --_default-padding-v: 1.5rem;
-
   --_layout-sidebar-bg: var(--dz-layout-sidebar-bg, #007aff);
   --_layout-sidebar-border: var(--dz-layout-sidebar-border, none);
   --_layout-sidebar-color: var(--dz-layout-sidebar-color, #fff);
@@ -58,7 +57,6 @@
   --_layout-nav-item-padding-h: var(--_layout-sidebar-padding-h);
   --_layout-nav-menu-padding-v: var(--_layout-sidebar-padding-v);
   --_layout-nav-menu-separator-color: var(--_layout-sidebar-separator-color);
-
   flex: 1;
   overflow-y: auto;
 }

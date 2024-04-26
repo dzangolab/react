@@ -21,7 +21,7 @@ export const CollapsibleSidebarHeaderLayout = ({
   collapsible,
   customHeader,
   customSidebar,
-  displayLocaleSwitcher = false,
+  displayLocaleSwitcher = true,
   displayNavIcons = true,
   displaySidebarFooter = true,
   localeSwitcher,
