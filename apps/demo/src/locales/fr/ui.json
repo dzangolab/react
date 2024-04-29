@@ -165,5 +165,8 @@
       "single": "Single select (fr)"
     },
     "placeHolder": "-- select value -- (fr)"
+  },
+  "card": {
+    "title": "Card (fr)"
   }
 }

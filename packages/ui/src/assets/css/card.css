@@ -1,0 +1,9 @@
+.dz-card {
+  border-radius: 8px;
+  box-shadow: 2px 3px 10px #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 16px;
+  width: max-content;
+}

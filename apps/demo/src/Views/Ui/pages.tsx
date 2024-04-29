@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
 import { CheckboxDemo } from "./components/Checkbox";
+import { CardDemo } from "./components/Card";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
@@ -51,6 +52,7 @@ export const UI_ROUTES = {
   STEPPER: "/ui/stepper",
   TABBED_PANEL: "/ui/tabbed-pannel",
   TAG: "/ui/tag",
+  CARD: "/ui/card",
 };
 
 export const routes = [
@@ -168,6 +170,11 @@ export const routes = [
     path: UI_ROUTES.SELECT,
     key: "select.title",
     element: <SelectDemo />,
+  },
+  {
+    path: UI_ROUTES.CARD,
+    key: "card.title",
+    element: <CardDemo />,
   },
 ];
 

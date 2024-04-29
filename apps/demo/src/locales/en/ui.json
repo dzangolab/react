@@ -169,5 +169,8 @@
       "single": "Single select"
     },
     "placeHolder": "-- select value --"
+  },
+  "card": {
+    "title": "Card"
   }
 }
