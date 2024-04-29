@@ -75,9 +75,9 @@
     > .header-menu
     > .user-menu
     > span {
+    align-items: center;
     display: flex;
     gap: 0.25rem;
-    align-items: center;
   }
 
   .dz-layout.sidebar-header
