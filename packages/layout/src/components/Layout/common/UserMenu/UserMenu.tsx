@@ -29,16 +29,19 @@ export const UserMenu = ({ menu }: IProperties) => {
   });
 
   const renderContent = () => {
-    if (userMenu.length === 1) {
+    if (refinedMenu.length === 1) {
+      const [singleMenu] = refinedMenu;
+
       return (
         <span
           onClick={() => {
-            if ("route" in userMenu[0]) {
-              navigate(userMenu[0].route);
-            }
+            singleMenu.command();
           }}
         >
-          {userMenu[0].label}
+          {singleMenu.icon && (
+            <i className={singleMenu.icon} style={{ fontSize: "12px" }}></i>
+          )}
+          {singleMenu.label}
         </span>
       );
     }
