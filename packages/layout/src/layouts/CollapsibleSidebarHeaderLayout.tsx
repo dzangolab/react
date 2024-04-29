@@ -1,45 +1,61 @@
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
 interface IProperties {
-  className?: string;
   children: React.ReactNode;
+  className?: string;
   collapsible?: boolean;
   customHeader?: React.ReactNode;
   customSidebar?: React.ReactNode;
-  displayLocaleSwitcher?: boolean;
   displayNavIcons?: boolean;
-  displaySidebar?: boolean;
-  displaySidebarFooter?: boolean;
-  localeSwitcher?: boolean;
+  localeSwitcher?: React.ReactNode;
   navigationMenu?: NavMenuType;
+  noLocaleSwitcher?: boolean;
+  noLogo?: boolean;
+  noSidebarHeader?: boolean;
+  noSidebarFooter?: boolean;
+  noToggle?: boolean;
+  title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
 }
 
 export const CollapsibleSidebarHeaderLayout = ({
-  className,
   children,
+  className,
   collapsible,
   customHeader,
   customSidebar,
-  displayLocaleSwitcher = true,
   displayNavIcons = true,
-  displaySidebarFooter = true,
   localeSwitcher,
   navigationMenu,
+  noLocaleSwitcher = false,
+  noLogo = true,
+  noSidebarHeader,
+  noSidebarFooter = false,
+  noToggle,
+  title,
   userMenu,
 }: IProperties) => {
   return (
     <Layout className={`sidebar-header ${className || ""}`.trimEnd()}>
       {customHeader || (
-        <Header menu={userMenu} noLogo={true} localeSwitcher={localeSwitcher} />
+        <Header
+          displayNavIcons={displayNavIcons}
+          localeSwitcher={localeSwitcher}
+          menu={userMenu}
+          noLogo={noLogo}
+          noLocaleSwitcher={noLocaleSwitcher}
+          noToggle={noToggle}
+          title={title}
+        />
       )}
       {customSidebar || (
         <Sidebar
           collapsible={collapsible}
           displayNavIcons={displayNavIcons}
           navigationMenu={navigationMenu}
-          noFooter={!displaySidebarFooter}
-          noLocaleSwitcher={!displayLocaleSwitcher}
+          noHeader={noSidebarHeader}
+          noFooter={noSidebarFooter}
+          noLocaleSwitcher={true}
         ></Sidebar>
       )}
       <main>{children}</main>

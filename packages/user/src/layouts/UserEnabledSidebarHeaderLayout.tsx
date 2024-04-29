@@ -15,11 +15,18 @@ interface Properties {
   children: React.ReactNode;
   className?: string;
   collapsible?: boolean;
+  customHeader?: React.ReactNode;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
+  localeSwitcher?: React.ReactNode;
   navigationMenu?: NavMenuType;
-  userNavigationMenu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
+  noLogo?: boolean;
+  noSidebarHeader?: boolean;
+  noSidebarFooter?: boolean;
+  noToggle?: boolean;
+  title?: string | React.ReactNode;
+  userNavigationMenu?: NavMenuItemType;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
 }
@@ -29,11 +36,10 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   children,
   className,
   collapsible,
-  customSidebar,
-  displayNavIcons,
   navigationMenu,
   userNavigationMenu,
   onLogout,
+  ...otherProperties
 }) => {
   const { t } = useTranslation("user");
 
@@ -90,10 +96,9 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       children={children}
       className={className}
       collapsible={collapsible}
-      displayNavIcons={displayNavIcons}
       navigationMenu={getNavigationMenu()}
       userMenu={getUserNavigationMenu()}
-      customSidebar={customSidebar}
+      {...otherProperties}
     />
   );
 };
