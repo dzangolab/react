@@ -55,7 +55,7 @@ export const CollapsibleSidebarHeaderLayout = ({
           navigationMenu={navigationMenu}
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
-          noLocaleSwitcher={true}
+          noLocaleSwitcher={noLocaleSwitcher}
         ></Sidebar>
       )}
       <main>{children}</main>
