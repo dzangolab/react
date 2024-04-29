@@ -24,7 +24,7 @@ export const Card = ({
 
   return (
     <div className={`dz-card ${className}`}>
-    {header && <div className="card-header">
+      {header && <div className="card-header">
         {renderHeader ? (
           renderHeader()
         ) : (
@@ -34,7 +34,7 @@ export const Card = ({
           </>
         )}
       </div>}
-      
+
       {content && <div className="card-content">
         {content}
       </div>}
