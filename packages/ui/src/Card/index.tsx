@@ -24,20 +24,24 @@ export const Card = ({
 
   return (
     <div className={`dz-card ${className}`}>
-      {header && <div className="card-header">
-        {renderHeader ? (
-          renderHeader()
-        ) : (
-          <>
-            {title && <h1>{title}</h1>}
-            {subTitle && <span>{subTitle}</span>}
-          </>
-        )}
-      </div>}
+      {header && (
+        <div className="card-header">
+          {renderHeader ? (
+            renderHeader()
+          ) : (
+            <>
+              {title && <h1>{title}</h1>}
+              {subTitle && <span>{subTitle}</span>}
+            </>
+          )}
+        </div>
+      )}
 
-      {content && <div className="card-content">
-        {content}
-      </div>}
+      {content && (
+        <div className="card-content">
+          {content}
+        </div>
+      )}
 
       {renderFooter && (
         <div className="card-footer">
