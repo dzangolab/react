@@ -1,6 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  CollapsibleSidebarHeaderLayout,
+  SidebarHeaderLayout,
   NavMenuType,
   NavMenuItemType,
 } from "@dzangolab/react-layout";
@@ -92,7 +92,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   };
 
   return (
-    <CollapsibleSidebarHeaderLayout
+    <SidebarHeaderLayout
       children={children}
       className={className}
       collapsible={collapsible}

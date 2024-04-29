@@ -18,7 +18,7 @@ interface IProperties {
   userMenu?: NavMenuItemType;
 }
 
-export const CollapsibleSidebarHeaderLayout = ({
+export const SidebarHeaderLayout = ({
   children,
   className,
   collapsible,
