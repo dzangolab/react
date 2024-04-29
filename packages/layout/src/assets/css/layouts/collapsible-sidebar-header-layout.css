@@ -22,7 +22,6 @@
 
 @media screen and (min-width: 576px) {
   .dz-layout.sidebar-header {
-    display: grid;
     grid-template-areas:
       "sidebar header"
       "sidebar main";
@@ -41,6 +40,7 @@
   }
 
   .dz-layout.sidebar-header > main {
+    grid-area: main;
     overflow-y: auto;
   }
 
@@ -57,10 +57,7 @@
     > aside
     > .navigation-menu
     > div[data-nav-menu-id="auth-menu"],
-  .dz-layout.sidebar-header
-    > aside
-    > .sidebar-footer
-    > .locale-switcher {
+  .dz-layout.sidebar-header > aside > .sidebar-footer > .locale-switcher {
     display: none;
   }
 

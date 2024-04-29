@@ -11,7 +11,7 @@ interface IProperties {
 export const UserMenu = ({ menu }: IProperties) => {
   const menuReference = useRef<PMenu>(null);
   const navigate = useNavigate();
-  const { label: userMenuLabel, menu: userMenu } = menu;
+  const { id, label: userMenuLabel, menu: userMenu } = menu;
 
   const refinedMenu = userMenu.map((_menu) => {
     return {
@@ -55,6 +55,8 @@ export const UserMenu = ({ menu }: IProperties) => {
   };
 
   return userMenu.length ? (
-    <span className="user-menu">{renderContent()}</span>
+    <span className="user-menu" data-nav-menu-id={id}>
+      {renderContent()}
+    </span>
   ) : null;
 };
