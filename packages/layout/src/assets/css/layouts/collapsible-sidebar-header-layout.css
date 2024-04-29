@@ -1,4 +1,4 @@
-.dz-layout.header-sidebar {
+.dz-layout.sidebar-header {
   display: grid;
   grid-template-areas:
     "header"
@@ -6,22 +6,22 @@
   width: 100%;
 }
 
-.dz-layout.header-sidebar > header {
+.dz-layout.sidebar-header > header {
   display: none;
 }
 
-.dz-layout.header-sidebar > aside {
+.dz-layout.sidebar-header > aside {
   grid-area: header;
 }
 
-.dz-layout.header-sidebar > main {
+.dz-layout.sidebar-header > main {
   grid-area: main;
   max-width: 100%;
   min-width: 100%;
 }
 
 @media screen and (min-width: 576px) {
-  .dz-layout.header-sidebar {
+  .dz-layout.sidebar-header {
     display: grid;
     grid-template-areas:
       "sidebar header"
@@ -31,40 +31,40 @@
     height: 100dvh;
   }
 
-  .dz-layout.header-sidebar > header {
+  .dz-layout.sidebar-header > header {
     display: unset;
     grid-area: header;
   }
 
-  .dz-layout.header-sidebar > aside {
+  .dz-layout.sidebar-header > aside {
     grid-area: sidebar;
   }
 
-  .dz-layout.header-sidebar > main {
+  .dz-layout.sidebar-header > main {
     overflow-y: auto;
   }
 
-  .dz-layout.header-sidebar > header > .header-container {
+  .dz-layout.sidebar-header > header > .header-container {
     display: flex;
     justify-content: flex-end;
   }
 
-  .dz-layout.header-sidebar
+  .dz-layout.sidebar-header
     > aside
     > .navigation-menu
     > div[data-nav-menu-id="user-menu"],
-  .dz-layout.header-sidebar
+  .dz-layout.sidebar-header
     > aside
     > .navigation-menu
     > div[data-nav-menu-id="auth-menu"],
-  .dz-layout.header-sidebar
+  .dz-layout.sidebar-header
     > aside
     > .sidebar-footer
     > .locale-switcher {
     display: none;
   }
 
-  .dz-layout.header-sidebar
+  .dz-layout.sidebar-header
     > header
     > .header-container
     > .header-menu
@@ -72,7 +72,7 @@
     cursor: pointer;
   }
 
-  .dz-layout.header-sidebar
+  .dz-layout.sidebar-header
     > header
     > .header-container
     > .header-menu
@@ -83,7 +83,7 @@
     align-items: center;
   }
 
-  .dz-layout.header-sidebar
+  .dz-layout.sidebar-header
     > header
     > .header-container
     > .header-menu

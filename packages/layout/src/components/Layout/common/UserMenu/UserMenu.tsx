@@ -11,7 +11,7 @@ interface IProperties {
 export const UserMenu = ({ menu }: IProperties) => {
   const menuReference = useRef<PMenu>(null);
   const navigate = useNavigate();
-  const { menu: userMenu } = menu;
+  const { label: userMenuLabel, menu: userMenu } = menu;
 
   const refinedMenu = userMenu.map((_menu) => {
     return {
@@ -47,7 +47,7 @@ export const UserMenu = ({ menu }: IProperties) => {
       <>
         <PMenu model={refinedMenu} popup ref={menuReference} />
         <span onClick={(event) => menuReference?.current?.toggle(event)}>
-          My account
+          {userMenuLabel}
           <i className="pi pi-angle-down" style={{ fontSize: "12px" }}></i>
         </span>
       </>

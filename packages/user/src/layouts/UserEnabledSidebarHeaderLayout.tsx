@@ -11,7 +11,7 @@ import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
 interface Properties {
-  authNavigationMenu?: NavMenuItemType;
+  authNavigationMenu: NavMenuItemType;
   children: React.ReactNode;
   className?: string;
   collapsible?: boolean;
@@ -19,21 +19,17 @@ interface Properties {
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   userNavigationMenu?: NavMenuItemType;
-  noSidebarHeader?: boolean;
-  noSidebarFooter?: boolean;
   noLocaleSwitcher?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
 }
 
-export const UserEnabledCollapsibleSidebarHeaderLayout: React.FC<
-  Properties
-> = ({
+export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   authNavigationMenu,
   children,
   className,
-  customSidebar,
   collapsible,
+  customSidebar,
   displayNavIcons,
   navigationMenu,
   userNavigationMenu,
@@ -43,7 +39,7 @@ export const UserEnabledCollapsibleSidebarHeaderLayout: React.FC<
 
   const { user, setUser } = useUser();
 
-  const getUserMenu = () => {
+  const getUserNavigationMenu = () => {
     if (!user) {
       return authNavigationMenu;
     }
@@ -76,7 +72,7 @@ export const UserEnabledCollapsibleSidebarHeaderLayout: React.FC<
   };
 
   const getNavigationMenu = () => {
-    const userNavigationMenu = getUserMenu();
+    const userNavigationMenu = getUserNavigationMenu();
 
     if (!navigationMenu) {
       return userNavigationMenu;
@@ -95,8 +91,8 @@ export const UserEnabledCollapsibleSidebarHeaderLayout: React.FC<
       className={className}
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
-      // navigationMenu={getNavigationMenu()}
-      userMenu={getUserMenu()}
+      navigationMenu={getNavigationMenu()}
+      userMenu={getUserNavigationMenu()}
       customSidebar={customSidebar}
     />
   );

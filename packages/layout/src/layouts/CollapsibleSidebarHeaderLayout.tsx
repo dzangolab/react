@@ -29,7 +29,7 @@ export const CollapsibleSidebarHeaderLayout = ({
   userMenu,
 }: IProperties) => {
   return (
-    <Layout className={`header-sidebar ${className || ""}`.trimEnd()}>
+    <Layout className={`sidebar-header ${className || ""}`.trimEnd()}>
       {customHeader || (
         <Header menu={userMenu} noLogo={true} localeSwitcher={localeSwitcher} />
       )}

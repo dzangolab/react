@@ -25,7 +25,7 @@ import {
 } from "./hooks";
 import {
   UserEnabledBasicLayout,
-  UserEnabledCollapsibleSidebarHeaderLayout,
+  UserEnabledSidebarHeaderLayout,
   UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
 } from "./layouts";
@@ -88,7 +88,7 @@ export {
 
   // layouts
   UserEnabledBasicLayout,
-  UserEnabledCollapsibleSidebarHeaderLayout,
+  UserEnabledSidebarHeaderLayout,
   UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
 
