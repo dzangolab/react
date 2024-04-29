@@ -94,3 +94,9 @@
   font-size: 1.75rem;
   font-weight: 600;
 }
+
+.demo-section > .demo-section-content > .dz-card .custom-card-header {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: space-between;
+}

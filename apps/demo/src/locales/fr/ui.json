@@ -167,6 +167,15 @@
     "placeHolder": "-- select value -- (fr)"
   },
   "card": {
-    "title": "Card (fr)"
+    "title": "Card (fr)",
+    "usage": {
+      "basic": "Basic card (fr)",
+      "custom": "Custom card (fr)"
+    },
+    "component": {
+      "content": "This is the card content. (fr)",
+      "subtitle": "Subtitle (fr)",
+      "title": "Title (fr)"
+    }
   }
 }
