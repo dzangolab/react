@@ -52,12 +52,7 @@
   .dz-layout.sidebar-header
     > aside
     > .navigation-menu
-    > div[data-nav-menu-id="user-menu"],
-  .dz-layout.sidebar-header
-    > aside
-    > .navigation-menu
-    > div[data-nav-menu-id="auth-menu"],
-  .dz-layout.sidebar-header > aside > .sidebar-footer > .locale-switcher {
+    > :not(div[data-nav-menu-id="navigation-menu"]) {
     display: none;
   }
 
