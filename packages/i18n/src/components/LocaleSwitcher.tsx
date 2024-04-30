@@ -33,7 +33,7 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
   return (
     <span className="locale-switcher">
       <DropdownMenu
-        model={locales || []}
+        menu={locales || []}
         menuLabel={t(`locales.${i18n.language}`)}
         {...menuOptions}
       />

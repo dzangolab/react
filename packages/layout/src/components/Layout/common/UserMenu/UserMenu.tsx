@@ -45,7 +45,7 @@ export const UserMenu = ({ menu }: IProperties) => {
       );
     }
 
-    return <DropdownMenu model={refinedMenu} menuLabel={userMenuLabel} />;
+    return <DropdownMenu menu={refinedMenu || []} menuLabel={userMenuLabel} />;
   };
 
   return userMenu.length ? (

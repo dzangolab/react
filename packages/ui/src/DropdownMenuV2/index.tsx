@@ -1,18 +1,20 @@
 import { Menu as PMenu, MenuProps as PMenuProperties } from "primereact/menu";
+import { MenuItem } from "primereact/menuitem";
 import React, { useRef } from "react";
 
 export interface MenuProperties extends PMenuProperties {
   icon?: string | React.ReactNode;
-  menuLabel?: string;
+  menu: MenuItem[];
+  menuLabel?: string | React.ReactNode;
 }
 
 export const DropdownMenuV2 = ({
   icon = <i className="pi pi-angle-down" style={{ fontSize: "12px" }} />,
   menuLabel,
-  model,
+  menu,
   ...menuOptions
 }: MenuProperties) => {
-  const menu = useRef<PMenu>(null);
+  const menuReference = useRef<PMenu>(null);
 
   const renderIcon = () => {
     if (typeof icon === "string") {
@@ -24,8 +26,8 @@ export const DropdownMenuV2 = ({
 
   return (
     <>
-      <PMenu model={model} popup ref={menu} {...menuOptions} />
-      <span onClick={(event) => menu?.current?.toggle(event)}>
+      <PMenu model={menu} popup ref={menuReference} {...menuOptions} />
+      <span onClick={(event) => menuReference?.current?.toggle(event)}>
         {menuLabel}
         {renderIcon()}
       </span>
