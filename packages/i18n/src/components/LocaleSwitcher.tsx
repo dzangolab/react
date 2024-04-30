@@ -1,10 +1,8 @@
+import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
 import { MenuProps as PMenuProperties } from "primereact/menu";
-// eslint-disable-next-line import/order
 import { useTranslation } from "react-i18next";
 
 import "../css/locale-switcher.css";
-// eslint-disable-next-line import/order
-import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
 
 export type LocalSwitcherProperties = PMenuProperties;
 

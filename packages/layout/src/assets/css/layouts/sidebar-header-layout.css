@@ -1,4 +1,4 @@
-.dz-layout.sidebar-header {
+.dz-layout.sidebar-header-layout {
   display: grid;
   grid-template-areas:
     "header"
@@ -6,22 +6,22 @@
   width: 100%;
 }
 
-.dz-layout.sidebar-header > header {
+.dz-layout.sidebar-header-layout > header {
   display: none;
 }
 
-.dz-layout.sidebar-header > aside {
+.dz-layout.sidebar-header-layout > aside {
   grid-area: header;
 }
 
-.dz-layout.sidebar-header > main {
+.dz-layout.sidebar-header-layout > main {
   grid-area: main;
   max-width: 100%;
   min-width: 100%;
 }
 
 @media screen and (min-width: 576px) {
-  .dz-layout.sidebar-header {
+  .dz-layout.sidebar-header-layout {
     grid-template-areas:
       "sidebar header"
       "sidebar main";
@@ -30,26 +30,26 @@
     height: 100dvh;
   }
 
-  .dz-layout.sidebar-header > header {
+  .dz-layout.sidebar-header-layout > header {
     display: unset;
     grid-area: header;
   }
 
-  .dz-layout.sidebar-header > aside {
+  .dz-layout.sidebar-header-layout > aside {
     grid-area: sidebar;
   }
 
-  .dz-layout.sidebar-header > main {
+  .dz-layout.sidebar-header-layout > main {
     grid-area: main;
     overflow-y: auto;
   }
 
-  .dz-layout.sidebar-header > header > .header-container {
+  .dz-layout.sidebar-header-layout > header > .header-container {
     display: flex;
     justify-content: flex-end;
   }
 
-  .dz-layout.sidebar-header
+  .dz-layout.sidebar-header-layout
     > header
     > .header-container
     > .header-menu
@@ -57,7 +57,7 @@
     cursor: pointer;
   }
 
-  .dz-layout.sidebar-header
+  .dz-layout.sidebar-header-layout
     > header
     > .header-container
     > .header-menu
@@ -68,7 +68,7 @@
     gap: 0.25rem;
   }
 
-  .dz-layout.sidebar-header
+  .dz-layout.sidebar-header-layout
     > header
     > .header-container
     > .header-menu
@@ -77,11 +77,11 @@
     text-decoration: underline;
   }
 
-  .dz-layout.sidebar-header
+  .dz-layout.sidebar-header-layout
     > aside
     > .navigation-menu
     > :not(div[data-nav-menu-id="navigation-menu"]),
-  .dz-layout.sidebar-header > aside > .sidebar-footer > .locale-switcher {
+  .dz-layout.sidebar-header-layout > aside > .sidebar-footer > .locale-switcher {
     display: none;
   }
 }

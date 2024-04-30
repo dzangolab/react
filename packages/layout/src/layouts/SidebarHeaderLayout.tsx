@@ -34,7 +34,7 @@ export const SidebarHeaderLayout = ({
   userMenu,
 }: IProperties) => {
   return (
-    <Layout className={`sidebar-header ${className || ""}`.trimEnd()}>
+    <Layout className={`sidebar-header-layout ${className || ""}`.trimEnd()}>
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
