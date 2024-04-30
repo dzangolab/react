@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import "../css/locale-switcher.css";
+import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
 
 export type LocalSwitcherProperties = PMenuProperties;
 
@@ -34,11 +35,11 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
 
   return (
     <span className="locale-switcher">
-      <PMenu model={locales || []} popup ref={menu} {...menuOptions} />
-      <span onClick={(event) => menu?.current?.toggle(event)}>
-        {t(`locales.${i18n.language}`)}
-        <i className="pi pi-angle-down" style={{ fontSize: "12px" }}></i>
-      </span>
+      <DropdownMenu
+        model={locales || []}
+        menuLabel={t(`locales.${i18n.language}`)}
+        {...menuOptions}
+      />
     </span>
   );
 };

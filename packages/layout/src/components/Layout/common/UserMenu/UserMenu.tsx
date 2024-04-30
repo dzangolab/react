@@ -1,4 +1,4 @@
-import { Menu as PMenu } from "primereact/menu";
+import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,6 @@ interface IProperties {
 }
 
 export const UserMenu = ({ menu }: IProperties) => {
-  const menuReference = useRef<PMenu>(null);
   const navigate = useNavigate();
   const { id, label: userMenuLabel, menu: userMenu } = menu;
 
@@ -46,15 +45,7 @@ export const UserMenu = ({ menu }: IProperties) => {
       );
     }
 
-    return (
-      <>
-        <PMenu model={refinedMenu} popup ref={menuReference} />
-        <span onClick={(event) => menuReference?.current?.toggle(event)}>
-          {userMenuLabel}
-          <i className="pi pi-angle-down" style={{ fontSize: "12px" }}></i>
-        </span>
-      </>
-    );
+    return <DropdownMenu model={refinedMenu} menuLabel={userMenuLabel} />;
   };
 
   return userMenu.length ? (
