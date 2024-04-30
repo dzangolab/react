@@ -1,6 +1,6 @@
 .dz-card {
-  border-radius: 0.25rem;
-  box-shadow: 2px 3px 10px #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 3px 8px #ccc;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
