@@ -2,7 +2,9 @@ import { sendVerificationEmail } from "supertokens-web-js/recipe/emailverificati
 
 type resendEmailStatus = "OK" | "EMAIL_ALREADY_VERIFIED_ERROR";
 
-export const resendEmail = async (): Promise<resendEmailStatus | undefined> => {
+export const resendVerificationEmail = async (): Promise<
+  resendEmailStatus | undefined
+> => {
   const response = await sendVerificationEmail();
 
   return response.status;

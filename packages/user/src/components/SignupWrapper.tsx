@@ -2,6 +2,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
+import { LinkType } from "@/types/types";
+
 import { AuthLinks } from "./AuthLinks";
 import SignupForm from "./SignupForm";
 import { ROUTES } from "../constants";
@@ -9,8 +11,6 @@ import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
 import type { LoginCredentials, SignInUpPromise } from "../types";
-
-import { LinkType } from "@/types/types";
 
 interface IProperties {
   handleSubmit?: (credentials: LoginCredentials) => void;
