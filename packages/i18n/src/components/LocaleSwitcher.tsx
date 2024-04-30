@@ -1,16 +1,15 @@
-import { Menu as PMenu, MenuProps as PMenuProperties } from "primereact/menu";
-import { useRef } from "react";
+import { MenuProps as PMenuProperties } from "primereact/menu";
+// eslint-disable-next-line import/order
 import { useTranslation } from "react-i18next";
 
 import "../css/locale-switcher.css";
+// eslint-disable-next-line import/order
 import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
 
 export type LocalSwitcherProperties = PMenuProperties;
 
 const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
   const { i18n, t } = useTranslation("locales");
-
-  const menu = useRef<PMenu>(null);
 
   const changeLocale = (newLocale: string) => {
     i18n.changeLanguage(newLocale);
