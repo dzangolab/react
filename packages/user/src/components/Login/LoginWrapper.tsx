@@ -38,14 +38,14 @@ export const LoginWrapper: FC<IProperties> = ({
   const links: Array<LinkType> = [
     {
       className: "native-link",
-      display: showSignupLink || !userConfig?.routes?.signup?.disabled,
+      display: !userConfig?.routes?.signup?.disabled && showSignupLink,
       label: t("login.links.signup"),
       to: userConfig?.routes?.signup?.path || ROUTES.SIGNUP,
     },
     {
       className: "native-link",
       display:
-        showForgotPasswordLink || !userConfig?.routes?.forgotPassword?.disabled,
+        !userConfig?.routes?.forgotPassword?.disabled && showForgotPasswordLink,
       label: t("login.links.forgotPassword"),
       to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
     },
