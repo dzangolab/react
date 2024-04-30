@@ -54,8 +54,8 @@ importers:
         specifier: 8.0.1
         version: 8.0.1
       primeicons:
-        specifier: 6.0.1
-        version: 6.0.1
+        specifier: 7.0.0
+        version: 7.0.0
       primereact:
         specifier: 9.6.1
         version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
@@ -499,8 +499,8 @@ importers:
         specifier: 3.2.5
         version: 3.2.5
       primeicons:
-        specifier: 6.0.1
-        version: 6.0.1
+        specifier: 7.0.0
+        version: 7.0.0
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -696,8 +696,8 @@ importers:
         specifier: 3.2.5
         version: 3.2.5
       primeicons:
-        specifier: 6.0.1
-        version: 6.0.1
+        specifier: 7.0.0
+        version: 7.0.0
       primereact:
         specifier: 9.6.1
         version: 9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
@@ -10861,8 +10861,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /primeicons@6.0.1:
-    resolution: {integrity: sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==}
+  /primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
   /primereact@9.6.1(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-MRmloop4tJgvqB5v3kIlgAseQzCAQMfY8mo/KVCvRtj2Pn15dpwLLchsbTCZw3t6nxAs3AZ+CK9MENJQU5Lh7w==}
