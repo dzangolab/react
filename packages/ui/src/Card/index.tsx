@@ -20,29 +20,29 @@ export const Card = ({
   renderHeader,
 }: ICardProperties) => {
   const content = renderContent && renderContent() || children
- 
+  
   return (
-    <div className={`dz-card ${className}`}>
-      <div className="card-header">
+    <article className={`dz-card ${className}`}>
+      <header>
         {renderHeader ? (
           renderHeader()
         ) : (
           <>
-            {title && <h1>{title}</h1>}
-            {subTitle && <span>{subTitle}</span>}
+            {title && <strong className="card-title">{title}</strong>}
+            {subTitle && <span className="card-subtitle">{subTitle}</span>}
           </>
         )}
-      </div>
+      </header>
 
-      {content && <div className="card-content">
+      {content && <section className="card-content">
         {content}
-      </div>}
+      </section>}
 
       {renderFooter && (
-        <div className="card-footer">
+        <footer>
           {renderFooter()}
-        </div>
+        </footer>
       )}
-    </div>
+    </article>
   );
 };
