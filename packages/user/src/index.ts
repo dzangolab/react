@@ -35,6 +35,7 @@ import googleLogin from "./supertokens/google-login";
 import { verifySessionRoles } from "./supertokens/helpers";
 import login from "./supertokens/login";
 import logout from "./supertokens/logout";
+import { resendEmail } from "./supertokens/resend-email-verification";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import verifyEmail from "./supertokens/verify-email";
@@ -110,6 +111,7 @@ export {
   logout,
   removeUserData,
   resetPassword,
+  resendEmail,
   setUserData,
   signup,
   superTokens,

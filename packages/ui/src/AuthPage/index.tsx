@@ -1,6 +1,6 @@
-import { LoadingPage } from "..";
-
 import { LoadingPageProperties } from "@/LoadingPage";
+
+import { LoadingPage } from "..";
 
 interface IProperties {
   centered?: boolean;
