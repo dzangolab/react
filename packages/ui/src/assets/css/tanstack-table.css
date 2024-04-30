@@ -22,7 +22,7 @@
   position: relative;
 }
 
-.dz-table-container > span {
+.dz-table-container > caption {
   font-weight: bold;
   text-align: center;
   padding: 0.2rem 0;
@@ -30,11 +30,11 @@
   font-size: 1rem;
 }
 
-.dz-table-container > span[data-align="left"] {
+.dz-table-container > caption[data-align="left"] {
   text-align: left;
 }
 
-.dz-table-container > span[data-align="right"] {
+.dz-table-container > caption[data-align="right"] {
   text-align: right;
 }
 

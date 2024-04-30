@@ -254,7 +254,7 @@ export interface TDataTableProperties<TData>
   renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
   renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
   renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
-  title?: {
+  caption?: {
     text: string;
     align?: "left" | "center" | "right";
   };
