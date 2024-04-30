@@ -10,7 +10,6 @@ interface HeaderProperties {
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   title?: string | React.ReactNode;
-  localeSwitcher?: React.ReactNode;
   menu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
@@ -22,7 +21,6 @@ export const Header = ({
   displayNavIcons,
   title,
   navigationMenu,
-  localeSwitcher,
   menu,
   noLocaleSwitcher,
   noLogo,
@@ -41,11 +39,7 @@ export const Header = ({
           />
         )}
         {(menu || !noLocaleSwitcher) && (
-          <HeaderMenu
-            menu={menu}
-            localeSwitcher={localeSwitcher}
-            noLocaleSwitcher={noLocaleSwitcher}
-          />
+          <HeaderMenu menu={menu} noLocaleSwitcher={noLocaleSwitcher} />
         )}
         {!noToggle && <ToggleMenuMobile />}
       </>

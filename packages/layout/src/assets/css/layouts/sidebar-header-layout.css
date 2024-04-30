@@ -52,7 +52,8 @@
   .dz-layout.sidebar-header
     > aside
     > .navigation-menu
-    > :not(div[data-nav-menu-id="navigation-menu"]) {
+    > :not(div[data-nav-menu-id="navigation-menu"]),
+  .dz-layout.sidebar-header > aside > .sidebar-footer > .locale-switcher {
     display: none;
   }
 

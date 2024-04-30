@@ -7,7 +7,6 @@ interface IProperties {
   customHeader?: React.ReactNode;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
-  localeSwitcher?: React.ReactNode;
   navigationMenu?: NavMenuType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
@@ -25,7 +24,6 @@ export const SidebarHeaderLayout = ({
   customHeader,
   customSidebar,
   displayNavIcons = true,
-  localeSwitcher,
   navigationMenu,
   noLocaleSwitcher = false,
   noLogo = true,
@@ -40,7 +38,6 @@ export const SidebarHeaderLayout = ({
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
-          localeSwitcher={localeSwitcher}
           menu={userMenu}
           noLogo={noLogo}
           noLocaleSwitcher={noLocaleSwitcher}

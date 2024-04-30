@@ -18,7 +18,6 @@ interface Properties {
   customHeader?: React.ReactNode;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
-  localeSwitcher?: React.ReactNode;
   navigationMenu?: NavMenuType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;

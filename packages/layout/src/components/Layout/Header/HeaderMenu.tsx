@@ -6,21 +6,19 @@ import { NavMenuItemType } from "../types";
 interface HeaderProperties {
   children?: React.ReactNode;
   menu?: NavMenuItemType;
-  localeSwitcher?: React.ReactNode;
   noLocaleSwitcher?: boolean;
 }
 
 export const HeaderMenu = ({
   children,
   menu,
-  localeSwitcher,
   noLocaleSwitcher,
 }: HeaderProperties) => {
   const renderContent = () => {
     return (
       <>
         {menu && <UserMenu menu={menu} />}
-        {!noLocaleSwitcher && (localeSwitcher || <LocaleSwitcher />)}
+        {!noLocaleSwitcher && <LocaleSwitcher />}
       </>
     );
   };
