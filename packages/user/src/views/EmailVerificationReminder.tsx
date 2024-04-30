@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "@/constants";
 import { getHomeRoute } from "@/helpers";
-import { resendEmail } from "@/supertokens/resend-email-verification";
+import { resendVerificationEmail } from "@/supertokens/resend-email-verification";
 
 import { UserContextType, userContext } from "..";
 
@@ -28,7 +28,7 @@ export const EmailVerificationReminder = ({
   );
 
   const handleResend = () => {
-    resendEmail()
+    resendVerificationEmail()
       .then((status) => {
         if (status === EMAIL_VERIFICATION.OK) {
           toast.success(t("emailVerification.toastMessages.resendSuccess"));

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "@/constants";
 import { useConfig } from "@/hooks";
-import { resendEmail } from "@/supertokens/resend-email-verification";
+import { resendVerificationEmail } from "@/supertokens/resend-email-verification";
 import verifyEmail from "@/supertokens/verify-email";
 
 import { UserContextType, userContext } from "..";
@@ -40,6 +40,9 @@ export const VerifyEmail = ({
             switch (response.status) {
               case EMAIL_VERIFICATION.OK:
                 toast.success(t("emailVerification.toastMessages.success"));
+
+                setUser(user);
+
                 // setCountdown(redirectionDelayTime);
                 break;
 
@@ -47,6 +50,9 @@ export const VerifyEmail = ({
                 toast.info(
                   t("emailVerification.toastMessages.alreadyVerified"),
                 );
+
+                setUser(user);
+
                 // setCountdown(redirectionDelayTime);
                 break;
 
@@ -82,18 +88,8 @@ export const VerifyEmail = ({
   //   }
   // }, [countdown]);
 
-  useEffect(() => {
-    if (
-      !verifyEmailLoading &&
-      (status === EMAIL_VERIFICATION.OK ||
-        status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED)
-    ) {
-      setUser(user);
-    }
-  }, [status]);
-
   const handleResend = () => {
-    resendEmail()
+    resendVerificationEmail()
       .then((status) => {
         if (status === EMAIL_VERIFICATION.OK) {
           toast.success(t("emailVerification.toastMessages.resendSuccess"));
@@ -121,7 +117,11 @@ export const VerifyEmail = ({
 
   const renderMessage = () => {
     if (verifyEmailLoading) {
-      return null;
+      return (
+        <div className="message-wrapper">
+          {t("emailVerification.messages.verifyingEmail")}
+        </div>
+      );
     }
 
     if (!user) {
