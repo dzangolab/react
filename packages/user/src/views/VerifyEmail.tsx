@@ -12,21 +12,14 @@ import verifyEmail from "@/supertokens/verify-email";
 
 import { UserContextType, userContext } from "..";
 
-export const VerifyEmail = ({
-  redirectionDelayTime = 5,
-  centered = true,
-}: {
-  redirectionDelayTime?: number;
-  centered?: boolean;
-}) => {
+export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
   const [status, setStatus] = useState<string | undefined>("");
-  const [countdown, setCountdown] = useState<number>(-1);
 
   const { t } = useTranslation("user");
   const { user, setUser } = useContext(userContext) as UserContextType;
-  const navigate = useNavigate();
   const { user: userConfig } = useConfig();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
@@ -42,20 +35,14 @@ export const VerifyEmail = ({
                 toast.success(t("emailVerification.toastMessages.success"));
 
                 setUser(user);
-
-                // setCountdown(redirectionDelayTime);
                 break;
-
               case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
                 toast.info(
                   t("emailVerification.toastMessages.alreadyVerified"),
                 );
 
                 setUser(user);
-
-                // setCountdown(redirectionDelayTime);
                 break;
-
               default:
                 toast.error(t("emailVerification.toastMessages.invalidToken"));
                 break;
@@ -72,22 +59,6 @@ export const VerifyEmail = ({
     }
   }, []);
 
-  // FIXME [SM: the use of setTimeout with hook is not optimized]
-  // useEffect(() => {
-  //   if (countdown > 0) {
-  //     setTimeout(() => {
-  //       setCountdown((previous) => previous - 1);
-  //     }, 1000);
-  //   } else if (
-  //     countdown === 0 &&
-  //     (status === EMAIL_VERIFICATION.OK ||
-  //       status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED)
-  //   ) {
-  //     setUser(user);
-  //     navigate("/");
-  //   }
-  // }, [countdown]);
-
   const handleResend = () => {
     resendVerificationEmail()
       .then((status) => {
@@ -96,8 +67,6 @@ export const VerifyEmail = ({
         } else if (status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR) {
           toast.info(t("emailVerification.toastMessages.alreadyVerified"));
         }
-
-        navigate("/verify-email-reminder");
       })
       .catch(() => {
         toast.error(t("emailVerification.toastMessages.error"));
@@ -108,8 +77,8 @@ export const VerifyEmail = ({
     const urlParameters = new URLSearchParams(window.location.search);
     if (urlParameters) {
       navigate(
-        `/${
-          userConfig.routes?.login?.path || "signin"
+        `${
+          userConfig.routes?.login?.path || "/signin"
         }?redirect=${window.encodeURI(location.pathname + location.search)}`,
       );
     }
@@ -146,19 +115,11 @@ export const VerifyEmail = ({
 
     switch (status) {
       case EMAIL_VERIFICATION.OK:
-        message = t("emailVerification.messages.success", {
-          countdown: countdown,
-        });
-
+        message = t("emailVerification.messages.success");
         break;
-
       case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
-        message = t("emailVerification.messages.alreadyVerified", {
-          countdown: countdown,
-        });
-
+        message = t("emailVerification.messages.alreadyVerified");
         break;
-
       case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR:
         message = t("emailVerification.messages.invalidToken");
 
@@ -171,9 +132,7 @@ export const VerifyEmail = ({
             />
           </div>
         );
-
         break;
-
       default:
         message = t("emailVerification.messages.error");
     }
