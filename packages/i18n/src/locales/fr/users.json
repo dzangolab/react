@@ -12,7 +12,8 @@
       "roles": "Roles (fr)",
       "name": "Name (fr)",
       "signedUpOn": "Signed up on (fr)",
-      "status": "Status (fr)"
+      "status": "Status (fr)",
+      "surname": "Surname (fr)"
     },
     "pagination": {
       "pageControl": "Go to (fr)",

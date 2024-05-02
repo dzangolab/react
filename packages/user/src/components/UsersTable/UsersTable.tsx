@@ -67,8 +67,9 @@ export const UsersTable = ({
   totalRecords = 0,
   users,
   visibleColumns = [
-    "name",
     "email",
+    "name",
+    "surname",
     "roles",
     "signedUpAt",
     "status",
@@ -96,8 +97,7 @@ export const UsersTable = ({
       accessorFn: (original) => {
         return (
           (original.givenName ? original.givenName : "") +
-            (original.middleNames ? " " + original.middleNames : "") +
-            (original.surname ? " " + original.surname : "") || "-"
+            (original.middleNames ? " " + original.middleNames : "") || "-"
         );
       },
       cell: ({ getValue }) => {
@@ -106,6 +106,10 @@ export const UsersTable = ({
         return value;
       },
       enableColumnFilter: true,
+    },
+    {
+      accessorKey: "surname",
+      header: t("table.defaultColumns.surname"),
     },
     {
       align: "center",
