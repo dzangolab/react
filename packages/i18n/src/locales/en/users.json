@@ -12,8 +12,7 @@
       "roles": "Roles",
       "name": "Name",
       "signedUpOn": "Signed up on",
-      "status": "Status",
-      "surname": "Surname"
+      "status": "Status"
     },
     "pagination": {
       "pageControl": "Go to",
