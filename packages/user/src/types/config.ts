@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { UserInput } from "supertokens-web-js/recipe/session";
 
 import { SocialLoginType } from "@/components/Login";
 
@@ -18,6 +19,9 @@ interface DzangolabReactUserConfig {
       emailVerification?: boolean;
       profileCompletionRequired?: boolean;
     };
+  };
+  supertokens?: {
+    sessionConfig?: UserInput;
   };
 }
 
