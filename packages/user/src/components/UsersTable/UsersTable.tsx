@@ -67,8 +67,8 @@ export const UsersTable = ({
   totalRecords = 0,
   users,
   visibleColumns = [
-    "name",
     "email",
+    "name",
     "roles",
     "signedUpAt",
     "status",
