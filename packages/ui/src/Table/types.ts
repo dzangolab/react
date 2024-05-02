@@ -254,10 +254,7 @@ export interface TDataTableProperties<TData>
   renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
   renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
   renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
-  caption?: {
-    text: string;
-    align?: "left" | "center" | "right";
-  };
+  caption?: string;
   paginated?: boolean;
   rowPerPage?: number;
   rowPerPageOptions?: number[];

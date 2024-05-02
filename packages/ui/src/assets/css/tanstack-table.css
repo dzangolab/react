@@ -30,14 +30,6 @@
   font-size: 1rem;
 }
 
-.dz-table-container > caption[data-align="left"] {
-  text-align: left;
-}
-
-.dz-table-container > caption[data-align="right"] {
-  text-align: right;
-}
-
 .dz-table-container .loading-overlay {
   position: absolute;
   top: 0;

@@ -195,10 +195,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.columnTooltip")}>
         <TDataTable
-          caption={{
-            text: t("table.usage.columnTooltip"),
-            align: "left",
-          }}
+          caption={t("table.usage.columnTooltip")}
           columns={[
             ...columns,
             {
@@ -286,7 +283,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.withTitle")}>
         <TDataTable
-          caption={{ text: "Table title", align: "left" }}
+          caption="Table title"
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}

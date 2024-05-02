@@ -290,9 +290,7 @@ const DataTable = <TData extends { id: string | number }>({
       data-border={border}
       className={("dz-table-container " + className).trimEnd()}
     >
-      {caption ? (
-        <caption data-align={caption.align || "center"}>{caption.text}</caption>
-      ) : null}
+      {caption ? <caption>{caption}</caption> : null}
 
       {showColumnsAction || renderToolbarItems ? (
         <TableToolbar
