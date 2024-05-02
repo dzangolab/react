@@ -1,3 +1,14 @@
+## [0.36.1](https://github.com/dzangolab/react/compare/v0.36.0...v0.36.1) (2024-04-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency i18next to v23.11.2 ([#929](https://github.com/dzangolab/react/issues/929)) ([a0223e1](https://github.com/dzangolab/react/commit/a0223e1c85ecb2e28bb6a5a650ac7289b3ebaca2))
+* **deps:** update dependency react-hook-form to v7.51.3 ([#933](https://github.com/dzangolab/react/issues/933)) ([11107cb](https://github.com/dzangolab/react/commit/11107cbacaeb346eac8f689f84cffb8f4985ea7e))
+* **user:** change the condition to display links in login page ([#940](https://github.com/dzangolab/react/issues/940)) ([6f26c45](https://github.com/dzangolab/react/commit/6f26c45d484131ad90280bbc1464838ad4cf35fc))
+
+
+
 # [0.36.0](https://github.com/dzangolab/react/compare/v0.35.1...v0.36.0) (2024-04-23)
 
 

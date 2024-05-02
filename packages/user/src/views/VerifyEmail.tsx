@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "@/constants";
-import { resendEmail } from "@/supertokens/resend-email-verification";
+import { useConfig } from "@/hooks";
+import { resendVerificationEmail } from "@/supertokens/resend-email-verification";
 import verifyEmail from "@/supertokens/verify-email";
 
 import { UserContextType, userContext } from "..";
@@ -18,12 +19,14 @@ export const VerifyEmail = ({
   redirectionDelayTime?: number;
   centered?: boolean;
 }) => {
-  const { t } = useTranslation("user");
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
   const [status, setStatus] = useState<string | undefined>("");
+  const [countdown, setCountdown] = useState<number>(-1);
+
+  const { t } = useTranslation("user");
   const { user, setUser } = useContext(userContext) as UserContextType;
   const navigate = useNavigate();
-  const [countdown, setCountdown] = useState<number>(-1);
+  const { user: userConfig } = useConfig();
 
   useEffect(() => {
     if (user) {
@@ -37,14 +40,20 @@ export const VerifyEmail = ({
             switch (response.status) {
               case EMAIL_VERIFICATION.OK:
                 toast.success(t("emailVerification.toastMessages.success"));
-                setCountdown(redirectionDelayTime);
+
+                setUser(user);
+
+                // setCountdown(redirectionDelayTime);
                 break;
 
               case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
                 toast.info(
                   t("emailVerification.toastMessages.alreadyVerified"),
                 );
-                setCountdown(redirectionDelayTime);
+
+                setUser(user);
+
+                // setCountdown(redirectionDelayTime);
                 break;
 
               default:
@@ -63,23 +72,24 @@ export const VerifyEmail = ({
     }
   }, []);
 
-  useEffect(() => {
-    if (countdown > 0) {
-      setTimeout(() => {
-        setCountdown((previous) => previous - 1);
-      }, 1000);
-    } else if (
-      countdown === 0 &&
-      (status === EMAIL_VERIFICATION.OK ||
-        status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED)
-    ) {
-      setUser(user);
-      navigate("/");
-    }
-  }, [countdown]);
+  // FIXME [SM: the use of setTimeout with hook is not optimized]
+  // useEffect(() => {
+  //   if (countdown > 0) {
+  //     setTimeout(() => {
+  //       setCountdown((previous) => previous - 1);
+  //     }, 1000);
+  //   } else if (
+  //     countdown === 0 &&
+  //     (status === EMAIL_VERIFICATION.OK ||
+  //       status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED)
+  //   ) {
+  //     setUser(user);
+  //     navigate("/");
+  //   }
+  // }, [countdown]);
 
   const handleResend = () => {
-    resendEmail()
+    resendVerificationEmail()
       .then((status) => {
         if (status === EMAIL_VERIFICATION.OK) {
           toast.success(t("emailVerification.toastMessages.resendSuccess"));
@@ -98,14 +108,22 @@ export const VerifyEmail = ({
     const urlParameters = new URLSearchParams(window.location.search);
     if (urlParameters) {
       navigate(
-        `/signin?redirect=${window.encodeURI(
-          location.pathname + location.search,
-        )}`,
+        `/${
+          userConfig.routes?.login?.path || "signin"
+        }?redirect=${window.encodeURI(location.pathname + location.search)}`,
       );
     }
   };
 
   const renderMessage = () => {
+    if (verifyEmailLoading) {
+      return (
+        <div className="message-wrapper">
+          {t("emailVerification.messages.verifyingEmail")}
+        </div>
+      );
+    }
+
     if (!user) {
       return (
         <>
@@ -123,48 +141,49 @@ export const VerifyEmail = ({
       );
     }
 
+    let message = "",
+      button = <></>;
+
     switch (status) {
       case EMAIL_VERIFICATION.OK:
-        return (
-          <div className="message-wrapper">
-            {t("emailVerification.messages.success", {
-              countdown: countdown,
-            })}
-          </div>
-        );
+        message = t("emailVerification.messages.success", {
+          countdown: countdown,
+        });
+
+        break;
 
       case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
-        return (
-          <div className="message-wrapper">
-            {t("emailVerification.messages.alreadyVerified", {
-              countdown: countdown,
-            })}
-          </div>
-        );
+        message = t("emailVerification.messages.alreadyVerified", {
+          countdown: countdown,
+        });
+
+        break;
 
       case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR:
-        return (
-          <>
-            <div className="message-wrapper">
-              {t("emailVerification.messages.invalidToken")}
-            </div>
-            <div className="button-wrapper">
-              <Button
-                label={t("emailVerification.button.resendEmail")}
-                onClick={handleResend}
-                className="resend-button"
-              />
-            </div>
-          </>
-        );
+        message = t("emailVerification.messages.invalidToken");
 
-      default:
-        return (
-          <div className="message-wrapper">
-            {t("emailVerification.messages.error")};
+        button = (
+          <div className="button-wrapper">
+            <Button
+              label={t("emailVerification.button.resendEmail")}
+              onClick={handleResend}
+              className="resend-button"
+            />
           </div>
         );
+
+        break;
+
+      default:
+        message = t("emailVerification.messages.error");
     }
+
+    return (
+      <>
+        <div className="message-wrapper">{message}</div>
+        {button}
+      </>
+    );
   };
 
   return (

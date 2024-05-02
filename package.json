@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react",
-  "version": "0.36.0",
+  "version": "0.36.1",
   "scripts": {
     "build": "turbo run build",
     "lint": "turbo run lint",
@@ -18,7 +18,7 @@
     "shipjs": "0.26.3",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.15.7",
+  "packageManager": "pnpm@8.15.8",
   "engines": {
     "node": ">=16",
     "pnpm": ">=8"

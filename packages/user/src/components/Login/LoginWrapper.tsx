@@ -2,6 +2,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
 
+import { LinkType } from "@/types/types";
+
 import { LoginForm } from "./LoginForm";
 import { ROUTES } from "../../constants";
 import { useConfig, useUser } from "../../hooks";
@@ -10,8 +12,6 @@ import login from "../../supertokens/login";
 import { AuthLinks } from "../AuthLinks";
 
 import type { LoginCredentials, SignInUpPromise } from "../../types";
-
-import { LinkType } from "@/types/types";
 
 interface IProperties {
   handleSubmit?: (credential: LoginCredentials) => void;
@@ -38,14 +38,14 @@ export const LoginWrapper: FC<IProperties> = ({
   const links: Array<LinkType> = [
     {
       className: "native-link",
-      display: showSignupLink || !userConfig?.routes?.signup?.disabled,
+      display: !userConfig?.routes?.signup?.disabled && showSignupLink,
       label: t("login.links.signup"),
       to: userConfig?.routes?.signup?.path || ROUTES.SIGNUP,
     },
     {
       className: "native-link",
       display:
-        showForgotPasswordLink || !userConfig?.routes?.forgotPassword?.disabled,
+        !userConfig?.routes?.forgotPassword?.disabled && showForgotPasswordLink,
       label: t("login.links.forgotPassword"),
       to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
     },
