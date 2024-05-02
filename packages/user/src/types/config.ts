@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { UserInput } from "supertokens-web-js/recipe/session";
+import Session from "supertokens-web-js/recipe/session";
+import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { SocialLoginType } from "@/components/Login";
 
@@ -21,7 +22,8 @@ interface DzangolabReactUserConfig {
     };
   };
   supertokens?: {
-    sessionConfig?: UserInput;
+    sessionConfig?: Session.UserInput;
+    thirdPartyEmailPasswordConfig?: ThirdPartyEmailPassword.UserInput;
   };
 }
 
