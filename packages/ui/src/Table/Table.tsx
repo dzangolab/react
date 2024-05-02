@@ -73,7 +73,7 @@ const DataTable = <TData extends { id: string | number }>({
   renderTableFooterContent,
   renderCustomPagination,
   renderSortIcons,
-  title,
+  caption,
   paginated = true,
   rowPerPage,
   rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
@@ -290,9 +290,7 @@ const DataTable = <TData extends { id: string | number }>({
       data-border={border}
       className={("dz-table-container " + className).trimEnd()}
     >
-      {title ? (
-        <span children={title.text} data-align={title.align || "center"} />
-      ) : null}
+      {caption && <caption>{caption}</caption>}
 
       {showColumnsAction || renderToolbarItems ? (
         <TableToolbar
