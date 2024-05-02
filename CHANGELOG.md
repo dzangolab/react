@@ -1,3 +1,20 @@
+# [0.37.0](https://github.com/dzangolab/react/compare/v0.36.1...v0.37.0) (2024-05-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/react-table to v8.16.0 ([#945](https://github.com/dzangolab/react/issues/945)) ([598ea0d](https://github.com/dzangolab/react/commit/598ea0d7c9be9304344fb32cedf0423e82659890))
+* **deps:** update dependency i18next to v23.11.3 ([#944](https://github.com/dzangolab/react/issues/944)) ([6efe034](https://github.com/dzangolab/react/commit/6efe0345ed0f628a067d75d2ae60cf430b99512e))
+* **deps:** update dependency node-xlsx to v0.24.0 ([#948](https://github.com/dzangolab/react/issues/948)) ([219353c](https://github.com/dzangolab/react/commit/219353c307778023d46b0b6e9b63100b5e2327bb))
+* **deps:** update dependency zod to v3.23.5 ([#950](https://github.com/dzangolab/react/issues/950)) ([506edf7](https://github.com/dzangolab/react/commit/506edf7f272f7724a7b0cb78294ec464de072a00))
+
+
+### Features
+
+* **user/supertoken:** add session config support ([#958](https://github.com/dzangolab/react/issues/958)) ([faee891](https://github.com/dzangolab/react/commit/faee8914e9d476b78f540b6f496b6bd5276b61be))
+
+
+
 ## [0.36.1](https://github.com/dzangolab/react/compare/v0.36.0...v0.36.1) (2024-04-30)
 
 
