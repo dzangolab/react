@@ -1,0 +1,12 @@
+.dz-card {
+  border-radius: 5px;
+  box-shadow: 2px 3px 8px #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.card-subtitle {
+  display: block;
+}

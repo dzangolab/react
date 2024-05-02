@@ -165,5 +165,17 @@
       "single": "Single select (fr)"
     },
     "placeHolder": "-- select value -- (fr)"
+  },
+  "card": {
+    "title": "Card (fr)",
+    "component": {
+      "content": "This is the card content. (fr)",
+      "subtitle": "Subtitle (fr)",
+      "title": "Title (fr)"
+    },
+    "usage": {
+      "basic": "Basic card (fr)",
+      "custom": "Custom card (fr)"
+    }
   }
 }
