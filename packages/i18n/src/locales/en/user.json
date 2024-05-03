@@ -166,10 +166,10 @@
   },
   "emailVerification": {
     "messages": {
-      "alreadyVerified": "Email is already verified. Redirecting to home page in {{countdown}} seconds",
+      "alreadyVerified": "Email is already verified. Please try refreshing the page.",
       "error": "Something went wrong. Please try again",
       "invalidToken": "The token is invalid",
-      "success": "Email verified successfully. Redirecting to home page in {{countdown}} seconds",
+      "success": "Email verified successfully.",
       "unverified": "Please check your email for verification",
       "unauthenticated": "User session expired. Please signin to continue"
     },
