@@ -14,6 +14,7 @@ import type {
   ColumnFiltersState,
   Column,
   RowData,
+  SortingState,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -243,6 +244,7 @@ export interface TDataTableProperties<TData>
   isLoading?: boolean;
   id?: string;
   initialFilters?: ColumnFiltersState;
+  initialSort?: SortingState;
   border?: "grid" | "horizontal" | "vertical" | "none";
   globalFilter?: {
     key: string;

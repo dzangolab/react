@@ -28,6 +28,7 @@ export const UsersTableDemo = () => {
               enableColumnFilter: false,
             },
           ]}
+          initialSort={[{ id: "email", desc: false }]}
         />
       </Section>
     </Page>
