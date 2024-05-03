@@ -18,7 +18,7 @@ interface DzangolabReactUserConfig {
   features?: {
     signUp?: {
       emailVerification?: boolean;
-      profileCompletionRequired?: boolean;
+      profileCompletionEnabled?: boolean;
     };
   };
   supertokens?: {

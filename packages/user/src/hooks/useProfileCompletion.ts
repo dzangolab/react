@@ -1,14 +1,14 @@
 import { useConfig } from "./useConfig";
 import { useUser } from "./useUser";
 
-export const useProfileCompletion = () => {
+export const useProfileCompletion = (): boolean[] => {
   const config = useConfig();
   const { user } = useUser();
 
-  const profileCompletionRequired =
-    !!config.user.features?.signUp?.profileCompletionRequired;
+  const profileCompletionEnabled =
+    !!config.user.features?.signUp?.profileCompletionEnabled;
 
-  const profileCompleted = !!user?.givenName;
+  const isProfileCompleted = !!user?.givenName;
 
-  return [profileCompletionRequired, profileCompleted];
+  return [profileCompletionEnabled, isProfileCompleted];
 };
