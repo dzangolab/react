@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-layout",
-  "version": "0.36.1",
+  "version": "0.37.0",
   "description": "React Layout Component Library",
   "exports": {
     ".": {
@@ -27,9 +27,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@dzangolab/react-config": "0.36.1",
-    "@dzangolab/react-i18n": "0.36.1",
-    "@dzangolab/react-ui": "0.36.1",
+    "@dzangolab/react-config": "0.37.0",
+    "@dzangolab/react-i18n": "0.37.0",
+    "@dzangolab/react-ui": "0.37.0",
     "@testing-library/react": "14.3.1",
     "@types/jsdom": "21.1.6",
     "@types/node": "18.19.31",
@@ -39,7 +39,7 @@
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-v8": "1.5.3",
     "eslint": "8.57.0",
-    "eslint-config-custom": "0.36.1",
+    "eslint-config-custom": "0.37.0",
     "eslint-plugin-react": "7.34.1",
     "jsdom": "22.1.0",
     "prettier": "3.2.5",
@@ -48,15 +48,15 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.23.0",
     "react-test-renderer": "18.2.0",
-    "tsconfig": "0.36.1",
+    "tsconfig": "0.37.0",
     "typescript": "5.4.5",
     "vite": "5.2.10",
     "vitest": "1.5.3"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.36.1",
-    "@dzangolab/react-i18n": "0.36.1",
-    "@dzangolab/react-ui": "0.36.1",
+    "@dzangolab/react-config": "0.37.0",
+    "@dzangolab/react-i18n": "0.37.0",
+    "@dzangolab/react-ui": "0.37.0",
     "primeicons": ">=6.0.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",

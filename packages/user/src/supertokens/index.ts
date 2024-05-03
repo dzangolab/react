@@ -9,8 +9,10 @@ import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
 const superTokens = (config: AppConfig) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recipeLists: Array<any> = [
-    Session.init(),
-    ThirdPartyEmailPassword.init(),
+    Session.init(config?.user?.supertokens?.sessionConfig),
+    ThirdPartyEmailPassword.init(
+      config?.user?.supertokens?.thirdPartyEmailPasswordConfig,
+    ),
   ];
 
   if (config.user.features?.signUp?.emailVerification) {
