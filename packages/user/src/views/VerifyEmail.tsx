@@ -38,7 +38,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
                 break;
               case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
                 toast.info(
-                  t("emailVerification.toastMessages.alreadyVerified"),
+                  t("emailVerification.toastMessages.alreadyVerified")
                 );
 
                 setUser(user);
@@ -66,6 +66,8 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
           toast.success(t("emailVerification.toastMessages.resendSuccess"));
         } else if (status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR) {
           toast.info(t("emailVerification.toastMessages.alreadyVerified"));
+
+          setStatus(status);
         }
       })
       .catch(() => {
@@ -79,7 +81,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
       navigate(
         `${
           userConfig.routes?.login?.path || "/signin"
-        }?redirect=${window.encodeURI(location.pathname + location.search)}`,
+        }?redirect=${window.encodeURI(location.pathname + location.search)}`
       );
     }
   };
@@ -88,7 +90,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
     if (verifyEmailLoading) {
       return (
         <div className="message-wrapper">
-          {t("emailVerification.messages.verifyingEmail")}
+          <p>{t("emailVerification.messages.verifyingEmail")}</p>
         </div>
       );
     }
@@ -97,7 +99,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
       return (
         <>
           <div className="message-wrapper">
-            {t("emailVerification.messages.unauthenticated")}
+            <p>{t("emailVerification.messages.unauthenticated")}</p>
           </div>
           <div className="button-wrapper">
             <Button
@@ -139,7 +141,9 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
 
     return (
       <>
-        <div className="message-wrapper">{message}</div>
+        <div className="message-wrapper">
+          <p>{message}</p>
+        </div>
         {button}
       </>
     );

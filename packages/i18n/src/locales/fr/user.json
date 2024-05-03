@@ -165,7 +165,7 @@
   },
   "emailVerification": {
     "messages": {
-      "alreadyVerified": "Email is already verified (fr).",
+      "alreadyVerified": "Email is already verified. Please try refreshing the page (fr).",
       "error": "Something went wrong. Please try again (fr)",
       "invalidToken": "The token is invalid (fr)",
       "success": "Email verified successfully (fr).",

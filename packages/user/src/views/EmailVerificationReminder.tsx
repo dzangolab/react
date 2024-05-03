@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, Button } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "../constants";
@@ -11,6 +12,8 @@ export const EmailVerificationReminder = ({
 }: {
   centered?: boolean;
 }) => {
+  const [isAlreadyVerified, setIsAlreadyVerified] = useState<boolean>(false);
+
   const { t } = useTranslation("user");
 
   const handleResend = () => {
@@ -20,6 +23,8 @@ export const EmailVerificationReminder = ({
           toast.success(t("emailVerification.toastMessages.resendSuccess"));
         } else if (status === EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED_ERROR) {
           toast.info(t("emailVerification.toastMessages.alreadyVerified"));
+
+          setIsAlreadyVerified(true);
         }
       })
       .catch(() => {
@@ -34,15 +39,23 @@ export const EmailVerificationReminder = ({
       centered={centered}
     >
       <Card className="email-verification-reminder-card">
-        <div className="message-wrapper">
-          {t("emailVerification.messages.unverified")}
-        </div>
-        <div className="button-wrapper">
-          <Button
-            label={t("emailVerification.button.resendEmail")}
-            onClick={handleResend}
-          />
-        </div>
+        {isAlreadyVerified ? (
+          <div className="message-wrapper">
+            <p>{t("emailVerification.messages.alreadyVerified")}</p>
+          </div>
+        ) : (
+          <>
+            <div className="message-wrapper">
+              <p>{t("emailVerification.messages.unverified")}</p>
+            </div>
+            <div className="button-wrapper">
+              <Button
+                label={t("emailVerification.button.resendEmail")}
+                onClick={handleResend}
+              />
+            </div>
+          </>
+        )}
       </Card>
     </Page>
   );
