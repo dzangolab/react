@@ -15,7 +15,7 @@ export const InvitationsTableDemo = () => {
           invitations={invitations}
           fetchInvitations={() => {}}
           onInvitationAdded={() => {}}
-          initialSort={[{ id: "email", desc: false }]}
+          initialSorting={[{ id: "email", desc: false }]}
         />
       </Section>
     </Page>

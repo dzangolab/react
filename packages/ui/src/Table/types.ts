@@ -244,7 +244,7 @@ export interface TDataTableProperties<TData>
   isLoading?: boolean;
   id?: string;
   initialFilters?: ColumnFiltersState;
-  initialSort?: SortingState;
+  initialSorting?: SortingState;
   border?: "grid" | "horizontal" | "vertical" | "none";
   globalFilter?: {
     key: string;
