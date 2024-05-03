@@ -6,7 +6,7 @@ export const useProfileCompletion = (): boolean[] => {
   const { user } = useUser();
 
   const profileCompletionEnabled =
-    !!config.user.features?.signUp?.profileCompletionEnabled;
+    !!config.user.features?.signUp?.profileCompletion;
 
   const isProfileCompleted = !!user?.givenName;
 
