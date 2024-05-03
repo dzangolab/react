@@ -67,6 +67,7 @@ const DataTable = <TData extends { id: string | number }>({
   id,
   isLoading = false,
   initialFilters = [],
+  initialSorting = [],
   inputDebounceTime,
   fetchData,
   renderToolbarItems,
@@ -85,7 +86,7 @@ const DataTable = <TData extends { id: string | number }>({
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>(initialSorting);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     initialFilters,
