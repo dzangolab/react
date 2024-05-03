@@ -38,7 +38,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
                 break;
               case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
                 toast.info(
-                  t("emailVerification.toastMessages.alreadyVerified")
+                  t("emailVerification.toastMessages.alreadyVerified"),
                 );
 
                 setUser(user);
@@ -81,7 +81,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
       navigate(
         `${
           userConfig.routes?.login?.path || "/signin"
-        }?redirect=${window.encodeURI(location.pathname + location.search)}`
+        }?redirect=${window.encodeURI(location.pathname + location.search)}`,
       );
     }
   };
