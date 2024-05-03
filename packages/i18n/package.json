@@ -45,7 +45,7 @@
     "@types/react-test-renderer": "18.3.0",
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-v8": "1.5.3",
-    "eslint": "8.57.0",
+    "eslint": "9.2.0",
     "eslint-config-custom": "0.37.0",
     "eslint-plugin-react": "7.34.1",
     "prettier": "3.2.5",
