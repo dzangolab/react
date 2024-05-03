@@ -2,29 +2,23 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage, Button } from "@dzangolab/react-ui";
 import { Card } from "primereact/card";
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "@/constants";
-import { useConfig } from "@/hooks";
 import { resendVerificationEmail } from "@/supertokens/resend-email-verification";
 import verifyEmail from "@/supertokens/verify-email";
 
 import { UserContextType, userContext } from "..";
 
 export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
-  const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(false);
+  const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(true);
   const [status, setStatus] = useState<string | undefined>("");
 
   const { t } = useTranslation("user");
   const { user, setUser } = useContext(userContext) as UserContextType;
-  const { user: userConfig } = useConfig();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
-      setVerifyEmailLoading(true);
-
       verifyEmail()
         .then((response) => {
           if (response) {
@@ -45,6 +39,8 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
                 break;
               default:
                 toast.error(t("emailVerification.toastMessages.invalidToken"));
+
+                setVerifyEmailLoading(false);
                 break;
             }
           }
@@ -52,8 +48,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
         .catch(() => {
           toast.error(`${t("emailVerification.toastMessages.error")}`);
           setStatus(EMAIL_VERIFICATION.ERROR);
-        })
-        .finally(() => {
+
           setVerifyEmailLoading(false);
         });
     }
@@ -68,22 +63,14 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
           toast.info(t("emailVerification.toastMessages.alreadyVerified"));
 
           setStatus(status);
+          setVerifyEmailLoading(false);
         }
       })
       .catch(() => {
         toast.error(t("emailVerification.toastMessages.error"));
-      });
-  };
 
-  const handleRedirect = () => {
-    const urlParameters = new URLSearchParams(window.location.search);
-    if (urlParameters) {
-      navigate(
-        `${
-          userConfig.routes?.login?.path || "/signin"
-        }?redirect=${window.encodeURI(location.pathname + location.search)}`,
-      );
-    }
+        setVerifyEmailLoading(false);
+      });
   };
 
   const renderMessage = () => {
@@ -95,30 +82,10 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
       );
     }
 
-    if (!user) {
-      return (
-        <>
-          <div className="message-wrapper">
-            <p>{t("emailVerification.messages.unauthenticated")}</p>
-          </div>
-          <div className="button-wrapper">
-            <Button
-              label={t("emailVerification.button.signin")}
-              onClick={handleRedirect}
-              className="signin-button"
-            />
-          </div>
-        </>
-      );
-    }
-
     let message = "",
       button = <></>;
 
     switch (status) {
-      case EMAIL_VERIFICATION.OK:
-        message = t("emailVerification.messages.success");
-        break;
       case EMAIL_VERIFICATION.EMAIL_ALREADY_VERIFIED:
         message = t("emailVerification.messages.alreadyVerified");
         break;
