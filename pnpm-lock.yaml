@@ -75,8 +75,8 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(react-dom@18.2.0)(react@18.2.0)
       zod:
-        specifier: 3.23.5
-        version: 3.23.5
+        specifier: 3.23.6
+        version: 3.23.6
     devDependencies:
       '@babel/core':
         specifier: 7.24.5
@@ -287,8 +287,8 @@ importers:
         specifier: 13.11.0
         version: 13.11.0
       zod:
-        specifier: 3.23.5
-        version: 3.23.5
+        specifier: 3.23.6
+        version: 3.23.6
     devDependencies:
       '@dzangolab/react-ui':
         specifier: 0.37.0
@@ -629,8 +629,8 @@ importers:
         specifier: 0.6.0
         version: 0.6.0
       zod:
-        specifier: 3.23.5
-        version: 3.23.5
+        specifier: 3.23.6
+        version: 3.23.6
     devDependencies:
       '@dzangolab/react-config':
         specifier: 0.37.0
@@ -13410,8 +13410,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod@3.23.5:
-    resolution: {integrity: sha512-fkwiq0VIQTksNNA131rDOsVJcns0pfVUjHzLrNBiF/O/Xxb5lQyEXkhZWcJ7npWsYlvs+h0jFWXXy4X46Em1JA==}
+  /zod@3.23.6:
+    resolution: {integrity: sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==}
     dev: false
 
   '@cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz':
