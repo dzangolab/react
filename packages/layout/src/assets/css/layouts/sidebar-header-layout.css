@@ -55,6 +55,7 @@
     > .header-menu
     > .user-menu {
     column-gap: 1.3rem;
+    cursor: pointer;
     display: flex;
   }
 

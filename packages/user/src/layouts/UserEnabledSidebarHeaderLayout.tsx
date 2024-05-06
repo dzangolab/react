@@ -11,7 +11,7 @@ import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
 interface Properties {
-  authNavigationMenu: NavMenuItemType;
+  authNavigationMenu?: NavMenuItemType;
   children: React.ReactNode;
   className?: string;
   collapsible?: boolean;
@@ -45,7 +45,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   const { user, setUser } = useUser();
 
   const getUserNavigationMenu = () => {
-    if (!user) {
+    if (!user && authNavigationMenu) {
       return authNavigationMenu;
     }
 
