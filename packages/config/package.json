@@ -30,7 +30,7 @@
     "@types/node": "18.19.31",
     "@types/react": "18.2.34",
     "@vitejs/plugin-react": "4.2.1",
-    "@vitest/coverage-v8": "1.5.3",
+    "@vitest/coverage-v8": "1.6.0",
     "eslint": "9.2.0",
     "eslint-config-custom": "0.37.0",
     "jsdom": "24.0.0",
@@ -39,7 +39,7 @@
     "tsconfig": "0.37.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
-    "vitest": "1.5.3"
+    "vitest": "1.6.0"
   },
   "peerDependencies": {
     "react": ">=18.2"
