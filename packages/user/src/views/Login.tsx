@@ -81,12 +81,14 @@ export const Login: React.FC<IProperties> = ({
       title={t("login.title")}
       loading={!!redirecting}
     >
-      <LoginWrapper
-        onLoginFailed={onLoginFailed}
-        onLoginSuccess={onLoginSuccess}
-        showForgotPasswordLink={showForgotPasswordLink}
-        showSignupLink={showSignupLink}
-      />
+      {socialLoginOnly ? null : (
+        <LoginWrapper
+          onLoginFailed={onLoginFailed}
+          onLoginSuccess={onLoginSuccess}
+          showForgotPasswordLink={showForgotPasswordLink}
+          showSignupLink={showSignupLink}
+        />
+      )}
       {renderSocialLogins()}
     </AuthPage>
   );
