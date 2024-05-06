@@ -28,7 +28,7 @@ export const DropdownMenuV2 = ({
     <>
       <PMenu model={menu} popup ref={menuReference} {...menuOptions} />
       <span
-        className="dropdown-menu-label"
+        className="dz-dropdown-menu-label"
         onClick={(event) => menuReference?.current?.toggle(event)}
       >
         {menuLabel}
