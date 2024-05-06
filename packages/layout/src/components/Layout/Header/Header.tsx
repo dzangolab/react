@@ -3,7 +3,7 @@ import React from "react";
 import { HeaderMenu } from "./HeaderMenu";
 import { HeaderTitle } from "./HeaderTitle";
 import { Logo, NavigationMenu, ToggleMenuMobile } from "../common";
-import { NavMenuItemType, NavMenuType } from "../types";
+import { NavMenuItemType, NavMenuType, UserMenuModeType } from "../types";
 
 interface HeaderProperties {
   children?: React.ReactNode;
@@ -14,6 +14,7 @@ interface HeaderProperties {
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;
+  userMenuMode?: UserMenuModeType;
 }
 
 export const Header = ({
@@ -25,6 +26,7 @@ export const Header = ({
   noLocaleSwitcher,
   noLogo,
   noToggle,
+  userMenuMode,
 }: HeaderProperties) => {
   const renderContent = () => {
     return (
@@ -39,7 +41,11 @@ export const Header = ({
           />
         )}
         {(menu || !noLocaleSwitcher) && (
-          <HeaderMenu menu={menu} noLocaleSwitcher={noLocaleSwitcher} />
+          <HeaderMenu
+            menu={menu}
+            noLocaleSwitcher={noLocaleSwitcher}
+            userMenuMode={userMenuMode}
+          />
         )}
         {!noToggle && <ToggleMenuMobile />}
       </>

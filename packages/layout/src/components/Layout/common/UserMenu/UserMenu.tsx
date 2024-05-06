@@ -1,14 +1,14 @@
 import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { NavMenuItemType } from "../../types";
+import { NavMenuItemType, UserMenuModeType } from "../../types";
 
 interface IProperties {
   menu: NavMenuItemType;
+  userMenuMode?: UserMenuModeType;
 }
 
-export const UserMenu = ({ menu }: IProperties) => {
+export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
   const navigate = useNavigate();
   const { id, label: userMenuLabel, menu: userMenu } = menu;
 
@@ -28,21 +28,20 @@ export const UserMenu = ({ menu }: IProperties) => {
   });
 
   const renderContent = () => {
-    if (refinedMenu.length === 1) {
-      const [singleMenu] = refinedMenu;
-
-      return (
+    if (userMenuMode === "horizontal" || refinedMenu.length === 1) {
+      return refinedMenu.map((_menu) => (
         <span
+          key={_menu.label}
           onClick={() => {
-            singleMenu.command();
+            _menu.command();
           }}
         >
-          {singleMenu.icon && (
-            <i className={singleMenu.icon} style={{ fontSize: "12px" }}></i>
+          {_menu.icon && (
+            <i className={_menu.icon} style={{ fontSize: "12px" }}></i>
           )}
-          {singleMenu.label}
+          {_menu.label}
         </span>
-      );
+      ));
     }
 
     return <DropdownMenu menu={refinedMenu || []} menuLabel={userMenuLabel} />;

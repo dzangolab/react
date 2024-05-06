@@ -1,3 +1,4 @@
+import { UserMenuModeType } from "@/components/Layout";
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
 interface IProperties {
@@ -15,6 +16,7 @@ interface IProperties {
   noToggle?: boolean;
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
+  userMenuMode?: UserMenuModeType;
 }
 
 export const SidebarHeaderLayout = ({
@@ -32,6 +34,7 @@ export const SidebarHeaderLayout = ({
   noToggle,
   title,
   userMenu,
+  userMenuMode,
 }: IProperties) => {
   return (
     <Layout className={`sidebar-header-layout ${className || ""}`.trimEnd()}>
@@ -43,6 +46,7 @@ export const SidebarHeaderLayout = ({
           noLocaleSwitcher={noLocaleSwitcher}
           noToggle={noToggle}
           title={title}
+          userMenuMode={userMenuMode}
         />
       )}
       {customSidebar || (

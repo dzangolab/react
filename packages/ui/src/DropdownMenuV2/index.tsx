@@ -18,7 +18,7 @@ export const DropdownMenuV2 = ({
 
   const renderIcon = () => {
     if (typeof icon === "string") {
-      return <i className={icon} />;
+      return <i className={icon} style={{ fontSize: "12px" }} />;
     }
 
     return icon;
@@ -27,7 +27,10 @@ export const DropdownMenuV2 = ({
   return (
     <>
       <PMenu model={menu} popup ref={menuReference} {...menuOptions} />
-      <span onClick={(event) => menuReference?.current?.toggle(event)}>
+      <span
+        className="dropdown-menu-label"
+        onClick={(event) => menuReference?.current?.toggle(event)}
+      >
         {menuLabel}
         {renderIcon()}
       </span>

@@ -1,0 +1,10 @@
+.dropdown-menu-label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.dropdown-menu-label:hover {
+  text-decoration: underline;
+}

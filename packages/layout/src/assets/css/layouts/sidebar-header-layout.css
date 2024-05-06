@@ -54,34 +54,18 @@
     > .header-container
     > .header-menu
     > .user-menu {
-    cursor: pointer;
-  }
-
-  .dz-layout.sidebar-header-layout
-    > header
-    > .header-container
-    > .header-menu
-    > .user-menu
-    > span {
-    align-items: center;
+    column-gap: 1.3rem;
     display: flex;
-    gap: 0.25rem;
-  }
-
-  .dz-layout.sidebar-header-layout
-    > header
-    > .header-container
-    > .header-menu
-    > .user-menu
-    > span:hover {
-    text-decoration: underline;
   }
 
   .dz-layout.sidebar-header-layout
     > aside
     > .navigation-menu
     > :not(div[data-nav-menu-id="navigation-menu"]),
-  .dz-layout.sidebar-header-layout > aside > .sidebar-footer > .locale-switcher {
+  .dz-layout.sidebar-header-layout
+    > aside
+    > .sidebar-footer
+    > .locale-switcher {
     display: none;
   }
 }
