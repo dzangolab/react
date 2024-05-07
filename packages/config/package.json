@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-config",
-  "version": "0.37.0",
+  "version": "0.38.0",
   "description": "React config",
   "license": "MIT",
   "type": "module",
@@ -32,11 +32,11 @@
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-v8": "1.6.0",
     "eslint": "8.57.0",
-    "eslint-config-custom": "0.37.0",
+    "eslint-config-custom": "0.38.0",
     "jsdom": "24.0.0",
     "prettier": "3.2.5",
     "react": "18.2.0",
-    "tsconfig": "0.37.0",
+    "tsconfig": "0.38.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
     "vitest": "1.6.0"
