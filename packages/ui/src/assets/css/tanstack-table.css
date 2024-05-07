@@ -9,7 +9,7 @@
   --dz-table-column-padding: 0.8rem;
   --dz-table-row-selected-bg: rgb(240, 245, 255);
   --dz-table-body-bg: transparent;
-  --dz-table-stripe-color: #0064ff08;
+  --dz-table-stripe-color: transparent;
   --dz-table-actions-column-width: 4rem;
 }
 
@@ -172,19 +172,7 @@
   background: var(--dz-table-header-active-bg);
 }
 
-.dz-table-container
-  .table-wrapper
-  > table[data-stripe="even"]
-  > tbody
-  > tr:nth-child(even) {
-  background: var(--dz-table-stripe-color);
-}
-
-.dz-table-container
-  .table-wrapper
-  > table[data-stripe="odd"]
-  > tbody
-  > tr:nth-child(odd) {
+.dz-table-container .table-wrapper > table > tbody > tr:nth-child(even) {
   background: var(--dz-table-stripe-color);
 }
 

@@ -82,7 +82,6 @@ const DataTable = <TData extends { id: string | number }>({
   onRowSelectChange,
   totalRecords = 0,
   paginationOptions,
-  stripe = "none",
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
@@ -350,7 +349,7 @@ const DataTable = <TData extends { id: string | number }>({
         />
       ) : null}
 
-      <Table data-stripe={stripe}>
+      <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="header-row">
