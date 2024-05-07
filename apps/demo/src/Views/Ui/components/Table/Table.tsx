@@ -155,7 +155,6 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           border="none"
-          stripe="odd"
         ></TDataTable>
       </Section>
 

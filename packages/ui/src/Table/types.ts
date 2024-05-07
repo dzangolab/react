@@ -276,7 +276,6 @@ export interface TDataTableProperties<TData>
     | "itemsPerPageOptions"
     | "defaultItemsPerPage"
   >;
-  stripe?: "none" | "even" | "odd";
   showColumnsAction?: boolean;
 }
 
