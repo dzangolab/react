@@ -23,6 +23,7 @@ import SidebarLegacy from "./components/Sidebar";
 import {
   BasicLayout,
   CollapsibleSidebarLayout,
+  SidebarHeaderLayout,
   HeaderLayout,
   SidebarOnlyLayout,
 } from "./layouts";
@@ -51,6 +52,7 @@ export {
   // layouts
   BasicLayout,
   CollapsibleSidebarLayout,
+  SidebarHeaderLayout,
 
   // new
   // components

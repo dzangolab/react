@@ -6,4 +6,5 @@
 @import "./layouts/basic.css";
 @import "./layouts/collapsible-sidebar-layout.css";
 @import "./layouts/sidebar-only-layout.css";
+@import "./layouts/sidebar-header-layout.css";
 @import "./layouts/header-only-layout.css";

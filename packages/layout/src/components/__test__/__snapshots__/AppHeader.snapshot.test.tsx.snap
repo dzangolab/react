@@ -65,6 +65,7 @@ exports[`Component matches snapshot 1`] = `
       className="locale-switcher"
     >
       <span
+        className="dz-dropdown-menu-label"
         onClick={[Function]}
       >
         locales.en

@@ -17,3 +17,5 @@ export type NavMenuItemType = {
 };
 
 export type NavMenuType = NavMenuItemType | Array<NavMenuItemType>;
+
+export type UserMenuModeType = "horizontal" | "dropdown";

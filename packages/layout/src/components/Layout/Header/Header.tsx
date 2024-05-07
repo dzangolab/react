@@ -1,20 +1,20 @@
-import { LocaleSwitcher } from "@dzangolab/react-i18n";
 import React from "react";
 
 import { HeaderMenu } from "./HeaderMenu";
 import { HeaderTitle } from "./HeaderTitle";
 import { Logo, NavigationMenu, ToggleMenuMobile } from "../common";
-import { NavMenuType } from "../types";
+import { NavMenuItemType, NavMenuType, UserMenuModeType } from "../types";
 
 interface HeaderProperties {
   children?: React.ReactNode;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
   title?: string | React.ReactNode;
-  menu?: React.ReactNode; // TODO update to NavigationMenuItem[] when we have UserMenu component in layout package
+  menu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;
+  userMenuMode?: UserMenuModeType;
 }
 
 export const Header = ({
@@ -26,6 +26,7 @@ export const Header = ({
   noLocaleSwitcher,
   noLogo,
   noToggle,
+  userMenuMode,
 }: HeaderProperties) => {
   const renderContent = () => {
     return (
@@ -40,7 +41,11 @@ export const Header = ({
           />
         )}
         {(menu || !noLocaleSwitcher) && (
-          <HeaderMenu menu={menu} noLocaleSwitcher={noLocaleSwitcher} />
+          <HeaderMenu
+            menu={menu}
+            noLocaleSwitcher={noLocaleSwitcher}
+            userMenuMode={userMenuMode}
+          />
         )}
         {!noToggle && <ToggleMenuMobile />}
       </>

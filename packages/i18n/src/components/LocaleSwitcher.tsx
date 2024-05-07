@@ -1,5 +1,5 @@
-import { Menu as PMenu, MenuProps as PMenuProperties } from "primereact/menu";
-import { useRef } from "react";
+import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
+import { MenuProps as PMenuProperties } from "primereact/menu";
 import { useTranslation } from "react-i18next";
 
 import "../css/locale-switcher.css";
@@ -8,8 +8,6 @@ export type LocalSwitcherProperties = PMenuProperties;
 
 const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
   const { i18n, t } = useTranslation("locales");
-
-  const menu = useRef<PMenu>(null);
 
   const changeLocale = (newLocale: string) => {
     i18n.changeLanguage(newLocale);
@@ -34,11 +32,11 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
 
   return (
     <span className="locale-switcher">
-      <PMenu model={locales || []} popup ref={menu} {...menuOptions} />
-      <span onClick={(event) => menu?.current?.toggle(event)}>
-        {t(`locales.${i18n.language}`)}
-        <i className="pi pi-angle-down" style={{ fontSize: "12px" }}></i>
-      </span>
+      <DropdownMenu
+        menu={locales || []}
+        menuLabel={t(`locales.${i18n.language}`)}
+        {...menuOptions}
+      />
     </span>
   );
 };
