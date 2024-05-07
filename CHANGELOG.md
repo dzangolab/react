@@ -1,3 +1,22 @@
+# [0.38.0](https://github.com/dzangolab/react/compare/v0.37.0...v0.38.0) (2024-05-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-hook-form to v7.51.4 ([#967](https://github.com/dzangolab/react/issues/967)) ([457ff01](https://github.com/dzangolab/react/commit/457ff0102792a3cba2910f3f38947396e148d303))
+* **deps:** update dependency zod to v3.23.6 ([#968](https://github.com/dzangolab/react/issues/968)) ([a81812b](https://github.com/dzangolab/react/commit/a81812b49c5bae6e4fb8607a602cd0d962b3123d))
+* **social-login:** add the condition to show the social login only ([#965](https://github.com/dzangolab/react/issues/965)) ([d2b83e5](https://github.com/dzangolab/react/commit/d2b83e5b9c07eb055c993bef983bbb33e294fd7a))
+
+
+### Features
+
+* **demo:** update logo ([#961](https://github.com/dzangolab/react/issues/961)) ([ce8f59f](https://github.com/dzangolab/react/commit/ce8f59f06506d47ae352f680d0db0199df3ea17c))
+* **layout:** add new layout with sidebar and header ([#931](https://github.com/dzangolab/react/issues/931)) ([f9eeebf](https://github.com/dzangolab/react/commit/f9eeebf888daeb29a5595044d0cc3eba40c9e255))
+* **ui/table:** add support for default sort in table ([#962](https://github.com/dzangolab/react/issues/962)) ([0aa8741](https://github.com/dzangolab/react/commit/0aa87413d0db893264cb8dc476df554be98069c9))
+* **user:** rename config profileCompletionRequired to profileCompletionEna… ([#963](https://github.com/dzangolab/react/issues/963)) ([a9b7996](https://github.com/dzangolab/react/commit/a9b79965378c2156791e96e266f770af91b47dbb))
+
+
+
 # [0.37.0](https://github.com/dzangolab/react/compare/v0.36.1...v0.37.0) (2024-05-02)
 
 
