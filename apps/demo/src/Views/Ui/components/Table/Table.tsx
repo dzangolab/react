@@ -132,7 +132,7 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.horizontalBorder")}>
+      {/* <Section title={t("table.usage.horizontalBorder")}>
         <TDataTable
           columns={columns}
           data={data}
@@ -156,7 +156,7 @@ export const TableDemo = () => {
           data={data.slice(10, 15)}
           border="none"
         ></TDataTable>
-      </Section>
+      </Section> */}
 
       <Section title={t("table.usage.customPagination")}>
         <TDataTable
