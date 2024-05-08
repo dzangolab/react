@@ -132,32 +132,6 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.horizontalBorder")}>
-        <TDataTable
-          columns={columns}
-          data={data}
-          id="invitations-table"
-          border="horizontal"
-        ></TDataTable>
-      </Section>
-
-      <Section title={t("table.usage.verticalBorder")}>
-        <TDataTable
-          columns={columns}
-          data={data}
-          id="invitations-table"
-          border="vertical"
-        ></TDataTable>
-      </Section>
-
-      <Section title={t("table.usage.borderless")}>
-        <TDataTable
-          columns={[...columns]}
-          data={data.slice(10, 15)}
-          border="none"
-        ></TDataTable>
-      </Section>
-
       <Section title={t("table.usage.customPagination")}>
         <TDataTable
           columns={[

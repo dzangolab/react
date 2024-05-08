@@ -55,7 +55,6 @@ import type {
 import type { Cell, ColumnDef, NoInfer } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
-  border = "grid",
   className = "",
   columns = [],
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
@@ -285,11 +284,7 @@ const DataTable = <TData extends { id: string | number }>({
     : table.getFilteredRowModel().rows?.length;
 
   return (
-    <div
-      id={id}
-      data-border={border}
-      className={("dz-table-container " + className).trimEnd()}
-    >
+    <div id={id} className={("dz-table-container " + className).trimEnd()}>
       {title ? (
         <span children={title.text} data-align={title.align || "center"} />
       ) : null}
