@@ -1,4 +1,4 @@
-import { Popup, useMediaQuery } from "@dzangolab/react-ui";
+import { useMediaQuery } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { NavItem } from "./NavItem";
@@ -18,7 +18,7 @@ export const NavGroup = ({
 
   const renderSubmenu = () => {
     return (
-      <ul>
+      <ul className={`submenu ${!showSubmenu ? `overlay` : ""}`.trimEnd()}>
         {navGroup.submenu &&
           navGroup.submenu.map((nav, _index) => {
             return (
@@ -31,49 +31,18 @@ export const NavGroup = ({
     );
   };
 
-  const renderNavItem = () => {
-    if (isSmallScreen || showSubmenu) {
-      return (
-        <>
-          <NavItem
-            navItem={{
-              label: navGroup.label,
-              icon: navGroup.icon,
-              onClick: () => setShowSubmenu(!showSubmenu),
-            }}
-            displayIcon={displayIcon}
-            isGroupHeader
-          />
-          {renderSubmenu()}
-        </>
-      );
-    }
-
-    return (
-      <Popup
-        trigger={
-          <NavItem
-            navItem={{
-              label: navGroup.label,
-              icon: navGroup.icon,
-              onClick: () => setShowSubmenu(!showSubmenu),
-            }}
-            displayIcon={displayIcon}
-            isGroupHeader
-          />
-        }
-        content={renderSubmenu()}
-        position="right"
-        offset={1}
-        triggerEvent="mouseover"
-        skidding={21}
-      />
-    );
-  };
-
   return (
     <div className="nav-group" aria-expanded={showSubmenu}>
-      {renderNavItem()}
+      <NavItem
+        navItem={{
+          label: navGroup.label,
+          icon: navGroup.icon,
+          onClick: () => setShowSubmenu(!showSubmenu),
+        }}
+        displayIcon={displayIcon}
+        isGroupHeader
+      ></NavItem>
+      {renderSubmenu()}
     </div>
   );
 };
