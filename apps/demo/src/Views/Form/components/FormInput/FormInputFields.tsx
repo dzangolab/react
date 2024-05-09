@@ -47,7 +47,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         label={t("formInput.label.text")}
         name="name"
         placeholder={t("formInput.placeHolder.text")}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
       />
@@ -75,7 +75,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="number"
         label={t("formInput.label.number")}
         placeholder={t("formInput.placeHolder.number")}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
       />
