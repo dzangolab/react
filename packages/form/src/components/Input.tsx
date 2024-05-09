@@ -17,7 +17,7 @@ export const Input: React.FC<IInputField> = ({
   register,
   showInvalidState = true,
   showValidState = true,
-  submitcount = 0,
+  submitCount = 0,
   type,
   ...others
 }) => {
@@ -41,7 +41,7 @@ export const Input: React.FC<IInputField> = ({
         id={`input-field-${name}`}
         type={type}
         placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
+        aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
         {...others}
       />
       {error?.message && <ErrorMessage message={error.message} />}

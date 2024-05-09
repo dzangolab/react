@@ -25,7 +25,7 @@ interface CustomInputProperties {
   register?: UseFormRegister<any>;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  submitcount?: number;
+  submitCount?: number;
 }
 
 export type AdditionalFormSchema = Zod.ZodObject<any>;

@@ -119,7 +119,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
         label={t("form.fields.email.label")}
         name="email"
         placeholder={t("form.fields.email.placeholder")}
-        submitcount={submitCount}
+        submitCount={submitCount}
       />
 
       {apps?.length ? (

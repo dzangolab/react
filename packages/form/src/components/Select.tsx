@@ -17,7 +17,7 @@ interface ISelect {
   name: string;
   options: Option[];
   placeholder?: string;
-  submitcount?: number;
+  submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
   renderOption?: (option: Option) => React.ReactNode;
@@ -34,7 +34,7 @@ export const Select: React.FC<ISelect> = ({
   name,
   options,
   placeholder,
-  submitcount = 0,
+  submitCount = 0,
   showInvalidState = true,
   showValidState = true,
   renderOption,
@@ -66,7 +66,7 @@ export const Select: React.FC<ISelect> = ({
           onChange={field.onChange}
           renderOption={renderOption}
           renderValue={renderValue}
-          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
           errorMessage={error?.message}
         />
       )}

@@ -9,7 +9,7 @@ export const Password: React.FC<CustomInputProperties> = ({
   name,
   placeholder = "",
   register,
-  submitcount = 0,
+  submitCount = 0,
   showInvalidState = true,
   showValidState = true,
 }) => {
@@ -29,14 +29,14 @@ export const Password: React.FC<CustomInputProperties> = ({
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <div
         className="input-field-password"
-        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
+        aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
       >
         <input
           {...register(name)}
           id={`input-field-${name}`}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
-          aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
+          aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
         ></input>
         <span
           className="eye-icon"

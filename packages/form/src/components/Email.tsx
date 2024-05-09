@@ -16,7 +16,7 @@ type IProperties = {
   readOnly?: boolean;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  submitcount?: number;
+  submitCount?: number;
   /** @deprecated */
   getFieldState?: UseFormGetFieldState<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** @deprecated */
@@ -30,7 +30,7 @@ export const Email: React.FC<IProperties> = ({
   placeholder = "",
   name,
   readOnly = false,
-  submitcount = 0,
+  submitCount = 0,
   showInvalidState = true,
   showValidState = true,
 }) => {
@@ -57,7 +57,7 @@ export const Email: React.FC<IProperties> = ({
           errorMessage={error?.message}
           defaultValue={field.value}
           onChange={field.onChange}
-          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
           disabled={disabled}
           readOnly={readOnly}
         />

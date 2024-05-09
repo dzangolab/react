@@ -59,7 +59,7 @@ export const UploadBy = () => {
         label={t("fileUpload.fields.uploadedBy.label")}
         name="uploadedBy"
         placeholder={t("fileUpload.fields.uploadedBy.placeholder")}
-        submitcount={submitCount}
+        submitCount={submitCount}
       />
     </>
   );
