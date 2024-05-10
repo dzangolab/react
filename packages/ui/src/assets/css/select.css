@@ -4,6 +4,7 @@
   --field-option-bg-color: #ffffff;
   --_field-error-message-color: var(--error-message-color);
   --field-option-disabled-color: #7b7676;
+  --field-option-hover-color: #e5e5e5;
 }
 
 .dz-select {
@@ -80,11 +81,11 @@
   cursor: pointer;
   display: flex;
   padding: 0.5rem 0.65rem;
-  transition: 0.2s all ease-in-out;
+  transition: all var(--transition-duration) ease;
 }
 
 .select-field-options > .option:hover {
-  background-color: #ece8e8;
+  background-color: var(--field-option-hover-color);
 }
 
 .select-field-options > .option.selected {
