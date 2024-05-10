@@ -5,11 +5,12 @@ import { Controller, useFormContext } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ISwitch {
+  disabled?: boolean;
   label?: string;
   name: string;
 }
 
-export const SwitchInput: React.FC<ISwitch> = ({ name, label }) => {
+export const SwitchInput: React.FC<ISwitch> = ({ disabled, name, label }) => {
   const { control, getFieldState } = useFormContext();
 
   const { error, isDirty, isTouched, invalid } = getFieldState(name);
@@ -30,6 +31,7 @@ export const SwitchInput: React.FC<ISwitch> = ({ name, label }) => {
             inputRef={field.ref}
             className={switchClassName}
             onChange={(event) => field.onChange(event.value)}
+            disabled={disabled}
           />
         )}
       />

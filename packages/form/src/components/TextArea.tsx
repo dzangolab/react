@@ -4,12 +4,13 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ITextArea {
+  disabled?: boolean;
   label?: string;
   name: string;
   placeholder?: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  submitcount?: number;
+  submitCount?: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,6 +18,7 @@ interface ITextArea {
 }
 
 export const TextArea: React.FC<ITextArea> = ({
+  disabled,
   register,
   getFieldState,
   label = "",
@@ -24,7 +26,7 @@ export const TextArea: React.FC<ITextArea> = ({
   name,
   showInvalidState = true,
   showValidState = true,
-  submitcount = 0,
+  submitCount = 0,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -42,7 +44,8 @@ export const TextArea: React.FC<ITextArea> = ({
       <textarea
         {...register(name)}
         placeholder={placeholder}
-        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
+        aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
+        disabled={disabled}
       ></textarea>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>

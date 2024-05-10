@@ -1,4 +1,4 @@
-import { Input } from "@dzangolab/react-ui";
+import { IInputProperties, Input } from "@dzangolab/react-ui";
 import React from "react";
 import {
   UseFormGetFieldState,
@@ -7,7 +7,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 
-type IProperties = {
+interface IProperties extends IInputProperties {
   disabled?: boolean;
   defaultValue?: string;
   label?: string;
@@ -21,18 +21,23 @@ type IProperties = {
   getFieldState?: UseFormGetFieldState<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** @deprecated */
   register?: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
-};
+}
 
 export const Email: React.FC<IProperties> = ({
   defaultValue = "",
   disabled = false,
+  errorMessage,
+  hasError,
   label = "",
-  placeholder = "",
   name,
+  onChange,
+  placeholder = "",
   readOnly = false,
-  submitCount = 0,
   showInvalidState = true,
   showValidState = true,
+  submitCount = 0,
+  type,
+  ...others
 }) => {
   const { control, getFieldState } = useFormContext();
 
@@ -50,16 +55,17 @@ export const Email: React.FC<IProperties> = ({
       defaultValue={defaultValue}
       render={({ field }) => (
         <Input
-          name={field.name}
-          label={label}
-          placeholder={placeholder}
-          type="email"
-          errorMessage={error?.message}
           defaultValue={field.value}
-          onChange={field.onChange}
-          hasError={submitCount > 0 ? checkInvalidState() : undefined}
           disabled={disabled}
+          errorMessage={error?.message}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
+          label={label}
+          name={field.name}
+          onChange={field.onChange}
+          placeholder={placeholder}
           readOnly={readOnly}
+          type="email"
+          {...others}
         />
       )}
     />
