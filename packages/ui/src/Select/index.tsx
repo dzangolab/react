@@ -118,7 +118,10 @@ export const Select = <T extends string | number>({
             });
 
           return (
-            <div key={index} className="option">
+            <div
+              key={index}
+              className={`option ${!disabled && value === option.value ? "selected" : ""}`.trimEnd()}
+            >
               {multiple ? (
                 <Checkbox
                   name={label}
