@@ -39,11 +39,11 @@
   right: 0;
 }
 
-.input-field-select[aria-invalid=true] {
-  border-color: var(--field-invalid-border-color)
+.input-field-select[aria-invalid="true"] {
+  border-color: var(--field-invalid-border-color);
 }
 
-.input-field-select[aria-invalid=false] {
+.input-field-select[aria-invalid="false"] {
   border-color: var(--field-valid-border-color);
 }
 
@@ -63,8 +63,11 @@
   background-color: var(--field-option-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
-  box-shadow:1px 1px 5px 1px var(--field-border-color);
-  height: 100px;
+  box-shadow: 1px 1px 5px 1px var(--field-border-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+  max-height: 10rem;
   overflow: auto;
   padding: 0.75rem 0.65rem;
   position: absolute;
@@ -73,15 +76,26 @@
 }
 
 .select-field-options > .option {
+  border-radius: 0.2rem;
   cursor: pointer;
   display: flex;
+  padding: 0.5rem 0.65rem;
+  transition: 0.2s all ease-in-out;
+}
+
+.select-field-options > .option:hover {
+  background-color: #ece8e8;
+}
+
+.select-field-options > .option.selected {
+  font-weight: bold;
 }
 
 .select-field-options > .option > span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 100%; 
+  width: 100%;
 }
 
 .select-field-options > .option > .disabled {
@@ -89,7 +103,7 @@
 }
 
 .select-field-placeholder {
-  color: var(--field-placeholder-color,#7b7676);
+  color: var(--field-placeholder-color, #7b7676);
 }
 
 .dz-select .error-message {
