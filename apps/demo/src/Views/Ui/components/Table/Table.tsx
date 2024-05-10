@@ -95,7 +95,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.filterable")}>
         <TDataTable
-          visibleColumns={["name", "email", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city"]}
           columns={[
             ...columns,
             {
@@ -111,16 +111,14 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.sortable")}>
         <TDataTable
-          visibleColumns={["name", "email", "age", "city"]}
-          columns={[
-            ...columns,
-            {
-              accessorKey: "email",
-              enableSorting: true,
-            },
-          ]}
+          visibleColumns={["email", "name", "age", "city"]}
+          columns={columns.map((column) => ({
+            ...column,
+            enableSorting: true,
+          }))}
           data={data}
           initialFilters={[{ id: "email", value: "s" }]}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
