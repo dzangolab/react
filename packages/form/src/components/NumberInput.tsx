@@ -1,23 +1,29 @@
-import { Input } from "@dzangolab/react-ui";
+import { IInputProperties, Input } from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-interface Properties {
+interface Properties extends IInputProperties {
   label: string;
   name: string;
   placeholder?: string;
-  submitcount?: number;
+  submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
 }
 
 export const NumberInput = ({
-  name,
+  defaultValue,
+  errorMessage,
+  hasError,
   label,
+  name,
+  onChange,
   placeholder,
-  submitcount = 0,
   showInvalidState = true,
   showValidState = true,
+  submitCount = 0,
+  type,
+  ...others
 }: Properties) => {
   const { control, getFieldState } = useFormContext();
 
@@ -45,7 +51,8 @@ export const NumberInput = ({
               const value = event.target.valueAsNumber;
               field.onChange(!isNaN(value) ? value : null);
             }}
-            hasError={submitcount > 0 ? checkInvalidState() : undefined}
+            hasError={submitCount > 0 ? checkInvalidState() : undefined}
+            {...others}
           />
         );
       }}

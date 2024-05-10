@@ -10,9 +10,11 @@ interface ISwitch {
   getFieldState?: UseFormGetFieldState<any>;
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   register?: UseFormRegister<any>;
+  disabled?: boolean;
 }
 
 export const Switch: React.FC<ISwitch> = ({
+  disabled,
   register,
   getFieldState,
   label = "",
@@ -33,6 +35,7 @@ export const Switch: React.FC<ISwitch> = ({
         {...register(name)}
         className={switchClassName}
         type="checkbox"
+        disabled={disabled}
       ></input>
       {error?.message && <ErrorMessage message={error.message} />}
     </div>

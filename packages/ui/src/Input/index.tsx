@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 
-interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
+export interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   errorMessage?: string;
   hasError?: boolean;
@@ -16,7 +16,7 @@ export const Input = ({
   errorMessage,
   hasError,
   label,
-  name,
+  name = "",
   placeholder,
   readOnly,
   type,

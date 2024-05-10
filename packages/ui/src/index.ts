@@ -7,7 +7,6 @@ import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import { DropdownMenuV2 } from "./DropdownMenuV2";
-import { Input } from "./Input";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
@@ -25,6 +24,7 @@ export * from "./FilesTable";
 export * from "./FileCard";
 export * from "./FilesList";
 export * from "./FilesPresentation";
+export * from "./Input";
 export * from "./Menu";
 export * from "./Table";
 export * from "./utils";
@@ -42,7 +42,6 @@ export {
   DropdownMenu,
   DropdownMenuV2,
   GoogleButton,
-  Input,
   LoadingIcon,
   LoadingPage,
   Message,

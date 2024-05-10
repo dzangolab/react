@@ -1,4 +1,4 @@
-import { Input } from "@dzangolab/react-ui";
+import { IInputProperties, Input } from "@dzangolab/react-ui";
 import React from "react";
 import {
   UseFormGetFieldState,
@@ -7,14 +7,14 @@ import {
   useFormContext,
 } from "react-hook-form";
 
-interface ITextInput {
+interface ITextInput extends IInputProperties {
   defaultValue?: string;
   label?: string;
   placeholder?: string;
   name: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  submitcount?: number;
+  submitCount?: number;
   /** @deprecated */
   getFieldState?: UseFormGetFieldState<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** @deprecated */
@@ -23,12 +23,17 @@ interface ITextInput {
 
 export const TextInput: React.FC<ITextInput> = ({
   defaultValue = "",
+  errorMessage,
+  hasError,
   label = "",
-  placeholder = "",
   name,
-  submitcount = 0,
+  onChange,
+  placeholder = "",
   showInvalidState = true,
   showValidState = true,
+  submitCount = 0,
+  type,
+  ...others
 }) => {
   const { control, getFieldState } = useFormContext();
 
@@ -53,7 +58,8 @@ export const TextInput: React.FC<ITextInput> = ({
           type="text"
           errorMessage={error?.message}
           onChange={field.onChange}
-          hasError={submitcount > 0 ? checkInvalidState() : undefined}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
+          {...others}
         />
       )}
     />

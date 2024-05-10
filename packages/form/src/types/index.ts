@@ -1,4 +1,3 @@
-import { ReactElement } from "react";
 import {
   UseFormGetFieldState,
   UseFormRegister,
@@ -26,7 +25,7 @@ interface CustomInputProperties {
   register?: UseFormRegister<any>;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  submitcount?: number;
+  submitCount?: number;
 }
 
 export type AdditionalFormSchema = Zod.ZodObject<any>;

@@ -14,14 +14,14 @@ export const LoginFormFields = () => {
       <Email
         name="email"
         label={t("loginForm.label.email")}
-        submitcount={submitCount}
+        submitCount={submitCount}
       />
       <Password
         name="password"
         label={t("loginForm.label.password")}
         register={register}
         getFieldState={getFieldState}
-        submitcount={submitCount}
+        submitCount={submitCount}
       />
       <input type="submit" value={t("loginForm.label.login")} />
     </>

@@ -38,7 +38,7 @@ export const ProfileFormFields = ({
         type="text"
         placeholder={t("profile.form.firstName.placeholder")}
         register={register}
-        submitcount={submitCount}
+        submitCount={submitCount}
         getFieldState={getFieldState}
       />
       <Input
@@ -47,7 +47,7 @@ export const ProfileFormFields = ({
         type="text"
         placeholder={t("profile.form.lastName.placeholder")}
         register={register}
-        submitcount={submitCount}
+        submitCount={submitCount}
         getFieldState={getFieldState}
       />
 

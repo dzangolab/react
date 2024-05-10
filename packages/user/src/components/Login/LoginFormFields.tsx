@@ -24,13 +24,13 @@ export const LoginFormFields = ({ loading }: Properties) => {
         label={t("login.form.email.label")}
         name="email"
         placeholder={t("login.form.email.placeholder")}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={false}
       />
       <Password
         label={t("login.form.password.label")}
         name="password"
-        submitcount={submitCount}
+        submitCount={submitCount}
         register={register}
         getFieldState={getFieldState}
         showValidState={false}

@@ -39,7 +39,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         label={t("formInput.label.email")}
         name="email"
         placeholder={t("formInput.placeHolder.email")}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
       />
@@ -47,7 +47,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         label={t("formInput.label.text")}
         name="name"
         placeholder={t("formInput.placeHolder.text")}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
       />
@@ -56,7 +56,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         label={t("formInput.label.password")}
         name="password"
         register={register}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
       />
@@ -66,7 +66,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="surname"
         placeholder={t("formInput.placeHolder.input")}
         register={register}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
         type="text"
@@ -75,7 +75,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="number"
         label={t("formInput.label.number")}
         placeholder={t("formInput.placeHolder.number")}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
       />
@@ -91,7 +91,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         ]}
         multiple={true}
         placeholder={t("formInput.placeHolder.select")}
-        submitcount={submitCount}
+        submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
       />

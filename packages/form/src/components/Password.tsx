@@ -1,17 +1,21 @@
+import { IInputProperties } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 
 import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
-export const Password: React.FC<CustomInputProperties> = ({
+export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
   getFieldState,
+  id,
   label = "",
   name,
   placeholder = "",
   register,
-  submitcount = 0,
   showInvalidState = true,
   showValidState = true,
+  submitCount = 0,
+  type,
+  ...others
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -29,14 +33,15 @@ export const Password: React.FC<CustomInputProperties> = ({
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <div
         className="input-field-password"
-        aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
+        aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
       >
         <input
           {...register(name)}
           id={`input-field-${name}`}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
-          aria-invalid={submitcount > 0 ? checkInvalidState() : undefined}
+          aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
+          {...others}
         ></input>
         <span
           className="eye-icon"
