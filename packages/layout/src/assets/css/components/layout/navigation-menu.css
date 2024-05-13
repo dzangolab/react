@@ -157,7 +157,7 @@
 .dz-layout
   .navigation-menu
   > .nav-menu-item
-  ul
+  > ul
   > li
   > .nav-group
   > .overlay-menu {
@@ -189,7 +189,7 @@
   .dz-layout
     .navigation-menu
     > .nav-menu-item
-    ul
+    > ul
     > li
     > .nav-group
     > .overlay-menu
@@ -208,7 +208,7 @@
   .dz-layout
     .navigation-menu
     > .nav-menu-item
-    ul
+    > ul
     > li
     > .nav-group
     > .overlay-menu
@@ -221,7 +221,7 @@
   .dz-layout
     .navigation-menu
     > .nav-menu-item
-    ul
+    > ul
     > li
     > .nav-group
     > .overlay-menu {
@@ -232,7 +232,7 @@
   .dz-layout
     .navigation-menu[data-horizontal="false"]
     > .nav-menu-item
-    ul
+    > ul
     > li
     > .nav-group[aria-expanded="false"]:hover
     > .overlay-menu {
