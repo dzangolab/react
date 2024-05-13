@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import { NavItem } from "./NavItem";
 import { NavGroupType } from "../../types";
-import { MenuOverlay } from "./MenuOverlay";
 
 export type NavGroupProperties = {
   displayIcon?: boolean;
@@ -42,7 +41,7 @@ export const NavGroup = ({
         isGroupHeader
       ></NavItem>
       {renderSubmenu()}
-      {<MenuOverlay navGroup={navGroup} />}
+      <div className="overlay-menu">{renderSubmenu()}</div>
     </div>
   );
 };
