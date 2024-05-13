@@ -32,7 +32,14 @@
     --dz-layout-nav-menu-separator-color,
     #dbdbdb
   );
-
+  --_layout-nav-item-overlay-menu-background-color: var(
+    --dz-layout-nav-item-overlay-menu-background-color,
+    #ffffff
+  );
+  --_layout-nav-item-overlay-menu-text-color: var(
+    --dz-layout-nav-item-overlay-menu-text-color,
+    #000000
+  );
   display: flex;
   flex-direction: column;
 }
@@ -187,10 +194,10 @@
     > .nav-group
     > .overlay-menu
     > ul {
-    background: #ffffff;
+    background: var(--_layout-nav-item-overlay-menu-background-color);
     border: 1px solid #ccc;
     border-radius: 0.3rem;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px #0000001a;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -212,6 +219,17 @@
   }
 
   .dz-layout
+    .navigation-menu
+    > .nav-menu-item
+    ul
+    > li
+    > .nav-group
+    > .overlay-menu {
+    position: absolute;
+    z-index: 999;
+  }
+
+  .dz-layout
     .navigation-menu[data-horizontal="false"]
     > .nav-menu-item
     ul
@@ -221,13 +239,11 @@
     display: unset;
     left: 14.1rem;
     padding-left: 2rem;
-    position: absolute;
-    z-index: 999;
   }
 
   .overlay-menu > ul > li > a > i,
   .overlay-menu > ul > li > a > span {
-    color: #000000;
+    color: var(--_layout-nav-item-overlay-menu-text-color);
   }
 }
 
