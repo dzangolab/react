@@ -187,6 +187,24 @@
   }
 
   .dz-layout
+    .navigation-menu[data-horizontal="true"]
+    .nav-menu-item
+    .nav-group:hover
+    .nav-group-toggle {
+    transform: rotate(90deg);
+  }
+
+  .dz-layout
+    .navigation-menu[data-horizontal="true"]
+    > .nav-menu-item
+    > ul
+    > li
+    > .nav-group
+    > ul {
+    display: none;
+  }
+
+  .dz-layout
     .navigation-menu
     > .nav-menu-item
     > ul
@@ -230,6 +248,17 @@
   }
 
   .dz-layout
+    .navigation-menu[data-horizontal="true"]
+    > .nav-menu-item
+    > ul
+    > li
+    > .nav-group:hover
+    > .overlay-menu {
+    display: unset;
+    top: 3.9rem;
+  }
+
+  .dz-layout
     .navigation-menu[data-horizontal="false"]
     > .nav-menu-item
     > ul
@@ -239,6 +268,10 @@
     display: unset;
     left: 14.1rem;
     padding-left: 2rem;
+  }
+
+  .overlay-menu > ul > li {
+    width: 100%;
   }
 
   .overlay-menu > ul > li > a > i,
