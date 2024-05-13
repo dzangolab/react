@@ -1,8 +1,8 @@
-import { useMediaQuery } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { NavItem } from "./NavItem";
 import { NavGroupType } from "../../types";
+import { MenuOverlay } from "./MenuOverlay";
 
 export type NavGroupProperties = {
   displayIcon?: boolean;
@@ -14,11 +14,10 @@ export const NavGroup = ({
   displayIcon = true,
 }: NavGroupProperties) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
-  const isSmallScreen = useMediaQuery("(max-width:576px)");
 
   const renderSubmenu = () => {
     return (
-      <ul className={`submenu ${!showSubmenu ? `overlay` : ""}`.trimEnd()}>
+      <ul className="submenu">
         {navGroup.submenu &&
           navGroup.submenu.map((nav, _index) => {
             return (
@@ -43,6 +42,7 @@ export const NavGroup = ({
         isGroupHeader
       ></NavItem>
       {renderSubmenu()}
+      {<MenuOverlay navGroup={navGroup} />}
     </div>
   );
 };

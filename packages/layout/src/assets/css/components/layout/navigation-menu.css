@@ -147,6 +147,10 @@
   text-decoration: none;
 }
 
+.menu-overlay {
+  display: none;
+}
+
 @media screen and (min-width: 576px) {
   .dz-layout .navigation-menu[data-horizontal="true"] {
     align-items: center;
@@ -169,11 +173,33 @@
     flex-direction: row;
   }
 
-  .submenu.overlay {
-    background: black;
+  .menu-overlay {
+    display: none;
+  }
+
+  .menu-overlay > ul > li {
+    color: #000000;
+  }
+
+  .menu-overlay > ul {
+    padding: 0.3rem;
+  }
+
+  .nav-group[aria-expanded="false"]:hover > .menu-overlay {
+    display: unset;
+    background: #ffffff;
     border-radius: 0.3rem;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
-    left: 4rem;
+    left: 16.1rem;
+    min-width: 11rem;
+    z-index: 999;
+  }
+
+  .menu-overlay > ul > li > a > i,
+  .menu-overlay > ul > li > a > span {
+    color: black;
   }
 }
 
