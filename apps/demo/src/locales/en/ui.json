@@ -73,6 +73,10 @@
       "singleActionColumn": "Table with single action button",
       "singleActionColumnWithMenu": "Table with single action menu",
       "rowSpecificActions": "Table with actions menu items filtered based on row data logic"
+    },
+    "placeholder": {
+      "startDate": "Start date",
+      "endDate": "End date"
     }
   },
   "message": {

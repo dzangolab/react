@@ -26,6 +26,7 @@ export const TableDemo = () => {
     {
       accessorKey: "email",
       header: "Email",
+      enableSorting: true,
     },
     {
       accessorKey: "name",
@@ -90,6 +91,7 @@ export const TableDemo = () => {
           data={data}
           id="invitations-table"
           initialFilters={[{ id: "email", value: "O" }]}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -106,6 +108,7 @@ export const TableDemo = () => {
           ]}
           data={data}
           initialFilters={[{ id: "email", value: "s" }]}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -127,6 +130,7 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(0, 5)}
           enableRowSelection={true}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -142,6 +146,7 @@ export const TableDemo = () => {
           renderCustomPagination={(table) => {
             return <>Custom pagination</>;
           }}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -161,6 +166,7 @@ export const TableDemo = () => {
               </>
             );
           }}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -203,6 +209,7 @@ export const TableDemo = () => {
           ]}
           data={data.slice(0, 5)}
           enableRowSelection={true}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -221,6 +228,7 @@ export const TableDemo = () => {
           ]}
           data={data.slice(0, 5)}
           enableRowSelection={true}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -230,6 +238,7 @@ export const TableDemo = () => {
           data={data.slice(10, 15)}
           showColumnsAction={true}
           columnActionBtnLabel="Columns"
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -244,6 +253,7 @@ export const TableDemo = () => {
               </td>
             </tr>
           )}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -252,6 +262,7 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -261,6 +272,7 @@ export const TableDemo = () => {
           columns={[...columns]}
           data={data.slice(10, 15)}
           paginated={false}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -319,6 +331,7 @@ export const TableDemo = () => {
               return rowData.id !== 12;
             },
           }}
+          initialSorting={[{ id: "email", desc: false }]}
         />
       </Section>
 
@@ -383,6 +396,7 @@ export const TableDemo = () => {
               },
             ],
           }}
+          initialSorting={[{ id: "email", desc: false }]}
         />
       </Section>
 
@@ -404,6 +418,7 @@ export const TableDemo = () => {
               },
             ],
           }}
+          initialSorting={[{ id: "email", desc: false }]}
         />
       </Section>
 
@@ -425,6 +440,7 @@ export const TableDemo = () => {
             ],
             displayActionMenu: true,
           }}
+          initialSorting={[{ id: "email", desc: false }]}
         />
       </Section>
 
@@ -452,6 +468,7 @@ export const TableDemo = () => {
           ]}
           fetchData={() => {}}
           data={data.slice(10, 15)}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -469,6 +486,7 @@ export const TableDemo = () => {
           ]}
           fetchData={() => {}}
           data={data.slice(10, 15)}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
 
@@ -482,6 +500,7 @@ export const TableDemo = () => {
             {
               accessorKey: "quantity",
               header: () => "Quantity",
+              enableSorting: true,
               width: "10rem",
               maxWidth: "10rem",
               minWidth: "10rem",
@@ -507,21 +526,22 @@ export const TableDemo = () => {
             {
               accessorKey: "date",
               header: "Date",
-              width: "12rem",
-              maxWidth: "12rem",
-              minWidth: "12rem",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
               dataType: "date",
             },
             {
               id: "action",
               header: () => <i className="pi pi-cog"></i>,
-              width: "8rem",
+              width: "5rem",
               dataType: "other",
-              cell: () => <Button iconLeft="pi pi-eye" />,
+              cell: () => <Button iconLeft="pi pi-eye" variant="textOnly" />,
             },
           ]}
           data={formatDemoData}
           paginated={false}
+          initialSorting={[{ id: "quantity", desc: true }]}
         ></TDataTable>
       </Section>
 
@@ -535,6 +555,7 @@ export const TableDemo = () => {
             {
               accessorKey: "quantity",
               header: () => "Quantity",
+              enableSorting: true,
               width: "10rem",
               maxWidth: "10rem",
               minWidth: "10rem",
@@ -551,17 +572,17 @@ export const TableDemo = () => {
             {
               accessorKey: "date",
               header: "Date",
-              width: "12rem",
-              maxWidth: "12rem",
-              minWidth: "12rem",
+              width: "10rem",
+              maxWidth: "10rem",
+              minWidth: "10rem",
               dataType: "date",
             },
             {
               id: "action",
               header: () => <i className="pi pi-cog"></i>,
-              width: "8rem",
+              width: "5rem",
               dataType: "other",
-              cell: () => <Button iconLeft="pi pi-eye" />,
+              cell: () => <Button iconLeft="pi pi-eye" variant="textOnly" />,
             },
           ]}
           data={formatDemoData}
@@ -570,6 +591,7 @@ export const TableDemo = () => {
             number: (value) => `~${value}`,
             currency: (value) => `$${value}`,
           }}
+          initialSorting={[{ id: "quantity", desc: true }]}
         ></TDataTable>
       </Section>
 
@@ -586,6 +608,7 @@ export const TableDemo = () => {
             {
               accessorKey: "quantity",
               header: () => "Quantity",
+              enableSorting: true,
               width: "10rem",
               maxWidth: "10rem",
               minWidth: "10rem",
@@ -630,6 +653,7 @@ export const TableDemo = () => {
                         ])
                       }
                       value={(column.getFilterValue() as [Date, Date])?.[0]}
+                      placeholder={t("table.placeholder.startDate")}
                     />
                     <DatePickerBasic
                       inputRef={null}
@@ -641,6 +665,7 @@ export const TableDemo = () => {
                         ])
                       }
                       value={(column.getFilterValue() as [Date, Date])?.[1]}
+                      placeholder={t("table.placeholder.endDate")}
                     />
                   </div>
                 );
@@ -649,9 +674,9 @@ export const TableDemo = () => {
             {
               id: "action",
               header: () => <i className="pi pi-cog"></i>,
-              width: "8rem",
+              width: "5rem",
               dataType: "other",
-              cell: () => <Button iconLeft="pi pi-eye" />,
+              cell: () => <Button iconLeft="pi pi-eye" variant="textOnly" />,
             },
           ]}
           data={formatDemoData}
@@ -660,6 +685,7 @@ export const TableDemo = () => {
             inDateRangeFilter: inDateRangeFilter,
             customEqualStringFilter: customEqualStringFilter,
           }}
+          initialSorting={[{ id: "quantity", desc: true }]}
         ></TDataTable>
       </Section>
 
@@ -669,11 +695,15 @@ export const TableDemo = () => {
             {
               accessorKey: "email",
               header: "Email",
+              enableSorting: true,
             },
             {
               accessorKey: "name",
               header: "Name",
               align: "center",
+              width: "30rem",
+              maxWidth: "30rem",
+              minWidth: "30rem",
               cell: ({ row: { original } }) => (
                 <div className="cell-name">{original.name}</div>
               ),
@@ -695,6 +725,7 @@ export const TableDemo = () => {
             },
           ]}
           data={data.slice(10, 15)}
+          initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>
     </Page>

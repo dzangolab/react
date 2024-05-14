@@ -69,6 +69,10 @@
       "singleActionColumn": "Table with single action button (fr)",
       "singleActionColumnWithMenu": "Table with single action menu (fr)",
       "rowSpecificActions": "Table with actions menu items filtered based on row data logic (fr)"
+    },
+    "placeholder": {
+      "startDate": "Start date",
+      "endDate": "End date"
     }
   },
   "message": {
