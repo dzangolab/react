@@ -38,7 +38,7 @@
   );
   --_layout-nav-item-overlay-menu-text-color: var(
     --dz-layout-nav-item-overlay-menu-text-color,
-    #000000
+    rgb(84, 84, 84)
   );
   display: flex;
   flex-direction: column;
@@ -110,10 +110,11 @@
 }
 
 .dz-layout
-  .navigation-menu[data-horizontal="false"]
+  .navigation-menu
   .nav-menu-item
   .nav-group[aria-expanded="true"]
-  .nav-group-toggle {
+  .nav-group-toggle
+  {
   transform: rotate(90deg);
 }
 
@@ -189,7 +190,7 @@
   .dz-layout
     .navigation-menu[data-horizontal="true"]
     .nav-menu-item
-    .nav-group:hover
+    .nav-group
     .nav-group-toggle {
     transform: rotate(90deg);
   }
@@ -255,6 +256,7 @@
     > .nav-group:hover
     > .overlay-menu {
     display: unset;
+    padding-top: 0.5rem;
     top: 3.9rem;
   }
 
