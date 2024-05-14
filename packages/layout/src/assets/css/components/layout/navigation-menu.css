@@ -36,6 +36,10 @@
     --dz-layout-nav-item-overlay-menu-background-color,
     #ffffff
   );
+  --_layout-nav-item-overlay-menu-left: var(
+    --dz-layout-nav-item-overlay-menu-left,
+    calc(var(--dz-layout-sidebar-width, 16rem) - 1.9rem)
+  );
   --_layout-nav-item-overlay-menu-text-color: var(
     --dz-layout-nav-item-overlay-menu-text-color,
     #545454
@@ -267,7 +271,7 @@
     > .nav-group[aria-expanded="false"]:hover
     > .overlay-menu {
     display: unset;
-    left: calc(var(--dz-layout-sidebar-width, 16rem) - 1.9rem);
+    left: var(--_layout-nav-item-overlay-menu-left);
     padding-left: 2rem;
   }
 
