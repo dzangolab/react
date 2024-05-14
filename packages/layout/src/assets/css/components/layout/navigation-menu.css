@@ -110,7 +110,7 @@
 }
 
 .dz-layout
-  .navigation-menu
+  .navigation-menu[data-horizontal="false"]
   .nav-menu-item
   .nav-group[aria-expanded="true"]
   .nav-group-toggle {
