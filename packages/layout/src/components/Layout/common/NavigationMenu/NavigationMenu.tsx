@@ -19,7 +19,13 @@ export const NavigationMenu = ({
   navigationMenu,
 }: NavigationMenuProperties) => {
   const renderNavGroup = (navGroup: NavGroupType) => {
-    return <NavGroup navGroup={navGroup} displayIcon={displayIcons} />;
+    return (
+      <NavGroup
+        navGroup={navGroup}
+        displayIcon={displayIcons}
+        horizontal={horizontal}
+      />
+    );
   };
 
   const renderNavigation = (nav: NavItemType | NavGroupType) => {

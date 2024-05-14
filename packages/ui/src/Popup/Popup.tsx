@@ -14,7 +14,6 @@ export interface PopupProperties {
   content: ReactNode;
   position?: "top" | "bottom" | "left" | "right";
   offset?: number;
-  margin?: number;
 }
 
 export const Popup: React.FC<PopupProperties> = ({
