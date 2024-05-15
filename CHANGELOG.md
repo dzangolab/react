@@ -1,3 +1,17 @@
+# [0.39.0](https://github.com/dzangolab/react/compare/v0.38.0...v0.39.0) (2024-05-15)
+
+
+### Bug Fixes
+
+* **select:** add the condition for the select component ([#981](https://github.com/dzangolab/react/issues/981)) ([4dbb364](https://github.com/dzangolab/react/commit/4dbb364eb3ed7c730ede3b308ce84f301bd2b6d6))
+
+
+### Features
+
+* **submenu-overlay:** add submenu overlay on hover ([#925](https://github.com/dzangolab/react/issues/925)) ([3c21538](https://github.com/dzangolab/react/commit/3c2153861d43d2e3c579c2be3d9f41b35734822b))
+
+
+
 # [0.38.0](https://github.com/dzangolab/react/compare/v0.37.0...v0.38.0) (2024-05-07)
 
 
