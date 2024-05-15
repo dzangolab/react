@@ -49,8 +49,11 @@ export const NavGroup = ({
         displayIcon={displayIcon}
         isGroupHeader
       ></NavItem>
-      {renderSubmenu()}
-      <div className="overlay-menu">{renderSubmenu()}</div>
+      {showSubmenu ? (
+        renderSubmenu()
+      ) : (
+        <div className="overlay-menu">{renderSubmenu()}</div>
+      )}
     </div>
   );
 };

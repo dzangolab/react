@@ -37,11 +37,16 @@ export const NavigationMenu = ({
   };
 
   const renderNavMenuItem = (
-    { id, label, menu }: NavMenuItemType,
+    { id, label, menu, menuOverlay = true }: NavMenuItemType,
     index?: number,
   ) => {
     return (
-      <div className="nav-menu-item" data-nav-menu-id={id} key={index}>
+      <div
+        className="nav-menu-item"
+        data-nav-menu-overlay={menuOverlay}
+        data-nav-menu-id={id}
+        key={index}
+      >
         {label && <span>{label}</span>}
         <ul>
           {menu.map((nav, _index) => {
