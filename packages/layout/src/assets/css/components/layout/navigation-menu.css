@@ -214,7 +214,7 @@
     > ul
     > li
     > .nav-group
-    > .overlay-menu
+    .overlay-menu
     > ul {
     background: var(--_layout-nav-item-overlay-menu-background-color);
     border: 1px solid #ccc;
@@ -233,7 +233,7 @@
     > ul
     > li
     > .nav-group
-    > .overlay-menu
+    .overlay-menu
     > ul
     > li
     > a {
@@ -246,7 +246,7 @@
     > ul
     > li
     > .nav-group
-    > .overlay-menu {
+    .overlay-menu {
     position: absolute;
     z-index: 999;
   }
@@ -256,8 +256,8 @@
     > .nav-menu-item
     > ul
     > li
-    > .nav-group:hover
-    > .overlay-menu {
+    .nav-group:hover
+    .overlay-menu {
     display: unset;
     padding-top: 0.5rem;
     top: 3.9rem;
@@ -269,7 +269,7 @@
     > ul
     > li
     > .nav-group[aria-expanded="false"]:hover
-    > .overlay-menu {
+    .overlay-menu {
     display: unset;
     left: var(--_layout-nav-item-overlay-menu-left);
     padding-left: 2rem;
