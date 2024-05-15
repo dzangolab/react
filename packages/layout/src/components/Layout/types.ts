@@ -14,6 +14,7 @@ export type NavMenuItemType = {
   label?: string;
   id?: string;
   menu: Array<NavItemType | NavGroupType>;
+  menuOverlay?: boolean;
 };
 
 export type NavMenuType = NavMenuItemType | Array<NavMenuItemType>;

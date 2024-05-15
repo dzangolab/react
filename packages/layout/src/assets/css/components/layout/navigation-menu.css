@@ -265,7 +265,7 @@
 
   .dz-layout
     .navigation-menu[data-horizontal="false"]
-    > .nav-menu-item
+    > .nav-menu-item[data-nav-menu-overlay="true"]
     > ul
     > li
     > .nav-group[aria-expanded="false"]:hover
