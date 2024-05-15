@@ -65,14 +65,14 @@
   padding: var(--_layout-nav-item-padding-v) var(--_layout-nav-item-padding-h);
 }
 
-.dz-layout .navigation-menu > .nav-menu-item > ul {
+.dz-layout .navigation-menu .nav-menu-item ul {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0;
 }
 
-.dz-layout .navigation-menu > .nav-menu-item > ul > li > .nav-group {
+.dz-layout .navigation-menu .nav-menu-item ul > li > .nav-group {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -82,9 +82,9 @@
 .dz-layout
   .navigation-menu
   > .nav-menu-item
-  > ul
+  ul
   > li
-  > .nav-group[aria-expanded="true"]
+  .nav-group[aria-expanded="true"]
   > ul {
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@
   animation: expand 120ms ease;
 }
 
-.dz-layout .navigation-menu > .nav-menu-item > ul > li > .nav-group > ul {
+.dz-layout .navigation-menu > .nav-menu-item > ul > li .nav-group > ul {
   display: none;
 }
 
@@ -102,7 +102,7 @@
   > .nav-menu-item
   > ul
   > li
-  > .nav-group
+   .nav-group
   > ul
   > li
   .nav-item {
@@ -113,11 +113,7 @@
   transition: transform 120ms linear;
 }
 
-.dz-layout
-  .navigation-menu
-  .nav-menu-item
-  .nav-group[aria-expanded="true"]
-  .nav-group-toggle {
+.nav-group[aria-expanded="true"] .nav-group-toggle {
   transform: rotate(90deg);
 }
 
@@ -203,8 +199,8 @@
     > .nav-menu-item
     > ul
     > li
-    > .nav-group
-    > .submenu {
+    .nav-group
+    .submenu {
     display: none;
   }
 
@@ -213,7 +209,7 @@
     > .nav-menu-item
     > ul
     > li
-    > .nav-group
+    .nav-group
     .overlay-menu
     > ul {
     background: var(--_layout-nav-item-overlay-menu-background-color);
@@ -232,7 +228,7 @@
     > .nav-menu-item
     > ul
     > li
-    > .nav-group
+    .nav-group
     .overlay-menu
     > ul
     > li
@@ -245,7 +241,7 @@
     > .nav-menu-item
     > ul
     > li
-    > .nav-group
+    .nav-group
     .overlay-menu {
     position: absolute;
     z-index: 999;
@@ -268,7 +264,7 @@
     > .nav-menu-item[data-nav-menu-overlay="true"]
     > ul
     > li
-    > .nav-group[aria-expanded="false"]:hover
+    .nav-group[aria-expanded="false"]:hover
     .overlay-menu {
     display: unset;
     left: var(--_layout-nav-item-overlay-menu-left);
@@ -279,8 +275,8 @@
     width: 100%;
   }
 
-  .overlay-menu > ul > li > a > i,
-  .overlay-menu > ul > li > a > span {
+  .overlay-menu ul > li > a > i,
+  .overlay-menu ul > li > a > span {
     color: var(--_layout-nav-item-overlay-menu-text-color);
   }
 }
