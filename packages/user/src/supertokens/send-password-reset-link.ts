@@ -7,7 +7,7 @@ interface IPromise {
 
 export const sendPasswordResetLink = async (
   email: string,
-  appId?: number
+  appId?: number,
 ): Promise<IPromise | undefined> => {
   let status: string | undefined;
 
