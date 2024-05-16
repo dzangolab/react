@@ -18,6 +18,7 @@ import type {
   InvitationRoleOption,
   InvitationExpiryDateField,
   UserType,
+  Role,
 } from "@/types";
 
 type VisibleColumn =
@@ -112,16 +113,16 @@ export const UsersTable = ({
       id: "roles",
       header: t("table.defaultColumns.roles"),
       cell: ({ getValue, row: { original } }) => {
-        const roles = (original as unknown as { roles: string[] })?.roles;
+        const { roles } = original;
 
         if (Array.isArray(roles)) {
           return (
             <>
-              {roles?.map((role: string, index: number) => (
+              {roles?.map((role: Role) => (
                 <Tag
-                  key={role + index}
-                  label={role}
-                  color={role === "ADMIN" ? "default" : "green"}
+                  key={role.id}
+                  label={role.role}
+                  color={role.role === "ADMIN" ? "default" : "green"}
                   fullWidth
                 />
               ))}

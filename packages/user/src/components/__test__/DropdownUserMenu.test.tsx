@@ -8,6 +8,14 @@ import { userContext } from "../../context/UserProvider";
 import DropdownUserMenu from "../DropdownUserMenu";
 
 const setup = () => {
+  const roles = [
+    {
+      id: 2,
+      role: "USER",
+      default: true,
+    },
+  ];
+
   const values = {
     setUser: vi.fn(),
     user: {
@@ -19,7 +27,7 @@ const setup = () => {
       signedUpAt: 0,
       surname: null,
       givenName: null,
-      roles: ["USER"],
+      roles,
     },
     loading: false,
   };

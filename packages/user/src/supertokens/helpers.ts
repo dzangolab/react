@@ -1,18 +1,20 @@
 import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
-import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
 import logout from "./logout";
+import UserRoleClaim from "./UserRoleClaim";
 import { removeUserData } from "../helpers";
+// eslint-disable-next-line import/no-unresolved
+import { Role } from "../types";
 
 /**
  * Get User roles
  */
-async function getUserRoles(): Promise<string[]> {
+async function getUserRoles(): Promise<Role[]> {
   if (await Session.doesSessionExist()) {
     const roles = await Session.getClaimValue({ claim: UserRoleClaim });
 
-    return roles ? roles : [];
+    return (roles ? roles.map((role) => ({ role })) : []) as Role[];
   }
 
   return [];
@@ -59,7 +61,7 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
       return true;
     } else {
       // all user roles claim check failed
-      await removeUserData();
+      removeUserData();
       await logout();
     }
   }

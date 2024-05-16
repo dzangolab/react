@@ -19,6 +19,14 @@ function toJson(component: ReactTestRenderer) {
   return result as ReactTestRendererJSON;
 }
 
+const roles = [
+  {
+    id: 2,
+    role: "USER",
+    default: true,
+  },
+];
+
 test("Component matches snapshot", () => {
   const values = {
     setUser: vi.fn(),
@@ -31,7 +39,7 @@ test("Component matches snapshot", () => {
       signedUpAt: 0,
       surname: "name",
       givenName: "test",
-      roles: ["USER"],
+      roles,
     },
     loading: false,
   };
