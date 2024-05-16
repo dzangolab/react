@@ -70,6 +70,7 @@
   flex-direction: column;
   gap: 0.25rem;
   padding: 0;
+  position: relative;
 }
 
 .dz-layout .navigation-menu .nav-menu-item ul > li > .nav-group {
@@ -102,7 +103,7 @@
   > .nav-menu-item
   > ul
   > li
-   .nav-group
+  .nav-group
   > ul
   > li
   .nav-item {
@@ -113,7 +114,7 @@
   transition: transform 120ms linear;
 }
 
-.nav-group[aria-expanded="true"] .nav-group-toggle {
+.nav-group[aria-expanded="true"] > .nav-item .nav-group-toggle {
   transform: rotate(90deg);
 }
 
@@ -154,16 +155,6 @@
   text-decoration: none;
 }
 
-.dz-layout
-  .navigation-menu
-  > .nav-menu-item
-  > ul
-  > li
-  > .nav-group
-  > .overlay-menu {
-  display: none;
-}
-
 @media screen and (min-width: 576px) {
   .dz-layout .navigation-menu[data-horizontal="true"] {
     align-items: center;
@@ -189,8 +180,9 @@
   .dz-layout
     .navigation-menu[data-horizontal="true"]
     .nav-menu-item
-    .nav-group
-    .nav-group-toggle {
+    > .nav-group
+    .nav-item
+    > .nav-group-toggle {
     transform: rotate(90deg);
   }
 
@@ -201,48 +193,13 @@
     > li
     .nav-group
     .submenu {
-    display: none;
-  }
-
-  .dz-layout
-    .navigation-menu
-    > .nav-menu-item
-    > ul
-    > li
-    .nav-group
-    .overlay-menu
-    > ul {
     background: var(--_layout-nav-item-overlay-menu-background-color);
     border: 1px solid #ccc;
     border-radius: 0.3rem;
     box-shadow: 0 2px 12px #0000001a;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    display: none;
     min-width: 11rem;
     padding: 0.3rem;
-  }
-
-  .dz-layout
-    .navigation-menu
-    > .nav-menu-item
-    > ul
-    > li
-    .nav-group
-    .overlay-menu
-    > ul
-    > li
-    > a {
-    border-radius: 0.2rem;
-  }
-
-  .dz-layout
-    .navigation-menu
-    > .nav-menu-item
-    > ul
-    > li
-    .nav-group
-    .overlay-menu {
     position: absolute;
     z-index: 999;
   }
@@ -253,31 +210,9 @@
     > ul
     > li
     .nav-group:hover
-    .overlay-menu {
+    > .submenu {
     display: unset;
-    padding-top: 0.5rem;
-    top: 3.9rem;
-  }
-
-  .dz-layout
-    .navigation-menu[data-horizontal="false"]
-    > .nav-menu-item[data-nav-menu-overlay="true"]
-    > ul
-    > li
-    .nav-group[aria-expanded="false"]:hover
-    .overlay-menu {
-    display: unset;
-    left: var(--_layout-nav-item-overlay-menu-left);
-    padding-left: 2rem;
-  }
-
-  .overlay-menu > ul > li {
-    width: 100%;
-  }
-
-  .overlay-menu ul > li > a > i,
-  .overlay-menu ul > li > a > span {
-    color: var(--_layout-nav-item-overlay-menu-text-color);
+    top: 100%;
   }
 }
 

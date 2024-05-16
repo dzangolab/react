@@ -64,7 +64,6 @@ export const NavGroup = ({
         isGroupHeader
       ></NavItem>
       {renderSubmenu()}
-      {/* <div className="overlay-menu">{renderSubmenu()}</div> */}
     </div>
   );
 };
