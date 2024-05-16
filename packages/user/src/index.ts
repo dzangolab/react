@@ -1,3 +1,5 @@
+import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
+
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
@@ -38,7 +40,6 @@ import login from "./supertokens/login";
 import logout from "./supertokens/logout";
 import { resendVerificationEmail } from "./supertokens/resend-email-verification";
 import resetPassword from "./supertokens/reset-password";
-import { sendPasswordResetLink } from "./supertokens/send-password-reset-link";
 import signup from "./supertokens/signup";
 import verifyEmail from "./supertokens/verify-email";
 import { AcceptInvitation } from "./views/AcceptInvitation";
@@ -115,7 +116,7 @@ export {
   removeUserData,
   resetPassword,
   resendVerificationEmail,
-  sendPasswordResetLink,
+  sendPasswordResetEmail,
   setUserData,
   signup,
   superTokens,
