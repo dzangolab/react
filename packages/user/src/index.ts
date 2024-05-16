@@ -37,6 +37,7 @@ import { verifySessionRoles } from "./supertokens/helpers";
 import login from "./supertokens/login";
 import logout from "./supertokens/logout";
 import { resendVerificationEmail } from "./supertokens/resend-email-verification";
+import { sendPasswordResetLink } from "./supertokens/send-password-reset-link";
 import resetPassword from "./supertokens/reset-password";
 import signup from "./supertokens/signup";
 import verifyEmail from "./supertokens/verify-email";
@@ -114,6 +115,7 @@ export {
   removeUserData,
   resetPassword,
   resendVerificationEmail,
+  sendPasswordResetLink,
   setUserData,
   signup,
   superTokens,
