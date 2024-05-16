@@ -62,7 +62,7 @@
   .dz-layout.sidebar-header-layout
     > aside
     > .navigation-menu
-    > div[data-nav-menu-id="user-menu"],
+    > :not(div[data-nav-menu-id="navigation-menu"]),
   .dz-layout.sidebar-header-layout
     > aside
     > .sidebar-footer
