@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-config",
-  "version": "0.39.0",
+  "version": "0.40.0",
   "description": "React config",
   "license": "MIT",
   "type": "module",
@@ -13,9 +13,7 @@
   "main": "dist//DzangolabReactConfig.umd.js",
   "module": "dist//DzangolabReactConfig.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -34,11 +32,11 @@
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-v8": "1.6.0",
     "eslint": "8.57.0",
-    "eslint-config-custom": "0.39.0",
+    "eslint-config-custom": "0.40.0",
     "jsdom": "24.0.0",
     "prettier": "3.2.5",
     "react": "18.2.0",
-    "tsconfig": "0.39.0",
+    "tsconfig": "0.40.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
     "vitest": "1.6.0"
