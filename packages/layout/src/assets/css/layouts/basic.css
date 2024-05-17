@@ -34,6 +34,6 @@
   }
 
   .layout.basic.fixed > main {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
