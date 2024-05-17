@@ -1,3 +1,25 @@
+# [0.40.0](https://github.com/dzangolab/react/compare/v0.39.0...v0.40.0) (2024-05-17)
+
+
+### Bug Fixes
+
+* **layout:** visible scrollbar in basic layout ([#991](https://github.com/dzangolab/react/issues/991)) ([874f0c7](https://github.com/dzangolab/react/commit/874f0c72682bc382aaddad312c7d67378c3b8370))
+* **sidebar-menu:** change implementation for hiding submenu ([#990](https://github.com/dzangolab/react/issues/990)) ([4a39e96](https://github.com/dzangolab/react/commit/4a39e9663aabdb588097e51487eaf7b458c4b909))
+* **sidebar-menu:** change the condition to hide user-menu in sidebar ([#986](https://github.com/dzangolab/react/issues/986)) ([034bf85](https://github.com/dzangolab/react/commit/034bf856bd8422b7bf2d5c44d53ca85d6da7dc81))
+
+
+### Features
+
+* **user:** export sendPasswordResetEmail function from supertokens ([#987](https://github.com/dzangolab/react/issues/987)) ([2293929](https://github.com/dzangolab/react/commit/2293929947a6866c72c8b971b2c93bef7d06cba9))
+* **user:** get logged in user data from api if not available in localStorage ([#989](https://github.com/dzangolab/react/issues/989)) ([090a9d3](https://github.com/dzangolab/react/commit/090a9d37229371b92d18c60287164a55cf3b6664))
+
+
+### Reverts
+
+* Revert "fix(sidebar-menu): change the condition to hide user-menu in sidebar …" (#988) ([83c9b71](https://github.com/dzangolab/react/commit/83c9b7140580e68e9d4b34b1aa49b22814750c45)), closes [#988](https://github.com/dzangolab/react/issues/988)
+
+
+
 # [0.39.0](https://github.com/dzangolab/react/compare/v0.38.0...v0.39.0) (2024-05-15)
 
 
