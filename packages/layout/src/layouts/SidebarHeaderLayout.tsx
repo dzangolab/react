@@ -1,6 +1,6 @@
-import { UserMenuModeType } from "@/components/Layout";
-
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
+
+import { UserMenuModeType } from "@/components/Layout";
 
 interface IProperties {
   children: React.ReactNode;
@@ -37,6 +37,31 @@ export const SidebarHeaderLayout = ({
   userMenu,
   userMenuMode,
 }: IProperties) => {
+  const getNavigationMenu = () => {
+    const userNavigationMenu = userMenu
+      ? {
+          ...userMenu,
+          id: "dz-user-menu",
+        }
+      : undefined;
+
+    if (!userNavigationMenu && !navigationMenu) {
+      return;
+    }
+
+    if (!navigationMenu) {
+      return userNavigationMenu;
+    }
+
+    if (!userNavigationMenu) {
+      return navigationMenu;
+    }
+
+    return Array.isArray(navigationMenu)
+      ? [...navigationMenu, userNavigationMenu]
+      : [navigationMenu, userNavigationMenu];
+  };
+
   return (
     <Layout className={`sidebar-header-layout ${className || ""}`.trimEnd()}>
       {customHeader || (
@@ -54,7 +79,7 @@ export const SidebarHeaderLayout = ({
         <Sidebar
           collapsible={collapsible}
           displayNavIcons={displayNavIcons}
-          navigationMenu={navigationMenu}
+          navigationMenu={getNavigationMenu()}
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
