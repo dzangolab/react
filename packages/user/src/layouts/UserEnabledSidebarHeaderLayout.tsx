@@ -45,18 +45,8 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   const { user, setUser } = useUser();
 
   const getUserNavigationMenu = () => {
-    const anonymousNavigationMenu = authNavigationMenu || {
-      menu: [
-        {
-          icon: "pi pi-lock",
-          label: t("user:menu.signin"),
-          route: "/login",
-        },
-      ],
-    };
-
     if (!user) {
-      return anonymousNavigationMenu;
+      return authNavigationMenu;
     }
 
     const signout = async () => {

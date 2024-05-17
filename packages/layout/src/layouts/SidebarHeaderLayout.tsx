@@ -16,7 +16,7 @@ interface IProperties {
   noSidebarFooter?: boolean;
   noToggle?: boolean;
   title?: string | React.ReactNode;
-  userMenu: NavMenuItemType;
+  userMenu?: NavMenuItemType;
   userMenuMode?: UserMenuModeType;
 }
 
@@ -38,20 +38,28 @@ export const SidebarHeaderLayout = ({
   userMenuMode,
 }: IProperties) => {
   const getNavigationMenu = () => {
-    const userNavigationMenu = {
-      ...userMenu,
-      id: "dz-user-menu",
-    };
+    const userNavigationMenu = userMenu
+      ? {
+          ...userMenu,
+          id: "dz-user-menu",
+        }
+      : undefined;
+
+    if (!userNavigationMenu && !navigationMenu) {
+      return;
+    }
 
     if (!navigationMenu) {
       return userNavigationMenu;
     }
 
-    if (Array.isArray(navigationMenu)) {
-      return [...navigationMenu, userNavigationMenu];
+    if (!userNavigationMenu) {
+      return navigationMenu;
     }
 
-    return [navigationMenu, userNavigationMenu];
+    return Array.isArray(navigationMenu)
+      ? [...navigationMenu, userNavigationMenu]
+      : [navigationMenu, userNavigationMenu];
   };
 
   return (
