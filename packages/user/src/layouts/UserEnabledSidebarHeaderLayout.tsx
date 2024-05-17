@@ -76,7 +76,10 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   };
 
   const getNavigationMenu = () => {
-    const userNavigationMenu = getUserNavigationMenu();
+    const userNavigationMenu = {
+      ...getUserNavigationMenu(),
+      id: "dz-user-menu",
+    };
 
     if (!navigationMenu) {
       return userNavigationMenu;
