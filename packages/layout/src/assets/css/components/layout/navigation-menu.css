@@ -66,14 +66,11 @@
 }
 
 .dz-layout .navigation-menu .nav-menu-item ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0;
   position: relative;
 }
 
-.dz-layout .navigation-menu .nav-menu-item ul > li > .nav-group {
+.dz-layout .navigation-menu .nav-menu-item ul,
+.dz-layout .navigation-menu .nav-menu-item ul > li .nav-group {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -179,9 +176,11 @@
 
   .dz-layout
     .navigation-menu[data-horizontal="true"]
-    .nav-menu-item
+    > .nav-menu-item
+    > ul
+    > li
     > .nav-group
-    .nav-item
+    > .nav-item
     > .nav-group-toggle {
     transform: rotate(90deg);
   }
@@ -209,10 +208,23 @@
     > .nav-menu-item
     > ul
     > li
-    .nav-group:hover
+    > .nav-group:hover
     > .submenu {
     display: unset;
     top: 100%;
+  }
+
+  .dz-layout
+    .navigation-menu[data-horizontal="true"]
+    > .nav-menu-item
+    > ul
+    > li
+    > .nav-group
+    > .submenu
+    .nav-group:hover
+    > .submenu {
+    display: unset;
+    left: 100%;
   }
 }
 
