@@ -30,7 +30,6 @@ const DropdownUserMenu: React.FC<Properties> = ({
 
   const signout = async () => {
     if (await logout()) {
-      await removeUserData();
       await setUser(null);
       onLogout && (await onLogout());
 

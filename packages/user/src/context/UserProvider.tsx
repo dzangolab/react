@@ -1,12 +1,10 @@
 import React, { createContext, useEffect, useState } from "react";
 
-import { getUserData, setUserData } from "../helpers";
+import { getMe } from "@/api/user";
+
+import { getUserData, removeUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
-import {
-  getUserRoles,
-  isUserVerified,
-  verifySessionRoles,
-} from "../supertokens/helpers";
+import { isUserVerified, verifySessionRoles } from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
 
 interface Properties {
@@ -27,11 +25,24 @@ const UserProvider = ({ children }: Properties) => {
           appConfig &&
           (await verifySessionRoles(appConfig.user.supportedRoles))
         ) {
-          const userInfo = await getUserData();
+          let userInfo = await getUserData();
 
-          if (userInfo) {
-            setUser(userInfo);
+          // if not found in localStorage, get me user from api
+          if (!userInfo) {
+            const response = await getMe(appConfig.apiBaseUrl);
+
+            userInfo = { ...response.data };
+
+            if (appConfig.user.features?.signUp?.emailVerification) {
+              const isEmailVerified = await isUserVerified();
+
+              userInfo.isEmailVerified = isEmailVerified;
+            }
+
+            await setUserData(userInfo);
           }
+
+          setUser(userInfo);
         }
       } catch (error) {
         //
@@ -45,11 +56,8 @@ const UserProvider = ({ children }: Properties) => {
 
   const updateUser = async (user: UserType | null) => {
     if (user) {
-      const roles = await getUserRoles();
-
       const userData = {
         ...user,
-        roles: roles,
       };
 
       if (appConfig.user.features?.signUp?.emailVerification) {
@@ -62,6 +70,7 @@ const UserProvider = ({ children }: Properties) => {
 
       setUser(userData);
     } else {
+      removeUserData();
       setUser(null);
     }
   };
