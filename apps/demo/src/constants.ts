@@ -10,38 +10,6 @@ export const MENU_ROUTES = [
   {
     key: "header.menu.form",
     route: "/form",
-    submenu: [
-      {
-        label: "User",
-        route: "/user",
-        submenu: [
-          {
-            label: "UI",
-            route: "/i18n",
-          },
-          {
-            label: "UI",
-            route: "/i18n",
-            submenu: [
-              {
-                label: "UI",
-                route: "/i18n",
-                submenu: [
-                  {
-                    label: "UI",
-                    route: "/i18n",
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: "header.menu.i18n",
-        route: "/i18n",
-      },
-    ],
   },
   {
     key: "header.menu.layout",
