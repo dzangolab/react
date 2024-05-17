@@ -45,8 +45,18 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   const { user, setUser } = useUser();
 
   const getUserNavigationMenu = () => {
-    if (!user && authNavigationMenu) {
-      return authNavigationMenu;
+    const anonymousNavigationMenu = authNavigationMenu || {
+      menu: [
+        {
+          icon: "pi pi-lock",
+          label: t("user:menu.signin"),
+          route: "/login",
+        },
+      ],
+    };
+
+    if (!user) {
+      return anonymousNavigationMenu;
     }
 
     const signout = async () => {
@@ -75,29 +85,12 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
     };
   };
 
-  const getNavigationMenu = () => {
-    const userNavigationMenu = {
-      ...getUserNavigationMenu(),
-      id: "dz-user-menu",
-    };
-
-    if (!navigationMenu) {
-      return userNavigationMenu;
-    }
-
-    if (Array.isArray(navigationMenu)) {
-      return [...navigationMenu, userNavigationMenu];
-    }
-
-    return [navigationMenu, userNavigationMenu];
-  };
-
   return (
     <SidebarHeaderLayout
       children={children}
       className={className}
       collapsible={collapsible}
-      navigationMenu={getNavigationMenu()}
+      navigationMenu={navigationMenu}
       userMenu={getUserNavigationMenu()}
       userMenuMode={user ? "dropdown" : "horizontal"}
       {...otherProperties}
