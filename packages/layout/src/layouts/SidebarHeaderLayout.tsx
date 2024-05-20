@@ -1,6 +1,6 @@
-import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
-
 import { UserMenuModeType } from "@/components/Layout";
+
+import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
 interface IProperties {
   children: React.ReactNode;
@@ -9,6 +9,7 @@ interface IProperties {
   customHeader?: React.ReactNode;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
+  headerAddon?: React.ReactNode;
   navigationMenu?: NavMenuType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
@@ -27,6 +28,7 @@ export const SidebarHeaderLayout = ({
   customHeader,
   customSidebar,
   displayNavIcons = true,
+  headerAddon,
   navigationMenu,
   noLocaleSwitcher = false,
   noLogo = true,
@@ -67,6 +69,7 @@ export const SidebarHeaderLayout = ({
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
+          headerAddon={headerAddon}
           menu={userMenu}
           noLogo={noLogo}
           noLocaleSwitcher={noLocaleSwitcher}

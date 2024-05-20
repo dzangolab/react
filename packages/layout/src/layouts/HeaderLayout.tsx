@@ -9,6 +9,7 @@ interface HeaderLayoutProperties {
   className?: string;
   children?: React.ReactNode;
   displayNavIcons?: boolean;
+  headerAddon?: React.ReactNode;
   navigationMenu?: NavMenuType;
   title?: string | React.ReactNode;
   menu?: NavMenuItemType;
@@ -23,6 +24,7 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
   className,
   children,
   displayNavIcons,
+  headerAddon,
   navigationMenu,
   title,
   menu,
@@ -40,6 +42,7 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
+          headerAddon={headerAddon}
           navigationMenu={navigationMenu}
           title={title}
           menu={menu}
