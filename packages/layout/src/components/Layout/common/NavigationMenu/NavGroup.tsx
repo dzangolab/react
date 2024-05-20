@@ -1,6 +1,7 @@
 import { useMediaQuery } from "@dzangolab/react-ui";
 import { useState } from "react";
 
+import { Navigation } from "./Navigation";
 import { NavItem } from "./NavItem";
 import { NavGroupType } from "../../types";
 
@@ -25,7 +26,13 @@ export const NavGroup = ({
           navGroup.submenu.map((nav, _index) => {
             return (
               <li key={_index}>
-                <NavItem navItem={nav} displayIcon={displayIcon} />
+                {
+                  <Navigation
+                    nav={nav}
+                    horizontal={horizontal}
+                    displayIcon={displayIcon}
+                  />
+                }
               </li>
             );
           })}
@@ -50,7 +57,6 @@ export const NavGroup = ({
         isGroupHeader
       ></NavItem>
       {renderSubmenu()}
-      <div className="overlay-menu">{renderSubmenu()}</div>
     </div>
   );
 };
