@@ -1,11 +1,5 @@
-import { NavGroup } from "./NavGroup";
-import { NavItem } from "./NavItem";
-import {
-  NavMenuType,
-  NavGroupType,
-  NavItemType,
-  NavMenuItemType,
-} from "../../types";
+import { Navigation } from "./Navigation";
+import { NavMenuType, NavMenuItemType } from "../../types";
 
 export type NavigationMenuProperties = {
   displayIcons?: boolean;
@@ -18,24 +12,6 @@ export const NavigationMenu = ({
   horizontal = false,
   navigationMenu,
 }: NavigationMenuProperties) => {
-  const renderNavGroup = (navGroup: NavGroupType) => {
-    return (
-      <NavGroup
-        navGroup={navGroup}
-        displayIcon={displayIcons}
-        horizontal={horizontal}
-      />
-    );
-  };
-
-  const renderNavigation = (nav: NavItemType | NavGroupType) => {
-    if ("submenu" in nav) {
-      return renderNavGroup(nav);
-    }
-
-    return <NavItem navItem={nav} displayIcon={displayIcons} />;
-  };
-
   const renderNavMenuItem = (
     { id, label, menu, menuOverlay = true }: NavMenuItemType,
     index?: number,
@@ -50,7 +26,17 @@ export const NavigationMenu = ({
         {label && <span>{label}</span>}
         <ul>
           {menu.map((nav, _index) => {
-            return <li key={_index}>{renderNavigation(nav)}</li>;
+            return (
+              <li key={_index}>
+                {
+                  <Navigation
+                    nav={nav}
+                    horizontal={horizontal}
+                    displayIcon={displayIcons}
+                  />
+                }
+              </li>
+            );
           })}
         </ul>
       </div>

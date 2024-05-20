@@ -1,8 +1,9 @@
 import { useMediaQuery } from "@dzangolab/react-ui";
 import { useState } from "react";
 
+import { Navigation } from "./Navigation";
 import { NavItem } from "./NavItem";
-import { NavGroupType, NavItemType } from "../../types";
+import { NavGroupType } from "../../types";
 
 export type NavGroupProperties = {
   displayIcon?: boolean;
@@ -18,30 +19,22 @@ export const NavGroup = ({
   const [showSubmenu, setShowSubmenu] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width:576px)");
 
-  const renderNavGroup = (navGroup: NavGroupType) => {
-    return (
-      <NavGroup
-        navGroup={navGroup}
-        displayIcon={displayIcon}
-        horizontal={horizontal}
-      />
-    );
-  };
-
-  const renderNavigation = (nav: NavItemType | NavGroupType) => {
-    if ("submenu" in nav) {
-      return renderNavGroup(nav);
-    }
-
-    return <NavItem navItem={nav} displayIcon={displayIcon} />;
-  };
-
   const renderSubmenu = () => {
     return (
       <ul className="submenu">
         {navGroup.submenu &&
           navGroup.submenu.map((nav, _index) => {
-            return <li key={_index}>{renderNavigation(nav)}</li>;
+            return (
+              <li key={_index}>
+                {
+                  <Navigation
+                    nav={nav}
+                    horizontal={horizontal}
+                    displayIcon={displayIcon}
+                  />
+                }
+              </li>
+            );
           })}
       </ul>
     );
