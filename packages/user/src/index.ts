@@ -27,6 +27,7 @@ import {
 } from "./hooks";
 import {
   UserEnabledBasicLayout,
+  UserEnabledHeaderLayout,
   UserEnabledSidebarHeaderLayout,
   UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
@@ -90,6 +91,7 @@ export {
 
   // layouts
   UserEnabledBasicLayout,
+  UserEnabledHeaderLayout,
   UserEnabledSidebarHeaderLayout,
   UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,

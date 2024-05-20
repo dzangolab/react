@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { HeaderLayout } from "@dzangolab/react-layout";
+import { UserEnabledHeaderLayout } from "@dzangolab/react-user";
 import { Outlet } from "react-router-dom";
 
 import { MENU_ROUTES } from "../constants";
@@ -13,7 +13,7 @@ export const BasicLayout = (): JSX.Element => {
   }));
 
   return (
-    <HeaderLayout
+    <UserEnabledHeaderLayout
       children={<Outlet />}
       navigationMenu={{
         menu: menu,
