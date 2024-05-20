@@ -8,6 +8,7 @@ import { NavMenuItemType, NavMenuType, UserMenuModeType } from "../types";
 interface HeaderProperties {
   children?: React.ReactNode;
   displayNavIcons?: boolean;
+  headerAddon?: React.ReactNode;
   navigationMenu?: NavMenuType;
   title?: string | React.ReactNode;
   menu?: NavMenuItemType;
@@ -20,6 +21,7 @@ interface HeaderProperties {
 export const Header = ({
   children,
   displayNavIcons,
+  headerAddon,
   title,
   navigationMenu,
   menu,
@@ -33,6 +35,7 @@ export const Header = ({
       <>
         {!noLogo && <Logo />}
         {title && <HeaderTitle title={title} />}
+        {headerAddon && headerAddon}
         {navigationMenu && (
           <NavigationMenu
             navigationMenu={navigationMenu}

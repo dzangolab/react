@@ -6,7 +6,6 @@ import {
 } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
-import { removeUserData } from "@/helpers";
 import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
@@ -18,6 +17,7 @@ interface Properties {
   customHeader?: React.ReactNode;
   customSidebar?: React.ReactNode;
   displayNavIcons?: boolean;
+  headerAddon?: React.ReactNode;
   navigationMenu?: NavMenuType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
