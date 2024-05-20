@@ -77,22 +77,37 @@
   padding: 0;
 }
 
-.dz-layout
-  .navigation-menu
-  > .nav-menu-item
-  ul
-  > li
-  .nav-group[aria-expanded="true"]
-  > ul {
-  display: flex;
+.dz-layout .navigation-menu > .nav-menu-item ul > li .nav-group > .submenu {
+  align-items: start;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0;
   animation: expand 120ms ease;
 }
 
+.dz-layout
+  .navigation-menu
+  > .nav-menu-item
+  ul
+  > li
+  .nav-group[aria-expanded="true"]
+  > .submenu {
+  display: flex;
+}
+
 .dz-layout .navigation-menu > .nav-menu-item > ul > li .nav-group > ul {
   display: none;
+}
+
+.dz-layout
+  .navigation-menu
+  > .nav-menu-item
+  > ul
+  > li
+  .nav-group
+  .submenu
+  > li {
+  width: 100%;
 }
 
 .dz-layout
@@ -111,7 +126,12 @@
   transition: transform 120ms linear;
 }
 
-.nav-group[aria-expanded="true"] > .nav-item .nav-group-toggle {
+.dz-layout
+  .navigation-menu
+  .nav-menu-item
+  .nav-group[aria-expanded="true"]
+  > .nav-item
+  .nav-group-toggle {
   transform: rotate(90deg);
 }
 
@@ -196,7 +216,6 @@
     border: 1px solid #ccc;
     border-radius: 0.3rem;
     box-shadow: 0 2px 12px #0000001a;
-    gap: 0.3rem;
     display: none;
     min-width: 11rem;
     position: absolute;
@@ -210,7 +229,7 @@
     > li
     > .nav-group:hover
     > .submenu {
-    display: unset;
+    display: flex;
     top: 100%;
   }
 
@@ -223,7 +242,7 @@
     > .submenu
     .nav-group:hover
     > .submenu {
-    display: unset;
+    display: flex;
     left: 100%;
   }
 }
