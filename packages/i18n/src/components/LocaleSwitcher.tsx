@@ -18,7 +18,7 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
   const locales =
     i18n.options.supportedLngs &&
     i18n.options.supportedLngs
-      .filter((locale) => locale !== "cimode" && i18n.options.debug) // Filter out cimode from options. The mode shows key e.g. locale.english as value.
+      .filter((locale) => locale !== "cimode") // Filter out cimode from options. The mode shows key e.g. locale.english as value.
       .map((locale) => {
         return {
           command: () => changeLocale(locale),
