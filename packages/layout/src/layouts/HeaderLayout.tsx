@@ -12,7 +12,7 @@ interface HeaderLayoutProperties {
   headerAddon?: React.ReactNode;
   navigationMenu?: NavMenuType;
   title?: string | React.ReactNode;
-  userMenu?: NavMenuItemType;
+  menu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;
@@ -27,7 +27,7 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
   headerAddon,
   navigationMenu,
   title,
-  userMenu,
+  menu,
   noLogo,
   noLocaleSwitcher,
   noToggle,
@@ -45,7 +45,7 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
           headerAddon={headerAddon}
           navigationMenu={navigationMenu}
           title={title}
-          menu={userMenu}
+          menu={menu}
           noLogo={noLogo}
           noLocaleSwitcher={noLocaleSwitcher}
           noToggle={noToggle}
