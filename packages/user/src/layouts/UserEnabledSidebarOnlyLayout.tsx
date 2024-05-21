@@ -2,7 +2,6 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { SidebarOnlyLayout } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
-import { removeUserData } from "@/helpers";
 import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
