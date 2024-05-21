@@ -7,31 +7,31 @@ import {
 interface IProperties {
   className?: string;
   children?: React.ReactNode;
+  customHeader?: React.ReactNode;
   displayNavIcons?: boolean;
+  fixed?: boolean;
   headerAddon?: React.ReactNode;
+  userNavigationmenu?: NavMenuItemType;
   navigationMenu?: NavMenuType;
-  title?: string | React.ReactNode;
-  menu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;
-  customHeader?: React.ReactNode;
-  fixed?: boolean;
+  title?: string | React.ReactNode;
 }
 
 export const UserEnabledHeaderLayout = ({
-  className,
   children,
-  displayNavIcons,
-  headerAddon,
-  navigationMenu,
-  title,
-  menu,
-  noLogo,
-  noLocaleSwitcher,
-  noToggle,
+  className,
   customHeader,
+  displayNavIcons,
   fixed,
+  headerAddon,
+  userNavigationmenu,
+  navigationMenu,
+  noLocaleSwitcher,
+  noLogo,
+  noToggle,
+  title,
 }: IProperties) => {
   return (
     <HeaderLayout
@@ -42,7 +42,7 @@ export const UserEnabledHeaderLayout = ({
         headerAddon,
         navigationMenu,
         title,
-        menu,
+        userMenu: userNavigationmenu,
         noLogo,
         noLocaleSwitcher,
         noToggle,
