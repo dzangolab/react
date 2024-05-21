@@ -38,10 +38,12 @@ export type UsersTableProperties = Partial<
 > & {
   additionalInvitationFields?: AdditionalFormFields;
   apps?: Array<InvitationAppOption>;
-  dataActionsMenu?: (
-    user: UserType,
-    defaultActionsMenu: DataActionsMenuProperties<UserType>,
-  ) => DataActionsMenuProperties<UserType>;
+  dataActionsMenu?:
+    | ((
+        user: UserType,
+        defaultActionsMenu: DataActionsMenuProperties<UserType>,
+      ) => DataActionsMenuProperties<UserType>)
+    | DataActionsMenuProperties<UserType>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
   invitationButtonOptions?: IButtonProperties;
   invitationExpiryDateField?: InvitationExpiryDateField;
@@ -246,9 +248,11 @@ export const UsersTable = ({
         pageInputLabel: t("table.pagination.pageControl"),
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
       }}
-      dataActionsMenu={(user) =>
+      dataActionsMenu={
         dataActionsMenu
-          ? dataActionsMenu(user, defaultActionsMenu)
+          ? typeof dataActionsMenu === "function"
+            ? (data) => dataActionsMenu(data, defaultActionsMenu)
+            : dataActionsMenu
           : defaultActionsMenu
       }
       {...tableProperties}
