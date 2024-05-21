@@ -6,7 +6,7 @@ import {
 } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
-import { logout, useUser } from "..";
+import { UserMenu, logout, useUser } from "..";
 
 interface IProperties {
   authNavigationMenu?: NavMenuItemType;
@@ -81,7 +81,9 @@ export const UserEnabledHeaderLayout = ({
       {...{
         className,
         children,
+        customHeader,
         displayNavIcons,
+        fixed,
         headerAddon,
         navigationMenu,
         title,
@@ -89,8 +91,7 @@ export const UserEnabledHeaderLayout = ({
         noLogo,
         noLocaleSwitcher,
         noToggle,
-        customHeader,
-        fixed,
+        userMenuMode: user ? "dropdown" : "horizontal",
       }}
     />
   );

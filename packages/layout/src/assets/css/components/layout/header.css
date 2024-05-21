@@ -59,11 +59,11 @@
 
 .dz-layout > header > .header-container > .header-menu {
   grid-area: menu;
-
   display: flex;
   gap: var(--_layout-header-gap);
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
 }
 
 .dz-layout[aria-expanded="false"] > header > .header-container {
@@ -78,6 +78,12 @@
   > .navigation-menu,
 .dz-layout[aria-expanded="false"] > header > .header-container > .header-menu {
   display: none;
+}
+
+.dz-layout > header > .header-container > .header-menu > .user-menu {
+  cursor: pointer;
+  column-gap: 1.3rem;
+  display: flex;
 }
 
 @media screen and (min-width: 576px) {
