@@ -3,36 +3,39 @@ import {
   NavMenuType,
   Header,
   NavMenuItemType,
+  UserMenuModeType,
 } from "@/components/Layout";
 
 interface HeaderLayoutProperties {
   className?: string;
   children?: React.ReactNode;
+  customHeader?: React.ReactNode;
   displayNavIcons?: boolean;
+  fixed?: boolean;
   headerAddon?: React.ReactNode;
   navigationMenu?: NavMenuType;
-  title?: string | React.ReactNode;
   menu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;
-  customHeader?: React.ReactNode;
-  fixed?: boolean;
+  title?: string | React.ReactNode;
+  userMenuMode?: UserMenuModeType;
 }
 
 export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
   className,
   children,
+  customHeader,
   displayNavIcons,
+  fixed = true,
   headerAddon,
   navigationMenu,
-  title,
   menu,
   noLogo,
   noLocaleSwitcher,
   noToggle,
-  customHeader,
-  fixed = true,
+  title,
+  userMenuMode,
 }) => {
   return (
     <Layout
@@ -49,6 +52,7 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
           noLogo={noLogo}
           noLocaleSwitcher={noLocaleSwitcher}
           noToggle={noToggle}
+          userMenuMode={userMenuMode}
         ></Header>
       )}
       <main>{children}</main>

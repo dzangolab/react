@@ -50,16 +50,6 @@
   }
 
   .dz-layout.sidebar-header-layout
-    > header
-    > .header-container
-    > .header-menu
-    > .user-menu {
-    column-gap: 1.3rem;
-    cursor: pointer;
-    display: flex;
-  }
-
-  .dz-layout.sidebar-header-layout
     > aside
     > .navigation-menu
     > div[data-nav-menu-id="dz-user-menu"],
