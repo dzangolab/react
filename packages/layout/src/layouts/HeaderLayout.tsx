@@ -14,11 +14,11 @@ interface HeaderLayoutProperties {
   fixed?: boolean;
   headerAddon?: React.ReactNode;
   navigationMenu?: NavMenuType;
-  title?: string | React.ReactNode;
   menu?: NavMenuItemType;
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;
+  title?: string | React.ReactNode;
   userMenuMode?: UserMenuModeType;
 }
 
@@ -30,11 +30,11 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
   fixed = true,
   headerAddon,
   navigationMenu,
-  title,
   menu,
   noLogo,
   noLocaleSwitcher,
   noToggle,
+  title,
   userMenuMode,
 }) => {
   return (

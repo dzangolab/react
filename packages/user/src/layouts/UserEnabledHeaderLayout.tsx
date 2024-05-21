@@ -6,7 +6,7 @@ import {
 } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
-import { UserMenu, logout, useUser } from "..";
+import { logout, useUser } from "..";
 
 interface IProperties {
   authNavigationMenu?: NavMenuItemType;
