@@ -18,6 +18,7 @@ interface IProperties {
   customHeader?: React.ReactNode;
   fixed?: boolean;
 }
+
 export const UserEnabledHeaderLayout = ({
   className,
   children,
