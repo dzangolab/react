@@ -10,14 +10,14 @@ type LayoutProperties = {
 
 const LayoutComponent = ({ children, className, fixed }: LayoutProperties) => {
   const { menuDesktopOpen, menuMobileOpen } = useLayoutContext();
-  const isSmallScreen = useMediaQuery("(max-width: 576px)");
+  const isLargeScreen = useMediaQuery("(min-width: 576px)");
 
   return (
     <div
       className={`dz-layout ${className || ""} ${
         fixed ? "fixed" : ""
       }`.trimEnd()}
-      aria-expanded={isSmallScreen ? menuMobileOpen : menuDesktopOpen}
+      aria-expanded={!isLargeScreen ? menuMobileOpen : menuDesktopOpen}
     >
       {children}
     </div>

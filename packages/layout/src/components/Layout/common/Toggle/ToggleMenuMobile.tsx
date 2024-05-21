@@ -9,10 +9,10 @@ export const ToggleMenuMobile = () => {
     setMenuDesktopOpen,
     setMenuMobileOpen,
   } = useLayoutContext();
-  const isSmallScreen = useMediaQuery("(max-width: 576px)");
+  const isLargeScreen = useMediaQuery("(min-width: 576px)");
 
   const handleClick = () => {
-    if (isSmallScreen) {
+    if (!isLargeScreen) {
       setMenuMobileOpen(!menuMobileOpen);
     } else {
       setMenuDesktopOpen(!menuDesktopOpen);
@@ -20,7 +20,7 @@ export const ToggleMenuMobile = () => {
   };
 
   const renderIcon = () => {
-    if (isSmallScreen) {
+    if (!isLargeScreen) {
       return <i className={menuMobileOpen ? "pi pi-times" : "pi pi-bars"}></i>;
     }
 
