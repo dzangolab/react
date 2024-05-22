@@ -17,7 +17,7 @@ const LayoutComponent = ({ children, className, fixed }: LayoutProperties) => {
       className={`dz-layout ${className || ""} ${
         fixed ? "fixed" : ""
       }`.trimEnd()}
-      aria-expanded={!isLargeScreen ? menuMobileOpen : menuDesktopOpen}
+      aria-expanded={isLargeScreen ? menuDesktopOpen : menuMobileOpen}
     >
       {children}
     </div>
