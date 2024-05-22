@@ -9,28 +9,28 @@ export const ToggleMenuMobile = () => {
     setMenuDesktopOpen,
     setMenuMobileOpen,
   } = useLayoutContext();
-  const isSmallScreen = useMediaQuery("(max-width: 576px)");
+  const isLargeScreen = useMediaQuery("(min-width: 576px)");
 
   const handleClick = () => {
-    if (isSmallScreen) {
-      setMenuMobileOpen(!menuMobileOpen);
-    } else {
+    if (isLargeScreen) {
       setMenuDesktopOpen(!menuDesktopOpen);
+    } else {
+      setMenuMobileOpen(!menuMobileOpen);
     }
   };
 
   const renderIcon = () => {
-    if (isSmallScreen) {
-      return <i className={menuMobileOpen ? "pi pi-times" : "pi pi-bars"}></i>;
+    if (isLargeScreen) {
+      return (
+        <i
+          className={
+            menuDesktopOpen ? "pi pi-chevron-left" : "pi pi-chevron-right"
+          }
+        ></i>
+      );
     }
 
-    return (
-      <i
-        className={
-          menuDesktopOpen ? "pi pi-chevron-left" : "pi pi-chevron-right"
-        }
-      ></i>
-    );
+    return <i className={menuMobileOpen ? "pi pi-times" : "pi pi-bars"}></i>;
   };
 
   return (
