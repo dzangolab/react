@@ -1,12 +1,10 @@
-import { HTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 
-export interface IInputProperties extends HTMLAttributes<HTMLInputElement> {
-  disabled?: boolean;
+export interface IInputProperties
+  extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
-  name?: string;
-  readOnly?: boolean;
   type?: "text" | "number" | "email";
 }
 
