@@ -18,7 +18,7 @@ interface Properties
   loadingComponent?: React.ReactElement;
   loadingPageStyle?: LoadingPageProperties;
   subtitle?: React.ReactNode | string;
-  title?: string;
+  title?: string | React.ReactNode;
   toolbar?: React.ReactNode;
 }
 

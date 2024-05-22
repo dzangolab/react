@@ -3,7 +3,7 @@ interface IHeaderProperties {
   titleTag?: string | React.ReactNode;
   subtitle?: React.ReactNode | string;
   toolbar?: React.ReactNode;
-  title?: string;
+  title?: string | React.ReactNode;
 }
 
 export const PageHeader = ({
