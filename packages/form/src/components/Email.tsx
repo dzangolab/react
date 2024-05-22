@@ -21,7 +21,7 @@ interface IProperties extends IInputProperties {
 }
 
 export const Email: React.FC<IProperties> = ({
-  autoComplete = "user-name",
+  autoComplete = "email",
   defaultValue = "",
   disabled = false,
   errorMessage,

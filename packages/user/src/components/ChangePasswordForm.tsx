@@ -46,6 +46,7 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
       onSubmit={(data) => handleSubmit(data.oldPassword, data.password)}
     >
       <Password
+        autoComplete="current-password"
         label={t("changePassword.form.oldPassword.label")}
         name="oldPassword"
       />
