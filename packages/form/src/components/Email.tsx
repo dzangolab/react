@@ -8,12 +8,9 @@ import {
 } from "react-hook-form";
 
 interface IProperties extends IInputProperties {
-  disabled?: boolean;
   defaultValue?: string;
   label?: string;
   name: string;
-  placeholder?: string;
-  readOnly?: boolean;
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitCount?: number;
@@ -24,6 +21,7 @@ interface IProperties extends IInputProperties {
 }
 
 export const Email: React.FC<IProperties> = ({
+  autoComplete = "email",
   defaultValue = "",
   disabled = false,
   errorMessage,
@@ -55,6 +53,7 @@ export const Email: React.FC<IProperties> = ({
       defaultValue={defaultValue}
       render={({ field }) => (
         <Input
+          autoComplete={autoComplete}
           defaultValue={field.value}
           disabled={disabled}
           errorMessage={error?.message}

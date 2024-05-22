@@ -15,6 +15,7 @@ exports[`Component matches snapshot 1`] = `
       login.form.email.label
     </label>
     <input
+      autoComplete="email"
       className="input-field email"
       disabled={false}
       id="email"
@@ -38,6 +39,7 @@ exports[`Component matches snapshot 1`] = `
       className="input-field-password"
     >
       <input
+        autoComplete="current-password"
         id="input-field-password"
         name="password"
         onBlur={[Function]}

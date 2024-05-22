@@ -5,6 +5,7 @@ import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
 export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
+  autoComplete = "new-password",
   getFieldState,
   id,
   label = "",
@@ -41,6 +42,7 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
+          autoComplete={autoComplete}
           {...others}
         ></input>
         <span

@@ -28,6 +28,7 @@ export const LoginFormFields = ({ loading }: Properties) => {
         showValidState={false}
       />
       <Password
+        autoComplete="current-password"
         label={t("login.form.password.label")}
         name="password"
         submitCount={submitCount}
