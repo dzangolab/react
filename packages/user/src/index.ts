@@ -1,5 +1,6 @@
 import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import { disableUser, enableUser } from "./api/user";
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
@@ -72,9 +73,6 @@ declare module "@dzangolab/react-config" {
   }
 }
 
-export * from "./api/invitation";
-export * from "./api/user";
-
 export {
   // components
   AllUsersTable,
@@ -113,6 +111,8 @@ export {
 
   // utilities
   changePassword,
+  disableUser,
+  enableUser,
   forgotPassword,
   getUserData,
   googleLogin,
