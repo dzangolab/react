@@ -9,6 +9,7 @@ type Option<T> = {
 };
 
 type ISelectProperties<T> = {
+  autoSelectSingleOption?: boolean;
   disabled?: boolean;
   errorMessage?: string;
   hasError?: boolean;
@@ -32,6 +33,7 @@ type ISelectProperties<T> = {
 );
 
 export const Select = <T extends string | number>({
+  autoSelectSingleOption = true,
   disabled,
   errorMessage,
   hasError,
@@ -48,6 +50,16 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
+
+  useEffect(() => {
+    if (
+      options.length === 1 &&
+      autoSelectSingleOption &&
+      !options[0].disabled
+    ) {
+      handleSelectedOption(options[0].value);
+    }
+  }, []);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
@@ -222,7 +234,9 @@ export const Select = <T extends string | number>({
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       {renderSelect()}
-      {showOptions && renderOptions()}
+      {options.length === 1 && autoSelectSingleOption
+        ? null
+        : showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
