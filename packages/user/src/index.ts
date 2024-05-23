@@ -72,6 +72,9 @@ declare module "@dzangolab/react-config" {
   }
 }
 
+export * from "./api/invitation";
+export * from "./api/user";
+
 export {
   // components
   AllUsersTable,
