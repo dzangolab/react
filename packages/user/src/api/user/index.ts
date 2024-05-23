@@ -35,7 +35,7 @@ export const signUpFirstUser = async (
   }
 };
 
-export const enableUser = async (id: number, apiBaseUrl: string) => {
+export const enableUser = async (id: string, apiBaseUrl: string) => {
   const response = await client(apiBaseUrl).put(
     `users/${id}/enable`,
     {},
@@ -51,7 +51,7 @@ export const enableUser = async (id: number, apiBaseUrl: string) => {
   }
 };
 
-export const disableUser = async (id: number, apiBaseUrl: string) => {
+export const disableUser = async (id: string, apiBaseUrl: string) => {
   const response = await client(apiBaseUrl).put(
     `users/${id}/disable`,
     {},
