@@ -1,0 +1,27 @@
+.dz-typeahead {
+  width: 100%;  
+}
+
+.dz-typeahead > input {
+  background-color: var(--dz-input-fill-color);
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--field-border-radius);
+  padding: 0.75rem 0.65rem;  
+  width: 100%; 
+}
+
+.dz-typeahead > input:focus {
+  border: 1px solid var(--field-focus-border-color);
+}
+
+.dz-typeahead .suggestions {
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--field-border-radius);
+  padding: 0.75rem 0.65rem; 
+  width: 100%;  
+}
+
+.dz-typeahead .suggestion:hover {
+  background-color: var(--field-option-hover-color);
+  cursor: pointer;
+} 

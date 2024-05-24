@@ -170,5 +170,8 @@
       "single": "Single select"
     },
     "placeHolder": "-- select value --"
+  },
+  "typeahead": {
+    "title": "Typeahead"
   }
 }

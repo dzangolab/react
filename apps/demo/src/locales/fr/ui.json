@@ -166,5 +166,8 @@
       "single": "Single select (fr)"
     },
     "placeHolder": "-- select value -- (fr)"
+  },
+  "typeahead": {
+    "title": "Typeahead (fr)"
   }
 }
