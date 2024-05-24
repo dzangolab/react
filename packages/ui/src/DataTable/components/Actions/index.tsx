@@ -20,11 +20,11 @@ export interface ActionsMenuProperties {
   viewLabel?: string;
   requireConfirmationOnDelete?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onDelete?: (arguments_: any) => void;
+  onDelete?: (arguments_: any) => void | Promise<void>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onEdit?: (arguments_: any) => void;
+  onEdit?: (arguments_: any) => void | Promise<void>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onView?: (arguments_: any) => void;
+  onView?: (arguments_: any) => void | Promise<void>;
 }
 
 export const ActionsMenu = ({
@@ -95,8 +95,9 @@ export const ActionsMenu = ({
           message={deleteConfirmationMessage}
           header={deleteConfirmationHeader}
           onHide={() => setShowDeleteConfirmation(false)}
-          accept={() => {
-            onDelete(data);
+          accept={async () => {
+            await onDelete(data);
+
             setShowDeleteConfirmation(false);
           }}
         />
