@@ -238,7 +238,7 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       eslint-config-custom:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/eslint-config-custom
       jsdom:
         specifier: 24.0.0
@@ -250,7 +250,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0
       tsconfig:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -287,7 +287,7 @@ importers:
         version: 3.23.6
     devDependencies:
       '@dzangolab/react-ui':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../ui
       '@storybook/react':
         specifier: 7.6.19
@@ -323,7 +323,7 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       eslint-config-custom:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.34.1
@@ -347,7 +347,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -362,7 +362,7 @@ importers:
   packages/i18n:
     dependencies:
       '@dzangolab/react-ui':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../ui
       i18next:
         specifier: 23.11.3
@@ -384,7 +384,7 @@ importers:
         version: 14.1.1(i18next@23.11.3)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../config
       '@testing-library/react':
         specifier: 14.3.1
@@ -414,7 +414,7 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       eslint-config-custom:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.34.1
@@ -432,7 +432,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -447,13 +447,13 @@ importers:
   packages/layout:
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../config
       '@dzangolab/react-i18n':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../i18n
       '@dzangolab/react-ui':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../ui
       '@testing-library/react':
         specifier: 14.3.1
@@ -483,7 +483,7 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       eslint-config-custom:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.34.1
@@ -510,7 +510,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -544,7 +544,7 @@ importers:
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../config
       '@storybook/react':
         specifier: 7.6.19
@@ -580,7 +580,7 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       eslint-config-custom:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.34.1
@@ -607,7 +607,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       tsconfig:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -629,19 +629,19 @@ importers:
         version: 3.23.6
     devDependencies:
       '@dzangolab/react-config':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../config
       '@dzangolab/react-form':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../form
       '@dzangolab/react-i18n':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../i18n
       '@dzangolab/react-layout':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../layout
       '@dzangolab/react-ui':
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../ui
       '@testing-library/dom':
         specifier: 9.3.4
@@ -680,7 +680,7 @@ importers:
         specifier: 8.57.0
         version: 8.57.0
       eslint-config-custom:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/eslint-config-custom
       eslint-plugin-react:
         specifier: 7.34.1
@@ -713,7 +713,7 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(react-dom@18.2.0)(react@18.2.0)
       tsconfig:
-        specifier: 0.40.0
+        specifier: 0.41.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
