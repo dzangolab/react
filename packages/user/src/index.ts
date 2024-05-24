@@ -1,5 +1,6 @@
 import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import { disableUser, enableUser } from "./api/user";
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
@@ -110,6 +111,8 @@ export {
 
   // utilities
   changePassword,
+  disableUser,
+  enableUser,
   forgotPassword,
   getUserData,
   googleLogin,
