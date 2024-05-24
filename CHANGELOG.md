@@ -1,3 +1,23 @@
+# [0.41.0](https://github.com/dzangolab/react/compare/v0.40.0...v0.41.0) (2024-05-24)
+
+
+### Bug Fixes
+
+* **form/input:** add autoComplete attribute ([#999](https://github.com/dzangolab/react/issues/999)) ([a650334](https://github.com/dzangolab/react/commit/a6503340380d613f51763eaffd77d2d2c8dda31f))
+* **i18n-console:** remove the console log from the i18n package ([#993](https://github.com/dzangolab/react/issues/993)) ([f99ee27](https://github.com/dzangolab/react/commit/f99ee27f4fa5292b90d8a61a4dc65d3a6d687bab))
+* **layout:** change the condition to render toggle button with screen size ([#997](https://github.com/dzangolab/react/issues/997)) ([c19e554](https://github.com/dzangolab/react/commit/c19e55485adf6706093df7fa60dbe4038237e5cf))
+
+
+### Features
+
+* **form:** export necessary hooks from the react-hook-form ([#1001](https://github.com/dzangolab/react/issues/1001)) ([ffaaa68](https://github.com/dzangolab/react/commit/ffaaa68dd0ed54acb29f0625d82d8f58e7a0fc4a))
+* **layout/header:** add a prop for additional header element ([#994](https://github.com/dzangolab/react/issues/994)) ([eb5673e](https://github.com/dzangolab/react/commit/eb5673ef6bc675371f30a870c322f80982df0fe2))
+* **multilevel-submenu:** add support for multilevel submenu ([#984](https://github.com/dzangolab/react/issues/984)) ([4e657b4](https://github.com/dzangolab/react/commit/4e657b49f870cb1b1a37f898363e4b4dbedabda1))
+* **user:** add UserEnabledHeaderLayout ([#995](https://github.com/dzangolab/react/issues/995)) ([5236e49](https://github.com/dzangolab/react/commit/5236e49e9ca63312072a7093a6e37afb696dcba1))
+* **user:** export api methods for user and invitation ([#1000](https://github.com/dzangolab/react/issues/1000)) ([805cb93](https://github.com/dzangolab/react/commit/805cb9354d8c8312b12ae5d1ff6ee1becf54ee67))
+
+
+
 # [0.40.0](https://github.com/dzangolab/react/compare/v0.39.0...v0.40.0) (2024-05-17)
 
 
