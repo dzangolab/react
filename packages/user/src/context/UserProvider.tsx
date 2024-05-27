@@ -1,11 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
 
-import { getMe } from "@/api/user";
-
 import { getUserData, removeUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
 import { isUserVerified, verifySessionRoles } from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
+
+import { getMe } from "@/api/user";
 
 interface Properties {
   children: React.ReactNode;

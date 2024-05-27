@@ -3,6 +3,7 @@ import Session from "supertokens-web-js/recipe/session";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
 import logout from "./logout";
+import ProfileValidationClaim from "./profileValidationClaim";
 import { removeUserData } from "../helpers";
 
 /**
@@ -80,4 +81,27 @@ const isUserVerified = async (): Promise<boolean | undefined> => {
   return false;
 };
 
-export { getUserRoles, verifySessionRoles, isUserVerified };
+const isProfileCompleted = async (): Promise<boolean> => {
+  if (await Session.doesSessionExist()) {
+    const validatorFailures = await Session.validateClaims();
+
+    console.log("validatorFailures", validatorFailures);
+
+    if (validatorFailures.length === 0) {
+      return true;
+    }
+
+    if (
+      validatorFailures.some(
+        (validatorFailure) =>
+          validatorFailure.validatorId === ProfileValidationClaim.id,
+      )
+    ) {
+      return false;
+    }
+  }
+
+  return false;
+};
+
+export { getUserRoles, isProfileCompleted, verifySessionRoles, isUserVerified };
