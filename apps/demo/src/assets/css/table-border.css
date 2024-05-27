@@ -10,10 +10,7 @@
   border-right: var(--dz-table-border);
 }
 
-.dz-table-container.vertical .pagination {
-  border-top: none;
-}
-
-.dz-table-container.vertical .toolbar {
-  border-bottom: none;
+.dz-table-container.horizontal .table-wrapper > table > tbody > tr > td,
+.dz-table-container.horizontal .table-wrapper > table > thead tr > th {
+  border: none;
 }

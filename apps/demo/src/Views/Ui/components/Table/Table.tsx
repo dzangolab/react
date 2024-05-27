@@ -257,11 +257,23 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.tableBorder")}>
+      <Section title={t("table.usage.tableBorderVertical")}>
         <TDataTable
           showColumnsAction={true}
           columnActionBtnLabel="Columns"
           className="vertical"
+          visibleColumns={["email", "name", "age", "city"]}
+          columns={[...columns]}
+          data={data}
+          initialSorting={[{ id: "email", desc: false }]}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.tableBorderHorizontal")}>
+        <TDataTable
+          showColumnsAction={true}
+          columnActionBtnLabel="Columns"
+          className="horizontal"
           visibleColumns={["email", "name", "age", "city"]}
           columns={[...columns]}
           data={data}
@@ -502,7 +514,7 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.cellDataFormating")}>
+      <Section title={t("table.usage.cellDataFormatting")}>
         <TDataTable
           columns={[
             {
@@ -557,7 +569,7 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.customCellDataFormating")}>
+      <Section title={t("table.usage.customCellDataFormatting")}>
         <TDataTable
           columns={[
             {
