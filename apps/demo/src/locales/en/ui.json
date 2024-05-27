@@ -72,7 +72,8 @@
       "divContent": "Table demonstrating center aligned content",
       "singleActionColumn": "Table with single action button",
       "singleActionColumnWithMenu": "Table with single action menu",
-      "rowSpecificActions": "Table with actions menu items filtered based on row data logic"
+      "rowSpecificActions": "Table with actions menu items filtered based on row data logic",
+      "tableBorder": "Table with custom style for vertical border"
     },
     "placeholder": {
       "startDate": "Start date",

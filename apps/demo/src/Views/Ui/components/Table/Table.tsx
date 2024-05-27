@@ -257,6 +257,18 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
+      <Section title={t("table.usage.tableBorder")}>
+        <TDataTable
+          showColumnsAction={true}
+          columnActionBtnLabel="Columns"
+          className="vertical"
+          visibleColumns={["email", "name", "age", "city"]}
+          columns={[...columns]}
+          data={data}
+          initialSorting={[{ id: "email", desc: false }]}
+        ></TDataTable>
+      </Section>
+
       <Section title={t("table.usage.withoutPagination")}>
         <TDataTable
           columns={[...columns]}
