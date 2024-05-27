@@ -69,6 +69,7 @@ export const SidebarHeaderLayout = ({
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
+          navigationMenu={navigationMenu}
           headerAddon={headerAddon}
           menu={userMenu}
           noLogo={noLogo}
