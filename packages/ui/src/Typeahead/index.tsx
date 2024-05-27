@@ -1,22 +1,57 @@
 import { useState } from "react";
 
-const suggestions: any = ["blue", "red", "yellow"];
+import { LoadingIcon } from "..";
 
-export const Typeahead = ({ loading = false }) => {
-  const [value, setValue] = useState("");
+type Properties = {
+  className?: string;
+  data?: [];
+  disabled?: boolean;
+  loading?: boolean;
+  placeholder?: string;
+  value: any;
+  onChange: (value: any) => void;
+};
+
+export const Typeahead = ({
+  loading,
+  data,
+  className,
+  disabled,
+  placeholder,
+  value,
+  onChange,
+}: Properties) => {
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleSelectedSuggestion = (suggestion: any) => {
-    setValue(suggestion);
+    onChange(suggestion);
+    setSuggestions([]);
   };
 
   const handleInputChange = (event: any) => {
-    setValue(event.target.value);
+    const value = event.target.value.toLowerCase();
+    let newSuggestions: any = [];
+
+    if (value.length > 0) {
+      newSuggestions = data?.filter((_value: any) =>
+        _value.toLowerCase().startsWith(value),
+      );
+    }
+
+    setSuggestions(newSuggestions);
+    onChange(value);
   };
 
   const renderSuggestions = () => {
+    const handleKeyDown = (event: any, suggestion: any) => {
+      if (event.key === "Enter" && !disabled) {
+        onChange(suggestion);
+        setSuggestions([]);
+      }
+    };
+
     return (
       <>
-        {loading && <div>Loading...</div>}
         {!loading && suggestions.length > 0 && (
           <ul className="suggestions">
             {suggestions.map((suggestion: any, index: any) => (
@@ -24,6 +59,8 @@ export const Typeahead = ({ loading = false }) => {
                 className="suggestion"
                 key={index}
                 onClick={() => handleSelectedSuggestion(suggestion)}
+                onKeyDown={(event) => handleKeyDown(event, suggestion)}
+                tabIndex={0}
               >
                 {suggestion}
               </li>
@@ -35,8 +72,15 @@ export const Typeahead = ({ loading = false }) => {
   };
 
   return (
-    <div className="dz-typeahead">
-      <input type="text" value={value} onChange={handleInputChange} />
+    <div className={`dz-typeahead ${className}`.trimEnd()}>
+      <input
+        type="text"
+        value={value}
+        onChange={handleInputChange}
+        placeholder={loading ? "" : placeholder}
+        disabled={disabled}
+      />
+      {loading && <LoadingIcon color="#ccc" />}
       {renderSuggestions()}
     </div>
   );

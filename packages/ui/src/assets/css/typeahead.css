@@ -1,4 +1,5 @@
 .dz-typeahead {
+  position: relative;
   width: 100%;  
 }
 
@@ -25,3 +26,9 @@
   background-color: var(--field-option-hover-color);
   cursor: pointer;
 } 
+
+.dz-typeahead .loading {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
