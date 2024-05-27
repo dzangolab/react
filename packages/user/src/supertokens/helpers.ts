@@ -85,8 +85,6 @@ const isProfileCompleted = async (): Promise<boolean> => {
   if (await Session.doesSessionExist()) {
     const validatorFailures = await Session.validateClaims();
 
-    console.log("validatorFailures", validatorFailures);
-
     if (validatorFailures.length === 0) {
       return true;
     }
@@ -94,6 +92,7 @@ const isProfileCompleted = async (): Promise<boolean> => {
     if (
       validatorFailures.some(
         (validatorFailure) =>
+          validatorFailure.reason.actualValue != undefined &&
           validatorFailure.validatorId === ProfileValidationClaim.id,
       )
     ) {
