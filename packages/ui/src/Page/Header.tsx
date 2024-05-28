@@ -21,12 +21,15 @@ export const PageHeader = ({
         </div>
       ) : null}
       <div className="dz-page-title-wrapper">
-        {title && (
-          <h1>
-            {title}
-            {titleTag && <span>{titleTag}</span>}
-          </h1>
-        )}
+        {title &&
+          (typeof title === "string" ? (
+            <h1>
+              {title}
+              {titleTag && <span>{titleTag}</span>}
+            </h1>
+          ) : (
+            title
+          ))}
         {subtitle && (
           <div data-testid="page-subtitle" className="dz-page-subtitle">
             {subtitle}
