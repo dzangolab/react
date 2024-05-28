@@ -14,6 +14,8 @@ export const PageHeader = ({
   title,
 }: IHeaderProperties) => {
   const renderTitle = () => {
+    if (!title) return null;
+
     if (typeof title === "string") {
       return (
         <h1>
@@ -21,9 +23,9 @@ export const PageHeader = ({
           {titleTag && <span>{titleTag}</span>}
         </h1>
       );
-    } else {
-      return title;
     }
+
+    return title;
   };
 
   return (
@@ -34,7 +36,7 @@ export const PageHeader = ({
         </div>
       ) : null}
       <div className="dz-page-title-wrapper">
-        {title && renderTitle()}
+        {renderTitle()}
         {subtitle && (
           <div data-testid="page-subtitle" className="dz-page-subtitle">
             {subtitle}
