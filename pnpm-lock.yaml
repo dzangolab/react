@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -622,8 +626,8 @@ importers:
   packages/user:
     dependencies:
       supertokens-web-js:
-        specifier: 0.6.0
-        version: 0.6.0
+        specifier: 0.12.0
+        version: 0.12.0
       zod:
         specifier: 3.23.6
         version: 3.23.6
@@ -12126,15 +12130,15 @@ packages:
     resolution: {integrity: sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==}
     dev: false
 
-  /supertokens-web-js@0.6.0:
-    resolution: {integrity: sha512-2KOgWNGanh+/zpdaFQgiA9dQa6T9wA6LcoB6m1BTZ7JIqR3mYmpLD5uu8ERtISNAGUjcXziON/Fp5ZnlBByCcw==}
+  /supertokens-web-js@0.12.0:
+    resolution: {integrity: sha512-QQGp2TuikT29AuzAa+M0PvwNG8qZBUs3fuJzaD45G70HxD3Or5Yrz9gkhAH1BNQF9xIFIyLnTxxb+vU3HBGa0w==}
     dependencies:
       supertokens-js-override: 0.0.4
-      supertokens-website: 17.0.4
+      supertokens-website: 20.0.1
     dev: false
 
-  /supertokens-website@17.0.4:
-    resolution: {integrity: sha512-ayWhEFvspUe26YhM1bq11ssEpnFCZIsoHZtJwJHgHsoflfMUKdgrzOix/bboI0PWJeNTUphHyZebw0ApctaS1Q==}
+  /supertokens-website@20.0.1:
+    resolution: {integrity: sha512-lP9G2Bf0lQ1WMmS++q8ZsyeTpSsGOKzhOZyxm+xd47U6ukqFKLva687CyIZTqcLq1EStOPoYGbkmPdaaWQMcTw==}
     dependencies:
       browser-tabs-lock: 1.3.0
       supertokens-js-override: 0.0.4
@@ -13361,7 +13365,3 @@ packages:
     engines: {node: '>=0.8'}
     hasBin: true
     dev: false
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
