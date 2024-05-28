@@ -1,5 +1,5 @@
 import { Select as BasicSelect } from "@dzangolab/react-ui";
-import React from "react";
+import React, { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 type Value = string | number;
@@ -11,6 +11,7 @@ type Option = {
 };
 
 interface ISelect {
+  autoSelectSingleOption?: boolean;
   disabled?: boolean;
   label?: string;
   multiple?: boolean;
@@ -28,6 +29,7 @@ interface ISelect {
 }
 
 export const Select: React.FC<ISelect> = ({
+  autoSelectSingleOption = true,
   disabled,
   label = "",
   multiple = false,
@@ -40,7 +42,7 @@ export const Select: React.FC<ISelect> = ({
   renderOption,
   renderValue,
 }) => {
-  const { control, getFieldState } = useFormContext();
+  const { control, getFieldState, setValue } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
 
@@ -49,6 +51,16 @@ export const Select: React.FC<ISelect> = ({
     if (showValidState && !invalid) return false;
   };
 
+  useEffect(() => {
+    if (
+      options.length === 1 &&
+      !options[0].disabled &&
+      autoSelectSingleOption
+    ) {
+      setValue(name, multiple ? [options[0].value] : options[0].value);
+    }
+  }, []);
+
   return (
     <Controller
       name={name}
@@ -56,6 +68,7 @@ export const Select: React.FC<ISelect> = ({
       defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
+          autoSelectSingleOption={autoSelectSingleOption}
           label={label}
           name={name}
           multiple={multiple}
