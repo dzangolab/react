@@ -34,7 +34,7 @@ type ISelectProperties<T> = {
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = true,
-  disabled,
+  disabled: selectFieldDisabled,
   errorMessage,
   hasError,
   label = "",
@@ -50,6 +50,8 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
+  const disabled =
+    selectFieldDisabled ?? (options.length === 1 && autoSelectSingleOption);
 
   useEffect(() => {
     if (
