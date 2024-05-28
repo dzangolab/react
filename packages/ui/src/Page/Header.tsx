@@ -13,6 +13,19 @@ export const PageHeader = ({
   toolbar,
   title,
 }: IHeaderProperties) => {
+  const renderTitle = () => {
+    if (typeof title === "string") {
+      return (
+        <h1>
+          {title}
+          {titleTag && <span>{titleTag}</span>}
+        </h1>
+      );
+    } else {
+      return title;
+    }
+  };
+
   return (
     <div className="dz-page-header">
       {breadcrumb ? (
@@ -21,15 +34,7 @@ export const PageHeader = ({
         </div>
       ) : null}
       <div className="dz-page-title-wrapper">
-        {title &&
-          (typeof title === "string" ? (
-            <h1>
-              {title}
-              {titleTag && <span>{titleTag}</span>}
-            </h1>
-          ) : (
-            title
-          ))}
+        {title && renderTitle()}
         {subtitle && (
           <div data-testid="page-subtitle" className="dz-page-subtitle">
             {subtitle}
