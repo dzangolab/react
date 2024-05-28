@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { LoadingIcon } from "..";
 
@@ -6,46 +6,59 @@ type Properties = {
   className?: string;
   data?: [];
   disabled?: boolean;
+  label?: string;
   loading?: boolean;
+  name?: string;
   placeholder?: string;
-  value: any;
-  onChange: (value: any) => void;
+  onChange?: (value: any) => void;
 };
 
 export const Typeahead = ({
-  loading,
-  data,
   className,
+  data,
   disabled,
+  label,
+  loading,
+  name,
   placeholder,
-  value,
   onChange,
 }: Properties) => {
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState<any>([]);
+  const [value, setValue] = useState("");
 
   const handleSelectedSuggestion = (suggestion: any) => {
-    onChange(suggestion);
+    setValue(suggestion);
     setSuggestions([]);
   };
 
-  const handleInputChange = (event: any) => {
-    const value = event.target.value.toLowerCase();
-    let newSuggestions: any = [];
-
-    if (value.length > 0) {
-      newSuggestions = data?.filter((_value: any) =>
-        _value.toLowerCase().startsWith(value),
-      );
+  useEffect(() => {
+    if (onChange) {
+      setSuggestions(data);
     }
+  }, [data]);
 
-    setSuggestions(newSuggestions);
-    onChange(value);
+  const handleInputChange = (event: any) => {
+    if (onChange) {
+      setValue(event.target.value);
+      setSuggestions(data);
+      onChange(event.target.value);
+    } else {
+      const value = event.target.value.toLowerCase();
+      let newSuggestions: any = [];
+
+      if (value.length > 0) {
+        newSuggestions = data?.filter((_value: any) =>
+          _value.toLowerCase().startsWith(value),
+        );
+      }
+      setValue(value);
+      setSuggestions(newSuggestions);
+    }
   };
-
   const renderSuggestions = () => {
     const handleKeyDown = (event: any, suggestion: any) => {
       if (event.key === "Enter" && !disabled) {
-        onChange(suggestion);
+        setValue(suggestion);
         setSuggestions([]);
       }
     };
@@ -73,6 +86,7 @@ export const Typeahead = ({
 
   return (
     <div className={`dz-typeahead ${className}`.trimEnd()}>
+      {label && <label htmlFor={name}>{label}</label>}
       <input
         type="text"
         value={value}
