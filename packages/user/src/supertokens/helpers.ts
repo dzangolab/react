@@ -101,7 +101,10 @@ const isProfileCompleted = async (): Promise<boolean | undefined> => {
       },
     });
 
-    if (validatorFailures[0].reason.actualValue === undefined) {
+    if (
+      validatorFailures.length &&
+      validatorFailures[0].reason.actualValue === undefined
+    ) {
       return;
     }
 
