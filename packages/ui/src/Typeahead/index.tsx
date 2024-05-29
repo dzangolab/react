@@ -15,7 +15,7 @@ type Properties = {
 };
 
 export const Typeahead = ({
-  className,
+  className = "",
   data,
   disabled,
   debounceTime,
