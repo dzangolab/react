@@ -46,15 +46,17 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
-  const selectedApp: InvitationAppOption = useWatch({
+  const selectedApp: number = useWatch({
     name: "app",
   });
+
+  const selectedRole = apps?.find((app) => app.id === selectedApp);
 
   useEffect(() => {
     if (selectedApp) {
       setValue("role", undefined); // reset role value when app changes
 
-      setFilteredRoles(selectedApp.supportedRoles || []);
+      setFilteredRoles(selectedRole?.supportedRoles || []);
     }
   }, [selectedApp]);
 
