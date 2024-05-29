@@ -69,7 +69,7 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
   return false;
 }
 
-const isUserVerified = async (): Promise<boolean | undefined> => {
+const isEmailVerified = async (): Promise<boolean | undefined> => {
   if (await Session.doesSessionExist()) {
     const { isVerified } = await EmailVerification.isEmailVerified();
 
@@ -105,4 +105,9 @@ const isProfileCompleted = async (): Promise<boolean> => {
   return false;
 };
 
-export { getUserRoles, isProfileCompleted, verifySessionRoles, isUserVerified };
+export {
+  getUserRoles,
+  isEmailVerified,
+  isProfileCompleted,
+  verifySessionRoles,
+};
