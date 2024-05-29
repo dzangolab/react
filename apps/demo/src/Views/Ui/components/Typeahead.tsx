@@ -37,7 +37,6 @@ export const TypeaheadDemo = () => {
           placeholder={t("typeahead.placeholder")}
           label={t("typeahead.label.client")}
           data={items}
-          debounceTime={300}
         />
       </Section>
       <Section>

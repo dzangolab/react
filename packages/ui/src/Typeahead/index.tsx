@@ -6,7 +6,7 @@ type Properties = {
   className?: string;
   data: string[];
   disabled?: boolean;
-  debounceTime: number;
+  debounceTime?: number;
   label?: string;
   loading?: boolean;
   name?: string;
@@ -18,7 +18,7 @@ export const Typeahead = ({
   className = "",
   data,
   disabled,
-  debounceTime,
+  debounceTime = 300,
   label,
   loading,
   name,
@@ -47,22 +47,21 @@ export const Typeahead = ({
     if (onChange && debouncedValue !== "" && !selected) {
       onChange(debouncedValue);
     }
-
-    if (!onChange && !selected) {
-      let newSuggestions: string[] = [];
-
-      if (debouncedValue.length > 0) {
-        newSuggestions = data?.filter((_value) =>
-          _value.toLowerCase().startsWith(debouncedValue.toLowerCase()),
-        );
-      }
-      setSuggestions(newSuggestions);
-    }
   }, [debouncedValue]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setValue(inputValue);
+    if (!onChange) {
+      let newSuggestions: string[] = [];
+
+      if (inputValue.length > 0) {
+        newSuggestions = data?.filter((_value) =>
+          _value.toLowerCase().startsWith(inputValue.toLowerCase()),
+        );
+      }
+      setSuggestions(newSuggestions);
+    }
     setSelected(false);
   };
 
