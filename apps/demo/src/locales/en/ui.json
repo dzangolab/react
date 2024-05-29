@@ -172,6 +172,11 @@
     "placeHolder": "-- select value --"
   },
   "typeahead": {
-    "title": "Typeahead"
+    "title": "Typeahead",
+    "label": {
+      "client": "Client side Typeahead",
+      "server": "Server side Typeahead"
+    },
+    "placeholder": "Search..."
   }
 }

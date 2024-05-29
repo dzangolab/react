@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { LoadingIcon } from "..";
+import { LoadingIcon, useDebouncedValue } from "..";
 
 type Properties = {
   className?: string;
@@ -25,10 +25,13 @@ export const Typeahead = ({
 }: Properties) => {
   const [suggestions, setSuggestions] = useState<any>([]);
   const [value, setValue] = useState("");
+  const [selected, setSelected] = useState(false);
+  const debouncedValue = useDebouncedValue(value, 300);
 
   const handleSelectedSuggestion = (suggestion: any) => {
     setValue(suggestion);
     setSuggestions([]);
+    setSelected(true);
   };
 
   useEffect(() => {
@@ -37,13 +40,17 @@ export const Typeahead = ({
     }
   }, [data]);
 
+  useEffect(() => {
+    if (onChange && debouncedValue !== "" && !selected) {
+      onChange(debouncedValue);
+    }
+  }, [debouncedValue]);
+
   const handleInputChange = (event: any) => {
-    if (onChange) {
-      setValue(event.target.value);
-      setSuggestions(data);
-      onChange(event.target.value);
-    } else {
-      const value = event.target.value.toLowerCase();
+    const inputValue = event.target.value;
+    setValue(inputValue);
+    if (!onChange) {
+      const value = inputValue.toLowerCase();
       let newSuggestions: any = [];
 
       if (value.length > 0) {
@@ -51,10 +58,10 @@ export const Typeahead = ({
           _value.toLowerCase().startsWith(value),
         );
       }
-      setValue(value);
       setSuggestions(newSuggestions);
     }
   };
+
   const renderSuggestions = () => {
     const handleKeyDown = (event: any, suggestion: any) => {
       if (event.key === "Enter" && !disabled) {

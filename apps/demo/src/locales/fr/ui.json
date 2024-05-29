@@ -168,6 +168,11 @@
     "placeHolder": "-- select value -- (fr)"
   },
   "typeahead": {
-    "title": "Typeahead (fr)"
+    "title": "Typeahead (fr)",
+    "label": {
+      "client": "Client side Typeahead (fr)",
+      "server": "Server side Typeahead (fr)"
+    },
+    "placeholder": "Search... (fr)"
   }
 }

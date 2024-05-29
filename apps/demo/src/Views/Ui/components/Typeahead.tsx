@@ -28,15 +28,15 @@ export const TypeaheadDemo = () => {
     <Page title={t("typeahead.title")}>
       <Section>
         <Typeahead
-          placeholder="Search..."
-          label="Basic Typeahead"
+          placeholder={t("typeahead.placeholder")}
+          label={t("typeahead.label.client")}
           data={items}
         />
       </Section>
       <Section>
         <Typeahead
-          label="Typeahead with endpoints"
-          placeholder="Search..."
+          label={t("typeahead.label.server")}
+          placeholder={t("typeahead.placeholder")}
           data={options}
           loading={isLoading}
           onChange={handleDataFetch}
