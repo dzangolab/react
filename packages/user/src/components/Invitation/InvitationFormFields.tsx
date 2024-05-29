@@ -106,18 +106,16 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
     const modifiedLabels = modifiedApps.map((app) => {
       if (app.label) {
-        return { ...app, name: app.label };
+        return { value: app.id, label: app.label };
       }
 
-      return app;
-    });
-
-    return modifiedLabels.map((app) => {
       return {
-        label: app.name,
         value: app.id,
+        label: app.name,
       };
     });
+
+    return modifiedLabels;
   }, [apps]);
 
   return (
