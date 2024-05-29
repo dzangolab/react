@@ -94,8 +94,8 @@ export const InvitationForm = ({
       role: data.role?.name,
     };
 
-    if (data.app?.id) {
-      parsedData.appId = data.app.id;
+    if (data.app) {
+      parsedData.appId = data.app;
     }
 
     if (data.expiresAt) {
@@ -156,14 +156,9 @@ export const InvitationForm = ({
 
   if (apps?.length) {
     const AppIdFormSchema = zod.object({
-      app: zod.z.object(
-        {
-          id: zod.z.number(),
-          name: zod.z.string(),
-          origin: zod.z.string(),
-        },
-        { required_error: t("validation.messages.app") },
-      ),
+      app: zod.number({
+        required_error: t("validation.messages.app"),
+      }),
     });
 
     InvitationFormSchema = InvitationFormSchema.merge(AppIdFormSchema);
