@@ -30,6 +30,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--dz-page-gap);
+  overflow-wrap: break-word;
 }
 
 .dz-page > .dz-page-header > .dz-page-toolbar {
