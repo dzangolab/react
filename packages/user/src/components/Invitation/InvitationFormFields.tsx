@@ -1,5 +1,5 @@
 import {
-  AppPicker,
+  Select,
   DateInput,
   DatePicker,
   Email,
@@ -112,7 +112,12 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       return app;
     });
 
-    return modifiedLabels;
+    return modifiedLabels.map((app) => {
+      return {
+        label: app.name,
+        value: app.id,
+      };
+    });
   }, [apps]);
 
   return (
@@ -125,7 +130,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       />
 
       {apps?.length ? (
-        <AppPicker
+        <Select
           name="app"
           label={t("form.fields.app.label")}
           placeholder={t("form.fields.app.placeholder")}

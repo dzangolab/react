@@ -1,6 +1,7 @@
 import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 
-import { Select } from "../Select";
+import { AppPickerBasic } from "./AppPickerBasic";
 
 import type { RoleOption } from "../RolePicker";
 
@@ -18,25 +19,36 @@ export interface IProperties {
   placeholder?: string;
 }
 
+/**
+ * @deprecated
+ */
 export const AppPicker = ({
   label,
   name,
   options,
   placeholder,
 }: IProperties) => {
-  const filteredOptions = options.map((option) => {
-    return {
-      label: option.name,
-      value: option.id,
-    };
-  });
+  const { control, getFieldState } = useFormContext();
+  const { error } = getFieldState(name);
 
   return (
-    <Select
-      name={name}
-      options={filteredOptions}
-      label={label}
-      placeholder={placeholder}
-    />
+    <>
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <AppPickerBasic
+            name={field.name}
+            value={field.value}
+            label={label}
+            placeholder={placeholder}
+            options={options}
+            inputRef={field.ref}
+            onChange={(app) => field.onChange(app)}
+            error={error}
+          />
+        )}
+      />
+    </>
   );
 };
