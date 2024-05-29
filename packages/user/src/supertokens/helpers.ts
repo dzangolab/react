@@ -81,24 +81,31 @@ const isEmailVerified = async (): Promise<boolean | undefined> => {
   return false;
 };
 
+/**
+ * Checks if the user's profile is completed based on validation criteria.
+ *
+ * @async
+ * @function isProfileCompleted
+ * @returns {Promise<boolean|undefined>} - A promise that resolves to:
+ *   - `true` if the profile is completed.
+ *   - `false` if the profile is not completed or no session exists.
+ *   - `undefined` if the profile validation is disabled in the api.
+ *
+ */
 const isProfileCompleted = async (): Promise<boolean | undefined> => {
   if (await Session.doesSessionExist()) {
     const validatorFailures = await Session.validateClaims({
       overrideGlobalClaimValidators: () => {
+        // Only check for profile validation
         return [ProfileValidationClaim.validators.isTrue()];
       },
     });
 
-    const validatorFailure = validatorFailures.find(
-      (validatorFailure) =>
-        validatorFailure.validatorId === ProfileValidationClaim.id,
-    );
-
-    if (!validatorFailure) {
-      return true;
+    if (validatorFailures[0].reason.actualValue === undefined) {
+      return;
     }
 
-    return validatorFailure.reason.actualValue;
+    return !validatorFailures.length;
   }
 
   return false;
