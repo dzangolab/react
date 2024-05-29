@@ -4,23 +4,29 @@ import { useState } from "react";
 
 import { Section } from "../../../components/Demo";
 
+const items: string[] = [
+  "red",
+  "Blue",
+  "yellow",
+  "gray",
+  "black",
+  "purple",
+  "pink",
+];
+
 export const TypeaheadDemo = () => {
   const [t] = useTranslation("ui");
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState<any>([]);
-  const items: any = ["red", "blue", "yellow", "blur", "black"];
 
   const handleDataFetch = (value: any) => {
     setIsLoading(true);
-    fetch(
-      `http://localhost:20070/things?filters={"key":"name","operator":"ct","value":"${value}"}`,
-    )
+    fetch(`https://api.escuelajs.co/api/v1/products/?title=${value}`)
       .then(async (response) => {
         const data = await response.json();
-        setOptions(data.data.map((item: any) => item.name));
+        setOptions(data.map((item: any) => item.title));
         setIsLoading(false);
       })
-
       .catch((err) => console.log("err", err));
   };
 
@@ -31,6 +37,7 @@ export const TypeaheadDemo = () => {
           placeholder={t("typeahead.placeholder")}
           label={t("typeahead.label.client")}
           data={items}
+          debounceTime={300}
         />
       </Section>
       <Section>
@@ -40,6 +47,7 @@ export const TypeaheadDemo = () => {
           data={options}
           loading={isLoading}
           onChange={handleDataFetch}
+          debounceTime={500}
         />
       </Section>
     </Page>

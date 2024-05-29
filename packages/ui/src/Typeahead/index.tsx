@@ -4,31 +4,34 @@ import { LoadingIcon, useDebouncedValue } from "..";
 
 type Properties = {
   className?: string;
-  data?: [];
+  data: string[];
   disabled?: boolean;
+  debounceTime: number;
   label?: string;
   loading?: boolean;
   name?: string;
   placeholder?: string;
-  onChange?: (value: any) => void;
+  onChange?: (value: string) => void;
 };
 
 export const Typeahead = ({
   className,
   data,
   disabled,
+  debounceTime,
   label,
   loading,
   name,
   placeholder,
   onChange,
 }: Properties) => {
-  const [suggestions, setSuggestions] = useState<any>([]);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [value, setValue] = useState("");
   const [selected, setSelected] = useState(false);
-  const debouncedValue = useDebouncedValue(value, 300);
 
-  const handleSelectedSuggestion = (suggestion: any) => {
+  const debouncedValue = useDebouncedValue(value, debounceTime);
+
+  const handleSelectedSuggestion = (suggestion: string) => {
     setValue(suggestion);
     setSuggestions([]);
     setSelected(true);
@@ -44,29 +47,34 @@ export const Typeahead = ({
     if (onChange && debouncedValue !== "" && !selected) {
       onChange(debouncedValue);
     }
-  }, [debouncedValue]);
 
-  const handleInputChange = (event: any) => {
-    const inputValue = event.target.value;
-    setValue(inputValue);
-    if (!onChange) {
-      const value = inputValue.toLowerCase();
-      let newSuggestions: any = [];
+    if (!onChange && !selected) {
+      let newSuggestions: string[] = [];
 
-      if (value.length > 0) {
-        newSuggestions = data?.filter((_value: any) =>
-          _value.toLowerCase().startsWith(value),
+      if (debouncedValue.length > 0) {
+        newSuggestions = data?.filter((_value) =>
+          _value.toLowerCase().startsWith(debouncedValue.toLowerCase()),
         );
       }
       setSuggestions(newSuggestions);
     }
+  }, [debouncedValue]);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    setValue(inputValue);
+    setSelected(false);
   };
 
   const renderSuggestions = () => {
-    const handleKeyDown = (event: any, suggestion: any) => {
+    const handleKeyDown = (
+      event: React.KeyboardEvent<HTMLLIElement>,
+      suggestion: string,
+    ) => {
       if (event.key === "Enter" && !disabled) {
         setValue(suggestion);
         setSuggestions([]);
+        setSelected(true);
       }
     };
 
@@ -74,7 +82,7 @@ export const Typeahead = ({
       <>
         {!loading && suggestions.length > 0 && (
           <ul className="suggestions">
-            {suggestions.map((suggestion: any, index: any) => (
+            {suggestions.map((suggestion, index) => (
               <li
                 className="suggestion"
                 key={index}

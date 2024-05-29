@@ -1,3 +1,7 @@
+:root {
+  --field-suggestion-bg-color: #ffffff;
+}
+
 .dz-typeahead {
   position: relative;
   width: 100%;  
@@ -7,6 +11,7 @@
   background-color: var(--dz-input-fill-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
+  margin-top: 0.75rem;
   padding: 0.75rem 0.65rem;  
   width: 100%; 
 }
@@ -16,16 +21,28 @@
 }
 
 .dz-typeahead .suggestions {
+  background-color: var(--field-suggestion-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   padding: 0.75rem 0.65rem; 
+  position: absolute;
   width: 100%;  
+  z-index: 1000;
+}
+
+.dz-typeahead .suggestion {
+  padding: 0.25rem 0;
 }
 
 .dz-typeahead .suggestion:hover {
   background-color: var(--field-option-hover-color);
   cursor: pointer;
 } 
+
+.dz-typeahead .suggestion:focus {
+  background-color: var(--field-option-hover-color);
+  outline: none;
+}
 
 .dz-typeahead .loading {
   position: absolute;
