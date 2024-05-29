@@ -130,6 +130,7 @@ export {
   useEmailVerification,
   useFirstUserSignup,
   isProfileCompleted,
+  useProfileCompletion,
   useUser,
   userContext,
   verifyEmail,
