@@ -13,9 +13,9 @@ const superTokens = (config: AppConfig) => {
   const recipeLists: Array<any> = [
     Session.init({
       override: {
-        functions: (oI) => {
+        functions: (originalImplementation) => {
           return {
-            ...oI,
+            ...originalImplementation,
             getGlobalClaimValidators: function (input) {
               return [
                 ...input.claimValidatorsAddedByOtherRecipes,

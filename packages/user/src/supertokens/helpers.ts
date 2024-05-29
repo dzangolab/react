@@ -98,6 +98,8 @@ const isProfileCompleted = async (): Promise<boolean> => {
     ) {
       return false;
     }
+
+    return true;
   }
 
   return false;
