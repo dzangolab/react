@@ -81,25 +81,24 @@ const isEmailVerified = async (): Promise<boolean | undefined> => {
   return false;
 };
 
-const isProfileCompleted = async (): Promise<boolean> => {
+const isProfileCompleted = async (): Promise<boolean | undefined> => {
   if (await Session.doesSessionExist()) {
-    const validatorFailures = await Session.validateClaims();
+    const validatorFailures = await Session.validateClaims({
+      overrideGlobalClaimValidators: () => {
+        return [ProfileValidationClaim.validators.isTrue()];
+      },
+    });
 
-    if (validatorFailures.length === 0) {
+    const validatorFailure = validatorFailures.find(
+      (validatorFailure) =>
+        validatorFailure.validatorId === ProfileValidationClaim.id,
+    );
+
+    if (!validatorFailure) {
       return true;
     }
 
-    if (
-      validatorFailures.some(
-        (validatorFailure) =>
-          validatorFailure.reason.actualValue != undefined &&
-          validatorFailure.validatorId === ProfileValidationClaim.id,
-      )
-    ) {
-      return false;
-    }
-
-    return true;
+    return validatorFailure.reason.actualValue;
   }
 
   return false;

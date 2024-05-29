@@ -1,11 +1,15 @@
 import React, { createContext, useEffect, useState } from "react";
 
-import { getMe } from "@/api/user";
-
 import { getUserData, removeUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
-import { isEmailVerified, verifySessionRoles } from "../supertokens/helpers";
+import {
+  isEmailVerified,
+  isProfileCompleted,
+  verifySessionRoles,
+} from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
+
+import { getMe } from "@/api/user";
 
 interface Properties {
   children: React.ReactNode;
@@ -37,6 +41,8 @@ const UserProvider = ({ children }: Properties) => {
               userInfo.isEmailVerified = await isEmailVerified();
             }
 
+            userInfo.isProfileCompleted = await isProfileCompleted();
+
             await setUserData(userInfo);
           }
 
@@ -61,6 +67,8 @@ const UserProvider = ({ children }: Properties) => {
       if (appConfig.user.features?.signUp?.emailVerification) {
         userData.isEmailVerified = await isEmailVerified();
       }
+
+      userData.isProfileCompleted = await isProfileCompleted();
 
       await setUserData(userData);
 
