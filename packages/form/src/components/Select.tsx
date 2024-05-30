@@ -59,7 +59,7 @@ export const Select: React.FC<ISelect> = ({
     ) {
       setValue(name, multiple ? [options[0].value] : options[0].value);
     }
-  }, []);
+  }, [options]);
 
   return (
     <Controller

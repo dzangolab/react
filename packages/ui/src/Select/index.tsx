@@ -61,7 +61,7 @@ export const Select = <T extends string | number>({
     ) {
       handleSelectedOption(options[0].value);
     }
-  }, []);
+  }, [options]);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
