@@ -52,7 +52,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          label="Invalid"
+          label={t("typeahead.label.invalid")}
           hasError={true}
           errorMessage="Required field"
         />
@@ -60,7 +60,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          label="Disabled"
+          label={t("typeahead.label.disabled")}
           data={items}
           disabled={true}
         />

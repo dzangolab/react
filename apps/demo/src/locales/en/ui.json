@@ -175,7 +175,9 @@
     "title": "Typeahead",
     "label": {
       "client": "Client side Typeahead",
-      "server": "Server side Typeahead"
+      "disabled": "Disabled",
+      "server": "Server side Typeahead",
+      "invalid": "Invalid"
     },
     "placeholder": "Search..."
   }

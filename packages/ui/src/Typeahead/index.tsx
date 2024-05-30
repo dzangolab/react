@@ -14,7 +14,6 @@ type Properties = {
   loading?: boolean;
   name?: string;
   placeholder?: string;
-  onChange?: (value?: string) => void;
   onSearch?: (value?: string) => void;
 };
 
@@ -30,7 +29,6 @@ export const Typeahead = ({
   loading,
   name,
   placeholder,
-  onChange,
   onSearch,
 }: Properties) => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -43,10 +41,13 @@ export const Typeahead = ({
     setInputValue(suggestion);
     setSuggestions([]);
     setSelected(true);
+    if (onSearch) {
+      onSearch(suggestion);
+    }
   };
 
   useEffect(() => {
-    if (onSearch) {
+    if (inputValue !== "") {
       setSuggestions(data || []);
     }
   }, [data]);
@@ -60,14 +61,13 @@ export const Typeahead = ({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
     setInputValue(input);
-    if (!onSearch) {
-      let newSuggestions: string[] = [];
 
-      if (input.length > 0 && data) {
-        newSuggestions = data.filter((_value) =>
-          _value.toLowerCase().startsWith(input.toLowerCase()),
-        );
-      }
+    let newSuggestions: string[] = [];
+
+    if (input.length > 0 && data && !selected) {
+      newSuggestions = data.filter((_value) =>
+        _value.toLowerCase().startsWith(input.toLowerCase()),
+      );
       setSuggestions(newSuggestions);
     }
     setSelected(false);

@@ -7,6 +7,7 @@ import {
   useFormContext,
   NumberInput,
   Select,
+  Typeahead,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useEffect } from "react";
@@ -16,6 +17,16 @@ import { FormInputModes } from "./FormInputModes";
 type Properties = {
   checkFilledState: (data: boolean) => void;
 };
+
+const items: string[] = [
+  "red",
+  "Blue",
+  "yellow",
+  "gray",
+  "black",
+  "purple",
+  "pink",
+];
 
 export const FormInputFields = ({ checkFilledState }: Properties) => {
   const [t] = useTranslation("form");
@@ -106,6 +117,12 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="readOnly"
         readOnly={true}
         defaultValue="monorepo@gmail.com"
+      />
+      <Typeahead
+        placeholder={t("formInput.placeHolder.typeahead")}
+        label={t("formInput.label.typeahead")}
+        data={items}
+        name="typeahead"
       />
       <FormActions
         actions={[

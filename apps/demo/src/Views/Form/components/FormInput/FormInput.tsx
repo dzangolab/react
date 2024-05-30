@@ -41,6 +41,9 @@ export const FormInputDemo = () => {
       .string()
       .array()
       .nonempty({ message: t("formInput.message.required") }),
+    typeahead: zod.string().nonempty({
+      message: t("formInput.message.required"),
+    }),
   });
 
   const handleSubmit = (formData: any) => {
@@ -56,7 +59,12 @@ export const FormInputDemo = () => {
       validationSchema={FormSchema}
       onSubmit={handleSubmit}
       className={filledInput ? "filled" : ""}
-      defaultValues={{ filled: false, valid: false, invalid: false }}
+      defaultValues={{
+        filled: false,
+        valid: false,
+        invalid: false,
+        typeahead: "testing",
+      }}
     >
       <FormInputFields checkFilledState={checkFilledState} />
     </Provider>

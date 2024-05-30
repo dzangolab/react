@@ -171,7 +171,9 @@
     "title": "Typeahead (fr)",
     "label": {
       "client": "Client side Typeahead (fr)",
-      "server": "Server side Typeahead (fr)"
+      "disabled": "Disabled (fr)",
+      "server": "Server side Typeahead (fr)",
+      "invalid": "Invalid (fr)"
     },
     "placeholder": "Search... (fr)"
   }
