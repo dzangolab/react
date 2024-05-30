@@ -142,7 +142,7 @@ export const InvitationForm = ({
 
   if (apps?.length || roles?.length) {
     const RoleFormSchema = zod.object({
-      role: zod.string().min(1, { message: t("validation.messages.role") }),
+      role: zod.string({ required_error: t("validation.messages.role") }),
     });
 
     InvitationFormSchema = InvitationFormSchema.merge(RoleFormSchema);

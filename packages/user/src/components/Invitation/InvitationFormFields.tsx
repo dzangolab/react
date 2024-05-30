@@ -36,7 +36,6 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   const { t } = useTranslation("invitations");
 
   const {
-    trigger,
     register,
     getFieldState,
     setValue,
@@ -73,14 +72,6 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       setFilteredRoles(selectedRole || []);
     }
   }, [selectedApp]);
-
-  useEffect(() => {
-    // if there's only one role, select it by default
-    if (filteredRoles?.length === 1) {
-      setValue("role", selectedRole[0].value);
-      trigger("role");
-    }
-  }, [filteredRoles]);
 
   const renderExpiryDateField = () => (
     <>
