@@ -45,8 +45,24 @@ export const TypeaheadDemo = () => {
           placeholder={t("typeahead.placeholder")}
           data={options}
           loading={isLoading}
-          onChange={handleDataFetch}
+          onSearch={handleDataFetch}
           debounceTime={500}
+        />
+      </Section>
+      <Section>
+        <Typeahead
+          placeholder={t("typeahead.placeholder")}
+          label="Invalid"
+          hasError={true}
+          errorMessage="Required field"
+        />
+      </Section>
+      <Section>
+        <Typeahead
+          placeholder={t("typeahead.placeholder")}
+          label="Disabled"
+          data={items}
+          disabled={true}
         />
       </Section>
     </Page>

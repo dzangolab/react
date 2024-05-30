@@ -4,14 +4,18 @@ import { LoadingIcon, useDebouncedValue } from "..";
 
 type Properties = {
   className?: string;
-  data: string[];
+  data?: string[];
   disabled?: boolean;
   debounceTime?: number;
+  defaultValue?: string;
+  errorMessage?: string;
+  hasError?: boolean;
   label?: string;
   loading?: boolean;
   name?: string;
   placeholder?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value?: string) => void;
+  onSearch?: (value?: string) => void;
 };
 
 export const Typeahead = ({
@@ -19,45 +23,49 @@ export const Typeahead = ({
   data,
   disabled,
   debounceTime = 300,
+  defaultValue = "",
+  errorMessage,
+  hasError,
   label,
   loading,
   name,
   placeholder,
   onChange,
+  onSearch,
 }: Properties) => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [value, setValue] = useState("");
+  const [inputValue, setInputValue] = useState(defaultValue);
   const [selected, setSelected] = useState(false);
 
-  const debouncedValue = useDebouncedValue(value, debounceTime);
+  const debouncedValue = useDebouncedValue(inputValue, debounceTime);
 
   const handleSelectedSuggestion = (suggestion: string) => {
-    setValue(suggestion);
+    setInputValue(suggestion);
     setSuggestions([]);
     setSelected(true);
   };
 
   useEffect(() => {
-    if (onChange) {
-      setSuggestions(data);
+    if (onSearch) {
+      setSuggestions(data || []);
     }
   }, [data]);
 
   useEffect(() => {
-    if (onChange && debouncedValue !== "" && !selected) {
-      onChange(debouncedValue);
+    if (onSearch && debouncedValue !== "" && !selected) {
+      onSearch(debouncedValue);
     }
   }, [debouncedValue]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
-    setValue(inputValue);
-    if (!onChange) {
+    const input = event.target.value;
+    setInputValue(input);
+    if (!onSearch) {
       let newSuggestions: string[] = [];
 
-      if (inputValue.length > 0) {
-        newSuggestions = data?.filter((_value) =>
-          _value.toLowerCase().startsWith(inputValue.toLowerCase()),
+      if (input.length > 0 && data) {
+        newSuggestions = data.filter((_value) =>
+          _value.toLowerCase().startsWith(input.toLowerCase()),
         );
       }
       setSuggestions(newSuggestions);
@@ -71,7 +79,7 @@ export const Typeahead = ({
       suggestion: string,
     ) => {
       if (event.key === "Enter" && !disabled) {
-        setValue(suggestion);
+        setInputValue(suggestion);
         setSuggestions([]);
         setSelected(true);
       }
@@ -103,13 +111,15 @@ export const Typeahead = ({
       {label && <label htmlFor={name}>{label}</label>}
       <input
         type="text"
-        value={value}
+        value={inputValue}
         onChange={handleInputChange}
         placeholder={loading ? "" : placeholder}
         disabled={disabled}
+        aria-invalid={hasError}
       />
       {loading && <LoadingIcon color="#ccc" />}
       {renderSuggestions()}
+      {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
 };
