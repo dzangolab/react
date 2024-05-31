@@ -11,3 +11,5 @@ export type {
   FilterFunction,
   FilterFunctions,
 } from "./types";
+
+export type { DataActionsMenuProperties } from "./TableDataActions";

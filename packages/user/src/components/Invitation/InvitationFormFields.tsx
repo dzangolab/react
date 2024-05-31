@@ -1,5 +1,5 @@
 import {
-  AppPicker,
+  Select,
   DateInput,
   DatePicker,
   Email,
@@ -46,15 +46,17 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
   const [filteredRoles, setFilteredRoles] = useState(roles || []);
 
-  const selectedApp: InvitationAppOption = useWatch({
+  const selectedApp: number = useWatch({
     name: "app",
   });
+
+  const selectedRole = apps?.find((app) => app.id === selectedApp);
 
   useEffect(() => {
     if (selectedApp) {
       setValue("role", undefined); // reset role value when app changes
 
-      setFilteredRoles(selectedApp.supportedRoles || []);
+      setFilteredRoles(selectedRole?.supportedRoles || []);
     }
   }, [selectedApp]);
 
@@ -104,10 +106,13 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
     const modifiedLabels = modifiedApps.map((app) => {
       if (app.label) {
-        return { ...app, name: app.label };
+        return { value: app.id, label: app.label };
       }
 
-      return app;
+      return {
+        value: app.id,
+        label: app.name,
+      };
     });
 
     return modifiedLabels;
@@ -123,7 +128,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       />
 
       {apps?.length ? (
-        <AppPicker
+        <Select
           name="app"
           label={t("form.fields.app.label")}
           placeholder={t("form.fields.app.placeholder")}

@@ -19,6 +19,9 @@ export interface IProperties {
   placeholder?: string;
 }
 
+/**
+ * @deprecated
+ */
 export const AppPicker = ({
   label,
   name,

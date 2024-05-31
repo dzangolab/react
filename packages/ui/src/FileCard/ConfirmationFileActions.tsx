@@ -7,10 +7,8 @@ import type { IFile } from "..";
 type ConfirmationFileActionsType = {
   visibleArchiveConfirmation: boolean;
   visibleDeleteConfirmation: boolean;
-
-  onArchive?: (arguments_: IFile) => void;
-
-  onDelete?: (arguments_: IFile) => void;
+  onArchive?: (arguments_: IFile) => void | Promise<void>;
+  onDelete?: (arguments_: IFile) => void | Promise<void>;
   file: IFile;
   setVisibleArchiveConfirmation: (isVisible: boolean) => void;
   setVisibleDeleteConfirmation: (isVisible: boolean) => void;
@@ -41,8 +39,9 @@ const ConfirmationFileActions: FC<ConfirmationFileActionsType> = ({
     <>
       <ConfirmationModal
         visible={visibleArchiveConfirmation}
-        accept={() => {
-          onArchive?.(file);
+        accept={async () => {
+          await onArchive?.(file);
+
           setVisibleArchiveConfirmation(false);
         }}
         reject={() => {
@@ -60,8 +59,9 @@ const ConfirmationFileActions: FC<ConfirmationFileActionsType> = ({
       />
       <ConfirmationModal
         visible={visibleDeleteConfirmation}
-        accept={() => {
-          onDelete?.(file);
+        accept={async () => {
+          await onDelete?.(file);
+
           setVisibleDeleteConfirmation(false);
         }}
         reject={() => setVisibleDeleteConfirmation(false)}
