@@ -9,7 +9,13 @@ import {
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
 
-import { data, formatDemoData } from "./data";
+import CssExample from "./CssExample";
+import {
+  HORIZONTAL_CSS_CODE,
+  VERTICAL_CSS_CODE,
+  data,
+  formatDemoData,
+} from "./data";
 import { Section } from "../../../../components/Demo";
 
 declare module "@dzangolab/react-ui" {
@@ -267,6 +273,20 @@ export const TableDemo = () => {
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
+        <CssExample
+          exampleCode={VERTICAL_CSS_CODE}
+          subheader={
+            <>
+              <p>Add following css to your stylesheet for vertical borders</p>
+              <p>
+                <strong>Note:</strong> In this example, we are using custom
+                class&nbsp;
+                <code>.vertical</code> in our table. Replace it with class used
+                in your table.
+              </p>
+            </>
+          }
+        />
       </Section>
 
       <Section title={t("table.usage.tableBorderHorizontal")}>
@@ -279,6 +299,20 @@ export const TableDemo = () => {
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
+        <CssExample
+          exampleCode={HORIZONTAL_CSS_CODE}
+          subheader={
+            <>
+              <p>Add following css to your stylesheet for horizontal borders</p>
+              <p>
+                <strong>Note:</strong> In this example, we are using custom
+                class&nbsp;
+                <code>.horizontal</code> in our table. Replace it with class
+                used in your table.
+              </p>
+            </>
+          }
+        />
       </Section>
 
       <Section title={t("table.usage.withoutPagination")}>
