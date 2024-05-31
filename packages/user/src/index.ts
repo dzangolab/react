@@ -51,6 +51,7 @@ import { EmailVerificationReminder } from "./views/EmailVerificationReminder";
 import { ForgotPassword } from "./views/ForgotPassword";
 import { Login } from "./views/Login";
 import { Profile } from "./views/Profile";
+import ProfileCompletionReminder from "./views/ProfileCompletionReminder";
 import { ResetPassword } from "./views/ResetPassword";
 import { Signup } from "./views/Signup";
 import { SignUpFirstUser } from "./views/SignUpFirstUser";
@@ -106,6 +107,7 @@ export {
   ForgotPassword,
   Login,
   Profile,
+  ProfileCompletionReminder,
   ResetPassword,
   SignUpFirstUser,
   Signup,
