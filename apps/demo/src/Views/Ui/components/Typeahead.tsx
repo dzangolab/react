@@ -58,7 +58,6 @@ export const TypeaheadDemo = () => {
           label={t("typeahead.label.client")}
           data={suggestions}
           onSearch={hanldeDataFilter}
-          value={selectedServerValue}
         />
       </Section>
       <Section>
