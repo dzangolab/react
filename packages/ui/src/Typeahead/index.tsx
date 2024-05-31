@@ -36,7 +36,7 @@ export const Typeahead = ({
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState(value);
   const [selected, setSelected] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const [hasInput, setHasInput] = useState(false);
 
   const debouncedValue = useDebouncedValue(inputValue, debounceTime);
 
@@ -59,9 +59,9 @@ export const Typeahead = ({
     if (
       onSearch &&
       debouncedValue !== "" &&
-      debouncedValue.length >= 3 &&
+      debouncedValue.length >= 2 &&
       !selected &&
-      hasInteracted
+      hasInput
     ) {
       onSearch(debouncedValue);
     }
@@ -70,7 +70,7 @@ export const Typeahead = ({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
     setInputValue(input);
-    setHasInteracted(true);
+    setHasInput(true);
     setSelected(false);
   };
 
@@ -86,22 +86,18 @@ export const Typeahead = ({
 
     return (
       <>
-        {hasInteracted && inputValue && !selected && (
+        {!loading && hasInput && inputValue && suggestions.length > 0 && (
           <ul>
-            {!loading && suggestions.length > 0 ? (
-              suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSelectedSuggestion(suggestion)}
-                  onKeyDown={(event) => handleKeyDown(event, suggestion)}
-                  tabIndex={0}
-                >
-                  {suggestion}
-                </li>
-              ))
-            ) : (
-              <li>No matching results for {inputValue}</li>
-            )}
+            {suggestions.map((suggestion, index) => (
+              <li
+                key={index}
+                onClick={() => handleSelectedSuggestion(suggestion)}
+                onKeyDown={(event) => handleKeyDown(event, suggestion)}
+                tabIndex={0}
+              >
+                {suggestion}
+              </li>
+            ))}
           </ul>
         )}
       </>

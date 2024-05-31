@@ -1,7 +1,7 @@
 :root {
   --_field-error-message-color: var(--error-message-color);
   --field-suggestion-bg-color: #ffffff;
-  --field-disabled-color: #f1f0f0;
+  --field-disabled-color: #f8f8f8;
 }
 
 .dz-typeahead {
@@ -34,6 +34,10 @@
   border: none;
   padding: 0.75rem 0.65rem;
   width: 90%;
+}
+
+.dz-typeahead > .input-field-typeahead > input:disabled {
+  background-color: var(--field-disabled-color);
 }
 
 .dz-typeahead > .input-field-typeahead > input:focus {

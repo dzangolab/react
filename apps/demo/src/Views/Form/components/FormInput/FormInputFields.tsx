@@ -10,7 +10,7 @@ import {
   Typeahead,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { FormInputModes } from "./FormInputModes";
 
@@ -30,7 +30,8 @@ const items: string[] = [
 
 export const FormInputFields = ({ checkFilledState }: Properties) => {
   const [t] = useTranslation("form");
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [options, setOptions] = useState<any>([]);
   const {
     register,
     getFieldState,
@@ -39,6 +40,19 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
   } = useFormContext();
 
   const [filled, valid, invalid] = watch(["filled", "valid", "invalid"]);
+
+  const handleDataFetch = (value: any) => {
+    if (value !== "") {
+      setIsLoading(true);
+      fetch(`https://api.escuelajs.co/api/v1/products/?title=${value}`)
+        .then(async (response) => {
+          const data = await response.json();
+          setOptions(data.map((item: any) => item.title));
+          setIsLoading(false);
+        })
+        .catch((err) => console.log("err", err));
+    }
+  };
 
   useEffect(() => {
     checkFilledState(filled);
@@ -122,7 +136,13 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         placeholder={t("formInput.placeHolder.typeahead")}
         label={t("formInput.label.typeahead")}
         name="typeahead"
-        data={items}
+        data={options}
+        loading={isLoading}
+        onSearch={handleDataFetch}
+        debounceTime={500}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
       />
       <FormActions
         actions={[
