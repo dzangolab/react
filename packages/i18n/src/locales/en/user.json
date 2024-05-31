@@ -219,5 +219,14 @@
       "success": "Profile updated successfully",
       "error": "Something went wrong. Please try again"
     }
+  },
+  "profileCompletion": {
+    "title": "Complete your profile",
+    "messages": {
+      "reminder": "Please complete your profile to access this page."
+    },
+    "buttons": {
+      "gotoProfile": "Go to Profile"
+    }
   }
 }
