@@ -51,21 +51,10 @@ export const Select: React.FC<ISelect> = ({
     if (showValidState && !invalid) return false;
   };
 
-  useEffect(() => {
-    if (
-      options.length === 1 &&
-      !options[0].disabled &&
-      autoSelectSingleOption
-    ) {
-      setValue(name, multiple ? [options[0].value] : options[0].value);
-    }
-  }, [options]);
-
   return (
     <Controller
       name={name}
       control={control}
-      defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
           autoSelectSingleOption={autoSelectSingleOption}
