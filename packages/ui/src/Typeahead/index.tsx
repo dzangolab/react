@@ -56,13 +56,7 @@ export const Typeahead = ({
   }, [data]);
 
   useEffect(() => {
-    if (
-      onSearch &&
-      debouncedValue !== "" &&
-      debouncedValue.length >= 2 &&
-      !selected &&
-      hasInput
-    ) {
+    if (onSearch && debouncedValue !== "" && !selected && hasInput) {
       onSearch(debouncedValue);
     }
   }, [debouncedValue]);
