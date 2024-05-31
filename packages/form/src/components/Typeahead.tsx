@@ -11,6 +11,7 @@ interface ITypeahead {
   submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
+  onSearch?: (value?: string) => void;
 }
 
 export const Typeahead: React.FC<ITypeahead> = ({
@@ -22,6 +23,7 @@ export const Typeahead: React.FC<ITypeahead> = ({
   submitCount = 0,
   showInvalidState = true,
   showValidState = true,
+  onSearch,
 }) => {
   const { control, getFieldState } = useFormContext();
 
@@ -45,10 +47,11 @@ export const Typeahead: React.FC<ITypeahead> = ({
             disabled={disabled}
             placeholder={placeholder}
             data={data}
-            onSearch={field.onChange}
-            defaultValue={field.value}
+            onChange={field.onChange}
+            value={field.value}
             hasError={submitCount > 0 ? checkInvalidState() : undefined}
             errorMessage={error?.message}
+            onSearch={onSearch}
           />
         );
       }}

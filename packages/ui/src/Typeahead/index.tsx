@@ -7,7 +7,7 @@ type Properties = {
   data?: string[];
   disabled?: boolean;
   debounceTime?: number;
-  defaultValue?: string;
+  value?: string;
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
@@ -15,6 +15,7 @@ type Properties = {
   name?: string;
   placeholder?: string;
   onSearch?: (value?: string) => void;
+  onChange?: (value?: string) => void;
 };
 
 export const Typeahead = ({
@@ -22,18 +23,20 @@ export const Typeahead = ({
   data,
   disabled,
   debounceTime = 300,
-  defaultValue = "",
+  value = "",
   errorMessage,
   hasError,
   label,
   loading,
   name,
   placeholder,
+  onChange,
   onSearch,
 }: Properties) => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState(defaultValue);
+  const [inputValue, setInputValue] = useState(value);
   const [selected, setSelected] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const debouncedValue = useDebouncedValue(inputValue, debounceTime);
 
@@ -41,19 +44,24 @@ export const Typeahead = ({
     setInputValue(suggestion);
     setSuggestions([]);
     setSelected(true);
-    if (onSearch) {
-      onSearch(suggestion);
+    if (onChange) {
+      onChange(suggestion);
     }
   };
 
   useEffect(() => {
-    if (inputValue !== "") {
-      setSuggestions(data || []);
+    if (data) {
+      setSuggestions(data);
     }
   }, [data]);
 
   useEffect(() => {
-    if (onSearch && debouncedValue !== "" && !selected) {
+    if (
+      onSearch &&
+      debouncedValue !== "" &&
+      debouncedValue.length >= 3 &&
+      !selected
+    ) {
       onSearch(debouncedValue);
     }
   }, [debouncedValue]);
@@ -61,15 +69,7 @@ export const Typeahead = ({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
     setInputValue(input);
-
-    let newSuggestions: string[] = [];
-
-    if (input.length > 0 && data && !selected) {
-      newSuggestions = data.filter((_value) =>
-        _value.toLowerCase().startsWith(input.toLowerCase()),
-      );
-      setSuggestions(newSuggestions);
-    }
+    setHasInteracted(true);
     setSelected(false);
   };
 
@@ -79,19 +79,16 @@ export const Typeahead = ({
       suggestion: string,
     ) => {
       if (event.key === "Enter" && !disabled) {
-        setInputValue(suggestion);
-        setSuggestions([]);
-        setSelected(true);
+        handleSelectedSuggestion(suggestion);
       }
     };
 
     return (
       <>
-        {!loading && suggestions.length > 0 && (
-          <ul className="suggestions">
+        {!loading && hasInteracted && inputValue && suggestions.length > 0 && (
+          <ul>
             {suggestions.map((suggestion, index) => (
               <li
-                className="suggestion"
                 key={index}
                 onClick={() => handleSelectedSuggestion(suggestion)}
                 onKeyDown={(event) => handleKeyDown(event, suggestion)}

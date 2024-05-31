@@ -18,7 +18,9 @@ export const TypeaheadDemo = () => {
   const [t] = useTranslation("ui");
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState<any>([]);
-
+  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedServerValue, setSelectedServerValue] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   const handleDataFetch = (value: any) => {
     setIsLoading(true);
     fetch(`https://api.escuelajs.co/api/v1/products/?title=${value}`)
@@ -30,13 +32,34 @@ export const TypeaheadDemo = () => {
       .catch((err) => console.log("err", err));
   };
 
+  const handleChange = (value: any) => {
+    setSelectedValue(value);
+  };
+
+  const handleServerChange = (value: any) => {
+    setSelectedServerValue(value);
+  };
+
+  const hanldeDataFilter = (value: any) => {
+    let newSuggestions: any = [];
+
+    if (value.length > 0) {
+      newSuggestions = items.filter((_value) =>
+        _value.toLowerCase().startsWith(value.toLowerCase()),
+      );
+      setSuggestions(newSuggestions);
+    }
+  };
+
   return (
     <Page title={t("typeahead.title")}>
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
           label={t("typeahead.label.client")}
-          data={items}
+          data={suggestions}
+          onSearch={hanldeDataFilter}
+          value={selectedServerValue}
         />
       </Section>
       <Section>
@@ -46,6 +69,7 @@ export const TypeaheadDemo = () => {
           data={options}
           loading={isLoading}
           onSearch={handleDataFetch}
+          onChange={handleServerChange}
           debounceTime={500}
         />
       </Section>

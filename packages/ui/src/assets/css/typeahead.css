@@ -30,7 +30,7 @@
   border-color: var(--field-valid-border-color);
 }
 
-.dz-typeahead .suggestions {
+.dz-typeahead > ul {
   background-color: var(--field-suggestion-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
@@ -40,16 +40,16 @@
   z-index: 1000;
 }
 
-.dz-typeahead .suggestion {
+.dz-typeahead > ul > li {
   padding: 0.25rem 0;
 }
 
-.dz-typeahead .suggestion:hover {
+.dz-typeahead > ul > li:hover {
   background-color: var(--field-option-hover-color);
   cursor: pointer;
 } 
 
-.dz-typeahead .suggestion:focus {
+.dz-typeahead > ul > li:focus {
   background-color: var(--field-option-hover-color);
   outline: none;
 }
