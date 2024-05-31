@@ -56,7 +56,7 @@ export const TypeaheadDemo = () => {
         <Typeahead
           placeholder={t("typeahead.placeholder")}
           label={t("typeahead.label.client")}
-          data={suggestions}
+          data={[]}
           onSearch={hanldeDataFilter}
         />
       </Section>
