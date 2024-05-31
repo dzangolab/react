@@ -46,14 +46,22 @@
   },
   "table": {
     "title": "Table (Tanstack) (fr)",
+    "cssCodeBlock": {
+      "title": "CSS code example (fr)",
+      "messages": {
+        "addHorizontal": "Add following css to your stylesheet for horizontal borders (fr)",
+        "addVertical": "Add following css to your stylesheet for vertical borders (fr)",
+        "note": "Note: (fr)"
+      }
+    },
     "usage": {
       "basic": "Basic table (fr)",
       "builtInActionColumn": "Table demonstrating built in actions column use case (fr)",
-      "cellDataFormating": "Table demonstrating cell content formating (fr)",
+      "cellDataFormatting": "Table demonstrating cell content formatting (fr)",
       "filterable": "Table with filterable column (fr)",
       "sortable": "Table with sortable column (fr)",
       "rowSelection": "Table with row selection (fr)",
-      "customCellDataFormating": "Table with custom cell data formatter (fr)",
+      "customCellDataFormatting": "Table with custom cell data formatter (fr)",
       "customPagination": "Table with custom pagination (fr)",
       "customToolbarActions": "Table with custom toolbar actions (fr)",
       "columnTooltip": "Table with tooltip column (fr)",
@@ -68,7 +76,9 @@
       "divContent": "Table demonstrating center aligned content (fr)",
       "singleActionColumn": "Table with single action button (fr)",
       "singleActionColumnWithMenu": "Table with single action menu (fr)",
-      "rowSpecificActions": "Table with actions menu items filtered based on row data logic (fr)"
+      "rowSpecificActions": "Table with actions menu items filtered based on row data logic (fr)",
+      "tableBorderHorizontal": "Table with custom style for horizontal border (fr)",
+      "tableBorderVertical": "Table with custom style for vertical border (fr)"
     },
     "placeholder": {
       "startDate": "Start date",
@@ -86,7 +96,7 @@
       "top": "Top (fr)",
       "bottom": "Bottom (fr)",
       "mouseTrack": "Mouse track (fr)",
-      "configured": "Congigured (fr)"
+      "configured": "Configured (fr)"
     }
   },
   "checkbox": {
