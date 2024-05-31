@@ -9,14 +9,13 @@ import {
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
 
-import CodeBlock from "./CodeBlock";
 import {
   HORIZONTAL_CSS_CODE,
   VERTICAL_CSS_CODE,
   data,
   formatDemoData,
 } from "./data";
-import { Section } from "../../../../components/Demo";
+import { CodeBlock, Section } from "../../../../components/Demo";
 
 declare module "@dzangolab/react-ui" {
   interface FilterFunctions {

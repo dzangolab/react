@@ -1,6 +1,6 @@
 import React from "react";
 
-const CodeBlock = ({
+export const CodeBlock = ({
   title,
   exampleCode,
   subheader,
@@ -22,5 +22,3 @@ const CodeBlock = ({
     </div>
   );
 };
-
-export default CodeBlock;
