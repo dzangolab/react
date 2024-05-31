@@ -1,3 +1,18 @@
+# [0.42.0](https://github.com/dzangolab/react/compare/v0.41.0...v0.42.0) (2024-05-31)
+
+
+### Bug Fixes
+
+* **ui/page:** display custom title content outside <h1> tag ([#1009](https://github.com/dzangolab/react/issues/1009)) ([81cd5ac](https://github.com/dzangolab/react/commit/81cd5ac64a50d6778446bc52f05800e5b062ee5e))
+* **ui/Page:** fix responsive view of page header ([#1010](https://github.com/dzangolab/react/issues/1010)) ([321327f](https://github.com/dzangolab/react/commit/321327f20ee9991b0015a1843e137e2d3d073356))
+
+
+### Features
+
+* **user:** add profile completion reminder page ([#1013](https://github.com/dzangolab/react/issues/1013)) ([ed97539](https://github.com/dzangolab/react/commit/ed97539353290a8bed4d3e65f459c60071995cf7))
+
+
+
 # [0.41.0](https://github.com/dzangolab/react/compare/v0.40.0...v0.41.0) (2024-05-24)
 
 
