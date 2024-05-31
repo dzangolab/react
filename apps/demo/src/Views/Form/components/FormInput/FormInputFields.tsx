@@ -121,8 +121,8 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
       <Typeahead
         placeholder={t("formInput.placeHolder.typeahead")}
         label={t("formInput.label.typeahead")}
-        data={items}
         name="typeahead"
+        data={items}
       />
       <FormActions
         actions={[

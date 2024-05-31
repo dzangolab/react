@@ -60,7 +60,8 @@ export const Typeahead = ({
       onSearch &&
       debouncedValue !== "" &&
       debouncedValue.length >= 3 &&
-      !selected
+      !selected &&
+      hasInteracted
     ) {
       onSearch(debouncedValue);
     }
@@ -85,18 +86,22 @@ export const Typeahead = ({
 
     return (
       <>
-        {!loading && hasInteracted && inputValue && suggestions.length > 0 && (
+        {hasInteracted && inputValue && !selected && (
           <ul>
-            {suggestions.map((suggestion, index) => (
-              <li
-                key={index}
-                onClick={() => handleSelectedSuggestion(suggestion)}
-                onKeyDown={(event) => handleKeyDown(event, suggestion)}
-                tabIndex={0}
-              >
-                {suggestion}
-              </li>
-            ))}
+            {!loading && suggestions.length > 0 ? (
+              suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleSelectedSuggestion(suggestion)}
+                  onKeyDown={(event) => handleKeyDown(event, suggestion)}
+                  tabIndex={0}
+                >
+                  {suggestion}
+                </li>
+              ))
+            ) : (
+              <li>No matching results for {inputValue}</li>
+            )}
           </ul>
         )}
       </>
@@ -106,15 +111,19 @@ export const Typeahead = ({
   return (
     <div className={`dz-typeahead ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder={loading ? "" : placeholder}
-        disabled={disabled}
+      <div
+        className={`input-field-typeahead ${disabled ? "disabled" : ""}`}
         aria-invalid={hasError}
-      />
-      {loading && <LoadingIcon color="#ccc" />}
+      >
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder={loading ? "" : placeholder}
+          disabled={disabled}
+        />
+        {loading && <LoadingIcon color="#ccc" />}
+      </div>
       {renderSuggestions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>

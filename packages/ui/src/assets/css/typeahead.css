@@ -1,7 +1,7 @@
 :root {
   --_field-error-message-color: var(--error-message-color);
   --field-suggestion-bg-color: #ffffff;
-  --field-disabled-color: #7b7676;
+  --field-disabled-color: #f1f0f0;
 }
 
 .dz-typeahead {
@@ -9,25 +9,39 @@
   width: 100%;  
 }
 
-.dz-typeahead > input {
+.dz-typeahead > .input-field-typeahead {
   background-color: var(--dz-input-fill-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
-  margin-top: 0.75rem;
-  padding: 0.75rem 0.65rem;  
+  margin-top: 0.75rem; 
+  position: relative;
   width: 100%; 
 }
 
-.dz-typeahead > input:focus {
-  border: 1px solid var(--field-focus-border-color);
+.dz-typeahead > .input-field-typeahead:focus-within {
+  outline: 2px solid var(--field-focus-border-color);
 }
 
-.dz-typeahead > input[aria-invalid="true"] {
+.dz-typeahead > .input-field-typeahead[aria-invalid="true"] {
   border-color: var(--field-invalid-border-color);
 }
 
-.dz-typeahead > input[aria-invalid="false"] {
+.dz-typeahead > .input-field-typeahead[aria-invalid="false"] {
   border-color: var(--field-valid-border-color);
+}
+
+.dz-typeahead > .input-field-typeahead > input {
+  border: none;
+  padding: 0.75rem 0.65rem;
+  width: 90%;
+}
+
+.dz-typeahead > .input-field-typeahead > input:focus {
+  outline: none;
+}
+
+.dz-typeahead > .input-field-typeahead.disabled {
+  background-color: var(--field-disabled-color);
 }
 
 .dz-typeahead > ul {
@@ -54,10 +68,10 @@
   outline: none;
 }
 
-.dz-typeahead .loading {
+.dz-typeahead > .input-field-typeahead > .loading {
   position: absolute;
   right: 0;
-  top: 70%;
+  top: 50%;
 }
 
 .dz-typeahead .error-message {

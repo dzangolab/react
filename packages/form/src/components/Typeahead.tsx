@@ -4,8 +4,10 @@ import { Controller, useFormContext } from "react-hook-form";
 
 interface ITypeahead {
   data: string[];
+  debounceTime?: number;
   disabled?: boolean;
   label?: string;
+  loading?: boolean;
   name: string;
   placeholder?: string;
   submitCount?: number;
@@ -16,8 +18,10 @@ interface ITypeahead {
 
 export const Typeahead: React.FC<ITypeahead> = ({
   data,
+  debounceTime,
   disabled,
   label = "",
+  loading,
   name,
   placeholder,
   submitCount = 0,
@@ -49,6 +53,8 @@ export const Typeahead: React.FC<ITypeahead> = ({
             data={data}
             onChange={field.onChange}
             value={field.value}
+            loading={loading}
+            debounceTime={debounceTime}
             hasError={submitCount > 0 ? checkInvalidState() : undefined}
             errorMessage={error?.message}
             onSearch={onSearch}

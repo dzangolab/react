@@ -63,7 +63,6 @@ export const FormInputDemo = () => {
         filled: false,
         valid: false,
         invalid: false,
-        typeahead: "testing",
       }}
     >
       <FormInputFields checkFilledState={checkFilledState} />

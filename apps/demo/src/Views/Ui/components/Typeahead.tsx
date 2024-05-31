@@ -6,21 +6,24 @@ import { Section } from "../../../components/Demo";
 
 const items: string[] = [
   "red",
-  "Blue",
+  "blue",
   "yellow",
   "gray",
   "black",
   "purple",
   "pink",
+  "blacker",
+  "pinnacle",
+  "gravers",
 ];
 
 export const TypeaheadDemo = () => {
   const [t] = useTranslation("ui");
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState<any>([]);
-  const [selectedValue, setSelectedValue] = useState("");
   const [selectedServerValue, setSelectedServerValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+
   const handleDataFetch = (value: any) => {
     setIsLoading(true);
     fetch(`https://api.escuelajs.co/api/v1/products/?title=${value}`)
@@ -30,10 +33,6 @@ export const TypeaheadDemo = () => {
         setIsLoading(false);
       })
       .catch((err) => console.log("err", err));
-  };
-
-  const handleChange = (value: any) => {
-    setSelectedValue(value);
   };
 
   const handleServerChange = (value: any) => {
