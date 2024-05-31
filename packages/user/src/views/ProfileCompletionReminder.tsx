@@ -12,7 +12,7 @@ const ProfileCompletionReminder = ({
 
   return (
     <Page
-      className="profile-reminder"
+      className="profile-completion-reminder"
       title={t("profileCompletion.title")}
       centered={centered}
     >
