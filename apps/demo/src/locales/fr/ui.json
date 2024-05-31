@@ -13,6 +13,9 @@
     },
     "message": "Click to view profile (fr)"
   },
+  "cssCodeBlock": {
+    "title": "CSS code example (fr)"
+  },
   "filesTable": {
     "title": "Files table (fr)",
     "pagination": {
@@ -46,6 +49,13 @@
   },
   "table": {
     "title": "Table (Tanstack) (fr)",
+    "cssCodeBlock": {
+      "messages": {
+        "addHorizontal": "Add following css to your stylesheet for horizontal borders (fr)",
+        "addVertical": "Add following css to your stylesheet for vertical borders (fr)",
+        "note": "Note: (fr)"
+      }
+    },
     "usage": {
       "basic": "Basic table (fr)",
       "builtInActionColumn": "Table demonstrating built in actions column use case (fr)",

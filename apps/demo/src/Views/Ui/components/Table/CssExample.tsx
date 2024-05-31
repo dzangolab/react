@@ -1,3 +1,4 @@
+import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 
 const CssExample = ({
@@ -7,10 +8,12 @@ const CssExample = ({
   exampleCode: string;
   subheader: React.ReactNode;
 }) => {
+  const { t } = useTranslation("ui");
+
   return (
     <div className="css-code-block">
       <header>
-        <h3>CSS Code Example</h3>
+        <h3>{t("cssCodeBlock.title")}</h3>
         {subheader}
       </header>
 

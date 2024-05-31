@@ -277,10 +277,10 @@ export const TableDemo = () => {
           exampleCode={VERTICAL_CSS_CODE}
           subheader={
             <>
-              <p>Add following css to your stylesheet for vertical borders</p>
+              <p>{t("table.cssCodeBlock.messages.addVertical")}</p>
               <p>
-                <strong>Note:</strong> In this example, we are using custom
-                class&nbsp;
+                <strong>{t("table.cssCodeBlock.messages.note")}</strong> In this
+                example, we are using custom class&nbsp;
                 <code>.vertical</code> in our table. Replace it with class used
                 in your table.
               </p>
@@ -303,10 +303,10 @@ export const TableDemo = () => {
           exampleCode={HORIZONTAL_CSS_CODE}
           subheader={
             <>
-              <p>Add following css to your stylesheet for horizontal borders</p>
+              <p>{t("table.cssCodeBlock.messages.addHorizontal")}</p>
               <p>
-                <strong>Note:</strong> In this example, we are using custom
-                class&nbsp;
+                <strong>{t("table.cssCodeBlock.messages.note")}</strong> In this
+                example, we are using custom class
                 <code>.horizontal</code> in our table. Replace it with class
                 used in your table.
               </p>

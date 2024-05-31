@@ -13,6 +13,9 @@
     },
     "message": "Click to view profile"
   },
+  "cssCodeBlock": {
+    "title": "CSS code example"
+  },
   "filesTable": {
     "title": "Files table",
     "pagination": {
@@ -50,6 +53,13 @@
   },
   "table": {
     "title": "Table (Tanstack)",
+    "cssCodeBlock": {
+      "messages": {
+        "addHorizontal": "Add following css to your stylesheet for horizontal borders",
+        "addVertical": "Add following css to your stylesheet for vertical borders",
+        "note": "Note:"
+      }
+    },
     "usage": {
       "basic": "Basic table",
       "builtInActionColumn": "Table demonstrating built in actions column use case",
