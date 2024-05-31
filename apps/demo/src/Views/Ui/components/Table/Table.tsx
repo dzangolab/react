@@ -9,7 +9,7 @@ import {
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
 
-import CssExample from "./CssExample";
+import CodeBlock from "./CodeBlock";
 import {
   HORIZONTAL_CSS_CODE,
   VERTICAL_CSS_CODE,
@@ -273,7 +273,8 @@ export const TableDemo = () => {
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
-        <CssExample
+        <CodeBlock
+          title={t("table.cssCodeBlock.title")}
           exampleCode={VERTICAL_CSS_CODE}
           subheader={
             <>
@@ -299,7 +300,8 @@ export const TableDemo = () => {
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
-        <CssExample
+        <CodeBlock
+          title={t("table.cssCodeBlock.title")}
           exampleCode={HORIZONTAL_CSS_CODE}
           subheader={
             <>
