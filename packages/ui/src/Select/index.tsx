@@ -9,6 +9,7 @@ type Option<T> = {
 };
 
 type ISelectProperties<T> = {
+  autoSelectSingleOption?: boolean;
   disabled?: boolean;
   errorMessage?: string;
   hasError?: boolean;
@@ -32,7 +33,8 @@ type ISelectProperties<T> = {
 );
 
 export const Select = <T extends string | number>({
-  disabled,
+  autoSelectSingleOption = true,
+  disabled: selectFieldDisabled,
   errorMessage,
   hasError,
   label = "",
@@ -48,6 +50,19 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
+
+  const disabled =
+    selectFieldDisabled ?? (options.length === 1 && autoSelectSingleOption);
+
+  useEffect(() => {
+    if (
+      options.length === 1 &&
+      !options[0].disabled &&
+      autoSelectSingleOption
+    ) {
+      handleSelectedOption(options[0].value);
+    }
+  }, []);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
@@ -86,6 +101,9 @@ export const Select = <T extends string | number>({
       if (updatedOptions.length === 0) {
         setShowOptions(false);
       }
+    } else {
+      onChange("" as T);
+      setShowOptions(false);
     }
   };
 
@@ -149,6 +167,8 @@ export const Select = <T extends string | number>({
         return renderValue(value, options);
       }
 
+      const selectedOption = options.find((opt) => opt.value === value);
+
       return (
         <>
           {multiple ? (
@@ -177,7 +197,17 @@ export const Select = <T extends string | number>({
               })}
             </div>
           ) : (
-            <span>{options.find((opt) => opt.value === value)?.label}</span>
+            <>
+              <span>{selectedOption?.label}</span>
+              {selectedOption && (
+                <i
+                  className="pi pi-times clear-icon"
+                  onClick={(event) =>
+                    handleRemoveOption(selectedOption.value, event)
+                  }
+                ></i>
+              )}
+            </>
           )}
         </>
       );
@@ -222,7 +252,9 @@ export const Select = <T extends string | number>({
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       {renderSelect()}
-      {showOptions && renderOptions()}
+      {options.length === 1 && !options[0].disabled && autoSelectSingleOption
+        ? null
+        : showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
