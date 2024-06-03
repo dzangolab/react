@@ -20,7 +20,7 @@ export interface IProperties {
 }
 
 /**
- * @deprecated
+ * @deprecated Use select component from the form package instead
  */
 export const AppPicker = ({
   label,

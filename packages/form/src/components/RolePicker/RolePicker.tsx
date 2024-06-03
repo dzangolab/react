@@ -15,6 +15,9 @@ interface IProperties {
   options: RoleOption[];
 }
 
+/**
+ * @deprecated Use select component from the form package instead
+ */
 export const RolePicker = ({
   name,
   placeholder,

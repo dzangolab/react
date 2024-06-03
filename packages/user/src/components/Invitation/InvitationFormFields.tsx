@@ -3,7 +3,6 @@ import {
   DateInput,
   DatePicker,
   Email,
-  RolePicker,
   useFormContext,
   useWatch,
   RenderAdditionalFormFields,
@@ -37,36 +36,42 @@ export const InvitationFormFields: React.FC<IProperties> = ({
   const { t } = useTranslation("invitations");
 
   const {
-    trigger,
     register,
     getFieldState,
     setValue,
     formState: { errors, submitCount },
   } = useFormContext();
 
-  const [filteredRoles, setFilteredRoles] = useState(roles || []);
+  const [filteredRoles, setFilteredRoles] = useState(
+    roles?.map((role) => {
+      return {
+        label: role.name,
+        value: role.name,
+      };
+    }) || [],
+  );
 
   const selectedApp: number = useWatch({
     name: "app",
   });
 
-  const selectedRole = apps?.find((app) => app.id === selectedApp);
+  const selectedRole =
+    apps
+      ?.find((app) => app.id === selectedApp)
+      ?.supportedRoles.map((role) => {
+        return {
+          label: role.name,
+          value: role.name,
+        };
+      }) || [];
 
   useEffect(() => {
     if (selectedApp) {
       setValue("role", undefined); // reset role value when app changes
 
-      setFilteredRoles(selectedRole?.supportedRoles || []);
+      setFilteredRoles(selectedRole || []);
     }
   }, [selectedApp]);
-
-  useEffect(() => {
-    // if there's only one role, select it by default
-    if (filteredRoles?.length === 1) {
-      setValue("role", filteredRoles[0]);
-      trigger("role");
-    }
-  }, [filteredRoles]);
 
   const renderExpiryDateField = () => (
     <>
@@ -137,7 +142,9 @@ export const InvitationFormFields: React.FC<IProperties> = ({
       ) : null}
 
       {apps?.length || roles?.length ? (
-        <RolePicker
+        <Select
+          autoSelectSingleOption
+          disabled={filteredRoles.length <= 1 && true}
           name="role"
           label={t("form.fields.role.label")}
           placeholder={t("form.fields.role.placeholder")}
