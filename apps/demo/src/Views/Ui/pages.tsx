@@ -23,6 +23,7 @@ import { TabbedPanelDemo } from "./components/TabbedPanel";
 import { TableDemo } from "./components/Table";
 import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
+import { TypeaheadDemo } from "./components/Typeahead";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
 
@@ -51,6 +52,7 @@ export const UI_ROUTES = {
   STEPPER: "/ui/stepper",
   TABBED_PANEL: "/ui/tabbed-pannel",
   TAG: "/ui/tag",
+  TYPEAHEAD: "/ui/typeahead",
 };
 
 export const routes = [
@@ -168,6 +170,11 @@ export const routes = [
     path: UI_ROUTES.SELECT,
     key: "select.title",
     element: <SelectDemo />,
+  },
+  {
+    path: UI_ROUTES.TYPEAHEAD,
+    key: "typeahead.title",
+    element: <TypeaheadDemo />,
   },
 ];
 

@@ -176,5 +176,15 @@
       "single": "Single select (fr)"
     },
     "placeHolder": "-- select value -- (fr)"
+  },
+  "typeahead": {
+    "title": "Typeahead (fr)",
+    "label": {
+      "client": "Client side Typeahead (fr)",
+      "disabled": "Disabled (fr)",
+      "server": "Server side Typeahead (fr)",
+      "invalid": "Invalid (fr)"
+    },
+    "placeholder": "Search... (fr)"
   }
 }

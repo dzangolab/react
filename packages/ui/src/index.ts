@@ -16,6 +16,7 @@ import { Select } from "./Select";
 import { GoogleButton } from "./SSOButtons";
 import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
+import { Typeahead } from "./Typeahead";
 
 export * from "./AuthPage";
 export * from "./Buttons";
@@ -52,6 +53,7 @@ export {
   SubPane,
   TabbedPanel,
   ConfirmationModal,
+  Typeahead,
 };
 
 export type { DropdownMenuProperties, CombinedMenuRouteType };

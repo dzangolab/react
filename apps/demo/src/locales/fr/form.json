@@ -48,6 +48,7 @@
       "select": "Select (fr)",
       "text": "TextInput (fr)",
       "transparent": "Transparent Input (fr)",
+      "typeahead": "Typeahead (fr)",
       "valid": "Show valid state (fr)"
     },
     "placeHolder": {
@@ -55,7 +56,8 @@
       "input": "Input (fr)",
       "number": "Enter number input (fr)",
       "select": "-- Select value -- (fr)",
-      "text": "Enter text input (fr)"
+      "text": "Enter text input (fr)",
+      "typeahead": "Search... (fr)"
     },
     "action": {
       "cancel": "Cancel (fr)",
