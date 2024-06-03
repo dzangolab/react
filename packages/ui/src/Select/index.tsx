@@ -149,7 +149,15 @@ export const Select = <T extends string | number>({
                 />
               ) : null}
               <span
-                onClick={() => !disabled && handleSelectedOption(option.value)}
+                onClick={() => {
+                  if (!disabled) {
+                    handleSelectedOption(option.value);
+                  }
+
+                  if (!multiple) {
+                    setShowOptions(false);
+                  }
+                }}
                 className={disabled ? "disabled" : ""}
               >
                 {renderOption ? renderOption(option) : label}
