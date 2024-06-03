@@ -127,7 +127,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <div className="select-field-options">
+      <ul className="select-field-options">
         {options?.map((option, index) => {
           const { disabled, label } = option;
           let isChecked = false;
@@ -139,7 +139,7 @@ export const Select = <T extends string | number>({
             });
 
           return (
-            <div
+            <li
               key={index}
               className={`option ${!disabled && value === option.value ? "selected" : ""}`.trimEnd()}
             >
@@ -165,10 +165,10 @@ export const Select = <T extends string | number>({
               >
                 {renderOption ? renderOption(option) : label}
               </span>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     );
   };
 
