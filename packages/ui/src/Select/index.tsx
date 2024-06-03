@@ -63,19 +63,6 @@ export const Select = <T extends string | number>({
     }
   }, []);
 
-  const disabled =
-    selectFieldDisabled ?? (options.length === 1 && autoSelectSingleOption);
-
-  useEffect(() => {
-    if (
-      options.length === 1 &&
-      !options[0].disabled &&
-      autoSelectSingleOption
-    ) {
-      handleSelectedOption(options[0].value);
-    }
-  }, []);
-
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
       if (
