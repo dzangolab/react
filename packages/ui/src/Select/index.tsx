@@ -52,10 +52,10 @@ export const Select = <T extends string | number>({
   const [focused, setFocused] = useState(false);
   const shouldAutoSelect = useMemo(() => {
     return (
-      options.length === 1 &&
-      !options[0].disabled &&
       autoSelectSingleOption &&
-      !multiple
+      !multiple &&
+      options.length === 1 &&
+      !options[0].disabled
     );
   }, [options, multiple, autoSelectSingleOption]);
 

@@ -54,10 +54,10 @@ export const Select: React.FC<ISelect> = ({
   //TODO [MA 2024-05-31]: remove this redundant useEffect for auto selecting single option
   useEffect(() => {
     if (
-      options.length === 1 &&
-      !options[0].disabled &&
       autoSelectSingleOption &&
-      !multiple
+      !multiple &&
+      options.length === 1 &&
+      !options[0].disabled
     ) {
       setValue(name, options[0].value);
     }
