@@ -56,9 +56,10 @@ export const Select: React.FC<ISelect> = ({
     if (
       options.length === 1 &&
       !options[0].disabled &&
-      autoSelectSingleOption
+      autoSelectSingleOption &&
+      !multiple
     ) {
-      setValue(name, multiple ? [options[0].value] : options[0].value);
+      setValue(name, options[0].value);
     }
   }, [options]);
 
