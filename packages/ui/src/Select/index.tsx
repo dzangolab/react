@@ -57,8 +57,7 @@ export const Select = <T extends string | number>({
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
   const disabled =
-    selectFieldDisabled ??
-    ((options.length === 1 && autoSelectSingleOption) || !options.length);
+    selectFieldDisabled ?? (options.length === 1 && autoSelectSingleOption);
 
   useEffect(() => {
     if (
@@ -243,10 +242,7 @@ export const Select = <T extends string | number>({
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       {renderSelect()}
-      {(options.length === 1 &&
-        !options[0].disabled &&
-        autoSelectSingleOption) ||
-      !options.length
+      {options.length === 1 && !options[0].disabled && autoSelectSingleOption
         ? null
         : showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}

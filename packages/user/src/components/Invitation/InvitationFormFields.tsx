@@ -143,6 +143,8 @@ export const InvitationFormFields: React.FC<IProperties> = ({
 
       {apps?.length || roles?.length ? (
         <Select
+          autoSelectSingleOption
+          disabled={filteredRoles.length <= 1 && true}
           name="role"
           label={t("form.fields.role.label")}
           placeholder={t("form.fields.role.placeholder")}
