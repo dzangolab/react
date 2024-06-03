@@ -50,11 +50,15 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
-  const shouldAutoSelect =
-    options.length === 1 &&
-    !options[0].disabled &&
-    autoSelectSingleOption &&
-    !multiple;
+  const shouldAutoSelect = useMemo(() => {
+    return (
+      options.length === 1 &&
+      !options[0].disabled &&
+      autoSelectSingleOption &&
+      !multiple
+    );
+  }, [options, multiple, autoSelectSingleOption]);
+
   const disabled = selectFieldDisabled ?? shouldAutoSelect;
 
   useEffect(() => {
