@@ -104,6 +104,9 @@ export const Select = <T extends string | number>({
       if (updatedOptions.length === 0) {
         setShowOptions(false);
       }
+    } else {
+      onChange("" as T);
+      setShowOptions(false);
     }
   };
 
@@ -175,6 +178,8 @@ export const Select = <T extends string | number>({
         return renderValue(value, options);
       }
 
+      const selectedOption = options.find((opt) => opt.value === value);
+
       return (
         <>
           {multiple ? (
@@ -203,7 +208,17 @@ export const Select = <T extends string | number>({
               })}
             </div>
           ) : (
-            <span>{options.find((opt) => opt.value === value)?.label}</span>
+            <>
+              <span>{selectedOption?.label}</span>
+              {selectedOption && (
+                <i
+                  className="pi pi-times clear-icon"
+                  onClick={(event) =>
+                    handleRemoveOption(selectedOption.value, event)
+                  }
+                ></i>
+              )}
+            </>
           )}
         </>
       );
