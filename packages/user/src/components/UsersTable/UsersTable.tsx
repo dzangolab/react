@@ -7,6 +7,7 @@ import {
   IButtonProperties,
   TableColumnDefinition,
   Tag,
+  type DataActionsMenuProperties,
 } from "@dzangolab/react-ui";
 
 import { useUserActions } from "./useUserActionsMethods";
@@ -30,10 +31,19 @@ type VisibleColumn =
   | string;
 
 export type UsersTableProperties = Partial<
-  Omit<TDataTableProperties<UserType>, "data" | "visibleColumns" | "fetchData">
+  Omit<
+    TDataTableProperties<UserType>,
+    "data" | "dataActionsMenu" | "visibleColumns" | "fetchData"
+  >
 > & {
   additionalInvitationFields?: AdditionalFormFields;
   apps?: Array<InvitationAppOption>;
+  dataActionsMenu?:
+    | ((
+        user: UserType,
+        defaultActionsMenu: DataActionsMenuProperties<UserType>,
+      ) => DataActionsMenuProperties<UserType>)
+    | DataActionsMenuProperties<UserType>;
   fetchUsers?: (arguments_: TRequestJSON) => void;
   invitationButtonOptions?: IButtonProperties;
   invitationExpiryDateField?: InvitationExpiryDateField;
@@ -55,6 +65,7 @@ export const UsersTable = ({
   apps,
   className = "table-users",
   columns = [],
+  dataActionsMenu,
   fetchUsers,
   invitationButtonOptions,
   invitationExpiryDateField,
@@ -175,6 +186,34 @@ export const UsersTable = ({
     },
   ];
 
+  const defaultActionsMenu: DataActionsMenuProperties<UserType> = {
+    actions: [
+      {
+        label: t("table.actions.enable"),
+        icon: "pi pi-check",
+        disabled: (user) => !user.disabled,
+        onClick: (user) => handleEnableUser(user),
+        requireConfirmationModal: true,
+        confirmationOptions: {
+          message: t("confirmation.enable.message"),
+          header: t("confirmation.header"),
+        },
+      },
+      {
+        label: t("table.actions.disable"),
+        className: "danger",
+        icon: "pi pi-times",
+        disabled: (user) => user.disabled,
+        onClick: (user) => handleDisableUser(user),
+        requireConfirmationModal: true,
+        confirmationOptions: {
+          message: t("confirmation.disable.message"),
+          header: t("confirmation.header"),
+        },
+      },
+    ],
+  };
+
   const renderToolbar = () => {
     if (showInviteAction) {
       return (
@@ -209,33 +248,13 @@ export const UsersTable = ({
         pageInputLabel: t("table.pagination.pageControl"),
         itemsPerPageControlLabel: t("table.pagination.rowsPerPage"),
       }}
-      dataActionsMenu={{
-        actions: [
-          {
-            label: t("table.actions.enable"),
-            icon: "pi pi-check",
-            disabled: (user) => !user.disabled,
-            onClick: (user) => handleEnableUser(user),
-            requireConfirmationModal: true,
-            confirmationOptions: {
-              message: t("confirmation.enable.message"),
-              header: t("confirmation.header"),
-            },
-          },
-          {
-            label: t("table.actions.disable"),
-            className: "danger",
-            icon: "pi pi-times",
-            disabled: (user) => user.disabled,
-            onClick: (user) => handleDisableUser(user),
-            requireConfirmationModal: true,
-            confirmationOptions: {
-              message: t("confirmation.disable.message"),
-              header: t("confirmation.header"),
-            },
-          },
-        ],
-      }}
+      dataActionsMenu={
+        dataActionsMenu
+          ? typeof dataActionsMenu === "function"
+            ? (data) => dataActionsMenu(data, defaultActionsMenu)
+            : dataActionsMenu
+          : defaultActionsMenu
+      }
       {...tableProperties}
     ></DataTable>
   );

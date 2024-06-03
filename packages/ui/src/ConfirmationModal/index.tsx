@@ -29,18 +29,12 @@ export const ConfirmationModal = ({
           label="No"
           variant="outlined"
           severity="secondary"
-          onClick={() => {
-            reject?.();
-            onHide?.();
-          }}
+          onClick={reject || onHide}
           {...cancelButtonOptions}
         />
         <Button
           label="Yes"
-          onClick={() => {
-            accept?.();
-            onHide?.();
-          }}
+          onClick={accept || onHide}
           {...acceptButtonOptions}
         />
       </div>

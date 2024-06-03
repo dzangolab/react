@@ -218,5 +218,14 @@
       "success": "Profile updated successfully (fr)",
       "error": "Something went wrong. Please try again (fr)"
     }
+  },
+  "profileCompletion": {
+    "title": "Complete your profile (fr)",
+    "messages": {
+      "reminder": "Please complete your profile to access this page. (fr)"
+    },
+    "buttons": {
+      "gotoProfile": "Go to profile (fr)"
+    }
   }
 }

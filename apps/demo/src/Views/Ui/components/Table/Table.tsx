@@ -9,8 +9,13 @@ import {
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
 
-import { data, formatDemoData } from "./data";
-import { Section } from "../../../../components/Demo";
+import {
+  HORIZONTAL_CSS_CODE,
+  VERTICAL_CSS_CODE,
+  data,
+  formatDemoData,
+} from "./data";
+import { CodeBlock, Section } from "../../../../components/Demo";
 
 declare module "@dzangolab/react-ui" {
   interface FilterFunctions {
@@ -257,6 +262,60 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
+      <Section title={t("table.usage.tableBorderVertical")}>
+        <TDataTable
+          showColumnsAction={true}
+          columnActionBtnLabel="Columns"
+          className="vertical"
+          visibleColumns={["email", "name", "age", "city"]}
+          columns={[...columns]}
+          data={data}
+          initialSorting={[{ id: "email", desc: false }]}
+        ></TDataTable>
+        <CodeBlock
+          title={t("table.cssCodeBlock.title")}
+          exampleCode={VERTICAL_CSS_CODE}
+          subheader={
+            <>
+              <p>{t("table.cssCodeBlock.messages.addVertical")}</p>
+              <p>
+                <strong>{t("table.cssCodeBlock.messages.note")}</strong> In this
+                example, we are using custom class&nbsp;
+                <code>.vertical</code> in our table. Replace it with class used
+                in your table.
+              </p>
+            </>
+          }
+        />
+      </Section>
+
+      <Section title={t("table.usage.tableBorderHorizontal")}>
+        <TDataTable
+          showColumnsAction={true}
+          columnActionBtnLabel="Columns"
+          className="horizontal"
+          visibleColumns={["email", "name", "age", "city"]}
+          columns={[...columns]}
+          data={data}
+          initialSorting={[{ id: "email", desc: false }]}
+        ></TDataTable>
+        <CodeBlock
+          title={t("table.cssCodeBlock.title")}
+          exampleCode={HORIZONTAL_CSS_CODE}
+          subheader={
+            <>
+              <p>{t("table.cssCodeBlock.messages.addHorizontal")}</p>
+              <p>
+                <strong>{t("table.cssCodeBlock.messages.note")}</strong> In this
+                example, we are using custom class
+                <code>.horizontal</code> in our table. Replace it with class
+                used in your table.
+              </p>
+            </>
+          }
+        />
+      </Section>
+
       <Section title={t("table.usage.withoutPagination")}>
         <TDataTable
           columns={[...columns]}
@@ -490,7 +549,7 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.cellDataFormating")}>
+      <Section title={t("table.usage.cellDataFormatting")}>
         <TDataTable
           columns={[
             {
@@ -545,7 +604,7 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.customCellDataFormating")}>
+      <Section title={t("table.usage.customCellDataFormatting")}>
         <TDataTable
           columns={[
             {

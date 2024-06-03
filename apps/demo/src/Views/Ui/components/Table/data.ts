@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   {
     id: 1,
     name: "John Doe",
@@ -141,7 +141,7 @@ export const data = [
   },
 ];
 
-export const formatDemoData = [
+const formatDemoData = [
   {
     id: 1001,
     amount: 1_234_567.89,
@@ -213,3 +213,22 @@ export const formatDemoData = [
     description: "Office furniture upgrade",
   },
 ];
+
+const VERTICAL_CSS_CODE = `.dz-table-container.vertical .table-wrapper > table > tbody > tr,
+.dz-table-container.vertical .table-wrapper > table > tbody > tr > td,
+.dz-table-container.vertical .table-wrapper > table > thead tr > th {
+  border: none;
+}
+
+.dz-table-container.vertical .table-wrapper > table > tbody > tr > td,
+.dz-table-container.vertical .table-wrapper > table > thead tr > th {
+  border-left: var(--dz-table-border);
+  border-right: var(--dz-table-border);
+}`;
+
+const HORIZONTAL_CSS_CODE = `.dz-table-container.horizontal .table-wrapper > table > tbody > tr > td,
+.dz-table-container.horizontal .table-wrapper > table > thead tr > th {
+  border: none;
+}`;
+
+export { data, formatDemoData, HORIZONTAL_CSS_CODE, VERTICAL_CSS_CODE };
