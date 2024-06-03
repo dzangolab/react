@@ -51,7 +51,7 @@ export const Select: React.FC<ISelect> = ({
     if (showValidState && !invalid) return false;
   };
 
-  //TODO [MA 2024-05-31]: remove this redundant useEffect for auto select single option
+  //TODO [MA 2024-05-31]: remove this redundant useEffect for auto selecting single option
   useEffect(() => {
     if (
       options.length === 1 &&
