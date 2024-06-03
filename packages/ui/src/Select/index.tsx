@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import { Tag, Checkbox } from "..";
 
@@ -33,7 +39,7 @@ type ISelectProperties<T> = {
 );
 
 export const Select = <T extends string | number>({
-  autoSelectSingleOption = true,
+  autoSelectSingleOption = false,
   disabled: selectFieldDisabled,
   errorMessage,
   hasError,
