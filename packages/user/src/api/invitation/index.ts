@@ -99,3 +99,16 @@ export const acceptInvitation = async (
     return response.data;
   }
 };
+
+export const deleteInvitation = async (
+  id: string,
+  apiBaseUrl: string,
+): Promise<any> => {
+  const response = await client(apiBaseUrl).delete(`invitation/${id}`);
+
+  if (response.data.status === "ERROR") {
+    throw new Error(response.data.message);
+  } else {
+    return response.data;
+  }
+};
