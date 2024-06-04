@@ -194,12 +194,14 @@ export const Select = <T extends string | number>({
                     renderContent={() => (
                       <>
                         <span>{option.label}</span>
-                        <i
-                          className="pi pi-times"
-                          onClick={(event) =>
-                            handleRemoveOption(option.value, event)
-                          }
-                        ></i>
+                        {option && !disabled && (
+                          <i
+                            className="pi pi-times"
+                            onClick={(event) =>
+                              handleRemoveOption(option.value, event)
+                            }
+                          ></i>
+                        )}
                       </>
                     )}
                     rounded
