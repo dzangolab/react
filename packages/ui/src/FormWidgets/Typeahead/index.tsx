@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { LoadingIcon, useDebouncedValue } from "..";
+import LoadingIcon from "../../LoadingIcon";
+import { useDebouncedValue } from "../../utils";
 
 type Properties = {
   className?: string;
