@@ -194,7 +194,7 @@ export const Select = <T extends string | number>({
                     renderContent={() => (
                       <>
                         <span>{option.label}</span>
-                        {option && !disabled && (
+                        {!disabled && (
                           <i
                             className="pi pi-times"
                             onClick={(event) =>
