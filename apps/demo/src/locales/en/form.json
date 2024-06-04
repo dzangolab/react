@@ -48,6 +48,7 @@
       "select": "Select",
       "text": "TextInput",
       "transparent": "Transparent Input",
+      "typeahead": "Typeahead",
       "valid": "Show valid state"
     },
     "placeHolder": {
@@ -55,7 +56,8 @@
       "input": "Input",
       "number": "Enter number input",
       "select": "-- Select value --", 
-      "text": "Enter text input"
+      "text": "Enter text input",
+      "typeahead": "Search..."
     },
     "action": {
       "cancel": "Cancel",

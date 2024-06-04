@@ -4,7 +4,11 @@ import { getMe } from "@/api/user";
 
 import { getUserData, removeUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
-import { isUserVerified, verifySessionRoles } from "../supertokens/helpers";
+import {
+  isEmailVerified,
+  isProfileCompleted,
+  verifySessionRoles,
+} from "../supertokens/helpers";
 import { UserContextType, UserType } from "../types";
 
 interface Properties {
@@ -34,10 +38,10 @@ const UserProvider = ({ children }: Properties) => {
             userInfo = { ...response.data };
 
             if (appConfig.user.features?.signUp?.emailVerification) {
-              const isEmailVerified = await isUserVerified();
-
-              userInfo.isEmailVerified = isEmailVerified;
+              userInfo.isEmailVerified = await isEmailVerified();
             }
+
+            userInfo.isProfileCompleted = await isProfileCompleted();
 
             await setUserData(userInfo);
           }
@@ -61,10 +65,10 @@ const UserProvider = ({ children }: Properties) => {
       };
 
       if (appConfig.user.features?.signUp?.emailVerification) {
-        const isEmailVerified = await isUserVerified();
-
-        userData.isEmailVerified = isEmailVerified;
+        userData.isEmailVerified = await isEmailVerified();
       }
+
+      userData.isProfileCompleted = await isProfileCompleted();
 
       await setUserData(userData);
 

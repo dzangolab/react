@@ -50,14 +50,22 @@
   },
   "table": {
     "title": "Table (Tanstack)",
+    "cssCodeBlock": {
+      "title": "CSS code example",
+      "messages": {
+        "addHorizontal": "Add following css to your stylesheet for horizontal borders",
+        "addVertical": "Add following css to your stylesheet for vertical borders",
+        "note": "Note:"
+      }
+    },
     "usage": {
       "basic": "Basic table",
       "builtInActionColumn": "Table demonstrating built in actions column use case",
-      "cellDataFormating": "Table demonstrating cell content formating",
+      "cellDataFormatting": "Table demonstrating cell content formatting",
       "filterable": "Table with filterable column",
       "sortable": "Table with sortable column",
       "rowSelection": "Table with row selection",
-      "customCellDataFormating": "Table with custom cell data formatter",
+      "customCellDataFormatting": "Table with custom cell data formatter",
       "customPagination": "Table with custom pagination",
       "customToolbarActions": "Table with custom toolbar actions",
       "columnTooltip": "Table with tooltip column",
@@ -72,7 +80,9 @@
       "divContent": "Table demonstrating center aligned content",
       "singleActionColumn": "Table with single action button",
       "singleActionColumnWithMenu": "Table with single action menu",
-      "rowSpecificActions": "Table with actions menu items filtered based on row data logic"
+      "rowSpecificActions": "Table with actions menu items filtered based on row data logic",
+      "tableBorderHorizontal": "Table with custom style for horizontal border",
+      "tableBorderVertical": "Table with custom style for vertical border"
     },
     "placeholder": {
       "startDate": "Start date",
@@ -90,7 +100,7 @@
       "top": "Top",
       "bottom": "Bottom",
       "mouseTrack": "Mouse track",
-      "configured": "Congigured"
+      "configured": "Configured"
     }
   },
   "checkbox": {
@@ -170,5 +180,15 @@
       "single": "Single select"
     },
     "placeHolder": "-- select value --"
+  },
+  "typeahead": {
+    "title": "Typeahead",
+    "label": {
+      "client": "Client side Typeahead",
+      "disabled": "Disabled",
+      "server": "Server side Typeahead",
+      "invalid": "Invalid"
+    },
+    "placeholder": "Search..."
   }
 }

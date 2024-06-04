@@ -19,6 +19,9 @@ export interface IProperties {
   placeholder?: string;
 }
 
+/**
+ * @deprecated Use select component from the form package instead
+ */
 export const AppPicker = ({
   label,
   name,

@@ -14,5 +14,6 @@ export * from "./RolePicker";
 export * from "./Select";
 export * from "./TextArea";
 export * from "./TextInput";
+export * from "./Typeahead";
 export * from "./SwitchInput";
 export * from "./Switch";

@@ -3,6 +3,7 @@ import Session from "supertokens-web-js/recipe/session";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
 import logout from "./logout";
+import ProfileValidationClaim from "./profileValidationClaim";
 import { removeUserData } from "../helpers";
 
 /**
@@ -68,7 +69,7 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
   return false;
 }
 
-const isUserVerified = async (): Promise<boolean | undefined> => {
+const isEmailVerified = async (): Promise<boolean | undefined> => {
   if (await Session.doesSessionExist()) {
     const { isVerified } = await EmailVerification.isEmailVerified();
 
@@ -80,4 +81,42 @@ const isUserVerified = async (): Promise<boolean | undefined> => {
   return false;
 };
 
-export { getUserRoles, verifySessionRoles, isUserVerified };
+/**
+ * Checks if the user's profile is completed based on validation criteria.
+ *
+ * @async
+ * @function isProfileCompleted
+ * @returns {Promise<boolean|undefined>} - A promise that resolves to:
+ *   - `true` if the profile is completed.
+ *   - `false` if the profile is not completed or no session exists.
+ *   - `undefined` if the profile validation is disabled in the api.
+ *
+ */
+const isProfileCompleted = async (): Promise<boolean | undefined> => {
+  if (await Session.doesSessionExist()) {
+    const validatorFailures = await Session.validateClaims({
+      overrideGlobalClaimValidators: () => {
+        // Only check for profile validation
+        return [ProfileValidationClaim.validators.isTrue()];
+      },
+    });
+
+    if (
+      validatorFailures.length &&
+      validatorFailures[0].reason.actualValue === undefined
+    ) {
+      return;
+    }
+
+    return !validatorFailures.length;
+  }
+
+  return false;
+};
+
+export {
+  getUserRoles,
+  isEmailVerified,
+  isProfileCompleted,
+  verifySessionRoles,
+};
