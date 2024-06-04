@@ -30,6 +30,7 @@
 
 .input-field-select.disabled {
   background-color: var(--field-bg-color-disabled);
+  opacity: 0.8;
 }
 
 .input-field-select .select-menu-toggle {

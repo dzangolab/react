@@ -32,6 +32,7 @@
 
 .dz-typeahead > .input-field-typeahead > input {
   border: none;
+  border-radius: var(--field-border-radius);
   padding: 0.75rem 0.65rem;
   width: 90%;
 }
