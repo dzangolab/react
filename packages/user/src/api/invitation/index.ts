@@ -6,6 +6,7 @@ import {
   ResendInvitationResponse,
   RevokeInvitationResponse,
 } from "@/types";
+import { DeleteInvitationResponse } from "@/types/invitation";
 
 import client from "../axios";
 
@@ -103,9 +104,10 @@ export const acceptInvitation = async (
 export const deleteInvitation = async (
   id: string,
   apiBaseUrl: string,
-): Promise<any> => {
-  const response = await client(apiBaseUrl).delete(`invitation/${id}`);
+): Promise<DeleteInvitationResponse> => {
+  const response = await client(apiBaseUrl).delete(`invitations/${id}`);
 
+  console.log("Data", response);
   if (response.data.status === "ERROR") {
     throw new Error(response.data.message);
   } else {

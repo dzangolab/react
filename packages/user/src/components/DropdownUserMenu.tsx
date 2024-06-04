@@ -4,7 +4,6 @@ import { useId } from "react";
 import { toast } from "react-toastify";
 
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
-import { removeUserData } from "../helpers";
 import { useUser } from "../hooks";
 import logout from "../supertokens/logout";
 import { UserMenuItemType } from "../types";
