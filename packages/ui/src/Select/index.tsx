@@ -210,9 +210,9 @@ export const Select = <T extends string | number>({
           ) : (
             <>
               <span>{selectedOption?.label}</span>
-              {selectedOption && (
+              {selectedOption && !disabled && (
                 <i
-                  className="pi pi-times clear-icon"
+                  className="pi pi-times"
                   onClick={(event) =>
                     handleRemoveOption(selectedOption.value, event)
                   }
