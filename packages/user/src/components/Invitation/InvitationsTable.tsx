@@ -99,20 +99,13 @@ export const InvitationsTable = ({
     onInvitationRevoked,
   });
 
-  const handleDeleteInvitation = (
-    apiBaseUrl: string,
-    id: string,
-    onInvitationDeleted?: (response: DeleteInvitationResponse) => void,
-  ) => {
-    deleteInvitation(apiBaseUrl, id)
+  const handleDeleteInvitation = async (id: number) => {
+    deleteInvitation(id, apiBaseUrl)
       .then((response) => {
-        if (
-          "data" in response &&
-          (response.data.status === "ERROR" || response.data.status === "error")
-        ) {
-          toast.error(t("messages.resend.error"));
+        if ("data" in response && response.data.status === "ERROR") {
+          toast.error(t("messages.delete.error"));
         } else {
-          toast.success(t("messages.resend.success"));
+          toast.success(t("messages.delete.success"));
 
           if (onInvitationDeleted) {
             onInvitationDeleted(response);
@@ -120,7 +113,7 @@ export const InvitationsTable = ({
         }
       })
       .catch(() => {
-        toast.error("messages.resend.error");
+        toast.error("messages.delete.error");
       });
   };
 
@@ -295,12 +288,7 @@ export const InvitationsTable = ({
             label: t("invitations.actions.delete"),
             icon: "pi pi-trash",
             className: "danger",
-            onClick: (invitation) =>
-              handleDeleteInvitation(
-                apiBaseUrl,
-                invitation.id,
-                onInvitationDeleted,
-              ),
+            onClick: (invitation) => handleDeleteInvitation(invitation.id),
             requireConfirmationModal: true,
             confirmationOptions: {
               message: t("confirmation.confirm.delete.message"),
