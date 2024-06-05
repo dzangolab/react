@@ -52,6 +52,10 @@
     }
   },
   "messages": {
+    "delete": {
+      "success": "Successfully deleted invitation",
+      "error": "Error deleting invitation"
+    },
     "invite": {
       "success": "Successfully invited user",
       "error": "Error inviting user"
