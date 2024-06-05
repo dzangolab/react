@@ -2,20 +2,23 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
-import { CheckboxDemo } from "./components/Checkbox";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
 import { FilesPresentationDemo } from "./components/FilesPresentation";
 import { FilesTableDemo } from "./components/FilesTable";
-import { InputDemo } from "./components/Input";
+import {
+  CheckboxDemo,
+  InputDemo,
+  SelectDemo,
+  TypeaheadDemo,
+} from "./components/FormWidgets";
 import { LoadingDemo } from "./components/Loading";
 import { LocalDataTableDemo } from "./components/LocalDataTable";
 import { MessageDemo } from "./components/Message";
 import { PageDemo } from "./components/PageDemo";
 import { PopupDemo } from "./components/Popup";
 import { ResponsiveMenuDemo } from "./components/ResponsiveMenu";
-import { SelectDemo } from "./components/Select";
 import { SortableListDemo } from "./components/SortableList";
 import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
@@ -23,7 +26,6 @@ import { TabbedPanelDemo } from "./components/TabbedPanel";
 import { TableDemo } from "./components/Table";
 import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
-import { TypeaheadDemo } from "./components/Typeahead";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
 

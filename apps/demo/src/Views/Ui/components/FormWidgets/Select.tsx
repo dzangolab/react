@@ -2,7 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Select, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 
-import { Section } from "../../../components/Demo";
+import { Section } from "../../../../components/Demo";
 
 type Option = {
   value: number | string;
