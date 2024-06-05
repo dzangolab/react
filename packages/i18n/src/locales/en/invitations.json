@@ -2,6 +2,9 @@
   "confirmation": {
     "header": "Confirmation",
     "confirm": {
+      "delete": {
+        "message": "Are you sure you want to delete?"
+      },
       "resend": {
         "message": "Are you sure you want to resend?"
       },
@@ -40,6 +43,7 @@
   },
   "invitations": {
     "actions": {
+      "delete": "Delete",
       "resend": "Resend",
       "revoke": "Revoke"
     },
