@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Input, Page } from "@dzangolab/react-ui";
 
-import { Section } from "../../../components/Demo";
+import { Section } from "../../../../components/Demo";
 
 export const InputDemo = () => {
   const [t] = useTranslation("ui");

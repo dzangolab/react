@@ -1,4 +1,8 @@
 {
+  "headers": {
+    "buttons": "Buttons",
+    "formWidgets": "Form widgets"
+  },
   "button": {
     "title": "Button",
     "usage": {

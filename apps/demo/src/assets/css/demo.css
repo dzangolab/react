@@ -23,16 +23,24 @@
   min-inline-size: 50%;
 }
 
-.demo > ul > li > a {
+.demo .demo-aside ul {
+  padding: 0;
+}
+
+.demo .demo-aside .nav-menu h2 {
+  margin-bottom: 0.5rem;
+}
+
+.demo .demo-aside ul > li > a {
   font-size: 1rem;
   color: var(--color);
   text-decoration: none;
   transition: all 200ms ease;
-  line-height: 1.5;
+  line-height: 2.5;
 }
 
-.demo > ul > li > a:hover,
-.demo > ul > li > a[aria-current="page"] {
+.demo .demo-aside ul > li > a:hover,
+.demo .demo-aside ul > li > a[aria-current="page"] {
   text-decoration: underline;
 }
 

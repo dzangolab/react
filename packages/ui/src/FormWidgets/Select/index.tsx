@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { Tag, Checkbox } from "..";
+import { Tag } from "../../Tag";
+import { Checkbox } from "../Checkbox";
 
 type Option<T> = {
   value: T;
@@ -97,8 +98,10 @@ export const Select = <T extends string | number>({
 
   const handleRemoveOption = (option: T, event: React.MouseEvent) => {
     event.stopPropagation();
+
     if (multiple) {
       const updatedOptions = value.filter((_value) => _value !== option);
+
       onChange(updatedOptions);
 
       if (updatedOptions.length === 0) {
@@ -141,7 +144,9 @@ export const Select = <T extends string | number>({
           return (
             <li
               key={index}
-              className={`option ${!disabled && value === option.value ? "selected" : ""}`.trimEnd()}
+              className={`option ${
+                !disabled && value === option.value ? "selected" : ""
+              }`.trimEnd()}
             >
               {multiple ? (
                 <Checkbox

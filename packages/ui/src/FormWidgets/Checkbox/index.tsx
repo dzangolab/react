@@ -1,10 +1,11 @@
 import { InputHTMLAttributes } from "react";
+
 interface IProperties extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   errorMessage?: string;
 }
 
-const Checkbox: React.FC<IProperties> = ({
+export const Checkbox: React.FC<IProperties> = ({
   name,
   label,
   onChange,
@@ -25,5 +26,3 @@ const Checkbox: React.FC<IProperties> = ({
     </div>
   );
 };
-
-export default Checkbox;
