@@ -4,16 +4,16 @@ import { NavLink } from "react-router-dom";
 interface Properties {
   subnav: Array<any>;
   children?: ReactNode;
-  navType?: "grouped" | "list";
+  isGrouped?: boolean;
 }
 
 export const Demo: React.FC<Properties> = ({
   subnav,
   children,
-  navType = "list",
+  isGrouped = false,
 }) => {
   const subnavigationMenu = useMemo(() => {
-    if (navType === "grouped") {
+    if (isGrouped) {
       return subnav.map(({ header, navItems }) => {
         return (
           <div className="nav-menu">
@@ -48,7 +48,7 @@ export const Demo: React.FC<Properties> = ({
         })}
       </ul>
     );
-  }, [subnav, navType]);
+  }, [subnav, isGrouped]);
 
   return (
     <div className="demo">

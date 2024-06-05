@@ -217,7 +217,7 @@ export const Pages = () => {
   ];
 
   return (
-    <Demo subnav={subnav} navType={"grouped"}>
+    <Demo subnav={subnav} isGrouped>
       <Outlet />
     </Demo>
   );
