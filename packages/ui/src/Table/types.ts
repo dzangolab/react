@@ -71,9 +71,13 @@ type TSingleFilter = {
   value: string;
 };
 
-type TMultiFilter = {
-  AND: TSingleFilter[];
-};
+type TMultiFilter =
+  | {
+      AND: TSingleFilter[];
+    }
+  | {
+      OR: TSingleFilter[];
+    };
 
 type TFilterRequest = TSingleFilter | TMultiFilter | null;
 
