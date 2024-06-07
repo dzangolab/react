@@ -64,6 +64,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  color: var(--_layout-header-color);
 }
 
 .dz-layout[aria-expanded="false"] > header > .header-container {

@@ -2,20 +2,23 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
-import { CheckboxDemo } from "./components/Checkbox";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
 import { FilesPresentationDemo } from "./components/FilesPresentation";
 import { FilesTableDemo } from "./components/FilesTable";
-import { InputDemo } from "./components/Input";
+import {
+  CheckboxDemo,
+  InputDemo,
+  SelectDemo,
+  TypeaheadDemo,
+} from "./components/FormWidgets";
 import { LoadingDemo } from "./components/Loading";
 import { LocalDataTableDemo } from "./components/LocalDataTable";
 import { MessageDemo } from "./components/Message";
 import { PageDemo } from "./components/PageDemo";
 import { PopupDemo } from "./components/Popup";
 import { ResponsiveMenuDemo } from "./components/ResponsiveMenu";
-import { SelectDemo } from "./components/Select";
 import { SortableListDemo } from "./components/SortableList";
 import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
@@ -23,7 +26,6 @@ import { TabbedPanelDemo } from "./components/TabbedPanel";
 import { TableDemo } from "./components/Table";
 import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
-import { TypeaheadDemo } from "./components/Typeahead";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
 
@@ -48,19 +50,36 @@ export const UI_ROUTES = {
   SELECT: "/ui/select",
   SORTABLE_LIST: "/ui/sortable-list",
   POPUP: "/ui/popup",
-  PAGEDEMO: "/ui/page-demo",
+  PAGE_DEMO: "/ui/page-demo",
   STEPPER: "/ui/stepper",
   TABBED_PANEL: "/ui/tabbed-pannel",
   TAG: "/ui/tag",
   TYPEAHEAD: "/ui/typeahead",
 };
 
-export const routes = [
+const FORM_WIDGETS_ROUTES = [
   {
-    path: UI_ROUTES.LOADING,
-    key: "loading.title",
-    element: <LoadingDemo />,
+    path: UI_ROUTES.CHECKBOX,
+    key: "checkbox.title",
+    element: <CheckboxDemo />,
   },
+  {
+    path: UI_ROUTES.INPUT,
+    key: "input.title",
+    element: <InputDemo />,
+  },
+  {
+    path: UI_ROUTES.SELECT,
+    key: "select.title",
+    element: <SelectDemo />,
+  },
+  {
+    path: UI_ROUTES.TYPEAHEAD,
+    key: "typeahead.title",
+    element: <TypeaheadDemo />,
+  },
+];
+const BUTTONS_ROUTES = [
   {
     path: UI_ROUTES.BUTTON,
     key: "button.title",
@@ -70,6 +89,18 @@ export const routes = [
     path: UI_ROUTES.SUBMIT_BUTTON,
     key: "submitButton.title",
     element: <SubmitButtonDemo />,
+  },
+  {
+    path: UI_ROUTES.EXPORT_BUTTON,
+    key: "exportButton.title",
+    element: <ExportButtonDemo />,
+  },
+];
+const OTHERS = [
+  {
+    path: UI_ROUTES.LOADING,
+    key: "loading.title",
+    element: <LoadingDemo />,
   },
   {
     path: UI_ROUTES.FILES_TABLE,
@@ -85,11 +116,6 @@ export const routes = [
     path: UI_ROUTES.YOUTUBE_FACADE,
     key: "youtubeFacade.title",
     element: <YoutubeFacadeDemo />,
-  },
-  {
-    path: UI_ROUTES.EXPORT_BUTTON,
-    key: "exportButton.title",
-    element: <ExportButtonDemo />,
   },
   {
     path: UI_ROUTES.FILE_CARD,
@@ -127,16 +153,6 @@ export const routes = [
     element: <TooltipDemo />,
   },
   {
-    path: UI_ROUTES.CHECKBOX,
-    key: "checkbox.title",
-    element: <CheckboxDemo />,
-  },
-  {
-    path: UI_ROUTES.INPUT,
-    key: "input.title",
-    element: <InputDemo />,
-  },
-  {
     path: UI_ROUTES.SORTABLE_LIST,
     key: "sortableList.title",
     element: <SortableListDemo />,
@@ -157,7 +173,7 @@ export const routes = [
     element: <TabbedPanelDemo />,
   },
   {
-    path: UI_ROUTES.PAGEDEMO,
+    path: UI_ROUTES.PAGE_DEMO,
     key: "page.title.menu",
     element: <PageDemo />,
   },
@@ -166,30 +182,42 @@ export const routes = [
     key: "tag.title",
     element: <TagDemo />,
   },
-  {
-    path: UI_ROUTES.SELECT,
-    key: "select.title",
-    element: <SelectDemo />,
-  },
-  {
-    path: UI_ROUTES.TYPEAHEAD,
-    key: "typeahead.title",
-    element: <TypeaheadDemo />,
-  },
 ];
+
+export const routes = [...OTHERS, ...BUTTONS_ROUTES, ...FORM_WIDGETS_ROUTES];
 
 export const Pages = () => {
   const [t] = useTranslation("ui");
 
   const subnav = [
-    { route: "/ui", label: t("app:getStarted") },
-    ...routes.map(({ path, key }) => {
-      return { route: path, label: t(key) };
-    }),
+    {
+      navItems: [
+        { route: "/ui", label: t("app:getStarted") },
+        ...OTHERS.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.buttons"),
+      navItems: [
+        ...BUTTONS_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.formWidgets"),
+      navItems: [
+        ...FORM_WIDGETS_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
   ];
 
   return (
-    <Demo subnav={subnav}>
+    <Demo subnav={subnav} isGrouped>
       <Outlet />
     </Demo>
   );

@@ -1,4 +1,8 @@
 {
+  "headers": {
+    "buttons": "Buttons (fr)",
+    "formWidgets": "Form widgets (fr)"
+  },
   "button": {
     "title": "Button (fr)",
     "usage": {
