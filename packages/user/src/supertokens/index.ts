@@ -24,7 +24,10 @@ const superTokens = (config: AppConfig) => {
             },
           };
         },
+        ...(config?.user?.supertokens?.sessionConfig?.override?.functions ||
+          {}),
       },
+      ...(config?.user?.supertokens?.sessionConfig || {}),
     }),
     ThirdPartyEmailPassword.init(
       config?.user?.supertokens?.thirdPartyEmailPasswordConfig,
