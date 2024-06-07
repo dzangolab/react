@@ -3,28 +3,28 @@ import { useEffect, useState } from "react";
 import LoadingIcon from "../../LoadingIcon";
 import { useDebouncedValue } from "../../utils";
 
-type Properties = {
+type Properties<T> = {
   className?: string;
-  data?: string[];
+  data?: T[];
   disabled?: boolean;
   debounceTime?: number;
-  value?: string;
+  value?: T;
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
   loading?: boolean;
   name?: string;
   placeholder?: string;
-  onSearch?: (value?: string) => void;
-  onChange?: (value?: string) => void;
+  onSearch?: (value?: T) => void;
+  onChange?: (value?: T) => void;
 };
 
-export const Typeahead = ({
+export const Typeahead = <T extends string | number>({
   className = "",
   data,
   disabled,
   debounceTime = 300,
-  value = "",
+  value,
   errorMessage,
   hasError,
   label,
@@ -33,15 +33,15 @@ export const Typeahead = ({
   placeholder,
   onChange,
   onSearch,
-}: Properties) => {
-  const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState(value);
+}: Properties<T>) => {
+  const [suggestions, setSuggestions] = useState<T[]>([]);
+  const [inputValue, setInputValue] = useState<T>((value || "") as T);
   const [selected, setSelected] = useState(false);
   const [hasInput, setHasInput] = useState(false);
 
   const debouncedValue = useDebouncedValue(inputValue, debounceTime);
 
-  const handleSelectedSuggestion = (suggestion: string) => {
+  const handleSelectedSuggestion = (suggestion: T) => {
     setInputValue(suggestion);
     setSuggestions([]);
     setSelected(true);
@@ -63,7 +63,7 @@ export const Typeahead = ({
   }, [debouncedValue]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
+    const input = event.target.value as T;
     setInputValue(input);
     setHasInput(true);
     setSelected(false);
@@ -72,7 +72,7 @@ export const Typeahead = ({
   const renderSuggestions = () => {
     const handleKeyDown = (
       event: React.KeyboardEvent<HTMLLIElement>,
-      suggestion: string,
+      suggestion: T,
     ) => {
       if (event.key === "Enter" && !disabled) {
         handleSelectedSuggestion(suggestion);
