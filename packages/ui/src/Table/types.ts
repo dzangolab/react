@@ -71,11 +71,15 @@ type TSingleFilter = {
   value: string;
 };
 
-type TMultiFilter = {
-  AND: TSingleFilter[];
-};
-
-type TFilterRequest = TSingleFilter | TMultiFilter | null;
+type TFilterRequest =
+  | TSingleFilter
+  | {
+      AND: TFilterRequest[];
+    }
+  | {
+      OR: TFilterRequest[];
+    }
+  | null;
 
 type TSingleSort = {
   key: string;
