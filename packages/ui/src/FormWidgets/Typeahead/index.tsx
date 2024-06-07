@@ -17,6 +17,7 @@ type Properties<T> = {
   placeholder?: string;
   onSearch?: (value?: T) => void;
   onChange?: (value?: T) => void;
+  renderSuggestion?: (value?: T[]) => React.ReactNode;
 };
 
 export const Typeahead = <T extends string | number>({
@@ -33,6 +34,7 @@ export const Typeahead = <T extends string | number>({
   placeholder,
   onChange,
   onSearch,
+  renderSuggestion,
 }: Properties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
   const [inputValue, setInputValue] = useState<T>((value || "") as T);
@@ -81,7 +83,13 @@ export const Typeahead = <T extends string | number>({
 
     return (
       <>
-        {!loading && hasInput && inputValue && suggestions.length > 0 && (
+        {!loading &&
+        hasInput &&
+        inputValue &&
+        suggestions.length > 0 &&
+        renderSuggestion ? (
+          renderSuggestion(suggestions)
+        ) : (
           <ul>
             {suggestions.map((suggestion, index) => (
               <li

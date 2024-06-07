@@ -14,6 +14,7 @@ interface ITypeahead<T extends string | number> {
   showValidState?: boolean;
   showInvalidState?: boolean;
   onSearch?: (value?: T) => void;
+  renderSuggestion?: (value?: T[]) => React.ReactNode;
 }
 
 export const Typeahead = <T extends string | number>({
@@ -28,6 +29,7 @@ export const Typeahead = <T extends string | number>({
   showInvalidState = true,
   showValidState = true,
   onSearch,
+  renderSuggestion,
 }: ITypeahead<T>) => {
   const { control, getFieldState } = useFormContext();
 
@@ -58,6 +60,7 @@ export const Typeahead = <T extends string | number>({
             hasError={submitCount > 0 ? checkInvalidState() : undefined}
             errorMessage={error?.message}
             onSearch={onSearch}
+            renderSuggestion={renderSuggestion}
           />
         );
       }}
