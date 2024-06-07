@@ -17,15 +17,15 @@ type Properties<T> = {
   placeholder?: string;
   onSearch?: (value?: T) => void;
   onChange?: (value?: T) => void;
-  renderSuggestion?: (value?: T[]) => React.ReactNode;
+  renderSuggestion?: (value?: T) => React.ReactNode;
 };
 
-export const Typeahead = <T extends string | number>({
+export const Typeahead = <T,>({
   className = "",
   data,
   disabled,
   debounceTime = 300,
-  value,
+  value = "" as T,
   errorMessage,
   hasError,
   label,
@@ -37,20 +37,15 @@ export const Typeahead = <T extends string | number>({
   renderSuggestion,
 }: Properties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
-  const [inputValue, setInputValue] = useState<T>((value || "") as T);
+  const [inputValue, setInputValue] = useState<T>(value);
   const [selected, setSelected] = useState(false);
   const [hasInput, setHasInput] = useState(false);
 
   const debouncedValue = useDebouncedValue(inputValue, debounceTime);
 
-  const handleSelectedSuggestion = (suggestion: T) => {
-    setInputValue(suggestion);
-    setSuggestions([]);
-    setSelected(true);
-    if (onChange) {
-      onChange(suggestion);
-    }
-  };
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   useEffect(() => {
     if (data) {
@@ -64,6 +59,15 @@ export const Typeahead = <T extends string | number>({
     }
   }, [debouncedValue]);
 
+  const handleSelectedSuggestion = (suggestion: T) => {
+    setInputValue(suggestion);
+    setSuggestions([]);
+    setSelected(true);
+    if (onChange) {
+      onChange(suggestion);
+    }
+  };
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value as T;
     setInputValue(input);
@@ -74,7 +78,7 @@ export const Typeahead = <T extends string | number>({
   const renderSuggestions = () => {
     const handleKeyDown = (
       event: React.KeyboardEvent<HTMLLIElement>,
-      suggestion: T,
+      suggestion: T
     ) => {
       if (event.key === "Enter" && !disabled) {
         handleSelectedSuggestion(suggestion);
@@ -83,13 +87,7 @@ export const Typeahead = <T extends string | number>({
 
     return (
       <>
-        {!loading &&
-        hasInput &&
-        inputValue &&
-        suggestions.length > 0 &&
-        renderSuggestion ? (
-          renderSuggestion(suggestions)
-        ) : (
+        {!loading && hasInput && inputValue && suggestions.length > 0 && (
           <ul>
             {suggestions.map((suggestion, index) => (
               <li
@@ -98,7 +96,7 @@ export const Typeahead = <T extends string | number>({
                 onKeyDown={(event) => handleKeyDown(event, suggestion)}
                 tabIndex={0}
               >
-                {suggestion}
+                {renderSuggestion ? renderSuggestion(suggestion) : suggestion}
               </li>
             ))}
           </ul>

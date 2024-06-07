@@ -4,6 +4,11 @@ import { useState } from "react";
 
 import { Section } from "../../../../components/Demo";
 
+type CustomSuggestionType = {
+  name: string;
+  value: number;
+};
+
 const items: string[] = [
   "red",
   "blue",
@@ -17,12 +22,30 @@ const items: string[] = [
   "gravers",
 ];
 
+const customItems: Array<CustomSuggestionType> = [
+  { name: "Rose", value: 10 },
+  { name: "Tulip", value: 20 },
+  { name: "Daisy", value: 30 },
+  { name: "Sunflower", value: 40 },
+  { name: "Lily", value: 50 },
+  { name: "Orchid", value: 60 },
+  { name: "Marigold", value: 70 },
+  { name: "Lavender", value: 80 },
+  { name: "Peony", value: 90 },
+  { name: "Chrysanthemum", value: 100 },
+  { name: "Daffodil", value: 110 },
+  { name: "Hydrangea", value: 120 },
+];
+
 export const TypeaheadDemo = () => {
   const [t] = useTranslation("ui");
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState<any>([]);
   const [selectedServerValue, setSelectedServerValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [customSuggestions, SetCustomSuggestions] = useState<
+    Array<CustomSuggestionType>
+  >([]);
 
   const handleDataFetch = (value: any) => {
     setIsLoading(true);
@@ -44,10 +67,34 @@ export const TypeaheadDemo = () => {
 
     if (value.length > 0) {
       newSuggestions = items.filter((_value) =>
-        _value.toLowerCase().startsWith(value.toLowerCase()),
+        _value.toLowerCase().startsWith(value.toLowerCase())
       );
       setSuggestions(newSuggestions);
     }
+  };
+
+  const handleCustomSuggestionDataFilter = (value: any) => {
+    let newSuggestions: any = [];
+
+    if (value.length > 0) {
+      newSuggestions = customItems.filter((_value) =>
+        _value.name.toLowerCase().includes(value.toLowerCase())
+      );
+      SetCustomSuggestions(newSuggestions);
+    }
+  };
+
+  const renderSuggestion = (suggestion: CustomSuggestionType) => {
+    return (
+      <>
+        <div>{suggestion.name}</div>
+        <div>{suggestion.value}</div>
+      </>
+    );
+  };
+
+  const handleInputChange = (suggestion: CustomSuggestionType) => {
+    setSelectedServerValue(suggestion.name);
   };
 
   return (
@@ -85,6 +132,17 @@ export const TypeaheadDemo = () => {
           label={t("typeahead.label.disabled")}
           data={items}
           disabled={true}
+        />
+      </Section>
+      <Section>
+        <Typeahead
+          placeholder={t("typeahead.placeholder")}
+          label={t("typeahead.label.customSuggestion")}
+          value={selectedServerValue}
+          data={customSuggestions}
+          onSearch={handleCustomSuggestionDataFilter}
+          renderSuggestion={renderSuggestion}
+          onChange={handleInputChange}
         />
       </Section>
     </Page>
