@@ -67,7 +67,7 @@ export const TypeaheadDemo = () => {
 
     if (value.length > 0) {
       newSuggestions = items.filter((_value) =>
-        _value.toLowerCase().startsWith(value.toLowerCase())
+        _value.toLowerCase().startsWith(value.toLowerCase()),
       );
       setSuggestions(newSuggestions);
     }
@@ -78,13 +78,13 @@ export const TypeaheadDemo = () => {
 
     if (value.length > 0) {
       newSuggestions = customItems.filter((_value) =>
-        _value.name.toLowerCase().includes(value.toLowerCase())
+        _value.name.toLowerCase().includes(value.toLowerCase()),
       );
       SetCustomSuggestions(newSuggestions);
     }
   };
 
-  const renderSuggestion = (suggestion: CustomSuggestionType) => {
+  const renderSuggestion = (suggestion: any): any => {
     return (
       <>
         <div>{suggestion.name}</div>
@@ -93,7 +93,7 @@ export const TypeaheadDemo = () => {
     );
   };
 
-  const handleInputChange = (suggestion: CustomSuggestionType) => {
+  const handleInputChange = (suggestion: any) => {
     setSelectedServerValue(suggestion.name);
   };
 

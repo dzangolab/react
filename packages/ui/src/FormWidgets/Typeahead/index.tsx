@@ -78,7 +78,7 @@ export const Typeahead = <T,>({
   const renderSuggestions = () => {
     const handleKeyDown = (
       event: React.KeyboardEvent<HTMLLIElement>,
-      suggestion: T
+      suggestion: T,
     ) => {
       if (event.key === "Enter" && !disabled) {
         handleSelectedSuggestion(suggestion);
@@ -96,7 +96,9 @@ export const Typeahead = <T,>({
                 onKeyDown={(event) => handleKeyDown(event, suggestion)}
                 tabIndex={0}
               >
-                {renderSuggestion ? renderSuggestion(suggestion) : suggestion}
+                {renderSuggestion
+                  ? renderSuggestion(suggestion)
+                  : (suggestion as string | number)}
               </li>
             ))}
           </ul>
@@ -114,7 +116,7 @@ export const Typeahead = <T,>({
       >
         <input
           type="text"
-          value={inputValue}
+          value={inputValue as string}
           onChange={handleInputChange}
           placeholder={loading ? "" : placeholder}
           disabled={disabled}
