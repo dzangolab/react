@@ -2,7 +2,7 @@ import { Typeahead as BasicTypeahead } from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-interface ITypeahead<T extends string | number> {
+interface ITypeahead<T> {
   data: T[];
   debounceTime?: number;
   disabled?: boolean;
@@ -17,7 +17,7 @@ interface ITypeahead<T extends string | number> {
   renderSuggestion?: (value?: T[]) => React.ReactNode;
 }
 
-export const Typeahead = <T extends string | number>({
+export const Typeahead = <T,>({
   data,
   debounceTime,
   disabled,

@@ -8,16 +8,16 @@ type Properties<T> = {
   data?: T[];
   disabled?: boolean;
   debounceTime?: number;
-  value?: T;
+  value?: string;
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
   loading?: boolean;
   name?: string;
   placeholder?: string;
-  onSearch?: (value?: T) => void;
-  onChange?: (value?: T) => void;
-  renderSuggestion?: (value?: T) => React.ReactNode;
+  onSearch?: (value: string) => void;
+  onChange?: (value: T) => void;
+  renderSuggestion?: (value: T) => React.ReactNode;
 };
 
 export const Typeahead = <T,>({
@@ -25,7 +25,7 @@ export const Typeahead = <T,>({
   data,
   disabled,
   debounceTime = 300,
-  value = "" as T,
+  value = "",
   errorMessage,
   hasError,
   label,
@@ -37,7 +37,7 @@ export const Typeahead = <T,>({
   renderSuggestion,
 }: Properties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
-  const [inputValue, setInputValue] = useState<T>(value);
+  const [inputValue, setInputValue] = useState<string>(value);
   const [selected, setSelected] = useState(false);
   const [hasInput, setHasInput] = useState(false);
 
@@ -60,16 +60,18 @@ export const Typeahead = <T,>({
   }, [debouncedValue]);
 
   const handleSelectedSuggestion = (suggestion: T) => {
-    setInputValue(suggestion);
-    setSuggestions([]);
-    setSelected(true);
+    if (typeof suggestion === "string") {
+      setInputValue(suggestion);
+    }
     if (onChange) {
       onChange(suggestion);
     }
+    setSuggestions([]);
+    setSelected(true);
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value as T;
+    const input = event.target.value;
     setInputValue(input);
     setHasInput(true);
     setSelected(false);
@@ -98,7 +100,7 @@ export const Typeahead = <T,>({
               >
                 {renderSuggestion
                   ? renderSuggestion(suggestion)
-                  : (suggestion as string | number)}
+                  : typeof suggestion === "string" && suggestion}
               </li>
             ))}
           </ul>
@@ -116,7 +118,7 @@ export const Typeahead = <T,>({
       >
         <input
           type="text"
-          value={inputValue as string | number}
+          value={inputValue}
           onChange={handleInputChange}
           placeholder={loading ? "" : placeholder}
           disabled={disabled}
