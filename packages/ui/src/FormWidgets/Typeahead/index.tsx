@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import LoadingIcon from "../../LoadingIcon";
 import { DebouncedInput } from "../DebouncedInput";
 
+type Suggestion = string | { value: string; label: string };
+
 type Properties<T> = {
   className?: string;
   data?: T[];
@@ -20,7 +22,7 @@ type Properties<T> = {
   renderSuggestion?: (value: T) => React.ReactNode;
 };
 
-export const Typeahead = <T,>({
+export const Typeahead = <T extends Suggestion>({
   className = "",
   data,
   disabled,
@@ -48,14 +50,12 @@ export const Typeahead = <T,>({
     }
   }, [data]);
 
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
-
   const handleSelectedSuggestion = (suggestion: T) => {
     isSuggestionSelected.current = true;
     if (typeof suggestion === "string") {
       setInputValue(suggestion);
+    } else if (typeof suggestion === "object" && suggestion.value) {
+      setInputValue(suggestion.value);
     }
 
     if (onChange) {
