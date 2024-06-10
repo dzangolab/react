@@ -73,7 +73,7 @@ export const TypeaheadDemo = () => {
     }
   };
 
-  const handleCustomSuggestionDataFilter = (value?: string) => {
+  const handleCustomSuggestionDataFilter = (value?: any) => {
     let newSuggestions: any = [];
 
     if (value && value.length > 0) {

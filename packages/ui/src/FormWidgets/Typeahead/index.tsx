@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import LoadingIcon from "../../LoadingIcon";
-import { useDebouncedValue } from "../../utils";
+import { DebouncedInput } from "../DebouncedInput";
 
 type Properties<T> = {
   className?: string;
@@ -15,7 +15,7 @@ type Properties<T> = {
   loading?: boolean;
   name?: string;
   placeholder?: string;
-  onSearch?: (value: string) => void;
+  onSearch?: (value: string | number | readonly string[]) => void;
   onChange?: (value: T) => void;
   renderSuggestion?: (value: T) => React.ReactNode;
 };
@@ -37,15 +37,10 @@ export const Typeahead = <T,>({
   renderSuggestion,
 }: Properties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
-  const [inputValue, setInputValue] = useState<string>(value);
-  const [selected, setSelected] = useState(false);
-  const [hasInput, setHasInput] = useState(false);
-
-  const debouncedValue = useDebouncedValue(inputValue, debounceTime);
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+  const [inputValue, setInputValue] = useState<
+    string | number | readonly string[]
+  >(value);
+  const isSuggestionSelected = useRef(false);
 
   useEffect(() => {
     if (data) {
@@ -54,27 +49,33 @@ export const Typeahead = <T,>({
   }, [data]);
 
   useEffect(() => {
-    if (onSearch && debouncedValue !== "" && !selected && hasInput) {
-      onSearch(debouncedValue);
-    }
-  }, [debouncedValue]);
+    setInputValue(value);
+  }, [value]);
 
   const handleSelectedSuggestion = (suggestion: T) => {
+    isSuggestionSelected.current = true;
     if (typeof suggestion === "string") {
       setInputValue(suggestion);
     }
+
     if (onChange) {
       onChange(suggestion);
     }
+
     setSuggestions([]);
-    setSelected(true);
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
-    setInputValue(input);
-    setHasInput(true);
-    setSelected(false);
+  const handleInputChange = (value: string | number | readonly string[]) => {
+    if (isSuggestionSelected.current) {
+      isSuggestionSelected.current = false;
+
+      return;
+    }
+    setInputValue(value);
+
+    if (onSearch) {
+      onSearch(value);
+    }
   };
 
   const renderSuggestions = () => {
@@ -89,7 +90,7 @@ export const Typeahead = <T,>({
 
     return (
       <>
-        {!loading && hasInput && inputValue && suggestions.length > 0 && (
+        {!loading && inputValue && suggestions.length > 0 && (
           <ul>
             {suggestions.map((suggestion, index) => (
               <li
@@ -116,11 +117,12 @@ export const Typeahead = <T,>({
         className={`input-field-typeahead ${disabled ? "disabled" : ""}`}
         aria-invalid={hasError}
       >
-        <input
+        <DebouncedInput
           type="text"
-          value={inputValue}
-          onChange={handleInputChange}
-          placeholder={loading ? "" : placeholder}
+          defaultValue={inputValue}
+          debounceTime={debounceTime}
+          onInputChange={handleInputChange}
+          placeholder={placeholder}
           disabled={disabled}
         />
         {loading && <LoadingIcon color="#ccc" />}

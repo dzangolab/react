@@ -32,6 +32,10 @@ export const DebouncedInput: React.FC<DebouncedInputProperties> = ({
   );
 
   useEffect(() => {
+    setInputValue(defaultValue);
+  }, [defaultValue]);
+
+  useEffect(() => {
     if (isMounted.current) {
       onInputChange(debouncedValue);
     } else {

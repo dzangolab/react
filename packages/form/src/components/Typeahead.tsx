@@ -13,8 +13,8 @@ interface ITypeahead<T> {
   submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  onSearch?: (value?: T) => void;
-  renderSuggestion?: (value?: T[]) => React.ReactNode;
+  onSearch: (value: any) => void;
+  renderSuggestion?: (value?: T) => React.ReactNode;
 }
 
 export const Typeahead = <T,>({
