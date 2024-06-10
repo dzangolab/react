@@ -2,8 +2,9 @@ import { Typeahead as BasicTypeahead } from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-type Suggestion = string | { value: string; label: string };
-interface ITypeahead<T> {
+type Suggestion = string | number | { value: string; label: string };
+
+interface IProperties<T> {
   data: T[];
   debounceTime?: number;
   disabled?: boolean;
@@ -31,7 +32,7 @@ export const Typeahead = <T extends Suggestion>({
   showValidState = true,
   onSearch,
   renderSuggestion,
-}: ITypeahead<T>) => {
+}: IProperties<T>) => {
   const { control, getFieldState } = useFormContext();
 
   const { error, invalid } = getFieldState(name);

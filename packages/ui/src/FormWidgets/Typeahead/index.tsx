@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import LoadingIcon from "../../LoadingIcon";
 import { DebouncedInput } from "../DebouncedInput";
 
-type Suggestion = string | { value: string; label: string };
+type Suggestion = string | number | { value: string; label: string };
 
-type Properties<T> = {
+interface IProperties<T> {
   className?: string;
   data?: T[];
   disabled?: boolean;
@@ -20,7 +20,7 @@ type Properties<T> = {
   onSearch?: (value: string | number | readonly string[]) => void;
   onChange?: (value: T) => void;
   renderSuggestion?: (value: T) => React.ReactNode;
-};
+}
 
 export const Typeahead = <T extends Suggestion>({
   className = "",
@@ -37,7 +37,7 @@ export const Typeahead = <T extends Suggestion>({
   onChange,
   onSearch,
   renderSuggestion,
-}: Properties<T>) => {
+}: IProperties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
   const [inputValue, setInputValue] = useState<
     string | number | readonly string[]
@@ -101,7 +101,9 @@ export const Typeahead = <T extends Suggestion>({
               >
                 {renderSuggestion
                   ? renderSuggestion(suggestion)
-                  : typeof suggestion === "string" && suggestion}
+                  : (typeof suggestion === "string" ||
+                      typeof suggestion === "number") &&
+                    suggestion}
               </li>
             ))}
           </ul>

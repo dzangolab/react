@@ -98,14 +98,14 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          value={t("typeahead.value.client")}
+          label={t("typeahead.label.client")}
           data={suggestions}
           onSearch={handleDataFilter}
         />
       </Section>
       <Section>
         <Typeahead
-          value={t("typeahead.value.server")}
+          label={t("typeahead.label.server")}
           placeholder={t("typeahead.placeholder")}
           data={options}
           loading={isLoading}
@@ -117,7 +117,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          value={t("typeahead.value.invalid")}
+          label={t("typeahead.label.invalid")}
           hasError={true}
           errorMessage="Required field"
         />
@@ -125,7 +125,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          value={t("typeahead.value.disabled")}
+          label={t("typeahead.label.disabled")}
           data={items}
           disabled={true}
         />
@@ -133,7 +133,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          value={t("typeahead.value.customSuggestion")}
+          label={t("typeahead.label.customSuggestion")}
           data={customSuggestions}
           onSearch={handleCustomSuggestionDataFilter}
           renderSuggestion={renderSuggestion}
