@@ -6,16 +6,16 @@
 
 .dz-typeahead {
   position: relative;
-  width: 100%;  
+  width: 100%;
 }
 
 .dz-typeahead > .input-field-typeahead {
   background-color: var(--dz-input-fill-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
-  margin-top: 0.75rem; 
+  margin-top: 0.75rem;
   position: relative;
-  width: 100%; 
+  width: 100%;
 }
 
 .dz-typeahead > .input-field-typeahead:focus-within {
@@ -30,19 +30,21 @@
   border-color: var(--field-valid-border-color);
 }
 
-.dz-typeahead > .input-field-typeahead > input {
+.dz-typeahead > .input-field-typeahead > .debounced-input {
+  background: transparent;
   border: none;
   border-radius: var(--field-border-radius);
   padding: 0.75rem 0.65rem;
   width: 90%;
 }
 
-.dz-typeahead > .input-field-typeahead > input:disabled {
+.dz-typeahead > .input-field-typeahead > .debounced-input:disabled {
   background-color: var(--field-disabled-color);
 }
 
-.dz-typeahead > .input-field-typeahead > input:focus {
+.dz-typeahead > .input-field-typeahead > .debounced-input:focus {
   outline: none;
+  box-shadow: none !important;
 }
 
 .dz-typeahead > .input-field-typeahead.disabled {
@@ -53,9 +55,9 @@
   background-color: var(--field-suggestion-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
-  padding: 0.75rem 0.65rem; 
+  padding: 0.75rem 0.65rem;
   position: absolute;
-  width: 100%;  
+  width: 100%;
   z-index: 1000;
 }
 
@@ -66,7 +68,7 @@
 .dz-typeahead > ul > li:hover {
   background-color: var(--field-option-hover-color);
   cursor: pointer;
-} 
+}
 
 .dz-typeahead > ul > li:focus {
   background-color: var(--field-option-hover-color);

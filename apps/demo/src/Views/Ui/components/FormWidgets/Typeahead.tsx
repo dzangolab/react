@@ -46,6 +46,7 @@ export const TypeaheadDemo = () => {
   const [customSuggestions, setCustomSuggestions] = useState<
     Array<CustomSuggestionType>
   >([]);
+  const [selectedCustomSuggestion, setSelectedCustomSuggestion] = useState("");
 
   const handleDataFetch = (value: any) => {
     setIsLoading(true);
@@ -94,11 +95,7 @@ export const TypeaheadDemo = () => {
   };
 
   const handleInputChange = (suggestion: any) => {
-    if (!suggestion) {
-      return null;
-    }
-
-    setSelectedServerValue(suggestion.name);
+    setSelectedCustomSuggestion(suggestion.name);
   };
 
   return (
@@ -142,8 +139,8 @@ export const TypeaheadDemo = () => {
         <Typeahead
           placeholder={t("typeahead.placeholder")}
           label={t("typeahead.label.customSuggestion")}
-          value={selectedServerValue}
-          data={customSuggestions as any}
+          value={selectedCustomSuggestion}
+          data={customSuggestions}
           onSearch={handleCustomSuggestionDataFilter}
           renderSuggestion={renderSuggestion}
           onChange={handleInputChange}
