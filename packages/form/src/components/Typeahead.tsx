@@ -13,7 +13,7 @@ interface ITypeahead<T> {
   submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  onSearch: (value: string | number | readonly string[]) => void;
+  onSearch?: (value: string | number | readonly string[]) => void;
   renderSuggestion?: (value?: T) => React.ReactNode;
 }
 

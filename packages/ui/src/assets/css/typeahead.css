@@ -43,8 +43,8 @@
 }
 
 .dz-typeahead > .input-field-typeahead > .debounced-input:focus {
-  outline: none;
   box-shadow: none !important;
+  outline: none;
 }
 
 .dz-typeahead > .input-field-typeahead.disabled {
@@ -62,7 +62,8 @@
 }
 
 .dz-typeahead > ul > li {
-  padding: 0.25rem 0;
+  border-radius: 0.2rem;
+  padding: 0.25rem 0.25rem;
 }
 
 .dz-typeahead > ul > li:hover {

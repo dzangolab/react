@@ -77,7 +77,7 @@ export const TypeaheadDemo = () => {
   const handleCustomSuggestionDataFilter = (value?: any) => {
     let newSuggestions: any = [];
 
-    if (value && value.length > 0) {
+    if (value && value.length) {
       newSuggestions = suggestionItems.filter((_value) =>
         _value.name.toLowerCase().includes(value.toLowerCase()),
       );

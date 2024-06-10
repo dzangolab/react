@@ -189,6 +189,7 @@
     "title": "Typeahead",
     "label": {
       "client": "Client side Typeahead",
+      "customSuggestion": "Custom suggestion typeahead",
       "disabled": "Disabled",
       "server": "Server side Typeahead",
       "invalid": "Invalid"
