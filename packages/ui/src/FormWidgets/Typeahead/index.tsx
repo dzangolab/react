@@ -116,7 +116,7 @@ export const Typeahead = <T,>({
       >
         <input
           type="text"
-          value={inputValue as string}
+          value={inputValue as string | number}
           onChange={handleInputChange}
           placeholder={loading ? "" : placeholder}
           disabled={disabled}

@@ -22,7 +22,7 @@ const items: string[] = [
   "gravers",
 ];
 
-const customItems: Array<CustomSuggestionType> = [
+const suggestionItems: Array<CustomSuggestionType> = [
   { name: "Rose", value: 10 },
   { name: "Tulip", value: 20 },
   { name: "Daisy", value: 30 },
@@ -43,7 +43,7 @@ export const TypeaheadDemo = () => {
   const [options, setOptions] = useState<any>([]);
   const [selectedServerValue, setSelectedServerValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [customSuggestions, SetCustomSuggestions] = useState<
+  const [customSuggestions, setCustomSuggestions] = useState<
     Array<CustomSuggestionType>
   >([]);
 
@@ -73,18 +73,18 @@ export const TypeaheadDemo = () => {
     }
   };
 
-  const handleCustomSuggestionDataFilter = (value: any) => {
+  const handleCustomSuggestionDataFilter = (value?: string) => {
     let newSuggestions: any = [];
 
-    if (value.length > 0) {
-      newSuggestions = customItems.filter((_value) =>
+    if (value && value.length > 0) {
+      newSuggestions = suggestionItems.filter((_value) =>
         _value.name.toLowerCase().includes(value.toLowerCase()),
       );
-      SetCustomSuggestions(newSuggestions);
+      setCustomSuggestions(newSuggestions);
     }
   };
 
-  const renderSuggestion = (suggestion: any): any => {
+  const renderSuggestion = (suggestion: any) => {
     return (
       <>
         <div>{suggestion.name}</div>
@@ -94,6 +94,10 @@ export const TypeaheadDemo = () => {
   };
 
   const handleInputChange = (suggestion: any) => {
+    if (!suggestion) {
+      return null;
+    }
+
     setSelectedServerValue(suggestion.name);
   };
 
@@ -139,7 +143,7 @@ export const TypeaheadDemo = () => {
           placeholder={t("typeahead.placeholder")}
           label={t("typeahead.label.customSuggestion")}
           value={selectedServerValue}
-          data={customSuggestions}
+          data={customSuggestions as any}
           onSearch={handleCustomSuggestionDataFilter}
           renderSuggestion={renderSuggestion}
           onChange={handleInputChange}
