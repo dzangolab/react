@@ -5,8 +5,8 @@ import { useState } from "react";
 import { Section } from "../../../../components/Demo";
 
 type CustomSuggestionType = {
-  label: string;
-  value: number;
+  value: string;
+  label: number;
 };
 
 const items: string[] = [
@@ -23,18 +23,18 @@ const items: string[] = [
 ];
 
 const suggestionItems: Array<CustomSuggestionType> = [
-  { label: "Rose", value: 10 },
-  { label: "Tulip", value: 20 },
-  { label: "Daisy", value: 30 },
-  { label: "Sunflower", value: 40 },
-  { label: "Lily", value: 50 },
-  { label: "Orchid", value: 60 },
-  { label: "Marigold", value: 70 },
-  { label: "Lavender", value: 80 },
-  { label: "Peony", value: 90 },
-  { label: "Chrysanthemum", value: 100 },
-  { label: "Daffodil", value: 110 },
-  { label: "Hydrangea", value: 120 },
+  { value: "Roslabel", label: 10 },
+  { value: "Tulip", label: 20 },
+  { value: "Daisy", label: 30 },
+  { value: "Sunflower", label: 40 },
+  { value: "Lily", label: 50 },
+  { value: "Orchid", label: 60 },
+  { value: "Marigold", label: 70 },
+  { value: "Lavender", label: 80 },
+  { value: "Peony", label: 90 },
+  { value: "Chrysanthemum", label: 100 },
+  { value: "Daffodil", label: 110 },
+  { value: "Hydrangea", label: 120 },
 ];
 
 export const TypeaheadDemo = () => {
@@ -78,7 +78,7 @@ export const TypeaheadDemo = () => {
 
     if (value && value.length) {
       newSuggestions = suggestionItems.filter((_value) =>
-        _value.label.toLowerCase().includes(value.toLowerCase()),
+        _value.value.toLowerCase().includes(value.toLowerCase()),
       );
       setCustomSuggestions(newSuggestions);
     }
@@ -87,8 +87,8 @@ export const TypeaheadDemo = () => {
   const renderSuggestion = (suggestion: any) => {
     return (
       <>
-        <div>{suggestion.label}</div>
         <div>{suggestion.value}</div>
+        <div>{suggestion.label}</div>
       </>
     );
   };
@@ -98,14 +98,14 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          label={t("typeahead.label.client")}
+          value={t("typeahead.value.client")}
           data={suggestions}
           onSearch={handleDataFilter}
         />
       </Section>
       <Section>
         <Typeahead
-          label={t("typeahead.label.server")}
+          value={t("typeahead.value.server")}
           placeholder={t("typeahead.placeholder")}
           data={options}
           loading={isLoading}
@@ -117,7 +117,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          label={t("typeahead.label.invalid")}
+          value={t("typeahead.value.invalid")}
           hasError={true}
           errorMessage="Required field"
         />
@@ -125,7 +125,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          label={t("typeahead.label.disabled")}
+          value={t("typeahead.value.disabled")}
           data={items}
           disabled={true}
         />
@@ -133,7 +133,7 @@ export const TypeaheadDemo = () => {
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}
-          label={t("typeahead.label.customSuggestion")}
+          value={t("typeahead.value.customSuggestion")}
           data={customSuggestions}
           onSearch={handleCustomSuggestionDataFilter}
           renderSuggestion={renderSuggestion}
