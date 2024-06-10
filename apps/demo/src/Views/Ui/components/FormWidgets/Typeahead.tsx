@@ -63,7 +63,7 @@ export const TypeaheadDemo = () => {
     setSelectedServerValue(value);
   };
 
-  const hanldeDataFilter = (value: any) => {
+  const handleDataFilter = (value: any) => {
     let newSuggestions: any = [];
 
     if (value.length > 0) {
@@ -105,7 +105,7 @@ export const TypeaheadDemo = () => {
           placeholder={t("typeahead.placeholder")}
           label={t("typeahead.label.client")}
           data={suggestions}
-          onSearch={hanldeDataFilter}
+          onSearch={handleDataFilter}
         />
       </Section>
       <Section>
