@@ -1,24 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { InputHTMLAttributes, useEffect, useRef, useState } from "react";
 
 import LoadingIcon from "../../LoadingIcon";
 import { DebouncedInput } from "../DebouncedInput";
 
 type Suggestion = string | number | { value: string; label: string };
 
-interface IProperties<T> {
-  className?: string;
+interface IProperties<T> extends InputHTMLAttributes<HTMLInputElement> {
   data?: T[];
-  disabled?: boolean;
   debounceTime?: number;
-  value?: string;
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
   loading?: boolean;
-  name?: string;
-  placeholder?: string;
+  name: string;
   onSearch?: (value: string | number | readonly string[]) => void;
-  onChange?: (value: T) => void;
+  onSuggestionSelect?: (value: T) => void;
   renderSuggestion?: (value: T) => React.ReactNode;
 }
 
@@ -34,7 +30,8 @@ export const Typeahead = <T extends Suggestion>({
   loading,
   name,
   placeholder,
-  onChange,
+  type = "text",
+  onSuggestionSelect,
   onSearch,
   renderSuggestion,
 }: IProperties<T>) => {
@@ -58,8 +55,8 @@ export const Typeahead = <T extends Suggestion>({
       setInputValue(suggestion.value);
     }
 
-    if (onChange) {
-      onChange(suggestion);
+    if (onSuggestionSelect) {
+      onSuggestionSelect(suggestion);
     }
 
     setSuggestions([]);
@@ -88,6 +85,22 @@ export const Typeahead = <T extends Suggestion>({
       }
     };
 
+    const renderSuggestionContent = (suggestion: T) => {
+      if (renderSuggestion) {
+        return renderSuggestion(suggestion);
+      }
+
+      if (typeof suggestion === "object" && suggestion.label) {
+        return suggestion.label;
+      }
+
+      if (typeof suggestion === "string" || typeof suggestion === "number") {
+        return suggestion;
+      }
+
+      return null;
+    };
+
     return (
       <>
         {!loading && inputValue && suggestions.length > 0 && (
@@ -99,11 +112,7 @@ export const Typeahead = <T extends Suggestion>({
                 onKeyDown={(event) => handleKeyDown(event, suggestion)}
                 tabIndex={0}
               >
-                {renderSuggestion
-                  ? renderSuggestion(suggestion)
-                  : (typeof suggestion === "string" ||
-                      typeof suggestion === "number") &&
-                    suggestion}
+                {renderSuggestionContent(suggestion)}
               </li>
             ))}
           </ul>
@@ -120,7 +129,7 @@ export const Typeahead = <T extends Suggestion>({
         aria-invalid={hasError}
       >
         <DebouncedInput
-          type="text"
+          type={type}
           defaultValue={inputValue}
           debounceTime={debounceTime}
           onInputChange={handleInputChange}

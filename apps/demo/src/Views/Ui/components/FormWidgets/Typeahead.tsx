@@ -119,7 +119,7 @@ export const TypeaheadDemo = () => {
           data={options}
           loading={isLoading}
           onSearch={handleDataFetch}
-          onChange={handleServerChange}
+          onSuggestionSelect={handleServerChange}
           debounceTime={500}
         />
       </Section>
