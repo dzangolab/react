@@ -103,7 +103,7 @@ export const Typeahead = <T extends Suggestion>({
 
     return (
       <>
-        {!loading && inputValue && suggestions.length > 0 && (
+        {inputValue && suggestions.length > 0 && (
           <ul>
             {suggestions.map((suggestion, index) => (
               <li
