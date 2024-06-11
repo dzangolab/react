@@ -10,7 +10,6 @@ interface IProperties<T> extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   loading?: boolean;
   name: string;
-  placeholder?: string;
   submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
