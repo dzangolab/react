@@ -186,11 +186,15 @@
     "placeHolder": "-- select value --"
   },
   "typeahead": {
+    "message": {
+      "emptyMessage": "No results found"
+    },
     "title": "Typeahead",
     "label": {
       "client": "Client side Typeahead",
       "customSuggestion": "Custom suggestion typeahead",
       "disabled": "Disabled",
+      "emptyMessage": "Empty message typeahead",
       "server": "Server side Typeahead",
       "invalid": "Invalid"
     },

@@ -7,6 +7,7 @@ type Suggestion = string | number | { value: string; label: string };
 interface IProperties<T> extends InputHTMLAttributes<HTMLInputElement> {
   data: T[];
   debounceTime?: number;
+  emptyMessage?: string;
   label?: string;
   loading?: boolean;
   name: string;
@@ -21,6 +22,7 @@ export const Typeahead = <T extends Suggestion>({
   data,
   debounceTime,
   disabled,
+  emptyMessage,
   label = "",
   loading,
   name,
@@ -51,6 +53,7 @@ export const Typeahead = <T extends Suggestion>({
             label={label}
             name={name}
             disabled={disabled}
+            emptyMessage={emptyMessage}
             placeholder={placeholder}
             data={data}
             onChange={field.onChange}

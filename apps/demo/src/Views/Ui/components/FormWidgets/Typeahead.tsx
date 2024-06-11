@@ -148,6 +148,17 @@ export const TypeaheadDemo = () => {
           renderSuggestion={renderSuggestion}
         />
       </Section>
+      <Section>
+        <Typeahead
+          placeholder={t("typeahead.placeholder")}
+          label={t("typeahead.label.emptyMessage")}
+          data={options}
+          loading={isLoading}
+          onSearch={handleDataFetch}
+          onChange={handleServerChange}
+          emptyMessage={t("typeahead.message.emptyMessage")}
+        />
+      </Section>
     </Page>
   );
 };

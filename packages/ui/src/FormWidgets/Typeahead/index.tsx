@@ -10,6 +10,7 @@ interface IProperties<T>
   data?: T[];
   debounceTime?: number;
   errorMessage?: string;
+  emptyMessage?: string;
   hasError?: boolean;
   label?: string;
   loading?: boolean;
@@ -25,6 +26,7 @@ export const Typeahead = <T extends Suggestion>({
   debounceTime = 300,
   value = "",
   errorMessage,
+  emptyMessage,
   hasError,
   label,
   loading,
@@ -40,12 +42,30 @@ export const Typeahead = <T extends Suggestion>({
     string | number | readonly string[]
   >(value);
   const isSuggestionSelected = useRef(false);
+  const suggestionReference = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     if (data) {
       setSuggestions(data);
     }
   }, [data]);
+
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (
+      suggestionReference.current &&
+      !suggestionReference.current.contains(event.target as HTMLElement)
+    ) {
+      setInputValue("");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [handleOutsideClick]);
 
   const handleSelectedSuggestion = (suggestion: T) => {
     isSuggestionSelected.current = true;
@@ -101,22 +121,40 @@ export const Typeahead = <T extends Suggestion>({
       return null;
     };
 
+    const renderEmptyMessage = () => {
+      if (loading) {
+        return null;
+      }
+
+      return (
+        <ul ref={suggestionReference}>
+          <li>
+            <span role="alert">{emptyMessage}</span>
+          </li>
+        </ul>
+      );
+    };
+
     return (
       <>
-        {inputValue && suggestions.length > 0 && (
-          <ul>
-            {suggestions.map((suggestion, index) => (
-              <li
-                key={index}
-                onClick={() => handleSelectedSuggestion(suggestion)}
-                onKeyDown={(event) => handleKeyDown(event, suggestion)}
-                tabIndex={0}
-              >
-                {renderSuggestionContent(suggestion)}
-              </li>
-            ))}
-          </ul>
-        )}
+        {inputValue &&
+          !isSuggestionSelected.current &&
+          (suggestions.length > 0 ? (
+            <ul>
+              {suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleSelectedSuggestion(suggestion)}
+                  onKeyDown={(event) => handleKeyDown(event, suggestion)}
+                  tabIndex={0}
+                >
+                  {renderSuggestionContent(suggestion)}
+                </li>
+              ))}
+            </ul>
+          ) : emptyMessage ? (
+            renderEmptyMessage()
+          ) : null)}
       </>
     );
   };
