@@ -12,6 +12,7 @@ const superTokens = (config: AppConfig) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recipeLists: Array<any> = [
     Session.init({
+      ...(config?.user?.supertokens?.sessionConfig || {}),
       override: {
         functions: (originalImplementation) => {
           return {
@@ -24,6 +25,7 @@ const superTokens = (config: AppConfig) => {
             },
           };
         },
+        ...(config?.user?.supertokens?.sessionConfig?.override || {}),
       },
     }),
     ThirdPartyEmailPassword.init(
