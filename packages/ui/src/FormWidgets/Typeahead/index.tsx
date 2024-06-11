@@ -5,17 +5,17 @@ import { DebouncedInput } from "../DebouncedInput";
 
 type Suggestion = string | number | { value: string; label: string };
 
-interface IProperties<T> extends InputHTMLAttributes<HTMLInputElement> {
+interface IProperties<T>
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
   data?: T[];
   debounceTime?: number;
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
   loading?: boolean;
-  name: string;
   onSearch?: (value: string | number | readonly string[]) => void;
-  onSuggestionSelect?: (value: T) => void;
-  renderSuggestion?: (value: T) => React.ReactNode;
+  onChange?: (value: T) => void;
+  renderSuggestion?: (suggestion: T) => React.ReactNode;
 }
 
 export const Typeahead = <T extends Suggestion>({
@@ -31,7 +31,7 @@ export const Typeahead = <T extends Suggestion>({
   name,
   placeholder,
   type = "text",
-  onSuggestionSelect,
+  onChange,
   onSearch,
   renderSuggestion,
 }: IProperties<T>) => {
@@ -55,8 +55,8 @@ export const Typeahead = <T extends Suggestion>({
       setInputValue(suggestion.value);
     }
 
-    if (onSuggestionSelect) {
-      onSuggestionSelect(suggestion);
+    if (onChange) {
+      onChange(suggestion);
     }
 
     setSuggestions([]);

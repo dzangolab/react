@@ -10,6 +10,7 @@ interface IProperties<T> extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   loading?: boolean;
   name: string;
+  placeholder?: string;
   submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
@@ -53,7 +54,7 @@ export const Typeahead = <T extends Suggestion>({
             disabled={disabled}
             placeholder={placeholder}
             data={data}
-            onSuggestionSelect={field.onChange}
+            onChange={field.onChange}
             value={field.value}
             loading={loading}
             debounceTime={debounceTime}
