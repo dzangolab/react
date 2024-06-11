@@ -6,7 +6,7 @@ import { Section } from "../../../../components/Demo";
 
 type CustomSuggestionType = {
   value: string;
-  label: number;
+  label: string;
 };
 
 const items: string[] = [
@@ -22,19 +22,28 @@ const items: string[] = [
   "gravers",
 ];
 
-const suggestionItems: Array<CustomSuggestionType> = [
-  { value: "Roslabel", label: 10 },
-  { value: "Tulip", label: 20 },
-  { value: "Daisy", label: 30 },
-  { value: "Sunflower", label: 40 },
-  { value: "Lily", label: 50 },
-  { value: "Orchid", label: 60 },
-  { value: "Marigold", label: 70 },
-  { value: "Lavender", label: 80 },
-  { value: "Peony", label: 90 },
-  { value: "Chrysanthemum", label: 100 },
-  { value: "Daffodil", label: 110 },
-  { value: "Hydrangea", label: 120 },
+const suggestionItems = [
+  {
+    value: "Roslabel",
+    label: "A fragrant flower often associated with romance",
+  },
+  { value: "Tulip", label: "A bright, cup-shaped flower popular in spring" },
+  { value: "Daisy", label: "A simple, white flower with a yellow center" },
+  {
+    value: "Sunflower",
+    label: "A tall plant with a large, yellow flower head",
+  },
+  { value: "Lily", label: "An elegant flower often used in bouquets" },
+  { value: "Orchid", label: "An exotic flower with a unique shape" },
+  { value: "Marigold", label: "A vibrant, orange or yellow flower" },
+  { value: "Lavender", label: "A fragrant flower known for its calming scent" },
+  { value: "Peony", label: "A lush, full flower often used in weddings" },
+  { value: "Chrysanthemum", label: "A hardy flower with a variety of colors" },
+  { value: "Daffodil", label: "A bright, yellow flower that blooms in spring" },
+  {
+    value: "Hydrangea",
+    label: "A large, cluster-like flower that changes color",
+  },
 ];
 
 export const TypeaheadDemo = () => {
@@ -73,8 +82,8 @@ export const TypeaheadDemo = () => {
     }
   };
 
-  const handleCustomSuggestionDataFilter = (value?: any) => {
-    let newSuggestions: any = [];
+  const handleCustomSuggestionDataFilter = (value: any) => {
+    let newSuggestions = [];
 
     if (value && value.length) {
       newSuggestions = suggestionItems.filter((_value) =>
@@ -84,7 +93,7 @@ export const TypeaheadDemo = () => {
     }
   };
 
-  const renderSuggestion = (suggestion: any) => {
+  const renderSuggestion = (suggestion: CustomSuggestionType) => {
     return (
       <>
         <div>{suggestion.value}</div>
