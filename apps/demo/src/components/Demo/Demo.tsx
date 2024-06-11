@@ -14,9 +14,9 @@ export const Demo: React.FC<Properties> = ({
 }) => {
   const subnavigationMenu = useMemo(() => {
     if (isGrouped) {
-      return subnav.map(({ header, navItems }) => {
+      return subnav.map(({ header, navItems }, index) => {
         return (
-          <div className="nav-menu">
+          <div key={index} className="nav-menu">
             {header ? <h2>{header}</h2> : <></>}
 
             <ul>

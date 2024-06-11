@@ -182,10 +182,15 @@
     "placeHolder": "-- select value -- (fr)"
   },
   "typeahead": {
+    "message": {
+      "emptyMessage": "No results found (fr)"
+    },
     "title": "Typeahead (fr)",
     "label": {
       "client": "Client side Typeahead (fr)",
+      "customSuggestion": "Custom suggestion typeahead (fr)",
       "disabled": "Disabled (fr)",
+      "emptyMessage": "Empty message typeahead (fr)",
       "server": "Server side Typeahead (fr)",
       "invalid": "Invalid (fr)"
     },

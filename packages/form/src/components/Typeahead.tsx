@@ -1,25 +1,28 @@
 import { Typeahead as BasicTypeahead } from "@dzangolab/react-ui";
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-interface ITypeahead {
-  data: string[];
+type Suggestion = string | number | { value: string; label: string };
+
+interface IProperties<T> extends InputHTMLAttributes<HTMLInputElement> {
+  data: T[];
   debounceTime?: number;
-  disabled?: boolean;
+  emptyMessage?: string;
   label?: string;
   loading?: boolean;
   name: string;
-  placeholder?: string;
   submitCount?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
-  onSearch?: (value?: string) => void;
+  onSearch?: (value: string | number | readonly string[]) => void;
+  renderSuggestion?: (value?: T) => React.ReactNode;
 }
 
-export const Typeahead: React.FC<ITypeahead> = ({
+export const Typeahead = <T extends Suggestion>({
   data,
   debounceTime,
   disabled,
+  emptyMessage,
   label = "",
   loading,
   name,
@@ -28,7 +31,8 @@ export const Typeahead: React.FC<ITypeahead> = ({
   showInvalidState = true,
   showValidState = true,
   onSearch,
-}) => {
+  renderSuggestion,
+}: IProperties<T>) => {
   const { control, getFieldState } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
@@ -49,6 +53,7 @@ export const Typeahead: React.FC<ITypeahead> = ({
             label={label}
             name={name}
             disabled={disabled}
+            emptyMessage={emptyMessage}
             placeholder={placeholder}
             data={data}
             onChange={field.onChange}
@@ -58,6 +63,7 @@ export const Typeahead: React.FC<ITypeahead> = ({
             hasError={submitCount > 0 ? checkInvalidState() : undefined}
             errorMessage={error?.message}
             onSearch={onSearch}
+            renderSuggestion={renderSuggestion}
           />
         );
       }}

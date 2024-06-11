@@ -1,54 +1,48 @@
-import { useEffect, useState } from "react";
+import { InputHTMLAttributes, useEffect, useRef, useState } from "react";
 
 import LoadingIcon from "../../LoadingIcon";
-import { useDebouncedValue } from "../../utils";
+import { DebouncedInput } from "../DebouncedInput";
 
-type Properties = {
-  className?: string;
-  data?: string[];
-  disabled?: boolean;
+type Suggestion = string | number | { value: string; label: string };
+
+interface IProperties<T>
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+  data?: T[];
   debounceTime?: number;
-  value?: string;
   errorMessage?: string;
+  emptyMessage?: string;
   hasError?: boolean;
   label?: string;
   loading?: boolean;
-  name?: string;
-  placeholder?: string;
-  onSearch?: (value?: string) => void;
-  onChange?: (value?: string) => void;
-};
+  onSearch?: (value: string | number | readonly string[]) => void;
+  onChange?: (value: T) => void;
+  renderSuggestion?: (suggestion: T) => React.ReactNode;
+}
 
-export const Typeahead = ({
+export const Typeahead = <T extends Suggestion>({
   className = "",
   data,
   disabled,
   debounceTime = 300,
   value = "",
   errorMessage,
+  emptyMessage,
   hasError,
   label,
   loading,
   name,
   placeholder,
+  type = "text",
   onChange,
   onSearch,
-}: Properties) => {
-  const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState(value);
-  const [selected, setSelected] = useState(false);
-  const [hasInput, setHasInput] = useState(false);
-
-  const debouncedValue = useDebouncedValue(inputValue, debounceTime);
-
-  const handleSelectedSuggestion = (suggestion: string) => {
-    setInputValue(suggestion);
-    setSuggestions([]);
-    setSelected(true);
-    if (onChange) {
-      onChange(suggestion);
-    }
-  };
+  renderSuggestion,
+}: IProperties<T>) => {
+  const [suggestions, setSuggestions] = useState<T[]>([]);
+  const [inputValue, setInputValue] = useState<
+    string | number | readonly string[]
+  >(value);
+  const isSuggestionSelected = useRef(false);
+  const suggestionReference = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     if (data) {
@@ -56,45 +50,111 @@ export const Typeahead = ({
     }
   }, [data]);
 
-  useEffect(() => {
-    if (onSearch && debouncedValue !== "" && !selected && hasInput) {
-      onSearch(debouncedValue);
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (
+      suggestionReference.current &&
+      !suggestionReference.current.contains(event.target as HTMLElement)
+    ) {
+      setInputValue("");
     }
-  }, [debouncedValue]);
+  };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
-    setInputValue(input);
-    setHasInput(true);
-    setSelected(false);
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [handleOutsideClick]);
+
+  const handleSelectedSuggestion = (suggestion: T) => {
+    isSuggestionSelected.current = true;
+    if (typeof suggestion === "string") {
+      setInputValue(suggestion);
+    } else if (typeof suggestion === "object" && suggestion.value) {
+      setInputValue(suggestion.value);
+    }
+
+    if (onChange) {
+      onChange(suggestion);
+    }
+
+    setSuggestions([]);
+  };
+
+  const handleInputChange = (value: string | number | readonly string[]) => {
+    if (isSuggestionSelected.current) {
+      isSuggestionSelected.current = false;
+
+      return;
+    }
+    setInputValue(value);
+
+    if (onSearch) {
+      onSearch(value);
+    }
   };
 
   const renderSuggestions = () => {
     const handleKeyDown = (
       event: React.KeyboardEvent<HTMLLIElement>,
-      suggestion: string,
+      suggestion: T,
     ) => {
       if (event.key === "Enter" && !disabled) {
         handleSelectedSuggestion(suggestion);
       }
     };
 
+    const renderSuggestionContent = (suggestion: T) => {
+      if (renderSuggestion) {
+        return renderSuggestion(suggestion);
+      }
+
+      if (typeof suggestion === "object" && suggestion.label) {
+        return suggestion.label;
+      }
+
+      if (typeof suggestion === "string" || typeof suggestion === "number") {
+        return suggestion;
+      }
+
+      return null;
+    };
+
+    const renderEmptyMessage = () => {
+      if (loading) {
+        return null;
+      }
+
+      return (
+        <ul ref={suggestionReference}>
+          <li>
+            <span role="alert">{emptyMessage}</span>
+          </li>
+        </ul>
+      );
+    };
+
     return (
       <>
-        {!loading && hasInput && inputValue && suggestions.length > 0 && (
-          <ul>
-            {suggestions.map((suggestion, index) => (
-              <li
-                key={index}
-                onClick={() => handleSelectedSuggestion(suggestion)}
-                onKeyDown={(event) => handleKeyDown(event, suggestion)}
-                tabIndex={0}
-              >
-                {suggestion}
-              </li>
-            ))}
-          </ul>
-        )}
+        {inputValue &&
+          !isSuggestionSelected.current &&
+          (suggestions.length > 0 ? (
+            <ul>
+              {suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleSelectedSuggestion(suggestion)}
+                  onKeyDown={(event) => handleKeyDown(event, suggestion)}
+                  tabIndex={0}
+                >
+                  {renderSuggestionContent(suggestion)}
+                </li>
+              ))}
+            </ul>
+          ) : emptyMessage ? (
+            renderEmptyMessage()
+          ) : null)}
       </>
     );
   };
@@ -106,11 +166,12 @@ export const Typeahead = ({
         className={`input-field-typeahead ${disabled ? "disabled" : ""}`}
         aria-invalid={hasError}
       >
-        <input
-          type="text"
-          value={inputValue}
-          onChange={handleInputChange}
-          placeholder={loading ? "" : placeholder}
+        <DebouncedInput
+          type={type}
+          defaultValue={inputValue}
+          debounceTime={debounceTime}
+          onInputChange={handleInputChange}
+          placeholder={placeholder}
           disabled={disabled}
         />
         {loading && <LoadingIcon color="#ccc" />}
