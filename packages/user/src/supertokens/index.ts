@@ -4,9 +4,9 @@ import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import ProfileValidationClaim from "./profileValidationClaim";
-
 import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
+
+import ProfileValidationClaim from "./profileValidationClaim";
 
 const superTokens = (config: AppConfig) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

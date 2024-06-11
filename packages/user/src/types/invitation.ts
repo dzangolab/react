@@ -44,6 +44,8 @@ export interface InvitationExpiryDateField {
 
 export type AddInvitationResponse = Invitation | ErrorResponse;
 
+export type DeleteInvitationResponse = Invitation | ErrorResponse;
+
 export type ResendInvitationResponse = Invitation | ErrorResponse;
 
 export type RevokeInvitationResponse = Invitation | ErrorResponse;

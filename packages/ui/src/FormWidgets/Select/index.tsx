@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { Tag, Checkbox } from "..";
+import { Tag } from "../../Tag";
+import { Checkbox } from "../Checkbox";
 
 type Option<T> = {
   value: T;
@@ -33,7 +34,7 @@ type ISelectProperties<T> = {
 );
 
 export const Select = <T extends string | number>({
-  autoSelectSingleOption = true,
+  autoSelectSingleOption = false,
   disabled: selectFieldDisabled,
   errorMessage,
   hasError,
@@ -50,18 +51,22 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
-  const disabled =
-    selectFieldDisabled ?? (options.length === 1 && autoSelectSingleOption);
+  const shouldAutoSelect = useMemo(() => {
+    return (
+      autoSelectSingleOption &&
+      !multiple &&
+      options.length === 1 &&
+      !options[0].disabled
+    );
+  }, [options, multiple, autoSelectSingleOption]);
+
+  const disabled = selectFieldDisabled ?? shouldAutoSelect;
 
   useEffect(() => {
-    if (
-      options.length === 1 &&
-      !options[0].disabled &&
-      autoSelectSingleOption
-    ) {
+    if (shouldAutoSelect) {
       handleSelectedOption(options[0].value);
     }
-  }, []);
+  }, [options]);
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
@@ -93,13 +98,18 @@ export const Select = <T extends string | number>({
 
   const handleRemoveOption = (option: T, event: React.MouseEvent) => {
     event.stopPropagation();
+
     if (multiple) {
       const updatedOptions = value.filter((_value) => _value !== option);
+
       onChange(updatedOptions);
 
       if (updatedOptions.length === 0) {
         setShowOptions(false);
       }
+    } else {
+      onChange("" as T);
+      setShowOptions(false);
     }
   };
 
@@ -120,7 +130,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <div className="select-field-options">
+      <ul className="select-field-options">
         {options?.map((option, index) => {
           const { disabled, label } = option;
           let isChecked = false;
@@ -132,9 +142,11 @@ export const Select = <T extends string | number>({
             });
 
           return (
-            <div
+            <li
               key={index}
-              className={`option ${!disabled && value === option.value ? "selected" : ""}`.trimEnd()}
+              className={`option ${
+                !disabled && value === option.value ? "selected" : ""
+              }`.trimEnd()}
             >
               {multiple ? (
                 <Checkbox
@@ -145,15 +157,23 @@ export const Select = <T extends string | number>({
                 />
               ) : null}
               <span
-                onClick={() => !disabled && handleSelectedOption(option.value)}
+                onClick={() => {
+                  if (!disabled) {
+                    handleSelectedOption(option.value);
+                  }
+
+                  if (!multiple) {
+                    setShowOptions(false);
+                  }
+                }}
                 className={disabled ? "disabled" : ""}
               >
                 {renderOption ? renderOption(option) : label}
               </span>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     );
   };
 
@@ -162,6 +182,8 @@ export const Select = <T extends string | number>({
       if (renderValue) {
         return renderValue(value, options);
       }
+
+      const selectedOption = options.find((opt) => opt.value === value);
 
       return (
         <>
@@ -177,12 +199,14 @@ export const Select = <T extends string | number>({
                     renderContent={() => (
                       <>
                         <span>{option.label}</span>
-                        <i
-                          className="pi pi-times"
-                          onClick={(event) =>
-                            handleRemoveOption(option.value, event)
-                          }
-                        ></i>
+                        {!disabled && (
+                          <i
+                            className="pi pi-times"
+                            onClick={(event) =>
+                              handleRemoveOption(option.value, event)
+                            }
+                          ></i>
+                        )}
                       </>
                     )}
                     rounded
@@ -191,7 +215,17 @@ export const Select = <T extends string | number>({
               })}
             </div>
           ) : (
-            <span>{options.find((opt) => opt.value === value)?.label}</span>
+            <>
+              <span>{selectedOption?.label}</span>
+              {selectedOption && !disabled && (
+                <i
+                  className="pi pi-times"
+                  onClick={(event) =>
+                    handleRemoveOption(selectedOption.value, event)
+                  }
+                ></i>
+              )}
+            </>
           )}
         </>
       );
@@ -236,9 +270,7 @@ export const Select = <T extends string | number>({
     <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       {renderSelect()}
-      {options.length === 1 && !options[0].disabled && autoSelectSingleOption
-        ? null
-        : showOptions && renderOptions()}
+      {shouldAutoSelect ? null : showOptions && renderOptions()}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );

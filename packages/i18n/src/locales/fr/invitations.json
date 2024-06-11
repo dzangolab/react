@@ -2,6 +2,9 @@
   "confirmation": {
     "header": "Confirmation (fr)",
     "confirm": {
+      "delete": {
+        "message": "Are you sure you want to delete? (fr)"
+      },
       "resend": {
         "message": "Are you sure you want to resend? (fr)"
       },
@@ -40,6 +43,7 @@
   },
   "invitations": {
     "actions": {
+      "delete": "Delete (fr)",
       "resend": "Resend (fr)",
       "revoke": "Revoke (fr)"
     },
@@ -52,6 +56,10 @@
     }
   },
   "messages": {
+    "delete": {
+      "success": "Successfully deleted invitation (fr)",
+      "error": "Error deleting invitation (fr)"
+    },
     "invite": {
       "success": "Successfully invited user (fr)",
       "error": "Error inviting user (fr)"

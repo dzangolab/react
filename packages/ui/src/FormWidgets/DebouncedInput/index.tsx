@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type InputHTMLAttributes,
+  type ChangeEvent,
+} from "react";
 
-import { useDebouncedValue } from "../utils";
-
-import type { InputHTMLAttributes, ChangeEvent } from "react";
+import { useDebouncedValue } from "../../utils";
 
 export interface DebouncedInputProperties
   extends InputHTMLAttributes<HTMLInputElement> {

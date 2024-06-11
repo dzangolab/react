@@ -29,7 +29,7 @@ interface ISelect {
 }
 
 export const Select: React.FC<ISelect> = ({
-  autoSelectSingleOption = true,
+  autoSelectSingleOption = false,
   disabled,
   label = "",
   multiple = false,
@@ -51,15 +51,17 @@ export const Select: React.FC<ISelect> = ({
     if (showValidState && !invalid) return false;
   };
 
+  //TODO [MA 2024-05-31]: remove this redundant useEffect for auto selecting single option
   useEffect(() => {
     if (
+      autoSelectSingleOption &&
+      !multiple &&
       options.length === 1 &&
-      !options[0].disabled &&
-      autoSelectSingleOption
+      !options[0].disabled
     ) {
-      setValue(name, multiple ? [options[0].value] : options[0].value);
+      setValue(name, options[0].value);
     }
-  }, []);
+  }, [options]);
 
   return (
     <Controller

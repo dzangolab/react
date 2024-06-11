@@ -8,6 +8,11 @@ import {
   TableColumnDefinition,
   Tag,
 } from "@dzangolab/react-ui";
+import { toast } from "react-toastify";
+
+import { deleteInvitation } from "@/api/invitation";
+import { useConfig } from "@/hooks";
+import { DeleteInvitationResponse } from "@/types/invitation";
 
 import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
 
@@ -47,6 +52,7 @@ export type InvitationsTableProperties = Partial<
   invitationExpiryDateField?: InvitationExpiryDateField;
   invitations: Array<Invitation>;
   onInvitationAdded?: (response: AddInvitationResponse) => void;
+  onInvitationDeleted?: (response: DeleteInvitationResponse) => void;
   onInvitationResent?: (data: ResendInvitationResponse) => void;
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -66,6 +72,7 @@ export const InvitationsTable = ({
   invitationButtonOptions,
   invitationExpiryDateField,
   invitations,
+  onInvitationDeleted,
   onInvitationAdded,
   onInvitationResent,
   onInvitationRevoked,
@@ -84,11 +91,31 @@ export const InvitationsTable = ({
   ],
   ...tableOptions
 }: InvitationsTableProperties) => {
+  const { apiBaseUrl } = useConfig();
+
   const { t } = useTranslation("invitations");
   const { onResendConfirm, onRevokeConfirm } = useInvitationActionsMethods({
     onInvitationResent,
     onInvitationRevoked,
   });
+
+  const handleDeleteInvitation = async (id: number) => {
+    deleteInvitation(id, apiBaseUrl)
+      .then((response) => {
+        if ("data" in response && response.data.status === "ERROR") {
+          toast.error(t("messages.delete.error"));
+        } else {
+          toast.success(t("messages.delete.success"));
+
+          if (onInvitationDeleted) {
+            onInvitationDeleted(response);
+          }
+        }
+      })
+      .catch(() => {
+        toast.error("messages.delete.error");
+      });
+  };
 
   const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
@@ -254,6 +281,17 @@ export const InvitationsTable = ({
             requireConfirmationModal: true,
             confirmationOptions: {
               message: t("confirmation.confirm.revoke.message"),
+              header: t("confirmation.header"),
+            },
+          },
+          {
+            label: t("invitations.actions.delete"),
+            icon: "pi pi-trash",
+            className: "danger",
+            onClick: (invitation) => handleDeleteInvitation(invitation.id),
+            requireConfirmationModal: true,
+            confirmationOptions: {
+              message: t("confirmation.confirm.delete.message"),
               header: t("confirmation.header"),
             },
           },

@@ -1,4 +1,8 @@
 {
+  "headers": {
+    "buttons": "Buttons",
+    "formWidgets": "Form widgets"
+  },
   "button": {
     "title": "Button",
     "usage": {
@@ -180,5 +184,15 @@
       "single": "Single select"
     },
     "placeHolder": "-- select value --"
+  },
+  "typeahead": {
+    "title": "Typeahead",
+    "label": {
+      "client": "Client side Typeahead",
+      "disabled": "Disabled",
+      "server": "Server side Typeahead",
+      "invalid": "Invalid"
+    },
+    "placeholder": "Search..."
   }
 }
