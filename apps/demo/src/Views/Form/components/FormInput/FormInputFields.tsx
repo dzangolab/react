@@ -9,6 +9,7 @@ import {
   Select,
   Typeahead,
 } from "@dzangolab/react-form";
+import { TextArea } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useEffect, useState } from "react";
 
@@ -90,6 +91,14 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="number"
         label={t("formInput.label.number")}
         placeholder={t("formInput.placeHolder.number")}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+      />
+      <TextArea
+        name="text"
+        label={t("formInput.label.text")}
+        placeholder={t("formInput.placeHolder.text")}
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}

@@ -1,5 +1,4 @@
-import { ITextareaProperties } from "@dzangolab/react-ui";
-import React from "react";
+import { ITextareaProperties, Textarea } from "@dzangolab/react-ui";
 import {
   Controller,
   UseFormGetFieldState,
@@ -7,7 +6,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 
-interface ITextArea extends ITextareaProperties {
+interface ITextarea extends ITextareaProperties {
   defaultValue?: string;
   label?: string;
   name: string;
@@ -23,7 +22,7 @@ interface ITextArea extends ITextareaProperties {
   register?: UseFormRegister<any>;
 }
 
-export const TextArea: React.FC<ITextArea> = ({
+export const TextArea: React.FC<ITextarea> = ({
   defaultValue = "",
   label = "",
   placeholder = "",
@@ -48,7 +47,7 @@ export const TextArea: React.FC<ITextArea> = ({
       control={control}
       defaultValue={defaultValue}
       render={({ field }) => (
-        <TextArea
+        <Textarea
           name={field.name}
           label={label}
           placeholder={placeholder}

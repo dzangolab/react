@@ -46,14 +46,15 @@ form .field .p-dropdown {
 
 form .field .p-dropdown > span.p-dropdown-label {
   padding: var(--form-input-padding-v, 0.75rem)
-  var(--form-input-padding-h, 0.65rem);
+    var(--form-input-padding-h, 0.65rem);
 }
 
 form .field .p-calendar > input {
   background-color: var(--dz-input-fill-color);
 }
 
-form input {
+form input,
+form textarea {
   background-color: var(--dz-input-fill-color);
   border-radius: var(--form-input-border-radius, 0.25em);
   border: 1px solid var(--form-input-border-color, #000);
