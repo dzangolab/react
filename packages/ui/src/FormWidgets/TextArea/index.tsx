@@ -1,6 +1,6 @@
 import { TextareaHTMLAttributes } from "react";
 
-export interface ITextAreaProperties
+export interface ITextareaProperties
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   errorMessage?: string;
   hasError?: boolean;
@@ -18,7 +18,7 @@ export const Textarea = ({
   readOnly,
   onChange,
   ...others
-}: ITextAreaProperties) => {
+}: ITextareaProperties) => {
   return (
     <div className={`field ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
