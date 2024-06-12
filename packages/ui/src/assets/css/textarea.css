@@ -1,9 +1,5 @@
-:root {
-  --dz-textarea-fill-color: var(--field-fill-color);
-}
-
 .textarea-field {
-  background-color: var(--dz-textarea-fill-color);
+  background-color: var(--dz-input-fill-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   padding: 0.75rem 0.65rem;
