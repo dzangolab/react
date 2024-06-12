@@ -46,7 +46,7 @@ export const Typeahead = <T extends Suggestion>({
     <Controller
       name={name}
       control={control}
-      defaultValue="data"
+      defaultValue=""
       render={({ field }) => {
         const handleSearch = (value: string | number | readonly string[]) => {
           if (onSearch) {
