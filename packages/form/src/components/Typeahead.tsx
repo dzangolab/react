@@ -51,12 +51,12 @@ export const Typeahead = <T extends Suggestion>({
       defaultValue=""
       render={({ field }) => {
         const handleSearch = (value: string | number | readonly string[]) => {
-          if (forceSelect && onSearch) {
-            return onSearch(value);
-          }
-
           if (onSearch) {
             onSearch(value);
+          }
+
+          if (forceSelect) {
+            return;
           }
 
           field.onChange(value);
