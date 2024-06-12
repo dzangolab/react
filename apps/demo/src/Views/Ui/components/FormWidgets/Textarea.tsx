@@ -9,14 +9,17 @@ export const TextareaDemo = () => {
   return (
     <Page title={t("textarea.title")}>
       <Section>
-        <Textarea placeholder="Textarea placeholder" label="Textarea label" />
+        <Textarea
+          placeholder={t("textarea.placeHolder")}
+          label={t("textarea.label")}
+        />
       </Section>
       <Section>
         <Textarea
           hasError={true}
-          errorMessage="Invalid input"
-          placeholder="Textarea placeholder"
-          label="Textarea label"
+          errorMessage={t("textarea.errorMessage")}
+          placeholder={t("textarea.placeHolder")}
+          label={t("textarea.label")}
         />
       </Section>
     </Page>

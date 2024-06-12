@@ -126,6 +126,9 @@
     }
   },
   "textarea": {
+    "errorMessage": "Invalid input (fr)",
+    "label": "Textarea label (fr)",
+    "placeHolder": "Textarea placeholder (fr)",
     "title": "Textarea (fr)"
   },
   "localDataTable": {

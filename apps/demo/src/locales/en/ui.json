@@ -130,6 +130,9 @@
     }
   },
   "textarea": {
+    "errorMessage": "Invalid input",
+    "label": "Textarea label",
+    "placeHolder": "Textarea placeholder",
     "title": "Textarea"
   },
   "localDataTable": {
