@@ -46,8 +46,16 @@ export const Typeahead = <T extends Suggestion>({
     <Controller
       name={name}
       control={control}
-      defaultValue=""
+      defaultValue="data"
       render={({ field }) => {
+        const handleSearch = (value: string | number | readonly string[]) => {
+          if (onSearch) {
+            onSearch(value);
+          }
+
+          field.onChange(value);
+        };
+
         return (
           <BasicTypeahead
             label={label}
@@ -62,7 +70,7 @@ export const Typeahead = <T extends Suggestion>({
             debounceTime={debounceTime}
             hasError={submitCount > 0 ? checkInvalidState() : undefined}
             errorMessage={error?.message}
-            onSearch={onSearch}
+            onSearch={handleSearch}
             renderSuggestion={renderSuggestion}
           />
         );
