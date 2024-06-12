@@ -7,6 +7,7 @@ type Suggestion = string | number | object;
 
 interface SuggestionLabel<T> {
   suggestionLabel?: T extends object ? keyof T : undefined;
+  suggestionValue?: T extends object ? keyof T : undefined;
 }
 
 interface IProperties<T>
@@ -42,6 +43,7 @@ export const Typeahead = <T extends Suggestion>({
   onSearch,
   renderSuggestion,
   suggestionLabel,
+  suggestionValue,
 }: IProperties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
   const [inputValue, setInputValue] = useState<
@@ -75,18 +77,19 @@ export const Typeahead = <T extends Suggestion>({
 
   const handleSelectedSuggestion = (suggestion: T) => {
     isSuggestionSelected.current = true;
+
     if (typeof suggestion === "string") {
       setInputValue(suggestion);
-    } else if (
-      typeof suggestion === "object" &&
-      suggestionLabel &&
-      Object.keys(suggestion).includes(suggestionLabel)
-    ) {
+    } else if (typeof suggestion === "object" && suggestionLabel) {
       setInputValue(suggestion[suggestionLabel]);
     }
 
     if (onChange) {
-      onChange(suggestion);
+      if (suggestionValue) {
+        onChange(suggestion[suggestionValue]);
+      } else {
+        onChange(suggestion);
+      }
     }
 
     setSuggestions([]);
@@ -98,6 +101,7 @@ export const Typeahead = <T extends Suggestion>({
 
       return;
     }
+
     setInputValue(value);
 
     if (onSearch) {
