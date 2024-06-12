@@ -18,16 +18,6 @@ type Properties = {
   checkFilledState: (data: boolean) => void;
 };
 
-const items: string[] = [
-  "red",
-  "Blue",
-  "yellow",
-  "gray",
-  "black",
-  "purple",
-  "pink",
-];
-
 export const FormInputFields = ({ checkFilledState }: Properties) => {
   const [t] = useTranslation("form");
   const [isLoading, setIsLoading] = useState(false);

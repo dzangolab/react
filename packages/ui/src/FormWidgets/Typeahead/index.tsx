@@ -11,6 +11,7 @@ interface IProperties<T>
   debounceTime?: number;
   errorMessage?: string;
   emptyMessage?: string;
+  forceSelect?: boolean;
   hasError?: boolean;
   label?: string;
   loading?: boolean;
@@ -27,6 +28,7 @@ export const Typeahead = <T extends Suggestion>({
   value = "",
   errorMessage,
   emptyMessage,
+  forceSelect = true,
   hasError,
   label,
   loading,
@@ -55,7 +57,10 @@ export const Typeahead = <T extends Suggestion>({
       suggestionReference.current &&
       !suggestionReference.current.contains(event.target as HTMLElement)
     ) {
-      setInputValue("");
+      forceSelect
+        ? setInputValue("")
+        : (setSuggestions([]),
+          (suggestionReference.current.style.display = "none"));
     }
   };
 
@@ -140,7 +145,7 @@ export const Typeahead = <T extends Suggestion>({
         {inputValue &&
           !isSuggestionSelected.current &&
           (suggestions.length > 0 ? (
-            <ul>
+            <ul ref={suggestionReference}>
               {suggestions.map((suggestion, index) => (
                 <li
                   key={index}
