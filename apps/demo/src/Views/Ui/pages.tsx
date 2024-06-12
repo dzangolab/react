@@ -11,6 +11,7 @@ import {
   CheckboxDemo,
   InputDemo,
   SelectDemo,
+  TextareaDemo,
   TypeaheadDemo,
 } from "./components/FormWidgets";
 import { LoadingDemo } from "./components/Loading";
@@ -54,6 +55,7 @@ export const UI_ROUTES = {
   STEPPER: "/ui/stepper",
   TABBED_PANEL: "/ui/tabbed-pannel",
   TAG: "/ui/tag",
+  TEXTAREA: "/ui/textarea",
   TYPEAHEAD: "/ui/typeahead",
 };
 
@@ -72,6 +74,11 @@ const FORM_WIDGETS_ROUTES = [
     path: UI_ROUTES.SELECT,
     key: "select.title",
     element: <SelectDemo />,
+  },
+  {
+    path: UI_ROUTES.TEXTAREA,
+    key: "textarea.title",
+    element: <TextareaDemo />,
   },
   {
     path: UI_ROUTES.TYPEAHEAD,
