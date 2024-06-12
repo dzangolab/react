@@ -37,7 +37,8 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
       fetch(`https://api.escuelajs.co/api/v1/products/?title=${value}`)
         .then(async (response) => {
           const data = await response.json();
-          setOptions(data.map((item: any) => item.title));
+
+          setOptions(data.map((item: any) => item));
           setIsLoading(false);
         })
         .catch((err) => console.log("err", err));
@@ -127,6 +128,8 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         label={t("formInput.label.typeahead")}
         name="typeahead"
         data={options}
+        suggestionLabel="title"
+        suggestionValue="title"
         loading={isLoading}
         onSearch={handleDataFetch}
         debounceTime={500}

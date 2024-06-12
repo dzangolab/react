@@ -14,9 +14,7 @@ export const FormInputDemo = () => {
       invalid: t("formInput.message.invalid"),
       required: t("formInput.message.required"),
     }),
-    name: zod.string().nonempty({
-      message: t("formInput.message.required"),
-    }),
+    name: zod.string().min(1, t("formInput.message.required")),
     password: passwordSchema(
       {
         required: t("formInput.message.required"),
@@ -26,9 +24,7 @@ export const FormInputDemo = () => {
         minLength: 0,
       },
     ),
-    surname: zod.string().nonempty({
-      message: t("formInput.message.required"),
-    }),
+    surname: zod.string().min(1, t("formInput.message.required")),
     number: zod
       .number({
         required_error: t("formInput.message.required"),
@@ -41,9 +37,7 @@ export const FormInputDemo = () => {
       .string()
       .array()
       .nonempty({ message: t("formInput.message.required") }),
-    typeahead: zod.string().nonempty({
-      message: t("formInput.message.required"),
-    }),
+    typeahead: zod.string().min(1, t("formInput.message.required")),
   });
 
   const handleSubmit = (formData: any) => {
@@ -63,6 +57,7 @@ export const FormInputDemo = () => {
         filled: false,
         valid: false,
         invalid: false,
+        typeahead: "string",
       }}
     >
       <FormInputFields checkFilledState={checkFilledState} />

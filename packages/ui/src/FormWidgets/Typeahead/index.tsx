@@ -5,14 +5,14 @@ import { DebouncedInput } from "../DebouncedInput";
 
 type Suggestion = string | number | object;
 
-interface SuggestionLabel<T> {
+interface SuggestionOption<T> {
   suggestionLabel?: T extends object ? keyof T : undefined;
   suggestionValue?: T extends object ? keyof T : undefined;
 }
 
 interface IProperties<T>
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
-    SuggestionLabel<T> {
+    SuggestionOption<T> {
   data?: T[];
   debounceTime?: number;
   errorMessage?: string;
