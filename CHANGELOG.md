@@ -1,3 +1,25 @@
+# [0.43.0](https://github.com/dzangolab/react/compare/v0.42.0...v0.43.0) (2024-06-12)
+
+
+### Bug Fixes
+
+* **layout:** inherit header-menu-color from dz-layout-header-color ([#1023](https://github.com/dzangolab/react/issues/1023)) ([b2f640d](https://github.com/dzangolab/react/commit/b2f640d3b9a512c47506c8dee5f2edb5b46b4580))
+* **select-options:** close the options list on single select ([#1016](https://github.com/dzangolab/react/issues/1016)) ([9337b0e](https://github.com/dzangolab/react/commit/9337b0e8f0125475d5e83e8c015dcf4ecee49a39))
+* **table-filter:** support multiple filters with OR for the table filters ([#1024](https://github.com/dzangolab/react/issues/1024)) ([9b1fbb0](https://github.com/dzangolab/react/commit/9b1fbb0cd8f80cbe6d57edc78f5190df753c8340))
+* **typeahead:** fix typeahead border ui ([#1020](https://github.com/dzangolab/react/issues/1020)) ([c1c532a](https://github.com/dzangolab/react/commit/c1c532a8e7805bcd7c2bde73b3bef15fb732b2e7))
+* **user:** fix session sharing-issue ([#1027](https://github.com/dzangolab/react/issues/1027)) ([66b3dd1](https://github.com/dzangolab/react/commit/66b3dd190b6f343540a1d01929952705f464b342))
+
+
+### Features
+
+* **delete-invitation:** add method for deleting invitation ([#1018](https://github.com/dzangolab/react/issues/1018)) ([2708a3e](https://github.com/dzangolab/react/commit/2708a3ea0856c51d14d0775728e0691e711a0880))
+* **demo:** add table with vertical and horizontal border css ([#1007](https://github.com/dzangolab/react/issues/1007)) ([f743e2d](https://github.com/dzangolab/react/commit/f743e2d3765ca81ecce9bd9b63d326acccc4a680))
+* **ui-typeahead:** use generic type in typeahead component ([#1025](https://github.com/dzangolab/react/issues/1025)) ([26f6938](https://github.com/dzangolab/react/commit/26f6938a870fa10274852b20eef7d5c7f4bf6a60))
+* **ui/select:** add icon to remove option incase of single selection ([#1015](https://github.com/dzangolab/react/issues/1015)) ([1d73b88](https://github.com/dzangolab/react/commit/1d73b8819e7a1e4825775b7baf851516c8bb15aa))
+* **ui/typeahead:** add typeahead component ([#1005](https://github.com/dzangolab/react/issues/1005)) ([a7dc348](https://github.com/dzangolab/react/commit/a7dc348f6e811b2ed0122c61ecff0346e7eaac6d))
+
+
+
 # [0.42.0](https://github.com/dzangolab/react/compare/v0.41.0...v0.42.0) (2024-05-31)
 
 
