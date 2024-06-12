@@ -3,10 +3,15 @@ import { InputHTMLAttributes, useEffect, useRef, useState } from "react";
 import LoadingIcon from "../../LoadingIcon";
 import { DebouncedInput } from "../DebouncedInput";
 
-type Suggestion = string | number | { value: string; label: string };
+type Suggestion = string | number | object;
+
+interface SuggestionLabel<T> {
+  suggestionLabel?: T extends object ? keyof T : undefined;
+}
 
 interface IProperties<T>
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
+    SuggestionLabel<T> {
   data?: T[];
   debounceTime?: number;
   errorMessage?: string;
@@ -36,6 +41,7 @@ export const Typeahead = <T extends Suggestion>({
   onChange,
   onSearch,
   renderSuggestion,
+  suggestionLabel,
 }: IProperties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
   const [inputValue, setInputValue] = useState<
@@ -71,8 +77,12 @@ export const Typeahead = <T extends Suggestion>({
     isSuggestionSelected.current = true;
     if (typeof suggestion === "string") {
       setInputValue(suggestion);
-    } else if (typeof suggestion === "object" && suggestion.value) {
-      setInputValue(suggestion.value);
+    } else if (
+      typeof suggestion === "object" &&
+      suggestionLabel &&
+      Object.keys(suggestion).includes(suggestionLabel)
+    ) {
+      setInputValue(suggestion[suggestionLabel]);
     }
 
     if (onChange) {
@@ -110,8 +120,12 @@ export const Typeahead = <T extends Suggestion>({
         return renderSuggestion(suggestion);
       }
 
-      if (typeof suggestion === "object" && suggestion.label) {
-        return suggestion.label;
+      if (
+        typeof suggestion === "object" &&
+        suggestionLabel &&
+        Object.keys(suggestion).includes(suggestionLabel)
+      ) {
+        return suggestion[suggestionLabel];
       }
 
       if (typeof suggestion === "string" || typeof suggestion === "number") {
