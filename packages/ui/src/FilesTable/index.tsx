@@ -1,7 +1,6 @@
 import React from "react";
 
 import {
-  ConfirmationModal,
   TDataTable as DataTable,
   FileMessages,
   TDataTableProperties,
@@ -12,7 +11,6 @@ import {
 import { DataActionsMenuItem } from "../Table/TableDataActions";
 
 import type { ColumnDef } from "@tanstack/react-table";
-import type { ComponentProps } from "react";
 
 export type TableMessages = {
   searchPlaceholder?: string;

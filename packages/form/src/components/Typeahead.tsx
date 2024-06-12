@@ -8,6 +8,7 @@ interface IProperties<T> extends InputHTMLAttributes<HTMLInputElement> {
   data: T[];
   debounceTime?: number;
   emptyMessage?: string;
+  forceSelect?: boolean;
   label?: string;
   loading?: boolean;
   name: string;
@@ -23,6 +24,7 @@ export const Typeahead = <T extends Suggestion>({
   debounceTime,
   disabled,
   emptyMessage,
+  forceSelect = true,
   label = "",
   loading,
   name,
@@ -48,12 +50,25 @@ export const Typeahead = <T extends Suggestion>({
       control={control}
       defaultValue=""
       render={({ field }) => {
+        const handleSearch = (value: string | number | readonly string[]) => {
+          if (onSearch) {
+            onSearch(value);
+          }
+
+          if (forceSelect) {
+            return;
+          }
+
+          field.onChange(value);
+        };
+
         return (
           <BasicTypeahead
             label={label}
             name={name}
             disabled={disabled}
             emptyMessage={emptyMessage}
+            forceSelect={forceSelect}
             placeholder={placeholder}
             data={data}
             onChange={field.onChange}
@@ -62,7 +77,7 @@ export const Typeahead = <T extends Suggestion>({
             debounceTime={debounceTime}
             hasError={submitCount > 0 ? checkInvalidState() : undefined}
             errorMessage={error?.message}
-            onSearch={onSearch}
+            onSearch={handleSearch}
             renderSuggestion={renderSuggestion}
           />
         );
