@@ -24,7 +24,7 @@ export const Textarea = ({
       {label && <label htmlFor={name}>{label}</label>}
       <textarea
         id={name}
-        className={`textarea-field ${name}`}
+        className={`textarea-field ${name}`.trimEnd()}
         aria-invalid={hasError}
         name={name}
         onChange={onChange}

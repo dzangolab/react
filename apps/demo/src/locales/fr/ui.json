@@ -125,6 +125,9 @@
       "customActiveTab": "Custom active tab (fr)"
     }
   },
+  "textarea": {
+    "title": "Textarea (fr)"
+  },
   "localDataTable": {
     "title": "Local datatable (Primereact)(fr)",
     "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)",

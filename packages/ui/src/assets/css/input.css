@@ -1,3 +1,7 @@
+:root {
+  --dz-input-fill-color: var(--field-fill-color);
+}
+
 .field {
   align-items: flex-start;
   display: flex;
