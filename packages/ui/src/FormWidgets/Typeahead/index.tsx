@@ -129,11 +129,7 @@ export const Typeahead = <T extends Suggestion>({
         return renderSuggestion(suggestion);
       }
 
-      if (
-        typeof suggestion === "object" &&
-        suggestionLabel &&
-        Object.keys(suggestion).includes(suggestionLabel)
-      ) {
+      if (typeof suggestion === "object" && suggestionLabel) {
         return suggestion[suggestionLabel];
       }
 
