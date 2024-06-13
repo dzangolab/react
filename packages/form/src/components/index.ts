@@ -12,7 +12,7 @@ export * from "./NumberInput";
 export * from "./Password";
 export * from "./RolePicker";
 export * from "./Select";
-export * from "./TextArea";
+export * from "./Textarea";
 export * from "./TextInput";
 export * from "./Typeahead";
 export * from "./SwitchInput";

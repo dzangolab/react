@@ -46,7 +46,7 @@
       "password": "Password",
       "readOnly": "ReadOnly Input",
       "select": "Select",
-      "text": "TextInput",
+      "text": "Text input",
       "transparent": "Transparent Input",
       "typeahead": "Typeahead",
       "valid": "Show valid state"
