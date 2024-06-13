@@ -59,6 +59,8 @@
   position: absolute;
   width: 100%;
   z-index: 1000;
+  max-height: 15rem;
+  overflow-y: auto;
 }
 
 .dz-typeahead > ul > li {

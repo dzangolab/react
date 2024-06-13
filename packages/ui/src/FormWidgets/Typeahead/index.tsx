@@ -22,7 +22,7 @@ interface IProperties<T>
   label?: string;
   loading?: boolean;
   onSearch?: (value: string | number | readonly string[]) => void;
-  onChange?: (value: T) => void;
+  onChange?: (value?: T) => void;
   renderSuggestion?: (suggestion: T) => React.ReactNode;
 }
 
@@ -101,15 +101,19 @@ export const Typeahead = <T extends Suggestion>({
   };
 
   const handleInputChange = (value: string | number | readonly string[]) => {
+    if (value === inputValue) {
+      return;
+    }
+
     if (isSuggestionSelected.current) {
       isSuggestionSelected.current = false;
 
-      return;
+      onChange && onChange();
     }
 
     setInputValue(value);
 
-    if (onSearch) {
+    if (onSearch && value) {
       onSearch(value);
     }
   };
