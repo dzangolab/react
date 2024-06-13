@@ -194,9 +194,9 @@
     "title": "Typeahead (fr)",
     "label": {
       "client": "Client side Typeahead (fr)",
-      "customSuggestion": "Custom suggestion typeahead (fr)",
+      "customSuggestion": "Custom suggestion Typeahead (fr)",
       "disabled": "Disabled (fr)",
-      "emptyMessage": "Empty message typeahead (fr)",
+      "emptyMessage": "Empty message Typeahead (fr)",
       "server": "Server side Typeahead (fr)",
       "invalid": "Invalid (fr)"
     },

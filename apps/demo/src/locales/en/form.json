@@ -10,7 +10,7 @@
   "confirmPasswordForm": {
     "title": "Confirm password form",
     "label": {
-      "confirmPassword": "Confirm Password",
+      "confirmPassword": "Confirm password",
       "login": "Log in",
       "password": "Password"
     },
@@ -31,23 +31,23 @@
   },
   "formInput": {
     "title": "Form input",
-    "subTitle": "Different Modes of Input In Form",
+    "subTitle": "Different modes of input in form",
     "message": {
       "invalid": "Invalid form value",
       "required": "Required field"
     },
     "label": {
-      "disabled": "Disabled Input",
+      "disabled": "Disabled input",
       "email": "Email",
-      "filled": "Filled Input",
+      "filled": "Filled input",
       "input": "Input",
       "invalid": "Show invalid state",
       "number": "Number",
       "password": "Password",
-      "readOnly": "ReadOnly Input",
+      "readOnly": "ReadOnly input",
       "select": "Select",
       "text": "Text input",
-      "transparent": "Transparent Input",
+      "transparent": "Transparent input",
       "typeahead": "Typeahead",
       "valid": "Show valid state"
     },
@@ -55,7 +55,7 @@
       "email": "Enter email input",
       "input": "Input",
       "number": "Enter number input",
-      "select": "-- Select value --", 
+      "select": "-- Select value --",
       "text": "Enter text input",
       "typeahead": "Search..."
     },
