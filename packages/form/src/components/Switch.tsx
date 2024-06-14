@@ -13,6 +13,9 @@ interface ISwitch {
   disabled?: boolean;
 }
 
+/**
+ * @deprecated Use SwitchInput component from the form package instead
+ */
 export const Switch: React.FC<ISwitch> = ({
   disabled,
   register,
