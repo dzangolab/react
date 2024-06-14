@@ -9,9 +9,9 @@ export const SwitchInputDemo = () => {
   return (
     <Page title={t("switchInput.title")}>
       <Section>
-        <SwitchInput label="Check here" />
-        <SwitchInput label="Invalid input" hasError={true} />
-        <SwitchInput label="Disabled input" disabled={true} />
+        <SwitchInput label={t("switchInput.normalInput")} />
+        <SwitchInput label={t("switchInput.invalidInput")} hasError={true} />
+        <SwitchInput label={t("switchInput.disabledInput")} disabled={true} />
       </Section>
     </Page>
   );

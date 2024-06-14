@@ -191,6 +191,12 @@
     },
     "placeHolder": "-- select value --"
   },
+  "switchInput": {
+    "title": "Switch input",
+    "normalInput": "Check here",
+    "invalidInput": "Invalid input",
+    "disabledInput": "Disabled input"
+  },
   "typeahead": {
     "message": {
       "emptyMessage": "No results found"

@@ -79,7 +79,7 @@ const FORM_WIDGETS_ROUTES = [
   },
   {
     path: UI_ROUTES.SWITCHINPUT,
-    key: "select.title",
+    key: "switchInput.title",
     element: <SwitchInputDemo />,
   },
   {

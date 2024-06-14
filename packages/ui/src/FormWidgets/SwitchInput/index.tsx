@@ -21,6 +21,7 @@ export const SwitchInput: React.FC<ISwitchInputProperties> = ({
     <div className={`field switch-toggle ${name}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
+        id={name}
         type="checkbox"
         disabled={disabled}
         aria-invalid={hasError}
