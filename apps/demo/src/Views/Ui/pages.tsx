@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
+import { ConfirmationModalDemo } from "./components/ConfirmationModal";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
@@ -32,6 +33,7 @@ import { Demo } from "../../components/Demo";
 
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
+  CONFIRMATION_MODAL: "/ui/confirmation-modal",
   LOADING: "/ui/loading",
   BUTTON: "/ui/button",
   SUBMIT_BUTTON: "/ui/submit-button",
@@ -104,6 +106,11 @@ const BUTTONS_ROUTES = [
   },
 ];
 const OTHERS = [
+  {
+    path: UI_ROUTES.CONFIRMATION_MODAL,
+    key: "confirmationModal.title",
+    element: <ConfirmationModalDemo />,
+  },
   {
     path: UI_ROUTES.LOADING,
     key: "loading.title",
