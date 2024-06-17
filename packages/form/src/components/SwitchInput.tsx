@@ -1,41 +1,55 @@
-import { InputSwitch } from "primereact/inputswitch";
+import {
+  SwitchInput as BasicSwitchInput,
+  ISwitchInputProperties,
+} from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { ErrorMessage } from "./ErrorMessage";
-
-interface ISwitch {
+interface ISwitch extends ISwitchInputProperties {
   disabled?: boolean;
   label?: string;
   name: string;
+  showValidState?: boolean;
+  showInvalidState?: boolean;
+  submitCount?: number;
 }
 
-export const SwitchInput: React.FC<ISwitch> = ({ disabled, name, label }) => {
+export const SwitchInput: React.FC<ISwitch> = ({
+  className,
+  disabled,
+  label,
+  name,
+  showInvalidState = true,
+  showValidState = true,
+  submitCount = 0,
+  ...others
+}) => {
   const { control, getFieldState } = useFormContext();
 
-  const { error, isDirty, isTouched, invalid } = getFieldState(name);
+  const { error, invalid } = getFieldState(name);
 
-  let switchClassName = "";
-  if (isDirty && !invalid) switchClassName = "valid";
-  if (isTouched && invalid) switchClassName = "invalid";
+  const checkInvalidState = () => {
+    if (showInvalidState && invalid) return true;
+    if (showValidState && !invalid) return false;
+  };
 
   return (
-    <div className={`field switch-input ${name}`}>
-      {label && <label htmlFor={name}>{label}</label>}
-      <Controller
-        name={name}
-        control={control}
-        render={({ field }) => (
-          <InputSwitch
-            checked={field.value}
-            inputRef={field.ref}
-            className={switchClassName}
-            onChange={(event) => field.onChange(event.value)}
-            disabled={disabled}
-          />
-        )}
-      />
-      {error?.message && <ErrorMessage message={error.message} />}
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <BasicSwitchInput
+          label={label}
+          name={field.name}
+          checked={field.value}
+          className={className}
+          onChange={field.onChange}
+          disabled={disabled}
+          errorMessage={error?.message}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
+          {...others}
+        />
+      )}
+    />
   );
 };

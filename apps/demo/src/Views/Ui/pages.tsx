@@ -12,6 +12,7 @@ import {
   CheckboxDemo,
   InputDemo,
   SelectDemo,
+  SwitchInputDemo,
   TextareaDemo,
   TypeaheadDemo,
 } from "./components/FormWidgets";
@@ -51,6 +52,7 @@ export const UI_ROUTES = {
   CHECKBOX: "/ui/checkbox",
   INPUT: "/ui/input",
   SELECT: "/ui/select",
+  SWITCHINPUT: "/ui/switchinput",
   SORTABLE_LIST: "/ui/sortable-list",
   POPUP: "/ui/popup",
   PAGE_DEMO: "/ui/page-demo",
@@ -76,6 +78,11 @@ const FORM_WIDGETS_ROUTES = [
     path: UI_ROUTES.SELECT,
     key: "select.title",
     element: <SelectDemo />,
+  },
+  {
+    path: UI_ROUTES.SWITCHINPUT,
+    key: "switchInput.title",
+    element: <SwitchInputDemo />,
   },
   {
     path: UI_ROUTES.TEXTAREA,

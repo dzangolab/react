@@ -193,6 +193,12 @@
     },
     "placeHolder": "-- select value -- (fr)"
   },
+  "switchInput": {
+    "disabledInput": "Disabled input (fr)",
+    "invalidInput": "Invalid input (fr)",
+    "normalInput": "Check here (fr)",
+    "title": "Switch input (fr)"
+  },
   "typeahead": {
     "message": {
       "emptyMessage": "No results found (fr)"
