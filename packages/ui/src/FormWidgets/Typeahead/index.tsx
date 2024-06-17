@@ -3,10 +3,15 @@ import { InputHTMLAttributes, useEffect, useRef, useState } from "react";
 import LoadingIcon from "../../LoadingIcon";
 import { DebouncedInput } from "../DebouncedInput";
 
-type Suggestion = string | number | { value: string; label: string };
+type Suggestion = string | number | object;
+
+interface SuggestionOption<T> {
+  suggestionLabel?: T extends object ? keyof T : undefined;
+}
 
 interface IProperties<T>
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
+    SuggestionOption<T> {
   data?: T[];
   debounceTime?: number;
   errorMessage?: string;
@@ -16,7 +21,7 @@ interface IProperties<T>
   label?: string;
   loading?: boolean;
   onSearch?: (value: string | number | readonly string[]) => void;
-  onChange?: (value: T) => void;
+  onChange?: (value?: T) => void;
   renderSuggestion?: (suggestion: T) => React.ReactNode;
 }
 
@@ -38,6 +43,7 @@ export const Typeahead = <T extends Suggestion>({
   onChange,
   onSearch,
   renderSuggestion,
+  suggestionLabel,
 }: IProperties<T>) => {
   const [suggestions, setSuggestions] = useState<T[]>([]);
   const [inputValue, setInputValue] = useState<
@@ -74,10 +80,11 @@ export const Typeahead = <T extends Suggestion>({
 
   const handleSelectedSuggestion = (suggestion: T) => {
     isSuggestionSelected.current = true;
+
     if (typeof suggestion === "string") {
       setInputValue(suggestion);
-    } else if (typeof suggestion === "object" && suggestion.value) {
-      setInputValue(suggestion.value);
+    } else if (typeof suggestion === "object" && suggestionLabel) {
+      setInputValue(suggestion[suggestionLabel]);
     }
 
     if (onChange) {
@@ -88,14 +95,19 @@ export const Typeahead = <T extends Suggestion>({
   };
 
   const handleInputChange = (value: string | number | readonly string[]) => {
+    if (value === inputValue) {
+      return;
+    }
+
     if (isSuggestionSelected.current) {
       isSuggestionSelected.current = false;
 
-      return;
+      onChange && onChange();
     }
+
     setInputValue(value);
 
-    if (onSearch) {
+    if (onSearch && value) {
       onSearch(value);
     }
   };
@@ -115,8 +127,8 @@ export const Typeahead = <T extends Suggestion>({
         return renderSuggestion(suggestion);
       }
 
-      if (typeof suggestion === "object" && suggestion.label) {
-        return suggestion.label;
+      if (typeof suggestion === "object" && suggestionLabel) {
+        return suggestion[suggestionLabel];
       }
 
       if (typeof suggestion === "string" || typeof suggestion === "number") {

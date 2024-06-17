@@ -33,16 +33,15 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
   const [filled, valid, invalid] = watch(["filled", "valid", "invalid"]);
 
   const handleDataFetch = (value: any) => {
-    if (value !== "") {
-      setIsLoading(true);
-      fetch(`https://api.escuelajs.co/api/v1/products/?title=${value}`)
-        .then(async (response) => {
-          const data = await response.json();
-          setOptions(data.map((item: any) => item.title));
-          setIsLoading(false);
-        })
-        .catch((err) => console.log("err", err));
-    }
+    setIsLoading(true);
+    fetch(`https://api.escuelajs.co/api/v1/products/?title=${value}`)
+      .then(async (response) => {
+        const data = await response.json();
+
+        setOptions(data.map((item: any) => item));
+        setIsLoading(false);
+      })
+      .catch((err) => console.log("err", err));
   };
 
   useEffect(() => {
@@ -136,6 +135,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         label={t("formInput.label.typeahead")}
         name="typeahead"
         data={options}
+        suggestionLabel="title"
         loading={isLoading}
         onSearch={handleDataFetch}
         debounceTime={500}
