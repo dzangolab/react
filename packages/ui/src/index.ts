@@ -18,6 +18,7 @@ import { TabbedPanel } from "./TabbedPanel";
 export * from "./AuthPage";
 export * from "./Buttons";
 export * from "./DataTable";
+export * from "./Dialog";
 export * from "./FilesTable";
 export * from "./FileCard";
 export * from "./FilesList";
