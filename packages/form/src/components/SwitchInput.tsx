@@ -17,8 +17,8 @@ interface ISwitch extends ISwitchInputProperties {
 export const SwitchInput: React.FC<ISwitch> = ({
   className,
   disabled,
-  name,
   label,
+  name,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,

@@ -2,19 +2,19 @@ import { InputHTMLAttributes } from "react";
 
 export interface ISwitchInputProperties
   extends InputHTMLAttributes<HTMLInputElement> {
-  name?: string;
-  hasError?: boolean;
-  errorMessage?: string;
-  label?: string;
   disabled?: boolean;
+  errorMessage?: string;
+  hasError?: boolean;
+  label?: string;
+  name?: string;
 }
 
 export const SwitchInput: React.FC<ISwitchInputProperties> = ({
-  hasError,
+  disabled,
   errorMessage,
+  hasError,
   label = "",
   name,
-  disabled,
   ...others
 }) => {
   return (

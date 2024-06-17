@@ -188,10 +188,10 @@
     "placeHolder": "-- select value -- (fr)"
   },
   "switchInput": {
-    "title": "Switch input (fr)",
-    "normalInput": "Check here (fr)",
+    "disabledInput": "Disabled input (fr)",
     "invalidInput": "Invalid input (fr)",
-    "disabledInput": "Disabled input (fr)"
+    "normalInput": "Check here (fr)",
+    "title": "Switch input (fr)"
   },
   "typeahead": {
     "message": {

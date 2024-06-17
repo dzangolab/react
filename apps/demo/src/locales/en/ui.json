@@ -192,10 +192,10 @@
     "placeHolder": "-- select value --"
   },
   "switchInput": {
-    "title": "Switch input",
-    "normalInput": "Check here",
+    "disabledInput": "Disabled input",
     "invalidInput": "Invalid input",
-    "disabledInput": "Disabled input"
+    "normalInput": "Check here",
+    "title": "Switch input"
   },
   "typeahead": {
     "message": {
