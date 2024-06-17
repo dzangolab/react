@@ -10,12 +10,6 @@ import {
 } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
 
-import { deleteInvitation } from "@/api/invitation";
-import { useConfig } from "@/hooks";
-import { DeleteInvitationResponse } from "@/types/invitation";
-
-import { useInvitationActionsMethods } from "./useInvitationActionsMethods";
-
 import { InvitationModal } from ".";
 
 import type {
@@ -28,6 +22,14 @@ import type {
   Invitation,
   UserType,
 } from "../../types";
+
+import {
+  deleteInvitation,
+  resendInvitation,
+  revokeInvitation,
+} from "@/api/invitation";
+import { useConfig } from "@/hooks";
+import { DeleteInvitationResponse } from "@/types/invitation";
 
 type VisibleColumn =
   | "email"
@@ -94,10 +96,44 @@ export const InvitationsTable = ({
   const { apiBaseUrl } = useConfig();
 
   const { t } = useTranslation("invitations");
-  const { onResendConfirm, onRevokeConfirm } = useInvitationActionsMethods({
-    onInvitationResent,
-    onInvitationRevoked,
-  });
+
+  const handleResendInvitation = (invitation: any) => {
+    resendInvitation(invitation.id, apiBaseUrl || "")
+      .then((response) => {
+        if ("data" in response && response.data.status === "ERROR") {
+          // TODO better handle errors
+          toast.error(t("messages.resend.error"));
+        } else {
+          toast.success(t("messages.resend.success"));
+
+          if (onInvitationResent) {
+            onInvitationResent(response);
+          }
+        }
+      })
+      .catch(() => {
+        toast.error(t("messages.resend.error"));
+      });
+  };
+
+  const handleRevokeInvitation = (invitation: any) => {
+    revokeInvitation(invitation.id, apiBaseUrl || "")
+      .then((response) => {
+        if ("data" in response && response.data.status === "ERROR") {
+          // TODO better handle errors
+          toast.error(t("messages.revoke.error"));
+        } else {
+          toast.success(t("messages.revoke.success"));
+
+          if (onInvitationRevoked) {
+            onInvitationRevoked(response);
+          }
+        }
+      })
+      .catch(() => {
+        toast.error(t("messages.revoke.error"));
+      });
+  };
 
   const handleDeleteInvitation = async (id: number) => {
     deleteInvitation(id, apiBaseUrl)
@@ -265,7 +301,7 @@ export const InvitationsTable = ({
             label: t("invitations.actions.resend"),
             icon: "pi pi-replay",
             disabled: (invitation) => !!invitation.acceptedAt,
-            onClick: (invitation) => onResendConfirm(invitation),
+            onClick: (invitation) => handleResendInvitation(invitation),
             requireConfirmationModal: true,
             confirmationOptions: {
               message: t("confirmation.confirm.resend.message"),
@@ -277,7 +313,7 @@ export const InvitationsTable = ({
             icon: "pi pi-times",
             className: "danger",
             disabled: (invitation) => !!invitation.acceptedAt,
-            onClick: (invitation) => onRevokeConfirm(invitation),
+            onClick: (invitation) => handleRevokeInvitation(invitation),
             requireConfirmationModal: true,
             confirmationOptions: {
               message: t("confirmation.confirm.revoke.message"),
