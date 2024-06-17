@@ -127,7 +127,6 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="typeahead"
         data={options}
         suggestionLabel="title"
-        suggestionValue="title"
         loading={isLoading}
         onSearch={handleDataFetch}
         debounceTime={500}

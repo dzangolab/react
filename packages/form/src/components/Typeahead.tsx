@@ -6,7 +6,6 @@ type Suggestion = string | number | object;
 
 interface SuggestionOption<T> {
   suggestionLabel?: T extends object ? keyof T : undefined;
-  suggestionValue?: T extends object ? keyof T : undefined;
 }
 
 interface IProperties<T>
@@ -42,7 +41,6 @@ export const Typeahead = <T extends Suggestion>({
   onSearch,
   renderSuggestion,
   suggestionLabel,
-  suggestionValue,
 }: IProperties<T>) => {
   const { control, getFieldState } = useFormContext();
 
@@ -89,7 +87,6 @@ export const Typeahead = <T extends Suggestion>({
             onSearch={handleSearch}
             renderSuggestion={renderSuggestion}
             suggestionLabel={suggestionLabel}
-            suggestionValue={suggestionValue}
           />
         );
       }}
