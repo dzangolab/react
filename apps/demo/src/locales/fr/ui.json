@@ -17,6 +17,12 @@
     },
     "message": "Click to view profile (fr)"
   },
+  "confirmationModal": {
+    "title": "Confirmation modal (fr)",
+    "buttonLabel": "Open confirmation modal (fr)",
+    "header": "Confirmation required (fr)",
+    "message": "Are you sure you want to proceed? (fr)"
+  },
   "filesTable": {
     "title": "Files table (fr)",
     "pagination": {
