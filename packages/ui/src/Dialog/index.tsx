@@ -8,7 +8,11 @@ interface IDialogProperties {
 export const Dialog = ({ visible, content }: IDialogProperties) => {
   const renderContent = () => {
     if (!content) {
-      <div></div>;
+      return (
+        <dialog className="dz-dialog">
+          Hello how are you and i am fine thank you
+        </dialog>
+      );
     }
 
     if (typeof content === "function") {

@@ -1,28 +1,16 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, ConfirmationModal, Page } from "@dzangolab/react-ui";
+import { Button, ConfirmationModal, Dialog, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { Section } from "../../../components/Demo";
 
 export const ConfirmationModalDemo = () => {
-  const [showModal, setShowModal] = useState<boolean>(false);
-
-  const [t] = useTranslation("ui");
+  const [visible, setVisible] = useState<boolean>();
 
   return (
-    <Page title={t("confirmationModal.title")}>
-      <Section>
-        <Button
-          onClick={() => setShowModal(true)}
-          label={t("confirmationModal.buttonLabel")}
-        ></Button>
-        <ConfirmationModal
-          visible={showModal}
-          message={t("confirmationModal.message")}
-          header={t("confirmationModal.header")}
-          onHide={() => setShowModal(false)}
-        />
-      </Section>
-    </Page>
+    <>
+      <Button label="Click here" onClick={() => setVisible(true)} />
+      <Dialog visible={visible} />
+    </>
   );
 };
