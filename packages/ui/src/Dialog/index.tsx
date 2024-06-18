@@ -8,6 +8,7 @@ interface IDialogProperties
   closeIcon?: string | ReactNode;
   closeButtonProperties?: IButtonProperties;
   content?: ReactNode;
+  footer?: ReactNode;
   header?: string | React.ReactNode;
   visible: boolean;
   onHide?: () => void;
@@ -18,6 +19,7 @@ export const Dialog = ({
   closeIcon = "pi pi-times",
   closeButtonProperties,
   content,
+  footer,
   header,
   visible,
   onHide,
@@ -57,6 +59,14 @@ export const Dialog = ({
     );
   };
 
+  const renderFooter = () => {
+    if (!footer) {
+      return null;
+    }
+
+    <div className="dz-dialog-footer">{footer}</div>;
+  };
+
   return (
     <>
       {createPortal(
@@ -68,6 +78,7 @@ export const Dialog = ({
           {renderHeader()}
           {content}
           {children}
+          {renderFooter()}
         </dialog>,
         document.body,
       )}
