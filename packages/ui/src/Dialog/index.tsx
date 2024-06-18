@@ -1,33 +1,56 @@
-import { DialogHTMLAttributes, ReactNode } from "react";
+import { DialogHTMLAttributes, ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
-import { Button } from "..";
+import { Button, IButtonProperties } from "..";
 
 interface IDialogProperties
   extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "content"> {
-  header?: string;
+  closeIcon?: string | ReactNode;
+  closeButtonProperties?: IButtonProperties;
+  content?: ReactNode;
+  header?: string | React.ReactNode;
   visible: boolean;
   onHide?: () => void;
 }
 export const Dialog = ({
   children,
   className = "",
+  closeIcon = "pi pi-times",
+  closeButtonProperties,
+  content,
   header,
   visible,
   onHide,
   ...others
 }: IDialogProperties) => {
+  const dialogReference = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    if (visible) {
+      dialogReference.current?.showModal();
+    } else {
+      dialogReference.current?.close();
+    }
+  }, [visible]);
+
   const renderHeader = () => {
     return (
       <div className="dz-dialog-header">
-        {header && <div>{header}</div>}
+        {header && (typeof header === "string" ? <div>{header}</div> : header)}
         {
           <Button
             variant="textOnly"
             size="small"
             severity="secondary"
-            iconLeft="pi pi-times"
+            iconLeft={
+              typeof closeIcon === "string" ? (
+                <i className={closeIcon} />
+              ) : (
+                closeIcon
+              )
+            }
             onClick={onHide}
+            {...closeButtonProperties}
           />
         }
       </div>
@@ -38,11 +61,12 @@ export const Dialog = ({
     <>
       {createPortal(
         <dialog
+          ref={dialogReference}
           className={`dz-dialog ${className}`.trimEnd()}
-          open={visible}
           {...others}
         >
           {renderHeader()}
+          {content}
           {children}
         </dialog>,
         document.body,

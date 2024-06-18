@@ -1,17 +1,31 @@
 .dz-dialog {
-  top: 50%;
-  padding: 1rem 1rem;
   background-color: white;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   border: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1rem;
+}
+
+.dz-dialog[open] {
+  display: flex;
 }
 
 .dz-dialog::backdrop {
-  background: red !important;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .dz-dialog > .dz-dialog-header {
   display: flex;
   justify-content: space-between;
+}
+
+.dz-dialog > .dz-dialog-header > .dz-button {
+  border-radius: 50%;
+  padding: 0.65625rem !important;
+}
+
+.dz-dialog > .dz-dialog-header > .dz-button:focus {
+  outline: none;
 }
