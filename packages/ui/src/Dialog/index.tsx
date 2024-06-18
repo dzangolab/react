@@ -22,16 +22,5 @@ export const Dialog = ({ visible, content }: IDialogProperties) => {
     return content;
   };
 
-  return (
-    <>
-      {visible ? (
-        createPortal(
-          <div className="dz-dialog-wrapper">{renderContent()}</div>,
-          document.body,
-        )
-      ) : (
-        <></>
-      )}
-    </>
-  );
+  return <>{visible ? createPortal(renderContent(), document.body) : <></>}</>;
 };
