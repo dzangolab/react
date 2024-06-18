@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
 import { ConfirmationModalDemo } from "./components/ConfirmationModal";
+import { DialogDemo } from "./components/Dialog";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
@@ -35,6 +36,7 @@ import { Demo } from "../../components/Demo";
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
   CONFIRMATION_MODAL: "/ui/confirmation-modal",
+  DIALOG: "ui/dialog",
   LOADING: "/ui/loading",
   BUTTON: "/ui/button",
   SUBMIT_BUTTON: "/ui/submit-button",
@@ -117,6 +119,11 @@ const OTHERS = [
     path: UI_ROUTES.CONFIRMATION_MODAL,
     key: "confirmationModal.title",
     element: <ConfirmationModalDemo />,
+  },
+  {
+    path: UI_ROUTES.DIALOG,
+    key: "dialog.title",
+    element: <DialogDemo />,
   },
   {
     path: UI_ROUTES.LOADING,

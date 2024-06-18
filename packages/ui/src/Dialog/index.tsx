@@ -5,28 +5,33 @@ import { Button } from "..";
 
 interface IDialogProperties
   extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "content"> {
-  closable?: boolean;
-  visible?: boolean;
-  content?: () => ReactNode | ReactNode;
+  header?: string;
+  visible: boolean;
   onHide?: () => void;
 }
 export const Dialog = ({
+  children,
   className = "",
-  closable = true,
+  header,
   visible,
-  content,
   onHide,
+  ...others
 }: IDialogProperties) => {
-  const renderContent = () => {
-    if (!content) {
-      return null;
-    }
-
-    if (typeof content === "function") {
-      return content();
-    }
-
-    return content;
+  const renderHeader = () => {
+    return (
+      <div className="dz-dialog-header">
+        {header && <div>{header}</div>}
+        {
+          <Button
+            variant="textOnly"
+            size="small"
+            severity="secondary"
+            iconLeft="pi pi-times"
+            onClick={onHide}
+          />
+        }
+      </div>
+    );
   };
 
   return (
@@ -35,12 +40,10 @@ export const Dialog = ({
         <dialog
           className={`dz-dialog ${className}`.trimEnd()}
           open={visible}
-          onClose={onHide}
+          {...others}
         >
-          {closable ? (
-            <Button size="small" iconLeft="pi pi-times" onClick={onHide} />
-          ) : null}
-          {renderContent()}
+          {renderHeader()}
+          {children}
         </dialog>,
         document.body,
       )}
