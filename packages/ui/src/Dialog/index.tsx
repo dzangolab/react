@@ -1,15 +1,20 @@
-import { ReactNode } from "react";
+import { DialogHTMLAttributes, ReactNode } from "react";
 import { createPortal } from "react-dom";
 
-interface IDialogProperties {
+import { Button } from "..";
+
+interface IDialogProperties
+  extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "content"> {
   visible?: boolean;
   content?: () => ReactNode | ReactNode;
+  onHide?: () => void;
 }
-export const Dialog = ({ visible, content }: IDialogProperties) => {
+export const Dialog = ({ visible, content, onHide }: IDialogProperties) => {
   const renderContent = () => {
     if (!content) {
       return (
-        <dialog className="dz-dialog">
+        <dialog className="dz-dialog" open={visible}>
+          <Button iconLeft="pi pi-times" onClick={onHide} />
           Hello how are you and i am fine thank you
         </dialog>
       );
@@ -22,5 +27,5 @@ export const Dialog = ({ visible, content }: IDialogProperties) => {
     return content;
   };
 
-  return <>{visible ? createPortal(renderContent(), document.body) : <></>}</>;
+  return <>{createPortal(renderContent(), document.body)}</>;
 };

@@ -5,12 +5,12 @@ import { useState } from "react";
 import { Section } from "../../../components/Demo";
 
 export const ConfirmationModalDemo = () => {
-  const [visible, setVisible] = useState<boolean>();
+  const [visible, setVisible] = useState<boolean>(false);
 
   return (
     <>
       <Button label="Click here" onClick={() => setVisible(true)} />
-      <Dialog visible={visible} />
+      <Dialog visible={visible} onHide={() => setVisible(false)} />
     </>
   );
 };
