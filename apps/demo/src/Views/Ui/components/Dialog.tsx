@@ -1,13 +1,15 @@
-import { Button, Dialog } from "@dzangolab/react-ui";
+import { Button, Dialog, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 export const DialogDemo = () => {
-  const [visible, setVisible] = useState<boolean>();
+  const [visible, setVisible] = useState<boolean>(false);
 
   return (
     <>
-      <Button label="Click here" onClick={() => setVisible(true)} />
-      <Dialog visible={visible} />
+      <Page title={"Dialog"}>
+        <Button label="Click here" onClick={() => setVisible(true)} />
+        <Dialog visible={visible} onHide={() => setVisible(false)}></Dialog>
+      </Page>
     </>
   );
 };

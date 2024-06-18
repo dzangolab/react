@@ -2,9 +2,16 @@
   top: 50%;
   padding: 1rem 1rem;
   background-color: white;
-  border-radius: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
 }
 
 .dz-dialog::backdrop {
-  background: red;
+  background: red !important;
+}
+
+.dz-dialog > .dz-dialog-header {
+  display: flex;
+  justify-content: space-between;
 }
