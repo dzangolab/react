@@ -32,6 +32,6 @@
   }
 
   .dz-layout.fixed > main {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
