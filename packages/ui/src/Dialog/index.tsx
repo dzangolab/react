@@ -5,19 +5,21 @@ import { Button } from "..";
 
 interface IDialogProperties
   extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "content"> {
+  closable?: boolean;
   visible?: boolean;
   content?: () => ReactNode | ReactNode;
   onHide?: () => void;
 }
-export const Dialog = ({ visible, content, onHide }: IDialogProperties) => {
+export const Dialog = ({
+  className = "",
+  closable = true,
+  visible,
+  content,
+  onHide,
+}: IDialogProperties) => {
   const renderContent = () => {
     if (!content) {
-      return (
-        <dialog className="dz-dialog" open={visible}>
-          <Button iconLeft="pi pi-times" onClick={onHide} />
-          Hello how are you and i am fine thank you
-        </dialog>
-      );
+      return null;
     }
 
     if (typeof content === "function") {
@@ -27,5 +29,21 @@ export const Dialog = ({ visible, content, onHide }: IDialogProperties) => {
     return content;
   };
 
-  return <>{createPortal(renderContent(), document.body)}</>;
+  return (
+    <>
+      {createPortal(
+        <dialog
+          className={`dz-dialog ${className}`.trimEnd()}
+          open={visible}
+          onClose={onHide}
+        >
+          {closable ? (
+            <Button size="small" iconLeft="pi pi-times" onClick={onHide} />
+          ) : null}
+          {renderContent()}
+        </dialog>,
+        document.body,
+      )}
+    </>
+  );
 };
