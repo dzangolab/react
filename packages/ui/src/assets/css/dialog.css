@@ -1,20 +1,10 @@
-.dz-dialog-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: black;
-  opacity: 0.3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dz-dialog-wrapper > .dz-dialog {
-  height: auto;
-  width: auto;
+.dz-dialog {
+  top: 50%;
   padding: 2rem 1rem;
   background-color: white;
   border-radius: 0.5rem;
+}
+
+.dz-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
 }
