@@ -5,7 +5,7 @@
   border: none;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 1rem 1rem;
+  padding: 2rem 1.5rem;
 }
 
 .dz-dialog[open] {
