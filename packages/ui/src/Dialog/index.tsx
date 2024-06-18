@@ -64,7 +64,7 @@ export const Dialog = ({
       return null;
     }
 
-    <div className="dz-dialog-footer">{footer}</div>;
+    return <div className="dz-dialog-footer">{footer}</div>;
   };
 
   return (

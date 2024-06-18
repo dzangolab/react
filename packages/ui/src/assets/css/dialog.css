@@ -1,4 +1,5 @@
 .dz-dialog {
+  animation: close 300ms forwards;
   background-color: white;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -6,9 +7,13 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 2rem 1.5rem;
+  transition:
+    display 300ms allow-discrete,
+    overlay 300ms allow-discrete;
 }
 
 .dz-dialog[open] {
+  animation: open 300ms forwards;
   display: flex;
 }
 
@@ -28,4 +33,22 @@
 
 .dz-dialog > .dz-dialog-header > .dz-button:focus {
   outline: none;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
