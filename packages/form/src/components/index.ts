@@ -1,4 +1,3 @@
-export * from "./AppPicker";
 export * from "./DatePicker";
 export * from "./DateInput";
 export * from "./Email";
