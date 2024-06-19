@@ -71,16 +71,18 @@ export const Dialog = ({
   };
 
   return (
-    <dialog
-      ref={dialogReference}
-      className={`dz-dialog ${className}`.trimEnd()}
-      onClose={onHide}
-      {...others}
-    >
-      {renderHeader()}
-      {content}
-      {children}
-      {renderFooter()}
-    </dialog>
+    visible && (
+      <dialog
+        ref={dialogReference}
+        className={`dz-dialog ${className}`.trimEnd()}
+        onClose={onHide}
+        {...others}
+      >
+        {renderHeader()}
+        {content}
+        {children}
+        {renderFooter()}
+      </dialog>
+    )
   );
 };
