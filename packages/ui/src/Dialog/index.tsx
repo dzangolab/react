@@ -1,24 +1,23 @@
 import { DialogHTMLAttributes, ReactNode, useEffect, useRef } from "react";
 
-import { Button, IButtonProperties } from "..";
+import { Button } from "..";
 
-interface IDialogProperties
+export interface IDialogProperties
   extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "content"> {
   closable?: boolean;
   closeIcon?: string | ReactNode;
-  closeButtonProperties?: IButtonProperties;
   content?: ReactNode;
   footer?: ReactNode;
   title?: string;
   visible?: boolean;
   onHide: () => void;
 }
+
 export const Dialog = ({
   children = null,
   className = "",
   closable = true,
   closeIcon = "pi pi-times",
-  closeButtonProperties,
   content = null,
   footer,
   title,
@@ -57,7 +56,6 @@ export const Dialog = ({
               )
             }
             onClick={onHide}
-            {...closeButtonProperties}
           />
         )}
       </div>

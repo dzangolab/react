@@ -13,10 +13,7 @@ export const DialogDemo = () => {
           onHide={() => setVisible(false)}
           title="Modal demo"
         >
-          <div>
-            Hello world this is not my thing i have something to do and i don't
-            go anywhere
-          </div>
+          <div>Hello world</div>
         </Dialog>
       </Page>
     </>
