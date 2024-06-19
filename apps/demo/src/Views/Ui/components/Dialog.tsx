@@ -1,19 +1,25 @@
+import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Dialog, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 export const DialogDemo = () => {
   const [visible, setVisible] = useState<boolean>(false);
 
+  const [t] = useTranslation("ui");
+
   return (
     <>
-      <Page title={"Dialog"}>
-        <Button label="Click here" onClick={() => setVisible(true)} />
+      <Page title={t("dialog.title")}>
+        <Button
+          label={t("dialog.buttonLabel")}
+          onClick={() => setVisible(true)}
+        />
         <Dialog
           visible={visible}
           onHide={() => setVisible(false)}
-          title="Modal demo"
+          title={t("dialog.header")}
         >
-          <div>Hello world</div>
+          <div>{t("dialog.content")}</div>
         </Dialog>
       </Page>
     </>
