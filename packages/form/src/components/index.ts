@@ -9,7 +9,6 @@ export * from "./FormProvider";
 export * from "./Input";
 export * from "./NumberInput";
 export * from "./Password";
-export * from "./RolePicker";
 export * from "./Select";
 export * from "./Textarea";
 export * from "./TextInput";
