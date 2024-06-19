@@ -1,27 +1,28 @@
 import { DialogHTMLAttributes, ReactNode, useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 
 import { Button, IButtonProperties } from "..";
 
 interface IDialogProperties
   extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "content"> {
+  closable?: boolean;
   closeIcon?: string | ReactNode;
   closeButtonProperties?: IButtonProperties;
   content?: ReactNode;
   footer?: ReactNode;
-  header?: string | React.ReactNode;
-  visible: boolean;
-  onHide?: () => void;
+  title?: string;
+  visible?: boolean;
+  onHide: () => void;
 }
 export const Dialog = ({
-  children,
+  children = null,
   className = "",
+  closable = true,
   closeIcon = "pi pi-times",
   closeButtonProperties,
-  content,
+  content = null,
   footer,
-  header,
-  visible,
+  title,
+  visible = false,
   onHide,
   ...others
 }: IDialogProperties) => {
@@ -36,10 +37,14 @@ export const Dialog = ({
   }, [visible]);
 
   const renderHeader = () => {
+    if (!title && !closable) {
+      return null;
+    }
+
     return (
       <div className="dz-dialog-header">
-        {header && (typeof header === "string" ? <div>{header}</div> : header)}
-        {
+        {title && <span className="title">{title}</span>}
+        {closable && (
           <Button
             variant="textOnly"
             size="small"
@@ -54,7 +59,7 @@ export const Dialog = ({
             onClick={onHide}
             {...closeButtonProperties}
           />
-        }
+        )}
       </div>
     );
   };
@@ -68,20 +73,16 @@ export const Dialog = ({
   };
 
   return (
-    <>
-      {createPortal(
-        <dialog
-          ref={dialogReference}
-          className={`dz-dialog ${className}`.trimEnd()}
-          {...others}
-        >
-          {renderHeader()}
-          {content}
-          {children}
-          {renderFooter()}
-        </dialog>,
-        document.body,
-      )}
-    </>
+    <dialog
+      ref={dialogReference}
+      className={`dz-dialog ${className}`.trimEnd()}
+      onClose={onHide}
+      {...others}
+    >
+      {renderHeader()}
+      {content}
+      {children}
+      {renderFooter()}
+    </dialog>
   );
 };

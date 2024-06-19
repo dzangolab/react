@@ -8,7 +8,16 @@ export const DialogDemo = () => {
     <>
       <Page title={"Dialog"}>
         <Button label="Click here" onClick={() => setVisible(true)} />
-        <Dialog visible={visible} onHide={() => setVisible(false)}></Dialog>
+        <Dialog
+          visible={visible}
+          onHide={() => setVisible(false)}
+          title="Modal demo"
+        >
+          <div>
+            Hello world this is not my thing i have something to do and i don't
+            go anywhere
+          </div>
+        </Dialog>
       </Page>
     </>
   );

@@ -2,10 +2,10 @@
   animation: close 300ms forwards;
   background-color: white;
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 2rem 1.5rem;
   transition:
     display 300ms allow-discrete,
@@ -23,7 +23,14 @@
 
 .dz-dialog > .dz-dialog-header {
   display: flex;
+  gap: 2rem;
   justify-content: space-between;
+}
+
+.dz-dialog > .dz-dialog-header > .title {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .dz-dialog > .dz-dialog-header > .dz-button {
