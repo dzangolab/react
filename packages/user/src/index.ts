@@ -1,6 +1,19 @@
 import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { disableUser, enableUser } from "./api/user";
+import {
+  acceptInvitation,
+  addInvitation,
+  getInvitationByToken,
+  resendInvitation,
+  revokeInvitation,
+} from "./api/invitation";
+import {
+  changePassword,
+  getIsFirstUser,
+  signUpFirstUser,
+  updateUserProfile,
+} from "./api/user";
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
 import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
@@ -21,10 +34,13 @@ import {
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
 import {
-  useUser,
+  useAcceptInvitation,
+  useChangePassword,
   useEmailVerification,
   useFirstUserSignup,
+  useLogin,
   useProfileCompletion,
+  useUser,
 } from "./hooks";
 import {
   UserEnabledBasicLayout,
@@ -34,7 +50,6 @@ import {
   UserEnabledSidebarOnlyLayout,
 } from "./layouts";
 import superTokens from "./supertokens";
-import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
 import googleLogin from "./supertokens/google-login";
 import { verifySessionRoles, isProfileCompleted } from "./supertokens/helpers";
@@ -90,8 +105,11 @@ export {
   SignupWrapper,
   TermsAndConditions,
   UserMenu,
-  UserProvider,
   UsersTable,
+
+  // context
+  userContext,
+  UserProvider,
 
   // layouts
   UserEnabledBasicLayout,
@@ -114,9 +132,7 @@ export {
   VerifyEmail,
 
   // utilities
-  changePassword,
-  disableUser,
-  enableUser,
+  // supertoken utilities
   forgotPassword,
   getUserData,
   googleLogin,
@@ -129,14 +145,31 @@ export {
   setUserData,
   signup,
   superTokens,
-  useEmailVerification,
-  useFirstUserSignup,
   isProfileCompleted,
   useProfileCompletion,
-  useUser,
-  userContext,
   verifyEmail,
   verifySessionRoles,
+
+  // hooks
+  useAcceptInvitation,
+  useChangePassword,
+  useEmailVerification,
+  useFirstUserSignup,
+  useLogin,
+  useUser,
+
+  // apis
+  changePassword,
+  disableUser,
+  enableUser,
+  getIsFirstUser,
+  signUpFirstUser,
+  updateUserProfile,
+  acceptInvitation,
+  addInvitation,
+  getInvitationByToken,
+  resendInvitation,
+  revokeInvitation,
 };
 
 export type {
