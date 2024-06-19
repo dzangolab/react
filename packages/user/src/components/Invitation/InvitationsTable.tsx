@@ -10,6 +10,14 @@ import {
 } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
 
+import {
+  deleteInvitation,
+  resendInvitation,
+  revokeInvitation,
+} from "@/api/invitation";
+import { useConfig } from "@/hooks";
+import { DeleteInvitationResponse } from "@/types/invitation";
+
 import { InvitationModal } from ".";
 
 import type {
@@ -22,14 +30,6 @@ import type {
   Invitation,
   UserType,
 } from "../../types";
-
-import {
-  deleteInvitation,
-  resendInvitation,
-  revokeInvitation,
-} from "@/api/invitation";
-import { useConfig } from "@/hooks";
-import { DeleteInvitationResponse } from "@/types/invitation";
 
 type VisibleColumn =
   | "email"
