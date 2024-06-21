@@ -5,14 +5,12 @@ import Menu, { MenuProperties } from "./Menu";
 import { Popup, PopupProperties } from "../Popup";
 
 export interface DropdownMenuProperties extends MenuProperties {
-  popupOptions?: Omit<PopupProperties, "trigger" | "content">;
-  toggler?: JSX.Element;
+  popupOptions?: Partial<Omit<PopupProperties, "content">>;
   buttonOptions?: Omit<ButtonProps, "onClick">;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   buttonOptions,
-  toggler,
   popupOptions,
   ...rest
 }) => {
@@ -26,9 +24,9 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
 
   return (
     <Popup
-      {...popupOptions}
-      trigger={toggler || <Button {...buttonProperties} />}
+      trigger={<Button {...buttonProperties} />}
       content={<Menu {...rest} />}
+      {...popupOptions}
     />
   );
 };

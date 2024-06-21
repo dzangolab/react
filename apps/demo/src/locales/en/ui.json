@@ -27,7 +27,7 @@
     "title": "Dropdown menu",
     "v3": {
       "leftAlign": "Popup align left",
-      "rightAlign": "Popup align right"
+      "templating": "Menu templating"
     }
   },
   "filesTable": {

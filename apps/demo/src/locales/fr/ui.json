@@ -27,7 +27,7 @@
     "title": "Dropdown menu (fr)",
     "v3": {
       "leftAlign": "Popup align left (fr)",
-      "rightAlign": "Popup align right (fr)"
+      "templating": "Menu templating (fr)"
     }
   },
   "filesTable": {
