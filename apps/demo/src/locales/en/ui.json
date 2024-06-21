@@ -25,7 +25,10 @@
   },
   "dropdownMenu": {
     "title": "Dropdown menu",
-    "v3": "Dropdown menu v3"
+    "v3": {
+      "leftAlign": "Popup align left",
+      "rightAlign": "Popup align right"
+    }
   },
   "filesTable": {
     "title": "Files table",

@@ -18,9 +18,12 @@ export const DropdownMenuDemo = () => {
   ];
 
   return (
-    <Page>
-      <Section title={t("dropdownMenu.v3")}>
+    <Page title={t("dropdownMenu.title")}>
+      <Section title={t("dropdownMenu.v3.leftAlign")}>
         <DropdownMenuV3 menuItems={userMenu} />
+      </Section>
+      <Section title={t("dropdownMenu.v3.rightAlign")}>
+        <DropdownMenuV3 popupAlignment="right" menuItems={userMenu} />
       </Section>
     </Page>
   );
