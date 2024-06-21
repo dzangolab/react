@@ -1,27 +1,14 @@
 ul.dz-menu {
   background-color: var(--dropdown-bg-color, #fff);
-  border: var(--dropdown-border, none);
-  border-radius: var(--dropdown-border-radius, 5px);
+  border-radius: var(--dropdown-border-radius, inherit);
   list-style: none;
   padding-inline-start: 0;
   min-width: 160px;
   width: max-content;
 }
 
-ul.dz-menu.popup {
-  display: none;
-}
-
-ul.dz-menu.popup[aria-expanded="true"] {
-  display: block;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  z-index: var(--dropdown-z-index, 999);
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-}
-
 ul.dz-menu li {
+  border-radius: inherit;
   cursor: pointer;
   padding: 0.75rem 0.5rem;
   background-color: white;

@@ -1,20 +1,21 @@
 import { Button, ButtonProps } from "primereact/button";
-import React, { BaseSyntheticEvent, useRef } from "react";
+import React from "react";
 
-import MenuV2, { MenuProperties, MenuReference } from "../MenuV2";
+import Menu, { MenuProperties } from "./Menu";
+import { Popup, PopupProperties } from "../Popup";
 
-export type DropdownMenuProperties = MenuProperties & {
+export interface DropdownMenuProperties extends MenuProperties {
+  popupOptions?: Omit<PopupProperties, "trigger" | "content">;
   toggler?: JSX.Element;
   buttonOptions?: Omit<ButtonProps, "onClick">;
-};
+}
 
 const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   buttonOptions,
   toggler,
+  popupOptions,
   ...rest
 }) => {
-  const menu = useRef<MenuReference>(null);
-
   const buttonProperties = {
     icon: "pi pi-ellipsis-h",
     text: true,
@@ -24,13 +25,11 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   };
 
   return (
-    <>
-      <MenuV2 ref={menu} {...rest} />
-      {React.cloneElement(toggler || <Button {...buttonProperties} />, {
-        onClick: (event: BaseSyntheticEvent) =>
-          menu?.current?.toggleMenu(event),
-      })}
-    </>
+    <Popup
+      {...popupOptions}
+      trigger={toggler || <Button {...buttonProperties} />}
+      content={<Menu {...rest} />}
+    />
   );
 };
 

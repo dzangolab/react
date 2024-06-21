@@ -1,22 +1,24 @@
 import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
-import React, {
-  useState,
-  ReactNode,
+import {
+  FC,
   LegacyRef,
+  ReactNode,
+  cloneElement,
   useCallback,
   useEffect,
+  useState,
 } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
 export interface PopupProperties {
   trigger: ReactNode;
-  content: ReactNode;
+  content: JSX.Element;
   position?: "top" | "bottom" | "left" | "right";
   offset?: number;
 }
 
-export const Popup: React.FC<PopupProperties> = ({
+export const Popup: FC<PopupProperties> = ({
   trigger,
   content,
   position = "bottom",
@@ -83,7 +85,7 @@ export const Popup: React.FC<PopupProperties> = ({
         style={styles.popper}
         {...attributes.popper}
       >
-        {content}
+        {cloneElement(content, { closePopup })}
       </div>,
       portalRoot,
     );
