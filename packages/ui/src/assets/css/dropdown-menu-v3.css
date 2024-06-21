@@ -15,6 +15,13 @@ ul.dz-menu li {
   transition: all var(--transition-duration) ease 0s;
 }
 
+ul.dz-menu li[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: default !important;
+  user-select: none;
+  pointer-events: none;
+}
+
 ul.dz-menu li:hover {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }

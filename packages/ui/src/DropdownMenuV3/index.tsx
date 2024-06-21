@@ -26,6 +26,7 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
     <Popup
       trigger={<Button {...buttonProperties} />}
       content={<Menu {...rest} />}
+      position="bottom-start"
       {...popupOptions}
     />
   );

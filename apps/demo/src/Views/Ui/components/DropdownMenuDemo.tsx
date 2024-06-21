@@ -10,6 +10,9 @@ export const DropdownMenuDemo = () => {
     {
       icon: "pi pi-lock",
       label: t("user:changePassword.title"),
+      className: "change-password",
+      display: true,
+      disabled: true,
     },
     {
       icon: "pi pi-user",
@@ -30,7 +33,7 @@ export const DropdownMenuDemo = () => {
     <Page title={t("dropdownMenu.title")}>
       <Section title={t("dropdownMenu.v3.leftAlign")}>
         <DropdownMenuV3
-          popupOptions={{ position: "left" }}
+          popupOptions={{ position: "top-start" }}
           menuItems={menuItems}
         />
       </Section>

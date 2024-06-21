@@ -1,3 +1,4 @@
+import { Placement } from "@popperjs/core";
 import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
 import {
   FC,
@@ -14,7 +15,7 @@ import { usePopper } from "react-popper";
 export interface PopupProperties {
   trigger: ReactNode;
   content: JSX.Element;
-  position?: "top" | "bottom" | "left" | "right";
+  position?: Placement;
   offset?: number;
 }
 

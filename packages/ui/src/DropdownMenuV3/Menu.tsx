@@ -1,36 +1,47 @@
 import React, { memo } from "react";
 
-interface MenuItem {
-  label?: string;
+export interface MenuItem {
+  className?: string;
+  disabled?: boolean;
+  display?: boolean;
+  key?: string;
+  label: string;
   onClick?: () => void;
 }
 
 export interface MenuProperties {
   closePopup?: () => void;
-  keyExtractor?: (value: MenuItem) => string;
   menuItems: MenuItem[];
   renderOption?: (value: MenuItem) => JSX.Element;
 }
 
 const Menu: React.FC<MenuProperties> = ({
   closePopup = () => null,
-  keyExtractor,
   menuItems,
   renderOption,
 }) => {
   return (
     <ul className="dz-menu">
-      {menuItems.map(({ onClick, ...item }, index) => (
-        <li
-          key={keyExtractor ? keyExtractor(item) : `menu-item-${index}`}
-          onClick={async () => {
-            await onClick?.();
-            closePopup();
-          }}
-        >
-          {renderOption ? renderOption(item) : item.label}
-        </li>
-      ))}
+      {menuItems.map(
+        ({ className, disabled, onClick, display = true, ...item }, index) =>
+          display ? (
+            <li
+              key={item.key || `menu-item-${index}`}
+              onClick={
+                disabled
+                  ? undefined
+                  : async () => {
+                      await onClick?.();
+                      closePopup();
+                    }
+              }
+              className={className}
+              aria-disabled={disabled}
+            >
+              {renderOption ? renderOption(item) : item.label}
+            </li>
+          ) : null,
+      )}
     </ul>
   );
 };
