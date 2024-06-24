@@ -4,7 +4,6 @@ import {
   FC,
   LegacyRef,
   ReactNode,
-  cloneElement,
   useCallback,
   useEffect,
   useState,
@@ -84,9 +83,10 @@ export const Popup: FC<PopupProperties> = ({
         className={`popup-content`}
         ref={setPopperElement as LegacyRef<HTMLDivElement>}
         style={styles.popper}
+        onClick={togglePopup}
         {...attributes.popper}
       >
-        {cloneElement(content, { closePopup })}
+        {content}
       </div>,
       portalRoot,
     );

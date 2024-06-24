@@ -10,16 +10,11 @@ export interface MenuItem {
 }
 
 export interface MenuProperties {
-  closePopup?: () => void;
   menuItems: MenuItem[];
   renderOption?: (value: MenuItem) => JSX.Element;
 }
 
-const Menu: React.FC<MenuProperties> = ({
-  closePopup = () => null,
-  menuItems,
-  renderOption,
-}) => {
+const Menu: React.FC<MenuProperties> = ({ menuItems, renderOption }) => {
   return (
     <ul className="dz-menu">
       {menuItems.map(
@@ -27,14 +22,7 @@ const Menu: React.FC<MenuProperties> = ({
           display ? (
             <li
               key={item.key || `menu-item-${index}`}
-              onClick={
-                disabled
-                  ? undefined
-                  : async () => {
-                      await onClick?.();
-                      closePopup();
-                    }
-              }
+              onClick={disabled ? undefined : onClick}
               className={className}
               aria-disabled={disabled}
             >
