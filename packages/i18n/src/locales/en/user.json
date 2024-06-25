@@ -226,7 +226,8 @@
       "reminder": "Please complete your profile to access this page."
     },
     "buttons": {
-      "gotoProfile": "Go to profile"
+      "gotoProfile": "Go to profile",
+      "skipProfile": "Skip"
     }
   }
 }

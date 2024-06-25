@@ -71,9 +71,9 @@ const UserProvider = ({ children }: Properties) => {
 
       userData.isProfileCompleted = await isProfileCompleted();
 
-      if (userData.isProfileCompleted === false) {
-        userData.isOnGracePeriod = await isOnGracePeriod();
-      }
+      // if (userData.isProfileCompleted === false) {
+      //  userData.isOnGracePeriod = await isOnGracePeriod();
+      // }
 
       await setUserData(userData);
 
