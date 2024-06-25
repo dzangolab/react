@@ -1,33 +1,46 @@
-import { Button, ButtonProps } from "primereact/button";
 import React from "react";
 
 import Menu, { MenuProperties } from "./Menu";
 import { Popup, PopupProperties } from "../Popup";
 
-export interface DropdownMenuProperties extends MenuProperties {
-  popupOptions?: Partial<Omit<PopupProperties, "content">>;
-  buttonOptions?: Omit<ButtonProps, "onClick">;
+export interface DropdownMenuProperties
+  extends MenuProperties,
+    Partial<Omit<PopupProperties, "content">> {
+  label?: string;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProperties> = ({
-  buttonOptions,
-  popupOptions,
+  label,
+  isControlled,
+  toggle,
+  close,
+  isOpen,
+  trigger,
+  position = "bottom-start",
+  offset,
   ...rest
 }) => {
-  const buttonProperties = {
-    icon: "pi pi-ellipsis-h",
-    text: true,
-    "aria-label": "Actions",
-    style: { height: "1.5rem", width: "1.5rem", padding: "0" },
-    ...buttonOptions,
-  };
+  const defaultTrigger = React.useMemo(() => {
+    return (
+      <div className="dz-trigger">
+        <span>
+          {label || <i className="pi pi-ellipsis-h"></i>}
+          <i className="dz-icon pi  pi-angle-down"></i>
+        </span>
+      </div>
+    );
+  }, [label]);
 
   return (
     <Popup
-      trigger={<Button {...buttonProperties} />}
+      trigger={trigger || defaultTrigger}
       content={<Menu {...rest} />}
-      position="bottom-start"
-      {...popupOptions}
+      position={position}
+      isControlled={isControlled}
+      toggle={toggle}
+      close={close}
+      isOpen={isOpen}
+      offset={offset}
     />
   );
 };

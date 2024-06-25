@@ -1,3 +1,14 @@
+.popup-trigger[aria-expanded="true"] .dz-trigger .dz-icon {
+  transform: rotate(180deg);
+}
+
+.dz-trigger .dz-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  margin-left: 0.5rem;
+}
+
 ul.dz-menu {
   background-color: var(--dropdown-bg-color, #fff);
   border-radius: var(--dropdown-border-radius, inherit);

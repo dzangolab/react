@@ -11,17 +11,28 @@ import {
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
-export interface PopupProperties {
+interface UncontrolledProperties {
   trigger: ReactNode;
   content: JSX.Element;
   position?: Placement;
   offset?: number;
 }
 
+export type PopupProperties = {
+  isControlled?: boolean;
+  toggle?: () => void;
+  close?: () => void;
+  isOpen?: boolean;
+} & UncontrolledProperties;
+
 export const Popup: FC<PopupProperties> = ({
+  isControlled = false,
+  toggle,
+  close,
+  isOpen: isOpenControlled,
   trigger,
   content,
-  position = "bottom",
+  position,
   offset = 10,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,13 +45,17 @@ export const Popup: FC<PopupProperties> = ({
     return [0, offset];
   }, []);
 
-  const togglePopup = () => {
-    setIsOpen((previousIsOpen) => !previousIsOpen);
-  };
+  const togglePopup = isControlled
+    ? toggle
+    : () => {
+        setIsOpen((previousIsOpen) => !previousIsOpen);
+      };
 
-  const closePopup = () => {
-    setIsOpen(false);
-  };
+  const closePopup = isControlled
+    ? close
+    : () => {
+        setIsOpen(false);
+      };
 
   const handleOutsideClick = (event: MouseEvent) => {
     if (popperElement && referenceElement) {
@@ -48,7 +63,7 @@ export const Popup: FC<PopupProperties> = ({
         !popperElement.contains(event.target as Node) &&
         !referenceElement.contains(event.target as Node)
       )
-        closePopup();
+        closePopup?.();
     }
   };
 
@@ -98,10 +113,12 @@ export const Popup: FC<PopupProperties> = ({
         className="popup-trigger"
         ref={setReferenceElement as LegacyRef<HTMLDivElement>}
         onClick={togglePopup}
+        aria-controls="popup-content"
+        aria-expanded={isControlled ? isOpenControlled : isOpen}
       >
         {trigger}
       </div>
-      {isOpen ? renderPopupContent() : null}
+      {(isControlled ? isOpenControlled : isOpen) ? renderPopupContent() : null}
     </div>
   );
 };
