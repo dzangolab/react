@@ -64,20 +64,27 @@ exports[`Component matches snapshot 1`] = `
     <span
       className="locale-switcher"
     >
-      <span
-        className="dz-dropdown-menu-label"
-        onClick={[Function]}
+      <div
+        className="popup-container"
       >
-        locales.en
-        <i
-          className="pi pi-angle-down"
-          style={
-            {
-              "fontSize": "12px",
-            }
-          }
-        />
-      </span>
+        <div
+          aria-controls="popup-content"
+          aria-expanded={false}
+          className="popup-trigger"
+          onClick={[Function]}
+        >
+          <div
+            className="dz-trigger"
+          >
+            <span>
+              locales.en
+              <i
+                className="dz-icon pi  pi-angle-down"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
     </span>
   </nav>
   <div

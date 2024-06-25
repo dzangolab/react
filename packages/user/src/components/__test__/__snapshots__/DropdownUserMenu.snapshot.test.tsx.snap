@@ -2,36 +2,24 @@
 
 exports[`Component matches snapshot 1`] = `
 <div
-  className="user-menu dropdown-container"
-  data-aria-expanded={false}
-  onClick={[Function]}
+  className="popup-container"
 >
   <div
-    className="label-container"
+    aria-controls="popup-content"
+    aria-expanded={false}
+    className="popup-trigger"
+    onClick={[Function]}
   >
-    <span
-      className="label"
+    <div
+      className="dz-trigger"
     >
-      test
-    </span>
-    <span
-      className="icon"
-    >
-      ▾
-    </span>
+      <span>
+        test
+        <i
+          className="dz-icon pi  pi-angle-down"
+        />
+      </span>
+    </div>
   </div>
-  <ul
-    className="dropdown-menu"
-    data-aria-hidden={true}
-  >
-    <li
-      className="option"
-      icon="pi pi-power-off"
-      name="userMenu.logout"
-      onClick={[Function]}
-    >
-      userMenu.logout
-    </li>
-  </ul>
 </div>
 `;

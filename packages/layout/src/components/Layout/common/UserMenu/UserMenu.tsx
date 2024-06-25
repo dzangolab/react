@@ -1,4 +1,4 @@
-import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
+import { DropdownMenu } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import { NavMenuItemType, UserMenuModeType } from "../../types";
@@ -44,7 +44,7 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
       ));
     }
 
-    return <DropdownMenu menu={refinedMenu || []} menuLabel={userMenuLabel} />;
+    return <DropdownMenu menu={refinedMenu || []} label={userMenuLabel} />;
   };
 
   return userMenu.length ? (
