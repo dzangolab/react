@@ -6,6 +6,7 @@ import { getUserData, removeUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
 import {
   isEmailVerified,
+  isOnGracePeriod,
   isProfileCompleted,
   verifySessionRoles,
 } from "../supertokens/helpers";
@@ -69,6 +70,10 @@ const UserProvider = ({ children }: Properties) => {
       }
 
       userData.isProfileCompleted = await isProfileCompleted();
+
+      if (userData.isProfileCompleted === false) {
+        userData.isOnGracePeriod = await isOnGracePeriod();
+      }
 
       await setUserData(userData);
 

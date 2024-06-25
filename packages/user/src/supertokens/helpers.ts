@@ -92,33 +92,32 @@ const isEmailVerified = async (): Promise<boolean | undefined> => {
  *   - `undefined` if the profile validation is disabled in the api.
  *
  */
-const isProfileCompleted = async (): Promise<
-  | { isVerified: true }
-  | { isVerified: false; isGracePeriodEnded?: boolean }
-  | undefined
-> => {
+const isProfileCompleted = async (): Promise<boolean | undefined> => {
   const profileClaim = await Session.getClaimValue({
     claim: new ProfileValidationClaim(),
   });
-
-  console.log("profileValidation claim value", profileClaim);
 
   if (!profileClaim) {
     return;
   }
 
-  if (profileClaim.isVerified) {
-    return { isVerified: true };
+  return profileClaim.isVerified;
+};
+
+const isOnGracePeriod = async (): Promise<boolean | undefined> => {
+  const profileClaim = await Session.getClaimValue({
+    claim: new ProfileValidationClaim(),
+  });
+
+  if (!profileClaim || profileClaim.isVerified) {
+    return;
   }
 
   if (profileClaim.gracePeriodEndsAt) {
-    return {
-      isVerified: false,
-      isGracePeriodEnded: profileClaim.gracePeriodEndsAt < Date.now(),
-    };
+    return profileClaim.gracePeriodEndsAt >= Date.now();
   }
 
-  return { isVerified: false };
+  return false;
 };
 
 // const isProfileCompleted = async (): Promise<boolean | undefined> => {
@@ -144,6 +143,7 @@ const isProfileCompleted = async (): Promise<
 export {
   getUserRoles,
   isEmailVerified,
+  isOnGracePeriod,
   isProfileCompleted,
   verifySessionRoles,
 };
