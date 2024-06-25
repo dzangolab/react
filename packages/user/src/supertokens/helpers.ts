@@ -92,27 +92,54 @@ const isEmailVerified = async (): Promise<boolean | undefined> => {
  *   - `undefined` if the profile validation is disabled in the api.
  *
  */
-const isProfileCompleted = async (): Promise<boolean | undefined> => {
-  if (await Session.doesSessionExist()) {
-    const validatorFailures = await Session.validateClaims({
-      overrideGlobalClaimValidators: () => {
-        // Only check for profile validation
-        return [ProfileValidationClaim.validators.isTrue()];
-      },
-    });
+const isProfileCompleted = async (): Promise<
+  | { isVerified: true }
+  | { isVerified: false; isGracePeriodEnded?: boolean }
+  | undefined
+> => {
+  const profileClaim = await Session.getClaimValue({
+    claim: new ProfileValidationClaim(),
+  });
 
-    if (
-      validatorFailures.length &&
-      validatorFailures[0].reason.actualValue === undefined
-    ) {
-      return;
-    }
+  console.log("profileValidation claim value", profileClaim);
 
-    return !validatorFailures.length;
+  if (!profileClaim) {
+    return;
   }
 
-  return false;
+  if (profileClaim.isVerified) {
+    return { isVerified: true };
+  }
+
+  if (profileClaim.gracePeriodEndsAt) {
+    return {
+      isVerified: false,
+      isGracePeriodEnded: profileClaim.gracePeriodEndsAt < Date.now(),
+    };
+  }
+
+  return { isVerified: false };
 };
+
+// const isProfileCompleted = async (): Promise<boolean | undefined> => {
+//   if (await Session.doesSessionExist()) {
+//     const validatorFailures = await Session.validateClaims({
+//       overrideGlobalClaimValidators: () => {
+//         // Only check for profile validation
+//         return [ProfileValidationClaim.validators.];
+//       },
+//     });
+//
+//     if (
+//       validatorFailures.length &&
+//       validatorFailures[0].reason.actualValue === undefined
+//     ) {
+//       return;
+//     }
+//
+//     return !validatorFail;
+//   }
+// };
 
 export {
   getUserRoles,
