@@ -120,26 +120,6 @@ const isOnGracePeriod = async (): Promise<boolean | undefined> => {
   return false;
 };
 
-// const isProfileCompleted = async (): Promise<boolean | undefined> => {
-//   if (await Session.doesSessionExist()) {
-//     const validatorFailures = await Session.validateClaims({
-//       overrideGlobalClaimValidators: () => {
-//         // Only check for profile validation
-//         return [ProfileValidationClaim.validators.];
-//       },
-//     });
-//
-//     if (
-//       validatorFailures.length &&
-//       validatorFailures[0].reason.actualValue === undefined
-//     ) {
-//       return;
-//     }
-//
-//     return !validatorFail;
-//   }
-// };
-
 export {
   getUserRoles,
   isEmailVerified,
