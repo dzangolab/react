@@ -10,16 +10,14 @@ exports[`Component matches snapshot 1`] = `
     className="popup-trigger"
     onClick={[Function]}
   >
-    <div
-      className="dz-trigger"
+    <span
+      className="dz-dropdown-menu-trigger"
     >
-      <span>
-        test
-        <i
-          className="dz-icon pi  pi-angle-down"
-        />
-      </span>
-    </div>
+      test
+      <i
+        className="dz-icon pi  pi-angle-down"
+      />
+    </span>
   </div>
 </div>
 `;
