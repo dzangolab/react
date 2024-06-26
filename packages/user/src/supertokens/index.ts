@@ -6,28 +6,10 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 
 import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
 
-import ProfileValidationClaim from "./profileValidationClaim";
-
 const superTokens = (config: AppConfig) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recipeLists: Array<any> = [
-    Session.init({
-      ...(config?.user?.supertokens?.sessionConfig || {}),
-      override: {
-        functions: (originalImplementation) => {
-          return {
-            ...originalImplementation,
-            getGlobalClaimValidators: function (input) {
-              return [
-                ...input.claimValidatorsAddedByOtherRecipes,
-                ProfileValidationClaim.validators.isTrue(),
-              ];
-            },
-          };
-        },
-        ...(config?.user?.supertokens?.sessionConfig?.override || {}),
-      },
-    }),
+    Session.init(config?.user?.supertokens?.sessionConfig),
     ThirdPartyEmailPassword.init(
       config?.user?.supertokens?.thirdPartyEmailPasswordConfig,
     ),

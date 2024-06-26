@@ -1,10 +1,32 @@
-import { BooleanClaim } from "supertokens-web-js/recipe/session";
+import { SessionClaim } from "supertokens-web-js/lib/build/recipe/session";
 
-const ProfileValidationClaim = new BooleanClaim({
-  id: "profileValidation",
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  refresh: async () => {},
-  defaultMaxAgeInSeconds: undefined,
-});
+interface Response {
+  gracePeriodEndsAt?: number;
+  isVerified: boolean;
+}
+
+class ProfileValidationClaim implements SessionClaim<Response> {
+  public static defaultMaxAgeInSeconds: number | undefined = undefined;
+  public static id = "profileValidation";
+
+  constructor() {
+    /* empty */
+  }
+
+  getLastFetchedTime(): number | undefined {
+    return undefined;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getValueFromPayload(payload: any): Response | undefined {
+    return payload[ProfileValidationClaim.id] !== undefined
+      ? payload[ProfileValidationClaim.id].v
+      : undefined;
+  }
+
+  async refresh(): Promise<void> {
+    /* empty */
+  }
+}
 
 export default ProfileValidationClaim;

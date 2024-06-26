@@ -93,22 +93,20 @@ const isEmailVerified = async (): Promise<boolean | undefined> => {
  *
  */
 const isProfileCompleted = async (): Promise<boolean | undefined> => {
-  if (await Session.doesSessionExist()) {
-    const validatorFailures = await Session.validateClaims({
-      overrideGlobalClaimValidators: () => {
-        // Only check for profile validation
-        return [ProfileValidationClaim.validators.isTrue()];
-      },
-    });
+  const profileClaim = await Session.getClaimValue({
+    claim: new ProfileValidationClaim(),
+  });
 
-    if (
-      validatorFailures.length &&
-      validatorFailures[0].reason.actualValue === undefined
-    ) {
-      return;
-    }
+  if (!profileClaim) {
+    return;
+  }
 
-    return !validatorFailures.length;
+  if (profileClaim.isVerified) {
+    return true;
+  }
+
+  if (profileClaim.gracePeriodEndsAt) {
+    return profileClaim.gracePeriodEndsAt >= Date.now();
   }
 
   return false;
