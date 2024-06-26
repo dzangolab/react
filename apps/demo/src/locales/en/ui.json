@@ -23,6 +23,13 @@
     "header": "Confirmation required",
     "message": "Are you sure you want to proceed?"
   },
+  "dropdownMenu": {
+    "title": "Dropdown menu",
+    "v3": {
+      "leftAlign": "Popup align left",
+      "templating": "Menu templating"
+    }
+  },
   "filesTable": {
     "title": "Files table",
     "pagination": {

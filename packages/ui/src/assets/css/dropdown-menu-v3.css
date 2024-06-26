@@ -1,0 +1,38 @@
+.popup-trigger[aria-expanded="true"] .dz-trigger .dz-icon {
+  transform: rotate(180deg);
+}
+
+.dz-trigger .dz-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  margin-left: 0.5rem;
+}
+
+ul.dz-dropdown-menu {
+  background-color: var(--dropdown-bg-color, #fff);
+  border-radius: var(--dropdown-border-radius, inherit);
+  list-style: none;
+  padding-inline-start: 0;
+  min-width: 160px;
+  width: max-content;
+}
+
+ul.dz-dropdown-menu li {
+  border-radius: inherit;
+  cursor: pointer;
+  padding: 0.75rem 0.5rem;
+  background-color: white;
+  transition: all var(--transition-duration) ease 0s;
+}
+
+ul.dz-dropdown-menu li[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: default !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+ul.dz-dropdown-menu li:hover {
+  background-color: var(--dropdown-bg-color-hover, #dbe9fa);
+}

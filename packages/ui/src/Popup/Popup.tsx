@@ -1,25 +1,38 @@
+import { Placement } from "@popperjs/core";
 import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
-import React, {
-  useState,
-  ReactNode,
+import {
+  FC,
   LegacyRef,
+  ReactNode,
   useCallback,
   useEffect,
+  useState,
 } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
-export interface PopupProperties {
+interface UncontrolledProperties {
   trigger: ReactNode;
-  content: ReactNode;
-  position?: "top" | "bottom" | "left" | "right";
+  content: JSX.Element;
+  position?: Placement;
   offset?: number;
 }
 
-export const Popup: React.FC<PopupProperties> = ({
+export type PopupProperties = {
+  isControlled?: boolean;
+  toggle?: () => void;
+  close?: () => void;
+  isOpen?: boolean;
+} & UncontrolledProperties;
+
+export const Popup: FC<PopupProperties> = ({
+  isControlled = false,
+  toggle,
+  close,
+  isOpen: isOpenControlled,
   trigger,
   content,
-  position = "bottom",
+  position,
   offset = 10,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,13 +45,17 @@ export const Popup: React.FC<PopupProperties> = ({
     return [0, offset];
   }, []);
 
-  const togglePopup = () => {
-    setIsOpen((previousIsOpen) => !previousIsOpen);
-  };
+  const togglePopup = isControlled
+    ? toggle
+    : () => {
+        setIsOpen((previousIsOpen) => !previousIsOpen);
+      };
 
-  const closePopup = () => {
-    setIsOpen(false);
-  };
+  const closePopup = isControlled
+    ? close
+    : () => {
+        setIsOpen(false);
+      };
 
   const handleOutsideClick = (event: MouseEvent) => {
     if (popperElement && referenceElement) {
@@ -46,7 +63,7 @@ export const Popup: React.FC<PopupProperties> = ({
         !popperElement.contains(event.target as Node) &&
         !referenceElement.contains(event.target as Node)
       )
-        closePopup();
+        closePopup?.();
     }
   };
 
@@ -81,6 +98,7 @@ export const Popup: React.FC<PopupProperties> = ({
         className={`popup-content`}
         ref={setPopperElement as LegacyRef<HTMLDivElement>}
         style={styles.popper}
+        onClick={togglePopup}
         {...attributes.popper}
       >
         {content}
@@ -95,10 +113,12 @@ export const Popup: React.FC<PopupProperties> = ({
         className="popup-trigger"
         ref={setReferenceElement as LegacyRef<HTMLDivElement>}
         onClick={togglePopup}
+        aria-controls="popup-content"
+        aria-expanded={isControlled ? isOpenControlled : isOpen}
       >
         {trigger}
       </div>
-      {isOpen ? renderPopupContent() : null}
+      {(isControlled ? isOpenControlled : isOpen) ? renderPopupContent() : null}
     </div>
   );
 };
