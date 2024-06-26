@@ -31,7 +31,11 @@ const Menu: React.FC<MenuProperties> = ({
               className={className}
               aria-disabled={disabled}
             >
-              {renderOption ? renderOption(item) : item.label}
+              {renderOption ? (
+                renderOption(item)
+              ) : (
+                <span className="dz-menu-item">{item.label}</span>
+              )}
             </li>
           ) : null,
       )}

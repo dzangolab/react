@@ -91,8 +91,8 @@ export const UserEnabledHeaderLayout = ({
         noLogo,
         noLocaleSwitcher,
         noToggle,
-        userMenuMode: user ? "dropdown" : "horizontal",
       }}
+      userMenuMode={user ? "vertical" : "horizontal"}
     />
   );
 };

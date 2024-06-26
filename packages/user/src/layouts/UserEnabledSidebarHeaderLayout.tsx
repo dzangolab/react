@@ -82,7 +82,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       collapsible={collapsible}
       navigationMenu={navigationMenu}
       userMenu={getUserNavigationMenu()}
-      userMenuMode={user ? "dropdown" : "horizontal"}
+      userMenuMode={user ? "vertical" : "horizontal"}
       {...otherProperties}
     />
   );

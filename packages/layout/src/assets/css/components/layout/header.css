@@ -81,7 +81,16 @@
   display: none;
 }
 
-.dz-layout > header > .header-container > .header-menu > .user-menu {
+.dz-layout
+  > header
+  > .header-container
+  > .header-menu
+  > ul.user-menu[aria-orientation="horizontal"] {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.dz-layout > header > .header-container > .header-menu > ul.user-menu li {
   cursor: pointer;
 }
 
