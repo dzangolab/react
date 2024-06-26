@@ -16,7 +16,7 @@ export interface MenuProperties {
 
 const Menu: React.FC<MenuProperties> = ({ menuItems, renderOption }) => {
   return (
-    <ul className="dz-menu">
+    <ul className="dz-dropdown-menu">
       {menuItems.map(
         ({ className, disabled, onClick, display = true, ...item }, index) =>
           display ? (
