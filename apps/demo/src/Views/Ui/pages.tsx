@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
 import { ConfirmationModalDemo } from "./components/ConfirmationModal";
+import { DropdownMenuDemo } from "./components/DropdownMenuDemo";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
@@ -39,6 +40,7 @@ export const UI_ROUTES = {
   BUTTON: "/ui/button",
   SUBMIT_BUTTON: "/ui/submit-button",
   FILES_TABLE: "/ui/files-table",
+  DROPDOWN_MENU: "/ui/dropdown-menu",
   RESPONSIVE_MENU: "/ui/responsive-menu",
   YOUTUBE_FACADE: "/ui/youtube-facade",
   EXPORT_BUTTON: "/ui/export-xlsx",
@@ -132,6 +134,11 @@ const OTHERS = [
     path: UI_ROUTES.RESPONSIVE_MENU,
     key: "responsiveMenu.title",
     element: <ResponsiveMenuDemo />,
+  },
+  {
+    path: UI_ROUTES.DROPDOWN_MENU,
+    key: "dropdownMenu.title",
+    element: <DropdownMenuDemo />,
   },
   {
     path: UI_ROUTES.YOUTUBE_FACADE,
