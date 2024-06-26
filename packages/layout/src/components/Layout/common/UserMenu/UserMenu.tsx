@@ -35,16 +35,18 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
   const renderContent = () => {
     const template = (_menuItem: any) => {
       return (
-        <span className="dz-menu-item" onClick={_menuItem.command}>
-          {_menuItem.icon && (
-            <i className={_menuItem.icon} style={{ fontSize: "12px" }}></i>
-          )}
+        <span className="dz-user-menu-item" onClick={_menuItem.command}>
+          {_menuItem.icon && <i className={_menuItem.icon}></i>}
           {_menuItem.label}
         </span>
       );
     };
 
-    if (userMenuMode === "horizontal" || refinedMenu.length === 1) {
+    if (refinedMenu.length === 1) {
+      return template(refinedMenu[0]);
+    }
+
+    if (userMenuMode === "horizontal") {
       return (
         <ul className="user-menu" aria-orientation={userMenuMode}>
           {refinedMenu.map((_menuItem) => {

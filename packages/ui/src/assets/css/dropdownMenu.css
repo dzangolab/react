@@ -1,12 +1,16 @@
-.popup-trigger[aria-expanded="true"] .dz-trigger .dz-icon {
-  transform: rotate(180deg);
-}
-
-.dz-trigger .dz-icon {
+.dz-dropdown-menu-trigger .dz-icon {
   display: inline-block;
   transition: transform 0.3s ease;
   transform-origin: center;
   margin-left: 0.5rem;
+}
+
+.dz-dropdown-menu-trigger:hover {
+  text-decoration: underline;
+}
+
+.popup-trigger[aria-expanded="true"] .dz-dropdown-menu-trigger .dz-icon {
+  transform: rotate(180deg);
 }
 
 ul.dz-dropdown-menu {
