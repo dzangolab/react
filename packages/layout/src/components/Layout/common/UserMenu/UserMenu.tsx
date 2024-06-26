@@ -10,13 +10,13 @@ interface IProperties {
 
 export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
   const navigate = useNavigate();
-  const { id, label: userMenuLabel, menu: userMenu } = menu;
+  const { id, label: userMenuLabel, menu: userMenu = [] } = menu;
 
   const refinedMenu = userMenu.map((_menu) => {
     return {
       label: _menu.label as string,
       icon: _menu.icon,
-      command: () => {
+      onClick: () => {
         if ("onClick" in _menu) {
           _menu.onClick();
         }
@@ -28,12 +28,13 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
   });
 
   const renderContent = () => {
-    if (userMenuMode === "horizontal" || refinedMenu.length === 1) {
-      return refinedMenu.map((_menu) => (
+    const template = (_menu: any) => {
+      return (
         <span
+          className="user-menu"
           key={_menu.label}
           onClick={() => {
-            _menu.command();
+            _menu.onClick();
           }}
         >
           {_menu.icon && (
@@ -41,15 +42,22 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
           )}
           {_menu.label}
         </span>
-      ));
+      );
+    };
+
+    if (userMenuMode === "horizontal" || refinedMenu.length === 1) {
+      return refinedMenu.map(template);
     }
 
-    return <DropdownMenu menu={refinedMenu || []} label={userMenuLabel} />;
+    return (
+      <DropdownMenu
+        className="user-menu"
+        renderOption={template}
+        menu={refinedMenu || []}
+        label={userMenuLabel}
+      />
+    );
   };
 
-  return userMenu.length ? (
-    <span className="user-menu" data-nav-menu-id={id}>
-      {renderContent()}
-    </span>
-  ) : null;
+  return userMenu.length ? renderContent() : null;
 };

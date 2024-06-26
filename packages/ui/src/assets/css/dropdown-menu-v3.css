@@ -9,7 +9,7 @@
   margin-left: 0.5rem;
 }
 
-ul.dz-menu {
+ul.dz-dropdown-menu {
   background-color: var(--dropdown-bg-color, #fff);
   border-radius: var(--dropdown-border-radius, inherit);
   list-style: none;
@@ -18,7 +18,7 @@ ul.dz-menu {
   width: max-content;
 }
 
-ul.dz-menu li {
+ul.dz-dropdown-menu li {
   border-radius: inherit;
   cursor: pointer;
   padding: 0.75rem 0.5rem;
@@ -26,13 +26,13 @@ ul.dz-menu li {
   transition: all var(--transition-duration) ease 0s;
 }
 
-ul.dz-menu li[aria-disabled="true"] {
+ul.dz-dropdown-menu li[aria-disabled="true"] {
   opacity: 0.6;
   cursor: default !important;
   user-select: none;
   pointer-events: none;
 }
 
-ul.dz-menu li:hover {
+ul.dz-dropdown-menu li:hover {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
 }

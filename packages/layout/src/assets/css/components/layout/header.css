@@ -83,8 +83,6 @@
 
 .dz-layout > header > .header-container > .header-menu > .user-menu {
   cursor: pointer;
-  column-gap: 1.3rem;
-  display: flex;
 }
 
 @media screen and (min-width: 576px) {

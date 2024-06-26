@@ -21,7 +21,7 @@ const Menu: React.FC<MenuProperties> = ({
   renderOption,
 }) => {
   return (
-    <ul className={`dz-menu ${className || ""}`.trimEnd()}>
+    <ul className={`dz-dropdown-menu ${className || ""}`.trimEnd()}>
       {menu.map(
         ({ className, disabled, onClick, display = true, ...item }, index) =>
           display ? (
