@@ -1,7 +1,11 @@
-import { Button } from "@dzangolab/react-ui";
-import { InputText } from "primereact/inputtext";
-import { Tooltip } from "primereact/tooltip";
-import React, { Ref, useEffect, useRef, useState } from "react";
+import { Button, Tooltip, Input } from "@dzangolab/react-ui";
+import React, {
+  ChangeEvent,
+  KeyboardEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { FileExtended } from "../types";
 
@@ -26,8 +30,8 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
 }) => {
   const [showDescriptionInput, setShowDescriptionInput] = useState(false);
   const [description, setDescription] = useState(file.description || "");
-
-  const inputDescriptionReference = useRef<HTMLInputElement>();
+  const nameReference = useRef<HTMLDivElement>(null);
+  const descriptionReference = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (enableDescription && onDescriptionChange) {
@@ -40,22 +44,21 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
       <div className="info">
         <div className="preview"></div>
         <div className="details">
-          <Tooltip
-            position="top"
-            target={`.name.name-${index}`}
-            content={file.name}
-          />
-          <span className={`name name-${index}`}>{file.name}</span>
+          <Tooltip position="top" elementRef={nameReference}>
+            {file.name}
+          </Tooltip>
+          <span className={`name name-${index}`} ref={nameReference}>
+            {file.name}
+          </span>
           {enableDescription && (
             <div className="description-wrapper">
               {!showDescriptionInput ? (
                 <>
-                  <Tooltip
-                    position="top"
-                    target={`.description.description-${index}`}
-                    content={file.description}
-                  />
+                  <Tooltip position="top" elementRef={descriptionReference}>
+                    {file.description}
+                  </Tooltip>
                   <div
+                    ref={descriptionReference}
                     className={`description description-${index}`}
                     role="button"
                     tabIndex={0}
@@ -70,13 +73,16 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
               ) : (
                 <>
                   <div className="p-inputgroup">
-                    <InputText
-                      ref={inputDescriptionReference as Ref<HTMLInputElement>}
+                    <Input
                       autoFocus
                       value={description}
                       placeholder={descriptionPlaceholder}
-                      onChange={(event) => setDescription(event.target.value)}
-                      onKeyDown={(keyEvent) => {
+                      onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                        setDescription(event.target.value)
+                      }
+                      onKeyDown={(
+                        keyEvent: KeyboardEvent<HTMLInputElement>,
+                      ) => {
                         if (keyEvent.key === "Enter") {
                           setShowDescriptionInput(false);
                         }

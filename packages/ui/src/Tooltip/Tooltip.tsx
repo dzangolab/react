@@ -9,7 +9,7 @@ import React, {
   useMemo,
   useRef,
 } from "react";
-import { createPortal, findDOMNode } from "react-dom";
+import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
 import { getTooltipConfig } from "./ConfigureTooltip";
@@ -114,7 +114,7 @@ export const Tooltip: FC<TooltipProperties> = (tooltipProperties) => {
   const { styles, attributes } = usePopper(
     mouseTrack
       ? (virtualElement as VirtualElement)
-      : (findDOMNode(elementRef.current) as Element),
+      : (elementRef.current as Element),
     tooltipReference,
     {
       modifiers: [
