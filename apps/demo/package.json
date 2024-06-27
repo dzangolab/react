@@ -26,7 +26,7 @@
     "@reduxjs/toolkit": "1.9.7",
     "normalize.css": "8.0.1",
     "primeicons": "7.0.0",
-    "primereact": "9.6.1",
+    "primereact": "9.6.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-redux": "8.1.3",
