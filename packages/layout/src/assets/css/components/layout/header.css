@@ -100,7 +100,7 @@ ul.user-menu li > span.dz-user-menu-item {
   cursor: pointer;
 }
 
-ul.user-menu li > span.dz-user-menu-item:hover,
+ul.user-menu[aria-orientation="horizontal"] li > span.dz-user-menu-item:hover,
 .dz-layout .header-menu span.dz-user-menu-item:hover {
   text-decoration: underline;
 }
