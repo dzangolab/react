@@ -8,6 +8,9 @@ export interface MenuProperties extends PMenuProperties {
   menuLabel?: string | React.ReactNode;
 }
 
+/**
+ * @deprecated Use the new DropdownMenu instead
+ */
 export const DropdownMenuV2 = ({
   icon = <i className="pi pi-angle-down" style={{ fontSize: "12px" }} />,
   menuLabel,

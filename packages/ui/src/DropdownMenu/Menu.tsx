@@ -5,19 +5,24 @@ export interface MenuItem {
   disabled?: boolean;
   display?: boolean;
   key?: string;
-  label: string;
+  label?: string;
   onClick?: () => void;
 }
 
 export interface MenuProperties {
-  menuItems: MenuItem[];
+  className?: string;
+  menu: MenuItem[];
   renderOption?: (value: MenuItem) => JSX.Element;
 }
 
-const Menu: React.FC<MenuProperties> = ({ menuItems, renderOption }) => {
+const Menu: React.FC<MenuProperties> = ({
+  className,
+  menu = [],
+  renderOption,
+}) => {
   return (
-    <ul className="dz-dropdown-menu">
-      {menuItems.map(
+    <ul className={`dz-dropdown-menu ${className || ""}`.trimEnd()}>
+      {menu.map(
         ({ className, disabled, onClick, display = true, ...item }, index) =>
           display ? (
             <li
@@ -26,7 +31,11 @@ const Menu: React.FC<MenuProperties> = ({ menuItems, renderOption }) => {
               className={className}
               aria-disabled={disabled}
             >
-              {renderOption ? renderOption(item) : item.label}
+              {renderOption ? (
+                renderOption(item)
+              ) : (
+                <span className="dz-menu-item">{item.label}</span>
+              )}
             </li>
           ) : null,
       )}

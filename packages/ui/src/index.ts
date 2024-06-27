@@ -6,9 +6,6 @@ import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import { DropdownMenuV2 } from "./DropdownMenuV2";
-import DropdownMenuV3, {
-  DropdownMenuProperties as DropdownMenuPropertiesV3,
-} from "./DropdownMenuV3";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
@@ -40,7 +37,6 @@ export {
   Divider,
   DropdownMenu,
   DropdownMenuV2,
-  DropdownMenuV3,
   GoogleButton,
   LoadingIcon,
   LoadingPage,
@@ -53,8 +49,4 @@ export {
   ConfirmationModal,
 };
 
-export type {
-  DropdownMenuProperties,
-  DropdownMenuPropertiesV3,
-  CombinedMenuRouteType,
-};
+export type { DropdownMenuProperties, CombinedMenuRouteType };

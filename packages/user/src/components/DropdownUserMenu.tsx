@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { DropdownMenu, DropdownMenuProperties } from "@dzangolab/react-ui";
-import { useId } from "react";
 import { toast } from "react-toastify";
 
 import DropdownUserMenuItem from "./DropdownUserMenuItem";
@@ -8,22 +7,19 @@ import { useUser } from "../hooks";
 import logout from "../supertokens/logout";
 import { UserMenuItemType } from "../types";
 
-interface Properties
-  extends Partial<Omit<DropdownMenuProperties, "dropdownMenu">> {
+export interface DropdownUserMenuProperties
+  extends Partial<DropdownMenuProperties> {
   onLogout?: () => void;
   showUserMenuIcon?: boolean;
   userMenu?: UserMenuItemType[];
 }
 
-const DropdownUserMenu: React.FC<Properties> = ({
-  collapseIcon,
-  expandIcon,
+const DropdownUserMenu: React.FC<DropdownUserMenuProperties> = ({
   label,
   onLogout,
   showUserMenuIcon,
   userMenu,
 }) => {
-  const id = useId();
   const { user, setUser } = useUser();
   const { t } = useTranslation("user");
 
@@ -56,15 +52,8 @@ const DropdownUserMenu: React.FC<Properties> = ({
   return (
     <DropdownMenu
       className="user-menu"
-      collapseIcon={collapseIcon}
-      dropdownMenu={{
-        menuItems: menuItems,
-        renderOption: dropdownUserMenu,
-        keyExtractor: ({ name }) => {
-          return `${id}__${name}`;
-        },
-      }}
-      expandIcon={expandIcon}
+      menu={menuItems}
+      renderOption={dropdownUserMenu}
       label={label || user?.givenName || user?.email}
     />
   );

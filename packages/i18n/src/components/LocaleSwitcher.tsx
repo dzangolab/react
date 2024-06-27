@@ -1,10 +1,9 @@
-import { DropdownMenuV2 as DropdownMenu } from "@dzangolab/react-ui";
-import { MenuProps as PMenuProperties } from "primereact/menu";
+import { DropdownMenu, DropdownMenuProperties } from "@dzangolab/react-ui";
 import { useTranslation } from "react-i18next";
 
 import "../css/locale-switcher.css";
 
-export type LocalSwitcherProperties = PMenuProperties;
+export type LocalSwitcherProperties = Omit<DropdownMenuProperties, "menu">;
 
 const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
   const { i18n, t } = useTranslation("locales");
@@ -21,7 +20,7 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
       .filter((locale) => locale !== "cimode") // Filter out cimode from options. The mode shows key e.g. locale.english as value.
       .map((locale) => {
         return {
-          command: () => changeLocale(locale),
+          onClick: () => changeLocale(locale),
           label: t(`locales.${locale}`),
         };
       });
@@ -34,7 +33,7 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
     <span className="locale-switcher">
       <DropdownMenu
         menu={locales || []}
-        menuLabel={t(`locales.${i18n.language}`)}
+        label={t(`locales.${i18n.language}`)}
         {...menuOptions}
       />
     </span>

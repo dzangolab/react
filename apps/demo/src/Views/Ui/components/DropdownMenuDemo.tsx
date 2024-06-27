@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DropdownMenuV3, Page } from "@dzangolab/react-ui";
+import { DropdownMenu, Page } from "@dzangolab/react-ui";
 
 import { Section } from "../../../components/Demo";
 
@@ -32,10 +32,10 @@ export const DropdownMenuDemo = () => {
   return (
     <Page title={t("dropdownMenu.title")}>
       <Section title={t("dropdownMenu.v3.leftAlign")}>
-        <DropdownMenuV3 position="top-start" menuItems={menuItems} />
+        <DropdownMenu position="top-start" menu={menuItems} />
       </Section>
       <Section title={t("dropdownMenu.v3.templating")}>
-        <DropdownMenuV3 menuItems={menuItems} renderOption={template} />
+        <DropdownMenu menu={menuItems} renderOption={template} />
       </Section>
     </Page>
   );

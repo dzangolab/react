@@ -1,22 +1,18 @@
 import { BasicLayout } from "@dzangolab/react-layout";
 
-import DropdownUserMenu from "../components/DropdownUserMenu";
+import DropdownUserMenu, {
+  DropdownUserMenuProperties,
+} from "../components/DropdownUserMenu";
 import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
-import { UserMenuItemType } from "../types";
 
 interface Properties {
   anonymousUserMenu?: React.ReactNode;
   authenticatedUserMenu?: React.ReactNode;
   children: React.ReactNode;
   footer?: React.ReactNode;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onLogout?: (() => any) | (() => Promise<any>);
-  userMenu?: UserMenuItemType[];
-  userMenuCollapsedIcon?: React.ReactNode;
-  userMenuExpandIcon?: React.ReactNode;
-  userMenuLabel?: React.ReactNode;
+  dropdownUserMenu?: DropdownUserMenuProperties;
   header?: React.ReactNode;
   localSwitcher?: React.ReactNode;
   menuToggle?: React.ReactNode;
@@ -27,7 +23,6 @@ interface Properties {
   mainMenuOrientation?: "horizontal" | "vertical";
   mainMenu?: React.ReactNode;
   logoRoute?: string;
-  showUserMenuIcon?: boolean;
   fixed?: boolean;
 }
 
@@ -42,11 +37,7 @@ export const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     authenticatedUserMenu,
     children,
     footer,
-    onLogout,
-    userMenu,
-    userMenuCollapsedIcon,
-    userMenuExpandIcon,
-    userMenuLabel,
+    dropdownUserMenu,
     mainMenuRoutes,
     mainMenu,
     mainMenuOrientation,
@@ -54,7 +45,6 @@ export const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
     localSwitcher,
     logoRoute,
     menuToggle,
-    showUserMenuIcon,
     fixed,
   } = properties;
 
@@ -73,16 +63,7 @@ export const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
       userMenu={
         <UserMenu
           authenticatedUserMenu={
-            authenticatedUserMenu || (
-              <DropdownUserMenu
-                collapseIcon={userMenuCollapsedIcon}
-                expandIcon={userMenuExpandIcon}
-                label={userMenuLabel}
-                onLogout={onLogout}
-                userMenu={userMenu}
-                showUserMenuIcon={showUserMenuIcon}
-              />
-            )
+            authenticatedUserMenu || <DropdownUserMenu {...dropdownUserMenu} />
           }
           anonymousUserMenu={anonymousUserMenu}
         />
