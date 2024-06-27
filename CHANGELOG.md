@@ -1,3 +1,25 @@
+# [0.44.0](https://github.com/dzangolab/react/compare/v0.43.0...v0.44.0) (2024-06-27)
+
+
+### Bug Fixes
+
+* **layout:** set overflow-y to auto ([#1040](https://github.com/dzangolab/react/issues/1040)) ([cae348e](https://github.com/dzangolab/react/commit/cae348e423febe98ba1846d5476befd375916526))
+
+
+### Features
+
+* **demo-ui:** add demo page for confirmation modal ([#1036](https://github.com/dzangolab/react/issues/1036)) ([d149d01](https://github.com/dzangolab/react/commit/d149d01ba33d936fb25a50fc3312563fa97bed84))
+* **form-textarea:** add a new textarea component controller ([#1033](https://github.com/dzangolab/react/issues/1033)) ([f50f235](https://github.com/dzangolab/react/commit/f50f23520fc07931a2784c4ffd8113a42b0e855c))
+* **form:** remove deprecated RolePicker ([#1043](https://github.com/dzangolab/react/issues/1043)) ([779301c](https://github.com/dzangolab/react/commit/779301c9ac97e6b44f9842552b25aa188e1b5799))
+* **typeahead:** allow user to enter value when there are no suggestions ([#1029](https://github.com/dzangolab/react/issues/1029)) ([6277fa5](https://github.com/dzangolab/react/commit/6277fa53fc2131d50dd4db33c6380d43443cecbb))
+* **ui-textarea:** add a new text area component  ([#1032](https://github.com/dzangolab/react/issues/1032)) ([ca590a0](https://github.com/dzangolab/react/commit/ca590a01ca64ab170d69964c6a73f4792d56758a))
+* **ui-typeahead:** support object as suggestion ([#1030](https://github.com/dzangolab/react/issues/1030)) ([6690a6d](https://github.com/dzangolab/react/commit/6690a6d043281add88c74f4a752706fbdfe9d6f0))
+* **ui:** add DropdownMenuV3 component ([#1044](https://github.com/dzangolab/react/issues/1044)) ([bc81522](https://github.com/dzangolab/react/commit/bc81522e98d52b451bb956ca6fa8f4ffcb8a6974))
+* update i18n, layout and user package to use new dropdown component ([#1047](https://github.com/dzangolab/react/issues/1047)) ([b84f942](https://github.com/dzangolab/react/commit/b84f9420e58fb2c8f3d33f8ce81466c1ca3cbfe5))
+* **user:** support grace period by profileValidation ([#1046](https://github.com/dzangolab/react/issues/1046)) ([8cea526](https://github.com/dzangolab/react/commit/8cea52673a1ba2eb322fa7bf79f0a92f414cfb3e))
+
+
+
 # [0.43.0](https://github.com/dzangolab/react/compare/v0.42.0...v0.43.0) (2024-06-12)
 
 
