@@ -101,8 +101,16 @@ const isProfileCompleted = async (): Promise<boolean | undefined> => {
     return;
   }
 
-  if (profileClaim.isVerified) {
-    return true;
+  return profileClaim.isVerified;
+};
+
+const isOnGracePeriod = async (): Promise<boolean | undefined> => {
+  const profileClaim = await Session.getClaimValue({
+    claim: new ProfileValidationClaim(),
+  });
+
+  if (!profileClaim || profileClaim.isVerified) {
+    return;
   }
 
   if (profileClaim.gracePeriodEndsAt) {
@@ -115,6 +123,7 @@ const isProfileCompleted = async (): Promise<boolean | undefined> => {
 export {
   getUserRoles,
   isEmailVerified,
+  isOnGracePeriod,
   isProfileCompleted,
   verifySessionRoles,
 };
