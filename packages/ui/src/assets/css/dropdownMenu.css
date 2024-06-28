@@ -24,6 +24,7 @@ ul.dz-dropdown-menu {
 
 ul.dz-dropdown-menu li {
   border-radius: inherit;
+  padding: 0.7rem 0.5rem;
   cursor: pointer;
   background-color: white;
   transition: all var(--transition-duration) ease 0s;
@@ -38,10 +39,4 @@ ul.dz-dropdown-menu li[aria-disabled="true"] {
 
 ul.dz-dropdown-menu li:hover {
   background-color: var(--dropdown-bg-color-hover, #dbe9fa);
-}
-
-ul.dz-dropdown-menu li > span.dz-menu-item {
-  display: inline-block;
-  padding: 0.7rem 0.5rem;
-  width: 100%;
 }

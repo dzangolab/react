@@ -25,7 +25,7 @@
   },
   "dropdownMenu": {
     "title": "Dropdown menu (fr)",
-    "v3": {
+    "usage": {
       "leftAlign": "Popup align left (fr)",
       "templating": "Menu templating (fr)"
     }

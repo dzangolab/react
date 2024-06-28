@@ -90,12 +90,6 @@
   column-gap: 1rem;
 }
 
-ul.user-menu li > span.dz-user-menu-item {
-  display: inline-block;
-  padding: 0.7rem 0.5rem;
-  width: 100%;
-}
-
 .dz-layout .header-menu span.dz-user-menu-item {
   cursor: pointer;
 }
