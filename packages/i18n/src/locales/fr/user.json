@@ -141,7 +141,8 @@
       "validation": {
         "email": "Email is required (fr)",
         "password": "Password is required (fr)",
-        "confirmPassword": "ConfirmPassword is required (fr)"
+        "confirmPassword": "ConfirmPassword is required (fr)",
+        "termsAndConditions": "Please agree to the terms and conditions (fr)"
       }
     },
     "title": "Inscription"

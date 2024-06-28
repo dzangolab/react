@@ -5,6 +5,7 @@ import * as zod from "zod";
 
 import { PasswordConfirmationSchema } from "./schemas";
 import SignupFormFields from "./SignupFormFields";
+import { useConfig } from "../hooks";
 
 import type { LoginCredentials } from "../types";
 
@@ -16,6 +17,7 @@ interface Properties {
 
 const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
+  const { user } = useConfig();
 
   const SignUpFormSchema = zod
     .object({
@@ -32,6 +34,16 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
           "signup.messages.validation.confirmPassword",
         ),
       }),
+      ...(user.termsAndConditions?.display &&
+      user.termsAndConditions?.showCheckbox
+        ? {
+            termsAndConditions: zod
+              .boolean()
+              .refine((value) => value === true, {
+                message: "signup.messages.validation.termsAndConditions",
+              }),
+          }
+        : {}),
     })
     .refine(
       (data) => {

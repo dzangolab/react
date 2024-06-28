@@ -65,6 +65,7 @@ const SignupFormFields: React.FC<IProperties> = ({
           label={user.termsAndConditions?.label()}
           name="termsAndConditions"
           register={register}
+          getFieldState={getFieldState}
         />
       ) : null}
 
