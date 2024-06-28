@@ -19,7 +19,7 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
         return {
           label: _menu.label as string,
           icon: _menu.icon,
-          command: () => {
+          onClick: () => {
             if ("onClick" in _menu) {
               _menu.onClick();
             }
@@ -35,7 +35,7 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
   const renderContent = () => {
     const template = (_menuItem: any) => {
       return (
-        <span className="dz-user-menu-item" onClick={_menuItem.command}>
+        <span className="dz-user-menu-item">
           {_menuItem.icon && <i className={_menuItem.icon}></i>}
           {_menuItem.label}
         </span>
@@ -43,14 +43,25 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
     };
 
     if (refinedMenu.length === 1) {
-      return template(refinedMenu[0]);
+      const _menuItem = refinedMenu[0];
+
+      return (
+        <span className="dz-user-menu-item" onClick={_menuItem.onClick}>
+          {_menuItem.icon && <i className={_menuItem.icon}></i>}
+          {_menuItem.label}
+        </span>
+      );
     }
 
     if (userMenuMode === "horizontal") {
       return (
         <ul className="user-menu" aria-orientation={userMenuMode}>
-          {refinedMenu.map((_menuItem) => {
-            return <li key={_menuItem.label}>{template(_menuItem)}</li>;
+          {refinedMenu.map(({ onClick, ..._menuItem }) => {
+            return (
+              <li key={_menuItem.label} onClick={onClick}>
+                {template(_menuItem)}
+              </li>
+            );
           })}
         </ul>
       );
