@@ -121,7 +121,8 @@
       "validation": {
         "email": "Email is required",
         "password": "Password is required",
-        "confirmPassword": "Confirm password is required"
+        "confirmPassword": "Confirm password is required",
+        "termsAndConditions": "Please agree to the terms and conditions"
       }
     },
     "title": "Sign up"

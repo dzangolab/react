@@ -6,7 +6,7 @@ import {
   useWatch,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import React, { useEffect } from "react";
+import React from "react";
 
 import TermsAndConditions from "./TermsAndConditions";
 import { useConfig } from "../hooks";
@@ -27,7 +27,6 @@ const SignupFormFields: React.FC<IProperties> = ({
     getFieldState,
     formState: { errors, submitCount },
     control,
-    trigger,
   } = useFormContext();
 
   const showTermsAndConditions = user.termsAndConditions?.display;
@@ -36,18 +35,6 @@ const SignupFormFields: React.FC<IProperties> = ({
   if (showTermsAndConditions && user.termsAndConditions?.showCheckbox) {
     isChecked = useWatch({ control: control, name: "termsAndConditions" });
   }
-
-  const password = useWatch({
-    name: "password",
-    control: control,
-  });
-
-  useEffect(() => {
-    const { isTouched } = getFieldState("password");
-    if (isTouched) {
-      trigger("confirmPassword");
-    }
-  }, [password]);
 
   return (
     <>
@@ -78,6 +65,7 @@ const SignupFormFields: React.FC<IProperties> = ({
           label={user.termsAndConditions?.label()}
           name="termsAndConditions"
           register={register}
+          getFieldState={getFieldState}
         />
       ) : null}
 
