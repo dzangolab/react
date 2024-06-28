@@ -5,7 +5,6 @@ import { SubPane } from "./components/SubPane";
 import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
-import { DropdownMenuV2 } from "./DropdownMenuV2";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
@@ -36,7 +35,6 @@ export {
   Accordion,
   Divider,
   DropdownMenu,
-  DropdownMenuV2,
   GoogleButton,
   LoadingIcon,
   LoadingPage,
