@@ -8,11 +8,9 @@ import type { IFormFileInputProperties } from "../types";
 export const FormFileInput = ({
   name,
   inputMethod,
-  selectedFileDisplay,
   multiple = false,
   label,
   mode = "update",
-  emptySelectionMessage,
   inputButtonLabel,
   inputButtonLabelSelected,
   enableDescription = false,
@@ -25,32 +23,28 @@ export const FormFileInput = ({
   const { control } = useFormContext();
 
   return (
-    <>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field }) => (
-          <FileInputBasic
-            name={field.name}
-            inputMethod={inputMethod}
-            selectedFileDisplay={selectedFileDisplay}
-            inputButtonLabel={inputButtonLabel}
-            inputButtonLabelSelected={inputButtonLabelSelected}
-            emptySelectionMessage={emptySelectionMessage}
-            value={field.value}
-            label={label}
-            mode={mode}
-            multiple={multiple}
-            dropzoneOptions={dropzoneOptions}
-            enableDescription={enableDescription}
-            addDescriptionLabel={addDescriptionLabel}
-            descriptionPlaceholder={descriptionPlaceholder}
-            dropzoneMessage={dropzoneMessage}
-            onChange={(files) => field.onChange(files)}
-            selectButtonProps={selectButtonProps}
-          />
-        )}
-      />
-    </>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <FileInputBasic
+          name={field.name}
+          inputMethod={inputMethod}
+          inputButtonLabel={inputButtonLabel}
+          inputButtonLabelSelected={inputButtonLabelSelected}
+          value={field.value}
+          label={label}
+          mode={mode}
+          multiple={multiple}
+          dropzoneOptions={dropzoneOptions}
+          enableDescription={enableDescription}
+          addDescriptionLabel={addDescriptionLabel}
+          descriptionPlaceholder={descriptionPlaceholder}
+          dropzoneMessage={dropzoneMessage}
+          onChange={(files) => field.onChange(files)}
+          selectButtonProps={selectButtonProps}
+        />
+      )}
+    />
   );
 };

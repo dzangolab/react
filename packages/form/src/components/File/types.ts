@@ -40,11 +40,17 @@ export type IFileDropzoneProperties = Omit<
 
 export interface IFileInputBasicProperties
   extends IFileDropzoneBasicProperties {
-  emptySelectionMessage?: string;
   inputButtonLabel?: string;
   inputButtonLabelSelected?: string;
   inputMethod?: FileInputMethod;
   selectButtonProps?: IButtonProperties;
+  /**
+   * @deprecated deprecated as Overlay is removed.
+   */
+  emptySelectionMessage?: string;
+  /**
+   * @deprecated deprecated as Overlay is removed.
+   */
   selectedFileDisplay?: "list" | "popup" | "none";
 }
 
