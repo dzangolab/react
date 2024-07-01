@@ -26,7 +26,7 @@ export const FileAttachDemo = () => {
 
       {selectedFiles.map((file: FileExtended, i) => {
         return (
-          <div key={file.name}>
+          <div key={file.name} className="attached-file">
             <span>{file.name}</span>
             <Tooltip
               elementRef={reference}

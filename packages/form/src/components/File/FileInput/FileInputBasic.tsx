@@ -1,19 +1,17 @@
 // components/FormComponents/FileInputBasic.tsx
 import { Button } from "@dzangolab/react-ui";
-import { OverlayPanel } from "primereact/overlaypanel";
-import React, { useMemo, useRef } from "react";
+import React, { useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 
 import { useOnDropFile, useOnRemoveFile } from "../hooks";
 import { SelectedFile } from "../SelectedFile";
 
 import type { IFileInputBasicProperties } from "../types";
-import type { FC, LegacyRef } from "react";
+import type { FC } from "react";
 
 export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   name,
   inputMethod = "button",
-  selectedFileDisplay = "popup",
   inputButtonLabel = "Select",
   inputButtonLabelSelected = "Selected",
   label,
@@ -22,15 +20,12 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
   value = [],
   dropzoneOptions,
   enableDescription = false,
-  emptySelectionMessage = "No file selected.",
   addDescriptionLabel,
   descriptionPlaceholder,
   dropzoneMessage,
   onChange,
   selectButtonProps,
 }) => {
-  const overlayReference = useRef<OverlayPanel>();
-
   const onDrop = useOnDropFile({ mode, name, onChange, value, multiple });
   const onRemove = useOnRemoveFile({ value, onChange });
 
@@ -67,10 +62,6 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
               value?.length
                 ? inputButtonLabelSelected + ` (${value?.length})`
                 : inputButtonLabel
-            }
-            onMouseEnter={(event) =>
-              selectedFileDisplay === "popup" &&
-              overlayReference.current?.show(event, null)
             }
             onClick={(event) => {
               event.preventDefault();
@@ -124,16 +115,7 @@ export const FileInputBasic: FC<IFileInputBasicProperties> = ({
       {label && <label htmlFor={name}>{label}</label>}
       {renderInputUi()}
 
-      {inputMethod === "button" && selectedFileDisplay === "popup" ? (
-        <OverlayPanel
-          className="file-list-overlay"
-          ref={overlayReference as LegacyRef<OverlayPanel>}
-        >
-          {value?.length ? renderSelectedFiles() : emptySelectionMessage}
-        </OverlayPanel>
-      ) : (
-        renderSelectedFiles()
-      )}
+      {renderSelectedFiles()}
     </div>
   );
 };
