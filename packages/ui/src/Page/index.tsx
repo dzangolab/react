@@ -3,7 +3,7 @@ import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { PageHeader } from "./Header";
 import LoadingPage, { LoadingPageProperties } from "../LoadingPage";
 
-interface Properties
+interface PageProperties
   extends Pick<
     DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
     "aria-orientation"
@@ -22,7 +22,7 @@ interface Properties
   toolbar?: React.ReactNode;
 }
 
-const Page: React.FC<Properties> = ({
+const Page: React.FC<PageProperties> = ({
   breadcrumb,
   children,
   className,
@@ -36,7 +36,7 @@ const Page: React.FC<Properties> = ({
   title,
   toolbar,
   ...others
-}: Properties) => {
+}) => {
   let child = null;
   let _className = "dz-page";
 
@@ -69,3 +69,4 @@ const Page: React.FC<Properties> = ({
 };
 
 export default Page;
+export type { PageProperties };
