@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage, Button } from "@dzangolab/react-ui";
-import { Card } from "primereact/card";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -75,11 +74,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
 
   const renderMessage = () => {
     if (verifyEmailLoading) {
-      return (
-        <div className="message-wrapper">
-          <p>{t("emailVerification.messages.verifyingEmail")}</p>
-        </div>
-      );
+      return <p>{t("emailVerification.messages.verifyingEmail")}</p>;
     }
 
     let message = "",
@@ -108,9 +103,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
 
     return (
       <>
-        <div className="message-wrapper">
-          <p>{message}</p>
-        </div>
+        <p>{message}</p>
         {button}
       </>
     );
@@ -123,7 +116,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
       loading={verifyEmailLoading}
       centered={centered}
     >
-      <Card className="email-verification-card">{renderMessage()}</Card>
+      <div className="dz-card">{renderMessage()}</div>
     </AuthPage>
   );
 };
