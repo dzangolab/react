@@ -20,14 +20,12 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
   const appConfig = useConfig();
   const [submitting, setSubmitting] = useState(false);
 
-  let profileValidationSchema: any = z.object({
-    givenName: z.string().nonempty({
-      message: t("profile.form.validations.firstName.required"),
-    }),
+  let profileValidationSchema: z.AnyZodObject = z.object({
+    givenName: z
+      .string()
+      .min(1, t("profile.form.validations.firstName.required")),
 
-    surname: z.string().nonempty({
-      message: t("profile.form.validations.lastName.required"),
-    }),
+    surname: z.string().min(1, t("profile.form.validations.lastName.required")),
   });
 
   if (additionalProfileFields?.schema) {
@@ -38,6 +36,7 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
 
   const handleSubmit = async (data: UpdateProfileInputType) => {
     setSubmitting(true);
+
     updateUserProfile(data, appConfig?.apiBaseUrl)
       .then((response) => {
         if ("data" in response) {

@@ -15,7 +15,7 @@ export const LoginFormFields = ({ loading }: Properties) => {
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount },
+    formState: { submitCount },
   } = useFormContext();
 
   return (

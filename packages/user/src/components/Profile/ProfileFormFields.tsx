@@ -20,7 +20,7 @@ export const ProfileFormFields = ({
     register,
     getFieldState,
     reset,
-    formState: { errors, submitCount, isDirty },
+    formState: { submitCount, isDirty },
   } = useFormContext();
 
   const { t } = useTranslation("user");

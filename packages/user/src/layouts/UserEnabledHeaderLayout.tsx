@@ -22,7 +22,7 @@ interface IProperties {
   noLogo?: boolean;
   noToggle?: boolean;
   title?: string | React.ReactNode;
-  onLogout?: () => Promise<any>;
+  onLogout?: () => Promise<void>;
 }
 
 export const UserEnabledHeaderLayout = ({

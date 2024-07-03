@@ -1,3 +1,4 @@
+import { AppConfig } from "@dzangolab/react-config";
 import { useEffect, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
 
@@ -5,7 +6,7 @@ import { getIsFirstUser } from "@/api/user";
 import { ROUTES } from "@/constants";
 
 type UseFirstUserSignupArguments = {
-  appConfig: any;
+  appConfig: AppConfig;
 } & (
   | { autoRedirect: false; redirectFn: undefined }
   | {

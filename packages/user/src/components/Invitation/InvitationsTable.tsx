@@ -97,7 +97,7 @@ export const InvitationsTable = ({
 
   const { t } = useTranslation("invitations");
 
-  const handleResendInvitation = (invitation: any) => {
+  const handleResendInvitation = (invitation: Invitation) => {
     resendInvitation(invitation.id, apiBaseUrl || "")
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
@@ -116,7 +116,7 @@ export const InvitationsTable = ({
       });
   };
 
-  const handleRevokeInvitation = (invitation: any) => {
+  const handleRevokeInvitation = (invitation: Invitation) => {
     revokeInvitation(invitation.id, apiBaseUrl || "")
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
