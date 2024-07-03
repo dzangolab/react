@@ -23,16 +23,12 @@ interface ITextInput extends IInputProperties {
 
 export const TextInput: React.FC<ITextInput> = ({
   defaultValue = "",
-  errorMessage,
-  hasError,
   label = "",
   name,
-  onChange,
   placeholder = "",
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
-  type,
   ...others
 }) => {
   const { control, getFieldState } = useFormContext();
@@ -51,6 +47,7 @@ export const TextInput: React.FC<ITextInput> = ({
       defaultValue={defaultValue}
       render={({ field }) => (
         <Input
+          {...others}
           name={field.name}
           label={label}
           placeholder={placeholder}
@@ -59,7 +56,6 @@ export const TextInput: React.FC<ITextInput> = ({
           errorMessage={error?.message}
           onChange={field.onChange}
           hasError={submitCount > 0 ? checkInvalidState() : undefined}
-          {...others}
         />
       )}
     />

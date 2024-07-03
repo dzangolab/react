@@ -28,8 +28,10 @@ interface CustomInputProperties {
   submitCount?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AdditionalFormSchema = Zod.ZodObject<any>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AdditionalDefaultValues = Record<string, any>;
 
 export type RenderAdditionalFormFields = (

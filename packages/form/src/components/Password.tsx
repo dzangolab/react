@@ -7,7 +7,6 @@ import { CustomInputProperties } from "../types";
 export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
   autoComplete = "new-password",
   getFieldState,
-  id,
   label = "",
   name,
   placeholder = "",
@@ -15,7 +14,6 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
-  type,
   ...others
 }) => {
   if (!register || !getFieldState) return null;
@@ -37,13 +35,13 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
         aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
       >
         <input
+          {...others}
           {...register(name)}
           id={`input-field-${name}`}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
           autoComplete={autoComplete}
-          {...others}
         ></input>
         <span
           className="eye-icon"

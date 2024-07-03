@@ -24,17 +24,13 @@ export const Email: React.FC<IProperties> = ({
   autoComplete = "email",
   defaultValue = "",
   disabled = false,
-  errorMessage,
-  hasError,
   label = "",
   name,
-  onChange,
   placeholder = "",
   readOnly = false,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
-  type,
   ...others
 }) => {
   const { control, getFieldState } = useFormContext();
@@ -53,6 +49,7 @@ export const Email: React.FC<IProperties> = ({
       defaultValue={defaultValue}
       render={({ field }) => (
         <Input
+          {...others}
           autoComplete={autoComplete}
           defaultValue={field.value}
           disabled={disabled}
@@ -64,7 +61,6 @@ export const Email: React.FC<IProperties> = ({
           placeholder={placeholder}
           readOnly={readOnly}
           type="email"
-          {...others}
         />
       )}
     />
