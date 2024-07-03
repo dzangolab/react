@@ -1,5 +1,5 @@
 import { DropdownMenu } from "@dzangolab/react-ui";
-import React from "react";
+import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { NavMenuItemType, UserMenuModeType } from "../../types";
@@ -11,9 +11,9 @@ interface IProperties {
 
 export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
   const navigate = useNavigate();
-  const { id, label: userMenuLabel, menu: userMenu = [] } = menu;
+  const { label: userMenuLabel, menu: userMenu = [] } = menu;
 
-  const refinedMenu = React.useMemo(
+  const refinedMenu = useMemo(
     () =>
       userMenu.map((_menu) => {
         return {
@@ -33,6 +33,7 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
   );
 
   const renderContent = () => {
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const template = (_menuItem: any) => {
       return (
         <span className="dz-user-menu-item">
