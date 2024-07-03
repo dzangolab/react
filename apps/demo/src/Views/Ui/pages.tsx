@@ -32,9 +32,11 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
+import { CardDemo } from "./components/CardDemo";
 
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
+  CARD: "/ui/card",
   CONFIRMATION_MODAL: "/ui/confirmation-modal",
   LOADING: "/ui/loading",
   BUTTON: "/ui/button",
@@ -54,7 +56,7 @@ export const UI_ROUTES = {
   CHECKBOX: "/ui/checkbox",
   INPUT: "/ui/input",
   SELECT: "/ui/select",
-  SWITCHINPUT: "/ui/switchinput",
+  SWITCH_INPUT: "/ui/switch-input",
   SORTABLE_LIST: "/ui/sortable-list",
   POPUP: "/ui/popup",
   PAGE_DEMO: "/ui/page-demo",
@@ -82,7 +84,7 @@ const FORM_WIDGETS_ROUTES = [
     element: <SelectDemo />,
   },
   {
-    path: UI_ROUTES.SWITCHINPUT,
+    path: UI_ROUTES.SWITCH_INPUT,
     key: "switchInput.title",
     element: <SwitchInputDemo />,
   },
@@ -115,6 +117,11 @@ const BUTTONS_ROUTES = [
   },
 ];
 const OTHERS = [
+  {
+    path: UI_ROUTES.CARD,
+    key: "card.title",
+    element: <CardDemo />,
+  },
   {
     path: UI_ROUTES.CONFIRMATION_MODAL,
     key: "confirmationModal.title",

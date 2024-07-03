@@ -9,7 +9,8 @@
   overflow: hidden;
 }
 
-.dz-card[data-variant-outlined] {
+.dz-card[data-variant-outlined="true"] {
+  box-shadow: none;
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
