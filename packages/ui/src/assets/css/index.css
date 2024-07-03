@@ -1,5 +1,6 @@
 @import "./reset.css";
 @import "./vars.css";
+@import "./card.css";
 @import "./dropdownMenu.css";
 @import "./debounced-input.css";
 @import "./responsive-menu.css";
