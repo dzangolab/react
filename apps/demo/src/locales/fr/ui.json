@@ -17,6 +17,16 @@
     },
     "message": "Click to view profile (fr)"
   },
+  "card": {
+    "title": "Card (fr)",
+    "header": "Card header (fr)",
+    "body": "Card body (fr)",
+    "footer": "Card footer (fr)",
+    "usage": {
+      "default": "Default (fr)",
+      "outlined": "Outlined (fr)"
+    }
+  },
   "confirmationModal": {
     "title": "Confirmation modal (fr)",
     "buttonLabel": "Open confirmation modal (fr)",

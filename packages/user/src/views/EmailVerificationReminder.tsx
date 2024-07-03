@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, Button } from "@dzangolab/react-ui";
-import { Card } from "primereact/card";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -38,16 +37,12 @@ export const EmailVerificationReminder = ({
       title={t("emailVerification.title")}
       centered={centered}
     >
-      <Card className="email-verification-reminder-card">
+      <div className="dz-card">
         {isAlreadyVerified ? (
-          <div className="message-wrapper">
-            <p>{t("emailVerification.messages.alreadyVerified")}</p>
-          </div>
+          <p>{t("emailVerification.messages.alreadyVerified")}</p>
         ) : (
           <>
-            <div className="message-wrapper">
-              <p>{t("emailVerification.messages.unverified")}</p>
-            </div>
+            <p>{t("emailVerification.messages.unverified")}</p>
             <div className="button-wrapper">
               <Button
                 label={t("emailVerification.button.resendEmail")}
@@ -56,7 +51,7 @@ export const EmailVerificationReminder = ({
             </div>
           </>
         )}
-      </Card>
+      </div>
     </Page>
   );
 };

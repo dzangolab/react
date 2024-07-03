@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage } from "@dzangolab/react-ui";
-import { Card } from "primereact/card";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -100,9 +99,9 @@ export const AcceptInvitation = ({
   const renderPageContent = () => {
     if (isError || !invitation) {
       return (
-        <Card>
+        <div className="dz-card">
           <p>{t(`invitations.messages.errorFetchingInvitation`)}</p>
-        </Card>
+        </div>
       );
     }
 
@@ -112,9 +111,9 @@ export const AcceptInvitation = ({
       invitation?.expiresAt < Date.now()
     ) {
       return (
-        <Card>
+        <div className="dz-card">
           <p>{t(`invitations.messages.invalidInvitation`)}</p>
-        </Card>
+        </div>
       );
     }
 
