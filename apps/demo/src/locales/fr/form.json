@@ -32,6 +32,7 @@
   "formInput": {
     "title": "Form input (fr)",
     "subTitle": "Different modes of input in form (fr)",
+    "submittedValue": "Submitted Value (fr)",
     "message": {
       "invalid": "Invalid form value (fr)",
       "required": "Required field (fr)"

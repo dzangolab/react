@@ -26,7 +26,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount },
+    formState: { submitCount },
     watch,
   } = useFormContext();
 
@@ -41,15 +41,16 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         setOptions(data.map((item: any) => item));
         setIsLoading(false);
       })
-      .catch((err) => console.log("err", err));
+      .catch((err) => console.log("err", err)); // eslint-disable-line no-console
   };
 
   useEffect(() => {
     checkFilledState(filled);
-  }, [filled]);
+  }, [filled, checkFilledState]);
 
   return (
     <>
+      <FormInputModes filled={filled} />
       <Email
         label={t("formInput.label.email")}
         name="email"
@@ -159,7 +160,6 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         ]}
         alignment="left"
       />
-      <FormInputModes filled={filled} />
     </>
   );
 };

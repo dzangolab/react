@@ -4,9 +4,11 @@ import { useState } from "react";
 import * as zod from "zod";
 
 import { FormInputFields } from "./FormInputFields";
+import { CodeBlock, Section } from "../../../../components/Demo";
 
 export const FormInputDemo = () => {
   const [t] = useTranslation("form");
+  const [formData, setFormData] = useState("");
   const [filledInput, setFilledInput] = useState(false);
 
   const FormSchema = zod.object({
@@ -33,9 +35,7 @@ export const FormInputDemo = () => {
       .refine((data) => data !== null, {
         message: t("formInput.message.required"),
       }),
-    text: zod.string().nonempty({
-      message: t("formInput.message.required"),
-    }),
+    text: zod.string().min(1, t("formInput.message.required")),
     select: zod
       .string()
       .array()
@@ -43,8 +43,8 @@ export const FormInputDemo = () => {
     typeahead: zod.string().min(1, t("formInput.message.required")),
   });
 
-  const handleSubmit = (formData: any) => {
-    console.log(formData);
+  const handleSubmit = (_formData: any) => {
+    setFormData(JSON.stringify(_formData, null, 4));
   };
 
   const checkFilledState = (filled: boolean) => {
@@ -52,18 +52,27 @@ export const FormInputDemo = () => {
   };
 
   return (
-    <Provider
-      validationSchema={FormSchema}
-      onSubmit={handleSubmit}
-      className={filledInput ? "filled" : ""}
-      defaultValues={{
-        filled: false,
-        valid: false,
-        invalid: false,
-        typeahead: "string",
-      }}
-    >
-      <FormInputFields checkFilledState={checkFilledState} />
-    </Provider>
+    <Section>
+      <Provider
+        validationSchema={FormSchema}
+        onSubmit={handleSubmit}
+        className={filledInput ? "filled" : ""}
+        defaultValues={{
+          filled: false,
+          valid: false,
+          invalid: false,
+          typeahead: "string",
+        }}
+      >
+        <FormInputFields checkFilledState={checkFilledState} />
+      </Provider>
+      {formData && (
+        <CodeBlock
+          autoFocus
+          title={t("formInput.submittedValue")}
+          exampleCode={formData}
+        />
+      )}
+    </Section>
   );
 };

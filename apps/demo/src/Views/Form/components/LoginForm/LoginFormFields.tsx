@@ -6,7 +6,7 @@ export const LoginFormFields = () => {
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount },
+    formState: { submitCount },
   } = useFormContext();
 
   return (

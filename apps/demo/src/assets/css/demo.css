@@ -98,12 +98,12 @@
   background-color: #f7f7f7;
 }
 
-.demo > .demo-main > form > .form-modes {
+.demo > .demo-main > .demo-section form > .form-modes {
   display: flex;
   gap: 2rem;
 }
 
-.demo > .demo-main > form > span.form-mode-title {
+.demo > .demo-main > .demo-section form > span.form-mode-title {
   font-size: 1.75rem;
   font-weight: 600;
 }

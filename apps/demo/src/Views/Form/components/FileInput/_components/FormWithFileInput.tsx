@@ -48,8 +48,6 @@ export const FormWithFileInput: React.FC = () => {
 export const UploadBy = () => {
   const { t } = useTranslation("files");
   const {
-    register,
-    getFieldState,
     formState: { submitCount },
   } = useFormContext();
 

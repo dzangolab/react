@@ -32,6 +32,7 @@
   "formInput": {
     "title": "Form input",
     "subTitle": "Different modes of input in form",
+    "submittedValue": "Submitted Value",
     "message": {
       "invalid": "Invalid form value",
       "required": "Required field"
