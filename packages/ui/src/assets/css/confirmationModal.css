@@ -45,6 +45,19 @@
   outline: none;
 }
 
+.dz-dialog > .dz-dialog-content {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.dz-dialog > .dz-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
 @keyframes open {
   from {
     opacity: 0;

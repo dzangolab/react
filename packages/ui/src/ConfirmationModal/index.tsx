@@ -10,8 +10,8 @@ export interface IModalProperties
   closeIcon?: string | ReactNode;
   footer?: ReactNode;
   header?: ReactNode | string;
+  icon?: ReactNode | string;
   message?: string;
-  title?: string;
   visible?: boolean;
   accept?: () => void;
   onHide?: () => void;
@@ -26,9 +26,9 @@ export const ConfirmationModal = ({
   closable = true,
   closeIcon = "pi pi-times",
   className,
-  title,
   message,
   header,
+  icon = "pi pi-exclamation-triangle",
   visible,
   onHide,
   footer,
@@ -46,15 +46,17 @@ export const ConfirmationModal = ({
   }, [visible]);
 
   const renderHeader = () => {
-    if (header) return header;
-
-    if (!title && !closable) {
+    if (!header && !closable) {
       return null;
     }
 
     return (
       <div className="dz-dialog-header">
-        {title && <span className="title">{title}</span>}
+        {typeof header === "string" ? (
+          <span className="title">{header}</span>
+        ) : (
+          header
+        )}
         {closable && (
           <Button
             variant="textOnly"
@@ -95,6 +97,19 @@ export const ConfirmationModal = ({
     );
   };
 
+  const renderContent = () => {
+    return (
+      <p className="dz-dialog-content">
+        {typeof icon === "string" ? (
+          <i className={icon} style={{ fontSize: "2rem" }} />
+        ) : (
+          icon
+        )}
+        {message}
+      </p>
+    );
+  };
+
   return (
     visible && (
       <dialog
@@ -104,6 +119,7 @@ export const ConfirmationModal = ({
         {...dialogOptions}
       >
         {renderHeader()}
+        {renderContent()}
         {children}
         {renderFooter()}
       </dialog>
