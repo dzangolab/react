@@ -1,8 +1,57 @@
-.dz-confirmation-modal .p-dialog-footer .dialog-footer {
-  display: flex;
-  justify-content: flex-end;
+:root {
+  --dz-dialog-background-color: rgba(255, 255, 255, 1);
+  --dz-dialog-overlay-color: rgba(0, 0, 0, 0.3);
 }
 
-.dz-confirmation-modal .p-confirm-dialog-message {
-  line-height: 1.5;
+.dz-dialog {
+  background-color: var(--dz-dialog-background-color);
+  border-radius: 0.3rem;
+  border: none;
+  box-shadow: 0 1px 3px var(--dz-dialog-overlay-color);
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.dz-dialog[open] {
+  animation: open var(--transition-duration) forwards;
+  display: flex;
+}
+
+.dz-dialog::backdrop {
+  background: var(--dz-dialog-overlay-color);
+}
+
+.dz-dialog > .dz-dialog-header {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.dz-dialog > .dz-dialog-header > .title {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.dz-dialog > .dz-dialog-header > .dz-button {
+  border-radius: 50%;
+  padding: 0.65rem !important;
+}
+
+.dz-dialog > .dz-dialog-header > .dz-button:focus {
+  outline: none;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
