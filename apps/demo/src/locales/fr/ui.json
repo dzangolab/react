@@ -33,208 +33,208 @@
     "header": "Confirmation required (fr)",
     "message": "Are you sure you want to proceed? (fr)"
   },
+  "dialog": {
+    "title": "Dialog (fr)",
+    "buttonLabel": "Click here (fr)",
+    "header": "Modal demo (fr)",
+    "content": "This is a modal content (fr)"
+  },
   "dropdownMenu": {
     "title": "Dropdown menu (fr)",
     "usage": {
       "leftAlign": "Popup align left (fr)",
       "templating": "Menu templating (fr)"
-    },
-    "dialog": {
-      "title": "Dialog (fr)",
-      "buttonLabel": "Click here (fr)",
-      "header": "Modal demo (fr)",
-      "content": "This is a modal content (fr)"
-    },
-    "filesTable": {
-      "title": "Files table (fr)",
-      "pagination": {
-        "pageControl": "Go to page (fr)",
-        "rowsPerPage": "Items per page (fr)"
-      }
-    },
-    "loading": {
-      "title": "Loading (fr)"
-    },
-    "responsiveMenu": {
-      "title": "Responsive menu (fr)"
-    },
-    "submitButton": {
-      "title": "Submit button (fr)"
-    },
-    "youtubeFacade": {
-      "title": "Youtube facade (fr)"
-    },
-    "exportButton": {
-      "title": "Export button (fr)"
-    },
-    "fileCard": {
-      "title": "File card (fr)"
-    },
-    "filesList": {
-      "title": "Files list (fr)"
-    },
-    "filesPresentation": {
-      "title": "Files presentation (fr)"
-    },
-    "table": {
-      "title": "Table (Tanstack) (fr)",
-      "cssCodeBlock": {
-        "title": "CSS code example (fr)",
-        "messages": {
-          "addHorizontal": "Add following css to your stylesheet for horizontal borders (fr)",
-          "addVertical": "Add following css to your stylesheet for vertical borders (fr)",
-          "note": "Note: (fr)"
-        }
-      },
-      "usage": {
-        "basic": "Basic table (fr)",
-        "builtInActionColumn": "Table demonstrating built in actions column use case (fr)",
-        "cellDataFormatting": "Table demonstrating cell content formatting (fr)",
-        "filterable": "Table with filterable column (fr)",
-        "sortable": "Table with sortable column (fr)",
-        "rowSelection": "Table with row selection (fr)",
-        "customCellDataFormatting": "Table with custom cell data formatter (fr)",
-        "customPagination": "Table with custom pagination (fr)",
-        "customToolbarActions": "Table with custom toolbar actions (fr)",
-        "columnTooltip": "Table with tooltip column (fr)",
-        "columnAlignment": "Table cell content alignments (fr)",
-        "columnAction": "Table with column action (fr)",
-        "withFooter": "Table with footer (fr)",
-        "withoutPagination": "Table without pagination (fr)",
-        "withTitle": "Table with title (fr)",
-        "withCustomFilter": "Table with custom filter component and filterFn (fr)",
-        "withEqualServerFilter": "Table with equal server filterFn (fr)",
-        "customStaticFilter": "Table with custom  filter component and static filterFn (fr)",
-        "divContent": "Table demonstrating center aligned content (fr)",
-        "singleActionColumn": "Table with single action button (fr)",
-        "singleActionColumnWithMenu": "Table with single action menu (fr)",
-        "rowSpecificActions": "Table with actions menu items filtered based on row data logic (fr)",
-        "tableBorderHorizontal": "Table with custom style for horizontal border (fr)",
-        "tableBorderVertical": "Table with custom style for vertical border (fr)"
-      },
-      "placeholder": {
-        "startDate": "Start date",
-        "endDate": "End date"
-      }
-    },
-    "message": {
-      "title": "Message (fr)"
-    },
-    "tooltip": {
-      "title": "Tooltip (fr)",
-      "position": {
-        "right": "Right (fr)",
-        "left": "Left (fr)",
-        "top": "Top (fr)",
-        "bottom": "Bottom (fr)",
-        "mouseTrack": "Mouse track (fr)",
-        "configured": "Configured (fr)"
-      }
-    },
-    "checkbox": {
-      "title": "Checkbox (fr)"
-    },
-    "input": {
-      "title": "Input (fr)"
-    },
-    "sortableList": {
-      "title": "Sortable list (fr)"
-    },
-    "popup": {
-      "title": "Popup (fr)"
-    },
-    "stepper": {
-      "title": "Stepper (fr)"
-    },
-    "tabbedPanel": {
-      "title": "Tabbed panel (fr)",
-      "usage": {
-        "basic": "Basic usage (fr)",
-        "customActiveTab": "Custom active tab (fr)"
-      }
-    },
-    "textarea": {
-      "errorMessage": "Invalid input (fr)",
-      "label": "Textarea label (fr)",
-      "placeHolder": "Textarea placeholder (fr)",
-      "title": "Textarea (fr)"
-    },
-    "localDataTable": {
-      "title": "Local datatable (Primereact)(fr)",
-      "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)",
-      "role": {
-        "admin": "ADMIN (fr)",
-        "user": "USER (fr)"
-      }
-    },
-    "page": {
-      "title": {
-        "menu": "Page (fr)",
-        "basic": "Page demo basic (fr)",
-        "centerAligned": "Page with center aligned contents (fr)",
-        "toolbar": "Page with toolbar (fr)",
-        "stringSubtitle": "Page with subtitle string (fr)",
-        "componentSubtitle": "Page with subtitle component (fr)",
-        "breadcrumb": "Page with breadcrumb (fr)",
-        "complete": "Page with every component (fr)"
-      },
-      "subTitle": {
-        "title": "Page subtitle (fr)",
-        "tag": "Subtitle tag (fr)"
-      },
-      "heading": {
-        "tag": "Heading tag (fr)"
-      },
-      "toolbar": {
-        "edit": "Edit (fr)",
-        "button": {
-          "label": "Click (fr)"
-        }
-      },
-      "content": "Page content. (fr)"
-    },
-    "tag": {
-      "title": "Tag (fr)",
-      "usage": {
-        "basic": "Basic (fr)",
-        "color": "Color (fr)",
-        "custom": "Custom tag (fr)",
-        "icon": "Icon (fr)",
-        "pill": "Pill (fr)"
-      }
-    },
-    "select": {
-      "title": "Select (fr)",
-      "label": {
-        "disabled": "Disabled (fr)",
-        "invalid": "Invalid (fr)",
-        "multiple": "Multiple select (fr)",
-        "renderOption": "Select with custom option (fr)",
-        "renderValue": "Select with custom selected value (fr)",
-        "single": "Single select (fr)"
-      },
-      "placeHolder": "-- select value -- (fr)"
-    },
-    "switchInput": {
-      "disabledInput": "Disabled input (fr)",
-      "invalidInput": "Invalid input (fr)",
-      "normalInput": "Check here (fr)",
-      "title": "Switch input (fr)"
-    },
-    "typeahead": {
-      "message": {
-        "emptyMessage": "No results found (fr)"
-      },
-      "title": "Typeahead (fr)",
-      "label": {
-        "client": "Client side Typeahead (fr)",
-        "customSuggestion": "Custom suggestion Typeahead (fr)",
-        "disabled": "Disabled (fr)",
-        "emptyMessage": "Empty message Typeahead (fr)",
-        "server": "Server side Typeahead (fr)",
-        "invalid": "Invalid (fr)"
-      },
-      "placeholder": "Search... (fr)"
     }
+  },
+  "filesTable": {
+    "title": "Files table (fr)",
+    "pagination": {
+      "pageControl": "Go to page (fr)",
+      "rowsPerPage": "Items per page (fr)"
+    }
+  },
+  "loading": {
+    "title": "Loading (fr)"
+  },
+  "responsiveMenu": {
+    "title": "Responsive menu (fr)"
+  },
+  "submitButton": {
+    "title": "Submit button (fr)"
+  },
+  "youtubeFacade": {
+    "title": "Youtube facade (fr)"
+  },
+  "exportButton": {
+    "title": "Export button (fr)"
+  },
+  "fileCard": {
+    "title": "File card (fr)"
+  },
+  "filesList": {
+    "title": "Files list (fr)"
+  },
+  "filesPresentation": {
+    "title": "Files presentation (fr)"
+  },
+  "table": {
+    "title": "Table (Tanstack) (fr)",
+    "cssCodeBlock": {
+      "title": "CSS code example (fr)",
+      "messages": {
+        "addHorizontal": "Add following css to your stylesheet for horizontal borders (fr)",
+        "addVertical": "Add following css to your stylesheet for vertical borders (fr)",
+        "note": "Note: (fr)"
+      }
+    },
+    "usage": {
+      "basic": "Basic table (fr)",
+      "builtInActionColumn": "Table demonstrating built in actions column use case (fr)",
+      "cellDataFormatting": "Table demonstrating cell content formatting (fr)",
+      "filterable": "Table with filterable column (fr)",
+      "sortable": "Table with sortable column (fr)",
+      "rowSelection": "Table with row selection (fr)",
+      "customCellDataFormatting": "Table with custom cell data formatter (fr)",
+      "customPagination": "Table with custom pagination (fr)",
+      "customToolbarActions": "Table with custom toolbar actions (fr)",
+      "columnTooltip": "Table with tooltip column (fr)",
+      "columnAlignment": "Table cell content alignments (fr)",
+      "columnAction": "Table with column action (fr)",
+      "withFooter": "Table with footer (fr)",
+      "withoutPagination": "Table without pagination (fr)",
+      "withTitle": "Table with title (fr)",
+      "withCustomFilter": "Table with custom filter component and filterFn (fr)",
+      "withEqualServerFilter": "Table with equal server filterFn (fr)",
+      "customStaticFilter": "Table with custom  filter component and static filterFn (fr)",
+      "divContent": "Table demonstrating center aligned content (fr)",
+      "singleActionColumn": "Table with single action button (fr)",
+      "singleActionColumnWithMenu": "Table with single action menu (fr)",
+      "rowSpecificActions": "Table with actions menu items filtered based on row data logic (fr)",
+      "tableBorderHorizontal": "Table with custom style for horizontal border (fr)",
+      "tableBorderVertical": "Table with custom style for vertical border (fr)"
+    },
+    "placeholder": {
+      "startDate": "Start date",
+      "endDate": "End date"
+    }
+  },
+  "message": {
+    "title": "Message (fr)"
+  },
+  "tooltip": {
+    "title": "Tooltip (fr)",
+    "position": {
+      "right": "Right (fr)",
+      "left": "Left (fr)",
+      "top": "Top (fr)",
+      "bottom": "Bottom (fr)",
+      "mouseTrack": "Mouse track (fr)",
+      "configured": "Configured (fr)"
+    }
+  },
+  "checkbox": {
+    "title": "Checkbox (fr)"
+  },
+  "input": {
+    "title": "Input (fr)"
+  },
+  "sortableList": {
+    "title": "Sortable list (fr)"
+  },
+  "popup": {
+    "title": "Popup (fr)"
+  },
+  "stepper": {
+    "title": "Stepper (fr)"
+  },
+  "tabbedPanel": {
+    "title": "Tabbed panel (fr)",
+    "usage": {
+      "basic": "Basic usage (fr)",
+      "customActiveTab": "Custom active tab (fr)"
+    }
+  },
+  "textarea": {
+    "errorMessage": "Invalid input (fr)",
+    "label": "Textarea label (fr)",
+    "placeHolder": "Textarea placeholder (fr)",
+    "title": "Textarea (fr)"
+  },
+  "localDataTable": {
+    "title": "Local datatable (Primereact)(fr)",
+    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)",
+    "role": {
+      "admin": "ADMIN (fr)",
+      "user": "USER (fr)"
+    }
+  },
+  "page": {
+    "title": {
+      "menu": "Page (fr)",
+      "basic": "Page demo basic (fr)",
+      "centerAligned": "Page with center aligned contents (fr)",
+      "toolbar": "Page with toolbar (fr)",
+      "stringSubtitle": "Page with subtitle string (fr)",
+      "componentSubtitle": "Page with subtitle component (fr)",
+      "breadcrumb": "Page with breadcrumb (fr)",
+      "complete": "Page with every component (fr)"
+    },
+    "subTitle": {
+      "title": "Page subtitle (fr)",
+      "tag": "Subtitle tag (fr)"
+    },
+    "heading": {
+      "tag": "Heading tag (fr)"
+    },
+    "toolbar": {
+      "edit": "Edit (fr)",
+      "button": {
+        "label": "Click (fr)"
+      }
+    },
+    "content": "Page content. (fr)"
+  },
+  "tag": {
+    "title": "Tag (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "color": "Color (fr)",
+      "custom": "Custom tag (fr)",
+      "icon": "Icon (fr)",
+      "pill": "Pill (fr)"
+    }
+  },
+  "select": {
+    "title": "Select (fr)",
+    "label": {
+      "disabled": "Disabled (fr)",
+      "invalid": "Invalid (fr)",
+      "multiple": "Multiple select (fr)",
+      "renderOption": "Select with custom option (fr)",
+      "renderValue": "Select with custom selected value (fr)",
+      "single": "Single select (fr)"
+    },
+    "placeHolder": "-- select value -- (fr)"
+  },
+  "switchInput": {
+    "disabledInput": "Disabled input (fr)",
+    "invalidInput": "Invalid input (fr)",
+    "normalInput": "Check here (fr)",
+    "title": "Switch input (fr)"
+  },
+  "typeahead": {
+    "message": {
+      "emptyMessage": "No results found (fr)"
+    },
+    "title": "Typeahead (fr)",
+    "label": {
+      "client": "Client side Typeahead (fr)",
+      "customSuggestion": "Custom suggestion Typeahead (fr)",
+      "disabled": "Disabled (fr)",
+      "emptyMessage": "Empty message Typeahead (fr)",
+      "server": "Server side Typeahead (fr)",
+      "invalid": "Invalid (fr)"
+    },
+    "placeholder": "Search... (fr)"
   }
 }
