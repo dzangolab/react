@@ -33,6 +33,12 @@
     "header": "Confirmation required (fr)",
     "message": "Are you sure you want to proceed? (fr)"
   },
+  "dialog": {
+    "title": "Dialog (fr)",
+    "buttonLabel": "Click here (fr)",
+    "header": "Modal demo (fr)",
+    "content": "This is a modal content (fr)"
+  },
   "dropdownMenu": {
     "title": "Dropdown menu (fr)",
     "usage": {

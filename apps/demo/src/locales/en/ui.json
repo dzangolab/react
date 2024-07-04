@@ -33,6 +33,12 @@
     "header": "Confirmation required",
     "message": "Are you sure you want to proceed?"
   },
+  "dialog": {
+    "title": "Dialog",
+    "buttonLabel": "Click here",
+    "header": "Modal demo",
+    "content": "This is a modal content"
+  },
   "dropdownMenu": {
     "title": "Dropdown menu",
     "usage": {

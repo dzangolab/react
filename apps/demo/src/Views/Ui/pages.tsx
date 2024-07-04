@@ -2,7 +2,9 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
+import { CardDemo } from "./components/CardDemo";
 import { ConfirmationModalDemo } from "./components/ConfirmationModal";
+import { DialogDemo } from "./components/Dialog";
 import { DropdownMenuDemo } from "./components/DropdownMenuDemo";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
@@ -32,12 +34,12 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
-import { CardDemo } from "./components/CardDemo";
 
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
   CARD: "/ui/card",
   CONFIRMATION_MODAL: "/ui/confirmation-modal",
+  DIALOG: "ui/dialog",
   LOADING: "/ui/loading",
   BUTTON: "/ui/button",
   SUBMIT_BUTTON: "/ui/submit-button",
@@ -126,6 +128,11 @@ const OTHERS = [
     path: UI_ROUTES.CONFIRMATION_MODAL,
     key: "confirmationModal.title",
     element: <ConfirmationModalDemo />,
+  },
+  {
+    path: UI_ROUTES.DIALOG,
+    key: "dialog.title",
+    element: <DialogDemo />,
   },
   {
     path: UI_ROUTES.LOADING,
