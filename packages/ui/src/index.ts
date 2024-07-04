@@ -8,6 +8,7 @@ import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
+import Modal from "./Modal";
 import Page, { PageProperties } from "./Page";
 import ResponsiveMenu, { CombinedMenuRouteType } from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
@@ -40,6 +41,7 @@ export {
   LoadingIcon,
   LoadingPage,
   Message,
+  Modal,
   Page,
   ResponsiveMenu,
   Stepper,
