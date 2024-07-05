@@ -25,7 +25,7 @@ export const ConfirmationModal = ({
   cancelButtonOptions,
   closable = true,
   closeIcon = "pi pi-times",
-  className,
+  className = "",
   message,
   header,
   icon = "pi pi-exclamation-triangle",
