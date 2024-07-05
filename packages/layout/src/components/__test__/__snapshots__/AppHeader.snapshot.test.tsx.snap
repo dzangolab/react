@@ -1,97 +1,95 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<header>
-  <div
-    className="logo"
-  >
-    <a
-      href="/"
+<div>
+  <header>
+    <div
+      class="logo"
     >
-      <span
-        className="logo-default"
+      <a
+        href="/"
       >
-        <span>
-          M
+        <span
+          class="logo-default"
+        >
+          <span>
+            M
+          </span>
+          <span>
+            My app
+          </span>
         </span>
-        <span>
-          My app
-        </span>
-      </span>
-    </a>
-  </div>
-  <nav
-    className="menu dropdown"
-    data-expanded={false}
-  >
+      </a>
+    </div>
     <nav
-      aria-orientation="horizontal"
-      className="dz-responsive-menu main-menu"
+      class="menu dropdown"
+      data-expanded="false"
     >
-      <ul>
-        <li
-          aria-expanded={false}
-        >
-          <a
-            aria-current="page"
-            className="active"
-            href="/"
-            onClick={[Function]}
+      <nav
+        aria-orientation="horizontal"
+        class="dz-responsive-menu main-menu"
+      >
+        <ul>
+          <li
+            aria-expanded="false"
           >
-            <span
-              role="label"
+            <a
+              aria-current="page"
+              class="active"
+              href="/"
             >
-              header.menu.home
-            </span>
-          </a>
-        </li>
-        <li
-          aria-expanded={false}
-        >
-          <a
-            href="/about"
-            onClick={[Function]}
+              <span
+                role="label"
+              >
+                header.menu.home
+              </span>
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
           >
-            <span
-              role="label"
+            <a
+              href="/about"
             >
-              header.menu.about
-            </span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <span
-      className="locale-switcher"
-    >
-      <div
-        className="popup-container"
+              <span
+                role="label"
+              >
+                header.menu.about
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <span
+        class="locale-switcher"
       >
         <div
-          aria-controls="popup-content"
-          aria-expanded={false}
-          className="popup-trigger"
-          onClick={[Function]}
+          class="popup-container"
         >
-          <span
-            className="dz-dropdown-menu-trigger"
+          <div
+            aria-controls="popup-content"
+            aria-expanded="false"
+            class="popup-trigger"
           >
-            locales.en
-            <i
-              className="dz-icon pi  pi-angle-down"
-            />
-          </span>
+            <span
+              class="dz-dropdown-menu-trigger"
+            >
+              locales.en
+              <i
+                class="dz-icon pi  pi-angle-down"
+              />
+            </span>
+          </div>
         </div>
-      </div>
-    </span>
-  </nav>
-  <div
-    className="toggle"
-    onClick={[Function]}
-  >
-    <i
-      className="pi pi-align-justify"
-    />
-  </div>
-</header>
+      </span>
+    </nav>
+    <div
+      class="toggle"
+    >
+      <i
+        class="pi pi-align-justify"
+      />
+    </div>
+  </header>
+</div>
 `;
