@@ -34,7 +34,7 @@ export const ModalDemo = () => {
           onClick={() => setIsOpen2(true)}
         ></Button>
         <Modal
-          header={<h2>{t("modal.header")}</h2>}
+          header={t("modal.header")}
           onClose={() => setIsOpen2(false)}
           isOpen={isOpen2}
         >
