@@ -1,9 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<span
-  role="alert"
->
-  Error message
-</span>
+<div>
+  <span
+    role="alert"
+  >
+    Error message
+  </span>
+</div>
 `;
