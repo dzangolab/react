@@ -23,6 +23,6 @@ test("Component matches snapshot", () => {
   };
 
   i18n(i18nConfig);
-  const component = render(<LocaleSwitcher />);
-  expect(component).toMatchSnapshot();
+  const { container } = render(<LocaleSwitcher />);
+  expect(container).toMatchSnapshot();
 });
