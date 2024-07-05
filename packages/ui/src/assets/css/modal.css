@@ -1,4 +1,4 @@
-.modal-overlay {
+.dz-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   z-index: 1000;
 }
 
-.modal {
+.dz-modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -25,7 +25,7 @@
   color: var(--color);
 }
 
-.modal .modal-header {
+.dz-modal .dz-modal-header {
   margin-bottom: 0.5rem;
   padding: 0.7rem;
   display: flex;
@@ -33,31 +33,21 @@
   align-items: center;
 }
 
-.modal .modal-content {
+.dz-modal .dz-modal-header span[role="heading"] {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.dz-modal .dz-modal-content {
   padding: 0.7rem;
 }
 
-.modal .modal-footer {
+.dz-modal .dz-modal-footer {
   padding: 0.7rem;
   text-align: right;
 }
 
-.modal .close-button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  font-weight: bold;
+.dz-modal .dz-close-button {
   border-radius: 100%;
-  padding: 0.35rem 0.4rem 0.25rem 0.4rem;
-  color: inherit;
-  transition: background-color var(--transition-duration) ease;
-}
-
-.modal .close-button:hover {
-  background-color: var(
-    --dz-modal-close-button-hover-color,
-    var(--dz-layout-nav-item-hover-bg)
-  );
+  padding: 0.75rem;
 }

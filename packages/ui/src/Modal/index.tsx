@@ -1,35 +1,44 @@
 import React from "react";
 
-import { Button } from "@/Buttons";
+import { Button } from "../Buttons";
 
 interface ModalProperties {
+  children: React.ReactNode;
+  className?: string;
+  footer?: React.ReactNode;
+  header?: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
 }
 
 const Modal: React.FC<ModalProperties> = ({
+  children,
+  className = "",
+  footer,
+  header,
   isOpen = false,
   onClose,
   title,
-  children,
-  footer,
 }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <div className="modal-header">
-          <h2>{title}</h2>
-          <button className="close-button" onClick={onClose}>
+    <div role="dialog" className="dz-modal-overlay">
+      <div className={`dz-modal ${className}`.trim()}>
+        <div className="dz-modal-header">
+          {header || <span role="heading">{title}</span>}
+          <Button
+            className="dz-close-button"
+            onClick={onClose}
+            variant="textOnly"
+          >
             <i className="pi pi-times"></i>
-          </button>
+          </Button>
         </div>
-        <div className="modal-content">{children}</div>
-        {footer && <div className="modal-footer">{footer}</div>}
+
+        <div className="dz-modal-content">{children}</div>
+        {footer && <div className="dz-modal-footer">{footer}</div>}
       </div>
     </div>
   );
