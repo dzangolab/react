@@ -1,9 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div
-  className="loading"
-  data-testid="loading"
-  style={{}}
-/>
+<div>
+  <div
+    class="loading"
+    data-testid="loading"
+  />
+</div>
 `;
