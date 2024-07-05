@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
+import { CardDemo } from "./components/CardDemo";
 import { ConfirmationModalDemo } from "./components/ConfirmationModal";
 import { DropdownMenuDemo } from "./components/DropdownMenuDemo";
 import { ExportButtonDemo } from "./components/ExportButton";
@@ -20,6 +21,7 @@ import {
 import { LoadingDemo } from "./components/Loading";
 import { LocalDataTableDemo } from "./components/LocalDataTable";
 import { MessageDemo } from "./components/Message";
+import { ModalDemo } from "./components/ModalDemo";
 import { PageDemo } from "./components/PageDemo";
 import { PopupDemo } from "./components/Popup";
 import { ResponsiveMenuDemo } from "./components/ResponsiveMenu";
@@ -32,7 +34,6 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
-import { CardDemo } from "./components/CardDemo";
 
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
@@ -52,6 +53,7 @@ export const UI_ROUTES = {
   TABLE: "/ui/table",
   LOCAL_DATA_TABLE: "/ui/local-table",
   MESSAGE: "/ui/message",
+  MODAL: "/ui/modal",
   TOOLTIP: "/ui/tooltip",
   CHECKBOX: "/ui/checkbox",
   INPUT: "/ui/input",
@@ -106,14 +108,14 @@ const BUTTONS_ROUTES = [
     element: <ButtonDemo />,
   },
   {
-    path: UI_ROUTES.SUBMIT_BUTTON,
-    key: "submitButton.title",
-    element: <SubmitButtonDemo />,
-  },
-  {
     path: UI_ROUTES.EXPORT_BUTTON,
     key: "exportButton.title",
     element: <ExportButtonDemo />,
+  },
+  {
+    path: UI_ROUTES.SUBMIT_BUTTON,
+    key: "submitButton.title",
+    element: <SubmitButtonDemo />,
   },
 ];
 const OTHERS = [
@@ -128,29 +130,14 @@ const OTHERS = [
     element: <ConfirmationModalDemo />,
   },
   {
-    path: UI_ROUTES.LOADING,
-    key: "loading.title",
-    element: <LoadingDemo />,
-  },
-  {
-    path: UI_ROUTES.FILES_TABLE,
-    key: "filesTable.title",
-    element: <FilesTableDemo />,
-  },
-  {
-    path: UI_ROUTES.RESPONSIVE_MENU,
-    key: "responsiveMenu.title",
-    element: <ResponsiveMenuDemo />,
-  },
-  {
     path: UI_ROUTES.DROPDOWN_MENU,
     key: "dropdownMenu.title",
     element: <DropdownMenuDemo />,
   },
   {
-    path: UI_ROUTES.YOUTUBE_FACADE,
-    key: "youtubeFacade.title",
-    element: <YoutubeFacadeDemo />,
+    path: UI_ROUTES.FILES_TABLE,
+    key: "filesTable.title",
+    element: <FilesTableDemo />,
   },
   {
     path: UI_ROUTES.FILE_CARD,
@@ -168,14 +155,14 @@ const OTHERS = [
     element: <FilesPresentationDemo />,
   },
   {
+    path: UI_ROUTES.LOADING,
+    key: "loading.title",
+    element: <LoadingDemo />,
+  },
+  {
     path: UI_ROUTES.LOCAL_DATA_TABLE,
     key: "localDataTable.title",
     element: <LocalDataTableDemo />,
-  },
-  {
-    path: UI_ROUTES.TABLE,
-    key: "table.title",
-    element: <TableDemo />,
   },
   {
     path: UI_ROUTES.MESSAGE,
@@ -183,19 +170,29 @@ const OTHERS = [
     element: <MessageDemo />,
   },
   {
-    path: UI_ROUTES.TOOLTIP,
-    key: "tooltip.title",
-    element: <TooltipDemo />,
+    path: UI_ROUTES.MODAL,
+    key: "modal.title",
+    element: <ModalDemo />,
   },
   {
-    path: UI_ROUTES.SORTABLE_LIST,
-    key: "sortableList.title",
-    element: <SortableListDemo />,
+    path: UI_ROUTES.PAGE_DEMO,
+    key: "page.title.menu",
+    element: <PageDemo />,
   },
   {
     path: UI_ROUTES.POPUP,
     key: "popup.title",
     element: <PopupDemo />,
+  },
+  {
+    path: UI_ROUTES.RESPONSIVE_MENU,
+    key: "responsiveMenu.title",
+    element: <ResponsiveMenuDemo />,
+  },
+  {
+    path: UI_ROUTES.SORTABLE_LIST,
+    key: "sortableList.title",
+    element: <SortableListDemo />,
   },
   {
     path: UI_ROUTES.STEPPER,
@@ -208,14 +205,24 @@ const OTHERS = [
     element: <TabbedPanelDemo />,
   },
   {
-    path: UI_ROUTES.PAGE_DEMO,
-    key: "page.title.menu",
-    element: <PageDemo />,
+    path: UI_ROUTES.TABLE,
+    key: "table.title",
+    element: <TableDemo />,
   },
   {
     path: UI_ROUTES.TAG,
     key: "tag.title",
     element: <TagDemo />,
+  },
+  {
+    path: UI_ROUTES.TOOLTIP,
+    key: "tooltip.title",
+    element: <TooltipDemo />,
+  },
+  {
+    path: UI_ROUTES.YOUTUBE_FACADE,
+    key: "youtubeFacade.title",
+    element: <YoutubeFacadeDemo />,
   },
 ];
 
