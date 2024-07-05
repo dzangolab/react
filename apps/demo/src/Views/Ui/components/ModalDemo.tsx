@@ -4,9 +4,16 @@ import { useState } from "react";
 
 import { Section } from "../../../components/Demo";
 
+const Header = () => {
+  const [t] = useTranslation("ui");
+
+  return <h2>{t("modal.usage.headerAsFC")}</h2>;
+};
+
 export const ModalDemo = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isOpen2, setIsOpen2] = useState<boolean>(false);
+  const [isOpen3, setIsOpen3] = useState<boolean>(false);
 
   const [t] = useTranslation("ui");
 
@@ -27,9 +34,22 @@ export const ModalDemo = () => {
           onClick={() => setIsOpen2(true)}
         ></Button>
         <Modal
-          header={<h1>{t("modal.header")}</h1>}
+          header={<h2>{t("modal.header")}</h2>}
           onClose={() => setIsOpen2(false)}
           isOpen={isOpen2}
+        >
+          <p style={{ lineHeight: 1.6 }}>{t("modal.content")}</p>
+        </Modal>
+      </Section>
+      <Section title={t("modal.usage.headerAsFC")}>
+        <Button
+          label={t("modal.showButton")}
+          onClick={() => setIsOpen3(true)}
+        ></Button>
+        <Modal
+          header={<Header />}
+          onClose={() => setIsOpen3(false)}
+          isOpen={isOpen3}
         >
           <p style={{ lineHeight: 1.6 }}>{t("modal.content")}</p>
         </Modal>
