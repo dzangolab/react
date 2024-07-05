@@ -110,19 +110,17 @@ export const ConfirmationModal = ({
     );
   };
 
-  return (
-    visible && (
-      <dialog
-        ref={dialogReference}
-        className={`dz-dialog ${className}`.trimEnd()}
-        onClose={onHide}
-        {...dialogOptions}
-      >
-        {renderHeader()}
-        {renderContent()}
-        {children}
-        {renderFooter()}
-      </dialog>
-    )
-  );
+  return visible ? (
+    <dialog
+      ref={dialogReference}
+      className={`dz-dialog ${className}`.trimEnd()}
+      onClose={onHide}
+      {...dialogOptions}
+    >
+      {renderHeader()}
+      {renderContent()}
+      {children}
+      {renderFooter()}
+    </dialog>
+  ) : null;
 };

@@ -38,6 +38,10 @@
 
 .dz-dialog > .dz-dialog-header > .dz-button {
   border-radius: 50%;
+  padding: 0;
+}
+
+.dz-dialog > .dz-dialog-header > .dz-button i {
   padding: 0.65rem !important;
 }
 
