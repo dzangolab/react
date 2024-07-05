@@ -50,4 +50,5 @@
 .dz-modal .dz-close-button {
   border-radius: 100%;
   padding: 0.75rem;
+  margin-left: auto;
 }

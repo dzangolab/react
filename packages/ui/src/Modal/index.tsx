@@ -6,10 +6,9 @@ interface ModalProperties {
   children: React.ReactNode;
   className?: string;
   footer?: React.ReactNode;
-  header?: React.ReactNode;
+  header?: string | JSX.Element;
   isOpen: boolean;
   onClose: () => void;
-  title: string;
 }
 
 const Modal: React.FC<ModalProperties> = ({
@@ -19,7 +18,6 @@ const Modal: React.FC<ModalProperties> = ({
   header,
   isOpen = false,
   onClose,
-  title,
 }) => {
   if (!isOpen) return null;
 
@@ -27,7 +25,11 @@ const Modal: React.FC<ModalProperties> = ({
     <div role="dialog" className="dz-modal-overlay">
       <div className={`dz-modal ${className}`.trim()}>
         <div className="dz-modal-header">
-          {header || <span role="heading">{title}</span>}
+          {typeof header === "string" ? (
+            <span role="heading">{header}</span>
+          ) : (
+            header
+          )}
           <Button
             className="dz-close-button"
             onClick={onClose}
