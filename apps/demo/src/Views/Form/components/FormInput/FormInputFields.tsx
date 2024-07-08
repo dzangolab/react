@@ -26,7 +26,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
   const {
     register,
     getFieldState,
-    formState: { submitCount },
+    formState: { errors, submitCount }, // eslint-disable-line @typescript-eslint/no-unused-vars
     watch,
   } = useFormContext();
 
