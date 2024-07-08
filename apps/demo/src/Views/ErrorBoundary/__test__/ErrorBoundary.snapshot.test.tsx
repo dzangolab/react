@@ -1,4 +1,4 @@
-import renderer from "react-test-renderer";
+import { render } from "@testing-library/react";
 import { expect, test } from "vitest";
 
 import ErrorBoundary from "../index";
@@ -8,17 +8,8 @@ vi.mock("react-router-dom", async () => ({
   useRouteError: () => ({ statusText: 404, message: "Not Found" }),
 }));
 
-function toJson(component: renderer.ReactTestRenderer) {
-  const result = component.toJSON();
-
-  expect(result).toBeDefined();
-  expect(result).not.toBeInstanceOf(Array);
-
-  return result as renderer.ReactTestRendererJSON;
-}
-
 test("Component matches snapshot", async () => {
-  const component = renderer.create(<ErrorBoundary />);
-  let tree = toJson(component);
-  expect(tree).toMatchSnapshot();
+  const { container } = render(<ErrorBoundary />);
+
+  expect(container).toMatchSnapshot();
 });

@@ -1,35 +1,37 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div
-  className="dz-page"
-  data-centered={false}
->
+<div>
   <div
-    className="dz-page-header"
+    class="dz-page"
+    data-centered="false"
   >
     <div
-      className="dz-page-title-wrapper"
-    />
-  </div>
-  <div
-    className="dz-page-content"
-    data-testid="page-content"
-  >
-    <div
-      className="error-page"
+      class="dz-page-header"
     >
-      <h1>
-        errorBoundary.title
-      </h1>
-      <p>
-        errorBoundary.subtitle
-      </p>
-      <p>
-        <i>
-          404
-        </i>
-      </p>
+      <div
+        class="dz-page-title-wrapper"
+      />
+    </div>
+    <div
+      class="dz-page-content"
+      data-testid="page-content"
+    >
+      <div
+        class="error-page"
+      >
+        <h1>
+          errorBoundary.title
+        </h1>
+        <p>
+          errorBoundary.subtitle
+        </p>
+        <p>
+          <i>
+            404
+          </i>
+        </p>
+      </div>
     </div>
   </div>
 </div>
