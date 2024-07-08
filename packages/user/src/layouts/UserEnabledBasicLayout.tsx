@@ -26,6 +26,9 @@ interface Properties {
   fixed?: boolean;
 }
 
+/**
+ * @deprecated Use user enabled header layout instead
+ */
 export const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();
   const { user } = useUser();

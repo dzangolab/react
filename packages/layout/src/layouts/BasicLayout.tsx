@@ -21,6 +21,9 @@ interface Properties {
   fixed?: boolean;
 }
 
+/**
+ * @deprecated Use header layout instead
+ */
 export const BasicLayout: React.FC<Properties> = (properties) => {
   const {
     children,

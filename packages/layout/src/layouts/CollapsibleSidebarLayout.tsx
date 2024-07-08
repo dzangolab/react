@@ -26,6 +26,9 @@ interface Properties {
   fixed?: boolean;
 }
 
+/**
+ * @deprecated Use sidebar only layout or sidebar header layout
+ */
 export const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
   const {
     sidebar,

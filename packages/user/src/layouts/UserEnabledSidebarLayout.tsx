@@ -7,7 +7,6 @@ import DropdownUserMenu, {
 import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
-import { UserMenuItemType } from "../types";
 
 interface Properties {
   anonymousUserMenu?: React.ReactNode;
@@ -31,6 +30,9 @@ interface Properties {
   fixed?: boolean;
 }
 
+/**
+ * @deprecated Use user enabled sidebar only layout or user enabled sidebar header layout
+ */
 export const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();
   const { user } = useUser();
