@@ -23,7 +23,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 8
+          version: 8.15.8
           
       - name: Get current package version
         id: package-version
