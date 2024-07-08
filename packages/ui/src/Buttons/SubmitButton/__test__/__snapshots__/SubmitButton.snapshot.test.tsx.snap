@@ -1,15 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<button
-  className="dz-button primary filled medium"
-  role="button"
-  type="submit"
->
-  <span
-    className="label"
+<div>
+  <button
+    class="dz-button primary filled medium"
+    role="button"
+    type="submit"
   >
-    Submit
-  </span>
-</button>
+    <span
+      class="label"
+    >
+      Submit
+    </span>
+  </button>
+</div>
 `;
