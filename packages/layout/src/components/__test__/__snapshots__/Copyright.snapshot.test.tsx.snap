@@ -1,22 +1,24 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div
-  className="copyright"
->
+<div>
   <div
-    className="copyright"
+    class="copyright"
   >
-    © 
-    2024
-     
-    <a
-      href="www.dzango.com"
-      rel="noreferrer"
-      target="_blank"
+    <div
+      class="copyright"
     >
-      Dzango
-    </a>
+      © 
+      2024
+       
+      <a
+        href="www.dzango.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Dzango
+      </a>
+    </div>
   </div>
 </div>
 `;

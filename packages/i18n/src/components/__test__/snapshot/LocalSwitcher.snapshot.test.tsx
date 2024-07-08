@@ -1,22 +1,8 @@
-import { create } from "react-test-renderer";
+import { render } from "@testing-library/react";
 import { expect, test } from "vitest";
 
 import i18n from "../../../index";
 import LocaleSwitcher from "../../LocaleSwitcher";
-
-import type {
-  ReactTestRenderer,
-  ReactTestRendererJSON,
-} from "react-test-renderer";
-
-function toJson(component: ReactTestRenderer) {
-  const result = component.toJSON();
-
-  expect(result).toBeDefined();
-  expect(result).not.toBeInstanceOf(Array);
-
-  return result as ReactTestRendererJSON;
-}
 
 test("Component matches snapshot", () => {
   const i18nConfig = {
@@ -37,7 +23,6 @@ test("Component matches snapshot", () => {
   };
 
   i18n(i18nConfig);
-  const component = create(<LocaleSwitcher />);
-  const tree = toJson(component);
-  expect(tree).toMatchSnapshot();
+  const { container } = render(<LocaleSwitcher />);
+  expect(container).toMatchSnapshot();
 });

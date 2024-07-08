@@ -1,79 +1,74 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<form
-  className=""
-  noValidate={true}
-  onSubmit={[Function]}
->
-  <div
-    className="field email"
+<div>
+  <form
+    class=""
+    novalidate=""
   >
-    <label
-      htmlFor="email"
-    >
-      login.form.email.label
-    </label>
-    <input
-      autoComplete="email"
-      className="input-field email"
-      disabled={false}
-      id="email"
-      name="email"
-      onChange={[Function]}
-      placeholder="login.form.email.placeholder"
-      readOnly={false}
-      type="email"
-      value=""
-    />
-  </div>
-  <div
-    className="field password"
-  >
-    <label
-      htmlFor="input-field-password"
-    >
-      login.form.password.label
-    </label>
     <div
-      className="input-field-password"
+      class="field email"
     >
+      <label
+        for="email"
+      >
+        login.form.email.label
+      </label>
       <input
-        autoComplete="current-password"
-        id="input-field-password"
-        name="password"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder=""
-        type="password"
+        autocomplete="email"
+        class="input-field email"
+        id="email"
+        name="email"
+        placeholder="login.form.email.placeholder"
+        type="email"
+        value=""
       />
-      <span
-        className="eye-icon"
-        onClick={[Function]}
-      >
-        <i
-          className="pi pi-eye-slash"
-        />
-      </span>
     </div>
-  </div>
-  <div
-    className="dz-form-actions"
-    data-alignment="fill"
-    data-direction="horizontal"
-  >
-    <button
-      className="dz-button primary filled medium"
-      id="submit"
-      role="button"
-      type="submit"
+    <div
+      class="field password"
     >
-      <span
-        className="label"
+      <label
+        for="input-field-password"
       >
-        login.form.actions.submit
-      </span>
-    </button>
-  </div>
-</form>
+        login.form.password.label
+      </label>
+      <div
+        class="input-field-password"
+      >
+        <input
+          autocomplete="current-password"
+          id="input-field-password"
+          name="password"
+          placeholder=""
+          type="password"
+        />
+        <span
+          class="eye-icon"
+        >
+          <i
+            class="pi pi-eye-slash"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="dz-form-actions"
+      data-alignment="fill"
+      data-direction="horizontal"
+    >
+      <button
+        class="dz-button primary filled medium"
+        id="submit"
+        role="button"
+        type="submit"
+      >
+        <span
+          class="label"
+        >
+          login.form.actions.submit
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
 `;

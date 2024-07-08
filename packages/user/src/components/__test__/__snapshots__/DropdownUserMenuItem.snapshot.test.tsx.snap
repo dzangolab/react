@@ -1,3 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Component matches snapshot 1`] = `"test"`;
+exports[`Component matches snapshot 1`] = `
+<div>
+  test
+</div>
+`;

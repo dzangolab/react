@@ -1,109 +1,101 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<form
-  className=""
-  noValidate={true}
-  onSubmit={[Function]}
->
-  <div
-    className="field email"
+<div>
+  <form
+    class=""
+    novalidate=""
   >
-    <label
-      htmlFor="email"
-    >
-      signup.form.email.label
-    </label>
-    <input
-      autoComplete="email"
-      className="input-field email"
-      disabled={false}
-      id="email"
-      name="email"
-      onChange={[Function]}
-      placeholder="signup.form.email.placeholder"
-      readOnly={false}
-      type="email"
-      value=""
-    />
-  </div>
-  <div
-    className="field password"
-  >
-    <label
-      htmlFor="input-field-password"
-    >
-      signup.form.password.label
-    </label>
     <div
-      className="input-field-password"
+      class="field email"
     >
-      <input
-        autoComplete="new-password"
-        id="input-field-password"
-        name="password"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder=""
-        type="password"
-      />
-      <span
-        className="eye-icon"
-        onClick={[Function]}
+      <label
+        for="email"
       >
-        <i
-          className="pi pi-eye-slash"
-        />
-      </span>
+        signup.form.email.label
+      </label>
+      <input
+        autocomplete="email"
+        class="input-field email"
+        id="email"
+        name="email"
+        placeholder="signup.form.email.placeholder"
+        type="email"
+        value=""
+      />
     </div>
-  </div>
-  <div
-    className="field confirmPassword"
-  >
-    <label
-      htmlFor="input-field-confirmPassword"
-    >
-      signup.form.confirmPassword.label
-    </label>
     <div
-      className="input-field-password"
+      class="field password"
     >
-      <input
-        autoComplete="new-password"
-        id="input-field-confirmPassword"
-        name="confirmPassword"
-        onBlur={[Function]}
-        onChange={[Function]}
-        placeholder=""
-        type="password"
-      />
-      <span
-        className="eye-icon"
-        onClick={[Function]}
+      <label
+        for="input-field-password"
       >
-        <i
-          className="pi pi-eye-slash"
+        signup.form.password.label
+      </label>
+      <div
+        class="input-field-password"
+      >
+        <input
+          autocomplete="new-password"
+          id="input-field-password"
+          name="password"
+          placeholder=""
+          type="password"
         />
-      </span>
+        <span
+          class="eye-icon"
+        >
+          <i
+            class="pi pi-eye-slash"
+          />
+        </span>
+      </div>
     </div>
-  </div>
-  <div
-    className="dz-form-actions"
-    data-alignment="fill"
-    data-direction="horizontal"
-  >
-    <button
-      className="dz-button primary filled medium"
-      id="submit"
-      role="button"
-      type="submit"
+    <div
+      class="field confirmPassword"
     >
-      <span
-        className="label"
+      <label
+        for="input-field-confirmPassword"
       >
-        signup.form.actions.submit
-      </span>
-    </button>
-  </div>
-</form>
+        signup.form.confirmPassword.label
+      </label>
+      <div
+        class="input-field-password"
+      >
+        <input
+          autocomplete="new-password"
+          id="input-field-confirmPassword"
+          name="confirmPassword"
+          placeholder=""
+          type="password"
+        />
+        <span
+          class="eye-icon"
+        >
+          <i
+            class="pi pi-eye-slash"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="dz-form-actions"
+      data-alignment="fill"
+      data-direction="horizontal"
+    >
+      <button
+        class="dz-button primary filled medium"
+        id="submit"
+        role="button"
+        type="submit"
+      >
+        <span
+          class="label"
+        >
+          signup.form.actions.submit
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
 `;
