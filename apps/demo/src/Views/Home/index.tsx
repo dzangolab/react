@@ -34,6 +34,11 @@ const Home: React.FC = () => {
       route: "/i18n",
       description: "@dzangolab/react-i18n components and utilities",
     },
+    {
+      name: "releaseNotes",
+      route: "/release-notes",
+      description: "Release note for different release versions",
+    },
   ];
 
   return (

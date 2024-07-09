@@ -24,6 +24,7 @@ import {
   Pages as UserPages,
   routes as userRoutes,
 } from "./Views/User";
+import { ReleaseNotesPage } from "./Views/ReleaseNotes";
 
 const routes = () => {
   return createHashRouter([
@@ -90,6 +91,10 @@ const routes = () => {
             },
             ...i18nRoutes,
           ],
+        },
+        {
+          path: "/release-notes",
+          element: <ReleaseNotesPage />,
         },
       ],
     },

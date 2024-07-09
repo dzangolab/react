@@ -19,4 +19,8 @@ export const MENU_ROUTES = [
     key: "header.menu.i18n",
     route: "/i18n",
   },
+  {
+    key: "header.menu.releaseNotes",
+    route: "/release-notes",
+  },
 ];

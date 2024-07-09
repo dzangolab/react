@@ -11,7 +11,8 @@
       "layout": "Layout (fr)",
       "ui": "UI  (fr)",
       "uiV2": "UI v2 (fr)",
-      "user": "User (fr)"
+      "user": "User (fr)",
+      "releaseNotes": "Release notes (fr)"
     }
   },
   "footer": {
