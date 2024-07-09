@@ -1,9 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div
-  className="version"
->
-  1.0.0+local
+<div>
+  <div
+    class="version"
+  >
+    1.0.0+local
+  </div>
 </div>
 `;

@@ -1,23 +1,9 @@
 import { AppConfig, configContext } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
-import { create } from "react-test-renderer";
+import { render } from "@testing-library/react";
 import { expect, test } from "vitest";
 
 import { Copyright } from "../Layout";
-
-import type {
-  ReactTestRenderer,
-  ReactTestRendererJSON,
-} from "react-test-renderer";
-
-function toJson(component: ReactTestRenderer) {
-  const result = component.toJSON();
-
-  expect(result).toBeDefined();
-  expect(result).not.toBeInstanceOf(Array);
-
-  return result as ReactTestRendererJSON;
-}
 
 const appConfig: AppConfig = {
   apiBaseUrl: "/",
@@ -48,12 +34,11 @@ const appConfig: AppConfig = {
 test("Component matches snapshot", () => {
   i18n(appConfig.i18n);
 
-  const component = create(
+  const { container } = render(
     <configContext.Provider value={appConfig}>
       <Copyright year={2024} />
     </configContext.Provider>,
   );
 
-  const tree = toJson(component);
-  expect(tree).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 });

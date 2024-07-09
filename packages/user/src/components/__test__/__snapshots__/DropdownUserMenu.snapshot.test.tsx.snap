@@ -1,23 +1,24 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<div
-  className="popup-container"
->
+<div>
   <div
-    aria-controls="popup-content"
-    aria-expanded={false}
-    className="popup-trigger"
-    onClick={[Function]}
+    class="popup-container"
   >
-    <span
-      className="dz-dropdown-menu-trigger"
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
     >
-      test
-      <i
-        className="dz-icon pi  pi-angle-down"
-      />
-    </span>
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        test
+        <i
+          class="dz-icon pi  pi-angle-down"
+        />
+      </span>
+    </div>
   </div>
 </div>
 `;

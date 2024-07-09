@@ -1,27 +1,28 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<span
-  className="locale-switcher"
->
-  <div
-    className="popup-container"
+<div>
+  <span
+    class="locale-switcher"
   >
     <div
-      aria-controls="popup-content"
-      aria-expanded={false}
-      className="popup-trigger"
-      onClick={[Function]}
+      class="popup-container"
     >
-      <span
-        className="dz-dropdown-menu-trigger"
+      <div
+        aria-controls="popup-content"
+        aria-expanded="false"
+        class="popup-trigger"
       >
-        locales.en
-        <i
-          className="dz-icon pi  pi-angle-down"
-        />
-      </span>
+        <span
+          class="dz-dropdown-menu-trigger"
+        >
+          locales.en
+          <i
+            class="dz-icon pi  pi-angle-down"
+          />
+        </span>
+      </div>
     </div>
-  </div>
-</span>
+  </span>
+</div>
 `;

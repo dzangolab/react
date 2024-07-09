@@ -1,71 +1,71 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Component matches snapshot 1`] = `
-<ul
-  aria-orientation="vertical"
-  className="accordion vertical"
->
-  <li
-    className=""
+<div>
+  <ul
+    aria-orientation="vertical"
+    class="accordion vertical"
   >
-    <button
-      aria-controls="pane-body-:r0:-0"
-      aria-disabled={false}
-      aria-expanded={false}
-      aria-label="Topic 1"
-      onClick={[Function]}
-      type="button"
+    <li
+      class=""
     >
-      <img
-        alt="title icon"
-        aria-hidden="true"
-        src="icon1.jpg"
+      <button
+        aria-controls="pane-body-:r0:-0"
+        aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Topic 1"
+        type="button"
+      >
+        <img
+          alt="title icon"
+          aria-hidden="true"
+          src="icon1.jpg"
+        />
+        <span>
+          Topic 1
+        </span>
+        <img
+          alt="toggle icon"
+          aria-hidden="true"
+          src="arrow-up.jpg"
+        />
+      </button>
+      <div
+        hidden=""
+        id="pane-body-:r0:-0"
+        role="region"
       />
-      <span>
-        Topic 1
-      </span>
-      <img
-        alt="toggle icon"
-        aria-hidden="true"
-        src="arrow-up.jpg"
-      />
-    </button>
-    <div
-      hidden={true}
-      id="pane-body-:r0:-0"
-      role="region"
-    />
-  </li>
-  <li
-    className=""
-  >
-    <button
-      aria-controls="pane-body-:r0:-1"
-      aria-disabled={false}
-      aria-expanded={false}
-      aria-label="Topic 2"
-      onClick={[Function]}
-      type="button"
+    </li>
+    <li
+      class=""
     >
-      <img
-        alt="title icon"
-        aria-hidden="true"
-        src="icon2.jpg"
+      <button
+        aria-controls="pane-body-:r0:-1"
+        aria-disabled="false"
+        aria-expanded="false"
+        aria-label="Topic 2"
+        type="button"
+      >
+        <img
+          alt="title icon"
+          aria-hidden="true"
+          src="icon2.jpg"
+        />
+        <span>
+          Topic 2
+        </span>
+        <img
+          alt="toggle icon"
+          aria-hidden="true"
+          src="arrow-up.jpg"
+        />
+      </button>
+      <div
+        hidden=""
+        id="pane-body-:r0:-1"
+        role="region"
       />
-      <span>
-        Topic 2
-      </span>
-      <img
-        alt="toggle icon"
-        aria-hidden="true"
-        src="arrow-up.jpg"
-      />
-    </button>
-    <div
-      hidden={true}
-      id="pane-body-:r0:-1"
-      role="region"
-    />
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>
 `;

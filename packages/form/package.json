@@ -12,7 +12,9 @@
   "main": "dist//DzangolabReactForm.umd.js",
   "module": "dist//DzangolabReactForm.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -41,7 +43,6 @@
     "@types/node": "18.19.31",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "@types/react-test-renderer": "18.3.0",
     "@types/validator": "13.11.9",
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-v8": "1.6.0",
@@ -53,7 +54,6 @@
     "primereact": "9.6.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-test-renderer": "18.3.1",
     "tsconfig": "0.44.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",

@@ -1,21 +1,12 @@
+import { render } from "@testing-library/react";
 import React from "react";
-import renderer, { create } from "react-test-renderer";
 import { expect, test } from "vitest";
 
 import { SubPane } from "../../components/SubPane";
 import Accordion from "../Accordion";
 
-function toJson(component: renderer.ReactTestRenderer) {
-  const result = component.toJSON();
-
-  expect(result).toBeDefined();
-  expect(result).not.toBeInstanceOf(Array);
-
-  return result as renderer.ReactTestRendererJSON;
-}
-
 test("Component matches snapshot", () => {
-  const component = create(
+  const { container } = render(
     <Accordion activeIcon="arrow-down.jpg" inactiveIcon="arrow-up.jpg">
       <SubPane icon="icon1.jpg" title="Topic 1">
         Pane 1 content
@@ -25,6 +16,5 @@ test("Component matches snapshot", () => {
       </SubPane>
     </Accordion>,
   );
-  const tree = toJson(component);
-  expect(tree).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 });
