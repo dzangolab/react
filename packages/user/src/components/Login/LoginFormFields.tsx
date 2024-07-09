@@ -15,7 +15,7 @@ export const LoginFormFields = ({ loading }: Properties) => {
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount },
+    formState: { errors, submitCount }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
 
   return (

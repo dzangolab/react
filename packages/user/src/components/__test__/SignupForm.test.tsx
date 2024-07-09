@@ -1,13 +1,7 @@
 import { AppConfig, ConfigProvider } from "@dzangolab/react-config";
-import {
-  render,
-  fireEvent,
-  screen,
-  waitFor,
-  act,
-} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import React from "react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
+import React, { act } from "react";
 import { expect, test, vi } from "vitest";
 
 import SignupForm from "../SignupForm";

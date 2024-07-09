@@ -20,7 +20,7 @@ export const ProfileFormFields = ({
     register,
     getFieldState,
     reset,
-    formState: { errors, submitCount, isDirty },
+    formState: { errors, submitCount, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
 
   const { t } = useTranslation("user");

@@ -7,7 +7,6 @@ import DropdownUserMenu, {
 import UserMenu from "../components/UserMenu";
 import { getHomeRoute } from "../helpers";
 import { useConfig, useUser } from "../hooks";
-import { UserMenuItemType } from "../types";
 
 interface Properties {
   anonymousUserMenu?: React.ReactNode;

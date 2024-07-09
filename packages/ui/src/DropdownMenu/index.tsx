@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import Menu, { MenuProperties } from "./Menu";
 import { Popup, PopupProperties } from "../Popup";
@@ -20,7 +20,7 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   offset,
   ...menuOptions
 }) => {
-  const defaultTrigger = React.useMemo(() => {
+  const defaultTrigger = useMemo(() => {
     return (
       <span className="dz-dropdown-menu-trigger">
         {label || <i className="pi pi-ellipsis-h"></i>}

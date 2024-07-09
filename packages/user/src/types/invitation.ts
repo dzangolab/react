@@ -1,5 +1,3 @@
-import Zod from "zod";
-
 import { ErrorResponse } from "./types";
 
 export interface InvitationPayload {

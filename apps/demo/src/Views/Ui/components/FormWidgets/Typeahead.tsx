@@ -50,7 +50,6 @@ export const TypeaheadDemo = () => {
   const [t] = useTranslation("ui");
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState<any>([]);
-  const [selectedServerValue, setSelectedServerValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [customSuggestions, setCustomSuggestions] = useState<
     Array<CustomSuggestionType>
@@ -64,11 +63,11 @@ export const TypeaheadDemo = () => {
         setOptions(data.map((item: any) => item.title));
         setIsLoading(false);
       })
-      .catch((err) => console.log("err", err));
+      .catch((err) => console.log("err", err)); // eslint-disable-line no-console
   };
 
   const handleServerChange = (value: any) => {
-    setSelectedServerValue(value);
+    console.log("selected server value:", value); // eslint-disable-line no-console
   };
 
   const handleDataFilter = (value: any) => {

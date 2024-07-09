@@ -12,17 +12,12 @@ interface Properties extends IInputProperties {
 }
 
 export const NumberInput = ({
-  defaultValue,
-  errorMessage,
-  hasError,
   label,
   name,
-  onChange,
   placeholder,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
-  type,
   ...others
 }: Properties) => {
   const { control, getFieldState } = useFormContext();
@@ -41,6 +36,7 @@ export const NumberInput = ({
       render={({ field }) => {
         return (
           <Input
+            {...others}
             label={label}
             name={name}
             placeholder={placeholder}
@@ -52,7 +48,6 @@ export const NumberInput = ({
               field.onChange(!isNaN(value) ? value : null);
             }}
             hasError={submitCount > 0 ? checkInvalidState() : undefined}
-            {...others}
           />
         );
       }}
