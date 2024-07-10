@@ -70,7 +70,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
           onSignupFailed && (await onSignupFailed(error));
 
-          if (error.name) {
+          if (error.status === "FIELD_ERROR") {
             throw error as Error;
           }
 

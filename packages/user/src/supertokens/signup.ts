@@ -4,9 +4,10 @@ import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
 
 const signup = async (
   credentials: LoginCredentials,
-): Promise<SignInUpPromise | undefined> => {
+): Promise<SignInUpPromise | void> => {
   let user: UserType;
   let status: string;
+  let response;
 
   const data = {
     formFields: [
@@ -21,18 +22,26 @@ const signup = async (
     ],
   };
 
-  const response = await register(data);
+  try {
+    response = await register(data);
+  } catch (error) {
+    throw new Error();
+  }
 
-  if (response.status !== "FIELD_ERROR") {
+  if (response.status === "OK") {
     user = response.user as UserType;
     status = response.status;
-  } else
+
+    return { user, status };
+  } else if (response.status === "FIELD_ERROR") {
     throw {
       name: response.formFields[0].id,
+      status: response.status,
       message: response.formFields[0].error,
     } as Error;
-
-  return { user, status };
+  } else {
+    throw new Error();
+  }
 };
 
 export default signup;

@@ -7,6 +7,7 @@ const login = async (
 ): Promise<SignInUpPromise | undefined> => {
   let user: UserType;
   let status: string;
+  let response;
 
   const data = {
     formFields: [
@@ -21,7 +22,11 @@ const login = async (
     ],
   };
 
-  const response = await emailPasswordSignIn(data);
+  try {
+    response = await emailPasswordSignIn(data);
+  } catch (error) {
+    throw new Error("otherErrors");
+  }
 
   if (response.status === "OK") {
     user = response.user as UserType;
@@ -30,6 +35,8 @@ const login = async (
     return { user, status };
   } else if (response.status === "WRONG_CREDENTIALS_ERROR") {
     throw new Error("401");
+  } else {
+    throw new Error("otherErrors");
   }
 };
 
