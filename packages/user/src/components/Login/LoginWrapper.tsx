@@ -75,7 +75,7 @@ export const LoginWrapper: FC<IProperties> = ({
           }
         })
         .catch(async (error) => {
-          let errorMessage = `errors.${error.message}`;
+          const errorMessage = `errors.${error.message}`;
 
           onLoginFailed && (await onLoginFailed(error));
 
