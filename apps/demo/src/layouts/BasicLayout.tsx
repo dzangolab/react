@@ -15,6 +15,7 @@ export const BasicLayout = (): JSX.Element => {
   return (
     <HeaderLayout
       children={<Outlet />}
+      menu={menu}
       navigationMenu={{
         menu: menu,
       }}

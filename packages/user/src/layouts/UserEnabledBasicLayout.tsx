@@ -27,7 +27,8 @@ interface Properties {
 }
 
 /**
- * @deprecated Use user enabled header layout instead
+ * @deprecated This layout is deprecated and might be removed in future versions.
+ *             Use UserEnabledHeaderLayout for compatibility with latest standards.
  */
 export const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();

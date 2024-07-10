@@ -27,7 +27,8 @@ interface Properties {
 }
 
 /**
- * @deprecated Use sidebar only layout or sidebar header layout
+ * @deprecated This layout is deprecated and might be removed in future versions.
+ *             Use SidebarHeaderLayout or SidebarOnlyLayout for compatibility with latest standards.
  */
 export const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
   const {

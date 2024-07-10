@@ -22,7 +22,8 @@ interface Properties {
 }
 
 /**
- * @deprecated Use header layout instead
+ * @deprecated This layout is deprecated and might be removed in future versions.
+ *             Use HeaderLayout for compatibility with latest standards.
  */
 export const BasicLayout: React.FC<Properties> = (properties) => {
   const {

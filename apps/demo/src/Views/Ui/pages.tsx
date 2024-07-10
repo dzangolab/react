@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
 import { ButtonDemo } from "./components/Button";
+import { CardDemo } from "./components/CardDemo";
 import { ConfirmationModalDemo } from "./components/ConfirmationModal";
 import { DropdownMenuDemo } from "./components/DropdownMenuDemo";
 import { ExportButtonDemo } from "./components/ExportButton";
@@ -32,7 +33,6 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
-import { CardDemo } from "./components/CardDemo";
 
 export const UI_ROUTES = {
   GET_STARTED: "/ui",
