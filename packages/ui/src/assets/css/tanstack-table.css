@@ -150,6 +150,7 @@
   > tr[data-selected="true"]:hover,
 .table-wrapper > table > tbody > tr:hover {
   background: var(--dz-table-row-hover-bg) !important;
+  transition: background var(--transition-duration) ease;
 }
 
 .table-wrapper > table .header-row {
