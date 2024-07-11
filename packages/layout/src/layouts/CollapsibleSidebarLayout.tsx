@@ -26,6 +26,11 @@ interface Properties {
   fixed?: boolean;
 }
 
+/**
+ * @deprecated
+ * This layout is deprecated and will be removed in future versions.
+ * Use SidebarHeaderLayout or SidebarOnlyLayout for compatibility with latest standards.
+ */
 export const CollapsibleSidebarLayout: React.FC<Properties> = (properties) => {
   const {
     sidebar,

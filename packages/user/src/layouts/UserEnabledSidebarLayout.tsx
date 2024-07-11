@@ -30,6 +30,11 @@ interface Properties {
   fixed?: boolean;
 }
 
+/**
+ * @deprecated
+ * This layout is deprecated and will be removed in future versions.
+ * Use UserEnabledSidebarHeaderLayout or UserEnabledSidebarOnlyLayout for compatibility with latest standards.
+ */
 export const UserEnabledSidebarLayout: React.FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();
   const { user } = useUser();

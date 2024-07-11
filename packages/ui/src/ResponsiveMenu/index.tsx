@@ -22,6 +22,10 @@ interface Properties {
   displayIcon?: boolean;
 }
 
+/**
+ * @deprecated
+ * Use navigation menu from the header layout instead
+ */
 const ResponsiveMenu = ({
   className,
   displayIcon = false,

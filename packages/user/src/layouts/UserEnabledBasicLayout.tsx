@@ -26,6 +26,11 @@ interface Properties {
   fixed?: boolean;
 }
 
+/**
+ * @deprecated
+ * This layout is deprecated and will be removed in future versions.
+ * Use UserEnabledHeaderLayout for compatibility with latest standards.
+ */
 export const UserEnabledBasicLayout: React.FC<Properties> = (properties) => {
   const { layout: layoutConfig, user: userConfig } = useConfig();
   const { user } = useUser();
