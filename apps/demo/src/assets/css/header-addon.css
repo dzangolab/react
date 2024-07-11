@@ -1,0 +1,34 @@
+.dz-layout[aria-expanded="true"] .header-container {
+  grid-template-areas:
+    "logo toggle"
+    "title title"
+    "nav nav"
+    "addon addon"
+    "menu menu";
+}
+
+.dz-layout .header-container .header-addon {
+  grid-area: addon;
+  color: var(--_layout-header-color);
+  display: none;
+}
+
+.dz-layout[aria-expanded="true"] .header-container .header-addon {
+  display: block;
+}
+
+@media screen and (min-width: 60rem) {
+  .header-container .header-addon {
+    order: 1;
+    display: block;
+  }
+
+  .header-container .header-addon:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .header-container .header-menu {
+    order: 2;
+  }
+}

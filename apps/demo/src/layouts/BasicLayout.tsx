@@ -14,10 +14,9 @@ export const BasicLayout = (): JSX.Element => {
 
   return (
     <HeaderLayout
-      className="header-addon"
       children={<Outlet />}
       headerAddon={
-        <div className="addon">
+        <div className="header-addon">
           <a
             target="_blank"
             rel="noopener noreferrer"

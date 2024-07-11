@@ -19,20 +19,6 @@ p {
   font-weight: normal;
 }
 
-.header-addon .header-container .addon {
-  order: 1;
-  color: var(--_layout-header-color);
-}
-
-.header-addon .header-container .addon:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.header-addon .header-container .header-menu {
-  order: 2;
-}
-
 code {
   background: lightgrey;
   border-radius: 0.25rem;
