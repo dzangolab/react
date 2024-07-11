@@ -51,6 +51,7 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
+
   const shouldAutoSelect = useMemo(() => {
     return (
       autoSelectSingleOption &&
@@ -96,7 +97,10 @@ export const Select = <T extends string | number>({
     }
   };
 
-  const handleRemoveOption = (option: T, event: React.MouseEvent) => {
+  const handleRemoveOption = (
+    option: T | undefined,
+    event: React.MouseEvent,
+  ) => {
     event.stopPropagation();
 
     if (multiple) {
@@ -108,7 +112,7 @@ export const Select = <T extends string | number>({
         setShowOptions(false);
       }
     } else {
-      onChange("" as T);
+      onChange(option as T);
       setShowOptions(false);
     }
   };
@@ -130,10 +134,11 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul className="select-field-options">
+      <ul className="select-field-options" aria-multiselectable={multiple}>
         {options?.map((option, index) => {
           const { disabled, label } = option;
           let isChecked = false;
+
           multiple &&
             value.forEach((_value) => {
               if (_value === option.value) {
@@ -220,9 +225,7 @@ export const Select = <T extends string | number>({
               {selectedOption && !disabled && (
                 <i
                   className="pi pi-times"
-                  onClick={(event) =>
-                    handleRemoveOption(selectedOption.value, event)
-                  }
+                  onClick={(event) => handleRemoveOption(undefined, event)}
                 ></i>
               )}
             </>
