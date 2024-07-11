@@ -100,6 +100,14 @@
   width: 100%;
 }
 
+.select-field-options[aria-multiselectable="false"] > .option {
+  padding: 0;
+}
+
+.select-field-options[aria-multiselectable="false"] > .option > span {
+  padding: 0.5rem 0.65rem;
+}
+
 .select-field-options > .option > .disabled {
   color: var(--field-option-disabled-color);
 }
