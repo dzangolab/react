@@ -10,7 +10,7 @@
 }
 
 p {
-  color: var(--color);  
+  color: var(--color);
 }
 
 .main-menu > ul > li:hover,

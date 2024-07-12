@@ -15,6 +15,17 @@ export const BasicLayout = (): JSX.Element => {
   return (
     <HeaderLayout
       children={<Outlet />}
+      headerAddon={
+        <div className="header-addon">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/dzangolab/react/blob/main/CHANGELOG.md"
+          >
+            <span>{t("header.menu.changelog")}</span>
+          </a>
+        </div>
+      }
       navigationMenu={{
         menu: menu,
       }}

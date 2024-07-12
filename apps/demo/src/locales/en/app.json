@@ -11,7 +11,8 @@
       "layout": "Layout",
       "ui": "UI",
       "uiV2": "UI v2",
-      "user": "User"
+      "user": "User",
+      "changelog": "Changelog"
     }
   },
   "footer": {
