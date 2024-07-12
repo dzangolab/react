@@ -1,8 +1,6 @@
 import { DropdownMenu, DropdownMenuProperties } from "@dzangolab/react-ui";
 import { useTranslation } from "react-i18next";
 
-import "../css/locale-switcher.css";
-
 export type LocalSwitcherProperties = Omit<DropdownMenuProperties, "menu">;
 
 const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
@@ -30,13 +28,12 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
   }
 
   return (
-    <span className="locale-switcher">
-      <DropdownMenu
-        menu={locales || []}
-        label={t(`locales.${i18n.language}`)}
-        {...menuOptions}
-      />
-    </span>
+    <DropdownMenu
+      className="locale-switcher"
+      menu={locales || []}
+      label={t(`locales.${i18n.language}`)}
+      {...menuOptions}
+    />
   );
 };
 

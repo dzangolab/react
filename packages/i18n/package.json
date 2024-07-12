@@ -6,13 +6,14 @@
     ".": {
       "import": "./dist/DzangolabReactI18n.es.js",
       "require": "./dist/DzangolabReactI18n.umd.js"
-    },
-    "./dist/DzangolabReactI18n.css": "./dist/style.css"
+    }
   },
   "main": "dist//DzangolabReactI18n.umd.js",
   "module": "dist//DzangolabReactI18n.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",

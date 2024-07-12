@@ -2,27 +2,23 @@
 
 exports[`Component matches snapshot 1`] = `
 <div>
-  <span
-    class="locale-switcher"
+  <div
+    class="popup-container locale-switcher"
   >
     <div
-      class="popup-container"
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
     >
-      <div
-        aria-controls="popup-content"
-        aria-expanded="false"
-        class="popup-trigger"
+      <span
+        class="dz-dropdown-menu-trigger"
       >
-        <span
-          class="dz-dropdown-menu-trigger"
-        >
-          locales.en
-          <i
-            class="dz-icon pi  pi-angle-down"
-          />
-        </span>
-      </div>
+        locales.en
+        <i
+          class="dz-icon pi  pi-angle-down"
+        />
+      </span>
     </div>
-  </span>
+  </div>
 </div>
 `;
