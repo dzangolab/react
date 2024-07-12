@@ -16,6 +16,7 @@ interface UncontrolledProperties {
   content: JSX.Element;
   position?: Placement;
   offset?: number;
+  className?: string;
 }
 
 export type PopupProperties = {
@@ -26,6 +27,7 @@ export type PopupProperties = {
 } & UncontrolledProperties;
 
 export const Popup: FC<PopupProperties> = ({
+  className = "",
   isControlled = false,
   toggle,
   close,
@@ -108,7 +110,7 @@ export const Popup: FC<PopupProperties> = ({
   };
 
   return (
-    <div className="popup-container">
+    <div className={`popup-container ${className}`.trim()}>
       <div
         className="popup-trigger"
         ref={setReferenceElement as LegacyRef<HTMLDivElement>}

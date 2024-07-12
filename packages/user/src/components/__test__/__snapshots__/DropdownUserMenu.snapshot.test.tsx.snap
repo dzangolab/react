@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container user-menu"
   >
     <div
       aria-controls="popup-content"
