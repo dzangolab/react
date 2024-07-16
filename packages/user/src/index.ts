@@ -27,10 +27,8 @@ import {
   useProfileCompletion,
 } from "./hooks";
 import {
-  UserEnabledBasicLayout,
   UserEnabledHeaderLayout,
   UserEnabledSidebarHeaderLayout,
-  UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
 } from "./layouts";
 import superTokens from "./supertokens";
@@ -94,10 +92,8 @@ export {
   UsersTable,
 
   // layouts
-  UserEnabledBasicLayout,
   UserEnabledHeaderLayout,
   UserEnabledSidebarHeaderLayout,
-  UserEnabledSidebarLayout,
   UserEnabledSidebarOnlyLayout,
 
   // views

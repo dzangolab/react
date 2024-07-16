@@ -21,8 +21,6 @@ import {
 import MainMenu from "./components/MainMenu";
 import SidebarLegacy from "./components/Sidebar";
 import {
-  BasicLayout,
-  CollapsibleSidebarLayout,
   SidebarHeaderLayout,
   HeaderLayout,
   SidebarOnlyLayout,
@@ -50,8 +48,6 @@ export {
   SidebarLegacy,
 
   // layouts
-  BasicLayout,
-  CollapsibleSidebarLayout,
   SidebarHeaderLayout,
 
   // new
