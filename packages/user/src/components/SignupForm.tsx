@@ -40,7 +40,7 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
             termsAndConditions: zod
               .boolean()
               .refine((value) => value === true, {
-                message: "signup.messages.validation.termsAndConditions",
+                message: t("signup.messages.validation.termsAndConditions"),
               }),
           }
         : {}),
