@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-form",
-  "version": "0.45.0",
+  "version": "0.45.1",
   "description": "React Form Component Library",
   "exports": {
     ".": {
@@ -36,7 +36,7 @@
     "zod": "3.23.6"
   },
   "devDependencies": {
-    "@dzangolab/react-ui": "0.45.0",
+    "@dzangolab/react-ui": "0.45.1",
     "@storybook/react": "7.6.19",
     "@testing-library/react": "14.3.1",
     "@types/jsdom": "21.1.6",
@@ -47,20 +47,20 @@
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-v8": "1.6.0",
     "eslint": "8.57.0",
-    "eslint-config-custom": "0.45.0",
+    "eslint-config-custom": "0.45.1",
     "eslint-plugin-react": "7.34.1",
     "jsdom": "24.0.0",
     "prettier": "3.2.5",
     "primereact": "9.6.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "tsconfig": "0.45.0",
+    "tsconfig": "0.45.1",
     "typescript": "5.4.5",
     "vite": "5.2.11",
     "vitest": "1.6.0"
   },
   "peerDependencies": {
-    "@dzangolab/react-ui": "0.45.0",
+    "@dzangolab/react-ui": "0.45.1",
     "primereact": "9.6.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",

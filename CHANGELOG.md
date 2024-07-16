@@ -1,3 +1,12 @@
+## [0.45.1](https://github.com/dzangolab/react/compare/v0.45.0...v0.45.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **user:** missing translation function call for terms&Conditions ([#1075](https://github.com/dzangolab/react/issues/1075)) ([6167822](https://github.com/dzangolab/react/commit/6167822b36c1c6952d3ab902ca20331462b0d683))
+
+
+
 # [0.45.0](https://github.com/dzangolab/react/compare/v0.44.0...v0.45.0) (2024-07-16)
 
 ### Breaking changes
