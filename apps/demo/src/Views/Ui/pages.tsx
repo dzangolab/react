@@ -5,6 +5,7 @@ import { ButtonDemo } from "./components/Button";
 import { CardDemo } from "./components/CardDemo";
 import { ConfirmationModalDemo } from "./components/ConfirmationModal";
 import { DropdownMenuDemo } from "./components/DropdownMenuDemo";
+import { EditableTitleDemo } from "./components/EditableTitleDemo";
 import { ExportButtonDemo } from "./components/ExportButton";
 import { FileCardDemo } from "./components/FileCard";
 import { FilesListDemo } from "./components/FilesList";
@@ -44,6 +45,7 @@ export const UI_ROUTES = {
   SUBMIT_BUTTON: "/ui/submit-button",
   FILES_TABLE: "/ui/files-table",
   DROPDOWN_MENU: "/ui/dropdown-menu",
+  EDITABLE_TITLE: "/ui/editable-title",
   RESPONSIVE_MENU: "/ui/responsive-menu",
   YOUTUBE_FACADE: "/ui/youtube-facade",
   EXPORT_BUTTON: "/ui/export-xlsx",
@@ -133,6 +135,11 @@ const OTHERS = [
     path: UI_ROUTES.DROPDOWN_MENU,
     key: "dropdownMenu.title",
     element: <DropdownMenuDemo />,
+  },
+  {
+    path: UI_ROUTES.EDITABLE_TITLE,
+    key: "Editable title",
+    element: <EditableTitleDemo />,
   },
   {
     path: UI_ROUTES.FILES_TABLE,
