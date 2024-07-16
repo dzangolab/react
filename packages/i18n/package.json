@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-i18n",
-  "version": "0.44.0",
+  "version": "0.45.0",
   "description": "React I18n Plugin",
   "exports": {
     ".": {
@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@dzangolab/react-ui": "0.44.0",
+    "@dzangolab/react-ui": "0.45.0",
     "i18next": "23.11.3",
     "i18next-browser-languagedetector": "7.2.1",
     "i18next-chained-backend": "4.6.2",
@@ -36,7 +36,7 @@
     "react-i18next": "14.1.1"
   },
   "devDependencies": {
-    "@dzangolab/react-config": "0.44.0",
+    "@dzangolab/react-config": "0.45.0",
     "@testing-library/react": "14.3.1",
     "@types/jsdom": "21.1.6",
     "@types/node": "18.19.31",
@@ -45,18 +45,18 @@
     "@vitejs/plugin-react": "4.2.1",
     "@vitest/coverage-v8": "1.6.0",
     "eslint": "8.57.0",
-    "eslint-config-custom": "0.44.0",
+    "eslint-config-custom": "0.45.0",
     "eslint-plugin-react": "7.34.1",
     "prettier": "3.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "tsconfig": "0.44.0",
+    "tsconfig": "0.45.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
     "vitest": "1.6.0"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.44.0",
+    "@dzangolab/react-config": "0.45.0",
     "react": ">=18.2",
     "react-dom": ">=18.2"
   },
