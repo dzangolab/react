@@ -1,5 +1,10 @@
 # [0.45.0](https://github.com/dzangolab/react/compare/v0.44.0...v0.45.0) (2024-07-16)
 
+### Breaking changes
+
+* **Removed CSS Export From @‌dzangolab/react-i18n**: The CSS exported from @dzangolab /react-i18n\ package has been removed. All the CSS related to this will be handled by the @dzangolab /react-ui package.
+* **Affected Component**: Applications importing CSS styles directly from @dzangolab /react-i18n.
+* **Migration Steps**: Applications should now remove the import of CSS from @dzangolab /react-i18n.
 
 ### Bug Fixes
 
