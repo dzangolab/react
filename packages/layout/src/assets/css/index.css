@@ -1,6 +1,3 @@
-@import "./components/logo.css";
-@import "./components/header.css";
-@import "./components/footer.css";
 @import "./components/layout/index.css";
 @import "./layouts/sidebar-only-layout.css";
 @import "./layouts/sidebar-header-layout.css";

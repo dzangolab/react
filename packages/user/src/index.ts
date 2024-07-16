@@ -2,7 +2,6 @@ import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemai
 
 import { disableUser, enableUser } from "./api/user";
 import AuthGoogleCallback from "./components/AuthGoogleCallback";
-import DropdownUserMenu from "./components/DropdownUserMenu";
 import {
   InvitationForm,
   InvitationModal,
@@ -12,7 +11,6 @@ import { LoginForm, LoginWrapper } from "./components/Login";
 import SignupForm from "./components/SignupForm";
 import { SignupWrapper } from "./components/SignupWrapper";
 import TermsAndConditions from "./components/TermsAndConditions";
-import UserMenu from "./components/UserMenu";
 import {
   AllUsersTable,
   UsersTable,
@@ -77,7 +75,6 @@ export {
   // components
   AllUsersTable,
   AuthGoogleCallback,
-  DropdownUserMenu,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
@@ -87,7 +84,6 @@ export {
   SignupForm,
   SignupWrapper,
   TermsAndConditions,
-  UserMenu,
   UserProvider,
   UsersTable,
 
