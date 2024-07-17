@@ -1,14 +1,14 @@
 .dz-layout > footer {
   --_layout-footer-bg-color: #ffffff;
-  --_layout-footer-border-color: var(--border-color);
-  --_layout-footer-font-size: calc(0.75 * var(--font-size));
+  --_layout-footer-border: var(--dz-layout-footer-border, 1px solid #dbdbdb);
+  --_layout-footer-font-size: var(--dz-layout-footer-border, 1rem);
   --_layout-footer-gap: 0.5em;
   --_layout-footer-padding-h: var(--dz-layout-header-padding-h, 1rem);
   --_layout-footer-padding-v: var(--dz-layout-header-padding-v, 1rem);
 
   align-items: center;
   background-color: var(--_layout-footer-bg-color);
-  border-top: 1px solid var(--_layout-footer-border-color);
+  border-top: var(--_layout-footer-border);
   display: flex;
   flex-direction: column;
   font-size: var(--_layout-footer-font-size);
@@ -17,9 +17,6 @@
   padding: var(--_layout-footer-padding-v) var(--_layout-footer-padding-h);
 }
 
-.dz-layout > footer .version {
-  font-size: calc(0.8 * var(--_layout-footer-font-size));
-}
 
 @media screen and (min-width: 576px) {
   .dz-layout > footer {
