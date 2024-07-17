@@ -1,3 +1,39 @@
+## [0.45.1](https://github.com/dzangolab/react/compare/v0.45.0...v0.45.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **user:** missing translation function call for terms&Conditions ([#1075](https://github.com/dzangolab/react/issues/1075)) ([6167822](https://github.com/dzangolab/react/commit/6167822b36c1c6952d3ab902ca20331462b0d683))
+
+
+
+# [0.45.0](https://github.com/dzangolab/react/compare/v0.44.0...v0.45.0) (2024-07-16)
+
+### Breaking changes
+
+* **Removed CSS Export From @‌dzangolab/react-i18n**: The CSS exported from @dzangolab /react-i18n\ package has been removed. All the CSS related to this will be handled by the @dzangolab /react-ui package.
+* **Affected Component**: Applications importing CSS styles directly from @dzangolab /react-i18n.
+* **Migration Steps**: Applications should now remove the import of CSS from @dzangolab /react-i18n.
+
+### Bug Fixes
+
+* **ui:** set selected value to undefined instead of empty string on clear ([#1070](https://github.com/dzangolab/react/issues/1070)) ([7ee1f44](https://github.com/dzangolab/react/commit/7ee1f44a7ec1700d32dd7b59009ab5f3c1657a22))
+* **user:** error handaling for login and signup ([#1068](https://github.com/dzangolab/react/issues/1068)) ([68a171f](https://github.com/dzangolab/react/commit/68a171f8b062d20259b2c5910313a143a954a74f))
+* **user:** remove manual validation trigger for confirm password ([#1049](https://github.com/dzangolab/react/issues/1049)) ([331861b](https://github.com/dzangolab/react/commit/331861b387194f0c15aed1e4105ccdc41d4260f7))
+
+
+### Features
+
+* **confirmation-modal:** replace the prime react dialog with html di… ([#1057](https://github.com/dzangolab/react/issues/1057)) ([3adc328](https://github.com/dzangolab/react/commit/3adc3285ad07d47f242e80ce350aa8d6e930592f))
+* **demo:** add changelog link in the header ([#1071](https://github.com/dzangolab/react/issues/1071)) ([850266d](https://github.com/dzangolab/react/commit/850266d92061e49f7222147cce794360b15855a6))
+* **form:** remove Primereact's Overlay usage from FileInputBasic and FileAttach ([#1053](https://github.com/dzangolab/react/issues/1053)) ([1d5a194](https://github.com/dzangolab/react/commit/1d5a1942df3cc87e0338dacd5ff3372588d595d1))
+* **i18n:** remove css export from i18n package ([#1072](https://github.com/dzangolab/react/issues/1072)) ([c919e8d](https://github.com/dzangolab/react/commit/c919e8d08a44649adde2a52fc7c1f54837df3e22))
+* **ui:** add Card component ([#1055](https://github.com/dzangolab/react/issues/1055)) ([a5e3e8e](https://github.com/dzangolab/react/commit/a5e3e8e2cacc950730d21b91dc8649e319250e77))
+* **ui:** add modal component ([#1058](https://github.com/dzangolab/react/issues/1058)) ([98bba3e](https://github.com/dzangolab/react/commit/98bba3e003868a290aa51ca5484a9911f3450164))
+* **ui:** export type PageProperties from ui package ([#1054](https://github.com/dzangolab/react/issues/1054)) ([d3e78c7](https://github.com/dzangolab/react/commit/d3e78c7e00dc96a614cd76dcb0168a598f09bbf1))
+
+
+
 # [0.44.0](https://github.com/dzangolab/react/compare/v0.43.0...v0.44.0) (2024-06-27)
 
 

@@ -24,7 +24,6 @@ import { MessageDemo } from "./components/Message";
 import { ModalDemo } from "./components/ModalDemo";
 import { PageDemo } from "./components/PageDemo";
 import { PopupDemo } from "./components/Popup";
-import { ResponsiveMenuDemo } from "./components/ResponsiveMenu";
 import { SortableListDemo } from "./components/SortableList";
 import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
@@ -183,11 +182,6 @@ const OTHERS = [
     path: UI_ROUTES.POPUP,
     key: "popup.title",
     element: <PopupDemo />,
-  },
-  {
-    path: UI_ROUTES.RESPONSIVE_MENU,
-    key: "responsiveMenu.title",
-    element: <ResponsiveMenuDemo />,
   },
   {
     path: UI_ROUTES.SORTABLE_LIST,

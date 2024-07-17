@@ -1,7 +1,5 @@
 import "./assets/css/index.css";
 
-import AppFooter from "./components/AppFooter";
-import AppHeader from "./components/AppHeader";
 import {
   Copyright,
   Header,
@@ -18,11 +16,7 @@ import {
   Version,
   useLayoutContext,
 } from "./components/Layout";
-import MainMenu from "./components/MainMenu";
-import SidebarLegacy from "./components/Sidebar";
 import {
-  BasicLayout,
-  CollapsibleSidebarLayout,
   SidebarHeaderLayout,
   HeaderLayout,
   SidebarOnlyLayout,
@@ -37,21 +31,7 @@ declare module "@dzangolab/react-config" {
 }
 
 export {
-  // legacy
-  // components
-  AppFooter,
-  AppHeader,
-  MainMenu,
-
-  /**
-   * @description
-   * Previously `<Sidebar></Sidebar>`
-   */
-  SidebarLegacy,
-
   // layouts
-  BasicLayout,
-  CollapsibleSidebarLayout,
   SidebarHeaderLayout,
 
   // new
