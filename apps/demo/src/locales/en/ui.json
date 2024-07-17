@@ -40,6 +40,9 @@
       "templating": "Menu templating"
     }
   },
+  "editableTitle": {
+    "title": "Editable title"
+  },
   "filesTable": {
     "title": "Files table",
     "pagination": {

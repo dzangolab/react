@@ -138,7 +138,7 @@ const OTHERS = [
   },
   {
     path: UI_ROUTES.EDITABLE_TITLE,
-    key: "Editable title",
+    key: "editableTitle.title",
     element: <EditableTitleDemo />,
   },
   {
