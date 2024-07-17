@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import { MenuRouteType } from "../ResponsiveMenu";
+import { MenuRouteType } from "../types";
 
 interface ISubmenuProperties {
   submenu?: Array<MenuRouteType>;
