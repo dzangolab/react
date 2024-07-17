@@ -44,6 +44,7 @@ ul.user-menu li span.dz-user-menu-item > i {
 ul.user-menu li > span.dz-user-menu-item:hover,
 .dz-layout .header-menu span.dz-user-menu-item:hover {
   background-color: var(--dz-layout-nav-item-hover-bg);
+  font-weight: 500;
 }
 
 @media screen and (min-width: 576px) {
@@ -69,5 +70,6 @@ ul.user-menu li > span.dz-user-menu-item:hover,
   .dz-layout .header-menu span.dz-user-menu-item:hover {
     text-decoration: underline;
     background: initial;
+    font-weight: initial;
   }
 }
