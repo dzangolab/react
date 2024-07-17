@@ -2,8 +2,9 @@
   display: grid;
   grid-template-areas:
     "header"
-    "main";
-  grid-template-rows: auto 1fr;
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
 }
 
 .dz-layout.header-only > header {
@@ -18,12 +19,17 @@
   min-width: 100%;
 }
 
+.dz-layout.header-only > footer {
+  grid-area: footer;
+}
+
 @media screen and (min-width: 576px) {
   .dz-layout.header-only {
     display: grid;
     grid-template-areas:
       "header"
-      "main";
-    grid-template-rows: auto 1fr;
+      "main"
+      "footer";
+    grid-template-rows: auto 1fr auto;
   }
 }

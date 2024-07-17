@@ -1,6 +1,6 @@
-import { UserMenuModeType } from "@/components/Layout";
-
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
+
+import { UserMenuModeType } from "@/components/Layout";
 
 interface IProperties {
   children: React.ReactNode;
