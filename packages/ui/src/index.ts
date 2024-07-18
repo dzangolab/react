@@ -10,7 +10,6 @@ import LoadingPage from "./LoadingPage";
 import Message from "./Message";
 import Modal from "./Modal";
 import Page, { PageProperties } from "./Page";
-import ResponsiveMenu, { CombinedMenuRouteType } from "./ResponsiveMenu";
 import { GoogleButton } from "./SSOButtons";
 import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
@@ -33,6 +32,7 @@ export * from "./Popup";
 export * from "./SortableList";
 export * from "./Tooltip";
 export * from "./Tag";
+export type * from "./types";
 
 export {
   Accordion,
@@ -44,11 +44,10 @@ export {
   Message,
   Modal,
   Page,
-  ResponsiveMenu,
   Stepper,
   SubPane,
   TabbedPanel,
   ConfirmationModal,
 };
 
-export type { DropdownMenuProperties, CombinedMenuRouteType, PageProperties };
+export type { DropdownMenuProperties, PageProperties };
