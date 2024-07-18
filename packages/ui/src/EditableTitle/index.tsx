@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  HTMLAttributes,
-  createElement,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, HTMLAttributes, createElement, useState } from "react";
 
 import { Input } from "..";
 
@@ -13,30 +6,28 @@ interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   placeHolder?: string;
   title: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4";
-  onTitleUpdate?: () => void;
-  onTitleChange: (title: string) => void;
+  onTitleUpdate?: (title: string) => void;
+  onTitleChange?: (title: string) => void;
 }
 
 export const EditableTitle = ({
   className,
   placeHolder,
   title,
-  titleLevel = "h1",
+  titleLevel = "h3",
   onTitleUpdate,
   onTitleChange,
   ...others
 }: IProperties) => {
   const [isEditModeOn, setEditModeOn] = useState<boolean>(false);
-  const inputReference = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (isEditModeOn) {
-      inputReference.current?.focus();
-    }
-  }, [isEditModeOn]);
+  const [titleValue, setTitleValue] = useState(title);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onTitleChange(event.target.value);
+    setTitleValue(event.target.value);
+
+    if (onTitleChange) {
+      onTitleChange(event.target.value);
+    }
   };
 
   const handleTitleClick = () => {
@@ -47,7 +38,7 @@ export const EditableTitle = ({
     setEditModeOn(false);
 
     if (onTitleUpdate) {
-      onTitleUpdate();
+      onTitleUpdate(titleValue);
     }
   };
 
@@ -55,9 +46,9 @@ export const EditableTitle = ({
     if (isEditModeOn) {
       return (
         <Input
+          autoFocus
           name="dz-editable-title-field"
           placeholder={placeHolder}
-          ref={inputReference}
           value={title}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -72,7 +63,7 @@ export const EditableTitle = ({
         className: `dz-editable-title ${className}`.trimEnd(),
         onClick: handleTitleClick,
       },
-      title,
+      titleValue,
     );
   };
 

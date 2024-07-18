@@ -6,7 +6,7 @@ export const EditableTitleDemo = () => {
   const [title, setTitle] = useState("Hello");
   const { t } = useTranslation("ui");
 
-  const handleTitleUpdate = () => {
+  const handleTitleUpdate = (title: string) => {
     // eslint-disable-next-line no-console
     console.log("The updated title is:", title);
   };
