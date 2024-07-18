@@ -9,18 +9,19 @@ import {
 
 import { Input } from "..";
 
-interface IProperties extends HTMLAttributes<HTMLHeadElement> {
+interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   placeHolder?: string;
-  titleLevel?: "h1" | "h2" | "h3" | "h4";
   title: string;
+  titleLevel?: "h1" | "h2" | "h3" | "h4";
   onTitleUpdate?: () => void;
   onTitleChange: (title: string) => void;
 }
 
 export const EditableTitle = ({
+  className,
   placeHolder,
-  titleLevel = "h1",
   title,
+  titleLevel = "h1",
   onTitleUpdate,
   onTitleChange,
   ...others
@@ -38,7 +39,7 @@ export const EditableTitle = ({
     onTitleChange(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleTitleClick = () => {
     setEditModeOn(true);
   };
 
@@ -54,6 +55,7 @@ export const EditableTitle = ({
     if (isEditModeOn) {
       return (
         <Input
+          name="dz-editable-title-field"
           placeholder={placeHolder}
           ref={inputReference}
           value={title}
@@ -65,7 +67,11 @@ export const EditableTitle = ({
 
     return createElement(
       titleLevel,
-      { className: "dz-editable-title", onClick: handleClick, ...others },
+      {
+        ...others,
+        className: `dz-editable-title ${className}`.trimEnd(),
+        onClick: handleTitleClick,
+      },
       title,
     );
   };

@@ -6,11 +6,17 @@ export const EditableTitleDemo = () => {
   const [title, setTitle] = useState("Hello");
   const { t } = useTranslation("ui");
 
+  const handleTitleUpdate = () => {
+    // eslint-disable-next-line no-console
+    console.log("The updated title is:", title);
+  };
+
   return (
     <Page title={t("editableTitle.title")}>
       <EditableTitle
-        onTitleChange={(value: string) => setTitle(value)}
         title={title}
+        onTitleChange={(value: string) => setTitle(value)}
+        onTitleUpdate={handleTitleUpdate}
       />
     </Page>
   );
