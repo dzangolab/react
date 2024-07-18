@@ -1,0 +1,25 @@
+.dz-layout > footer {
+  --_layout-footer-bg-color: #ffffff;
+  --_layout-footer-border: var(--dz-layout-footer-border, 1px solid #dbdbdb);
+  --_layout-footer-font-size: var(--dz-layout-footer-font-size, 1rem);
+  --_layout-footer-gap: 0.5em;
+  --_layout-footer-padding-h: var(--dz-layout-header-padding-h, 1rem);
+  --_layout-footer-padding-v: var(--dz-layout-header-padding-v, 1rem);
+
+  align-items: center;
+  background-color: var(--_layout-footer-bg-color);
+  border-top: var(--_layout-footer-border);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--_layout-footer-font-size);
+  gap: var(--_layout-footer-gap);
+  justify-content: center;
+  padding: var(--_layout-footer-padding-v) var(--_layout-footer-padding-h);
+}
+
+@media screen and (min-width: 576px) {
+  .dz-layout > footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

@@ -4,11 +4,13 @@ import {
   Header,
   NavMenuItemType,
   UserMenuModeType,
+  Footer,
 } from "@/components/Layout";
 
 interface HeaderLayoutProperties {
   className?: string;
   children?: React.ReactNode;
+  customFooter?: React.ReactNode;
   customHeader?: React.ReactNode;
   displayNavIcons?: boolean;
   fixed?: boolean;
@@ -25,6 +27,7 @@ interface HeaderLayoutProperties {
 export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
   className,
   children,
+  customFooter,
   customHeader,
   displayNavIcons,
   fixed = true,
@@ -56,6 +59,7 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
         ></Header>
       )}
       <main>{children}</main>
+      {customFooter || <Footer></Footer>}
     </Layout>
   );
 };

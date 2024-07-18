@@ -12,6 +12,7 @@ interface IProperties {
   authNavigationMenu?: NavMenuItemType;
   className?: string;
   children?: React.ReactNode;
+  customFooter?: React.ReactNode;
   customHeader?: React.ReactNode;
   displayNavIcons?: boolean;
   fixed?: boolean;
@@ -29,6 +30,7 @@ export const UserEnabledHeaderLayout = ({
   authNavigationMenu,
   children,
   className,
+  customFooter,
   customHeader,
   displayNavIcons,
   fixed,
@@ -81,6 +83,7 @@ export const UserEnabledHeaderLayout = ({
       {...{
         className,
         children,
+        customFooter,
         customHeader,
         displayNavIcons,
         fixed,
