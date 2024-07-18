@@ -9,6 +9,7 @@ export interface IInputProperties
 }
 
 export const Input = ({
+  className,
   defaultValue,
   disabled,
   errorMessage,
@@ -22,7 +23,7 @@ export const Input = ({
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`field ${name}`.trimEnd()}>
+    <div className={`field ${name} ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}

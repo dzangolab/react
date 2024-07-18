@@ -14,7 +14,7 @@ export const EditableTitle = ({
   className,
   placeHolder,
   title,
-  titleLevel = "h3",
+  titleLevel = "h1",
   onTitleUpdate,
   onTitleChange,
   ...others
@@ -47,7 +47,8 @@ export const EditableTitle = ({
       return (
         <Input
           autoFocus
-          name="dz-editable-title-field"
+          className="dz-editable-title-field"
+          name="title"
           placeholder={placeHolder}
           value={title}
           onChange={handleChange}
@@ -60,12 +61,15 @@ export const EditableTitle = ({
       titleLevel,
       {
         ...others,
-        className: `dz-editable-title ${className}`.trimEnd(),
         onClick: handleTitleClick,
       },
       titleValue,
     );
   };
 
-  return <>{renderContent()}</>;
+  return (
+    <>
+      <div className={`dz-editable-title ${className}`}>{renderContent()}</div>
+    </>
+  );
 };
