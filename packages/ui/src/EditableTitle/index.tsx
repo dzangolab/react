@@ -14,7 +14,7 @@ export const EditableTitle = ({
   className = "",
   placeHolder,
   title,
-  titleLevel = "h3",
+  titleLevel = "h1",
   onTitleUpdate,
   onTitleChange,
   ...others
