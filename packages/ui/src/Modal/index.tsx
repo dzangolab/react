@@ -7,8 +7,8 @@ interface ModalProperties {
   className?: string;
   footer?: React.ReactNode;
   header?: string | JSX.Element;
-  isOpen: boolean;
-  onClose: () => void;
+  visible: boolean;
+  onHide: () => void;
 }
 
 const Modal: React.FC<ModalProperties> = ({
@@ -16,10 +16,10 @@ const Modal: React.FC<ModalProperties> = ({
   className = "",
   footer,
   header,
-  isOpen = false,
-  onClose,
+  visible = false,
+  onHide,
 }) => {
-  if (!isOpen) return null;
+  if (!visible) return null;
 
   return (
     <div role="dialog" className="dz-modal-overlay">
@@ -32,7 +32,7 @@ const Modal: React.FC<ModalProperties> = ({
           )}
           <Button
             className="dz-close-button"
-            onClick={onClose}
+            onClick={onHide}
             variant="textOnly"
           >
             <i className="pi pi-times"></i>

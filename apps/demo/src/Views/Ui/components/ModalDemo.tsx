@@ -24,7 +24,7 @@ export const ModalDemo = () => {
           label={t("modal.showButton")}
           onClick={() => setIsOpen(true)}
         ></Button>
-        <Modal onClose={() => setIsOpen(false)} isOpen={isOpen}>
+        <Modal onHide={() => setIsOpen(false)} visible={isOpen}>
           <p style={{ lineHeight: 1.6 }}>{t("modal.content")}</p>
         </Modal>
       </Section>
@@ -35,8 +35,8 @@ export const ModalDemo = () => {
         ></Button>
         <Modal
           header={t("modal.header")}
-          onClose={() => setIsOpen2(false)}
-          isOpen={isOpen2}
+          onHide={() => setIsOpen2(false)}
+          visible={isOpen2}
         >
           <p style={{ lineHeight: 1.6 }}>{t("modal.content")}</p>
         </Modal>
@@ -48,8 +48,8 @@ export const ModalDemo = () => {
         ></Button>
         <Modal
           header={<Header />}
-          onClose={() => setIsOpen3(false)}
-          isOpen={isOpen3}
+          onHide={() => setIsOpen3(false)}
+          visible={isOpen3}
         >
           <p style={{ lineHeight: 1.6 }}>{t("modal.content")}</p>
         </Modal>

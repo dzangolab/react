@@ -1,7 +1,6 @@
 import { AdditionalFormFields } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, IButtonProperties } from "@dzangolab/react-ui";
-import { Dialog } from "primereact/dialog";
+import { Button, IButtonProperties, Modal } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 
 import {
@@ -43,14 +42,11 @@ export const InvitationModal = ({
         onClick={() => setModalVisible(true)}
         {...invitationButtonOptions}
       />
-      <Dialog
+      <Modal
         className="invitation-modal"
-        contentStyle={{ overflowY: "visible" }}
         header={t("modal.dialog.header")}
         visible={modalVisible}
         onHide={() => setModalVisible(false)}
-        draggable={false}
-        resizable={false}
       >
         <InvitationForm
           additionalInvitationFields={additionalInvitationFields}
@@ -69,7 +65,7 @@ export const InvitationModal = ({
           prepareData={prepareData}
           roles={roles}
         />
-      </Dialog>
+      </Modal>
     </div>
   );
 };
