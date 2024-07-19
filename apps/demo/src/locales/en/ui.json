@@ -40,6 +40,11 @@
       "templating": "Menu templating"
     }
   },
+  "editableTitle": {
+    "title": "Editable title",
+    "controlledType": "Controlled",
+    "uncontrolledType": "Uncontrolled"
+  },
   "filesTable": {
     "title": "Files table",
     "pagination": {

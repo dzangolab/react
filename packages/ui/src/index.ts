@@ -18,6 +18,7 @@ export * from "./AuthPage";
 export * from "./Buttons";
 export * from "./Card";
 export * from "./DataTable";
+export * from "./EditableTitle";
 export * from "./FilesTable";
 export * from "./FileCard";
 export * from "./FilesList";
