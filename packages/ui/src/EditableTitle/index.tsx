@@ -11,10 +11,10 @@ interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
 }
 
 export const EditableTitle = ({
-  className,
+  className = "",
   placeHolder,
   title,
-  titleLevel = "h1",
+  titleLevel = "h3",
   onTitleUpdate,
   onTitleChange,
   ...others
@@ -69,7 +69,9 @@ export const EditableTitle = ({
 
   return (
     <>
-      <div className={`dz-editable-title ${className}`}>{renderContent()}</div>
+      <div className={`dz-editable-title ${className}`.trimEnd()}>
+        {renderContent()}
+      </div>
     </>
   );
 };
