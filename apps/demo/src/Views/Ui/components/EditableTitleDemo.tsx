@@ -1,6 +1,8 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { EditableTitle, Page } from "@dzangolab/react-ui";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
+
+import { Section } from "../../../components/Demo";
 
 export const EditableTitleDemo = () => {
   const [title, setTitle] = useState("Hello");
@@ -13,11 +15,23 @@ export const EditableTitleDemo = () => {
 
   return (
     <Page title={t("editableTitle.title")}>
-      <EditableTitle
-        title={title}
-        onTitleChange={(value: string) => setTitle(value)}
-        onTitleUpdate={handleTitleUpdate}
-      />
+      <Section title={t("editableTitle.controlledTypeTitle")}>
+        <EditableTitle
+          titleLevel="h3"
+          title={title}
+          onTitleChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setTitle(event.target.value)
+          }
+          onTitleUpdate={handleTitleUpdate}
+        />
+      </Section>
+      <Section title={t("editableTitle.uncontrolledTypeTitle")}>
+        <EditableTitle
+          title={title}
+          onTitleUpdate={handleTitleUpdate}
+          titleLevel="h3"
+        />
+      </Section>
     </Page>
   );
 };

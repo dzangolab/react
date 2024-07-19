@@ -7,7 +7,7 @@ exports[`Component matches snapshot 1`] = `
     novalidate=""
   >
     <div
-      class="field email undefined"
+      class="field email"
     >
       <label
         for="email"

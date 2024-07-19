@@ -1,17 +1,22 @@
-import { ChangeEvent, HTMLAttributes, createElement, useState } from "react";
+import {
+  ChangeEvent,
+  FocusEvent,
+  HTMLAttributes,
+  createElement,
+  useState,
+} from "react";
 
-import { Input } from "..";
+import { Input } from "../FormWidgets";
 
 interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   placeHolder?: string;
   title: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4";
   onTitleUpdate?: (title: string) => void;
-  onTitleChange?: (title: string) => void;
+  onTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const EditableTitle = ({
-  className = "",
   placeHolder,
   title,
   titleLevel = "h1",
@@ -22,23 +27,19 @@ export const EditableTitle = ({
   const [isEditModeOn, setEditModeOn] = useState<boolean>(false);
   const [titleValue, setTitleValue] = useState(title);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setTitleValue(event.target.value);
-
-    if (onTitleChange) {
-      onTitleChange(event.target.value);
-    }
-  };
-
   const handleTitleClick = () => {
     setEditModeOn(true);
   };
 
-  const handleBlur = () => {
+  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+    if (event.target.value) {
+      setTitleValue(event.target.value);
+    }
+
     setEditModeOn(false);
 
     if (onTitleUpdate) {
-      onTitleUpdate(titleValue);
+      onTitleUpdate(event.target.value);
     }
   };
 
@@ -47,11 +48,10 @@ export const EditableTitle = ({
       return (
         <Input
           autoFocus
-          className="dz-editable-title-field"
           name="title"
           placeholder={placeHolder}
-          value={title}
-          onChange={handleChange}
+          defaultValue={onTitleChange ? title : titleValue}
+          onChange={onTitleChange}
           onBlur={handleBlur}
         />
       );
@@ -67,11 +67,5 @@ export const EditableTitle = ({
     );
   };
 
-  return (
-    <>
-      <div className={`dz-editable-title ${className}`.trimEnd()}>
-        {renderContent()}
-      </div>
-    </>
-  );
+  return renderContent();
 };

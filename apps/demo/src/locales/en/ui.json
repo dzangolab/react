@@ -41,7 +41,9 @@
     }
   },
   "editableTitle": {
-    "title": "Editable title"
+    "title": "Editable title",
+    "controlledTypeTitle": "Controlled",
+    "uncontrolledTypeTitle": "Uncontrolled"
   },
   "filesTable": {
     "title": "Files table",

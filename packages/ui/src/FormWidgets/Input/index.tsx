@@ -9,7 +9,6 @@ export interface IInputProperties
 }
 
 export const Input = ({
-  className,
   defaultValue,
   disabled,
   errorMessage,
@@ -23,9 +22,10 @@ export const Input = ({
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`field ${name} ${className}`.trimEnd()}>
+    <div className={`field ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
+        {...others}
         id={name}
         className={`input-field ${name}`}
         aria-invalid={hasError}
@@ -33,10 +33,9 @@ export const Input = ({
         onChange={onChange}
         placeholder={placeholder}
         type={type}
-        value={defaultValue}
+        defaultValue={defaultValue}
         disabled={disabled}
         readOnly={readOnly}
-        {...others}
       />
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
