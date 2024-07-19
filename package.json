@@ -16,7 +16,7 @@
     "eslint-config-custom": "workspace:*",
     "husky": "9.0.11",
     "shipjs": "0.26.3",
-    "turbo": "latest"
+    "turbo": "1.13.3"
   },
   "packageManager": "pnpm@8.15.8",
   "engines": {
