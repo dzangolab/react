@@ -1,4 +1,4 @@
-.dz-layout.header-only {
+.dz-layout.header {
   display: grid;
   grid-template-areas:
     "header"
@@ -8,18 +8,18 @@
   min-height: 100dvh;
 }
 
-.dz-layout.header-only > header {
+.dz-layout.header > header {
   --_layout-header-padding-h: var(--_layout-main-padding-h);
 
   grid-area: header;
 }
 
-.dz-layout.header-only > main {
+.dz-layout.header > main {
   grid-area: main;
   max-width: 100%;
   min-width: 100%;
 }
 
-.dz-layout.header-only > footer {
+.dz-layout.header > footer {
   grid-area: footer;
 }
