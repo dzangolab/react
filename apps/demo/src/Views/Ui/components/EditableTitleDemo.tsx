@@ -15,7 +15,7 @@ export const EditableTitleDemo = () => {
 
   return (
     <Page title={t("editableTitle.title")}>
-      <Section title={t("editableTitle.controlledTypeTitle")}>
+      <Section title={t("editableTitle.controlledType")}>
         <EditableTitle
           titleLevel="h3"
           title={title}
@@ -25,7 +25,7 @@ export const EditableTitleDemo = () => {
           onTitleUpdate={handleTitleUpdate}
         />
       </Section>
-      <Section title={t("editableTitle.uncontrolledTypeTitle")}>
+      <Section title={t("editableTitle.uncontrolledType")}>
         <EditableTitle
           title={title}
           onTitleUpdate={handleTitleUpdate}
