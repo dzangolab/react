@@ -51,7 +51,7 @@
     "eslint-plugin-react": "7.34.1",
     "jsdom": "24.0.0",
     "prettier": "3.2.5",
-    "primereact": "9.6.1",
+    "primereact": "9.6.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "tsconfig": "0.45.1",
@@ -61,7 +61,7 @@
   },
   "peerDependencies": {
     "@dzangolab/react-ui": "0.45.1",
-    "primereact": "9.6.1",
+    "primereact": "9.6.4",
     "react": ">=18.2",
     "react-dom": ">=18.2",
     "zod": ">=3.21.4"
