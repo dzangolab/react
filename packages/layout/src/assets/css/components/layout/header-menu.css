@@ -41,7 +41,7 @@ ul.user-menu li span.dz-user-menu-item > i {
   margin-right: 0.5rem;
 }
 
-ul.user-menu li > span.dz-user-menu-item:hover,
+.dz-layout ul.user-menu li > span.dz-user-menu-item:hover,
 .dz-layout .header-menu span.dz-user-menu-item:hover {
   background-color: var(--dz-layout-nav-item-hover-bg);
   font-weight: 500;
@@ -66,7 +66,7 @@ ul.user-menu li > span.dz-user-menu-item:hover,
     cursor: pointer;
   }
 
-  ul.user-menu li > span.dz-user-menu-item:hover,
+  .dz-layout ul.user-menu li > span.dz-user-menu-item:hover,
   .dz-layout .header-menu span.dz-user-menu-item:hover {
     text-decoration: underline;
     background: initial;

@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Button } from "@dzangolab/react-ui";
+import { AuthPage, Button, Card, CardBody } from "@dzangolab/react-ui";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -88,13 +88,11 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
         message = t("emailVerification.messages.invalidToken");
 
         button = (
-          <div className="button-wrapper">
-            <Button
-              label={t("emailVerification.button.resendEmail")}
-              onClick={handleResend}
-              className="resend-button"
-            />
-          </div>
+          <Button
+            label={t("emailVerification.button.resendEmail")}
+            onClick={handleResend}
+            className="resend-email"
+          />
         );
         break;
       default:
@@ -116,7 +114,9 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
       loading={verifyEmailLoading}
       centered={centered}
     >
-      <div className="dz-card">{renderMessage()}</div>
+      <Card>
+        <CardBody>{renderMessage()}</CardBody>
+      </Card>
     </AuthPage>
   );
 };

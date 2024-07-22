@@ -33,8 +33,12 @@ declare module "@dzangolab/react-config" {
 export {
   // layouts
   SidebarHeaderLayout,
+  HeaderLayout,
+  SidebarOnlyLayout,
 
-  // new
+  // wrapper
+  Layout,
+
   // components
   Copyright,
   Header,
@@ -46,13 +50,6 @@ export {
   Sidebar,
   ToggleMenuMobile,
   Version,
-
-  // wrapper
-  Layout,
-
-  // layouts
-  HeaderLayout,
-  SidebarOnlyLayout,
 
   // context
   LayoutContext,

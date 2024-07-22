@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { Card, CardBody, Page } from "@dzangolab/react-ui";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -82,9 +82,11 @@ export const SignUpFirstUser = ({
   const renderPageContent = () => {
     if (isError) {
       return (
-        <div className="dz-card">
-          <p>{t(`errors:errors.otherErrors`)}</p>
-        </div>
+        <Card>
+          <CardBody>
+            <p>{t(`errors:errors.otherErrors`)}</p>
+          </CardBody>
+        </Card>
       );
     }
 

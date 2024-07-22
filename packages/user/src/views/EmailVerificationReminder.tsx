@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, Button } from "@dzangolab/react-ui";
+import { Page, Button, Card, CardBody } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -37,21 +37,22 @@ export const EmailVerificationReminder = ({
       title={t("emailVerification.title")}
       centered={centered}
     >
-      <div className="dz-card">
-        {isAlreadyVerified ? (
-          <p>{t("emailVerification.messages.alreadyVerified")}</p>
-        ) : (
-          <>
-            <p>{t("emailVerification.messages.unverified")}</p>
-            <div className="button-wrapper">
+      <Card>
+        <CardBody>
+          {isAlreadyVerified ? (
+            <p>{t("emailVerification.messages.alreadyVerified")}</p>
+          ) : (
+            <>
+              <p>{t("emailVerification.messages.unverified")}</p>
               <Button
                 label={t("emailVerification.button.resendEmail")}
                 onClick={handleResend}
+                className="resend-email"
               />
-            </div>
-          </>
-        )}
-      </div>
+            </>
+          )}
+        </CardBody>
+      </Card>
     </Page>
   );
 };
