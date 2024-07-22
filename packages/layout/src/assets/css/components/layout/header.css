@@ -51,9 +51,11 @@
 .dz-layout > header > .header-container > .navigation-menu {
   grid-area: nav;
 }
+
 .dz-layout > header > .header-container > .header-menu {
   grid-area: menu;
 }
+
 .dz-layout[aria-expanded="false"] > header > .header-container {
   grid-template-areas:
     "logo toggle"

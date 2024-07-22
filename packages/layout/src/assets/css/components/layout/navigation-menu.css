@@ -176,11 +176,9 @@
     flex-direction: row;
   }
 
-  .dz-layout
-    .navigation-menu[data-horizontal="true"]
-    > .nav-menu-item
-    + .nav-menu-item {
+  .dz-layout .navigation-menu[data-horizontal="true"] > .nav-menu-item {
     border-top: none;
+    padding: 0 var(--_layout-nav-item-padding-h);
   }
 
   .dz-layout .navigation-menu[data-horizontal="true"] > .nav-menu-item > span {
