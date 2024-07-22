@@ -1,8 +1,7 @@
-import { Card } from "primereact/card";
 import { ComponentProps, ReactNode, useState } from "react";
 
 import ConfirmationFileActions from "./ConfirmationFileActions";
-import { ConfirmationModal, formatDate } from "..";
+import { Card, ConfirmationModal, formatDate } from "..";
 import { Button } from "../Buttons/ButtonBasic";
 import { IFile } from "../FilesTable";
 import { useColumnsMap } from "../utils";
