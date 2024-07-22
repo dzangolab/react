@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Page } from "@dzangolab/react-ui";
+import { Button, Card, CardBody, CardFooter, Page } from "@dzangolab/react-ui";
 
 const ProfileCompletionReminder = ({
   centered = true,
@@ -16,10 +16,16 @@ const ProfileCompletionReminder = ({
       title={t("profileCompletion.title")}
       centered={centered}
     >
-      <p>{t("profileCompletion.messages.reminder")}</p>
-      <Button onClick={onClick}>
-        {t("profileCompletion.buttons.gotoProfile")}
-      </Button>
+      <Card>
+        <CardBody>
+          <p>{t("profileCompletion.messages.reminder")}</p>
+        </CardBody>
+        <CardFooter>
+          <Button onClick={onClick}>
+            {t("profileCompletion.buttons.gotoProfile")}
+          </Button>
+        </CardFooter>
+      </Card>
     </Page>
   );
 };

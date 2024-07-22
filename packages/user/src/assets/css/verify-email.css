@@ -1,9 +1,5 @@
-.button-wrapper {
+.email-verification-reminder button.resend-email,
+.email-verification button.resend-email {
   margin-top: 1rem;
   text-align: center;
-}
-
-.email-verification .dz-page-content .dz-card,
-.email-verification-reminder .dz-page-content .dz-card {
-  padding: 1rem;
 }
