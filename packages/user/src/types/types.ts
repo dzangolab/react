@@ -4,6 +4,7 @@ export interface UserType extends EmailPasswordUserType {
   disabled?: boolean;
   givenName: string | null;
   isEmailVerified?: boolean;
+  isOnGracePeriod?: boolean;
   isProfileCompleted?: boolean;
   lastLoginAt: number;
   middleNames: string | null;

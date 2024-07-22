@@ -33,7 +33,11 @@ import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
 import googleLogin from "./supertokens/google-login";
-import { verifySessionRoles, isProfileCompleted } from "./supertokens/helpers";
+import {
+  verifySessionRoles,
+  isProfileCompleted,
+  isOnGracePeriod,
+} from "./supertokens/helpers";
 import login from "./supertokens/login";
 import logout from "./supertokens/logout";
 import ProfileValidationClaim from "./supertokens/profileValidationClaim";
@@ -123,6 +127,7 @@ export {
   superTokens,
   useEmailVerification,
   useFirstUserSignup,
+  isOnGracePeriod,
   isProfileCompleted,
   useProfileCompletion,
   useUser,
