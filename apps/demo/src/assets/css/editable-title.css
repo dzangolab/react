@@ -1,9 +1,3 @@
-.dz-editable-title {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-}
-
 .dz-editable-title > h2,
 h3,
 h4 {

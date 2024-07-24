@@ -1,0 +1,9 @@
+.dz-editable-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dz-editable-title > i {
+  cursor: pointer;
+}

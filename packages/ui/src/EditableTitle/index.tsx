@@ -1,7 +1,9 @@
-import {
+import React, {
   ChangeEvent,
   FocusEvent,
   HTMLAttributes,
+  KeyboardEvent,
+  cloneElement,
   createElement,
   useState,
 } from "react";
@@ -9,26 +11,30 @@ import {
 import { Input } from "../FormWidgets";
 
 interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
+  isTogglerEnabled?: boolean;
+  onTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onTitleUpdate?: (title: string) => void;
   placeHolder?: string;
   title: string;
-  titleLevel?: "h1" | "h2" | "h3" | "h4";
-  onTitleUpdate?: (title: string) => void;
-  onTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  toggler?: JSX.Element;
 }
 
 export const EditableTitle = ({
+  isTogglerEnabled = false,
+  onTitleChange,
+  onTitleUpdate,
   placeHolder,
   title,
   titleLevel = "h1",
-  onTitleUpdate,
-  onTitleChange,
+  toggler = <i className="pi pi-pen-to-square"></i>,
   ...others
 }: IProperties) => {
   const [isEditModeOn, setEditModeOn] = useState<boolean>(false);
   const [titleValue, setTitleValue] = useState(title);
 
-  const handleTitleClick = () => {
-    setEditModeOn(true);
+  const toggle = () => {
+    setEditModeOn((previous) => !previous);
   };
 
   const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
@@ -36,36 +42,58 @@ export const EditableTitle = ({
       setTitleValue(event.target.value);
     }
 
-    setEditModeOn(false);
-
     if (onTitleUpdate) {
       onTitleUpdate(event.target.value);
     }
+
+    setEditModeOn(false);
   };
 
-  const renderContent = () => {
-    if (isEditModeOn) {
-      return (
-        <Input
-          autoFocus
-          name="title"
-          placeholder={placeHolder}
-          defaultValue={onTitleChange ? title : titleValue}
-          onChange={onTitleChange}
-          onBlur={handleBlur}
-        />
-      );
-    }
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
 
-    return createElement(
+      event.currentTarget.blur();
+    }
+  };
+
+  const renderTitle = () => {
+    const titleElement = createElement(
       titleLevel,
       {
         ...others,
-        onClick: handleTitleClick,
+        onClick: isTogglerEnabled ? undefined : toggle,
       },
       titleValue,
     );
+
+    if (isTogglerEnabled) {
+      const togglerElement = cloneElement(toggler, {
+        onClick: toggle,
+      });
+
+      return (
+        <div className="dz-editable-title">
+          {titleElement}
+          {togglerElement}
+        </div>
+      );
+    }
+
+    return titleElement;
   };
 
-  return renderContent();
+  return isEditModeOn ? (
+    <Input
+      autoFocus
+      name="title"
+      placeholder={placeHolder}
+      defaultValue={onTitleChange ? title : titleValue}
+      onChange={onTitleChange}
+      onBlur={handleBlur}
+      onKeyUp={handleKeyPress}
+    />
+  ) : (
+    renderTitle()
+  );
 };
