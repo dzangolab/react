@@ -18,7 +18,9 @@ interface IProperties {
   noToggle?: boolean;
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
+  userMenuLocation?: "sidebar" | "header";
   userMenuMode?: UserMenuModeType;
+  userMenuTrigger?: React.ReactNode;
 }
 
 export const SidebarHeaderLayout = ({
@@ -37,7 +39,9 @@ export const SidebarHeaderLayout = ({
   noToggle,
   title,
   userMenu,
+  userMenuLocation = "header",
   userMenuMode,
+  userMenuTrigger,
 }: IProperties) => {
   const getNavigationMenu = () => {
     const userNavigationMenu = userMenu
@@ -70,7 +74,7 @@ export const SidebarHeaderLayout = ({
         <Header
           displayNavIcons={displayNavIcons}
           headerAddon={headerAddon}
-          menu={userMenu}
+          menu={userMenuLocation !== "sidebar" ? userMenu : undefined}
           noLogo={noLogo}
           noLocaleSwitcher={noLocaleSwitcher}
           noToggle={noToggle}
@@ -86,6 +90,8 @@ export const SidebarHeaderLayout = ({
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
+          userMenu={userMenuLocation !== "header" ? userMenu : undefined}
+          trigger={userMenuTrigger}
         ></Sidebar>
       )}
       <main>{children}</main>

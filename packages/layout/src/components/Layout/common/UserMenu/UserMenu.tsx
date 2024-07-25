@@ -7,9 +7,10 @@ import { NavMenuItemType, UserMenuModeType } from "../../types";
 interface IProperties {
   menu: NavMenuItemType;
   userMenuMode?: UserMenuModeType;
+  trigger?: React.ReactNode;
 }
 
-export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
+export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
   const navigate = useNavigate();
   const { label: userMenuLabel, menu: userMenu = [] } = menu;
 
@@ -74,6 +75,7 @@ export const UserMenu = ({ menu, userMenuMode }: IProperties) => {
         renderOption={template}
         menu={refinedMenu || []}
         label={userMenuLabel}
+        trigger={trigger}
       />
     );
   };

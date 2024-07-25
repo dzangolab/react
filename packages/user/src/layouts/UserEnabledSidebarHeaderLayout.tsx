@@ -28,6 +28,8 @@ interface Properties {
   userNavigationMenu?: NavMenuItemType;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
+  userMenuLocation?: "sidebar" | "header";
+  userMenuTrigger?: React.ReactNode;
 }
 
 export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
@@ -38,6 +40,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   navigationMenu,
   userNavigationMenu,
   onLogout,
+  userMenuLocation = "header",
   ...otherProperties
 }) => {
   const { t } = useTranslation("user");
@@ -46,7 +49,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
 
   const getUserNavigationMenu = () => {
     if (!user) {
-      return authNavigationMenu;
+      return userMenuLocation === "sidebar" ? undefined : authNavigationMenu;
     }
 
     const signout = async () => {
@@ -83,6 +86,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       navigationMenu={navigationMenu}
       userMenu={getUserNavigationMenu()}
       userMenuMode={user ? "vertical" : "horizontal"}
+      userMenuLocation={userMenuLocation}
       {...otherProperties}
     />
   );
