@@ -25,7 +25,7 @@ export const CodeBlock = ({
     return (
       <header>
         {title ? <h3>{title}</h3> : null}
-        {subheader}
+        {subheader ? subheader : null}
       </header>
     );
   };
