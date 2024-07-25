@@ -44,14 +44,14 @@
     "examples": {
       "basic": {
         "title": "Basic",
-        "subtitle": "Editable title can be used by passing a 'title' property. Title level is optional, it is 'h1' by default."
+        "subtitle": "Editable title can be used by passing a 'title' property. Title level is optional, it is 'h1' by default. Onblur event on the title input field triggers 'onTitleUpdate' method."
       },
       "controlled": {
         "title": "Controlled",
         "subtitle": "Editable title can be used as a controllable element by passing 'onTitleChange' property."
       },
       "toggleable": {
-        "subtitle": "The title can be customized to toggle using button as well. To do this, pass the 'isTogglerEnabled' option.",
+        "subtitle": "The title can be customized to toggle using button as well. To do this, pass the 'isTogglerEnabled' option. Additionally you can pass your own toggler.",
         "title": "Toggleable"
       }
     },
@@ -59,7 +59,7 @@
       "title": "Import"
     },
     "title": "Editable title",
-    "subtitle": "Editable title is a extenstion to a page or section title which can be edited."
+    "subtitle": "Editable title is an extenstion to a page or section title which can be edited."
   },
   "filesTable": {
     "title": "Files table",

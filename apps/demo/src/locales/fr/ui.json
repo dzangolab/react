@@ -44,7 +44,7 @@
     "examples": {
       "basic": {
         "title": "Basic (fr)",
-        "subtitle": "Editable title can be used by passing a 'title' property. Title level is optional, it is 'h1' by default. (fr)"
+        "subtitle": "Editable title can be used by passing a 'title' property. Title level is optional, it is 'h1' by default. Onblur event on the title input field triggers 'onTitleUpdate' method. (fr)"
       },
       "controlled": {
         "title": "Controlled (fr)",
@@ -52,13 +52,13 @@
       },
       "toggleable": {
         "title": "Toggleable (fr)",
-        "subtitle": "The title can be customized to toggle using button as well. To do this, pass the 'isTogglerEnabled' option. (fr)"
+        "subtitle": "The title can be customized to toggle using button as well. To do this, pass the 'isTogglerEnabled' option. Additionally you can pass your own toggler. (fr)"
       }
     },
     "import": {
       "title": "Import (fr)"
     },
-    "subtitle": "Editable title is a extenstion to a page or section title which can be edited. (fr)",
+    "subtitle": "Editable title is an extenstion to a page or section title which can be edited. (fr)",
     "title": "Editable title (fr)"
   },
   "filesTable": {

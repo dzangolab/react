@@ -31,10 +31,14 @@ export const EditableTitleDemo = () => {
       >
         <Card className="editable-title" outlined>
           <CardBody>
-            <EditableTitle title={"Hello"} titleLevel="h3" />
+            <EditableTitle
+              title={"Hello"}
+              titleLevel="h3"
+              onTitleUpdate={handleTitleUpdate}
+            />
           </CardBody>
         </Card>
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3'/>" />
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3' onTitleUpdate={handleTitleUpdate}/>" />
       </Section>
 
       <Section
@@ -62,12 +66,12 @@ export const EditableTitleDemo = () => {
             <EditableTitle
               title={"Hello"}
               titleLevel="h3"
-              onTitleUpdate={handleTitleUpdate}
+              toggler={<i className="pi pi-pencil"></i>}
               isTogglerEnabled
             />
           </CardBody>
         </Card>
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' isTogglerEnabled/> " />
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' toggler={<i className='pi pi-pencil'></i>} isTogglerEnabled/> " />
       </Section>
       <Section></Section>
     </Page>
