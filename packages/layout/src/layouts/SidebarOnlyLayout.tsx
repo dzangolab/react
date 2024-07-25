@@ -1,4 +1,9 @@
-import { Layout, Sidebar, NavMenuType } from "@/components/Layout";
+import {
+  Layout,
+  Sidebar,
+  NavMenuType,
+  NavMenuItemType,
+} from "@/components/Layout";
 
 interface SidebarOnlyLayoutProperties {
   className?: string;
@@ -10,6 +15,8 @@ interface SidebarOnlyLayoutProperties {
   noLocaleSwitcher?: boolean;
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
+  userMenu?: NavMenuItemType;
+  userMenuTrigger?: React.ReactNode;
 }
 
 export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
@@ -22,6 +29,8 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   noLocaleSwitcher,
   noSidebarHeader,
   noSidebarFooter,
+  userMenu,
+  userMenuTrigger,
 }) => {
   return (
     <Layout className={`sidebar-only ${className || ""}`.trimEnd()}>
@@ -33,6 +42,8 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
+          userMenu={userMenu}
+          trigger={userMenuTrigger}
         ></Sidebar>
       )}
       <main>{children}</main>
