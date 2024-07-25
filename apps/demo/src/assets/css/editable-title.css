@@ -8,3 +8,7 @@ h4 {
 .dz-editable-title input {
   width: 100%;
 }
+
+.dz-card.editable-title {
+  margin-top: 1rem;
+}

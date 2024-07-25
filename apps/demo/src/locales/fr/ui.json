@@ -52,7 +52,7 @@
       },
       "toggleable": {
         "title": "Toggleable (fr)",
-        "subtitle": "The title can be made to toggle using button as well. To do this pass the 'isToggleEnabled' option, in this case the title is not clickable. (fr)"
+        "subtitle": "The title can be customized to toggle using button as well. To do this, pass the 'isTogglerEnabled' option. (fr)"
       }
     },
     "import": {

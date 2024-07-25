@@ -29,20 +29,19 @@ export const EditableTitleDemo = () => {
         title={t("editableTitle.examples.basic.title")}
         subtitle={t("editableTitle.examples.basic.subtitle")}
       >
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3'/>" />
-        <Card outlined>
+        <Card className="editable-title" outlined>
           <CardBody>
             <EditableTitle title={"Hello"} titleLevel="h3" />
           </CardBody>
         </Card>
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3'/>" />
       </Section>
 
       <Section
         title={t("editableTitle.examples.controlled.title")}
         subtitle={t("editableTitle.examples.controlled.subtitle")}
       >
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3'/> onTitleChange={handleTitleChange}/>" />
-        <Card outlined>
+        <Card className="editable-title" outlined>
           <CardBody>
             <EditableTitle
               title={"Hello"}
@@ -52,13 +51,13 @@ export const EditableTitleDemo = () => {
             {value ? <CodeBlock exampleCode={value} /> : null}
           </CardBody>
         </Card>
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3'/> onTitleChange={handleTitleChange}/>" />
       </Section>
       <Section
         title={t("editableTitle.examples.toggleable.title")}
         subtitle={t("editableTitle.examples.toggleable.subtitle")}
       >
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' isTogglerEnabled/> " />
-        <Card outlined>
+        <Card className="editable-title" outlined>
           <CardBody>
             <EditableTitle
               title={"Hello"}
@@ -68,6 +67,7 @@ export const EditableTitleDemo = () => {
             />
           </CardBody>
         </Card>
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' isTogglerEnabled/> " />
       </Section>
       <Section></Section>
     </Page>
