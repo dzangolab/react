@@ -44,15 +44,15 @@
     "examples": {
       "basic": {
         "title": "Basic (fr)",
-        "subtitle": "Editable title can be used by passing a title property. Title level is optional, it is 'h1' by default. (fr)"
+        "subtitle": "Editable title can be used by passing a 'title' property. Title level is optional, it is 'h1' by default. (fr)"
       },
       "controlled": {
         "title": "Controlled (fr)",
-        "subtitle": "Editable title can be used as a controllable input by passing onTitleChange property. (fr)"
+        "subtitle": "Editable title can be used as a controllable element by passing 'onTitleChange' property. (fr)"
       },
       "toggleable": {
         "title": "Toggleable (fr)",
-        "subtitle": "The title can be made to toggle using button as well. To do this pass the isToggleEnabled option, in this case the title is not clickable. (fr)"
+        "subtitle": "The title can be made to toggle using button as well. To do this pass the 'isToggleEnabled' option, in this case the title is not clickable. (fr)"
       }
     },
     "import": {
