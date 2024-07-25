@@ -14,7 +14,6 @@ export const EditableTitleDemo = () => {
   };
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // eslint-disable-next-line no-console
     setValue(event.target.value);
   };
 
