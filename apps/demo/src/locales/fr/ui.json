@@ -41,9 +41,25 @@
     }
   },
   "editableTitle": {
-    "title": "Editable title (fr)",
-    "controlledType": "Controlled editable title (fr)",
-    "uncontrolledType": "Uncontrolled editable title (fr)"
+    "examples": {
+      "basic": {
+        "title": "Basic (fr)",
+        "subtitle": "Editable title can be used by passing a title property. Title level is optional, it is 'h1' by default. (fr)"
+      },
+      "controlled": {
+        "title": "Controlled (fr)",
+        "subtitle": "Editable title can be used as a controllable input by passing onTitleChange property. (fr)"
+      },
+      "toggleable": {
+        "title": "Toggleable (fr)",
+        "subtitle": "The title can be made to toggle using button as well. To do this pass the isToggleEnabled option, in this case the title is not clickable. (fr)"
+      }
+    },
+    "import": {
+      "title": "Import (fr)"
+    },
+    "subtitle": "Editable title is a extenstion to a page or section title which can be edited. (fr)",
+    "title": "Editable title (fr)"
   },
   "filesTable": {
     "title": "Files table (fr)",

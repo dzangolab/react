@@ -20,14 +20,14 @@ export const EditableTitleDemo = () => {
   return (
     <Page
       title={t("editableTitle.title")}
-      subtitle="Editable title is a extenstion to a page or section title which can be edited."
+      subtitle={t("editableTitle.subtitle")}
     >
-      <Section title="Import">
+      <Section title={t("editableTitle.import.title")}>
         <CodeBlock exampleCode="import { EditableTitle } from '@dzangolab/react-ui';" />
       </Section>
       <Section
-        title="Basic"
-        subtitle="Editable title can be used by passing a title property. Title level is optional, it is 'h1' by default."
+        title={t("editableTitle.examples.basic.title")}
+        subtitle={t("editableTitle.examples.basic.subtitle")}
       >
         <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3'/>" />
         <Card outlined>
@@ -38,8 +38,8 @@ export const EditableTitleDemo = () => {
       </Section>
 
       <Section
-        title="Controlled"
-        subtitle="Editable title can be used as a controllable input by passing onTitleChange property."
+        title={t("editableTitle.examples.controlled.title")}
+        subtitle={t("editableTitle.examples.controlled.subtitle")}
       >
         <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3'/> onTitleChange={handleTitleChange}/>" />
         <Card outlined>
@@ -54,8 +54,8 @@ export const EditableTitleDemo = () => {
         </Card>
       </Section>
       <Section
-        title="Toggleable"
-        subtitle="The title can be made to toggle using button as well. To do this pass the isToggleEnabled option, in this case the title is not clickable."
+        title={t("editableTitle.examples.toggleable.title")}
+        subtitle={t("editableTitle.examples.toggleable.subtitle")}
       >
         <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' isTogglerEnabled/> " />
         <Card outlined>
