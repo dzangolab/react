@@ -21,6 +21,8 @@ interface Properties {
   noLocaleSwitcher?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
+  isPopupUserMenu?: boolean;
+  userMenuTrigger?: React.ReactNode;
 }
 
 export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
@@ -36,6 +38,8 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   noLocaleSwitcher,
   userNavigationMenu,
   onLogout,
+  isPopupUserMenu = false,
+  userMenuTrigger,
 }) => {
   const { t } = useTranslation("user");
 
@@ -75,6 +79,10 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   const getNavigationMenu = () => {
     const userNavigationMenu = getUserNavigationMenu();
 
+    if (!userNavigationMenu) {
+      return navigationMenu;
+    }
+
     if (!navigationMenu) {
       return userNavigationMenu;
     }
@@ -89,7 +97,9 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   return (
     <SidebarOnlyLayout
       children={children}
-      className={className}
+      className={
+        isPopupUserMenu ? `popup-user-menu ${className}`.trim() : className
+      }
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
       navigationMenu={getNavigationMenu()}
@@ -97,6 +107,8 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
       noLocaleSwitcher={noLocaleSwitcher}
+      userMenu={isPopupUserMenu && user ? getUserNavigationMenu() : undefined}
+      userMenuTrigger={userMenuTrigger}
     />
   );
 };

@@ -1,16 +1,20 @@
 import { SidebarFooter } from "./Footer";
 import { SidebarHeader } from "./Header";
 import { NavigationMenu } from "../common";
-import { NavMenuType } from "../types";
+import { UserMenu } from "../common/UserMenu";
+
+import type { NavMenuItemType, NavMenuType } from "../types";
 
 type SidebarProperties = {
   children?: React.ReactNode;
   collapsible?: boolean;
   displayNavIcons?: boolean;
   navigationMenu?: NavMenuType;
-  noHeader?: boolean;
   noFooter?: boolean;
+  noHeader?: boolean;
   noLocaleSwitcher?: boolean;
+  userMenu?: NavMenuItemType;
+  trigger?: React.ReactNode;
 };
 
 export const Sidebar = ({
@@ -18,9 +22,11 @@ export const Sidebar = ({
   collapsible = true,
   displayNavIcons = false,
   navigationMenu,
-  noHeader = false,
   noFooter = false,
+  noHeader = false,
   noLocaleSwitcher = false,
+  userMenu,
+  trigger,
 }: SidebarProperties) => {
   const renderContent = () => {
     return (
@@ -30,13 +36,14 @@ export const Sidebar = ({
           displayIcons={displayNavIcons}
           navigationMenu={navigationMenu || []}
         />
+        {userMenu && <UserMenu menu={userMenu} trigger={trigger} />}
         {!noFooter && <SidebarFooter noLocaleSwitcher={noLocaleSwitcher} />}
       </>
     );
   };
 
   return (
-    <aside className={!collapsible ? "fixed" : ""}>
+    <aside className={!collapsible ? "fixed" : undefined}>
       {children || renderContent()}
     </aside>
   );
