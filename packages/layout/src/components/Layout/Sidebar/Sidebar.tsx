@@ -43,8 +43,8 @@ export const Sidebar = ({
   };
 
   return (
-    <aside className={!collapsible ? "fixed" : undefined}>
+    <div className={`dz-sidebar ${!collapsible ? "fixed" : ""}`.trim()}>
       {children || renderContent()}
-    </aside>
+    </div>
   );
 };
