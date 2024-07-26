@@ -25,10 +25,9 @@ export const EditableTitleDemo = () => {
       <Section title={t("editableTitle.import.title")}>
         <CodeBlock exampleCode="import { EditableTitle } from '@dzangolab/react-ui';" />
       </Section>
-      <Section
-        title={t("editableTitle.examples.basic.title")}
-        subtitle={t("editableTitle.examples.basic.subtitle")}
-      >
+
+      <Section title={t("editableTitle.examples.basic.title")}>
+        <p>{t("editableTitle.examples.basic.description")}</p>
         <Card className="editable-title" outlined>
           <CardBody>
             <EditableTitle
@@ -41,10 +40,8 @@ export const EditableTitleDemo = () => {
         <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3' onTitleUpdate={handleTitleUpdate}/>" />
       </Section>
 
-      <Section
-        title={t("editableTitle.examples.controlled.title")}
-        subtitle={t("editableTitle.examples.controlled.subtitle")}
-      >
+      <Section title={t("editableTitle.examples.controlled.title")}>
+        <p>{t("editableTitle.examples.controlled.description")}</p>
         <Card className="editable-title" outlined>
           <CardBody>
             <EditableTitle
@@ -57,23 +54,31 @@ export const EditableTitleDemo = () => {
         </Card>
         <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3'/> onTitleChange={handleTitleChange}/>" />
       </Section>
-      <Section
-        title={t("editableTitle.examples.toggleable.title")}
-        subtitle={t("editableTitle.examples.toggleable.subtitle")}
-      >
+
+      <Section title={t("editableTitle.examples.toggleable.title")}>
+        <p>{t("editableTitle.examples.toggleable.description")}</p>
+        <Card className="editable-title" outlined>
+          <CardBody>
+            <EditableTitle title={"Hello"} titleLevel="h3" isTogglerEnabled />
+          </CardBody>
+        </Card>
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' isTogglerEnabled/>" />
+      </Section>
+
+      <Section title={t("editableTitle.examples.customToggler.title")}>
+        <p>{t("editableTitle.examples.customToggler.description")}</p>
         <Card className="editable-title" outlined>
           <CardBody>
             <EditableTitle
               title={"Hello"}
               titleLevel="h3"
-              toggler={<i className="pi pi-pencil"></i>}
+              toggler={<i className="pi pi-pen-to-square"></i>}
               isTogglerEnabled
             />
           </CardBody>
         </Card>
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' toggler={<i className='pi pi-pencil'></i>} isTogglerEnabled/> " />
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' toggler={<i className='pi pi-pen-to-square'></i>} isTogglerEnabled/>" />
       </Section>
-      <Section></Section>
     </Page>
   );
 };

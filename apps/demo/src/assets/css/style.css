@@ -10,7 +10,7 @@
 }
 
 p {
-  color: var(--color);
+  line-height: 1.25;
 }
 
 .main-menu > ul > li:hover,
