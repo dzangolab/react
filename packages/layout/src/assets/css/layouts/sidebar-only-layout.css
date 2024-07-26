@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.dz-layout.sidebar-only > aside {
+.dz-layout.sidebar-only > .sidebar {
   grid-area: header;
 }
 
@@ -24,7 +24,7 @@
     height: 100dvh;
   }
 
-  .dz-layout.sidebar-only > aside {
+  .dz-layout.sidebar-only > .sidebar {
     grid-area: sidebar;
   }
 

@@ -10,7 +10,7 @@
   display: none;
 }
 
-.dz-layout.sidebar-header-layout > aside {
+.dz-layout.sidebar-header-layout > .sidebar {
   grid-area: header;
 }
 
@@ -35,7 +35,7 @@
     grid-area: header;
   }
 
-  .dz-layout.sidebar-header-layout > aside {
+  .dz-layout.sidebar-header-layout > .sidebar {
     grid-area: sidebar;
   }
 
@@ -50,11 +50,11 @@
   }
 
   .dz-layout.sidebar-header-layout
-    > aside
+    > .sidebar
     > .navigation-menu
     > div[data-nav-menu-id="dz-user-menu"],
   .dz-layout.sidebar-header-layout
-    > aside
+    > .sidebar
     > .sidebar-footer
     > .locale-switcher {
     display: none;

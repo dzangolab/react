@@ -36,8 +36,8 @@ export const Sidebar = ({
   };
 
   return (
-    <aside className={!collapsible ? "fixed" : ""}>
+    <div className={`sidebar ${!collapsible ? "fixed" : ""}`.trimEnd()}>
       {children || renderContent()}
-    </aside>
+    </div>
   );
 };
