@@ -41,9 +41,29 @@
     }
   },
   "editableTitle": {
-    "title": "Editable title (fr)",
-    "controlledType": "Controlled editable title (fr)",
-    "uncontrolledType": "Uncontrolled editable title (fr)"
+    "examples": {
+      "basic": {
+        "title": "Basic (fr)",
+        "description": "Editable title can be used by passing a `title` property. Title level is optional, it is `h1` by default. Onblur event on the title input field triggers `onTitleUpdate` method. (fr)"
+      },
+      "controlled": {
+        "title": "Controlled (fr)",
+        "description": "Editable title can be used as a controllable element by passing `onTitleChange` property. (fr)"
+      },
+      "toggleable": {
+        "description": "The title can be customized to toggle using button as well. To do this, pass the `isTogglerEnabled` option.",
+        "title": "Toggleable"
+      },
+      "customToggler": {
+        "description": "The toggle button can also be customized by pass your own toggler using `toggler` prop.",
+        "title": "Custom toggler"
+      }
+    },
+    "import": {
+      "title": "Import (fr)"
+    },
+    "subtitle": "Editable title is an extension to a page or section title which can be edited. (fr)",
+    "title": "Editable title (fr)"
   },
   "filesTable": {
     "title": "Files table (fr)",
@@ -172,7 +192,7 @@
   },
   "localDataTable": {
     "title": "Local datatable (Primereact)(fr)",
-    "warning": "This component is being deprecated. Please use new Tanstack table. See 'Table (Tanstack)' (fr)",
+    "warning": "This component is being deprecated. Please use new Tanstack table. See `Table (Tanstack)` (fr)",
     "role": {
       "admin": "ADMIN (fr)",
       "user": "USER (fr)"

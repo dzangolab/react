@@ -8,6 +8,7 @@ import React, {
   useState,
 } from "react";
 
+import { Button } from "../Buttons";
 import { Input } from "../FormWidgets";
 
 interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
@@ -27,7 +28,13 @@ export const EditableTitle = ({
   placeHolder,
   title,
   titleLevel = "h1",
-  toggler = <i className="pi pi-pen-to-square"></i>,
+  toggler = (
+    <Button
+      variant="textOnly"
+      severity="secondary"
+      iconLeft="pi pi-pencil"
+    ></Button>
+  ),
   ...others
 }: IProperties) => {
   const [isEditModeOn, setEditModeOn] = useState<boolean>(false);

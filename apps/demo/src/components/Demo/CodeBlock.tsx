@@ -7,7 +7,7 @@ export const CodeBlock = ({
   subheader,
 }: {
   autoFocus?: boolean;
-  title: string;
+  title?: string;
   exampleCode: string;
   subheader?: React.ReactNode;
 }) => {
@@ -19,12 +19,20 @@ export const CodeBlock = ({
     }
   }, [autoFocus, reference, exampleCode]);
 
+  const renderHeader = () => {
+    if (!title && !subheader) return null;
+
+    return (
+      <header>
+        {title ? <h3>{title}</h3> : null}
+        {subheader ? subheader : null}
+      </header>
+    );
+  };
+
   return (
     <div ref={reference} className="code-block" autoFocus={autoFocus}>
-      <header>
-        <h3>{title}</h3>
-        {subheader}
-      </header>
+      {renderHeader()}
 
       <pre>
         <code>{exampleCode}</code>

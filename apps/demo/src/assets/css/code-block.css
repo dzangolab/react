@@ -3,6 +3,7 @@
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
+  text-wrap: wrap;
 }
 
 .code-block header {
