@@ -15,6 +15,8 @@
 
 .dz-layout[aria-expanded="true"] .header-container .header-addon {
   display: block;
+  padding: var(--dz-layout-nav-item-padding-v)
+    var(--dz-layout-nav-item-padding-h);
 }
 
 @media screen and (min-width: 60rem) {

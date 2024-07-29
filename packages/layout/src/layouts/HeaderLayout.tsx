@@ -41,7 +41,10 @@ export const HeaderLayout: React.FC<HeaderLayoutProperties> = ({
   userMenuMode,
 }) => {
   return (
-    <Layout className={`header ${className || ""}`.trimEnd()} fixed={fixed}>
+    <Layout
+      className={`dz-header-layout ${className || ""}`.trimEnd()}
+      fixed={fixed}
+    >
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}

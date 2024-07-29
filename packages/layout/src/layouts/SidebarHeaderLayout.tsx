@@ -69,7 +69,7 @@ export const SidebarHeaderLayout = ({
   };
 
   return (
-    <Layout className={`sidebar-header-layout ${className || ""}`.trimEnd()}>
+    <Layout className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}>
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
