@@ -25,5 +25,5 @@ export const HeaderMenu = ({
     );
   };
 
-  return <div className="header-menu">{children || renderContent()}</div>;
+  return <div className="dz-header-menu">{children || renderContent()}</div>;
 };

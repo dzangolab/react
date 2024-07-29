@@ -1,4 +1,4 @@
-.dz-layout[aria-expanded="true"] .header-container {
+.dz-layout[aria-expanded="true"] .dz-header-container {
   grid-template-areas:
     "logo toggle"
     "title title"
@@ -7,30 +7,31 @@
     "menu menu";
 }
 
-.dz-layout .header-container .header-addon {
+.dz-layout .dz-header-container .header-addon {
   grid-area: addon;
   color: var(--_layout-header-color);
   display: none;
 }
 
-.dz-layout[aria-expanded="true"] .header-container .header-addon {
+.dz-layout[aria-expanded="true"] .dz-header-container .header-addon {
   display: block;
   padding: var(--dz-layout-nav-item-padding-v)
     var(--dz-layout-nav-item-padding-h);
 }
 
 @media screen and (min-width: 60rem) {
-  .header-container .header-addon {
+  .dz-layout[aria-expanded="true"] .dz-header-container .header-addon {
     order: 1;
     display: block;
+    padding: 0;
   }
 
-  .header-container .header-addon:hover {
+  .dz-header-container .header-addon:hover {
     cursor: pointer;
     text-decoration: underline;
   }
 
-  .header-container .header-menu {
+  .dz-header-container .dz-header-menu {
     order: 2;
   }
 }

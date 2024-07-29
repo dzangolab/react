@@ -57,7 +57,7 @@ export const Header = ({
 
   return (
     <header data-nav={!!navigationMenu}>
-      <div className="header-container">{children || renderContent()}</div>
+      <div className="dz-header-container">{children || renderContent()}</div>
     </header>
   );
 };
