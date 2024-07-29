@@ -10,5 +10,5 @@ export const Version = ({ children, version: pVersion }: Properties) => {
 
   const version = pVersion || appConfig?.appVersion || "[App version]";
 
-  return <div className="version">{children || version}</div>;
+  return <div className="dz-version">{children || version}</div>;
 };

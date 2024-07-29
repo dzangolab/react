@@ -32,7 +32,7 @@ export const Copyright = ({
       );
 
       return (
-        <div className="copyright">
+        <div className="dz-copyright">
           &copy; {year} {holderElement}
         </div>
       );
@@ -45,5 +45,5 @@ export const Copyright = ({
     );
   };
 
-  return <div className="copyright">{children || renderContent()}</div>;
+  return <div className="dz-copyright">{children || renderContent()}</div>;
 };

@@ -57,7 +57,7 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
 
     if (userMenuMode === "horizontal") {
       return (
-        <ul className="user-menu" aria-orientation={userMenuMode}>
+        <ul className="dz-user-menu" aria-orientation={userMenuMode}>
           {refinedMenu.map(({ onClick, ..._menuItem }) => {
             return (
               <li key={_menuItem.label} onClick={onClick}>
@@ -71,7 +71,7 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
 
     return (
       <DropdownMenu
-        className="user-menu"
+        className="dz-user-menu"
         renderOption={template}
         menu={refinedMenu || []}
         label={userMenuLabel}

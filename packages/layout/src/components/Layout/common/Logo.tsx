@@ -57,5 +57,5 @@ export const Logo = ({
     );
   };
 
-  return <div className="logo">{children || renderContent()}</div>;
+  return <div className="dz-logo">{children || renderContent()}</div>;
 };
