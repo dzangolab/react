@@ -42,6 +42,7 @@ export const CodeBlock = ({
       .catch((err) => {
         setCopyState(COPY_STATES.error);
 
+        // eslint-disable-next-line no-console
         console.error("Could not copy text: ", err);
       });
   };
