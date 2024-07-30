@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <div
-    class="popup-container locale-switcher"
+    class="popup-container dz-locale-switcher"
   >
     <div
       aria-controls="popup-content"

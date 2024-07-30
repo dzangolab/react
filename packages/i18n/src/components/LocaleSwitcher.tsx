@@ -29,7 +29,7 @@ const LocaleSwitcher = ({ ...menuOptions }: LocalSwitcherProperties) => {
 
   return (
     <DropdownMenu
-      className="locale-switcher"
+      className="dz-locale-switcher"
       menu={locales || []}
       label={t(`locales.${i18n.language}`)}
       {...menuOptions}

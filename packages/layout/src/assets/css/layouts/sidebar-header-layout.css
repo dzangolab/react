@@ -86,7 +86,7 @@
     overflow-y: auto;
   }
 
-  .dz-layout.dz-sidebar-header-layout > header > .header-container {
+  .dz-layout.dz-sidebar-header-layout > header > .dz-header-container {
     display: flex;
     justify-content: flex-end;
   }
@@ -97,8 +97,8 @@
     > div[data-nav-menu-id="dz-user-menu"],
   .dz-layout.dz-sidebar-header-layout
     > .dz-sidebar
-    > .sidebar-footer
-    > .locale-switcher {
+    > .dz-sidebar-footer
+    > .dz-locale-switcher {
     display: none;
   }
 }

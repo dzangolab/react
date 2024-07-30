@@ -29,7 +29,7 @@
 }
 
 .dz-layout .dz-header-menu > .dz-user-menu .dz-dropdown-menu-trigger,
-.dz-layout .dz-header-menu > .locale-switcher .dz-dropdown-menu-trigger {
+.dz-layout .dz-header-menu > .dz-locale-switcher .dz-dropdown-menu-trigger {
   display: block;
   padding: var(--_layout-header-item-padding-v)
     var(--_layout-header-item-padding-h);
