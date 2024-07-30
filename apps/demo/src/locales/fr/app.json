@@ -1,4 +1,11 @@
 {
+  "codeBlock": {
+    "copyStates": {
+      "copy": "Copy to Clipboard (fr)",
+      "copied": "Copied! (fr)",
+      "error": "Error (fr)"
+    }
+  },
   "errorBoundary": {
     "title": "Oops! (fr)",
     "subtitle": "Sorry, an unexpected error has occurred. (fr)"

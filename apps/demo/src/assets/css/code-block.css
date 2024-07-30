@@ -1,14 +1,41 @@
-.code-block pre {
-  background-color: #f5f5f5;
-  padding: 1rem;
-  border-radius: 5px;
-  overflow-x: auto;
-  text-wrap: wrap;
+.code-block {
+  position: relative;
 }
 
 .code-block header {
   display: grid;
   gap: 1rem;
+}
+
+.code-block pre {
+  background-color: #f5f5f5;
+  padding: 1.5rem;
+  margin: 0;
+  border-radius: 5px;
+  overflow-x: auto;
+  text-wrap: wrap;
+}
+
+.code-block .actions {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.code-block .actions {
+  opacity: 0;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.code-block:hover .actions {
+  opacity: 1;
+}
+
+.code-block .actions button {
+  padding: 0.5rem;
 }
 
 .code-block code {
