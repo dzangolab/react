@@ -33,7 +33,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   userMenuTrigger,
 }) => {
   return (
-    <Layout className={`sidebar-only ${className || ""}`.trimEnd()}>
+    <Layout className={`dz-sidebar-only-layout ${className || ""}`.trimEnd()}>
       {customSidebar || (
         <Sidebar
           collapsible={collapsible}

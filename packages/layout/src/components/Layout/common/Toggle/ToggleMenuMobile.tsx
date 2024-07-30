@@ -34,7 +34,7 @@ export const ToggleMenuMobile = () => {
   };
 
   return (
-    <span className="toggle-menu" onClick={() => handleClick()}>
+    <span className="dz-toggle-menu" onClick={() => handleClick()}>
       {renderIcon()}
     </span>
   );

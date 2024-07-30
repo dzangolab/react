@@ -8,5 +8,5 @@ export const HeaderTitle = ({ children, title }: HeaderTitleProperties) => {
     return <span>{title}</span>;
   };
 
-  return <div className="header-title">{children || renderContent()}</div>;
+  return <div className="dz-header-title">{children || renderContent()}</div>;
 };

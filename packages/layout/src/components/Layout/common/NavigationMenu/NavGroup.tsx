@@ -21,7 +21,7 @@ export const NavGroup = ({
 
   const renderSubmenu = () => {
     return (
-      <ul className="submenu">
+      <ul className="dz-submenu">
         {navGroup.submenu &&
           navGroup.submenu.map((nav, _index) => {
             return (
@@ -42,8 +42,8 @@ export const NavGroup = ({
 
   const navGroupProperties =
     isSmallScreen || !horizontal
-      ? { className: "nav-group", "aria-expanded": showSubmenu }
-      : { className: "nav-group" };
+      ? { className: "dz-nav-group", "aria-expanded": showSubmenu }
+      : { className: "dz-nav-group" };
 
   return (
     <div {...navGroupProperties}>

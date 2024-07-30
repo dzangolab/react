@@ -5,7 +5,7 @@ export const ToggleSidebar = () => {
 
   return (
     <span
-      className="toggle-sidebar"
+      className="dz-toggle-sidebar"
       onClick={() => setMenuDesktopOpen(!menuDesktopOpen)}
     >
       <i className={menuDesktopOpen ? "pi pi-times" : "pi pi-bars"}></i>

@@ -3,10 +3,10 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <div
-    class="copyright"
+    class="dz-copyright"
   >
     <div
-      class="copyright"
+      class="dz-copyright"
     >
       © 
       2024

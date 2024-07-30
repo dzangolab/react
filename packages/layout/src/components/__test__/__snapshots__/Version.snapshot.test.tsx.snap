@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <div
-    class="version"
+    class="dz-version"
   >
     1.0.0+local
   </div>

@@ -21,10 +21,12 @@ export const NavItem = ({
 
   if ("onClick" in navItem) {
     return (
-      <div className="nav-item" onClick={navItem.onClick}>
+      <div className="dz-nav-item" onClick={navItem.onClick}>
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         <span>{navItem.label}</span>
-        {isGroupHeader && <i className="pi pi-angle-right nav-group-toggle" />}
+        {isGroupHeader && (
+          <i className="pi pi-angle-right dz-nav-group-toggle" />
+        )}
       </div>
     );
   }
@@ -45,7 +47,7 @@ export const NavItem = ({
       <NavLink
         to={navItem.route || ""}
         end={navItem.route === "/"}
-        className="nav-item"
+        className="dz-nav-item"
       >
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         <span>{navItem.label}</span>
@@ -58,7 +60,7 @@ export const NavItem = ({
   return (
     <a
       href={navItem.route}
-      className={isActive ? "nav-item active" : "nav-item"}
+      className={isActive ? "dz-nav-item active" : "dz-nav-item"}
       aria-current={isActive ? "page" : undefined}
     >
       {displayIcon && navItem.icon && <i className={navItem.icon}></i>}

@@ -21,5 +21,5 @@ export const SidebarFooter = ({
     );
   };
 
-  return <div className="sidebar-footer">{children || renderContent()}</div>;
+  return <div className="dz-sidebar-footer">{children || renderContent()}</div>;
 };

@@ -15,5 +15,5 @@ export const SidebarHeader = ({ children }: SidebarHeaderProperties) => {
     );
   };
 
-  return <div className="sidebar-header">{children || renderContent()}</div>;
+  return <div className="dz-sidebar-header">{children || renderContent()}</div>;
 };
