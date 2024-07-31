@@ -1,11 +1,16 @@
 {
   "headers": {
     "buttons": "Buttons (fr)",
-    "formWidgets": "Form widgets (fr)"
+    "formWidgets": "Form widgets (fr)",
+    "import": "Import (fr)",
+    "usage": "Usage (fr)",
+    "examples": "Examples (fr)"
   },
   "button": {
     "title": "Button (fr)",
+    "subtitle": "The Button component is a flexible and customizable button implementation for React applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases. (fr)",
     "usage": {
+      "variant": "Variant (fr)",
       "severity": "Severity (fr)",
       "size": "Size (fr)",
       "outlined": "Outlined (fr)",
