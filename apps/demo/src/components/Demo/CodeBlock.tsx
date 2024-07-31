@@ -34,10 +34,16 @@ export const CodeBlock = ({
   }, [autoFocus, reference, exampleCode]);
 
   const handleCopyClick = () => {
+    if (JSON.stringify(copyState) !== JSON.stringify(COPY_STATES.copy)) {
+      return;
+    }
+
     navigator.clipboard
       .writeText(exampleCode)
       .then(() => {
         setCopyState(COPY_STATES.copied);
+
+        setTimeout(() => setCopyState(COPY_STATES.copy), 5000);
       })
       .catch((err) => {
         setCopyState(COPY_STATES.error);
