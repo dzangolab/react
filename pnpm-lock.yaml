@@ -91,8 +91,8 @@ importers:
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
       '@types/jsdom':
-        specifier: 21.1.6
-        version: 21.1.6
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 20.14.14
         version: 20.14.14
@@ -157,8 +157,8 @@ importers:
   packages/config:
     devDependencies:
       '@types/jsdom':
-        specifier: 21.1.6
-        version: 21.1.6
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 20.14.14
         version: 20.14.14
@@ -233,8 +233,8 @@ importers:
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
       '@types/jsdom':
-        specifier: 21.1.6
-        version: 21.1.6
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 20.14.14
         version: 20.14.14
@@ -318,8 +318,8 @@ importers:
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
       '@types/jsdom':
-        specifier: 21.1.6
-        version: 21.1.6
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 20.14.14
         version: 20.14.14
@@ -381,8 +381,8 @@ importers:
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
       '@types/jsdom':
-        specifier: 21.1.6
-        version: 21.1.6
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 20.14.14
         version: 20.14.14
@@ -472,8 +472,8 @@ importers:
         specifier: 2.0.7
         version: 2.0.7
       '@types/jsdom':
-        specifier: 21.1.6
-        version: 21.1.6
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 20.14.14
         version: 20.14.14
@@ -563,8 +563,8 @@ importers:
         specifier: 14.5.2
         version: 14.5.2(@testing-library/dom@9.3.4)
       '@types/jsdom':
-        specifier: 21.1.6
-        version: 21.1.6
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 20.14.14
         version: 20.14.14
@@ -3741,8 +3741,8 @@ packages:
     resolution: {integrity: sha512-D0CFMMtydbJAegzOyHjtiKPLlvnm3iTZyZRSZoLq2mRhDdmLfIWOCYPfQJ4cu2erKghU++QvjcUjp/5h7hESpA==}
     dev: true
 
-  /@types/jsdom@21.1.6:
-    resolution: {integrity: sha512-/7kkMsC+/kMs7gAYmmBR9P0vGTnOoLhQhyhQJSlXGI5bzTHp6xdo0TtKWQAsz6pmSAeVqKSbqeyP6hytqr9FDw==}
+  /@types/jsdom@21.1.7:
+    resolution: {integrity: sha512-yOriVnggzrnQ3a9OKOCxaVuSug3w3/SbOj5i7VwXWZEyUNl3bLF9V3MfxGbZKuwqJOQyRfqXyROBB1CoZLFWzA==}
     dependencies:
       '@types/node': 20.14.14
       '@types/tough-cookie': 4.0.5
