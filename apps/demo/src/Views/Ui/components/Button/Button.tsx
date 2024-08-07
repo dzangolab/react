@@ -3,8 +3,8 @@ import { TDataTable, Page } from "@dzangolab/react-ui";
 
 import "./index.css";
 
-import { CodeBlock, Section } from "../../../../components/Demo";
 import { Icon, Link, Severity, Size, Variant } from "./components";
+import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [
   {

@@ -55,12 +55,12 @@
         "title": "Controlled",
         "description": "Editable title can be used as a controllable element by passing `onTitleChange` property."
       },
-      "toggleable": {
-        "description": "The title can be customized to toggle using button as well. To do this, pass the `isTogglerEnabled` option.",
-        "title": "Toggleable"
+      "disabled": {
+        "description": "The edit function can be disabled. To do this, pass the `allowEdit` option with value `false`.",
+        "title": "Disabled edit"
       },
       "customToggler": {
-        "description": "The toggle button can also be customized by pass your own toggler using `toggler` prop.",
+        "description": "The toggle button can be customized by pass your own toggler using `toggler` prop.",
         "title": "Custom toggler"
       }
     },
