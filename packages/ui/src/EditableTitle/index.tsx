@@ -17,7 +17,7 @@ interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   disableToggleButton?: boolean;
   onTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onTitleUpdate?: (title: string) => void;
-  placeHolder?: string;
+  placeholder?: string;
   title: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   toggler?: JSX.Element;
@@ -29,7 +29,7 @@ export const EditableTitle = ({
   useToggleButton = true,
   onTitleChange,
   onTitleUpdate,
-  placeHolder,
+  placeholder,
   title,
   titleLevel = "h1",
   toggler = (
@@ -99,7 +99,7 @@ export const EditableTitle = ({
     <Input
       autoFocus
       name="title"
-      placeholder={placeHolder}
+      placeholder={placeholder}
       defaultValue={onTitleChange ? title : titleValue}
       onChange={onTitleChange}
       onBlur={handleBlur}

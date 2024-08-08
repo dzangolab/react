@@ -67,6 +67,7 @@
     "import": {
       "title": "Import (fr)"
     },
+    "usage": "To use the Button component, simply import it into your React file: (fr)",
     "subtitle": "Editable title is an extension to a page or section title which can be edited. (fr)",
     "title": "Editable title (fr)"
   },

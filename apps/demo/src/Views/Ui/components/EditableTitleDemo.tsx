@@ -50,7 +50,7 @@ const PROPERTIES_DATA = [
   },
   {
     id: 6,
-    prop: "placeHolder",
+    prop: "placeholder",
     type: "string",
     default: "undefined",
     description: "Placeholder text for the input field when in edit mode.",
@@ -98,9 +98,7 @@ export const EditableTitleDemo = () => {
       subtitle={t("editableTitle.subtitle")}
     >
       <Section title={t("headers.usage")}>
-        <p>
-          To use the Button component, simply import it into your React file:
-        </p>
+        <p>{t("editableTitle.usage")}</p>
         <CodeBlock exampleCode="import { EditableTitle } from '@dzangolab/react-ui';" />
       </Section>
 
