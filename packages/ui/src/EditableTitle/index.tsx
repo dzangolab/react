@@ -12,20 +12,22 @@ import { Button } from "../Buttons";
 import { Input } from "../FormWidgets";
 
 interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
-  isTogglerEnabled?: boolean;
-  onTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onTitleUpdate?: (title: string) => void;
-  placeHolder?: string;
+  allowEdit?: boolean;
+  showToggler?: boolean;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleUpdate?: (title: string) => void;
+  placeholder?: string;
   title: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   toggler?: JSX.Element;
 }
 
 export const EditableTitle = ({
-  isTogglerEnabled = false,
-  onTitleChange,
-  onTitleUpdate,
-  placeHolder,
+  allowEdit = true,
+  showToggler = true,
+  onChange,
+  handleUpdate,
+  placeholder,
   title,
   titleLevel = "h1",
   toggler = (
@@ -49,8 +51,8 @@ export const EditableTitle = ({
       setTitleValue(event.target.value);
     }
 
-    if (onTitleUpdate) {
-      onTitleUpdate(event.target.value);
+    if (handleUpdate) {
+      handleUpdate(event.target.value);
     }
 
     setEditModeOn(false);
@@ -69,14 +71,15 @@ export const EditableTitle = ({
       titleLevel,
       {
         ...others,
-        onClick: isTogglerEnabled ? undefined : toggle,
+        onClick: showToggler ? undefined : toggle,
       },
       titleValue,
     );
 
-    if (isTogglerEnabled) {
+    if (showToggler) {
       const togglerElement = cloneElement(toggler, {
-        onClick: toggle,
+        disabled: !allowEdit,
+        onClick: allowEdit ? toggle : undefined,
       });
 
       return (
@@ -94,9 +97,9 @@ export const EditableTitle = ({
     <Input
       autoFocus
       name="title"
-      placeholder={placeHolder}
-      defaultValue={onTitleChange ? title : titleValue}
-      onChange={onTitleChange}
+      placeholder={placeholder}
+      defaultValue={onChange ? title : titleValue}
+      onChange={onChange}
       onBlur={handleBlur}
       onKeyUp={handleKeyPress}
     />
