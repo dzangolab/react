@@ -1,15 +1,21 @@
 {
+  "common": {
+    "usage": "To use the {{component}} component, simply import it into your React file (fr):"
+  },
   "headers": {
     "buttons": "Buttons (fr)",
     "formWidgets": "Form widgets (fr)",
     "import": "Import (fr)",
     "usage": "Usage (fr)",
-    "examples": "Examples (fr)"
+    "examples": "Examples (fr)",
+    "properties": "Properties (fr)",
+    "propertiesValue": "Properties: {{value}}"
   },
   "button": {
     "title": "Button (fr)",
     "subtitle": "The Button component is a flexible and customizable button implementation for React applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases. (fr)",
     "usage": {
+      "basic": "Basic (fr)",
       "variant": "Variant (fr)",
       "severity": "Severity (fr)",
       "size": "Size (fr)",
@@ -46,7 +52,7 @@
     }
   },
   "editableTitle": {
-    "examples": {
+    "usage": {
       "basic": {
         "title": "Basic (fr)",
         "description": "Editable title can be used by passing a `title` property. Title level is optional, it is `h1` by default. Onblur event on the title input field triggers `onTitleUpdate` method. (fr)"
@@ -64,10 +70,6 @@
         "title": "Custom toggler (fr)"
       }
     },
-    "import": {
-      "title": "Import (fr)"
-    },
-    "usage": "To use the Button component, simply import it into your React file: (fr)",
     "subtitle": "Editable title is an extension to a page or section title which can be edited. (fr)",
     "title": "Editable title (fr)"
   },

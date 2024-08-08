@@ -3,7 +3,7 @@ import { TDataTable, Page } from "@dzangolab/react-ui";
 
 import "./index.css";
 
-import { Icon, Link, Severity, Size, Variant } from "./components";
+import { Basic, Icon, Link, Severity, Size, Variant } from "./components";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [
@@ -97,14 +97,21 @@ export const ButtonDemo = () => {
   const { t } = useTranslation("ui");
 
   return (
-    <Page title={t("button.title")} subtitle={t("button.subtitle")}>
+    <Page
+      className="demo-button"
+      title={t("button.title")}
+      subtitle={t("button.subtitle")}
+    >
       <Section title={t("headers.usage")}>
-        <p>
-          To use the Button component, simply import it into your React file:
-        </p>
+        <p>{t("common.usage", { component: "Button" })}</p>
         <CodeBlock exampleCode="import { Button } from '@dzangolab/react-ui';" />
+      </Section>
 
-        <h3>Properties: IButtonProperties</h3>
+      <Section
+        title={t("headers.propertiesValue", {
+          value: "IButtonProperties",
+        })}
+      >
         <TDataTable
           columns={[
             {
@@ -125,28 +132,38 @@ export const ButtonDemo = () => {
         />
       </Section>
 
-      <Section title={t("headers.examples")}>
-        <h3>{t("button.usage.severity")}</h3>
+      <Section title={t("button.usage.basic")}>
+        <Basic />
+        <CodeBlock
+          exampleCode={Basic({ isString: true }) as string}
+        ></CodeBlock>
+      </Section>
+
+      <Section title={t("button.usage.severity")}>
         <Severity />
         <CodeBlock
           exampleCode={Severity({ isString: true }) as string}
         ></CodeBlock>
+      </Section>
 
-        <h3>{t("button.usage.size")}</h3>
+      <Section title={t("button.usage.size")}>
         <Size />
         <CodeBlock exampleCode={Size({ isString: true }) as string}></CodeBlock>
+      </Section>
 
-        <h3>{t("button.usage.variant")}</h3>
+      <Section title={t("button.usage.variant")}>
         <Variant />
         <CodeBlock
           exampleCode={Variant({ isString: true }) as string}
         ></CodeBlock>
+      </Section>
 
-        <h3>{t("button.usage.icons")}</h3>
+      <Section title={t("button.usage.icons")}>
         <Icon />
         <CodeBlock exampleCode={Icon({ isString: true }) as string}></CodeBlock>
+      </Section>
 
-        <h3>{t("button.usage.link")}</h3>
+      <Section title={t("button.usage.link")}>
         <Link />
         <CodeBlock exampleCode={Link({ isString: true }) as string}></CodeBlock>
       </Section>

@@ -1,4 +1,26 @@
 import { Button } from "@dzangolab/react-ui";
+import { useState } from "react";
+
+const Basic = ({
+  isString = false,
+}: {
+  isString?: boolean;
+}): JSX.Element | string => {
+  const [clicked, setClicked] = useState(false);
+
+  if (isString) {
+    return `<div className="container">
+     <Button label="Click me" onClick={() => setClicked(true)} />
+</div>`;
+  }
+
+  return (
+    <div className="container">
+      <Button label="Click me" onClick={() => setClicked(true)} />
+      {clicked && <span>{new Date().toLocaleString()}</span>}
+    </div>
+  );
+};
 
 const Severity = ({
   isString = false,
@@ -6,7 +28,7 @@ const Severity = ({
   isString?: boolean;
 }): JSX.Element | string => {
   if (isString) {
-    return `<div className="demo-buttons-container">
+    return `<div className="container">
       <Button label="Primary" severity="primary" />
       <Button label="Secondary" severity="secondary" />
       <Button label="Alternate" severity="alternate" />
@@ -17,7 +39,7 @@ const Severity = ({
   }
 
   return (
-    <div className="demo-buttons-container">
+    <div className="container">
       <Button label="Primary" severity="primary" />
       <Button label="Secondary" severity="secondary" />
       <Button label="Alternate" severity="alternate" />
@@ -34,7 +56,7 @@ const Size = ({
   isString?: boolean;
 }): JSX.Element | string => {
   if (isString) {
-    return `<div className="demo-buttons-container">
+    return `<div className="container">
       <Button label="Small" size="small" variant="filled" severity="primary" />
       <Button
         label="Medium"
@@ -47,7 +69,7 @@ const Size = ({
   }
 
   return (
-    <div className="demo-buttons-container">
+    <div className="container">
       <Button label="Small" size="small" variant="filled" severity="primary" />
       <Button
         label="Medium"
@@ -66,7 +88,7 @@ const Variant = ({
   isString?: boolean;
 }): JSX.Element | string => {
   if (isString) {
-    return `<div className="demo-buttons-container">
+    return `<div className="container">
       <Button label="Default" size="medium" />
       <Button label="Outlined" size="medium" variant="outlined" />
       <Button label="Text only" size="medium" variant="textOnly" />
@@ -74,7 +96,7 @@ const Variant = ({
   }
 
   return (
-    <div className="demo-buttons-container">
+    <div className="container">
       <Button label="Default" size="medium" />
       <Button label="Outlined" size="medium" variant="outlined" />
       <Button label="Text only" size="medium" variant="textOnly" />
@@ -88,7 +110,7 @@ const Icon = ({
   isString?: boolean;
 }): JSX.Element | string => {
   if (isString) {
-    return `<div className="demo-buttons-container">
+    return `<div className="container">
       <Button variant="textOnly" severity="secondary" iconLeft="pi pi-user" />
       <Button variant="filled" iconRight="pi pi-user" />
       <Button
@@ -115,7 +137,7 @@ const Icon = ({
   }
 
   return (
-    <div className="demo-buttons-container">
+    <div className="container">
       <Button variant="textOnly" severity="secondary" iconLeft="pi pi-user" />
       <Button variant="filled" iconRight="pi pi-user" />
       <Button
@@ -148,18 +170,18 @@ const Link = ({
   isString?: boolean;
 }): JSX.Element | string => {
   if (isString) {
-    return `<div className="demo-buttons-container">
+    return `<div className="container">
       <Button label="Home" to="/" />
       <Button label="Back" severity="secondary" to="/ui" />
 </div>`;
   }
 
   return (
-    <div className="demo-buttons-container">
+    <div className="container">
       <Button label="Home" to="/" />
       <Button label="Back" severity="secondary" to="/ui" />
     </div>
   );
 };
 
-export { Severity, Size, Variant, Icon, Link };
+export { Basic, Severity, Size, Variant, Icon, Link };
