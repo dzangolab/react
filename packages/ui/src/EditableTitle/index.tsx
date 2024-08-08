@@ -13,8 +13,7 @@ import { Input } from "../FormWidgets";
 
 interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   allowEdit?: boolean;
-  useToggleButton?: boolean;
-  disableToggleButton?: boolean;
+  showToggler?: boolean;
   onTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onTitleUpdate?: (title: string) => void;
   placeholder?: string;
@@ -25,8 +24,7 @@ interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
 
 export const EditableTitle = ({
   allowEdit = true,
-  disableToggleButton = false,
-  useToggleButton = true,
+  showToggler = true,
   onTitleChange,
   onTitleUpdate,
   placeholder,
@@ -73,21 +71,21 @@ export const EditableTitle = ({
       titleLevel,
       {
         ...others,
-        onClick: useToggleButton ? undefined : toggle,
+        onClick: showToggler ? undefined : toggle,
       },
       titleValue,
     );
 
-    if (useToggleButton) {
+    if (showToggler) {
       const togglerElement = cloneElement(toggler, {
-        disabled: disableToggleButton,
-        onClick: toggle,
+        disabled: !allowEdit,
+        onClick: allowEdit ? toggle : undefined,
       });
 
       return (
         <div className="dz-editable-title">
           {titleElement}
-          {allowEdit && togglerElement}
+          {togglerElement}
         </div>
       );
     }
@@ -95,7 +93,7 @@ export const EditableTitle = ({
     return titleElement;
   };
 
-  return allowEdit && isEditModeOn ? (
+  return isEditModeOn ? (
     <Input
       autoFocus
       name="title"

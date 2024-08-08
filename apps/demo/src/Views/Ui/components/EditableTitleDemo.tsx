@@ -20,28 +20,13 @@ const PROPERTIES_DATA = [
   },
   {
     id: 2,
-    prop: "disableToggleButton",
-    type: "boolean",
-    default: "false",
-    description: "Disable the toggle button when set to true.",
-  },
-  {
-    id: 3,
-    prop: "useToggleButton",
-    type: "boolean",
-    default: "true",
-    description:
-      "Use toggle button to toggle between editing and display mode. Otherwise, title itself will handle the functionality on `click event`",
-  },
-  {
-    id: 4,
     prop: "onTitleChange",
     type: "(event: ChangeEvent<HTMLInputElement>) => void",
     default: "undefined",
     description: "Callback function triggered when the title input changes.",
   },
   {
-    id: 5,
+    id: 3,
     prop: "onTitleUpdate",
     type: "(title: string) => void",
     default: "undefined",
@@ -49,33 +34,41 @@ const PROPERTIES_DATA = [
       "Callback function triggered when the title is updated after leaving the input field.",
   },
   {
-    id: 6,
+    id: 4,
     prop: "placeholder",
     type: "string",
     default: "undefined",
     description: "Placeholder text for the input field when in edit mode.",
   },
   {
-    id: 7,
+    id: 5,
     prop: "title",
     type: "string",
     default: "undefined",
     description: "The initial title to display.",
   },
   {
-    id: 8,
+    id: 6,
     prop: "titleLevel",
     type: '"h1" | "h2" | "h3" | "h4" | "h5" | "h6"',
     default: '"h1"',
     description: "Specifies the HTML heading level for the displayed title.",
   },
   {
-    id: 9,
+    id: 7,
     prop: "toggler",
     type: "JSX.Element",
     default: "<Button />",
     description:
       "A custom toggle button element that activates edit mode. If not provided, a default button will be rendered.",
+  },
+  {
+    id: 8,
+    prop: "showToggler",
+    type: "boolean",
+    default: "true",
+    description:
+      "Display toggle button to toggle between editing and display mode. Otherwise, title itself will handle the functionality on `click event`",
   },
 ];
 
