@@ -15,7 +15,7 @@ interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   allowEdit?: boolean;
   showToggler?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onUpdate?: (title: string) => void;
+  handleUpdate?: (title: string) => void;
   placeholder?: string;
   title: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -26,7 +26,7 @@ export const EditableTitle = ({
   allowEdit = true,
   showToggler = true,
   onChange,
-  onUpdate,
+  handleUpdate,
   placeholder,
   title,
   titleLevel = "h1",
@@ -51,8 +51,8 @@ export const EditableTitle = ({
       setTitleValue(event.target.value);
     }
 
-    if (onUpdate) {
-      onUpdate(event.target.value);
+    if (handleUpdate) {
+      handleUpdate(event.target.value);
     }
 
     setEditModeOn(false);

@@ -23,15 +23,16 @@ const PROPERTIES_DATA = [
     prop: "onChange",
     type: "(event: ChangeEvent<HTMLInputElement>) => void",
     default: "undefined",
-    description: "Callback function triggered when the title input changes.",
+    description:
+      "Callback function triggered when the title input changes i.e `onchange` event.",
   },
   {
     id: 3,
-    prop: "onUpdate",
+    prop: "handleUpdate",
     type: "(title: string) => void",
     default: "undefined",
     description:
-      "Callback function triggered when the title is updated after leaving the input field.",
+      "Callback function triggered when the title is updated after leaving the input field i.e `onblur` event.",
   },
   {
     id: 4,
@@ -127,11 +128,11 @@ export const EditableTitleDemo = () => {
             <EditableTitle
               title={"Hello"}
               titleLevel="h3"
-              onUpdate={handleTitleUpdate}
+              handleUpdate={handleTitleUpdate}
             />
           </CardBody>
         </Card>
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3' onUpdate={handleTitleUpdate}/>" />
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3' handleUpdate={handleTitleUpdate}/>" />
       </Section>
 
       <Section title={t("editableTitle.usage.controlled.title")}>
