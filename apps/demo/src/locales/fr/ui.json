@@ -55,11 +55,11 @@
     "usage": {
       "basic": {
         "title": "Basic (fr)",
-        "description": "Editable title can be used by passing a `title` property. Title level is optional, it is `h1` by default. Onblur event on the title input field triggers `onTitleUpdate` method. (fr)"
+        "description": "Editable title can be used by passing a `title` property. Title level is optional, it is `h1` by default. `onblur` event on the title input field triggers `onUpdate` method. (fr)"
       },
       "controlled": {
         "title": "Controlled (fr)",
-        "description": "Editable title can be used as a controllable element by passing `onTitleChange` property. (fr)"
+        "description": "Editable title can be used as a controllable element by passing `onChange` property. Note this will impact the performance of the component. (fr)"
       },
       "disabled": {
         "description": "The edit function can be disabled. To do this, pass the `allowEdit` option with value `false`. (fr)",

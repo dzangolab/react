@@ -14,8 +14,8 @@ import { Input } from "../FormWidgets";
 interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   allowEdit?: boolean;
   showToggler?: boolean;
-  onTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onTitleUpdate?: (title: string) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onUpdate?: (title: string) => void;
   placeholder?: string;
   title: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -25,8 +25,8 @@ interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
 export const EditableTitle = ({
   allowEdit = true,
   showToggler = true,
-  onTitleChange,
-  onTitleUpdate,
+  onChange,
+  onUpdate,
   placeholder,
   title,
   titleLevel = "h1",
@@ -51,8 +51,8 @@ export const EditableTitle = ({
       setTitleValue(event.target.value);
     }
 
-    if (onTitleUpdate) {
-      onTitleUpdate(event.target.value);
+    if (onUpdate) {
+      onUpdate(event.target.value);
     }
 
     setEditModeOn(false);
@@ -98,8 +98,8 @@ export const EditableTitle = ({
       autoFocus
       name="title"
       placeholder={placeholder}
-      defaultValue={onTitleChange ? title : titleValue}
-      onChange={onTitleChange}
+      defaultValue={onChange ? title : titleValue}
+      onChange={onChange}
       onBlur={handleBlur}
       onKeyUp={handleKeyPress}
     />

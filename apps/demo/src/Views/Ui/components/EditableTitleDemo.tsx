@@ -20,14 +20,14 @@ const PROPERTIES_DATA = [
   },
   {
     id: 2,
-    prop: "onTitleChange",
+    prop: "onChange",
     type: "(event: ChangeEvent<HTMLInputElement>) => void",
     default: "undefined",
     description: "Callback function triggered when the title input changes.",
   },
   {
     id: 3,
-    prop: "onTitleUpdate",
+    prop: "onUpdate",
     type: "(title: string) => void",
     default: "undefined",
     description:
@@ -127,11 +127,11 @@ export const EditableTitleDemo = () => {
             <EditableTitle
               title={"Hello"}
               titleLevel="h3"
-              onTitleUpdate={handleTitleUpdate}
+              onUpdate={handleTitleUpdate}
             />
           </CardBody>
         </Card>
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3' onTitleUpdate={handleTitleUpdate}/>" />
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'}  titleLevel='h3' onUpdate={handleTitleUpdate}/>" />
       </Section>
 
       <Section title={t("editableTitle.usage.controlled.title")}>
@@ -141,12 +141,12 @@ export const EditableTitleDemo = () => {
             <EditableTitle
               title={"Hello"}
               titleLevel="h3"
-              onTitleChange={handleTitleChange}
+              onChange={handleTitleChange}
             />
             {value ? <CodeBlock exampleCode={value} /> : null}
           </CardBody>
         </Card>
-        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' onTitleChange={handleTitleChange}/>" />
+        <CodeBlock exampleCode="<EditableTitle title={'Hello'} titleLevel='h3' onChange={handleTitleChange}/>" />
       </Section>
 
       <Section title={t("editableTitle.usage.disabled.title")}>
