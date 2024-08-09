@@ -9,12 +9,16 @@ export type NavGroupProperties = {
   displayIcon?: boolean;
   horizontal?: boolean;
   navGroup: NavGroupType;
+  expand?: "up" | "down";
+  className?: string;
 };
 
 export const NavGroup = ({
   displayIcon = true,
   horizontal,
   navGroup,
+  expand = "down",
+  className = "",
 }: NavGroupProperties) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width:576px)");
@@ -42,8 +46,11 @@ export const NavGroup = ({
 
   const navGroupProperties =
     isSmallScreen || !horizontal
-      ? { className: "dz-nav-group", "aria-expanded": showSubmenu }
-      : { className: "dz-nav-group" };
+      ? {
+          className: `dz-nav-group ${expand} ${className}`.trim(),
+          "aria-expanded": showSubmenu,
+        }
+      : { className: `dz-nav-group ${className}`.trim() };
 
   return (
     <div {...navGroupProperties}>

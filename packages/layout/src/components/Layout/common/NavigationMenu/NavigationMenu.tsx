@@ -17,7 +17,7 @@ export const NavigationMenu = ({
     index?: number,
   ) => {
     return (
-      <div className="dz-nav-menu-item" data-nav-menu-id={id} key={index}>
+      <div className="dz-nav-menu" data-nav-menu-id={id} key={index}>
         {label && <span>{label}</span>}
         <ul>
           {menu.map((nav, _index) => {

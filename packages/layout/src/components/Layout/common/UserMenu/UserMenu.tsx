@@ -3,14 +3,21 @@ import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { NavMenuItemType, UserMenuModeType } from "../../types";
+import { NavGroup } from "../NavigationMenu/NavGroup";
 
 interface IProperties {
   menu: NavMenuItemType;
   userMenuMode?: UserMenuModeType;
+  userMenuLocation?: "sidebar" | "header";
   trigger?: React.ReactNode;
 }
 
-export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
+export const UserMenu = ({
+  menu,
+  userMenuMode,
+  userMenuLocation,
+  trigger,
+}: IProperties) => {
   const navigate = useNavigate();
   const { label: userMenuLabel, menu: userMenu = [] } = menu;
 
@@ -69,7 +76,17 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
       );
     }
 
-    return (
+    return userMenuLocation === "sidebar" ? (
+      <NavGroup
+        className="dz-user-menu"
+        displayIcon
+        navGroup={{
+          label: userMenuLabel,
+          submenu: refinedMenu,
+        }}
+        expand="up"
+      />
+    ) : (
       <DropdownMenu
         className="dz-user-menu"
         renderOption={template}

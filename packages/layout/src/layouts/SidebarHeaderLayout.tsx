@@ -91,6 +91,7 @@ export const SidebarHeaderLayout = ({
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
           userMenu={userMenuLocation !== "header" ? userMenu : undefined}
+          userMenuLocation={userMenuLocation}
           trigger={userMenuTrigger}
         ></Sidebar>
       )}

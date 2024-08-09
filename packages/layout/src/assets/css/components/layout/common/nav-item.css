@@ -1,0 +1,31 @@
+.dz-nav-item {
+  --_nav-item-padding-v: 0.75rem;
+  --_nav-item-padding-h: 0.5rem;
+  --_nav-item-hover-bg: #007bff;
+  --_nav-item-hover-color: #0056b3;
+  --_nav-item-active-bg: #007bff;
+  --_nav-item-active-color: #0056b3;
+
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 0.75rem;
+  padding: var(--_nav-item-padding-v) var(--_nav-item-padding-h);
+  text-decoration: none;
+  transition: background 200ms linear, font-weight 200ms linear,
+    color 200ms linear;
+  width: 100%;
+}
+
+.dz-nav-item:hover {
+  background: var(--_nav-item-hover-bg);
+  color: var(--_nav-item-hover-color);
+  text-decoration: none;
+}
+
+.dz-nav-item[aria-current="page"] {
+  background: var(--_nav-item-active-bg);
+  color: var(--_nav-item-active-color);
+  font-weight: 500;
+  text-decoration: none;
+}

@@ -14,6 +14,7 @@ type SidebarProperties = {
   noHeader?: boolean;
   noLocaleSwitcher?: boolean;
   userMenu?: NavMenuItemType;
+  userMenuLocation?: "sidebar" | "header";
   trigger?: React.ReactNode;
 };
 
@@ -26,6 +27,7 @@ export const Sidebar = ({
   noHeader = false,
   noLocaleSwitcher = false,
   userMenu,
+  userMenuLocation,
   trigger,
 }: SidebarProperties) => {
   const renderContent = () => {
@@ -36,7 +38,13 @@ export const Sidebar = ({
           displayIcons={displayNavIcons}
           navigationMenu={navigationMenu || []}
         />
-        {userMenu && <UserMenu menu={userMenu} trigger={trigger} />}
+        {userMenu && (
+          <UserMenu
+            menu={userMenu}
+            trigger={trigger}
+            userMenuLocation={userMenuLocation}
+          />
+        )}
         {!noFooter && <SidebarFooter noLocaleSwitcher={noLocaleSwitcher} />}
       </>
     );

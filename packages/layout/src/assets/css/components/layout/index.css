@@ -3,6 +3,8 @@
 @import "./header-menu.css";
 @import "./layout.css";
 @import "./logo.css";
-@import "./navigation-menu.css";
+@import "./common/nav-item.css";
+@import "./common/nav-group.css";
+@import "./common/navigation-menu.css";
 @import "./sidebar.css";
 @import "./vars.css";
