@@ -55,11 +55,6 @@ To unlink the linked library
 pnpm unlink ./<path_to_libraries_monorepo>/packages/<library_name>
 ```
 
-## Running storybook
-```
-make storybook
-```
-
 ## Running demo app
 
 ```
