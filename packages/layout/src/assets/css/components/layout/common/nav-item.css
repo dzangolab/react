@@ -1,13 +1,22 @@
 .dz-nav-item {
-  --_nav-item-padding-v: 0.75rem;
-  --_nav-item-padding-h: 0.5rem;
-  --_nav-item-hover-bg: #007bff;
-  --_nav-item-hover-color: #0056b3;
-  --_nav-item-active-bg: #007bff;
-  --_nav-item-active-color: #0056b3;
+  --_nav-item-color: var(--dz-layout-nav-item-color, #ffffff);
+  --_nav-item-hover-color: var(--dz-layout-nav-item-hover-color, #ffffff);
+  --_nav-item-active-color: var(--dz-layout-nav-item-active-color, #ffffff);
+  --_nav-item-hover-bg: var(
+    --dz-layout-nav-item-hover-bg,
+    rgba(45, 45, 45, 0.125)
+  );
+  --_nav-item-active-bg: var(
+    --dz-layout-nav-item-active-bg,
+    rgba(45, 45, 45, 0.125)
+  );
+
+  --_nav-item-padding-h: var(--dz-layout-nav-item-padding-h, 1rem);
+  --_nav-item-padding-v: var(--dz-layout-nav-item-padding-v, 0.625rem);
 
   align-items: center;
   cursor: pointer;
+  color: var(--_nav-item-color);
   display: flex;
   gap: 0.75rem;
   padding: var(--_nav-item-padding-v) var(--_nav-item-padding-h);
@@ -28,4 +37,8 @@
   color: var(--_nav-item-active-color);
   font-weight: 500;
   text-decoration: none;
+}
+
+.dz-nav-item > span {
+  flex: 1;
 }
