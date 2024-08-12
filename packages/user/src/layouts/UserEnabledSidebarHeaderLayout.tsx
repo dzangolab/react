@@ -49,7 +49,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
 
   const getUserNavigationMenu = () => {
     if (!user) {
-      return userMenuLocation === "sidebar" ? undefined : authNavigationMenu;
+      return authNavigationMenu;
     }
 
     const signout = async () => {
@@ -78,13 +78,31 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
     };
   };
 
+  const getNavigationMenu = () => {
+    const userNavigationMenu = getUserNavigationMenu();
+
+    if (!userNavigationMenu) {
+      return navigationMenu;
+    }
+
+    if (!navigationMenu) {
+      return userNavigationMenu;
+    }
+
+    if (Array.isArray(navigationMenu)) {
+      return [...navigationMenu, userNavigationMenu];
+    }
+
+    return [navigationMenu, userNavigationMenu];
+  };
+
   return (
     <SidebarHeaderLayout
       children={children}
       className={className}
       collapsible={collapsible}
-      navigationMenu={navigationMenu}
-      userMenu={getUserNavigationMenu()}
+      navigationMenu={getNavigationMenu()}
+      userMenu={user ? getUserNavigationMenu() : undefined}
       userMenuMode={user ? "vertical" : "horizontal"}
       userMenuLocation={userMenuLocation}
       {...otherProperties}

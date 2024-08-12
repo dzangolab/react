@@ -1,4 +1,4 @@
-.dz-layout.dz-sidebar-header-layout {
+.dz-sidebar-header-layout {
   display: grid;
   grid-template-areas:
     "header"
@@ -6,19 +6,19 @@
   width: 100%;
 }
 
-.dz-layout.dz-sidebar-header-layout > header {
+.dz-sidebar-header-layout > header {
   display: none;
 }
 
-.dz-layout.dz-sidebar-header-layout > .dz-sidebar {
+.dz-sidebar-header-layout > .dz-sidebar {
   grid-area: header;
 }
 
-.dz-layout.dz-sidebar-header-layout > .dz-sidebar > .dz-user-menu {
+.dz-sidebar-header-layout > .dz-sidebar > .dz-user-menu {
   display: none;
 }
 
-.dz-layout.dz-sidebar-header-layout > main {
+.dz-sidebar-header-layout > main {
   grid-area: main;
   max-width: 100%;
   min-width: 100%;

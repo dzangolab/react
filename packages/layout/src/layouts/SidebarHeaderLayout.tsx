@@ -43,31 +43,6 @@ export const SidebarHeaderLayout = ({
   userMenuMode,
   userMenuTrigger,
 }: IProperties) => {
-  const getNavigationMenu = () => {
-    const userNavigationMenu = userMenu
-      ? {
-          ...userMenu,
-          id: "dz-user-menu",
-        }
-      : undefined;
-
-    if (!userNavigationMenu && !navigationMenu) {
-      return;
-    }
-
-    if (!navigationMenu) {
-      return userNavigationMenu;
-    }
-
-    if (!userNavigationMenu) {
-      return navigationMenu;
-    }
-
-    return Array.isArray(navigationMenu)
-      ? [...navigationMenu, userNavigationMenu]
-      : [navigationMenu, userNavigationMenu];
-  };
-
   return (
     <Layout className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}>
       {customHeader || (
@@ -86,7 +61,7 @@ export const SidebarHeaderLayout = ({
         <Sidebar
           collapsible={collapsible}
           displayNavIcons={displayNavIcons}
-          navigationMenu={getNavigationMenu()}
+          navigationMenu={navigationMenu}
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
