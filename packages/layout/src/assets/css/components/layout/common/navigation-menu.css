@@ -83,7 +83,7 @@
     > ul
     > li
     .dz-nav-group
-    .dz-submenu {
+    .dz-group-submenu {
     background: var(--_layout-nav-item-overlay-menu-background-color);
     border: 1px solid #ccc;
     border-radius: 0.3rem;
@@ -99,7 +99,7 @@
     > ul
     > li
     > .dz-nav-group:hover
-    > .dz-submenu {
+    > .dz-group-submenu {
     display: flex;
     top: 100%;
   }
@@ -109,9 +109,9 @@
     > ul
     > li
     > .dz-nav-group
-    > .dz-submenu
+    > .dz-group-submenu
     .dz-nav-group:hover
-    > .dz-submenu {
+    > .dz-group-submenu {
     display: flex;
     left: 100%;
   }

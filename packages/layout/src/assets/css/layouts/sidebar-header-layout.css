@@ -45,6 +45,7 @@
 
   .dz-layout.dz-sidebar-header-layout > .dz-sidebar > .dz-user-menu {
     display: flex;
+    padding: 0.5rem 0;
   }
 
   .dz-layout.dz-sidebar-header-layout > main {

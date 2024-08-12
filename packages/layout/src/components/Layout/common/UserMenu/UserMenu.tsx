@@ -84,7 +84,6 @@ export const UserMenu = ({
           label: userMenuLabel,
           submenu: refinedMenu,
         }}
-        expand="up"
       />
     ) : (
       <DropdownMenu
