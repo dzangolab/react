@@ -38,6 +38,29 @@
   transform: rotate(90deg);
 }
 
+@media screen and (min-width: 576px) {
+  .dz-nav-group.up {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+  }
+
+  .dz-nav-group[aria-expanded="true"].up > .dz-nav-item .dz-nav-group-toggle {
+    transform: rotate(-90deg);
+  }
+
+  .dz-nav-group[aria-expanded="true"].up > .dz-submenu {
+    background: var(--dz-layout-sidebar-bg);
+    position: absolute;
+    bottom: calc(2rem + var(--dz-layout-nav-item-padding-v));
+    width: 100%;
+  }
+
+  .dz-nav-group[aria-expanded="true"].up ul li .dz-nav-item {
+    padding-left: var(--_nav-item-padding-h);
+  }
+}
+
 @keyframes expand {
   0% {
     opacity: 0;
