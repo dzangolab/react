@@ -25,7 +25,7 @@
 }
 
 @media screen and (min-width: 576px) {
-  .dz-layout.dz-sidebar-header-layout {
+  .dz-sidebar-header-layout {
     grid-template-areas:
       "sidebar header"
       "sidebar main";
@@ -34,35 +34,35 @@
     height: 100dvh;
   }
 
-  .dz-layout.dz-sidebar-header-layout > header {
+  .dz-sidebar-header-layout > header {
     display: unset;
     grid-area: header;
   }
 
-  .dz-layout.dz-sidebar-header-layout > .dz-sidebar {
+  .dz-sidebar-header-layout > .dz-sidebar {
     grid-area: sidebar;
   }
 
-  .dz-layout.dz-sidebar-header-layout > .dz-sidebar > .dz-user-menu {
+  .dz-sidebar-header-layout > .dz-sidebar > .dz-user-menu {
     display: flex;
     padding: 0.5rem 0;
   }
 
-  .dz-layout.dz-sidebar-header-layout > main {
+  .dz-sidebar-header-layout > main {
     grid-area: main;
     overflow-y: auto;
   }
 
-  .dz-layout.dz-sidebar-header-layout > header > .dz-header-container {
+  .dz-sidebar-header-layout > header > .dz-header-container {
     display: flex;
     justify-content: flex-end;
   }
 
-  .dz-layout.dz-sidebar-header-layout
+  .dz-sidebar-header-layout
     > .dz-sidebar
     > .dz-navigation-menu
     > div[data-nav-menu-id="dz-user-menu"],
-  .dz-layout.dz-sidebar-header-layout
+  .dz-sidebar-header-layout
     > .dz-sidebar
     > .dz-sidebar-footer
     > .dz-locale-switcher {
