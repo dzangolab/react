@@ -4,7 +4,7 @@ import { TooltipOptions } from "primereact/tooltip/tooltipoptions";
 
 /**
  *
- * @deprecated will be removed in comping future.
+ * @deprecated will be removed in coming future.
  *
  */
 export interface IColumnProperties extends ColumnProps {
@@ -15,7 +15,7 @@ export interface IColumnProperties extends ColumnProps {
 
 /**
  *
- * @deprecated will be removed in comping future.
+ * @deprecated will be removed in coming future.
  *
  */
 export interface ITableProperties<D extends object>
@@ -35,7 +35,7 @@ export interface ITableProperties<D extends object>
 
 /**
  *
- * @deprecated will be removed in comping future.
+ * @deprecated will be removed in coming future.
  *
  */
 export interface LazyTableState {

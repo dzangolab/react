@@ -8,7 +8,7 @@ import { Menu } from "../../../Menu";
 
 /**
  *
- * @deprecated will be removed in comping future.
+ * @deprecated will be removed in coming future.
  *
  */
 export interface ActionsMenuProperties {
@@ -34,7 +34,7 @@ export interface ActionsMenuProperties {
 
 /**
  *
- * @deprecated will be removed in comping future.
+ * @deprecated will be removed in coming future.
  *
  */
 export const ActionsMenu = ({

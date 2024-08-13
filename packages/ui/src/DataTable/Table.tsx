@@ -12,7 +12,7 @@ import type { ITableProperties, LazyTableState } from "./types";
 
 /**
  *
- * @deprecated will be removed in comping future.
+ * @deprecated will be removed in coming future.
  * use our Tanstack table(TDataTable) instead.
  */
 export const DataTable = ({
