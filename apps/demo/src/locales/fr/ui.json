@@ -1,15 +1,21 @@
 {
+  "common": {
+    "usage": "To use the {{component}} component, simply import it into your React file (fr):"
+  },
   "headers": {
     "buttons": "Buttons (fr)",
     "formWidgets": "Form widgets (fr)",
     "import": "Import (fr)",
     "usage": "Usage (fr)",
-    "examples": "Examples (fr)"
+    "examples": "Examples (fr)",
+    "properties": "Properties (fr)",
+    "propertiesValue": "Properties: {{value}}"
   },
   "button": {
     "title": "Button (fr)",
     "subtitle": "The Button component is a flexible and customizable button implementation for React applications. It supports various properties for styling, behavior, and functionality, making it suitable for different use cases. (fr)",
     "usage": {
+      "basic": "Basic (fr)",
       "variant": "Variant (fr)",
       "severity": "Severity (fr)",
       "size": "Size (fr)",
@@ -46,26 +52,23 @@
     }
   },
   "editableTitle": {
-    "examples": {
+    "usage": {
       "basic": {
         "title": "Basic (fr)",
-        "description": "Editable title can be used by passing a `title` property. Title level is optional, it is `h1` by default. Onblur event on the title input field triggers `onTitleUpdate` method. (fr)"
+        "description": "Editable title can be used by passing a `title` property. Title level is optional, it is `h1` by default. `onblur` event on the title input field triggers `onUpdate` method. (fr)"
       },
       "controlled": {
         "title": "Controlled (fr)",
-        "description": "Editable title can be used as a controllable element by passing `onTitleChange` property. (fr)"
+        "description": "Editable title can be used as a controllable element by passing `onChange` property. Note this will impact the performance of the component. (fr)"
       },
-      "toggleable": {
-        "description": "The title can be customized to toggle using button as well. To do this, pass the `isTogglerEnabled` option.",
-        "title": "Toggleable"
+      "disabled": {
+        "description": "The edit function can be disabled. To do this, pass the `allowEdit` option with value `false`. (fr)",
+        "title": "Disabled edit (fr)"
       },
       "customToggler": {
-        "description": "The toggle button can also be customized by pass your own toggler using `toggler` prop.",
-        "title": "Custom toggler"
+        "description": "The toggle button can be customized by pass your own toggler using `toggler` prop. (fr)",
+        "title": "Custom toggler (fr)"
       }
-    },
-    "import": {
-      "title": "Import (fr)"
     },
     "subtitle": "Editable title is an extension to a page or section title which can be edited. (fr)",
     "title": "Editable title (fr)"
