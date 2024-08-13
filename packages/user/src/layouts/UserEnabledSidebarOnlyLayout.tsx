@@ -44,10 +44,6 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   const { user, setUser } = useUser();
 
   const getUserNavigationMenu = () => {
-    if (!user) {
-      return authNavigationMenu;
-    }
-
     const signout = async () => {
       if (await logout()) {
         await setUser(null);
@@ -75,7 +71,9 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   };
 
   const getNavigationMenu = () => {
-    const userNavigationMenu = getUserNavigationMenu();
+    const userNavigationMenu = user
+      ? getUserNavigationMenu()
+      : authNavigationMenu;
 
     if (!userNavigationMenu) {
       return navigationMenu;

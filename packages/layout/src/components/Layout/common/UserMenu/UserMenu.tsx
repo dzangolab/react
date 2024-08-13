@@ -8,16 +8,10 @@ import { NavGroup } from "../NavigationMenu/NavGroup";
 interface IProperties {
   menu: NavMenuItemType;
   userMenuMode?: UserMenuModeType;
-  userMenuLocation?: "sidebar" | "header";
   trigger?: React.ReactNode;
 }
 
-export const UserMenu = ({
-  menu,
-  userMenuMode,
-  userMenuLocation,
-  trigger,
-}: IProperties) => {
+export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
   const navigate = useNavigate();
   const { label: userMenuLabel, menu: userMenu = [] } = menu;
 
@@ -37,7 +31,7 @@ export const UserMenu = ({
           },
         };
       }),
-    [userMenu],
+    [userMenu]
   );
 
   const renderContent = () => {
@@ -76,7 +70,7 @@ export const UserMenu = ({
       );
     }
 
-    return userMenuLocation === "sidebar" ? (
+    return userMenuMode === "expandable" ? (
       <NavGroup
         className="dz-user-menu"
         displayIcon

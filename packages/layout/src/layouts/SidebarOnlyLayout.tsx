@@ -43,7 +43,6 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
           userMenu={userMenu}
-          userMenuLocation="sidebar"
           trigger={userMenuTrigger}
         ></Sidebar>
       )}
