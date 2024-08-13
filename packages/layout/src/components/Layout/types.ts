@@ -18,8 +18,4 @@ export type NavMenuItemType = {
 
 export type NavMenuType = NavMenuItemType | Array<NavMenuItemType>;
 
-export type UserMenuModeType =
-  | "horizontal" //remove separate auth layout
-  | "vertical"
-  | "popup"
-  | "expandable";
+export type UserMenuModeType = "horizontal" | "popup" | "expandable";

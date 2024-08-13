@@ -15,6 +15,7 @@ interface HeaderProperties {
   noLocaleSwitcher?: boolean;
   noLogo?: boolean;
   noToggle?: boolean;
+  userMenuMode?: UserMenuModeType;
 }
 
 export const Header = ({
@@ -27,6 +28,7 @@ export const Header = ({
   noLocaleSwitcher,
   noLogo,
   noToggle,
+  userMenuMode = "popup",
 }: HeaderProperties) => {
   const renderContent = () => {
     return (
@@ -45,7 +47,7 @@ export const Header = ({
           <HeaderMenu
             menu={menu}
             noLocaleSwitcher={noLocaleSwitcher}
-            userMenuMode="popup"
+            userMenuMode={userMenuMode}
           />
         )}
         {!noToggle && <ToggleMenuMobile />}

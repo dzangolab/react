@@ -31,7 +31,7 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
           },
         };
       }),
-    [userMenu]
+    [userMenu],
   );
 
   const renderContent = () => {
