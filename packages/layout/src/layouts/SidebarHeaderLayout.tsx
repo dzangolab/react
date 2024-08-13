@@ -19,7 +19,6 @@ interface IProperties {
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
   userMenuLocation?: "sidebar" | "header";
-  userMenuMode?: UserMenuModeType;
   userMenuTrigger?: React.ReactNode;
 }
 
@@ -40,7 +39,6 @@ export const SidebarHeaderLayout = ({
   title,
   userMenu,
   userMenuLocation = "header",
-  userMenuMode,
   userMenuTrigger,
 }: IProperties) => {
   return (
@@ -54,7 +52,6 @@ export const SidebarHeaderLayout = ({
           noLocaleSwitcher={noLocaleSwitcher}
           noToggle={noToggle}
           title={title}
-          userMenuMode={userMenuMode}
         />
       )}
       {customSidebar || (
@@ -66,7 +63,6 @@ export const SidebarHeaderLayout = ({
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
           userMenu={userMenuLocation !== "header" ? userMenu : undefined}
-          userMenuLocation={userMenuLocation}
           trigger={userMenuTrigger}
         ></Sidebar>
       )}
