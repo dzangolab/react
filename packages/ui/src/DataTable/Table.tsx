@@ -10,6 +10,11 @@ import { wrapColumnBody } from "./WrapColumnBody";
 
 import type { ITableProperties, LazyTableState } from "./types";
 
+/**
+ *
+ * @deprecated will be removed in comping future.
+ * use our Tanstack table(TDataTable) instead.
+ */
 export const DataTable = ({
   columns,
   currentPageReportTemplate = TABLE_DEFAULT.CURRENT_PAGE_REPORT_TEMPLATE,
