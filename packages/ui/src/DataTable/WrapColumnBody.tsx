@@ -3,6 +3,11 @@ import { Tooltip } from "primereact/tooltip";
 import type { IColumnProperties } from "./types";
 import type { ColumnBodyOptions } from "primereact/column";
 
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
 export const wrapColumnBody: ({
   data,
   columnsOptions,

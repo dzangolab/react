@@ -6,6 +6,11 @@ import React, { useState } from "react";
 import { ConfirmationModal } from "../../../ConfirmationModal";
 import { Menu } from "../../../Menu";
 
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
 export interface ActionsMenuProperties {
   actions?: MenuItem[];
   buttonOptions?: Omit<ButtonProps, "onClick">;
@@ -27,6 +32,11 @@ export interface ActionsMenuProperties {
   onView?: (arguments_: any) => void | Promise<void>;
 }
 
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
 export const ActionsMenu = ({
   actions,
   buttonOptions: pButtonOptions,

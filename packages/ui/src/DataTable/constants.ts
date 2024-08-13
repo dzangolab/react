@@ -1,3 +1,8 @@
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
 export const TABLE_DEFAULT = {
   CURRENT_PAGE_REPORT_TEMPLATE: "{first} to {last} of {totalRecords}",
   DATA_KEY: "id",

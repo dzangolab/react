@@ -5,7 +5,12 @@ import {
 
 import type { LazyTableState } from "./types";
 
-export type TSortDirection = "ASC" | "DESC" | "";
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
+type TSortDirection = "ASC" | "DESC" | "";
 
 type TSingleFilter = {
   key: string;
@@ -24,7 +29,12 @@ type TLimit = number | null;
 type TOffset = number | null;
 type TSortRequest = TSingleSort[] | null;
 
-export interface IRequestJSON {
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
+interface IRequestJSON {
   filter: TFilterRequest;
   sort: TSortRequest;
   offset: TOffset;
@@ -35,6 +45,11 @@ type GetRequestJSONOptions = {
   customColumnsMap: { [key: string]: string };
 };
 
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
 const getFilterOperator = (filter: DataTableFilterMetaData): string => {
   // 'startsWith'
   // 'contains'
@@ -81,6 +96,11 @@ const getFilterOperator = (filter: DataTableFilterMetaData): string => {
   }
 };
 
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
 const parseOneFilter = (
   filterKey: string,
   filter: DataTableFilterMetaData | DataTableOperatorFilterMetaData,
@@ -108,7 +128,12 @@ const parseOneFilter = (
   }
 };
 
-export const getFilterParameters = (
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
+const getFilterParameters = (
   { filters }: LazyTableState,
   options?: GetRequestJSONOptions,
 ) => {
@@ -141,7 +166,12 @@ export const getFilterParameters = (
   };
 };
 
-export const getSortParameters = (
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
+const getSortParameters = (
   { sortField, sortOrder }: LazyTableState,
   options?: GetRequestJSONOptions,
 ) => {
@@ -155,7 +185,12 @@ export const getSortParameters = (
   ];
 };
 
-export const getPaginationParameters = (
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
+const getPaginationParameters = (
   { rows, first }: LazyTableState,
   // eslint-disable-next-line
   options?: GetRequestJSONOptions
@@ -166,7 +201,12 @@ export const getPaginationParameters = (
   };
 };
 
-export const getRequestJSON = (
+/**
+ *
+ * @deprecated will be removed in coming future.
+ *
+ */
+const getRequestJSON = (
   parameters: LazyTableState,
   options?: GetRequestJSONOptions,
 ): IRequestJSON => {
@@ -175,4 +215,13 @@ export const getRequestJSON = (
     sort: getSortParameters(parameters, options),
     filter: getFilterParameters(parameters, options),
   };
+};
+
+export {
+  getRequestJSON,
+  getPaginationParameters,
+  getSortParameters,
+  getFilterParameters,
+  parseOneFilter,
+  getFilterOperator,
 };
