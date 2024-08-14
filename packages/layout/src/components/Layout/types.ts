@@ -13,6 +13,7 @@ export type NavGroupType = {
 export type NavMenuItemType = {
   label?: string;
   id?: string;
+  className?: string;
   menu: Array<NavItemType | NavGroupType>;
 };
 

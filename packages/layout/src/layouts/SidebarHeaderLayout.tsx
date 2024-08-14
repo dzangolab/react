@@ -39,13 +39,34 @@ export const SidebarHeaderLayout = ({
   userMenuLocation = "header",
   userMenuTrigger,
 }: IProperties) => {
+  const getNavigationMenu = () => {
+    const userNavigationMenu = userMenu;
+
+    if (!userNavigationMenu) {
+      return navigationMenu;
+    }
+
+    if (!navigationMenu) {
+      return userNavigationMenu;
+    }
+
+    if (Array.isArray(navigationMenu)) {
+      return [...navigationMenu, userNavigationMenu];
+    }
+
+    return [navigationMenu, userNavigationMenu];
+  };
+
   return (
-    <Layout className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}>
+    <Layout
+      className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}
+      userMenuLocation={userMenuLocation}
+    >
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
           headerAddon={headerAddon}
-          menu={userMenuLocation !== "sidebar" ? userMenu : undefined}
+          menu={userMenu}
           noLogo={noLogo}
           noLocaleSwitcher={noLocaleSwitcher}
           noToggle={noToggle}
@@ -56,11 +77,11 @@ export const SidebarHeaderLayout = ({
         <Sidebar
           collapsible={collapsible}
           displayNavIcons={displayNavIcons}
-          navigationMenu={navigationMenu}
+          navigationMenu={getNavigationMenu()}
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
-          userMenu={userMenuLocation !== "header" ? userMenu : undefined}
+          userMenu={userMenu}
           trigger={userMenuTrigger}
         ></Sidebar>
       )}

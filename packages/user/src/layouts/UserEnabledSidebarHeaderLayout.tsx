@@ -48,10 +48,6 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   const { user, setUser } = useUser();
 
   const getUserNavigationMenu = () => {
-    if (!user) {
-      return authNavigationMenu;
-    }
-
     const signout = async () => {
       if (await logout()) {
         await setUser(null);
@@ -69,31 +65,17 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
     };
 
     if (!userNavigationMenu) {
-      return { menu: [signoutRoute] };
+      return {
+        menu: [signoutRoute],
+        className: "dz-user-menu",
+      };
     }
 
     return {
       ...userNavigationMenu,
       menu: [...userNavigationMenu.menu, signoutRoute],
+      className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
     };
-  };
-
-  const getNavigationMenu = () => {
-    const userNavigationMenu = getUserNavigationMenu();
-
-    if (!userNavigationMenu) {
-      return navigationMenu;
-    }
-
-    if (!navigationMenu) {
-      return userNavigationMenu;
-    }
-
-    if (Array.isArray(navigationMenu)) {
-      return [...navigationMenu, userNavigationMenu];
-    }
-
-    return [navigationMenu, userNavigationMenu];
   };
 
   return (
@@ -101,8 +83,19 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       children={children}
       className={className}
       collapsible={collapsible}
-      navigationMenu={getNavigationMenu()}
-      userMenu={user ? getUserNavigationMenu() : undefined}
+      navigationMenu={navigationMenu}
+      userMenu={
+        user
+          ? getUserNavigationMenu()
+          : authNavigationMenu
+            ? {
+                ...authNavigationMenu,
+                className: `dz-auth-menu ${
+                  authNavigationMenu?.className || ""
+                }`.trim(),
+              }
+            : undefined
+      }
       userMenuLocation={userMenuLocation}
       {...otherProperties}
     />

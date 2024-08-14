@@ -24,7 +24,7 @@
   );
   --_layout-sidebar-transition-duration: var(
     --dz-layout-sidebar-transition-duration,
-    300ms
+    200ms
   );
   --_layout-sidebar-width: var(--dz-layout-sidebar-width, 16rem);
   background: var(--_layout-sidebar-bg);
@@ -98,7 +98,7 @@
     cursor: pointer;
     display: flex;
     padding: 0.4rem;
-    transition: all var(--_layout-sidebar-transition-duration) ease-in;
+    transition: all ease-in var(--_layout-sidebar-transition-duration);
   }
 
   .dz-layout > .dz-sidebar.fixed > .dz-sidebar-header > .dz-toggle-menu {

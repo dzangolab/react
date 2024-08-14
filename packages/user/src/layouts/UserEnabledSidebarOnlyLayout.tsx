@@ -44,6 +44,17 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   const { user, setUser } = useUser();
 
   const getUserNavigationMenu = () => {
+    if (!user) {
+      return authNavigationMenu
+        ? {
+            ...authNavigationMenu,
+            className: `dz-auth-menu ${
+              authNavigationMenu?.className || ""
+            }`.trim(),
+          }
+        : undefined;
+    }
+
     const signout = async () => {
       if (await logout()) {
         await setUser(null);
@@ -61,19 +72,21 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     };
 
     if (!userNavigationMenu) {
-      return { menu: [signoutRoute] };
+      return {
+        menu: [signoutRoute],
+        className: "dz-user-menu",
+      };
     }
 
     return {
       ...userNavigationMenu,
       menu: [...userNavigationMenu.menu, signoutRoute],
+      className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
     };
   };
 
   const getNavigationMenu = () => {
-    const userNavigationMenu = user
-      ? getUserNavigationMenu()
-      : authNavigationMenu;
+    const userNavigationMenu = getUserNavigationMenu();
 
     if (!userNavigationMenu) {
       return navigationMenu;
