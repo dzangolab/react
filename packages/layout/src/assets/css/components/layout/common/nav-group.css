@@ -6,16 +6,20 @@
 }
 
 .dz-nav-group > .dz-group-submenu {
-  display: none;
+  display: flex;
   align-items: start;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0;
+  margin: 0;
+  overflow: hidden;
+  max-height: 0;
   animation: expand 120ms ease;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .dz-nav-group[aria-expanded="true"] > .dz-group-submenu {
-  display: flex;
+  max-height: 500px;
 }
 
 .dz-nav-group .dz-group-submenu > li {
@@ -31,7 +35,7 @@
 }
 
 .dz-nav-group .dz-nav-group-toggle {
-  transition: transform 120ms linear;
+  transition: transform 0.3s ease-in;
 }
 
 .dz-nav-group > .dz-nav-item .dz-nav-group-toggle {
