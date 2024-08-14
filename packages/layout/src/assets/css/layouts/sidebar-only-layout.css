@@ -41,10 +41,7 @@
     padding: 0.5rem 0;
   }
 
-  .dz-sidebar-only-layout
-    > .dz-sidebar
-    > .dz-navigation-menu
-    > div[data-nav-menu-id="dz-user-menu"] {
+  .dz-sidebar-only-layout > .dz-sidebar > .dz-navigation-menu > .dz-user-menu {
     display: none;
   }
 }
