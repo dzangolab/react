@@ -10,7 +10,7 @@
   --button-small-icon-size: 0.8rem;
   --button-medium-icon-size: 0.95rem;
   --button-medium-font-size: 1rem;
-  --button-large-icon-size: 1.15rem;
+  --button-large-icon-size: 1.45rem;
   --button-large-font-size: 1.5rem;
   --button-small-padding: 0.65625rem 1.09375rem;
   --button-medium-padding: 0.75rem 1.25rem;
@@ -39,8 +39,10 @@
   border: none;
   display: flex;
   justify-content: center;
+  text-align: center;
+  vertical-align: bottom;
+  user-select: none;
   align-items: center;
-  font-size: var(--_button-font-size);
   padding: var(--_button-padding);
   gap: 0.5rem;
   font-weight: 700;
@@ -49,10 +51,17 @@
   transition: all var(--button-transition-duration) ease;
 }
 
-.dz-button.rounded {
-  border-radius: 100%;
+.dz-button.dz-rounded {
+  border-radius: 2rem;
+}
+
+.dz-button.dz-icon-only {
+  padding: 0.7rem 0.75rem;
+}
+
+.dz-button.dz-icon-only.rounded {
+  border-radius: 50%;
   padding: 1.25rem;
-  text-align: center;
 }
 
 .dz-button:focus {
@@ -171,4 +180,8 @@
 
 .dz-button > span > i {
   font-size: var(--_button-icon-size);
+}
+
+.dz-button > span.label {
+  font-size: var(--_button-font-size);
 }

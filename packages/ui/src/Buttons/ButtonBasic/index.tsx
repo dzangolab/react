@@ -44,7 +44,8 @@ export const Button: FC<IButtonProperties> = ({
     severity,
     variant,
     size,
-    rounded && "rounded",
+    !(label || children) && "dz-icon-only",
+    rounded && "dz-rounded",
   ]
     .filter(Boolean)
     .join(" ");

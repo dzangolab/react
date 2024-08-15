@@ -3,7 +3,7 @@ import { TDataTable, Page } from "@dzangolab/react-ui";
 
 import "./index.css";
 
-import { Basic, Icon, Link, Severity, Size, Variant } from "./components";
+import { Basic, Icons, Link, Severity, Size, Variant } from "./components";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [
@@ -167,8 +167,10 @@ export const ButtonDemo = () => {
       </Section>
 
       <Section title={t("button.usage.icons")}>
-        <Icon />
-        <CodeBlock exampleCode={Icon({ isString: true }) as string}></CodeBlock>
+        <Icons />
+        <CodeBlock
+          exampleCode={Icons({ isString: true }) as string}
+        ></CodeBlock>
       </Section>
 
       <Section title={t("button.usage.link")}>
