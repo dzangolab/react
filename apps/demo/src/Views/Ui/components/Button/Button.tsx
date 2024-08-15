@@ -3,7 +3,7 @@ import { TDataTable, Page } from "@dzangolab/react-ui";
 
 import "./index.css";
 
-import { Basic, Icon, Link, Severity, Size, Variant } from "./components";
+import { Basic, Icons, Link, Severity, Size, Variant } from "./components";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [
@@ -91,6 +91,13 @@ const data = [
     type: '"outlined" | "filled" | "textOnly"',
     description: "Specifies the button variant. Defaults to 'filled'.",
   },
+  {
+    id: 14,
+    prop: "rounded",
+    type: "boolean",
+    description:
+      "Specifies the button border-radius to be rounded when set to `true`. Defaults to 'false'.",
+  },
 ];
 
 export const ButtonDemo = () => {
@@ -128,6 +135,7 @@ export const ButtonDemo = () => {
             },
           ]}
           data={data}
+          rowPerPage={100}
           paginated={false}
         />
       </Section>
@@ -159,8 +167,10 @@ export const ButtonDemo = () => {
       </Section>
 
       <Section title={t("button.usage.icons")}>
-        <Icon />
-        <CodeBlock exampleCode={Icon({ isString: true }) as string}></CodeBlock>
+        <Icons />
+        <CodeBlock
+          exampleCode={Icons({ isString: true }) as string}
+        ></CodeBlock>
       </Section>
 
       <Section title={t("button.usage.link")}>

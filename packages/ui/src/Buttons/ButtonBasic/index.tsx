@@ -18,6 +18,7 @@ export interface IButtonProperties
   size?: "small" | "medium" | "large";
   to?: string;
   variant?: "outlined" | "filled" | "textOnly";
+  rounded?: boolean;
 }
 
 export const Button: FC<IButtonProperties> = ({
@@ -34,9 +35,18 @@ export const Button: FC<IButtonProperties> = ({
   to,
   title,
   variant = "filled",
+  rounded = false,
   ...otherProperties
 }) => {
-  const buttonClassName = ["dz-button", className, severity, variant, size]
+  const buttonClassName = [
+    "dz-button",
+    className,
+    severity,
+    variant,
+    size,
+    !(label || children) && "dz-icon-only",
+    rounded && "dz-rounded",
+  ]
     .filter(Boolean)
     .join(" ");
 
