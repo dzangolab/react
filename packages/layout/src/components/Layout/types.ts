@@ -13,9 +13,10 @@ export type NavGroupType = {
 export type NavMenuItemType = {
   label?: string;
   id?: string;
+  className?: string;
   menu: Array<NavItemType | NavGroupType>;
 };
 
 export type NavMenuType = NavMenuItemType | Array<NavMenuItemType>;
 
-export type UserMenuModeType = "horizontal" | "vertical";
+export type UserMenuModeType = "horizontal" | "popup" | "expandable";

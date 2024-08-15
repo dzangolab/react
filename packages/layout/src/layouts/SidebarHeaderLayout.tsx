@@ -1,5 +1,3 @@
-import { UserMenuModeType } from "@/components/Layout";
-
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
 interface IProperties {
@@ -19,7 +17,6 @@ interface IProperties {
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
   userMenuLocation?: "sidebar" | "header";
-  userMenuMode?: UserMenuModeType;
   userMenuTrigger?: React.ReactNode;
 }
 
@@ -40,46 +37,40 @@ export const SidebarHeaderLayout = ({
   title,
   userMenu,
   userMenuLocation = "header",
-  userMenuMode,
   userMenuTrigger,
 }: IProperties) => {
   const getNavigationMenu = () => {
-    const userNavigationMenu = userMenu
-      ? {
-          ...userMenu,
-          id: "dz-user-menu",
-        }
-      : undefined;
+    const userNavigationMenu = userMenu;
 
-    if (!userNavigationMenu && !navigationMenu) {
-      return;
+    if (!userNavigationMenu) {
+      return navigationMenu;
     }
 
     if (!navigationMenu) {
       return userNavigationMenu;
     }
 
-    if (!userNavigationMenu) {
-      return navigationMenu;
+    if (Array.isArray(navigationMenu)) {
+      return [...navigationMenu, userNavigationMenu];
     }
 
-    return Array.isArray(navigationMenu)
-      ? [...navigationMenu, userNavigationMenu]
-      : [navigationMenu, userNavigationMenu];
+    return [navigationMenu, userNavigationMenu];
   };
 
   return (
-    <Layout className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}>
+    <Layout
+      className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}
+      userMenuLocation={userMenuLocation}
+    >
       {customHeader || (
         <Header
           displayNavIcons={displayNavIcons}
           headerAddon={headerAddon}
-          menu={userMenuLocation !== "sidebar" ? userMenu : undefined}
+          menu={userMenu}
           noLogo={noLogo}
           noLocaleSwitcher={noLocaleSwitcher}
           noToggle={noToggle}
           title={title}
-          userMenuMode={userMenuMode}
         />
       )}
       {customSidebar || (
@@ -90,7 +81,7 @@ export const SidebarHeaderLayout = ({
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
-          userMenu={userMenuLocation !== "header" ? userMenu : undefined}
+          userMenu={userMenu}
           trigger={userMenuTrigger}
         ></Sidebar>
       )}

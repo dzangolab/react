@@ -21,7 +21,6 @@ interface Properties {
   noLocaleSwitcher?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
-  isPopupUserMenu?: boolean;
   userMenuTrigger?: React.ReactNode;
 }
 
@@ -38,7 +37,6 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   noLocaleSwitcher,
   userNavigationMenu,
   onLogout,
-  isPopupUserMenu = false,
   userMenuTrigger,
 }) => {
   const { t } = useTranslation("user");
@@ -47,7 +45,14 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 
   const getUserNavigationMenu = () => {
     if (!user) {
-      return authNavigationMenu;
+      return authNavigationMenu
+        ? {
+            ...authNavigationMenu,
+            className: `dz-auth-menu ${
+              authNavigationMenu?.className || ""
+            }`.trim(),
+          }
+        : undefined;
     }
 
     const signout = async () => {
@@ -67,12 +72,16 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     };
 
     if (!userNavigationMenu) {
-      return { menu: [signoutRoute] };
+      return {
+        menu: [signoutRoute],
+        className: "dz-user-menu",
+      };
     }
 
     return {
       ...userNavigationMenu,
       menu: [...userNavigationMenu.menu, signoutRoute],
+      className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
     };
   };
 
@@ -97,9 +106,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   return (
     <SidebarOnlyLayout
       children={children}
-      className={
-        isPopupUserMenu ? `popup-user-menu ${className}`.trim() : className
-      }
+      className={className}
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
       navigationMenu={getNavigationMenu()}
@@ -107,7 +114,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
       noLocaleSwitcher={noLocaleSwitcher}
-      userMenu={isPopupUserMenu && user ? getUserNavigationMenu() : undefined}
+      userMenu={user ? getUserNavigationMenu() : undefined}
       userMenuTrigger={userMenuTrigger}
     />
   );

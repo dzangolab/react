@@ -24,7 +24,7 @@
   );
   --_layout-sidebar-transition-duration: var(
     --dz-layout-sidebar-transition-duration,
-    100ms
+    200ms
   );
   --_layout-sidebar-width: var(--dz-layout-sidebar-width, 16rem);
   background: var(--_layout-sidebar-bg);
@@ -59,6 +59,7 @@
   --_layout-nav-menu-separator-color: var(--_layout-sidebar-separator-color);
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .dz-layout > .dz-sidebar > :not(.dz-sidebar-header) {
@@ -82,7 +83,7 @@
     flex-direction: column;
     overflow-y: auto;
     width: var(--_layout-sidebar-width);
-    transition: all var(--_layout-sidebar-transition-duration) ease-in;
+    transition: width var(--_layout-sidebar-transition-duration) ease-in;
   }
 
   .dz-layout[aria-expanded="false"] > .dz-sidebar {
@@ -98,7 +99,7 @@
     cursor: pointer;
     display: flex;
     padding: 0.4rem;
-    transition: all var(--_layout-sidebar-transition-duration) ease-in;
+    transition: all ease-in var(--_layout-sidebar-transition-duration);
   }
 
   .dz-layout > .dz-sidebar.fixed > .dz-sidebar-header > .dz-toggle-menu {
@@ -128,8 +129,7 @@
     font-size: 0.9rem;
   }
 
-  .dz-layout[aria-expanded="false"] > .dz-sidebar > .dz-navigation-menu,
-  .dz-layout[aria-expanded="false"] > .dz-sidebar > .dz-sidebar-footer {
+  .dz-layout[aria-expanded="false"] > .dz-sidebar > :not(.dz-sidebar-header) {
     visibility: hidden;
   }
 }

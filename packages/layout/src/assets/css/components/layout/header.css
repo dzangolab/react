@@ -79,6 +79,7 @@
     max-width: var(--_layout-header-max-width);
     margin: auto;
     gap: var(--_layout-header-gap);
+    justify-content: space-between;
   }
 
   .dz-layout

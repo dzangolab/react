@@ -28,7 +28,7 @@ export const Header = ({
   noLocaleSwitcher,
   noLogo,
   noToggle,
-  userMenuMode,
+  userMenuMode = "popup",
 }: HeaderProperties) => {
   const renderContent = () => {
     return (

@@ -3,6 +3,7 @@ import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { NavMenuItemType, UserMenuModeType } from "../../types";
+import { NavGroup } from "../NavigationMenu/NavGroup";
 
 interface IProperties {
   menu: NavMenuItemType;
@@ -69,7 +70,16 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
       );
     }
 
-    return (
+    return userMenuMode === "expandable" ? (
+      <NavGroup
+        className="dz-user-menu"
+        displayIcon
+        navGroup={{
+          label: userMenuLabel,
+          submenu: refinedMenu,
+        }}
+      />
+    ) : (
       <DropdownMenu
         className="dz-user-menu"
         renderOption={template}

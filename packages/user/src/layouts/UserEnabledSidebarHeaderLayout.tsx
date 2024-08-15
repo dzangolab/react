@@ -48,10 +48,6 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   const { user, setUser } = useUser();
 
   const getUserNavigationMenu = () => {
-    if (!user) {
-      return userMenuLocation === "sidebar" ? undefined : authNavigationMenu;
-    }
-
     const signout = async () => {
       if (await logout()) {
         await setUser(null);
@@ -69,12 +65,16 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
     };
 
     if (!userNavigationMenu) {
-      return { menu: [signoutRoute] };
+      return {
+        menu: [signoutRoute],
+        className: "dz-user-menu",
+      };
     }
 
     return {
       ...userNavigationMenu,
       menu: [...userNavigationMenu.menu, signoutRoute],
+      className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
     };
   };
 
@@ -84,8 +84,18 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       className={className}
       collapsible={collapsible}
       navigationMenu={navigationMenu}
-      userMenu={getUserNavigationMenu()}
-      userMenuMode={user ? "vertical" : "horizontal"}
+      userMenu={
+        user
+          ? getUserNavigationMenu()
+          : authNavigationMenu
+            ? {
+                ...authNavigationMenu,
+                className: `dz-auth-menu ${
+                  authNavigationMenu?.className || ""
+                }`.trim(),
+              }
+            : undefined
+      }
       userMenuLocation={userMenuLocation}
       {...otherProperties}
     />

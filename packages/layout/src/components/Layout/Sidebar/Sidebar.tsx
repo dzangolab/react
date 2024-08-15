@@ -36,7 +36,13 @@ export const Sidebar = ({
           displayIcons={displayNavIcons}
           navigationMenu={navigationMenu || []}
         />
-        {userMenu && <UserMenu menu={userMenu} trigger={trigger} />}
+        {userMenu && (
+          <UserMenu
+            menu={userMenu}
+            trigger={trigger}
+            userMenuMode="expandable"
+          />
+        )}
         {!noFooter && <SidebarFooter noLocaleSwitcher={noLocaleSwitcher} />}
       </>
     );

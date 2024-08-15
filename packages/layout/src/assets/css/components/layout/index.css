@@ -1,8 +1,8 @@
 @import "./footer.css";
 @import "./header.css";
+@import "./common/index.css";
 @import "./header-menu.css";
 @import "./layout.css";
 @import "./logo.css";
-@import "./navigation-menu.css";
 @import "./sidebar.css";
 @import "./vars.css";

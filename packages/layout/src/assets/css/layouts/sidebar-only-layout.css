@@ -1,4 +1,4 @@
-.dz-layout.dz-sidebar-only-layout {
+.dz-sidebar-only-layout {
   display: grid;
   grid-template-areas:
     "header"
@@ -6,78 +6,42 @@
   width: 100%;
 }
 
-.dz-layout.dz-sidebar-only-layout > .dz-sidebar {
+.dz-sidebar-only-layout > .dz-sidebar {
   grid-area: header;
 }
 
-.dz-layout.dz-sidebar-only-layout > .dz-sidebar > .dz-user-menu {
+.dz-sidebar-only-layout > .dz-sidebar > .dz-user-menu {
   display: none;
 }
 
-.dz-layout.dz-sidebar-only-layout > main {
+.dz-sidebar-only-layout > main {
   grid-area: main;
   max-width: 100%;
   min-width: 100%;
 }
 
 @media screen and (min-width: 576px) {
-  .dz-layout.dz-sidebar-only-layout {
+  .dz-sidebar-only-layout {
     display: grid;
     grid-template-areas: "sidebar main";
     grid-template-columns: auto 1fr;
     height: 100dvh;
   }
 
-  .dz-layout.dz-sidebar-only-layout > .dz-sidebar {
+  .dz-sidebar-only-layout > .dz-sidebar {
     grid-area: sidebar;
   }
 
-  .dz-layout.dz-sidebar-only-layout > main {
+  .dz-sidebar-only-layout > main {
     overflow-y: auto;
   }
 
-  /* Popup user-menu styles */
-  .dz-layout.dz-sidebar-only-layout > .dz-sidebar > .dz-user-menu {
-    display: unset;
-  }
-
-  .dz-layout.dz-sidebar-only-layout
-    > .dz-sidebar
-    > .dz-user-menu
-    > .popup-trigger {
-    padding: var(--_layout-sidebar-padding-v) var(--_layout-sidebar-padding-h);
-    display: block;
-  }
-
-  .dz-layout.dz-sidebar-only-layout
-    > .dz-sidebar
-    > .dz-user-menu
-    > .popup-trigger:hover {
-    background: var(--dz-layout-nav-item-hover-bg, rgba(45, 45, 45, 0.125));
-    color: var(--dz-layout-nav-item-hover-color, #ffffff);
-  }
-
-  .dz-layout.dz-sidebar-only-layout
-    > .dz-sidebar
-    > .dz-user-menu
-    > .popup-trigger
-    .dz-dropdown-menu-trigger {
+  .dz-sidebar-only-layout > .dz-sidebar > .dz-user-menu {
     display: flex;
-    justify-content: space-between;
+    padding: 0.5rem 0;
   }
 
-  .dz-layout.dz-sidebar-only-layout
-    > .dz-sidebar
-    > .dz-user-menu
-    > .popup-trigger
-    .dz-dropdown-menu-trigger:hover {
-    text-decoration: none;
-  }
-
-  .dz-layout.dz-sidebar-only-layout.popup-user-menu
-    > .dz-sidebar
-    > .dz-navigation-menu
-    > div[data-nav-menu-id="user-menu"] {
+  .dz-sidebar-only-layout > .dz-sidebar > .dz-navigation-menu > .dz-user-menu {
     display: none;
   }
 }
