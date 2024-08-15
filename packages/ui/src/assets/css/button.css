@@ -49,6 +49,12 @@
   transition: all var(--button-transition-duration) ease;
 }
 
+.dz-button.rounded {
+  border-radius: 100%;
+  padding: 1.25rem;
+  text-align: center;
+}
+
 .dz-button:focus {
   outline: 2px solid var(--_button-color);
   outline-offset: 2px;

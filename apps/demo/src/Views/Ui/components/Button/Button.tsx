@@ -91,6 +91,13 @@ const data = [
     type: '"outlined" | "filled" | "textOnly"',
     description: "Specifies the button variant. Defaults to 'filled'.",
   },
+  {
+    id: 14,
+    prop: "rounded",
+    type: "boolean",
+    description:
+      "Specifies the button border-radius to be rounded when set to `true`. Defaults to 'false'.",
+  },
 ];
 
 export const ButtonDemo = () => {
@@ -128,6 +135,7 @@ export const ButtonDemo = () => {
             },
           ]}
           data={data}
+          rowPerPage={100}
           paginated={false}
         />
       </Section>

@@ -111,7 +111,7 @@ const Icon = ({
 }): JSX.Element | string => {
   if (isString) {
     return `<div className="container">
-      <Button variant="textOnly" severity="secondary" iconLeft="pi pi-user" />
+      <Button variant="textOnly" severity="secondary" iconLeft="pi pi-user" rounded />
       <Button variant="filled" iconRight="pi pi-user" />
       <Button
         label="Secondary"
@@ -138,7 +138,12 @@ const Icon = ({
 
   return (
     <div className="container">
-      <Button variant="textOnly" severity="secondary" iconLeft="pi pi-user" />
+      <Button
+        variant="textOnly"
+        severity="secondary"
+        iconLeft="pi pi-user"
+        rounded
+      />
       <Button variant="filled" iconRight="pi pi-user" />
       <Button
         label="Secondary"
