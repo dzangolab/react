@@ -178,7 +178,7 @@ const Icons = ({
           size="large"
           variant="outlined"
           severity="secondary"
-          iconLeft="pi pi-check"
+          iconLeft="pi pi-user"
         />
       </div>
       <div className="container">
@@ -195,7 +195,7 @@ const Icons = ({
           variant="outlined"
           severity="secondary"
           rounded
-          iconLeft="pi pi-check"
+          iconLeft="pi pi-user"
         />
       </div>
     </>

@@ -7,14 +7,17 @@
   --button-danger-color: var(--dz-danger-color);
   --button-warning-color: var(--dz-warning-color);
   --button-small-font-size: 0.875rem;
-  --button-small-icon-size: 0.8rem;
-  --button-medium-icon-size: 0.95rem;
+  --button-small-icon-size: 0.875rem;
+  --button-medium-icon-size: 1rem;
   --button-medium-font-size: 1rem;
-  --button-large-icon-size: 1.45rem;
-  --button-large-font-size: 1.5rem;
+  --button-large-icon-size: 1.125rem;
+  --button-large-font-size: 1.125rem;
   --button-small-padding: 0.65625rem 1.09375rem;
   --button-medium-padding: 0.75rem 1.25rem;
   --button-large-padding: 0.9375rem 1.5625rem;
+  --button-small-width: 2.438rem;
+  --button-medium-width: 2.75rem;
+  --button-large-width: 3.313rem;
   --button-primary-outlined-hover-color: #eef6fe;
   --button-secondary-outlined-hover-color: #f3f4f5;
   --button-alternate-outlined-hover-color: #f1f9fc;
@@ -34,6 +37,7 @@
   --_button-font-size: var(--button-font-size);
   --_button-icon-size: var(--button-icon-size);
   --_button-padding: var(--button-padding);
+  --_button-width: var(--button-width);
   background-color: var(--_button-color);
   border-radius: 0.5rem;
   border: none;
@@ -56,7 +60,8 @@
 }
 
 .dz-button.dz-icon-only {
-  padding: 0.7rem 0.75rem;
+  width: var(--_button-width);
+  height: var(--_button-width);
 }
 
 .dz-button.dz-icon-only.rounded {
@@ -164,18 +169,21 @@
   --button-icon-size: var(--button-small-icon-size);
   --button-font-size: var(--button-small-font-size);
   --button-padding: var(--button-small-padding);
+  --button-width: var(--button-small-width);
 }
 
 .dz-button.medium {
   --button-icon-size: var(--button-medium-icon-size);
   --button-font-size: var(--button-medium-font-size);
   --button-padding: var(--button-medium-padding);
+  --button-width: var(--button-medium-width);
 }
 
 .dz-button.large {
   --button-icon-size: var(--button-large-icon-size);
   --button-font-size: var(--button-large-font-size);
   --button-padding: var(--button-large-padding);
+  --button-width: var(--button-large-width);
 }
 
 .dz-button > span > i {
