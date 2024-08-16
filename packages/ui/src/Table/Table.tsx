@@ -93,7 +93,9 @@ const DataTable = <TData extends { id: string | number }>({
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: DEFAULT_PAGE_INDEX,
-    pageSize: rowPerPage || (paginated ? DEFAULT_PAGE_SIZE : totalRecords),
+    pageSize: paginated
+      ? rowPerPage || DEFAULT_PAGE_SIZE
+      : totalRecords || data.length,
   });
   const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
 
