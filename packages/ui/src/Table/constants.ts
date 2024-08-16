@@ -3,6 +3,7 @@ export const DEFAULT_TABLE_DATA = [];
 export const DEFAULT_TOTAL_ITEMS = 0;
 export const DEFAULT_PAGE_INDEX = 0;
 export const DEFAULT_PAGE_SIZE = 10;
+export const DEFAULT_NON_PAGINATED_PAGE_SIZE = 100;
 export const DEFAULT_PAGE_PER_OPTIONS = [10, 20, 30];
 export const DEFAULT_INPUT_DEBOUNCE_TIME = 300;
 

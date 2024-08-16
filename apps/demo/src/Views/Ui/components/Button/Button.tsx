@@ -135,7 +135,6 @@ export const ButtonDemo = () => {
             },
           ]}
           data={data}
-          rowPerPage={100}
           paginated={false}
         />
       </Section>

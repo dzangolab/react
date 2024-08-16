@@ -20,6 +20,7 @@ import React, {
 } from "react";
 
 import {
+  DEFAULT_NON_PAGINATED_PAGE_SIZE,
   DEFAULT_PAGE_INDEX,
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
@@ -93,7 +94,11 @@ const DataTable = <TData extends { id: string | number }>({
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: DEFAULT_PAGE_INDEX,
-    pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
+    pageSize:
+      rowPerPage ||
+      (paginated
+        ? DEFAULT_PAGE_SIZE
+        : totalRecords || DEFAULT_NON_PAGINATED_PAGE_SIZE),
   });
   const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
 
@@ -490,7 +495,7 @@ const DataTable = <TData extends { id: string | number }>({
                 data-id={row.original.id ?? row.id}
               >
                 {row.getVisibleCells().map((cell) => {
-                  const getFormatedValueContext: typeof cell.getContext =
+                  const getFormattedValueContext: typeof cell.getContext =
                     () => {
                       const cellContext = cell.getContext();
                       const renderValue = cellContext.getValue;
@@ -576,13 +581,13 @@ const DataTable = <TData extends { id: string | number }>({
                           }}
                           cellContent={flexRender(
                             cell.column.columnDef.cell,
-                            getFormatedValueContext(),
+                            getFormattedValueContext(),
                           )}
                         ></TooltipWrapper>
                       ) : (
                         flexRender(
                           cell.column.columnDef.cell,
-                          getFormatedValueContext(),
+                          getFormattedValueContext(),
                         )
                       )}
                     </TableCell>
