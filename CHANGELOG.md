@@ -1,3 +1,80 @@
+# [0.46.0](https://github.com/dzangolab/react/compare/v0.45.1...v0.46.0) (2024-08-19)
+
+
+### Breaking changes
+
+#### 1. Removed Legacy and Deprecated Components
+
+- **Removed Legacy and Deprecated Components**: We have removed the legacy layouts form `@‌dzangolab/react-layout` and `@‌dzangolab/react-user` along with all deprecated components.
+- **Affected Component**: Applications still using old layouts and deprecated components.
+- **Migration Steps**: Applications using the components mentioned below should migrate to their respective alternatives as per given below.
+  | Deprecated Component      | Alternative               |
+  |------------------------------------------|------------------------------|
+  |  `BasicLayout`     | `HeaderLayout`       |
+  |  `MainMenu` | `NAvigationMenu` |
+  |  `UserEnabledBasicLayout`     | `UserEnabledHeaderLayout`       |
+  | `CollapsibleSidebarLayout`                  | `SidebarOnlyLayout` or `SidebarHeaderLayout`       |
+  | `DropdownUserMenu` | `UserMenu` |
+  | `ResponsiveMenu`     | `None` create your own |
+  | `UserEnabledCollapsibleSidebarLayout`                  | `UserEnabledSidebarOnlyLayout` or `UserEnabledSidebarHeaderLayout`       |
+
+#### 2. Layout: Make Class-name Consistent
+
+- **Make Class-name Consistent**: In `@‌dzangolab/react-layout` package we have refactored the `className` of `layouts` and `components` to make it consistent throughout the package.
+- **Affected Component**: Applications using the package `className` to add custom styles to `@‌dzangolab/react-layout` component may get affected.
+- **Migration Steps**: Applications using the `className` mentioned below should rename them to their respective alternatives as per given below.
+
+  | Before Renaming      | After Renaming               |
+  |------------------------------------------|------------------------------|
+  | `copyright` | `dz-copyright` |
+  | `header-container` | `dz-header-container` |
+  | `header-menu` | `dz-header-menu` |
+  | `header-title` | `dz-header-title` |
+  | `header` | `dz-header-layout` |
+  | `logo` | `dz-logo` |
+  | `nav-group-toggle` | `dz-nav-group-toggle` |
+  | `nav-group` | `dz-nav-group` |
+  | `nav-item` | `dz-nav-item` |
+  | `nav-menu-item` | `dz-nav-menu-item` |
+  | `navigation-menu` | `dz-navigation-menu` |
+  | `sidebar-footer` | `dz-sidebar-footer` |
+  | `sidebar-header-layout` | `dz-sidebar-header-layout` |
+  | `sidebar-header` | `dz-sidebar-header` |
+  | `sidebar-only` | `dz-sidebar-only-layout` |
+  | `submenu`| `dz-submenu` |
+  | `toggle-menu` | `dz-toggle-menu` |
+  | `toggle-sidebar` | `dz-toggle-sidebar` |
+  | `user-menu` | `dz-user-menu` |
+  | `version` | `dz-version` |
+
+
+### Bug Fixes
+
+* **editable-title:** improve the editable title demo page ([#1087](https://github.com/dzangolab/react/issues/1087)) ([4ba02df](https://github.com/dzangolab/react/commit/4ba02df0efd9ad72857406fcd5ab92c7ff3316bd))
+* icon-only button width ([#1104](https://github.com/dzangolab/react/issues/1104)) ([89076c4](https://github.com/dzangolab/react/commit/89076c4c9c138407b29d718a5ed1fb368ebc4d1f))
+* **layout:** header pading in horizontal view ([#1083](https://github.com/dzangolab/react/issues/1083)) ([6ba7312](https://github.com/dzangolab/react/commit/6ba7312c9a02b21b2823e1d2c8a2f376a590e95d))
+* **layout:** mobile view for header menu ([#1073](https://github.com/dzangolab/react/issues/1073)) ([5a60c09](https://github.com/dzangolab/react/commit/5a60c09c843f15b45e5abbd18fa1acf98325a494))
+* **ui:** render all rows if pagination is disabled in a table ([#1105](https://github.com/dzangolab/react/issues/1105)) ([0d023a4](https://github.com/dzangolab/react/commit/0d023a40bdf9801e2644f5850f013cd6d0329e4f))
+* **user:** update the class name for layout css ([#1092](https://github.com/dzangolab/react/issues/1092)) ([b619253](https://github.com/dzangolab/react/commit/b61925310ca63a67d8d3601df418078a21bf5101))
+
+
+### Features
+
+* add ability to disable the edit functionality ([#1097](https://github.com/dzangolab/react/issues/1097)) ([64c85f3](https://github.com/dzangolab/react/commit/64c85f3a69eb6d50728a3306e6e444fe16a23830))
+* add css for rounded button ([#1103](https://github.com/dzangolab/react/issues/1103)) ([5c8946c](https://github.com/dzangolab/react/commit/5c8946c0e7a45649fa18da5e518853bc45cf01ff))
+* **demo:** add copy action to codeBlock ([#1093](https://github.com/dzangolab/react/issues/1093)) ([9e62fa7](https://github.com/dzangolab/react/commit/9e62fa7af43b0ac942b175ae0c92f46eae425839))
+* **demo:** update buttons page ([#1094](https://github.com/dzangolab/react/issues/1094)) ([261a8d0](https://github.com/dzangolab/react/commit/261a8d0ddc1746e5efdd9dcc03df267a0774907f))
+* **editable-header:** add the editable title component  ([#1078](https://github.com/dzangolab/react/issues/1078)) ([797125f](https://github.com/dzangolab/react/commit/797125feebf431280675828b71f022d35ae6f4c0))
+* **form:** export controller and its types ([#1106](https://github.com/dzangolab/react/issues/1106)) ([8e73ece](https://github.com/dzangolab/react/commit/8e73ece2166b78e0712930dec0c3ffaed6bf8c11))
+* **header-only-classname:** change the header only class name to header ([#1081](https://github.com/dzangolab/react/issues/1081)) ([d87361c](https://github.com/dzangolab/react/commit/d87361cddf338e74243e044d1b37af1f560d1189))
+* **layout-footer:** add footer component in the header layout  ([#1079](https://github.com/dzangolab/react/issues/1079)) ([436968f](https://github.com/dzangolab/react/commit/436968f913af8d968d0638572a3d189bd8a4bfc3))
+* **layout:** add support for user-menu in sidebar ([#1088](https://github.com/dzangolab/react/issues/1088)) ([0805ecd](https://github.com/dzangolab/react/commit/0805ecd94d4fba918529ad44922f2e290a783062))
+* remove deprecated legacy layouts and components ([#1077](https://github.com/dzangolab/react/issues/1077)) ([a96b466](https://github.com/dzangolab/react/commit/a96b466c0345a7658816acba54b330b6cee8751c))
+* remove storybook ([#1099](https://github.com/dzangolab/react/issues/1099)) ([3b204fa](https://github.com/dzangolab/react/commit/3b204fa430d0b08d6f2dbe4eafae8e66da87c1b9))
+* **ui:** deprecate Primereact table ([#1101](https://github.com/dzangolab/react/issues/1101)) ([1ae8d13](https://github.com/dzangolab/react/commit/1ae8d13573843a5f5e2baa06f15d22580f9476e3))
+
+
+
 ## [0.45.1](https://github.com/dzangolab/react/compare/v0.45.0...v0.45.1) (2024-07-16)
 
 
