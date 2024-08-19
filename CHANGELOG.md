@@ -1,6 +1,53 @@
 # [0.46.0](https://github.com/dzangolab/react/compare/v0.45.1...v0.46.0) (2024-08-19)
 
 
+### Breaking changes
+
+#### 1. Removed Legacy and Deprecated Components
+
+- **Removed Legacy and Deprecated Components**: We have removed the legacy layouts form `@‌dzangolab/react-layout` and `@‌dzangolab/react-user` along with all deprecated components.
+- **Affected Component**: Applications still using old layouts and deprecated components.
+- **Migration Steps**: Applications using the components mentioned below should migrate to their respective alternatives as per given below.
+  | Deprecated Component      | Alternative               |
+  |------------------------------------------|------------------------------|
+  |  `BasicLayout`     | `HeaderLayout`       |
+  |  `MainMenu` | `NAvigationMenu` |
+  |  `UserEnabledBasicLayout`     | `UserEnabledHeaderLayout`       |
+  | `CollapsibleSidebarLayout`                  | `SidebarOnlyLayout` or `SidebarHeaderLayout`       |
+  | `DropdownUserMenu` | `UserMenu` |
+  | `ResponsiveMenu`     | `None` create your own |
+  | `UserEnabledCollapsibleSidebarLayout`                  | `UserEnabledSidebarOnlyLayout` or `UserEnabledSidebarHeaderLayout`       |
+
+#### 2. Layout: Make Class-name Consistent
+
+- **Make Class-name Consistent**: In `@‌dzangolab/react-layout` package we have refactored the `className` of `layouts` and `components` to make it consistent throughout the package.
+- **Affected Component**: Applications using the package `className` to add custom styles to `@‌dzangolab/react-layout` component may get affected.
+- **Migration Steps**: Applications using the `className` mentioned below should rename them to their respective alternatives as per given below.
+
+  | Before Renaming      | After Renaming               |
+  |------------------------------------------|------------------------------|
+  | `copyright` | `dz-copyright` |
+  | `header-container` | `dz-header-container` |
+  | `header-menu` | `dz-header-menu` |
+  | `header-title` | `dz-header-title` |
+  | `header` | `dz-header-layout` |
+  | `logo` | `dz-logo` |
+  | `nav-group-toggle` | `dz-nav-group-toggle` |
+  | `nav-group` | `dz-nav-group` |
+  | `nav-item` | `dz-nav-item` |
+  | `nav-menu-item` | `dz-nav-menu-item` |
+  | `navigation-menu` | `dz-navigation-menu` |
+  | `sidebar-footer` | `dz-sidebar-footer` |
+  | `sidebar-header-layout` | `dz-sidebar-header-layout` |
+  | `sidebar-header` | `dz-sidebar-header` |
+  | `sidebar-only` | `dz-sidebar-only-layout` |
+  | `submenu`| `dz-submenu` |
+  | `toggle-menu` | `dz-toggle-menu` |
+  | `toggle-sidebar` | `dz-toggle-sidebar` |
+  | `user-menu` | `dz-user-menu` |
+  | `version` | `dz-version` |
+
+
 ### Bug Fixes
 
 * **editable-title:** improve the editable title demo page ([#1087](https://github.com/dzangolab/react/issues/1087)) ([4ba02df](https://github.com/dzangolab/react/commit/4ba02df0efd9ad72857406fcd5ab92c7ff3316bd))
