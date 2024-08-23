@@ -56,11 +56,15 @@ import { VerifyEmail } from "./views/VerifyEmail";
 import "./assets/css/index.css";
 
 import type {
+  AcceptInvitationResponse,
   DzangolabReactUserConfig,
   Invitation,
   InvitationAppOption,
   InvitationPayload,
+  InvitationRoleOption,
   LoginCredentials,
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
   UserContextType,
   UserType,
 } from "./types";
@@ -132,10 +136,14 @@ export {
 };
 
 export type {
+  AcceptInvitationResponse,
   Invitation,
   InvitationAppOption,
   InvitationPayload,
+  InvitationRoleOption,
   LoginCredentials,
+  ResendInvitationResponse,
+  RevokeInvitationResponse,
   UserContextType,
   UserType,
   UsersTableProperties,
