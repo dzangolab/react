@@ -179,7 +179,10 @@ const DataTable = <TData extends { id: string | number }>({
       ];
     }
 
-    if (visibleColumns.includes("actions") && dataActionsMenu) {
+    if (
+      (dataActionsMenu && visibleColumns.length === 0) ||
+      (dataActionsMenu && visibleColumns.includes("actions"))
+    ) {
       const defaultActionColumn: ColumnDef<TData, unknown> = {
         id: "actions",
         header: () => <i className="pi pi-cog"></i>,
