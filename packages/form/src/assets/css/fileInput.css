@@ -106,3 +106,18 @@
   gap: 0.5rem;
   width: 80%;
 }
+
+.file-input .dz-file-errors {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.file-input .dz-file-error {
+  color: red;
+}
+
+.file-input .dz-file-error > strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}

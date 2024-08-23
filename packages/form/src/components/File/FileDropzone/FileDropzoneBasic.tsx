@@ -24,12 +24,18 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
   const onDrop = useOnDropFile({ mode, name, onChange, value, multiple });
   const onRemove = useOnRemoveFile({ value, onChange });
 
-  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
-    useDropzone({
-      onDrop,
-      multiple: multiple,
-      ...dropzoneOptions,
-    });
+  const {
+    fileRejections,
+    getRootProps,
+    getInputProps,
+    isFocused,
+    isDragAccept,
+    isDragReject,
+  } = useDropzone({
+    onDrop,
+    multiple: multiple,
+    ...dropzoneOptions,
+  });
 
   const className = useMemo(
     () =>
@@ -39,6 +45,33 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
     [isFocused, isDragAccept, isDragReject],
   );
 
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+    <div key={file.name} data-file={file.name} className="dz-file-error">
+      <strong>
+        {file.name} - {file.size} bytes
+      </strong>
+      <ul>
+        {errors.map((error) => (
+          <li key={error.code} data-error-code={error.code}>
+            {error.message}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ));
+
+  const renderErrors = () => {
+    return fileRejections.length > 0 ? (
+      multiple ? (
+        <div className="dz-file-errors">{fileRejectionItems}</div>
+      ) : (
+        fileRejectionItems
+      )
+    ) : (
+      <></>
+    );
+  };
+
   return (
     <div className="file-input dropzone">
       {label && <label htmlFor={name}>{label}</label>}
@@ -46,6 +79,9 @@ export const FileDropzoneBasic: FC<IFileDropzoneBasicProperties> = ({
         <input id={name} name={name} {...getInputProps()} />
         {dropzoneMessage && <p>{dropzoneMessage}</p>}
       </div>
+
+      {renderErrors()}
+
       {!!value?.length && (
         <ul className="selected">
           {value.map((file, index) => {
