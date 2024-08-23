@@ -3,14 +3,14 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, IButtonProperties, Modal } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 
-import {
+import { InvitationForm } from "./InvitationForm";
+
+import type {
   AddInvitationResponse,
   InvitationAppOption,
   InvitationRoleOption,
   InvitationExpiryDateField,
 } from "@/types";
-
-import { InvitationForm } from "./InvitationForm";
 
 interface Properties {
   additionalInvitationFields?: AdditionalFormFields;
