@@ -12,7 +12,9 @@
   "main": "dist//DzangolabReactUser.umd.js",
   "module": "dist//DzangolabReactUser.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -62,6 +64,7 @@
   },
   "peerDependencies": {
     "@dzangolab/react-config": "0.46.0",
+    "@dzangolab/react-form": "0.46.0",
     "@dzangolab/react-i18n": "0.46.0",
     "@dzangolab/react-layout": "0.46.0",
     "@dzangolab/react-ui": "0.46.0",

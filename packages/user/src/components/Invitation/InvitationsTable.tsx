@@ -8,6 +8,7 @@ import {
   TableColumnDefinition,
   Tag,
 } from "@dzangolab/react-ui";
+import { useCallback } from "react";
 import { toast } from "react-toastify";
 
 import {
@@ -18,7 +19,7 @@ import {
 import { useConfig } from "@/hooks";
 import { DeleteInvitationResponse } from "@/types/invitation";
 
-import { InvitationModal } from ".";
+import { InvitationModal } from "./InvitationModal";
 
 import type {
   AddInvitationResponse,
@@ -153,6 +154,10 @@ export const InvitationsTable = ({
       });
   };
 
+  const isExpired = (date?: string | Date | number) => {
+    return !!(date && new Date(date) < new Date());
+  };
+
   const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
       accessorKey: "email",
@@ -194,13 +199,11 @@ export const InvitationsTable = ({
         const role = (getValue() as string) || "";
 
         return (
-          <>
-            <Tag
-              label={role}
-              color={role === "ADMIN" ? "default" : "green"}
-              fullWidth
-            />
-          </>
+          <Tag
+            label={role}
+            color={role === "ADMIN" ? "default" : "green"}
+            fullWidth
+          />
         );
       },
     },
@@ -231,8 +234,7 @@ export const InvitationsTable = ({
         const getLabel = () => {
           if (acceptedAt) return t("table.status.accepted");
           if (revokedAt) return t("table.status.revoked");
-          if (expiresAt && new Date(expiresAt) < new Date())
-            return t("table.status.expired");
+          if (isExpired(expiresAt)) return t("table.status.expired");
 
           return t("table.status.pending");
         };
@@ -240,16 +242,12 @@ export const InvitationsTable = ({
         const getColor = () => {
           if (acceptedAt) return "green";
           if (revokedAt) return "red";
-          if (expiresAt && new Date(expiresAt) < new Date()) return "gray";
+          if (isExpired(expiresAt)) return "gray";
 
           return "yellow";
         };
 
-        return (
-          <>
-            <Tag label={getLabel()} color={getColor()} fullWidth />
-          </>
-        );
+        return <Tag label={getLabel()} color={getColor()} fullWidth />;
       },
     },
     {
@@ -263,7 +261,7 @@ export const InvitationsTable = ({
     },
   ];
 
-  const renderToolbar = () => {
+  const renderToolbar = useCallback(() => {
     if (showInviteAction) {
       return (
         <div className="table-actions">
@@ -279,7 +277,7 @@ export const InvitationsTable = ({
         </div>
       );
     }
-  };
+  }, [showInviteAction]);
 
   return (
     <DataTable
@@ -288,7 +286,7 @@ export const InvitationsTable = ({
       data={invitations}
       emptyTableMessage={t("table.emptyMessage")}
       fetchData={fetchInvitations}
-      renderToolbarItems={showInviteAction ? renderToolbar : undefined}
+      renderToolbarItems={renderToolbar}
       totalRecords={totalRecords}
       visibleColumns={visibleColumns}
       paginationOptions={{
@@ -300,7 +298,10 @@ export const InvitationsTable = ({
           {
             label: t("invitations.actions.resend"),
             icon: "pi pi-replay",
-            disabled: (invitation) => !!invitation.acceptedAt,
+            disabled: (invitation) =>
+              !!invitation.acceptedAt ||
+              !!invitation.revokedAt ||
+              isExpired(invitation.expiresAt),
             onClick: (invitation) => handleResendInvitation(invitation),
             requireConfirmationModal: true,
             confirmationOptions: {
@@ -312,7 +313,10 @@ export const InvitationsTable = ({
             label: t("invitations.actions.revoke"),
             icon: "pi pi-times",
             className: "danger",
-            disabled: (invitation) => !!invitation.acceptedAt,
+            disabled: (invitation) =>
+              !!invitation.acceptedAt ||
+              !!invitation.revokedAt ||
+              isExpired(invitation.expiresAt),
             onClick: (invitation) => handleRevokeInvitation(invitation),
             requireConfirmationModal: true,
             confirmationOptions: {
