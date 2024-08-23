@@ -147,22 +147,6 @@ const DataTable = <TData extends { id: string | number }>({
       columns,
     });
 
-    const defaultActionColumn: ColumnDef<TData, unknown> = {
-      id: "actions",
-      header: () => <i className="pi pi-cog"></i>,
-      align: "center",
-      cell: ({ row: { original } }) => {
-        return (
-          <DataActionsMenu
-            {...(typeof dataActionsMenu === "function"
-              ? dataActionsMenu(original)
-              : dataActionsMenu)}
-            data={original}
-          />
-        );
-      },
-    };
-
     if (enableRowSelection) {
       parsedColumns = [
         {
@@ -195,7 +179,26 @@ const DataTable = <TData extends { id: string | number }>({
       ];
     }
 
-    if (dataActionsMenu) {
+    if (
+      (dataActionsMenu && visibleColumns.length === 0) ||
+      (dataActionsMenu && visibleColumns.includes("actions"))
+    ) {
+      const defaultActionColumn: ColumnDef<TData, unknown> = {
+        id: "actions",
+        header: () => <i className="pi pi-cog"></i>,
+        align: "center",
+        cell: ({ row: { original } }) => {
+          return (
+            <DataActionsMenu
+              {...(typeof dataActionsMenu === "function"
+                ? dataActionsMenu(original)
+                : dataActionsMenu)}
+              data={original}
+            />
+          );
+        },
+      };
+
       parsedColumns = [...parsedColumns, defaultActionColumn];
     }
 
@@ -263,7 +266,7 @@ const DataTable = <TData extends { id: string | number }>({
 
   useEffect(() => {
     if (visibleColumns.length !== 0) {
-      table.setColumnOrder(["select", ...visibleColumns, "actions"]);
+      table.setColumnOrder(["select", ...visibleColumns]);
     }
   }, [visibleColumns, parsedColumns]);
 

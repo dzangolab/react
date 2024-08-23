@@ -279,6 +279,15 @@ export interface TDataTableProperties<TData>
     | "itemsPerPageOptions"
     | "defaultItemsPerPage"
   >;
+  /**
+   * Determines whether row for column-specific actions
+   * should be displayed for the table columns.
+   *
+   * When set to `true`, the component will render a Toolbar with a button that can control the
+   * visibility of the columns
+   *
+   * @default false
+   */
   showColumnsAction?: boolean;
 }
 
