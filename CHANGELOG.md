@@ -1,3 +1,42 @@
+# [0.47.0](https://github.com/dzangolab/react/compare/v0.46.0...v0.47.0) (2024-08-26)
+
+
+### Breaking Changes
+
+#### 1. Removal of `@dzangolab/react-form` CSS from `@dzangolab/react-user` Package
+
+- **Removed Form CSS from User Package**: The default import of `@dzangolab/react-form` CSS has been removed from the `@dzangolab/react-user` package. The `@dzangolab/react-form` package is now a peer dependency of the `@dzangolab/react-user` package.
+- **Affected Component**: Applications using the `@dzangolab/react-user` package.
+- **Migration Steps**:
+   1. Add `@dzangolab/react-form` as a dependency in your application.
+   2. Import the `@dzangolab/react-form` CSS into your application manually. Example:
+      ```javascript
+      import "@dzangolab/react-form/dist/DzangolabReactForm.css";
+      ```
+#### 2. Make Table `Actions` Column's Visibility Configurable
+
+- **Configurable Table `Actions` Column**:  The `Actions` column in the `Table` component's visibility can now be configured using the `visibleColumns` prop. By default, the `Actions` column will be included in the table if the `dataActionsMenu` prop is provided. However, you must explicitly include it in the `visibleColumns` prop if you want it to appear.
+- **Affected Component**: Applications using the `visibleColumns` prop in `Table` component.
+- **Migration Steps**: If you are using the `visibleColumns` prop in the `Table` component and have actions defined, ensure that `"actions"` is included in the `visibleColumns` array. Example:
+     ```javascript
+      <UsersTable
+        visibleColumns={["email", ..., "actions"]} // <-- include "actions" here
+        dataActionsMenu={dataActionsMenu}
+      />
+     ```
+
+### Bug Fixes
+
+* **invitations:** disabled resend action if invitation  status is not… ([#1108](https://github.com/dzangolab/react/issues/1108)) ([021bc1d](https://github.com/dzangolab/react/commit/021bc1d31d12f80c40418eedab70565ff521e955))
+* **table:** make actions column visibility configurable via visibleCo… ([#1109](https://github.com/dzangolab/react/issues/1109)) ([d116940](https://github.com/dzangolab/react/commit/d11694019cb4777508c06d1c275c798cbcfc347c))
+
+
+### Features
+
+* **file-upload:** display file rejection error ([#1110](https://github.com/dzangolab/react/issues/1110)) ([7eb46d3](https://github.com/dzangolab/react/commit/7eb46d38e528cf40e01f716b09d8b36f566473b1))
+
+
+
 # [0.46.0](https://github.com/dzangolab/react/compare/v0.45.1...v0.46.0) (2024-08-19)
 
 
