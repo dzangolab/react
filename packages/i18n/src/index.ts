@@ -2,7 +2,7 @@ import { use } from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import ChainedBackend from "i18next-chained-backend";
 import resourcesToBackend from "i18next-resources-to-backend";
-import { initReactI18next, useTranslation } from "react-i18next";
+import { initReactI18next, useTranslation, Trans } from "react-i18next";
 
 import LocaleSwitcher from "./components/LocaleSwitcher";
 
@@ -43,4 +43,4 @@ declare module "@dzangolab/react-config" {
 
 export default plugin;
 
-export { LocaleSwitcher, useTranslation };
+export { LocaleSwitcher, useTranslation, Trans };
