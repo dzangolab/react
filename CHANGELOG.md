@@ -1,3 +1,18 @@
+# [0.47.0](https://github.com/dzangolab/react/compare/v0.46.0...v0.47.0) (2024-08-26)
+
+
+### Bug Fixes
+
+* **invitations:** disabled resend action if invitation  status is not… ([#1108](https://github.com/dzangolab/react/issues/1108)) ([021bc1d](https://github.com/dzangolab/react/commit/021bc1d31d12f80c40418eedab70565ff521e955))
+* **table:** make actions column visibility configurable via visibleCo… ([#1109](https://github.com/dzangolab/react/issues/1109)) ([d116940](https://github.com/dzangolab/react/commit/d11694019cb4777508c06d1c275c798cbcfc347c))
+
+
+### Features
+
+* **file-upload:** display file rejection error ([#1110](https://github.com/dzangolab/react/issues/1110)) ([7eb46d3](https://github.com/dzangolab/react/commit/7eb46d38e528cf40e01f716b09d8b36f566473b1))
+
+
+
 # [0.46.0](https://github.com/dzangolab/react/compare/v0.45.1...v0.46.0) (2024-08-19)
 
 
