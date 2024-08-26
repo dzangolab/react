@@ -24,6 +24,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   onFileSelect,
   onUpload,
   uploadButtonOptions,
+  errorMessages,
 }) => {
   const [selectedFiles, setSelectedFiles] = useState<FileExtended[]>(
     value || [],
@@ -57,6 +58,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
 
           setSelectedFiles(modifiedFiles);
         }}
+        errorMessages={errorMessages}
       />
 
       <FormActions
