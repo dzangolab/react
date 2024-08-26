@@ -111,6 +111,10 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 1rem 0;
+  background: rgba(255, 0, 0, 0.1);
+  padding: 0.75rem;
+  border-radius: 6px;
 }
 
 .file-input .dz-file-error {
@@ -120,4 +124,8 @@
 .file-input .dz-file-error > strong {
   display: block;
   margin-bottom: 0.25rem;
+}
+
+.file-input .dz-file-error > ul {
+  list-style: initial;
 }

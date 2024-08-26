@@ -20,6 +20,11 @@ export interface IFileDropzoneBasicProperties {
   descriptionPlaceholder?: string;
   dropzoneMessage?: string;
   dropzoneOptions?: DropzoneOptions;
+  errorMessages?: {
+    fileTooLarge?: string;
+    fileInvalidType?: string;
+    default?: string;
+  };
   onChange: (files: FileExtended[]) => void;
 }
 
