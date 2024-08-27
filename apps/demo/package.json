@@ -55,7 +55,7 @@
     "eslint-plugin-unicorn": "44.0.2",
     "jsdom": "25.0.0",
     "prettier": "3.3.3",
-    "typescript": "5.5.4",
+    "typescript": "5.4.5",
     "vite": "5.4.2",
     "vite-plugin-compression": "0.5.1",
     "vite-plugin-html": "3.2.2",
