@@ -18,10 +18,6 @@ export const DropdownMenuDemo = () => {
       icon: "pi pi-user",
       label: t("user:userMenu.profile"),
     },
-    {
-      icon: "pi pi-sign-out",
-      label: "logout",
-    },
   ];
 
   const template = (item: any) => {
