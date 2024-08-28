@@ -24,13 +24,13 @@ ul.dz-dropdown-menu {
   background-color: var(--dropdown-bg-color, #fff);
   border-radius: var(--dropdown-border-radius, inherit);
   list-style: none;
-  padding-inline-start: 0;
   min-width: 160px;
+  overflow: hidden;
+  padding-inline-start: 0;
   width: max-content;
 }
 
 ul.dz-dropdown-menu li {
-  border-radius: inherit;
   padding: 0.7rem 1.25rem;
   cursor: pointer;
   background-color: white;
@@ -46,7 +46,6 @@ ul.dz-dropdown-menu li[aria-disabled="true"] {
 
 ul.dz-dropdown-menu li:hover {
   background-color: var(--dropdown-bg-color-hover, #e5e5e5);
-  border-radius: 0;
 }
 
 @media screen and (min-width: 576px) {
