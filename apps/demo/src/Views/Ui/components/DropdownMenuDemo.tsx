@@ -32,10 +32,18 @@ export const DropdownMenuDemo = () => {
   return (
     <Page title={t("dropdownMenu.title")}>
       <Section title={t("dropdownMenu.usage.leftAlign")}>
-        <DropdownMenu position="top-start" menu={menuItems} />
+        <DropdownMenu
+          label={t("dropdownMenu.label.setting")}
+          position="top-start"
+          menu={menuItems}
+        />
       </Section>
       <Section title={t("dropdownMenu.usage.templating")}>
-        <DropdownMenu menu={menuItems} renderOption={template} />
+        <DropdownMenu
+          label={t("dropdownMenu.label.user")}
+          menu={menuItems}
+          renderOption={template}
+        />
       </Section>
     </Page>
   );

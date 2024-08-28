@@ -1,12 +1,14 @@
-.dz-dropdown-menu-trigger {
-  padding: 0.5rem;
+ .dz-dropdown-menu-trigger {
+  display: flex;
+  align-items: center;
+  padding: 0.65rem;
 }
 
 .dz-dropdown-menu-trigger .dz-icon {
   display: inline-block;
   transition: transform 0.3s ease;
   transform-origin: center;
-  margin-left: 1.25rem;
+  margin-left: 0.5rem;
 }
 
 .popup-trigger[aria-expanded="true"] .dz-dropdown-menu-trigger .dz-icon {
@@ -22,13 +24,13 @@ ul.dz-dropdown-menu {
   background-color: var(--dropdown-bg-color, #fff);
   border-radius: var(--dropdown-border-radius, inherit);
   list-style: none;
-  padding-inline-start: 0;
   min-width: 160px;
+  overflow: hidden;
+  padding-inline-start: 0;
   width: max-content;
 }
 
 ul.dz-dropdown-menu li {
-  border-radius: inherit;
   padding: 0.7rem 1.25rem;
   cursor: pointer;
   background-color: white;
