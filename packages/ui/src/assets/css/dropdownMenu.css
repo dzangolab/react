@@ -8,7 +8,7 @@
   display: inline-block;
   transition: transform 0.3s ease;
   transform-origin: center;
-  margin-left: 0.5rem;
+  margin-left: 1.25rem;
 }
 
 .popup-trigger[aria-expanded="true"] .dz-dropdown-menu-trigger .dz-icon {
