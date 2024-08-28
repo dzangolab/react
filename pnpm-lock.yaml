@@ -21,8 +21,8 @@ importers:
         specifier: 9.0.11
         version: 9.0.11
       shipjs:
-        specifier: 0.26.3
-        version: 0.26.3
+        specifier: 0.26.4
+        version: 0.26.4
       turbo:
         specifier: 2.0.7
         version: 2.0.7
@@ -2267,6 +2267,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
+    dev: false
 
   /@babel/runtime@7.24.4:
     resolution: {integrity: sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==}
@@ -2279,7 +2280,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
-    dev: false
 
   /@babel/template@7.24.7:
     resolution: {integrity: sha512-jYqfPrU9JTF0PmPy1tLYHW4Mp4KlgxJD9l2nP9fD6yT/ICi554DmrWBAEYpIelzjHf1msDP3PxJIRt/nFNfBig==}
@@ -7499,6 +7499,10 @@ packages:
   /q@1.5.1:
     resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
+    deprecated: |-
+      You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+
+      (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
     dev: true
 
   /querystringify@2.2.0:
@@ -8121,8 +8125,8 @@ packages:
       rechoir: 0.6.2
     dev: true
 
-  /shipjs-lib@0.26.3:
-    resolution: {integrity: sha512-7fCZ64qiYGGOSn/8XIsteGq02TdwX0Y2clWIuxOUDjd+SxXyioD00xOvPcXSfoRgwncHq+xo6wxgHUf/q3v/Ow==}
+  /shipjs-lib@0.26.4:
+    resolution: {integrity: sha512-14gBpRocyYPyi5DWlct+lKk3YwRSLLL650UFzM/8L2gnFoYOrk0JAesuXa0X5PC6Pg+aVmmwd372yh7nmVN84A==}
     dependencies:
       deepmerge: 4.3.1
       dotenv: 8.6.0
@@ -8131,12 +8135,12 @@ packages:
       shelljs: 0.8.5
     dev: true
 
-  /shipjs@0.26.3:
-    resolution: {integrity: sha512-TA/JfbVegeHDUrf/GhyQ0VqxADh7btjfXr54U/9Om58V3MjR5jx47cmSWwQXx2Es2S0BMA3Oup4qzeKGSOXUdw==}
+  /shipjs@0.26.4:
+    resolution: {integrity: sha512-NeXCbCuvwMzUL544kGVQIahshRddj2AskkScock5iH75868zWE1l5esnj0jWTvWkQ6UnBS0wuip/5v9vHQ4eyA==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.25.4
       '@octokit/rest': 17.11.2
       '@slack/webhook': 5.0.4
       add-stream: 1.0.0
@@ -8157,7 +8161,7 @@ packages:
       prettier: 2.8.8
       serialize-javascript: 3.1.0
       shell-quote: 1.8.1
-      shipjs-lib: 0.26.3
+      shipjs-lib: 0.26.4
       temp-write: 4.0.0
       tempfile: 3.0.0
     transitivePeerDependencies:
@@ -9262,7 +9266,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       cliui: 7.0.4
-      escalade: 3.1.1
+      escalade: 3.1.2
       get-caller-file: 2.0.5
       require-directory: 2.1.1
       string-width: 4.2.3
