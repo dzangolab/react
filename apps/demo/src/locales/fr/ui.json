@@ -49,6 +49,10 @@
     "usage": {
       "leftAlign": "Popup align left (fr)",
       "templating": "Menu templating (fr)"
+    },
+    "label": {
+      "setting": "Settings (fr)",
+      "user": "User (fr)"
     }
   },
   "editableTitle": {
