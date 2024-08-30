@@ -70,6 +70,7 @@ export const ConfirmationModal = ({
               )
             }
             onClick={onHide}
+            rounded
           />
         )}
       </div>

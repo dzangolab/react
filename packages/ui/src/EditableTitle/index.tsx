@@ -35,6 +35,7 @@ export const EditableTitle = ({
       variant="textOnly"
       severity="secondary"
       iconLeft="pi pi-pencil"
+      rounded
     ></Button>
   ),
   ...others
