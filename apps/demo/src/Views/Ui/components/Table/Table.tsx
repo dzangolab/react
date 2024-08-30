@@ -595,7 +595,9 @@ export const TableDemo = () => {
               header: () => <i className="pi pi-cog"></i>,
               width: "5rem",
               dataType: "other",
-              cell: () => <Button iconLeft="pi pi-eye" variant="textOnly" />,
+              cell: () => (
+                <Button iconLeft="pi pi-eye" variant="textOnly" rounded />
+              ),
             },
           ]}
           data={formatDemoData}
@@ -641,7 +643,9 @@ export const TableDemo = () => {
               header: () => <i className="pi pi-cog"></i>,
               width: "5rem",
               dataType: "other",
-              cell: () => <Button iconLeft="pi pi-eye" variant="textOnly" />,
+              cell: () => (
+                <Button iconLeft="pi pi-eye" variant="textOnly" rounded />
+              ),
             },
           ]}
           data={formatDemoData}
@@ -735,7 +739,9 @@ export const TableDemo = () => {
               header: () => <i className="pi pi-cog"></i>,
               width: "5rem",
               dataType: "other",
-              cell: () => <Button iconLeft="pi pi-eye" variant="textOnly" />,
+              cell: () => (
+                <Button iconLeft="pi pi-eye" variant="textOnly" rounded />
+              ),
             },
           ]}
           data={formatDemoData}
