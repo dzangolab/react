@@ -101,6 +101,7 @@ export const DataActionsMenu = ({
           onClick={(event) =>
             command && command(event as unknown as MenuItemCommandEvent)
           }
+          rounded
         />
       );
     }
