@@ -5,11 +5,10 @@ export interface IInputProperties
   errorMessage?: string;
   hasError?: boolean;
   label?: string;
-  type?: "text" | "number" | "email" | "date";
+  type?: "text" | "number" | "email";
 }
 
 export const Input = ({
-  className,
   defaultValue,
   disabled,
   errorMessage,
@@ -23,7 +22,7 @@ export const Input = ({
   ...others
 }: IInputProperties) => {
   return (
-    <div className={`field ${name} ${className}`.trimEnd()}>
+    <div className={`field ${name}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...others}

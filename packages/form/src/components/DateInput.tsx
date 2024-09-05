@@ -1,52 +1,41 @@
-import { IInputProperties, Input } from "@dzangolab/react-ui";
 import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
-interface IProperties extends IInputProperties {
-  disabled?: boolean;
+import { ErrorMessage } from "./ErrorMessage";
+
+interface IDateInput {
   label?: string;
   name: string;
-  showValidState?: boolean;
-  showInvalidState?: boolean;
-  submitCount?: number;
+  getFieldState?: UseFormGetFieldState<any>;
+  register?: UseFormRegister<any>;
+  disabled?: boolean;
 }
 
-export const DateInput: React.FC<IProperties> = ({
-  disabled = false,
+export const DateInput: React.FC<IDateInput> = ({
+  disabled,
+  register,
+  getFieldState,
   label = "",
   name,
-  showInvalidState = true,
-  showValidState = true,
-  submitCount = 0,
-  ...others
 }) => {
-  const { control, getFieldState } = useFormContext();
+  if (!register || !getFieldState) return null;
 
-  const { error, invalid } = getFieldState(name);
+  const { error, isDirty, isTouched, invalid } = getFieldState(name);
 
-  const checkInvalidState = () => {
-    if (showInvalidState && invalid) return true;
-    if (showValidState && !invalid) return false;
-  };
+  let inputClassName = "";
+  if (isDirty && !invalid) inputClassName = "valid";
+  if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field }) => (
-        <Input
-          {...others}
-          className="dz-date-input"
-          defaultValue={field.value}
-          disabled={disabled}
-          errorMessage={error?.message}
-          hasError={submitCount > 0 ? checkInvalidState() : undefined}
-          label={label}
-          name={field.name}
-          onChange={field.onChange}
-          type="date"
-        />
-      )}
-    />
+    <div className={`field ${name}`}>
+      {label && <label htmlFor={name}>{label}</label>}
+      <input
+        {...register(name)}
+        className={inputClassName}
+        type="date"
+        disabled={disabled}
+      ></input>
+      {error?.message && <ErrorMessage message={error.message} />}
+    </div>
   );
 };

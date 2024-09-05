@@ -135,9 +135,8 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
       <DateInput
         label={t("formInput.label.dateInput")}
         name="date"
-        submitCount={submitCount}
-        showValidState={valid}
-        showInvalidState={invalid}
+        register={register}
+        getFieldState={getFieldState}
       />
       <Typeahead
         placeholder={t("formInput.placeHolder.typeahead")}
