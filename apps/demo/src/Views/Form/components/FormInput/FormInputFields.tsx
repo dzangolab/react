@@ -133,7 +133,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         defaultValue="monorepo@gmail.com"
       />
       <DateInput
-        label="DateInput"
+        label={t("formInput.label.dateInput")}
         name="date"
         submitCount={submitCount}
         showValidState={valid}

@@ -38,6 +38,7 @@
       "required": "Required field"
     },
     "label": {
+      "dateInput": "DateInput",
       "disabled": "Disabled input",
       "email": "Email",
       "filled": "Filled input",
