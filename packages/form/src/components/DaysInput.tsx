@@ -1,13 +1,13 @@
 import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
-export type IDateInputField = CustomInputProperties &
+export type IDaysInputField = CustomInputProperties &
   React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   >;
 
-export const DateInput: React.FC<IDateInputField> = ({
+export const DaysInput: React.FC<IDaysInputField> = ({
   getFieldState,
   label = "",
   name,

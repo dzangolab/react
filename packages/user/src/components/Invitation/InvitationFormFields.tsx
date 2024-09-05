@@ -1,6 +1,6 @@
 import {
   Select,
-  DateInput,
+  DaysInput,
   DatePicker,
   Email,
   useFormContext,
@@ -84,7 +84,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
           placeholder={t("form.fields.expiresAt.placeholder")}
         />
       ) : (
-        <DateInput
+        <DaysInput
           getFieldState={getFieldState}
           label={t("form.fields.expiresAfter.label")}
           name="expiresAt"
