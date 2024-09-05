@@ -1,5 +1,5 @@
 export * from "./DatePicker";
-export * from "./DateInput";
+export * from "./DaysInput";
 export * from "./Email";
 export * from "./ErrorMessage";
 export * from "./File";
