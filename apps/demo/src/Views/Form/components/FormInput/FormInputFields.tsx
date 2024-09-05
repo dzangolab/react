@@ -137,6 +137,9 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="date"
         register={register}
         getFieldState={getFieldState}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
       />
       <Typeahead
         placeholder={t("formInput.placeHolder.typeahead")}
