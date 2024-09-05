@@ -13,7 +13,6 @@ export const DaysInput: React.FC<IDaysInputField> = ({
   name,
   placeholder,
   register,
-  type,
   ...others
 }) => {
   if (!register || !getFieldState) return null;
@@ -48,7 +47,7 @@ export const DaysInput: React.FC<IDaysInputField> = ({
         {...updatedRegister}
         id={`input-field-${name}`}
         className={inputClassName}
-        type={type}
+        type="number"
         placeholder={placeholder}
         {...others}
       />
