@@ -41,6 +41,7 @@ export const FormInputDemo = () => {
       .array()
       .nonempty({ message: t("formInput.message.required") }),
     typeahead: zod.string().min(1, t("formInput.message.required")),
+    date: zod.string().date(),
   });
 
   const handleSubmit = (_formData: any) => {

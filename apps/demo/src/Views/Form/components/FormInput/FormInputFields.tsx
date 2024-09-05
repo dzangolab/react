@@ -8,6 +8,7 @@ import {
   NumberInput,
   Select,
   Typeahead,
+  DateInput,
 } from "@dzangolab/react-form";
 import { Textarea } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
@@ -130,6 +131,15 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         name="readOnly"
         readOnly={true}
         defaultValue="monorepo@gmail.com"
+      />
+      <DateInput
+        label={t("formInput.label.dateInput")}
+        name="date"
+        register={register}
+        getFieldState={getFieldState}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
       />
       <Typeahead
         placeholder={t("formInput.placeHolder.typeahead")}
