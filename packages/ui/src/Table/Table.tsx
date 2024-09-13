@@ -1,5 +1,4 @@
 import {
-  flexRender,
   getCoreRowModel,
   useReactTable,
   getPaginationRowModel,
@@ -11,57 +10,34 @@ import {
   PaginationState,
   Updater,
 } from "@tanstack/react-table";
-import React, {
-  SyntheticEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import {
   DEFAULT_PAGE_INDEX,
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "./constants";
+import { TableBody } from "./TableBody";
 import { DataActionsMenu } from "./TableDataActions";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  ColumnHeader,
-  TableHeader,
-  TableRow,
-  TableToolbar,
-  TableFooter,
-  TooltipWrapper,
-} from "./TableElements";
-import {
-  getRequestJSON,
-  getParsedColumns,
-  formatNumber,
-  formatDate,
-} from "./utils";
-import { Checkbox, DebouncedInput, Popup, SortableList } from "..";
+import { Table, TableToolbar, TableFooter } from "./TableElements";
+import { TableHeader } from "./TableHeader";
+import { getRequestJSON, getParsedColumns } from "./utils";
+import { Checkbox, Popup, SortableList } from "..";
 import { Button } from "../Buttons/ButtonBasic";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
 
-import type {
-  CellAlignmentType,
-  CellDataType,
-  TDataTableProperties,
-} from "./types";
-import type { Cell, ColumnDef, NoInfer } from "@tanstack/react-table";
+import type { TDataTableProperties } from "./types";
+import type { ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   className = "",
   columns = [],
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
-  customFormatters = {},
+  customFormatters,
   data,
   dataActionsMenu,
-  emptyTableMessage = "No results.",
+  emptyTableMessage,
   enableRowSelection = false,
   id,
   isLoading = false,
@@ -97,7 +73,6 @@ const DataTable = <TData extends { id: string | number }>({
       ? rowPerPage || DEFAULT_PAGE_SIZE
       : totalRecords || data.length,
   });
-  const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
     const updatedColumnFilter =
@@ -118,27 +93,6 @@ const DataTable = <TData extends { id: string | number }>({
 
     setColumnFilters(updatedFilters);
     table.setPageIndex(0);
-  };
-
-  const getAlignValue = ({
-    align,
-    dataType,
-  }: {
-    align?: CellAlignmentType;
-    dataType?: CellDataType;
-    header?: boolean;
-  }) => {
-    if (align) {
-      return align;
-    }
-
-    if (dataType == "other") {
-      return "center";
-    } else if (dataType == "number" || dataType == "currency") {
-      return "right";
-    } else {
-      return "left";
-    }
   };
 
   const parsedColumns = useMemo(() => {
@@ -234,6 +188,38 @@ const DataTable = <TData extends { id: string | number }>({
   });
 
   const mappedSelectedRows = table.getFilteredSelectedRowModel();
+  const totalItems = fetchData
+    ? totalRecords
+    : table.getFilteredRowModel().rows?.length;
+
+  const getSortableListItems = () => {
+    const items = table
+      .getAllLeafColumns()
+      .filter((column) => column.id !== "select" && column.id !== "actions")
+      .map((column, index) => ({
+        id: index,
+        data: column,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        render: (data: any) => {
+          let header = data.columnDef.header;
+
+          if (typeof data.columnDef.header === "function") {
+            header = data.columnDef.header();
+          }
+
+          return (
+            <Checkbox
+              checked={data.getIsVisible()}
+              onClick={() => data.toggleVisibility()}
+              label={header}
+              onChange={() => null} //[TODO] this prop is required here
+            />
+          );
+        },
+      }));
+
+    return items;
+  };
 
   useEffect(() => {
     onRowSelectChange && onRowSelectChange(table);
@@ -254,39 +240,11 @@ const DataTable = <TData extends { id: string | number }>({
     fetchData,
   ]);
 
-  const handleSort = useCallback(
-    (event: SyntheticEvent, sortHandler?: (event: SyntheticEvent) => void) => {
-      event.stopPropagation();
-      if (sortHandler) {
-        sortHandler(event);
-      }
-    },
-    [],
-  );
-
   useEffect(() => {
     if (visibleColumns.length !== 0) {
       table.setColumnOrder(["select", ...visibleColumns]);
     }
   }, [visibleColumns, parsedColumns]);
-
-  const renderTooltipContent = (
-    cell: Cell<TData, unknown>,
-  ): React.ReactNode => {
-    const tooltip = cell.column.columnDef.tooltip;
-
-    if (typeof tooltip === "string") {
-      return tooltip;
-    } else if (typeof tooltip === "function") {
-      return tooltip(cell);
-    }
-
-    return cell.getValue() as string;
-  };
-
-  const totalItems = fetchData
-    ? totalRecords
-    : table.getFilteredRowModel().rows?.length;
 
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>
@@ -303,34 +261,7 @@ const DataTable = <TData extends { id: string | number }>({
                   trigger={<Button label={columnActionButtonLabel} />}
                   content={
                     <SortableList
-                      items={table
-                        .getAllLeafColumns()
-                        .filter(
-                          (column) =>
-                            column.id !== "select" && column.id !== "actions",
-                        )
-                        .map((column, index) => ({
-                          id: index,
-                          data: column,
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          render: (data: any) => {
-                            let header = data.columnDef.header;
-
-                            if (typeof data.columnDef.header === "function") {
-                              header = data.columnDef.header();
-                            }
-
-                            return (
-                              <>
-                                <Checkbox
-                                  checked={data.getIsVisible()}
-                                  onClick={() => data.toggleVisibility()}
-                                  label={header}
-                                ></Checkbox>
-                              </>
-                            );
-                          },
-                        }))}
+                      items={getSortableListItems()}
                       onSort={(sorted) => {
                         table.setColumnOrder([
                           ...(enableRowSelection ? ["select"] : []),
@@ -350,259 +281,19 @@ const DataTable = <TData extends { id: string | number }>({
       ) : null}
 
       <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id} className="header-row">
-              {headerGroup.headers.map(
-                ({ column, getContext, id, isPlaceholder, colSpan }) => {
-                  const {
-                    columnDef,
-                    getCanSort,
-                    getIsSorted,
-                    getToggleSortingHandler,
-                  } = column;
+        <TableHeader
+          table={table}
+          renderSortIcons={renderSortIcons}
+          inputDebounceTime={inputDebounceTime}
+        />
 
-                  const activeColumnClass = `${
-                    getIsSorted() === "asc" || getIsSorted() === "desc"
-                      ? "highlight"
-                      : ""
-                  }`;
-
-                  if (!isFilterRowVisible && column.getCanFilter()) {
-                    setIsFilterRowVisible(true);
-                  }
-
-                  const getSortIcon = () => {
-                    if (renderSortIcons) {
-                      return renderSortIcons(getIsSorted());
-                    }
-
-                    switch (getIsSorted()) {
-                      case "asc":
-                        return <i className="pi pi-arrow-up"></i>;
-                      case "desc":
-                        return <i className="pi pi-arrow-down"></i>;
-                      default:
-                        return <i className="pi pi-arrows-v"></i>;
-                    }
-                  };
-
-                  return (
-                    <ColumnHeader
-                      key={id}
-                      colSpan={colSpan}
-                      className={`column-${id} ${
-                        columnDef.className || ""
-                      } ${activeColumnClass} ${
-                        columnDef.enableSorting ? "sortable" : ""
-                      }`
-                        .replace(/\s\s/, " ")
-                        .trimEnd()}
-                      data-align={getAlignValue({
-                        align: columnDef.align,
-                        dataType: columnDef.dataType,
-                      })}
-                      style={{
-                        width: columnDef.width,
-                        maxWidth: columnDef.maxWidth,
-                        minWidth: columnDef.minWidth,
-                      }}
-                      onClick={(event) => {
-                        if (getCanSort()) {
-                          handleSort(event, getToggleSortingHandler());
-                        }
-                      }}
-                    >
-                      <>
-                        {isPlaceholder ? null : (
-                          <>
-                            {flexRender(columnDef.header, getContext())}
-
-                            {getCanSort() ? (
-                              <span className="sort-state">
-                                {getSortIcon()}
-                              </span>
-                            ) : null}
-                          </>
-                        )}
-                      </>
-                    </ColumnHeader>
-                  );
-                },
-              )}
-            </TableRow>
-          ))}
-
-          {isFilterRowVisible ? (
-            <TableRow key={"filters"} className={`header-row filters`}>
-              {table.getVisibleLeafColumns().map((column) => {
-                if (!column.getCanFilter()) {
-                  return (
-                    <ColumnHeader key={"filter" + column.id}></ColumnHeader>
-                  );
-                }
-
-                const activeColumnClass = `${
-                  column.getIsFiltered() ? "highlight" : ""
-                }`;
-
-                return (
-                  <ColumnHeader
-                    key={"filter" + column.id}
-                    data-label={column.id}
-                    data-align={getAlignValue({
-                      align: column.columnDef.align,
-                      dataType: column.columnDef.dataType,
-                    })}
-                    style={{
-                      width: column.columnDef.width,
-                      maxWidth: column.columnDef.maxWidth,
-                      minWidth: column.columnDef.minWidth,
-                    }}
-                    className={`${
-                      column.id ? `column-${column.id}` : ``
-                    } ${activeColumnClass} ${column.columnDef.className || ""}`
-                      .replace(/\s\s/, " ")
-                      .trimEnd()}
-                  >
-                    {column.columnDef.customFilterComponent ? (
-                      column.columnDef.customFilterComponent(column)
-                    ) : (
-                      <DebouncedInput
-                        defaultValue={column.getFilterValue() as string}
-                        onInputChange={(value) => {
-                          column.setFilterValue(value);
-                        }}
-                        placeholder={column.columnDef.filterPlaceholder || ""}
-                        debounceTime={inputDebounceTime}
-                      ></DebouncedInput>
-                    )}
-                  </ColumnHeader>
-                );
-              })}
-            </TableRow>
-          ) : null}
-        </TableHeader>
-
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                {...(enableRowSelection && {
-                  "data-selected": row.getIsSelected(),
-                })}
-                data-id={row.original.id ?? row.id}
-              >
-                {row.getVisibleCells().map((cell) => {
-                  const getFormattedValueContext: typeof cell.getContext =
-                    () => {
-                      const cellContext = cell.getContext();
-                      const renderValue = cellContext.getValue;
-                      const dateOptions = cell.column.columnDef.dateOptions;
-                      const numberOptions = cell.column.columnDef.numberOptions;
-
-                      const getFormattedValue = (): NoInfer<never> => {
-                        const defaultCustomFormatters: Record<
-                          string,
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          (value: any) => NoInfer<never>
-                        > = {
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          number: (value: any) =>
-                            formatNumber({
-                              value: Number(value),
-                              locale: numberOptions?.locale,
-                              formatOptions: numberOptions?.formatOptions,
-                            }) as NoInfer<never>,
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          date: (value: any) =>
-                            formatDate({
-                              date: value as Date,
-                              locale: dateOptions?.locale,
-                              formatOptions: dateOptions?.formatOptions,
-                            }) as NoInfer<never>,
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          currency: (value: any) =>
-                            formatNumber({
-                              value: Number(value),
-                              locale: numberOptions?.locale,
-                              formatOptions: {
-                                style: "currency",
-                                currency: "USD",
-                                ...(numberOptions?.formatOptions &&
-                                  numberOptions.formatOptions),
-                              },
-                            }) as NoInfer<never>,
-                          ...customFormatters,
-                        };
-
-                        const dataType: string =
-                          cell.column.columnDef.dataType || "text";
-
-                        return (
-                          defaultCustomFormatters?.[dataType]?.(
-                            renderValue(),
-                          ) || renderValue()
-                        );
-                      };
-
-                      return {
-                        ...cellContext,
-                        renderValue: () => getFormattedValue(),
-                        getValue: () => getFormattedValue(),
-                      };
-                    };
-
-                  return (
-                    <TableCell
-                      key={cell.id}
-                      data-label={cell.column.id}
-                      data-align={getAlignValue({
-                        align: cell.column.columnDef.align,
-                        dataType: cell.column.columnDef.dataType,
-                      })}
-                      className={`${
-                        cell.column.id ? `cell-${cell.column.id}` : ``
-                      } ${cell.column.columnDef.className || ""}`
-                        .replace(/\s\s/, " ")
-                        .trimEnd()}
-                      style={{
-                        width: cell.column.columnDef.width,
-                        maxWidth: cell.column.columnDef.maxWidth,
-                        minWidth: cell.column.columnDef.minWidth,
-                      }}
-                    >
-                      {cell.column.columnDef.tooltip ? (
-                        <TooltipWrapper
-                          tooltipOptions={{
-                            children: renderTooltipContent(cell),
-                            ...cell.column.columnDef?.tooltipOptions,
-                          }}
-                          cellContent={flexRender(
-                            cell.column.columnDef.cell,
-                            getFormattedValueContext(),
-                          )}
-                        ></TooltipWrapper>
-                      ) : (
-                        flexRender(
-                          cell.column.columnDef.cell,
-                          getFormattedValueContext(),
-                        )
-                      )}
-                    </TableCell>
-                  );
-                })}
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={parsedColumns.length}>
-                {emptyTableMessage}
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
+        <TableBody
+          table={table}
+          parsedColumnsLength={parsedColumns.length}
+          emptyTableMessage={emptyTableMessage}
+          enableRowSelection={enableRowSelection}
+          customFormatters={customFormatters}
+        />
 
         {renderTableFooterContent ? (
           <TableFooter children={renderTableFooterContent(table)} />
