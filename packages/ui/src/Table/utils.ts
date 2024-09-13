@@ -1,4 +1,6 @@
 import type {
+  CellAlignmentType,
+  CellDataType,
   FormatDateType,
   FormatNumberType,
   TFilterFn as TFilterFunction,
@@ -275,6 +277,7 @@ export const formatNumber = ({
 
   return formatter.format(value);
 };
+
 export const formatDate = ({
   date,
   locale = "en-GB",
@@ -299,5 +302,26 @@ export const formatDate = ({
     return formatter.format(parsedDate);
   } else {
     return date;
+  }
+};
+
+export const getAlignValue = ({
+  align,
+  dataType,
+}: {
+  align?: CellAlignmentType;
+  dataType?: CellDataType;
+  header?: boolean;
+}) => {
+  if (align) {
+    return align;
+  }
+
+  if (dataType == "other") {
+    return "center";
+  } else if (dataType == "number" || dataType == "currency") {
+    return "right";
+  } else {
+    return "left";
   }
 };
