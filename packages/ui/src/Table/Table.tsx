@@ -17,12 +17,13 @@ import {
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "./constants";
+import { getSortableColumnList } from "./helper";
 import { TableBody } from "./TableBody";
 import { DataActionsMenu } from "./TableDataActions";
 import { Table, TableToolbar, TableFooter } from "./TableElements";
 import { TableHeader } from "./TableHeader";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { Checkbox, Popup, SortableList } from "..";
+import { Checkbox, Popup, SortableList } from "../";
 import { Button } from "../Buttons/ButtonBasic";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
@@ -192,34 +193,20 @@ const DataTable = <TData extends { id: string | number }>({
     ? totalRecords
     : table.getFilteredRowModel().rows?.length;
 
-  const getSortableListItems = () => {
-    const items = table
-      .getAllLeafColumns()
-      .filter((column) => column.id !== "select" && column.id !== "actions")
-      .map((column, index) => ({
-        id: index,
-        data: column,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        render: (data: any) => {
-          let header = data.columnDef.header;
+  useEffect(() => {
+    if (fetchData) {
+      return;
+    }
 
-          if (typeof data.columnDef.header === "function") {
-            header = data.columnDef.header();
-          }
-
-          return (
-            <Checkbox
-              checked={data.getIsVisible()}
-              onClick={() => data.toggleVisibility()}
-              label={header}
-              onChange={() => null} //[TODO] this prop is required here
-            />
-          );
-        },
+    if (paginated && rowPerPage) {
+      setPagination((previous) => ({ ...previous, pageSize: rowPerPage }));
+    } else {
+      setPagination((previous) => ({
+        ...previous,
+        pageSize: totalRecords || data.length,
       }));
-
-    return items;
-  };
+    }
+  }, [fetchData, paginated, rowPerPage, totalRecords, data]);
 
   useEffect(() => {
     onRowSelectChange && onRowSelectChange(table);
@@ -261,7 +248,7 @@ const DataTable = <TData extends { id: string | number }>({
                   trigger={<Button label={columnActionButtonLabel} />}
                   content={
                     <SortableList
-                      items={getSortableListItems()}
+                      items={getSortableColumnList(table)}
                       onSort={(sorted) => {
                         table.setColumnOrder([
                           ...(enableRowSelection ? ["select"] : []),
