@@ -17,14 +17,13 @@ import {
   DEFAULT_PAGE_PER_OPTIONS,
   DEFAULT_PAGE_SIZE,
 } from "./constants";
-import { getSortableColumnList } from "./helper";
 import { TableBody } from "./TableBody";
 import { DataActionsMenu } from "./TableDataActions";
-import { Table, TableToolbar, TableFooter } from "./TableElements";
+import { Table, TableFooter } from "./TableElements";
 import { TableHeader } from "./TableHeader";
+import { TableToolbar } from "./TableToolbar";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { Checkbox, Popup, SortableList } from "../";
-import { Button } from "../Buttons/ButtonBasic";
+import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
 
@@ -241,29 +240,12 @@ const DataTable = <TData extends { id: string | number }>({
 
       {showColumnsAction || renderToolbarItems ? (
         <TableToolbar
-          children={
-            <>
-              {showColumnsAction ? (
-                <Popup
-                  trigger={<Button label={columnActionButtonLabel} />}
-                  content={
-                    <SortableList
-                      items={getSortableColumnList(table)}
-                      onSort={(sorted) => {
-                        table.setColumnOrder([
-                          ...(enableRowSelection ? ["select"] : []),
-                          ...sorted.map((item) => item.data.id),
-                          ...(dataActionsMenu ? ["actions"] : []),
-                        ]);
-                      }}
-                    />
-                  }
-                />
-              ) : null}
-
-              {renderToolbarItems ? renderToolbarItems(table) : null}
-            </>
-          }
+          table={table}
+          showColumnsAction={showColumnsAction}
+          columnActionButtonLabel={columnActionButtonLabel}
+          dataActionsMenu={dataActionsMenu}
+          renderToolbarItems={renderToolbarItems}
+          enableRowSelection={enableRowSelection}
         />
       ) : null}
 
