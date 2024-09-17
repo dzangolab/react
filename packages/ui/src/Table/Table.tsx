@@ -69,9 +69,7 @@ const DataTable = <TData extends { id: string | number }>({
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: DEFAULT_PAGE_INDEX,
-    pageSize: paginated
-      ? rowPerPage || DEFAULT_PAGE_SIZE
-      : totalRecords || data.length,
+    pageSize: paginated ? rowPerPage || DEFAULT_PAGE_SIZE : totalRecords,
   });
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
@@ -193,19 +191,16 @@ const DataTable = <TData extends { id: string | number }>({
     : table.getFilteredRowModel().rows?.length;
 
   useEffect(() => {
-    if (fetchData) {
-      return;
-    }
-
-    if (paginated && rowPerPage) {
-      setPagination((previous) => ({ ...previous, pageSize: rowPerPage }));
+    if (paginated) {
+      rowPerPage &&
+        setPagination((previous) => ({ ...previous, pageSize: rowPerPage }));
     } else {
       setPagination((previous) => ({
         ...previous,
-        pageSize: totalRecords || data.length,
+        pageSize: totalRecords,
       }));
     }
-  }, [fetchData, paginated, rowPerPage, totalRecords, data]);
+  }, [paginated, rowPerPage, totalRecords]);
 
   useEffect(() => {
     onRowSelectChange && onRowSelectChange(table);
