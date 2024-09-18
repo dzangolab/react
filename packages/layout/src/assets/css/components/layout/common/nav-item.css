@@ -2,6 +2,10 @@
   --_nav-item-color: var(--dz-layout-nav-item-color, #ffffff);
   --_nav-item-hover-color: var(--dz-layout-nav-item-hover-color, #ffffff);
   --_nav-item-active-color: var(--dz-layout-nav-item-active-color, #ffffff);
+  --_nav-item-disabled-color: var(
+    --dz-layout-nav-item-disabled-color,
+    rgb(220 220 220)
+  );
   --_nav-item-hover-bg: var(
     --dz-layout-nav-item-hover-bg,
     rgba(45, 45, 45, 0.125)
@@ -37,6 +41,13 @@
   color: var(--_nav-item-active-color);
   font-weight: 500;
   text-decoration: none;
+}
+
+.dz-nav-item[aria-disabled="true"] {
+  background: unset;
+  color: var(--_nav-item-disabled-color);
+  cursor: default;
+  opacity: 0.8;
 }
 
 .dz-nav-item > span {
