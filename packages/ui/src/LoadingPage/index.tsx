@@ -9,7 +9,7 @@ export interface LoadingPageProperties
 
 const LoadingPage = ({
   color,
-  fontSize = "0.6em",
+  fontSize,
   pageType = "container",
 }: LoadingPageProperties) => {
   return (

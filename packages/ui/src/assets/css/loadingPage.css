@@ -6,6 +6,7 @@
 }
 
 .loading-container > .loading {
+  font-size: 0.5em;
   color: black;
 }
 
@@ -25,5 +26,6 @@
 }
 
 .loading-overlay > .loading {
+  font-size: 0.5em;
   color: var(--loading-icon-color, #ffffff);
 }
