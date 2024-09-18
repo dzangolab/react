@@ -1,7 +1,9 @@
 export type NavItemType = {
-  label: string | React.ReactNode;
-  icon?: string;
+  className?: string;
+  disabled?: boolean;
   display?: boolean;
+  icon?: string;
+  label: string | React.ReactNode;
 } & ({ route: string } | { onClick: () => void });
 
 export type NavGroupType = {
