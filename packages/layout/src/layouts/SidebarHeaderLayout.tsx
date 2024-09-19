@@ -1,6 +1,8 @@
+import { UserMenuModeType } from "@/components/Layout";
+
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
-interface IProperties {
+export interface SidebarHeaderLayoutProperties {
   children: React.ReactNode;
   className?: string;
   collapsible?: boolean;
@@ -16,6 +18,7 @@ interface IProperties {
   noToggle?: boolean;
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
+  userMenuMode?: "popup" | "collapsible" | "collapsible-reverse";
   userMenuLocation?: "sidebar" | "header";
   userMenuTrigger?: React.ReactNode;
 }
@@ -36,9 +39,10 @@ export const SidebarHeaderLayout = ({
   noToggle,
   title,
   userMenu,
+  userMenuMode,
   userMenuLocation = "header",
   userMenuTrigger,
-}: IProperties) => {
+}: SidebarHeaderLayoutProperties) => {
   const getNavigationMenu = () => {
     const userNavigationMenu = userMenu;
 
@@ -82,6 +86,7 @@ export const SidebarHeaderLayout = ({
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
           userMenu={userMenu}
+          userMenuMode={userMenuMode}
           trigger={userMenuTrigger}
         ></Sidebar>
       )}

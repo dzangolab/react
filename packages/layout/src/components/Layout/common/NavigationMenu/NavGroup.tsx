@@ -1,4 +1,3 @@
-import { useMediaQuery } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { Navigation } from "./Navigation";
@@ -6,6 +5,8 @@ import { NavItem } from "./NavItem";
 import { NavGroupType } from "../../types";
 
 export type NavGroupProperties = {
+  initialVisible?: boolean;
+  collapsible?: boolean;
   displayIcon?: boolean;
   horizontal?: boolean;
   navGroup: NavGroupType;
@@ -13,13 +14,14 @@ export type NavGroupProperties = {
 };
 
 export const NavGroup = ({
+  collapsible = true,
+  initialVisible = false,
   displayIcon = true,
   horizontal,
   navGroup,
   className = "",
 }: NavGroupProperties) => {
-  const [showSubmenu, setShowSubmenu] = useState(false);
-  const isSmallScreen = useMediaQuery("(max-width:576px)");
+  const [showSubmenu, setShowSubmenu] = useState(initialVisible);
 
   const renderSubmenu = () => {
     return (
@@ -42,24 +44,20 @@ export const NavGroup = ({
     );
   };
 
-  const navGroupProperties =
-    isSmallScreen || !horizontal
-      ? {
-          className: `dz-nav-group ${className}`.trim(),
-          "aria-expanded": showSubmenu,
-        }
-      : { className: `dz-nav-group ${className}`.trim() };
-
   return (
-    <div {...navGroupProperties}>
+    <div
+      className={`dz-nav-group ${className}`.trim()}
+      aria-expanded={showSubmenu}
+    >
       <NavItem
         navItem={{
           label: navGroup.label,
           icon: navGroup.icon,
-          onClick: () => setShowSubmenu(!showSubmenu),
+          onClick: () => collapsible && setShowSubmenu(!showSubmenu),
         }}
         displayIcon={displayIcon}
         isGroupHeader
+        collapsible={collapsible}
       ></NavItem>
       {renderSubmenu()}
     </div>

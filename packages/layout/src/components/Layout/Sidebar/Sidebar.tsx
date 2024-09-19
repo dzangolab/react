@@ -3,7 +3,7 @@ import { SidebarHeader } from "./Header";
 import { NavigationMenu } from "../common";
 import { UserMenu } from "../common/UserMenu";
 
-import type { NavMenuItemType, NavMenuType } from "../types";
+import type { NavMenuItemType, NavMenuType, UserMenuModeType } from "../types";
 
 type SidebarProperties = {
   children?: React.ReactNode;
@@ -14,6 +14,7 @@ type SidebarProperties = {
   noHeader?: boolean;
   noLocaleSwitcher?: boolean;
   userMenu?: NavMenuItemType;
+  userMenuMode?: "popup" | "collapsible" | "collapsible-reverse";
   trigger?: React.ReactNode;
 };
 
@@ -26,6 +27,7 @@ export const Sidebar = ({
   noHeader = false,
   noLocaleSwitcher = false,
   userMenu,
+  userMenuMode,
   trigger,
 }: SidebarProperties) => {
   const renderContent = () => {
@@ -40,7 +42,7 @@ export const Sidebar = ({
           <UserMenu
             menu={userMenu}
             trigger={trigger}
-            userMenuMode="expandable"
+            userMenuMode={userMenuMode}
           />
         )}
         {!noFooter && <SidebarFooter noLocaleSwitcher={noLocaleSwitcher} />}

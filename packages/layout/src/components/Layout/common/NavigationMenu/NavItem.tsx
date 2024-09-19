@@ -6,16 +6,20 @@ export type NavItemProperties = {
   displayIcon?: boolean;
   navItem: NavItemType;
   isGroupHeader?: boolean;
+  collapsible?: boolean;
 };
 
 export const NavItem = ({
   navItem,
   displayIcon = true,
   isGroupHeader,
+  collapsible = true,
 }: NavItemProperties) => {
   const hasRouterContext = useInRouterContext();
 
-  const _className = `dz-nav-item ${navItem.className || ""}`.trim();
+  const _className = `${
+    isGroupHeader && !collapsible ? "dz-nav-header" : "dz-nav-item"
+  } ${navItem.className || ""}`.trim();
 
   if ("display" in navItem && !navItem.display) {
     return null;
@@ -26,9 +30,6 @@ export const NavItem = ({
       <div className={_className} aria-disabled={navItem.disabled}>
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         <span>{navItem.label}</span>
-        {isGroupHeader && (
-          <i className="pi pi-angle-right dz-nav-group-toggle" />
-        )}
       </div>
     );
   }
@@ -38,7 +39,7 @@ export const NavItem = ({
       <div className={_className} onClick={navItem.onClick}>
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         <span>{navItem.label}</span>
-        {isGroupHeader && (
+        {isGroupHeader && collapsible && (
           <i className="pi pi-angle-right dz-nav-group-toggle" />
         )}
       </div>

@@ -12,8 +12,9 @@ interface IProperties {
 }
 
 export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
-  const navigate = useNavigate();
   const { label: userMenuLabel, menu: userMenu = [] } = menu;
+
+  const navigate = useNavigate();
 
   const refinedMenu = useMemo(
     () =>
@@ -56,38 +57,62 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
       );
     }
 
-    if (userMenuMode === "horizontal") {
-      return (
-        <ul className="dz-user-menu" aria-orientation={userMenuMode}>
-          {refinedMenu.map(({ onClick, ..._menuItem }) => {
-            return (
-              <li key={_menuItem.label} onClick={onClick}>
-                {template(_menuItem)}
-              </li>
-            );
-          })}
-        </ul>
-      );
+    switch (userMenuMode) {
+      case "horizontal":
+        return (
+          <ul className="dz-user-menu" aria-orientation={userMenuMode}>
+            {refinedMenu.map(({ onClick, ..._menuItem }) => {
+              return (
+                <li key={_menuItem.label} onClick={onClick}>
+                  {template(_menuItem)}
+                </li>
+              );
+            })}
+          </ul>
+        );
+      case "popup":
+        return (
+          <DropdownMenu
+            className="dz-user-menu"
+            renderOption={template}
+            menu={refinedMenu || []}
+            label={userMenuLabel}
+            trigger={trigger}
+          />
+        );
+      case "collapsible":
+        return (
+          <NavGroup
+            className="dz-user-menu"
+            navGroup={{
+              label: userMenuLabel,
+              submenu: refinedMenu,
+            }}
+          />
+        );
+      case "collapsible-reverse":
+        return (
+          <NavGroup
+            className={`dz-user-menu ${userMenuMode}`}
+            navGroup={{
+              label: userMenuLabel,
+              submenu: refinedMenu,
+            }}
+          />
+        );
+      default:
+        return (
+          <NavGroup
+            initialVisible={true}
+            collapsible={false}
+            className="dz-user-menu"
+            navGroup={{
+              label: userMenuLabel,
+              submenu: refinedMenu,
+            }}
+          />
+        );
     }
-
-    return userMenuMode === "expandable" ? (
-      <NavGroup
-        className="dz-user-menu"
-        displayIcon
-        navGroup={{
-          label: userMenuLabel,
-          submenu: refinedMenu,
-        }}
-      />
-    ) : (
-      <DropdownMenu
-        className="dz-user-menu"
-        renderOption={template}
-        menu={refinedMenu || []}
-        label={userMenuLabel}
-        trigger={trigger}
-      />
-    );
   };
 
   return userMenu.length ? renderContent() : null;

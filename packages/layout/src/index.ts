@@ -17,8 +17,9 @@ import {
   useLayoutContext,
 } from "./components/Layout";
 import {
-  SidebarHeaderLayout,
   HeaderLayout,
+  SidebarHeaderLayout,
+  SidebarHeaderLayoutProperties,
   SidebarOnlyLayout,
 } from "./layouts";
 
@@ -64,3 +65,5 @@ export type {
   NavMenuItemType,
   NavMenuType,
 } from "./types";
+
+export type { SidebarHeaderLayoutProperties };
