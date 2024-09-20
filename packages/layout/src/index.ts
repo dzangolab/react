@@ -21,6 +21,7 @@ import {
   SidebarHeaderLayout,
   SidebarHeaderLayoutProperties,
   SidebarOnlyLayout,
+  SidebarOnlyLayoutProperties,
 } from "./layouts";
 
 import type { DzangolabReactLayoutConfig } from "./types";
@@ -66,4 +67,4 @@ export type {
   NavMenuType,
 } from "./types";
 
-export type { SidebarHeaderLayoutProperties };
+export type { SidebarHeaderLayoutProperties, SidebarOnlyLayoutProperties };

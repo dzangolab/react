@@ -5,23 +5,16 @@ import { toast } from "react-toastify";
 import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
-import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-layout";
+import type {
+  NavMenuItemType,
+  SidebarOnlyLayoutProperties,
+} from "@dzangolab/react-layout";
 
-interface Properties {
+interface Properties extends Omit<SidebarOnlyLayoutProperties, "userMenu"> {
   authNavigationMenu?: NavMenuItemType;
-  children: React.ReactNode;
-  className?: string;
-  collapsible?: boolean;
-  customSidebar?: React.ReactNode;
-  displayNavIcons?: boolean;
-  navigationMenu?: NavMenuType;
   userNavigationMenu?: NavMenuItemType;
-  noSidebarHeader?: boolean;
-  noSidebarFooter?: boolean;
-  noLocaleSwitcher?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
-  userMenuTrigger?: React.ReactNode;
 }
 
 export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
@@ -36,8 +29,8 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   noSidebarFooter,
   noLocaleSwitcher,
   userNavigationMenu,
+  userMenuMode,
   onLogout,
-  userMenuTrigger,
 }) => {
   const { t } = useTranslation("user");
 
@@ -115,7 +108,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       noSidebarFooter={noSidebarFooter}
       noLocaleSwitcher={noLocaleSwitcher}
       userMenu={user ? getUserNavigationMenu() : undefined}
-      userMenuTrigger={userMenuTrigger}
+      userMenuMode={userMenuMode}
     />
   );
 };

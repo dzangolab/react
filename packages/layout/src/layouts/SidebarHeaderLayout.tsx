@@ -1,5 +1,3 @@
-import { UserMenuModeType } from "@/components/Layout";
-
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
 export interface SidebarHeaderLayoutProperties {
@@ -43,24 +41,6 @@ export const SidebarHeaderLayout = ({
   userMenuLocation = "header",
   userMenuTrigger,
 }: SidebarHeaderLayoutProperties) => {
-  const getNavigationMenu = () => {
-    const userNavigationMenu = userMenu;
-
-    if (!userNavigationMenu) {
-      return navigationMenu;
-    }
-
-    if (!navigationMenu) {
-      return userNavigationMenu;
-    }
-
-    if (Array.isArray(navigationMenu)) {
-      return [...navigationMenu, userNavigationMenu];
-    }
-
-    return [navigationMenu, userNavigationMenu];
-  };
-
   return (
     <Layout
       className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}
@@ -81,7 +61,7 @@ export const SidebarHeaderLayout = ({
         <Sidebar
           collapsible={collapsible}
           displayNavIcons={displayNavIcons}
-          navigationMenu={getNavigationMenu()}
+          navigationMenu={navigationMenu}
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}

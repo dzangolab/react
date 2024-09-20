@@ -3,7 +3,7 @@ import { SidebarHeader } from "./Header";
 import { NavigationMenu } from "../common";
 import { UserMenu } from "../common/UserMenu";
 
-import type { NavMenuItemType, NavMenuType, UserMenuModeType } from "../types";
+import type { NavMenuItemType, NavMenuType } from "../types";
 
 type SidebarProperties = {
   children?: React.ReactNode;

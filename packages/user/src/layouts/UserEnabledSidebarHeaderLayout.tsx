@@ -67,19 +67,8 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       children={children}
       className={className}
       collapsible={collapsible}
-      navigationMenu={navigationMenu}
-      userMenu={
-        user
-          ? getUserNavigationMenu()
-          : authNavigationMenu
-            ? {
-                ...authNavigationMenu,
-                className: `dz-auth-menu ${
-                  authNavigationMenu?.className || ""
-                }`.trim(),
-              }
-            : undefined
-      }
+      navigationMenu={user ? navigationMenu : authNavigationMenu}
+      userMenu={user ? getUserNavigationMenu() : undefined}
       userMenuLocation={userMenuLocation}
       {...otherProperties}
     />

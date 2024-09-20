@@ -50,10 +50,12 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
       const _menuItem = refinedMenu[0];
 
       return (
-        <span className="dz-user-menu-item" onClick={_menuItem.onClick}>
-          {_menuItem.icon && <i className={_menuItem.icon}></i>}
-          {_menuItem.label}
-        </span>
+        <ul className="dz-user-menu">
+          <span className="dz-user-menu-item" onClick={_menuItem.onClick}>
+            {_menuItem.icon && <i className={_menuItem.icon}></i>}
+            {_menuItem.label}
+          </span>
+        </ul>
       );
     }
 

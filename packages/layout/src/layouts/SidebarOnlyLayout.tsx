@@ -5,7 +5,7 @@ import {
   NavMenuItemType,
 } from "@/components/Layout";
 
-interface SidebarOnlyLayoutProperties {
+export interface SidebarOnlyLayoutProperties {
   className?: string;
   children: React.ReactNode;
   collapsible?: boolean;
@@ -16,7 +16,7 @@ interface SidebarOnlyLayoutProperties {
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
   userMenu?: NavMenuItemType;
-  userMenuTrigger?: React.ReactNode;
+  userMenuMode?: "collapsible" | "collapsible-reverse";
 }
 
 export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
@@ -30,7 +30,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
   noSidebarHeader,
   noSidebarFooter,
   userMenu,
-  userMenuTrigger,
+  userMenuMode,
 }) => {
   return (
     <Layout className={`dz-sidebar-only-layout ${className || ""}`.trimEnd()}>
@@ -43,7 +43,7 @@ export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
           userMenu={userMenu}
-          trigger={userMenuTrigger}
+          userMenuMode={userMenuMode}
         ></Sidebar>
       )}
       <main>{children}</main>
