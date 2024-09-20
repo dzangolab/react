@@ -19,11 +19,11 @@ import {
 } from "./constants";
 import { TableBody } from "./TableBody";
 import { DataActionsMenu } from "./TableDataActions";
-import { Table, TableToolbar, TableFooter } from "./TableElements";
+import { Table, TableFooter } from "./TableElements";
 import { TableHeader } from "./TableHeader";
+import { TableToolbar } from "./TableToolbar";
 import { getRequestJSON, getParsedColumns } from "./utils";
-import { Checkbox, Popup, SortableList } from "..";
-import { Button } from "../Buttons/ButtonBasic";
+import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
 
@@ -69,9 +69,7 @@ const DataTable = <TData extends { id: string | number }>({
   const [rowSelection, setRowSelection] = useState({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: DEFAULT_PAGE_INDEX,
-    pageSize: paginated
-      ? rowPerPage || DEFAULT_PAGE_SIZE
-      : totalRecords || data.length,
+    pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
   });
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
@@ -192,34 +190,14 @@ const DataTable = <TData extends { id: string | number }>({
     ? totalRecords
     : table.getFilteredRowModel().rows?.length;
 
-  const getSortableListItems = () => {
-    const items = table
-      .getAllLeafColumns()
-      .filter((column) => column.id !== "select" && column.id !== "actions")
-      .map((column, index) => ({
-        id: index,
-        data: column,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        render: (data: any) => {
-          let header = data.columnDef.header;
-
-          if (typeof data.columnDef.header === "function") {
-            header = data.columnDef.header();
-          }
-
-          return (
-            <Checkbox
-              checked={data.getIsVisible()}
-              onClick={() => data.toggleVisibility()}
-              label={header}
-              onChange={() => null} //[TODO] this prop is required here
-            />
-          );
-        },
+  useEffect(() => {
+    if (!fetchData && !paginated) {
+      setPagination((previous) => ({
+        ...previous,
+        pageSize: data.length,
       }));
-
-    return items;
-  };
+    }
+  }, [fetchData, data, paginated]);
 
   useEffect(() => {
     onRowSelectChange && onRowSelectChange(table);
@@ -254,29 +232,12 @@ const DataTable = <TData extends { id: string | number }>({
 
       {showColumnsAction || renderToolbarItems ? (
         <TableToolbar
-          children={
-            <>
-              {showColumnsAction ? (
-                <Popup
-                  trigger={<Button label={columnActionButtonLabel} />}
-                  content={
-                    <SortableList
-                      items={getSortableListItems()}
-                      onSort={(sorted) => {
-                        table.setColumnOrder([
-                          ...(enableRowSelection ? ["select"] : []),
-                          ...sorted.map((item) => item.data.id),
-                          ...(dataActionsMenu ? ["actions"] : []),
-                        ]);
-                      }}
-                    />
-                  }
-                />
-              ) : null}
-
-              {renderToolbarItems ? renderToolbarItems(table) : null}
-            </>
-          }
+          table={table}
+          showColumnsAction={showColumnsAction}
+          columnActionButtonLabel={columnActionButtonLabel}
+          dataActionsMenu={dataActionsMenu}
+          renderToolbarItems={renderToolbarItems}
+          enableRowSelection={enableRowSelection}
         />
       ) : null}
 
@@ -300,7 +261,7 @@ const DataTable = <TData extends { id: string | number }>({
         ) : null}
       </Table>
 
-      {paginated && totalItems > 0 ? (
+      {(!!fetchData || paginated) && totalItems > 0 ? (
         <>
           {renderCustomPagination ? (
             renderCustomPagination(table)
