@@ -18,7 +18,7 @@
     "shipjs": "0.26.3",
     "turbo": "2.0.7"
   },
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@8.15.9",
   "engines": {
     "node": ">=16",
     "pnpm": ">=8"
