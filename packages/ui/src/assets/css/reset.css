@@ -35,11 +35,15 @@ html:focus-within {
 /* Set core body defaults */
 body {
   font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
+    system-ui
     "Segoe UI",
     Roboto,
+    Helvetica, 
+    Arial, 
+    sans-serif, 
+    "Apple Color Emoji", 
+    "Segoe UI Emoji", 
+    "Segoe UI Symbol",
     Oxygen,
     Ubuntu;
   min-height: 100vh;
