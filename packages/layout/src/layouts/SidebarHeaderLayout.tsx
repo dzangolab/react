@@ -18,7 +18,7 @@ export interface SidebarHeaderLayoutProperties {
   noToggle?: boolean;
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
-  userMenuMode?: "popup" | "collapsible" | "collapsible-reverse";
+  userMenuMode?: "collapsible" | "collapsible-reverse";
   userMenuLocation?: "sidebar" | "header";
   userMenuTrigger?: React.ReactNode;
 }

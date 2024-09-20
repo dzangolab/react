@@ -14,7 +14,7 @@ type SidebarProperties = {
   noHeader?: boolean;
   noLocaleSwitcher?: boolean;
   userMenu?: NavMenuItemType;
-  userMenuMode?: "popup" | "collapsible" | "collapsible-reverse";
+  userMenuMode?: "collapsible" | "collapsible-reverse";
   trigger?: React.ReactNode;
 };
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { Navigation } from "./Navigation";
 import { NavItem } from "./NavItem";
@@ -23,7 +23,7 @@ export const NavGroup = ({
 }: NavGroupProperties) => {
   const [showSubmenu, setShowSubmenu] = useState(initialVisible);
 
-  const renderSubmenu = () => {
+  const renderSubmenu = useCallback(() => {
     return (
       <ul className="dz-group-submenu">
         {navGroup.submenu &&
@@ -42,7 +42,7 @@ export const NavGroup = ({
           })}
       </ul>
     );
-  };
+  }, [displayIcon, horizontal, navGroup]);
 
   return (
     <div

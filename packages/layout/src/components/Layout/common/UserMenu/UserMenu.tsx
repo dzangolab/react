@@ -80,16 +80,6 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
             trigger={trigger}
           />
         );
-      case "collapsible":
-        return (
-          <NavGroup
-            className="dz-user-menu"
-            navGroup={{
-              label: userMenuLabel,
-              submenu: refinedMenu,
-            }}
-          />
-        );
       case "collapsible-reverse":
         return (
           <NavGroup
@@ -100,11 +90,10 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
             }}
           />
         );
+      case "collapsible":
       default:
         return (
           <NavGroup
-            initialVisible={true}
-            collapsible={false}
             className="dz-user-menu"
             navGroup={{
               label: userMenuLabel,
