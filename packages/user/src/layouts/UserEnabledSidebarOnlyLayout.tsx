@@ -78,31 +78,13 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     };
   };
 
-  const getNavigationMenu = () => {
-    const userNavigationMenu = getUserNavigationMenu();
-
-    if (!userNavigationMenu) {
-      return navigationMenu;
-    }
-
-    if (!navigationMenu) {
-      return userNavigationMenu;
-    }
-
-    if (Array.isArray(navigationMenu)) {
-      return [...navigationMenu, userNavigationMenu];
-    }
-
-    return [navigationMenu, userNavigationMenu];
-  };
-
   return (
     <SidebarOnlyLayout
       children={children}
       className={className}
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
-      navigationMenu={getNavigationMenu()}
+      navigationMenu={user ? navigationMenu : authNavigationMenu}
       customSidebar={customSidebar}
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
