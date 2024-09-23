@@ -1,35 +1,19 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  SidebarHeaderLayout,
-  NavMenuType,
   NavMenuItemType,
+  SidebarHeaderLayout,
+  SidebarHeaderLayoutProperties,
 } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
 import { useUser } from "@/hooks";
 import logout from "@/supertokens/logout";
 
-interface Properties {
+interface Properties extends SidebarHeaderLayoutProperties {
   authNavigationMenu?: NavMenuItemType;
-  children: React.ReactNode;
-  className?: string;
-  collapsible?: boolean;
-  customHeader?: React.ReactNode;
-  customSidebar?: React.ReactNode;
-  displayNavIcons?: boolean;
-  headerAddon?: React.ReactNode;
-  navigationMenu?: NavMenuType;
-  noLocaleSwitcher?: boolean;
-  noLogo?: boolean;
-  noSidebarHeader?: boolean;
-  noSidebarFooter?: boolean;
-  noToggle?: boolean;
-  title?: string | React.ReactNode;
   userNavigationMenu?: NavMenuItemType;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
-  userMenuLocation?: "sidebar" | "header";
-  userMenuTrigger?: React.ReactNode;
 }
 
 export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
@@ -83,19 +67,8 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       children={children}
       className={className}
       collapsible={collapsible}
-      navigationMenu={navigationMenu}
-      userMenu={
-        user
-          ? getUserNavigationMenu()
-          : authNavigationMenu
-            ? {
-                ...authNavigationMenu,
-                className: `dz-auth-menu ${
-                  authNavigationMenu?.className || ""
-                }`.trim(),
-              }
-            : undefined
-      }
+      navigationMenu={user ? navigationMenu : authNavigationMenu}
+      userMenu={user ? getUserNavigationMenu() : undefined}
       userMenuLocation={userMenuLocation}
       {...otherProperties}
     />

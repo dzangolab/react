@@ -31,8 +31,7 @@
   color: var(--_layout-sidebar-color);
 }
 
-.dz-layout[aria-expanded="false"] > .dz-sidebar > .dz-navigation-menu,
-.dz-layout[aria-expanded="false"] > .dz-sidebar > .dz-sidebar-footer {
+.dz-layout[aria-expanded="false"] > .dz-sidebar > :not(.dz-sidebar-header) {
   display: none;
 }
 

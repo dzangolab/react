@@ -10,10 +10,6 @@
   grid-area: header;
 }
 
-.dz-sidebar-only-layout > .dz-sidebar > .dz-user-menu {
-  display: none;
-}
-
 .dz-sidebar-only-layout > main {
   grid-area: main;
   max-width: 100%;
@@ -34,14 +30,5 @@
 
   .dz-sidebar-only-layout > main {
     overflow-y: auto;
-  }
-
-  .dz-sidebar-only-layout > .dz-sidebar > .dz-user-menu {
-    display: flex;
-    padding: 0.5rem 0;
-  }
-
-  .dz-sidebar-only-layout > .dz-sidebar > .dz-navigation-menu > .dz-user-menu {
-    display: none;
   }
 }

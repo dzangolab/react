@@ -1,6 +1,8 @@
+import { NavGroupDisplayMode } from "@/components/Layout";
+
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
-interface IProperties {
+export interface SidebarHeaderLayoutProperties {
   children: React.ReactNode;
   className?: string;
   collapsible?: boolean;
@@ -16,6 +18,7 @@ interface IProperties {
   noToggle?: boolean;
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
+  userMenuMode?: NavGroupDisplayMode;
   userMenuLocation?: "sidebar" | "header";
   userMenuTrigger?: React.ReactNode;
 }
@@ -36,27 +39,10 @@ export const SidebarHeaderLayout = ({
   noToggle,
   title,
   userMenu,
+  userMenuMode,
   userMenuLocation = "header",
   userMenuTrigger,
-}: IProperties) => {
-  const getNavigationMenu = () => {
-    const userNavigationMenu = userMenu;
-
-    if (!userNavigationMenu) {
-      return navigationMenu;
-    }
-
-    if (!navigationMenu) {
-      return userNavigationMenu;
-    }
-
-    if (Array.isArray(navigationMenu)) {
-      return [...navigationMenu, userNavigationMenu];
-    }
-
-    return [navigationMenu, userNavigationMenu];
-  };
-
+}: SidebarHeaderLayoutProperties) => {
   return (
     <Layout
       className={`dz-sidebar-header-layout ${className || ""}`.trimEnd()}
@@ -77,11 +63,12 @@ export const SidebarHeaderLayout = ({
         <Sidebar
           collapsible={collapsible}
           displayNavIcons={displayNavIcons}
-          navigationMenu={getNavigationMenu()}
+          navigationMenu={navigationMenu}
           noHeader={noSidebarHeader}
           noFooter={noSidebarFooter}
           noLocaleSwitcher={noLocaleSwitcher}
           userMenu={userMenu}
+          userMenuMode={userMenuMode}
           trigger={userMenuTrigger}
         ></Sidebar>
       )}
