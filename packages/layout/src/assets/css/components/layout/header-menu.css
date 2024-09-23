@@ -9,6 +9,7 @@
   flex-wrap: wrap;
   color: var(--_layout-header-color);
   flex-direction: column;
+  gap: 0.25rem;
 }
 
 .dz-layout .dz-header-menu > ul.dz-user-menu {
