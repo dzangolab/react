@@ -18,7 +18,7 @@ export const SwitchInput: React.FC<ISwitchInputProperties> = ({
   ...others
 }) => {
   return (
-    <div className={`field switch-toggle ${name}`}>
+    <div id={name} className={"field switch-toggle"}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}

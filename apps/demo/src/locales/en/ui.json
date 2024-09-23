@@ -263,10 +263,13 @@
     "placeHolder": "-- select value --"
   },
   "switchInput": {
+    "basic": "Basic",
+    "controlled": "Controlled",
     "disabledInput": "Disabled input",
     "invalidInput": "Invalid input",
     "normalInput": "Check here",
-    "title": "Switch input"
+    "title": "Switch input",
+    "subtitle": "The SwitchInput component is a customizable checkbox switch for toggling states. It supports additional properties such as error handling and labeling."
   },
   "typeahead": {
     "message": {
