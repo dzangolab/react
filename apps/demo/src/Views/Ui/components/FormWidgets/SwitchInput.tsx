@@ -97,7 +97,7 @@ export const SwitchInputDemo = () => {
         ></CodeBlock>
       </Section>
 
-      <Section title={t("switchInput.invalidInput")}>
+      <Section title={t("switchInput.disabledInput")}>
         <Disabled />
         <CodeBlock
           exampleCode={Disabled({ isString: true }) as string}
