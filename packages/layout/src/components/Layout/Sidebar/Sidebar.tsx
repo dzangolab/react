@@ -3,7 +3,11 @@ import { SidebarHeader } from "./Header";
 import { NavigationMenu } from "../common";
 import { UserMenu } from "../common/UserMenu";
 
-import type { NavMenuItemType, NavMenuType } from "../types";
+import type {
+  NavGroupDisplayMode,
+  NavMenuItemType,
+  NavMenuType,
+} from "../types";
 
 type SidebarProperties = {
   children?: React.ReactNode;
@@ -14,7 +18,7 @@ type SidebarProperties = {
   noHeader?: boolean;
   noLocaleSwitcher?: boolean;
   userMenu?: NavMenuItemType;
-  userMenuMode?: "collapsible" | "collapsible-reverse";
+  userMenuMode?: NavGroupDisplayMode;
   trigger?: React.ReactNode;
 };
 

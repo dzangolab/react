@@ -2,26 +2,28 @@ import { useCallback, useState } from "react";
 
 import { Navigation } from "./Navigation";
 import { NavItem } from "./NavItem";
-import { NavGroupType } from "../../types";
+import { NavGroupDisplayMode, NavGroupType } from "../../types";
 
 export type NavGroupProperties = {
   initialVisible?: boolean;
-  collapsible?: boolean;
   displayIcon?: boolean;
   horizontal?: boolean;
   navGroup: NavGroupType;
   className?: string;
+  displayMode?: NavGroupDisplayMode;
 };
 
 export const NavGroup = ({
-  collapsible = true,
+  displayMode = "collapsible",
   initialVisible = false,
   displayIcon = true,
   horizontal,
   navGroup,
   className = "",
 }: NavGroupProperties) => {
-  const [showSubmenu, setShowSubmenu] = useState(initialVisible);
+  const [showSubmenu, setShowSubmenu] = useState(
+    initialVisible || displayMode === "expanded"
+  );
 
   const renderSubmenu = useCallback(() => {
     return (
@@ -46,18 +48,18 @@ export const NavGroup = ({
 
   return (
     <div
-      className={`dz-nav-group ${className}`.trim()}
+      className={`dz-nav-group ${displayMode} ${className}`.trim()}
       aria-expanded={showSubmenu}
     >
       <NavItem
         navItem={{
           label: navGroup.label,
           icon: navGroup.icon,
-          onClick: () => collapsible && setShowSubmenu(!showSubmenu),
+          onClick: () =>
+            displayMode !== "expanded" && setShowSubmenu(!showSubmenu),
         }}
         displayIcon={displayIcon}
         isGroupHeader
-        collapsible={collapsible}
       ></NavItem>
       {renderSubmenu()}
     </div>

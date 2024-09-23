@@ -32,7 +32,7 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
           },
         };
       }),
-    [userMenu],
+    [userMenu]
   );
 
   const renderContent = () => {
@@ -82,17 +82,6 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
             trigger={trigger}
           />
         );
-      case "collapsible-reverse":
-        return (
-          <NavGroup
-            className={`dz-user-menu ${userMenuMode}`}
-            navGroup={{
-              label: userMenuLabel,
-              submenu: refinedMenu,
-            }}
-          />
-        );
-      case "collapsible":
       default:
         return (
           <NavGroup
@@ -101,6 +90,7 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
               label: userMenuLabel,
               submenu: refinedMenu,
             }}
+            displayMode={userMenuMode}
           />
         );
     }

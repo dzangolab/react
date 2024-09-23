@@ -1,3 +1,4 @@
+import { NavGroupDisplayMode } from "@/components/Layout";
 import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
 
 export interface SidebarHeaderLayoutProperties {
@@ -16,7 +17,7 @@ export interface SidebarHeaderLayoutProperties {
   noToggle?: boolean;
   title?: string | React.ReactNode;
   userMenu?: NavMenuItemType;
-  userMenuMode?: "collapsible" | "collapsible-reverse";
+  userMenuMode?: NavGroupDisplayMode;
   userMenuLocation?: "sidebar" | "header";
   userMenuTrigger?: React.ReactNode;
 }

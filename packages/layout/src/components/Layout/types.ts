@@ -21,8 +21,9 @@ export type NavMenuItemType = {
 
 export type NavMenuType = NavMenuItemType | Array<NavMenuItemType>;
 
-export type UserMenuModeType =
-  | "horizontal"
-  | "popup"
+export type NavGroupDisplayMode =
   | "collapsible"
-  | "collapsible-reverse";
+  | "collapsible-reverse"
+  | "expanded";
+
+export type UserMenuModeType = NavGroupDisplayMode | "horizontal" | "popup";

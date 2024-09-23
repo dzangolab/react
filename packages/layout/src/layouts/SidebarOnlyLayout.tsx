@@ -3,6 +3,7 @@ import {
   Sidebar,
   NavMenuType,
   NavMenuItemType,
+  NavGroupDisplayMode,
 } from "@/components/Layout";
 
 export interface SidebarOnlyLayoutProperties {
@@ -16,7 +17,7 @@ export interface SidebarOnlyLayoutProperties {
   noSidebarHeader?: boolean;
   noSidebarFooter?: boolean;
   userMenu?: NavMenuItemType;
-  userMenuMode?: "collapsible" | "collapsible-reverse";
+  userMenuMode?: NavGroupDisplayMode;
 }
 
 export const SidebarOnlyLayout: React.FC<SidebarOnlyLayoutProperties> = ({
