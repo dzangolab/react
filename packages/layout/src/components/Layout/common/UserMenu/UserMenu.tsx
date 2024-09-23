@@ -20,6 +20,7 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
     () =>
       userMenu.map((_menu) => {
         return {
+          ..._menu,
           label: _menu.label as string,
           icon: _menu.icon,
           onClick: () => {
@@ -32,7 +33,7 @@ export const UserMenu = ({ menu, userMenuMode, trigger }: IProperties) => {
           },
         };
       }),
-    [userMenu]
+    [userMenu],
   );
 
   const renderContent = () => {

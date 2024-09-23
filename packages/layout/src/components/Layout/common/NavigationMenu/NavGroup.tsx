@@ -22,7 +22,7 @@ export const NavGroup = ({
   className = "",
 }: NavGroupProperties) => {
   const [showSubmenu, setShowSubmenu] = useState(
-    initialVisible || displayMode === "expanded"
+    initialVisible || displayMode === "expanded",
   );
 
   const renderSubmenu = useCallback(() => {
