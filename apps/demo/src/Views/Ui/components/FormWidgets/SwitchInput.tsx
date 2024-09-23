@@ -1,8 +1,8 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TDataTable } from "@dzangolab/react-ui";
 
-import { CodeBlock, Section } from "../../../../components/Demo";
 import { Basic, CONTROLLED, Disabled, Invalid } from "./components";
+import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [
   {
