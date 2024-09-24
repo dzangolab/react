@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TDataTable } from "@dzangolab/react-ui";
 
-import { Basic, CONTROLLED, Disabled, Invalid } from "./components";
+import { Basic, ControlledSnippet, Disabled, Invalid } from "./components";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [
@@ -105,7 +105,7 @@ export const SwitchInputDemo = () => {
       </Section>
 
       <Section title={t("switchInput.controlled")}>
-        <CodeBlock exampleCode={CONTROLLED}></CodeBlock>
+        <CodeBlock exampleCode={ControlledSnippet()}></CodeBlock>
       </Section>
     </Page>
   );

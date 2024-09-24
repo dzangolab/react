@@ -10,6 +10,7 @@ export interface ISwitchInputProperties
 }
 
 export const SwitchInput: React.FC<ISwitchInputProperties> = ({
+  className = "",
   disabled,
   errorMessage,
   hasError,
@@ -18,7 +19,7 @@ export const SwitchInput: React.FC<ISwitchInputProperties> = ({
   ...others
 }) => {
   return (
-    <div id={name} className={"field switch-toggle"}>
+    <div className={`field switch-toggle ${className}`.trim()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}

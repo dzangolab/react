@@ -52,7 +52,7 @@ const Invalid = ({
   return <SwitchInput hasError={true} errorMessage="Invalid" />;
 };
 
-const CONTROLLED = `const App = () => {
+const ControlledSnippet = () => `const App = () => {
     const { control, handleSubmit } = useForm({
         defaultValues: {
             switch: false,
@@ -84,4 +84,4 @@ const CONTROLLED = `const App = () => {
     );
 };`;
 
-export { Basic, Disabled, Invalid, CONTROLLED };
+export { Basic, Disabled, Invalid, ControlledSnippet };
