@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 import { getMe } from "@/api/user";
 
-import { getUserData, removeUserData, setUserData } from "../helpers";
+import { removeUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
 import {
   isEmailVerified,
@@ -29,22 +29,16 @@ const UserProvider = ({ children }: Properties) => {
           appConfig &&
           (await verifySessionRoles(appConfig.user.supportedRoles))
         ) {
-          let userInfo = await getUserData();
+          const response = await getMe(appConfig.apiBaseUrl);
+          const userInfo = { ...response.data };
 
-          // if not found in localStorage, get me user from api
-          if (!userInfo) {
-            const response = await getMe(appConfig.apiBaseUrl);
-
-            userInfo = { ...response.data };
-
-            if (appConfig.user.features?.signUp?.emailVerification) {
-              userInfo.isEmailVerified = await isEmailVerified();
-            }
-
-            userInfo.isProfileCompleted = await isProfileCompleted();
-
-            await setUserData(userInfo);
+          if (appConfig.user.features?.signUp?.emailVerification) {
+            userInfo.isEmailVerified = await isEmailVerified();
           }
+
+          userInfo.isProfileCompleted = await isProfileCompleted();
+
+          await setUserData(userInfo);
 
           setUser(userInfo);
         }
@@ -58,10 +52,10 @@ const UserProvider = ({ children }: Properties) => {
     getUser();
   }, []);
 
-  const updateUser = async (user: UserType | null) => {
-    if (user) {
+  const updateUser = async (_user: UserType | null) => {
+    if (_user) {
       const userData = {
-        ...user,
+        ..._user,
       };
 
       if (appConfig.user.features?.signUp?.emailVerification) {
