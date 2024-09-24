@@ -1,8 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { TDataTable, Page } from "@dzangolab/react-ui";
 
-import "./index.css";
-
 import { Basic, Icons, Link, Severity, Size, Variant } from "./components";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
