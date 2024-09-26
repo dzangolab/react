@@ -36,7 +36,7 @@
     "@dzangolab/react-layout": "0.48.0",
     "@dzangolab/react-ui": "0.48.0",
     "@testing-library/dom": "10.4.0",
-    "@testing-library/react": "16.0.0",
+    "@testing-library/react": "16.0.1",
     "@testing-library/user-event": "14.5.2",
     "@types/jsdom": "21.1.7",
     "@types/node": "22.5.0",
