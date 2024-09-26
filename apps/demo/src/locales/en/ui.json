@@ -206,14 +206,6 @@
     "placeHolder": "Textarea placeholder",
     "title": "Textarea"
   },
-  "localDataTable": {
-    "title": "Local datatable (Primereact)",
-    "warning": "This component is being deprecated. Please use new Tanstack table. See `Table (Tanstack)`",
-    "role": {
-      "admin": "ADMIN",
-      "user": "USER"
-    }
-  },
   "page": {
     "title": {
       "menu": "Page",

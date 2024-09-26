@@ -20,7 +20,6 @@ import {
   TypeaheadDemo,
 } from "./components/FormWidgets";
 import { LoadingDemo } from "./components/Loading";
-import { LocalDataTableDemo } from "./components/LocalDataTable";
 import { MessageDemo } from "./components/Message";
 import { ModalDemo } from "./components/ModalDemo";
 import { PageDemo } from "./components/PageDemo";
@@ -164,11 +163,6 @@ const OTHERS = [
     path: UI_ROUTES.LOADING,
     key: "loading.title",
     element: <LoadingDemo />,
-  },
-  {
-    path: UI_ROUTES.LOCAL_DATA_TABLE,
-    key: "localDataTable.title",
-    element: <LocalDataTableDemo />,
   },
   {
     path: UI_ROUTES.MESSAGE,
