@@ -1,6 +1,15 @@
 # [0.48.0](https://github.com/dzangolab/react/compare/v0.47.0...v0.48.0) (2024-09-26)
 
 
+### Breaking Changes
+
+#### Removal of deprecated `primereact/datatable`
+
+- **Removal of deprecated `primereact/datatable`**: The deprecated `primereact/datatable` is now completed removed from our `@dzangolab/react-ui` package.
+- **Affected Component**: Applications using `DataTable` from `@dzangolab/react-ui` package.
+- **Migration Steps**: Use `TDataTable` from `@dzangolab/react-ui` package. For examples refer to our demo page at https://dzangolab.github.io/react/#/ui/table
+
+
 ### Bug Fixes
 
 * **ui/dropdown:**  improve dropdown default ui ([#1116](https://github.com/dzangolab/react/issues/1116)) ([6814e63](https://github.com/dzangolab/react/commit/6814e632d3276771048aa7a2cbc46e476ced8980))
