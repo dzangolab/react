@@ -1,3 +1,28 @@
+# [0.48.0](https://github.com/dzangolab/react/compare/v0.47.0...v0.48.0) (2024-09-26)
+
+
+### Bug Fixes
+
+* **ui/dropdown:**  improve dropdown default ui ([#1116](https://github.com/dzangolab/react/issues/1116)) ([6814e63](https://github.com/dzangolab/react/commit/6814e632d3276771048aa7a2cbc46e476ced8980))
+* **ui/dropdown:** improve dropdown ui ([#1118](https://github.com/dzangolab/react/issues/1118)) ([53aa32e](https://github.com/dzangolab/react/commit/53aa32e455ccaef337d7352886721ab4e3f3b855))
+* **ui:** remove default inline style from loading page ([#1130](https://github.com/dzangolab/react/issues/1130)) ([345bcb2](https://github.com/dzangolab/react/commit/345bcb24c0b74600a76b9acb2c7843403527d474))
+* **ui:** rows not rendering in table component ([#1127](https://github.com/dzangolab/react/issues/1127)) ([58e5103](https://github.com/dzangolab/react/commit/58e5103024518647f07dd8c8692e4328e1cf4f5c))
+* **user:** fetch user on page refresh ([#1137](https://github.com/dzangolab/react/issues/1137)) ([7acfaf4](https://github.com/dzangolab/react/commit/7acfaf47def3a2bcd659a2dfb2114e5194c27b34))
+* **user:** profile form validation message ([#1140](https://github.com/dzangolab/react/issues/1140)) ([5df6cf2](https://github.com/dzangolab/react/commit/5df6cf2de2052243c09b83a3df561d34eea43df7))
+
+
+### Features
+
+* **demo:** add doc for SwitchInput component ([#1136](https://github.com/dzangolab/react/issues/1136)) ([03b15db](https://github.com/dzangolab/react/commit/03b15dbdcc659c32d577b7e0fd0ec1d49aadaea7))
+* **form:** add new DateInput component ([#1125](https://github.com/dzangolab/react/issues/1125)) ([920f1bc](https://github.com/dzangolab/react/commit/920f1bc4d24477f5887d2aff95aa4701551bc185))
+* **i18n:** export Trans component ([#1115](https://github.com/dzangolab/react/issues/1115)) ([0c05b81](https://github.com/dzangolab/react/commit/0c05b81a7f9b78964b6a9862f58b6347484e28b4))
+* **layout:** add prop className and disabled for nav-item ([#1129](https://github.com/dzangolab/react/issues/1129)) ([9fd846b](https://github.com/dzangolab/react/commit/9fd846bf58fe11d17ded2e4f536ffd79b9479bbb))
+* **layout:** expand user-menu upward with label fixed at the bottom ([#1131](https://github.com/dzangolab/react/issues/1131)) ([9bcbd9a](https://github.com/dzangolab/react/commit/9bcbd9a6dba11ac13ea387131ce67e4389308a44))
+* **ui:** remove primereact datatable ([#1139](https://github.com/dzangolab/react/issues/1139)) ([93b7d6a](https://github.com/dzangolab/react/commit/93b7d6a34f17f9aeb1447a895ab6a63585d46bc5))
+* update font stack to use system ui font ([#1111](https://github.com/dzangolab/react/issues/1111)) ([581215c](https://github.com/dzangolab/react/commit/581215c9f821795fb581e9b88102db372e9f20db))
+
+
+
 # [0.47.0](https://github.com/dzangolab/react/compare/v0.46.0...v0.47.0) (2024-08-26)
 
 
