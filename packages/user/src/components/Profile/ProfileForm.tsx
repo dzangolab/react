@@ -55,9 +55,9 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
   };
 
   const formValues = {
-    email: user?.email,
-    givenName: user?.givenName,
-    surname: user?.surname,
+    email: user?.email || "",
+    givenName: user?.givenName || "",
+    surname: user?.surname || "",
     ...additionalProfileFields?.defaultValues,
   };
 
