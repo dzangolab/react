@@ -32,7 +32,7 @@
     "@dzangolab/react-ui": "0.48.0",
     "@testing-library/react": "16.0.0",
     "@types/jsdom": "21.1.7",
-    "@types/node": "22.5.0",
+    "@types/node": "22.7.4",
     "@types/react": "18.3.4",
     "@types/react-dom": "18.3.0",
     "@vitejs/plugin-react": "4.3.1",
