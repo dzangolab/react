@@ -21,9 +21,7 @@ export const NavGroup = ({
   navGroup,
   className = "",
 }: NavGroupProperties) => {
-  const [showSubmenu, setShowSubmenu] = useState(
-    initialVisible || displayMode === "expanded",
-  );
+  const [showSubmenu, setShowSubmenu] = useState(initialVisible);
 
   const renderSubmenu = useCallback(() => {
     return (
@@ -49,7 +47,7 @@ export const NavGroup = ({
   return (
     <div
       className={`dz-nav-group ${displayMode} ${className}`.trim()}
-      aria-expanded={showSubmenu}
+      aria-expanded={showSubmenu || displayMode === "expanded"}
     >
       <NavItem
         navItem={{
