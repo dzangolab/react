@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 
+/**
+ * Checks if the provided media query matches the current viewport.
+ *
+ * @param query string eg:- "(max-width: 576px)"
+ * @returns boolean
+ *
+ * @example
+ * // Returns true if the viewport is 576px or narrower
+ * const isMobile = isMediaQueryMatched("(max-width: 576px)");
+ */
 export function useMediaQuery(query: string): boolean {
   const getMatches = (query: string): boolean => {
     // Prevents SSR issues
