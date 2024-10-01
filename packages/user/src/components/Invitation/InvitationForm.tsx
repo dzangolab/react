@@ -113,19 +113,14 @@ export const InvitationForm = ({
 
     addInvitation(invitationData, appConfig?.apiBaseUrl || "")
       .then((response) => {
-        if ("data" in response && response.data.status === "ERROR") {
-          // TODO better handle errors
-          toast.error(t("messages.invite.error"));
-        } else {
-          toast.success(t("messages.invite.success"));
+        toast.success(t("messages.invite.success"));
 
-          if (onSubmitted) {
-            onSubmitted(response);
-          }
+        if (onSubmitted) {
+          onSubmitted(response);
         }
       })
-      .catch(() => {
-        toast.error(t("messages.invite.error"));
+      .catch((error) => {
+        toast.error(error.message || t("messages.invite.error"));
       })
       .finally(() => {
         setSubmitting(false);
