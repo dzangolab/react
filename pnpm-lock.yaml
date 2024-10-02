@@ -305,8 +305,8 @@ importers:
         specifier: 1.2.1
         version: 1.2.1
       react-i18next:
-        specifier: 15.0.1
-        version: 15.0.1(i18next@23.14.0)(react-dom@18.3.1)(react@18.3.1)
+        specifier: 15.0.2
+        version: 15.0.2(i18next@23.14.0)(react-dom@18.3.1)(react@18.3.1)
     devDependencies:
       '@dzangolab/react-config':
         specifier: 0.48.0
@@ -7571,8 +7571,8 @@ packages:
       react: 18.3.1
     dev: false
 
-  /react-i18next@15.0.1(i18next@23.14.0)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-NwxLqNM6CLbeGA9xPsjits0EnXdKgCRSS6cgkgOdNcPXqL+1fYNl8fBg1wmnnHvFy812Bt4IWTPE9zjoPmFj3w==}
+  /react-i18next@15.0.2(i18next@23.14.0)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-z0W3/RES9Idv3MmJUcf0mDNeeMOUXe+xoL0kPfQPbDoZHmni/XsIoq5zgT2MCFUiau283GuBUK578uD/mkAbLQ==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
