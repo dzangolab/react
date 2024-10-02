@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@dzangolab/react-ui": "0.48.0",
-    "@testing-library/react": "16.0.0",
+    "@testing-library/react": "16.0.1",
     "@types/jsdom": "21.1.7",
     "@types/node": "22.7.4",
     "@types/react": "18.3.4",
