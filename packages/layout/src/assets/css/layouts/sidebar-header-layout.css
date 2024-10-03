@@ -23,7 +23,6 @@
 .dz-sidebar-header-layout[data-user-menu-location="sidebar"]
   > .dz-sidebar
   > .dz-user-menu {
-  display: flex;
   padding: 0.5rem 0;
 }
 

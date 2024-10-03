@@ -17,8 +17,12 @@
 }
 
 .dz-nav-group[aria-expanded="true"] > ul.dz-group-submenu {
-  max-height: 500px;
+  max-height: 200px;
   padding: 0.5rem 0;
+}
+
+.dz-nav-group[aria-expanded="true"] > ul.dz-group-submenu:hover {
+  overflow-y: auto;
 }
 
 .dz-nav-group .dz-group-submenu > li {
