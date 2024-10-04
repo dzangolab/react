@@ -133,8 +133,8 @@ importers:
         specifier: 44.0.2
         version: 44.0.2(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -152,7 +152,7 @@ importers:
         version: 3.2.2(vite@5.4.6)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
 
   packages/config:
     devDependencies:
@@ -178,8 +178,8 @@ importers:
         specifier: 0.48.2
         version: link:../../tools/eslint-config-custom
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -197,7 +197,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
 
   packages/form:
     dependencies:
@@ -260,8 +260,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -285,7 +285,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
 
   packages/i18n:
     dependencies:
@@ -361,7 +361,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
 
   packages/layout:
     devDependencies:
@@ -405,8 +405,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -433,7 +433,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
 
   packages/ui:
     dependencies:
@@ -493,8 +493,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -521,7 +521,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
 
   packages/user:
     dependencies:
@@ -587,8 +587,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -618,7 +618,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
 
   tools/eslint-config-custom:
     dependencies:
@@ -3655,7 +3655,7 @@ packages:
       std-env: 3.7.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)
+      vitest: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4555,11 +4555,11 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /cssstyle@4.0.1:
-    resolution: {integrity: sha512-8ZYiJ3A/3OkDd093CBT/0UKDWry7ak4BdPTFP2+QEP7cmhouyq/Up709ASSj2cK02BbZiMgk7kYjZNS4QP5qrQ==}
+  /cssstyle@4.1.0:
+    resolution: {integrity: sha512-h66W1URKpBS5YMI/V8PyXvTMFT8SupJ1IzoIV8IeBC/ji8WVmrO8dGlTi+2dh6whmdk6BiKJLD/ZBkhWbcg6nA==}
     engines: {node: '>=18'}
     dependencies:
-      rrweb-cssom: 0.6.0
+      rrweb-cssom: 0.7.1
     dev: true
 
   /csstype@3.1.3:
@@ -6586,8 +6586,8 @@ packages:
     dependencies:
       argparse: 2.0.1
 
-  /jsdom@25.0.0:
-    resolution: {integrity: sha512-OhoFVT59T7aEq75TVw9xxEfkXgacpqAhQaYgP9y/fDqWQCMB/b1H66RfmPm/MaeaAIU9nDwMOVTlPN51+ao6CQ==}
+  /jsdom@25.0.1:
+    resolution: {integrity: sha512-8i7LzZj7BF8uplX+ZyOlIz86V6TAsSs+np6m1kpW9u0JWi4z/1t+FzcK1aek+ybTnAC4KhBL4uXCNT0wcUIeCw==}
     engines: {node: '>=18'}
     peerDependencies:
       canvas: ^2.11.2
@@ -6595,7 +6595,7 @@ packages:
       canvas:
         optional: true
     dependencies:
-      cssstyle: 4.0.1
+      cssstyle: 4.1.0
       data-urls: 5.0.0
       decimal.js: 10.4.3
       form-data: 4.0.0
@@ -6608,7 +6608,7 @@ packages:
       rrweb-cssom: 0.7.1
       saxes: 6.0.0
       symbol-tree: 3.2.4
-      tough-cookie: 4.1.4
+      tough-cookie: 5.0.0
       w3c-xmlserializer: 5.0.0
       webidl-conversions: 7.0.0
       whatwg-encoding: 3.1.1
@@ -7560,10 +7560,6 @@ packages:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: true
 
-  /psl@1.9.0:
-    resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
-    dev: true
-
   /pump@3.0.0:
     resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==}
     dependencies:
@@ -7582,10 +7578,6 @@ packages:
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
-    dev: true
-
-  /querystringify@2.2.0:
-    resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
     dev: true
 
   /queue-microtask@1.2.3:
@@ -7941,10 +7933,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /requires-port@1.0.0:
-    resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
-    dev: true
-
   /reselect@4.1.8:
     resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
     dev: false
@@ -8020,10 +8008,6 @@ packages:
       '@rollup/rollup-win32-ia32-msvc': 4.21.0
       '@rollup/rollup-win32-x64-msvc': 4.21.0
       fsevents: 2.3.3
-    dev: true
-
-  /rrweb-cssom@0.6.0:
-    resolution: {integrity: sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw==}
     dev: true
 
   /rrweb-cssom@0.7.1:
@@ -8641,6 +8625,17 @@ packages:
     resolution: {integrity: sha512-KxVu8EYHDPBdUYdKZdKtU2aj2XfEx9AfjXxE/Aj0vT06w2icA09Vus1rh6eSu1y01akYg6BjIK/hxyLJINoMLQ==}
     engines: {node: '>=12'}
 
+  /tldts-core@6.1.50:
+    resolution: {integrity: sha512-na2EcZqmdA2iV9zHV7OHQDxxdciEpxrjbkp+aHmZgnZKHzoElLajP59np5/4+sare9fQBfixgvXKx8ev1d7ytw==}
+    dev: true
+
+  /tldts@6.1.50:
+    resolution: {integrity: sha512-q9GOap6q3KCsLMdOjXhWU5jVZ8/1dIib898JBRLsN+tBhENpBDcAVQbE0epADOjw11FhQQy9AcbqKGBQPUfTQA==}
+    hasBin: true
+    dependencies:
+      tldts-core: 6.1.50
+    dev: true
+
   /tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
@@ -8659,14 +8654,11 @@ packages:
     dependencies:
       is-number: 7.0.0
 
-  /tough-cookie@4.1.4:
-    resolution: {integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag==}
-    engines: {node: '>=6'}
+  /tough-cookie@5.0.0:
+    resolution: {integrity: sha512-FRKsF7cz96xIIeMZ82ehjC3xW2E+O2+v11udrDYewUbszngYhsGa8z6YUMMzO9QJZzzyd0nGGXnML/TReX6W8Q==}
+    engines: {node: '>=16'}
     dependencies:
-      psl: 1.9.0
-      punycode: 2.3.1
-      universalify: 0.2.0
-      url-parse: 1.5.10
+      tldts: 6.1.50
     dev: true
 
   /tr46@0.0.3:
@@ -8899,11 +8891,6 @@ packages:
     resolution: {integrity: sha512-yCzhz6FN2wU1NiiQRogkTQszlQSlpWaw8SvVegAc+bDxbzHgh1vX8uIe8OYyMH6DwH+sdTJsgMl36+mSMdRJIQ==}
     dev: true
 
-  /universalify@0.2.0:
-    resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
-    engines: {node: '>= 4.0.0'}
-    dev: true
-
   /universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
@@ -8940,13 +8927,6 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.3.1
-
-  /url-parse@1.5.10:
-    resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
-    dependencies:
-      querystringify: 2.2.0
-      requires-port: 1.0.0
-    dev: true
 
   /use-sync-external-store@1.2.2(react@18.3.1):
     resolution: {integrity: sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==}
@@ -9071,7 +9051,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0):
+  /vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1):
     resolution: {integrity: sha512-8GUxONfauuIdeSl5f9GTgVEpg5BTOlplET4WEDaeY2QBiN8wSm68vxN/tb5z405OwppfoCavnwXafiaYBC/xOA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -9107,7 +9087,7 @@ packages:
       chai: 5.1.1
       debug: 4.3.6
       execa: 8.0.1
-      jsdom: 25.0.0
+      jsdom: 25.0.1
       magic-string: 0.30.11
       pathe: 1.1.2
       std-env: 3.7.0
