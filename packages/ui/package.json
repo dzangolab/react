@@ -51,7 +51,7 @@
     "primereact": "9.6.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "6.26.1",
+    "react-router-dom": "6.26.2",
     "tsconfig": "0.48.2",
     "typescript": "5.4.5",
     "vite": "5.4.6",
