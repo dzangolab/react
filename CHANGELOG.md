@@ -1,3 +1,13 @@
+## [0.48.1](https://github.com/dzangolab/react/compare/v0.48.0...v0.48.1) (2024-10-04)
+
+
+### Bug Fixes
+
+* **layout:** toggle icon and animation lag ([#1150](https://github.com/dzangolab/react/issues/1150)) ([f606813](https://github.com/dzangolab/react/commit/f606813e74da112d1ab79dde869779636662b1e7))
+* **layout:** user-menu state for expanded view ([#1142](https://github.com/dzangolab/react/issues/1142)) ([60c3cb2](https://github.com/dzangolab/react/commit/60c3cb2ce764cc0eacb395f4a4a41c989e7b3103))
+
+
+
 # [0.48.0](https://github.com/dzangolab/react/compare/v0.47.0...v0.48.0) (2024-09-26)
 
 
