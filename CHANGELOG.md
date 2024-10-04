@@ -1,3 +1,12 @@
+## [0.48.2](https://github.com/dzangolab/react/compare/v0.48.1...v0.48.2) (2024-10-04)
+
+
+### Bug Fixes
+
+* **style:** use correct font-family ([#1154](https://github.com/dzangolab/react/issues/1154)) ([5decde9](https://github.com/dzangolab/react/commit/5decde97d60fb5d302949f4becd5207a08d547f0))
+
+
+
 ## [0.48.1](https://github.com/dzangolab/react/compare/v0.48.0...v0.48.1) (2024-10-04)
 
 
