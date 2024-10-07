@@ -1,5 +1,6 @@
 import React from "react";
 import { Data } from ".";
+import { LongText } from "./LongText";
 
 export const DataDemo = () => {
   const testData = [
@@ -41,10 +42,14 @@ export const DataDemo = () => {
   ];
 
   return (
-    <div className="data-container">
-      {testData.map((data) => (
-        <Data {...data} />
-      ))}
-    </div>
+    <>
+      {" "}
+      <div className="data-container">
+        {testData.map((data) => (
+          <Data {...data} />
+        ))}
+      </div>
+      <LongText />
+    </>
   );
 };

@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import "./index.css";
 
 interface DataProperties {
-  label?: ReactNode;
+  label: ReactNode;
   value?: ReactNode;
   className?: string;
 }
