@@ -1,5 +1,0 @@
-.dz-long-text.single > .dz-data-value {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}

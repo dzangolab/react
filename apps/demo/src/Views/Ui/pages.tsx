@@ -33,7 +33,7 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
-import { DataDemo } from "./components/DataComponent/DataDemo";
+import { DataDemo } from "./components/DataComponent";
 
 export const UI_ROUTES = {
   BUTTON: "/ui/button",

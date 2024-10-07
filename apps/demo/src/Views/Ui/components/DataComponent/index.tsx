@@ -1,18 +1,51 @@
-import { FC, ReactNode } from "react";
+import { Data } from "@dzangolab/react-ui";
 
 import "./index.css";
 
-interface DataProperties {
-  label: ReactNode;
-  value?: ReactNode;
-  className?: string;
-}
+export const DataDemo = () => {
+  const testData = [
+    // Test case 1: Simple label/value
+    {
+      label: "Name",
+      value: "John Doe",
+    },
 
-export const Data: FC<DataProperties> = ({ className = "", label, value }) => {
+    // Test case 2: Simple label/value with a number
+    {
+      label: "age",
+      value: 30,
+    },
+
+    // Test case 3: Label/value with email
+    {
+      label: "Email",
+      value: "john.doe@example.com",
+    },
+
+    // Test case 4: Label/value with address
+    {
+      label: "Address",
+      value: "123 Main St, Springfield, USA",
+    },
+
+    // Test case 5: Label/value for status
+    {
+      label: "Status",
+      value: "Active",
+    },
+
+    // Test case 6: Label/value for inactive status
+    {
+      label: "Status",
+      value: "Inactive",
+    },
+  ];
+
   return (
-    <div className={`dz-data ${className}`.trim()}>
-      <span className="dz-data-label">{label}:</span>
-      <span className="dz-data-value">{value}</span>
+    <div className="data-container">
+      {testData.map((data, index) => (
+        <Data key={index} {...data} />
+      ))}
     </div>
   );
 };
