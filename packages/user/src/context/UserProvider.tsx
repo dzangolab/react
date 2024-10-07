@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 import { getMe } from "@/api/user";
 
-import { removeUserData, setUserData } from "../helpers";
+import { getUserData, removeUserData, setUserData } from "../helpers";
 import { useConfig } from "../hooks";
 import {
   isEmailVerified,
@@ -29,7 +29,10 @@ const UserProvider = ({ children }: Properties) => {
           appConfig &&
           (await verifySessionRoles(appConfig.user.supportedRoles))
         ) {
-          const response = await getMe(appConfig.apiBaseUrl);
+          const response = await getMe(appConfig.apiBaseUrl).catch(async () => {
+            return { data: (await getUserData()) as UserType };
+          });
+
           const userInfo = { ...response.data };
 
           if (appConfig.user.features?.signUp?.emailVerification) {
