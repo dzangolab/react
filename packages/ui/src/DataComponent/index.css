@@ -1,0 +1,16 @@
+.dz-data {
+  display: grid;
+  grid-template-areas:
+    "label"
+    "value";
+  gap: 0.375rem;
+}
+
+.dz-data-label {
+  grid-area: label;
+  font-weight: bold;
+}
+
+.dz-data-value {
+  grid-area: value;
+}

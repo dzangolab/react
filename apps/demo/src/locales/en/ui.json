@@ -44,6 +44,9 @@
     "header": "Confirmation required",
     "message": "Are you sure you want to proceed?"
   },
+  "dataComponent": {
+    "title": "Data component"
+  },
   "dropdownMenu": {
     "title": "Dropdown menu",
     "usage": {
