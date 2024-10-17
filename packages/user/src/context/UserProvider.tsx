@@ -42,7 +42,7 @@ const UserProvider = ({ children }: Properties) => {
 
           setUser(userInfo);
         }
-      } catch (error) {
+      } catch {
         //
       } finally {
         setLoading(false);

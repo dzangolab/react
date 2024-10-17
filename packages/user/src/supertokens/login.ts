@@ -24,7 +24,7 @@ const login = async (
 
   try {
     response = await emailPasswordSignIn(data);
-  } catch (error) {
+  } catch {
     throw new Error("otherErrors");
   }
 

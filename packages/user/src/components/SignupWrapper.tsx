@@ -60,6 +60,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
         .then(async (result) => {
           if (result?.user) {
             await setUser(result.user);
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             onSignupSuccess && (await onSignupSuccess(result));
 
             toast.success(`${t("signup.messages.success")}`);
@@ -68,6 +69,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
         .catch(async (error) => {
           const errorMessage = t("errors.otherErrors", { ns: "errors" });
 
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           onSignupFailed && (await onSignupFailed(error));
 
           if (error.status === "FIELD_ERROR") {

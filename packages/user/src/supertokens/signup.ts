@@ -24,7 +24,7 @@ const signup = async (
 
   try {
     response = await register(data);
-  } catch (error) {
+  } catch {
     throw new Error();
   }
 

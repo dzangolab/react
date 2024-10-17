@@ -139,6 +139,7 @@ export const Select = <T extends string | number>({
           const { disabled, label } = option;
           let isChecked = false;
 
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           multiple &&
             value.forEach((_value) => {
               if (_value === option.value) {

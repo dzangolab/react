@@ -78,6 +78,7 @@ export const DataActionsMenu = ({
                 },
               });
             } else {
+              // eslint-disable-next-line @typescript-eslint/no-unused-expressions
               action.onClick && action.onClick(data);
             }
           },
