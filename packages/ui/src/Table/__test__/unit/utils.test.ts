@@ -54,6 +54,7 @@ describe("FormatDate unit test", () => {
   test("Should return null if date is empty", () => {
     const date = "";
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     expect(formatDate({ date })).toBeNull;
   });
 });

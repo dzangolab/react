@@ -66,6 +66,7 @@ export const LoginWrapper: FC<IProperties> = ({
             ) {
               setUser(result.user);
 
+              // eslint-disable-next-line @typescript-eslint/no-unused-expressions
               onLoginSuccess && (await onLoginSuccess(result));
 
               toast.success(`${t("login.messages.success")}`);
@@ -77,6 +78,7 @@ export const LoginWrapper: FC<IProperties> = ({
         .catch(async (error) => {
           const errorMessage = `errors.${error.message}`;
 
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           onLoginFailed && (await onLoginFailed(error));
 
           toast.error(t(errorMessage, { ns: "errors" }));

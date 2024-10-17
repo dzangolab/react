@@ -200,6 +200,7 @@ const DataTable = <TData extends { id: string | number }>({
   }, [fetchData, data, paginated]);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     onRowSelectChange && onRowSelectChange(table);
   }, [mappedSelectedRows]);
 
@@ -209,6 +210,7 @@ const DataTable = <TData extends { id: string | number }>({
       pageSize: pagination.pageSize,
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     fetchData && fetchData(requestJSON);
   }, [
     columnFilters,

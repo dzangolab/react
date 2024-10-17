@@ -67,6 +67,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
             id: "cancel",
             label: "Cancel",
             onClick: () => {
+              // eslint-disable-next-line @typescript-eslint/no-unused-expressions
               onCancel && onCancel();
               setSelectedFiles([]);
             },

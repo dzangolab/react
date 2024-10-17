@@ -52,6 +52,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       if (await logout()) {
         await setUser(null);
 
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         onLogout && (await onLogout());
 
         toast.success(t("logout.message"));

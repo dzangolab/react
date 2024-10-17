@@ -45,6 +45,7 @@ export const SortableList: FC<SortableListProperties> = ({
       updatedItems.splice(droppedOver, 0, movedItem);
 
       setSortedItems(updatedItems);
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onSort && onSort(updatedItems);
       setDraggedItem(droppedOver);
     }

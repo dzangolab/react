@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ["custom"],
+  extends: ["@12deg/eslint-config/react"],
   rules: {
     "unicorn/filename-case": [
       "error",

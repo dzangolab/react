@@ -52,6 +52,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
   ) => {
     const newItemsPerPage = parseInt(event.target.value, 10);
     setItemsPerPage(newItemsPerPage);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     onItemsPerPageChange && onItemsPerPageChange(newItemsPerPage);
   };
 

@@ -162,6 +162,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
             id: "cancel",
             onClick: (event) => {
               event.preventDefault();
+              // eslint-disable-next-line @typescript-eslint/no-unused-expressions
               onCancel && onCancel();
             },
             label: t("form.actions.cancel"),

@@ -63,6 +63,7 @@ export const Typeahead = <T extends Suggestion>({
       suggestionReference.current &&
       !suggestionReference.current.contains(event.target as HTMLElement)
     ) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       forceSelect
         ? setInputValue("")
         : (setSuggestions([]),
@@ -102,6 +103,7 @@ export const Typeahead = <T extends Suggestion>({
     if (isSuggestionSelected.current) {
       isSuggestionSelected.current = false;
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange();
     }
 
