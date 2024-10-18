@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { ButtonDemo } from "./components/Button";
 import { CardDemo } from "./components/CardDemo";
 import { ConfirmationModalDemo } from "./components/ConfirmationModal";
+import { DataDemo } from "./components/DataComponent";
 import { DropdownMenuDemo } from "./components/DropdownMenuDemo";
 import { EditableTitleDemo } from "./components/EditableTitleDemo";
 import { ExportButtonDemo } from "./components/ExportButton";
@@ -33,7 +34,6 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
-import { DataDemo } from "./components/DataComponent";
 
 export const UI_ROUTES = {
   BUTTON: "/ui/button",
