@@ -16,7 +16,7 @@ interface IDateInput {
 }
 
 export const DateInput: React.FC<IDateInput> = ({
-  className,
+  className = "",
   disabled,
   register,
   getFieldState,
@@ -37,7 +37,7 @@ export const DateInput: React.FC<IDateInput> = ({
   };
 
   return (
-    <div className={`field ${className}`}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}

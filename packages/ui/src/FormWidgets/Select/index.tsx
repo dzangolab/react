@@ -36,7 +36,7 @@ type ISelectProperties<T> = {
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
-  className,
+  className = "",
   disabled: selectFieldDisabled,
   errorMessage,
   hasError,

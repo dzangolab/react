@@ -8,7 +8,7 @@ export interface ITextareaProperties
 }
 
 export const Textarea = ({
-  className,
+  className = "",
   defaultValue,
   disabled,
   errorMessage,

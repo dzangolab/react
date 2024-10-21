@@ -18,7 +18,7 @@ interface ISwitch {
  * @deprecated Use SwitchInput component from the form package instead
  */
 export const Switch: React.FC<ISwitch> = ({
-  className,
+  className = "",
   disabled,
   register,
   getFieldState,
@@ -34,7 +34,7 @@ export const Switch: React.FC<ISwitch> = ({
   if (isTouched && invalid) switchClassName = "invalid";
 
   return (
-    <div className={`field switch-toggle ${className}`}>
+    <div className={`field switch-toggle ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register(name)}
