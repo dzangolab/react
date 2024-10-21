@@ -1,3 +1,17 @@
+## [0.48.3](https://github.com/dzangolab/react/compare/v0.48.2...v0.48.3) (2024-10-21)
+
+
+### Bug Fixes
+
+* **form:** reset field value on form reset ([#1161](https://github.com/dzangolab/react/issues/1161)) ([b52da64](https://github.com/dzangolab/react/commit/b52da64ac37d6255699598196f472fce52bec9e6))
+
+
+### Features
+
+* **ui:** data component to dispaly key/value pairs ([#1158](https://github.com/dzangolab/react/issues/1158)) ([497699e](https://github.com/dzangolab/react/commit/497699e0202cefe2a1a9bdaa134c4537f8f9f73e))
+
+
+
 ## [0.48.2](https://github.com/dzangolab/react/compare/v0.48.1...v0.48.2) (2024-10-04)
 
 
