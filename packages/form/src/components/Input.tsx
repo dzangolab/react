@@ -10,6 +10,7 @@ export type IInputField = CustomInputProperties &
   >;
 
 export const Input: React.FC<IInputField> = ({
+  className,
   getFieldState,
   label = "",
   name,
@@ -32,7 +33,7 @@ export const Input: React.FC<IInputField> = ({
   };
 
   return (
-    <div className={`field ${name}`}>
+    <div className={`field ${className}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name, {

@@ -8,6 +8,7 @@ export interface ITextareaProperties
 }
 
 export const Textarea = ({
+  className,
   defaultValue,
   disabled,
   errorMessage,
@@ -20,7 +21,7 @@ export const Textarea = ({
   ...others
 }: ITextareaProperties) => {
   return (
-    <div className={`field ${name}`.trimEnd()}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <textarea
         id={name}

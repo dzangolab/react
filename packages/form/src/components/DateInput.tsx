@@ -6,6 +6,7 @@ import { ErrorMessage } from "./ErrorMessage";
 interface IDateInput {
   label?: string;
   name: string;
+  className?: string;
   getFieldState?: UseFormGetFieldState<any>;
   register?: UseFormRegister<any>;
   disabled?: boolean;
@@ -15,6 +16,7 @@ interface IDateInput {
 }
 
 export const DateInput: React.FC<IDateInput> = ({
+  className,
   disabled,
   register,
   getFieldState,
@@ -35,7 +37,7 @@ export const DateInput: React.FC<IDateInput> = ({
   };
 
   return (
-    <div className={`field ${name}`}>
+    <div className={`field ${className}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}

@@ -8,6 +8,7 @@ export type IDaysInputField = CustomInputProperties &
   >;
 
 export const DaysInput: React.FC<IDaysInputField> = ({
+  className,
   getFieldState,
   label = "",
   name,
@@ -41,7 +42,7 @@ export const DaysInput: React.FC<IDaysInputField> = ({
   if (isTouched && invalid) inputClassName = "invalid";
 
   return (
-    <div className={`field ${name}`}>
+    <div className={`field ${className}`}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...updatedRegister}

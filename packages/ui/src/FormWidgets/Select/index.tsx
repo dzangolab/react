@@ -11,6 +11,7 @@ type Option<T> = {
 
 type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
+  className?: string;
   disabled?: boolean;
   errorMessage?: string;
   hasError?: boolean;
@@ -35,6 +36,7 @@ type ISelectProperties<T> = {
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
+  className,
   disabled: selectFieldDisabled,
   errorMessage,
   hasError,
@@ -270,7 +272,7 @@ export const Select = <T extends string | number>({
   };
 
   return (
-    <div ref={selectReference} className={`dz-select ${name}`.trimEnd()}>
+    <div ref={selectReference} className={`dz-select ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       {renderSelect()}
       {shouldAutoSelect ? null : showOptions && renderOptions()}
