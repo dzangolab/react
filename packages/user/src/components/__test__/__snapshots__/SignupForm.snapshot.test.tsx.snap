@@ -7,7 +7,7 @@ exports[`Component matches snapshot 1`] = `
     novalidate=""
   >
     <div
-      class="field email"
+      class="field"
     >
       <label
         for="email"
@@ -25,7 +25,7 @@ exports[`Component matches snapshot 1`] = `
       />
     </div>
     <div
-      class="field password"
+      class="field undefined"
     >
       <label
         for="input-field-password"
@@ -52,7 +52,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="field confirmPassword"
+      class="field undefined"
     >
       <label
         for="input-field-confirmPassword"
