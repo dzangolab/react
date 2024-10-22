@@ -187,7 +187,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
       tsconfig:
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -227,7 +227,7 @@ importers:
         specifier: 0.1.4
         version: 0.1.4(eslint@8.57.1)(prettier@3.3.3)(typescript@5.4.5)
       '@dzangolab/react-ui':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../ui
       '@testing-library/react':
         specifier: 16.0.1
@@ -275,7 +275,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       tsconfig:
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -290,7 +290,7 @@ importers:
   packages/i18n:
     dependencies:
       '@dzangolab/react-ui':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../ui
       i18next:
         specifier: 23.14.0
@@ -312,7 +312,7 @@ importers:
         specifier: 0.1.4
         version: 0.1.4(eslint@8.57.1)(prettier@3.3.3)(typescript@5.4.5)
       '@dzangolab/react-config':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../config
       '@testing-library/react':
         specifier: 16.0.1
@@ -351,7 +351,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       tsconfig:
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -369,13 +369,13 @@ importers:
         specifier: 0.1.4
         version: 0.1.4(eslint@8.57.1)(prettier@3.3.3)(typescript@5.4.5)
       '@dzangolab/react-config':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../config
       '@dzangolab/react-i18n':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../i18n
       '@dzangolab/react-ui':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../ui
       '@testing-library/react':
         specifier: 16.0.1
@@ -423,7 +423,7 @@ importers:
         specifier: 6.26.1
         version: 6.26.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tsconfig:
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -460,7 +460,7 @@ importers:
         specifier: 0.1.4
         version: 0.1.4(eslint@8.57.1)(prettier@3.3.3)(typescript@5.4.5)
       '@dzangolab/react-config':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../config
       '@testing-library/react':
         specifier: 16.0.1
@@ -511,7 +511,7 @@ importers:
         specifier: 6.26.1
         version: 6.26.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tsconfig:
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -536,19 +536,19 @@ importers:
         specifier: 0.1.4
         version: 0.1.4(eslint@8.57.1)(prettier@3.3.3)(typescript@5.4.5)
       '@dzangolab/react-config':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../config
       '@dzangolab/react-form':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../form
       '@dzangolab/react-i18n':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../i18n
       '@dzangolab/react-layout':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../layout
       '@dzangolab/react-ui':
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../ui
       '@testing-library/dom':
         specifier: 10.4.0
@@ -608,7 +608,7 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tsconfig:
-        specifier: 0.48.2
+        specifier: 0.48.3
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.4.5
@@ -4483,7 +4483,6 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     deprecated: |-
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   querystringify@2.2.0:

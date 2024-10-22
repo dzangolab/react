@@ -41,7 +41,7 @@ export const NumberInput = ({
             name={name}
             placeholder={placeholder}
             type="number"
-            defaultValue={typeof field.value !== "number" ? "" : field.value}
+            value={typeof field.value !== "number" ? "" : field.value}
             errorMessage={error?.message}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               const value = event.target.valueAsNumber;

@@ -51,7 +51,7 @@ export const Email: React.FC<IProperties> = ({
         <Input
           {...others}
           autoComplete={autoComplete}
-          defaultValue={field.value}
+          value={field.value}
           disabled={disabled}
           errorMessage={error?.message}
           hasError={submitCount > 0 ? checkInvalidState() : undefined}

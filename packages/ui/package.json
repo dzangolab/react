@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-ui",
-  "version": "0.48.2",
+  "version": "0.48.3",
   "description": "React UI Component Library",
   "exports": {
     ".": {
@@ -12,7 +12,9 @@
   "main": "dist//DzangolabReactUI.umd.js",
   "module": "dist//DzangolabReactUI.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
@@ -35,7 +37,7 @@
   },
   "devDependencies": {
     "@12deg/eslint-config": "0.1.4",
-    "@dzangolab/react-config": "0.48.2",
+    "@dzangolab/react-config": "0.48.3",
     "@testing-library/react": "16.0.1",
     "@types/file-saver": "2.0.7",
     "@types/jsdom": "21.1.7",
@@ -52,7 +54,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.26.1",
-    "tsconfig": "0.48.2",
+    "tsconfig": "0.48.3",
     "typescript": "5.4.5",
     "vite": "5.4.6",
     "vitest": "2.0.5"
