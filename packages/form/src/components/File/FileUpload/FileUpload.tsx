@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
+import { FormActions } from "@/components/FormActions";
+
 import { FileDropzoneBasic } from "../FileDropzone";
 
 import type { FileExtended, IFileUploadProperties } from "../types";
 import type { FC } from "react";
-
-import { FormActions } from "@/components/FormActions";
 
 export const FileUpload: FC<IFileUploadProperties> = ({
   addDescriptionLabel,

@@ -6,7 +6,9 @@ import { ErrorMessage } from "./ErrorMessage";
 interface IDateInput {
   label?: string;
   name: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
   disabled?: boolean;
   showInvalidState?: boolean;
