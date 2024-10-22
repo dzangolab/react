@@ -4,6 +4,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import { DatePickerBasic } from "./DatePickerBasic";
 
 export interface DatePicker {
+  className?: string;
   dateFormat?: string;
   label?: string;
   name: string;
@@ -13,6 +14,7 @@ export interface DatePicker {
 }
 
 export const DatePicker: FC<DatePicker> = ({
+  className,
   dateFormat,
   label,
   name,
@@ -31,6 +33,7 @@ export const DatePicker: FC<DatePicker> = ({
         render={({ field }) => (
           <DatePickerBasic
             inputRef={field.ref}
+            className={className}
             name={name}
             maxDate={maxDate}
             minDate={minDate}

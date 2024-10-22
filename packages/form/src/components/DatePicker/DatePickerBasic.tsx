@@ -8,6 +8,7 @@ import { ErrorMessage } from "../ErrorMessage";
 import type { ErrorOption } from "react-hook-form";
 
 export interface DatePickerBasicProperties {
+  className?: string;
   dateFormat?: string;
   error?: ErrorOption;
   inputRef: React.Ref<HTMLInputElement>;
@@ -21,6 +22,7 @@ export interface DatePickerBasicProperties {
 }
 
 export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
+  className = "",
   dateFormat = "dd/mm/yy",
   error,
   inputRef,
@@ -33,7 +35,7 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
   value,
 }) => {
   return (
-    <div className={`field ${name}`}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
 
       <Calendar
