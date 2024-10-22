@@ -54,7 +54,7 @@ describe("FormatDate unit test", () => {
   test("Should return null if date is empty", () => {
     const date = "";
 
-    expect(formatDate({ date })).toBeNull;
+    expect(formatDate({ date })).toBeNull();
   });
 });
 

@@ -11,12 +11,15 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@12deg/eslint-config": "0.1.4",
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
-    "eslint-config-custom": "workspace:*",
+    "eslint": "8.57.1",
     "husky": "9.0.11",
+    "prettier": "3.3.3",
     "shipjs": "0.26.4",
-    "turbo": "2.0.7"
+    "turbo": "2.0.7",
+    "typescript": "4.9.5"
   },
   "packageManager": "pnpm@8.15.8",
   "engines": {

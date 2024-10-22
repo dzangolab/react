@@ -1,16 +1,16 @@
 {
   "name": "@dzangolab/demo",
-  "homepage": "https://dzangolab.github.io/react",
   "version": "0.48.2",
   "private": true,
+  "homepage": "https://dzangolab.github.io/react",
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "snapshot:update": "vitest --environment jsdom run --update",
     "preview": "vite preview",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "CI=true vitest",
     "test:unit": "CI=true vitest",
