@@ -77,7 +77,7 @@ export const InvitationFormFields: React.FC<IProperties> = ({
     <>
       {expiryDateField?.mode === "calendar" ? (
         <DatePicker
-          className="expiresAt"
+          className="expires-at"
           key="calender"
           label={t("form.fields.expiresAt.label")}
           minDate={new Date()}

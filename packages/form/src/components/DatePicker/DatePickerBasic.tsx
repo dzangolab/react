@@ -45,7 +45,7 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
         inputRef={inputRef}
         onChange={(event) => onChange(event.value)}
         className={classNames({ "p-invalid": error })}
-        panelClassName={name}
+        panelClassName={className}
         maxDate={maxDate}
         minDate={minDate}
         dateFormat={dateFormat}
