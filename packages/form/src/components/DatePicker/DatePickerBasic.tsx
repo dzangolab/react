@@ -13,9 +13,10 @@ export interface DatePickerBasicProperties {
   error?: ErrorOption;
   inputRef: React.Ref<HTMLInputElement>;
   label?: string;
-  name: string;
   maxDate?: Date;
   minDate?: Date;
+  name: string;
+  panelClassName?: string;
   placeholder?: string;
   onChange: (value: Nullable<string | Date | Date[]>) => void;
   value: Date;
@@ -27,9 +28,10 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
   error,
   inputRef,
   label,
-  name,
   maxDate,
   minDate,
+  name,
+  panelClassName,
   placeholder,
   onChange,
   value,
@@ -45,7 +47,7 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
         inputRef={inputRef}
         onChange={(event) => onChange(event.value)}
         className={classNames({ "p-invalid": error })}
-        panelClassName={className}
+        panelClassName={panelClassName}
         maxDate={maxDate}
         minDate={minDate}
         dateFormat={dateFormat}
