@@ -76,7 +76,7 @@
     "react-toastify": ">=10.0"
   },
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=8"
+    "node": ">=18",
+    "pnpm": ">=9"
   }
 }
