@@ -116,7 +116,7 @@ importers:
         version: 4.3.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.0.5
-        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))
+        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -142,8 +142,8 @@ importers:
         specifier: 44.0.2
         version: 44.0.2(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -161,7 +161,7 @@ importers:
         version: 3.2.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
 
   packages/config:
     devDependencies:
@@ -182,13 +182,13 @@ importers:
         version: 4.3.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.0.5
-        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))
+        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -206,7 +206,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)(terser@5.36.0)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
 
   packages/form:
     dependencies:
@@ -261,7 +261,7 @@ importers:
         version: 4.3.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.0.5
-        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))
+        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -269,8 +269,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -294,7 +294,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)(terser@5.36.0)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
 
   packages/i18n:
     dependencies:
@@ -343,7 +343,7 @@ importers:
         version: 4.3.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.0.5
-        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))
+        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -370,7 +370,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)(terser@5.36.0)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
 
   packages/layout:
     devDependencies:
@@ -406,7 +406,7 @@ importers:
         version: 4.3.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.0.5
-        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))
+        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -414,8 +414,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -442,7 +442,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)(terser@5.36.0)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
 
   packages/ui:
     dependencies:
@@ -494,7 +494,7 @@ importers:
         version: 4.3.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.0.5
-        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))
+        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -502,8 +502,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -530,7 +530,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)(terser@5.36.0)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
 
   packages/user:
     dependencies:
@@ -585,7 +585,7 @@ importers:
         version: 4.3.2(vite@5.4.6(@types/node@22.7.4)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.0.5
-        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))
+        version: 2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))
       axios:
         specifier: 1.7.7
         version: 1.7.7
@@ -596,8 +596,8 @@ importers:
         specifier: 7.35.0
         version: 7.35.0(eslint@8.57.1)
       jsdom:
-        specifier: 25.0.0
-        version: 25.0.0
+        specifier: 25.0.1
+        version: 25.0.1
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -627,7 +627,7 @@ importers:
         version: 5.4.6(@types/node@22.7.4)(terser@5.36.0)
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+        version: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
 
   tools/tsconfig: {}
 
@@ -3581,8 +3581,8 @@ packages:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
-  jsdom@25.0.0:
-    resolution: {integrity: sha512-OhoFVT59T7aEq75TVw9xxEfkXgacpqAhQaYgP9y/fDqWQCMB/b1H66RfmPm/MaeaAIU9nDwMOVTlPN51+ao6CQ==}
+  jsdom@25.0.1:
+    resolution: {integrity: sha512-8i7LzZj7BF8uplX+ZyOlIz86V6TAsSs+np6m1kpW9u0JWi4z/1t+FzcK1aek+ybTnAC4KhBL4uXCNT0wcUIeCw==}
     engines: {node: '>=18'}
     peerDependencies:
       canvas: ^2.11.2
@@ -4166,9 +4166,6 @@ packages:
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
-  psl@1.9.0:
-    resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
-
   pump@3.0.2:
     resolution: {integrity: sha512-tUPXtzlGM8FE3P0ZL6DVs/3P58k9nk8/jZeQCurTJylQA8qFYzHFfhBJkuqyE0FifOsQ0uKWekiZ5g8wtr28cw==}
 
@@ -4183,9 +4180,6 @@ packages:
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
-
-  querystringify@2.2.0:
-    resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -4399,9 +4393,6 @@ packages:
   require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
-
-  requires-port@1.0.0:
-    resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
 
   reselect@4.1.8:
     resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
@@ -4769,6 +4760,13 @@ packages:
     resolution: {integrity: sha512-n1cw8k1k0x4pgA2+9XrOkFydTerNcJ1zWCO5Nn9scWHTD+5tp8dghT2x1uduQePZTZgd3Tupf+x9BxJjeJi77Q==}
     engines: {node: '>=14.0.0'}
 
+  tldts-core@6.1.54:
+    resolution: {integrity: sha512-5cc42+0G0EjYRDfIJHKraaT3I5kPm7j6or3Zh1T9sF+Ftj1T+isT4thicUyQQ1bwN7/xjHQIuY2fXCoXP8Haqg==}
+
+  tldts@6.1.54:
+    resolution: {integrity: sha512-rDaL1t59gb/Lg0HPMUGdV1vAKLQcXwU74D26aMaYV4QW7mnMvShd1Vmkg3HYAPWx2JCTUmsrXt/Yl9eJ5UFBQw==}
+    hasBin: true
+
   tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
@@ -4781,9 +4779,9 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  tough-cookie@4.1.4:
-    resolution: {integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag==}
-    engines: {node: '>=6'}
+  tough-cookie@5.0.0:
+    resolution: {integrity: sha512-FRKsF7cz96xIIeMZ82ehjC3xW2E+O2+v11udrDYewUbszngYhsGa8z6YUMMzO9QJZzzyd0nGGXnML/TReX6W8Q==}
+    engines: {node: '>=16'}
 
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
@@ -4938,10 +4936,6 @@ packages:
   universal-user-agent@6.0.1:
     resolution: {integrity: sha512-yCzhz6FN2wU1NiiQRogkTQszlQSlpWaw8SvVegAc+bDxbzHgh1vX8uIe8OYyMH6DwH+sdTJsgMl36+mSMdRJIQ==}
 
-  universalify@0.2.0:
-    resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
-    engines: {node: '>= 4.0.0'}
-
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
@@ -4960,9 +4954,6 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
-
-  url-parse@1.5.10:
-    resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
 
   use-sync-external-store@1.2.2:
     resolution: {integrity: sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==}
@@ -6969,7 +6960,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0))':
+  '@vitest/coverage-v8@2.0.5(vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -6983,7 +6974,7 @@ snapshots:
       std-env: 3.7.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0)
+      vitest: 2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -7896,7 +7887,7 @@ snapshots:
       debug: 4.3.7
       enhanced-resolve: 5.17.1
       eslint: 8.57.1
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1)
       fast-glob: 3.3.2
       get-tsconfig: 4.8.1
       is-bun-module: 1.2.1
@@ -7915,7 +7906,7 @@ snapshots:
       debug: 4.3.7
       enhanced-resolve: 5.17.1
       eslint: 8.57.1
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1)
       fast-glob: 3.3.2
       get-tsconfig: 4.8.1
       is-bun-module: 1.2.1
@@ -7938,7 +7929,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -7949,7 +7940,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -7959,7 +7950,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -7970,7 +7961,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -8071,7 +8062,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@4.9.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -8100,7 +8091,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.4.5))(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -8977,7 +8968,7 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsdom@25.0.0:
+  jsdom@25.0.1:
     dependencies:
       cssstyle: 4.1.0
       data-urls: 5.0.0
@@ -8992,7 +8983,7 @@ snapshots:
       rrweb-cssom: 0.7.1
       saxes: 6.0.0
       symbol-tree: 3.2.4
-      tough-cookie: 4.1.4
+      tough-cookie: 5.0.0
       w3c-xmlserializer: 5.0.0
       webidl-conversions: 7.0.0
       whatwg-encoding: 3.1.1
@@ -9520,8 +9511,6 @@ snapshots:
 
   proxy-from-env@1.1.0: {}
 
-  psl@1.9.0: {}
-
   pump@3.0.2:
     dependencies:
       end-of-stream: 1.4.4
@@ -9530,8 +9519,6 @@ snapshots:
   punycode@2.3.1: {}
 
   q@1.5.1: {}
-
-  querystringify@2.2.0: {}
 
   queue-microtask@1.2.3: {}
 
@@ -9751,8 +9738,6 @@ snapshots:
   require-directory@2.1.1: {}
 
   require-from-string@2.0.2: {}
-
-  requires-port@1.0.0: {}
 
   reselect@4.1.8: {}
 
@@ -10173,6 +10158,12 @@ snapshots:
 
   tinyspy@3.0.2: {}
 
+  tldts-core@6.1.54: {}
+
+  tldts@6.1.54:
+    dependencies:
+      tldts-core: 6.1.54
+
   tmp@0.0.33:
     dependencies:
       os-tmpdir: 1.0.2
@@ -10183,12 +10174,9 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  tough-cookie@4.1.4:
+  tough-cookie@5.0.0:
     dependencies:
-      psl: 1.9.0
-      punycode: 2.3.1
-      universalify: 0.2.0
-      url-parse: 1.5.10
+      tldts: 6.1.54
 
   tr46@0.0.3: {}
 
@@ -10330,8 +10318,6 @@ snapshots:
 
   universal-user-agent@6.0.1: {}
 
-  universalify@0.2.0: {}
-
   universalify@2.0.1: {}
 
   update-browserslist-db@1.1.1(browserslist@4.24.2):
@@ -10351,11 +10337,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
-
-  url-parse@1.5.10:
-    dependencies:
-      querystringify: 2.2.0
-      requires-port: 1.0.0
 
   use-sync-external-store@1.2.2(react@18.3.1):
     dependencies:
@@ -10425,7 +10406,7 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.36.0
 
-  vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.0)(terser@5.36.0):
+  vitest@2.0.5(@types/node@22.7.4)(jsdom@25.0.1)(terser@5.36.0):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@vitest/expect': 2.0.5
@@ -10448,7 +10429,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.7.4
-      jsdom: 25.0.0
+      jsdom: 25.0.1
     transitivePeerDependencies:
       - less
       - lightningcss
