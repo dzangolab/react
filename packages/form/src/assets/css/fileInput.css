@@ -144,8 +144,9 @@
     visibility: visible;
   }
 
-  .file-input .description-wrapper .p-inputgroup input {
-    height: 2rem;
-    width: 13rem;
+  .file-input .description-wrapper .p-inputgroup, 
+  .file-input .description-wrapper .p-inputgroup .field,
+  .file-input .description-wrapper .p-inputgroup .field input {
+    width: inherit;
   }
 }
