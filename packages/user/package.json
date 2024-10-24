@@ -17,8 +17,8 @@
   ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
-    "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
-    "lint:fix": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "pnpm build && vitest --environment jsdom run --coverage",
@@ -32,6 +32,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@12deg/eslint-config": "0.1.4",
     "@dzangolab/react-config": "0.48.3",
     "@dzangolab/react-form": "0.48.3",
     "@dzangolab/react-i18n": "0.48.3",
@@ -48,7 +49,6 @@
     "@vitest/coverage-v8": "2.0.5",
     "axios": "1.7.7",
     "eslint": "8.57.1",
-    "eslint-config-custom": "0.48.3",
     "eslint-plugin-react": "7.35.0",
     "jsdom": "25.0.0",
     "prettier": "3.3.3",
@@ -76,7 +76,7 @@
     "react-toastify": ">=10.0"
   },
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=8"
+    "node": ">=18",
+    "pnpm": ">=9"
   }
 }
