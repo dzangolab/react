@@ -110,7 +110,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
   return (
     <AuthPage
       className="email-verification"
-      title={t("emailVerification.title")}
+      title={t("emailVerification.verifyEmail")}
       loading={verifyEmailLoading}
       centered={centered}
     >

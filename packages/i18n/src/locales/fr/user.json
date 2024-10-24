@@ -170,14 +170,14 @@
       "error": "Something went wrong. Please try again (fr)",
       "invalidToken": "The token is invalid (fr)",
       "success": "Email verified successfully (fr).",
-      "unverified": "Please check your email for verification (fr)",
+      "unverified": "Please check your inbox to verify your email address (fr)",
       "unauthenticated": "User session expired. Please signin to continue (fr)"
     },
     "button": {
       "resendEmail": "Resend email (fr)",
       "signin": "Signin (fr)"
     },
-    "title": "Email verification (fr)",
+    "title": "Email address verification (fr)",
     "toastMessages": {
       "success": "Email verified successfully (fr)",
       "alreadyVerified": "Email is already verified (fr)",
@@ -185,7 +185,8 @@
       "error": "Something went wrong. Please try again (fr)",
       "resendSuccess": "Email resent successfully (fr)",
       "resendError": "Something went wrong. Please try again (fr)"
-    }
+    },
+    "verifyEmail": "Verifying your email (fr)"
   },
   "profile": {
     "form": {
