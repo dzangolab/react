@@ -45,10 +45,15 @@
 }
 
 .file-input .selected li .info .details > span {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+  display: -webkit-box;
   overflow: hidden;
+  overflow-wrap: break-word; 
   text-overflow: ellipsis;
-  white-space: nowrap;
+  word-break: break-word; 
 }
+
 
 .file-input .selected li .description-wrapper {
   display: grid;
@@ -100,10 +105,6 @@
   visibility: hidden;
 }
 
-.file-input .description-wrapper .p-inputgroup {
-  position: absolute;
-}
-
 .file-input .description-wrapper:hover i {
   visibility: visible;
 }
@@ -136,4 +137,15 @@
 
 .file-input .dz-file-error > ul {
   list-style: initial;
+}
+
+@media screen and (max-width: 576px) {
+  .file-input .description-wrapper i {
+    visibility: visible;
+  }
+
+  .file-input .description-wrapper .p-inputgroup input {
+    height: 2rem;
+    max-width: 13rem;
+  }
 }
