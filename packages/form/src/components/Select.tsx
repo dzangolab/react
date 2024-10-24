@@ -12,6 +12,7 @@ type Option = {
 
 interface ISelect {
   autoSelectSingleOption?: boolean;
+  className?: string;
   disabled?: boolean;
   label?: string;
   multiple?: boolean;
@@ -30,6 +31,7 @@ interface ISelect {
 
 export const Select: React.FC<ISelect> = ({
   autoSelectSingleOption = false,
+  className,
   disabled,
   label = "",
   multiple = false,
@@ -71,6 +73,7 @@ export const Select: React.FC<ISelect> = ({
       render={({ field }) => (
         <BasicSelect
           autoSelectSingleOption={autoSelectSingleOption}
+          className={className}
           label={label}
           name={name}
           multiple={multiple}

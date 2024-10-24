@@ -26,6 +26,7 @@ interface IProperties<T>
 }
 
 export const Typeahead = <T extends Suggestion>({
+  className,
   data,
   debounceTime,
   disabled,
@@ -73,6 +74,7 @@ export const Typeahead = <T extends Suggestion>({
           <BasicTypeahead
             label={label}
             name={name}
+            className={className}
             disabled={disabled}
             emptyMessage={emptyMessage}
             forceSelect={forceSelect}
