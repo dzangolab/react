@@ -146,6 +146,6 @@
 
   .file-input .description-wrapper .p-inputgroup input {
     height: 2rem;
-    max-width: 13rem;
+    width: 13rem;
   }
 }
