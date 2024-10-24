@@ -171,14 +171,14 @@
       "error": "Something went wrong. Please try again",
       "invalidToken": "The token is invalid",
       "success": "Email verified successfully.",
-      "unverified": "Please check your email for verification",
+      "unverified": "Please check your inbox to verify your email address",
       "unauthenticated": "User session expired. Please signin to continue"
     },
     "button": {
       "resendEmail": "Resend email",
       "signin": "Signin"
     },
-    "title": "Email verification",
+    "title": "Email address verification",
     "toastMessages": {
       "success": "Email verified successfully",
       "alreadyVerified": "Email is already verified",
@@ -186,7 +186,8 @@
       "error": "Something went wrong. Please try again",
       "resendSuccess": "Email resent successfully",
       "resendError": "Something went wrong. Please try again"
-    }
+    },
+    "verifyEmail": "Verifying your email"
   },
   "profile": {
     "form": {
