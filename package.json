@@ -11,7 +11,7 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.4",
+    "@12deg/eslint-config": "0.1.5",
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "eslint": "8.57.1",

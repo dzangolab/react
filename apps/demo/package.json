@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
-    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
-    "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
@@ -35,6 +35,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@12deg/eslint-config": "0.1.5",
     "@babel/core": "7.24.7",
     "@babel/plugin-syntax-flow": "7.24.7",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
@@ -46,13 +47,6 @@
     "@vitejs/plugin-react": "4.3.2",
     "@vitest/coverage-v8": "2.0.5",
     "eslint": "8.57.1",
-    "eslint-config-prettier": "8.10.0",
-    "eslint-config-react-app": "7.0.1",
-    "eslint-plugin-cypress": "^3.0.0",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-prettier": "5.1.3",
-    "eslint-plugin-unicorn": "44.0.2",
     "jsdom": "25.0.0",
     "prettier": "3.3.3",
     "typescript": "5.4.5",
