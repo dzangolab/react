@@ -36,7 +36,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.4",
+    "@12deg/eslint-config": "0.1.5",
     "@dzangolab/react-ui": "0.48.3",
     "@testing-library/react": "16.0.1",
     "@types/jsdom": "21.1.7",
