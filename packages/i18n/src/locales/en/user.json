@@ -171,7 +171,7 @@
       "error": "Something went wrong. Please try again",
       "invalidToken": "The token is invalid",
       "success": "Email verified successfully.",
-      "unverified": "Please check your inbox to verify your email address",
+      "unverified": "Please check your inbox to verify your email address.",
       "unauthenticated": "User session expired. Please signin to continue"
     },
     "button": {

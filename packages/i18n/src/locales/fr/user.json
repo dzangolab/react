@@ -170,7 +170,7 @@
       "error": "Something went wrong. Please try again (fr)",
       "invalidToken": "The token is invalid (fr)",
       "success": "Email verified successfully (fr).",
-      "unverified": "Please check your inbox to verify your email address (fr)",
+      "unverified": "Please check your inbox to verify your email address (fr).",
       "unauthenticated": "User session expired. Please signin to continue (fr)"
     },
     "button": {
