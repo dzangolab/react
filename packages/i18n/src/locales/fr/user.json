@@ -169,12 +169,13 @@
       "alreadyVerified": "Email is already verified. Please try refreshing the page (fr).",
       "error": "Something went wrong. Please try again (fr)",
       "invalidToken": "The token is invalid (fr)",
+      "resendEmailInfo": "Not received yet? (fr)",
       "success": "Email verified successfully (fr).",
       "unverified": "Please check your inbox to verify your email address (fr).",
       "unauthenticated": "User session expired. Please signin to continue (fr)"
     },
     "button": {
-      "resendEmail": "Not received yet? Resend (fr)",
+      "resendEmail": "Resend (fr)",
       "signin": "Signin (fr)"
     },
     "title": "Email address verification (fr)",

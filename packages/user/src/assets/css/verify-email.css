@@ -1,7 +1,11 @@
-.email-verification-reminder .resend-email,
 .email-verification button.resend-email {
   margin-top: 1rem;
   text-align: center;
+}
+
+.email-verification-reminder .resend-email {
+  font-style: italic;
+  margin-top: 1rem;
 }
 
 .email-verification-reminder .resend-email a {

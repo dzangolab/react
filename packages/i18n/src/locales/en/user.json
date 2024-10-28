@@ -170,12 +170,13 @@
       "alreadyVerified": "Email is already verified. Please try refreshing the page.",
       "error": "Something went wrong. Please try again",
       "invalidToken": "The token is invalid",
+      "resendEmailInfo": "Not received yet?",
       "success": "Email verified successfully.",
       "unverified": "Please check your inbox to verify your email address.",
       "unauthenticated": "User session expired. Please signin to continue"
     },
     "button": {
-      "resendEmail": "Not received yet? Resend",
+      "resendEmail": "Resend",
       "signin": "Signin"
     },
     "title": "Email address verification",
