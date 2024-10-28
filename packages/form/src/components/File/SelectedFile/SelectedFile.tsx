@@ -1,11 +1,5 @@
-import { Button, Tooltip, Input } from "@dzangolab/react-ui";
-import React, {
-  ChangeEvent,
-  KeyboardEvent,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { Button, Input } from "@dzangolab/react-ui";
+import React, { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 
 import { FileExtended } from "../types";
 
@@ -30,8 +24,6 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
 }) => {
   const [showDescriptionInput, setShowDescriptionInput] = useState(false);
   const [description, setDescription] = useState(file.description || "");
-  const nameReference = useRef<HTMLDivElement>(null);
-  const descriptionReference = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (enableDescription && onDescriptionChange) {
@@ -44,24 +36,18 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
       <div className="info">
         <div className="preview"></div>
         <div className="details">
-          <Tooltip position="top" elementRef={nameReference}>
-            {file.name}
-          </Tooltip>
-          <span className={`name name-${index}`} ref={nameReference}>
+          <span className={`name name-${index}`} title={file.name}>
             {file.name}
           </span>
           {enableDescription && (
             <div className="description-wrapper">
               {!showDescriptionInput ? (
                 <>
-                  <Tooltip position="top" elementRef={descriptionReference}>
-                    {file.description}
-                  </Tooltip>
                   <div
-                    ref={descriptionReference}
                     className={`description description-${index}`}
                     role="button"
                     tabIndex={0}
+                    title={file.description}
                     onClick={() => {
                       setShowDescriptionInput(true);
                     }}
