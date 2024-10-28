@@ -47,7 +47,7 @@
     "@vitejs/plugin-react": "4.3.3",
     "@vitest/coverage-v8": "2.0.5",
     "eslint": "8.57.1",
-    "eslint-plugin-react": "7.35.0",
+    "eslint-plugin-react": "7.37.2",
     "jsdom": "25.0.1",
     "prettier": "3.3.3",
     "primereact": "9.6.1",
