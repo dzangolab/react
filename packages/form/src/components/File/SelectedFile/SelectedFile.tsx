@@ -36,7 +36,9 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
       <div className="info">
         <div className="preview"></div>
         <div className="details">
-          <span className={`name name-${index}`}>{file.name}</span>
+          <span className={`name name-${index}`} title={file.name}>
+            {file.name}
+          </span>
           {enableDescription && (
             <div className="description-wrapper">
               {!showDescriptionInput ? (
@@ -45,6 +47,7 @@ export const SelectedFile: React.FC<SelectedFileProperties> = ({
                     className={`description description-${index}`}
                     role="button"
                     tabIndex={0}
+                    title={file.description}
                     onClick={() => {
                       setShowDescriptionInput(true);
                     }}
