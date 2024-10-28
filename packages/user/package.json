@@ -46,7 +46,7 @@
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "4.3.3",
-    "@vitest/coverage-v8": "2.0.5",
+    "@vitest/coverage-v8": "2.1.4",
     "axios": "1.7.7",
     "eslint": "8.57.1",
     "eslint-plugin-react": "7.37.2",
@@ -60,7 +60,7 @@
     "tsconfig": "0.48.3",
     "typescript": "5.4.5",
     "vite": "5.4.10",
-    "vitest": "2.0.5"
+    "vitest": "2.1.4"
   },
   "peerDependencies": {
     "@dzangolab/react-config": "0.48.3",
