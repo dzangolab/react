@@ -174,7 +174,7 @@
       "unauthenticated": "User session expired. Please signin to continue (fr)"
     },
     "button": {
-      "resendEmail": "Resend email (fr)",
+      "resendEmail": "Not received yet? Resend (fr)",
       "signin": "Signin (fr)"
     },
     "title": "Email address verification (fr)",

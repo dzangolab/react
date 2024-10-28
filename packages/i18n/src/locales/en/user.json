@@ -175,7 +175,7 @@
       "unauthenticated": "User session expired. Please signin to continue"
     },
     "button": {
-      "resendEmail": "Resend email",
+      "resendEmail": "Not received yet? Resend",
       "signin": "Signin"
     },
     "title": "Email address verification",

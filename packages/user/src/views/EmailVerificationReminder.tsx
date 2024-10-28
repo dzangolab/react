@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, Button, Card, CardBody } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "../constants";
@@ -43,12 +44,18 @@ export const EmailVerificationReminder = ({
             <p>{t("emailVerification.messages.alreadyVerified")}</p>
           ) : (
             <>
-              <p>{t("emailVerification.messages.unverified")}</p>
+              {/* <p>{t("emailVerification.messages.unverified")}</p>
               <Button
                 label={t("emailVerification.button.resendEmail")}
                 onClick={handleResend}
                 className="resend-email"
-              />
+              /> */}
+              <p>{t("emailVerification.messages.unverified")}</p>
+              <p className="resend-email">
+                <Link to="" onClick={handleResend}>
+                  {t("emailVerification.button.resendEmail")}
+                </Link>
+              </p>
             </>
           )}
         </CardBody>
