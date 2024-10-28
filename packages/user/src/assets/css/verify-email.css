@@ -3,3 +3,13 @@
   margin-top: 1rem;
   text-align: center;
 }
+
+.email-verification-reminder .resend-email a {
+  color: #007aff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.email-verification-reminder .resend-email a:hover {
+  text-decoration: underline;
+}

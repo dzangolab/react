@@ -46,7 +46,7 @@ export const EmailVerificationReminder = ({
             <>
               <p>{t("emailVerification.messages.unverified")}</p>
               <p className="resend-email">
-                <Link to="" onClick={handleResend}>
+                <Link to="#" onClick={handleResend}>
                   {t("emailVerification.button.resendEmail")}
                 </Link>
               </p>
