@@ -63,10 +63,12 @@ export const Typeahead = <T extends Suggestion>({
       suggestionReference.current &&
       !suggestionReference.current.contains(event.target as HTMLElement)
     ) {
-      forceSelect
-        ? setInputValue("")
-        : (setSuggestions([]),
-          (suggestionReference.current.style.display = "none"));
+      if (forceSelect) {
+        setInputValue("");
+      } else {
+        setSuggestions([]);
+        suggestionReference.current.style.display = "none";
+      }
     }
   };
 

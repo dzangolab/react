@@ -4,7 +4,7 @@ RUN apk add --update --no-cache git
 
 WORKDIR /var/workspace
 
-RUN npm install -g pnpm@8 \
+RUN npm install -g pnpm@9 \
   && pnpm config set store-dir .pnpm-store
 
 COPY package.json package.json
@@ -39,7 +39,7 @@ COPY apps/ apps/
 RUN pnpm install -r --frozen-lockfile --ignore-scripts \
   && pnpm --filter "@dzangolab/demo-..." build
 
-FROM nginx:1.26-alpine as production
+FROM nginx:1.27-alpine as production
 
 COPY apps/demo/docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /var/workspace/apps/demo/dist /usr/share/nginx/html

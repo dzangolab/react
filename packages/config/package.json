@@ -18,8 +18,8 @@
   ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
-    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
-    "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage --passWithNoTests",
     "test:component": "vitest --environment jsdom run component/ --passWithNoTests",
@@ -28,26 +28,26 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "devDependencies": {
+    "@12deg/eslint-config": "0.1.5",
     "@types/jsdom": "21.1.7",
-    "@types/node": "22.7.4",
-    "@types/react": "18.3.10",
-    "@vitejs/plugin-react": "4.3.2",
+    "@types/node": "22.8.1",
+    "@types/react": "18.3.12",
+    "@vitejs/plugin-react": "4.3.3",
     "@vitest/coverage-v8": "2.0.5",
     "eslint": "8.57.1",
-    "eslint-config-custom": "0.48.3",
-    "jsdom": "25.0.0",
+    "jsdom": "25.0.1",
     "prettier": "3.3.3",
     "react": "18.3.1",
     "tsconfig": "0.48.3",
     "typescript": "5.4.5",
-    "vite": "5.4.6",
+    "vite": "5.4.10",
     "vitest": "2.0.5"
   },
   "peerDependencies": {
     "react": ">=18.2"
   },
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=8"
+    "node": ">=18",
+    "pnpm": ">=9"
   }
 }

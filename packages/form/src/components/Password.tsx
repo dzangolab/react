@@ -6,6 +6,7 @@ import { CustomInputProperties } from "../types";
 
 export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
   autoComplete = "new-password",
+  className = "",
   getFieldState,
   label = "",
   name,
@@ -28,7 +29,7 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
   };
 
   return (
-    <div className={`field ${name}`}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <div
         className="input-field-password"
