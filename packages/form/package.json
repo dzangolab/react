@@ -17,8 +17,8 @@
   ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
-    "lint": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
-    "lint:fix": "eslint . --ext .react,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",
@@ -31,31 +31,31 @@
     "@hookform/resolvers": "3.9.0",
     "react-debounce-input": "3.3.0",
     "react-dropzone": "^14.2.3",
-    "react-hook-form": "7.53.0",
+    "react-hook-form": "7.53.1",
     "validator": "13.12.0",
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@12deg/eslint-config": "0.1.5",
     "@dzangolab/react-ui": "0.48.3",
     "@testing-library/react": "16.0.1",
     "@types/jsdom": "21.1.7",
-    "@types/node": "22.7.4",
-    "@types/react": "18.3.10",
-    "@types/react-dom": "18.3.0",
+    "@types/node": "22.8.1",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
     "@types/validator": "13.12.2",
-    "@vitejs/plugin-react": "4.3.2",
+    "@vitejs/plugin-react": "4.3.3",
     "@vitest/coverage-v8": "2.0.5",
     "eslint": "8.57.1",
-    "eslint-config-custom": "0.48.3",
-    "eslint-plugin-react": "7.35.0",
-    "jsdom": "25.0.0",
+    "eslint-plugin-react": "7.37.2",
+    "jsdom": "25.0.1",
     "prettier": "3.3.3",
     "primereact": "9.6.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "tsconfig": "0.48.3",
     "typescript": "5.4.5",
-    "vite": "5.4.6",
+    "vite": "5.4.10",
     "vitest": "2.0.5"
   },
   "peerDependencies": {
@@ -66,7 +66,7 @@
     "zod": ">=3.21.4"
   },
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=8"
+    "node": ">=18",
+    "pnpm": ">=9"
   }
 }

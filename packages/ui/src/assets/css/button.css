@@ -116,6 +116,7 @@
 
 .dz-button.textOnly {
   background: transparent;
+  font-weight: normal;
 }
 
 .dz-button.textOnly:hover {

@@ -11,12 +11,14 @@ interface ISwitch {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   register?: UseFormRegister<any>;
   disabled?: boolean;
+  className?: string;
 }
 
 /**
  * @deprecated Use SwitchInput component from the form package instead
  */
 export const Switch: React.FC<ISwitch> = ({
+  className = "",
   disabled,
   register,
   getFieldState,
@@ -32,7 +34,7 @@ export const Switch: React.FC<ISwitch> = ({
   if (isTouched && invalid) switchClassName = "invalid";
 
   return (
-    <div className={`field switch-toggle ${name}`}>
+    <div className={`field switch-toggle ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         {...register(name)}

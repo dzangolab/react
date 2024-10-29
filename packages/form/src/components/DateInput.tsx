@@ -6,7 +6,10 @@ import { ErrorMessage } from "./ErrorMessage";
 interface IDateInput {
   label?: string;
   name: string;
+  className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
   disabled?: boolean;
   showInvalidState?: boolean;
@@ -15,6 +18,7 @@ interface IDateInput {
 }
 
 export const DateInput: React.FC<IDateInput> = ({
+  className = "",
   disabled,
   register,
   getFieldState,
@@ -35,7 +39,7 @@ export const DateInput: React.FC<IDateInput> = ({
   };
 
   return (
-    <div className={`field ${name}`}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
       <input
         {...register(name)}

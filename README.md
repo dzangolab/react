@@ -12,7 +12,6 @@ Please find our [demo app](https://dzangolab.github.io/react/) for examples.
   - @dzangolab/react-layout (https://www.npmjs.com/package/@dzangolab/react-layout)
 
 ## Tools
-  - `eslint-config-custom` This is a utility package containing the common eslint configuration to be shared across all the libraries within the monorepo.
   - `tsconfig` This is a utility package containing all the `tsconfig.json` configuration to be shared across all the libraries within the monorepo.
 
 # Installation & Usage

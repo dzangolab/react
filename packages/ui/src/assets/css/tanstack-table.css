@@ -121,6 +121,10 @@
   cursor: pointer;
 }
 
+.dz-table-container .table-wrapper > table tr > th .sort-state {
+  margin-left: 0.5rem;
+}
+
 .dz-table-container .table-wrapper > table tr > th .sort-state i {
   font-size: 0.7rem !important;
   font-weight: bold !important;
