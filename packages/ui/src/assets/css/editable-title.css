@@ -1,6 +1,7 @@
 .dz-editable-title {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .dz-editable-title > i {
