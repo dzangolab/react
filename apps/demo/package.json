@@ -17,6 +17,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
+    "@12deg/tsconfig": "0.1.6",
     "@dzangolab/react-config": "workspace:*",
     "@dzangolab/react-form": "workspace:*",
     "@dzangolab/react-i18n": "workspace:*",
