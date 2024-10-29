@@ -13,6 +13,7 @@ import { Input } from "../FormWidgets";
 
 interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
   allowEdit?: boolean;
+  className?: string;
   showToggler?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   handleUpdate?: (title: string) => void;
@@ -24,6 +25,7 @@ interface IProperties extends Omit<HTMLAttributes<HTMLHeadElement>, "onClick"> {
 
 export const EditableTitle = ({
   allowEdit = true,
+  className = "",
   showToggler = true,
   onChange,
   handleUpdate,
@@ -84,7 +86,7 @@ export const EditableTitle = ({
       });
 
       return (
-        <div className="dz-editable-title">
+        <div className={`dz-editable-title ${className}`.trimEnd()}>
           {titleElement}
           {togglerElement}
         </div>
