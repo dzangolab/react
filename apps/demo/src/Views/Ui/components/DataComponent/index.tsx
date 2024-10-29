@@ -12,7 +12,7 @@ export const DataDemo = () => {
 
     // Test case 2: Simple label/value with a number
     {
-      label: "age",
+      label: "Age",
       value: 30,
     },
 
@@ -32,13 +32,7 @@ export const DataDemo = () => {
     {
       label: "Status",
       value: "Active",
-    },
-
-    // Test case 6: Label/value for inactive status
-    {
-      label: "Status",
-      value: "Inactive",
-    },
+    }
   ];
 
   return (
