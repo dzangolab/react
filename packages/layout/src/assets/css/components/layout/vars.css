@@ -25,6 +25,7 @@
   --dz-layout-nav-item-color: #ffffff;
   --dz-layout-nav-item-hover-color: var(--dz-layout-nav-item-color);
   --dz-layout-nav-item-active-color: var(--dz-layout-nav-item-color);
+  --dz-layout-nav-item-border-radius: 0;
   --dz-layout-nav-menu-label-color: var(--dz-layout-nav-item-color);
 
   /* uncomment for header */
@@ -33,9 +34,9 @@
   --dz-layout-nav-item-color: rgb(84, 84, 84);
   --dz-layout-nav-item-hover-color: rgb(84, 84, 84);
   --dz-layout-nav-item-active-color: rgb(84, 84, 84);
+  --dz-layout-nav-item-border-radius: 0.312rem;
   --dz-layout-nav-menu-label-color: rgb(84, 84, 84); */
 
-  --dz-layout-nav-item-border-radius: 0.312rem;
   --dz-layout-main-bg: #ffffff;
   --dz-layout-main-padding-h: 1rem;
   --dz-layout-main-padding-v: 1.5rem;
