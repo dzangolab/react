@@ -32,7 +32,7 @@ export const DataDemo = () => {
     {
       label: "Status",
       value: "Active",
-    }
+    },
   ];
 
   return (
