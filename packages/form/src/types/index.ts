@@ -18,6 +18,7 @@ interface CustomInputProperties {
   disabled?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
+  helperText?: string;
   label?: string;
   name: string;
   placeholder?: string;
