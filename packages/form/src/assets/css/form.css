@@ -126,6 +126,11 @@ form input:autofill:active {
   transition: background-color 5000s;
 }
 
+.helper-text {
+  color: var(--dz-secondary-color);
+  font-size: var(--form-input-helper-text-font-size);
+}
+
 @media screen and (max-width: 576px) {
   form .dz-form-actions {
     flex-direction: column-reverse;

@@ -12,6 +12,7 @@ export type IInputField = CustomInputProperties &
 export const Input: React.FC<IInputField> = ({
   className = "",
   getFieldState,
+  helperText,
   label = "",
   name,
   placeholder,
@@ -45,6 +46,7 @@ export const Input: React.FC<IInputField> = ({
         aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
         {...others}
       />
+      {helperText && <span className="helper-text">{helperText}</span>}
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );
