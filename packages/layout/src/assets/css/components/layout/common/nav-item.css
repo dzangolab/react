@@ -19,6 +19,7 @@
   --_nav-item-padding-v: var(--dz-layout-nav-item-padding-v, 0.625rem);
 
   align-items: center;
+  border-radius: var(--dz-layout-nav-item-border-radius, 0.312rem);
   cursor: pointer;
   color: var(--_nav-item-color);
   display: flex;
