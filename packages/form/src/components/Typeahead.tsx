@@ -15,6 +15,7 @@ interface IProperties<T>
   debounceTime?: number;
   emptyMessage?: string;
   forceSelect?: boolean;
+  helperText?: string;
   label?: string;
   loading?: boolean;
   name: string;
@@ -32,6 +33,7 @@ export const Typeahead = <T extends Suggestion>({
   disabled,
   emptyMessage,
   forceSelect = true,
+  helperText,
   label = "",
   loading,
   name,
@@ -78,6 +80,7 @@ export const Typeahead = <T extends Suggestion>({
             disabled={disabled}
             emptyMessage={emptyMessage}
             forceSelect={forceSelect}
+            helperText={helperText}
             placeholder={placeholder}
             data={data}
             onChange={field.onChange}

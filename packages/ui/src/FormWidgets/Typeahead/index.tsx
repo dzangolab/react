@@ -18,6 +18,7 @@ interface IProperties<T>
   emptyMessage?: string;
   forceSelect?: boolean;
   hasError?: boolean;
+  helperText?: string;
   label?: string;
   loading?: boolean;
   onSearch?: (value: string | number | readonly string[]) => void;
@@ -35,6 +36,7 @@ export const Typeahead = <T extends Suggestion>({
   emptyMessage,
   forceSelect = true,
   hasError,
+  helperText,
   label,
   loading,
   name,
@@ -196,6 +198,7 @@ export const Typeahead = <T extends Suggestion>({
         {loading && <LoadingIcon color="#ccc" />}
       </div>
       {renderSuggestions()}
+      {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
