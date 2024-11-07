@@ -40,8 +40,8 @@ export const Input = ({
         disabled={disabled}
         readOnly={readOnly}
       />
-      {errorMessage && <span className="error-message">{errorMessage}</span>}
       {helperText && <span className="helper-text">{helperText}</span>}
+      {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );
 };
