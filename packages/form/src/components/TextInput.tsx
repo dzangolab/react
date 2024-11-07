@@ -9,7 +9,6 @@ import {
 
 interface ITextInput extends IInputProperties {
   defaultValue?: string;
-  helperText?: string;
   label?: string;
   placeholder?: string;
   name: string;
@@ -24,7 +23,6 @@ interface ITextInput extends IInputProperties {
 
 export const TextInput: React.FC<ITextInput> = ({
   defaultValue = "",
-  helperText,
   label = "",
   name,
   placeholder = "",
@@ -56,7 +54,6 @@ export const TextInput: React.FC<ITextInput> = ({
           value={field.value}
           type="text"
           errorMessage={error?.message}
-          helperText={helperText}
           onChange={field.onChange}
           hasError={submitCount > 0 ? checkInvalidState() : undefined}
         />
