@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 0.65rem;
+  transition: all var(--transition-duration) ease 0s;
 }
 
 .dz-dropdown-menu-trigger .dz-icon {
