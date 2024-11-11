@@ -1,7 +1,7 @@
 import { ComponentProps, ReactNode, useState } from "react";
 
-import ConfirmationFileActions from "./ConfirmationFileActions";
 import { Card, ConfirmationModal, formatDate } from "..";
+import ConfirmationFileActions from "./ConfirmationFileActions";
 import { Button } from "../Buttons/ButtonBasic";
 import { IFile } from "../FilesTable";
 import { useColumnsMap } from "../utils";

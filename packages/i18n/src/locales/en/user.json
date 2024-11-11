@@ -172,14 +172,14 @@
       "invalidToken": "The token is invalid",
       "resendEmailInfo": "Not received yet?",
       "success": "Email verified successfully.",
-      "unverified": "Please check your inbox to verify your email address.",
+      "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox.",
       "unauthenticated": "User session expired. Please signin to continue"
     },
     "button": {
       "resendEmail": "Resend",
       "signin": "Signin"
     },
-    "title": "Email address verification",
+    "title": "Please verify your email address",
     "toastMessages": {
       "success": "Email verified successfully",
       "alreadyVerified": "Email is already verified",
@@ -188,7 +188,7 @@
       "resendSuccess": "Email resent successfully",
       "resendError": "Something went wrong. Please try again"
     },
-    "verifyEmail": "Verifying your email"
+    "verifyEmail": "Verifying your email address"
   },
   "profile": {
     "form": {
