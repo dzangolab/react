@@ -18,6 +18,7 @@
   --dz-layout-nav-item-active-bg: rgba(45, 45, 45, 0.125);
   --dz-layout-nav-item-hover-bg: rgba(45, 45, 45, 0.125);
   --dz-layout-nav-item-color: var(--dz-layout-header-color);
+  --dz-layout-nav-item-border-radius: 0.312rem;
   /* --dz-layout-nav-item-hover-color: var(--dz-layout-header-color);
   --dz-layout-nav-item-active-color: var(--dz-layout-header-color);
   --dz-layout-nav-menu-label-color: var(--dz-layout-header-color); */

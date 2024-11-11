@@ -53,6 +53,11 @@ form .field .p-calendar > input {
   background-color: var(--dz-input-fill-color);
 }
 
+form .helper-text {
+  color: var(--dz-secondary-color);
+  font-size: var(--form-input-helper-text-font-size);
+}
+
 form input,
 form textarea {
   background-color: var(--dz-input-fill-color);

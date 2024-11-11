@@ -8,6 +8,7 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
   autoComplete = "new-password",
   className = "",
   getFieldState,
+  helperText,
   label = "",
   name,
   placeholder = "",
@@ -51,6 +52,7 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
           <i className={showPassword ? "pi pi-eye" : "pi pi-eye-slash"}></i>
         </span>
       </div>
+      {helperText && <span className="helper-text">{helperText}</span>}
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );
