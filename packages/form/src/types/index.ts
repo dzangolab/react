@@ -19,7 +19,7 @@ interface CustomInputProperties {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
   helperText?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   name: string;
   placeholder?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

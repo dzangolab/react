@@ -7,7 +7,7 @@ import { Controller, useFormContext } from "react-hook-form";
 
 interface ISwitch extends ISwitchInputProperties {
   disabled?: boolean;
-  label?: string;
+  label?: string | React.ReactNode;
   name: string;
   showValidState?: boolean;
   showInvalidState?: boolean;

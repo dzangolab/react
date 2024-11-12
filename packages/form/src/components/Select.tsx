@@ -15,7 +15,7 @@ interface ISelect {
   className?: string;
   disabled?: boolean;
   helperText?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   multiple?: boolean;
   name: string;
   options: Option[];

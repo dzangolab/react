@@ -6,7 +6,7 @@ export interface ISwitchInputProperties
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   name?: string;
 }
 

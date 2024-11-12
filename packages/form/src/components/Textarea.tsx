@@ -11,7 +11,7 @@ import {
 
 interface ITextarea extends ITextareaProperties {
   defaultValue?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   name: string;
   placeholder?: string;
   showValidState?: boolean;

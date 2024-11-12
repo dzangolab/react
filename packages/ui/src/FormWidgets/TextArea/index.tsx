@@ -5,7 +5,7 @@ export interface ITextareaProperties
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
-  label?: string;
+  label?: string | React.ReactNode;
 }
 
 export const Textarea = ({

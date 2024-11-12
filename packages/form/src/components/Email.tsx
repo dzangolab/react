@@ -9,7 +9,7 @@ import {
 
 interface IProperties extends IInputProperties {
   defaultValue?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   name: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
