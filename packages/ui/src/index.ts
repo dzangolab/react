@@ -17,7 +17,7 @@ import { TabbedPanel } from "./TabbedPanel";
 export * from "./AuthPage";
 export * from "./Buttons";
 export * from "./Card";
-export * from "./DataComponent";
+export * from "./Data";
 export * from "./EditableTitle";
 export * from "./FilesTable";
 export * from "./FileCard";
