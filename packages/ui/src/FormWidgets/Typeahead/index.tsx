@@ -19,7 +19,7 @@ interface IProperties<T>
   forceSelect?: boolean;
   hasError?: boolean;
   helperText?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   loading?: boolean;
   onSearch?: (value: string | number | readonly string[]) => void;
   onChange?: (value?: T) => void;

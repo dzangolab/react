@@ -4,7 +4,7 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface ISwitch {
-  label?: string;
+  label?: string | React.ReactNode;
   name: string;
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   getFieldState?: UseFormGetFieldState<any>;

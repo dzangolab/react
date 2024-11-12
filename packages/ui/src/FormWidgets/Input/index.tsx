@@ -5,7 +5,7 @@ export interface IInputProperties
   errorMessage?: string;
   helperText?: string;
   hasError?: boolean;
-  label?: string;
+  label?: string | React.ReactNode;
   type?: "text" | "number" | "email";
 }
 

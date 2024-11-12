@@ -16,7 +16,7 @@ interface IProperties<T>
   emptyMessage?: string;
   forceSelect?: boolean;
   helperText?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   loading?: boolean;
   name: string;
   submitCount?: number;

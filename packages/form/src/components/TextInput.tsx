@@ -9,7 +9,7 @@ import {
 
 interface ITextInput extends IInputProperties {
   defaultValue?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   placeholder?: string;
   name: string;
   showValidState?: boolean;
