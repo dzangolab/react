@@ -89,7 +89,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
 
         button = (
           <Button
-            label={t("emailVerification.button.resendEmail")}
+            label={t("emailVerification.button.resendLink")}
             onClick={handleResend}
             className="resend-email"
           />
@@ -114,9 +114,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
       loading={verifyEmailLoading}
       centered={centered}
     >
-      <Card>
-        <CardBody>{renderMessage()}</CardBody>
-      </Card>
+      {renderMessage()}
     </AuthPage>
   );
 };
