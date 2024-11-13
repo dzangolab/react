@@ -36,6 +36,7 @@
 @import "./switch-input.css";
 @import "./textarea.css";
 @import "./typeahead.css";
+@import "./grid-container.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";
