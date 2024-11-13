@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { Page, GridContainer } from "@dzangolab/react-ui";
 import React from "react";
 
 import { Package } from "./components/Package";
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
 
   return (
     <Page title={t("pages.home.title")} className="home">
-      <div className="packages">
+      <GridContainer>
         {packages.map((package_) => {
           return (
             <Package
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             />
           );
         })}
-      </div>
+      </GridContainer>
     </Page>
   );
 };
