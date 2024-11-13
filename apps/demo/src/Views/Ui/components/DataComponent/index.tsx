@@ -1,6 +1,4 @@
-import { Data } from "@dzangolab/react-ui";
-
-import "./index.css";
+import { Data, GridContainer } from "@dzangolab/react-ui";
 
 export const DataDemo = () => {
   const testData = [
@@ -36,10 +34,10 @@ export const DataDemo = () => {
   ];
 
   return (
-    <div className="data-container">
+    <GridContainer>
       {testData.map((data, index) => (
         <Data key={index} {...data} />
       ))}
-    </div>
+    </GridContainer>
   );
 };
