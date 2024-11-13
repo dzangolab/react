@@ -1,3 +1,39 @@
+# [0.49.0](https://github.com/dzangolab/react/compare/v0.48.3...v0.49.0) (2024-11-13)
+
+
+### Bug Fixes
+
+* add transition to dropdown component ([#1203](https://github.com/dzangolab/react/issues/1203)) ([f0364cc](https://github.com/dzangolab/react/commit/f0364cca31d5015926bfe7e9105e4eb45d184a23))
+* **deps:** update dependency @hookform/resolvers to v3.9.1 ([#1193](https://github.com/dzangolab/react/issues/1193)) ([7033d31](https://github.com/dzangolab/react/commit/7033d31532ba3fedbe8484e1188d1a7e04f4263f))
+* **deps:** update dependency i18next to v23.16.4 ([#1182](https://github.com/dzangolab/react/issues/1182)) ([da70a18](https://github.com/dzangolab/react/commit/da70a181e33c33bc2726ded989e7570de783b758))
+* **deps:** update dependency react-dropzone to v14.3.5 ([#1197](https://github.com/dzangolab/react/issues/1197)) ([cbab455](https://github.com/dzangolab/react/commit/cbab455f53ce253c3ad4182e7d2bc1e0a275e9e0))
+* **deps:** update dependency react-hook-form to v7.53.1 ([#1173](https://github.com/dzangolab/react/issues/1173)) ([9274c68](https://github.com/dzangolab/react/commit/9274c683a12d8f1a625c80530dc46b1b6812ab77))
+* **deps:** update dependency react-i18next to v15.1.0 ([#1149](https://github.com/dzangolab/react/issues/1149)) ([4158d6a](https://github.com/dzangolab/react/commit/4158d6a19438b74fb068491bb23feee1593c15f5))
+* **deps:** update dependency react-i18next to v15.1.1 ([#1201](https://github.com/dzangolab/react/issues/1201)) ([ce0230c](https://github.com/dzangolab/react/commit/ce0230cdae051959fe65a797ca41e2dc69b48517))
+* **editable-title:** update edit icon position ([#1188](https://github.com/dzangolab/react/issues/1188)) ([5b203f7](https://github.com/dzangolab/react/commit/5b203f780568dd8fe8c04471ade47670a7a73cea))
+* **email-verification:** update ui ([#1171](https://github.com/dzangolab/react/issues/1171)) ([c629554](https://github.com/dzangolab/react/commit/c629554fef6c95c44ea443b0893e54a747593260))
+* **fileDropzone:** update ui in mobile view ([#1170](https://github.com/dzangolab/react/issues/1170)) ([8e0f157](https://github.com/dzangolab/react/commit/8e0f1576e71fe1e609aeec97a76bc13c49d31080))
+* **layout:** remove vertical scroll for user-menu ([#1157](https://github.com/dzangolab/react/issues/1157)) ([23aba47](https://github.com/dzangolab/react/commit/23aba47a6ccbb2aa0276932a5d4c0a8dbdce5c0d))
+* **react/form:** fix classname issues with form fields ([#1165](https://github.com/dzangolab/react/issues/1165)) ([9d54c97](https://github.com/dzangolab/react/commit/9d54c97108c6f88f2ca16e8492bb58c42e26c6ba))
+* update demo page ([#1189](https://github.com/dzangolab/react/issues/1189)) ([f13f037](https://github.com/dzangolab/react/commit/f13f037fbcceade6f197f7a3adca06ad3b1940e4))
+* update textOnly button ui ([#1164](https://github.com/dzangolab/react/issues/1164)) ([e2d20ed](https://github.com/dzangolab/react/commit/e2d20eda4a4b9793e308984616bb34c8f0c7dccb))
+* **user:** improve pages ui ([#1204](https://github.com/dzangolab/react/issues/1204)) ([60762d7](https://github.com/dzangolab/react/commit/60762d7e2f004d0cb43fcd665db649b5f526c5ba))
+
+
+### Features
+
+* add default border radius to nav items in header layout ([#1191](https://github.com/dzangolab/react/issues/1191)) ([4bbb190](https://github.com/dzangolab/react/commit/4bbb1904a238ae1d3a7068ceb1520cfbf7f9fce1))
+* add helper text for DaysInput component ([#1202](https://github.com/dzangolab/react/issues/1202)) ([1c5b196](https://github.com/dzangolab/react/commit/1c5b19631b6e75255b700e87a74573d026c01c10))
+* add helper text for password component ([#1196](https://github.com/dzangolab/react/issues/1196)) ([06b0606](https://github.com/dzangolab/react/commit/06b060609b322c045fc70ee73b08c5fd26f180fa))
+* add helper text for TextInput component ([#1195](https://github.com/dzangolab/react/issues/1195)) ([a7c7b7e](https://github.com/dzangolab/react/commit/a7c7b7e7b9a9b3116c005194c8ee13bbf15f5897))
+* add helper text on different form components ([#1200](https://github.com/dzangolab/react/issues/1200)) ([8f867a6](https://github.com/dzangolab/react/commit/8f867a63ddb7f8d1fb0fba33b69efef4544ddd8c))
+* **form:** add helper text for Input component ([#1192](https://github.com/dzangolab/react/issues/1192)) ([3feec1a](https://github.com/dzangolab/react/commit/3feec1a214c8d1d4258280cf9321761ceb3dca9f))
+* **react/form:** render custom content for input label ([#1211](https://github.com/dzangolab/react/issues/1211)) ([e72646d](https://github.com/dzangolab/react/commit/e72646d6fc678089144cb1cfc0297f6aa8581ed4))
+* **ui:** add GridContainer ui component ([#1212](https://github.com/dzangolab/react/issues/1212)) ([c5f379f](https://github.com/dzangolab/react/commit/c5f379ff80aeac60f11e806817b1b5e22f1a04de))
+* **ui:** improve Data component ui ([#1205](https://github.com/dzangolab/react/issues/1205)) ([20250b0](https://github.com/dzangolab/react/commit/20250b0586158093c953e6fef534bb65a72e4cb9))
+
+
+
 ## [0.48.3](https://github.com/dzangolab/react/compare/v0.48.2...v0.48.3) (2024-10-21)
 
 
