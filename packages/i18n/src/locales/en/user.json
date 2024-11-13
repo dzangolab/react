@@ -177,6 +177,7 @@
     },
     "button": {
       "resendEmail": "Resend",
+      "resendLink": "Resend verification link",
       "signin": "Signin"
     },
     "title": "Please verify your email address",
