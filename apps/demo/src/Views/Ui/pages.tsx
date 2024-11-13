@@ -34,6 +34,7 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
+import GridContainerDemo from "./components/GridContainerDemo";
 
 export const UI_ROUTES = {
   BUTTON: "/ui/button",
@@ -49,6 +50,7 @@ export const UI_ROUTES = {
   FILES_TABLE: "/ui/files-table",
   FILE_CARD: "/ui/file-card",
   GET_STARTED: "/ui",
+  GRID_CONTAINER: "/ui/grid-container",
   INPUT: "/ui/input",
   LOADING: "/ui/loading",
   LOCAL_DATA_TABLE: "/ui/local-table",
@@ -165,6 +167,11 @@ const OTHERS = [
     path: UI_ROUTES.FILES_PRESENTATION,
     key: "filesPresentation.title",
     element: <FilesPresentationDemo />,
+  },
+  {
+    path: UI_ROUTES.GRID_CONTAINER,
+    key: "gridContainer.title",
+    element: <GridContainerDemo />,
   },
   {
     path: UI_ROUTES.LOADING,

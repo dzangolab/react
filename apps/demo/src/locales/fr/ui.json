@@ -87,6 +87,9 @@
       "rowsPerPage": "Items per page (fr)"
     }
   },
+  "gridContainer": {
+    "title": "Grid container (fr)"
+  },
   "loading": {
     "title": "Loading (fr)"
   },

@@ -87,6 +87,9 @@
       "rowsPerPage": "Items per page"
     }
   },
+  "gridContainer": {
+    "title": "Grid container"
+  },
   "loading": {
     "title": "Loading"
   },
