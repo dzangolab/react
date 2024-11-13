@@ -3,7 +3,7 @@ interface GridContainerProperties {
 }
 
 const GridContainer: React.FC<GridContainerProperties> = ({ children }) => {
-  return <div className="dz-grid-container-content">{children}</div>;
+  return <div className="dz-grid-container">{children}</div>;
 };
 
 export default GridContainer;
