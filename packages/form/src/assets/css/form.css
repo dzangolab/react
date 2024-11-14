@@ -7,11 +7,6 @@ form {
   width: 100%;
 }
 
-.dz-radio-input {
-  display: flex;
-  gap: 1rem;
-}
-
 .dz-form-actions {
   align-items: stretch;
   display: flex;
@@ -134,6 +129,11 @@ form input:autofill:focus,
 form input:autofill:active {
   background: transparent;
   transition: background-color 5000s;
+}
+
+form .dz-radio-input {
+  display: flex;
+  gap: 1rem;
 }
 
 @media screen and (max-width: 576px) {
