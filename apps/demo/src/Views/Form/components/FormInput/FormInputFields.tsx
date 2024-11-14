@@ -156,12 +156,12 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         showInvalidState={invalid}
       />
       <RadioInput
-        label="bjdsa"
-        name="bestLang"
+        label={t("formInput.label.radioInput")}
+        name="radioInput"
         options={[
-          { label: "html", value: "html" },
-          { label: "css", value: "css" },
-          { label: "javascript", value: "js" },
+          { label: "label 1", value: "Option 1" },
+          { label: "label 2", value: "Option 2" },
+          { label: "label 3", value: "Option 3" },
         ]}
       />
       <FormActions

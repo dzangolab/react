@@ -42,7 +42,7 @@ export const FormInputDemo = () => {
       .nonempty({ message: t("formInput.message.required") }),
     typeahead: zod.string().min(1, t("formInput.message.required")),
     date: zod.string().date(),
-    bestLang: zod.any(),
+    radioInput: zod.string(),
   });
 
   const handleSubmit = (_formData: any) => {
