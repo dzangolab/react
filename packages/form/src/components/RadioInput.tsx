@@ -48,7 +48,7 @@ export const RadioInput: React.FC<IRadioInput> = ({
           render={({ field }) => (
             <BasicRadioInput
               label={label}
-              name={field.name}
+              name={label}
               value={value}
               checked={field.value === value}
               className={className}
