@@ -3,6 +3,7 @@ import {
   FormActions,
   TextInput,
   Password,
+  RadioInput,
   Input,
   useFormContext,
   NumberInput,
@@ -153,6 +154,15 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
+      />
+      <RadioInput
+        label={t("formInput.label.radioInput")}
+        name="radioInput"
+        options={[
+          { label: "One", value: "value 1" },
+          { label: "Two", value: "value 2" },
+          { label: "Three", value: "value 3" },
+        ]}
       />
       <FormActions
         actions={[

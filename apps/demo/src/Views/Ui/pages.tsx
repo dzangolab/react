@@ -20,6 +20,7 @@ import {
   TextareaDemo,
   TypeaheadDemo,
 } from "./components/FormWidgets";
+import { GridContainerDemo } from "./components/GridContainerDemo";
 import { LoadingDemo } from "./components/Loading";
 import { MessageDemo } from "./components/Message";
 import { ModalDemo } from "./components/ModalDemo";
@@ -34,7 +35,6 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
-import GridContainerDemo from "./components/GridContainerDemo";
 
 export const UI_ROUTES = {
   BUTTON: "/ui/button",

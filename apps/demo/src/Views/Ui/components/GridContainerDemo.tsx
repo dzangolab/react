@@ -1,10 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, GridContainer } from "@dzangolab/react-ui";
-import React from "react";
 
 import { Package } from "../../Home/components/Package";
 
-const GridContainerDemo: React.FC = () => {
+export const GridContainerDemo = () => {
   const { t } = useTranslation("ui");
 
   const packages = [
@@ -48,5 +47,3 @@ const GridContainerDemo: React.FC = () => {
     </Page>
   );
 };
-
-export default GridContainerDemo;

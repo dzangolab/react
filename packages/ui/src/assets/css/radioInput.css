@@ -1,0 +1,13 @@
+.radio-button-wrapper {
+  display: flex;
+}
+
+.radio-button-wrapper input[type="radio"] {
+  cursor: pointer;
+  outline: none;
+  transform: scale(1.5);
+}
+
+.radio-button-wrapper label {
+  margin-left: 0.5rem;
+}
