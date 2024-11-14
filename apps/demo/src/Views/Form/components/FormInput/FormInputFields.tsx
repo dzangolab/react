@@ -159,9 +159,9 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         label={t("formInput.label.radioInput")}
         name="radioInput"
         options={[
-          { label: "label 1", value: "Option 1" },
-          { label: "label 2", value: "Option 2" },
-          { label: "label 3", value: "Option 3" },
+          { label: "One", value: "value 1" },
+          { label: "Two", value: "value 2" },
+          { label: "Three", value: "value 3" },
         ]}
       />
       <FormActions
