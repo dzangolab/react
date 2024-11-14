@@ -4,13 +4,12 @@
 
 .radio-button-wrapper input[type="radio"] {
   cursor: pointer;
-  margin-right: 8px;
   order: 1;
   outline: none;
   transform: scale(1.5);
 }
 
 .radio-button-wrapper label {
-  margin-left: 4px;
+  margin-left: 0.5rem;
   order: 2;
 }
