@@ -5,14 +5,9 @@ import {
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-interface IOption {
-  label: string;
-  value: string;
-}
 interface IRadioInput extends IRadioInputProperties {
   disabled?: boolean;
   name: string;
-  options: IOption[];
   showInvalidState?: boolean;
   showValidState?: boolean;
   submitCount?: number;
@@ -39,28 +34,22 @@ export const RadioInput: React.FC<IRadioInput> = ({
   };
 
   return (
-    <div className="field dz-radio-input" style={{ display: "flex" }}>
-      {label}
-      {options.map(({ label, value }) => (
-        <Controller
-          name={name}
-          control={control}
-          render={({ field }) => (
-            <BasicRadioInput
-              label={label}
-              name={label}
-              value={value}
-              checked={field.value === value}
-              className={className}
-              onChange={field.onChange}
-              disabled={disabled}
-              errorMessage={error?.message}
-              hasError={submitCount > 0 ? checkInvalidState() : undefined}
-              {...others}
-            />
-          )}
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <BasicRadioInput
+          name={field.name}
+          label={label}
+          value={field.value}
+          disabled={disabled}
+          errorMessage={error?.message}
+          onChange={field.onChange}
+          options={options}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
+          {...others}
         />
-      ))}
-    </div>
+      )}
+    />
   );
 };
