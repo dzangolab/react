@@ -7,6 +7,11 @@ form {
   width: 100%;
 }
 
+.dz-radio-input {
+  display: flex;
+  gap: 1rem;
+}
+
 .dz-form-actions {
   align-items: stretch;
   display: flex;

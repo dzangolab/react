@@ -15,11 +15,13 @@ import { FilesTableDemo } from "./components/FilesTable";
 import {
   CheckboxDemo,
   InputDemo,
+  RadioInputDemo,
   SelectDemo,
   SwitchInputDemo,
   TextareaDemo,
   TypeaheadDemo,
 } from "./components/FormWidgets";
+import { GridContainerDemo } from "./components/GridContainerDemo";
 import { LoadingDemo } from "./components/Loading";
 import { MessageDemo } from "./components/Message";
 import { ModalDemo } from "./components/ModalDemo";
@@ -34,7 +36,6 @@ import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
 import { Demo } from "../../components/Demo";
-import GridContainerDemo from "./components/GridContainerDemo";
 
 export const UI_ROUTES = {
   BUTTON: "/ui/button",
@@ -58,6 +59,7 @@ export const UI_ROUTES = {
   MODAL: "/ui/modal",
   PAGE_DEMO: "/ui/page-demo",
   POPUP: "/ui/popup",
+  RADIO_INPUT: "ui/radio-input",
   RESPONSIVE_MENU: "/ui/responsive-menu",
   SELECT: "/ui/select",
   SORTABLE_LIST: "/ui/sortable-list",
@@ -83,6 +85,11 @@ const FORM_WIDGETS_ROUTES = [
     path: UI_ROUTES.INPUT,
     key: "input.title",
     element: <InputDemo />,
+  },
+  {
+    path: UI_ROUTES.RADIO_INPUT,
+    key: "radioInput.title",
+    element: <RadioInputDemo />,
   },
   {
     path: UI_ROUTES.SELECT,

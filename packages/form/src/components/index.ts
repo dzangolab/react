@@ -10,6 +10,7 @@ export * from "./FormProvider";
 export * from "./Input";
 export * from "./NumberInput";
 export * from "./Password";
+export * from "./RadioInput";
 export * from "./Select";
 export * from "./Textarea";
 export * from "./TextInput";

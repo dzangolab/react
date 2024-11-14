@@ -21,7 +21,7 @@ export const RadioInput: React.FC<IRadioInputProperties> = ({
   ...others
 }) => {
   return (
-    <div className={`field ${className}`.trim()}>
+    <div className={`radio-button-wrapper ${className}`.trim()}>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         id={name}

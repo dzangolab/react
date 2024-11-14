@@ -93,6 +93,9 @@
   "loading": {
     "title": "Loading (fr)"
   },
+  "radioInput": {
+    "title": "Radio input (fr)"
+  },
   "responsiveMenu": {
     "title": "Responsive menu (fr)"
   },
