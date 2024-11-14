@@ -15,7 +15,6 @@ import { FilesTableDemo } from "./components/FilesTable";
 import {
   CheckboxDemo,
   InputDemo,
-  RadioInputDemo,
   SelectDemo,
   SwitchInputDemo,
   TextareaDemo,
@@ -59,7 +58,6 @@ export const UI_ROUTES = {
   MODAL: "/ui/modal",
   PAGE_DEMO: "/ui/page-demo",
   POPUP: "/ui/popup",
-  RADIO_INPUT: "ui/radio-input",
   RESPONSIVE_MENU: "/ui/responsive-menu",
   SELECT: "/ui/select",
   SORTABLE_LIST: "/ui/sortable-list",
@@ -85,11 +83,6 @@ const FORM_WIDGETS_ROUTES = [
     path: UI_ROUTES.INPUT,
     key: "input.title",
     element: <InputDemo />,
-  },
-  {
-    path: UI_ROUTES.RADIO_INPUT,
-    key: "radioInput.title",
-    element: <RadioInputDemo />,
   },
   {
     path: UI_ROUTES.SELECT,
