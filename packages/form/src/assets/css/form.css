@@ -131,11 +131,6 @@ form input:autofill:active {
   transition: background-color 5000s;
 }
 
-form .dz-radio-input {
-  display: flex;
-  gap: 1rem;
-}
-
 @media screen and (max-width: 576px) {
   form .dz-form-actions {
     flex-direction: column-reverse;
