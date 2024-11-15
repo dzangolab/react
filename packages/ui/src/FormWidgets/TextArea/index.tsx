@@ -4,7 +4,8 @@ export interface ITextareaProperties
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   errorMessage?: string;
   hasError?: boolean;
-  label?: string;
+  helperText?: string;
+  label?: string | React.ReactNode;
 }
 
 export const Textarea = ({
@@ -13,6 +14,7 @@ export const Textarea = ({
   disabled,
   errorMessage,
   hasError,
+  helperText,
   label,
   name = "",
   placeholder,
@@ -35,6 +37,7 @@ export const Textarea = ({
         readOnly={readOnly}
         {...others}
       />
+      {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );

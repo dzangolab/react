@@ -3,8 +3,9 @@ import { InputHTMLAttributes } from "react";
 export interface IInputProperties
   extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
+  helperText?: string;
   hasError?: boolean;
-  label?: string;
+  label?: string | React.ReactNode;
   type?: "text" | "number" | "email";
 }
 
@@ -13,6 +14,7 @@ export const Input = ({
   defaultValue,
   disabled,
   errorMessage,
+  helperText,
   hasError,
   label,
   name = "",
@@ -38,6 +40,7 @@ export const Input = ({
         disabled={disabled}
         readOnly={readOnly}
       />
+      {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );

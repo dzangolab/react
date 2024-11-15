@@ -45,7 +45,7 @@
     "message": "Are you sure you want to proceed?"
   },
   "dataComponent": {
-    "title": "Data component"
+    "title": "Data"
   },
   "dropdownMenu": {
     "title": "Dropdown menu",
@@ -86,6 +86,9 @@
       "pageControl": "Go to page",
       "rowsPerPage": "Items per page"
     }
+  },
+  "gridContainer": {
+    "title": "Grid container"
   },
   "loading": {
     "title": "Loading"

@@ -10,6 +10,7 @@ export type IDaysInputField = CustomInputProperties &
 export const DaysInput: React.FC<IDaysInputField> = ({
   className = "",
   getFieldState,
+  helperText,
   label = "",
   name,
   placeholder,
@@ -52,6 +53,7 @@ export const DaysInput: React.FC<IDaysInputField> = ({
         placeholder={placeholder}
         {...others}
       />
+      {helperText && <span className="helper-text">{helperText}</span>}
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );

@@ -1,35 +1,24 @@
 import {
-  ITextareaProperties,
-  Textarea as BasicTextarea,
+  RadioInput as BasicRadioInput,
+  IRadioInputProperties,
 } from "@dzangolab/react-ui";
-import {
-  Controller,
-  UseFormGetFieldState,
-  UseFormRegister,
-  useFormContext,
-} from "react-hook-form";
+import React from "react";
+import { Controller, useFormContext } from "react-hook-form";
 
-interface ITextarea extends ITextareaProperties {
-  defaultValue?: string;
-  label?: string | React.ReactNode;
+interface IRadioInput extends IRadioInputProperties {
+  disabled?: boolean;
   name: string;
-  placeholder?: string;
-  showValidState?: boolean;
   showInvalidState?: boolean;
+  showValidState?: boolean;
   submitCount?: number;
-  /** @deprecated */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getFieldState?: UseFormGetFieldState<any>;
-  /** @deprecated */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register?: UseFormRegister<any>;
 }
 
-export const Textarea: React.FC<ITextarea> = ({
-  defaultValue = "",
-  label = "",
-  placeholder = "",
+export const RadioInput: React.FC<IRadioInput> = ({
+  className,
+  disabled,
+  label,
   name,
+  options,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
@@ -48,15 +37,15 @@ export const Textarea: React.FC<ITextarea> = ({
     <Controller
       name={name}
       control={control}
-      defaultValue={defaultValue}
       render={({ field }) => (
-        <BasicTextarea
+        <BasicRadioInput
           name={field.name}
           label={label}
-          placeholder={placeholder}
           value={field.value}
+          disabled={disabled}
           errorMessage={error?.message}
           onChange={field.onChange}
+          options={options}
           hasError={submitCount > 0 ? checkInvalidState() : undefined}
           {...others}
         />

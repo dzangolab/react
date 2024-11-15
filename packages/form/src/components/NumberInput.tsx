@@ -3,7 +3,7 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 interface Properties extends IInputProperties {
-  label: string;
+  label: string | React.ReactNode;
   name: string;
   placeholder?: string;
   submitCount?: number;

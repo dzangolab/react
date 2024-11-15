@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-user",
-  "version": "0.48.3",
+  "version": "0.49.0",
   "description": "React User Plugin",
   "exports": {
     ".": {
@@ -12,9 +12,7 @@
   "main": "dist//DzangolabReactUser.umd.js",
   "module": "dist//DzangolabReactUser.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
@@ -32,13 +30,12 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.6",
-    "@12deg/tsconfig": "0.1.6",
-    "@dzangolab/react-config": "0.48.3",
-    "@dzangolab/react-form": "0.48.3",
-    "@dzangolab/react-i18n": "0.48.3",
-    "@dzangolab/react-layout": "0.48.3",
-    "@dzangolab/react-ui": "0.48.3",
+    "@12deg/eslint-config": "0.1.8",
+    "@dzangolab/react-config": "0.49.0",
+    "@dzangolab/react-form": "0.49.0",
+    "@dzangolab/react-i18n": "0.49.0",
+    "@dzangolab/react-layout": "0.49.0",
+    "@dzangolab/react-ui": "0.49.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.0.1",
     "@testing-library/user-event": "14.5.2",
@@ -47,7 +44,7 @@
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "4.3.3",
-    "@vitest/coverage-v8": "2.0.5",
+    "@vitest/coverage-v8": "2.1.4",
     "axios": "1.7.7",
     "eslint": "8.57.1",
     "eslint-plugin-react": "7.37.2",
@@ -56,18 +53,18 @@
     "primeicons": "7.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "6.27.0",
+    "react-router-dom": "6.28.0",
     "react-toastify": "10.0.6",
-    "typescript": "5.4.5",
+    "typescript": "5.6.3",
     "vite": "5.4.10",
-    "vitest": "2.0.5"
+    "vitest": "2.1.4"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.48.3",
-    "@dzangolab/react-form": "0.48.3",
-    "@dzangolab/react-i18n": "0.48.3",
-    "@dzangolab/react-layout": "0.48.3",
-    "@dzangolab/react-ui": "0.48.3",
+    "@dzangolab/react-config": "0.49.0",
+    "@dzangolab/react-form": "0.49.0",
+    "@dzangolab/react-i18n": "0.49.0",
+    "@dzangolab/react-layout": "0.49.0",
+    "@dzangolab/react-ui": "0.49.0",
     "axios": "1.7.7",
     "primeicons": "7.0.0",
     "react": ">=18.2",

@@ -9,7 +9,7 @@ import {
 
 interface IProperties extends IInputProperties {
   defaultValue?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   name: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
@@ -24,6 +24,7 @@ export const Email: React.FC<IProperties> = ({
   autoComplete = "email",
   defaultValue = "",
   disabled = false,
+  helperText,
   label = "",
   name,
   placeholder = "",
@@ -53,6 +54,7 @@ export const Email: React.FC<IProperties> = ({
           autoComplete={autoComplete}
           value={field.value}
           disabled={disabled}
+          helperText={helperText}
           errorMessage={error?.message}
           hasError={submitCount > 0 ? checkInvalidState() : undefined}
           label={label}

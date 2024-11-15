@@ -5,7 +5,8 @@ export interface ISwitchInputProperties
   disabled?: boolean;
   errorMessage?: string;
   hasError?: boolean;
-  label?: string;
+  helperText?: string;
+  label?: string | React.ReactNode;
   name?: string;
 }
 
@@ -14,6 +15,7 @@ export const SwitchInput: React.FC<ISwitchInputProperties> = ({
   disabled,
   errorMessage,
   hasError,
+  helperText,
   label = "",
   name,
   ...others
@@ -28,6 +30,7 @@ export const SwitchInput: React.FC<ISwitchInputProperties> = ({
         aria-invalid={hasError}
         {...others}
       ></input>
+      {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );

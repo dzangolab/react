@@ -6,6 +6,10 @@
     --dz-layout-nav-item-disabled-color,
     rgb(220 220 220)
   );
+  --_nav-item-border-radius: var(
+    --dz-layout-nav-item-border-radius,
+    0
+  );
   --_nav-item-hover-bg: var(
     --dz-layout-nav-item-hover-bg,
     rgba(45, 45, 45, 0.125)
@@ -19,6 +23,7 @@
   --_nav-item-padding-v: var(--dz-layout-nav-item-padding-v, 0.625rem);
 
   align-items: center;
+  border-radius: var(--_nav-item-border-radius);
   cursor: pointer;
   color: var(--_nav-item-color);
   display: flex;

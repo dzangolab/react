@@ -15,7 +15,8 @@ type ISelectProperties<T> = {
   disabled?: boolean;
   errorMessage?: string;
   hasError?: boolean;
-  label?: string;
+  helperText?: string;
+  label?: string | React.ReactNode;
   name: string;
   options: Option<T>[];
   placeholder?: string;
@@ -40,6 +41,7 @@ export const Select = <T extends string | number>({
   disabled: selectFieldDisabled,
   errorMessage,
   hasError,
+  helperText,
   label = "",
   multiple,
   name,
@@ -276,6 +278,7 @@ export const Select = <T extends string | number>({
       {label && <label htmlFor={name}>{label}</label>}
       {renderSelect()}
       {shouldAutoSelect ? null : showOptions && renderOptions()}
+      {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
   );

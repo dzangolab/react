@@ -20,6 +20,7 @@ import {
   TextareaDemo,
   TypeaheadDemo,
 } from "./components/FormWidgets";
+import { GridContainerDemo } from "./components/GridContainerDemo";
 import { LoadingDemo } from "./components/Loading";
 import { MessageDemo } from "./components/Message";
 import { ModalDemo } from "./components/ModalDemo";
@@ -49,6 +50,7 @@ export const UI_ROUTES = {
   FILES_TABLE: "/ui/files-table",
   FILE_CARD: "/ui/file-card",
   GET_STARTED: "/ui",
+  GRID_CONTAINER: "/ui/grid-container",
   INPUT: "/ui/input",
   LOADING: "/ui/loading",
   LOCAL_DATA_TABLE: "/ui/local-table",
@@ -165,6 +167,11 @@ const OTHERS = [
     path: UI_ROUTES.FILES_PRESENTATION,
     key: "filesPresentation.title",
     element: <FilesPresentationDemo />,
+  },
+  {
+    path: UI_ROUTES.GRID_CONTAINER,
+    key: "gridContainer.title",
+    element: <GridContainerDemo />,
   },
   {
     path: UI_ROUTES.LOADING,

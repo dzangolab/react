@@ -5,6 +5,7 @@ import { SubPane } from "./components/SubPane";
 import { ConfirmationModal } from "./ConfirmationModal";
 import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
+import GridContainer from "./GridContainer";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
@@ -17,7 +18,7 @@ import { TabbedPanel } from "./TabbedPanel";
 export * from "./AuthPage";
 export * from "./Buttons";
 export * from "./Card";
-export * from "./DataComponent";
+export * from "./Data";
 export * from "./EditableTitle";
 export * from "./FilesTable";
 export * from "./FileCard";
@@ -39,6 +40,7 @@ export {
   Divider,
   DropdownMenu,
   GoogleButton,
+  GridContainer,
   LoadingIcon,
   LoadingPage,
   Message,

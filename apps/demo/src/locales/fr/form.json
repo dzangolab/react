@@ -46,6 +46,7 @@
       "invalid": "Show invalid state (fr)",
       "number": "Number (fr)",
       "password": "Password (fr)",
+      "radioInput": "Radio input (fr)",
       "readOnly": "ReadOnly input (fr)",
       "select": "Select (fr)",
       "text": "Text input (fr)",

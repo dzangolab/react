@@ -7,6 +7,7 @@
   --form-input-border-radius: 0.25em;
   --form-input-error-font-size: 0.8em;
   --form-input-focus-color: #007aff;
+  --form-input-helper-text-font-size: 0.8rem ;
   --form-input-padding-h: 0.65rem;
   --form-input-padding-v: 0.75rem;
 }

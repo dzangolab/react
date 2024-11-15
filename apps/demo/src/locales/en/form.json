@@ -46,6 +46,7 @@
       "invalid": "Show invalid state",
       "number": "Number",
       "password": "Password",
+      "radioInput": "Radio input",
       "readOnly": "ReadOnly input",
       "select": "Select",
       "text": "Text input",

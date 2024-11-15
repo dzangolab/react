@@ -4,11 +4,12 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface IDateInput {
-  label?: string;
+  label?: string | React.ReactNode;
   name: string;
   className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getFieldState?: UseFormGetFieldState<any>;
+  helperText?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
   disabled?: boolean;
@@ -22,6 +23,7 @@ export const DateInput: React.FC<IDateInput> = ({
   disabled,
   register,
   getFieldState,
+  helperText,
   label = "",
   name,
   showInvalidState = true,
@@ -48,6 +50,7 @@ export const DateInput: React.FC<IDateInput> = ({
         type="date"
         disabled={disabled}
       ></input>
+      {helperText && <span className="helper-text">{helperText}</span>}
       {error?.message && <ErrorMessage message={error.message} />}
     </div>
   );
