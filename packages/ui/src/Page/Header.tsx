@@ -38,7 +38,7 @@ export const PageHeader = ({
           </div>
         )}
       </div>
-      {toolbar && (
+      {(breadcrumb || toolbar) && (
         <div data-testid="page-toolbar" className="dz-page-toolbar">
           {breadcrumb}
           {toolbar}
