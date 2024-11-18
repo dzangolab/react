@@ -6,7 +6,7 @@ import { Popup, PopupProperties } from "../Popup";
 export interface DropdownMenuProperties
   extends MenuProperties,
     Partial<Omit<PopupProperties, "content">> {
-  label?: string | React.ReactNode;
+  label?: React.ReactNode;
   hideToggleIcon?: boolean;
 }
 
