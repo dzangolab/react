@@ -184,3 +184,8 @@
 .dz-table-container .pagination .page-input-control input {
   background: #ffffff;
 }
+
+.dz-table-container .dz-dropdown-menu-trigger .dz-icon {
+  margin-left: 0;
+  transition: none;
+}

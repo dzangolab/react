@@ -7,7 +7,7 @@ export interface DropdownMenuProperties
   extends MenuProperties,
     Partial<Omit<PopupProperties, "content">> {
   label?: string | React.ReactNode;
-  disableAngleIcon?: boolean;
+  hideAngleIcon?: boolean;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProperties> = ({
@@ -19,14 +19,14 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   trigger,
   position = "bottom-start",
   offset,
-  disableAngleIcon = false,
+  hideAngleIcon = false,
   ...menuOptions
 }) => {
   const defaultTrigger = useMemo(() => {
     return (
       <span className="dz-dropdown-menu-trigger">
         {label || <i className="pi pi-ellipsis-h"></i>}
-        {!disableAngleIcon && <i className="dz-icon pi  pi-angle-down"></i>}
+        {!hideAngleIcon && <i className="dz-icon pi  pi-angle-down"></i>}
       </span>
     );
   }, [label]);
