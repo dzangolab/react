@@ -99,7 +99,7 @@ export const DataActionsMenu = ({
 
     return (
       <DropdownMenu
-        hideAngleIcon={true}
+        hideToggleIcon={true}
         label={<i className="dz-icon pi  pi-cog"></i>}
         menu={items}
       />
