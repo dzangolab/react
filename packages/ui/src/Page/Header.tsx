@@ -30,11 +30,6 @@ export const PageHeader = ({
 
   return (
     <div className="dz-page-header">
-      {breadcrumb ? (
-        <div className="dz-page-breadcrumb" data-testid="page-breadcrumb">
-          {breadcrumb}
-        </div>
-      ) : null}
       <div className="dz-page-title-wrapper">
         {renderTitle()}
         {subtitle && (
@@ -45,6 +40,7 @@ export const PageHeader = ({
       </div>
       {toolbar && (
         <div data-testid="page-toolbar" className="dz-page-toolbar">
+          {breadcrumb}
           {toolbar}
         </div>
       )}
