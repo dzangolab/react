@@ -1,16 +1,16 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Page, Tag } from "@dzangolab/react-ui";
-import { Link } from "react-router-dom";
 
 export const PageDemo = () => {
   const [t] = useTranslation("ui");
 
   const PageContent = <div style={{ height: "20vh" }}>{t("page.content")}</div>;
   const breadcrumb = (
-    <span>
-      <Link to={"/"} children="home" />/<Link to={"/ui"} children="ui" />/
-      <Link to={"/ui/page-demo"} children="page-demo" />{" "}
-    </span>
+    <Button
+      iconLeft={<i className="pi pi-chevron-left"></i>}
+      variant="textOnly"
+      label={t("page.breadcrumb.back")}
+    />
   );
 
   return (

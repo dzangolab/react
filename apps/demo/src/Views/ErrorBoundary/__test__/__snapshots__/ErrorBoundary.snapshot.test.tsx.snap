@@ -12,6 +12,10 @@ exports[`Component matches snapshot 1`] = `
       <div
         class="dz-page-title-wrapper"
       />
+      <div
+        class="dz-page-toolbar"
+        data-testid="page-toolbar"
+      />
     </div>
     <div
       class="dz-page-content"

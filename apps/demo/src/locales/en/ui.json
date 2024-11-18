@@ -230,6 +230,9 @@
     "heading": {
       "tag": "Heading tag"
     },
+    "breadcrumb": {
+      "back": "Back"
+    },
     "toolbar": {
       "edit": "Edit",
       "button": {

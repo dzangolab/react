@@ -226,6 +226,9 @@
     "heading": {
       "tag": "Heading tag (fr)"
     },
+    "breadcrumb": {
+      "back": "Back (fr)"
+    },
     "toolbar": {
       "edit": "Edit (fr)",
       "button": {
