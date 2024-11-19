@@ -1,3 +1,12 @@
+## [0.50.1](https://github.com/dzangolab/react/compare/v0.50.0...v0.50.1) (2024-11-19)
+
+
+### Bug Fixes
+
+* **ui/table:** improve DropdownMenu and fix table action menu ([#1224](https://github.com/dzangolab/react/issues/1224)) ([1fcdbcf](https://github.com/dzangolab/react/commit/1fcdbcfe5f1d3a2bb931b074707e73240d8eb41b))
+
+
+
 # [0.50.0](https://github.com/dzangolab/react/compare/v0.49.0...v0.50.0) (2024-11-19)
 
 ### Breaking Changes
