@@ -50,6 +50,7 @@
   "dropdownMenu": {
     "title": "Dropdown menu (fr)",
     "usage": {
+      "hiddenDropdownIcon": "Hidden dropdown icon with default label (fr)",
       "leftAlign": "Popup align left (fr)",
       "templating": "Menu templating (fr)"
     },

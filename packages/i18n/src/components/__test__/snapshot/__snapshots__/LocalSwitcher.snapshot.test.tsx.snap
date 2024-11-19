@@ -15,7 +15,7 @@ exports[`Component matches snapshot 1`] = `
       >
         locales.en
         <i
-          class="dz-icon pi  pi-angle-down"
+          class="dz-dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>

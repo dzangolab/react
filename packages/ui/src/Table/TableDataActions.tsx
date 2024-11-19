@@ -1,10 +1,8 @@
-import { ButtonProps } from "primereact/button";
 import { MenuItem, MenuItemCommandEvent } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { Button } from "..";
+import { Button, DropdownMenu } from "..";
 import { ConfirmationModal, IModalProperties } from "../ConfirmationModal";
-import { Menu } from "../Menu";
 
 export interface DataActionsMenuItem
   extends Omit<MenuItem, "command" | "disabled"> {
@@ -20,7 +18,6 @@ export interface DataActionsMenuItem
 
 export interface DataActionsMenuProperties<TData> {
   actions?: DataActionsMenuItem[];
-  buttonOptions?: Omit<ButtonProps, "onClick">;
   data?: object;
   displayActionMenu?: boolean;
   displayActions?: boolean | ((data: TData) => boolean);
@@ -28,7 +25,6 @@ export interface DataActionsMenuProperties<TData> {
 
 export const DataActionsMenu = ({
   actions,
-  buttonOptions: pButtonOptions,
   data,
   displayActionMenu = false,
   displayActions = true, // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -43,11 +39,6 @@ export const DataActionsMenu = ({
   if (!isVisibleActions) {
     return null;
   }
-
-  const buttonOptions = {
-    icon: "pi pi-cog",
-    ...pButtonOptions,
-  };
 
   const items: MenuItem[] = actions
     ? actions
@@ -106,7 +97,13 @@ export const DataActionsMenu = ({
       );
     }
 
-    return <Menu model={items} buttonOptions={buttonOptions} />;
+    return (
+      <DropdownMenu
+        label={<i className="pi pi-cog"></i>}
+        menu={items}
+        hideDropdownIcon
+      />
+    );
   };
 
   return (

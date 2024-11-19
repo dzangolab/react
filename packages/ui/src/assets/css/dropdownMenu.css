@@ -5,14 +5,14 @@
   transition: all var(--transition-duration) ease 0s;
 }
 
-.dz-dropdown-menu-trigger .dz-icon {
+.dz-dropdown-menu-trigger .dz-dropdown-icon {
   display: inline-block;
   transition: transform 0.3s ease;
   transform-origin: center;
   margin-left: 0.5rem;
 }
 
-.popup-trigger[aria-expanded="true"] .dz-dropdown-menu-trigger .dz-icon {
+.popup-trigger[aria-expanded="true"] .dz-dropdown-menu-trigger .dz-dropdown-icon {
   transform: rotate(180deg);
 }
 
