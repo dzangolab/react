@@ -46,10 +46,6 @@
     grid-template-columns: repeat(2, minmax(0, auto));
   }
 
-  .dz-page > .dz-page-header > .dz-page-breadcrumb {
-    grid-column: 1 / span 2;
-  }
-
   .dz-page > .dz-page-header > .dz-page-toolbar {
     margin-left: auto;
     height: fit-content;
