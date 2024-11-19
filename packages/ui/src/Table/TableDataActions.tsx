@@ -1,11 +1,10 @@
-import { MenuItem, MenuItemCommandEvent } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { Button, DropdownMenu } from "..";
+import { Button, DropdownMenu, MenuItem } from "..";
 import { ConfirmationModal, IModalProperties } from "../ConfirmationModal";
 
 export interface DataActionsMenuItem
-  extends Omit<MenuItem, "command" | "disabled"> {
+  extends Omit<MenuItem, "disabled" | "display" | "onClick"> {
   requireConfirmationModal?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick?: (arguments_: any) => void | Promise<void>;
@@ -57,7 +56,11 @@ export const DataActionsMenu = ({
             typeof action.disabled === "function"
               ? action.disabled(data)
               : action.disabled,
-          command: () => {
+          display:
+            typeof action.display === "function"
+              ? action.display(data)
+              : action.display,
+          onClick: () => {
             if (action.requireConfirmationModal) {
               setConfirmation({
                 ...action.confirmationOptions,
@@ -76,7 +79,7 @@ export const DataActionsMenu = ({
     : [];
 
   const renderActions = () => {
-    const { icon, label, command, ...rest } = items[0];
+    const { icon, label, onClick, ...rest } = items[0];
 
     if (!items.length) {
       return null;
@@ -89,9 +92,7 @@ export const DataActionsMenu = ({
           iconLeft={icon}
           data-pr-tooltip={label}
           {...rest}
-          onClick={(event) =>
-            command && command(event as unknown as MenuItemCommandEvent)
-          }
+          onClick={(event) => onClick && onClick()}
           rounded
         />
       );

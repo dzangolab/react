@@ -6,6 +6,7 @@ export interface MenuItem {
   display?: boolean;
   key?: string;
   label?: string;
+  icon?: React.ReactNode;
   onClick?: () => void;
 }
 
@@ -22,23 +23,41 @@ const Menu: React.FC<MenuProperties> = ({
 }) => {
   return (
     <ul className={`dz-dropdown-menu ${className || ""}`.trimEnd()}>
-      {menu.map(
-        ({ className, disabled, onClick, display = true, ...item }, index) =>
-          display ? (
-            <li
-              key={item.key || `menu-item-${index}`}
-              onClick={disabled ? undefined : onClick}
-              className={className}
-              aria-disabled={disabled}
-            >
-              {renderOption ? (
-                renderOption(item)
-              ) : (
-                <span className="dz-menu-item">{item.label}</span>
-              )}
-            </li>
-          ) : null,
-      )}
+      {menu.map((item, index) => {
+        const {
+          className,
+          disabled,
+          icon,
+          onClick,
+          display = true,
+          key,
+          label,
+        } = item;
+
+        return display ? (
+          <li
+            key={key || `menu-item-${index}`}
+            onClick={disabled ? undefined : onClick}
+            className={className}
+            aria-disabled={disabled}
+          >
+            {renderOption ? (
+              renderOption(item)
+            ) : (
+              <span className="dz-menu-item">
+                {icon ? (
+                  typeof icon === "string" ? (
+                    <i className={icon}></i>
+                  ) : (
+                    icon
+                  )
+                ) : null}
+                {label}
+              </span>
+            )}
+          </li>
+        ) : null;
+      })}
     </ul>
   );
 };
