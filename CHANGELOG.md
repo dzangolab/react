@@ -1,3 +1,27 @@
+# [0.50.0](https://github.com/dzangolab/react/compare/v0.49.0...v0.50.0) (2024-11-19)
+
+### Breaking Changes
+
+#### Refactored to use inhouse DropdownMenu for table actions
+
+- **Removal of `buttonOptions` prop from DataActionsMenuProperties**: If you are using this prop to customize action menu button in tables, you'll need to remove it.
+- **Rename class `dz-icon` to `dz-dropdown-icon` for dropdown icon**: If you are using this className to customize dropdown icon, change it to .dz-dropdown-icon instead.
+
+
+### Bug Fixes
+
+* **demo:** fix demo ui ([#1216](https://github.com/dzangolab/react/issues/1216)) ([995ae9f](https://github.com/dzangolab/react/commit/995ae9f040fc37a29aee442ddc6f96e0f9969fd6))
+* **deps:** update dependency i18next to v23.16.5 ([#1207](https://github.com/dzangolab/react/issues/1207)) ([5b4b74b](https://github.com/dzangolab/react/commit/5b4b74bdbdce700169958a2fa96c2705568757a1))
+* **deps:** update dependency react-hook-form to v7.53.2 ([#1209](https://github.com/dzangolab/react/issues/1209)) ([5943f4f](https://github.com/dzangolab/react/commit/5943f4fdce415680f9b4c930325138ba2738fbf1))
+
+
+### Features
+
+* **form:** radio input ([#1217](https://github.com/dzangolab/react/issues/1217)) ([fe64935](https://github.com/dzangolab/react/commit/fe64935d9da8fc68f18679e0eda88fad98021dca))
+* **ui:** move breadcrumb to toolbar in page ([#1219](https://github.com/dzangolab/react/issues/1219)) ([65a25d9](https://github.com/dzangolab/react/commit/65a25d94a97097cdf84d5c6bff01e1bfe0ab7aad))
+
+
+
 # [0.49.0](https://github.com/dzangolab/react/compare/v0.48.3...v0.49.0) (2024-11-13)
 
 

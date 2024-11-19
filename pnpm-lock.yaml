@@ -178,7 +178,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
       tsconfig:
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.6.3
@@ -218,7 +218,7 @@ importers:
         specifier: 0.1.5
         version: 0.1.5(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.0))(eslint@8.57.1)(prettier@3.3.3)(typescript@5.6.3)
       '@dzangolab/react-ui':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../ui
       '@testing-library/react':
         specifier: 16.0.1
@@ -266,7 +266,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       tsconfig:
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.6.3
@@ -281,7 +281,7 @@ importers:
   packages/i18n:
     dependencies:
       '@dzangolab/react-ui':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../ui
       i18next:
         specifier: 23.16.5
@@ -303,7 +303,7 @@ importers:
         specifier: 0.1.5
         version: 0.1.5(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.0))(eslint@8.57.1)(prettier@3.3.3)(typescript@5.6.3)
       '@dzangolab/react-config':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../config
       '@testing-library/react':
         specifier: 16.0.1
@@ -342,7 +342,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       tsconfig:
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.6.3
@@ -360,13 +360,13 @@ importers:
         specifier: 0.1.5
         version: 0.1.5(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.0))(eslint@8.57.1)(prettier@3.3.3)(typescript@5.6.3)
       '@dzangolab/react-config':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../config
       '@dzangolab/react-i18n':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../i18n
       '@dzangolab/react-ui':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../ui
       '@testing-library/react':
         specifier: 16.0.1
@@ -414,7 +414,7 @@ importers:
         specifier: 6.28.0
         version: 6.28.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tsconfig:
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.6.3
@@ -451,7 +451,7 @@ importers:
         specifier: 0.1.5
         version: 0.1.5(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.0))(eslint@8.57.1)(prettier@3.3.3)(typescript@5.6.3)
       '@dzangolab/react-config':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../config
       '@testing-library/react':
         specifier: 16.0.1
@@ -502,7 +502,7 @@ importers:
         specifier: 6.28.0
         version: 6.28.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tsconfig:
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.6.3
@@ -527,19 +527,19 @@ importers:
         specifier: 0.1.5
         version: 0.1.5(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.0))(eslint@8.57.1)(prettier@3.3.3)(typescript@5.6.3)
       '@dzangolab/react-config':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../config
       '@dzangolab/react-form':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../form
       '@dzangolab/react-i18n':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../i18n
       '@dzangolab/react-layout':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../layout
       '@dzangolab/react-ui':
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../ui
       '@testing-library/dom':
         specifier: 10.4.0
@@ -599,7 +599,7 @@ importers:
         specifier: 10.0.6
         version: 10.0.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tsconfig:
-        specifier: 0.49.0
+        specifier: 0.50.0
         version: link:../../tools/tsconfig
       typescript:
         specifier: 5.6.3
