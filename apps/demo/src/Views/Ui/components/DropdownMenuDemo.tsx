@@ -45,6 +45,9 @@ export const DropdownMenuDemo = () => {
           renderOption={template}
         />
       </Section>
+      <Section title={t("dropdownMenu.usage.hiddenDropdownIcon")}>
+        <DropdownMenu menu={menuItems} hideDropdownIcon />
+      </Section>
     </Page>
   );
 };
