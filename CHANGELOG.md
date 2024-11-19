@@ -1,5 +1,12 @@
 # [0.50.0](https://github.com/dzangolab/react/compare/v0.49.0...v0.50.0) (2024-11-19)
 
+### Breaking Changes
+
+#### Refactored to use inhouse DropdownMenu for table actions
+
+- **Removal of `buttonOptions` prop from DataActionsMenuProperties**: If you are using this prop to customize action menu button in tables, you'll need to remove it.
+- **Rename class `dz-icon` to `dz-dropdown-icon` for dropdown icon**: If you are using this className to customize dropdown icon, change it to .dz-dropdown-icon instead.
+
 
 ### Bug Fixes
 
