@@ -30,7 +30,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.5",
+    "@12deg/eslint-config": "0.1.11",
     "@dzangolab/react-config": "0.50.1",
     "@dzangolab/react-form": "0.50.1",
     "@dzangolab/react-i18n": "0.50.1",
