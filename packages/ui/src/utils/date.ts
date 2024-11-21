@@ -1,5 +1,5 @@
 export const formatDate = (
-  date: number,
+  date: number | string,
   locale?: string,
   options?: Intl.DateTimeFormatOptions,
 ) => {
