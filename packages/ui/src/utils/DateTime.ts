@@ -2,9 +2,12 @@ const defaultOptions: Intl.DateTimeFormatOptions = {
   year: "numeric",
   month: "short",
   day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
 };
 
-export const formatDate = (
+export const formatDateTime = (
   date: number | string,
   locale?: string,
   options = defaultOptions,
