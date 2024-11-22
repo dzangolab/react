@@ -1,5 +1,4 @@
 export * from "./date";
-export * from "./DateTime";
 export * from "./UseExporter";
 export * from "./UseExporterAsync";
 export * from "./UseMediaQuery";
