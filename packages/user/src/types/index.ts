@@ -23,14 +23,22 @@ import {
   UserType,
 } from "./types";
 
+import {
+  UserWrapperProperties,
+  AppRouterProperties,
+  HomeRoute,
+} from "./router";
+
 export type {
   AcceptInvitationResponse,
   AddInvitationResponse,
+  AppRouterProperties,
   AuthState,
   DzangolabReactUserConfig,
   ErrorResponse,
   ExtendedUser,
   GetInvitationResponse,
+  HomeRoute,
   Invitation,
   InvitationAppOption,
   InvitationExpiryDateField,
@@ -44,4 +52,5 @@ export type {
   UserContextType,
   UserMenuItemType,
   UserType,
+  UserWrapperProperties,
 };

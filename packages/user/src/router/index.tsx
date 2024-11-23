@@ -15,25 +15,7 @@ import { VerifyEmail } from "@/views/VerifyEmail";
 import { AuthenticatedRoute } from "./AuthenticatedRoute";
 import { PublicRoute } from "./PublicRoute";
 import { UnauthenticatedRoute } from "./UnauthenticatedRoute";
-
-export type AppRouterProperties = {
-  unauthenticatedRoutes?: Array<RouteProps>;
-  authenticatedRoutes?: Array<RouteProps>;
-  publicRoutes?: Array<RouteProps>;
-} & (
-  | {
-      authLayout: React.ReactNode;
-      unauthLayout: React.ReactNode;
-      publicLayout: React.ReactNode;
-      layout?: React.ReactNode; // We don't need this if all of three above are available. Kept here only to fix type errors.
-    }
-  | {
-      layout: React.ReactNode;
-      authLayout?: React.ReactNode;
-      unauthLayout?: React.ReactNode;
-      publicLayout?: React.ReactNode;
-    }
-);
+import { AppRouterProperties } from "@/types";
 
 const AppRouter: React.FC<AppRouterProperties> = ({
   unauthenticatedRoutes,
@@ -43,10 +25,18 @@ const AppRouter: React.FC<AppRouterProperties> = ({
   unauthLayout,
   publicLayout,
   layout,
+  homeRoute = "/",
 }) => {
   return (
     <Routes>
-      <Route element={<UnauthenticatedRoute layout={unauthLayout || layout} />}>
+      <Route
+        element={
+          <UnauthenticatedRoute
+            layout={unauthLayout || layout}
+            homeRoute={homeRoute}
+          />
+        }
+      >
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signup-first-user" element={<SignUpFirstUser />} />
@@ -61,6 +51,7 @@ const AppRouter: React.FC<AppRouterProperties> = ({
             ))
           : null}
       </Route>
+
       <Route element={<AuthenticatedRoute layout={authLayout || layout} />}>
         <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/profile" element={<Profile />} />
@@ -76,6 +67,7 @@ const AppRouter: React.FC<AppRouterProperties> = ({
             ))
           : null}
       </Route>
+
       <Route element={<PublicRoute layout={publicLayout || layout} />}>
         {publicRoutes?.length
           ? publicRoutes.map((route: RouteProps) => (

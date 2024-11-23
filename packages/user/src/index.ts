@@ -29,8 +29,7 @@ import {
   UserEnabledSidebarHeaderLayout,
   UserEnabledSidebarOnlyLayout,
 } from "./layouts";
-import { UserWrapper, UserWrapperProperties } from "./main";
-import { AppRouterProperties } from "./router";
+import { UserWrapper } from "./main";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
@@ -69,6 +68,9 @@ import type {
   RevokeInvitationResponse,
   UserContextType,
   UserType,
+  UserWrapperProperties,
+  AppRouterProperties,
+  HomeRoute,
 } from "./types";
 
 declare module "@dzangolab/react-config" {
@@ -143,6 +145,7 @@ export {
 export type {
   AcceptInvitationResponse,
   AppRouterProperties,
+  HomeRoute,
   Invitation,
   InvitationAppOption,
   InvitationPayload,

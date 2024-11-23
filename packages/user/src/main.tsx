@@ -1,12 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import AppRouter, { AppRouterProperties } from "./router";
-
-export type UserWrapperProperties = {
-  routeConfig: AppRouterProperties;
-  children: React.ReactNode;
-};
+import AppRouter from "./router";
+import { UserWrapperProperties } from "./types/router";
 
 export const UserWrapper: React.FC<UserWrapperProperties> = ({
   routeConfig,
