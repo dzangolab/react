@@ -6,7 +6,8 @@ import { Popup, PopupProperties } from "../Popup";
 export interface DropdownMenuProperties
   extends MenuProperties,
     Partial<Omit<PopupProperties, "content">> {
-  label?: string;
+  label?: React.ReactNode;
+  hideDropdownIcon?: boolean;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProperties> = ({
@@ -18,13 +19,16 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   trigger,
   position = "bottom-start",
   offset,
+  hideDropdownIcon = false,
   ...menuOptions
 }) => {
   const defaultTrigger = useMemo(() => {
     return (
       <span className="dz-dropdown-menu-trigger">
         {label || <i className="pi pi-ellipsis-h"></i>}
-        <i className="dz-icon pi  pi-angle-down"></i>
+        {!hideDropdownIcon && (
+          <i className="dz-dropdown-icon pi pi-angle-down"></i>
+        )}
       </span>
     );
   }, [label]);

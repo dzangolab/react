@@ -1,13 +1,10 @@
-import { ButtonProps } from "primereact/button";
-import { MenuItem, MenuItemCommandEvent } from "primereact/menuitem";
 import React, { useState } from "react";
 
-import { Button } from "..";
+import { Button, DropdownMenu, MenuItem } from "..";
 import { ConfirmationModal, IModalProperties } from "../ConfirmationModal";
-import { Menu } from "../Menu";
 
 export interface DataActionsMenuItem
-  extends Omit<MenuItem, "command" | "disabled"> {
+  extends Omit<MenuItem, "disabled" | "display" | "onClick"> {
   requireConfirmationModal?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick?: (arguments_: any) => void | Promise<void>;
@@ -20,7 +17,6 @@ export interface DataActionsMenuItem
 
 export interface DataActionsMenuProperties<TData> {
   actions?: DataActionsMenuItem[];
-  buttonOptions?: Omit<ButtonProps, "onClick">;
   data?: object;
   displayActionMenu?: boolean;
   displayActions?: boolean | ((data: TData) => boolean);
@@ -28,7 +24,6 @@ export interface DataActionsMenuProperties<TData> {
 
 export const DataActionsMenu = ({
   actions,
-  buttonOptions: pButtonOptions,
   data,
   displayActionMenu = false,
   displayActions = true, // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -43,11 +38,6 @@ export const DataActionsMenu = ({
   if (!isVisibleActions) {
     return null;
   }
-
-  const buttonOptions = {
-    icon: "pi pi-cog",
-    ...pButtonOptions,
-  };
 
   const items: MenuItem[] = actions
     ? actions
@@ -66,7 +56,11 @@ export const DataActionsMenu = ({
             typeof action.disabled === "function"
               ? action.disabled(data)
               : action.disabled,
-          command: () => {
+          display:
+            typeof action.display === "function"
+              ? action.display(data)
+              : action.display,
+          onClick: () => {
             if (action.requireConfirmationModal) {
               setConfirmation({
                 ...action.confirmationOptions,
@@ -85,7 +79,7 @@ export const DataActionsMenu = ({
     : [];
 
   const renderActions = () => {
-    const { icon, label, command, ...rest } = items[0];
+    const { icon, label, onClick, ...rest } = items[0];
 
     if (!items.length) {
       return null;
@@ -98,15 +92,19 @@ export const DataActionsMenu = ({
           iconLeft={icon}
           data-pr-tooltip={label}
           {...rest}
-          onClick={(event) =>
-            command && command(event as unknown as MenuItemCommandEvent)
-          }
+          onClick={(event) => onClick && onClick()}
           rounded
         />
       );
     }
 
-    return <Menu model={items} buttonOptions={buttonOptions} />;
+    return (
+      <DropdownMenu
+        label={<i className="pi pi-cog"></i>}
+        menu={items}
+        hideDropdownIcon
+      />
+    );
   };
 
   return (

@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-i18n",
-  "version": "0.49.0",
+  "version": "0.50.1",
   "description": "React I18n Plugin",
   "exports": {
     ".": {
@@ -26,8 +26,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
-    "@dzangolab/react-ui": "0.49.0",
-    "i18next": "23.16.4",
+    "@dzangolab/react-ui": "0.50.1",
+    "i18next": "23.16.5",
     "i18next-browser-languagedetector": "8.0.0",
     "i18next-chained-backend": "4.6.2",
     "i18next-resources-to-backend": "1.2.1",
@@ -43,18 +43,18 @@
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "4.3.3",
-    "@vitest/coverage-v8": "2.1.4",
+    "@vitest/coverage-v8": "2.1.5",
     "eslint": "8.57.1",
     "eslint-plugin-react": "7.37.2",
     "prettier": "3.3.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "typescript": "5.6.3",
-    "vite": "5.4.10",
-    "vitest": "2.1.4"
+    "vite": "5.4.11",
+    "vitest": "2.1.5"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.49.0",
+    "@dzangolab/react-config": "0.50.1",
     "react": ">=18.2",
     "react-dom": ">=18.2"
   },

@@ -50,6 +50,7 @@
   "dropdownMenu": {
     "title": "Dropdown menu (fr)",
     "usage": {
+      "hiddenDropdownIcon": "Hidden dropdown icon with default label (fr)",
       "leftAlign": "Popup align left (fr)",
       "templating": "Menu templating (fr)"
     },
@@ -225,6 +226,9 @@
     },
     "heading": {
       "tag": "Heading tag (fr)"
+    },
+    "breadcrumb": {
+      "back": "Back (fr)"
     },
     "toolbar": {
       "edit": "Edit (fr)",

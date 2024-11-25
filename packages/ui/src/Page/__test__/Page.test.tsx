@@ -33,9 +33,6 @@ test("when breadcrumb, title, subtitle, toolbar and content are provided", async
   expect(header).toBeDefined();
   expect(header.textContent).toBe(pageData.title);
 
-  const breadcrumb = screen.getByTestId("page-breadcrumb");
-  expect(breadcrumb).toBeDefined();
-
   const subtitle = screen.getByTestId("page-subtitle");
   expect(subtitle).toBeDefined();
   expect(subtitle.textContent).toBe(pageData.subtitle);
