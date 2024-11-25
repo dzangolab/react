@@ -5,25 +5,27 @@ import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
+import { UserConfig } from "@/types/config";
 
-const superTokens = (config: AppConfig) => {
+const superTokens = (config: UserConfig) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recipeLists: Array<any> = [
-    Session.init(config?.user?.supertokens?.sessionConfig),
+    Session.init(config?.supertokens?.sessionConfig),
     ThirdPartyEmailPassword.init(
-      config?.user?.supertokens?.thirdPartyEmailPasswordConfig,
+      config?.supertokens?.thirdPartyEmailPasswordConfig,
     ),
   ];
 
-  if (config.user.features?.signUp?.emailVerification) {
+  if (config.features?.signup && config.features.signup.emailVerification) {
     recipeLists.push(EmailVerification.init());
   }
 
   SuperTokens.init({
     appInfo: {
-      appName: config.appTitle,
-      apiDomain: config.apiBaseUrl,
-      apiBasePath: config.authBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
+      appName: config.supertokens.appName,
+      apiDomain: config.supertokens.apiDomain,
+      apiBasePath:
+        config.supertokens.apiBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
     },
     recipeList: recipeLists,
   });

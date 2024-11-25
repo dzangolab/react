@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { ROUTES } from "../constants";
+import { DEFAULT_PATHS } from "@/router/router";
+
 import { useConfig, useUser } from "../hooks";
 import { verifySessionRoles } from "../supertokens/helpers";
 
@@ -13,10 +14,11 @@ import type { UserType } from "../types";
 
 const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
-  const { user: userConfig } = useConfig();
+  const config = useConfig();
   const { setUser } = useUser();
   const navigate = useNavigate();
-  const loginPath = userConfig.routes?.login?.path || ROUTES.LOGIN;
+
+  const loginPath = config.customPaths?.login || DEFAULT_PATHS.LOGIN;
 
   const authCallback = async () => {
     try {
@@ -27,8 +29,8 @@ const AuthGoogleCallback = () => {
 
         if (
           user &&
-          userConfig &&
-          (await verifySessionRoles(userConfig.supportedRoles))
+          config &&
+          (await verifySessionRoles(config.supportedRoles))
         ) {
           await setUser(user as UserType);
 

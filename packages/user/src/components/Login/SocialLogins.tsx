@@ -14,9 +14,9 @@ export type SocialLoginType = (typeof SUPPORTED_SOCIAL_LOGIN_PROVIDERS)[number];
 export const SocialLogins = () => {
   const { t } = useTranslation("user");
 
-  const appConfig = useConfig();
+  const config = useConfig();
 
-  if (!appConfig?.user?.supportedLoginProviders?.length) {
+  if (!config.socialLoginProviders?.length) {
     return null;
   }
 
@@ -25,7 +25,7 @@ export const SocialLogins = () => {
       <GoogleLogin
         key={"google"}
         label={t("login.social.google")}
-        redirectUrl={`${appConfig.websiteDomain}/auth/callback/google`}
+        redirectUrl={`${config.appDomain}/auth/callback/google`}
       />
     );
   };
@@ -42,7 +42,7 @@ export const SocialLogins = () => {
 
   return (
     <div className="social-login-wrapper">
-      {appConfig.user.supportedLoginProviders.map((provider) => {
+      {config.socialLoginProviders.map((provider) => {
         return renderSocialLoginProvider(provider);
       })}
     </div>

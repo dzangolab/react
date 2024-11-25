@@ -1,4 +1,4 @@
-import { DzangolabReactUserConfig } from "./config";
+import { UserConfig, UserConfigOptions } from "./config";
 import {
   AcceptInvitationResponse,
   AddInvitationResponse,
@@ -12,6 +12,13 @@ import {
   RevokeInvitationResponse,
 } from "./invitation";
 import {
+  UserWrapperProperties,
+  AppRouterProperties,
+  HomeRoute,
+  RouteOverwrite,
+  RouteOverwrites,
+} from "./router";
+import {
   AuthState,
   ErrorResponse,
   ExtendedUser,
@@ -23,18 +30,11 @@ import {
   UserType,
 } from "./types";
 
-import {
-  UserWrapperProperties,
-  AppRouterProperties,
-  HomeRoute,
-} from "./router";
-
 export type {
   AcceptInvitationResponse,
   AddInvitationResponse,
   AppRouterProperties,
   AuthState,
-  DzangolabReactUserConfig,
   ErrorResponse,
   ExtendedUser,
   GetInvitationResponse,
@@ -44,6 +44,8 @@ export type {
   InvitationExpiryDateField,
   InvitationPayload,
   InvitationRoleOption,
+  RouteOverwrite,
+  RouteOverwrites,
   LoginCredentials,
   ResendInvitationResponse,
   RevokeInvitationResponse,
@@ -53,4 +55,6 @@ export type {
   UserMenuItemType,
   UserType,
   UserWrapperProperties,
+  UserConfig,
+  UserConfigOptions,
 };

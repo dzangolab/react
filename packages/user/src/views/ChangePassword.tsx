@@ -15,7 +15,7 @@ export type ChangePasswordFormData = {
 
 export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
-  const appConfig = useConfig();
+  const config = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (
@@ -27,7 +27,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
     const success = await changePassword(
       data.oldPassword,
       data.password,
-      appConfig?.apiBaseUrl || "",
+      config.apiBaseUrl,
     );
 
     if (success) {

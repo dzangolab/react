@@ -2,11 +2,11 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
+import { DEFAULT_PATHS } from "@/router/router";
 import { LinkType } from "@/types/types";
 
 import { AuthLinks } from "./AuthLinks";
 import SignupForm from "./SignupForm";
-import { ROUTES } from "../constants";
 import { useConfig, useUser } from "../hooks";
 import signup from "../supertokens/signup";
 
@@ -32,21 +32,25 @@ export const SignupWrapper: React.FC<IProperties> = ({
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
   const { setUser } = useUser();
-  const { user: userConfig } = useConfig();
+  const config = useConfig();
+
+  const loginPath = config.customPaths?.login || DEFAULT_PATHS.LOGIN;
+  const forgotPasswordPath =
+    config.customPaths?.forgotPassword || DEFAULT_PATHS.FORGOT_PASSWORD;
 
   const links: Array<LinkType> = [
     {
       className: "native-link",
       display: showLoginLink,
       label: t("signup.links.login"),
-      to: userConfig?.routes?.login?.path || ROUTES.LOGIN,
+      to: loginPath,
     },
     {
       className: "native-link",
       display:
-        showForgotPasswordLink || !userConfig?.routes?.forgotPassword?.disabled,
+        showForgotPasswordLink && config.features?.forgotPassword !== false,
       label: t("signup.links.forgotPassword"),
-      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
+      to: forgotPasswordPath,
     },
   ];
 

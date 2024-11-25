@@ -17,7 +17,7 @@ interface Properties {
 
 const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
-  const { user } = useConfig();
+  const config = useConfig();
 
   const SignUpFormSchema = zod
     .object({
@@ -34,8 +34,8 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
           "signup.messages.validation.confirmPassword",
         ),
       }),
-      ...(user.termsAndConditions?.display &&
-      user.termsAndConditions?.showCheckbox
+      ...(config.features?.termsAndConditions?.display &&
+      config.features.termsAndConditions.showCheckbox
         ? {
             termsAndConditions: zod
               .boolean()

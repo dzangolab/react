@@ -18,7 +18,7 @@ export const AcceptInvitation = ({
 }) => {
   const { t } = useTranslation("invitations");
 
-  const appConfig = useConfig();
+  const config = useConfig();
   const { token } = useParams();
   const { setUser } = useUser();
 
@@ -31,7 +31,7 @@ export const AcceptInvitation = ({
 
   useEffect(() => {
     if (token) {
-      getInvitationByToken(token, appConfig?.apiBaseUrl || "")
+      getInvitationByToken(token, config.apiBaseUrl)
         .then((response) => {
           if ("data" in response && response.data.status === "ERROR") {
             // TODO better handle errors
@@ -56,7 +56,7 @@ export const AcceptInvitation = ({
 
     setAcceptInvitationLoading(true);
 
-    acceptInvitation(token, credentials, appConfig?.apiBaseUrl || "")
+    acceptInvitation(token, credentials, config?.apiBaseUrl || "")
       .then((response) => {
         setAcceptInvitationLoading(false);
 

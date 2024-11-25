@@ -20,19 +20,19 @@ const userContext = createContext<UserContextType | null>(null);
 const UserProvider = ({ children }: Properties) => {
   const [user, setUser] = useState<UserType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const appConfig = useConfig();
+  const config = useConfig();
+
+  const emailVerificationEnabled =
+    config.features?.signup && config.features.signup.emailVerification;
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        if (
-          appConfig &&
-          (await verifySessionRoles(appConfig.user.supportedRoles))
-        ) {
-          const response = await getMe(appConfig.apiBaseUrl);
+        if (config && (await verifySessionRoles(config.supportedRoles))) {
+          const response = await getMe(config.apiBaseUrl);
           const userInfo = { ...response.data };
 
-          if (appConfig.user.features?.signUp?.emailVerification) {
+          if (emailVerificationEnabled) {
             userInfo.isEmailVerified = await isEmailVerified();
           }
 
@@ -58,7 +58,7 @@ const UserProvider = ({ children }: Properties) => {
         ..._user,
       };
 
-      if (appConfig.user.features?.signUp?.emailVerification) {
+      if (emailVerificationEnabled) {
         userData.isEmailVerified = await isEmailVerified();
       }
 

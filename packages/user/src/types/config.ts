@@ -4,26 +4,38 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 
 import { SocialLoginType } from "@/components/Login";
 
-import type { RouteOverrides } from "./router";
+import type { RouteOverwrites } from "./router";
 
-interface DzangolabReactUserConfig {
-  supportedRoles: string[];
-  routes?: RouteOverrides;
-  supportedLoginProviders?: SocialLoginType[];
-  termsAndConditions?: {
-    display: boolean;
-    label: () => ReactNode;
-    showCheckbox?: boolean;
-  };
+export interface UserConfigOptions {
+  apiBaseUrl: string;
+  appDomain: string;
   features?: {
-    signUp?: {
-      emailVerification?: boolean;
+    forgotPassword?: boolean;
+    signup?:
+      | false
+      | {
+          emailVerification?: boolean;
+        };
+    signupFirstUser?: boolean;
+    termsAndConditions?: {
+      display: boolean;
+      label: ReactNode;
+      showCheckbox?: boolean;
     };
   };
-  supertokens?: {
+  socialLoginProviders?: SocialLoginType[];
+  supertokens: {
+    appName: string;
+    apiDomain: string;
+    apiBasePath?: string;
     sessionConfig?: Session.UserInput;
     thirdPartyEmailPasswordConfig?: ThirdPartyEmailPassword.UserInput;
   };
+  supportedRoles: string[];
 }
 
-export type { DzangolabReactUserConfig };
+export interface UserConfig extends UserConfigOptions {
+  customPaths?: {
+    [K in keyof RouteOverwrites]?: string;
+  };
+}

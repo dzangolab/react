@@ -24,12 +24,12 @@ import {
   useFirstUserSignup,
   useProfileCompletion,
 } from "./hooks";
+import { initApp } from "./init";
 import {
   UserEnabledHeaderLayout,
   UserEnabledSidebarHeaderLayout,
   UserEnabledSidebarOnlyLayout,
 } from "./layouts";
-import { UserWrapper } from "./main";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
@@ -58,7 +58,6 @@ import "./assets/css/index.css";
 
 import type {
   AcceptInvitationResponse,
-  DzangolabReactUserConfig,
   Invitation,
   InvitationAppOption,
   InvitationPayload,
@@ -73,15 +72,9 @@ import type {
   HomeRoute,
 } from "./types";
 
-declare module "@dzangolab/react-config" {
-  export interface AppConfig {
-    user: DzangolabReactUserConfig;
-  }
-}
-
 export {
-  // main
-  UserWrapper,
+  // init
+  initApp,
 
   // components
   AllUsersTable,

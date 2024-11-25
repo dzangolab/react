@@ -2,10 +2,10 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
 
+import { DEFAULT_PATHS } from "@/router/router";
 import { LinkType } from "@/types/types";
 
 import { LoginForm } from "./LoginForm";
-import { ROUTES } from "../../constants";
 import { useConfig, useUser } from "../../hooks";
 import { verifySessionRoles } from "../../supertokens/helpers";
 import login from "../../supertokens/login";
@@ -32,22 +32,22 @@ export const LoginWrapper: FC<IProperties> = ({
 }) => {
   const { t } = useTranslation(["user", "errors"]);
   const { setUser } = useUser();
-  const { user: userConfig } = useConfig();
+  const config = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
 
   const links: Array<LinkType> = [
     {
       className: "native-link",
-      display: !userConfig?.routes?.signup?.disabled && showSignupLink,
+      display: config.features?.signup !== false && showSignupLink,
       label: t("login.links.signup"),
-      to: userConfig?.routes?.signup?.path || ROUTES.SIGNUP,
+      to: config.customPaths?.signup || DEFAULT_PATHS.SIGNUP,
     },
     {
       className: "native-link",
       display:
-        !userConfig?.routes?.forgotPassword?.disabled && showForgotPasswordLink,
+        config.features?.forgotPassword !== false && showForgotPasswordLink,
       label: t("login.links.forgotPassword"),
-      to: userConfig?.routes?.forgotPassword?.path || ROUTES.FORGOT_PASSWORD,
+      to: config.customPaths?.forgotPassword || DEFAULT_PATHS.FORGOT_PASSWORD,
     },
   ];
 
@@ -60,10 +60,7 @@ export const LoginWrapper: FC<IProperties> = ({
       await login(credentials)
         .then(async (result) => {
           if (result?.user) {
-            if (
-              userConfig &&
-              (await verifySessionRoles(userConfig.supportedRoles))
-            ) {
+            if (config && (await verifySessionRoles(config.supportedRoles))) {
               setUser(result.user);
 
               onLoginSuccess && (await onLoginSuccess(result));

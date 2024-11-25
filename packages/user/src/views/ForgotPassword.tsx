@@ -4,8 +4,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { AuthLinks } from "@/components/AuthLinks";
-import { ROUTES } from "@/constants";
 import { useConfig } from "@/hooks";
+import { DEFAULT_PATHS } from "@/router/router";
 import { LinkType } from "@/types/types";
 
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
@@ -15,14 +15,14 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const { user: userConfig } = useConfig();
+  const config = useConfig();
 
   const links: Array<LinkType> = [
     {
       className: "native-link",
       display: true,
       label: t("forgotPassword.links.login"),
-      to: userConfig.routes?.login?.path || ROUTES.LOGIN,
+      to: config.customPaths?.login || DEFAULT_PATHS.LOGIN,
     },
   ];
 

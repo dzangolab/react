@@ -1,23 +1,23 @@
-import { AppConfig, ConfigProvider } from "@dzangolab/react-config";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import React, { act } from "react";
 import { expect, test, vi } from "vitest";
 
+import ConfigProvider from "@/context/ConfigProvider";
+import { UserConfig } from "@/types";
+
 import SignupForm from "../SignupForm";
 
-const userConfig = {
-  user: {
-    supportedRoles: ["USER"],
-    supportedLoginProviders: ["google"],
-  },
+const config = {
+  supportedRoles: ["USER"],
+  socialLoginProviders: ["google"],
 };
 
 const setup = (component: React.ReactElement) => {
   return {
     user: userEvent.setup(),
     ...render(
-      <ConfigProvider appConfig={userConfig as AppConfig}>
+      <ConfigProvider config={config as UserConfig}>
         {component}
       </ConfigProvider>,
     ),
