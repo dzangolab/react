@@ -219,7 +219,13 @@ export type TCustomColumnFilter = ChangeTypeOfKeys<
 //TDataTable props
 
 export type CellAlignmentType = "left" | "center" | "right";
-export type CellDataType = "text" | "number" | "date" | "currency" | string;
+export type CellDataType =
+  | "text"
+  | "number"
+  | "date"
+  | "currency"
+  | "datetime"
+  | string;
 
 export type FormatNumberType = {
   value: number;

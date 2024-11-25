@@ -1,7 +1,7 @@
 import { Cell, flexRender, Table, NoInfer } from "@tanstack/react-table";
 import React from "react";
 
-import { formatDate } from "..";
+import { formatDate, formatDateTime } from "..";
 import {
   TableCell,
   TableRow,
@@ -76,6 +76,13 @@ export const TableBody = <TData extends { id: string | number }>({
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     date: (value: any) =>
                       formatDate(
+                        value,
+                        dateOptions?.locale,
+                        dateOptions?.formatOptions,
+                      ) as NoInfer<never>,
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    datetime: (value: any) =>
+                      formatDateTime(
                         value,
                         dateOptions?.locale,
                         dateOptions?.formatOptions,
