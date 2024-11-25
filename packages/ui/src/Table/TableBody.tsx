@@ -7,7 +7,8 @@ import {
   TooltipWrapper,
   TableBody as TTableBody,
 } from "./TableElements";
-import { formatDate, formatNumber, getAlignValue } from "./utils";
+import { formatNumber, getAlignValue } from "./utils";
+import { formatDate } from "..";
 
 import type { TDataTableProperties } from "./types";
 
@@ -74,11 +75,11 @@ export const TableBody = <TData extends { id: string | number }>({
                       }) as NoInfer<never>,
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     date: (value: any) =>
-                      formatDate({
-                        date: value as Date,
-                        locale: dateOptions?.locale,
-                        formatOptions: dateOptions?.formatOptions,
-                      }) as NoInfer<never>,
+                      formatDate(
+                        value,
+                        dateOptions?.locale,
+                        dateOptions?.formatOptions,
+                      ) as NoInfer<never>,
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     currency: (value: any) =>
                       formatNumber({
