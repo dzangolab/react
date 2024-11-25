@@ -16,6 +16,10 @@ export const formatDate = (
   locale?: string,
   options?: Intl.DateTimeFormatOptions,
 ) => {
+  if (!date) {
+    return null;
+  }
+
   const dateFormatOptions = { ...defaultDateOptions, ...options };
 
   return new Date(date).toLocaleDateString(
@@ -29,6 +33,10 @@ export const formatDateTime = (
   locale?: string,
   options?: Intl.DateTimeFormatOptions,
 ) => {
+  if (!date) {
+    return null;
+  }
+
   const dateTimeFormatOptions = { ...defaultDateTimeOptions, ...options };
 
   return new Date(date).toLocaleDateString(
