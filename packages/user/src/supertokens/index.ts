@@ -1,4 +1,3 @@
-import { AppConfig } from "@dzangolab/react-config";
 import SuperTokens from "supertokens-web-js";
 import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
