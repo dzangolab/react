@@ -26,8 +26,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.6",
-    "@12deg/tsconfig": "0.1.6",
+    "@12deg/eslint-config": "0.1.5",
+    "@12deg/tsconfig": "0.1.11",
     "@types/jsdom": "21.1.7",
     "@types/node": "22.8.1",
     "@types/react": "18.3.12",

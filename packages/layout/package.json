@@ -27,8 +27,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.6",
-    "@12deg/tsconfig": "0.1.6",
+    "@12deg/eslint-config": "0.1.5",
+    "@12deg/tsconfig": "0.1.11",
     "@dzangolab/react-config": "0.50.1",
     "@dzangolab/react-i18n": "0.50.1",
     "@dzangolab/react-ui": "0.50.1",
