@@ -41,6 +41,10 @@
   flex-wrap: wrap;
 }
 
+.dz-page-toolbar[data-breadcrumb="true"] > :first-child {
+  display: none;
+}
+
 .dz-page > .dz-page-header > .dz-page-title-wrapper > h1 > span {
   margin-left: 0.5rem;
 }
@@ -58,5 +62,9 @@
 
   .dz-page > .dz-page-header > .dz-page-title-wrapper > h1 > span {
     vertical-align: super;
+  }
+
+  .dz-page-toolbar[data-breadcrumb="true"] > :first-child {
+    display: block;
   }
 }
