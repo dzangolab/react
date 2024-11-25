@@ -591,6 +591,14 @@ export const TableDemo = () => {
               dataType: "date",
             },
             {
+              accessorKey: "datetime",
+              header: "Datetime",
+              width: "12rem",
+              maxWidth: "12rem",
+              minWidth: "12rem",
+              dataType: "datetime",
+            },
+            {
               id: "action",
               header: () => <i className="pi pi-cog"></i>,
               width: "5rem",
