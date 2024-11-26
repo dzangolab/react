@@ -7,6 +7,7 @@ import {
   IButtonProperties,
   TableColumnDefinition,
   Tag,
+  formatDate,
 } from "@dzangolab/react-ui";
 
 import { InvitationModal } from "../Invitation";
@@ -211,9 +212,7 @@ export const AllUsersTable = ({
       header: t("table.defaultColumns.signedUpOn"),
       cell: ({ row: { original } }) => {
         if (original.signedUpAt) {
-          const date = new Date(original.signedUpAt);
-
-          return date.toLocaleDateString("en-GB");
+          return formatDate(original.signedUpAt);
         }
 
         return "-";
