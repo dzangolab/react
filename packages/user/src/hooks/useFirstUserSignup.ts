@@ -26,7 +26,7 @@ export const useFirstUserSignup = ({
   useEffect(() => {
     if (
       config.features?.signup === false &&
-      !!config.features?.signupFirstUser
+      config.features?.signupFirstUser !== false
     ) {
       setRedirecting(true);
 

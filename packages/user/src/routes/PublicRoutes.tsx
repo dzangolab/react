@@ -30,7 +30,7 @@ export const PublicRoutes = ({ routes }: PublicRoutesProperties) => {
   const forgotPasswordEnabled = config.features?.forgotPassword !== false;
   const signupEnabled = config.features?.signup !== false;
   const signupFirstUserEnabled =
-    !signupEnabled && !!config.features?.signupFirstUser;
+    !signupEnabled && config.features?.signupFirstUser !== false;
   const authCallbackGoogleEnabled =
     config.socialLoginProviders?.includes("google");
 
