@@ -7,6 +7,7 @@ import {
   IButtonProperties,
   TableColumnDefinition,
   Tag,
+  formatDateTime,
 } from "@dzangolab/react-ui";
 import { useCallback } from "react";
 import { toast } from "react-toastify";
@@ -254,9 +255,7 @@ export const InvitationsTable = ({
       accessorKey: "expiresAt",
       header: t("table.defaultColumns.expiresAt"),
       cell: ({ getValue }) => {
-        const date = new Date(getValue() as string);
-
-        return date.toLocaleDateString("en-GB");
+        return formatDateTime(getValue() as string);
       },
     },
   ];

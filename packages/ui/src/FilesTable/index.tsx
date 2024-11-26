@@ -6,7 +6,7 @@ import {
   TDataTableProperties,
   TRequestJSON,
   VisibleFileDetails,
-  formatDate,
+  formatDateTime,
 } from "../index";
 import { DataActionsMenuItem } from "../Table/TableDataActions";
 
@@ -176,7 +176,7 @@ export const FilesTable = ({
       accessorKey: "uploadedAt",
       header: messages?.uploadedAtHeader || "Uploaded at",
       cell: ({ getValue }) => {
-        return formatDate(getValue() as number);
+        return formatDateTime(getValue() as number);
       },
     },
     {
@@ -191,7 +191,7 @@ export const FilesTable = ({
       enableSorting: false,
       cell: ({ getValue }) => {
         if (getValue()) {
-          return formatDate(getValue() as number);
+          return formatDateTime(getValue() as number);
         }
 
         return <code>&#8212;</code>;
