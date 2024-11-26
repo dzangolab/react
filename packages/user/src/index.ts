@@ -1,7 +1,7 @@
 import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { disableUser, enableUser } from "./api/user";
-import AuthGoogleCallback from "./components/AuthGoogleCallback";
+import { AuthGoogleCallback } from "./components/AuthGoogleCallback";
 import {
   InvitationForm,
   InvitationModal,
@@ -24,12 +24,12 @@ import {
   useFirstUserSignup,
   useProfileCompletion,
 } from "./hooks";
-import { initApp } from "./init";
 import {
   UserEnabledHeaderLayout,
   UserEnabledSidebarHeaderLayout,
   UserEnabledSidebarOnlyLayout,
 } from "./layouts";
+import { UserWrapper } from "./main";
 import superTokens from "./supertokens";
 import changePassword from "./supertokens/change-password";
 import { forgotPassword } from "./supertokens/forgot-password";
@@ -56,25 +56,9 @@ import { VerifyEmail } from "./views/VerifyEmail";
 
 import "./assets/css/index.css";
 
-import type {
-  AcceptInvitationResponse,
-  Invitation,
-  InvitationAppOption,
-  InvitationPayload,
-  InvitationRoleOption,
-  LoginCredentials,
-  ResendInvitationResponse,
-  RevokeInvitationResponse,
-  UserContextType,
-  UserType,
-  UserWrapperProperties,
-  AppRouterProperties,
-  HomeRoute,
-} from "./types";
-
 export {
-  // init
-  initApp,
+  // main
+  UserWrapper,
 
   // components
   AllUsersTable,
@@ -135,19 +119,8 @@ export {
   verifySessionRoles,
 };
 
-export type {
-  AcceptInvitationResponse,
-  AppRouterProperties,
-  HomeRoute,
-  Invitation,
-  InvitationAppOption,
-  InvitationPayload,
-  InvitationRoleOption,
-  LoginCredentials,
-  ResendInvitationResponse,
-  RevokeInvitationResponse,
-  UserContextType,
-  UserType,
-  UserWrapperProperties,
-  UsersTableProperties,
-};
+export * from "./routes";
+
+export * from "./types";
+
+export type { UsersTableProperties };

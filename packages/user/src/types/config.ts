@@ -4,11 +4,18 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 
 import { SocialLoginType } from "@/components/Login";
 
-import type { RouteOverwrites } from "./router";
+import type {
+  HomeRoute,
+  ProtectedRouteOverwrites,
+  PublicRouteOverwrites,
+} from "./routes";
 
-export interface UserConfigOptions {
+export interface UserConfig {
   apiBaseUrl: string;
   appDomain: string;
+  customPaths?: {
+    [K in keyof (ProtectedRouteOverwrites & PublicRouteOverwrites)]?: string;
+  };
   features?: {
     forgotPassword?: boolean;
     signup?:
@@ -23,6 +30,7 @@ export interface UserConfigOptions {
       showCheckbox?: boolean;
     };
   };
+  homeRoute?: HomeRoute;
   socialLoginProviders?: SocialLoginType[];
   supertokens: {
     appName: string;
@@ -32,10 +40,4 @@ export interface UserConfigOptions {
     thirdPartyEmailPasswordConfig?: ThirdPartyEmailPassword.UserInput;
   };
   supportedRoles: string[];
-}
-
-export interface UserConfig extends UserConfigOptions {
-  customPaths?: {
-    [K in keyof RouteOverwrites]?: string;
-  };
 }

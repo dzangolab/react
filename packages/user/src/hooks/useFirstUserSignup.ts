@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
 
 import { getIsFirstUser } from "@/api/user";
-import { ROUTES } from "@/constants";
+import { DEFAULT_PATHS } from "@/routes";
 import { UserConfig } from "@/types/config";
 
 type UseFirstUserSignupArguments = {
@@ -26,18 +26,19 @@ export const useFirstUserSignup = ({
   useEffect(() => {
     if (
       config.features?.signup === false &&
-      !config.features?.signupFirstUser
+      !!config.features?.signupFirstUser
     ) {
       setRedirecting(true);
 
-      getIsFirstUser(config.apiBaseUrl || "")
+      getIsFirstUser(config.apiBaseUrl)
         .then((response) => {
           if (response?.signUp) {
             setIsFirstUser(true);
 
             if (autoRedirect && redirectFn) {
               redirectFn(
-                config.customPaths?.signupFirstUser || ROUTES.SIGNUP_FIRST_USER,
+                config.customPaths?.signupFirstUser ||
+                  DEFAULT_PATHS.SIGNUP_FIRST_USER,
               );
             }
           } else {

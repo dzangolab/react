@@ -1,7 +1,7 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { UserConfigOptions } from "./config";
-import { AppRouterProperties } from "./router";
+import { UserConfig } from "./config";
+import { ProtectedRouteOverwrites, PublicRouteOverwrites } from "./routes";
 
 export interface UserType extends EmailPasswordUserType {
   disabled?: boolean;
@@ -67,8 +67,7 @@ export type LinkType = {
   to: string;
 };
 
-export type InitAppOptions = {
-  config: UserConfigOptions;
-  router: AppRouterProperties;
-  app: React.ReactNode;
+export type UserWrapperProperties = {
+  config: UserConfig;
+  children?: React.ReactNode;
 };

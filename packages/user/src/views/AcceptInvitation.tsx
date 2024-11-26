@@ -56,7 +56,7 @@ export const AcceptInvitation = ({
 
     setAcceptInvitationLoading(true);
 
-    acceptInvitation(token, credentials, config?.apiBaseUrl || "")
+    acceptInvitation(token, credentials, config?.apiBaseUrl)
       .then((response) => {
         setAcceptInvitationLoading(false);
 

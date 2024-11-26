@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { DEFAULT_PATHS } from "@/router/router";
+import { DEFAULT_PATHS } from "@/routes/routes";
 
 import { useConfig, useUser } from "../hooks";
 import { verifySessionRoles } from "../supertokens/helpers";
 
 import type { UserType } from "../types";
 
-const AuthGoogleCallback = () => {
+export const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
   const config = useConfig();
   const { setUser } = useUser();
@@ -63,5 +63,3 @@ const AuthGoogleCallback = () => {
 
   return <LoadingIcon />;
 };
-
-export default AuthGoogleCallback;

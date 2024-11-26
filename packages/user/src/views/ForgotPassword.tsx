@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 import { AuthLinks } from "@/components/AuthLinks";
 import { useConfig } from "@/hooks";
-import { DEFAULT_PATHS } from "@/router/router";
+import { DEFAULT_PATHS } from "@/routes/routes";
 import { LinkType } from "@/types/types";
 
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
