@@ -4,10 +4,10 @@ import React, { useEffect } from "react";
 
 interface Properties {
   loading?: boolean;
-  setFormReset?: (argument: () => void) => void;
+  setReset?: (argument: () => void) => void;
 }
 
-const ChangePasswordFormFields = ({ loading, setFormReset }: Properties) => {
+const ChangePasswordFormFields = ({ loading, setReset }: Properties) => {
   const { t } = useTranslation("user");
 
   const {
@@ -18,10 +18,10 @@ const ChangePasswordFormFields = ({ loading, setFormReset }: Properties) => {
   } = useFormContext();
 
   useEffect(() => {
-    if (setFormReset) {
-      setFormReset(() => reset);
+    if (setReset) {
+      setReset(() => reset);
     }
-  }, [setFormReset, reset]);
+  }, [setReset, reset]);
 
   return (
     <>
