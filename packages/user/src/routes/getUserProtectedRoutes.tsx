@@ -1,5 +1,6 @@
 import { Route } from "react-router-dom";
 
+import { DEFAULT_PATHS } from "@/constants";
 import { useConfig, useEmailVerification } from "@/hooks";
 import { ProtectedRoutesProperties } from "@/types/routes";
 import { ChangePassword } from "@/views/ChangePassword";
@@ -7,9 +8,7 @@ import { EmailVerificationReminder } from "@/views/EmailVerificationReminder";
 import { Profile } from "@/views/Profile";
 import { VerifyEmail } from "@/views/VerifyEmail";
 
-import { DEFAULT_PATHS } from "./routes";
-
-export const ProtectedRoutes = ({ routes }: ProtectedRoutesProperties) => {
+export const getUserProtectedRoutes = (options?: ProtectedRoutesProperties) => {
   const config = useConfig();
   const [emailVerificationEnabled] = useEmailVerification();
 
@@ -18,7 +17,7 @@ export const ProtectedRoutes = ({ routes }: ProtectedRoutesProperties) => {
     emailVerificationReminder,
     emailVerificationVerify,
     profile,
-  } = routes || {};
+  } = options?.routes || {};
 
   const { customPaths } = config;
 

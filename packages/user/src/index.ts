@@ -16,6 +16,7 @@ import {
   UsersTable,
   UsersTableProperties,
 } from "./components/UsersTable";
+import { DEFAULT_PATHS } from "./constants";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { getUserData, removeUserData, setUserData } from "./helpers";
 import {
@@ -57,6 +58,9 @@ import { VerifyEmail } from "./views/VerifyEmail";
 import "./assets/css/index.css";
 
 export {
+  // constants
+  DEFAULT_PATHS,
+
   // main
   UserWrapper,
 

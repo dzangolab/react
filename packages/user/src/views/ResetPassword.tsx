@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { DEFAULT_PATHS } from "@/routes/routes";
+import { DEFAULT_PATHS } from "@/constants";
 
 import ResetPasswordForm from "../components/ResetPasswordForm";
 import { useConfig } from "../hooks";

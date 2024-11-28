@@ -1,9 +1,8 @@
 import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
+import { DEFAULT_PATHS } from "@/constants";
 import { useConfig, useEmailVerification, useUser } from "@/hooks";
-
-import { DEFAULT_PATHS } from ".";
 
 export const ProtectedRoutesHandler: React.FC = () => {
   const location = useLocation();

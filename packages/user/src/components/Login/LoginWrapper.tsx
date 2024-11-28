@@ -2,7 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
 
-import { DEFAULT_PATHS } from "@/routes/routes";
+import { DEFAULT_PATHS } from "@/constants";
 import { LinkType } from "@/types/types";
 
 import { LoginForm } from "./LoginForm";

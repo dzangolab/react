@@ -1,6 +1,7 @@
 import { Route } from "react-router-dom";
 
 import { AuthGoogleCallback } from "@/components/AuthGoogleCallback";
+import { DEFAULT_PATHS } from "@/constants";
 import { useConfig } from "@/hooks";
 import { PublicRoutesProperties } from "@/types/routes";
 import { AcceptInvitation } from "@/views/AcceptInvitation";
@@ -10,9 +11,7 @@ import { ResetPassword } from "@/views/ResetPassword";
 import { Signup } from "@/views/Signup";
 import { SignUpFirstUser } from "@/views/SignUpFirstUser";
 
-import { DEFAULT_PATHS } from "./routes";
-
-export const PublicRoutes = ({ routes }: PublicRoutesProperties) => {
+export const getUserPublicRoutes = (options?: PublicRoutesProperties) => {
   const config = useConfig();
 
   const {
@@ -23,7 +22,7 @@ export const PublicRoutes = ({ routes }: PublicRoutesProperties) => {
     resetPassword,
     signup,
     signupFirstUser,
-  } = routes || {};
+  } = options?.routes || {};
 
   const { customPaths } = config;
 

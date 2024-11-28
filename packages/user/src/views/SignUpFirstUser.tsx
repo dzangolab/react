@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 
 import { getIsFirstUser, signUpFirstUser } from "@/api/user";
 import SignupForm from "@/components/SignupForm";
+import { DEFAULT_PATHS } from "@/constants";
 import { useConfig, useUser } from "@/hooks";
-import { DEFAULT_PATHS } from "@/routes/routes";
 
 import { login } from "..";
 

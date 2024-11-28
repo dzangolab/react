@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
 
 import { getIsFirstUser } from "@/api/user";
-import { DEFAULT_PATHS } from "@/routes";
+import { DEFAULT_PATHS } from "@/constants";
 import { UserConfig } from "@/types/config";
 
 type UseFirstUserSignupArguments = {

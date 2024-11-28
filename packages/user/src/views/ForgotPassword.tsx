@@ -4,8 +4,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { AuthLinks } from "@/components/AuthLinks";
+import { DEFAULT_PATHS } from "@/constants";
 import { useConfig } from "@/hooks";
-import { DEFAULT_PATHS } from "@/routes/routes";
 import { LinkType } from "@/types/types";
 
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
