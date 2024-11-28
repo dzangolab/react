@@ -22,7 +22,11 @@ export const ProtectedRoutesHandler: React.FC = () => {
     DEFAULT_PATHS.EMAIL_VERIFICATION_VERIFY;
 
   if (!user) {
-    return <Navigate to={`${loginPath}?redirect=${window.location.href}`} />;
+    return (
+      <Navigate
+        to={`${loginPath}?redirect=${window.encodeURI(location.pathname + location.search)}`}
+      />
+    );
   }
 
   const home = typeof homeRoute === "string" ? homeRoute : homeRoute(user);
