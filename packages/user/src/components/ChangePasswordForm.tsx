@@ -9,14 +9,10 @@ import { PasswordConfirmationSchema } from "./schemas";
 interface Properties {
   handleSubmit: (oldPassword: string, password: string) => void;
   loading?: boolean;
-  setReset?: (argument: () => void) => void;
+  reset?: boolean;
 }
 
-const ChangePasswordForm = ({
-  handleSubmit,
-  loading,
-  setReset,
-}: Properties) => {
+const ChangePasswordForm = ({ handleSubmit, loading, reset }: Properties) => {
   const { t } = useTranslation("user");
 
   const ChangePasswordFormSchema = zod
@@ -50,8 +46,9 @@ const ChangePasswordForm = ({
     <Provider
       validationSchema={ChangePasswordFormSchema}
       onSubmit={(data) => handleSubmit(data.oldPassword, data.password)}
+      onSubmitReset={reset}
     >
-      <ChangePasswordFormFields loading={loading} setReset={setReset} />
+      <ChangePasswordFormFields loading={loading} />
     </Provider>
   );
 };

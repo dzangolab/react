@@ -1,27 +1,19 @@
 import { FormActions, Password, useFormContext } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import React, { useEffect } from "react";
+import React from "react";
 
 interface Properties {
   loading?: boolean;
-  setReset?: (argument: () => void) => void;
 }
 
-const ChangePasswordFormFields = ({ loading, setReset }: Properties) => {
+const ChangePasswordFormFields = ({ loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const {
     register,
     getFieldState,
-    reset,
     formState: { errors, submitCount, isDirty },
   } = useFormContext();
-
-  useEffect(() => {
-    if (setReset) {
-      setReset(() => reset);
-    }
-  }, [setReset, reset]);
 
   return (
     <>

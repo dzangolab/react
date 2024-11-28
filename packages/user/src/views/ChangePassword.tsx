@@ -11,7 +11,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
-  const [reset, setReset] = useState<(() => void) | null>(null);
+  const [reset, setReset] = useState<boolean>(false);
 
   const handleSubmit = async (oldPassword: string, newPassword: string) => {
     setLoading(true);
@@ -24,9 +24,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
 
     if (success) {
       toast.success(t("changePassword.messages.success"));
-      if (reset) {
-        reset();
-      }
+      setReset(true);
     }
 
     setLoading(false);
@@ -41,7 +39,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
       <ChangePasswordForm
         handleSubmit={handleSubmit}
         loading={loading}
-        setReset={setReset}
+        reset={reset}
       />
     </AuthPage>
   );

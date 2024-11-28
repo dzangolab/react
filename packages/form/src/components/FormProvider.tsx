@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useEffect } from "react";
 import { UseFormProps, useForm, FormProvider } from "react-hook-form";
 import { ZodEffects, ZodObject } from "zod";
 
@@ -11,12 +11,14 @@ interface IForm extends UseFormProps {
   html5Validation?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSubmit: (data: any) => any;
+  onSubmitReset?: boolean;
 }
 
 export const Provider: React.FC<IForm> = ({
   className = "",
   children,
   onSubmit,
+  onSubmitReset,
   validationSchema,
   html5Validation = false,
   ...useFormOptions
@@ -25,6 +27,12 @@ export const Provider: React.FC<IForm> = ({
     resolver: validationSchema ? zodResolver(validationSchema) : undefined,
     ...useFormOptions,
   });
+
+  useEffect(() => {
+    if (onSubmitReset) {
+      methods.reset();
+    }
+  }, [onSubmitReset]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnSubmit = async (data: any) => {
