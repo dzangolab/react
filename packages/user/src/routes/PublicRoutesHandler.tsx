@@ -8,7 +8,7 @@ export const PublicRoutesHandler: React.FC = () => {
   const config = useConfig();
   const location = useLocation();
 
-  const { homeRoute = "/", customPaths } = config;
+  const { homeRoute = "/" } = config;
 
   if (user) {
     if (location.search?.startsWith("?redirect=")) {

@@ -1,7 +1,6 @@
 import { EmailPasswordUserType } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { UserConfig } from "./config";
-import { ProtectedRouteOverwrites, PublicRouteOverwrites } from "./routes";
 
 export interface UserType extends EmailPasswordUserType {
   disabled?: boolean;

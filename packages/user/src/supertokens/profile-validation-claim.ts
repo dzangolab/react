@@ -5,7 +5,7 @@ interface Response {
   isVerified: boolean;
 }
 
-class ProfileValidationClaim implements SessionClaim<Response> {
+export class ProfileValidationClaim implements SessionClaim<Response> {
   public static defaultMaxAgeInSeconds: number | undefined = undefined;
   public static id = "profileValidation";
 
@@ -28,5 +28,3 @@ class ProfileValidationClaim implements SessionClaim<Response> {
     /* empty */
   }
 }
-
-export default ProfileValidationClaim;

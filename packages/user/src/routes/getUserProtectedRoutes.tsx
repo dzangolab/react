@@ -3,10 +3,12 @@ import { Route } from "react-router-dom";
 import { DEFAULT_PATHS } from "@/constants";
 import { useConfig, useEmailVerification } from "@/hooks";
 import { ProtectedRoutesProperties } from "@/types/routes";
-import { ChangePassword } from "@/views/ChangePassword";
-import { EmailVerificationReminder } from "@/views/EmailVerificationReminder";
-import { Profile } from "@/views/Profile";
-import { VerifyEmail } from "@/views/VerifyEmail";
+import {
+  ChangePassword,
+  EmailVerificationReminder,
+  Profile,
+  VerifyEmail,
+} from "@/views";
 
 export const getUserProtectedRoutes = (options?: ProtectedRoutesProperties) => {
   const config = useConfig();

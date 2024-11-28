@@ -4,9 +4,10 @@ import { AuthPage } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
+import { changePassword } from "@/supertokens";
+
 import ChangePasswordForm from "../components/ChangePasswordForm";
 import { useConfig } from "../hooks";
-import changePassword from "../supertokens/change-password";
 
 export type ChangePasswordFormData = {
   oldPassword: string;

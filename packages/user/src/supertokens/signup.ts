@@ -2,7 +2,7 @@ import { emailPasswordSignUp as register } from "supertokens-web-js/recipe/third
 
 import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
 
-const signup = async (
+export const signup = async (
   credentials: LoginCredentials,
 ): Promise<SignInUpPromise | void> => {
   let user: UserType;
@@ -43,5 +43,3 @@ const signup = async (
     throw new Error();
   }
 };
-
-export default signup;

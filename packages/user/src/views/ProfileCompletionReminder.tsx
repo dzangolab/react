@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Card, CardBody, CardFooter, Page } from "@dzangolab/react-ui";
 
-const ProfileCompletionReminder = ({
+export const ProfileCompletionReminder = ({
   centered = true,
   onClick,
 }: {
@@ -29,5 +29,3 @@ const ProfileCompletionReminder = ({
     </Page>
   );
 };
-
-export default ProfileCompletionReminder;

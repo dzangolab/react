@@ -2,7 +2,7 @@ import React from "react";
 
 import ConfigProvider from "./context/ConfigProvider";
 import UserProvider from "./context/UserProvider";
-import superTokens from "./supertokens";
+import { superTokens } from "./supertokens";
 import { UserWrapperProperties } from "./types/types";
 
 export const UserWrapper = ({ config, children }: UserWrapperProperties) => {

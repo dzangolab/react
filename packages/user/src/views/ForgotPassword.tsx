@@ -6,10 +6,10 @@ import { toast } from "react-toastify";
 import { AuthLinks } from "@/components/AuthLinks";
 import { DEFAULT_PATHS } from "@/constants";
 import { useConfig } from "@/hooks";
+import { forgotPassword } from "@/supertokens";
 import { LinkType } from "@/types/types";
 
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
-import { forgotPassword } from "../supertokens/forgot-password";
 
 export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");

@@ -4,12 +4,14 @@ import { AuthGoogleCallback } from "@/components/AuthGoogleCallback";
 import { DEFAULT_PATHS } from "@/constants";
 import { useConfig } from "@/hooks";
 import { PublicRoutesProperties } from "@/types/routes";
-import { AcceptInvitation } from "@/views/AcceptInvitation";
-import { ForgotPassword } from "@/views/ForgotPassword";
-import { Login } from "@/views/Login";
-import { ResetPassword } from "@/views/ResetPassword";
-import { Signup } from "@/views/Signup";
-import { SignUpFirstUser } from "@/views/SignUpFirstUser";
+import {
+  AcceptInvitation,
+  ForgotPassword,
+  Login,
+  ResetPassword,
+  Signup,
+  SignUpFirstUser,
+} from "@/views";
 
 export const getUserPublicRoutes = (options?: PublicRoutesProperties) => {
   const config = useConfig();

@@ -6,9 +6,9 @@ import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
 import { DEFAULT_PATHS } from "@/constants";
+import { verifySessionRoles } from "@/supertokens";
 
 import { useConfig, useUser } from "../hooks";
-import { verifySessionRoles } from "../supertokens/helpers";
 
 import type { UserType } from "../types";
 

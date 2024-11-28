@@ -1,33 +1,16 @@
-import SuperTokens from "supertokens-web-js";
-import EmailVerification from "supertokens-web-js/recipe/emailverification";
-import Session from "supertokens-web-js/recipe/session";
-import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
+import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { SUPERTOKENS_API_BASE_PATH_DEFAULT } from "@/constants";
-import { UserConfig } from "@/types/config";
+export * from "./change-password";
+export * from "./forgot-password";
+export * from "./google-login";
+export * from "./helpers";
+export * from "./login";
+export * from "./logout";
+export * from "./profile-validation-claim";
+export * from "./resend-email-verification";
+export * from "./reset-password";
+export * from "./signup";
+export * from "./superTokens";
+export * from "./verify-email";
 
-const superTokens = (config: UserConfig) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const recipeLists: Array<any> = [
-    Session.init(config?.supertokens?.sessionConfig),
-    ThirdPartyEmailPassword.init(
-      config?.supertokens?.thirdPartyEmailPasswordConfig,
-    ),
-  ];
-
-  if (config.features?.signup && config.features.signup.emailVerification) {
-    recipeLists.push(EmailVerification.init());
-  }
-
-  SuperTokens.init({
-    appInfo: {
-      appName: config.supertokens.appName,
-      apiDomain: config.supertokens.apiDomain,
-      apiBasePath:
-        config.supertokens.apiBasePath || SUPERTOKENS_API_BASE_PATH_DEFAULT,
-    },
-    recipeList: recipeLists,
-  });
-};
-
-export default superTokens;
+export { sendPasswordResetEmail };
