@@ -1,5 +1,3 @@
-import React from "react";
-
 import ConfigProvider from "./context/ConfigProvider";
 import UserProvider from "./context/UserProvider";
 import { superTokens } from "./supertokens";
@@ -10,9 +8,7 @@ export const UserWrapper = ({ config, children }: UserWrapperProperties) => {
 
   return (
     <ConfigProvider config={config}>
-      <UserProvider>
-        <React.Suspense>{children}</React.Suspense>
-      </UserProvider>
+      <UserProvider>{children}</UserProvider>
     </ConfigProvider>
   );
 };
