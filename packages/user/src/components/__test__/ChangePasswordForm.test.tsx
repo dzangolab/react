@@ -1,3 +1,4 @@
+import { Provider } from "@dzangolab/react-form";
 import { render, screen, waitFor } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import React, { act } from "react";
@@ -8,13 +9,13 @@ import ChangePasswordForm from "../ChangePasswordForm";
 const setup = (component: React.ReactElement) => {
   return {
     user: userEvent.setup(),
-    ...render(component),
+    ...render(<Provider onSubmit={() => {}}>{component}</Provider>),
   };
 };
 
 test("validation error message is displayed when input field is empty", async () => {
   const handleSubmit = vi.fn();
-  const { user } = setup(<ChangePasswordForm handleSubmit={handleSubmit} />);
+  const { user } = setup(<ChangePasswordForm />);
 
   const submitButton = screen.getByText("changePassword.form.actions.submit");
 
@@ -43,7 +44,7 @@ test("validation error message is displayed when input field is empty", async ()
 
 test("validation error message is displayed for unmatched confirm password", async () => {
   const handleSubmit = vi.fn();
-  const { user } = setup(<ChangePasswordForm handleSubmit={handleSubmit} />);
+  const { user } = setup(<ChangePasswordForm />);
 
   const oldPassword = screen.getByLabelText(
     "changePassword.form.oldPassword.label",
@@ -79,7 +80,7 @@ test("validation error message is displayed for unmatched confirm password", asy
 
 test("form is successfully submitted", async () => {
   const handleSubmit = vi.fn();
-  const { user } = setup(<ChangePasswordForm handleSubmit={handleSubmit} />);
+  const { user } = setup(<ChangePasswordForm />);
 
   const oldPassword = screen.getByLabelText(
     "changePassword.form.oldPassword.label",
