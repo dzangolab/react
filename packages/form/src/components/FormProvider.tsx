@@ -31,7 +31,14 @@ export const Provider: React.FC<IForm> = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnSubmit = async (data: any) => {
     try {
-      await onSubmit(data, { reset: methods.reset });
+      const formSubmitOptions = {
+        clearErrors: methods.clearErrors,
+        reset: methods.reset,
+        resetField: methods.resetField,
+        setError: methods.setError,
+      };
+
+      await onSubmit(data, formSubmitOptions);
     } catch (error) {
       const { name, message } = error as Error;
 
