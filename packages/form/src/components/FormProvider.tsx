@@ -3,6 +3,8 @@ import React from "react";
 import { UseFormProps, useForm, FormProvider } from "react-hook-form";
 import { ZodEffects, ZodObject } from "zod";
 
+import { FormSubmitOptions } from "..";
+
 interface IForm extends UseFormProps {
   className?: string;
   children: React.ReactNode;
@@ -10,7 +12,7 @@ interface IForm extends UseFormProps {
   validationSchema?: ZodObject<any> | ZodEffects<any>;
   html5Validation?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSubmit: (data: any) => any;
+  onSubmit: (data: any, options?: FormSubmitOptions) => any;
 }
 
 export const Provider: React.FC<IForm> = ({
@@ -29,7 +31,14 @@ export const Provider: React.FC<IForm> = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnSubmit = async (data: any) => {
     try {
-      await onSubmit(data);
+      const formSubmitOptions = {
+        clearErrors: methods.clearErrors,
+        reset: methods.reset,
+        resetField: methods.resetField,
+        setError: methods.setError,
+      };
+
+      await onSubmit(data, formSubmitOptions);
     } catch (error) {
       const { name, message } = error as Error;
 

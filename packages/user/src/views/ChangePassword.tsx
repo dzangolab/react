@@ -1,3 +1,4 @@
+import { FormSubmitOptions } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage } from "@dzangolab/react-ui";
 import React, { useState } from "react";
@@ -7,22 +8,33 @@ import ChangePasswordForm from "../components/ChangePasswordForm";
 import { useConfig } from "../hooks";
 import changePassword from "../supertokens/change-password";
 
+export type ChangePasswordFormData = {
+  oldPassword: string;
+  password: string;
+};
+
 export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSubmit = async (oldPassword: string, newPassword: string) => {
+  const handleSubmit = async (
+    data: ChangePasswordFormData,
+    options?: FormSubmitOptions,
+  ) => {
     setLoading(true);
 
     const success = await changePassword(
-      oldPassword,
-      newPassword,
+      data.oldPassword,
+      data.password,
       appConfig?.apiBaseUrl || "",
     );
 
     if (success) {
       toast.success(t("changePassword.messages.success"));
+      if (options && options.reset) {
+        options.reset();
+      }
     }
 
     setLoading(false);

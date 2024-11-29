@@ -1,6 +1,11 @@
 import {
+  FieldValues,
+  UseFormClearErrors,
   UseFormGetFieldState,
   UseFormRegister,
+  UseFormReset,
+  UseFormResetField,
+  UseFormSetError,
   useFormContext,
 } from "react-hook-form";
 
@@ -44,6 +49,14 @@ interface AdditionalFormFields {
   schema: AdditionalFormSchema;
   renderFields: RenderAdditionalFormFields;
 }
+
+export type FormSubmitOptions<TFieldValues extends FieldValues = FieldValues> =
+  {
+    clearErrors?: UseFormClearErrors<TFieldValues>;
+    reset?: UseFormReset<TFieldValues>;
+    resetField?: UseFormResetField<TFieldValues>;
+    setError?: UseFormSetError<TFieldValues>;
+  };
 
 export type {
   AdditionalFormFields,

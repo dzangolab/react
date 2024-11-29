@@ -1,12 +1,18 @@
-import { Form, FormActions, Password } from "@dzangolab/react-form";
+import { Provider, FormSubmitOptions } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
 
+import { ChangePasswordFormData } from "@/views/ChangePassword";
+
+import ChangePasswordFormFields from "./ChangePasswordFormFields";
 import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
-  handleSubmit: (oldPassword: string, password: string) => void;
+  handleSubmit: (
+    data: ChangePasswordFormData,
+    options?: FormSubmitOptions,
+  ) => void;
   loading?: boolean;
 }
 
@@ -41,35 +47,17 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
     );
 
   return (
-    <Form
+    <Provider
       validationSchema={ChangePasswordFormSchema}
-      onSubmit={(data) => handleSubmit(data.oldPassword, data.password)}
+      onSubmit={(data: ChangePasswordFormData, options?: FormSubmitOptions) =>
+        handleSubmit(
+          { oldPassword: data.oldPassword, password: data.password },
+          options,
+        )
+      }
     >
-      <Password
-        autoComplete="current-password"
-        label={t("changePassword.form.oldPassword.label")}
-        name="oldPassword"
-      />
-      <Password
-        label={t("changePassword.form.newPassword.label")}
-        name="password"
-      />
-      <Password
-        label={t("changePassword.form.confirmPassword.label")}
-        name="confirmPassword"
-      />
-
-      <FormActions
-        actions={[
-          {
-            id: "submit",
-            label: t("changePassword.form.actions.submit"),
-          },
-        ]}
-        loading={loading}
-        alignment="fill"
-      />
-    </Form>
+      <ChangePasswordFormFields loading={loading} />
+    </Provider>
   );
 };
 
