@@ -13,14 +13,12 @@ interface IForm extends UseFormProps {
   html5Validation?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSubmit: (data: any, options?: FormOptions) => any;
-  resetOnSubmit?: boolean;
 }
 
 export const Provider: React.FC<IForm> = ({
   className = "",
   children,
   onSubmit,
-  resetOnSubmit = false,
   validationSchema,
   html5Validation = false,
   ...useFormOptions
