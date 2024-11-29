@@ -8,13 +8,13 @@
 }
 
 .demo > .demo-aside {
-  border-right: 1px solid #ccc;
-  display: flex;
   flex-basis: 15rem;
-  flex-direction: column;
   flex-grow: 1;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
+  gap: 1rem;
+  border-right: 1px solid #ccc;
 }
 
 .demo > .demo-main {
