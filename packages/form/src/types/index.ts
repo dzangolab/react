@@ -1,4 +1,5 @@
 import {
+  FieldValues,
   UseFormClearErrors,
   UseFormGetFieldState,
   UseFormRegister,
@@ -49,16 +50,13 @@ interface AdditionalFormFields {
   renderFields: RenderAdditionalFormFields;
 }
 
-export type FormSubmitOptions = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  clearErrors?: UseFormClearErrors<any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  reset?: UseFormReset<any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  resetField?: UseFormResetField<any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  setError?: UseFormSetError<any>;
-};
+export type FormSubmitOptions<TFieldValues extends FieldValues = FieldValues> =
+  {
+    clearErrors?: UseFormClearErrors<TFieldValues>;
+    reset?: UseFormReset<TFieldValues>;
+    resetField?: UseFormResetField<TFieldValues>;
+    setError?: UseFormSetError<TFieldValues>;
+  };
 
 export type {
   AdditionalFormFields,
