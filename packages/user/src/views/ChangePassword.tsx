@@ -1,4 +1,4 @@
-import { FormOptions } from "@dzangolab/react-form";
+import { FormActionOptions } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage } from "@dzangolab/react-ui";
 import React, { useState } from "react";
@@ -20,7 +20,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
 
   const handleSubmit = async (
     data: ChangePasswordFormData,
-    options?: FormOptions,
+    options?: FormActionOptions,
   ) => {
     setLoading(true);
 
