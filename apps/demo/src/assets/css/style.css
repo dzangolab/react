@@ -30,6 +30,13 @@ code {
   font-family: monospace;
 }
 
+@media screen and (min-width: 576px) {
+  .dz-layout>main {
+    padding-top: 0;
+    padding-right: 0;
+  }
+}
+
 @media screen and (min-width: 60rem) {
   :root {
     --layout-padding-h: 3rem;
