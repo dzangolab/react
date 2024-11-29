@@ -1,17 +1,15 @@
-import { Provider } from "@dzangolab/react-form";
+import { Provider, FormOptions } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
+
+import { ChangePasswordFormData } from "@/views/ChangePassword";
 
 import ChangePasswordFormFields from "./ChangePasswordFormFields";
 import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
-  handleSubmit: (
-    data: { oldPassword: string; newPassword: string },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    options: any,
-  ) => void;
+  handleSubmit: (data: ChangePasswordFormData, options?: FormOptions) => void;
   loading?: boolean;
 }
 
@@ -48,10 +46,9 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
   return (
     <Provider
       validationSchema={ChangePasswordFormSchema}
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      onSubmit={(data: any, options: any) =>
+      onSubmit={(data: ChangePasswordFormData, options?: FormOptions) =>
         handleSubmit(
-          { oldPassword: data.oldPassword, newPassword: data.password },
+          { oldPassword: data.oldPassword, password: data.password },
           options,
         )
       }

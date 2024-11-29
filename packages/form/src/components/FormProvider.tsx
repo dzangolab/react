@@ -1,12 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import {
-  UseFormProps,
-  useForm,
-  FormProvider,
-  UseFormReturn,
-} from "react-hook-form";
+import { UseFormProps, useForm, FormProvider } from "react-hook-form";
 import { ZodEffects, ZodObject } from "zod";
+
+import { FormOptions } from "..";
 
 interface IForm extends UseFormProps {
   className?: string;
@@ -15,7 +12,7 @@ interface IForm extends UseFormProps {
   validationSchema?: ZodObject<any> | ZodEffects<any>;
   html5Validation?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSubmit: (data: any, options?: Partial<UseFormReturn<any>>) => any;
+  onSubmit: (data: any, options?: FormOptions) => any;
   resetOnSubmit?: boolean;
 }
 

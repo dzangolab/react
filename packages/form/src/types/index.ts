@@ -1,6 +1,10 @@
 import {
+  UseFormClearErrors,
   UseFormGetFieldState,
   UseFormRegister,
+  UseFormReset,
+  UseFormResetField,
+  UseFormSetError,
   useFormContext,
 } from "react-hook-form";
 
@@ -44,6 +48,17 @@ interface AdditionalFormFields {
   schema: AdditionalFormSchema;
   renderFields: RenderAdditionalFormFields;
 }
+
+export type FormOptions = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  clearErrors?: UseFormClearErrors<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  reset?: UseFormReset<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  resetField?: UseFormResetField<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setError?: UseFormSetError<any>;
+};
 
 export type {
   AdditionalFormFields,
