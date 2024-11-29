@@ -7,12 +7,15 @@ import ChangePasswordFormFields from "./ChangePasswordFormFields";
 import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
-  handleSubmit: (oldPassword: string, password: string) => void;
+  handleSubmit: (
+    data: { oldPassword: string; newPassword: string },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    options: any,
+  ) => void;
   loading?: boolean;
-  reset?: boolean;
 }
 
-const ChangePasswordForm = ({ handleSubmit, loading, reset }: Properties) => {
+const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const ChangePasswordFormSchema = zod
@@ -45,8 +48,14 @@ const ChangePasswordForm = ({ handleSubmit, loading, reset }: Properties) => {
   return (
     <Provider
       validationSchema={ChangePasswordFormSchema}
-      onSubmit={(data) => handleSubmit(data.oldPassword, data.password)}
-      onSubmitReset={reset}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onSubmit={(data: any, options: any) =>
+        handleSubmit(
+          { oldPassword: data.oldPassword, newPassword: data.password },
+          options,
+        )
+      }
+      resetOnSubmit={true}
     >
       <ChangePasswordFormFields loading={loading} />
     </Provider>

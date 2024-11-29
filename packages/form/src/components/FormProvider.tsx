@@ -1,6 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect } from "react";
-import { UseFormProps, useForm, FormProvider } from "react-hook-form";
+import React from "react";
+import {
+  UseFormProps,
+  useForm,
+  FormProvider,
+  UseFormReturn,
+} from "react-hook-form";
 import { ZodEffects, ZodObject } from "zod";
 
 interface IForm extends UseFormProps {
@@ -10,15 +15,15 @@ interface IForm extends UseFormProps {
   validationSchema?: ZodObject<any> | ZodEffects<any>;
   html5Validation?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSubmit: (data: any) => any;
-  onSubmitReset?: boolean;
+  onSubmit: (data: any, options?: Partial<UseFormReturn<any>>) => any;
+  resetOnSubmit?: boolean;
 }
 
 export const Provider: React.FC<IForm> = ({
   className = "",
   children,
   onSubmit,
-  onSubmitReset = false,
+  resetOnSubmit = false,
   validationSchema,
   html5Validation = false,
   ...useFormOptions
@@ -28,16 +33,10 @@ export const Provider: React.FC<IForm> = ({
     ...useFormOptions,
   });
 
-  useEffect(() => {
-    if (onSubmitReset) {
-      methods.reset();
-    }
-  }, [onSubmitReset]);
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleOnSubmit = async (data: any) => {
     try {
-      await onSubmit(data);
+      await onSubmit(data, { reset: methods.reset });
     } catch (error) {
       const { name, message } = error as Error;
 

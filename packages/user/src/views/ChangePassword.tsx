@@ -11,20 +11,23 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const appConfig = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
-  const [reset, setReset] = useState<boolean>(false);
 
-  const handleSubmit = async (oldPassword: string, newPassword: string) => {
+  const handleSubmit = async (
+    data: { oldPassword: string; newPassword: string },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    options: any,
+  ) => {
     setLoading(true);
 
     const success = await changePassword(
-      oldPassword,
-      newPassword,
+      data.oldPassword,
+      data.newPassword,
       appConfig?.apiBaseUrl || "",
     );
 
     if (success) {
       toast.success(t("changePassword.messages.success"));
-      setReset(true);
+      options.reset();
     }
 
     setLoading(false);
@@ -36,11 +39,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
       title={t("changePassword.title")}
       centered={centered}
     >
-      <ChangePasswordForm
-        handleSubmit={handleSubmit}
-        loading={loading}
-        reset={reset}
-      />
+      <ChangePasswordForm handleSubmit={handleSubmit} loading={loading} />
     </AuthPage>
   );
 };
