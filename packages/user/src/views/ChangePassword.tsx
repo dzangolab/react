@@ -32,7 +32,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
 
     if (success) {
       toast.success(t("changePassword.messages.success"));
-      if (options?.reset) {
+      if (options && options.reset) {
         options.reset();
       }
     }
