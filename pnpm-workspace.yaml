@@ -1,5 +1,3 @@
 packages:
   - 'apps/demo/**'
   - "packages/*"
-  - "tools/*"
-  

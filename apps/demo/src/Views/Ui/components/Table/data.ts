@@ -147,6 +147,7 @@ const formatDemoData = [
     amount: 1_234_567.89,
     quantity: 420,
     date: null,
+    datetime: null,
     description: "Purchase of equipment",
   },
   {
@@ -154,6 +155,7 @@ const formatDemoData = [
     amount: 987_654.32,
     quantity: 175,
     date: new Date("2023-12-01T12:30:00"),
+    datetime: "2023-12-01T11:00:00",
     description: "Office rent payment",
   },
   {
@@ -161,6 +163,7 @@ const formatDemoData = [
     amount: 54321.0,
     quantity: 7890,
     date: new Date("2023-12-15T08:45:00"),
+    datetime: new Date("2023-12-15T08:45:00"),
     description: "Marketing campaign expenses",
   },
   {
@@ -168,6 +171,7 @@ const formatDemoData = [
     amount: 654_321.12,
     quantity: 2950,
     date: new Date(),
+    datetime: new Date(),
     description: "Product development costs",
   },
   {
@@ -175,6 +179,7 @@ const formatDemoData = [
     amount: 789_012.34,
     quantity: 53210,
     date: new Date("2023-12-05T09:15:00"),
+    datetime: "2023-12-05T09:15:00",
     description: "Travel and accommodation",
   },
   {
@@ -182,6 +187,7 @@ const formatDemoData = [
     amount: 12345.67,
     quantity: 6430,
     date: new Date("2023-12-20T14:00:00"),
+    datetime: new Date("2023-12-05T09:15:00"),
     description: "Employee salaries",
   },
   {
@@ -189,6 +195,7 @@ const formatDemoData = [
     amount: 234_567.89,
     quantity: 98760,
     date: new Date(),
+    datetime: new Date(),
     description: "Product inventory replenishment",
   },
   {
@@ -196,6 +203,7 @@ const formatDemoData = [
     amount: 876_543.21,
     quantity: 123_450,
     date: new Date("2023-12-10T18:45:00"),
+    datetime: new Date("2023-12-10T18:45:00"),
     description: "New marketing materials",
   },
   {
@@ -203,6 +211,7 @@ const formatDemoData = [
     amount: 13579.24,
     quantity: 45670,
     date: new Date("2023-12-25T11:30:00"),
+    datetime: new Date("2023-12-25T11:30:00"),
     description: "Holiday season promotions",
   },
   {
@@ -210,6 +219,7 @@ const formatDemoData = [
     amount: 24680.36,
     quantity: 78901,
     date: new Date(),
+    datetime: new Date(),
     description: "Office furniture upgrade",
   },
 ];

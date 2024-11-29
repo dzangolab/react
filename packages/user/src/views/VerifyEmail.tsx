@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Button, Card, CardBody } from "@dzangolab/react-ui";
+import { AuthPage, Button } from "@dzangolab/react-ui";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 

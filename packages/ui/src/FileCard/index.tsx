@@ -1,6 +1,6 @@
 import { ComponentProps, ReactNode, useState } from "react";
 
-import { Card, ConfirmationModal, formatDate } from "..";
+import { Card, ConfirmationModal, formatDate, formatDateTime } from "..";
 import ConfirmationFileActions from "./ConfirmationFileActions";
 import { Button } from "../Buttons/ButtonBasic";
 import { IFile } from "../FilesTable";
@@ -254,7 +254,7 @@ export const FileCard = ({
                   {visibleFileDetailsMap.uploadedAt ? (
                     <div className="uploaded-at">
                       <span>{messages?.uploadedAtHeader || "Uploaded at"}</span>
-                      <span>{formatDate(file?.uploadedAt)}</span>
+                      <span>{formatDateTime(file?.uploadedAt)}</span>
                     </div>
                   ) : null}
                 </div>

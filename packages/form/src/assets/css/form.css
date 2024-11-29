@@ -112,7 +112,7 @@ form span[role="alert"] {
 form input[readonly] {
   border: none;
   font-weight: 500;
-  padding-left: 0;
+  padding: 0;
 }
 
 form input[readonly]:focus {

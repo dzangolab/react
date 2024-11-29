@@ -32,10 +32,6 @@
   outline: 2px solid var(--field-outline-color);
 }
 
-.input-field[type="number"]{
-  padding-right: calc(var(--field-padding-h, 0.5em) * 4);
-}
-
 .input-field:-webkit-autofill {
   background-color: var(--field-autofill-color);
 }
