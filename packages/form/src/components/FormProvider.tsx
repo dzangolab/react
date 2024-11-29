@@ -18,7 +18,7 @@ export const Provider: React.FC<IForm> = ({
   className = "",
   children,
   onSubmit,
-  onSubmitReset,
+  onSubmitReset = false,
   validationSchema,
   html5Validation = false,
   ...useFormOptions
