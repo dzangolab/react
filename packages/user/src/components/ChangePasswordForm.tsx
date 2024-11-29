@@ -1,4 +1,4 @@
-import { Provider, FormActionOptions } from "@dzangolab/react-form";
+import { Provider, FormSubmitOptions } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
@@ -11,7 +11,7 @@ import { PasswordConfirmationSchema } from "./schemas";
 interface Properties {
   handleSubmit: (
     data: ChangePasswordFormData,
-    options?: FormActionOptions,
+    options?: FormSubmitOptions,
   ) => void;
   loading?: boolean;
 }
@@ -49,7 +49,7 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
   return (
     <Provider
       validationSchema={ChangePasswordFormSchema}
-      onSubmit={(data: ChangePasswordFormData, options?: FormActionOptions) =>
+      onSubmit={(data: ChangePasswordFormData, options?: FormSubmitOptions) =>
         handleSubmit(
           { oldPassword: data.oldPassword, password: data.password },
           options,

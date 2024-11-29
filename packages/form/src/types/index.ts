@@ -49,7 +49,7 @@ interface AdditionalFormFields {
   renderFields: RenderAdditionalFormFields;
 }
 
-export type FormActionOptions = {
+export type FormSubmitOptions = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   clearErrors?: UseFormClearErrors<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
