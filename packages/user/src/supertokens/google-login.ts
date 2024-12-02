@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { getAuthorisationURLWithQueryParamsAndSetState } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-const googleLogin = async (redirectUrl: string) => {
+export const googleLogin = async (redirectUrl: string) => {
   try {
     const authUrl = await getAuthorisationURLWithQueryParamsAndSetState({
       authorisationURL: redirectUrl,
@@ -17,5 +17,3 @@ const googleLogin = async (redirectUrl: string) => {
     toast.error(errorMessage);
   }
 };
-
-export default googleLogin;

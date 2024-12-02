@@ -42,7 +42,7 @@ export const InvitationForm = ({
 }: Properties) => {
   const { t } = useTranslation("invitations");
 
-  const appConfig = useConfig();
+  const config = useConfig();
 
   const [submitting, setSubmitting] = useState(false);
 
@@ -111,7 +111,7 @@ export const InvitationForm = ({
 
     const invitationData = prepareData ? prepareData(data) : getFormData(data);
 
-    addInvitation(invitationData, appConfig?.apiBaseUrl || "")
+    addInvitation(invitationData, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors

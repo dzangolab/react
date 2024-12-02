@@ -3,7 +3,7 @@ import { SidebarOnlyLayout } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
 import { useUser } from "@/hooks";
-import logout from "@/supertokens/logout";
+import { logout } from "@/supertokens";
 
 import type {
   NavMenuItemType,

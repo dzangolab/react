@@ -59,10 +59,6 @@ const config: AppConfig = {
       },
     ],
   },
-  user: {
-    supportedRoles: [],
-    supportedLoginProviders: ["google"],
-  },
   websiteDomain: (window.location.protocol +
     "//" +
     window.location.host) as string,

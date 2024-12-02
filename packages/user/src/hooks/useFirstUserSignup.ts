@@ -1,12 +1,12 @@
-import { AppConfig } from "@dzangolab/react-config";
 import { useEffect, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
 
 import { getIsFirstUser } from "@/api/user";
-import { ROUTES } from "@/constants";
+import { DEFAULT_PATHS } from "@/constants";
+import { UserConfig } from "@/types/config";
 
 type UseFirstUserSignupArguments = {
-  appConfig: AppConfig;
+  config: UserConfig;
 } & (
   | { autoRedirect: false; redirectFn: undefined }
   | {
@@ -16,7 +16,7 @@ type UseFirstUserSignupArguments = {
 );
 
 export const useFirstUserSignup = ({
-  appConfig,
+  config,
   autoRedirect = false,
   redirectFn,
 }: UseFirstUserSignupArguments) => {
@@ -25,20 +25,20 @@ export const useFirstUserSignup = ({
 
   useEffect(() => {
     if (
-      appConfig?.user?.routes?.signup?.disabled &&
-      !appConfig?.user?.routes?.signupFirstUser?.disabled
+      config.features?.signup === false &&
+      config.features?.signupFirstUser !== false
     ) {
       setRedirecting(true);
 
-      getIsFirstUser(appConfig?.apiBaseUrl || "")
+      getIsFirstUser(config.apiBaseUrl)
         .then((response) => {
           if (response?.signUp) {
             setIsFirstUser(true);
 
             if (autoRedirect && redirectFn) {
               redirectFn(
-                appConfig.user.routes?.signupFirstUser?.path ||
-                  ROUTES.SIGNUP_FIRST_USER,
+                config.customPaths?.signupFirstUser ||
+                  DEFAULT_PATHS.SIGNUP_FIRST_USER,
               );
             }
           } else {
@@ -52,7 +52,7 @@ export const useFirstUserSignup = ({
           setRedirecting(false);
         });
     }
-  }, [appConfig, autoRedirect, redirectFn]);
+  }, [config, autoRedirect, redirectFn]);
 
   return [redirecting, isFirstUser];
 };

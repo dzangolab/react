@@ -679,9 +679,6 @@ importers:
       '@12deg/tsconfig':
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.8.1)
-      '@dzangolab/react-config':
-        specifier: 0.50.1
-        version: link:../config
       '@dzangolab/react-form':
         specifier: 0.50.1
         version: link:../form

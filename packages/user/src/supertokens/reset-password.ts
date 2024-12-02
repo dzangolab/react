@@ -5,7 +5,7 @@ interface IPromise {
   status: string | undefined;
 }
 
-const resetPassword = async (
+export const resetPassword = async (
   newPassword: string,
 ): Promise<IPromise | undefined> => {
   let status: string | undefined;
@@ -38,5 +38,3 @@ const resetPassword = async (
 
   return { status };
 };
-
-export default resetPassword;
