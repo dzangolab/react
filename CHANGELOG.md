@@ -1,3 +1,35 @@
+# [0.51.0](https://github.com/dzangolab/react/compare/v0.50.1...v0.51.0) (2024-12-02)
+
+
+### Breaking Changes
+
+#### Update user package with new approach to routing and provider
+- **Removal of @dzangolab/react-user dependency**: User package no longer uses @dzangolab/react-config package and does not access app's global config. All necessary and customization configuration must be provided through `config` props to `UserWrapper` component. See ([README](https://github.com/dzangolab/react/blob/main/packages/user/README.md)) for more detail on how to use new user package.
+
+
+### Bug Fixes
+
+* **demo:** fix bottom and left padding ([#1245](https://github.com/dzangolab/react/issues/1245)) ([c34506a](https://github.com/dzangolab/react/commit/c34506ab532bf57ff09d31bc32bf7f701ac073b3))
+* **demo:** improve demo pages layout ([#1246](https://github.com/dzangolab/react/issues/1246)) ([faafc5c](https://github.com/dzangolab/react/commit/faafc5c4d434100a2b56257bc46a2f64ed8ff20e))
+* **demo:** update to use new user package ([#1249](https://github.com/dzangolab/react/issues/1249)) ([babc0a5](https://github.com/dzangolab/react/commit/babc0a5d32af7635c42b7b64c3978791ff1ab5aa))
+* **deps:** update dependency i18next to v23.16.8 ([#1232](https://github.com/dzangolab/react/issues/1232)) ([7465bff](https://github.com/dzangolab/react/commit/7465bfff0e29c4d1fec5e13baf97a119dbe21552))
+* improve ui ([#1237](https://github.com/dzangolab/react/issues/1237)) ([2360ea8](https://github.com/dzangolab/react/commit/2360ea83af33e8785a0aaa6beb8417dd3d6cdeff))
+* **page:**  improve toolbar ui on mobile view ([#1231](https://github.com/dzangolab/react/issues/1231)) ([b3d05a7](https://github.com/dzangolab/react/commit/b3d05a7612b30cab7f8394870d1297f7a1f3946f))
+* **ui:** improve date formating util  ([#1228](https://github.com/dzangolab/react/issues/1228)) ([dc3d85d](https://github.com/dzangolab/react/commit/dc3d85da420e65a18c75f865907510548d5107d2))
+* update date picker and number input ui ([#1241](https://github.com/dzangolab/react/issues/1241)) ([feedd40](https://github.com/dzangolab/react/commit/feedd40f35a483c47dc57811bcac43d96c1f09ae))
+* update page title tag ([#1227](https://github.com/dzangolab/react/issues/1227)) ([7384298](https://github.com/dzangolab/react/commit/73842985c326fcd9b69d3643a7e0be7648b54f32))
+
+
+### Features
+
+* add classname prop ([#1229](https://github.com/dzangolab/react/issues/1229)) ([fa9c8a7](https://github.com/dzangolab/react/commit/fa9c8a7a5c94310012c313c4a2e966465de35a8d))
+* **demo:** implement scrollable sidebar for improved navigation ([#1244](https://github.com/dzangolab/react/issues/1244)) ([08ad03a](https://github.com/dzangolab/react/commit/08ad03a052fdfac9d04a4a707f2d98c82d4a6bcd))
+* **form/date-input:** display calendar when clicking on the input field ([#1247](https://github.com/dzangolab/react/issues/1247)) ([2f23fe6](https://github.com/dzangolab/react/commit/2f23fe61fa9c54ac048b2c27d9cc9594bd29fc93))
+* **table:** add datetime data formatter  ([#1235](https://github.com/dzangolab/react/issues/1235)) ([99b851a](https://github.com/dzangolab/react/commit/99b851aeceda90b6dc85f82e5e593f5029363e7e))
+* **user:** reset change-password form state on submit ([#1240](https://github.com/dzangolab/react/issues/1240)) ([2da22dc](https://github.com/dzangolab/react/commit/2da22dceafae72e587e582d57e7b396e98b9ea63))
+
+
+
 ## [0.50.1](https://github.com/dzangolab/react/compare/v0.50.0...v0.50.1) (2024-11-19)
 
 
