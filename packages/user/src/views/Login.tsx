@@ -31,27 +31,27 @@ export const Login: React.FC<IProperties> = ({
   socialLoginOnly = false,
 }) => {
   const { t } = useTranslation(["user", "errors"]);
-  const appConfig = useConfig();
+  const config = useConfig();
   const navigate = useNavigate();
 
   const [redirecting] = useFirstUserSignup({
-    appConfig,
+    config,
     autoRedirect: true,
     redirectFn: navigate,
   });
 
   let className = "login";
 
-  if (!appConfig?.user.supportedLoginProviders) {
+  if (!config.socialLoginProviders) {
     orientation = "vertical";
   }
 
-  if (appConfig?.user.supportedLoginProviders) {
+  if (config.socialLoginProviders) {
     className = className + (socialLoginFirst ? " sso-first" : " sso-last");
   }
 
   const renderSocialLogins = () => {
-    if (!appConfig?.user.supportedLoginProviders?.length) {
+    if (!config.socialLoginProviders?.length) {
       return null;
     }
 

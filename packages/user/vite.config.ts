@@ -25,7 +25,6 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@dzangolab/react-config": "DzangolabReactConfig",
             "@dzangolab/react-form": "DzangolabReactForm",
             "@dzangolab/react-i18n": "DzangolabReactI18n",
             "@dzangolab/react-layout": "DzangolabReactLayout",

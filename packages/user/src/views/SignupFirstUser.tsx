@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 import { getIsFirstUser, signUpFirstUser } from "@/api/user";
 import SignupForm from "@/components/SignupForm";
-import { ROUTES } from "@/constants";
+import { DEFAULT_PATHS } from "@/constants";
 import { useConfig, useUser } from "@/hooks";
 
 import { login } from "..";
@@ -20,7 +20,7 @@ export const SignUpFirstUser = ({
 }) => {
   const { t } = useTranslation("user");
 
-  const appConfig = useConfig();
+  const config = useConfig();
   const { setUser } = useUser();
 
   const [loading, setLoading] = useState(false);
@@ -32,10 +32,10 @@ export const SignUpFirstUser = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    getIsFirstUser(appConfig?.apiBaseUrl || "")
+    getIsFirstUser(config.apiBaseUrl)
       .then((response) => {
         if (!response?.signUp) {
-          navigate(appConfig.user.routes?.login?.path || ROUTES.LOGIN);
+          navigate(config.customPaths?.login || DEFAULT_PATHS.LOGIN);
         }
       })
       .catch(() => {
@@ -49,7 +49,7 @@ export const SignUpFirstUser = ({
   const handleSubmit = (credentials: LoginCredentials) => {
     setSignUpFirstUserLoading(true);
 
-    signUpFirstUser(credentials, appConfig?.apiBaseUrl || "")
+    signUpFirstUser(credentials, config.apiBaseUrl)
       .then(() => {
         setSignUpFirstUserLoading(false);
         setLoginLoading(true);
@@ -67,7 +67,7 @@ export const SignUpFirstUser = ({
           .catch(() => {
             setLoginLoading(false);
             toast.error(t("firstUser.login.messages.error"));
-            navigate(appConfig.user.routes?.login?.path || ROUTES.LOGIN);
+            navigate(config.customPaths?.login || DEFAULT_PATHS.LOGIN);
           })
           .finally(() => {
             setLoginLoading(false);

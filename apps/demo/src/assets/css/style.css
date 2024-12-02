@@ -11,10 +11,7 @@
 
 body {
   color: var(--color);
-}
-
-p {
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 .main-menu > ul > li:hover,
@@ -28,6 +25,12 @@ code {
   border-radius: 0.25rem;
   padding: 0.5rem 0.5rem;
   font-family: monospace;
+}
+
+@media screen and (min-width: 576px) {
+  .dz-layout>main {
+    padding: 0 0 0 2rem;
+  }
 }
 
 @media screen and (min-width: 60rem) {

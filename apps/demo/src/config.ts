@@ -59,10 +59,6 @@ const config: AppConfig = {
       },
     ],
   },
-  user: {
-    supportedRoles: [],
-    supportedLoginProviders: ["google"],
-  },
   websiteDomain: (window.location.protocol +
     "//" +
     window.location.host) as string,
@@ -70,6 +66,17 @@ const config: AppConfig = {
 
 const feature = (name: keyof AppFeatures): boolean => {
   return config.features[name];
+};
+
+// Dummy config to demo user package components
+export const userConfig = {
+  apiBaseUrl: config.websiteDomain,
+  appDomain: config.websiteDomain,
+  supertokens: {
+    appName: "Demo - Dzangolab React",
+    apiDomain: config.websiteDomain,
+  },
+  supportedRoles: [],
 };
 
 export default config;

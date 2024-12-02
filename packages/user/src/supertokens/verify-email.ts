@@ -8,7 +8,7 @@ interface IPromise {
     | undefined;
 }
 
-const verifyEmail = async (): Promise<IPromise | undefined> => {
+export const verifyEmail = async (): Promise<IPromise | undefined> => {
   const { isVerified } = await EmailVerification.isEmailVerified();
 
   if (isVerified) {
@@ -19,5 +19,3 @@ const verifyEmail = async (): Promise<IPromise | undefined> => {
     return { status: response.status };
   }
 };
-
-export default verifyEmail;

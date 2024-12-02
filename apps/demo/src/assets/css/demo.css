@@ -12,9 +12,8 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0;
   gap: 1rem;
-  border-right: 1px solid #ccc;
 }
 
 .demo > .demo-main {
@@ -106,4 +105,18 @@
 .demo > .demo-main > .demo-section form > span.form-mode-title {
   font-size: 1.75rem;
   font-weight: 600;
+}
+
+@media screen and (min-width: 576px) {
+  .demo > .demo-aside {
+    border-right: 1px solid #ccc;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .demo > .demo-main {
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+  }
 }

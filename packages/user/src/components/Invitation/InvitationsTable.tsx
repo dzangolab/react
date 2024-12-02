@@ -95,12 +95,12 @@ export const InvitationsTable = ({
   ],
   ...tableOptions
 }: InvitationsTableProperties) => {
-  const { apiBaseUrl } = useConfig();
+  const config = useConfig();
 
   const { t } = useTranslation("invitations");
 
   const handleResendInvitation = (invitation: Invitation) => {
-    resendInvitation(invitation.id, apiBaseUrl || "")
+    resendInvitation(invitation.id, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
@@ -119,7 +119,7 @@ export const InvitationsTable = ({
   };
 
   const handleRevokeInvitation = (invitation: Invitation) => {
-    revokeInvitation(invitation.id, apiBaseUrl || "")
+    revokeInvitation(invitation.id, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
@@ -138,7 +138,7 @@ export const InvitationsTable = ({
   };
 
   const handleDeleteInvitation = async (id: number) => {
-    deleteInvitation(id, apiBaseUrl)
+    deleteInvitation(id, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           toast.error(t("messages.delete.error"));
