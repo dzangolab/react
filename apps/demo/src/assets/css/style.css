@@ -11,10 +11,7 @@
 
 body {
   color: var(--color);
-}
-
-p {
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 .main-menu > ul > li:hover,
