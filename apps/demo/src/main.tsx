@@ -1,12 +1,12 @@
 import { ConfigProvider } from "@dzangolab/react-config";
 import i18n from "@dzangolab/react-i18n";
 import { configureTooltip } from "@dzangolab/react-ui";
-import { UserProvider } from "@dzangolab/react-user";
+import { UserWrapper } from "@dzangolab/react-user";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
-import config from "./config";
+import config, { userConfig } from "./config";
 
 // react-toastify
 import "react-toastify/dist/ReactToastify.css";
@@ -35,10 +35,10 @@ configureTooltip({
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ConfigProvider appConfig={config}>
-    <UserProvider>
-      <React.Suspense>
+    <React.Suspense>
+      <UserWrapper config={userConfig}>
         <App />
-      </React.Suspense>
-    </UserProvider>
+      </UserWrapper>
+    </React.Suspense>
   </ConfigProvider>,
 );
