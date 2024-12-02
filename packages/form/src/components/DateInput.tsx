@@ -41,10 +41,10 @@ export const DateInput: React.FC<IDateInput> = ({
   };
 
   const handleInputClick = () => {
-    const inputElement = document.getElementById(
+    const dateInput = document.getElementById(
       `input-field-${name}`,
     ) as HTMLInputElement;
-    inputElement.showPicker();
+    dateInput.showPicker();
   };
 
   return (
