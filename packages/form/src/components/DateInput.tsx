@@ -40,7 +40,7 @@ export const DateInput: React.FC<IDateInput> = ({
     if (showValidState && !invalid) return false;
   };
 
-  const handleInputClick = () => {
+  const handleClick = () => {
     const dateInput = document.getElementById(
       `input-field-${name}`,
     ) as HTMLInputElement;
@@ -56,7 +56,7 @@ export const DateInput: React.FC<IDateInput> = ({
         aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
         type="date"
         disabled={disabled}
-        onClick={handleInputClick}
+        onClick={handleClick}
       ></input>
       {helperText && <span className="helper-text">{helperText}</span>}
       {error?.message && <ErrorMessage message={error.message} />}
