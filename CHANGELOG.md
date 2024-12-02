@@ -1,6 +1,12 @@
 # [0.51.0](https://github.com/dzangolab/react/compare/v0.50.1...v0.51.0) (2024-12-02)
 
 
+### Breaking Changes
+
+#### Update user package with new approach to routing and provider
+- **Removal of @dzangolab/react-user dependency**: User package no longer uses @dzangolab/react-config package and does not access app's global config. All necessary and customization configuration must be provided through `config` props to `UserWrapper` component. See ([README](https://github.com/dzangolab/react/blob/main/packages/user/README.md)) for more detail on how to use new user package.
+
+
 ### Bug Fixes
 
 * **demo:** fix bottom and left padding ([#1245](https://github.com/dzangolab/react/issues/1245)) ([c34506a](https://github.com/dzangolab/react/commit/c34506ab532bf57ff09d31bc32bf7f701ac073b3))
