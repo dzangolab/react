@@ -11,3 +11,8 @@
 .dz-grid-container .package:hover {
   border-color: var(--dz-secondary-color);
 }
+
+.dz-page.home {
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+}
