@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 import { ErrorMessage } from "./ErrorMessage";
@@ -30,8 +30,6 @@ export const DateInput: React.FC<IDateInput> = ({
   showValidState = true,
   submitCount = 0,
 }) => {
-  const inputReference = useRef<HTMLInputElement | null>(null);
-
   if (!register || !getFieldState) return null;
 
   const { error, invalid } = getFieldState(name);
@@ -43,9 +41,10 @@ export const DateInput: React.FC<IDateInput> = ({
   };
 
   const handleInputClick = () => {
-    if (inputReference.current) {
-      inputReference.current.showPicker();
-    }
+    const inputElement = document.getElementById(
+      `input-field-${name}`,
+    ) as HTMLInputElement;
+    inputElement.showPicker();
   };
 
   return (
@@ -57,7 +56,6 @@ export const DateInput: React.FC<IDateInput> = ({
         aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
         type="date"
         disabled={disabled}
-        ref={inputReference}
         onClick={handleInputClick}
       ></input>
       {helperText && <span className="helper-text">{helperText}</span>}
