@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-config",
-  "version": "0.50.1",
+  "version": "0.51.0",
   "description": "React config",
   "license": "MIT",
   "type": "module",
@@ -13,7 +13,9 @@
   "main": "dist//DzangolabReactConfig.umd.js",
   "module": "dist//DzangolabReactConfig.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
