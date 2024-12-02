@@ -1,3 +1,12 @@
+## [0.51.1](https://github.com/dzangolab/react/compare/v0.51.0...v0.51.1) (2024-12-02)
+
+
+### Bug Fixes
+
+* **demo:** fix padding in home page ([#1248](https://github.com/dzangolab/react/issues/1248)) ([4684341](https://github.com/dzangolab/react/commit/46843410b83cf721ef16011ad12d8766096c2b4c))
+
+
+
 # [0.51.0](https://github.com/dzangolab/react/compare/v0.50.1...v0.51.0) (2024-12-02)
 
 
