@@ -15,6 +15,7 @@
   height: max-content;
   padding: 0;
   margin: 0;
+  border-bottom:  var(--tab-border, 1px solid #ddd);
 }
 
 .tabbed-panel.bottom > div[role="tablist"],
