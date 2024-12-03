@@ -9,13 +9,13 @@
 }
 
 .tabbed-panel > div[role="tablist"] {
+  border-bottom:  var(--tab-border, 1px solid #ddd);
   display: flex;
   flex-direction: column;
-  list-style: none;
   height: max-content;
-  padding: 0;
+  list-style: none;
   margin: 0;
-  border-bottom:  var(--tab-border, 1px solid #ddd);
+  padding: 0;
 }
 
 .tabbed-panel.bottom > div[role="tablist"],
