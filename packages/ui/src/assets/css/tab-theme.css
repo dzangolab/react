@@ -14,7 +14,7 @@
   cursor: pointer;
   display: flex;
   outline: 0;
-  padding: var(--tab-padding, 15px 25px);
+  padding: var(--tab-padding, 1rem);
   width: 100%;
 }
 
