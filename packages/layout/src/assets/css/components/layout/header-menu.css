@@ -1,5 +1,5 @@
 .dz-layout .dz-header-menu {
-  --_layout-header-item-padding-h: 1rem;
+  --_layout-header-item-padding-h: var(--dz-layout-nav-item-padding-h, 1rem);
   --_layout-header-item-padding-v: var(
     --dz-layout-nav-item-padding-v,
     0.625rem
@@ -53,6 +53,10 @@ ul.dz-user-menu li span.dz-user-menu-item > i {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+  }
+
+  .dz-layout .dz-header-menu > .dz-locale-switcher .dz-dropdown-menu-trigger {
+    padding: 0.65rem;
   }
 
   .dz-layout .dz-header-menu > ul.dz-user-menu {
