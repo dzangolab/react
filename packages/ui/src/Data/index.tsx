@@ -2,23 +2,33 @@ import { FC, ReactNode } from "react";
 
 import "./index.css";
 
-interface DataProperties {
+type DataValueType =
+  | {
+      value: ReactNode;
+    }
+  | {
+      value: object;
+      dataKey: string;
+    };
+
+type DataProperties = {
   label: ReactNode;
-  value?: ReactNode | object;
-  dataKey?: string;
   className?: string;
-}
+} & DataValueType;
 
 export const Data: FC<DataProperties> = ({
   className = "",
-  dataKey,
   label,
   value,
+  ...others
 }) => {
   const displayValue =
-    dataKey && value && typeof value === "object" && dataKey in value
+    "dataKey" in others &&
+    value &&
+    typeof value === "object" &&
+    others.dataKey in value
       ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (value as Record<string, any>)[dataKey]
+        (value[others.dataKey as keyof typeof value] as any)
       : value;
 
   return (
