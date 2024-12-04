@@ -102,7 +102,7 @@ export const DataDemo = () => {
 
       <Section title={t("dataComponent.usage.displayObject")}>
         <Data
-          label="User Email"
+          label="Email"
           value={{ email: "john.doe@example.com", id: 1 }}
           dataKey="email"
         />
@@ -149,12 +149,12 @@ export const DataDemo = () => {
     },
   ];
 
-  return ( 
+return ( 
   <GridContainer>
     {testData.map((data, index) => (
       <Data key={index} {...data} />
     ))}
-  </GridContainer>)"
+  </GridContainer>);"
         />
       </Section>
     </Page>
