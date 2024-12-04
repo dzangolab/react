@@ -4,20 +4,17 @@
 }
 
 .tabbed-panel.bottom > div > button.active {
-  border-top: var(--tab-active-border, 1px solid transparent);
+  border-bottom: var(--dz-primary-color);
 }
 
 .tabbed-panel > div > button {
   align-items: center;
-  background: var(--tab-background, #eee);
-  border-bottom: 0;
-  border: 0;
-  border: var(--tab-border, 1px solid #ddd);
+  background: none;
+  border: none;
   cursor: pointer;
   display: flex;
   outline: 0;
-  padding: var(--tab-padding, 15px 25px);
-  transition: background-color 0.25s ease-in-out;
+  padding: var(--tab-padding, 1rem);
   width: 100%;
 }
 
@@ -27,11 +24,7 @@
 }
 
 .tabbed-panel > div > button:not(.active):hover {
-  background: var(--tab-background-hover, #ddd);
-}
-
-.tabbed-panel > div > button.active {
-  background: var(--tab-background-active, #fff);
+  border-bottom:  var(--dz-primary-color) 1px solid;
 }
 
 .tabbed-panel > div > button span {
@@ -48,5 +41,9 @@
 }
 
 .tabbed-panel.top > div > button.active {
-  border-bottom: var(--tab-active-border, 1px solid transparent);
+  border-bottom: var(--dz-primary-color) 1px solid;
+}
+
+.tabbed-panel.top > div > button.active > span {
+  color: var(--dz-primary-color);
 }

@@ -29,8 +29,8 @@ export const RadioInput: React.FC<IRadioInputProperties> = ({
   ...others
 }) => {
   return (
-    <div className={`field ${className}`.trim()}>
-      {label}
+    <fieldset className={`field ${className}`.trim()}>
+      <legend>{label}</legend>
       {options?.map(({ label: optionLabel, value: optionValue }) => (
         <div className="radio-button-wrapper" key={optionValue}>
           <input
@@ -49,6 +49,6 @@ export const RadioInput: React.FC<IRadioInputProperties> = ({
       ))}
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
-    </div>
+    </fieldset>
   );
 };
