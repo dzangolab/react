@@ -1,5 +1,5 @@
-tag = 2
-version = 0.48
+tag = 1
+version = 0.51
 
 audit:
 	@printf "\033[0;32m>>> Audit production dependencies\033[0m\n"
