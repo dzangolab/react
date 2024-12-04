@@ -17,7 +17,8 @@ export const DataDemo = () => {
     // Test case 3: Label/value with email
     {
       label: "Email",
-      value: "john.doe@example.com",
+      value: { email: "john.doe@example.com", user: "John Doe" },
+      dataKey: "email",
     },
 
     // Test case 4: Label/value with address
