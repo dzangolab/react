@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-layout",
-  "version": "0.51.1",
+  "version": "0.52.0",
   "description": "React Layout Component Library",
   "exports": {
     ".": {
@@ -12,9 +12,7 @@
   "main": "dist//DzangolabReactLayout.umd.js",
   "module": "dist//DzangolabReactLayout.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
@@ -31,9 +29,9 @@
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
     "@12deg/tsconfig": "0.1.11",
-    "@dzangolab/react-config": "0.51.1",
-    "@dzangolab/react-i18n": "0.51.1",
-    "@dzangolab/react-ui": "0.51.1",
+    "@dzangolab/react-config": "0.52.0",
+    "@dzangolab/react-i18n": "0.52.0",
+    "@dzangolab/react-ui": "0.52.0",
     "@testing-library/react": "16.0.1",
     "@types/jsdom": "21.1.7",
     "@types/node": "22.8.1",
@@ -62,9 +60,9 @@
     "vitest": "2.1.5"
   },
   "peerDependencies": {
-    "@dzangolab/react-config": "0.51.1",
-    "@dzangolab/react-i18n": "0.51.1",
-    "@dzangolab/react-ui": "0.51.1",
+    "@dzangolab/react-config": "0.52.0",
+    "@dzangolab/react-i18n": "0.52.0",
+    "@dzangolab/react-ui": "0.52.0",
     "primeicons": ">=6.0.1",
     "react": ">=18.2",
     "react-dom": ">=18.2",
