@@ -1,5 +1,5 @@
 .dz-layout .dz-header-menu {
-  --_layout-header-item-padding-h: var(--dz-layout-nav-item-padding-h, 1rem);
+  --_layout-header-item-padding-h: 1rem;
   --_layout-header-item-padding-v: var(
     --dz-layout-nav-item-padding-v,
     0.625rem
