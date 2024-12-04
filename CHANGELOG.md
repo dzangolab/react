@@ -1,5 +1,10 @@
 # [0.52.0](https://github.com/dzangolab/react/compare/v0.51.1...v0.52.0) (2024-12-04)
 
+### Breaking Changes
+
+#### Use independent feature config for email verification
+- **user:** email verification feature no longer depends on signup config, previously `features?.signup?.emailVerification` and has needs its own config as `features?.emailVerification` to be defined
+
 
 ### Bug Fixes
 
