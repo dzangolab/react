@@ -5,9 +5,7 @@ export const useEmailVerification = () => {
   const config = useConfig();
   const { user } = useUser();
 
-  const emailVerificationEnabled = !!(
-    config.features?.signup && config.features.signup.emailVerification
-  );
+  const emailVerificationEnabled = !!config.features?.emailVerification;
 
   const isEmailVerified = emailVerificationEnabled
     ? user?.isEmailVerified
