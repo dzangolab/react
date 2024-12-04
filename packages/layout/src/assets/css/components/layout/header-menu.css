@@ -55,6 +55,10 @@ ul.dz-user-menu li span.dz-user-menu-item > i {
     flex-direction: row;
   }
 
+  .dz-layout .dz-header-menu > .dz-locale-switcher .dz-dropdown-menu-trigger {
+    padding: 0.65rem;
+  }
+
   .dz-layout .dz-header-menu > ul.dz-user-menu {
     flex-direction: row;
   }
