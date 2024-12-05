@@ -16,7 +16,7 @@ interface Properties {
 }
 
 const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t, i18n } = useTranslation("user");
   const config = useConfig();
 
   const SignUpFormSchema = zod
@@ -65,6 +65,7 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
         termsAndConditions: false,
       }}
       validationSchema={SignUpFormSchema}
+      validationTriggerKey={i18n.language}
     >
       <SignupFormFields disableEmailField={!!email} loading={loading} />
     </Provider>

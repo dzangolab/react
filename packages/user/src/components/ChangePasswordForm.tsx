@@ -17,7 +17,7 @@ interface Properties {
 }
 
 const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t, i18n } = useTranslation("user");
 
   const ChangePasswordFormSchema = zod
     .object({
@@ -55,6 +55,7 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
           options,
         )
       }
+      validationTriggerKey={i18n.language}
     >
       <ChangePasswordFormFields loading={loading} />
     </Provider>

@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useEffect } from "react";
 import { UseFormProps, useForm, FormProvider } from "react-hook-form";
 import { ZodEffects, ZodObject } from "zod";
 
@@ -13,6 +13,7 @@ interface IForm extends UseFormProps {
   html5Validation?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSubmit: (data: any, options?: FormSubmitOptions) => any;
+  validationTriggerKey?: string;
 }
 
 export const Provider: React.FC<IForm> = ({
@@ -21,6 +22,7 @@ export const Provider: React.FC<IForm> = ({
   onSubmit,
   validationSchema,
   html5Validation = false,
+  validationTriggerKey,
   ...useFormOptions
 }) => {
   const methods = useForm({
@@ -45,6 +47,16 @@ export const Provider: React.FC<IForm> = ({
       methods.setError(name, { message });
     }
   };
+
+  useEffect(() => {
+    if (
+      validationTriggerKey &&
+      methods.formState.submitCount > 0 &&
+      !methods.formState.isValid
+    ) {
+      methods.trigger();
+    }
+  }, [validationTriggerKey]);
 
   return (
     <FormProvider {...methods}>

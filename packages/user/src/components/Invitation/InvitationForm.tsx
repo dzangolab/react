@@ -40,7 +40,7 @@ export const InvitationForm = ({
   prepareData,
   roles,
 }: Properties) => {
-  const { t } = useTranslation("invitations");
+  const { t, i18n } = useTranslation("invitations");
 
   const config = useConfig();
 
@@ -179,6 +179,7 @@ export const InvitationForm = ({
       onSubmit={onSubmit}
       defaultValues={getDefaultValues()}
       validationSchema={InvitationFormSchema}
+      validationTriggerKey={i18n.language}
     >
       <InvitationFormFields
         renderAdditionalFields={additionalInvitationFields?.renderFields}

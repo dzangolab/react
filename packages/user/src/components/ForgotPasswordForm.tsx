@@ -14,7 +14,7 @@ interface Properties {
 }
 
 export const ForgotPasswordForm = ({ handleSubmit, loading }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t, i18n } = useTranslation("user");
 
   const ForgotPasswordFormSchema = zod.object({
     email: emailSchema({
@@ -27,6 +27,7 @@ export const ForgotPasswordForm = ({ handleSubmit, loading }: Properties) => {
     <Provider
       validationSchema={ForgotPasswordFormSchema}
       onSubmit={(data) => handleSubmit(data.email)}
+      validationTriggerKey={i18n.language}
     >
       <Email
         label={t("forgotPassword.form.email.label")}
