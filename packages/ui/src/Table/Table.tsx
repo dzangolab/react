@@ -191,6 +191,7 @@ const DataTable = <TData extends { id: string | number }>({
     : table.getFilteredRowModel().rows?.length;
 
   useEffect(() => {
+    // client side rendering
     if (!fetchData && !paginated) {
       setPagination((previous) => ({
         ...previous,
@@ -223,6 +224,67 @@ const DataTable = <TData extends { id: string | number }>({
       table.setColumnOrder(["select", ...visibleColumns]);
     }
   }, [visibleColumns, parsedColumns]);
+
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+
+    try {
+      const savedState = localStorage.getItem(id);
+
+      if (savedState) {
+        const {
+          columnFilters,
+          columnVisibility,
+          pagination,
+          rowSelection,
+          sorting,
+        } = JSON.parse(savedState);
+
+        // Note: order matters here
+        if (columnFilters?.length) {
+          setColumnFilters(columnFilters);
+        }
+
+        if (Object.entries(columnVisibility).length) {
+          setColumnVisibility(columnVisibility);
+        }
+
+        if (Object.entries(rowSelection).length) {
+          setRowSelection(rowSelection);
+        }
+
+        if (sorting?.length) {
+          setSorting(sorting);
+        }
+
+        if (Object.entries(pagination).length) {
+          setPagination(pagination);
+        }
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log("Sorry, something went wrong", error);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    return () => {
+      if (id) {
+        localStorage.setItem(
+          id,
+          JSON.stringify({
+            columnFilters,
+            columnVisibility,
+            pagination,
+            rowSelection,
+            sorting,
+          }),
+        );
+      }
+    };
+  }, [id, columnFilters, columnVisibility, pagination, rowSelection, sorting]);
 
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>
