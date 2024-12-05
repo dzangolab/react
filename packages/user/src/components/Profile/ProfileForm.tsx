@@ -15,7 +15,7 @@ interface Properties {
 }
 
 export const ProfileForm = ({ additionalProfileFields }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t, i18n } = useTranslation("user");
   const { user, setUser } = useUser();
   const config = useConfig();
   const [submitting, setSubmitting] = useState(false);
@@ -66,6 +66,7 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
       validationSchema={profileValidationSchema}
       onSubmit={handleSubmit}
       values={formValues}
+      validationTriggerKey={i18n.language}
     >
       <ProfileFormFields
         submitting={submitting}
