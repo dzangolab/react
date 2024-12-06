@@ -7,11 +7,12 @@
 }
 
 .invitation-modal {
-  min-width: 430px;
+  max-width: 350px;
+  width: 100%;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 576px) {
   .invitation-modal {
-    min-width: 350px;
+    max-width: 430px;
   }
 }
