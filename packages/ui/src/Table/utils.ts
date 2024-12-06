@@ -329,7 +329,7 @@ export const getAlignValue = ({
 /**
  * Get a item from storage for given key
  */
-export const getStorageItem = (key: string) => {
+export const getTableState = (key: string) => {
   try {
     return sessionStorage.getItem(key);
   } catch (error) {
@@ -341,7 +341,7 @@ export const getStorageItem = (key: string) => {
 /**
  * Save a item to the storage with a given key
  */
-export const setStorageItem = (
+export const saveTableState = (
   key: string,
   value: object | string | number | boolean | null,
 ) => {

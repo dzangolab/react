@@ -25,8 +25,8 @@ import { TableToolbar } from "./TableToolbar";
 import {
   getRequestJSON,
   getParsedColumns,
-  setStorageItem,
-  getStorageItem,
+  saveTableState,
+  getTableState,
 } from "./utils";
 import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
@@ -235,7 +235,7 @@ const DataTable = <TData extends { id: string | number }>({
       return;
     }
 
-    const savedState = getStorageItem(id);
+    const savedState = getTableState(id);
 
     if (savedState) {
       const { columnFilters, columnVisibility, sorting } =
@@ -258,7 +258,7 @@ const DataTable = <TData extends { id: string | number }>({
   useEffect(() => {
     return () => {
       if (id) {
-        setStorageItem(id, {
+        saveTableState(id, {
           columnFilters,
           columnVisibility,
           sorting,
