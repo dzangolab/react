@@ -22,7 +22,12 @@ import { DataActionsMenu } from "./TableDataActions";
 import { Table, TableFooter } from "./TableElements";
 import { TableHeader } from "./TableHeader";
 import { TableToolbar } from "./TableToolbar";
-import { getRequestJSON, getParsedColumns } from "./utils";
+import {
+  getRequestJSON,
+  getParsedColumns,
+  saveTableState,
+  getSavedTableState,
+} from "./utils";
 import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
@@ -57,6 +62,7 @@ const DataTable = <TData extends { id: string | number }>({
   onRowSelectChange,
   totalRecords = 0,
   paginationOptions,
+  persistState = false,
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
@@ -191,6 +197,7 @@ const DataTable = <TData extends { id: string | number }>({
     : table.getFilteredRowModel().rows?.length;
 
   useEffect(() => {
+    // client side rendering
     if (!fetchData && !paginated) {
       setPagination((previous) => ({
         ...previous,
@@ -223,6 +230,42 @@ const DataTable = <TData extends { id: string | number }>({
       table.setColumnOrder(["select", ...visibleColumns]);
     }
   }, [visibleColumns, parsedColumns]);
+
+  useEffect(() => {
+    if (!persistState || !id) {
+      return;
+    }
+
+    const savedState = getSavedTableState(id);
+
+    if (savedState) {
+      const { columnFilters, columnVisibility, sorting } = savedState;
+
+      if (columnFilters?.length) {
+        setColumnFilters(columnFilters);
+      }
+
+      if (Object.entries(columnVisibility).length) {
+        setColumnVisibility(columnVisibility);
+      }
+
+      if (sorting?.length) {
+        setSorting(sorting);
+      }
+    }
+  }, [id, persistState]);
+
+  useEffect(() => {
+    return () => {
+      if (persistState && id) {
+        saveTableState(id, {
+          columnFilters,
+          columnVisibility,
+          sorting,
+        });
+      }
+    };
+  }, [id, columnFilters, columnVisibility, persistState, sorting]);
 
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>

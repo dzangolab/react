@@ -15,6 +15,7 @@ import type {
   Column,
   RowData,
   SortingState,
+  VisibilityState,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
@@ -270,6 +271,7 @@ export interface TDataTableProperties<TData>
     align?: "left" | "center" | "right";
   };
   paginated?: boolean;
+  persistState?: boolean;
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   visibleColumns?: string[];
@@ -301,3 +303,9 @@ export type {
   FilterFn as FilterFunction,
   FilterFns as FilterFunctions,
 } from "@tanstack/react-table";
+
+export interface PersistentTableState {
+  columnFilters: ColumnFiltersState;
+  columnVisibility: VisibilityState;
+  sorting: SortingState;
+}
