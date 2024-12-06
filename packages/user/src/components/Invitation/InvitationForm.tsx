@@ -40,9 +40,9 @@ export const InvitationForm = ({
   prepareData,
   roles,
 }: Properties) => {
-  const { t } = useTranslation("invitations");
+  const { t, i18n } = useTranslation("invitations");
 
-  const appConfig = useConfig();
+  const config = useConfig();
 
   const [submitting, setSubmitting] = useState(false);
 
@@ -111,7 +111,7 @@ export const InvitationForm = ({
 
     const invitationData = prepareData ? prepareData(data) : getFormData(data);
 
-    addInvitation(invitationData, appConfig?.apiBaseUrl || "")
+    addInvitation(invitationData, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
@@ -179,6 +179,7 @@ export const InvitationForm = ({
       onSubmit={onSubmit}
       defaultValues={getDefaultValues()}
       validationSchema={InvitationFormSchema}
+      validationTriggerKey={i18n.language}
     >
       <InvitationFormFields
         renderAdditionalFields={additionalInvitationFields?.renderFields}

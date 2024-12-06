@@ -1,8 +1,9 @@
-import { Form, FormActions, Password } from "@dzangolab/react-form";
+import { Provider } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
 
+import ResetPasswordFormFields from "./ResetPasswordFormFields";
 import { PasswordConfirmationSchema } from "./schemas";
 
 interface Properties {
@@ -11,7 +12,7 @@ interface Properties {
 }
 
 const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t, i18n } = useTranslation("user");
 
   const ResetPasswordFormSchema = zod
     .object({
@@ -38,29 +39,13 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
     );
 
   return (
-    <Form
+    <Provider
       validationSchema={ResetPasswordFormSchema}
       onSubmit={(data) => handleSubmit(data.password)}
+      validationTriggerKey={i18n.language}
     >
-      <Password
-        label={t("resetPassword.form.newPassword.label")}
-        name="password"
-      />
-      <Password
-        label={t("resetPassword.form.confirmPassword.label")}
-        name="confirmPassword"
-      />
-      <FormActions
-        actions={[
-          {
-            id: "submit",
-            label: t("resetPassword.form.actions.submit"),
-          },
-        ]}
-        loading={loading}
-        alignment="fill"
-      />
-    </Form>
+      <ResetPasswordFormFields loading={loading} />
+    </Provider>
   );
 };
 

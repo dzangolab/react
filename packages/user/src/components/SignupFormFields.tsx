@@ -21,7 +21,7 @@ const SignupFormFields: React.FC<IProperties> = ({
   disableEmailField = false,
 }) => {
   const { t } = useTranslation("user");
-  const { user } = useConfig();
+  const config = useConfig();
   const {
     register,
     getFieldState,
@@ -29,10 +29,15 @@ const SignupFormFields: React.FC<IProperties> = ({
     control,
   } = useFormContext();
 
-  const showTermsAndConditions = user.termsAndConditions?.display;
+  const {
+    display: showTermsAndConditions,
+    showCheckbox,
+    label,
+  } = config.features?.termsAndConditions || {};
+
   let isChecked = false;
 
-  if (showTermsAndConditions && user.termsAndConditions?.showCheckbox) {
+  if (showTermsAndConditions && showCheckbox) {
     isChecked = useWatch({ control: control, name: "termsAndConditions" });
   }
 
@@ -61,8 +66,8 @@ const SignupFormFields: React.FC<IProperties> = ({
       />
       {showTermsAndConditions ? (
         <TermsAndConditions
-          hasCheckbox={user.termsAndConditions?.showCheckbox}
-          label={user.termsAndConditions?.label()}
+          hasCheckbox={showCheckbox}
+          label={label}
           name="termsAndConditions"
           register={register}
           getFieldState={getFieldState}
@@ -75,9 +80,7 @@ const SignupFormFields: React.FC<IProperties> = ({
             id: "submit",
             disabled:
               !!Object.values(errors).length ||
-              (showTermsAndConditions &&
-                user.termsAndConditions?.showCheckbox &&
-                !isChecked),
+              (showTermsAndConditions && showCheckbox && !isChecked),
             label: t("signup.form.actions.submit"),
           },
         ]}

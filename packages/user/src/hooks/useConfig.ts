@@ -1,5 +1,6 @@
-import { configContext } from "@dzangolab/react-config";
 import { useContext } from "react";
+
+import { configContext } from "@/context/ConfigProvider";
 
 export const useConfig = () => {
   const context = useContext(configContext);

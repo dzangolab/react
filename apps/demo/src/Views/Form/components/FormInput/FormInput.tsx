@@ -7,7 +7,7 @@ import { FormInputFields } from "./FormInputFields";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 export const FormInputDemo = () => {
-  const [t] = useTranslation("form");
+  const { t, i18n } = useTranslation("form");
   const [formData, setFormData] = useState("");
   const [filledInput, setFilledInput] = useState(false);
 
@@ -65,6 +65,7 @@ export const FormInputDemo = () => {
           invalid: false,
           typeahead: "string",
         }}
+        validationTriggerKey={i18n.language}
       >
         <FormInputFields checkFilledState={checkFilledState} />
       </Provider>

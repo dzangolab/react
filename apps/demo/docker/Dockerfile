@@ -20,7 +20,7 @@ FROM base as build
 ARG api_base_url=''
 ARG app_build=''
 ARG app_title='Dzangolab React Demo'
-ARG app_version='0.48.2'
+ARG app_version='0.51.1'
 ARG feature_show_version=1
 ARG locale_storage_namespace='demo-react__'
 

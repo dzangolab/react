@@ -2,14 +2,14 @@ import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
-import logout from "./logout";
-import ProfileValidationClaim from "./profileValidationClaim";
+import { logout } from "./logout";
+import { ProfileValidationClaim } from "./profile-validation-claim";
 import { removeUserData } from "../helpers";
 
 /**
  * Get User roles
  */
-async function getUserRoles(): Promise<string[]> {
+export async function getUserRoles(): Promise<string[]> {
   if (await Session.doesSessionExist()) {
     const roles = await Session.getClaimValue({ claim: UserRoleClaim });
 
@@ -24,7 +24,7 @@ async function getUserRoles(): Promise<string[]> {
  *
  * @param claims List of roles to be verified
  */
-async function verifySessionRoles(claims: string[]): Promise<boolean> {
+export async function verifySessionRoles(claims: string[]): Promise<boolean> {
   if (await Session.doesSessionExist()) {
     let errorCount = 0;
 
@@ -69,7 +69,7 @@ async function verifySessionRoles(claims: string[]): Promise<boolean> {
   return false;
 }
 
-const isEmailVerified = async (): Promise<boolean | undefined> => {
+export const isEmailVerified = async (): Promise<boolean | undefined> => {
   if (await Session.doesSessionExist()) {
     const { isVerified } = await EmailVerification.isEmailVerified();
 
@@ -92,7 +92,7 @@ const isEmailVerified = async (): Promise<boolean | undefined> => {
  *   - `undefined` if the profile validation is disabled in the api.
  *
  */
-const isProfileCompleted = async (): Promise<boolean | undefined> => {
+export const isProfileCompleted = async (): Promise<boolean | undefined> => {
   const profileClaim = await Session.getClaimValue({
     claim: new ProfileValidationClaim(),
   });
@@ -110,11 +110,4 @@ const isProfileCompleted = async (): Promise<boolean | undefined> => {
   }
 
   return false;
-};
-
-export {
-  getUserRoles,
-  isEmailVerified,
-  isProfileCompleted,
-  verifySessionRoles,
 };

@@ -4,17 +4,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { DEFAULT_PATHS } from "@/constants";
+import { resetPassword } from "@/supertokens";
+
 import ResetPasswordForm from "../components/ResetPasswordForm";
-import { ROUTES } from "../constants";
 import { useConfig } from "../hooks";
-import resetPassword from "../supertokens/reset-password";
 
 export const ResetPassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
-  const { user: userConfig } = useConfig();
+  const config = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
-  const loginPath = userConfig.routes?.login?.path || ROUTES.LOGIN;
+  const loginPath = config.customPaths?.login || DEFAULT_PATHS.LOGIN;
 
   const handleSubmit = async (newPassword: string) => {
     setLoading(true);

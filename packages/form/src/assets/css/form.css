@@ -27,6 +27,17 @@ form {
   justify-content: flex-end;
 }
 
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset legend {
+  font-size: var(--form-label-font-size, 1em);
+  margin-bottom: 0.75rem;
+}
+
 form .dz-form-actions[data-alignment="center"] {
   justify-content: center;
 }

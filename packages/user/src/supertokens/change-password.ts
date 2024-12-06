@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 import client from "@/api/axios";
 
-const changePassword = async (
+export const changePassword = async (
   oldPassword: string,
   newPassword: string,
   apiBaseUrl: string,
@@ -33,5 +33,3 @@ const changePassword = async (
 
   return success;
 };
-
-export default changePassword;

@@ -13,13 +13,13 @@ export const useUserActions = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onUserEnabled?: (response: any) => void;
 }) => {
-  const appConfig = useConfig();
+  const config = useConfig();
 
   const { t } = useTranslation("users");
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDisableUser = (user: any) => {
-    disableUser(user.id, appConfig?.apiBaseUrl || "")
+    disableUser(user.id, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response && response.data.status === "OK") {
           toast.success(t("messages.disable.success"));
@@ -38,7 +38,7 @@ export const useUserActions = ({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleEnableUser = (user: any) => {
-    enableUser(user.id, appConfig?.apiBaseUrl || "")
+    enableUser(user.id, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response && response.data.status === "OK") {
           toast.success(t("messages.enable.success"));

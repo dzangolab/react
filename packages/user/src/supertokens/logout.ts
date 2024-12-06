@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import Session from "supertokens-web-js/recipe/session";
 
-const logout = async () => {
+export const logout = async () => {
   let success = false;
   try {
     await Session.signOut();
@@ -19,5 +19,3 @@ const logout = async () => {
 
   return success;
 };
-
-export default logout;

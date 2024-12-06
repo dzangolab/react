@@ -11,7 +11,7 @@ interface Properties {
 }
 
 export const LoginForm = ({ handleSubmit, loading }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t, i18n } = useTranslation("user");
 
   const LoginFormSchema = zod.object({
     email: emailSchema({
@@ -30,7 +30,11 @@ export const LoginForm = ({ handleSubmit, loading }: Properties) => {
   });
 
   return (
-    <Provider validationSchema={LoginFormSchema} onSubmit={handleSubmit}>
+    <Provider
+      validationSchema={LoginFormSchema}
+      onSubmit={handleSubmit}
+      validationTriggerKey={i18n.language}
+    >
       <LoginFormFields loading={loading} />
     </Provider>
   );

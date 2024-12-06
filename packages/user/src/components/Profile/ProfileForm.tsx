@@ -15,9 +15,9 @@ interface Properties {
 }
 
 export const ProfileForm = ({ additionalProfileFields }: Properties) => {
-  const { t } = useTranslation("user");
+  const { t, i18n } = useTranslation("user");
   const { user, setUser } = useUser();
-  const appConfig = useConfig();
+  const config = useConfig();
   const [submitting, setSubmitting] = useState(false);
 
   let profileValidationSchema: z.AnyZodObject = z.object({
@@ -37,7 +37,7 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
   const handleSubmit = async (data: UpdateProfileInputType) => {
     setSubmitting(true);
 
-    updateUserProfile(data, appConfig?.apiBaseUrl)
+    updateUserProfile(data, config.apiBaseUrl)
       .then((response) => {
         if ("data" in response) {
           toast.success(t("profile.toastMessages.success"));
@@ -66,6 +66,7 @@ export const ProfileForm = ({ additionalProfileFields }: Properties) => {
       validationSchema={profileValidationSchema}
       onSubmit={handleSubmit}
       values={formValues}
+      validationTriggerKey={i18n.language}
     >
       <ProfileFormFields
         submitting={submitting}

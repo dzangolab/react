@@ -4,8 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import { EMAIL_VERIFICATION } from "@/constants";
+import { verifyEmail } from "@/supertokens";
 import { resendVerificationEmail } from "@/supertokens/resend-email-verification";
-import verifyEmail from "@/supertokens/verify-email";
 
 import { UserContextType, userContext } from "..";
 
