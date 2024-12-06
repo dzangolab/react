@@ -5,7 +5,6 @@ form {
   gap: var(--form-gap, 1.5rem);
   justify-content: flex-start;
   width: 100%;
-  min-width: var(--form-min-width);
 }
 
 .dz-form-actions {
@@ -133,10 +132,6 @@ form input:autofill:active {
 }
 
 @media screen and (max-width: 576px) {
-  form {
-    min-width: 100%;
-  }
-  
   form .dz-form-actions {
     flex-direction: column-reverse;
   }
