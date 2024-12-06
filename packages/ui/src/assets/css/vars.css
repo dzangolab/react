@@ -4,6 +4,7 @@
   --error-message-color: var(--dz-danger-color);
   --error-message-font-size: 0.8em;
   --dz-alternate-color: #0284c7;
+  --dz-auth-page-min-width: 430px;
   --dz-danger-color: #dc3545;
   --dz-input-fill-color: transparent;
   --dz-page-gap: 0.5rem;
