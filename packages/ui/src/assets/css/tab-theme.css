@@ -17,7 +17,7 @@
   outline: 0;
   padding: var(--tab-padding, 1rem);
   width: 100%;
-  transition: border-color 0.5s ease;
+  transition: border-color 200ms ease;
 }
 
 .tabbed-panel > div > button:focus-visible {
