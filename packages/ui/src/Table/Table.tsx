@@ -26,7 +26,7 @@ import {
   getRequestJSON,
   getParsedColumns,
   saveTableState,
-  getTableState,
+  getSavedTableState,
 } from "./utils";
 import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
@@ -62,6 +62,7 @@ const DataTable = <TData extends { id: string | number }>({
   onRowSelectChange,
   totalRecords = 0,
   paginationOptions,
+  persistTableState = false,
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
@@ -231,15 +232,14 @@ const DataTable = <TData extends { id: string | number }>({
   }, [visibleColumns, parsedColumns]);
 
   useEffect(() => {
-    if (!id) {
+    if (!persistTableState || !id) {
       return;
     }
 
-    const savedState = getTableState(id);
+    const savedState = getSavedTableState(id);
 
     if (savedState) {
-      const { columnFilters, columnVisibility, sorting } =
-        JSON.parse(savedState);
+      const { columnFilters, columnVisibility, sorting } = savedState;
 
       if (columnFilters?.length) {
         setColumnFilters(columnFilters);
@@ -253,11 +253,11 @@ const DataTable = <TData extends { id: string | number }>({
         setSorting(sorting);
       }
     }
-  }, [id]);
+  }, [id, persistTableState]);
 
   useEffect(() => {
     return () => {
-      if (id) {
+      if (persistTableState && id) {
         saveTableState(id, {
           columnFilters,
           columnVisibility,
@@ -265,7 +265,7 @@ const DataTable = <TData extends { id: string | number }>({
         });
       }
     };
-  }, [id, columnFilters, columnVisibility, sorting]);
+  }, [id, columnFilters, columnVisibility, persistTableState, sorting]);
 
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>

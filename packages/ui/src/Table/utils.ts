@@ -3,6 +3,7 @@ import type {
   CellDataType,
   FormatDateType,
   FormatNumberType,
+  PersistentTableState,
   TFilterFn as TFilterFunction,
   TRequestJSON,
   TSortDirection,
@@ -326,24 +327,24 @@ export const getAlignValue = ({
   }
 };
 
-/**
- * Get a item from storage for given key
- */
-export const getTableState = (key: string) => {
+export const getSavedTableState = (id: string): PersistentTableState | null => {
   try {
-    return sessionStorage.getItem(key);
+    const savedState = sessionStorage.getItem(id);
+
+    return savedState && JSON.parse(savedState);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log("[Dz table] Sorry, could not restore persisted state", error);
   }
+
+  return null;
 };
 
-/**
- * Save a item to the storage with a given key
- */
-export const saveTableState = (
-  key: string,
-  value: object | string | number | boolean | null,
-) => {
-  sessionStorage.setItem(key, JSON.stringify(value));
+export const saveTableState = (id: string, value: PersistentTableState) => {
+  try {
+    sessionStorage.setItem(id, JSON.stringify(value));
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("[Dz table] Sorry, could not store persisted state", error);
+  }
 };
