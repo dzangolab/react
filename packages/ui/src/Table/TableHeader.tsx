@@ -67,11 +67,11 @@ export const TableHeader = <TData extends { id: string | number }>({
 
                 switch (getIsSorted()) {
                   case "asc":
-                    return <i className="pi pi-arrow-up"></i>;
+                    return <i className="pi pi-sort-up-fill"></i>;
                   case "desc":
-                    return <i className="pi pi-arrow-down"></i>;
+                    return <i className="pi pi-sort-down-fill"></i>;
                   default:
-                    return <i className="pi pi-arrows-v"></i>;
+                    return <i className="pi pi-sort"></i>;
                 }
               };
 

@@ -1,3 +1,26 @@
+# [0.52.0](https://github.com/dzangolab/react/compare/v0.51.1...v0.52.0) (2024-12-04)
+
+### Breaking Changes
+
+#### Use independent feature config for email verification
+- **user:** email verification feature no longer depends on signup config, previously `features?.signup?.emailVerification` and has needs its own config as `features?.emailVerification` to be defined
+
+
+### Bug Fixes
+
+* **demo:**  use sentence case and fix code indentation ([#1262](https://github.com/dzangolab/react/issues/1262)) ([8935d9f](https://github.com/dzangolab/react/commit/8935d9f6595be55cde86bef5a20b53002c05699e))
+* **ui:** change table column sort icons ([#1252](https://github.com/dzangolab/react/issues/1252)) ([ad6fa05](https://github.com/dzangolab/react/commit/ad6fa05fb1b3ff997d8f192d0926d2ec89427c7b))
+* **ui:** fix extra padding on the right of the locale switcher dropdown ([#1256](https://github.com/dzangolab/react/issues/1256)) ([d596a5b](https://github.com/dzangolab/react/commit/d596a5bf282b6f4da9784cd99166b831faeced3b))
+
+
+### Features
+
+* **dataComponent:** add dataKey prop to support object values ([#1254](https://github.com/dzangolab/react/issues/1254)) ([d374ea4](https://github.com/dzangolab/react/commit/d374ea48be8216c76932c221ef4d35a5308760bd))
+* **ui:** improve tabview ui ([#1253](https://github.com/dzangolab/react/issues/1253)) ([f8d2f17](https://github.com/dzangolab/react/commit/f8d2f17790d4a713ab1c0811f3ecbaa8cba20d1f))
+* **ui:** update radio input to use semantic elements ([#1255](https://github.com/dzangolab/react/issues/1255)) ([a18bfce](https://github.com/dzangolab/react/commit/a18bfcec42eb209fc1da7cc75f2eca18c99f9900))
+
+
+
 ## [0.51.1](https://github.com/dzangolab/react/compare/v0.51.0...v0.51.1) (2024-12-02)
 
 

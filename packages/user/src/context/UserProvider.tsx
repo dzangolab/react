@@ -22,8 +22,7 @@ const UserProvider = ({ children }: Properties) => {
   const [loading, setLoading] = useState<boolean>(true);
   const config = useConfig();
 
-  const emailVerificationEnabled =
-    config.features?.signup && config.features.signup.emailVerification;
+  const emailVerificationEnabled = !!config.features?.emailVerification;
 
   useEffect(() => {
     const getUser = async () => {

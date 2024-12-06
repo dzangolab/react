@@ -15,7 +15,7 @@ export const superTokens = (config: UserConfig) => {
     ),
   ];
 
-  if (config.features?.signup && config.features.signup.emailVerification) {
+  if (config.features?.emailVerification) {
     recipeLists.push(EmailVerification.init());
   }
 
