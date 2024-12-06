@@ -231,16 +231,11 @@ const DataTable = <TData extends { id: string | number }>({
     }
 
     try {
-      const savedState = localStorage.getItem(id);
+      const savedState = sessionStorage.getItem(id);
 
       if (savedState) {
-        const {
-          columnFilters,
-          columnVisibility,
-          pagination,
-          rowSelection,
-          sorting,
-        } = JSON.parse(savedState);
+        const { columnFilters, columnVisibility, sorting } =
+          JSON.parse(savedState);
 
         // Note: order matters here
         if (columnFilters?.length) {
@@ -251,16 +246,8 @@ const DataTable = <TData extends { id: string | number }>({
           setColumnVisibility(columnVisibility);
         }
 
-        if (Object.entries(rowSelection).length) {
-          setRowSelection(rowSelection);
-        }
-
         if (sorting?.length) {
           setSorting(sorting);
-        }
-
-        if (Object.entries(pagination).length) {
-          setPagination(pagination);
         }
       }
     } catch (error) {
@@ -272,19 +259,17 @@ const DataTable = <TData extends { id: string | number }>({
   useEffect(() => {
     return () => {
       if (id) {
-        localStorage.setItem(
+        sessionStorage.setItem(
           id,
           JSON.stringify({
             columnFilters,
             columnVisibility,
-            pagination,
-            rowSelection,
             sorting,
           }),
         );
       }
     };
-  }, [id, columnFilters, columnVisibility, pagination, rowSelection, sorting]);
+  }, [id, columnFilters, columnVisibility, sorting]);
 
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>
