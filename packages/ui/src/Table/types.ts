@@ -271,7 +271,7 @@ export interface TDataTableProperties<TData>
     align?: "left" | "center" | "right";
   };
   paginated?: boolean;
-  persistTableState?: boolean;
+  persistState?: boolean;
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   visibleColumns?: string[];

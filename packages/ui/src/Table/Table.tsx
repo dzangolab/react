@@ -62,7 +62,7 @@ const DataTable = <TData extends { id: string | number }>({
   onRowSelectChange,
   totalRecords = 0,
   paginationOptions,
-  persistTableState = false,
+  persistState = false,
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
@@ -232,7 +232,7 @@ const DataTable = <TData extends { id: string | number }>({
   }, [visibleColumns, parsedColumns]);
 
   useEffect(() => {
-    if (!persistTableState || !id) {
+    if (!persistState || !id) {
       return;
     }
 
@@ -253,11 +253,11 @@ const DataTable = <TData extends { id: string | number }>({
         setSorting(sorting);
       }
     }
-  }, [id, persistTableState]);
+  }, [id, persistState]);
 
   useEffect(() => {
     return () => {
-      if (persistTableState && id) {
+      if (persistState && id) {
         saveTableState(id, {
           columnFilters,
           columnVisibility,
@@ -265,7 +265,7 @@ const DataTable = <TData extends { id: string | number }>({
         });
       }
     };
-  }, [id, columnFilters, columnVisibility, persistTableState, sorting]);
+  }, [id, columnFilters, columnVisibility, persistState, sorting]);
 
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>
