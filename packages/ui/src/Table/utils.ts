@@ -345,6 +345,6 @@ export const saveTableState = (id: string, value: PersistentTableState) => {
     sessionStorage.setItem(id, JSON.stringify(value));
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log("[Dz table] Sorry, could not store persisted state", error);
+    console.log("[Dz table] Sorry, could not store persistent state", error);
   }
 };
