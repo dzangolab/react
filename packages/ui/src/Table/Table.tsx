@@ -22,7 +22,12 @@ import { DataActionsMenu } from "./TableDataActions";
 import { Table, TableFooter } from "./TableElements";
 import { TableHeader } from "./TableHeader";
 import { TableToolbar } from "./TableToolbar";
-import { getRequestJSON, getParsedColumns } from "./utils";
+import {
+  getRequestJSON,
+  getParsedColumns,
+  setStorageItem,
+  getStorageItem,
+} from "./utils";
 import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
@@ -230,43 +235,34 @@ const DataTable = <TData extends { id: string | number }>({
       return;
     }
 
-    try {
-      const savedState = sessionStorage.getItem(id);
+    const savedState = getStorageItem(id);
 
-      if (savedState) {
-        const { columnFilters, columnVisibility, sorting } =
-          JSON.parse(savedState);
+    if (savedState) {
+      const { columnFilters, columnVisibility, sorting } =
+        JSON.parse(savedState);
 
-        // Note: order matters here
-        if (columnFilters?.length) {
-          setColumnFilters(columnFilters);
-        }
-
-        if (Object.entries(columnVisibility).length) {
-          setColumnVisibility(columnVisibility);
-        }
-
-        if (sorting?.length) {
-          setSorting(sorting);
-        }
+      if (columnFilters?.length) {
+        setColumnFilters(columnFilters);
       }
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log("Sorry, something went wrong", error);
+
+      if (Object.entries(columnVisibility).length) {
+        setColumnVisibility(columnVisibility);
+      }
+
+      if (sorting?.length) {
+        setSorting(sorting);
+      }
     }
   }, [id]);
 
   useEffect(() => {
     return () => {
       if (id) {
-        sessionStorage.setItem(
-          id,
-          JSON.stringify({
-            columnFilters,
-            columnVisibility,
-            sorting,
-          }),
-        );
+        setStorageItem(id, {
+          columnFilters,
+          columnVisibility,
+          sorting,
+        });
       }
     };
   }, [id, columnFilters, columnVisibility, sorting]);

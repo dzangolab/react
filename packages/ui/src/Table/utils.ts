@@ -325,3 +325,25 @@ export const getAlignValue = ({
     return "left";
   }
 };
+
+/**
+ * Get a item from storage for given key
+ */
+export const getStorageItem = (key: string) => {
+  try {
+    return sessionStorage.getItem(key);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("[Dz table] Sorry, could not restore persisted state", error);
+  }
+};
+
+/**
+ * Save a item to the storage with a given key
+ */
+export const setStorageItem = (
+  key: string,
+  value: object | string | number | boolean | null,
+) => {
+  sessionStorage.setItem(key, JSON.stringify(value));
+};
