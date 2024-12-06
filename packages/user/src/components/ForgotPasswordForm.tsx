@@ -3,7 +3,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
 
-import ForgotPasswordFormFields from "./ForgotPasswordFormFields";
+import { ForgotPasswordFormFields } from "./ForgotPasswordFormFields";
+
 interface Properties {
   handleSubmit: (email: string) => void;
   loading?: boolean;

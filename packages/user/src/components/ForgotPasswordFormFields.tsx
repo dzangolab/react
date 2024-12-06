@@ -6,7 +6,7 @@ interface Properties {
   loading?: boolean;
 }
 
-const ForgotPasswordFormFields = ({ loading }: Properties) => {
+export const ForgotPasswordFormFields = ({ loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const {
@@ -35,5 +35,3 @@ const ForgotPasswordFormFields = ({ loading }: Properties) => {
     </>
   );
 };
-
-export default ForgotPasswordFormFields;
