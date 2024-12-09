@@ -13,6 +13,7 @@ type Properties = {
   defaultActiveIndex?: number;
   onTabChange?: (index: number) => void;
   position?: TPosition;
+  tabIdentifier?: string;
 };
 
 export type { TKeymap, TOrientation, TPosition, Properties };

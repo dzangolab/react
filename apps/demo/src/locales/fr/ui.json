@@ -206,7 +206,8 @@
     "title": "Tabbed panel (fr)",
     "usage": {
       "basic": "Basic usage (fr)",
-      "customActiveTab": "Custom active tab (fr)"
+      "customActiveTab": "Custom active tab (fr)",
+      "preserveTabState": "Tab with state persistence(fr)"
     }
   },
   "textarea": {
