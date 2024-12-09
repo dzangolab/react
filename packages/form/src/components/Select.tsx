@@ -15,6 +15,7 @@ interface ISelect {
   className?: string;
   disabled?: boolean;
   helperText?: string;
+  hideIfSingleOption?: boolean;
   label?: string | React.ReactNode;
   multiple?: boolean;
   name: string;
@@ -35,6 +36,7 @@ export const Select: React.FC<ISelect> = ({
   className,
   disabled,
   helperText,
+  hideIfSingleOption = false,
   label = "",
   multiple = false,
   name,
@@ -77,6 +79,7 @@ export const Select: React.FC<ISelect> = ({
           autoSelectSingleOption={autoSelectSingleOption}
           className={className}
           helperText={helperText}
+          hideIfSingleOption={hideIfSingleOption}
           label={label}
           name={name}
           multiple={multiple}
