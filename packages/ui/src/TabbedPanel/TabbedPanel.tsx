@@ -10,9 +10,26 @@ const TabbedPanel: React.FC<Properties> = ({
   position = "top",
 }) => {
   const id = useId();
-  const [active, setActive] = useState(defaultActiveIndex);
+  const [active, setActive] = useState<number>(defaultActiveIndex);
+  const [loading, setLoading] = useState<boolean>(false);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
+
+  useEffect(() => {
+    const storedIndex = localStorage.getItem(`activeTab-${id}`);
+    if (storedIndex !== null) {
+      setActive(Number(storedIndex));
+    } else {
+      setActive(defaultActiveIndex);
+    }
+    setLoading(true);
+  }, [id, defaultActiveIndex, setActive]);
+
+  useEffect(() => {
+    if (loading) {
+      localStorage.setItem(`activeTab-${id}`, String(active));
+    }
+  }, [active, id, loading]);
 
   const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];
@@ -25,9 +42,9 @@ const TabbedPanel: React.FC<Properties> = ({
     throw new Error("TabbedPanel needs at least one children");
   }
 
-  useEffect(() => {
-    setActive(defaultActiveIndex);
-  }, [defaultActiveIndex]);
+  if (!loading) {
+    return null;
+  }
 
   return (
     <div className={`tabbed-panel ${position}`}>
