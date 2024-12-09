@@ -16,7 +16,7 @@ const TabbedPanel: React.FC<Properties> = ({
   const childNodes = Array.isArray(children) ? children : [children];
 
   useEffect(() => {
-    const activeTabIndex = localStorage.getItem("activeTabIndex");
+    const activeTabIndex = localStorage.getItem(`activeTabIndex-${id}`);
 
     if (activeTabIndex !== null) {
       setActive(Number(activeTabIndex));
@@ -27,13 +27,13 @@ const TabbedPanel: React.FC<Properties> = ({
     setLoading(true);
 
     return () => {
-      localStorage.removeItem("activeTabIndex");
+      localStorage.removeItem(`activeTabIndex-${id}`);
     };
   }, [defaultActiveIndex, setActive]);
 
   useEffect(() => {
     if (loading) {
-      localStorage.setItem("activeTabIndex", String(active));
+      localStorage.setItem(`activeTabIndex-${id}`, String(active));
     }
   }, [active, loading]);
 
