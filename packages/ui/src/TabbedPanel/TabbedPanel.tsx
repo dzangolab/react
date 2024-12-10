@@ -65,6 +65,7 @@ const TabbedPanel: React.FC<Properties> = ({
           const isActive = active === index;
           const title = item.props.title;
           const icon = item.props.icon;
+          const key = id ? `${id}-${index}` : index;
 
           return (
             <button
@@ -80,7 +81,7 @@ const TabbedPanel: React.FC<Properties> = ({
               onFocus={() => setActive(index)}
               ref={(element) => (tabReferences.current[index] = element)}
               onClick={() => setActive(index)}
-              key={index}
+              key={key}
               role="tab"
               aria-label={title}
               aria-disabled={isActive}
