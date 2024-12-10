@@ -210,7 +210,8 @@
     "title": "Tabbed panel",
     "usage": {
       "basic": "Basic usage",
-      "customActiveTab": "Custom active tab"
+      "customActiveTab": "Custom active tab",
+      "preserveTabState": "Tab with state persistence"
     }
   },
   "textarea": {

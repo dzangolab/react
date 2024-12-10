@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./helper";
 
@@ -8,11 +8,40 @@ const TabbedPanel: React.FC<Properties> = ({
   children,
   defaultActiveIndex = 0,
   position = "top",
+  id = "",
+  persistState = false,
 }) => {
-  const id = useId();
-  const [active, setActive] = useState(defaultActiveIndex);
+  const [active, setActive] = useState<number | null>(null);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
+
+  const activeTabStorageKey = useMemo(() => `tab-${id}-active-index`, [id]);
+
+  useEffect(() => {
+    if (persistState && id) {
+      const activeTabIndex = localStorage.getItem(activeTabStorageKey);
+
+      if (activeTabIndex !== null) {
+        setActive(Number(activeTabIndex));
+      } else {
+        setActive(defaultActiveIndex);
+      }
+    } else {
+      setActive(defaultActiveIndex);
+    }
+
+    return () => {
+      if (persistState && id) {
+        localStorage.removeItem(activeTabStorageKey);
+      }
+    };
+  }, [id, persistState, defaultActiveIndex]);
+
+  useEffect(() => {
+    if (persistState && id) {
+      localStorage.setItem(activeTabStorageKey, String(active));
+    }
+  }, [active, id, persistState]);
 
   const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];
@@ -25,9 +54,9 @@ const TabbedPanel: React.FC<Properties> = ({
     throw new Error("TabbedPanel needs at least one children");
   }
 
-  useEffect(() => {
-    setActive(defaultActiveIndex);
-  }, [defaultActiveIndex]);
+  if (active === null) {
+    return null;
+  }
 
   return (
     <div className={`tabbed-panel ${position}`}>
@@ -36,6 +65,7 @@ const TabbedPanel: React.FC<Properties> = ({
           const isActive = active === index;
           const title = item.props.title;
           const icon = item.props.icon;
+          const key = id ? `${id}-${index}` : index;
 
           return (
             <button
@@ -51,7 +81,7 @@ const TabbedPanel: React.FC<Properties> = ({
               onFocus={() => setActive(index)}
               ref={(element) => (tabReferences.current[index] = element)}
               onClick={() => setActive(index)}
-              key={`${id}-${index}`}
+              key={key}
               role="tab"
               aria-label={title}
               aria-disabled={isActive}
