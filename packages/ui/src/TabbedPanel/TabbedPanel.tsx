@@ -8,40 +8,41 @@ const TabbedPanel: React.FC<Properties> = ({
   children,
   defaultActiveIndex = 0,
   position = "top",
-  tabIdentifier = "",
+  tabId = "",
+  persistState = false,
 }) => {
   const id = useId();
-  const [active, setActive] = useState<number>(defaultActiveIndex);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [active, setActive] = useState<number | null>(null);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
 
   useEffect(() => {
-    const activeTabIndex = localStorage.getItem(
-      `activeTabIndex ${tabIdentifier}`.trimEnd(),
-    );
+    if (persistState && tabId) {
+      const activeTabIndex = localStorage.getItem(
+        `tab-active-${tabId}`.trimEnd(),
+      );
 
-    if (activeTabIndex !== null) {
-      setActive(Number(activeTabIndex));
+      if (activeTabIndex !== null) {
+        setActive(Number(activeTabIndex));
+      } else {
+        setActive(defaultActiveIndex);
+      }
     } else {
       setActive(defaultActiveIndex);
     }
 
-    setLoading(true);
-
     return () => {
-      localStorage.removeItem(`activeTabIndex ${tabIdentifier}`.trimEnd());
+      if (persistState && tabId) {
+        localStorage.removeItem(`tab-active-${tabId}`.trimEnd());
+      }
     };
-  }, [defaultActiveIndex, tabIdentifier]);
+  }, [tabId, persistState, defaultActiveIndex]);
 
   useEffect(() => {
-    if (loading) {
-      localStorage.setItem(
-        `activeTabIndex ${tabIdentifier}`.trimEnd(),
-        String(active),
-      );
+    if (persistState && tabId) {
+      localStorage.setItem(`tab-active-${tabId}`.trimEnd(), String(active));
     }
-  }, [active, loading, tabIdentifier]);
+  }, [active, tabId, persistState]);
 
   const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];
@@ -51,10 +52,10 @@ const TabbedPanel: React.FC<Properties> = ({
   };
 
   if (!children) {
-    throw new Error("TabbedPanel needs at least one children");
+    throw new Error("TabbedPanel needs at least one child");
   }
 
-  if (!loading) {
+  if (active === null) {
     return null;
   }
 

@@ -9,21 +9,21 @@ export const TabbedPanelDemo = () => {
   return (
     <Page title={t("tabbedPanel.title")}>
       <Section title={t("tabbedPanel.usage.basic")}>
-        <TabbedPanel tabIdentifier="Tab 1">
+        <TabbedPanel>
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>
         </TabbedPanel>
       </Section>
       <Section title={t("tabbedPanel.usage.customActiveTab")}>
-        <TabbedPanel defaultActiveIndex={1} tabIdentifier="Tab 2">
+        <TabbedPanel defaultActiveIndex={1}>
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>
         </TabbedPanel>
       </Section>
       <Section title={t("tabbedPanel.usage.preserveTabState")}>
-        <TabbedPanel tabIdentifier="Tab 3">
+        <TabbedPanel tabId="Tab 3" persistState={true}>
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>
