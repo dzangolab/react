@@ -29,12 +29,6 @@ const TabbedPanel: React.FC<Properties> = ({
     } else {
       setActive(defaultActiveIndex);
     }
-
-    return () => {
-      if (persistState && id) {
-        localStorage.removeItem(activeTabStorageKey);
-      }
-    };
   }, [id, persistState, defaultActiveIndex]);
 
   useEffect(() => {
