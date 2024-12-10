@@ -266,6 +266,20 @@ const DataTable = <TData extends { id: string | number }>({
     };
   }, []);
 
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (persistState && id) {
+        saveTableState(id, persistentStateReference.current);
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [id, persistState]);
+
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>
       {title ? (
