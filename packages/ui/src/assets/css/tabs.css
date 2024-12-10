@@ -1,7 +1,7 @@
 .tabbed-panel {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 350px;
 }
 
 .tabbed-panel.bottom {
@@ -58,8 +58,8 @@
   width: 100%;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 576px) {
   .tabbed-panel {
-    max-width: 350px;
+    width: 100%;
   }
 }
