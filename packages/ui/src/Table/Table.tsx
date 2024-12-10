@@ -10,7 +10,7 @@ import {
   PaginationState,
   Updater,
 } from "@tanstack/react-table";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   DEFAULT_PAGE_INDEX,
@@ -32,7 +32,7 @@ import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
 
-import type { TDataTableProperties } from "./types";
+import type { PersistentTableState, TDataTableProperties } from "./types";
 import type { ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
@@ -66,6 +66,11 @@ const DataTable = <TData extends { id: string | number }>({
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
+  const persistentStateReference = useRef<PersistentTableState>({
+    sorting: [],
+    columnFilters: [],
+    columnVisibility: {},
+  });
   const [sorting, setSorting] = useState<SortingState>(initialSorting);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -232,6 +237,16 @@ const DataTable = <TData extends { id: string | number }>({
   }, [visibleColumns, parsedColumns]);
 
   useEffect(() => {
+    if (persistState && id) {
+      persistentStateReference.current = {
+        sorting,
+        columnFilters,
+        columnVisibility,
+      };
+    }
+  }, [id, persistState, sorting, columnFilters, columnVisibility]);
+
+  useEffect(() => {
     if (!persistState || !id) {
       return;
     }
@@ -253,19 +268,11 @@ const DataTable = <TData extends { id: string | number }>({
         setSorting(sorting);
       }
     }
-  }, [id, persistState]);
 
-  useEffect(() => {
     return () => {
-      if (persistState && id) {
-        saveTableState(id, {
-          columnFilters,
-          columnVisibility,
-          sorting,
-        });
-      }
+      saveTableState(id, persistentStateReference.current);
     };
-  }, [id, columnFilters, columnVisibility, persistState, sorting]);
+  }, []);
 
   return (
     <div id={id} className={("dz-table-container " + className).trimEnd()}>
