@@ -1,3 +1,5 @@
+import { TABLE_STATE_PREFIX } from "./constants";
+
 import type {
   CellAlignmentType,
   CellDataType,
@@ -329,7 +331,7 @@ export const getAlignValue = ({
 
 export const getSavedTableState = (id: string): PersistentTableState | null => {
   try {
-    const savedState = sessionStorage.getItem(id);
+    const savedState = sessionStorage.getItem(`${TABLE_STATE_PREFIX}-${id}`);
 
     return savedState && JSON.parse(savedState);
   } catch (error) {
@@ -342,9 +344,20 @@ export const getSavedTableState = (id: string): PersistentTableState | null => {
 
 export const saveTableState = (id: string, value: PersistentTableState) => {
   try {
-    sessionStorage.setItem(id, JSON.stringify(value));
+    sessionStorage.setItem(
+      `${TABLE_STATE_PREFIX}-${id}`,
+      JSON.stringify(value),
+    );
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log("[Dz table] Could not store table state", error);
   }
+};
+
+export const clearSavedTableStates = () => {
+  Object.keys(sessionStorage).forEach((key) => {
+    if (key.startsWith(TABLE_STATE_PREFIX)) {
+      sessionStorage.removeItem(key);
+    }
+  });
 };
