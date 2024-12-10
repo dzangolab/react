@@ -9,6 +9,7 @@ import { MenuItem } from "./DropdownMenu/Menu";
 import GridContainer from "./GridContainer";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
+import Masonry, { MasonryProperties } from "./Masonry";
 import Message from "./Message";
 import Modal from "./Modal";
 import Page, { PageProperties } from "./Page";
@@ -44,6 +45,7 @@ export {
   GridContainer,
   LoadingIcon,
   LoadingPage,
+  Masonry,
   Message,
   Modal,
   Page,
@@ -53,4 +55,9 @@ export {
   ConfirmationModal,
 };
 
-export type { DropdownMenuProperties, MenuItem, PageProperties };
+export type {
+  DropdownMenuProperties,
+  MasonryProperties,
+  MenuItem,
+  PageProperties,
+};
