@@ -23,7 +23,7 @@ export const TabbedPanelDemo = () => {
         </TabbedPanel>
       </Section>
       <Section title={t("tabbedPanel.usage.preserveTabState")}>
-        <TabbedPanel tabId="Tab 3" persistState={true}>
+        <TabbedPanel id="Tab 3" persistState={true}>
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>

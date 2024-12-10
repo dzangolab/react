@@ -14,7 +14,7 @@ type Properties = {
   onTabChange?: (index: number) => void;
   position?: TPosition;
   persistState?: boolean;
-  tabId?: string;
+  id?: string;
 };
 
 export type { TKeymap, TOrientation, TPosition, Properties };

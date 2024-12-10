@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./helper";
 
@@ -8,19 +8,18 @@ const TabbedPanel: React.FC<Properties> = ({
   children,
   defaultActiveIndex = 0,
   position = "top",
-  tabId = "",
+  id = "",
   persistState = false,
 }) => {
-  const id = useId();
   const [active, setActive] = useState<number | null>(null);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
   const childNodes = Array.isArray(children) ? children : [children];
 
+  const activeTabStorageKey = useMemo(() => `tab-${id}-active-index`, [id]);
+
   useEffect(() => {
-    if (persistState && tabId) {
-      const activeTabIndex = localStorage.getItem(
-        `tab-active-${tabId}`.trimEnd(),
-      );
+    if (persistState && id) {
+      const activeTabIndex = localStorage.getItem(activeTabStorageKey);
 
       if (activeTabIndex !== null) {
         setActive(Number(activeTabIndex));
@@ -32,17 +31,17 @@ const TabbedPanel: React.FC<Properties> = ({
     }
 
     return () => {
-      if (persistState && tabId) {
-        localStorage.removeItem(`tab-active-${tabId}`.trimEnd());
+      if (persistState && id) {
+        localStorage.removeItem(activeTabStorageKey);
       }
     };
-  }, [tabId, persistState, defaultActiveIndex]);
+  }, [id, persistState, defaultActiveIndex]);
 
   useEffect(() => {
-    if (persistState && tabId) {
-      localStorage.setItem(`tab-active-${tabId}`.trimEnd(), String(active));
+    if (persistState && id) {
+      localStorage.setItem(activeTabStorageKey, String(active));
     }
-  }, [active, tabId, persistState]);
+  }, [active, id, persistState]);
 
   const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];
@@ -81,7 +80,7 @@ const TabbedPanel: React.FC<Properties> = ({
               onFocus={() => setActive(index)}
               ref={(element) => (tabReferences.current[index] = element)}
               onClick={() => setActive(index)}
-              key={`${id}-${index}`}
+              key={index}
               role="tab"
               aria-label={title}
               aria-disabled={isActive}
