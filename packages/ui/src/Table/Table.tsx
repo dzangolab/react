@@ -256,17 +256,9 @@ const DataTable = <TData extends { id: string | number }>({
     if (savedState) {
       const { columnFilters, columnVisibility, sorting } = savedState;
 
-      if (columnFilters?.length) {
-        setColumnFilters(columnFilters);
-      }
-
-      if (Object.entries(columnVisibility).length) {
-        setColumnVisibility(columnVisibility);
-      }
-
-      if (sorting?.length) {
-        setSorting(sorting);
-      }
+      setColumnFilters(columnFilters);
+      setColumnVisibility(columnVisibility);
+      setSorting(sorting);
     }
 
     return () => {
