@@ -52,7 +52,7 @@ const TabbedPanel: React.FC<Properties> = ({
   };
 
   if (!children) {
-    throw new Error("TabbedPanel needs at least one child");
+    throw new Error("TabbedPanel needs at least one children");
   }
 
   if (active === null) {
