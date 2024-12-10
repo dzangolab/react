@@ -142,6 +142,7 @@
       "filterable": "Table with filterable column",
       "sortable": "Table with sortable column",
       "rowSelection": "Table with row selection",
+      "persistentState": "Table with persistent state",
       "customCellDataFormatting": "Table with custom cell data formatter",
       "customPagination": "Table with custom pagination",
       "customToolbarActions": "Table with custom toolbar actions",
