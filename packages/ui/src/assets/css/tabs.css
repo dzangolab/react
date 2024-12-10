@@ -24,6 +24,11 @@
   overflow-x: auto;
 }
 
+.tabbed-panel.bottom > div[role="tablist"]::-webkit-scrollbar,
+.tabbed-panel.top > div[role="tablist"]::-webkit-scrollbar {
+  display: none;
+}
+
 .tabbed-panel.left {
   flex-direction: row;
 }
@@ -51,4 +56,10 @@
 .tabbed-panel.left > div[role="tablist"] > button,
 .tabbed-panel.right > div[role="tablist"] > button {
   width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  .tabbed-panel {
+    max-width: 350px;
+  }
 }
