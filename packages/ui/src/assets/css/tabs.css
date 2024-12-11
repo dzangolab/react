@@ -1,7 +1,8 @@
 .tabbed-panel {
   display: flex;
   flex-direction: column;
-  max-width: 350px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .tabbed-panel.bottom {
@@ -22,6 +23,7 @@
 .tabbed-panel.top > div[role="tablist"] {
   flex-direction: row;
   overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .tabbed-panel.bottom > div[role="tablist"]::-webkit-scrollbar,
@@ -56,10 +58,4 @@
 .tabbed-panel.left > div[role="tablist"] > button,
 .tabbed-panel.right > div[role="tablist"] > button {
   width: 100%;
-}
-
-@media screen and (min-width: 576px) {
-  .tabbed-panel {
-    width: 100%;
-  }
 }
