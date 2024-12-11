@@ -240,6 +240,8 @@ export type FormatDateType = {
   formatOptions?: Intl.DateTimeFormatOptions;
 };
 
+export type StorageType = "localStorage" | "sessionStorage";
+
 export interface TDataTableProperties<TData>
   extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
@@ -272,6 +274,7 @@ export interface TDataTableProperties<TData>
   };
   paginated?: boolean;
   persistState?: boolean;
+  persistentStateStorage?: StorageType;
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   visibleColumns?: string[];
