@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Masonry } from "@dzangolab/react-ui";
+import { Masonry, Page } from "@dzangolab/react-ui";
 
 export const MasonryDemo = () => {
   const [t] = useTranslation("ui");
@@ -25,20 +25,30 @@ export const MasonryDemo = () => {
   ];
 
   const items = [
-    { blockSize: "200px", background: "red" },
-    { blockSize: "300px", background: "blue" },
-    { blockSize: "180px", background: "green" },
-    { blockSize: "250px", background: "purple" },
-    { blockSize: "220px", background: "orange" },
-    { blockSize: "320px", background: "yellow" },
-    { blockSize: "280px", background: "pink" },
-    { blockSize: "210px", background: "brown" },
-    { blockSize: "270px", background: "teal" },
-    { blockSize: "350px", background: "gray" },
+    { blockSize: "200px", background: "#ff6f61" },
+    { blockSize: "300px", background: "#6b5b95" },
+    { blockSize: "180px", background: "#88b04b" },
+    { blockSize: "250px", background: "#d65076" },
+    { blockSize: "220px", background: "#ffb347" },
+    { blockSize: "320px", background: "#45b8ac" },
+    { blockSize: "280px", background: "#e94b3c" },
+    { blockSize: "210px", background: "#6c5b7b" },
+    { blockSize: "270px", background: "#00a86b" },
+    { blockSize: "350px", background: "#b565a7" },
+    { blockSize: "200px", background: "#ff6f61" },
+    { blockSize: "300px", background: "#6b5b95" },
+    { blockSize: "180px", background: "#88b04b" },
+    { blockSize: "250px", background: "#d65076" },
+    { blockSize: "220px", background: "#ffb347" },
+    { blockSize: "320px", background: "#45b8ac" },
+    { blockSize: "280px", background: "#e94b3c" },
+    { blockSize: "210px", background: "#6c5b7b" },
+    { blockSize: "270px", background: "#00a86b" },
+    { blockSize: "350px", background: "#b565a7" },
   ];
 
   return (
-    <>
+    <Page>
       <Masonry>
         {/* {images.map((image, i) => (
           <img
@@ -58,6 +68,6 @@ export const MasonryDemo = () => {
           ></div>
         ))}
       </Masonry>
-    </>
+    </Page>
   );
 };

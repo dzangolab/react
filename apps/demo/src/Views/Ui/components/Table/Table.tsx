@@ -139,6 +139,28 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
+      <Section title={t("table.usage.persistentState")}>
+        <p>
+          Use the id and persistentState props to make the table remember states
+          such as sorting, filtering, and visible columns, even after a page
+          refresh.
+        </p>
+        <TDataTable
+          columns={[
+            ...columns,
+            {
+              accessorKey: "email",
+              enableColumnFilter: true,
+            },
+          ]}
+          data={data}
+          initialSorting={[{ id: "email", desc: false }]}
+          id="persistent-state"
+          persistState
+          showColumnsAction
+        ></TDataTable>
+      </Section>
+
       <Section title={t("table.usage.customPagination")}>
         <TDataTable
           columns={[

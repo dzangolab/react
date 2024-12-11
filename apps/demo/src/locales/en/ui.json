@@ -142,6 +142,7 @@
       "filterable": "Table with filterable column",
       "sortable": "Table with sortable column",
       "rowSelection": "Table with row selection",
+      "persistentState": "Table with persistent state",
       "customCellDataFormatting": "Table with custom cell data formatter",
       "customPagination": "Table with custom pagination",
       "customToolbarActions": "Table with custom toolbar actions",
@@ -215,7 +216,8 @@
     "title": "Tabbed panel",
     "usage": {
       "basic": "Basic usage",
-      "customActiveTab": "Custom active tab"
+      "customActiveTab": "Custom active tab",
+      "preserveTabState": "Tab with state persistence"
     }
   },
   "textarea": {

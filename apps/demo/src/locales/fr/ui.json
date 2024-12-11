@@ -138,6 +138,7 @@
       "filterable": "Table with filterable column (fr)",
       "sortable": "Table with sortable column (fr)",
       "rowSelection": "Table with row selection (fr)",
+      "persistentState": "Table with persistent state (fr)",
       "customCellDataFormatting": "Table with custom cell data formatter (fr)",
       "customPagination": "Table with custom pagination (fr)",
       "customToolbarActions": "Table with custom toolbar actions (fr)",
@@ -211,7 +212,8 @@
     "title": "Tabbed panel (fr)",
     "usage": {
       "basic": "Basic usage (fr)",
-      "customActiveTab": "Custom active tab (fr)"
+      "customActiveTab": "Custom active tab (fr)",
+      "preserveTabState": "Tab with state persistence(fr)"
     }
   },
   "textarea": {

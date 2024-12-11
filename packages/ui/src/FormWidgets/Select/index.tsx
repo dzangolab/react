@@ -16,6 +16,7 @@ type ISelectProperties<T> = {
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
+  hideIfSingleOption?: boolean;
   label?: string | React.ReactNode;
   name: string;
   options: Option<T>[];
@@ -42,6 +43,7 @@ export const Select = <T extends string | number>({
   errorMessage,
   hasError,
   helperText,
+  hideIfSingleOption = false,
   label = "",
   multiple,
   name,
@@ -65,10 +67,14 @@ export const Select = <T extends string | number>({
     );
   }, [options, multiple, autoSelectSingleOption]);
 
+  const shouldHideSelect = useMemo(() => {
+    return hideIfSingleOption && !multiple && options.length === 1;
+  }, [options, multiple, hideIfSingleOption]);
+
   const disabled = selectFieldDisabled ?? shouldAutoSelect;
 
   useEffect(() => {
-    if (shouldAutoSelect) {
+    if (shouldAutoSelect || shouldHideSelect) {
       handleSelectedOption(options[0].value);
     }
   }, [options]);
@@ -272,6 +278,10 @@ export const Select = <T extends string | number>({
       </div>
     );
   };
+
+  if (shouldHideSelect) {
+    return null;
+  }
 
   return (
     <div ref={selectReference} className={`dz-select ${className}`.trimEnd()}>
