@@ -64,8 +64,8 @@ const DataTable = <TData extends { id: string | number }>({
   totalRecords = 0,
   paginationOptions,
   persistState = false,
+  persistentStateStorage = "localStorage",
   showColumnsAction = false,
-  storageType = "sessionStorage",
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const persistentStateReference = useRef<PersistentTableState>({
@@ -202,7 +202,10 @@ const DataTable = <TData extends { id: string | number }>({
   const totalItems = fetchData
     ? totalRecords
     : table.getFilteredRowModel().rows?.length;
-  const storage = useMemo(() => getStorage(storageType), [storageType]);
+  const storage = useMemo(
+    () => getStorage(persistentStateStorage),
+    [persistentStateStorage],
+  );
 
   useEffect(() => {
     // client side rendering

@@ -274,6 +274,7 @@ export interface TDataTableProperties<TData>
   };
   paginated?: boolean;
   persistState?: boolean;
+  persistentStateStorage?: StorageType;
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   visibleColumns?: string[];
@@ -289,7 +290,6 @@ export interface TDataTableProperties<TData>
     | "itemsPerPageOptions"
     | "defaultItemsPerPage"
   >;
-  storageType?: StorageType;
   /**
    * Determines whether row for column-specific actions
    * should be displayed for the table columns.

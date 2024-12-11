@@ -363,7 +363,11 @@ export const saveTableState = (
   }
 };
 
-export const clearSavedTableStates = (storage: Storage) => {
+export const clearSavedTableStates = (
+  storageType: StorageType = "localStorage",
+) => {
+  const storage = getStorage(storageType);
+
   Object.keys(storage).forEach((key) => {
     if (key.startsWith(TABLE_STATE_PREFIX)) {
       storage.removeItem(key);
