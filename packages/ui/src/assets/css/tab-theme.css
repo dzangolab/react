@@ -30,7 +30,7 @@
 }
 
 .tabbed-panel > div > button span {
-  color: var(--tab-font-color, #000);
+  color: var(--tab-font-color);
   font-size: var(--tab-font-size, 1rem);
   width: max-content;
 }

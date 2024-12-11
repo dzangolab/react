@@ -25,4 +25,5 @@
   --menu-border-color: #555;
   --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms;
+  --tab-font-color: var(--color);
 }
