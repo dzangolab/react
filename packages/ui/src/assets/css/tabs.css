@@ -23,12 +23,6 @@
 .tabbed-panel.top > div[role="tablist"] {
   flex-direction: row;
   overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.tabbed-panel.bottom > div[role="tablist"]::-webkit-scrollbar,
-.tabbed-panel.top > div[role="tablist"]::-webkit-scrollbar {
-  display: none;
 }
 
 .tabbed-panel.left {
