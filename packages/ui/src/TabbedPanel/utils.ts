@@ -54,4 +54,8 @@ const onTabDown = (
   }
 };
 
-export { getOrientation, onTabDown };
+const clearSavedTabState = (key: string) => {
+  localStorage.removeItem(key);
+};
+
+export { getOrientation, onTabDown, clearSavedTabState };
