@@ -27,6 +27,7 @@ import {
   getParsedColumns,
   saveTableState,
   getSavedTableState,
+  getStorage,
 } from "./utils";
 import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
@@ -63,6 +64,7 @@ const DataTable = <TData extends { id: string | number }>({
   totalRecords = 0,
   paginationOptions,
   persistState = false,
+  persistentStateStorage = "localStorage",
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
@@ -200,6 +202,10 @@ const DataTable = <TData extends { id: string | number }>({
   const totalItems = fetchData
     ? totalRecords
     : table.getFilteredRowModel().rows?.length;
+  const storage = useMemo(
+    () => getStorage(persistentStateStorage),
+    [persistentStateStorage],
+  );
 
   useEffect(() => {
     // client side rendering
@@ -251,7 +257,7 @@ const DataTable = <TData extends { id: string | number }>({
       return;
     }
 
-    const savedState = getSavedTableState(id);
+    const savedState = getSavedTableState(id, storage);
 
     if (savedState) {
       const { columnFilters, columnVisibility, sorting } = savedState;
@@ -262,14 +268,14 @@ const DataTable = <TData extends { id: string | number }>({
     }
 
     return () => {
-      saveTableState(id, persistentStateReference.current);
+      saveTableState(id, persistentStateReference.current, storage);
     };
-  }, []);
+  }, [id, persistState]);
 
   useEffect(() => {
     const handleBeforeUnload = () => {
       if (persistState && id) {
-        saveTableState(id, persistentStateReference.current);
+        saveTableState(id, persistentStateReference.current, storage);
       }
     };
 
