@@ -163,6 +163,11 @@
       "endDate": "End date"
     }
   },
+  "masonry": {
+    "title": {
+      "menu": "Masonry (fr)"
+    }
+  },
   "message": {
     "title": "Message (fr)"
   },

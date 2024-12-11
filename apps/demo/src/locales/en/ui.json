@@ -167,6 +167,11 @@
       "endDate": "End date"
     }
   },
+  "masonry": {
+    "title": {
+      "menu": "Masonry"
+    }
+  },
   "message": {
     "title": "Message"
   },

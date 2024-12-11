@@ -22,6 +22,7 @@ import {
 } from "./components/FormWidgets";
 import { GridContainerDemo } from "./components/GridContainerDemo";
 import { LoadingDemo } from "./components/Loading";
+import { MasonryDemo } from "./components/MasonryDemo";
 import { MessageDemo } from "./components/Message";
 import { ModalDemo } from "./components/ModalDemo";
 import { PageDemo } from "./components/PageDemo";
@@ -54,6 +55,7 @@ export const UI_ROUTES = {
   INPUT: "/ui/input",
   LOADING: "/ui/loading",
   LOCAL_DATA_TABLE: "/ui/local-table",
+  MASONRY_DEMO: "/ui/masonry-demo",
   MESSAGE: "/ui/message",
   MODAL: "/ui/modal",
   PAGE_DEMO: "/ui/page-demo",
@@ -177,6 +179,11 @@ const OTHERS = [
     path: UI_ROUTES.LOADING,
     key: "loading.title",
     element: <LoadingDemo />,
+  },
+  {
+    path: UI_ROUTES.MASONRY_DEMO,
+    key: "masonry.title.menu",
+    element: <MasonryDemo />,
   },
   {
     path: UI_ROUTES.MESSAGE,
