@@ -22,10 +22,13 @@ export const formatDate = (
 
   const dateFormatOptions = { ...defaultDateOptions, ...options };
 
-  return new Date(date).toLocaleDateString(
-    locale || "en-GB",
-    dateFormatOptions,
-  );
+  const parsedDate = new Date(date);
+
+  if (isNaN(parsedDate.getTime())) {
+    return null;
+  }
+
+  return parsedDate.toLocaleDateString(locale || "en-GB", dateFormatOptions);
 };
 
 export const formatDateTime = (
