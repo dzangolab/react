@@ -6,6 +6,7 @@ import type {
   FormatDateType,
   FormatNumberType,
   PersistentTableState,
+  StorageType,
   TFilterFn as TFilterFunction,
   TRequestJSON,
   TSortDirection,
@@ -329,9 +330,16 @@ export const getAlignValue = ({
   }
 };
 
-export const getSavedTableState = (id: string): PersistentTableState | null => {
+export const getStorage = (storageType: StorageType): Storage => {
+  return storageType === "sessionStorage" ? sessionStorage : localStorage;
+};
+
+export const getSavedTableState = (
+  id: string,
+  storage: Storage,
+): PersistentTableState | null => {
   try {
-    const savedState = sessionStorage.getItem(`${TABLE_STATE_PREFIX}-${id}`);
+    const savedState = storage.getItem(`${TABLE_STATE_PREFIX}-${id}`);
 
     return savedState && JSON.parse(savedState);
   } catch (error) {
@@ -342,22 +350,23 @@ export const getSavedTableState = (id: string): PersistentTableState | null => {
   return null;
 };
 
-export const saveTableState = (id: string, value: PersistentTableState) => {
+export const saveTableState = (
+  id: string,
+  value: PersistentTableState,
+  storage: Storage,
+) => {
   try {
-    sessionStorage.setItem(
-      `${TABLE_STATE_PREFIX}-${id}`,
-      JSON.stringify(value),
-    );
+    storage.setItem(`${TABLE_STATE_PREFIX}-${id}`, JSON.stringify(value));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log("[Dz table] Could not store table state", error);
   }
 };
 
-export const clearSavedTableStates = () => {
-  Object.keys(sessionStorage).forEach((key) => {
+export const clearSavedTableStates = (storage: Storage) => {
+  Object.keys(storage).forEach((key) => {
     if (key.startsWith(TABLE_STATE_PREFIX)) {
-      sessionStorage.removeItem(key);
+      storage.removeItem(key);
     }
   });
 };
