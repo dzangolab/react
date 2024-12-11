@@ -6,7 +6,7 @@
   --_layout-sidebar-color: var(--dz-layout-sidebar-color, #fff);
   --_layout-sidebar-collapsed-width: var(
     --dz-layout-sidebar-collapsed-width,
-    1rem
+    1.2rem
   );
   --_layout-sidebar-logo-max-width: var(
     --dz-layout-sidebar-logo-max-width,
@@ -112,7 +112,7 @@
     background-color: var(--_layout-sidebar-bg);
     border: 1px solid;
     border-radius: 50%;
-    left: 0.3rem;
+    left: calc(var(--_layout-sidebar-collapsed-width) - 0.9rem);
     position: fixed;
   }
 
