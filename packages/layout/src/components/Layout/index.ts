@@ -1,4 +1,3 @@
-export * from "./Context";
 export * from "./Footer";
 export * from "./Header";
 export * from "./Layout";

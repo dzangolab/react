@@ -6,16 +6,18 @@ import {
   HeaderMenu,
   HeaderTitle,
   Layout,
-  LayoutContext,
-  LayoutProvider,
   Logo,
   Sidebar,
   SidebarFooter,
   SidebarHeader,
   ToggleMenuMobile,
   Version,
-  useLayoutContext,
 } from "./components/Layout";
+import {
+  LayoutContext,
+  LayoutProvider,
+  useLayoutContext,
+} from "./context/LayoutProvider";
 import {
   HeaderLayout,
   SidebarHeaderLayout,
