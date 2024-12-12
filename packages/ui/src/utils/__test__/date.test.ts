@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { formatDate } from "../date";
+import { formatDate, formatDateTime } from "../date";
 
 describe("formatDate unit test", () => {
   test("Should return a passed locale based formatted date", () => {
@@ -53,5 +53,35 @@ describe("formatDate unit test", () => {
         throw error;
       }).toThrowError("Invalid language tag: ne-n");
     }
+  });
+});
+
+describe("formatDateTime unit test", () => {
+  test("Should return null when no date is passed", () => {
+    const date = "";
+
+    expect(formatDateTime(date)).toBeNull();
+  });
+
+  test("Should return null if not a valid date", () => {
+    const date = "date";
+
+    expect(formatDateTime(date)).toBeNull();
+  });
+
+  test("Should return a string if valid date and locale is passed.", () => {
+    const date = "2024-12-12T00:00:00Z";
+    const locale = "ne-US";
+
+    expect(formatDateTime(date, locale)).toBeTypeOf("string");
+  });
+
+  test("Should throw error if invalid locale is passed", () => {
+    const date = new Date("1/9/2024").getTime();
+    const locale = "ne-N";
+
+    expect(() => {
+      formatDateTime(date, locale);
+    }).toThrowError("Invalid language tag: ne-n");
   });
 });
