@@ -41,8 +41,10 @@ export const formatDateTime = (
 
   const dateTimeFormatOptions = { ...defaultDateTimeOptions, ...options };
 
-  return new Date(date).toLocaleDateString(
+  const formattedDateTime = new Date(date).toLocaleDateString(
     locale || "en-GB",
     dateTimeFormatOptions,
   );
+
+  return formattedDateTime === "Invalid Date" ? null : formattedDateTime;
 };
