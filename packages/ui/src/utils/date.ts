@@ -22,10 +22,12 @@ export const formatDate = (
 
   const dateFormatOptions = { ...defaultDateOptions, ...options };
 
-  return new Date(date).toLocaleDateString(
+  const formattedDate = new Date(date).toLocaleDateString(
     locale || "en-GB",
     dateFormatOptions,
   );
+
+  return formattedDate === "Invalid Date" ? null : formattedDate;
 };
 
 export const formatDateTime = (
