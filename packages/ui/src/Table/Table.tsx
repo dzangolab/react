@@ -69,21 +69,27 @@ const DataTable = <TData extends { id: string | number }>({
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const persistentStateReference = useRef<PersistentTableState>({
-    sorting: [],
-    columnFilters: [],
+    sorting: initialSorting,
+    columnFilters: initialFilters,
     columnVisibility: {},
+    pagination: {
+      pageIndex: DEFAULT_PAGE_INDEX,
+      pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
+    },
   });
-  const [sorting, setSorting] = useState<SortingState>(initialSorting);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    initialFilters,
+  const [sorting, setSorting] = useState<SortingState>(
+    persistentStateReference.current.sorting,
   );
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
+    persistentStateReference.current.columnFilters,
+  );
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
+    persistentStateReference.current.columnVisibility,
+  );
   const [rowSelection, setRowSelection] = useState({});
-  const [pagination, setPagination] = useState<PaginationState>({
-    pageIndex: DEFAULT_PAGE_INDEX,
-    pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
-  });
+  const [pagination, setPagination] = useState<PaginationState>(
+    persistentStateReference.current.pagination,
+  );
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
     const updatedColumnFilter =
@@ -208,7 +214,7 @@ const DataTable = <TData extends { id: string | number }>({
   );
 
   useEffect(() => {
-    // client side rendering
+    // client side rendering with no pagination
     if (!fetchData && !paginated) {
       setPagination((previous) => ({
         ...previous,
@@ -243,16 +249,19 @@ const DataTable = <TData extends { id: string | number }>({
   }, [visibleColumns, parsedColumns]);
 
   useEffect(() => {
+    // Records the table state change without any rerender
     if (persistState && id) {
       persistentStateReference.current = {
         sorting,
         columnFilters,
         columnVisibility,
+        pagination,
       };
     }
-  }, [id, persistState, sorting, columnFilters, columnVisibility]);
+  }, [id, pagination, persistState, sorting, columnFilters, columnVisibility]);
 
   useEffect(() => {
+    // Restore the table state from storage
     if (!persistState || !id) {
       return;
     }
@@ -260,11 +269,16 @@ const DataTable = <TData extends { id: string | number }>({
     const savedState = getSavedTableState(id, storage);
 
     if (savedState) {
-      const { columnFilters, columnVisibility, sorting } = savedState;
+      const { columnFilters, columnVisibility, pagination, sorting } =
+        savedState;
 
       setColumnFilters(columnFilters);
       setColumnVisibility(columnVisibility);
       setSorting(sorting);
+
+      if (rowPerPageOptions.includes(pagination.pageSize)) {
+        setPagination(pagination);
+      }
     }
 
     return () => {
@@ -273,6 +287,7 @@ const DataTable = <TData extends { id: string | number }>({
   }, [id, persistState]);
 
   useEffect(() => {
+    // Store the table state in storage on page refresh
     const handleBeforeUnload = () => {
       if (persistState && id) {
         saveTableState(id, persistentStateReference.current, storage);
