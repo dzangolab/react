@@ -311,4 +311,5 @@ export interface PersistentTableState {
   columnFilters: ColumnFiltersState;
   columnVisibility: VisibilityState;
   sorting: SortingState;
+  pagination: PaginationState;
 }

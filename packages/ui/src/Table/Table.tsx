@@ -69,21 +69,27 @@ const DataTable = <TData extends { id: string | number }>({
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const persistentStateReference = useRef<PersistentTableState>({
-    sorting: [],
-    columnFilters: [],
+    sorting: initialSorting,
+    columnFilters: initialFilters,
     columnVisibility: {},
+    pagination: {
+      pageIndex: DEFAULT_PAGE_INDEX,
+      pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
+    },
   });
-  const [sorting, setSorting] = useState<SortingState>(initialSorting);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    initialFilters,
+  const [sorting, setSorting] = useState<SortingState>(
+    persistentStateReference.current.sorting,
   );
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
+    persistentStateReference.current.columnFilters,
+  );
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
+    persistentStateReference.current.columnVisibility,
+  );
   const [rowSelection, setRowSelection] = useState({});
-  const [pagination, setPagination] = useState<PaginationState>({
-    pageIndex: DEFAULT_PAGE_INDEX,
-    pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
-  });
+  const [pagination, setPagination] = useState<PaginationState>(
+    persistentStateReference.current.pagination,
+  );
 
   const handleColumnFilterChange = (event_: Updater<ColumnFiltersState>) => {
     const updatedColumnFilter =
@@ -248,9 +254,10 @@ const DataTable = <TData extends { id: string | number }>({
         sorting,
         columnFilters,
         columnVisibility,
+        pagination,
       };
     }
-  }, [id, persistState, sorting, columnFilters, columnVisibility]);
+  }, [id, pagination, persistState, sorting, columnFilters, columnVisibility]);
 
   useEffect(() => {
     if (!persistState || !id) {
@@ -260,11 +267,13 @@ const DataTable = <TData extends { id: string | number }>({
     const savedState = getSavedTableState(id, storage);
 
     if (savedState) {
-      const { columnFilters, columnVisibility, sorting } = savedState;
+      const { columnFilters, columnVisibility, pagination, sorting } =
+        savedState;
 
       setColumnFilters(columnFilters);
       setColumnVisibility(columnVisibility);
       setSorting(sorting);
+      setPagination(pagination);
     }
 
     return () => {
