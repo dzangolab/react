@@ -214,7 +214,7 @@ const DataTable = <TData extends { id: string | number }>({
   );
 
   useEffect(() => {
-    // client side rendering
+    // client side rendering with no pagination
     if (!fetchData && !paginated) {
       setPagination((previous) => ({
         ...previous,
@@ -249,6 +249,7 @@ const DataTable = <TData extends { id: string | number }>({
   }, [visibleColumns, parsedColumns]);
 
   useEffect(() => {
+    // Records the table state change without any rerender
     if (persistState && id) {
       persistentStateReference.current = {
         sorting,
@@ -260,6 +261,7 @@ const DataTable = <TData extends { id: string | number }>({
   }, [id, pagination, persistState, sorting, columnFilters, columnVisibility]);
 
   useEffect(() => {
+    // Restore the table state from storage
     if (!persistState || !id) {
       return;
     }
@@ -273,7 +275,10 @@ const DataTable = <TData extends { id: string | number }>({
       setColumnFilters(columnFilters);
       setColumnVisibility(columnVisibility);
       setSorting(sorting);
-      setPagination(pagination);
+
+      if (rowPerPageOptions.includes(pagination.pageSize)) {
+        setPagination(pagination);
+      }
     }
 
     return () => {
@@ -282,6 +287,7 @@ const DataTable = <TData extends { id: string | number }>({
   }, [id, persistState]);
 
   useEffect(() => {
+    // Store the table state in storage on page refresh
     const handleBeforeUnload = () => {
       if (persistState && id) {
         saveTableState(id, persistentStateReference.current, storage);
