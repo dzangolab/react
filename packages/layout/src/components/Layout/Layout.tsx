@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@dzangolab/react-ui";
 
-import { LayoutProvider, useLayoutContext } from "./Context";
+import { LayoutProvider, useLayoutContext } from "../../context/LayoutProvider";
 
 type LayoutProperties = {
   children?: React.ReactNode;

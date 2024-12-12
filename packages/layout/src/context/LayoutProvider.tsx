@@ -1,13 +1,13 @@
 import { createContext, useContext, useState } from "react";
 
-export type LayoutCotextType = {
+export type LayoutContextType = {
   menuDesktopOpen: boolean;
   menuMobileOpen: boolean;
   setMenuDesktopOpen: (value: boolean) => void;
   setMenuMobileOpen: (value: boolean) => void;
 };
 
-export const LayoutContext = createContext<LayoutCotextType | null>(null);
+export const LayoutContext = createContext<LayoutContextType | null>(null);
 
 type LayoutProviderProperties = {
   children?: React.ReactNode;
