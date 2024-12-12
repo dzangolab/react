@@ -69,16 +69,19 @@ describe("formatDateTime unit test", () => {
     expect(formatDateTime(date)).toBeNull();
   });
 
+  test("Should return a string if valid date and locale is passed.", () => {
+    const date = "2024-12-12T00:00:00Z";
+    const locale = "ne-US";
+
+    expect(formatDateTime(date, locale)).toBeTypeOf("string");
+  });
+
   test("Should throw error if invalid locale is passed", () => {
     const date = new Date("1/9/2024").getTime();
     const locale = "ne-N";
 
-    try {
+    expect(() => {
       formatDateTime(date, locale);
-    } catch (error) {
-      expect(() => {
-        throw error;
-      }).toThrowError("Invalid language tag: ne-n");
-    }
+    }).toThrowError("Invalid language tag: ne-n");
   });
 });
