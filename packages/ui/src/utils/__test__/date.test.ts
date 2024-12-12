@@ -16,7 +16,7 @@ describe("formatDate unit test", () => {
     expect(formatDate(date)).toBe("9 Jan 2024");
   });
 
-  test("Should eturn formatted date according to the options provided", () => {
+  test("Should return formatted date according to the options provided", () => {
     const date = "2024-12-11T12:00:00Z";
 
     const locale = "en-GB";
@@ -28,12 +28,6 @@ describe("formatDate unit test", () => {
     };
 
     expect(formatDate(date, locale, options)).toBe("11 December 24");
-  });
-
-  test("Should return formatted date if date in string format is passed", () => {
-    const date = "2024-08-10T08:00:00Z";
-
-    expect(formatDate(date)).toBe("10 Aug 2024");
   });
 
   test("Should return null if date is empty", () => {
