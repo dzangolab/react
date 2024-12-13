@@ -81,13 +81,13 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    overflow-x: hidden;
     width: var(--_layout-sidebar-width);
     transition: width var(--_layout-sidebar-transition-duration) ease-in;
   }
 
   .dz-layout[aria-expanded="false"] > .dz-sidebar {
     width: var(--_layout-sidebar-collapsed-width);
-    overflow-x: hidden;
   }
 
   .dz-layout > .dz-sidebar > .dz-sidebar-header {
