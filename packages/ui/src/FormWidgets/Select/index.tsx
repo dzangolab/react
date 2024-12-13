@@ -71,7 +71,7 @@ export const Select = <T extends string | number>({
     return hideIfSingleOption && !multiple && options.length === 1;
   }, [options, multiple, hideIfSingleOption]);
 
-  const disabled = selectFieldDisabled ?? shouldAutoSelect;
+  const disabled = shouldAutoSelect || selectFieldDisabled;
 
   useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
