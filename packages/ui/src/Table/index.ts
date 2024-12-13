@@ -1,8 +1,14 @@
 import { DataTable as TDataTable } from "./Table";
 import * as TTableElements from "./TableElements";
-import { clearSavedTableStates, getParsedColumns } from "./utils";
+import { clearSavedTableStates, getParsedColumns, getStorage } from "./utils";
 
-export { clearSavedTableStates, getParsedColumns, TDataTable, TTableElements };
+export {
+  clearSavedTableStates,
+  getParsedColumns,
+  getStorage,
+  TDataTable,
+  TTableElements,
+};
 
 export type {
   TableColumnDefinition,
