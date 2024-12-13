@@ -151,7 +151,7 @@ export const InvitationsTable = ({
         }
       })
       .catch(() => {
-        toast.error("messages.delete.error");
+        toast.error(t("messages.delete.error"));
       });
   };
 
