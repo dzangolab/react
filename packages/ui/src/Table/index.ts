@@ -1,14 +1,8 @@
 import { DataTable as TDataTable } from "./Table";
 import * as TTableElements from "./TableElements";
-import { clearSavedTableStates, getParsedColumns, getStorage } from "./utils";
+import { clearSavedTableStates, getParsedColumns } from "./utils";
 
-export {
-  clearSavedTableStates,
-  getParsedColumns,
-  getStorage,
-  TDataTable,
-  TTableElements,
-};
+export { clearSavedTableStates, getParsedColumns, TDataTable, TTableElements };
 
 export type {
   TableColumnDefinition,
@@ -16,7 +10,6 @@ export type {
   TDataTableProperties,
   FilterFunction,
   FilterFunctions,
-  StorageType,
 } from "./types";
 
 export type { DataActionsMenuProperties } from "./TableDataActions";

@@ -274,7 +274,7 @@ export interface TDataTableProperties<TData>
   };
   paginated?: boolean;
   persistState?: boolean;
-  persistentStateStorage?: StorageType;
+  persistStateStorage?: StorageType;
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   visibleColumns?: string[];

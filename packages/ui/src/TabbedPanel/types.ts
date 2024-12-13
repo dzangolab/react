@@ -1,5 +1,3 @@
-import { StorageType } from "..";
-
 import type { ReactElement } from "react";
 
 type TKeymap = {
@@ -10,6 +8,8 @@ type TOrientation = "horizontal" | "vertical";
 
 type TPosition = "top" | "left" | "bottom" | "right";
 
+type StorageType = "localStorage" | "sessionStorage";
+
 type Properties = {
   children: ReactElement | ReactElement[];
   defaultActiveIndex?: number;
@@ -17,7 +17,7 @@ type Properties = {
   onTabChange?: (index: number) => void;
   position?: TPosition;
   persistState?: boolean;
-  persistentStateStorage?: StorageType;
+  persistStateStorage?: StorageType;
 };
 
-export type { TKeymap, TOrientation, TPosition, Properties };
+export type { TKeymap, TOrientation, TPosition, Properties, StorageType };

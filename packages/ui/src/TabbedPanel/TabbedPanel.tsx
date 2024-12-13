@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { getStorage } from "..";
+import { getStorage } from "../utils";
 import { getOrientation, onTabDown } from "./utils";
 
 import type { Properties } from "./types";
@@ -11,7 +11,7 @@ const TabbedPanel: React.FC<Properties> = ({
   position = "top",
   id = "",
   persistState = false,
-  persistentStateStorage = "localStorage",
+  persistStateStorage = "localStorage",
 }) => {
   const [active, setActive] = useState<number | null>(null);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
@@ -20,8 +20,8 @@ const TabbedPanel: React.FC<Properties> = ({
   const activeTabStorageKey = useMemo(() => `tab-${id}-active-index`, [id]);
 
   const storage = useMemo(
-    () => getStorage(persistentStateStorage),
-    [persistentStateStorage],
+    () => getStorage(persistStateStorage),
+    [persistStateStorage],
   );
 
   useEffect(() => {
