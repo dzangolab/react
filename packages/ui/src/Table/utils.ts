@@ -1,4 +1,5 @@
 import { TABLE_STATE_PREFIX } from "./constants";
+import { getStorage } from "../utils";
 
 import type {
   CellAlignmentType,
@@ -328,10 +329,6 @@ export const getAlignValue = ({
   } else {
     return "left";
   }
-};
-
-export const getStorage = (storageType: StorageType): Storage => {
-  return storageType === "sessionStorage" ? sessionStorage : localStorage;
 };
 
 export const getSavedTableState = (

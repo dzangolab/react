@@ -12,6 +12,7 @@ import {
 } from "@tanstack/react-table";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import { getStorage } from "../utils";
 import {
   DEFAULT_PAGE_INDEX,
   DEFAULT_PAGE_PER_OPTIONS,
@@ -27,7 +28,6 @@ import {
   getParsedColumns,
   saveTableState,
   getSavedTableState,
-  getStorage,
 } from "./utils";
 import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
@@ -64,7 +64,7 @@ const DataTable = <TData extends { id: string | number }>({
   totalRecords = 0,
   paginationOptions,
   persistState = false,
-  persistentStateStorage = "localStorage",
+  persistStateStorage = "localStorage",
   showColumnsAction = false,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
@@ -209,8 +209,8 @@ const DataTable = <TData extends { id: string | number }>({
     ? totalRecords
     : table.getFilteredRowModel().rows?.length;
   const storage = useMemo(
-    () => getStorage(persistentStateStorage),
-    [persistentStateStorage],
+    () => getStorage(persistStateStorage),
+    [persistStateStorage],
   );
 
   useEffect(() => {
