@@ -1,4 +1,4 @@
-import type { TKeymap, TOrientation, TPosition } from "./types";
+import type { TKeymap, TOrientation, TPosition, StorageType } from "./types";
 import type { KeyboardEvent } from "react";
 
 const getOrientation = (position: TPosition) => {
@@ -54,8 +54,17 @@ const onTabDown = (
   }
 };
 
-const clearSavedTabState = (key: string) => {
-  localStorage.removeItem(key);
+const getStorage = (storageType: StorageType): Storage => {
+  return storageType === "sessionStorage" ? sessionStorage : localStorage;
 };
 
-export { getOrientation, onTabDown, clearSavedTabState };
+const clearSavedTabState = (
+  key: string,
+  storageType: StorageType = "localStorage",
+) => {
+  const storage = getStorage(storageType);
+
+  storage.removeItem(key);
+};
+
+export { getOrientation, onTabDown, clearSavedTabState, getStorage };
