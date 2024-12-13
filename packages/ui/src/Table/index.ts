@@ -16,6 +16,7 @@ export type {
   TDataTableProperties,
   FilterFunction,
   FilterFunctions,
+  StorageType,
 } from "./types";
 
 export type { DataActionsMenuProperties } from "./TableDataActions";

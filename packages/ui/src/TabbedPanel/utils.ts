@@ -1,6 +1,6 @@
-import { getStorage } from "..";
+import { getStorage, StorageType } from "..";
 
-import type { TKeymap, TOrientation, TPosition, StorageType } from "./types";
+import type { TKeymap, TOrientation, TPosition } from "./types";
 import type { KeyboardEvent } from "react";
 
 const getOrientation = (position: TPosition) => {

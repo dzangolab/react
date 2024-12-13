@@ -1,3 +1,5 @@
+import { StorageType } from "..";
+
 import type { ReactElement } from "react";
 
 type TKeymap = {
@@ -7,8 +9,6 @@ type TKeymap = {
 type TOrientation = "horizontal" | "vertical";
 
 type TPosition = "top" | "left" | "bottom" | "right";
-
-type StorageType = "localStorage" | "sessionStorage";
 
 type Properties = {
   children: ReactElement | ReactElement[];
@@ -20,4 +20,4 @@ type Properties = {
   persistentStateStorage?: StorageType;
 };
 
-export type { TKeymap, TOrientation, TPosition, Properties, StorageType };
+export type { TKeymap, TOrientation, TPosition, Properties };
