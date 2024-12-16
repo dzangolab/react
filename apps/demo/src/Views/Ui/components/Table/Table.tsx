@@ -36,9 +36,9 @@ export const TableDemo = () => {
     {
       accessorKey: "name",
       header: () => <span>Full name</span>,
-      width: "10rem",
-      maxWidth: "10rem",
-      minWidth: "10rem",
+      width: "14rem",
+      maxWidth: "14rem",
+      minWidth: "14rem",
     },
     {
       accessorKey: "age",
@@ -51,9 +51,9 @@ export const TableDemo = () => {
     {
       accessorKey: "city",
       header: () => <span>City</span>,
-      width: "8rem",
-      maxWidth: "8rem",
-      minWidth: "8rem",
+      width: "13rem",
+      maxWidth: "13rem",
+      minWidth: "13rem",
     },
   ];
 
