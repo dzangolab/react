@@ -47,6 +47,7 @@ export const FilesTableDemo = () => {
             {
               accessorKey: "uploadedAt",
               tooltip: true,
+              width: "12rem",
             },
           ]}
           paginationOptions={{
