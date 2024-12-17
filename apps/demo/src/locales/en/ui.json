@@ -4,12 +4,19 @@
   },
   "headers": {
     "buttons": "Buttons",
+    "dataComponent": "Data component",
+    "examples": "Examples",
+    "file": "File",
     "formWidgets": "Form widgets",
     "import": "Import",
-    "usage": "Usage",
-    "examples": "Examples",
+    "menu": "Menu",
+    "messages": "Messages",
+    "misc": "Misc",
+    "overlay": "Overlay",
+    "panel": "Panel",
     "properties": "Properties",
-    "propertiesValue": "Properties: {{value}}"
+    "propertiesValue": "Properties: {{value}}",
+    "usage": "Usage"
   },
   "button": {
     "title": "Button",
@@ -84,8 +91,8 @@
         "title": "Custom toggler"
       }
     },
-    "title": "Editable title",
-    "subtitle": "Editable title is an extension to a page or section title which can be edited."
+    "subtitle": "Editable title is an extension to a page or section title which can be edited.",
+    "title": "Editable title"
   },
   "filesTable": {
     "title": "Files table",
@@ -104,11 +111,7 @@
     "title": "Responsive menu"
   },
   "submitButton": {
-    "title": "Submit button",
-    "label": {
-      "submit": "Submit",
-      "submitLoading": "Submit loading"
-    }
+    "title": "Submit button"
   },
   "youtubeFacade": {
     "title": "Youtube facade"
@@ -126,7 +129,7 @@
     "title": "Files presentation"
   },
   "table": {
-    "title": "Table (Tanstack)",
+    "title": "Table",
     "cssCodeBlock": {
       "title": "CSS code example",
       "messages": {

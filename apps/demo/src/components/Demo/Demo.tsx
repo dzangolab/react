@@ -25,7 +25,7 @@ export const Demo: React.FC<Properties> = ({
       return subnav.map(({ header, navItems }, index) => {
         return (
           <div key={index} className="nav-menu">
-            {header ? <h2>{header}</h2> : <></>}
+            {header ? <strong>{header}</strong> : <></>}
 
             <ul>
               {navItems.map((navItem: any) => {

@@ -73,6 +73,60 @@ export const UI_ROUTES = {
   YOUTUBE_FACADE: "/ui/youtube-facade",
 };
 
+const BUTTONS_ROUTES = [
+  {
+    path: UI_ROUTES.BUTTON,
+    key: "button.title",
+    element: <ButtonDemo />,
+  },
+  {
+    path: UI_ROUTES.EXPORT_BUTTON,
+    key: "exportButton.title",
+    element: <ExportButtonDemo />,
+  },
+  {
+    path: UI_ROUTES.SUBMIT_BUTTON,
+    key: "submitButton.title",
+    element: <SubmitButtonDemo />,
+  },
+];
+
+const DATA_COMPONENT_ROUTES = [
+  {
+    path: UI_ROUTES.DATA_COMPONENT,
+    key: "dataComponent.title",
+    element: <DataDemo />,
+  },
+  {
+    path: UI_ROUTES.TABLE,
+    key: "table.title",
+    element: <TableDemo />,
+  },
+];
+
+const FILE_ROUTES = [
+  {
+    path: UI_ROUTES.FILE_CARD,
+    key: "fileCard.title",
+    element: <FileCardDemo />,
+  },
+  {
+    path: UI_ROUTES.FILES_LIST,
+    key: "filesList.title",
+    element: <FilesListDemo />,
+  },
+  {
+    path: UI_ROUTES.FILES_PRESENTATION,
+    key: "filesPresentation.title",
+    element: <FilesPresentationDemo />,
+  },
+  {
+    path: UI_ROUTES.FILES_TABLE,
+    key: "filesTable.title",
+    element: <FilesTableDemo />,
+  },
+];
+
 const FORM_WIDGETS_ROUTES = [
   {
     path: UI_ROUTES.CHECKBOX,
@@ -105,68 +159,28 @@ const FORM_WIDGETS_ROUTES = [
     element: <TypeaheadDemo />,
   },
 ];
-const BUTTONS_ROUTES = [
-  {
-    path: UI_ROUTES.BUTTON,
-    key: "button.title",
-    element: <ButtonDemo />,
-  },
-  {
-    path: UI_ROUTES.EXPORT_BUTTON,
-    key: "exportButton.title",
-    element: <ExportButtonDemo />,
-  },
-  {
-    path: UI_ROUTES.SUBMIT_BUTTON,
-    key: "submitButton.title",
-    element: <SubmitButtonDemo />,
-  },
-];
-const OTHERS = [
-  {
-    path: UI_ROUTES.CARD,
-    key: "card.title",
-    element: <CardDemo />,
-  },
-  {
-    path: UI_ROUTES.CONFIRMATION_MODAL,
-    key: "confirmationModal.title",
-    element: <ConfirmationModalDemo />,
-  },
-  {
-    path: UI_ROUTES.DATA_COMPONENT,
-    key: "dataComponent.title",
-    element: <DataDemo />,
-  },
+
+const MENU_ROUTES = [
   {
     path: UI_ROUTES.DROPDOWN_MENU,
     key: "dropdownMenu.title",
     element: <DropdownMenuDemo />,
   },
+];
+
+const MESSAGES_ROUTES = [
+  {
+    path: UI_ROUTES.MESSAGE,
+    key: "message.title",
+    element: <MessageDemo />,
+  },
+];
+
+const MISC_ROUTES = [
   {
     path: UI_ROUTES.EDITABLE_TITLE,
     key: "editableTitle.title",
     element: <EditableTitleDemo />,
-  },
-  {
-    path: UI_ROUTES.FILES_TABLE,
-    key: "filesTable.title",
-    element: <FilesTableDemo />,
-  },
-  {
-    path: UI_ROUTES.FILE_CARD,
-    key: "fileCard.title",
-    element: <FileCardDemo />,
-  },
-  {
-    path: UI_ROUTES.FILES_LIST,
-    key: "filesList.title",
-    element: <FilesListDemo />,
-  },
-  {
-    path: UI_ROUTES.FILES_PRESENTATION,
-    key: "filesPresentation.title",
-    element: <FilesPresentationDemo />,
   },
   {
     path: UI_ROUTES.GRID_CONTAINER,
@@ -179,9 +193,32 @@ const OTHERS = [
     element: <LoadingDemo />,
   },
   {
-    path: UI_ROUTES.MESSAGE,
-    key: "message.title",
-    element: <MessageDemo />,
+    path: UI_ROUTES.PAGE_DEMO,
+    key: "page.title.menu",
+    element: <PageDemo />,
+  },
+  {
+    path: UI_ROUTES.SORTABLE_LIST,
+    key: "sortableList.title",
+    element: <SortableListDemo />,
+  },
+  {
+    path: UI_ROUTES.TAG,
+    key: "tag.title",
+    element: <TagDemo />,
+  },
+  {
+    path: UI_ROUTES.YOUTUBE_FACADE,
+    key: "youtubeFacade.title",
+    element: <YoutubeFacadeDemo />,
+  },
+];
+
+const OVERLAY_ROUTES = [
+  {
+    path: UI_ROUTES.CONFIRMATION_MODAL,
+    key: "confirmationModal.title",
+    element: <ConfirmationModalDemo />,
   },
   {
     path: UI_ROUTES.MODAL,
@@ -189,19 +226,22 @@ const OTHERS = [
     element: <ModalDemo />,
   },
   {
-    path: UI_ROUTES.PAGE_DEMO,
-    key: "page.title.menu",
-    element: <PageDemo />,
-  },
-  {
     path: UI_ROUTES.POPUP,
     key: "popup.title",
     element: <PopupDemo />,
   },
   {
-    path: UI_ROUTES.SORTABLE_LIST,
-    key: "sortableList.title",
-    element: <SortableListDemo />,
+    path: UI_ROUTES.TOOLTIP,
+    key: "tooltip.title",
+    element: <TooltipDemo />,
+  },
+];
+
+const PANEL_ROUTES = [
+  {
+    path: UI_ROUTES.CARD,
+    key: "card.title",
+    element: <CardDemo />,
   },
   {
     path: UI_ROUTES.STEPPER,
@@ -213,41 +253,26 @@ const OTHERS = [
     key: "tabbedPanel.title",
     element: <TabbedPanelDemo />,
   },
-  {
-    path: UI_ROUTES.TABLE,
-    key: "table.title",
-    element: <TableDemo />,
-  },
-  {
-    path: UI_ROUTES.TAG,
-    key: "tag.title",
-    element: <TagDemo />,
-  },
-  {
-    path: UI_ROUTES.TOOLTIP,
-    key: "tooltip.title",
-    element: <TooltipDemo />,
-  },
-  {
-    path: UI_ROUTES.YOUTUBE_FACADE,
-    key: "youtubeFacade.title",
-    element: <YoutubeFacadeDemo />,
-  },
 ];
 
-export const routes = [...OTHERS, ...BUTTONS_ROUTES, ...FORM_WIDGETS_ROUTES];
+export const routes = [
+  ...BUTTONS_ROUTES,
+  ...DATA_COMPONENT_ROUTES,
+  ...FILE_ROUTES,
+  ...FORM_WIDGETS_ROUTES,
+  ...MENU_ROUTES,
+  ...MESSAGES_ROUTES,
+  ...MISC_ROUTES,
+  ...OVERLAY_ROUTES,
+  ...PANEL_ROUTES,
+];
 
 export const Pages = () => {
   const [t] = useTranslation("ui");
 
   const subnav = [
     {
-      navItems: [
-        { route: "/ui", label: t("app:getStarted") },
-        ...OTHERS.map(({ path, key }) => {
-          return { route: path, label: t(key) };
-        }),
-      ],
+      navItems: [{ route: "/ui", label: t("app:getStarted") }],
     },
     {
       header: t("headers.buttons"),
@@ -258,9 +283,65 @@ export const Pages = () => {
       ],
     },
     {
+      header: t("headers.dataComponent"),
+      navItems: [
+        ...DATA_COMPONENT_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.file"),
+      navItems: [
+        ...FILE_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
       header: t("headers.formWidgets"),
       navItems: [
         ...FORM_WIDGETS_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.menu"),
+      navItems: [
+        ...MENU_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.messages"),
+      navItems: [
+        ...MESSAGES_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.overlay"),
+      navItems: [
+        ...OVERLAY_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.panel"),
+      navItems: [
+        ...PANEL_ROUTES.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
+    {
+      header: t("headers.misc"),
+      navItems: [
+        ...MISC_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],

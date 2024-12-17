@@ -4,12 +4,19 @@
   },
   "headers": {
     "buttons": "Buttons (fr)",
+    "dataComponent": "Data component (fr)",
+    "examples": "Examples (fr)",
+    "file": "File (fr)",
     "formWidgets": "Form widgets (fr)",
     "import": "Import (fr)",
-    "usage": "Usage (fr)",
-    "examples": "Examples (fr)",
+    "menu": "Menu (fr)",
+    "messages": "Messages (fr)",
+    "misc": "Misc",
+    "overlay": "Overlay (fr)",
+    "panel": "Panel",
     "properties": "Properties (fr)",
-    "propertiesValue": "Properties: {{value}}"
+    "propertiesValue": "Properties: {{value}}",
+    "usage": "Usage (fr)"
   },
   "button": {
     "title": "Button (fr)",
@@ -122,7 +129,7 @@
     "title": "Files presentation (fr)"
   },
   "table": {
-    "title": "Table (Tanstack) (fr)",
+    "title": "Table (fr)",
     "cssCodeBlock": {
       "title": "CSS code example (fr)",
       "messages": {
@@ -208,7 +215,7 @@
     "usage": {
       "basic": "Basic usage (fr)",
       "customActiveTab": "Custom active tab (fr)",
-      "preserveTabState": "Tab with state persistence(fr)"
+      "preserveTabState": "Tab with state persistence (fr)"
     }
   },
   "textarea": {

@@ -66,5 +66,8 @@
       "cancel": "Cancel (fr)",
       "submit": "Submit (fr)"
     }
+  },
+  "headers": {
+    "examples": "Examples (fr)"
   }
 }
