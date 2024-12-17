@@ -4,12 +4,19 @@
   },
   "headers": {
     "buttons": "Buttons",
+    "data": "Data",
+    "examples": "Examples",
+    "file": "File",
     "formWidgets": "Form widgets",
     "import": "Import",
-    "usage": "Usage",
-    "examples": "Examples",
+    "menu": "Menu",
+    "messages": "Messages",
+    "misc": "Misc",
+    "overlay": "Overlay",
+    "panel": "Panel",
     "properties": "Properties",
-    "propertiesValue": "Properties: {{value}}"
+    "propertiesValue": "Properties: {{value}}",
+    "usage": "Usage"
   },
   "button": {
     "title": "Button",
@@ -84,8 +91,8 @@
         "title": "Custom toggler"
       }
     },
-    "title": "Editable title",
-    "subtitle": "Editable title is an extension to a page or section title which can be edited."
+    "subtitle": "Editable title is an extension to a page or section title which can be edited.",
+    "title": "Editable title"
   },
   "filesTable": {
     "title": "Files table",
@@ -104,11 +111,7 @@
     "title": "Responsive menu"
   },
   "submitButton": {
-    "title": "Submit button",
-    "label": {
-      "submit": "Submit",
-      "submitLoading": "Submit loading"
-    }
+    "title": "Submit button"
   },
   "youtubeFacade": {
     "title": "Youtube facade"
@@ -212,7 +215,7 @@
     "usage": {
       "basic": "Basic usage",
       "customActiveTab": "Custom active tab",
-      "preserveTabState": "Tab with state persistence"
+      "preserveTabState": "Tab with state persistenc"
     }
   },
   "textarea": {

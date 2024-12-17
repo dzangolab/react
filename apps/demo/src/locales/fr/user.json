@@ -50,6 +50,9 @@
     },
     "title": "Forgot password (fr)"
   },
+  "headers": {
+    "components": "Components (fr)"
+  },
   "invitation": {
     "form": {
       "actions": {

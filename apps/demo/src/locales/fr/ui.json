@@ -4,12 +4,19 @@
   },
   "headers": {
     "buttons": "Buttons (fr)",
+    "data": "Data (fr)",
+    "examples": "Examples (fr)",
+    "file": "File (fr)",
     "formWidgets": "Form widgets (fr)",
     "import": "Import (fr)",
-    "usage": "Usage (fr)",
-    "examples": "Examples (fr)",
+    "menu": "Menu (fr)",
+    "messages": "Messages (fr)",
+    "misc": "Misc",
+    "overlay": "Overlay (fr)",
+    "panel": "Panel",
     "properties": "Properties (fr)",
-    "propertiesValue": "Properties: {{value}}"
+    "propertiesValue": "Properties: {{value}}",
+    "usage": "Usage (fr)"
   },
   "button": {
     "title": "Button (fr)",

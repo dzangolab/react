@@ -49,14 +49,21 @@ export const Pages = () => {
   const [t] = useTranslation("user");
 
   const subnav = [
-    { route: "/user", label: t("app:getStarted") },
-    ...routes.map(({ path, key }) => {
-      return { route: path, label: t(key) };
-    }),
+    {
+      navItems: [{ route: "/user", label: t("app:getStarted") }],
+    },
+    {
+      header: t("headers.components"),
+      navItems: [
+        ...routes.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
   ];
 
   return (
-    <Demo subnav={subnav}>
+    <Demo subnav={subnav} isGrouped>
       <Outlet />
     </Demo>
   );
