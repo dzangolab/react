@@ -4,7 +4,7 @@
   },
   "headers": {
     "buttons": "Buttons",
-    "data": "Data",
+    "dataComponent": "Data component",
     "examples": "Examples",
     "file": "File",
     "formWidgets": "Form widgets",
@@ -129,7 +129,7 @@
     "title": "Files presentation"
   },
   "table": {
-    "title": "Table (Tanstack)",
+    "title": "Table",
     "cssCodeBlock": {
       "title": "CSS code example",
       "messages": {

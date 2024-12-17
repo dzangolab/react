@@ -91,16 +91,11 @@ const BUTTONS_ROUTES = [
   },
 ];
 
-const DATA_ROUTES = [
+const DATA_COMPONENT_ROUTES = [
   {
     path: UI_ROUTES.DATA_COMPONENT,
     key: "dataComponent.title",
     element: <DataDemo />,
-  },
-  {
-    path: UI_ROUTES.GRID_CONTAINER,
-    key: "gridContainer.title",
-    element: <GridContainerDemo />,
   },
   {
     path: UI_ROUTES.TABLE,
@@ -188,6 +183,11 @@ const MISC_ROUTES = [
     element: <EditableTitleDemo />,
   },
   {
+    path: UI_ROUTES.GRID_CONTAINER,
+    key: "gridContainer.title",
+    element: <GridContainerDemo />,
+  },
+  {
     path: UI_ROUTES.LOADING,
     key: "loading.title",
     element: <LoadingDemo />,
@@ -257,7 +257,7 @@ const PANEL_ROUTES = [
 
 export const routes = [
   ...BUTTONS_ROUTES,
-  ...DATA_ROUTES,
+  ...DATA_COMPONENT_ROUTES,
   ...FILE_ROUTES,
   ...FORM_WIDGETS_ROUTES,
   ...MENU_ROUTES,
@@ -283,9 +283,9 @@ export const Pages = () => {
       ],
     },
     {
-      header: t("headers.data"),
+      header: t("headers.dataComponent"),
       navItems: [
-        ...DATA_ROUTES.map(({ path, key }) => {
+        ...DATA_COMPONENT_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
