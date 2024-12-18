@@ -4,7 +4,6 @@ import { getStorage } from "../utils";
 import type {
   CellAlignmentType,
   CellDataType,
-  FormatDateType,
   FormatNumberType,
   PersistentTableState,
   StorageType,
@@ -281,33 +280,6 @@ export const formatNumber = ({
   const formatter = new Intl.NumberFormat(locale, formatOptions);
 
   return formatter.format(value);
-};
-
-export const formatDate = ({
-  date,
-  locale = "en-GB",
-  formatOptions,
-}: FormatDateType) => {
-  //for detail use case visit- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
-  if (!date) {
-    return null;
-  }
-
-  let parsedDate: Date;
-
-  if (date instanceof Date) {
-    parsedDate = date;
-  } else {
-    parsedDate = new Date(date);
-  }
-
-  if (!isNaN(parsedDate.getTime())) {
-    const formatter = new Intl.DateTimeFormat(locale, formatOptions);
-
-    return formatter.format(parsedDate);
-  } else {
-    return date;
-  }
 };
 
 export const getAlignValue = ({
