@@ -62,8 +62,8 @@ export const DataDemo = () => {
   return (
     <Page
       className="demo-data-component"
-      title={t("dataComponent.title")}
-      subtitle={t("dataComponent.subtitle")}
+      title={t("data.title")}
+      subtitle={t("data.subtitle")}
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Data" })}</p>

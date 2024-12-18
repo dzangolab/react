@@ -4,7 +4,7 @@
   },
   "headers": {
     "buttons": "Buttons",
-    "dataComponent": "Data component",
+    "data": "Data",
     "examples": "Examples",
     "file": "File",
     "formWidgets": "Form widgets",
@@ -51,8 +51,8 @@
     "header": "Confirmation required",
     "message": "Are you sure you want to proceed?"
   },
-  "dataComponent": {
-    "title": "Data component",
+  "data": {
+    "title": "Data",
     "subtitle": "The Data component is a reusable React component designed to display a labeled value. It supports both static values and dynamic values derived from object properties using a dataKey.",
     "usage": {
       "basic": "Basic",

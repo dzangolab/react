@@ -94,7 +94,7 @@ const BUTTONS_ROUTES = [
 const DATA_COMPONENT_ROUTES = [
   {
     path: UI_ROUTES.DATA_COMPONENT,
-    key: "dataComponent.title",
+    key: "data.title",
     element: <DataDemo />,
   },
   {
@@ -283,7 +283,7 @@ export const Pages = () => {
       ],
     },
     {
-      header: t("headers.dataComponent"),
+      header: t("headers.data"),
       navItems: [
         ...DATA_COMPONENT_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
