@@ -1,0 +1,59 @@
+.dz-table-container .column-name {
+  width: 14rem;
+  max-width: 14rem;
+  min-width: 14rem;
+}
+
+.dz-table-container .column-age {
+  width: 6rem;
+  max-width: 6rem;
+  min-width: 6rem;
+}
+
+.dz-table-container .column-city {
+  width: 13rem;
+  max-width: 13rem;
+  min-width: 13rem;
+}
+
+.dz-table-container .column-quantity,
+.dz-table-container .column-date,
+.dz-table-container .column-amount {
+  width: 10rem;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.dz-table-container .column-datetime {
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
+}
+
+.dz-table-container .column-action {
+  width: 5rem;
+}
+
+.custom-static-filter-table .column-date {
+  width: 16rem;
+  max-width: 16rem;
+  min-width: 16rem;
+}
+
+.center-aligned-content-table .column-name {
+  width: 30rem;
+  max-width: 30rem;
+  min-width: 30rem;
+}
+
+.center-aligned-content-table .column-age {
+  width: 6rem;
+  max-width: 6rem;
+  min-width: 6rem;
+}
+
+.center-aligned-content-table .column-city {
+  width: 8rem;
+  max-width: 8rem;
+  min-width: 8rem;
+}
