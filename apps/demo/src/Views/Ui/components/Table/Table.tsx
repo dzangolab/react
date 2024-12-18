@@ -80,7 +80,7 @@ export const TableDemo = () => {
   };
 
   return (
-    <Page title={t("table.title")}>
+    <Page title={t("table.title")} className="demo-data-tables-page">
       <Section title={t("table.usage.basic")}>
         <TDataTable
           columns={columns}
