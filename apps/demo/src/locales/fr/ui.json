@@ -4,7 +4,7 @@
   },
   "headers": {
     "buttons": "Buttons (fr)",
-    "dataComponent": "Data component (fr)",
+    "data": "Data (fr)",
     "examples": "Examples (fr)",
     "file": "File (fr)",
     "formWidgets": "Form widgets (fr)",
@@ -51,8 +51,8 @@
     "header": "Confirmation required (fr)",
     "message": "Are you sure you want to proceed? (fr)"
   },
-  "dataComponent": {
-    "title": "Data component (fr)",
+  "data": {
+    "title": "Data (fr)",
     "subtitle": "The Data component is a reusable React component designed to display a labeled value. It supports both static values and dynamic values derived from object properties using a dataKey. (fr)",
     "usage": {
       "basic": "Basic (fr)",
