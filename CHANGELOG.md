@@ -1,3 +1,41 @@
+# [0.53.0](https://github.com/dzangolab/react/compare/v0.52.0...v0.53.0) (2024-12-19)
+
+
+### Bug Fixes
+
+* **demo:** add missing translations for invitations ([#1290](https://github.com/dzangolab/react/issues/1290)) ([cccfbad](https://github.com/dzangolab/react/commit/cccfbad04ac222528acce7618ce517dd86643337))
+* **demo:** fix invitation table pagination ([#1277](https://github.com/dzangolab/react/issues/1277)) ([5661e7c](https://github.com/dzangolab/react/commit/5661e7cdc9a212676ea465181e751dc49bc0e729))
+* fix select field when using autoSelectSingleOption with disabled prop ([#1292](https://github.com/dzangolab/react/issues/1292)) ([5c731f4](https://github.com/dzangolab/react/commit/5c731f416d5c848d8879b5db53a4ebf08a76b81f))
+* **forgot-password:** disable button until email is entered ([#1268](https://github.com/dzangolab/react/issues/1268)) ([74f9303](https://github.com/dzangolab/react/commit/74f9303983f864d0a7300e486a27287db584b393))
+* **form:** auto update validation message on locale change ([#1265](https://github.com/dzangolab/react/issues/1265)) ([1904ada](https://github.com/dzangolab/react/commit/1904adae9821306ce07ee5e45c5684341fdf7669))
+* **layout:** fix sidebar toggle-menu position ([#1281](https://github.com/dzangolab/react/issues/1281)) ([4eeb842](https://github.com/dzangolab/react/commit/4eeb842ff86ee35cf473b136fb6b80179499b118))
+* **layout:** hide horizontal scrollbar in sidebar component ([#1286](https://github.com/dzangolab/react/issues/1286)) ([916a7db](https://github.com/dzangolab/react/commit/916a7db7d13fb2e5a23143a24ec697888a0f50ef))
+* **tab-view:** make tab view scrollable on mobile view ([#1273](https://github.com/dzangolab/react/issues/1273)) ([4c79598](https://github.com/dzangolab/react/commit/4c795983817a4d24b85c1e44bbe1236ad721c67a))
+* **tab-view:** update font color ([#1280](https://github.com/dzangolab/react/issues/1280)) ([db269aa](https://github.com/dzangolab/react/commit/db269aabe29d6e64f69ed43ee4808a673bf3880b))
+* **tabview:** add transition for border color change ([#1269](https://github.com/dzangolab/react/issues/1269)) ([245f30f](https://github.com/dzangolab/react/commit/245f30fbcbfa55e22aea1b6b7429c157cf421b6a))
+* **ui:** fix tabview ui ([#1264](https://github.com/dzangolab/react/issues/1264)) ([eabf37c](https://github.com/dzangolab/react/commit/eabf37cbac5d243c00c5ba017298478fe4295cc1))
+* **user:** update auth pages width ([#1267](https://github.com/dzangolab/react/issues/1267)) ([51f97c3](https://github.com/dzangolab/react/commit/51f97c312665a44e18559b1832bac9e5273aaae0))
+
+
+### Features
+
+* **demo:** add demo for persistent table ([#1274](https://github.com/dzangolab/react/issues/1274)) ([917138c](https://github.com/dzangolab/react/commit/917138c48b535d1dd29c6c2208a126d12ddc2ded))
+* **demo:** group sidebar items ([#1294](https://github.com/dzangolab/react/issues/1294)) ([960e261](https://github.com/dzangolab/react/commit/960e261c22b5c260be7928150f3ed16399d4160a))
+* **demo:** update all tables to have appropriate width that fits the data ([#1293](https://github.com/dzangolab/react/issues/1293)) ([5bedefc](https://github.com/dzangolab/react/commit/5bedefcb6e5988faa5626fcaa2e19466106af82c))
+* hide select widget for hideIfSingleOption prop ([#1270](https://github.com/dzangolab/react/issues/1270)) ([613852a](https://github.com/dzangolab/react/commit/613852a2f2e4327fb916366ab3783da4444718e1))
+* persist tab state on page navigation ([#1276](https://github.com/dzangolab/react/issues/1276)) ([43a5897](https://github.com/dzangolab/react/commit/43a58970e1c26c778b031c23719fb2e1d339563d))
+* **tab-view:** allow user to choose storage for persisting state ([#1291](https://github.com/dzangolab/react/issues/1291)) ([f04be6c](https://github.com/dzangolab/react/commit/f04be6c0bde6a13eb1c183657b1f6aa3dd78bee9))
+* **table:** add utility function to clear saved table state ([#1271](https://github.com/dzangolab/react/issues/1271)) ([409e44b](https://github.com/dzangolab/react/commit/409e44b85f683499f075ff9fbe7a66adbb89199f))
+* **ui/table:** allow to choose storage for persisting state ([#1283](https://github.com/dzangolab/react/issues/1283)) ([0afa801](https://github.com/dzangolab/react/commit/0afa801283413193a0b7e00cce2972b7555b9677))
+* **ui/table:** persist state on every page refresh ([#1278](https://github.com/dzangolab/react/issues/1278)) ([7a59a5e](https://github.com/dzangolab/react/commit/7a59a5e8b43baf69ebcb31466d39456d0098a30e))
+* **ui/table:** preserve pageSize between page refresh ([#1287](https://github.com/dzangolab/react/issues/1287)) ([89b2e5a](https://github.com/dzangolab/react/commit/89b2e5a32b73e2afc13dd2a0bfecf8beef91e9f6))
+* **ui/table:** preserve table state on page reload ([#1266](https://github.com/dzangolab/react/issues/1266)) ([64d98fd](https://github.com/dzangolab/react/commit/64d98fd7b60c3bb9c40c5bc104ac18be37ac0d03))
+* **ui:** add function to clear saved tab state ([#1285](https://github.com/dzangolab/react/issues/1285)) ([a04b104](https://github.com/dzangolab/react/commit/a04b104044a633d8890b79f39831ab1ded40da70))
+* **ui:** preserve currently open tab state on page reload ([#1272](https://github.com/dzangolab/react/issues/1272)) ([5615bfa](https://github.com/dzangolab/react/commit/5615bfa24f58093ee233947cad5b30284eb54318))
+* **user:** improve invitations table and demo app ([#1275](https://github.com/dzangolab/react/issues/1275)) ([2a26de9](https://github.com/dzangolab/react/commit/2a26de9acbf38299ca25e1a93192e55bd6eebcde))
+
+
+
 # [0.52.0](https://github.com/dzangolab/react/compare/v0.51.1...v0.52.0) (2024-12-04)
 
 ### Breaking Changes
