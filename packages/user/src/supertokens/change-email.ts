@@ -2,26 +2,26 @@ import { toast } from "react-toastify";
 
 import client from "@/api/axios";
 
-export const changePassword = async (
-  oldPassword: string,
-  newPassword: string,
+export const changeEmail = async (
+  email: string,
   apiBaseUrl: string,
 ): Promise<boolean | undefined> => {
   let success = false;
 
   try {
     const response = await client(apiBaseUrl).post(
-      "/change_password",
-      { oldPassword, newPassword },
+      "/change-email",
+      { email },
       {
         withCredentials: true,
       },
     );
+    console.log("response", response);
 
-    if (response.data.status === 200) {
+    if (response.data.status === "OK") {
       success = true;
     } else {
-      toast.error(response.data.message);
+      console.log("message", response.data.status);
     }
   } catch (err) {
     let errorMessage = "Oops! Something went wrong.";

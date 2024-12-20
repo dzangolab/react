@@ -1,5 +1,6 @@
 import { sendPasswordResetEmail } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+export * from "./change-email";
 export * from "./change-password";
 export * from "./forgot-password";
 export * from "./google-login";
