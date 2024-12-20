@@ -36,24 +36,15 @@ export const TableDemo = () => {
     {
       accessorKey: "name",
       header: () => <span>Full name</span>,
-      width: "10rem",
-      maxWidth: "10rem",
-      minWidth: "10rem",
     },
     {
       accessorKey: "age",
       header: "Age",
       align: "right",
-      width: "6rem",
-      maxWidth: "6rem",
-      minWidth: "6rem",
     },
     {
       accessorKey: "city",
       header: () => <span>City</span>,
-      width: "8rem",
-      maxWidth: "8rem",
-      minWidth: "8rem",
     },
   ];
 
@@ -89,7 +80,7 @@ export const TableDemo = () => {
   };
 
   return (
-    <Page title={t("table.title")}>
+    <Page title={t("table.title")} className="demo-data-tables-page">
       <Section title={t("table.usage.basic")}>
         <TDataTable
           columns={columns}
@@ -582,9 +573,6 @@ export const TableDemo = () => {
               accessorKey: "quantity",
               header: () => "Quantity",
               enableSorting: true,
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "number",
               numberOptions: {
                 locale: "en-IN",
@@ -593,9 +581,6 @@ export const TableDemo = () => {
             {
               accessorKey: "amount",
               header: "Amount",
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "currency",
               numberOptions: {
                 locale: "en-US",
@@ -607,23 +592,16 @@ export const TableDemo = () => {
             {
               accessorKey: "date",
               header: "Date",
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "date",
             },
             {
               accessorKey: "datetime",
               header: "Datetime",
-              width: "12rem",
-              maxWidth: "12rem",
-              minWidth: "12rem",
               dataType: "datetime",
             },
             {
               id: "action",
               header: () => <i className="pi pi-cog"></i>,
-              width: "5rem",
               dataType: "other",
               cell: () => (
                 <Button iconLeft="pi pi-eye" variant="textOnly" rounded />
@@ -647,31 +625,21 @@ export const TableDemo = () => {
               accessorKey: "quantity",
               header: () => "Quantity",
               enableSorting: true,
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "number",
             },
             {
               accessorKey: "amount",
               header: "Amount",
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "currency",
             },
             {
               accessorKey: "date",
               header: "Date",
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "date",
             },
             {
               id: "action",
               header: () => <i className="pi pi-cog"></i>,
-              width: "5rem",
               dataType: "other",
               cell: () => (
                 <Button iconLeft="pi pi-eye" variant="textOnly" rounded />
@@ -690,6 +658,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.customStaticFilter")}>
         <TDataTable
+          className="custom-static-filter-table"
           columns={[
             {
               accessorKey: "description",
@@ -702,9 +671,6 @@ export const TableDemo = () => {
               accessorKey: "quantity",
               header: () => "Quantity",
               enableSorting: true,
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "number",
               numberOptions: {
                 locale: "en-IN",
@@ -713,9 +679,6 @@ export const TableDemo = () => {
             {
               accessorKey: "amount",
               header: "Amount",
-              width: "10rem",
-              maxWidth: "10rem",
-              minWidth: "10rem",
               dataType: "currency",
               numberOptions: {
                 locale: "en-US",
@@ -727,9 +690,6 @@ export const TableDemo = () => {
             {
               accessorKey: "date",
               header: "Date",
-              width: "16rem",
-              maxWidth: "16rem",
-              minWidth: "16rem",
               dataType: "date",
               enableColumnFilter: true,
               filterFn: "inDateRangeFilter",
@@ -767,7 +727,6 @@ export const TableDemo = () => {
             {
               id: "action",
               header: () => <i className="pi pi-cog"></i>,
-              width: "5rem",
               dataType: "other",
               cell: () => (
                 <Button iconLeft="pi pi-eye" variant="textOnly" rounded />
@@ -786,6 +745,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.divContent")}>
         <TDataTable
+          className="center-aligned-content-table"
           columns={[
             {
               accessorKey: "email",
@@ -796,9 +756,6 @@ export const TableDemo = () => {
               accessorKey: "name",
               header: "Name",
               align: "center",
-              width: "30rem",
-              maxWidth: "30rem",
-              minWidth: "30rem",
               cell: ({ row: { original } }) => (
                 <div className="cell-name">{original.name}</div>
               ),
@@ -807,16 +764,10 @@ export const TableDemo = () => {
               accessorKey: "age",
               header: "Age",
               align: "right",
-              width: "6rem",
-              maxWidth: "6rem",
-              minWidth: "6rem",
             },
             {
               accessorKey: "city",
               header: () => <span>City</span>,
-              width: "8rem",
-              maxWidth: "8rem",
-              minWidth: "8rem",
             },
           ]}
           data={data.slice(10, 15)}

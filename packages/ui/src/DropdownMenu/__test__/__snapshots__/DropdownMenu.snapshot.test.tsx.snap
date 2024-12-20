@@ -1,0 +1,232 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Component matches snapshot 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        <i
+          class="pi pi-ellipsis-h"
+        />
+        <i
+          class="dz-dropdown-icon pi pi-angle-down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with a custom label 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        Custom Label
+        <i
+          class="dz-dropdown-icon pi pi-angle-down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with a custom position 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        <i
+          class="pi pi-ellipsis-h"
+        />
+        <i
+          class="dz-dropdown-icon pi pi-angle-down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with a custom trigger 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <button>
+        Custom Trigger
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with all props set 1`] = `
+<div>
+  <div
+    class="popup-container dropdown-menu"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <button>
+        Trigger Button
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with custom className 1`] = `
+<div>
+  <div
+    class="popup-container custom-class"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        <i
+          class="pi pi-ellipsis-h"
+        />
+        <i
+          class="dz-dropdown-icon pi pi-angle-down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with custom menu templating 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        <i
+          class="pi pi-ellipsis-h"
+        />
+        <i
+          class="dz-dropdown-icon pi pi-angle-down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with default props 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        <i
+          class="pi pi-ellipsis-h"
+        />
+        <i
+          class="dz-dropdown-icon pi pi-angle-down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with empty menu 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        <i
+          class="pi pi-ellipsis-h"
+        />
+        <i
+          class="dz-dropdown-icon pi pi-angle-down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownMenu > should match snapshot with hideDropdownIcon set to true 1`] = `
+<div>
+  <div
+    class="popup-container"
+  >
+    <div
+      aria-controls="popup-content"
+      aria-expanded="false"
+      class="popup-trigger"
+    >
+      <span
+        class="dz-dropdown-menu-trigger"
+      >
+        <i
+          class="pi pi-ellipsis-h"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;

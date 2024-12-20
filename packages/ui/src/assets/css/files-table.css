@@ -11,15 +11,15 @@
 }
 
 .table-files .column-lastDownloadedAt {
-  max-width: 10rem;
-  min-width: 10rem;
-  width: 10rem;
+  max-width: 12rem;
+  min-width: 12rem;
+  width: 12rem;
 }
 
 .table-files .column-uploadedAt {
-  max-width: 10rem;
-  min-width: 10rem;
-  width: 10rem;
+  max-width: 12rem;
+  min-width: 12rem;
+  width: 12rem;
 }
 
 .table-files .column-uploadedBy {

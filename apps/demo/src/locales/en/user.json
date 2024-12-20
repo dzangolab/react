@@ -50,6 +50,9 @@
     },
     "title": "Forgot password"
   },
+  "headers": {
+    "components": "Components"
+  },
   "invitation": {
     "form": {
       "actions": {

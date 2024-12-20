@@ -15,6 +15,14 @@ export const InvitationsTableDemo = () => {
           invitations={invitations}
           onInvitationAdded={() => {}}
           initialSorting={[{ id: "email", desc: false }]}
+          columns={[
+            {
+              accessorKey: "invitedBy",
+              maxWidth: "20rem",
+              minWidth: "20rem",
+              width: "20rem",
+            },
+          ]}
         />
       </Section>
     </Page>

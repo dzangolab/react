@@ -66,5 +66,8 @@
       "cancel": "Cancel",
       "submit": "Submit"
     }
+  },
+  "headers": {
+    "examples": "Examples"
   }
 }
