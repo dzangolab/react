@@ -28,6 +28,7 @@ export const ChangeEmailModal = () => {
             {user?.email}
             <Button
               variant="textOnly"
+              label={t("profile.form.email.title")}
               severity="secondary"
               iconLeft="pi pi-pencil"
               rounded
