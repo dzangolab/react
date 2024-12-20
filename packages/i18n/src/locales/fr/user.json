@@ -194,7 +194,8 @@
     "form": {
       "email": {
         "label": "Email (fr)",
-        "placeholder": ""
+        "placeholder": "",
+        "title": "Update email (fr)"
       },
       "firstName": {
         "label": "First name (fr)",
@@ -205,6 +206,9 @@
         "placeholder": "Enter your last name (fr)"
       },
       "validations": {
+        "email": {
+          "required": "Email is required (fr)"
+        },
         "firstName": {
           "required": "First name is required (fr)"
         },

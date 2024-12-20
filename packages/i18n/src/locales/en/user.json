@@ -195,7 +195,8 @@
     "form": {
       "email": {
         "label": "Email",
-        "placeholder": ""
+        "placeholder": "",
+        "title": "Update email"
       },
       "firstName": {
         "label": "First name",
@@ -206,6 +207,9 @@
         "placeholder": "Enter your last name"
       },
       "validations": {
+        "email": {
+          "required": "Email is required"
+        },
         "firstName": {
           "required": "First name is required"
         },
