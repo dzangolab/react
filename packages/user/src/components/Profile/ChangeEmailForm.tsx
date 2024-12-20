@@ -3,7 +3,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { useState } from "react";
 import { z } from "zod";
 
-import { ChangeEmailFormField } from "./ChangeEmailFormField";
+import { ChangeEmailFormFields } from "./ChangeEmailFormFields";
+
 import { UserType } from "../../types";
 
 interface Properties {
@@ -19,7 +20,7 @@ export const ChangeEmailForm = ({ user }: Properties) => {
   });
 
   const handleSubmit = (data: string) => {
-    console.log("data", data);
+    // TODO update email on submit
   };
 
   const formValues = {
@@ -33,7 +34,7 @@ export const ChangeEmailForm = ({ user }: Properties) => {
       values={formValues}
       validationTriggerKey={i18n.language}
     >
-      <ChangeEmailFormField submitting={submitting} />
+      <ChangeEmailFormFields submitting={submitting} />
     </Provider>
   );
 };
