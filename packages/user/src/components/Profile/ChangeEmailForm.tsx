@@ -3,14 +3,14 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { useState } from "react";
 import { z } from "zod";
 
-import { EmailUpdateFormField } from "./EmailUpdateFormField";
+import { ChangeEmailFormField } from "./ChangeEmailFormField";
 import { UserType } from "../../types";
 
 interface Properties {
   user: UserType | null;
 }
 
-export const EmailUpdateForm = ({ user }: Properties) => {
+export const ChangeEmailForm = ({ user }: Properties) => {
   const { t, i18n } = useTranslation("user");
   const [submitting, setSubmitting] = useState(false);
 
@@ -33,7 +33,7 @@ export const EmailUpdateForm = ({ user }: Properties) => {
       values={formValues}
       validationTriggerKey={i18n.language}
     >
-      <EmailUpdateFormField submitting={submitting} />
+      <ChangeEmailFormField submitting={submitting} />
     </Provider>
   );
 };

@@ -5,7 +5,7 @@ interface Properties {
   submitting?: boolean;
 }
 
-export const EmailUpdateFormField = ({ submitting }: Properties) => {
+export const ChangeEmailFormField = ({ submitting }: Properties) => {
   const {
     formState: { errors, submitCount, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();

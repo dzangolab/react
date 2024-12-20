@@ -3,7 +3,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
 import React from "react";
 
-import { EmailUpdateModal, ProfileForm } from "@/components/Profile";
+import { ChangeEmailModal, ProfileForm } from "@/components/Profile";
 
 interface Properties {
   additionalProfileFields?: AdditionalFormFields;
@@ -15,7 +15,7 @@ export const Profile = ({ additionalProfileFields }: Properties) => {
 
   return (
     <Page title={t("profile.title")} className="profile">
-      <EmailUpdateModal />
+      <ChangeEmailModal />
       <ProfileForm additionalProfileFields={additionalProfileFields} />
     </Page>
   );

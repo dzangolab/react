@@ -4,22 +4,22 @@ import React, { useState } from "react";
 
 import { useUser } from "@/hooks";
 
-import { EmailUpdateForm } from "./EmailUpdateForm";
+import { ChangeEmailForm } from "./ChangeEmailForm";
 
-export const EmailUpdateModal = () => {
+export const ChangeEmailModal = () => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
-    <div className="email-update-form">
+    <div className="change-email-form">
       <Modal
-        className="update-email-modal"
+        className="change-email-modal"
         header={t("profile.form.email.title")}
         visible={modalVisible}
         onHide={() => setModalVisible(false)}
       >
-        <EmailUpdateForm user={user} />
+        <ChangeEmailForm user={user} />
       </Modal>
       <Data label={t("profile.form.email.label")} value={user?.email} />
       <Button

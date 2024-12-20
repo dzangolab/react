@@ -3,20 +3,14 @@
   flex-direction: column;
 }
 
-.profile .email-update-form {
+.profile .change-email-form {
   margin-bottom: 2rem;
 }
 
-.profile .email-update-form .dz-data {
+.profile .change-email-form .dz-data {
   margin-bottom: 0.5rem;
 }
 
-.profile .email-update-form .dz-data .dz-data-label {
+.profile .change-email-form .dz-data .dz-data-label {
   font-size: 1em;
-}
-
-@media screen and (min-width: 576px) {
-.update-email-modal {
-  width: 430px;
-}
 }
