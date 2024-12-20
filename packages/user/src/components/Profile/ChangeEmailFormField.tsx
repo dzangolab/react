@@ -7,7 +7,7 @@ interface Properties {
 
 export const ChangeEmailFormField = ({ submitting }: Properties) => {
   const {
-    formState: { errors, submitCount, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
+    formState: { errors, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
 
   const { t } = useTranslation("user");

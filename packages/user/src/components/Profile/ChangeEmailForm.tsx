@@ -14,7 +14,7 @@ export const ChangeEmailForm = ({ user }: Properties) => {
   const { t, i18n } = useTranslation("user");
   const [submitting, setSubmitting] = useState(false);
 
-  const emailValidationSchema: z.AnyZodObject = z.object({
+  const emailValidationSchema = z.object({
     email: z.string().min(1, t("profile.form.validations.email.required")),
   });
 
