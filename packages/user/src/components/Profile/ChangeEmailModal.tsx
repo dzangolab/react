@@ -28,10 +28,9 @@ export const ChangeEmailModal = () => {
             {user?.email}
             <Button
               variant="textOnly"
-              label={t("profile.form.email.title")}
+              label={t("profile.button.edit")}
               severity="secondary"
               iconLeft="pi pi-pencil"
-              rounded
               onClick={() => setModalVisible(true)}
             ></Button>
           </>

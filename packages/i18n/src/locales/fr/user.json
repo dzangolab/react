@@ -219,7 +219,8 @@
     },
     "button": {
       "update": "Update (fr)",
-      "cancel": "Cancel (fr)"
+      "cancel": "Cancel (fr)",
+      "edit": "Edit (fr)"
     },
     "title": "Profile (fr)",
     "toastMessages": {
