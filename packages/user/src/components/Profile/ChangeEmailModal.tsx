@@ -21,10 +21,20 @@ export const ChangeEmailModal = () => {
       >
         <ChangeEmailForm user={user} />
       </Modal>
-      <Data label={t("profile.form.email.label")} value={user?.email} />
-      <Button
-        label={t("profile.button.update")}
-        onClick={() => setModalVisible(true)}
+      <Data
+        label={t("profile.form.email.label")}
+        value={
+          <>
+            {user?.email}
+            <Button
+              variant="textOnly"
+              severity="secondary"
+              iconLeft="pi pi-pencil"
+              rounded
+              onClick={() => setModalVisible(true)}
+            ></Button>
+          </>
+        }
       />
     </div>
   );

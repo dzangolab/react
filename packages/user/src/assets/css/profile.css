@@ -4,13 +4,16 @@
 }
 
 .profile .change-email-form {
-  margin-bottom: 2rem;
-}
-
-.profile .change-email-form .dz-data {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .profile .change-email-form .dz-data .dz-data-label {
   font-size: 1em;
+}
+
+.profile .change-email-form .dz-data .dz-data-value {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  margin-top: -0.65rem;
 }
