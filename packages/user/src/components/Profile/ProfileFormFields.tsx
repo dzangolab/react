@@ -1,5 +1,4 @@
 import {
-  Email,
   Input,
   useFormContext,
   AdditionalFormFields,
@@ -26,12 +25,6 @@ export const ProfileFormFields = ({
   const { t } = useTranslation("user");
   return (
     <>
-      <Email
-        label={t("profile.form.email.label")}
-        name="email"
-        placeholder={t("profile.form.email.placeholder")}
-        readOnly={true}
-      />
       <Input
         label={t("profile.form.firstName.label")}
         name="givenName"
