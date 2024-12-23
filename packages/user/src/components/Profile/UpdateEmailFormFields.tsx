@@ -9,6 +9,7 @@ export const UpdateEmailFormFields = ({ loading }: Properties) => {
   const {
     formState: { errors, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
+  console.log("test");
 
   const { t } = useTranslation("user");
   return (

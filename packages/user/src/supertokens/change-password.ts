@@ -18,7 +18,7 @@ export const changePassword = async (
       },
     );
 
-    if (response.data.status === 200) {
+    if (response.data.status === "OK") {
       success = true;
     } else {
       toast.error(response.data.message);

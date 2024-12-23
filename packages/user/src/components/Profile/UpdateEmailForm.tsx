@@ -19,6 +19,7 @@ export const UpdateEmailForm = ({ user }: Properties) => {
   });
 
   const handleSubmit = (data: string) => {
+    console.log("test");
     // TODO update email on submit
   };
 
