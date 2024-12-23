@@ -1,5 +1,6 @@
 import { Provider } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { useState } from "react";
 import { z } from "zod";
 
 import { UpdateEmailFormFields } from "./UpdateEmailFormFields";
@@ -11,6 +12,7 @@ interface Properties {
 
 export const UpdateEmailForm = ({ user }: Properties) => {
   const { t, i18n } = useTranslation("user");
+  const [submitting, setSubmitting] = useState(false);
 
   const emailValidationSchema = z.object({
     email: z.string().min(1, t("profile.accountInfo.messages.email")),
@@ -31,7 +33,7 @@ export const UpdateEmailForm = ({ user }: Properties) => {
       values={formValues}
       validationTriggerKey={i18n.language}
     >
-      <UpdateEmailFormFields />
+      <UpdateEmailFormFields submitting={submitting} />
     </Provider>
   );
 };
