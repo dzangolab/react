@@ -1,42 +1,30 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Modal, Data } from "@dzangolab/react-ui";
-import React, { useState } from "react";
-
-import { useUser } from "@/hooks";
+import { Modal } from "@dzangolab/react-ui";
 
 import { ChangeEmailForm } from "./ChangeEmailForm";
+import { UserType } from "../../types";
 
-export const ChangeEmailModal = () => {
+interface Properties {
+  modalVisible: boolean;
+  setModalVisible: (visible: boolean) => void;
+  user: UserType | null;
+}
+
+export const ChangeEmailModal = ({
+  modalVisible,
+  setModalVisible,
+  user,
+}: Properties) => {
   const { t } = useTranslation("user");
-  const { user, setUser } = useUser();
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
-    <div className="change-email-form">
-      <Modal
-        className="change-email-modal"
-        header={t("profile.form.email.title")}
-        visible={modalVisible}
-        onHide={() => setModalVisible(false)}
-      >
-        <ChangeEmailForm user={user} />
-      </Modal>
-      <Data
-        label={t("profile.form.email.label")}
-        value={
-          <>
-            {user?.email}
-            <Button
-              variant="textOnly"
-              label={t("profile.button.edit")}
-              severity="secondary"
-              size="small"
-              iconLeft="pi pi-pencil"
-              onClick={() => setModalVisible(true)}
-            ></Button>
-          </>
-        }
-      />
-    </div>
+    <Modal
+      className="change-email-modal"
+      header={t("profile.form.email.title")}
+      visible={modalVisible}
+      onHide={() => setModalVisible(false)}
+    >
+      <ChangeEmailForm user={user} />
+    </Modal>
   );
 };
