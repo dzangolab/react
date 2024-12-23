@@ -12,7 +12,7 @@ interface Properties {
 
 export const UpdateEmailForm = ({ user }: Properties) => {
   const { t, i18n } = useTranslation("user");
-  const [submitting, setSubmitting] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const emailValidationSchema = z.object({
     email: z.string().min(1, t("profile.accountInfo.messages.email")),
@@ -33,7 +33,7 @@ export const UpdateEmailForm = ({ user }: Properties) => {
       values={formValues}
       validationTriggerKey={i18n.language}
     >
-      <UpdateEmailFormFields submitting={submitting} />
+      <UpdateEmailFormFields loading={loading} />
     </Provider>
   );
 };

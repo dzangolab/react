@@ -2,10 +2,10 @@ import { Email, useFormContext, FormActions } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 
 interface Properties {
-  submitting?: boolean;
+  loading?: boolean;
 }
 
-export const UpdateEmailFormFields = ({ submitting }: Properties) => {
+export const UpdateEmailFormFields = ({ loading }: Properties) => {
   const {
     formState: { errors, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
@@ -29,7 +29,7 @@ export const UpdateEmailFormFields = ({ submitting }: Properties) => {
             disabled: !isDirty,
           },
         ]}
-        loading={submitting}
+        loading={loading}
         alignment="fill"
       />
     </>
