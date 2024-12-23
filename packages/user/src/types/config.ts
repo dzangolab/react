@@ -26,6 +26,7 @@ export interface UserConfig {
       label: ReactNode;
       showCheckbox?: boolean;
     };
+    updateEmail?: boolean;
   };
   homeRoute?: HomeRoute;
   socialLoginProviders?: SocialLoginType[];

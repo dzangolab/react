@@ -191,6 +191,13 @@
     "verifyEmail": "Verifying your email address (fr)"
   },
   "profile": {
+    "accountInfo": {
+      "label": "Email (fr)",
+      "messages": {
+        "email": "Email is required (fr)"
+      },
+      "title": "Update email (fr)"
+    },
     "form": {
       "email": {
         "label": "Email (fr)",
