@@ -14,9 +14,9 @@ export const AccountInfo = () => {
   const canUpdateEmail = config.features?.updateEmail;
 
   return (
-    <div className="update-email">
+    <div className="account-info">
       <Data
-        label={t("profile.form.email.label")}
+        label={t("profile.accountInfo.label")}
         value={
           <>
             {user?.email}

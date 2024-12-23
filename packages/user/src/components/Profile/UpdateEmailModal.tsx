@@ -20,7 +20,7 @@ export const UpdateEmailModal = ({
   return (
     <Modal
       className="update-email-modal"
-      header={t("profile.form.email.title")}
+      header={t("profile.accountInfo.title")}
       visible={modalVisible}
       onHide={() => setModalVisible(false)}
     >

@@ -1,23 +1,15 @@
 import { Email, useFormContext, FormActions } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 
-interface Properties {
-  submitting?: boolean;
-}
-
-export const UpdateEmailFormFields = ({ submitting }: Properties) => {
+export const UpdateEmailFormFields = () => {
   const {
-    formState: { errors, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
+    formState: { errors, isDirty, isSubmitting }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
 
   const { t } = useTranslation("user");
   return (
     <>
-      <Email
-        label={t("profile.form.email.label")}
-        name="email"
-        placeholder={t("profile.form.email.placeholder")}
-      />
+      <Email label={t("profile.accountInfo.label")} name="email" />
 
       <FormActions
         actions={[
@@ -33,7 +25,7 @@ export const UpdateEmailFormFields = ({ submitting }: Properties) => {
             disabled: !isDirty,
           },
         ]}
-        loading={submitting}
+        loading={isSubmitting}
         alignment="fill"
       />
     </>

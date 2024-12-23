@@ -192,11 +192,17 @@
     "verifyEmail": "Verifying your email address"
   },
   "profile": {
+    "accountInfo": {
+      "label": "Email",
+      "messages": {
+        "email": "Email is required"
+      },
+      "title": "Update email"
+    },
     "form": {
       "email": {
         "label": "Email",
-        "placeholder": "",
-        "title": "Update email"
+        "placeholder": ""
       },
       "firstName": {
         "label": "First name",

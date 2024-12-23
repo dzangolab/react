@@ -3,15 +3,15 @@
   flex-direction: column;
 }
 
-.profile .update-email {
+.profile .account-info {
   margin-bottom: 1rem;
 }
 
-.profile .update-email .dz-data .dz-data-label {
+.profile .account-info .dz-data .dz-data-label {
   font-size: 1rem;
 }
 
-.profile .update-email .dz-data .dz-data-value {
+.profile .account-info .dz-data .dz-data-value {
   align-items: center;
   display: flex;
   gap: 0.45rem;
