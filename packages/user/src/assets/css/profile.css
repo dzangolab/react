@@ -2,3 +2,18 @@
   display: flex;
   flex-direction: column;
 }
+
+.profile .account-info {
+  margin-bottom: 1rem;
+}
+
+.profile .account-info .dz-data .dz-data-label {
+  font-size: 1rem;
+}
+
+.profile .account-info .dz-data .dz-data-value {
+  align-items: center;
+  display: flex;
+  gap: 0.45rem;
+  margin-top: -0.65rem;
+}

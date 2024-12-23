@@ -192,6 +192,13 @@
     "verifyEmail": "Verifying your email address"
   },
   "profile": {
+    "accountInfo": {
+      "label": "Email",
+      "messages": {
+        "email": "Email is required"
+      },
+      "title": "Update email"
+    },
     "form": {
       "email": {
         "label": "Email",
@@ -206,6 +213,9 @@
         "placeholder": "Enter your last name"
       },
       "validations": {
+        "email": {
+          "required": "Email is required"
+        },
         "firstName": {
           "required": "First name is required"
         },
