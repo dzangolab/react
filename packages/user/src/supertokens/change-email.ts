@@ -1,5 +1,3 @@
-import { toast } from "react-toastify";
-
 import client from "@/api/axios";
 
 export const changeEmail = async (email: string, apiBaseUrl: string) => {
@@ -12,12 +10,15 @@ export const changeEmail = async (email: string, apiBaseUrl: string) => {
       },
     );
 
-    return response;
-  } catch (err) {
-    let errorMessage = "Oops! Something went wrong.";
-    if (err instanceof Error) {
-      errorMessage = err.message;
+    return response.data;
+    /*eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  } catch (err: any) {
+    if (err.response) {
+      const { status, data } = err.response;
+
+      return { status: status, message: data.message };
     }
-    toast.error(errorMessage);
+
+    return { status: "ERROR", message: "Oops! Something went wrong" };
   }
 };

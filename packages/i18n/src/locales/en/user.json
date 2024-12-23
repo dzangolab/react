@@ -195,7 +195,13 @@
     "accountInfo": {
       "label": "Email",
       "messages": {
-        "email": "Email is required"
+        "alreadyExist": "Email already exists.",
+        "currentEmail": "Email is same as the current one.",
+        "disabled": "Update email feature is currently disabled.",
+        "email": "Email is required.",
+        "error": "An error occurred while updating the email.",
+        "invalid": "Email is invalid.",
+        "success": "Email updated successfully."
       },
       "title": "Update email"
     },

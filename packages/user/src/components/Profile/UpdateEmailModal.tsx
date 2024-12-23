@@ -16,7 +16,6 @@ export const UpdateEmailModal = ({
   user,
 }: Properties) => {
   const { t } = useTranslation("user");
-  console.log("test");
 
   return (
     <Modal
