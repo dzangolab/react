@@ -201,8 +201,7 @@
     "form": {
       "email": {
         "label": "Email (fr)",
-        "placeholder": "",
-        "title": "Update email (fr)"
+        "placeholder": ""
       },
       "firstName": {
         "label": "First name (fr)",
@@ -226,8 +225,7 @@
     },
     "button": {
       "update": "Update (fr)",
-      "cancel": "Cancel (fr)",
-      "edit": "Edit (fr)"
+      "cancel": "Cancel (fr)"
     },
     "title": "Profile (fr)",
     "toastMessages": {
