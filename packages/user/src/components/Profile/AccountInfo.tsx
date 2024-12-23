@@ -4,25 +4,26 @@ import React, { useState } from "react";
 
 import { useConfig, useUser } from "@/hooks";
 
-import { ChangeEmailModal } from "./ChangeEmailModal";
+import { UpdateEmailModal } from "./UpdateEmailModal";
 
 export const AccountInfo = () => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const config = useConfig();
+  const canUpdateEmail = config.features?.updateEmail;
 
   return (
-    <div className="change-email">
+    <div className="update-email">
       <Data
         label={t("profile.form.email.label")}
         value={
           <>
             {user?.email}
-            {config.features?.updateEmail && (
+            {canUpdateEmail && (
               <Button
                 variant="textOnly"
-                label={t("profile.button.edit")}
+                label={t("profile.button.update")}
                 severity="secondary"
                 size="small"
                 iconLeft="pi pi-pencil"
@@ -32,8 +33,8 @@ export const AccountInfo = () => {
           </>
         }
       />
-      {config.features?.updateEmail && (
-        <ChangeEmailModal
+      {canUpdateEmail && (
+        <UpdateEmailModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           user={user}

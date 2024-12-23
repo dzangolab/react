@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Modal } from "@dzangolab/react-ui";
 
-import { ChangeEmailForm } from "./ChangeEmailForm";
+import { UpdateEmailForm } from "./UpdateEmailForm";
 import { UserType } from "../../types";
 
 interface Properties {
@@ -10,7 +10,7 @@ interface Properties {
   user: UserType | null;
 }
 
-export const ChangeEmailModal = ({
+export const UpdateEmailModal = ({
   modalVisible,
   setModalVisible,
   user,
@@ -19,12 +19,12 @@ export const ChangeEmailModal = ({
 
   return (
     <Modal
-      className="change-email-modal"
+      className="update-email-modal"
       header={t("profile.form.email.title")}
       visible={modalVisible}
       onHide={() => setModalVisible(false)}
     >
-      <ChangeEmailForm user={user} />
+      <UpdateEmailForm user={user} />
     </Modal>
   );
 };

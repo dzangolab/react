@@ -220,8 +220,7 @@
     },
     "button": {
       "update": "Update",
-      "cancel": "Cancel",
-      "edit": "Edit"
+      "cancel": "Cancel"
     },
     "title": "Profile",
     "toastMessages": {
