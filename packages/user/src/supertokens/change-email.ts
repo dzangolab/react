@@ -2,12 +2,7 @@ import { toast } from "react-toastify";
 
 import client from "@/api/axios";
 
-export const changeEmail = async (
-  email: string,
-  apiBaseUrl: string,
-): Promise<boolean | undefined> => {
-  let success = false;
-
+export const changeEmail = async (email: string, apiBaseUrl: string) => {
   try {
     const response = await client(apiBaseUrl).post(
       "/change-email",
@@ -16,13 +11,8 @@ export const changeEmail = async (
         withCredentials: true,
       },
     );
-    console.log("response", response);
 
-    if (response.data.status === "OK") {
-      success = true;
-    } else {
-      console.log("message", response.data.status);
-    }
+    return response;
   } catch (err) {
     let errorMessage = "Oops! Something went wrong.";
     if (err instanceof Error) {
@@ -30,6 +20,4 @@ export const changeEmail = async (
     }
     toast.error(errorMessage);
   }
-
-  return success;
 };

@@ -25,8 +25,8 @@ export const ChangeEmailForm = ({ user }: Properties) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (data: any) => {
     console.log("data", data);
-    const success = await changeEmail(data.email, config.apiBaseUrl);
-    console.log("success", success);
+    const response = await changeEmail(data.email, config.apiBaseUrl);
+    console.log("response", response);
   };
 
   const formValues = {
