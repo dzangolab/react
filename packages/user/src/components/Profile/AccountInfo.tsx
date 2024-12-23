@@ -32,11 +32,13 @@ export const AccountInfo = () => {
           </>
         }
       />
-      <ChangeEmailModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        user={user}
-      />
+      {config.features?.updateEmail && (
+        <ChangeEmailModal
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          user={user}
+        />
+      )}
     </div>
   );
 };
