@@ -192,7 +192,7 @@
   },
   "profile": {
     "accountInfo": {
-      "label": "Email (fr)",
+      "label": "New email (fr)",
       "messages": {
         "alreadyExist": "Email already exists. (fr)",
         "duplicate": "Email is same as the current one. (fr)",
