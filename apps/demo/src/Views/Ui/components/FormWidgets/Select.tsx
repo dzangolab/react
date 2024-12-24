@@ -12,14 +12,14 @@ type Option = {
 
 export const SelectDemo = () => {
   const [t] = useTranslation("ui");
-  const [multipleSelectedValues, setMultipleSelectedValues] = useState<
+
+  const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
+  const [searchableMultiselectValue, setSearchableMultiselectValue] = useState<
     string[]
   >([]);
-  const [multipleSelectedSearchedValues, setMultipleSelectedSearchedValues] =
-    useState<string[]>([]);
-  const [singleSelectedSearchedValues, setSingleSelectedSearchedValues] =
+  const [searchableSingleSelectValue, setSearchableSingleSelectValue] =
     useState<string>("");
-  const [singleSelectedValues, setSingleSelectedValues] = useState<number>(0);
+  const [singleSelectValue, setSingleSelectValue] = useState<number>(0);
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
@@ -61,8 +61,8 @@ export const SelectDemo = () => {
             { value: 23, label: "option 2" },
             { value: 27, label: "option 3" },
           ]}
-          value={singleSelectedValues}
-          onChange={(value: number) => setSingleSelectedValues(value)}
+          value={singleSelectValue}
+          onChange={(value: number) => setSingleSelectValue(value)}
           placeholder={t("select.placeholder")}
           multiple={false}
         />
@@ -84,8 +84,8 @@ export const SelectDemo = () => {
             { value: "PN", label: "POLAND" },
           ]}
           multiple={true}
-          value={multipleSelectedValues}
-          onChange={(value: string[]) => setMultipleSelectedValues(value)}
+          value={multiselectValue}
+          onChange={(value: string[]) => setMultiselectValue(value)}
           placeholder={t("select.placeholder")}
         />
       </Section>
@@ -169,8 +169,8 @@ export const SelectDemo = () => {
             { value: "SN", label: "SUDAN" },
             { value: "PN", label: "POLAND" },
           ]}
-          value={singleSelectedSearchedValues}
-          onChange={(value: string) => setSingleSelectedSearchedValues(value)}
+          value={searchableSingleSelectValue}
+          onChange={(value: string) => setSearchableSingleSelectValue(value)}
           placeholder={t("select.placeholder")}
           searchPlaceholder={t("select.searchPlaceholder")}
           multiple={false}
@@ -194,10 +194,8 @@ export const SelectDemo = () => {
             { value: "PN", label: "POLAND" },
           ]}
           multiple={true}
-          value={multipleSelectedSearchedValues}
-          onChange={(value: string[]) =>
-            setMultipleSelectedSearchedValues(value)
-          }
+          value={searchableMultiselectValue}
+          onChange={(value: string[]) => setSearchableMultiselectValue(value)}
           placeholder={t("select.placeholder")}
           searchPlaceholder={t("select.searchPlaceholder")}
         />
