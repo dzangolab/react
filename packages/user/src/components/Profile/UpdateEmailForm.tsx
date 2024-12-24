@@ -14,6 +14,10 @@ interface Properties {
   user: UserType | null;
 }
 
+type UpdateEmailFormData = {
+  email: string;
+};
+
 export const UpdateEmailForm = ({ user }: Properties) => {
   const { t, i18n } = useTranslation("user");
   const [loading, setLoading] = useState(false);
@@ -23,8 +27,7 @@ export const UpdateEmailForm = ({ user }: Properties) => {
     email: z.string().min(1, t("profile.accountInfo.messages.email")),
   });
 
-  /*eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: UpdateEmailFormData) => {
     setLoading(true);
     try {
       const response = await changeEmail(data.email, config.apiBaseUrl);
@@ -37,7 +40,7 @@ export const UpdateEmailForm = ({ user }: Properties) => {
           toast.error(t("profile.accountInfo.messages.alreadyExist"));
           break;
         case "EMAIL_SAME_AS_CURRENT_ERROR":
-          toast.error(t("profile.accountInfo.messages.currentEmail"));
+          toast.error(t("profile.accountInfo.messages.duplicate"));
           break;
         case 422:
           toast.error(t("profile.accountInfo.messages.invalid"));

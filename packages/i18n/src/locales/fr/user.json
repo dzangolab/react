@@ -195,7 +195,7 @@
       "label": "Email (fr)",
       "messages": {
         "alreadyExist": "Email already exists. (fr)",
-        "currentEmail": "Email is same as the current one. (fr)",
+        "duplicate": "Email is same as the current one. (fr)",
         "disabled": "Update email feature is currently disabled. (fr)",
         "email": "Email is required. (fr)",
         "error": "An error occurred while updating the email. (fr)",
