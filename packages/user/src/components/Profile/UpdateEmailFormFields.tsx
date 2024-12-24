@@ -17,7 +17,7 @@ export const UpdateEmailFormFields = ({
   const { t } = useTranslation("user");
   return (
     <>
-      <Email label={t("profile.accountInfo.label")} name="email" />
+      <Email label={t("profile.accountInfo.newEmail")} name="email" />
 
       <FormActions
         actions={[

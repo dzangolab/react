@@ -192,14 +192,15 @@
   },
   "profile": {
     "accountInfo": {
-      "label": "New email (fr)",
+      "label": "Email (fr)",
+      "newEmail": "New Email (fr)",
       "messages": {
         "alreadyExist": "Email already exists. (fr)",
         "duplicate": "Email is same as the current one. (fr)",
         "disabled": "Update email feature is currently disabled. (fr)",
         "email": "Email is required. (fr)",
         "error": "An error occurred while updating the email. (fr)",
-        "invalid": "Email is invalid. (fr)",
+        "invalid": "Invalid email. (fr)",
         "success": "Email updated successfully. (fr)"
       },
       "title": "Update email (fr)"
