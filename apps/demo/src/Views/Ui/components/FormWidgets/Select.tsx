@@ -15,7 +15,10 @@ export const SelectDemo = () => {
   const [multipleSelectedValues, setMultipleSelectedValues] = useState<
     string[]
   >([]);
-  const [searchSelectedValues, setSearchSelectedValues] = useState<string>("");
+  const [multipleSelectedSearchedValues, setMultipleSelectedSearchedValues] =
+    useState<string[]>([]);
+  const [singleSelectedSearchedValues, setSingleSelectedSearchedValues] =
+    useState<string>("");
   const [singleSelectedValues, setSingleSelectedValues] = useState<number>(0);
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
@@ -60,7 +63,7 @@ export const SelectDemo = () => {
           ]}
           value={singleSelectedValues}
           onChange={(value: number) => setSingleSelectedValues(value)}
-          placeholder={t("select.placeHolder")}
+          placeholder={t("select.placeholder")}
           multiple={false}
         />
       </Section>
@@ -83,7 +86,7 @@ export const SelectDemo = () => {
           multiple={true}
           value={multipleSelectedValues}
           onChange={(value: string[]) => setMultipleSelectedValues(value)}
-          placeholder={t("select.placeHolder")}
+          placeholder={t("select.placeholder")}
         />
       </Section>
       <Section>
@@ -100,7 +103,7 @@ export const SelectDemo = () => {
           onChange={(value: string) => setSelectedValue(value)}
           hasError={true}
           errorMessage="Required field"
-          placeholder={t("select.placeHolder")}
+          placeholder={t("select.placeholder")}
           multiple={false}
         />
       </Section>
@@ -119,7 +122,7 @@ export const SelectDemo = () => {
           onChange={(value: string[]) => setRenderedValue(value)}
           renderValue={renderSelectedValue}
           multiple={true}
-          placeholder={t("select.placeHolder")}
+          placeholder={t("select.placeholder")}
         />
       </Section>
       <Section>
@@ -135,7 +138,7 @@ export const SelectDemo = () => {
           onChange={(value: string[]) => setRenderedOption(value)}
           renderOption={renderOption}
           multiple={true}
-          placeholder={t("select.placeHolder")}
+          placeholder={t("select.placeholder")}
         />
       </Section>
       <Section>
@@ -151,7 +154,7 @@ export const SelectDemo = () => {
       </Section>
       <Section>
         <Select
-          label={t("select.label.search")}
+          label={t("select.label.singleSearch")}
           name="select"
           enableSearch
           options={[
@@ -166,11 +169,37 @@ export const SelectDemo = () => {
             { value: "SN", label: "SUDAN" },
             { value: "PN", label: "POLAND" },
           ]}
-          value={searchSelectedValues}
-          onChange={(value: string) => setSearchSelectedValues(value)}
-          placeholder={t("select.placeHolder")}
-          searchPlaceHolder={t("select.searchPlaceHolder")}
+          value={singleSelectedSearchedValues}
+          onChange={(value: string) => setSingleSelectedSearchedValues(value)}
+          placeholder={t("select.placeholder")}
+          searchPlaceholder={t("select.searchPlaceholder")}
           multiple={false}
+        />
+      </Section>
+      <Section>
+        <Select
+          enableSearch
+          label={t("select.label.multipleSearch")}
+          name="select"
+          options={[
+            { value: "FR", label: "FRANCE" },
+            { value: "DE", label: "DENMARK" },
+            { value: "BE", label: "BELGIUM" },
+            { value: "SA", label: "SANTIAGO" },
+            { value: "AR", label: "ARGENTINA" },
+            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "NP", label: "NEPAL" },
+            { value: "NS", label: "NETHERLAND" },
+            { value: "SN", label: "SUDAN" },
+            { value: "PN", label: "POLAND" },
+          ]}
+          multiple={true}
+          value={multipleSelectedSearchedValues}
+          onChange={(value: string[]) =>
+            setMultipleSelectedSearchedValues(value)
+          }
+          placeholder={t("select.placeholder")}
+          searchPlaceholder={t("select.searchPlaceholder")}
         />
       </Section>
     </Page>

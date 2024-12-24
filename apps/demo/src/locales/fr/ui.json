@@ -268,13 +268,15 @@
       "disabled": "Disabled (fr)",
       "invalid": "Invalid (fr)",
       "multiple": "Multiple select (fr)",
+      "multipleSearch": "Multiple select with search (fr)",
       "renderOption": "Select with custom option (fr)",
       "renderValue": "Select with custom selected value (fr)",
       "search": "Select with search (fr)",
-      "single": "Single select (fr)"
+      "single": "Single select (fr)",
+      "singleSearch": "Single select with search (fr)"
     },
-    "placeHolder": "-- select value -- (fr)",
-    "searchPlaceHolder": "Search... (fr)",
+    "placeholder": "-- select value -- (fr)",
+    "searchPlaceholder": "Search... (fr)",
     "title": "Select (fr)"
   },
   "switchInput": {

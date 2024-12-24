@@ -268,13 +268,15 @@
       "disabled": "Disabled",
       "invalid": "Invalid",
       "multiple": "Multiple select",
+      "multipleSearch": "Multiple select with search",
       "renderOption": "Select with custom option",
       "renderValue": "Select with custom selected value",
       "search": "Select with search",
-      "single": "Single select"
+      "single": "Single select",
+      "singleSearch": "Single select with search"
     },
-    "placeHolder": "-- select value --",
-    "searchPlaceHolder": "Search...",
+    "placeholder": "-- select value --",
+    "searchPlaceholder": "Search...",
     "title": "Select"
   },
   "switchInput": {
