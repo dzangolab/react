@@ -25,7 +25,7 @@ type ISelectProperties<T> = {
   placeholder?: string;
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
-  searchPlaceHolder?: string;
+  searchPlaceholder?: string;
 } & (
   | {
       multiple: true;
@@ -53,7 +53,7 @@ export const Select = <T extends string | number>({
   name,
   options,
   placeholder,
-  searchPlaceHolder,
+  searchPlaceholder,
   value,
   renderOption,
   renderValue,
@@ -162,7 +162,7 @@ export const Select = <T extends string | number>({
       <ul className="select-field-options" aria-multiselectable={multiple}>
         {enableSearch ? (
           <DebouncedInput
-            placeholder={searchPlaceHolder}
+            placeholder={searchPlaceholder}
             onInputChange={(debouncedValue) => {
               setSearchInput(debouncedValue as string);
             }}
