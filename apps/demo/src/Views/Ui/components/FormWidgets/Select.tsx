@@ -15,6 +15,7 @@ export const SelectDemo = () => {
   const [multipleSelectedValues, setMultipleSelectedValues] = useState<
     string[]
   >([]);
+  const [searchSelectedValues, setSearchSelectedValues] = useState<string>("");
   const [singleSelectedValues, setSingleSelectedValues] = useState<number>(0);
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
@@ -146,6 +147,30 @@ export const SelectDemo = () => {
           onChange={() => {}}
           disabled={true}
           multiple={true}
+        />
+      </Section>
+      <Section>
+        <Select
+          label={t("select.label.search")}
+          name="select"
+          enableSearch
+          options={[
+            { value: "FR", label: "FRANCE" },
+            { value: "DE", label: "DENMARK" },
+            { value: "BE", label: "BELGIUM" },
+            { value: "SA", label: "SANTIAGO" },
+            { value: "AR", label: "ARGENTINA" },
+            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "NP", label: "NEPAL" },
+            { value: "NS", label: "NETHERLAND" },
+            { value: "SN", label: "SUDAN" },
+            { value: "PN", label: "POLAND" },
+          ]}
+          value={searchSelectedValues}
+          onChange={(value: string) => setSearchSelectedValues(value)}
+          placeholder={t("select.placeHolder")}
+          searchPlaceHolder={t("select.searchPlaceHolder")}
+          multiple={false}
         />
       </Section>
     </Page>

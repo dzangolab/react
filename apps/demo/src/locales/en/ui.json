@@ -264,16 +264,18 @@
     }
   },
   "select": {
-    "title": "Select",
     "label": {
       "disabled": "Disabled",
       "invalid": "Invalid",
       "multiple": "Multiple select",
       "renderOption": "Select with custom option",
       "renderValue": "Select with custom selected value",
+      "search": "Select with search",
       "single": "Single select"
     },
-    "placeHolder": "-- select value --"
+    "placeHolder": "-- select value --",
+    "searchPlaceHolder": "Search...",
+    "title": "Select"
   },
   "switchInput": {
     "basic": "Basic",
