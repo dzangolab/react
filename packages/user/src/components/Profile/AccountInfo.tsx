@@ -8,7 +8,7 @@ import { UpdateEmailModal } from "./UpdateEmailModal";
 
 export const AccountInfo = () => {
   const { t } = useTranslation("user");
-  const { user } = useUser();
+  const { user, setUser } = useUser();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const config = useConfig();
   const canUpdateEmail = config.features?.updateEmail;
@@ -38,6 +38,7 @@ export const AccountInfo = () => {
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           user={user}
+          setUser={setUser}
         />
       )}
     </div>

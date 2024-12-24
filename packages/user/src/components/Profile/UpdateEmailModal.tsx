@@ -8,12 +8,14 @@ interface Properties {
   modalVisible: boolean;
   setModalVisible: (visible: boolean) => void;
   user: UserType | null;
+  setUser: (user: UserType) => void;
 }
 
 export const UpdateEmailModal = ({
   modalVisible,
   setModalVisible,
   user,
+  setUser,
 }: Properties) => {
   const { t } = useTranslation("user");
 
@@ -24,7 +26,11 @@ export const UpdateEmailModal = ({
       visible={modalVisible}
       onHide={() => setModalVisible(false)}
     >
-      <UpdateEmailForm user={user} setModalVisible={setModalVisible} />
+      <UpdateEmailForm
+        user={user}
+        setModalVisible={setModalVisible}
+        setUser={setUser}
+      />
     </Modal>
   );
 };
