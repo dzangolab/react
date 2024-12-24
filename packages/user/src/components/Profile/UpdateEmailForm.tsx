@@ -11,6 +11,7 @@ import { UpdateEmailFormFields } from "./UpdateEmailFormFields";
 import { UserType } from "../../types";
 
 interface Properties {
+  setModalVisible: (visible: boolean) => void;
   user: UserType | null;
 }
 
@@ -18,7 +19,7 @@ type UpdateEmailFormData = {
   email: string;
 };
 
-export const UpdateEmailForm = ({ user }: Properties) => {
+export const UpdateEmailForm = ({ user, setModalVisible }: Properties) => {
   const { t, i18n } = useTranslation("user");
   const [loading, setLoading] = useState(false);
   const config = useConfig();
@@ -31,7 +32,6 @@ export const UpdateEmailForm = ({ user }: Properties) => {
     setLoading(true);
     try {
       const response = await changeEmail(data.email, config.apiBaseUrl);
-
       switch (response?.status) {
         case "OK":
           toast.success(t("profile.accountInfo.messages.success"));
@@ -42,11 +42,11 @@ export const UpdateEmailForm = ({ user }: Properties) => {
         case "EMAIL_SAME_AS_CURRENT_ERROR":
           toast.error(t("profile.accountInfo.messages.duplicate"));
           break;
-        case 422:
+        case "EMAIL_INVALID_ERROR":
           toast.error(t("profile.accountInfo.messages.invalid"));
           break;
-        case 403:
-          toast.error(t("profile.accountInfo.messages.invalid"));
+        case "EMAIL_FEATURE_DISABLED_ERROR":
+          toast.error(t("profile.accountInfo.messages.disabled"));
           break;
         default:
           toast.error(t("profile.accountInfo.messages.error"));
@@ -72,7 +72,10 @@ export const UpdateEmailForm = ({ user }: Properties) => {
       values={formValues}
       validationTriggerKey={i18n.language}
     >
-      <UpdateEmailFormFields loading={loading} />
+      <UpdateEmailFormFields
+        loading={loading}
+        setModalVisible={setModalVisible}
+      />
     </Provider>
   );
 };

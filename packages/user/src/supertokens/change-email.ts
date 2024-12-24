@@ -14,9 +14,9 @@ export const changeEmail = async (email: string, apiBaseUrl: string) => {
     /*eslint-disable-next-line @typescript-eslint/no-explicit-any */
   } catch (err: any) {
     if (err.response) {
-      const { status, data } = err.response;
+      const { data } = err.response;
 
-      return { status: status, message: data.message };
+      return { status: data.status, message: data.message };
     }
 
     return { status: "ERROR", message: "Oops! Something went wrong" };

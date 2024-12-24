@@ -8,7 +8,7 @@ import { UpdateEmailModal } from "./UpdateEmailModal";
 
 export const AccountInfo = () => {
   const { t } = useTranslation("user");
-  const { user, setUser } = useUser();
+  const { user } = useUser();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const config = useConfig();
   const canUpdateEmail = config.features?.updateEmail;

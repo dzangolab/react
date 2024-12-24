@@ -24,7 +24,7 @@ export const UpdateEmailModal = ({
       visible={modalVisible}
       onHide={() => setModalVisible(false)}
     >
-      <UpdateEmailForm user={user} />
+      <UpdateEmailForm user={user} setModalVisible={setModalVisible} />
     </Modal>
   );
 };

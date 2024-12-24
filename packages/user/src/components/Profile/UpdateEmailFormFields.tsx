@@ -3,9 +3,13 @@ import { useTranslation } from "@dzangolab/react-i18n";
 
 interface Properties {
   loading?: boolean;
+  setModalVisible: (visible: boolean) => void;
 }
 
-export const UpdateEmailFormFields = ({ loading }: Properties) => {
+export const UpdateEmailFormFields = ({
+  loading,
+  setModalVisible,
+}: Properties) => {
   const {
     formState: { errors, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
@@ -22,6 +26,7 @@ export const UpdateEmailFormFields = ({ loading }: Properties) => {
             label: t("profile.button.cancel"),
             type: "button",
             disabled: !isDirty,
+            onClick: () => setModalVisible(false),
           },
           {
             id: "submit",
