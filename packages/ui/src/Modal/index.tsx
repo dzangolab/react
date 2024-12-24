@@ -33,8 +33,9 @@ const Modal: React.FC<ModalProperties> = ({
           <Button
             className="dz-close-button"
             onClick={onHide}
-            variant="textOnly"
             rounded
+            severity="secondary"
+            variant="textOnly"
           >
             <i className="pi pi-times"></i>
           </Button>
