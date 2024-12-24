@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import { Tag } from "../../Tag";
 import { Checkbox } from "../Checkbox";
+import { DebouncedInput } from "../DebouncedInput";
 
 type Option<T> = {
   value: T;
@@ -13,6 +14,7 @@ type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   className?: string;
   disabled?: boolean;
+  enableSearch?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
@@ -23,6 +25,7 @@ type ISelectProperties<T> = {
   placeholder?: string;
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
+  searchPlaceHolder?: string;
 } & (
   | {
       multiple: true;
@@ -40,6 +43,7 @@ export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
   className = "",
   disabled: selectFieldDisabled,
+  enableSearch = false,
   errorMessage,
   hasError,
   helperText,
@@ -49,14 +53,25 @@ export const Select = <T extends string | number>({
   name,
   options,
   placeholder,
+  searchPlaceHolder,
   value,
   renderOption,
   renderValue,
   onChange,
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
+  const [searchInput, setSearchInput] = useState<string>("");
+
   const selectReference = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
+
+  const filteredOptions = useMemo(() => {
+    if (!searchInput) return options;
+
+    return options.filter((option) =>
+      option.label.toLowerCase().includes(searchInput.toLowerCase()),
+    );
+  }, [searchInput, options]);
 
   const shouldAutoSelect = useMemo(() => {
     return (
@@ -145,7 +160,15 @@ export const Select = <T extends string | number>({
   const renderOptions = () => {
     return (
       <ul className="select-field-options" aria-multiselectable={multiple}>
-        {options?.map((option, index) => {
+        {enableSearch ? (
+          <DebouncedInput
+            placeholder={searchPlaceHolder}
+            onInputChange={(debouncedValue) => {
+              setSearchInput(debouncedValue as string);
+            }}
+          />
+        ) : null}
+        {filteredOptions?.map((option, index) => {
           const { disabled, label } = option;
           let isChecked = false;
 
