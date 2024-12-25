@@ -3,10 +3,6 @@
   padding: 1rem 0;
 }
 
-.tabbed-panel.bottom > div > button.active {
-  border-bottom: var(--dz-primary-color);
-}
-
 .tabbed-panel > div > button {
   align-items: center;
   background: none;
@@ -41,11 +37,11 @@
   width: var(--tab-icon-width, 16px);
 }
 
-.tabbed-panel.top > div > button.active {
+.tabbed-panel > div > button.active {
   border-bottom: var(--dz-primary-color) 1px solid;
 }
 
-.tabbed-panel.top > div > button.active > span {
+.tabbed-panel > div > button.active > span {
   color: var(--dz-primary-color);
   font-weight: 500;
 }
