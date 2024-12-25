@@ -44,20 +44,13 @@ export const UpdateEmailForm = ({
       const response = await changeEmail(data.email, config.apiBaseUrl);
       switch (response?.status) {
         case "OK": {
-          const user = await getMe(config.apiBaseUrl);
+          const userInfo = await getMe(config.apiBaseUrl);
+          const isSameEmail = userInfo.data.email === user?.email;
 
-          console.log("user", user);
-
-          if (
-            config.features?.emailVerification &&
-            !user.data.isEmailVerified
-          ) {
-            console.log("enabled and unverified case");
+          if (config.features?.emailVerification && isSameEmail) {
             toast.success("A verification link has been sent to your email.");
           } else {
-            console.log("enabled and verifiedcase");
-
-            setUser(user.data);
+            setUser(userInfo.data);
             toast.success(t("profile.accountInfo.messages.success"));
           }
           break;
