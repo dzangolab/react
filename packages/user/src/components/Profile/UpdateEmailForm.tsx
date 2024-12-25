@@ -1,12 +1,13 @@
-import { Provider } from "@dzangolab/react-form";
+import { Provider, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import { z } from "zod";
 
 import { getMe } from "@/api/user";
 import { useConfig } from "@/hooks";
-import { changeEmail } from "@/supertokens";
+import { changeEmail, verifyEmail } from "@/supertokens";
 
 import { UpdateEmailFormFields } from "./UpdateEmailFormFields";
 import { UserType } from "../../types";
@@ -31,7 +32,10 @@ export const UpdateEmailForm = ({
   const config = useConfig();
 
   const emailValidationSchema = z.object({
-    email: z.string().min(1, t("profile.accountInfo.messages.email")),
+    email: emailSchema({
+      invalid: t("profile.accountInfo.messages.invalid"),
+      required: t("profile.accountInfo.messages.email"),
+    }),
   });
 
   const handleSubmit = async (data: UpdateEmailFormData) => {
@@ -41,8 +45,21 @@ export const UpdateEmailForm = ({
       switch (response?.status) {
         case "OK": {
           const user = await getMe(config.apiBaseUrl);
-          setUser(user.data);
-          toast.success(t("profile.accountInfo.messages.success"));
+
+          console.log("user", user);
+
+          if (
+            config.features?.emailVerification &&
+            !user.data.isEmailVerified
+          ) {
+            console.log("enabled and unverified case");
+            toast.success("A verification link has been sent to your email.");
+          } else {
+            console.log("enabled and verifiedcase");
+
+            setUser(user.data);
+            toast.success(t("profile.accountInfo.messages.success"));
+          }
           break;
         }
         case "EMAIL_ALREADY_EXISTS_ERROR": {
