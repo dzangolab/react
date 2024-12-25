@@ -215,7 +215,10 @@
     "usage": {
       "basic": "Basic usage",
       "customActiveTab": "Custom active tab",
-      "preserveTabState": "Tab with state persistence"
+      "disableTabState": "Tab with disabled state persistence",
+      "positionBottom": "Tab with position bottom",
+      "positionLeft": "Tab with position left",
+      "positionRight": "Tab with position right"
     }
   },
   "textarea": {
