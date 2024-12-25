@@ -7,7 +7,7 @@
   align-items: center;
   background: none;
   border: none;
-  border-bottom:  var(--tab-border, 1px solid transparent);
+  border:  var(--tab-border, 1px solid transparent);
   cursor: pointer;
   display: flex;
   outline: 0;
@@ -21,8 +21,20 @@
   outline: var(--tab-focus-outline, 1px solid #1c4786);
 }
 
-.tabbed-panel > div > button:not(.active):hover {
+.tabbed-panel.top > div > button:not(.active):hover {
   border-bottom:  var(--dz-primary-color) 1px solid;
+}
+
+.tabbed-panel.bottom > div > button:not(.active):hover {
+  border-top:  var(--dz-primary-color) 1px solid;
+}
+
+.tabbed-panel.left > div > button:not(.active):hover {
+  border-right:  var(--dz-primary-color) 1px solid;
+}
+
+.tabbed-panel.right > div > button:not(.active):hover {
+  border-left:  var(--dz-primary-color) 1px solid;
 }
 
 .tabbed-panel > div > button span {
@@ -35,10 +47,6 @@
   margin: var(--tab-icon-margin, 0 5px 0 0);
   object-fit: contain;
   width: var(--tab-icon-width, 16px);
-}
-
-.tabbed-panel > div > button.active {
-  border-bottom: var(--dz-primary-color) 1px solid;
 }
 
 .tabbed-panel > div > button.active > span {

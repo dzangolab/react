@@ -9,8 +9,15 @@
   flex-direction: column-reverse;
 }
 
+.tabbed-panel.left {
+  flex-direction: row;
+}
+
+.tabbed-panel.right {
+  flex-direction: row-reverse;
+}
+
 .tabbed-panel > div[role="tablist"] {
-  border-bottom:  var(--tab-border, 1px solid #ddd);
   display: flex;
   flex-direction: column;
   height: max-content;
@@ -25,8 +32,21 @@
   overflow-x: auto;
 }
 
-.tabbed-panel.left {
-  flex-direction: row;
+.tabbed-panel.top > div[role="tablist"] {
+  border-bottom:  var(--tab-border, 1px solid #ddd);
+}
+
+.tabbed-panel.bottom > div[role="tablist"] {
+  border-top:  var(--tab-border, 1px solid #ddd);
+}
+
+.tabbed-panel.left > div[role="tablist"] {
+  border-right:  var(--tab-border, 1px solid #ddd);
+  margin-right: 1rem;
+}
+
+.tabbed-panel.right > div[role="tablist"] {
+  border-left:  var(--tab-border, 1px solid #ddd);
 }
 
 .tabbed-panel > div[role="tablist"] > button {
@@ -37,19 +57,23 @@
   align-items: flex-start;
 }
 
-.tabbed-panel.left > div[role="tablist"] > button.active {
-  border-right: var(--tab-active-border);
-}
-
-.tabbed-panel.right {
-  flex-direction: row-reverse;
-}
-
-.tabbed-panel.right > div[role="tablist"] > button.active {
-  border-left: var(--tab-active-border);
-}
-
 .tabbed-panel.left > div[role="tablist"] > button,
 .tabbed-panel.right > div[role="tablist"] > button {
   width: 100%;
+}
+
+.tabbed-panel.top > div[role="tablist"] > button.active {
+  border-bottom: var(--dz-primary-color) 1px solid;
+}
+
+.tabbed-panel.bottom > div[role="tablist"] > button.active {
+  border-top: var(--dz-primary-color) 1px solid;
+}
+
+.tabbed-panel.left > div[role="tablist"] > button.active {
+  border-right: var(--dz-primary-color) 1px solid;
+}
+
+.tabbed-panel.right > div[role="tablist"] > button.active {
+  border-left: var(--dz-primary-color) 1px solid;
 }
