@@ -215,6 +215,8 @@
     "usage": {
       "basic": "Basic usage",
       "customActiveTab": "Custom active tab",
+      "positionBottom": "Tab with position bottom",
+      "positionLeft": "Tab with position left",
       "preserveTabState": "Tab with state persistence"
     }
   },
