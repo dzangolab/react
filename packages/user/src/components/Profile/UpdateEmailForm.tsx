@@ -2,12 +2,11 @@ import { Provider, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import { z } from "zod";
 
 import { getMe } from "@/api/user";
 import { useConfig } from "@/hooks";
-import { changeEmail, verifyEmail } from "@/supertokens";
+import { changeEmail } from "@/supertokens";
 
 import { UpdateEmailFormFields } from "./UpdateEmailFormFields";
 import { UserType } from "../../types";
