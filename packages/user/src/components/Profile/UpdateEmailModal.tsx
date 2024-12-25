@@ -9,6 +9,7 @@ interface Properties {
   setModalVisible: (visible: boolean) => void;
   user: UserType | null;
   setUser: (user: UserType) => void;
+  setIsEmailVerified: (verified: boolean) => void;
 }
 
 export const UpdateEmailModal = ({
@@ -16,6 +17,7 @@ export const UpdateEmailModal = ({
   setModalVisible,
   user,
   setUser,
+  setIsEmailVerified,
 }: Properties) => {
   const { t } = useTranslation("user");
 
@@ -30,6 +32,7 @@ export const UpdateEmailModal = ({
         user={user}
         setModalVisible={setModalVisible}
         setUser={setUser}
+        setIsEmailVerified={setIsEmailVerified}
       />
     </Modal>
   );

@@ -202,7 +202,8 @@
         "email": "Email is required.",
         "error": "An error occurred while updating the email.",
         "invalid": "Invalid email",
-        "success": "Email updated successfully."
+        "success": "Email updated successfully.",
+        "verify": "Check your email and verify it's you to complete the email update."
       },
       "title": "Update email"
     },
