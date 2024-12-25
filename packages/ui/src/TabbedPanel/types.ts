@@ -16,7 +16,7 @@ type Properties = {
   id?: string;
   onTabChange?: (index: number) => void;
   position?: TPosition;
-  persistState?: boolean;
+  disablePersistState?: boolean;
   persistStateStorage?: StorageType;
 };
 

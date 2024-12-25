@@ -215,9 +215,10 @@
     "usage": {
       "basic": "Basic usage (fr)",
       "customActiveTab": "Custom active tab (fr)",
-      "positionButtom": "Tab with position bottom (fr)",
+      "disableTabState": "Tab with disabled state persistence (fr)",
+      "positionBottom": "Tab with position bottom (fr)",
       "positionLeft": "Tab with position left (fr)",
-      "preserveTabState": "Tab with state persistence (fr)"
+      "positionRight": "Tab with position right (fr)"
     }
   },
   "textarea": {

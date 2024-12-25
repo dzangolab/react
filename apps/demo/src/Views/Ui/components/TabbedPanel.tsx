@@ -9,35 +9,42 @@ export const TabbedPanelDemo = () => {
   return (
     <Page title={t("tabbedPanel.title")}>
       <Section title={t("tabbedPanel.usage.basic")}>
-        <TabbedPanel>
+        <TabbedPanel id="tabbed-pannel-1">
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>
         </TabbedPanel>
       </Section>
       <Section title={t("tabbedPanel.usage.customActiveTab")}>
-        <TabbedPanel defaultActiveIndex={1}>
+        <TabbedPanel id="tabbed-pannel-2" defaultActiveIndex={1}>
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>
         </TabbedPanel>
       </Section>
-      <Section title={t("tabbedPanel.usage.preserveTabState")}>
-        <TabbedPanel id="tabbed-pannel" persistState={true}>
+      <Section title={t("tabbedPanel.usage.disableTabState")}>
+        <TabbedPanel id="tabbed-pannel-3" disablePersistState>
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>
         </TabbedPanel>
       </Section>
       <Section title={t("tabbedPanel.usage.positionBottom")}>
-        <TabbedPanel position="bottom">
+        <TabbedPanel id="tabbed-pannel-4" position="bottom">
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>
         </TabbedPanel>
       </Section>
       <Section title={t("tabbedPanel.usage.positionLeft")}>
-        <TabbedPanel position="left">
+        <TabbedPanel id="tabbed-pannel-5" position="left">
+          <SubPane title="Tab 1">Tab 1 content</SubPane>
+          <SubPane title="Tab 2">Tab 2 content</SubPane>
+          <SubPane title="Tab 3">Tab 3 content</SubPane>
+        </TabbedPanel>
+      </Section>
+      <Section title={t("tabbedPanel.usage.positionRight")}>
+        <TabbedPanel id="tabbed-pannel-5" position="right">
           <SubPane title="Tab 1">Tab 1 content</SubPane>
           <SubPane title="Tab 2">Tab 2 content</SubPane>
           <SubPane title="Tab 3">Tab 3 content</SubPane>

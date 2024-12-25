@@ -10,7 +10,7 @@ const TabbedPanel: React.FC<Properties> = ({
   defaultActiveIndex = 0,
   position = "top",
   id = "",
-  persistState = false,
+  disablePersistState = false,
   persistStateStorage = "localStorage",
 }) => {
   const [active, setActive] = useState<number | null>(null);
@@ -25,7 +25,7 @@ const TabbedPanel: React.FC<Properties> = ({
   );
 
   useEffect(() => {
-    if (persistState && id) {
+    if (!disablePersistState && id) {
       const activeTabIndex = storage.getItem(activeTabStorageKey);
 
       if (activeTabIndex !== null) {
@@ -36,13 +36,13 @@ const TabbedPanel: React.FC<Properties> = ({
     } else {
       setActive(defaultActiveIndex);
     }
-  }, [id, persistState, defaultActiveIndex]);
+  }, [id, disablePersistState, defaultActiveIndex]);
 
   useEffect(() => {
-    if (persistState && id) {
+    if (!disablePersistState && id) {
       storage.setItem(activeTabStorageKey, String(active));
     }
-  }, [active, id, persistState]);
+  }, [active, id, disablePersistState]);
 
   const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];
