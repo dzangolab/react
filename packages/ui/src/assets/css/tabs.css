@@ -1,4 +1,7 @@
 .tabbed-panel {
+  --_tab-border: var(--tab-border, 1px solid #ddd);
+  --_tab-active-border: var(--tab-active-border, 1px solid #007aff);
+  --_tab-hover-border: var(--tab-hover-border, 1px solid #007aff);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -33,20 +36,20 @@
 }
 
 .tabbed-panel.top > div[role="tablist"] {
-  border-bottom:  var(--tab-border, 1px solid #ddd);
+  border-bottom:  var(--_tab-border);
 }
 
 .tabbed-panel.bottom > div[role="tablist"] {
-  border-top:  var(--tab-border, 1px solid #ddd);
+  border-top:  var(--_tab-border);
 }
 
 .tabbed-panel.left > div[role="tablist"] {
-  border-right:  var(--tab-border, 1px solid #ddd);
+  border-right:  var(--_tab-border);
   margin-right: 1rem;
 }
 
 .tabbed-panel.right > div[role="tablist"] {
-  border-left:  var(--tab-border, 1px solid #ddd);
+  border-left:  var(--_tab-border);
 }
 
 .tabbed-panel > div[role="tablist"] > button {
@@ -63,17 +66,33 @@
 }
 
 .tabbed-panel.top > div[role="tablist"] > button.active {
-  border-bottom: var(--dz-primary-color) 1px solid;
+  border-bottom: var(--_tab-active-border);
 }
 
 .tabbed-panel.bottom > div[role="tablist"] > button.active {
-  border-top: var(--dz-primary-color) 1px solid;
+  border-top: var(--_tab-active-border);
 }
 
 .tabbed-panel.left > div[role="tablist"] > button.active {
-  border-right: var(--dz-primary-color) 1px solid;
+  border-right: var(--_tab-active-border);
 }
 
 .tabbed-panel.right > div[role="tablist"] > button.active {
-  border-left: var(--dz-primary-color) 1px solid;
+  border-left: var(--_tab-active-border);
+}
+
+.tabbed-panel.top > div[role="tablist"] > button:not(.active):hover {
+  border-bottom:  var(--_tab-hover-border);
+}
+
+.tabbed-panel.bottom > div[role="tablist"] > button:not(.active):hover {
+  border-top: var(--_tab-hover-border);
+}
+
+.tabbed-panel.left > div[role="tablist"] > button:not(.active):hover {
+  border-right:  var(--_tab-hover-border);
+}
+
+.tabbed-panel.right > div[role="tablist"] > button:not(.active):hover {
+  border-left:  var(--_tab-hover-border);
 }

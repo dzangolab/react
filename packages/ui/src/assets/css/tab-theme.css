@@ -1,3 +1,8 @@
+.tabbed-panel {
+  --tab-active-border: 1px solid var(--tab-active-color);
+  --tab-hover-border: 1px solid var(--tab-hover-color);
+}
+
 .tabbed-panel > div[role="tabpanel"] {
   width: 100%;
   padding: 1rem 0;
@@ -19,22 +24,6 @@
 .tabbed-panel > div > button:focus-visible {
   outline-offset: -1px;
   outline: var(--tab-focus-outline, 1px solid #1c4786);
-}
-
-.tabbed-panel.top > div > button:not(.active):hover {
-  border-bottom:  var(--dz-primary-color) 1px solid;
-}
-
-.tabbed-panel.bottom > div > button:not(.active):hover {
-  border-top:  var(--dz-primary-color) 1px solid;
-}
-
-.tabbed-panel.left > div > button:not(.active):hover {
-  border-right:  var(--dz-primary-color) 1px solid;
-}
-
-.tabbed-panel.right > div > button:not(.active):hover {
-  border-left:  var(--dz-primary-color) 1px solid;
 }
 
 .tabbed-panel > div > button span {
