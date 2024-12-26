@@ -15,7 +15,6 @@ interface Properties {
   setModalVisible: (visible: boolean) => void;
   user: UserType | null;
   setUser: (user: UserType) => void;
-  setIsEmailVerified: (verified: boolean) => void;
 }
 
 type UpdateEmailFormData = {
@@ -26,7 +25,6 @@ export const UpdateEmailForm = ({
   user,
   setModalVisible,
   setUser,
-  setIsEmailVerified,
 }: Properties) => {
   const { t, i18n } = useTranslation("user");
   const [loading, setLoading] = useState(false);
@@ -50,11 +48,9 @@ export const UpdateEmailForm = ({
 
           if (config.features?.emailVerification && isSameEmail) {
             toast.success("A verification link has been sent to your email.");
-            setIsEmailVerified(false);
           } else {
             setUser(userInfo.data);
             toast.success(t("profile.accountInfo.messages.success"));
-            setIsEmailVerified(true);
           }
           break;
         }

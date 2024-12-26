@@ -10,7 +10,6 @@ export const AccountInfo = () => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [isEmailVerified, setIsEmailVerified] = useState<boolean>(true);
 
   const config = useConfig();
   const canUpdateEmail = config.features?.updateEmail;
@@ -35,20 +34,19 @@ export const AccountInfo = () => {
           </>
         }
       />
-
-      {canUpdateEmail && !isEmailVerified && (
+      {/* 
+      {canUpdateEmail && (
         <Message
           message={t("profile.accountInfo.messages.verify")}
           icon={<i className="pi pi-info-circle" />}
         />
-      )}
+      )} */}
       {canUpdateEmail && (
         <UpdateEmailModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           user={user}
           setUser={setUser}
-          setIsEmailVerified={setIsEmailVerified}
         />
       )}
     </div>
