@@ -1,6 +1,6 @@
 .tabbed-panel {
-  --tab-active-border: 1px solid var(--tab-active-color);
-  --tab-hover-border: 1px solid var(--tab-hover-color);
+  --tab-active-border: 1px solid var(--dz-primary-color);
+  --tab-hover-border: 1px solid var(--dz-primary-color);
 }
 
 .tabbed-panel > div[role="tabpanel"] {

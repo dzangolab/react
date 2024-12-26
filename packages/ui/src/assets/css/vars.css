@@ -24,7 +24,5 @@
   --field-valid-border-color: var(--dz-success-color);
   --menu-border-color: #555;
   --submit-button-bg-color: var(--dz-primary-color);
-  --tab-active-color: var(--dz-primary-color);
-  --tab-hover-color: var(--dz-primary-color);
   --transition-duration: 300ms;
 }
