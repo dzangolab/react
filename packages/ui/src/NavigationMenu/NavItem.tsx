@@ -57,11 +57,7 @@ export const NavItem = ({
 
   if (hasRouterContext) {
     return (
-      <NavLink
-        to={navItem.route || ""}
-        end={navItem.route === "/"}
-        className={_className}
-      >
+      <NavLink to={navItem.route || ""} end className={_className}>
         {displayIcon && navItem.icon && <i className={navItem.icon}></i>}
         <span>{navItem.label}</span>
       </NavLink>
