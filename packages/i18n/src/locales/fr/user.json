@@ -202,7 +202,7 @@
         "error": "An error occurred while updating the email. (fr)",
         "invalid": "Invalid email. (fr)",
         "success": "Email updated successfully. (fr)",
-        "verify": "Check your email and verify it's you to complete the email update. (fr)"
+        "verify": "Verify email to complete the email update. (fr)"
       },
       "title": "Update email (fr)"
     },
