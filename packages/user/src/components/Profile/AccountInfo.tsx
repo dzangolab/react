@@ -11,8 +11,7 @@ export const AccountInfo = () => {
   const { user, setUser } = useUser();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const config = useConfig();
-  const canUpdateEmail =
-    config.features?.updateEmail && !config.features?.emailVerification;
+  const canUpdateEmail = config.features?.updateEmail;
 
   return (
     <div className="account-info">
