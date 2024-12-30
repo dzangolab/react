@@ -42,12 +42,10 @@ export const Pages = () => {
   const [t] = useTranslation("form");
 
   const subnav = [
+    { label: t("app:getStarted"), route: FORM_ROUTES.GET_STARTED },
     {
-      navItems: [{ route: "/form", label: t("app:getStarted") }],
-    },
-    {
-      header: t("headers.examples"),
-      navItems: [
+      label: t("headers.examples"),
+      submenu: [
         ...routes.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
