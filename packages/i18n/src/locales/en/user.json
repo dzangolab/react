@@ -203,7 +203,8 @@
         "error": "An error occurred while updating the email.",
         "invalid": "Invalid email",
         "socialLoginError": "User with social logins cannot update email.",
-        "success": "Email updated successfully."
+        "success": "Email updated successfully.",
+        "verify": "Verify email to complete the email update."
       },
       "title": "Update email"
     },
