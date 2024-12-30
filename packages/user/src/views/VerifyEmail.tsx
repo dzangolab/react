@@ -25,8 +25,15 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
             switch (response.status) {
               case EMAIL_VERIFICATION.OK: {
                 const userInfo = await getMe(config.apiBaseUrl);
-                toast.success(t("emailVerification.toastMessages.success"));
-                setUser(userInfo.data);
+                if (user.email !== userInfo.data.email) {
+                  toast.success(
+                    t("emailVerification.toastMessages.updateSuccess"),
+                  );
+                  setUser(userInfo.data);
+                } else {
+                  toast.success(t("emailVerification.toastMessages.success"));
+                }
+
                 break;
               }
               case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR:

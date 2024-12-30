@@ -186,7 +186,8 @@
       "invalidToken": "The token is invalid (fr)",
       "error": "Something went wrong. Please try again (fr)",
       "resendSuccess": "Email resent successfully (fr)",
-      "resendError": "Something went wrong. Please try again (fr)"
+      "resendError": "Something went wrong. Please try again (fr)",
+      "updateSuccess": "Email updated sucessfully (fr)"
     },
     "verifyEmail": "Verifying your email address (fr)"
   },

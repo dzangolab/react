@@ -187,7 +187,8 @@
       "invalidToken": "The token is invalid",
       "error": "Something went wrong. Please try again",
       "resendSuccess": "Email resent successfully",
-      "resendError": "Something went wrong. Please try again"
+      "resendError": "Something went wrong. Please try again",
+      "updateSuccess": "Email updated sucessfully"
     },
     "verifyEmail": "Verifying your email address"
   },
