@@ -34,13 +34,6 @@ export const AccountInfo = () => {
           </>
         }
       />
-      {/* 
-      {canUpdateEmail && (
-        <Message
-          message={t("profile.accountInfo.messages.verify")}
-          icon={<i className="pi pi-info-circle" />}
-        />
-      )} */}
       {canUpdateEmail && (
         <UpdateEmailModal
           modalVisible={modalVisible}
