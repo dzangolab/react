@@ -6,6 +6,20 @@
   --dz-alternate-color: #0284c7;
   --dz-danger-color: #dc3545;
   --dz-input-fill-color: transparent;
+
+  --dz-nav-item-active-bg: rgba(45, 45, 45, 0.125);
+  --dz-nav-item-active-color: var(--dz-nav-item-color);
+  --dz-nav-item-border-radius: 0;
+  --dz-nav-item-color: #ffffff;
+  --dz-nav-item-hover-bg: rgba(45, 45, 45, 0.125);
+  --dz-nav-item-hover-color: var(--dz-nav-item-color);
+  --dz-nav-item-padding-h: 1.5rem;
+  --dz-nav-item-padding-v: 0.625rem;
+  --dz-nav-menu-label-color: var(--dz-nav-item-color);
+  --dz-nav-menu-padding-h: 0;
+  --dz-nav-menu-padding-v: 1rem;
+  --dz-nav-menu-separator-color: #dbdbdb;
+
   --dz-page-gap: 0.5rem;
   --dz-page-max-width: 550px;
   --dz-primary-color: #007aff;
@@ -25,4 +39,6 @@
   --menu-border-color: #555;
   --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms;
+
+  
 }
