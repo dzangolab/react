@@ -202,6 +202,7 @@
         "email": "Email is required.",
         "error": "An error occurred while updating the email.",
         "invalid": "Invalid email",
+        "socialLoginError": "User with social logins cannot update email.",
         "success": "Email updated successfully."
       },
       "title": "Update email"
