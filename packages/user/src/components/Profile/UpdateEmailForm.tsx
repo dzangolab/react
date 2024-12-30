@@ -52,6 +52,8 @@ export const UpdateEmailForm = ({
             setUser(userInfo.data);
             toast.success(t("profile.accountInfo.messages.success"));
           }
+
+          setModalVisible(false);
           break;
         }
         case "EMAIL_ALREADY_EXISTS_ERROR": {
