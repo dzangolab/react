@@ -201,7 +201,6 @@
         "email": "Email is required. (fr)",
         "error": "An error occurred while updating the email. (fr)",
         "invalid": "Invalid email. (fr)",
-        "socialLoginError": "User with social logins cannot update email. (fr)",
         "success": "Email updated successfully. (fr)",
         "verify": "Verify email to complete the email update. (fr)"
       },

@@ -13,8 +13,8 @@ export interface UserType extends EmailPasswordUserType {
   signedUpAt: number;
   surname: string | null;
   thirdParty?: {
-    id?: string;
-    userId?: string;
+    id: string;
+    userId: string;
   };
 }
 
