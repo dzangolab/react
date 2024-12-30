@@ -12,11 +12,14 @@ export const AccountInfo = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const config = useConfig();
   const canUpdateEmail =
-    config.features?.updateEmail && !config.features?.emailVerification;
+    config.features?.updateEmail &&
+    !user?.thirdParty &&
+    !config.features?.emailVerification;
 
   return (
     <div className="account-info">
       <Data
+        className={`${canUpdateEmail ? "update-email" : ""}`.trimEnd()}
         label={t("profile.accountInfo.label")}
         value={
           <>

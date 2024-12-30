@@ -37,12 +37,6 @@ export const UpdateEmailForm = ({
   const handleSubmit = async (data: UpdateEmailFormData) => {
     setLoading(true);
 
-    if (user?.thirdParty && Object.keys(user.thirdParty).length > 0) {
-      toast.error(t("profile.accountInfo.messages.socialLoginError"));
-      setLoading(false);
-      return;
-    }
-
     try {
       const response = await changeEmail(data.email, config.apiBaseUrl);
       switch (response?.status) {
