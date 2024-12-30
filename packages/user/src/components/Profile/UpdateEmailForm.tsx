@@ -1,4 +1,4 @@
-import { Provider } from "@dzangolab/react-form";
+import { Provider, emailSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -31,7 +31,10 @@ export const UpdateEmailForm = ({
   const config = useConfig();
 
   const emailValidationSchema = z.object({
-    email: z.string().min(1, t("profile.accountInfo.messages.email")),
+    email: emailSchema({
+      invalid: t("profile.accountInfo.messages.invalid"),
+      required: t("profile.accountInfo.messages.email"),
+    }),
   });
 
   const handleSubmit = async (data: UpdateEmailFormData) => {
@@ -40,9 +43,17 @@ export const UpdateEmailForm = ({
       const response = await changeEmail(data.email, config.apiBaseUrl);
       switch (response?.status) {
         case "OK": {
-          const user = await getMe(config.apiBaseUrl);
-          setUser(user.data);
-          toast.success(t("profile.accountInfo.messages.success"));
+          const userInfo = await getMe(config.apiBaseUrl);
+          const isSameEmail = userInfo.data.email === user?.email;
+
+          if (config.features?.emailVerification && isSameEmail) {
+            toast.success("A verification link has been sent to your email.");
+          } else {
+            setUser(userInfo.data);
+            toast.success(t("profile.accountInfo.messages.success"));
+          }
+
+          setModalVisible(false);
           break;
         }
         case "EMAIL_ALREADY_EXISTS_ERROR": {
