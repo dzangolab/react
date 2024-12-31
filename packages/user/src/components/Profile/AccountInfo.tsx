@@ -16,7 +16,7 @@ export const AccountInfo = () => {
   return (
     <div className="account-info">
       <Data
-        className={`${canUpdateEmail ? "update-email" : ""}`.trimEnd()}
+        className={`${canUpdateEmail ? "update-email" : ""}`.trim()}
         label={t("profile.accountInfo.label")}
         value={
           <>
