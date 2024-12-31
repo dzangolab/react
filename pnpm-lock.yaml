@@ -645,9 +645,6 @@ importers:
       prettier:
         specifier: 3.3.3
         version: 3.3.3
-      primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
