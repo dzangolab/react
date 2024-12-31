@@ -38,15 +38,21 @@ export const ProtectedRoutesHandler: React.FC = () => {
       )
     ) {
       if (config.features?.updateEmail) {
-        if (location.pathname === emailVerificationVerifyPath) {
-          return <Outlet />;
+        let component;
+
+        switch (location.pathname) {
+          case emailVerificationVerifyPath:
+            component = <Outlet />;
+            break;
+          case emailVerificationReminderPath:
+            component = !isEmailVerified ? <Outlet /> : <Navigate to={home} />;
+            break;
+          default:
+            component = <Navigate to={home} />;
+            break;
         }
 
-        if (location.pathname === emailVerificationReminderPath) {
-          return !isEmailVerified ? <Outlet /> : <Navigate to={home} />;
-        }
-
-        return <Navigate to={home} />;
+        return component;
       } else {
         return !isEmailVerified ? <Outlet /> : <Navigate to={home} />;
       }

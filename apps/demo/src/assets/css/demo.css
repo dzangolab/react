@@ -7,7 +7,7 @@
 }
 
 .demo > .demo-aside {
-  flex-basis: 15rem;
+  flex-basis: 17rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -21,25 +21,13 @@
   min-inline-size: 50%;
 }
 
-.demo .demo-aside ul {
-  padding: 0;
-}
-
-.demo .demo-aside .nav-menu h2 {
-  margin-bottom: 0.5rem;
+.demo .demo-aside ul > li {
+  margin-bottom: 0.3rem;
 }
 
 .demo .demo-aside ul > li > a {
-  font-size: 1rem;
   color: var(--color);
   text-decoration: none;
-  transition: all 200ms ease;
-  line-height: 2.5;
-}
-
-.demo .demo-aside ul > li > a:hover,
-.demo .demo-aside ul > li > a[aria-current="page"] {
-  text-decoration: underline;
 }
 
 .demo-section {

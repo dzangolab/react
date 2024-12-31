@@ -49,12 +49,10 @@ export const Pages = () => {
   const [t] = useTranslation("user");
 
   const subnav = [
+    { label: t("app:getStarted"), route: USER_ROUTES.GET_STARTED },
     {
-      navItems: [{ route: "/user", label: t("app:getStarted") }],
-    },
-    {
-      header: t("headers.components"),
-      navItems: [
+      label: t("headers.components"),
+      submenu: [
         ...routes.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),

@@ -1,17 +1,18 @@
+.tabbed-panel {
+  --tab-active-border: 1px solid var(--dz-primary-color);
+  --tab-hover-border: 1px solid var(--dz-primary-color);
+}
+
 .tabbed-panel > div[role="tabpanel"] {
   width: 100%;
   padding: 1rem 0;
-}
-
-.tabbed-panel.bottom > div > button.active {
-  border-bottom: var(--dz-primary-color);
 }
 
 .tabbed-panel > div > button {
   align-items: center;
   background: none;
   border: none;
-  border-bottom:  var(--tab-border, 1px solid transparent);
+  border:  var(--tab-border, 1px solid transparent);
   cursor: pointer;
   display: flex;
   outline: 0;
@@ -23,10 +24,6 @@
 .tabbed-panel > div > button:focus-visible {
   outline-offset: -1px;
   outline: var(--tab-focus-outline, 1px solid #1c4786);
-}
-
-.tabbed-panel > div > button:not(.active):hover {
-  border-bottom:  var(--dz-primary-color) 1px solid;
 }
 
 .tabbed-panel > div > button span {
@@ -41,11 +38,7 @@
   width: var(--tab-icon-width, 16px);
 }
 
-.tabbed-panel.top > div > button.active {
-  border-bottom: var(--dz-primary-color) 1px solid;
-}
-
-.tabbed-panel.top > div > button.active > span {
+.tabbed-panel > div > button.active > span {
   color: var(--dz-primary-color);
   font-weight: 500;
 }
