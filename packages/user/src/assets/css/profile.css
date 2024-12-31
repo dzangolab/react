@@ -16,4 +16,17 @@
   display: flex;
   gap: 0.45rem;
   margin-top: -0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile .account-info .dz-data {
+  gap: 0.75rem;
+}
+
+.profile .account-info .dz-data.update-email {
+  gap: 0.15rem;
+}
+
+.profile .account-info .dz-data.update-email .dz-data-value {
+  margin-bottom: 0;
 }
