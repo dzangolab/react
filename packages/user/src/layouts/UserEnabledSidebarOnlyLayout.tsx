@@ -76,25 +76,19 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     };
   };
 
-  console.log("############################################### heleleo");
-
   return (
-    <>
-      {" "}
-      hellosdfgdsgsdfgdfg
-      <SidebarOnlyLayout
-        children={children}
-        className={className}
-        collapsible={collapsible}
-        displayNavIcons={displayNavIcons}
-        navigationMenu={user ? navigationMenu : authNavigationMenu}
-        customSidebar={customSidebar}
-        noSidebarHeader={noSidebarHeader}
-        noSidebarFooter={noSidebarFooter}
-        noLocaleSwitcher={noLocaleSwitcher}
-        userMenu={user ? getUserNavigationMenu() : undefined}
-        userMenuMode={userMenuMode}
-      />
-    </>
+    <SidebarOnlyLayout
+      children={children}
+      className={className}
+      collapsible={collapsible}
+      displayNavIcons={displayNavIcons}
+      navigationMenu={user ? navigationMenu : authNavigationMenu}
+      customSidebar={customSidebar}
+      noSidebarHeader={noSidebarHeader}
+      noSidebarFooter={noSidebarFooter}
+      noLocaleSwitcher={noLocaleSwitcher}
+      userMenu={user ? getUserNavigationMenu() : undefined}
+      userMenuMode={userMenuMode}
+    />
   );
 };

@@ -3,8 +3,9 @@ import {
   SidebarHeaderLayout,
   SidebarHeaderLayoutProperties,
 } from "@dzangolab/react-layout";
-import { NavMenuItemType } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
+
+import type { NavMenuItemType } from "@dzangolab/react-ui";
 
 import { useUser } from "@/hooks";
 import { logout } from "@/supertokens";

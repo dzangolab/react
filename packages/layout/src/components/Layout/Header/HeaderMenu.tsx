@@ -1,7 +1,8 @@
 import { LocaleSwitcher } from "@dzangolab/react-i18n";
-import { NavMenuItemType, UserMenuModeType } from "@dzangolab/react-ui";
 
 import { UserMenu } from "../common/UserMenu";
+
+import type { NavMenuItemType, UserMenuModeType } from "@dzangolab/react-ui";
 
 interface HeaderProperties {
   children?: React.ReactNode;

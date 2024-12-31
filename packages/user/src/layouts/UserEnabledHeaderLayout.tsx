@@ -1,9 +1,10 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { HeaderLayout } from "@dzangolab/react-layout";
-import { NavMenuItemType, NavMenuType } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
 
 import { logout, useUser } from "..";
+
+import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-ui";
 
 interface IProperties {
   authNavigationMenu?: NavMenuItemType;

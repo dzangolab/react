@@ -1,7 +1,7 @@
-import {
+import type {
+  NavGroupDisplayMode,
   NavMenuType,
   NavMenuItemType,
-  NavGroupDisplayMode,
 } from "@dzangolab/react-ui";
 
 import { Layout, Sidebar } from "@/components/Layout";
