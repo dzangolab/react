@@ -54,7 +54,6 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
         })
         .finally(() => {
           setVerifyEmailLoading(false);
-          setIsEmailUpdated(false);
         });
     }
   }, []);
@@ -65,7 +64,7 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
     }
 
     let message = "";
-
+    console.log("isEmailUpdate", isEmailUpdated);
     switch (status) {
       case EMAIL_VERIFICATION.OK:
         isEmailUpdated
