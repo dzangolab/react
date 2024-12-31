@@ -1,6 +1,10 @@
-import { NavGroupDisplayMode } from "@/components/Layout";
+import { Header, Layout, Sidebar } from "..";
 
-import { Header, Layout, NavMenuItemType, NavMenuType, Sidebar } from "..";
+import type {
+  NavGroupDisplayMode,
+  NavMenuItemType,
+  NavMenuType,
+} from "@dzangolab/react-ui";
 
 export interface SidebarHeaderLayoutProperties {
   children: React.ReactNode;

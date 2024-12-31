@@ -1,9 +1,8 @@
-import { DropdownMenu } from "@dzangolab/react-ui";
+import { DropdownMenu, NavGroup } from "@dzangolab/react-ui";
 import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { NavMenuItemType, UserMenuModeType } from "../../types";
-import { NavGroup } from "../NavigationMenu/NavGroup";
+import type { NavMenuItemType, UserMenuModeType } from "@dzangolab/react-ui";
 
 interface IProperties {
   menu: NavMenuItemType;
