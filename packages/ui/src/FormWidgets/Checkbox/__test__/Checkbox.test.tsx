@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { expect, test, describe } from "vitest";
+import { expect, test, describe, vi } from "vitest";
 
 import { Checkbox } from "..";
 
@@ -9,6 +9,47 @@ describe("Checkbox component", () => {
     render(<Checkbox />);
 
     const checkbox = screen.getByRole("checkbox");
-    expect(checkbox).toBeDefined();
+    expect(checkbox).toBeInTheDocument();
+  });
+
+  test("should render the checkbox with the provided label", () => {
+    render(<Checkbox name="agree" label="I agree to the terms" />);
+
+    const checkbox = screen.getByLabelText("I agree to the terms");
+    expect(checkbox).toBeInTheDocument();
+  });
+
+  test("should set the correct name, id attributes", () => {
+    render(<Checkbox name="agree" label="I agree to the terms" />);
+
+    const checkbox = screen.getByRole("checkbox");
+    expect(checkbox).toHaveAttribute("name", "agree");
+    expect(checkbox).toHaveAttribute("id", "agree");
+  });
+
+  test("should trigger the onChange handler when checked", () => {
+    const handleChange = vi.fn();
+    render(<Checkbox onChange={handleChange} />);
+
+    const checkbox = screen.getByRole("checkbox");
+    fireEvent.click(checkbox);
+
+    expect(handleChange).toHaveBeenCalledTimes(1);
+  });
+
+  test("should be disable if disabled is true", () => {
+    render(<Checkbox disabled={true} />);
+
+    const checkbox = screen.getByRole("checkbox");
+    expect(checkbox).toBeDisabled();
+  });
+
+  test("should render an error message if errorMessage prop is provided", () => {
+    render(
+      <Checkbox name="agree" errorMessage="You must agree to the terms" />,
+    );
+
+    const errorMessage = screen.getByText("You must agree to the terms");
+    expect(errorMessage).toBeInTheDocument();
   });
 });
