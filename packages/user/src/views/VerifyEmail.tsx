@@ -12,6 +12,7 @@ import { UserContextType, useConfig, userContext } from "..";
 export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(true);
   const [status, setStatus] = useState<string | undefined>("");
+  const [isEmailUpdated, setIsEmailUpdated] = useState(false);
   const { t } = useTranslation("user");
   const { user, setUser } = useContext(userContext) as UserContextType;
   const config = useConfig();
@@ -25,7 +26,15 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
             switch (response.status) {
               case EMAIL_VERIFICATION.OK: {
                 const userInfo = await getMe(config.apiBaseUrl);
-                toast.success(t("emailVerification.toastMessages.success"));
+                if (user.email !== userInfo.data.email) {
+                  toast.success(
+                    t("emailVerification.toastMessages.updateSuccess"),
+                  );
+                  setIsEmailUpdated(true);
+                } else {
+                  toast.success(t("emailVerification.toastMessages.success"));
+                  setIsEmailUpdated(false);
+                }
                 setUser(userInfo.data);
                 break;
               }
@@ -57,7 +66,9 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
 
     switch (status) {
       case EMAIL_VERIFICATION.OK:
-        message = t("emailVerification.toastMessages.success");
+        isEmailUpdated
+          ? (message = t("emailVerification.toastMessages.updateSuccess"))
+          : (message = t("emailVerification.toastMessages.success"));
         break;
       case EMAIL_VERIFICATION.EMAIL_VERIFICATION_INVALID_TOKEN_ERROR:
         message = t("emailVerification.messages.invalidToken");
