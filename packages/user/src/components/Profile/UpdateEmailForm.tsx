@@ -39,6 +39,7 @@ export const UpdateEmailForm = ({
 
   const handleSubmit = async (data: UpdateEmailFormData) => {
     setLoading(true);
+
     try {
       const response = await changeEmail(data.email, config.apiBaseUrl);
       switch (response?.status) {

@@ -12,6 +12,10 @@ export interface UserType extends EmailPasswordUserType {
   roles: string[];
   signedUpAt: number;
   surname: string | null;
+  thirdParty?: {
+    id: string;
+    userId: string;
+  };
 }
 
 export interface UserMenuItemType {
