@@ -2,13 +2,11 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { SidebarOnlyLayout } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
+import type { SidebarOnlyLayoutProperties } from "@dzangolab/react-layout";
+import type { NavMenuItemType } from "@dzangolab/react-ui";
+
 import { useUser } from "@/hooks";
 import { logout } from "@/supertokens";
-
-import type {
-  NavMenuItemType,
-  SidebarOnlyLayoutProperties,
-} from "@dzangolab/react-layout";
 
 interface Properties extends Omit<SidebarOnlyLayoutProperties, "userMenu"> {
   authNavigationMenu?: NavMenuItemType;
@@ -78,19 +76,25 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
     };
   };
 
+  console.log("############################################### heleleo");
+
   return (
-    <SidebarOnlyLayout
-      children={children}
-      className={className}
-      collapsible={collapsible}
-      displayNavIcons={displayNavIcons}
-      navigationMenu={user ? navigationMenu : authNavigationMenu}
-      customSidebar={customSidebar}
-      noSidebarHeader={noSidebarHeader}
-      noSidebarFooter={noSidebarFooter}
-      noLocaleSwitcher={noLocaleSwitcher}
-      userMenu={user ? getUserNavigationMenu() : undefined}
-      userMenuMode={userMenuMode}
-    />
+    <>
+      {" "}
+      hellosdfgdsgsdfgdfg
+      <SidebarOnlyLayout
+        children={children}
+        className={className}
+        collapsible={collapsible}
+        displayNavIcons={displayNavIcons}
+        navigationMenu={user ? navigationMenu : authNavigationMenu}
+        customSidebar={customSidebar}
+        noSidebarHeader={noSidebarHeader}
+        noSidebarFooter={noSidebarFooter}
+        noLocaleSwitcher={noLocaleSwitcher}
+        userMenu={user ? getUserNavigationMenu() : undefined}
+        userMenuMode={userMenuMode}
+      />
+    </>
   );
 };

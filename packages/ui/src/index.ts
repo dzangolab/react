@@ -34,7 +34,6 @@ export * from "./Popup";
 export * from "./SortableList";
 export * from "./Tooltip";
 export * from "./Tag";
-export type * from "./types";
 export * from "./NavigationMenu";
 
 export {

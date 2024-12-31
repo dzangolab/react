@@ -1,9 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import {
-  HeaderLayout,
-  NavMenuItemType,
-  NavMenuType,
-} from "@dzangolab/react-layout";
+import { HeaderLayout } from "@dzangolab/react-layout";
+import { NavMenuItemType, NavMenuType } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
 
 import { logout, useUser } from "..";

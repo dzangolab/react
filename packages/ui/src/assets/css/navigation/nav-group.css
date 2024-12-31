@@ -13,8 +13,6 @@
   margin: 0;
   overflow: hidden;
   max-height: 0;
-  transition: padding 0.3s ease-out, box-shadow 0.4s ease-out,
-    max-height 0.4s ease;
 }
 
 .dz-nav-group[aria-expanded="true"] > ul.dz-group-submenu {

@@ -1,9 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  NavMenuItemType,
   SidebarHeaderLayout,
   SidebarHeaderLayoutProperties,
 } from "@dzangolab/react-layout";
+import { NavMenuItemType } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
 
 import { useUser } from "@/hooks";

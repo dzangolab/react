@@ -1,13 +1,10 @@
+import { NavGroupDisplayMode, NavigationMenu } from "@dzangolab/react-ui";
+
 import { SidebarFooter } from "./Footer";
 import { SidebarHeader } from "./Header";
-import { NavigationMenu } from "../common";
 import { UserMenu } from "../common/UserMenu";
 
-import type {
-  NavGroupDisplayMode,
-  NavMenuItemType,
-  NavMenuType,
-} from "../types";
+import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-ui";
 
 type SidebarProperties = {
   children?: React.ReactNode;
