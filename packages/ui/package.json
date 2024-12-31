@@ -37,6 +37,7 @@
     "@12deg/eslint-config": "0.1.11",
     "@12deg/tsconfig": "0.1.11",
     "@dzangolab/react-config": "0.53.0",
+    "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.0.1",
     "@types/file-saver": "2.0.7",
     "@types/jsdom": "21.1.7",
