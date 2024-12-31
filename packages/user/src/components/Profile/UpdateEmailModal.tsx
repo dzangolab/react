@@ -9,11 +9,13 @@ interface Properties {
   setModalVisible: (visible: boolean) => void;
   user: UserType | null;
   setUser: (user: UserType) => void;
+  setPending: (verified: boolean) => void;
 }
 
 export const UpdateEmailModal = ({
   modalVisible,
   setModalVisible,
+  setPending,
   user,
   setUser,
 }: Properties) => {
@@ -30,6 +32,7 @@ export const UpdateEmailModal = ({
         user={user}
         setModalVisible={setModalVisible}
         setUser={setUser}
+        setPending={setPending}
       />
     </Modal>
   );

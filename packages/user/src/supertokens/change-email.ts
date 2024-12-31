@@ -9,7 +9,7 @@ export const changeEmail = async (email: string, apiBaseUrl: string) => {
         withCredentials: true,
       },
     );
-
+    console.log("response", response);
     return response.data;
     /*eslint-disable-next-line @typescript-eslint/no-explicit-any */
   } catch (err: any) {

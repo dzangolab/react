@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Data } from "@dzangolab/react-ui";
+import { Button, Data, Message } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 
 import { useConfig, useUser } from "@/hooks";
@@ -10,6 +10,8 @@ export const AccountInfo = () => {
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [pending, setPending] = useState(false);
+
   const config = useConfig();
   const canUpdateEmail = config.features?.updateEmail;
 
@@ -33,12 +35,14 @@ export const AccountInfo = () => {
           </>
         }
       />
+      <Message message="Pending" icon="pi pi-info" />
       {canUpdateEmail && (
         <UpdateEmailModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           user={user}
           setUser={setUser}
+          setPending={setPending}
         />
       )}
     </div>
