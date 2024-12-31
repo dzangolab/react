@@ -271,76 +271,74 @@ export const Pages = () => {
   const [t] = useTranslation("ui");
 
   const subnav = [
+    { label: t("app:getStarted"), route: UI_ROUTES.GET_STARTED },
     {
-      navItems: [{ route: "/ui", label: t("app:getStarted") }],
-    },
-    {
-      header: t("headers.buttons"),
-      navItems: [
+      label: t("headers.buttons"),
+      submenu: [
         ...BUTTONS_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.data"),
-      navItems: [
+      label: t("headers.data"),
+      submenu: [
         ...DATA_COMPONENT_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.file"),
-      navItems: [
+      label: t("headers.file"),
+      submenu: [
         ...FILE_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.formWidgets"),
-      navItems: [
+      label: t("headers.formWidgets"),
+      submenu: [
         ...FORM_WIDGETS_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.menu"),
-      navItems: [
+      label: t("headers.menu"),
+      submenu: [
         ...MENU_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.messages"),
-      navItems: [
+      label: t("headers.messages"),
+      submenu: [
         ...MESSAGES_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.overlay"),
-      navItems: [
+      label: t("headers.overlay"),
+      submenu: [
         ...OVERLAY_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.panel"),
-      navItems: [
+      label: t("headers.panel"),
+      submenu: [
         ...PANEL_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
       ],
     },
     {
-      header: t("headers.misc"),
-      navItems: [
+      label: t("headers.misc"),
+      submenu: [
         ...MISC_ROUTES.map(({ path, key }) => {
           return { route: path, label: t(key) };
         }),
