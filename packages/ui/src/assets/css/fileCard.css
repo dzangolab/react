@@ -1,9 +1,3 @@
-.file-card,
-.file-card > .p-card-body,
-.file-card > .p-card-body > .p-card-content {
-  padding: 0rem !important;
-}
-
 .file-card {
   box-shadow: -1px -1px 29px -14px rgba(0, 0, 0, 0.28);
   max-width: 100%;
@@ -22,7 +16,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 6rem;
   min-width: 6rem;
 }
