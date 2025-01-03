@@ -2,7 +2,7 @@ import { describe } from "node:test";
 
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import { expect, test, vi } from "vitest";
+import { expect, test, vi, beforeAll } from "vitest";
 
 import { ConfirmationModal } from "..";
 
@@ -13,8 +13,10 @@ const confirmationModalData = {
 };
 
 describe("Confirmation modal", () => {
-  HTMLDialogElement.prototype.showModal = vi.fn();
-  HTMLDialogElement.prototype.close = vi.fn();
+  beforeAll(() => {
+    HTMLDialogElement.prototype.showModal = vi.fn();
+    HTMLDialogElement.prototype.close = vi.fn();
+  });
 
   test("should render the confirmation modal when visible is true", () => {
     render(
