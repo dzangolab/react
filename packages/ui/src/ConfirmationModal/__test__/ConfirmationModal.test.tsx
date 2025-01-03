@@ -54,6 +54,36 @@ describe("Confirmation modal", () => {
     expect(screen.getByText("!")).toBeInTheDocument();
   });
 
+  test("should render close button when closable is true", () => {
+    render(
+      <ConfirmationModal
+        visible={true}
+        closable={true}
+        header={confirmationModalData.header}
+        message={confirmationModalData.message}
+        closeIcon={confirmationModalData.closeIcon}
+      />,
+    );
+
+    const closeButton = screen.getByTestId("close-button");
+    expect(closeButton).toBeInTheDocument();
+  });
+
+  test("should not render close button when closable is false", () => {
+    render(
+      <ConfirmationModal
+        visible={true}
+        closable={false}
+        header={confirmationModalData.header}
+        message={confirmationModalData.message}
+        closeIcon={confirmationModalData.closeIcon}
+      />,
+    );
+
+    const closeButton = screen.queryByTestId("close-button");
+    expect(closeButton).toBeNull();
+  });
+
   test("should call accept function when 'Yes' button is clicked", () => {
     const hanldeAccept = vi.fn();
     render(
@@ -82,5 +112,21 @@ describe("Confirmation modal", () => {
     );
     fireEvent.click(screen.getByText("No"));
     expect(handleReject).toHaveBeenCalled();
+  });
+
+  test("should call onHide when close icon is clicked", () => {
+    const handleHide = vi.fn();
+    render(
+      <ConfirmationModal
+        visible={true}
+        header={confirmationModalData.header}
+        message={confirmationModalData.message}
+        closeIcon={confirmationModalData.closeIcon}
+        onHide={handleHide}
+      />,
+    );
+
+    fireEvent.click(screen.getByTestId("close-button"));
+    expect(handleHide).toHaveBeenCalled();
   });
 });
