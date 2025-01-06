@@ -40,6 +40,13 @@ export const EmailVerificationRoutesHandler = () => {
       location.pathname,
     )
   ) {
+    if (
+      config.features?.updateEmail &&
+      location.pathname === emailVerificationVerifyPath
+    ) {
+      return <Outlet />;
+    }
+
     return <Navigate to={home} />;
   }
 
