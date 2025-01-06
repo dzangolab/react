@@ -34,6 +34,10 @@ export const ProtectedRoutesHandler: React.FC = () => {
   const home = typeof homeRoute === "string" ? homeRoute : homeRoute(user);
 
   if (emailVerificationEnabled) {
+    if (location.pathname === profilePath) {
+      return <Outlet />;
+    }
+
     if (
       [emailVerificationReminderPath, emailVerificationVerifyPath].includes(
         location.pathname,
@@ -58,10 +62,6 @@ export const ProtectedRoutesHandler: React.FC = () => {
       } else {
         return !isEmailVerified ? <Outlet /> : <Navigate to={home} />;
       }
-    }
-
-    if ([profilePath].includes(location.pathname)) {
-      return <Outlet />;
     }
 
     if (!isEmailVerified) {
