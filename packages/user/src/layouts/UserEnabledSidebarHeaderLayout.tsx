@@ -5,10 +5,10 @@ import {
 } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
-import type { NavMenuItemType } from "@dzangolab/react-ui";
-
 import { useUser } from "@/hooks";
 import { logout } from "@/supertokens";
+
+import type { NavMenuItemType } from "@dzangolab/react-ui";
 
 interface Properties extends SidebarHeaderLayoutProperties {
   authNavigationMenu?: NavMenuItemType;

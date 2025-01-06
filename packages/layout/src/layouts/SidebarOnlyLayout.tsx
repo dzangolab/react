@@ -1,10 +1,10 @@
+import { Layout, Sidebar } from "@/components/Layout";
+
 import type {
   NavGroupDisplayMode,
   NavMenuType,
   NavMenuItemType,
 } from "@dzangolab/react-ui";
-
-import { Layout, Sidebar } from "@/components/Layout";
 
 export interface SidebarOnlyLayoutProperties {
   className?: string;

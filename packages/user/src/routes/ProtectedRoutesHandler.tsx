@@ -27,7 +27,7 @@ export const ProtectedRoutesHandler: React.FC = () => {
     return (
       <Navigate
         to={`${loginPath}?redirect=${window.encodeURI(
-          location.pathname + location.search
+          location.pathname + location.search,
         )}`}
       />
     );
@@ -38,7 +38,7 @@ export const ProtectedRoutesHandler: React.FC = () => {
   if (emailVerificationEnabled) {
     if (
       [emailVerificationReminderPath, emailVerificationVerifyPath].includes(
-        location.pathname
+        location.pathname,
       )
     ) {
       if (config.features?.updateEmail) {
