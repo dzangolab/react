@@ -7,11 +7,13 @@ import {
 } from "react";
 
 import { useDebouncedValue } from "../../utils";
+import { Input } from "../Input";
 
 export interface DebouncedInputProperties
   extends InputHTMLAttributes<HTMLInputElement> {
   onInputChange: (value: string | number | readonly string[]) => void;
   debounceTime?: number;
+  type?: "text" | "number" | "email";
 }
 
 export const DebouncedInput: React.FC<DebouncedInputProperties> = ({
@@ -19,6 +21,7 @@ export const DebouncedInput: React.FC<DebouncedInputProperties> = ({
   debounceTime = 500,
   type = "text",
   className = "",
+  disabled = false,
   defaultValue = "",
   ...inputProperties
 }) => {
@@ -48,11 +51,12 @@ export const DebouncedInput: React.FC<DebouncedInputProperties> = ({
   };
 
   return (
-    <input
+    <Input
       className={`debounced-input ${className}`}
+      disabled={disabled}
+      onChange={handleInputChange}
       type={type}
       value={inputValue}
-      onChange={handleInputChange}
       {...inputProperties}
     />
   );

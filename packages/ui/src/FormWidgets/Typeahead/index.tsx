@@ -24,6 +24,7 @@ interface IProperties<T>
   onSearch?: (value: string | number | readonly string[]) => void;
   onChange?: (value?: T) => void;
   renderSuggestion?: (suggestion: T) => React.ReactNode;
+  type?: "text" | "number" | "email";
 }
 
 export const Typeahead = <T extends Suggestion>({

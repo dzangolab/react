@@ -54,7 +54,8 @@
 }
 
 .items-per-page-control select,
-.page-input-control input {
+.page-input-control input,
+.page-input-control .field {
   width: 4rem;
 }
 

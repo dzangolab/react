@@ -1,13 +1,23 @@
 .debounced-input {
-  padding: 6px;
-  border: 1px solid #ced4da;
+  background-color: #fff;
   border-radius: 4px;
-  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
   max-width: 100%;
+  padding: 6px;
 }
 
 .debounced-input:focus {
   outline: none;
   border-color: var(--field-outline-color) ;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.debounced-input > .input-field {
+  border: none;
+  padding: 0;
+  width: 90%;
+}
+
+.debounced-input > .input-field:focus {
+  outline: none;
 }
