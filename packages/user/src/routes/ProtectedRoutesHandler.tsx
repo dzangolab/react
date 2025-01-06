@@ -12,6 +12,8 @@ export const ProtectedRoutesHandler: React.FC = () => {
 
   const { homeRoute = "/", customPaths } = config;
 
+  const changePasswordPath =
+    customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD;
   const loginPath = customPaths?.login || DEFAULT_PATHS.LOGIN;
   const profilePath = customPaths?.profile || DEFAULT_PATHS.PROFILE;
   const emailVerificationReminderPath =
@@ -24,7 +26,9 @@ export const ProtectedRoutesHandler: React.FC = () => {
   if (!user) {
     return (
       <Navigate
-        to={`${loginPath}?redirect=${window.encodeURI(location.pathname + location.search)}`}
+        to={`${loginPath}?redirect=${window.encodeURI(
+          location.pathname + location.search
+        )}`}
       />
     );
   }
@@ -34,7 +38,7 @@ export const ProtectedRoutesHandler: React.FC = () => {
   if (emailVerificationEnabled) {
     if (
       [emailVerificationReminderPath, emailVerificationVerifyPath].includes(
-        location.pathname,
+        location.pathname
       )
     ) {
       if (config.features?.updateEmail) {
@@ -56,6 +60,10 @@ export const ProtectedRoutesHandler: React.FC = () => {
       } else {
         return !isEmailVerified ? <Outlet /> : <Navigate to={home} />;
       }
+    }
+
+    if ([changePasswordPath, profilePath].includes(location.pathname)) {
+      return <Outlet />;
     }
 
     if (!isEmailVerified) {
