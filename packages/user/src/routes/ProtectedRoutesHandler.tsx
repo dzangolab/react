@@ -12,8 +12,6 @@ export const ProtectedRoutesHandler: React.FC = () => {
 
   const { homeRoute = "/", customPaths } = config;
 
-  const changePasswordPath =
-    customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD;
   const loginPath = customPaths?.login || DEFAULT_PATHS.LOGIN;
   const profilePath = customPaths?.profile || DEFAULT_PATHS.PROFILE;
   const emailVerificationReminderPath =
@@ -62,7 +60,7 @@ export const ProtectedRoutesHandler: React.FC = () => {
       }
     }
 
-    if ([changePasswordPath, profilePath].includes(location.pathname)) {
+    if ([profilePath].includes(location.pathname)) {
       return <Outlet />;
     }
 
