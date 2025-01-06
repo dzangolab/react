@@ -1,9 +1,15 @@
+import { NavigationMenu } from "@dzangolab/react-ui";
 import React from "react";
 
 import { HeaderMenu } from "./HeaderMenu";
 import { HeaderTitle } from "./HeaderTitle";
-import { Logo, NavigationMenu, ToggleMenuMobile } from "../common";
-import { NavMenuItemType, NavMenuType, UserMenuModeType } from "../types";
+import { Logo, ToggleMenuMobile } from "../common";
+
+import type {
+  NavMenuItemType,
+  NavMenuType,
+  UserMenuModeType,
+} from "@dzangolab/react-ui";
 
 interface HeaderProperties {
   children?: React.ReactNode;
