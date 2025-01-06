@@ -24,7 +24,9 @@ export const ProtectedRoutesHandler: React.FC = () => {
   if (!user) {
     return (
       <Navigate
-        to={`${loginPath}?redirect=${window.encodeURI(location.pathname + location.search)}`}
+        to={`${loginPath}?redirect=${window.encodeURI(
+          location.pathname + location.search,
+        )}`}
       />
     );
   }
@@ -32,6 +34,10 @@ export const ProtectedRoutesHandler: React.FC = () => {
   const home = typeof homeRoute === "string" ? homeRoute : homeRoute(user);
 
   if (emailVerificationEnabled) {
+    if (location.pathname === profilePath) {
+      return <Outlet />;
+    }
+
     if (
       [emailVerificationReminderPath, emailVerificationVerifyPath].includes(
         location.pathname,
