@@ -1,7 +1,8 @@
-import { InputHTMLAttributes, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import LoadingIcon from "../../LoadingIcon";
 import { DebouncedInput } from "../DebouncedInput";
+import { IInputProperties } from "../Input";
 
 type Suggestion = string | number | object;
 
@@ -10,7 +11,7 @@ interface SuggestionOption<T> {
 }
 
 interface IProperties<T>
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
+  extends Omit<IInputProperties, "onChange">,
     SuggestionOption<T> {
   data?: T[];
   debounceTime?: number;
@@ -24,7 +25,6 @@ interface IProperties<T>
   onSearch?: (value: string | number | readonly string[]) => void;
   onChange?: (value?: T) => void;
   renderSuggestion?: (suggestion: T) => React.ReactNode;
-  type?: "text" | "number" | "email";
 }
 
 export const Typeahead = <T extends Suggestion>({
