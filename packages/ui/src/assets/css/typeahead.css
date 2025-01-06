@@ -30,7 +30,7 @@
   border-color: var(--field-valid-border-color);
 }
 
-.dz-typeahead > .input-field-typeahead > .debounced-input {
+.dz-typeahead > .input-field-typeahead > .debounced-input > .input-field  {
   background: transparent;
   border: none;
   border-radius: var(--field-border-radius);
@@ -38,11 +38,11 @@
   width: 90%;
 }
 
-.dz-typeahead > .input-field-typeahead > .debounced-input:disabled {
+.dz-typeahead > .input-field-typeahead > .debounced-input > .input-field:disabled {
   background-color: var(--field-disabled-color);
 }
 
-.dz-typeahead > .input-field-typeahead > .debounced-input:focus {
+.dz-typeahead > .input-field-typeahead > .debounced-input > .input-field:focus {
   box-shadow: none !important;
   outline: none;
 }
