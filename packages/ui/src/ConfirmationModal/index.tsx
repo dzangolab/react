@@ -59,6 +59,7 @@ export const ConfirmationModal = ({
         )}
         {closable && (
           <Button
+            data-testid="close-button"
             variant="textOnly"
             size="small"
             severity="secondary"
