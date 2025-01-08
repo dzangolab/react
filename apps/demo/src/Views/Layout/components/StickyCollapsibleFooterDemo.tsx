@@ -6,8 +6,13 @@ export const StickyCollapsibleFooterDemo = () => {
   const [t] = useTranslation("layout");
 
   return (
-    <Page title={t("stickyCollapsibleFooter.title")}>
-      <StickyCollapsibleFooter>This is footer content.</StickyCollapsibleFooter>
+    <Page
+      title={t("stickyCollapsibleFooter.title")}
+      subtitle={t("stickyCollapsibleFooter.subtitle")}
+    >
+      <StickyCollapsibleFooter>
+        This is sticky collapsible footer component.
+      </StickyCollapsibleFooter>
     </Page>
   );
 };

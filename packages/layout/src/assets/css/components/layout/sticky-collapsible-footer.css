@@ -3,11 +3,9 @@
     background-color: #fff;
     bottom: -100px;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
     left: 0;
     position: fixed;
-    padding: 10px;
+    padding: 1rem;
     right: 0;
     transition: bottom 0.3s ease-in-out;
     width: 100%;
@@ -16,7 +14,7 @@
 .sticky-collapsible-footer-placeholder {
     background: transparent;
     bottom: 0;
-    padding: 10px;
+    padding: 1rem;
     position: fixed;
     width: 100%;
     z-index: 1;
