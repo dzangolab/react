@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
-  NavMenuItemType,
   SidebarHeaderLayout,
   SidebarHeaderLayoutProperties,
 } from "@dzangolab/react-layout";
@@ -8,6 +7,8 @@ import { toast } from "react-toastify";
 
 import { useUser } from "@/hooks";
 import { logout } from "@/supertokens";
+
+import type { NavMenuItemType } from "@dzangolab/react-ui";
 
 interface Properties extends SidebarHeaderLayoutProperties {
   authNavigationMenu?: NavMenuItemType;

@@ -5,10 +5,8 @@ import { toast } from "react-toastify";
 import { useUser } from "@/hooks";
 import { logout } from "@/supertokens";
 
-import type {
-  NavMenuItemType,
-  SidebarOnlyLayoutProperties,
-} from "@dzangolab/react-layout";
+import type { SidebarOnlyLayoutProperties } from "@dzangolab/react-layout";
+import type { NavMenuItemType } from "@dzangolab/react-ui";
 
 interface Properties extends Omit<SidebarOnlyLayoutProperties, "userMenu"> {
   authNavigationMenu?: NavMenuItemType;

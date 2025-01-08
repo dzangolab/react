@@ -63,14 +63,6 @@ export {
   useLayoutContext,
 };
 
-export type {
-  DzangolabReactLayoutConfig,
-  NavGroupDisplayMode,
-  NavGroupType,
-  NavItemType,
-  NavMenuItemType,
-  NavMenuType,
-  UserMenuModeType,
-} from "./types";
+export type { DzangolabReactLayoutConfig } from "./types";
 
 export type { SidebarHeaderLayoutProperties, SidebarOnlyLayoutProperties };

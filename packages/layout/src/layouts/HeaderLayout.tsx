@@ -1,11 +1,10 @@
-import {
-  Layout,
+import { Layout, Header, Footer } from "@/components/Layout";
+
+import type {
   NavMenuType,
-  Header,
   NavMenuItemType,
   UserMenuModeType,
-  Footer,
-} from "@/components/Layout";
+} from "@dzangolab/react-ui";
 
 interface HeaderLayoutProperties {
   className?: string;

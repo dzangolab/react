@@ -49,14 +49,15 @@
 }
 
 .dz-table-container .toolbar {
+  align-items: center;
+  background: var(--dz-table-header-bg);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  gap: 1rem;
   justify-content: flex-end;
-  width: 100%;
-  background: var(--dz-table-header-bg);
   padding: var(--dz-table-column-padding);
+  width: 100%;
 }
 
 .dz-table-container .table-wrapper {
@@ -162,7 +163,7 @@
   font-size: 1rem;
 }
 
-.table-wrapper > table tr.filters > th > input {
+.table-wrapper > table tr.filters > th > div > input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;

@@ -1,7 +1,8 @@
-import { InputHTMLAttributes, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import LoadingIcon from "../../LoadingIcon";
 import { DebouncedInput } from "../DebouncedInput";
+import { IInputProperties } from "../Input";
 
 type Suggestion = string | number | object;
 
@@ -10,7 +11,7 @@ interface SuggestionOption<T> {
 }
 
 interface IProperties<T>
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">,
+  extends Omit<IInputProperties, "onChange">,
     SuggestionOption<T> {
   data?: T[];
   debounceTime?: number;

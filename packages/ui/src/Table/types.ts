@@ -254,33 +254,20 @@ export interface TDataTableProperties<TData>
   data: TData[];
   emptyTableMessage?: string;
   enableRowSelection?: boolean;
-  isLoading?: boolean;
-  id?: string;
-  initialFilters?: ColumnFiltersState;
-  initialSorting?: SortingState;
   globalFilter?: {
     key: string;
     value: string;
     placeholder: string;
   };
   fetchData?: (data: TRequestJSON) => void;
-  renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
-  renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
-  renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
-  renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
-  title?: {
-    text: string;
-    align?: "left" | "center" | "right";
-  };
-  paginated?: boolean;
-  persistState?: boolean;
-  persistStateStorage?: StorageType;
-  rowPerPage?: number;
-  rowPerPageOptions?: number[];
-  visibleColumns?: string[];
-  onRowSelectChange?: (table: Table<TData>) => void;
-  totalRecords?: number;
+  handleResetState?: () => void;
+  id?: string;
+  initialFilters?: ColumnFiltersState;
+  initialSorting?: SortingState;
+  isLoading?: boolean;
   inputDebounceTime?: number;
+  onRowSelectChange?: (table: Table<TData>) => void;
+  paginated?: boolean;
   paginationOptions?: Omit<
     ComponentProps<typeof Pagination>,
     | "currentPage"
@@ -290,6 +277,22 @@ export interface TDataTableProperties<TData>
     | "itemsPerPageOptions"
     | "defaultItemsPerPage"
   >;
+  persistState?: boolean;
+  persistStateStorage?: StorageType;
+  renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
+  renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
+  renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
+  renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
+  resetStateActionBtnLabel?: string;
+  rowPerPage?: number;
+  rowPerPageOptions?: number[];
+  showResetStateAction?: boolean;
+  totalRecords?: number;
+  visibleColumns?: string[];
+  title?: {
+    text: string;
+    align?: "left" | "center" | "right";
+  };
   /**
    * Determines whether row for column-specific actions
    * should be displayed for the table columns.

@@ -1,15 +1,9 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  type InputHTMLAttributes,
-  type ChangeEvent,
-} from "react";
+import { useEffect, useRef, useState, type ChangeEvent } from "react";
 
 import { useDebouncedValue } from "../../utils";
+import { IInputProperties, Input } from "../Input";
 
-export interface DebouncedInputProperties
-  extends InputHTMLAttributes<HTMLInputElement> {
+export interface DebouncedInputProperties extends IInputProperties {
   onInputChange: (value: string | number | readonly string[]) => void;
   debounceTime?: number;
 }
@@ -48,11 +42,11 @@ export const DebouncedInput: React.FC<DebouncedInputProperties> = ({
   };
 
   return (
-    <input
+    <Input
       className={`debounced-input ${className}`}
+      onChange={handleInputChange}
       type={type}
       value={inputValue}
-      onChange={handleInputChange}
       {...inputProperties}
     />
   );

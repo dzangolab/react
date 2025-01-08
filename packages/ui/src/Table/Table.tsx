@@ -38,34 +38,36 @@ import type { ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
   className = "",
-  columns = [],
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
+  columns = [],
   customFormatters,
   data,
   dataActionsMenu,
   emptyTableMessage,
   enableRowSelection = false,
+  fetchData,
   id,
-  isLoading = false,
   initialFilters = [],
   initialSorting = [],
   inputDebounceTime,
-  fetchData,
-  renderToolbarItems,
-  renderTableFooterContent,
-  renderCustomPagination,
-  renderSortIcons,
-  title,
-  paginated = true,
-  rowPerPage,
-  rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
-  visibleColumns = [],
+  isLoading = false,
   onRowSelectChange,
-  totalRecords = 0,
+  paginated = true,
   paginationOptions,
   persistState = false,
   persistStateStorage = "localStorage",
+  renderCustomPagination,
+  renderSortIcons,
+  renderTableFooterContent,
+  renderToolbarItems,
+  resetStateActionBtnLabel: resetStateActionButtonLabel = "Reset all",
+  rowPerPage,
+  rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
   showColumnsAction = false,
+  showResetStateAction,
+  title,
+  totalRecords = 0,
+  visibleColumns = [],
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const persistentStateReference = useRef<PersistentTableState>({
@@ -110,6 +112,16 @@ const DataTable = <TData extends { id: string | number }>({
 
     setColumnFilters(updatedFilters);
     table.setPageIndex(0);
+  };
+
+  const handleResetState = () => {
+    setSorting(initialSorting);
+    setColumnFilters(initialFilters);
+    setColumnVisibility({});
+    setPagination({
+      pageIndex: DEFAULT_PAGE_INDEX,
+      pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
+    });
   };
 
   const parsedColumns = useMemo(() => {
@@ -307,13 +319,16 @@ const DataTable = <TData extends { id: string | number }>({
         <span children={title.text} data-align={title.align || "center"} />
       ) : null}
 
-      {showColumnsAction || renderToolbarItems ? (
+      {showColumnsAction || renderToolbarItems || showResetStateAction ? (
         <TableToolbar
           table={table}
           showColumnsAction={showColumnsAction}
           columnActionButtonLabel={columnActionButtonLabel}
           dataActionsMenu={dataActionsMenu}
+          showResetStateAction={showResetStateAction}
           renderToolbarItems={renderToolbarItems}
+          resetActionButtonLabel={resetStateActionButtonLabel}
+          handleResetState={handleResetState}
           enableRowSelection={enableRowSelection}
         />
       ) : null}
