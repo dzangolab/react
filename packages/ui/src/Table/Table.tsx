@@ -114,7 +114,15 @@ const DataTable = <TData extends { id: string | number }>({
     table.setPageIndex(0);
   };
 
-  const handleResetTable = () => {};
+  const handleResetTable = () => {
+    setSorting(initialSorting);
+    setColumnFilters(initialFilters);
+    setColumnVisibility({});
+    setPagination({
+      pageIndex: DEFAULT_PAGE_INDEX,
+      pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
+    });
+  };
 
   const parsedColumns = useMemo(() => {
     let parsedColumns: ColumnDef<TData, unknown>[] = getParsedColumns({
