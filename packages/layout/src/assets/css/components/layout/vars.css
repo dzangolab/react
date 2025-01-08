@@ -21,7 +21,7 @@
 
   --dz-layout-footer-height: 50px;
   --dz-layout-footer-background: #333;
-  --dz-layout-footer-color: #ffffff;
+  --dz-layout-footer-text-color: #ffffff;
 
   /* defaults for sidebar */
   --dz-layout-nav-item-hover-bg: rgba(45, 45, 45, 0.125);

@@ -1,7 +1,7 @@
 :root {
-  --footer-text-color: var(--dz-layout-footer-color);
+  --footer-text-color: var(--dz-layout-footer-text-color);
   --footer-background-color: var(--dz-layout-footer-background);
-  --footer-height: var(  --dz-layout-footer-height);
+  --footer-height: var(--dz-layout-footer-height);
 }
 
 .footer-wrapper .footer-content {
