@@ -1,0 +1,25 @@
+.sticky-footer-container .sticky-footer {
+    background-color: #333;
+    bottom: -100px;
+    color: white;
+    cursor: pointer;
+    left: 0;
+    position: fixed;
+    padding: 10px;
+    transition: bottom 0.3s ease-in-out;
+    width: 100%;
+}
+
+.sticky-footer-trigger {
+    background: transparent;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
+
+.sticky-footer-trigger:hover + .sticky-footer {
+    bottom: 0;
+}

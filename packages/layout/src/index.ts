@@ -12,6 +12,7 @@ import {
   SidebarHeader,
   ToggleMenuMobile,
   Version,
+  StickyFooter,
 } from "./components/Layout";
 import {
   LayoutContext,
@@ -52,6 +53,7 @@ export {
   SidebarFooter,
   SidebarHeader,
   Sidebar,
+  StickyFooter,
   ToggleMenuMobile,
   Version,
 
