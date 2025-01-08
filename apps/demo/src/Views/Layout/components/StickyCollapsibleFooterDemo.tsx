@@ -3,10 +3,10 @@ import { StickyCollapsibleFooter } from "@dzangolab/react-layout";
 import { Page } from "@dzangolab/react-ui";
 
 export const StickyCollapsibleFooterDemo = () => {
-  const [t] = useTranslation("ui");
+  const [t] = useTranslation("layout");
 
   return (
-    <Page title="Sticky collapsible footer">
+    <Page title={t("stickyCollapsibleFooter.title")}>
       <StickyCollapsibleFooter>This is footer content.</StickyCollapsibleFooter>
     </Page>
   );

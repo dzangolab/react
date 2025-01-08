@@ -1,7 +1,7 @@
-.footer-wrapper .footer-content {
+.sticky-collapsible-footer-container .footer {
     align-items: center;
     background-color: #333;
-    bottom: 0;
+    bottom: -100px;
     color: #fff;
     cursor: pointer;
     display: flex;
@@ -11,5 +11,19 @@
     position: fixed;
     padding: 10px;
     right: 0;
+    transition: bottom 0.3s ease-in-out;
     width: 100%;
+}
+
+.sticky-collapsible-footer-placeholder {
+    background: transparent;
+    bottom: 0;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.sticky-collapsible-footer-placeholder:hover + .footer {
+    bottom: 0;
 }

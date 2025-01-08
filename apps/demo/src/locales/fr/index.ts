@@ -6,6 +6,7 @@ import locales from "./locales.json";
 import ui from "./ui.json";
 import user from "./user.json";
 import users from "./users.json";
+import layout from "./layout.json";
 
 const fr = {
   app,
@@ -13,6 +14,7 @@ const fr = {
   form,
   invitations,
   locales,
+  layout,
   ui,
   user,
   users,

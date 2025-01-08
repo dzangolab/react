@@ -7,8 +7,9 @@ interface Properties {
 export const StickyCollapsibleFooter = ({ children }: Properties) => {
   return (
     <>
-      <div className="footer-wrapper">
-        <footer className="footer-content">{children}</footer>
+      <div className="sticky-collapsible-footer-container">
+        <div className="sticky-collapsible-footer-placeholder"></div>
+        <div className="footer">{children}</div>
       </div>
     </>
   );
