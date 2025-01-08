@@ -263,11 +263,14 @@ export interface TDataTableProperties<TData>
     value: string;
     placeholder: string;
   };
+  renderResetTable?: boolean;
+  resetActionBtnLabel?: string;
   fetchData?: (data: TRequestJSON) => void;
   renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
   renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
   renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
   renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
+  handleResetTable?: () => void;
   title?: {
     text: string;
     align?: "left" | "center" | "right";

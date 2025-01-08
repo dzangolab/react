@@ -13,9 +13,12 @@ interface TToolbar<T>
     | "showColumnsAction"
     | "enableRowSelection"
     | "dataActionsMenu"
+    | "renderResetTable"
     | "renderToolbarItems"
+    | "handleResetTable"
   > {
   columnActionButtonLabel: string;
+  resetActionButtonLabel: string;
   table: Table<T>;
 }
 
@@ -24,6 +27,9 @@ export const TableToolbar = <TData extends { id: string | number }>({
   dataActionsMenu,
   enableRowSelection,
   renderToolbarItems,
+  renderResetTable,
+  resetActionButtonLabel,
+  handleResetTable,
   showColumnsAction,
   table,
 }: TToolbar<TData>) => {
@@ -55,6 +61,10 @@ export const TableToolbar = <TData extends { id: string | number }>({
     <TTableToolbar
       children={
         <>
+          {renderResetTable ? (
+            <Button label={resetActionButtonLabel} onClick={handleResetTable} />
+          ) : null}
+
           {showColumnsAction ? (
             <Popup
               trigger={<Button label={columnActionButtonLabel} />}

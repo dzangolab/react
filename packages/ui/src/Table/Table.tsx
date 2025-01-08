@@ -51,10 +51,12 @@ const DataTable = <TData extends { id: string | number }>({
   initialSorting = [],
   inputDebounceTime,
   fetchData,
+  renderResetTable,
   renderToolbarItems,
   renderTableFooterContent,
   renderCustomPagination,
   renderSortIcons,
+  resetActionBtnLabel: resetActionButtonLabel = "Reset all",
   title,
   paginated = true,
   rowPerPage,
@@ -111,6 +113,8 @@ const DataTable = <TData extends { id: string | number }>({
     setColumnFilters(updatedFilters);
     table.setPageIndex(0);
   };
+
+  const handleResetTable = () => {};
 
   const parsedColumns = useMemo(() => {
     let parsedColumns: ColumnDef<TData, unknown>[] = getParsedColumns({
@@ -307,13 +311,16 @@ const DataTable = <TData extends { id: string | number }>({
         <span children={title.text} data-align={title.align || "center"} />
       ) : null}
 
-      {showColumnsAction || renderToolbarItems ? (
+      {showColumnsAction || renderToolbarItems || renderResetTable ? (
         <TableToolbar
           table={table}
           showColumnsAction={showColumnsAction}
           columnActionButtonLabel={columnActionButtonLabel}
           dataActionsMenu={dataActionsMenu}
+          renderResetTable={renderResetTable}
           renderToolbarItems={renderToolbarItems}
+          resetActionButtonLabel={resetActionButtonLabel}
+          handleResetTable={handleResetTable}
           enableRowSelection={enableRowSelection}
         />
       ) : null}
