@@ -20,6 +20,6 @@
   z-index: 1;
 }
 
-.sticky-collapsible-footer-placeholder:hover+.footer {
+.sticky-collapsible-footer-placeholder:hover + .footer {
   bottom: 0;
 }
