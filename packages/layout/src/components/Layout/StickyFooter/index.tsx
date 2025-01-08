@@ -18,9 +18,9 @@ export const StickyFooter = ({ children }: Properties) => {
 
   return (
     <>
-      <div className="footer-container">
-        <div className="footer-trigger"></div>
-        <div className="footer">{children || renderContent()}</div>
+      <div className="footer-wrapper">
+        <div className="footer-placeholder"></div>
+        <div className="footer-content">{children || renderContent()}</div>
       </div>
     </>
   );
