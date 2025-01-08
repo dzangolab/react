@@ -1,7 +1,7 @@
 .footer-wrapper .footer-content {
     align-items: center;
     background-color: var(--dz-layout-sticky-footer-background);
-    bottom: -100px;
+    bottom: 0;
     color: var(--dz-layout-sticky-footer-color);
     cursor: pointer;
     display: flex;
@@ -10,19 +10,6 @@
     left: 0;
     position: fixed;
     padding: 10px;
-    transition: bottom 0.3s ease-in-out;
+    right: 0;
     width: 100%;
-}
-
-.footer-placeholder {
-    background: transparent;
-    bottom: 0;
-    height: var(--dz-layout-sticky-footer-height);;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-}
-
-.footer-placeholder:hover + .footer-content {
-    bottom: 0;
 }
