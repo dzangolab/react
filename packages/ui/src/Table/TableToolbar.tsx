@@ -62,7 +62,11 @@ export const TableToolbar = <TData extends { id: string | number }>({
       children={
         <>
           {renderResetTable ? (
-            <Button label={resetActionButtonLabel} onClick={handleResetTable} />
+            <Button
+              label={resetActionButtonLabel}
+              onClick={handleResetTable}
+              severity="secondary"
+            />
           ) : null}
 
           {showColumnsAction ? (
