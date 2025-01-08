@@ -64,7 +64,7 @@ const DataTable = <TData extends { id: string | number }>({
   rowPerPage,
   rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
   showColumnsAction = false,
-  showResetStateAction = true,
+  showResetStateAction,
   title,
   totalRecords = 0,
   visibleColumns = [],

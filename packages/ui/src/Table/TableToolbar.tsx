@@ -73,7 +73,11 @@ export const TableToolbar = <TData extends { id: string | number }>({
           {showColumnsAction ? (
             <Popup
               trigger={
-                <Button label={columnActionButtonLabel} variant="outlined" />
+                <Button
+                  label={columnActionButtonLabel}
+                  variant="outlined"
+                  severity="secondary"
+                />
               }
               content={
                 <SortableList
