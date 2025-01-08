@@ -1,11 +1,17 @@
+:root {
+  --footer-text-color: var(--dz-layout-footer-color);
+  --footer-background-color: var(--dz-layout-footer-background);
+  --footer-height: var(  --dz-layout-footer-height);
+}
+
 .footer-wrapper .footer-content {
     align-items: center;
-    background-color: var(--dz-layout-sticky-footer-background);
+    background-color: var(--footer-background-color);
     bottom: 0;
-    color: var(--dz-layout-sticky-footer-color);
+    color: var(--footer-text-color);
     cursor: pointer;
     display: flex;
-    height: var(--dz-layout-sticky-footer-height);
+    height: var(--footer-height);
     justify-content: space-between;
     left: 0;
     position: fixed;

@@ -19,9 +19,9 @@
   --dz-layout-nav-menu-padding-v: 1rem;
   --dz-layout-nav-menu-separator-color: #dbdbdb;
 
-  --dz-layout-sticky-footer-height: 50px;
-  --dz-layout-sticky-footer-background: #333;
-  --dz-layout-sticky-footer-color: #ffffff;
+  --dz-layout-footer-height: 50px;
+  --dz-layout-footer-background: #333;
+  --dz-layout-footer-color: #ffffff;
 
   /* defaults for sidebar */
   --dz-layout-nav-item-hover-bg: rgba(45, 45, 45, 0.125);
