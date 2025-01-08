@@ -2,11 +2,11 @@ import React from "react";
 
 import { Copyright, Version } from "../common";
 
-interface FooterProperties {
+interface Properties {
   children?: React.ReactNode;
 }
 
-export const StickyFooter = ({ children }: FooterProperties) => {
+export const StickyFooter = ({ children }: Properties) => {
   const renderContent = () => {
     return (
       <>
@@ -18,9 +18,9 @@ export const StickyFooter = ({ children }: FooterProperties) => {
 
   return (
     <>
-      <div className="sticky-footer-container">
-        <div className="sticky-footer-trigger"></div>
-        <footer className="sticky-footer">{children || renderContent()}</footer>
+      <div className="footer-container">
+        <div className="footer-trigger"></div>
+        <div className="footer">{children || renderContent()}</div>
       </div>
     </>
   );
