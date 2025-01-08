@@ -10,12 +10,12 @@ import type { Table } from "@tanstack/react-table";
 interface TToolbar<T>
   extends Pick<
     TDataTableProperties<T>,
-    | "showColumnsAction"
-    | "enableRowSelection"
     | "dataActionsMenu"
-    | "renderResetTable"
+    | "enableRowSelection"
+    | "handleResetState"
     | "renderToolbarItems"
-    | "handleResetTable"
+    | "showColumnsAction"
+    | "showResetStateAction"
   > {
   columnActionButtonLabel: string;
   resetActionButtonLabel: string;
@@ -27,9 +27,9 @@ export const TableToolbar = <TData extends { id: string | number }>({
   dataActionsMenu,
   enableRowSelection,
   renderToolbarItems,
-  renderResetTable,
+  showResetStateAction,
   resetActionButtonLabel,
-  handleResetTable,
+  handleResetState,
   showColumnsAction,
   table,
 }: TToolbar<TData>) => {
@@ -61,17 +61,20 @@ export const TableToolbar = <TData extends { id: string | number }>({
     <TTableToolbar
       children={
         <>
-          {renderResetTable ? (
+          {showResetStateAction ? (
             <Button
               label={resetActionButtonLabel}
-              onClick={handleResetTable}
+              onClick={handleResetState}
+              variant="outlined"
               severity="secondary"
             />
           ) : null}
 
           {showColumnsAction ? (
             <Popup
-              trigger={<Button label={columnActionButtonLabel} />}
+              trigger={
+                <Button label={columnActionButtonLabel} variant="outlined" />
+              }
               content={
                 <SortableList
                   items={items}
