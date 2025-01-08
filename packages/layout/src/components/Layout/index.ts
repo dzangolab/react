@@ -4,4 +4,4 @@ export * from "./Layout";
 export * from "./Sidebar";
 export * from "./common";
 export * from "./types";
-export * from "./StickyFooter";
+export * from "./StickyCollapsibleFooter";

@@ -1,13 +1,21 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
+import { StickyCollapsibleFooterDemo } from "./components/StickyCollapsibleFooterDemo";
 import { Demo } from "../../components/Demo";
 
 export const LAYOUT_ROUTES = {
   GET_STARTED: "/layout",
+  STICKY_COLLAPSIBLE_FOOTER: "/layout/stickycollapsiblefooter",
 };
 
-export const routes = [];
+export const routes = [
+  {
+    path: LAYOUT_ROUTES.STICKY_COLLAPSIBLE_FOOTER,
+    key: "Sticky collapsible footer",
+    element: <StickyCollapsibleFooterDemo />,
+  },
+];
 
 export const Pages = () => {
   const [t] = useTranslation("layout");
