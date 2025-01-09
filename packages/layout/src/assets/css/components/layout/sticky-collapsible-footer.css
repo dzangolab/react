@@ -1,4 +1,4 @@
-.sticky-collapsible-footer-container  {
+.sticky-collapsible {
   background: transparent;
   bottom: 0;
   left: 0;
@@ -8,7 +8,7 @@
   z-index: 1;
 }
 
-.sticky-collapsible-footer-container .footer {
+.sticky-collapsible .content {
   background-color: #fff;
   border-top: 1px solid #dbdbdb;
   cursor: pointer;
@@ -17,6 +17,6 @@
   width: 100%;
 }
 
-.sticky-collapsible-footer-container:hover .footer {
+.sticky-collapsible:hover .content {
   transform: translateY(0);
 }
