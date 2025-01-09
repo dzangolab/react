@@ -72,16 +72,16 @@ export const SelectDemo = () => {
           label={t("select.label.multiple")}
           name="select"
           options={[
-            { value: "FR", label: "FRANCE" },
-            { value: "DE", label: "DENMARK" },
-            { value: "BE", label: "BELGIUM" },
-            { value: "SA", label: "SANTIAGO" },
             { value: "AR", label: "ARGENTINA" },
-            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "BE", label: "BELGIUM" },
+            { value: "DE", label: "DENMARK" },
+            { value: "FR", label: "FRANCE" },
             { value: "NP", label: "NEPAL" },
             { value: "NS", label: "NETHERLAND" },
-            { value: "SN", label: "SUDAN" },
             { value: "PN", label: "POLAND" },
+            { value: "SA", label: "SANTIAGO" },
+            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "SN", label: "SUDAN" },
           ]}
           multiple={true}
           value={multiselectValue}
@@ -94,10 +94,10 @@ export const SelectDemo = () => {
           label={t("select.label.invalid")}
           name="select"
           options={[
-            { value: "FR", label: "FR" },
-            { value: "DE", label: "DE" },
-            { value: "BE", label: "BE" },
             { value: "AR", label: "AR" },
+            { value: "BE", label: "BE" },
+            { value: "DE", label: "DE" },
+            { value: "FR", label: "FR" },
           ]}
           value={selectedValue}
           onChange={(value: string) => setSelectedValue(value)}
@@ -112,10 +112,10 @@ export const SelectDemo = () => {
           label={t("select.label.renderValue")}
           name="select"
           options={[
-            { value: "1", label: "FR" },
+            { value: "BE", label: "BE" },
             { value: "DE", label: "DE" },
-            { value: "3", label: "BE" },
             { value: "FE", label: "FE" },
+            { value: "FR", label: "FR" },
             { value: "RE", label: "RE" },
           ]}
           value={renderedValue}
@@ -158,16 +158,16 @@ export const SelectDemo = () => {
           name="select"
           enableSearch
           options={[
-            { value: "FR", label: "FRANCE" },
-            { value: "DE", label: "DENMARK" },
-            { value: "BE", label: "BELGIUM" },
-            { value: "SA", label: "SANTIAGO" },
             { value: "AR", label: "ARGENTINA" },
-            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "BE", label: "BELGIUM" },
+            { value: "DE", label: "DENMARK" },
+            { value: "FR", label: "FRANCE" },
             { value: "NP", label: "NEPAL" },
             { value: "NS", label: "NETHERLAND" },
-            { value: "SN", label: "SUDAN" },
             { value: "PN", label: "POLAND" },
+            { value: "SA", label: "SANTIAGO" },
+            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "SN", label: "SUDAN" },
           ]}
           value={searchableSingleSelectValue}
           onChange={(value: string) => setSearchableSingleSelectValue(value)}
@@ -182,16 +182,16 @@ export const SelectDemo = () => {
           label={t("select.label.multipleSearch")}
           name="select"
           options={[
-            { value: "FR", label: "FRANCE" },
-            { value: "DE", label: "DENMARK" },
-            { value: "BE", label: "BELGIUM" },
-            { value: "SA", label: "SANTIAGO" },
             { value: "AR", label: "ARGENTINA" },
-            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "BE", label: "BELGIUM" },
+            { value: "DE", label: "DENMARK" },
+            { value: "FR", label: "FRANCE" },
             { value: "NP", label: "NEPAL" },
             { value: "NS", label: "NETHERLAND" },
-            { value: "SN", label: "SUDAN" },
             { value: "PN", label: "POLAND" },
+            { value: "SA", label: "SANTIAGO" },
+            { value: "SR", label: "SRILANKA", disabled: true },
+            { value: "SN", label: "SUDAN" },
           ]}
           multiple={true}
           value={searchableMultiselectValue}

@@ -86,6 +86,7 @@ export const TableDemo = () => {
           columns={columns}
           data={data}
           id="invitations-table"
+          showResetStateAction
           initialFilters={[{ id: "email", value: "O" }]}
           initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
