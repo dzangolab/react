@@ -1,22 +1,24 @@
+.sticky-collapsible .content{
+  background-color: #fff;
+  border-top: 1px solid #dbdbdb;
+  width: 100%;
+}
+
 @media screen and (min-width: 576px) {
   .sticky-collapsible {
     background: transparent;
     bottom: 0;
     left: 0;
-    overflow: hidden;
-    position: absolute;
+    position: fixed;
     right: 0;
     width: 100%;
     z-index: 1;
   }
   
   .sticky-collapsible .content {
-    background-color: #fff;
-    border-top: 1px solid #dbdbdb;
     cursor: pointer;
     transform: translateY(100%);
     transition: transform 0.3s ease-in-out;
-    width: 100%;
   }
 
   .sticky-collapsible:hover .content {

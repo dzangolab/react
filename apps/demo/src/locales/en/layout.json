@@ -3,7 +3,7 @@
     "components": "Components"
   },
   "stickyCollapsibleFooter": {
-    "subtitle": "Hover at the bottom of body content to see sticky collapsible footer component.",
+    "subtitle": "Hover at the bottom of container to see sticky collapsible footer component.",
     "title": "Sticky collapsible footer"
   }
 }
