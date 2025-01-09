@@ -1,9 +1,16 @@
-{ 
+{
   "headers": {
     "components": "Components (fr)"
   },
   "stickyCollapsibleFooter": {
-    "subtitle": "Hover at the bottom of container to see sticky collapsible footer component. (fr)",
-    "title": "Sticky collapsible footer (fr)"
+    "title": {
+      "menu": "Sticky collapsible footer (fr)",
+      "footerFixed": "Sticky collapsible footer fixed at bottom of viewport (fr)",
+      "footerAbsolute": "Sticky collapsible footer positioned at bottom of parent container (fr)"
+    },
+    "subtitle": {
+      "footerAbsolute": "Hover at the bottom of container to see sticky collapsible footer component. (fr)",
+      "footerFixed": "Hover at the bottom of page to see sticky collapsible footer component. (fr)"
+    }
   }
 }

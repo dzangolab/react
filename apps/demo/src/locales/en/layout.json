@@ -3,7 +3,14 @@
     "components": "Components"
   },
   "stickyCollapsibleFooter": {
-    "subtitle": "Hover at the bottom of container to see sticky collapsible footer component.",
-    "title": "Sticky collapsible footer"
+    "title": {
+      "menu": "Sticky collapsible footer",
+      "footerFixed": "Sticky collapsible footer fixed at bottom of viewport",
+      "footerAbsolute": "Sticky collapsible footer positioned at bottom of parent container"
+    },
+    "subtitle": {
+      "footerAbsolute": "Hover at the bottom of container to see sticky collapsible footer component.",
+      "footerFixed": "Hover at the bottom of page to see sticky collapsible footer component."
+    }
   }
 }

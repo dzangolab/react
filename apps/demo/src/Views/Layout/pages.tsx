@@ -12,7 +12,7 @@ export const LAYOUT_ROUTES = {
 export const routes = [
   {
     path: LAYOUT_ROUTES.STICKY_COLLAPSIBLE_FOOTER,
-    key: "stickyCollapsibleFooter.title",
+    key: "stickyCollapsibleFooter.title.menu",
     element: <StickyCollapsibleFooterDemo />,
   },
 ];
