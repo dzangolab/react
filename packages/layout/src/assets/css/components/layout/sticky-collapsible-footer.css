@@ -12,11 +12,16 @@
   background-color: #fff;
   border-top: 1px solid #dbdbdb;
   cursor: pointer;
-  transform: translateY(100%);
-  transition: transform 0.3s ease-in-out;
   width: 100%;
 }
 
-.sticky-collapsible:hover .content {
-  transform: translateY(0);
+@media screen and (min-width: 576px) {
+  .sticky-collapsible .content {
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sticky-collapsible:hover .content {
+    transform: translateY(0);
+  }
 }

@@ -22,13 +22,18 @@ export const Pages = () => {
 
   const subnav = [
     { route: "/layout", label: t("app:getStarted") },
-    ...routes.map(({ path, key }) => {
-      return { route: path, label: t(key) };
-    }),
+    {
+      label: t("headers.components"),
+      submenu: [
+        ...routes.map(({ path, key }) => {
+          return { route: path, label: t(key) };
+        }),
+      ],
+    },
   ];
 
   return (
-    <Demo subnav={subnav}>
+    <Demo subnav={subnav} isGrouped>
       <Outlet />
     </Demo>
   );
