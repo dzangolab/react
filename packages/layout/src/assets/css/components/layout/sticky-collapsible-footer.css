@@ -1,25 +1,22 @@
-.sticky-collapsible-footer-container .footer {
-  background-color: #fff;
-  border-top: 1px solid #dbdbdb;
-  bottom: -100px;
-  cursor: pointer;
-  left: 0;
-  position: fixed;
-  padding: 1rem;
-  right: 0;
-  transition: bottom 0.3s ease-in-out;
-  width: 100%;
-}
-
-.sticky-collapsible-footer-placeholder {
+.sticky-collapsible-footer-container  {
   background: transparent;
   bottom: 0;
-  padding: 1rem;
+  left: 0;
   position: fixed;
+  right: 0;
   width: 100%;
   z-index: 1;
 }
 
-.sticky-collapsible-footer-placeholder:hover + .footer {
-  bottom: 0;
+.sticky-collapsible-footer-container .footer {
+  background-color: #fff;
+  border-top: 1px solid #dbdbdb;
+  cursor: pointer;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+.sticky-collapsible-footer-container:hover .footer {
+  transform: translateY(0);
 }
