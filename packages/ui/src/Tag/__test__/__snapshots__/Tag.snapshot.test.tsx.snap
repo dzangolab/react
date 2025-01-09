@@ -1,0 +1,106 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tag > should match snapshot with all props set 1`] = `
+<div>
+  <span
+    class="dz-tag tag-item rounded full-width"
+    style="color: red; background-color: rgb(194, 236, 214);"
+  >
+    <i
+      class="pi pi-times"
+    />
+    Custom Label
+  </span>
+</div>
+`;
+
+exports[`Tag > should match snapshot with custom className 1`] = `
+<div>
+  <span
+    class="dz-tag tag-item"
+    style="background-color: rgb(215, 194, 253);"
+  />
+</div>
+`;
+
+exports[`Tag > should match snapshot with custom color set 1`] = `
+<div>
+  <span
+    class="dz-tag"
+    style="background-color: rgb(194, 236, 214);"
+  />
+</div>
+`;
+
+exports[`Tag > should match snapshot with custom icon 1`] = `
+<div>
+  <span
+    class="dz-tag"
+    style="background-color: rgb(215, 194, 253);"
+  >
+    <i
+      class="pi pi-times"
+    />
+  </span>
+</div>
+`;
+
+exports[`Tag > should match snapshot with custom label 1`] = `
+<div>
+  <span
+    class="dz-tag"
+    style="background-color: rgb(215, 194, 253);"
+  >
+    test tag
+  </span>
+</div>
+`;
+
+exports[`Tag > should match snapshot with custom renderContent 1`] = `
+<div>
+  <span
+    class="dz-tag"
+    style="background-color: rgb(215, 194, 253);"
+  >
+    <i
+      class="tag-item"
+    />
+  </span>
+</div>
+`;
+
+exports[`Tag > should match snapshot with custom style 1`] = `
+<div>
+  <span
+    class="dz-tag"
+    style="color: red; background-color: rgb(215, 194, 253);"
+  />
+</div>
+`;
+
+exports[`Tag > should match snapshot with default props 1`] = `
+<div>
+  <span
+    class="dz-tag"
+    style="background-color: rgb(215, 194, 253);"
+  />
+</div>
+`;
+
+exports[`Tag > should match snapshot with fullWidth set to true 1`] = `
+<div>
+  <span
+    class="dz-tag   full-width"
+    style="background-color: rgb(215, 194, 253);"
+  />
+</div>
+`;
+
+exports[`Tag > should match snapshot with rounded set to true 1`] = `
+<div>
+  <span
+    class="dz-tag  rounded"
+    style="background-color: rgb(215, 194, 253);"
+  />
+</div>
+`;
