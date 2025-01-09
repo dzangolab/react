@@ -3,7 +3,8 @@
     background: transparent;
     bottom: 0;
     left: 0;
-    position: fixed;
+    overflow: hidden;
+    position: absolute;
     right: 0;
     width: 100%;
     z-index: 1;
