@@ -1,4 +1,7 @@
-{
+{ 
+  "headers": {
+    "components": "Components (fr)"
+  },
   "stickyCollapsibleFooter": {
     "subtitle": "Hover at the bottom to see sticky collapsible footer component. (fr)",
     "title": "Sticky collapsible footer (fr)"

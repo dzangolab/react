@@ -6,11 +6,8 @@ interface Properties {
 
 export const StickyCollapsibleFooter = ({ children }: Properties) => {
   return (
-    <>
-      <div className="sticky-collapsible-footer-container">
-        <div className="sticky-collapsible-footer-placeholder"></div>
-        <div className="footer">{children}</div>
-      </div>
-    </>
+    <footer className="sticky-collapsible">
+      <div className="content">{children}</div>
+    </footer>
   );
 };
