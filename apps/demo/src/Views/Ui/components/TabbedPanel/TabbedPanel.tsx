@@ -29,7 +29,8 @@ export const TabbedPanelDemo = () => {
           exampleCode={CustomActive({ isString: true }) as string}
         ></CodeBlock>
       </Section>
-      <Section title={t("tabbedPanel.usage.disableTabState")}>
+      <Section title={t("tabbedPanel.usage.disableTabState.title")}>
+        <p>{t("tabbedPanel.usage.disableTabState.subTitle")}</p>
         <DisableStatePersistence />
         <CodeBlock
           exampleCode={DisableStatePersistence({ isString: true }) as string}

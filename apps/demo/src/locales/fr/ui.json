@@ -215,7 +215,10 @@
     "usage": {
       "basic": "Basic usage (fr)",
       "customActiveTab": "Custom active tab (fr)",
-      "disableTabState": "State persistence disabled (fr)",
+      "disableTabState": {
+        "subTitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing persistState={false} prop to the component (fr)",
+        "title": "State persistence disabled (fr)"
+      },
       "positionBottom": "Bottom tabs (fr)",
       "positionLeft": "Left tabs (fr)",
       "positionRight": "Right tabs (fr)"
