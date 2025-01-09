@@ -29,7 +29,7 @@ import { PopupDemo } from "./components/Popup";
 import { SortableListDemo } from "./components/SortableList";
 import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
-import { TabbedPanelDemo } from "./components/TabbedPanel";
+import { TabbedPanelDemo } from "./components/TabbedPanel/TabbedPanel";
 import { TableDemo } from "./components/Table";
 import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";

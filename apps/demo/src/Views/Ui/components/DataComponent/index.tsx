@@ -95,12 +95,12 @@ export const DataDemo = () => {
         />
       </Section>
 
-      <Section title={t("dataComponent.usage.basic")}>
+      <Section title={t("data.usage.basic")}>
         <Data label="Name" value="John Doe" />
         <CodeBlock exampleCode="<Data label='Name' value='John Doe' />" />
       </Section>
 
-      <Section title={t("dataComponent.usage.displayObject")}>
+      <Section title={t("data.usage.displayObject")}>
         <Data
           label="Email"
           value={{ email: "john.doe@example.com", id: 1 }}
@@ -115,7 +115,7 @@ export const DataDemo = () => {
         />
       </Section>
 
-      <Section title={t("dataComponent.usage.example")}>
+      <Section title={t("data.usage.example")}>
         <GridContainer>
           {testData.map((data, index) => (
             <Data key={index} {...data} />
