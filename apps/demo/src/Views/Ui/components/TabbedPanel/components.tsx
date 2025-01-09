@@ -1,47 +1,12 @@
 import { SubPane, TabbedPanel } from "@dzangolab/react-ui";
 
-const TabbedPanelComponent = ({
-  id,
-  defaultActiveIndex,
-  persistState,
-  position,
+const Basic = ({
   isString = false,
 }: {
-  id: string;
-  defaultActiveIndex?: number;
-  persistState?: boolean;
-  position?: "top" | "bottom" | "left" | "right";
   isString?: boolean;
 }): JSX.Element | string => {
-  const tabbedPanelProperties = {
-    id,
-    defaultActiveIndex,
-    persistState,
-    position,
-  };
-
-  const content = (
-    <TabbedPanel {...tabbedPanelProperties}>
-      <SubPane title="Description">Description</SubPane>
-      <SubPane title="Reviews">Reviews</SubPane>
-      <SubPane title="Specifications">Specifications</SubPane>
-      <SubPane title="Pricing">Pricing</SubPane>
-    </TabbedPanel>
-  );
-
   if (isString) {
-    const propertiesString = [
-      `id="${id}"`,
-      defaultActiveIndex !== undefined
-        ? `defaultActiveIndex={${defaultActiveIndex}}`
-        : "",
-      persistState === false ? "persistState={false}" : "",
-      position ? `position="${position}"` : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
-
-    return `<TabbedPanel ${propertiesString}>
+    return `<TabbedPanel id="tabbed-pannel-1">
   <SubPane title="Description">Description</SubPane>
   <SubPane title="Reviews">Reviews</SubPane>
   <SubPane title="Specifications">Specifications</SubPane>
@@ -49,76 +14,135 @@ const TabbedPanelComponent = ({
 </TabbedPanel>`;
   }
 
-  return content;
+  return (
+    <TabbedPanel id="tabbed-pannel-1">
+      <SubPane title="Description">Description</SubPane>
+      <SubPane title="Reviews">Reviews</SubPane>
+      <SubPane title="Specifications">Specifications</SubPane>
+      <SubPane title="Pricing">Pricing</SubPane>
+    </TabbedPanel>
+  );
 };
-
-const Basic = ({
-  isString = false,
-}: {
-  isString?: boolean;
-}): JSX.Element | string => (
-  <TabbedPanelComponent id="tabbed-pannel-1" isString={isString} />
-);
 
 const CustomActive = ({
   isString = false,
 }: {
   isString?: boolean;
-}): JSX.Element | string => (
-  <TabbedPanelComponent
-    id="tabbed-pannel-2"
-    defaultActiveIndex={1}
-    isString={isString}
-  />
-);
+}): JSX.Element | string => {
+  if (isString) {
+    return `<TabbedPanel id="tabbed-pannel-2" defaultActiveIndex={1}>
+  <SubPane title="Description">Description</SubPane>
+  <SubPane title="Reviews">Reviews</SubPane>
+  <SubPane title="Specifications">Specifications</SubPane>
+  <SubPane title="Pricing">Pricing</SubPane>
+</TabbedPanel>`;
+  }
+
+  return (
+    <TabbedPanel id="tabbed-pannel-2" defaultActiveIndex={1}>
+      <SubPane title="Description">Description</SubPane>
+      <SubPane title="Reviews">Reviews</SubPane>
+      <SubPane title="Specifications">Specifications</SubPane>
+      <SubPane title="Pricing">Pricing</SubPane>
+    </TabbedPanel>
+  );
+};
 
 const DisableStatePersistence = ({
   isString = false,
 }: {
   isString?: boolean;
-}): JSX.Element | string => (
-  <TabbedPanelComponent
-    id="tabbed-pannel-3"
-    persistState={false}
-    isString={isString}
-  />
-);
+}): JSX.Element | string => {
+  if (isString) {
+    return `<TabbedPanel id="tabbed-pannel-3" persistState={false}>
+  <SubPane title="Description">Description</SubPane>
+  <SubPane title="Reviews">Reviews</SubPane>
+  <SubPane title="Specifications">Specifications</SubPane>
+  <SubPane title="Pricing">Pricing</SubPane>
+</TabbedPanel>`;
+  }
+
+  return (
+    <TabbedPanel id="tabbed-pannel-3" persistState={false}>
+      <SubPane title="Description">Description</SubPane>
+      <SubPane title="Reviews">Reviews</SubPane>
+      <SubPane title="Specifications">Specifications</SubPane>
+      <SubPane title="Pricing">Pricing</SubPane>
+    </TabbedPanel>
+  );
+};
 
 const PositionBottom = ({
   isString = false,
 }: {
   isString?: boolean;
-}): JSX.Element | string => (
-  <TabbedPanelComponent
-    id="tabbed-pannel-4"
-    position="bottom"
-    isString={isString}
-  />
-);
+}): JSX.Element | string => {
+  if (isString) {
+    return `<TabbedPanel id="tabbed-pannel-4" position="bottom">
+  <SubPane title="Description">Description</SubPane>
+  <SubPane title="Reviews">Reviews</SubPane>
+  <SubPane title="Specifications">Specifications</SubPane>
+  <SubPane title="Pricing">Pricing</SubPane>
+</TabbedPanel>`;
+  }
+
+  return (
+    <TabbedPanel id="tabbed-pannel-4" position="bottom">
+      <SubPane title="Description">Description</SubPane>
+      <SubPane title="Reviews">Reviews</SubPane>
+      <SubPane title="Specifications">Specifications</SubPane>
+      <SubPane title="Pricing">Pricing</SubPane>
+    </TabbedPanel>
+  );
+};
 
 const PositionLeft = ({
   isString = false,
 }: {
   isString?: boolean;
-}): JSX.Element | string => (
-  <TabbedPanelComponent
-    id="tabbed-pannel-5"
-    position="left"
-    isString={isString}
-  />
-);
+}): JSX.Element | string => {
+  if (isString) {
+    return `<TabbedPanel id="tabbed-pannel-5" position="left">
+  <SubPane title="Description">Description</SubPane>
+  <SubPane title="Reviews">Reviews</SubPane>
+  <SubPane title="Specifications">Specifications</SubPane>
+  <SubPane title="Pricing">Pricing</SubPane>
+</TabbedPanel>`;
+  }
+
+  return (
+    <TabbedPanel id="tabbed-pannel-5" position="left">
+      <SubPane title="Description">Description</SubPane>
+      <SubPane title="Reviews">Reviews</SubPane>
+      <SubPane title="Specifications">Specifications</SubPane>
+      <SubPane title="Pricing">Pricing</SubPane>
+    </TabbedPanel>
+  );
+};
 
 const PositionRight = ({
   isString = false,
 }: {
   isString?: boolean;
-}): JSX.Element | string => (
-  <TabbedPanelComponent
-    id="tabbed-pannel-6"
-    position="right"
-    isString={isString}
-  />
-);
+}): JSX.Element | string => {
+  if (isString) {
+    return `<TabbedPanel id="tabbed-pannel-6" position="right">
+  <SubPane title="Description">Description</SubPane>
+  <SubPane title="Reviews">Reviews</SubPane>
+  <SubPane title="Specifications">Specifications</SubPane>
+  <SubPane title="Pricing">Pricing</SubPane>
+</TabbedPanel>`;
+  }
+
+  return (
+    <TabbedPanel id="tabbed-pannel-6" position="right">
+      <SubPane title="Description">Description</SubPane>
+      <SubPane title="Reviews">Reviews</SubPane>
+      <SubPane title="Specifications">Specifications</SubPane>
+      <SubPane title="Pricing">Pricing</SubPane>
+    </TabbedPanel>
+  );
+};
 
 export {
   Basic,
