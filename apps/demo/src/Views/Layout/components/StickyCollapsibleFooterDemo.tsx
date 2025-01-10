@@ -75,7 +75,7 @@ export const StickyCollapsibleFooterDemo = () => {
             exampleCode="<StickyCollapsibleFooter>
   <Input 
     placeholder='Input placeholder' 
-    onChange={(e) => setInputValue(e.target.value)}
+    onChange={(event) => setInputValue(event.target.value)}
   />
   <Button
     label='Submit'
