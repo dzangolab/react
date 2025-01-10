@@ -1,6 +1,14 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { StickyCollapsibleFooter } from "@dzangolab/react-layout";
-import { Button, Card, CardBody, Page, TDataTable } from "@dzangolab/react-ui";
+import {
+  Button,
+  Card,
+  CardBody,
+  Input,
+  Page,
+  TDataTable,
+} from "@dzangolab/react-ui";
+import { useState } from "react";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
@@ -23,6 +31,7 @@ const data = [
 
 export const StickyCollapsibleFooterDemo = () => {
   const [t] = useTranslation("layout");
+  const [inputValue, setInputValue] = useState("");
 
   return (
     <>
@@ -64,19 +73,41 @@ export const StickyCollapsibleFooterDemo = () => {
           <p>{t("stickyCollapsibleFooter.subtitle.footerFixed")}</p>
           <CodeBlock
             exampleCode="<StickyCollapsibleFooter>
-  <p>This is a sticky footer content.</p>
-  <Button size='small' severity='secondary' onClick={() => alert('Button clicked!')}>Click Me</Button>
+  <Input 
+    placeholder='Input placeholder' 
+    onChange={(e) => setInputValue(e.target.value)}
+  />
+  <Button
+    label='Submit'
+    size='small'
+    onClick={() => alert(`${inputValue}`)}
+  />
+  <Button
+    label='Cancel'
+    size='small'
+    severity='secondary'
+    variant='outlined'
+    onClick={() => alert('Cancelled!')}
+  />  
 </StickyCollapsibleFooter>"
           />
           <StickyCollapsibleFooter>
-            <p>This is a sticky footer content.</p>
+            <Input
+              placeholder="Input placeholder"
+              onChange={(event) => setInputValue(event.target.value)}
+            />
             <Button
+              label="Submit"
+              size="small"
+              onClick={() => alert(`${inputValue}`)}
+            />
+            <Button
+              label="Cancel"
               size="small"
               severity="secondary"
-              onClick={() => alert("Button clicked!")}
-            >
-              Click Me
-            </Button>
+              variant="outlined"
+              onClick={() => alert("Cancelled!")}
+            />
           </StickyCollapsibleFooter>
         </Section>
         <Section title={t("stickyCollapsibleFooter.usage.footerAbsolute")}>
