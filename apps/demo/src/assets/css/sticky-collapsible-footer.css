@@ -1,3 +1,7 @@
 .sticky-collapsible-footer .dz-card {
-    position: relative;
+  position: relative;
+}
+
+.demo-section .demo-section-content .sticky-collapsible .content {
+  padding: 0.25rem;
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { StickyCollapsibleFooter } from "@dzangolab/react-layout";
-import { Card, CardBody, Page, TDataTable } from "@dzangolab/react-ui";
+import { Button, Card, CardBody, Page, TDataTable } from "@dzangolab/react-ui";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
@@ -17,7 +17,7 @@ const data = [
     prop: "fixed",
     type: "boolean",
     description:
-      "If true, indicates that the position of the sticky collapsible footer is fixed at the viewport; otherwise it is positioned at the bottom of the parent container.",
+      "If false, indicates that the sticky collapsible footer is positioned at the bottom of the parent container, otherwise fixed at the bottom of viewport. Defaults to 'true'.",
   },
 ];
 
@@ -63,12 +63,20 @@ export const StickyCollapsibleFooterDemo = () => {
         <Section title={t("stickyCollapsibleFooter.usage.footerFixed")}>
           <p>{t("stickyCollapsibleFooter.subtitle.footerFixed")}</p>
           <CodeBlock
-            exampleCode="<StickyCollapsibleFooter fixed>
-  This is sticky collapsible footer component.
+            exampleCode="<StickyCollapsibleFooter>
+  <p>This is a sticky footer content.</p>
+  <Button size='small' severity='secondary' onClick={() => alert('Button clicked!')}>Click Me</Button>
 </StickyCollapsibleFooter>"
           />
-          <StickyCollapsibleFooter fixed>
-            This is sticky collapsible footer component.
+          <StickyCollapsibleFooter>
+            <p>This is a sticky footer content.</p>
+            <Button
+              size="small"
+              severity="secondary"
+              onClick={() => alert("Button clicked!")}
+            >
+              Click Me
+            </Button>
           </StickyCollapsibleFooter>
         </Section>
         <Section title={t("stickyCollapsibleFooter.usage.footerAbsolute")}>
@@ -78,8 +86,8 @@ export const StickyCollapsibleFooterDemo = () => {
   <CardBody>
     <div style={{ height: '20vh' }}>Body content</div>
   </CardBody>
-  <StickyCollapsibleFooter>
-    This is sticky collapsible footer component.
+  <StickyCollapsibleFooter fixed={false}>
+    <p>This is a sticky footer content.</p>
   </StickyCollapsibleFooter>
 </Card>"
           />
@@ -87,8 +95,8 @@ export const StickyCollapsibleFooterDemo = () => {
             <CardBody>
               <div style={{ height: "20vh" }}>Body content</div>
             </CardBody>
-            <StickyCollapsibleFooter>
-              This is sticky collapsible footer component.
+            <StickyCollapsibleFooter fixed={false}>
+              <p>This is a sticky footer content.</p>
             </StickyCollapsibleFooter>
           </Card>
         </Section>
