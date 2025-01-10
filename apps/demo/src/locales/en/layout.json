@@ -1,9 +1,21 @@
-{
+{  
+  "common": {
+    "usage": "To use the {{component}} component, simply import it into your React file"
+  },
   "headers": {
-    "components": "Components"
+    "components": "Components",
+    "propertiesValue": "Properties: {{value}}",
+    "usage": "Usage"
   },
   "stickyCollapsibleFooter": {
-    "subtitle": "Hover at the bottom to see sticky collapsible footer component.",
-    "title": "Sticky collapsible footer"
+    "title": "Sticky collapsible footer",
+    "usage": {
+      "footerFixed": "Fixed at bottom of viewport",
+      "footerAbsolute": "Positioned at bottom of parent container"
+    },
+    "subtitle": {
+      "footerAbsolute": "Hover at the bottom of container to see sticky collapsible footer component.",
+      "footerFixed": "Hover at the bottom of viewport to see sticky collapsible footer component."
+    }
   }
 }
