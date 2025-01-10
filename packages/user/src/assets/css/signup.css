@@ -1,6 +1,6 @@
 .signup .termsAndConditions > .input-field-checkbox {
   display: flex;
-  align-items: center;
+  align-items: start;
   flex-direction: row;
   font-size: 12px;
   color: #525252;
