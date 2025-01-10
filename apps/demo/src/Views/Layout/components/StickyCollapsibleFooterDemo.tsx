@@ -81,6 +81,14 @@ export const StickyCollapsibleFooterDemo = () => {
         </Section>
         <Section title={t("stickyCollapsibleFooter.usage.footerAbsolute")}>
           <p>{t("stickyCollapsibleFooter.subtitle.footerAbsolute")}</p>
+          <Card outlined>
+            <CardBody>
+              <div style={{ height: "20vh" }}>Body content</div>
+            </CardBody>
+            <StickyCollapsibleFooter fixed={false}>
+              <p>This is a sticky footer content.</p>
+            </StickyCollapsibleFooter>
+          </Card>
           <CodeBlock
             exampleCode="<Card outlined>
   <CardBody>
@@ -91,14 +99,6 @@ export const StickyCollapsibleFooterDemo = () => {
   </StickyCollapsibleFooter>
 </Card>"
           />
-          <Card outlined>
-            <CardBody>
-              <div style={{ height: "20vh" }}>Body content</div>
-            </CardBody>
-            <StickyCollapsibleFooter fixed={false}>
-              <p>This is a sticky footer content.</p>
-            </StickyCollapsibleFooter>
-          </Card>
         </Section>
       </Page>
     </>
