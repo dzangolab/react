@@ -1,27 +1,39 @@
 import { InputHTMLAttributes } from "react";
 
-interface IProperties extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+export interface ICheckboxProperties
+  extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
+  hasError?: boolean;
+  helperText?: string;
+  label?: string | React.ReactNode;
 }
 
-export const Checkbox: React.FC<IProperties> = ({
-  name,
-  label,
-  onChange,
+export const Checkbox: React.FC<ICheckboxProperties> = ({
+  checked,
+  disabled,
   errorMessage,
+  hasError,
+  helperText,
+  label,
+  name,
+  onChange,
+  value,
   ...others
 }) => {
   return (
     <div className="checkbox-wrapper">
       <input
-        {...others}
+        aria-invalid={hasError}
+        checked={checked}
+        disabled={disabled}
         id={name}
-        type="checkbox"
         name={name}
         onChange={onChange}
-      />
+        type="checkbox"
+        {...others}
+      ></input>
       {label && <label htmlFor={name}>{label}</label>}
+      {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );
