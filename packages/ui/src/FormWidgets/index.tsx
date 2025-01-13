@@ -1,4 +1,5 @@
 export * from "./Checkbox";
+export * from "./CheckboxInput";
 export * from "./DebouncedInput";
 export * from "./Input";
 export * from "./RadioInput";
