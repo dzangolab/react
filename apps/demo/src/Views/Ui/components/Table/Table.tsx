@@ -108,7 +108,7 @@ export const TableDemo = () => {
         ></TDataTable>
       </Section>
 
-      <Section title={t("table.usage.selectFilter")}>
+      <Section title={t("table.usage.multiSelectFilter")}>
         <TDataTable
           columns={[
             ...columns,
