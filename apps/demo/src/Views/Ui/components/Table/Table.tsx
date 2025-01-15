@@ -113,6 +113,18 @@ export const TableDemo = () => {
                     value: "Atlanta",
                     label: "Atlanta",
                   },
+                  {
+                    value: "Chicago",
+                    label: "Chicago",
+                  },
+                  {
+                    value: "Boston",
+                    label: "Boston",
+                  },
+                  {
+                    value: "Denver",
+                    label: "Denver",
+                  },
                 ],
               },
             },
