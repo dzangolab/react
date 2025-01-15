@@ -104,7 +104,36 @@ export const TableDemo = () => {
             },
           ]}
           data={data}
-          initialFilters={[{ id: "email", value: "s" }]}
+          initialSorting={[{ id: "email", desc: false }]}
+        ></TDataTable>
+      </Section>
+
+      <Section title={t("table.usage.selectFilter")}>
+        <TDataTable
+          columns={[
+            ...columns,
+            {
+              accessorKey: "city",
+              enableColumnFilter: true,
+              filterPlaceholder: "Select city",
+              filterVariant: "multiSelect",
+              filterOptions: [
+                {
+                  value: "Atlanta",
+                  label: "Atlanta",
+                },
+                {
+                  value: "Denver",
+                  label: "Denver",
+                },
+                {
+                  value: "Boston",
+                  label: "Boston",
+                },
+              ],
+            },
+          ]}
+          data={data}
           initialSorting={[{ id: "email", desc: false }]}
         ></TDataTable>
       </Section>

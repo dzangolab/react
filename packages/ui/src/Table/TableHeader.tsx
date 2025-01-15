@@ -156,6 +156,7 @@ export const TableHeader = <TData extends { id: string | number }>({
                 ) : column.columnDef.filterVariant === "multiSelect" ? (
                   <Select
                     name="multiSelect"
+                    placeholder={column.columnDef.filterPlaceholder || ""}
                     options={column.columnDef.filterOptions || []}
                     value={(columnFilterValue as string[]) || []}
                     onChange={(value) => {
