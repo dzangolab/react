@@ -147,7 +147,7 @@ export const TableHeader = <TData extends { id: string | number }>({
                 }}
                 className={`${
                   column.id ? `column-${column.id}` : ``
-                } ${activeColumnClass} ${column.columnDef.className || ""} ${column.columnDef.meta?.filterVariant === "multiSelect" ? "select" : ""}`
+                } ${activeColumnClass} ${column.columnDef.className || ""} ${column.columnDef.meta?.filterVariant === "multiSelect" ? "multi-select-filter" : ""}`
                   .replace(/\s\s/, " ")
                   .trimEnd()}
               >
