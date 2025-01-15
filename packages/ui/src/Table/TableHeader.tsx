@@ -1,7 +1,7 @@
 import { flexRender, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DebouncedInput } from "@/FormWidgets";
+import { DebouncedInput, Select } from "@/FormWidgets";
 
 import {
   ColumnHeader,
@@ -130,6 +130,10 @@ export const TableHeader = <TData extends { id: string | number }>({
               column.getIsFiltered() ? "highlight" : ""
             }`;
 
+            const filterColumnClass = `${column.getCanFilter() ? `filter ${column.columnDef.meta?.filterVariant}` : ""}`;
+
+            const columnFilterValue = column.getFilterValue();
+
             return (
               <ColumnHeader
                 key={"filter" + column.id}
@@ -145,15 +149,26 @@ export const TableHeader = <TData extends { id: string | number }>({
                 }}
                 className={`${
                   column.id ? `column-${column.id}` : ``
-                } ${activeColumnClass} ${column.columnDef.className || ""}`
+                } ${activeColumnClass} ${column.columnDef.className || ""} ${filterColumnClass}`
                   .replace(/\s\s/, " ")
                   .trimEnd()}
               >
                 {column.columnDef.customFilterComponent ? (
                   column.columnDef.customFilterComponent(column)
+                ) : column.columnDef.meta?.filterVariant === "multiselect" ? (
+                  <Select
+                    name="multiselect"
+                    placeholder={column.columnDef.filterPlaceholder || ""}
+                    options={column.columnDef.meta?.filterOptions || []}
+                    value={(columnFilterValue as string[]) || []}
+                    onChange={(value) => {
+                      column.setFilterValue(value);
+                    }}
+                    multiple={true}
+                  />
                 ) : (
                   <DebouncedInput
-                    defaultValue={column.getFilterValue() as string}
+                    defaultValue={columnFilterValue as string}
                     onInputChange={(value) => {
                       column.setFilterValue(value);
                     }}

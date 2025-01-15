@@ -23,6 +23,8 @@ declare module "@tanstack/react-table" {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   interface ColumnMeta<TData extends RowData, TValue> {
     serverFilterFn?: TFilterFn;
+    filterVariant?: TFilterVariant;
+    filterOptions?: FilterOption[];
   }
 
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
@@ -92,6 +94,11 @@ type TLimit = number | null;
 type TOffset = number | null;
 
 type TSortRequest = TSingleSort[] | null;
+
+type FilterOption = {
+  value: string;
+  label: string;
+};
 
 export type TRequestJSON = {
   filter: TFilterRequest;
@@ -198,7 +205,7 @@ export type TFilterFn =
 export type TFilterVariant =
   | "text"
   | "select"
-  | "multiSelect"
+  | "multiselect"
   | "date"
   | "dateRange"
   | "range"
