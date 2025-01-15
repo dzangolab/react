@@ -130,6 +130,8 @@ export const TableHeader = <TData extends { id: string | number }>({
               column.getIsFiltered() ? "highlight" : ""
             }`;
 
+            const filterColumnClass = `${column.getCanFilter() ? `filter ${column.columnDef.meta?.filterVariant}` : ""}`;
+
             const columnFilterValue = column.getFilterValue();
 
             return (
@@ -147,15 +149,15 @@ export const TableHeader = <TData extends { id: string | number }>({
                 }}
                 className={`${
                   column.id ? `column-${column.id}` : ``
-                } ${activeColumnClass} ${column.columnDef.className || ""} ${column.columnDef.meta?.filterVariant === "multiSelect" ? "multi-select-filter" : ""}`
+                } ${activeColumnClass} ${column.columnDef.className || ""} ${filterColumnClass}`
                   .replace(/\s\s/, " ")
                   .trimEnd()}
               >
                 {column.columnDef.customFilterComponent ? (
                   column.columnDef.customFilterComponent(column)
-                ) : column.columnDef.meta?.filterVariant === "multiSelect" ? (
+                ) : column.columnDef.meta?.filterVariant === "multiselect" ? (
                   <Select
-                    name="multiSelect"
+                    name="multiselect"
                     placeholder={column.columnDef.filterPlaceholder || ""}
                     options={column.columnDef.meta?.filterOptions || []}
                     value={(columnFilterValue as string[]) || []}

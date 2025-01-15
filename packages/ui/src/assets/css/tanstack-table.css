@@ -96,7 +96,7 @@
   overflow: hidden;
 }
 
-.dz-table-container .table-wrapper > table > thead > tr > th.multi-select-filter {
+.dz-table-container .table-wrapper > table > thead > tr > th.filter.multiselect {
   overflow: visible;
 }
 

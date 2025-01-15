@@ -143,7 +143,6 @@
       "builtInActionColumn": "Table demonstrating built in actions column use case (fr)",
       "cellDataFormatting": "Table demonstrating cell content formatting (fr)",
       "filterable": "Table with filterable column (fr)",
-      "multiSelectFilter": "Table with multi select filter (fr)",
       "sortable": "Table with sortable column (fr)",
       "rowSelection": "Table with row selection (fr)",
       "persistentState": "Table with persistent state (fr)",

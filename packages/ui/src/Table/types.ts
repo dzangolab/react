@@ -205,7 +205,7 @@ export type TFilterFn =
 export type TFilterVariant =
   | "text"
   | "select"
-  | "multiSelect"
+  | "multiselect"
   | "date"
   | "dateRange"
   | "range"
