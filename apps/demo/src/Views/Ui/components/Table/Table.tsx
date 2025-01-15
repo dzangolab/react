@@ -116,21 +116,23 @@ export const TableDemo = () => {
               accessorKey: "city",
               enableColumnFilter: true,
               filterPlaceholder: "Select city",
-              filterVariant: "multiSelect",
-              filterOptions: [
-                {
-                  value: "Atlanta",
-                  label: "Atlanta",
-                },
-                {
-                  value: "Denver",
-                  label: "Denver",
-                },
-                {
-                  value: "Boston",
-                  label: "Boston",
-                },
-              ],
+              meta: {
+                filterVariant: "multiSelect",
+                filterOptions: [
+                  {
+                    value: "Atlanta",
+                    label: "Atlanta",
+                  },
+                  {
+                    value: "Denver",
+                    label: "Denver",
+                  },
+                  {
+                    value: "Boston",
+                    label: "Boston",
+                  },
+                ],
+              },
             },
           ]}
           data={data}

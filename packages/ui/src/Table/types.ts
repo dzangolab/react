@@ -23,6 +23,8 @@ declare module "@tanstack/react-table" {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   interface ColumnMeta<TData extends RowData, TValue> {
     serverFilterFn?: TFilterFn;
+    filterVariant?: TFilterVariant;
+    filterOptions?: FilterOption[];
   }
 
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
@@ -32,8 +34,6 @@ declare module "@tanstack/react-table" {
     className?: string;
     customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
     filterPlaceholder?: string;
-    filterVariant?: TFilterVariant;
-    filterOptions?: FilterOption[];
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
       Omit<ComponentProps<typeof Tooltip>, "elementRef">

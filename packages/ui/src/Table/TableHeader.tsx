@@ -147,17 +147,17 @@ export const TableHeader = <TData extends { id: string | number }>({
                 }}
                 className={`${
                   column.id ? `column-${column.id}` : ``
-                } ${activeColumnClass} ${column.columnDef.className || ""} ${column.columnDef.filterVariant === "multiSelect" ? "select" : ""}`
+                } ${activeColumnClass} ${column.columnDef.className || ""} ${column.columnDef.meta?.filterVariant === "multiSelect" ? "select" : ""}`
                   .replace(/\s\s/, " ")
                   .trimEnd()}
               >
                 {column.columnDef.customFilterComponent ? (
                   column.columnDef.customFilterComponent(column)
-                ) : column.columnDef.filterVariant === "multiSelect" ? (
+                ) : column.columnDef.meta?.filterVariant === "multiSelect" ? (
                   <Select
                     name="multiSelect"
                     placeholder={column.columnDef.filterPlaceholder || ""}
-                    options={column.columnDef.filterOptions || []}
+                    options={column.columnDef.meta?.filterOptions || []}
                     value={(columnFilterValue as string[]) || []}
                     onChange={(value) => {
                       column.setFilterValue(value);
@@ -166,7 +166,7 @@ export const TableHeader = <TData extends { id: string | number }>({
                   />
                 ) : (
                   <DebouncedInput
-                    defaultValue={column.getFilterValue() as string}
+                    defaultValue={columnFilterValue as string}
                     onInputChange={(value) => {
                       column.setFilterValue(value);
                     }}
