@@ -96,6 +96,10 @@
   overflow: hidden;
 }
 
+.dz-table-container .table-wrapper > table > thead > tr > th.select {
+  overflow: visible;
+}
+
 .dz-table-container .table-wrapper > table tr > td[data-align="center"] > * {
   margin: auto;
 }

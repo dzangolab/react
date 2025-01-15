@@ -32,6 +32,8 @@ declare module "@tanstack/react-table" {
     className?: string;
     customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
     filterPlaceholder?: string;
+    filterVariant?: TFilterVariant;
+    filterOptions?: FilterOption[];
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
       Omit<ComponentProps<typeof Tooltip>, "elementRef">
@@ -92,6 +94,11 @@ type TLimit = number | null;
 type TOffset = number | null;
 
 type TSortRequest = TSingleSort[] | null;
+
+type FilterOption = {
+  value: string;
+  label: string;
+};
 
 export type TRequestJSON = {
   filter: TFilterRequest;

@@ -1,7 +1,7 @@
 import { flexRender, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DebouncedInput } from "@/FormWidgets";
+import { DebouncedInput, Select } from "@/FormWidgets";
 
 import {
   ColumnHeader,
@@ -130,6 +130,8 @@ export const TableHeader = <TData extends { id: string | number }>({
               column.getIsFiltered() ? "highlight" : ""
             }`;
 
+            const columnFilterValue = column.getFilterValue();
+
             return (
               <ColumnHeader
                 key={"filter" + column.id}
@@ -145,12 +147,22 @@ export const TableHeader = <TData extends { id: string | number }>({
                 }}
                 className={`${
                   column.id ? `column-${column.id}` : ``
-                } ${activeColumnClass} ${column.columnDef.className || ""}`
+                } ${activeColumnClass} ${column.columnDef.className || ""} ${column.columnDef.filterVariant === "multiSelect" ? "select" : ""}`
                   .replace(/\s\s/, " ")
                   .trimEnd()}
               >
                 {column.columnDef.customFilterComponent ? (
                   column.columnDef.customFilterComponent(column)
+                ) : column.columnDef.filterVariant === "multiSelect" ? (
+                  <Select
+                    name="multiSelect"
+                    options={column.columnDef.filterOptions || []}
+                    value={(columnFilterValue as string[]) || []}
+                    onChange={(value) => {
+                      column.setFilterValue(value);
+                    }}
+                    multiple={true}
+                  />
                 ) : (
                   <DebouncedInput
                     defaultValue={column.getFilterValue() as string}
