@@ -167,7 +167,8 @@
   font-size: 1rem;
 }
 
-.table-wrapper > table tr.filters > th > div > input {
+.table-wrapper > table tr.filters > th > div > input, 
+.table-wrapper > table tr.filters > th.multiselect > div {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
