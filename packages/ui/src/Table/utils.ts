@@ -84,6 +84,14 @@ export const getRequestJSON = (
     if (!filterState || filterState.length === 0) return null;
 
     if (filterState.length === 1) {
+      if (Array.isArray(filterState[0].value)) {
+        return {
+          key: filterState[0].id,
+          ...getFilterOperator("in"),
+          value: filterState[0].value.join(","),
+        };
+      }
+
       return {
         key: filterState[0].id,
         ...getFilterOperator(filterState[0].filterFn || "contains"),
@@ -93,6 +101,14 @@ export const getRequestJSON = (
 
     return {
       AND: filterState.map((filter) => {
+        if (Array.isArray(filter.value)) {
+          return {
+            key: filter.id,
+            ...getFilterOperator("in"),
+            value: filter.value.join(","),
+          };
+        }
+
         return {
           key: filter.id,
           ...getFilterOperator(filter.filterFn || "contains"),
