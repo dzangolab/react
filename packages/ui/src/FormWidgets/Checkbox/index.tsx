@@ -4,15 +4,14 @@ interface IProperties extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   helperText?: string;
   label?: string | React.ReactNode;
-  modelValue?: boolean;
 }
 
 export const Checkbox: React.FC<IProperties> = ({
+  checked,
   disabled,
   errorMessage,
   helperText,
   label,
-  modelValue,
   name,
   onChange,
   value,
@@ -21,7 +20,7 @@ export const Checkbox: React.FC<IProperties> = ({
   return (
     <div className="checkbox-wrapper">
       <input
-        checked={modelValue}
+        checked={checked}
         disabled={disabled}
         id={name}
         name={name}
