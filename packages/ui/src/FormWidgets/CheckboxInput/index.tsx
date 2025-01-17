@@ -14,7 +14,7 @@ export interface ICheckboxInputProperties<T> {
   disabled?: boolean;
   errorMessage?: string;
   helperText?: string;
-  inputLabel: string;
+  inputLabel?: string;
   label?: string | React.ReactNode;
   name: string;
   onChange: (newValue: T[]) => void;

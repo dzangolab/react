@@ -5,7 +5,6 @@ import { Controller, useFormContext } from "react-hook-form";
 type Option<T> = {
   value: T;
   label: string;
-  disabled?: boolean;
 };
 
 export type ICheckboxInputProperties<T> = {
@@ -13,16 +12,12 @@ export type ICheckboxInputProperties<T> = {
   direction?: "horizontal" | "vertical";
   disabled?: boolean;
   checked?: boolean;
-  errorMessage?: string;
   helperText?: string;
-  inputLabel: string;
+  inputLabel?: string;
   label?: string | React.ReactNode;
   name: string;
   options: Option<T>[];
   placeholder?: string;
-  renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
-  value: T[];
 };
 
 export const CheckboxInput = <T extends string | number>({
@@ -32,34 +27,31 @@ export const CheckboxInput = <T extends string | number>({
   name,
   options,
   checked,
-  errorMessage,
   helperText,
   inputLabel,
-  value,
-  ...others
 }: ICheckboxInputProperties<T>) => {
-  const { control, getFieldState, setValue } = useFormContext();
+  const { control, getFieldState } = useFormContext();
 
-  const { error, invalid } = getFieldState(name);
+  const { error } = getFieldState(name);
 
   return (
     <Controller
       name={name}
       control={control}
+      defaultValue={[]}
       render={({ field }) => (
         <BasicCheckboxInput
-          // direction={"horizontal"}
-          inputLabel={""}
+          className={className}
+          helperText={helperText}
+          checked={checked}
+          inputLabel={inputLabel}
           name={field.name}
           label={label}
-          // checkedValues={field.value || []}
-          // checkedValues={[]}
           value={field.value}
           disabled={disabled}
           errorMessage={error?.message}
           onChange={field.onChange}
           options={options}
-          {...others}
         />
       )}
     />

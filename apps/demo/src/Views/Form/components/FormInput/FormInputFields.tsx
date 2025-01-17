@@ -10,6 +10,7 @@ import {
   Select,
   Typeahead,
   DateInput,
+  CheckboxInput,
 } from "@dzangolab/react-form";
 import { Textarea } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
@@ -163,6 +164,16 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
           { label: "Two", value: "value 2" },
           { label: "Three", value: "value 3" },
         ]}
+      />
+      <CheckboxInput
+        label={t("formInput.label.checkboxInput")}
+        name="checkboxInput"
+        options={[
+          { label: "One", value: "value 1" },
+          { label: "Two", value: "value 2" },
+          { label: "Three", value: "value 3" },
+        ]}
+        direction={"horizontal"}
       />
       <FormActions
         actions={[
