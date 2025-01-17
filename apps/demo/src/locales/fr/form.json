@@ -38,6 +38,7 @@
       "required": "Required field (fr)"
     },
     "label": {
+      "checkboxInput": "Checkbox input (fr)",
       "disabled": "Disabled input (fr)",
       "dateInput": "Date input (fr)",
       "email": "Email (fr)",

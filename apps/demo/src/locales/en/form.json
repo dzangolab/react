@@ -38,6 +38,7 @@
       "required": "Required field"
     },
     "label": {
+      "checkboxInput": "Checkbox input",
       "dateInput": "Date input",
       "disabled": "Disabled input",
       "email": "Email",

@@ -43,6 +43,7 @@ export const FormInputDemo = () => {
     typeahead: zod.string().min(1, t("formInput.message.required")),
     date: zod.string().date(),
     radioInput: zod.string(),
+    checkboxInput: zod.string().array(),
   });
 
   const handleSubmit = (_formData: any) => {

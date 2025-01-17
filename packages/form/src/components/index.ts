@@ -1,3 +1,4 @@
+export * from "./CheckboxInput";
 export * from "./DatePicker";
 export * from "./DaysInput";
 export * from "./DateInput";
