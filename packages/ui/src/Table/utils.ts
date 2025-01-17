@@ -102,7 +102,7 @@ export const getRequestJSON = (
         return {
           key: filterState[0].id,
           ...getFilterOperator("in"),
-          value: String(filterState[0].value),
+          value: filterState[0].value.join(","),
         };
       }
 
@@ -119,7 +119,7 @@ export const getRequestJSON = (
           return {
             key: filter.id,
             ...getFilterOperator("in"),
-            value: String(filter.value),
+            value: filter.value.join(","),
           };
         }
 
