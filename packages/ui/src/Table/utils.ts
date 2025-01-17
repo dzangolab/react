@@ -82,15 +82,29 @@ export const getRequestJSON = (
 ): TRequestJSON => {
   const getFilter = () => {
     if (!filterState || filterState.length === 0) return null;
-    console.log("filterstate", filterState[0]);
-    if (filterState.length === 1) {
-      // if (Array.isArray(filterState[0].value) && filterState[0].value.length) {
-      //   return {
-      //     key: filterState[0].id,
-      //     ...getFilterOperator("in"),
-      //     value: String(filterState[0].value),
-      //   };
-      // }
+
+    const updatedFilterState = filterState.filter((filter) => {
+      if (Array.isArray(filter.value)) {
+        return filter.value.length > 0;
+      }
+
+      if (typeof filter.value === "string") {
+        return filter.value.trim() !== "";
+      }
+
+      return filter.value != null;
+    });
+
+    if (updatedFilterState.length === 0) return null;
+
+    if (updatedFilterState.length === 1) {
+      if (Array.isArray(filterState[0].value)) {
+        return {
+          key: filterState[0].id,
+          ...getFilterOperator("in"),
+          value: String(filterState[0].value),
+        };
+      }
 
       return {
         key: filterState[0].id,
@@ -100,14 +114,14 @@ export const getRequestJSON = (
     }
 
     return {
-      AND: filterState.map((filter) => {
-        // if (Array.isArray(filter.value) && filter.value.length) {
-        //   return {
-        //     key: filter.id,
-        //     ...getFilterOperator("in"),
-        //     value: String(filter.value),
-        //   };
-        // }
+      AND: updatedFilterState.map((filter) => {
+        if (Array.isArray(filter.value)) {
+          return {
+            key: filter.id,
+            ...getFilterOperator("in"),
+            value: String(filter.value),
+          };
+        }
 
         return {
           key: filter.id,

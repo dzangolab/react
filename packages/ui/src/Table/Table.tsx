@@ -33,11 +33,7 @@ import { Checkbox } from "../FormWidgets";
 import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
 
-import type {
-  PersistentTableState,
-  TDataTableProperties,
-  TFilterFn as TFilterFunction,
-} from "./types";
+import type { PersistentTableState, TDataTableProperties } from "./types";
 import type { ColumnDef } from "@tanstack/react-table";
 
 const DataTable = <TData extends { id: string | number }>({
@@ -108,19 +104,12 @@ const DataTable = <TData extends { id: string | number }>({
     const updatedFilters = updatedColumnFilter.map((filter) => {
       const column = table.getColumn(filter.id);
 
-      if (Array.isArray(filter.value) && filter.value.length) {
-        return {
-          ...filter,
-          filterFn: "in" as TFilterFunction,
-        };
-      }
-
       return {
         ...filter,
         filterFn: column?.columnDef.meta?.serverFilterFn,
       };
     });
-    console.log("state", updatedFilters);
+
     setColumnFilters(updatedFilters);
     table.setPageIndex(0);
   };
@@ -198,9 +187,7 @@ const DataTable = <TData extends { id: string | number }>({
 
     parsedColumns.forEach((column) => {
       if (column.meta?.filterVariant === "multiselect") {
-        console.log("this step");
         column.filterFn = (row, columnId, filterValue) => {
-          console.log("filtervalue", filterValue);
           if (!filterValue || filterValue.length === 0) {
             return row;
           }
@@ -267,7 +254,6 @@ const DataTable = <TData extends { id: string | number }>({
   }, [mappedSelectedRows]);
 
   useEffect(() => {
-    console.log("useeffectcolumnfilter", columnFilters);
     const requestJSON = getRequestJSON(sorting, columnFilters, {
       pageIndex: pagination.pageIndex,
       pageSize: pagination.pageSize,
