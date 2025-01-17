@@ -13,7 +13,7 @@ describe("Message", () => {
     expect(screen.getByText("Message")).toBeInTheDocument();
   });
 
-  test("should render <i> element icon is passed as string", () => {
+  test("should render <i> element when icon is passed as string", () => {
     render(<Message message="Message" icon="icon" />);
 
     expect(screen.getByTestId("icon").querySelector("i")).toBeInTheDocument();
