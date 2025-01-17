@@ -53,13 +53,12 @@ export const CheckboxInput = <T extends string | number>({
     );
   };
 
-  const handleSelectedOption = (option: T) => {
+  const handleSelectOption = (option: T) => {
     const newValue = selectedValues.includes(option)
       ? selectedValues.filter((_value) => _value !== option)
       : [...selectedValues, option];
 
     setSelectedValues(newValue);
-    onChange(newValue);
   };
 
   return (
@@ -75,7 +74,7 @@ export const CheckboxInput = <T extends string | number>({
               checked={isOptionChecked(optionValue)}
               value={optionValue}
               name={optionLabel}
-              onChange={() => handleSelectedOption(optionValue)}
+              onChange={() => handleSelectOption(optionValue)}
             />
           ))}
         </div>
