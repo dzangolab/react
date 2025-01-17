@@ -19,6 +19,7 @@ describe("RadioInput", () => {
     const { container } = render(
       <RadioInput options={options} disabled={true} />,
     );
+
     expect(container).toMatchSnapshot();
   });
 
@@ -26,6 +27,7 @@ describe("RadioInput", () => {
     const { container } = render(
       <RadioInput options={options} className="custom-class" />,
     );
+
     expect(container).toMatchSnapshot();
   });
 
@@ -54,6 +56,7 @@ describe("RadioInput", () => {
         options={options}
       />,
     );
+
     expect(container).toMatchSnapshot();
   });
 });
