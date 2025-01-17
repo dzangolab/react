@@ -8,7 +8,7 @@ type MessageProperties = {
 const Message = ({ message, icon }: MessageProperties) => {
   const renderIcon = () => {
     return (
-      <span className="icon">
+      <span className="icon" data-testid="icon">
         {typeof icon === "string" ? <i className={icon} /> : icon}
       </span>
     );
