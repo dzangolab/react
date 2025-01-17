@@ -1,0 +1,326 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RadioInput > should match snapshot with a custom label 1`] = `
+<div>
+  <fieldset
+    class="field"
+  >
+    <legend>
+      Custom label
+    </legend>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="1"
+        type="radio"
+        value="1"
+      />
+      <label
+        for="1"
+      >
+        One
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="2"
+        type="radio"
+        value="2"
+      />
+      <label
+        for="2"
+      >
+        Two
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="3"
+        type="radio"
+        value="3"
+      />
+      <label
+        for="3"
+      >
+        Three
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`RadioInput > should match snapshot with a custom name 1`] = `
+<div>
+  <fieldset
+    class="field"
+  >
+    <legend />
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="1"
+        name="radioInput"
+        type="radio"
+        value="1"
+      />
+      <label
+        for="1"
+      >
+        One
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="2"
+        name="radioInput"
+        type="radio"
+        value="2"
+      />
+      <label
+        for="2"
+      >
+        Two
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="3"
+        name="radioInput"
+        type="radio"
+        value="3"
+      />
+      <label
+        for="3"
+      >
+        Three
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`RadioInput > should match snapshot with all props set 1`] = `
+<div>
+  <fieldset
+    class="field radio-input"
+  >
+    <legend>
+      Custom Label
+    </legend>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="1"
+        name="radioInput"
+        type="radio"
+        value="1"
+      />
+      <label
+        for="1"
+      >
+        One
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="2"
+        name="radioInput"
+        type="radio"
+        value="2"
+      />
+      <label
+        for="2"
+      >
+        Two
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="3"
+        name="radioInput"
+        type="radio"
+        value="3"
+      />
+      <label
+        for="3"
+      >
+        Three
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`RadioInput > should match snapshot with custom className 1`] = `
+<div>
+  <fieldset
+    class="field custom-class"
+  >
+    <legend />
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="1"
+        type="radio"
+        value="1"
+      />
+      <label
+        for="1"
+      >
+        One
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="2"
+        type="radio"
+        value="2"
+      />
+      <label
+        for="2"
+      >
+        Two
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="3"
+        type="radio"
+        value="3"
+      />
+      <label
+        for="3"
+      >
+        Three
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`RadioInput > should match snapshot with disabled set to true 1`] = `
+<div>
+  <fieldset
+    class="field"
+  >
+    <legend />
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        disabled=""
+        id="1"
+        type="radio"
+        value="1"
+      />
+      <label
+        for="1"
+      >
+        One
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        disabled=""
+        id="2"
+        type="radio"
+        value="2"
+      />
+      <label
+        for="2"
+      >
+        Two
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        disabled=""
+        id="3"
+        type="radio"
+        value="3"
+      />
+      <label
+        for="3"
+      >
+        Three
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`RadioInput > should match snapshot with options 1`] = `
+<div>
+  <fieldset
+    class="field"
+  >
+    <legend />
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="1"
+        type="radio"
+        value="1"
+      />
+      <label
+        for="1"
+      >
+        One
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="2"
+        type="radio"
+        value="2"
+      />
+      <label
+        for="2"
+      >
+        Two
+      </label>
+    </div>
+    <div
+      class="radio-button-wrapper"
+    >
+      <input
+        id="3"
+        type="radio"
+        value="3"
+      />
+      <label
+        for="3"
+      >
+        Three
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
