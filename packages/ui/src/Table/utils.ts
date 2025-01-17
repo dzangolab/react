@@ -83,24 +83,38 @@ export const getRequestJSON = (
   const getFilter = () => {
     if (!filterState || filterState.length === 0) return null;
 
-    if (filterState.length === 1) {
-      if (Array.isArray(filterState[0].value)) {
+    const updatedFilterState = filterState.filter((filter) => {
+      if (Array.isArray(filter.value)) {
+        return filter.value.length > 0;
+      }
+
+      if (typeof filter.value === "string") {
+        return filter.value.trim() !== "";
+      }
+
+      return filter.value != null;
+    });
+
+    if (updatedFilterState.length === 0) return null;
+
+    if (updatedFilterState.length === 1) {
+      if (Array.isArray(updatedFilterState[0].value)) {
         return {
-          key: filterState[0].id,
+          key: updatedFilterState[0].id,
           ...getFilterOperator("in"),
-          value: filterState[0].value.join(","),
+          value: updatedFilterState[0].value.join(","),
         };
       }
 
       return {
-        key: filterState[0].id,
-        ...getFilterOperator(filterState[0].filterFn || "contains"),
-        value: String(filterState[0].value),
+        key: updatedFilterState[0].id,
+        ...getFilterOperator(updatedFilterState[0].filterFn || "contains"),
+        value: String(updatedFilterState[0].value),
       };
     }
 
     return {
-      AND: filterState.map((filter) => {
+      AND: updatedFilterState.map((filter) => {
         if (Array.isArray(filter.value)) {
           return {
             key: filter.id,

@@ -185,6 +185,20 @@ const DataTable = <TData extends { id: string | number }>({
       parsedColumns = [...parsedColumns, defaultActionColumn];
     }
 
+    parsedColumns.forEach((column) => {
+      if (column.meta?.filterVariant === "multiselect") {
+        column.filterFn = (row, columnId, filterValue) => {
+          if (!filterValue || filterValue.length === 0) {
+            return row;
+          }
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          return filterValue.some((value: any) =>
+            row.getValue<unknown[]>(columnId)?.includes(value),
+          );
+        };
+      }
+    });
+
     return parsedColumns;
   }, [visibleColumns, columns]);
 

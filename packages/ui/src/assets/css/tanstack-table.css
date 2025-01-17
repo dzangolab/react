@@ -167,12 +167,20 @@
   font-size: 1rem;
 }
 
-.table-wrapper > table tr.filters > th > div > input, 
-.table-wrapper > table tr.filters > th.multiselect > div {
+.table-wrapper > table tr.filters > th > div > input {
   width: 100%;
   min-width: 7rem;
   font-weight: normal;
   background: #ffffff;
+}
+
+.table-wrapper > table tr.filters > th.multiselect > div {
+  background: #ffffff;
+  font-weight: normal;
+}
+
+.table-wrapper > table tr.filters > th.multiselect > div .input-field-select {
+  margin-top: 0;
 }
 
 .dz-table-container .table-wrapper > table > tbody > tr > td,
