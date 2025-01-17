@@ -98,18 +98,18 @@ export const getRequestJSON = (
     if (updatedFilterState.length === 0) return null;
 
     if (updatedFilterState.length === 1) {
-      if (Array.isArray(filterState[0].value)) {
+      if (Array.isArray(updatedFilterState[0].value)) {
         return {
-          key: filterState[0].id,
+          key: updatedFilterState[0].id,
           ...getFilterOperator("in"),
-          value: filterState[0].value.join(","),
+          value: updatedFilterState[0].value.join(","),
         };
       }
 
       return {
-        key: filterState[0].id,
-        ...getFilterOperator(filterState[0].filterFn || "contains"),
-        value: String(filterState[0].value),
+        key: updatedFilterState[0].id,
+        ...getFilterOperator(updatedFilterState[0].filterFn || "contains"),
+        value: String(updatedFilterState[0].value),
       };
     }
 
