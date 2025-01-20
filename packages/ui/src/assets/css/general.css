@@ -8,6 +8,10 @@ a.native-link {
   text-decoration: none;
 }
 
+a.native-link.underlined {
+  text-decoration: underline;
+}
+
 a.native-link:hover {
   text-decoration: underline;
 }
