@@ -20,7 +20,7 @@ const InlineLink = ({
 }: Properties) => {
   const linkClassName =
     `native-link ${underlined ? "underlined" : ""} ${className}`
-      .replace(/\s+/g, " ")
+      .replace(/\s\s/, " ")
       .trim();
 
   if (external) {
