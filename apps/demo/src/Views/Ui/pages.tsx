@@ -21,6 +21,7 @@ import {
   TypeaheadDemo,
 } from "./components/FormWidgets";
 import { GridContainerDemo } from "./components/GridContainerDemo";
+import { InlineLinkDemo } from "./components/InlineLinkDemo";
 import { LoadingDemo } from "./components/Loading";
 import { MessageDemo } from "./components/Message";
 import { ModalDemo } from "./components/ModalDemo";
@@ -52,6 +53,7 @@ export const UI_ROUTES = {
   GET_STARTED: "/ui",
   GRID_CONTAINER: "/ui/grid-container",
   INPUT: "/ui/input",
+  INLINE_LINK: "/ui/inline-link",
   LOADING: "/ui/loading",
   LOCAL_DATA_TABLE: "/ui/local-table",
   MESSAGE: "/ui/message",
@@ -211,6 +213,11 @@ const MISC_ROUTES = [
     path: UI_ROUTES.YOUTUBE_FACADE,
     key: "youtubeFacade.title",
     element: <YoutubeFacadeDemo />,
+  },
+  {
+    path: UI_ROUTES.INLINE_LINK,
+    key: "inlineLink.title",
+    element: <InlineLinkDemo />,
   },
 ];
 

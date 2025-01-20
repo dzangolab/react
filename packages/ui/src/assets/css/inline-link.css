@@ -1,0 +1,17 @@
+a.inline-link {
+  --_color: var(--dz-primary-color, --color)
+}
+
+a.inline-link {
+  color: var(--_color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.inline-link.underlined {
+  text-decoration: underline;
+}
+
+a.inline-link:hover {
+  text-decoration: underline;
+}

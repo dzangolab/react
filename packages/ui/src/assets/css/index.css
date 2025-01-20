@@ -37,6 +37,7 @@
 @import "./gridContainer.css";
 @import "./radioInput.css";
 @import "./navigation/index.css";
+@import "./inline-link.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";

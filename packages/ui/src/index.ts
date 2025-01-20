@@ -7,6 +7,7 @@ import Divider from "./Divider";
 import DropdownMenu, { DropdownMenuProperties } from "./DropdownMenu";
 import { MenuItem } from "./DropdownMenu/Menu";
 import GridContainer from "./GridContainer";
+import InlineLink from "./InlineLink";
 import LoadingIcon from "./LoadingIcon";
 import LoadingPage from "./LoadingPage";
 import Message from "./Message";
@@ -41,6 +42,7 @@ export {
   DropdownMenu,
   GoogleButton,
   GridContainer,
+  InlineLink,
   LoadingIcon,
   LoadingPage,
   Message,
