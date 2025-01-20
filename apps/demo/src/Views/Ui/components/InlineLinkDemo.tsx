@@ -56,12 +56,7 @@ export const InlineLinkDemo = () => {
       <Section>
         <div className="links">
           <InlineLink label={t("inlineLink.label")} to="/ui" underlined />
-          <InlineLink
-            label={t("inlineLink.label")}
-            to="/ui"
-            external
-            target="_self"
-          />
+          <InlineLink label={t("inlineLink.label")} to="/ui" />
         </div>
         <CodeBlock
           exampleCode="<div className='inline-link'>
