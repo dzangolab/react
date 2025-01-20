@@ -5,7 +5,7 @@ interface Properties {
   className?: string;
   external?: boolean;
   label: React.ReactNode;
-  target?: "_self" | "_blank" | "_parent" | "_top";
+  target?: string;
   to: string;
   underlined?: boolean;
 }
