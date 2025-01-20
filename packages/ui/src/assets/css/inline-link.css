@@ -1,9 +1,9 @@
-:root {
-  --text-link-color: var(--dz-primary-color);
+a.inline-link {
+  --_color: var(--dz-primary-color, --color)
 }
 
 a.inline-link {
-  color: var(--text-link-color);
+  color: var(--_color);
   cursor: pointer;
   text-decoration: none;
 }
