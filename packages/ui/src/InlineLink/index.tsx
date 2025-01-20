@@ -5,7 +5,7 @@ interface Properties {
   className?: string;
   external?: boolean;
   label: React.ReactNode;
-  target?: string;
+  target?: HTMLAnchorElement["target"];
   to: string;
   underlined?: boolean;
 }
