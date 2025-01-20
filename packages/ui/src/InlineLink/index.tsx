@@ -5,7 +5,7 @@ interface Properties {
   className?: string;
   external?: boolean;
   label: React.ReactNode;
-  target?: string;
+  target?: "_self" | "_blank" | "_parent" | "_top";
   to: string;
   underlined?: boolean;
 }
@@ -19,7 +19,7 @@ const InlineLink = ({
   underlined = false,
 }: Properties) => {
   const linkClassName =
-    `native-link ${underlined ? "underlined" : ""} ${className}`
+    `inline-link ${underlined ? "underlined" : ""} ${className}`
       .replace(/\s\s/, " ")
       .trim();
 

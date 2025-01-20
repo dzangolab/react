@@ -2,16 +2,16 @@
   --text-link-color: var(--dz-primary-color);
 }
 
-a.native-link {
+a.inline-link {
   color: var(--text-link-color);
   cursor: pointer;
   text-decoration: none;
 }
 
-a.native-link.underlined {
+a.inline-link.underlined {
   text-decoration: underline;
 }
 
-a.native-link:hover {
+a.inline-link:hover {
   text-decoration: underline;
 }

@@ -53,6 +53,19 @@ export const InlineLinkDemo = () => {
         <p>{t("common.usage", { component: "Inline link" })}</p>
         <CodeBlock exampleCode="import { InlineLink } from 'dzangolab/react-ui';" />
       </Section>
+      <Section>
+        <div className="links">
+          <InlineLink label={t("inlineLink.label")} to="/ui" underlined />
+          <InlineLink label={t("inlineLink.label")} to="/ui" />
+        </div>
+        <CodeBlock
+          exampleCode="<div className='inline-link'>
+  <InlineLink label={t('inlineLink.label')} to='/ui' underlined/>
+  <InlineLink label={t('inlineLink.label')} to='/ui'/>
+</div>"
+        />
+      </Section>
+
       <Section
         title={t("headers.propertiesValue", {
           value: "Properties",
@@ -76,10 +89,6 @@ export const InlineLinkDemo = () => {
           data={data}
           paginated={false}
         />
-      </Section>
-      <Section>
-        <InlineLink label={t("inlineLink.label")} to="/ui" underlined />
-        <CodeBlock exampleCode="<InlineLink label={t('inlineLink.label')} to='/ui' underlined/>" />
       </Section>
     </Page>
   );
