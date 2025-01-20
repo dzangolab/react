@@ -26,7 +26,7 @@ const data = [
   {
     id: 4,
     prop: "target",
-    type: "string",
+    type: "HTMLAnchorElement['target']",
     description:
       "Specifies where to open the linked document. Only meant for external links.",
   },
@@ -56,7 +56,12 @@ export const InlineLinkDemo = () => {
       <Section>
         <div className="links">
           <InlineLink label={t("inlineLink.label")} to="/ui" underlined />
-          <InlineLink label={t("inlineLink.label")} to="/ui" />
+          <InlineLink
+            label={t("inlineLink.label")}
+            to="/ui"
+            external
+            target="_self"
+          />
         </div>
         <CodeBlock
           exampleCode="<div className='inline-link'>
