@@ -104,6 +104,10 @@
   "gridContainer": {
     "title": "Grid container (fr)"
   },
+  "inlineLink": {
+    "title": "Inline link (fr)",
+    "label": "Click here (fr)"
+  },
   "loading": {
     "title": "Loading (fr)"
   },
