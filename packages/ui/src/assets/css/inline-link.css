@@ -1,17 +1,17 @@
 :root {
-	--text-link-color: var(--dz-primary-color);
+  --text-link-color: var(--dz-primary-color);
 }
 
 a.native-link {
-	color: var(--text-link-color);
-	cursor: pointer;
-	text-decoration: none;
+  color: var(--text-link-color);
+  cursor: pointer;
+  text-decoration: none;
 }
 
 a.native-link.underlined {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 a.native-link:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
