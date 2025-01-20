@@ -25,7 +25,12 @@ const InlineLink = ({
 
   if (external) {
     return (
-      <a href={to} target={target || "_blank"} className={linkClassName}>
+      <a
+        href={to}
+        target={target || "_blank"}
+        rel="noopener noreferrer"
+        className={linkClassName}
+      >
         {label}
       </a>
     );
