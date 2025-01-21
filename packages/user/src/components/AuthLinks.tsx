@@ -18,7 +18,7 @@ export const AuthLinks = ({ className, links }: ILinkProperties) => {
     <div className={linksClassName}>
       {links.map((link) => {
         return link.display ? (
-          <InlineLink key={link.label} label={link.label} to={link.to} />
+          <InlineLink key={link.to} label={link.label} to={link.to} />
         ) : null;
       })}
     </div>
