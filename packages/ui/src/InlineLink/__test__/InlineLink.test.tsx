@@ -15,7 +15,9 @@ describe("Inline link component", () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByText("Dashboard")).toBeInTheDocument();
+    const linkElement = screen.getByText("Dashboard");
+    expect(linkElement).toBeInTheDocument();
+    expect(linkElement.closest("a")).toHaveAttribute("href", "/dashboard");
   });
 
   test("should render a Link when 'external' is false", () => {
