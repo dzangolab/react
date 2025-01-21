@@ -40,13 +40,11 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   const links: Array<LinkType> = [
     {
-      className: "native-link",
       display: showLoginLink,
       label: t("signup.links.login"),
       to: loginPath,
     },
     {
-      className: "native-link",
       display:
         showForgotPasswordLink && config.features?.forgotPassword !== false,
       label: t("signup.links.forgotPassword"),
