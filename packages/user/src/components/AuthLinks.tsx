@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { InlineLink } from "@dzangolab/react-ui";
 
 import { LinkType } from "@/types/types";
 
@@ -18,15 +17,9 @@ export const AuthLinks = ({ className, links }: ILinkProperties) => {
   return (
     <div className={linksClassName}>
       {links.map((link) => {
-        return (
-          <Fragment key={link.label}>
-            {link.display ? (
-              <Link to={link.to} className={link.className}>
-                {link.label}
-              </Link>
-            ) : null}
-          </Fragment>
-        );
+        return link.display ? (
+          <InlineLink key={link.to} label={link.label} to={link.to} />
+        ) : null;
       })}
     </div>
   );

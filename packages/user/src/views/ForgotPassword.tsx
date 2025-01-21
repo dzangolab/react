@@ -19,7 +19,6 @@ export const ForgotPassword = ({ centered = true }: { centered?: boolean }) => {
 
   const links: Array<LinkType> = [
     {
-      className: "native-link",
       display: true,
       label: t("forgotPassword.links.login"),
       to: config.customPaths?.login || DEFAULT_PATHS.LOGIN,
