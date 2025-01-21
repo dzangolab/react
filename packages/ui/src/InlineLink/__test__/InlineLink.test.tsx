@@ -2,7 +2,7 @@ import { describe } from "node:test";
 
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { expect, test } from "vitest";
 
 import InlineLink from "..";
@@ -10,9 +10,9 @@ import InlineLink from "..";
 describe("Inline link component", () => {
   test("should render the label correctly", () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <InlineLink label="Dashboard" to="/dashboard" />
-      </BrowserRouter>,
+      </MemoryRouter>,
     );
 
     expect(screen.getByText("Dashboard")).toBeInTheDocument();
@@ -20,9 +20,9 @@ describe("Inline link component", () => {
 
   test("should render a Link when 'external' is false", () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <InlineLink label="Dashboard" to="/dashboard" />
-      </BrowserRouter>,
+      </MemoryRouter>,
     );
 
     expect(screen.getByTestId("internal-link")).toBeInTheDocument();
@@ -36,13 +36,13 @@ describe("Inline link component", () => {
 
   test("should apply custom class", () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <InlineLink
           label="Dashboard"
           to="/dashboard"
           className="custom-class"
         />
-      </BrowserRouter>,
+      </MemoryRouter>,
     );
 
     expect(screen.getByTestId("internal-link")).toHaveClass("custom-class");
@@ -66,9 +66,9 @@ describe("Inline link component", () => {
 
   test("should apply 'underlined' class if underlined prop is true", () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <InlineLink label="Dashboard" to="/dashboard" underlined />
-      </BrowserRouter>,
+      </MemoryRouter>,
     );
 
     expect(screen.getByTestId("internal-link")).toHaveClass("underlined");
@@ -76,9 +76,9 @@ describe("Inline link component", () => {
 
   test("should not apply 'underlined' class if underlined prop is false", () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <InlineLink label="Dashboard" to="/dashboard" />
-      </BrowserRouter>,
+      </MemoryRouter>,
     );
 
     expect(screen.getByTestId("internal-link")).not.toHaveClass("underlined");
