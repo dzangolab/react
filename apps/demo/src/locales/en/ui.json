@@ -115,7 +115,11 @@
     "title": "Responsive menu"
   },
   "submitButton": {
-    "title": "Submit button"
+    "title": "Submit button",
+    "usage": {
+      "basic": "Basic",
+      "loading": "Loading"
+    }
   },
   "youtubeFacade": {
     "title": "Youtube facade"
