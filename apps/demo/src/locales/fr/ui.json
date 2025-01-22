@@ -115,7 +115,11 @@
     "title": "Responsive menu (fr)"
   },
   "submitButton": {
-    "title": "Submit button (fr)"
+    "title": "Submit button (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "loading": "Loading state (fr)"
+    }
   },
   "youtubeFacade": {
     "title": "Youtube facade (fr)"
