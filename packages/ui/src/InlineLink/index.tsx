@@ -30,6 +30,7 @@ const InlineLink = ({
         target={target || "_blank"}
         rel="noopener noreferrer"
         className={linkClassName}
+        data-testid="external-link"
       >
         {label}
       </a>
@@ -37,7 +38,7 @@ const InlineLink = ({
   }
 
   return (
-    <Link to={to} className={linkClassName}>
+    <Link to={to} className={linkClassName} data-testid="internal-link">
       {label}
     </Link>
   );
