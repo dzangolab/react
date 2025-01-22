@@ -6,15 +6,17 @@ import { getOrientation, onTabDown } from "./utils";
 import type { Properties } from "./types";
 
 const TabbedPanel: React.FC<Properties> = ({
+  children,
   defaultActiveIndex = 0,
   position = "top",
   id = "",
   persistState = true,
   persistStateStorage = "localStorage",
-  tabs,
 }) => {
   const [active, setActive] = useState<number | null>(null);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
+  const childNodes = Array.isArray(children) ? children : [children];
+
   const activeTabStorageKey = useMemo(() => `tab-${id}-active-index`, [id]);
 
   const storage = useMemo(
@@ -25,6 +27,7 @@ const TabbedPanel: React.FC<Properties> = ({
   useEffect(() => {
     if (persistState && id) {
       const activeTabIndex = storage.getItem(activeTabStorageKey);
+
       if (activeTabIndex !== null) {
         setActive(Number(activeTabIndex));
       } else {
@@ -48,17 +51,21 @@ const TabbedPanel: React.FC<Properties> = ({
     }
   };
 
-  if (active === null || !tabs || tabs.length === 0) {
+  if (!children) {
+    throw new Error("TabbedPanel needs at least one children");
+  }
+
+  if (active === null) {
     return null;
   }
 
   return (
     <div className={`tabbed-panel ${position}`}>
       <div role="tablist" aria-orientation={getOrientation(position)}>
-        {tabs.map((item, index) => {
+        {childNodes.map((item, index) => {
           const isActive = active === index;
-          const title = item.label;
-          const icon = item.icon;
+          const title = item?.props.title;
+          const icon = item?.props.icon;
           const key = id ? `${id}-${index}` : index;
 
           return (
@@ -67,7 +74,7 @@ const TabbedPanel: React.FC<Properties> = ({
                 onTabDown(
                   active,
                   event,
-                  tabs.length,
+                  childNodes.length,
                   handleFocus,
                   getOrientation(position),
                 );
@@ -91,7 +98,7 @@ const TabbedPanel: React.FC<Properties> = ({
           );
         })}
       </div>
-      <div role="tabpanel">{tabs && tabs[active].children}</div>
+      <div role="tabpanel">{childNodes[active]}</div>
     </div>
   );
 };

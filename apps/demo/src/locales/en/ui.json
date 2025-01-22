@@ -217,6 +217,7 @@
   "tabbedPanel": {
     "title": "Tabbed panel",
     "usage": {
+      "addTab": "Add new tab",
       "basic": "Basic usage",
       "customActiveTab": "Custom active tab",
       "disableTabState": {

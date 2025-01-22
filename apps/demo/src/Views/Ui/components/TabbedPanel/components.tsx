@@ -16,7 +16,9 @@ const Basic = ({
 
   return (
     <TabbedPanel id="tabbed-pannel-1">
-      <SubPane title="Description">Description</SubPane>
+      <SubPane title="Description" icon="pi pi-times">
+        Description
+      </SubPane>
       <SubPane title="Reviews">Reviews</SubPane>
       <SubPane title="Specifications">Specifications</SubPane>
       <SubPane title="Pricing">Pricing</SubPane>
