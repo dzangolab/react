@@ -37,7 +37,7 @@ const tabs = [
   { label: "New Tab", children: "New Tab", key: "3", closable: true },
 ];
 
-const _visibleTabs = [{ key: "1" }];
+const _visibleTabs = [{ key: "1" }, { key: "2" }];
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
@@ -47,18 +47,14 @@ export const TabViewDemo = () => {
   const handleClick = () => {
     const newTab = { key: "3" };
     const existingTab = visibleTabs.find((tab) => tab.key === newTab.key);
-
     if (existingTab) {
       const activeIndex = visibleTabs.findIndex(
         (tab) => tab.key === newTab.key,
       );
       setActive(activeIndex);
     } else {
-      setVisibleTabs((previousTabs) => {
-        const updatedTabs = [...previousTabs, newTab];
-        setActive(updatedTabs.length - 1);
-        return updatedTabs;
-      });
+      setVisibleTabs([...visibleTabs, newTab]);
+      setActive(visibleTabs.length);
     }
   };
 

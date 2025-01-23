@@ -12,8 +12,12 @@ const TabView: React.FC<Properties> = ({
   onClose,
 }) => {
   const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
-  const [active, setActive] = useState<number>(activeTabIndex);
+  const [active, setActive] = useState<number | null>(null);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    setActive(activeTabIndex);
+  }, [activeTabIndex]);
 
   useEffect(() => {
     setVisibleTabs(_visibleTabs);
