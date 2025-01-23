@@ -228,6 +228,9 @@
       "positionRight": "Right tabs (fr)"
     }
   },
+  "tabview": {
+    "title": "Tabview (fr)"
+  },
   "textarea": {
     "errorMessage": "Invalid input (fr)",
     "label": "Textarea label (fr)",
