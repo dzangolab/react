@@ -80,6 +80,17 @@ export const TabViewDemo = () => {
           activeTabIndex={active}
           onClose={handleTabClose}
         />
+        <CodeBlock
+          exampleCode="<div style={{ marginBottom: 16 }}>
+  <button onClick={handleClick}>Add</button>
+</div>
+<TabView
+  visibleTabs={visibleTabs}
+  tabs={tabs}
+  activeTabIndex={active}
+  onClose={handleTabClose}
+/>"
+        />
       </Section>
 
       <Section
