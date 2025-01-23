@@ -37,13 +37,11 @@ export const LoginWrapper: FC<IProperties> = ({
 
   const links: Array<LinkType> = [
     {
-      className: "native-link",
       display: config.features?.signup !== false && showSignupLink,
       label: t("login.links.signup"),
       to: config.customPaths?.signup || DEFAULT_PATHS.SIGNUP,
     },
     {
-      className: "native-link",
       display:
         config.features?.forgotPassword !== false && showForgotPasswordLink,
       label: t("login.links.forgotPassword"),

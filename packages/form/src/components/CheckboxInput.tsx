@@ -22,6 +22,7 @@ export type ICheckboxInputProperties<T> = {
 
 export const CheckboxInput = <T extends string | number>({
   className,
+  direction,
   disabled,
   label,
   name,
@@ -41,17 +42,18 @@ export const CheckboxInput = <T extends string | number>({
       defaultValue={[]}
       render={({ field }) => (
         <BasicCheckboxInput
-          className={className}
-          helperText={helperText}
           checked={checked}
-          inputLabel={inputLabel}
-          name={field.name}
-          label={label}
-          value={field.value}
+          className={className}
+          direction={direction}
           disabled={disabled}
           errorMessage={error?.message}
+          helperText={helperText}
+          inputLabel={inputLabel}
+          label={label}
+          name={field.name}
           onChange={field.onChange}
           options={options}
+          value={field.value}
         />
       )}
     />

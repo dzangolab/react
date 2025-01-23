@@ -27,9 +27,9 @@ export interface ICheckboxInputProperties<T> {
 
 export const CheckboxInput = <T extends string | number>({
   checked,
-  className,
+  className = "",
   disabled,
-  direction,
+  direction = "vertical",
   errorMessage,
   helperText,
   inputLabel,
@@ -63,9 +63,9 @@ export const CheckboxInput = <T extends string | number>({
 
   return (
     <fieldset className={`field checkbox ${className}`.trim()}>
-      <legend>{label}</legend>
+      {label ? <legend>{label}</legend> : <></>}
       {hasOptions ? (
-        <div className="checkbox-group">
+        <div className={`checkbox-group direction-${direction}`}>
           {options?.map(({ label: optionLabel, value: optionValue }) => (
             <Checkbox
               key={optionValue}
