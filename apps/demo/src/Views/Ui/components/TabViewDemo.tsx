@@ -26,8 +26,8 @@ const data = [
   {
     id: 4,
     prop: "onClose",
-    type: "function",
-    description: "To close the tabs.",
+    type: "() => void",
+    description: "Function to be called when tab is closed.",
   },
 ];
 
@@ -81,8 +81,8 @@ export const TabViewDemo = () => {
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
-          onClose={handleTabClose}
           activeTabIndex={active}
+          onClose={handleTabClose}
         />
       </Section>
 
