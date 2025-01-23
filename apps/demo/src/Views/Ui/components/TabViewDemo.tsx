@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, Tabview, TDataTable } from "@dzangolab/react-ui";
+import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import { CodeBlock, Section } from "../../../components/Demo";
@@ -39,7 +39,7 @@ const tabs = [
 
 const _visibleTabs = [{ key: "1" }];
 
-export const TabviewDemo = () => {
+export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
   const [active, setActive] = useState(0);
@@ -78,7 +78,7 @@ export const TabviewDemo = () => {
         <div style={{ marginBottom: 16 }}>
           <button onClick={handleClick}>Add</button>
         </div>
-        <Tabview
+        <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
           onClose={handleTabClose}

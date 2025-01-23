@@ -4,11 +4,11 @@ import { getOrientation, onTabDown } from "./utils";
 
 import type { Properties } from "./types";
 
-const Tabview: React.FC<Properties> = ({
+const TabView: React.FC<Properties> = ({
   activeTabIndex = 0,
   position = "top",
   tabs,
-  visibleTabs: _visibleTabs = [],
+  visibleTabs: _visibleTabs,
   onClose,
 }) => {
   const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
@@ -108,4 +108,4 @@ const Tabview: React.FC<Properties> = ({
   );
 };
 
-export default Tabview;
+export default TabView;

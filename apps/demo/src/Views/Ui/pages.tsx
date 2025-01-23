@@ -32,7 +32,7 @@ import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
 import { TabbedPanelDemo } from "./components/TabbedPanel/TabbedPanel";
 import { TableDemo } from "./components/Table";
-import { TabviewDemo } from "./components/TabviewDemo";
+import { TabViewDemo } from "./components/TabViewDemo";
 import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
@@ -265,7 +265,7 @@ const PANEL_ROUTES = [
   {
     path: UI_ROUTES.TABVIEW,
     key: "tabview.title",
-    element: <TabviewDemo />,
+    element: <TabViewDemo />,
   },
 ];
 
