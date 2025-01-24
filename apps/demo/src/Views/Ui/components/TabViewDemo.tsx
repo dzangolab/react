@@ -88,7 +88,8 @@ export const TabViewDemo = () => {
 <TabView
   visibleTabs={visibleTabs}
   tabs={tabs}
-  activeTabIndex={active}
+  active={active}
+  setActive={setActive}
   onClose={handleTabClose}
 />"
         />
