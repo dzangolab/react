@@ -16,6 +16,7 @@ import Page, { PageProperties } from "./Page";
 import { GoogleButton } from "./SSOButtons";
 import { Stepper } from "./Stepper";
 import { TabbedPanel } from "./TabbedPanel";
+import TabView from "./TabView";
 
 export * from "./AuthPage";
 export * from "./Buttons";
@@ -51,6 +52,7 @@ export {
   Stepper,
   SubPane,
   TabbedPanel,
+  TabView,
   ConfirmationModal,
 };
 
