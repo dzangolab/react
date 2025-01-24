@@ -5,19 +5,15 @@ import { getOrientation, onTabDown } from "./utils";
 import type { Properties } from "./types";
 
 const TabView: React.FC<Properties> = ({
-  activeTabIndex = 0,
   position = "top",
   tabs,
   visibleTabs: _visibleTabs,
   onClose,
+  active,
+  setActive,
 }) => {
   const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
-  const [active, setActive] = useState<number | null>(null);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
-
-  useEffect(() => {
-    setActive(activeTabIndex);
-  }, [activeTabIndex]);
 
   useEffect(() => {
     setVisibleTabs(_visibleTabs);

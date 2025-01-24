@@ -19,9 +19,9 @@ const data = [
   },
   {
     id: 3,
-    prop: "activeTabIndex",
-    type: "number",
-    description: "Index of active tab.",
+    prop: "position",
+    type: "string",
+    description: "Position of tab.",
   },
   {
     id: 4,
@@ -77,7 +77,8 @@ export const TabViewDemo = () => {
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
-          activeTabIndex={active}
+          active={active}
+          setActive={setActive}
           onClose={handleTabClose}
         />
         <CodeBlock
