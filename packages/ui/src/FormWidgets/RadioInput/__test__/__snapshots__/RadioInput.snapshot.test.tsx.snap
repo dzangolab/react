@@ -12,12 +12,12 @@ exports[`RadioInput > should match snapshot with a custom label 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="1"
+        id="choice-1"
         type="radio"
         value="1"
       />
       <label
-        for="1"
+        for="choice-1"
       >
         One
       </label>
@@ -26,12 +26,12 @@ exports[`RadioInput > should match snapshot with a custom label 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="2"
+        id="choice-2"
         type="radio"
         value="2"
       />
       <label
-        for="2"
+        for="choice-2"
       >
         Two
       </label>
@@ -40,12 +40,12 @@ exports[`RadioInput > should match snapshot with a custom label 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="3"
+        id="choice-3"
         type="radio"
         value="3"
       />
       <label
-        for="3"
+        for="choice-3"
       >
         Three
       </label>
@@ -64,13 +64,13 @@ exports[`RadioInput > should match snapshot with a custom name 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="1"
+        id="choice-1"
         name="radioInput"
         type="radio"
         value="1"
       />
       <label
-        for="1"
+        for="choice-1"
       >
         One
       </label>
@@ -79,13 +79,13 @@ exports[`RadioInput > should match snapshot with a custom name 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="2"
+        id="choice-2"
         name="radioInput"
         type="radio"
         value="2"
       />
       <label
-        for="2"
+        for="choice-2"
       >
         Two
       </label>
@@ -94,13 +94,13 @@ exports[`RadioInput > should match snapshot with a custom name 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="3"
+        id="choice-3"
         name="radioInput"
         type="radio"
         value="3"
       />
       <label
-        for="3"
+        for="choice-3"
       >
         Three
       </label>
@@ -121,13 +121,13 @@ exports[`RadioInput > should match snapshot with all props set 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="1"
+        id="choice-1"
         name="radioInput"
         type="radio"
         value="1"
       />
       <label
-        for="1"
+        for="choice-1"
       >
         One
       </label>
@@ -136,13 +136,13 @@ exports[`RadioInput > should match snapshot with all props set 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="2"
+        id="choice-2"
         name="radioInput"
         type="radio"
         value="2"
       />
       <label
-        for="2"
+        for="choice-2"
       >
         Two
       </label>
@@ -151,13 +151,13 @@ exports[`RadioInput > should match snapshot with all props set 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="3"
+        id="choice-3"
         name="radioInput"
         type="radio"
         value="3"
       />
       <label
-        for="3"
+        for="choice-3"
       >
         Three
       </label>
@@ -176,12 +176,12 @@ exports[`RadioInput > should match snapshot with custom className 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="1"
+        id="choice-1"
         type="radio"
         value="1"
       />
       <label
-        for="1"
+        for="choice-1"
       >
         One
       </label>
@@ -190,12 +190,12 @@ exports[`RadioInput > should match snapshot with custom className 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="2"
+        id="choice-2"
         type="radio"
         value="2"
       />
       <label
-        for="2"
+        for="choice-2"
       >
         Two
       </label>
@@ -204,12 +204,12 @@ exports[`RadioInput > should match snapshot with custom className 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="3"
+        id="choice-3"
         type="radio"
         value="3"
       />
       <label
-        for="3"
+        for="choice-3"
       >
         Three
       </label>
@@ -229,12 +229,12 @@ exports[`RadioInput > should match snapshot with disabled set to true 1`] = `
     >
       <input
         disabled=""
-        id="1"
+        id="choice-1"
         type="radio"
         value="1"
       />
       <label
-        for="1"
+        for="choice-1"
       >
         One
       </label>
@@ -244,12 +244,12 @@ exports[`RadioInput > should match snapshot with disabled set to true 1`] = `
     >
       <input
         disabled=""
-        id="2"
+        id="choice-2"
         type="radio"
         value="2"
       />
       <label
-        for="2"
+        for="choice-2"
       >
         Two
       </label>
@@ -259,12 +259,12 @@ exports[`RadioInput > should match snapshot with disabled set to true 1`] = `
     >
       <input
         disabled=""
-        id="3"
+        id="choice-3"
         type="radio"
         value="3"
       />
       <label
-        for="3"
+        for="choice-3"
       >
         Three
       </label>
@@ -283,12 +283,12 @@ exports[`RadioInput > should match snapshot with options 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="1"
+        id="choice-1"
         type="radio"
         value="1"
       />
       <label
-        for="1"
+        for="choice-1"
       >
         One
       </label>
@@ -297,12 +297,12 @@ exports[`RadioInput > should match snapshot with options 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="2"
+        id="choice-2"
         type="radio"
         value="2"
       />
       <label
-        for="2"
+        for="choice-2"
       >
         Two
       </label>
@@ -311,12 +311,12 @@ exports[`RadioInput > should match snapshot with options 1`] = `
       class="radio-button-wrapper"
     >
       <input
-        id="3"
+        id="choice-3"
         type="radio"
         value="3"
       />
       <label
-        for="3"
+        for="choice-3"
       >
         Three
       </label>
