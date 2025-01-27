@@ -61,35 +61,35 @@ const _visibleTabs = [{ key: "1" }];
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
+  const tabId = "tabview-1";
   const [visibleTabs, setVisibleTabs] = useState<
     | {
         key: string;
       }[]
     | []
   >(() => {
-    const savedTabs = localStorage.getItem("visible-tabs");
-    return savedTabs ? JSON.parse(savedTabs) : _visibleTabs;
+    const savedTabs = localStorage.getItem(tabId);
+    return savedTabs ? JSON.parse(savedTabs).visibleTabs : _visibleTabs;
   });
   const [active, setActive] = useState(() => {
-    const savedActiveTab = localStorage.getItem("tab-active");
-    return savedActiveTab !== null ? Number(savedActiveTab) : 1;
+    const savedActiveTab = localStorage.getItem(tabId);
+    return savedActiveTab !== null ? JSON.parse(savedActiveTab).activeTab : 1;
   });
 
   useEffect(() => {
-    if (visibleTabs.length > 0) {
-      localStorage.setItem("visible-tabs", JSON.stringify(visibleTabs));
-    }
+    localStorage.setItem(
+      tabId,
+      JSON.stringify({
+        activeTab: active,
+        visibleTabs: visibleTabs,
+      }),
+    );
   }, [visibleTabs]);
 
   const handleTabClose = (key: any) => {
     const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
     setVisibleTabs(newVisibleTabs);
-    localStorage.setItem("visible-tabs", JSON.stringify(newVisibleTabs));
   };
-
-  useEffect(() => {
-    localStorage.setItem("tab-active", String(active));
-  }, [active]);
 
   return (
     <Page title={t("tabview.title")}>
