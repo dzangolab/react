@@ -78,7 +78,7 @@ const TabView: React.FC<Properties> = ({
               ref={(element) =>
                 (tabReferences.current[Number(item.key)] = element)
               }
-              onClick={() => setActive(Number(key))}
+              onClick={() => setActive(Number(item.key))}
               key={key}
               role="tab"
               aria-label={title}
