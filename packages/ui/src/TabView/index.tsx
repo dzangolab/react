@@ -39,15 +39,9 @@ const TabView: React.FC<Properties> = ({
   }
 
   const handleTabClose = (key: string) => {
-    const tabIndex = visibleTabs.findIndex((tab) => tab.key === key);
     const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
     setVisibleTabs(newVisibleTabs);
-
-    if (newVisibleTabs.length > 0) {
-      const newActive =
-        tabIndex > 0 ? newVisibleTabs[tabIndex - 1].key : newVisibleTabs[0].key;
-      setActive(Number(newActive));
-    }
+    setActive(Number(newVisibleTabs[0].key));
 
     if (onClose) {
       onClose(key);
