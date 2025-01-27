@@ -6,56 +6,20 @@ import { getStorage } from "../utils";
 import type { Properties } from "./types";
 
 const TabView: React.FC<Properties> = ({
-  activeTabIndex = null,
-  defaultActiveIndex = 1,
   position = "top",
   tabs,
   visibleTabs: _visibleTabs,
   onClose,
-  id = "",
-  persistState = true,
   onTabChange,
-  persistStateStorage = "localStorage",
+  active,
+  setActive,
 }) => {
   const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
-  const [active, setActive] = useState<number | null>(null);
-
-  const activeTabStorageKey = useMemo(() => `tab-${id}-active-index`, [id]);
-
-  const storage = useMemo(
-    () => getStorage(persistStateStorage),
-    [persistStateStorage],
-  );
 
   useEffect(() => {
     setVisibleTabs(_visibleTabs);
   }, [_visibleTabs]);
-
-  useEffect(() => {
-    const getActiveTab = () => {
-      if (activeTabIndex !== null) {
-        return activeTabIndex;
-      }
-
-      if (id && persistState) {
-        const storedActiveTab = storage.getItem(activeTabStorageKey);
-        return storedActiveTab !== null
-          ? Number(storedActiveTab)
-          : defaultActiveIndex;
-      }
-
-      return defaultActiveIndex;
-    };
-
-    setActive(getActiveTab());
-  }, [activeTabIndex, defaultActiveIndex, id, storage, persistState]);
-
-  useEffect(() => {
-    if (id && persistState) {
-      storage.setItem(activeTabStorageKey, String(active));
-    }
-  }, [active, id, persistState]);
 
   const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];

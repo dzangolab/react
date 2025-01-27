@@ -51,7 +51,10 @@ export const TabViewDemo = () => {
     const savedTabs = localStorage.getItem("visible-tabs");
     return savedTabs ? JSON.parse(savedTabs) : _visibleTabs;
   });
-  const [active, setActive] = useState<number | undefined>();
+  const [active, setActive] = useState(() => {
+    const savedActiveTab = localStorage.getItem("tab-active");
+    return savedActiveTab !== null ? Number(savedActiveTab) : 1;
+  });
 
   useEffect(() => {
     if (visibleTabs.length > 0) {
@@ -80,6 +83,10 @@ export const TabViewDemo = () => {
     setActive(Number(key));
   };
 
+  useEffect(() => {
+    localStorage.setItem("tab-active", String(active));
+  }, [active]);
+
   return (
     <Page title={t("tabview.title")}>
       <Section title={t("headers.usage")}>
@@ -91,15 +98,13 @@ export const TabViewDemo = () => {
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
-          activeTabIndex={active}
           onClose={handleTabClose}
           onTabChange={handleTabChange}
-          id="demo"
+          active={active}
+          setActive={setActive}
         />
         <CodeBlock
-          exampleCode="<div style={{ marginBottom: 16 }}>
-  <button onClick={handleClick}>Add</button>
-</div>
+          exampleCode="<Button label='Add' onClick={handleClick} style={{width: '100px'}}/>
 <TabView
   visibleTabs={visibleTabs}
   tabs={tabs}
