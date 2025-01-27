@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
-import { useState } from "react";
+import { Button } from "@dzangolab/react-ui";
+import { useEffect, useState } from "react";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
@@ -41,27 +42,38 @@ const _visibleTabs = [{ key: "1" }, { key: "2" }];
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
-  const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
-  const [active, setActive] = useState(0);
+  const [visibleTabs, setVisibleTabs] = useState<
+    | {
+        key: string;
+      }[]
+    | []
+  >(() => {
+    const savedTabs = localStorage.getItem("visible-tabs");
+    return savedTabs ? JSON.parse(savedTabs) : _visibleTabs;
+  });
+  const [active, setActive] = useState(1);
+
+  useEffect(() => {
+    if (visibleTabs.length > 0) {
+      localStorage.setItem("visible-tabs", JSON.stringify(visibleTabs));
+    }
+  }, [visibleTabs]);
 
   const handleClick = () => {
     const newTab = { key: "3" };
     const existingTab = visibleTabs.find((tab) => tab.key === newTab.key);
     if (existingTab) {
-      const activeIndex = visibleTabs.findIndex(
-        (tab) => tab.key === newTab.key,
-      );
-      setActive(activeIndex);
+      setActive(Number(existingTab.key));
     } else {
       setVisibleTabs([...visibleTabs, newTab]);
-      setActive(visibleTabs.length);
+      setActive(Number(newTab.key));
     }
   };
 
   const handleTabClose = (key: any) => {
-    setVisibleTabs((previousTabs) =>
-      previousTabs.filter((tab) => tab.key !== key),
-    );
+    const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
+    setVisibleTabs(newVisibleTabs);
+    localStorage.setItem("visible-tabs", JSON.stringify(newVisibleTabs));
   };
 
   return (
@@ -71,9 +83,7 @@ export const TabViewDemo = () => {
         <CodeBlock exampleCode="import { Tabview } from 'dzangolab/react-ui';" />
       </Section>
       <Section>
-        <div style={{ marginBottom: 16 }}>
-          <button onClick={handleClick}>Add</button>
-        </div>
+        <Button label="Add" onClick={handleClick} style={{ width: "100px" }} />
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}

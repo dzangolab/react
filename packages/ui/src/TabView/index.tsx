@@ -39,12 +39,17 @@ const TabView: React.FC<Properties> = ({
   }
 
   const handleTabClose = (key: string) => {
+    const tabIndex = visibleTabs.findIndex((tab) => tab.key === key);
     const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
     setVisibleTabs(newVisibleTabs);
-    if (active === filteredTabs.findIndex((tab) => tab.key === key)) {
+
+    if (active === Number(key)) {
       if (newVisibleTabs.length > 0) {
-        const newActiveIndex = Math.min(active, newVisibleTabs.length - 1);
-        setActive(newActiveIndex);
+        const newActive =
+          tabIndex > 0
+            ? newVisibleTabs[tabIndex - 1].key
+            : newVisibleTabs[0].key;
+        setActive(Number(newActive));
       }
     }
 
@@ -57,7 +62,7 @@ const TabView: React.FC<Properties> = ({
     <div className={`tabbed-panel ${position}`}>
       <div role="tablist" aria-orientation={getOrientation(position)}>
         {filteredTabs.map((item, index) => {
-          const isActive = active === index;
+          const isActive = active === Number(item.key);
           const title = item.label;
           const icon = item.icon;
           const key = index;
@@ -73,9 +78,11 @@ const TabView: React.FC<Properties> = ({
                   getOrientation(position),
                 );
               }}
-              onFocus={() => setActive(index)}
-              ref={(element) => (tabReferences.current[index] = element)}
-              onClick={() => setActive(index)}
+              onFocus={() => setActive(Number(item.key))}
+              ref={(element) =>
+                (tabReferences.current[Number(item.key)] = element)
+              }
+              onClick={() => setActive(Number(item.key))}
               key={key}
               role="tab"
               aria-label={title}
@@ -103,7 +110,9 @@ const TabView: React.FC<Properties> = ({
           );
         })}
       </div>
-      <div role="tabpanel">{filteredTabs[active]?.children}</div>
+      <div role="tabpanel">
+        {filteredTabs.find((tab) => Number(tab.key) === active)?.children}
+      </div>
     </div>
   );
 };

@@ -21,7 +21,7 @@ type Tab = {
 type Properties = {
   active: number;
   setActive: (index: number) => void;
-  activeTabIndex?: number;
+  defaultActiveIndex?: number;
   onClose?: (index: string) => void;
   position?: TPosition;
   visibleTabs?: {
