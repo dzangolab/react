@@ -84,7 +84,7 @@ export const TabViewDemo = () => {
         visibleTabs: visibleTabs,
       }),
     );
-  }, [visibleTabs]);
+  }, [visibleTabs, active]);
 
   const handleTabClose = (key: any) => {
     const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
