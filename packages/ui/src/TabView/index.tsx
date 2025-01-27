@@ -19,13 +19,6 @@ const TabView: React.FC<Properties> = ({
     setVisibleTabs(_visibleTabs);
   }, [_visibleTabs]);
 
-  const handleFocus = (index: number) => {
-    const tab = tabReferences.current[index];
-    if (tab) {
-      tab.focus();
-    }
-  };
-
   if (!visibleTabs || !tabs) {
     throw new Error("Tabview needs at least one tab");
   }
@@ -61,15 +54,6 @@ const TabView: React.FC<Properties> = ({
 
           return (
             <button
-              onKeyDown={(event) => {
-                onTabDown(
-                  active,
-                  event,
-                  filteredTabs.length,
-                  handleFocus,
-                  getOrientation(position),
-                );
-              }}
               onFocus={() => setActive(Number(item.key))}
               ref={(element) =>
                 (tabReferences.current[Number(item.key)] = element)
