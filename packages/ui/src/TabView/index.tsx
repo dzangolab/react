@@ -1,23 +1,61 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./utils";
+import { getStorage } from "../utils";
 
 import type { Properties } from "./types";
 
 const TabView: React.FC<Properties> = ({
+  activeTabIndex = null,
+  defaultActiveIndex = 1,
   position = "top",
   tabs,
   visibleTabs: _visibleTabs,
   onClose,
-  active,
-  setActive,
+  id = "",
+  persistState = true,
+  onTabChange,
+  persistStateStorage = "localStorage",
 }) => {
   const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
+  const [active, setActive] = useState<number | null>(null);
+
+  const activeTabStorageKey = useMemo(() => `tab-${id}-active-index`, [id]);
+
+  const storage = useMemo(
+    () => getStorage(persistStateStorage),
+    [persistStateStorage],
+  );
 
   useEffect(() => {
     setVisibleTabs(_visibleTabs);
   }, [_visibleTabs]);
+
+  useEffect(() => {
+    const getActiveTab = () => {
+      if (activeTabIndex !== null) {
+        return activeTabIndex;
+      }
+
+      if (id && persistState) {
+        const storedActiveTab = storage.getItem(activeTabStorageKey);
+        return storedActiveTab !== null
+          ? Number(storedActiveTab)
+          : defaultActiveIndex;
+      }
+
+      return defaultActiveIndex;
+    };
+
+    setActive(getActiveTab());
+  }, [activeTabIndex, defaultActiveIndex, id, storage, persistState]);
+
+  useEffect(() => {
+    if (id && persistState) {
+      storage.setItem(activeTabStorageKey, String(active));
+    }
+  }, [active, id, persistState]);
 
   const handleFocus = (index: number) => {
     const tab = tabReferences.current[index];
@@ -58,6 +96,14 @@ const TabView: React.FC<Properties> = ({
     }
   };
 
+  const handleTabChange = (key: string) => {
+    setActive(Number(key));
+
+    if (onTabChange) {
+      onTabChange(key);
+    }
+  };
+
   return (
     <div className={`tabbed-panel ${position}`}>
       <div role="tablist" aria-orientation={getOrientation(position)}>
@@ -82,7 +128,7 @@ const TabView: React.FC<Properties> = ({
               ref={(element) =>
                 (tabReferences.current[Number(item.key)] = element)
               }
-              onClick={() => setActive(Number(item.key))}
+              onClick={() => handleTabChange(item.key)}
               key={key}
               role="tab"
               aria-label={title}

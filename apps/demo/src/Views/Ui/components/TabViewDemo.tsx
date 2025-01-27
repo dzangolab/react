@@ -51,7 +51,7 @@ export const TabViewDemo = () => {
     const savedTabs = localStorage.getItem("visible-tabs");
     return savedTabs ? JSON.parse(savedTabs) : _visibleTabs;
   });
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState<number | undefined>();
 
   useEffect(() => {
     if (visibleTabs.length > 0) {
@@ -76,6 +76,10 @@ export const TabViewDemo = () => {
     localStorage.setItem("visible-tabs", JSON.stringify(newVisibleTabs));
   };
 
+  const handleTabChange = (key: string) => {
+    setActive(Number(key));
+  };
+
   return (
     <Page title={t("tabview.title")}>
       <Section title={t("headers.usage")}>
@@ -87,9 +91,10 @@ export const TabViewDemo = () => {
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
-          active={active}
-          setActive={setActive}
+          activeTabIndex={active}
           onClose={handleTabClose}
+          onTabChange={handleTabChange}
+          id="demo"
         />
         <CodeBlock
           exampleCode="<div style={{ marginBottom: 16 }}>
