@@ -11,23 +11,23 @@ type TPosition = "top" | "left" | "bottom" | "right";
 type StorageType = "localStorage" | "sessionStorage";
 
 type Tab = {
-  label: string;
   children: React.ReactNode;
-  key: string;
   closable?: boolean;
   icon?: string;
+  key: string;
+  label: string;
 };
 
 type Properties = {
   active: number;
-  setActive: (index: number) => void;
-  onTabChange?: (index: string) => void;
-  onClose?: (index: string) => void;
   position?: TPosition;
   visibleTabs?: {
     key: string;
   }[];
   tabs?: Tab[];
+  onClose?: (index: string) => void;
+  onTabChange?: (index: string) => void;
+  setActive: (index: number) => void;
 };
 
 export type { TKeymap, TOrientation, TPosition, Properties, StorageType };
