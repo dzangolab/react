@@ -79,10 +79,6 @@ export const TabViewDemo = () => {
     localStorage.setItem("visible-tabs", JSON.stringify(newVisibleTabs));
   };
 
-  const handleTabChange = (key: string) => {
-    setActive(Number(key));
-  };
-
   useEffect(() => {
     localStorage.setItem("tab-active", String(active));
   }, [active]);
@@ -99,7 +95,6 @@ export const TabViewDemo = () => {
           visibleTabs={visibleTabs}
           tabs={tabs}
           onClose={handleTabClose}
-          onTabChange={handleTabChange}
           active={active}
           setActive={setActive}
         />

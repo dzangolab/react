@@ -26,7 +26,6 @@ type Properties = {
   }[];
   tabs?: Tab[];
   onClose?: (index: string) => void;
-  onTabChange?: (index: string) => void;
   setActive: (index: number) => void;
 };
 

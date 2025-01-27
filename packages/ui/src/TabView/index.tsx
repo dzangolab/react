@@ -9,7 +9,6 @@ const TabView: React.FC<Properties> = ({
   tabs,
   visibleTabs: _visibleTabs,
   onClose,
-  onTabChange,
   active,
   setActive,
 }) => {
@@ -55,14 +54,6 @@ const TabView: React.FC<Properties> = ({
     }
   };
 
-  const handleTabChange = (key: string) => {
-    setActive(Number(key));
-
-    if (onTabChange) {
-      onTabChange(key);
-    }
-  };
-
   return (
     <div className={`tabbed-panel ${position}`}>
       <div role="tablist" aria-orientation={getOrientation(position)}>
@@ -87,7 +78,7 @@ const TabView: React.FC<Properties> = ({
               ref={(element) =>
                 (tabReferences.current[Number(item.key)] = element)
               }
-              onClick={() => handleTabChange(item.key)}
+              onClick={() => setActive(Number(key))}
               key={key}
               role="tab"
               aria-label={title}
