@@ -1,7 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./utils";
-import { getStorage } from "../utils";
 
 import type { Properties } from "./types";
 
@@ -45,14 +44,10 @@ const TabView: React.FC<Properties> = ({
     const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
     setVisibleTabs(newVisibleTabs);
 
-    if (active === Number(key)) {
-      if (newVisibleTabs.length > 0) {
-        const newActive =
-          tabIndex > 0
-            ? newVisibleTabs[tabIndex - 1].key
-            : newVisibleTabs[0].key;
-        setActive(Number(newActive));
-      }
+    if (newVisibleTabs.length > 0) {
+      const newActive =
+        tabIndex > 0 ? newVisibleTabs[tabIndex - 1].key : newVisibleTabs[0].key;
+      setActive(Number(newActive));
     }
 
     if (onClose) {
