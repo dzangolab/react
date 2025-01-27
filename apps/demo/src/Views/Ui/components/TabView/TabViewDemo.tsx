@@ -3,7 +3,8 @@ import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
 import { Button } from "@dzangolab/react-ui";
 import { useEffect, useState } from "react";
 
-import { CodeBlock, Section } from "../../../components/Demo";
+import { addTab } from "./utils";
+import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [
   {
@@ -30,15 +31,33 @@ const data = [
     type: "() => void",
     description: "Function to be called when tab is closed.",
   },
+  {
+    id: 5,
+    prop: "active",
+    type: "number",
+    description: "Active tab index.",
+  },
+  {
+    id: 6,
+    prop: "setActive",
+    type: "() => void",
+    description: "Function to be called when tab state is changed.",
+  },
 ];
 
 const tabs = [
-  { label: "Tab 1", children: "Tab 1", key: "1", closable: true },
-  { label: "Tab 2", children: "Tab 2", key: "2" },
-  { label: "New Tab", children: "New Tab", key: "3", closable: true },
+  { label: "Description", children: "Description", key: "1" },
+  { label: "Reviews", children: "Reviews", key: "2", closable: true },
+  {
+    label: "Specifications",
+    children: "Specifications",
+    key: "3",
+    closable: true,
+  },
+  { label: "Pricing", children: "Pricing", key: "4", closable: true },
 ];
 
-const _visibleTabs = [{ key: "1" }, { key: "2" }];
+const _visibleTabs = [{ key: "1" }];
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
@@ -62,17 +81,6 @@ export const TabViewDemo = () => {
     }
   }, [visibleTabs]);
 
-  const handleClick = () => {
-    const newTab = { key: "3" };
-    const existingTab = visibleTabs.find((tab) => tab.key === newTab.key);
-    if (existingTab) {
-      setActive(Number(existingTab.key));
-    } else {
-      setVisibleTabs([...visibleTabs, newTab]);
-      setActive(Number(newTab.key));
-    }
-  };
-
   const handleTabClose = (key: any) => {
     const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
     setVisibleTabs(newVisibleTabs);
@@ -90,7 +98,18 @@ export const TabViewDemo = () => {
         <CodeBlock exampleCode="import { Tabview } from 'dzangolab/react-ui';" />
       </Section>
       <Section>
-        <Button label="Add" onClick={handleClick} style={{ width: "100px" }} />
+        <Button
+          label="Add specifications tab"
+          onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+        />
+        <Button
+          label="Add reviews tab"
+          onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+        />
+        <Button
+          label="Add pricing tab"
+          onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+        />
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
@@ -99,14 +118,61 @@ export const TabViewDemo = () => {
           setActive={setActive}
         />
         <CodeBlock
-          exampleCode="<Button label='Add' onClick={handleClick} style={{width: '100px'}}/>
+          exampleCode='
+const tabs = [
+ { label: "Description", children: "Description", key: "1" },
+ { label: "Reviews", children: "Reviews", key: "2", closable: true },
+ { label: "Specifications", children: "Specifications", key: "3", closable: true },
+ { label: "Pricing", children: "Pricing", key: "4", closable: true },
+];
+          
+const _visibleTabs = [{ key: "1" }];
+
+const [visibleTabs, setVisibleTabs] = useState<|{key: string;}[] | []>(() => {
+  const savedTabs = localStorage.getItem("visible-tabs");
+  return savedTabs ? JSON.parse(savedTabs) : _visibleTabs;
+});
+
+const [active, setActive] = useState(() => {
+  const savedActiveTab = localStorage.getItem("tab-active");
+  return savedActiveTab !== null ? Number(savedActiveTab) : 1;
+});
+
+useEffect(() => {
+  if (visibleTabs.length > 0) {
+    localStorage.setItem("visible-tabs", JSON.stringify(visibleTabs));
+  }
+}, [visibleTabs]);
+
+const handleTabClose = (key: any) => {
+  const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
+  setVisibleTabs(newVisibleTabs);
+  localStorage.setItem("visible-tabs", JSON.stringify(newVisibleTabs));
+};
+
+useEffect(() => {
+  localStorage.setItem("tab-active", String(active));
+}, [active]);
+
+<Button
+  label="Add specifications tab"
+  onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+/>
+<Button 
+  label="Add reviews tab" 
+  onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+/>
+<Button 
+  label="Add pricing tab" 
+  onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+/>
 <TabView
   visibleTabs={visibleTabs}
   tabs={tabs}
   active={active}
   setActive={setActive}
   onClose={handleTabClose}
-/>"
+/>'
         />
       </Section>
 

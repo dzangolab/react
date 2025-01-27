@@ -29,4 +29,4 @@ type Properties = {
   setActive: (index: number) => void;
 };
 
-export type { TKeymap, TOrientation, TPosition, Properties, StorageType };
+export type { TKeymap, TOrientation, TPosition, Properties, StorageType, Tab };

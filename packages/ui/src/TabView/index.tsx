@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { getOrientation, onTabDown } from "./utils";
 
-import type { Properties } from "./types";
+import type { Properties, Tab } from "./types";
 
 const TabView: React.FC<Properties> = ({
   position = "top",
@@ -26,13 +26,15 @@ const TabView: React.FC<Properties> = ({
     }
   };
 
-  if (!visibleTabs) {
+  if (!visibleTabs || !tabs) {
     throw new Error("Tabview needs at least one tab");
   }
 
-  const filteredTabs = tabs?.filter((tab) =>
-    visibleTabs?.some((visibleTab) => visibleTab.key === tab.key),
-  );
+  const filteredTabs = visibleTabs
+    .map((visibleTab) => {
+      return tabs.find((tab) => tab.key === visibleTab.key);
+    })
+    .filter((tab): tab is Tab => tab !== undefined);
 
   if (!filteredTabs || active === null) {
     return null;
