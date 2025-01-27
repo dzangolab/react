@@ -13,7 +13,6 @@ const TabView: React.FC<Properties> = ({
   setActive,
 }) => {
   const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
-  const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
     setVisibleTabs(_visibleTabs);
@@ -36,7 +35,7 @@ const TabView: React.FC<Properties> = ({
   const handleTabClose = (key: string) => {
     const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
     setVisibleTabs(newVisibleTabs);
-    setActive(Number(newVisibleTabs[0].key));
+    setActive(newVisibleTabs[0].key);
 
     if (onClose) {
       onClose(key);
@@ -47,18 +46,15 @@ const TabView: React.FC<Properties> = ({
     <div className={`tabbed-panel ${position}`}>
       <div role="tablist" aria-orientation={getOrientation(position)}>
         {filteredTabs.map((item, index) => {
-          const isActive = active === Number(item.key);
+          const isActive = active === item.key;
           const title = item.label;
           const icon = item.icon;
           const key = index;
 
           return (
             <button
-              onFocus={() => setActive(Number(item.key))}
-              ref={(element) =>
-                (tabReferences.current[Number(item.key)] = element)
-              }
-              onClick={() => setActive(Number(item.key))}
+              onFocus={() => setActive(item.key)}
+              onClick={() => setActive(item.key)}
               key={key}
               role="tab"
               aria-label={title}
@@ -87,7 +83,7 @@ const TabView: React.FC<Properties> = ({
         })}
       </div>
       <div role="tabpanel">
-        {filteredTabs.find((tab) => Number(tab.key) === active)?.children}
+        {filteredTabs.find((tab) => tab.key === active)?.children}
       </div>
     </div>
   );

@@ -73,7 +73,7 @@ export const TabViewDemo = () => {
   });
   const [active, setActive] = useState(() => {
     const savedActiveTab = localStorage.getItem(tabId);
-    return savedActiveTab !== null ? JSON.parse(savedActiveTab).activeTab : 1;
+    return savedActiveTab !== null ? JSON.parse(savedActiveTab).activeTab : "1";
   });
 
   useEffect(() => {

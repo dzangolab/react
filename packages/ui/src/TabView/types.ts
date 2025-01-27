@@ -19,14 +19,14 @@ type Tab = {
 };
 
 type Properties = {
-  active: number;
+  active: string;
   position?: TPosition;
   visibleTabs?: {
     key: string;
   }[];
   tabs?: Tab[];
   onClose?: (index: string) => void;
-  setActive: (index: number) => void;
+  setActive: (index: string) => void;
 };
 
 export type { TKeymap, TOrientation, TPosition, Properties, StorageType, Tab };

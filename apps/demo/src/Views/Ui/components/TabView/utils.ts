@@ -7,9 +7,9 @@ export const addTab = (
   const newTab = { key };
   const existingTab = visibleTabs.find((tab) => tab.key === key);
   if (existingTab) {
-    setActive(Number(existingTab.key));
+    setActive(existingTab.key);
   } else {
     setVisibleTabs([...visibleTabs, newTab]);
-    setActive(Number(newTab.key));
+    setActive(newTab.key);
   }
 };
