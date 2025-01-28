@@ -11,36 +11,42 @@ const data = [
     id: 1,
     prop: "tabs",
     type: "array",
+    default: "null",
     description: "Predefined array of tabs.",
   },
   {
     id: 2,
     prop: "visibleTabs",
     type: "array",
+    default: "null",
     description: "Array of visible tabs.",
   },
   {
     id: 3,
     prop: "position",
     type: "string",
-    description: "Position of tab.",
+    default: "top",
+    description: "Position of the tab panel header relative to its content.",
   },
   {
     id: 4,
-    prop: "onClose",
+    prop: "onTab'Close",
     type: "() => void",
+    default: "null",
     description: "Function to be called when tab is closed.",
   },
   {
     id: 5,
-    prop: "active",
-    type: "number",
-    description: "Active tab index.",
+    prop: "activeTab",
+    type: "string",
+    default: "1",
+    description: "Active index of TabView.",
   },
   {
     id: 6,
-    prop: "setActive",
+    prop: "setActiveTab",
     type: "() => void",
+    default: "null",
     description: "Function to be called when tab state is changed.",
   },
 ];
@@ -62,12 +68,7 @@ const _visibleTabs = [{ key: "1" }];
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const tabId = "tabview-1";
-  const [visibleTabs, setVisibleTabs] = useState<
-    | {
-        key: string;
-      }[]
-    | []
-  >(() => {
+  const [visibleTabs, setVisibleTabs] = useState(() => {
     const savedTabs = localStorage.getItem(tabId);
     return savedTabs ? JSON.parse(savedTabs).visibleTabs : _visibleTabs;
   });
@@ -87,7 +88,17 @@ export const TabViewDemo = () => {
   }, [visibleTabs, active]);
 
   const handleTabClose = (key: any) => {
-    const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
+    const tabIndex = visibleTabs.findIndex((tab: any) => tab.key === key);
+    const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
+    let newActiveTab = "";
+
+    if (tabIndex > 0) {
+      newActiveTab = newVisibleTabs[tabIndex - 1]?.key;
+    } else {
+      newActiveTab = newVisibleTabs[0].key;
+    }
+    setActive(newActiveTab);
+
     setVisibleTabs(newVisibleTabs);
   };
 
@@ -113,9 +124,9 @@ export const TabViewDemo = () => {
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
-          onClose={handleTabClose}
-          active={active}
-          setActive={setActive}
+          onTabClose={handleTabClose}
+          activeTab={active}
+          setActiveTab={setActive}
         />
         <CodeBlock
           exampleCode='
@@ -130,7 +141,7 @@ const _visibleTabs = [{ key: "1" }];
 
 const tabId = "tabview-1";
 
-const [visibleTabs, setVisibleTabs] = useState<{key: string}[] | []>(() => {
+const [visibleTabs, setVisibleTabs] = useState(() => {
   const savedTabs = localStorage.getItem(tabId);
   return savedTabs ? JSON.parse(savedTabs).visibleTabs : _visibleTabs;
 });
@@ -141,7 +152,17 @@ const [active, setActive] = useState(() => {
 });
 
 const handleTabClose = (key: any) => {
-  const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
+  const tabIndex = visibleTabs.findIndex((tab: any) => tab.key === key);
+  const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
+  let newActiveTab = "";
+
+  if(tabIndex > 0) {
+    newActiveTab = newVisibleTabs[tabIndex -1]?.key
+  }else {
+    newActiveTab = newVisibleTabs[0].key
+  }
+  setActive(newActiveTab);
+
   setVisibleTabs(newVisibleTabs);
 };
 
@@ -153,7 +174,7 @@ useEffect(() => {
       visibleTabs: visibleTabs,
     }),
   );
-}, [visibleTabs]);
+}, [visibleTabs, active]);
 
 <Button
   label="Add specifications tab"
@@ -170,9 +191,9 @@ useEffect(() => {
 <TabView
   visibleTabs={visibleTabs}
   tabs={tabs}
-  active={active}
-  setActive={setActive}
-  onClose={handleTabClose}
+  activeTab={active}
+  setActiveTab={setActive}
+  onTabClose={handleTabClose}
 />'
         />
       </Section>
@@ -191,6 +212,10 @@ useEffect(() => {
             {
               accessorKey: "type",
               header: "Type",
+            },
+            {
+              accessorKey: "default",
+              header: "Default",
             },
             {
               accessorKey: "description",

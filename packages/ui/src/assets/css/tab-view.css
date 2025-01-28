@@ -1,5 +1,16 @@
-.tabbed-panel .close-tab-icon > i {
+.tabbed-panel > div[role=tablist] > button {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+}
+
+.tabbed-panel > div[role=tablist] > button i {
+  color: var(--dz-secondary-color);
+  font-weight: 500;
   font-size: 14px;
-  margin-left: 1rem;
-  margin-top: 0.25rem;
+}
+
+.tabbed-panel > div > button.active i {
+  color: var(--dz-primary-color);
 }

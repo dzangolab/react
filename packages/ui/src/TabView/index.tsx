@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 
 import { getOrientation, onTabDown } from "./utils";
 
@@ -7,16 +7,12 @@ import type { Properties, Tab } from "./types";
 const TabView: React.FC<Properties> = ({
   position = "top",
   tabs,
-  visibleTabs: _visibleTabs,
-  onClose,
-  active,
-  setActive,
+  visibleTabs,
+  onTabClose,
+  activeTab,
+  setActiveTab,
 }) => {
-  const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
-
-  useEffect(() => {
-    setVisibleTabs(_visibleTabs);
-  }, [_visibleTabs]);
+  const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
 
   if (!visibleTabs || !tabs) {
     throw new Error("Tabview needs at least one tab");
@@ -28,17 +24,16 @@ const TabView: React.FC<Properties> = ({
     })
     .filter((tab): tab is Tab => tab !== undefined);
 
-  if (!filteredTabs || active === null) {
-    return null;
-  }
-
   const handleTabClose = (key: string) => {
-    const newVisibleTabs = visibleTabs.filter((tab) => tab.key !== key);
-    setVisibleTabs(newVisibleTabs);
-    setActive(newVisibleTabs[0].key);
+    if (onTabClose) {
+      onTabClose(key);
+    }
+  };
 
-    if (onClose) {
-      onClose(key);
+  const handleFocus = (index: number) => {
+    const tab = tabReferences.current[index];
+    if (tab) {
+      tab.focus();
     }
   };
 
@@ -46,15 +41,25 @@ const TabView: React.FC<Properties> = ({
     <div className={`tabbed-panel ${position}`}>
       <div role="tablist" aria-orientation={getOrientation(position)}>
         {filteredTabs.map((item, index) => {
-          const isActive = active === item.key;
+          const isActive = activeTab === item.key;
           const title = item.label;
           const icon = item.icon;
           const key = index;
 
           return (
             <button
-              onFocus={() => setActive(item.key)}
-              onClick={() => setActive(item.key)}
+              onKeyDown={(event) => {
+                onTabDown(
+                  index,
+                  event,
+                  filteredTabs.length,
+                  handleFocus,
+                  getOrientation(position),
+                );
+              }}
+              onFocus={() => setActiveTab(item.key)}
+              ref={(element) => (tabReferences.current[index] = element)}
+              onClick={() => setActiveTab(item.key)}
               key={key}
               role="tab"
               aria-label={title}
@@ -68,22 +73,20 @@ const TabView: React.FC<Properties> = ({
               ) : null}
               <span>{title}</span>
               {item.closable ? (
-                <span
-                  className="close-tab-icon"
+                <i
                   onClick={(event) => {
                     event.stopPropagation();
                     handleTabClose(item.key);
                   }}
-                >
-                  <i className="pi pi-times"></i>
-                </span>
+                  className="pi pi-times"
+                ></i>
               ) : null}
             </button>
           );
         })}
       </div>
       <div role="tabpanel">
-        {filteredTabs.find((tab) => tab.key === active)?.children}
+        {filteredTabs.find((tab) => tab.key === activeTab)?.children}
       </div>
     </div>
   );
