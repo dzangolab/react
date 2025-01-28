@@ -4,3 +4,4 @@ export * from "./Select";
 export * from "./SwitchInput";
 export * from "./Textarea";
 export * from "./Typeahead";
+export * from "./CheckboxInput";
