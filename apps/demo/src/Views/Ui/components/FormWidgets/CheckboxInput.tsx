@@ -96,20 +96,6 @@ const data = [
   },
   {
     id: 13,
-    name: "renderOption",
-    type: "(option) => React.ReactNode",
-    default: "undefined",
-    description: "Custom renderer for options.",
-  },
-  {
-    id: 14,
-    name: "renderValue",
-    type: "(value, options) => ReactNode",
-    default: "undefined",
-    description: "Custom renderer for selected values.",
-  },
-  {
-    id: 15,
     name: "value",
     type: "T[]",
     default: "[]",

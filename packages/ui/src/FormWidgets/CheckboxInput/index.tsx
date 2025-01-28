@@ -20,8 +20,6 @@ export interface ICheckboxInputProperties<T> {
   onChange?: (newValue: T[] | boolean) => void;
   options?: Option<T>[];
   placeholder?: string;
-  renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
   value?: T[];
 }
 
