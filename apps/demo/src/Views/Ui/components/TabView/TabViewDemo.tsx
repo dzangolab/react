@@ -107,24 +107,26 @@ export const TabViewDemo = () => {
   };
 
   return (
-    <Page title={t("tabview.title")}>
+    <Page title={t("tabview.title")} className="tab-view">
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Tabview" })}</p>
         <CodeBlock exampleCode="import { Tabview } from 'dzangolab/react-ui';" />
       </Section>
       <Section title={t("tabview.usage.basic")}>
-        <Button
-          label="Add specifications tab"
-          onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
-        />
-        <Button
-          label="Add reviews tab"
-          onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
-        />
-        <Button
-          label="Add pricing tab"
-          onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
-        />
+        <div className="tab-button-group">
+          <Button
+            label="Add specifications tab"
+            onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+          />
+          <Button
+            label="Add reviews tab"
+            onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+          />
+          <Button
+            label="Add pricing tab"
+            onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+          />
+        </div>
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
