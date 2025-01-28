@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { toast } from "react-toastify";
 
 import { DEFAULT_PATHS } from "@/constants";
@@ -13,21 +13,28 @@ import { useConfig, useUser } from "../hooks";
 import type { LoginCredentials, SignInUpPromise } from "../types";
 
 interface IProperties {
-  handleSubmit?: (credentials: LoginCredentials) => void;
+  handleSubmit?: (formData: LoginCredentials) => void;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
   showForgotPasswordLink?: boolean;
   showLoginLink?: boolean;
+  customForm?: (options: {
+    loading?: boolean;
+    handleSubmit: (formData: LoginCredentials) => void;
+  }) => ReactNode;
+  prepareData?: (data: LoginCredentials) => any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export const SignupWrapper: React.FC<IProperties> = ({
-  handleSubmit,
-  onSignupFailed,
-  onSignupSuccess,
   loading,
   showLoginLink = true,
   showForgotPasswordLink = true,
+  customForm,
+  handleSubmit,
+  onSignupFailed,
+  onSignupSuccess,
+  prepareData,
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
@@ -52,16 +59,17 @@ export const SignupWrapper: React.FC<IProperties> = ({
     },
   ];
 
-  const handleSignupSubmit = async (credentials: LoginCredentials) => {
+  const handleSignupSubmit = async (formData: LoginCredentials) => {
     if (handleSubmit) {
-      handleSubmit(credentials);
+      handleSubmit(formData);
     } else {
       setSignupLoading(true);
 
-      await signup(credentials)
+      await signup(formData, prepareData)
         .then(async (result) => {
           if (result?.user) {
             await setUser(result.user);
+
             onSignupSuccess && (await onSignupSuccess(result));
 
             toast.success(`${t("signup.messages.success")}`);
@@ -86,10 +94,17 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   return (
     <>
-      <SignupForm
-        handleSubmit={handleSignupSubmit}
-        loading={handleSubmit ? loading : signupLoading}
-      />
+      {customForm ? (
+        customForm({
+          handleSubmit: handleSignupSubmit,
+          loading: handleSubmit ? loading : signupLoading,
+        })
+      ) : (
+        <SignupForm
+          handleSubmit={handleSignupSubmit}
+          loading={handleSubmit ? loading : signupLoading}
+        />
+      )}
       <AuthLinks className="sign-up" links={links} />
     </>
   );
