@@ -12,7 +12,7 @@ const data = [
     prop: "tabs",
     type: "array",
     default: "null",
-    description: "Predefined array of tabs.",
+    description: "Array of tabs.",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const data = [
     id: 5,
     prop: "activeTab",
     type: "string",
-    default: "1",
+    default: "null",
     description: "Active index of TabView.",
   },
   {
