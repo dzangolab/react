@@ -14,6 +14,7 @@ import { FilesPresentationDemo } from "./components/FilesPresentation";
 import { FilesTableDemo } from "./components/FilesTable";
 import {
   CheckboxDemo,
+  CheckboxInputDemo,
   InputDemo,
   SelectDemo,
   SwitchInputDemo,
@@ -42,6 +43,7 @@ export const UI_ROUTES = {
   BUTTON: "/ui/button",
   CARD: "/ui/card",
   CHECKBOX: "/ui/checkbox",
+  CHECKBOX_INPUT: "/ui/checkbox-input",
   CONFIRMATION_MODAL: "/ui/confirmation-modal",
   DATA_COMPONENT: "/ui/data-component",
   DROPDOWN_MENU: "/ui/dropdown-menu",
@@ -67,7 +69,7 @@ export const UI_ROUTES = {
   STEPPER: "/ui/stepper",
   SUBMIT_BUTTON: "/ui/submit-button",
   SWITCH_INPUT: "/ui/switch-input",
-  TABBED_PANEL: "/ui/tabbed-pannel",
+  TABBED_PANEL: "/ui/tabbed-panel",
   TABLE: "/ui/table",
   TABVIEW: "/ui/tabview",
   TAG: "/ui/tag",
@@ -136,6 +138,11 @@ const FORM_WIDGETS_ROUTES = [
     path: UI_ROUTES.CHECKBOX,
     key: "checkbox.title",
     element: <CheckboxDemo />,
+  },
+  {
+    path: UI_ROUTES.CHECKBOX_INPUT,
+    key: "checkboxInput.title",
+    element: <CheckboxInputDemo />,
   },
   {
     path: UI_ROUTES.INPUT,
