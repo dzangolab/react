@@ -232,6 +232,12 @@
       "positionRight": "Right tabs"
     }
   },
+  "tabview": {
+    "title": "Tabview",
+    "usage": {
+      "basic": "Basic"
+    }
+  },
   "textarea": {
     "errorMessage": "Invalid input",
     "label": "Textarea label",

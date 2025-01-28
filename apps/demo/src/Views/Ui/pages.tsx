@@ -32,6 +32,7 @@ import { StepperDemo } from "./components/Stepper";
 import { SubmitButtonDemo } from "./components/SubmitButton";
 import { TabbedPanelDemo } from "./components/TabbedPanel/TabbedPanel";
 import { TableDemo } from "./components/Table";
+import { TabViewDemo } from "./components/TabView";
 import { TagDemo } from "./components/Tag/Tag";
 import { TooltipDemo } from "./components/Tooltip";
 import { YoutubeFacadeDemo } from "./components/YoutubeFacade";
@@ -68,6 +69,7 @@ export const UI_ROUTES = {
   SWITCH_INPUT: "/ui/switch-input",
   TABBED_PANEL: "/ui/tabbed-pannel",
   TABLE: "/ui/table",
+  TABVIEW: "/ui/tabview",
   TAG: "/ui/tag",
   TEXTAREA: "/ui/textarea",
   TOOLTIP: "/ui/tooltip",
@@ -259,6 +261,11 @@ const PANEL_ROUTES = [
     path: UI_ROUTES.TABBED_PANEL,
     key: "tabbedPanel.title",
     element: <TabbedPanelDemo />,
+  },
+  {
+    path: UI_ROUTES.TABVIEW,
+    key: "tabview.title",
+    element: <TabViewDemo />,
   },
 ];
 
