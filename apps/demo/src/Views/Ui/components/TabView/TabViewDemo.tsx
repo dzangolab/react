@@ -30,7 +30,7 @@ const data = [
   },
   {
     id: 4,
-    prop: "onTab'Close",
+    prop: "onTabClose",
     type: "() => void",
     default: "null",
     description: "Function to be called when tab is closed.",
