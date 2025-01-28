@@ -3,24 +3,27 @@ import { emailPasswordSignUp as register } from "supertokens-web-js/recipe/third
 import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
 
 export const signup = async (
-  credentials: LoginCredentials,
+  signupData: LoginCredentials,
+  prepareData?: (data: LoginCredentials) => any, // eslint-disable-line @typescript-eslint/no-explicit-any
 ): Promise<SignInUpPromise | void> => {
   let user: UserType;
   let status: string;
   let response;
 
-  const data = {
-    formFields: [
-      {
-        id: "email",
-        value: credentials.email,
-      },
-      {
-        id: "password",
-        value: credentials.password,
-      },
-    ],
-  };
+  const data = prepareData
+    ? prepareData(signupData)
+    : {
+        formFields: [
+          {
+            id: "email",
+            value: signupData.email,
+          },
+          {
+            id: "password",
+            value: signupData.password,
+          },
+        ],
+      };
 
   try {
     response = await register(data);
