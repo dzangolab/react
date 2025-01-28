@@ -88,6 +88,10 @@ export const TabViewDemo = () => {
   }, [visibleTabs, active]);
 
   const handleTabClose = (key: any) => {
+    if (visibleTabs.length <= 1) {
+      return;
+    }
+
     const tabIndex = visibleTabs.findIndex((tab: any) => tab.key === key);
     const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
     let newActiveTab = "";
@@ -152,6 +156,10 @@ const [active, setActive] = useState(() => {
 });
 
 const handleTabClose = (key: any) => {
+  if (visibleTabs.length <= 1) {
+    return;
+  }
+  
   const tabIndex = visibleTabs.findIndex((tab: any) => tab.key === key);
   const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
   let newActiveTab = "";
