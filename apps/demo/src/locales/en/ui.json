@@ -233,7 +233,10 @@
     }
   },
   "tabview": {
-    "title": "Tabview"
+    "title": "Tabview",
+    "usage": {
+      "basic": "Basic"
+    }
   },
   "textarea": {
     "errorMessage": "Invalid input",

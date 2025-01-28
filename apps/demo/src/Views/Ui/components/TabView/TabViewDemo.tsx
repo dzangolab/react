@@ -108,7 +108,7 @@ export const TabViewDemo = () => {
         <p>{t("common.usage", { component: "Tabview" })}</p>
         <CodeBlock exampleCode="import { Tabview } from 'dzangolab/react-ui';" />
       </Section>
-      <Section>
+      <Section title={t("tabview.usage.basic")}>
         <Button
           label="Add specifications tab"
           onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
