@@ -131,6 +131,27 @@ export const CheckboxInputDemo = () => {
         <CodeBlock exampleCode="import { CheckboxInput } from '@dzangolab/react-ui';" />
       </Section>
 
+      <Section title={t("checkboxInput.usage.basic")}>
+        <SingleCheckboxDemo />
+        <CodeBlock
+          exampleCode={SingleCheckboxDemo({ isString: true }) as string}
+        ></CodeBlock>
+      </Section>
+
+      <Section title={t("checkboxInput.usage.multiple")}>
+        <MultiCheckboxDemo />
+        <CodeBlock
+          exampleCode={MultiCheckboxDemo({ isString: true }) as string}
+        ></CodeBlock>
+      </Section>
+
+      <Section title={t("checkboxInput.usage.disabled")}>
+        <DisabledDemo />
+        <CodeBlock
+          exampleCode={DisabledDemo({ isString: true }) as string}
+        ></CodeBlock>
+      </Section>
+
       <Section
         title={t("headers.propertiesValue", {
           value: "ICheckboxInputProperties<T>",
@@ -158,27 +179,6 @@ export const CheckboxInputDemo = () => {
           data={data}
           paginated={false}
         />
-      </Section>
-
-      <Section title={t("checkboxInput.usage.basic")}>
-        <SingleCheckboxDemo />
-        <CodeBlock
-          exampleCode={SingleCheckboxDemo({ isString: true }) as string}
-        ></CodeBlock>
-      </Section>
-
-      <Section title={t("checkboxInput.usage.multiple")}>
-        <MultiCheckboxDemo />
-        <CodeBlock
-          exampleCode={MultiCheckboxDemo({ isString: true }) as string}
-        ></CodeBlock>
-      </Section>
-
-      <Section title={t("checkboxInput.usage.disabled")}>
-        <DisabledDemo />
-        <CodeBlock
-          exampleCode={DisabledDemo({ isString: true }) as string}
-        ></CodeBlock>
       </Section>
     </Page>
   );
