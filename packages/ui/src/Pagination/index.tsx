@@ -35,7 +35,7 @@ export const Pagination: React.FC<PaginationProperties> = ({
   showPreviousNextButtons = true,
   className,
   showItemsPerPageControl = true,
-  showPageInput = true,
+  showPageInput = false,
 }) => {
   const [itemsPerPage, setItemsPerPage] = useState<number>(defaultItemsPerPage);
 
