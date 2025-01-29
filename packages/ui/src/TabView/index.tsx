@@ -34,8 +34,8 @@ const TabView: React.FC<Properties> = ({
         const parsedTabs = JSON.parse(savedTabStates);
 
         return {
-          visibleTabs: parsedTabs.visibleTabs,
-          activeTab: parsedTabs.activeTab,
+          visibleTabs: parsedTabs.visibleTabs || _visibleTabs,
+          activeTab: parsedTabs.activeTab || _activeTab,
         };
       }
     }
@@ -46,41 +46,39 @@ const TabView: React.FC<Properties> = ({
     };
   });
 
+  console.log("outsidetabstate", tabState);
   useEffect(() => {
     const visibleTabsLength = tabState.visibleTabs?.length;
     const _visibleTabsLength = _visibleTabs?.length;
+
     if (JSON.stringify(tabState.visibleTabs) === JSON.stringify(_visibleTabs)) {
-      if (tabState.activeTab === _activeTab) {
-        setTabState({
-          visibleTabs: tabState.visibleTabs,
-          activeTab: tabState.activeTab,
-        });
-      } else {
-        setTabState({
-          visibleTabs: tabState.visibleTabs,
-          activeTab: _activeTab,
-        });
-      }
+      setTabState((previousState) => ({
+        ...previousState,
+        visibleTabs: tabState.visibleTabs,
+      }));
     } else {
       if (visibleTabsLength && _visibleTabsLength) {
         if (visibleTabsLength > _visibleTabsLength) {
-          if (tabState.activeTab === _activeTab) {
-            setTabState({
-              visibleTabs: tabState.visibleTabs,
-              activeTab: tabState.activeTab,
-            });
-          } else {
-            setTabState({
-              visibleTabs: tabState.visibleTabs,
-              activeTab: _activeTab,
-            });
-          }
+          setTabState((previousState) => ({
+            ...previousState,
+            visibleTabs: tabState.visibleTabs,
+          }));
         } else {
-          setTabState({ visibleTabs: _visibleTabs, activeTab: _activeTab });
+          setTabState((previousState) => ({
+            ...previousState,
+            visibleTabs: _visibleTabs,
+          }));
         }
       }
     }
-  }, [_visibleTabs, _activeTab, tabState.visibleTabs, tabState.activeTab]);
+  }, [_visibleTabs, tabState.visibleTabs]);
+
+  useEffect(() => {
+    setTabState((previousState) => ({
+      ...previousState,
+      activeTab: _activeTab,
+    }));
+  }, [_activeTab]);
 
   useEffect(() => {
     if (id && persistState) {
@@ -92,7 +90,7 @@ const TabView: React.FC<Properties> = ({
         }),
       );
     }
-  }, [tabState.visibleTabs, tabState.activeTab]);
+  }, [tabState.visibleTabs, tabState.activeTab, id, persistState, storage]);
 
   if (!tabState.visibleTabs || !tabs) {
     throw new Error("Tabview needs at least one tab");
@@ -118,7 +116,7 @@ const TabView: React.FC<Properties> = ({
     }
 
     setTabState({ visibleTabs: newVisibleTabs, activeTab: newActiveTab });
-
+    console.log("tabstate", tabState);
     if (onTabClose) {
       onTabClose(key);
     }

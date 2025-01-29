@@ -12,14 +12,14 @@ const data = [
     prop: "tabs",
     type: "array",
     default: "-",
-    description: "Array of tabs.",
+    description: "Array of tab object.",
   },
   {
     id: 2,
     prop: "visibleTabs",
     type: "array",
     default: "-",
-    description: "Array of visible tabs.",
+    description: "Array of visible tab object.",
   },
   {
     id: 3,
@@ -85,6 +85,7 @@ export const TabViewDemo = () => {
 
   const handleTabClose = (key: any) => {
     const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
+
     setVisibleTabs(newVisibleTabs);
   };
 
@@ -119,8 +120,69 @@ export const TabViewDemo = () => {
           onTabClose={handleTabClose}
           onTabChange={handleTabChange}
           activeTab={active}
-          id="tabview-2"
-          // persistState={false}
+          id="tabview-1"
+        />
+        <CodeBlock
+          exampleCode='
+const tabs = [
+ { label: "Description", children: "Description", key: "1" },
+ { label: "Reviews", children: "Reviews", key: "2", closable: true },
+ { label: "Specifications", children: "Specifications", key: "3", closable: true },
+ { label: "Pricing", children: "Pricing", key: "4", closable: true },
+];
+
+export const addTab = (
+  key: string,
+  visibleTabs: any[],
+  setVisibleTabs: any,
+  setActive: any,
+) => {
+  const newTab = { key };
+  const existingTab = visibleTabs.find((tab) => tab.key === key);
+
+  if (existingTab) {
+    setActive(existingTab.key);
+  } else {
+    setVisibleTabs([...visibleTabs, newTab]);
+    setActive(newTab.key);
+  }
+};
+          
+const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
+const [active, setActive] = useState("1");
+
+const handleTabClose = (key: any) => {
+  const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
+
+  setVisibleTabs(newVisibleTabs);
+};
+
+const handleTabChange = (key: string) => {
+  setActive(key);
+};
+
+<div className="tab-button-group">
+  <Button
+  label="Add specifications tab"
+  onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+  />
+  <Button 
+  label="Add reviews tab" 
+  onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+  />
+  <Button 
+  label="Add pricing tab" 
+  onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+  />
+</div>
+<TabView
+  visibleTabs={visibleTabs}
+  tabs={tabs}
+  activeTab={active}
+  onTabClose={handleTabClose}
+  id="tabview-1"
+  onTabChange={handleTabChange}
+/>'
         />
       </Section>
 
