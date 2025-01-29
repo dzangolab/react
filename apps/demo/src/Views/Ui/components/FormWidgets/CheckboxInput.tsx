@@ -1,6 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TDataTable } from "@dzangolab/react-ui";
-import React from "react";
 
 import {
   DisabledDemo,
@@ -21,7 +20,7 @@ const data = [
     id: 2,
     name: "className",
     type: "string",
-    default: '""',
+    default: "-",
     description: "Additional CSS classes for styling.",
   },
   {
@@ -35,49 +34,49 @@ const data = [
     id: 4,
     name: "disabled",
     type: "boolean",
-    default: "false",
+    default: "-",
     description: "Disables the checkbox input.",
   },
   {
     id: 5,
     name: "errorMessage",
     type: "string",
-    default: '""',
+    default: "-",
     description: "Displays an error message below the component.",
   },
   {
     id: 6,
     name: "helperText",
     type: "string",
-    default: '""',
+    default: "-",
     description: "Displays a helper text below the component.",
   },
   {
     id: 7,
     name: "inputLabel",
     type: "string",
-    default: '""',
+    default: "-",
     description: "Label for the single checkbox.",
   },
   {
     id: 8,
     name: "label",
     type: "string | React.ReactNode",
-    default: '""',
+    default: "-",
     description: "Label for the group of checkboxes.",
   },
   {
     id: 9,
     name: "name",
     type: "string",
-    default: "required",
+    default: "-",
     description: "The name attribute for the checkbox input.",
   },
   {
     id: 10,
     name: "onChange",
     type: "(newValue: T[]) => void",
-    default: "required",
+    default: "-",
     description: "Callback function that returns the updated values.",
   },
   {
@@ -91,7 +90,7 @@ const data = [
     id: 12,
     name: "placeholder",
     type: "string",
-    default: '""',
+    default: "-",
     description: "Placeholder text (not applicable to checkboxes).",
   },
   {

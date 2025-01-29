@@ -1,5 +1,5 @@
 import { CheckboxInput } from "@dzangolab/react-ui";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const SingleCheckboxDemo = ({
   isString = false,
@@ -9,9 +9,10 @@ const SingleCheckboxDemo = ({
   const [checked, setChecked] = useState(false);
 
   if (isString) {
-    return ` <CheckboxInput
+    return `
+    <CheckboxInput
       name="single-checkbox"
-      inputLabel="Accept Terms and Conditions"
+      inputLabel="Accept terms and conditions"
       checked={checked}
       onChange={(newChecked) => setChecked(newChecked as boolean)}
     />`;
@@ -20,7 +21,7 @@ const SingleCheckboxDemo = ({
   return (
     <CheckboxInput
       name="single-checkbox"
-      inputLabel="Accept Terms and Conditions"
+      inputLabel="Accept terms and conditions"
       checked={checked}
       onChange={(newChecked) => setChecked(newChecked as boolean)}
     />
@@ -35,24 +36,25 @@ const MultiCheckboxDemo = ({
   const [selectedValues, setSelectedValues] = useState<number[]>([]);
 
   const options = [
-    { value: 1, label: "Option 1" },
-    { value: 2, label: "Option 2" },
-    { value: 3, label: "Option 3" },
+    { value: 1, label: "Bike" },
+    { value: 2, label: "Car" },
+    { value: 3, label: "Truck" },
   ];
 
   if (isString) {
-    return `const [selectedValues, setSelectedValues] = useState<number[]>([]);
+    return `
+  const [selectedValues, setSelectedValues] = useState<number[]>([]);
 
   const options = [
-    { value: 1, label: "Option 1" },
-    { value: 2, label: "Option 2" },
-    { value: 3, label: "Option 3" },
+    { value: 1, label: "Bike" },
+    { value: 2, label: "Car" },
+    { value: 3, label: "Truck" },
   ];
 
   return (
     <CheckboxInput
       name="multi-checkbox"
-      label="Choose Options"
+      label="Choose vehicle options"
       direction="horizontal"
       options={options}
       value={selectedValues}
@@ -63,7 +65,7 @@ const MultiCheckboxDemo = ({
   return (
     <CheckboxInput
       name="multi-checkbox"
-      label="Choose Options"
+      label="Choose vehicle options"
       direction="horizontal"
       options={options}
       value={selectedValues}
@@ -78,22 +80,25 @@ const DisabledDemo = ({
   isString?: boolean;
 }): JSX.Element | string => {
   const options = [
-    { value: "opt1", label: "Option 1" },
-    { value: "opt2", label: "Option 2" },
+    { value: 1, label: "Bike" },
+    { value: 2, label: "Car" },
+    { value: 3, label: "Truck" },
   ];
 
   if (isString) {
-    return `const options = [
-    { value: "opt1", label: "Option 1" },
-    { value: "opt2", label: "Option 2" },
+    return `
+  const options = [
+    { value: 1, label: "Bike" },
+    { value: 2, label: "Car" },
+    { value: 3, label: "Truck" },
   ];
 
   return (
     <CheckboxInput
       name="disabled-checkbox"
-      label="Disabled Options"
+      label="Disabled options"
       options={options}
-      value={["opt2"]}
+      value={[2]}
       disabled
       helperText="These checkboxes are disabled."
     />
@@ -103,9 +108,9 @@ const DisabledDemo = ({
   return (
     <CheckboxInput
       name="disabled-checkbox"
-      label="Disabled Options"
+      label="Disabled options"
       options={options}
-      value={["opt2"]}
+      value={[2]}
       disabled
       helperText="These checkboxes are disabled."
     />
