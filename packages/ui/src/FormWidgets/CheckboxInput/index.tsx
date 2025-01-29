@@ -24,7 +24,7 @@ export interface ICheckboxInputProperties<T> {
 }
 
 export const CheckboxInput = <T extends string | number>({
-  checked,
+  checked = false,
   className = "",
   disabled,
   direction = "vertical",
@@ -38,7 +38,7 @@ export const CheckboxInput = <T extends string | number>({
   value = [],
 }: ICheckboxInputProperties<T>) => {
   const [selectedValues, setSelectedValues] = useState<T[]>(value);
-  const [singleChecked, setSingleChecked] = useState<boolean>(!!checked);
+  const [singleChecked, setSingleChecked] = useState<boolean>(checked);
 
   const hasOptions = Array.isArray(options) && options.length > 0;
 
