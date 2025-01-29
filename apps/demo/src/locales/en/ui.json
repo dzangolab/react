@@ -35,6 +35,15 @@
     },
     "message": "Click to view profile"
   },
+  "checkboxInput": {
+    "title": "CheckboxInput",
+    "subtitle": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
+    "usage": {
+      "basic": "Basic",
+      "multiple": "Multiple checkbox input",
+      "disabled": "Disabled"
+    }
+  },
   "card": {
     "title": "Card",
     "header": "Card header",

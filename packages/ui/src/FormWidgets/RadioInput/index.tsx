@@ -1,9 +1,10 @@
 import { InputHTMLAttributes } from "react";
 
 interface IOption {
-  label: string;
-  value: string;
+  label: string | number;
+  value: string | number;
 }
+
 export interface IRadioInputProperties
   extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
@@ -26,6 +27,7 @@ export const RadioInput: React.FC<IRadioInputProperties> = ({
   onChange,
   options,
   value,
+  type,
   ...others
 }) => {
   return (
@@ -37,14 +39,16 @@ export const RadioInput: React.FC<IRadioInputProperties> = ({
             aria-invalid={hasError}
             checked={optionValue === value}
             disabled={disabled}
-            id={optionValue}
+            id={`choice-${optionValue}`}
             name={name}
             onChange={onChange}
             type="radio"
             value={optionValue}
             {...others}
           ></input>
-          {optionLabel && <label htmlFor={optionValue}>{optionLabel}</label>}
+          {optionLabel && (
+            <label htmlFor={`choice-${optionValue}`}>{optionLabel}</label>
+          )}
         </div>
       ))}
       {helperText && <span className="helper-text">{helperText}</span>}

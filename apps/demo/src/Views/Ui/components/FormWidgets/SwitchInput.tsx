@@ -1,7 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TDataTable } from "@dzangolab/react-ui";
 
-import { Basic, ControlledSnippet, Disabled, Invalid } from "./components";
+import {
+  Basic,
+  ControlledSnippet,
+  Disabled,
+  Invalid,
+} from "./SwitchInputUsage";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 const data = [

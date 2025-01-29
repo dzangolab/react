@@ -79,6 +79,7 @@ const DataTable = <TData extends { id: string | number }>({
       pageSize: rowPerPage || DEFAULT_PAGE_SIZE,
     },
   });
+
   const [sorting, setSorting] = useState<SortingState>(
     persistentStateReference.current.sorting,
   );
