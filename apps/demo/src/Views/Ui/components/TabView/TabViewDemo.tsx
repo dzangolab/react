@@ -30,10 +30,10 @@ const data = [
   },
   {
     id: 4,
-    prop: "activeTab",
+    prop: "defaultActiveIndex",
     type: "string",
     default: "-",
-    description: "Active index of TabView.",
+    description: "Default active index of TabView.",
   },
   {
     id: 5,
@@ -52,17 +52,18 @@ const data = [
   },
   {
     id: 7,
+    prop: "id",
+    type: "string",
+    default: "-",
+    description:
+      "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
+  },
+  {
+    id: 8,
     prop: "onTabClose",
     type: "(key: string) => void",
     default: "-",
     description: "Function to be called when tab is closed.",
-  },
-  {
-    id: 8,
-    prop: "onTabChange",
-    type: "(key: string) => void",
-    default: "-",
-    description: "Function to be called when tab is changed.",
   },
 ];
 
@@ -87,10 +88,6 @@ export const TabViewDemo = () => {
     const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
 
     setVisibleTabs(newVisibleTabs);
-  };
-
-  const handleTabChange = (key: string) => {
-    setActive(key);
   };
 
   return (
@@ -118,8 +115,7 @@ export const TabViewDemo = () => {
           visibleTabs={visibleTabs}
           tabs={tabs}
           onTabClose={handleTabClose}
-          onTabChange={handleTabChange}
-          activeTab={active}
+          defaultActiveIndex={active}
           id="tabview-1"
         />
         <CodeBlock
@@ -138,14 +134,9 @@ export const addTab = (
   setActive: any,
 ) => {
   const newTab = { key };
-  const existingTab = visibleTabs.find((tab) => tab.key === key);
 
-  if (existingTab) {
-    setActive(existingTab.key);
-  } else {
-    setVisibleTabs([...visibleTabs, newTab]);
-    setActive(newTab.key);
-  }
+  setVisibleTabs([...visibleTabs, newTab]);
+  setActive(newTab.key);
 };
           
 const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
@@ -157,31 +148,25 @@ const handleTabClose = (key: any) => {
   setVisibleTabs(newVisibleTabs);
 };
 
-const handleTabChange = (key: string) => {
-  setActive(key);
-};
-
 <div className="tab-button-group">
   <Button
   label="Add specifications tab"
-  onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+  onClick={() => addTab("3", visibleTabs, setVisibleTabs)}
   />
   <Button 
   label="Add reviews tab" 
-  onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+  onClick={() => addTab("2", visibleTabs, setVisibleTabs)}
   />
   <Button 
   label="Add pricing tab" 
-  onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+  onClick={() => addTab("4", visibleTabs, setVisibleTabs)}
   />
 </div>
 <TabView
   visibleTabs={visibleTabs}
   tabs={tabs}
-  activeTab={active}
   onTabClose={handleTabClose}
   id="tabview-1"
-  onTabChange={handleTabChange}
 />'
         />
       </Section>

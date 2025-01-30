@@ -6,15 +6,14 @@ import { getOrientation, onTabDown } from "./utils";
 import type { Properties, Tab } from "./types";
 
 const TabView: React.FC<Properties> = ({
+  defaultActiveIndex,
   position = "top",
   tabs,
   visibleTabs: _visibleTabs,
   onTabClose,
-  activeTab: _activeTab,
   id = "",
   persistState = true,
   persistStateStorage = "localStorage",
-  onTabChange,
 }) => {
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -23,62 +22,53 @@ const TabView: React.FC<Properties> = ({
     [persistStateStorage],
   );
 
+  const [mounted, setMounted] = useState(false);
   const [tabState, setTabState] = useState<{
     visibleTabs: { key: string }[];
     activeTab: string | undefined;
-  }>(() => {
-    if (id && persistState) {
-      const savedTabStates = storage.getItem(id);
+  }>({ visibleTabs: _visibleTabs, activeTab: defaultActiveIndex });
 
-      if (savedTabStates) {
-        const parsedTabs = JSON.parse(savedTabStates);
-
-        return {
-          visibleTabs: parsedTabs.visibleTabs || _visibleTabs,
-          activeTab: parsedTabs.activeTab || _activeTab,
-        };
+  useEffect(() => {
+    setMounted(true);
+    if (persistState && id) {
+      const storedState = storage.getItem(id);
+      if (storedState) {
+        const parsedState = JSON.parse(storedState);
+        setTabState({
+          visibleTabs: parsedState.visibleTabs || _visibleTabs,
+          activeTab: parsedState.activeTab || defaultActiveIndex,
+        });
       }
     }
+  }, []);
 
-    return {
-      visibleTabs: _visibleTabs,
-      activeTab: _activeTab,
-    };
-  });
-
-  console.log("outsidetabstate", tabState);
   useEffect(() => {
-    const visibleTabsLength = tabState.visibleTabs?.length;
-    const _visibleTabsLength = _visibleTabs?.length;
+    if (mounted) {
+      const tabs = _visibleTabs?.filter(
+        (tab) =>
+          !tabState.visibleTabs?.some(
+            (visibleTab) => visibleTab.key === tab.key,
+          ),
+      );
+      if (tabs.length === 0) {
+        return;
+      }
 
-    if (JSON.stringify(tabState.visibleTabs) === JSON.stringify(_visibleTabs)) {
-      setTabState((previousState) => ({
-        ...previousState,
-        visibleTabs: tabState.visibleTabs,
+      setTabState({
+        activeTab: tabs[0].key,
+        visibleTabs: [...tabState.visibleTabs, ...tabs],
+      });
+    }
+  }, [_visibleTabs]);
+
+  useEffect(() => {
+    if (mounted) {
+      setTabState((previousTab) => ({
+        ...previousTab,
+        activeTab: defaultActiveIndex,
       }));
-    } else {
-      if (visibleTabsLength && _visibleTabsLength) {
-        if (visibleTabsLength > _visibleTabsLength) {
-          setTabState((previousState) => ({
-            ...previousState,
-            visibleTabs: tabState.visibleTabs,
-          }));
-        } else {
-          setTabState((previousState) => ({
-            ...previousState,
-            visibleTabs: _visibleTabs,
-          }));
-        }
-      }
     }
-  }, [_visibleTabs, tabState.visibleTabs]);
-
-  useEffect(() => {
-    setTabState((previousState) => ({
-      ...previousState,
-      activeTab: _activeTab,
-    }));
-  }, [_activeTab]);
+  }, [defaultActiveIndex]);
 
   useEffect(() => {
     if (id && persistState) {
@@ -115,8 +105,11 @@ const TabView: React.FC<Properties> = ({
       newActiveTab = newVisibleTabs[0].key;
     }
 
-    setTabState({ visibleTabs: newVisibleTabs, activeTab: newActiveTab });
-    console.log("tabstate", tabState);
+    setTabState({
+      activeTab: newActiveTab,
+      visibleTabs: newVisibleTabs,
+    });
+
     if (onTabClose) {
       onTabClose(key);
     }
@@ -129,72 +122,68 @@ const TabView: React.FC<Properties> = ({
     }
   };
 
-  const handleTabChange = (key: string) => {
-    setTabState((previous) => {
-      return { ...previous, activeTab: key };
-    });
-
-    if (onTabChange) {
-      onTabChange(key);
-    }
-  };
-
   return (
-    <div className={`tabbed-panel ${position}`}>
-      <div role="tablist" aria-orientation={getOrientation(position)}>
-        {filteredTabs.map((item, index) => {
-          const isActive = tabState.activeTab === item.key;
-          const title = item.label;
-          const icon = item.icon;
-          const key = index;
+    mounted && (
+      <div className={`tabbed-panel ${position}`}>
+        <div role="tablist" aria-orientation={getOrientation(position)}>
+          {filteredTabs.map((item, index) => {
+            const isActive = tabState.activeTab === item.key;
+            const title = item.label;
+            const icon = item.icon;
+            const key = index;
 
-          return (
-            <button
-              onKeyDown={(event) => {
-                onTabDown(
-                  index,
-                  event,
-                  filteredTabs.length,
-                  handleFocus,
-                  getOrientation(position),
-                );
-              }}
-              onFocus={() =>
-                setTabState((previous) => {
-                  return { ...previous, activeTab: item.key };
-                })
-              }
-              ref={(element) => (tabReferences.current[index] = element)}
-              onClick={() => handleTabChange(item.key)}
-              key={key}
-              role="tab"
-              aria-label={title}
-              aria-disabled={isActive}
-              aria-selected={isActive}
-              tabIndex={isActive ? 0 : -1}
-              className={isActive ? "active" : ""}
-            >
-              {icon ? (
-                <img src={icon} alt="title icon" aria-hidden="true" />
-              ) : null}
-              <span>{title}</span>
-              {item.closable ? (
-                <i
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    handleTabClose(item.key);
-                  }}
-                  className="pi pi-times"
-                ></i>
-              ) : null}
-            </button>
-          );
-        })}
+            return (
+              <button
+                onKeyDown={(event) => {
+                  onTabDown(
+                    index,
+                    event,
+                    filteredTabs.length,
+                    handleFocus,
+                    getOrientation(position),
+                  );
+                }}
+                onFocus={() =>
+                  setTabState((previous) => {
+                    return { ...previous, activeTab: item.key };
+                  })
+                }
+                ref={(element) => (tabReferences.current[index] = element)}
+                onClick={() =>
+                  setTabState((previous) => {
+                    return { ...previous, activeTab: item.key };
+                  })
+                }
+                key={key}
+                role="tab"
+                aria-label={title}
+                aria-disabled={isActive}
+                aria-selected={isActive}
+                tabIndex={isActive ? 0 : -1}
+                className={isActive ? "active" : ""}
+              >
+                {icon ? (
+                  <img src={icon} alt="title icon" aria-hidden="true" />
+                ) : null}
+                <span>{title}</span>
+                {item.closable ? (
+                  <i
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      handleTabClose(item.key);
+                    }}
+                    className="pi pi-times"
+                  ></i>
+                ) : null}
+              </button>
+            );
+          })}
+        </div>
+        <div role="tabpanel">
+          {filteredTabs.find((tab) => tab.key === tabState.activeTab)?.children}
+        </div>
       </div>
-      <div role="tabpanel">
-        {filteredTabs.find((tab) => tab.key === tabState.activeTab)?.children}
-      </div>
-    </div>
+    )
   );
 };
 
