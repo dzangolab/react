@@ -19,22 +19,15 @@ interface IProperties {
   loading?: boolean;
   showForgotPasswordLink?: boolean;
   showLoginLink?: boolean;
-  customForm?: (options: {
-    loading?: boolean;
-    handleSubmit: (formData: LoginCredentials) => void;
-  }) => ReactNode;
-  prepareData?: (data: LoginCredentials) => any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export const SignupWrapper: React.FC<IProperties> = ({
   loading,
   showLoginLink = true,
   showForgotPasswordLink = true,
-  customForm,
   handleSubmit,
   onSignupFailed,
   onSignupSuccess,
-  prepareData,
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
@@ -65,7 +58,20 @@ export const SignupWrapper: React.FC<IProperties> = ({
     } else {
       setSignupLoading(true);
 
-      await signup(formData, prepareData)
+      const payload = {
+        formFields: [
+          {
+            id: "email" as const,
+            value: formData.email,
+          },
+          {
+            id: "password" as const,
+            value: formData.password,
+          },
+        ],
+      };
+
+      await signup(payload)
         .then(async (result) => {
           if (result?.user) {
             await setUser(result.user);
@@ -94,17 +100,10 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   return (
     <>
-      {customForm ? (
-        customForm({
-          handleSubmit: handleSignupSubmit,
-          loading: handleSubmit ? loading : signupLoading,
-        })
-      ) : (
-        <SignupForm
-          handleSubmit={handleSignupSubmit}
-          loading={handleSubmit ? loading : signupLoading}
-        />
-      )}
+      <SignupForm
+        handleSubmit={handleSignupSubmit}
+        loading={handleSubmit ? loading : signupLoading}
+      />
       <AuthLinks className="sign-up" links={links} />
     </>
   );
