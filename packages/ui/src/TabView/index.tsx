@@ -15,18 +15,25 @@ const TabView: React.FC<Properties> = ({
   persistState = true,
   persistStateStorage = "localStorage",
 }) => {
+  const [mounted, setMounted] = useState(false);
   const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const isValidDefaultActiveTab = _visibleTabs?.some(
+    (tab) => tab.key === defaultActiveIndex,
+  );
+  const initialActiveTab = isValidDefaultActiveTab
+    ? defaultActiveIndex
+    : _visibleTabs && _visibleTabs[0]?.key;
+
+  const [tabState, setTabState] = useState<{
+    visibleTabs: { key: string }[];
+    activeTab: string | undefined;
+  }>({ visibleTabs: _visibleTabs, activeTab: initialActiveTab });
 
   const storage = useMemo(
     () => getStorage(persistStateStorage),
     [persistStateStorage],
   );
-
-  const [mounted, setMounted] = useState(false);
-  const [tabState, setTabState] = useState<{
-    visibleTabs: { key: string }[];
-    activeTab: string | undefined;
-  }>({ visibleTabs: _visibleTabs, activeTab: defaultActiveIndex });
 
   useEffect(() => {
     setMounted(true);
@@ -36,7 +43,7 @@ const TabView: React.FC<Properties> = ({
         const parsedState = JSON.parse(storedState);
         setTabState({
           visibleTabs: parsedState.visibleTabs || _visibleTabs,
-          activeTab: parsedState.activeTab || defaultActiveIndex,
+          activeTab: parsedState.activeTab || initialActiveTab,
         });
       }
     }

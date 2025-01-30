@@ -151,15 +151,15 @@ const handleTabClose = (key: any) => {
 <div className="tab-button-group">
   <Button
   label="Add specifications tab"
-  onClick={() => addTab("3", visibleTabs, setVisibleTabs)}
+  onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
   />
   <Button 
   label="Add reviews tab" 
-  onClick={() => addTab("2", visibleTabs, setVisibleTabs)}
+  onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
   />
   <Button 
   label="Add pricing tab" 
-  onClick={() => addTab("4", visibleTabs, setVisibleTabs)}
+  onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
   />
 </div>
 <TabView
