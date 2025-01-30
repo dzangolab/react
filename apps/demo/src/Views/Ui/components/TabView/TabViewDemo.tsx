@@ -167,6 +167,7 @@ const handleTabClose = (key: any) => {
   tabs={tabs}
   onTabClose={handleTabClose}
   id="tabview-1"
+  defaultActiveIndex={active}
 />'
         />
       </Section>
