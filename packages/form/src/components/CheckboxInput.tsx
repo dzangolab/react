@@ -15,6 +15,7 @@ export const CheckboxInput = <T extends string | number>({
   checked,
   helperText,
   inputLabel,
+  ...others
 }: ICheckboxInputProperties<T>) => {
   const { control, getFieldState } = useFormContext();
 
@@ -39,6 +40,7 @@ export const CheckboxInput = <T extends string | number>({
           onChange={field.onChange}
           options={options}
           value={field.value}
+          {...others}
         />
       )}
     />
