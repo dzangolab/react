@@ -69,8 +69,6 @@ const SignupFormFields: React.FC<IProperties> = ({
           hasCheckbox={showCheckbox}
           label={label}
           name="termsAndConditions"
-          register={register}
-          getFieldState={getFieldState}
         />
       ) : null}
 
