@@ -19,7 +19,7 @@ const data = [
     prop: "visibleTabs",
     type: "array",
     default: "-",
-    description: "Array of visible tab object.",
+    description: "Array of visible tabs.",
   },
   {
     id: 3,
@@ -60,10 +60,10 @@ const data = [
   },
   {
     id: 8,
-    prop: "onTabClose",
-    type: "(key: string) => void",
+    prop: "onVisibleTabsChange",
+    type: "(visibleTabs: string[]) => void",
     default: "-",
-    description: "Function to be called when tab is closed.",
+    description: "Function to be called when visible tabs change.",
   },
 ];
 
@@ -77,19 +77,23 @@ const tabs = [
     closable: true,
   },
   { label: "Pricing", children: "Pricing", key: "4", closable: true },
+  { label: "Installation", children: "Installation Instructions", key: "5" },
+  { label: "Certifications", children: "Certifications", key: "6" },
 ];
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const [visibleTabs, setVisibleTabs] = useState(["1"]);
   const [active, setActive] = useState("1");
+  const [customVisibleTabs, setCustomVisibleTabs] = useState(["1", "5", "6"]);
 
   return (
     <Page title={t("tabview.title")} className="tab-view">
       <Section title={t("headers.usage")}>
-        <p>{t("common.usage", { component: "Tabview" })}</p>
-        <CodeBlock exampleCode="import { Tabview } from 'dzangolab/react-ui';" />
+        <p>{t("common.usage", { component: "TabView" })}</p>
+        <CodeBlock exampleCode="import { TabView } from 'dzangolab/react-ui';" />
       </Section>
+
       <Section title={t("tabview.usage.basic")}>
         <div className="tab-button-group">
           <Button
@@ -119,6 +123,8 @@ const tabs = [
  { label: "Reviews", children: "Reviews", key: "2", closable: true },
  { label: "Specifications", children: "Specifications", key: "3", closable: true },
  { label: "Pricing", children: "Pricing", key: "4", closable: true },
+ { label: "Installation", children: "Installation Instructions", key: "5" },
+ { label: "Certifications", children: "Certifications", key: "6" },
 ];
 
 export const addTab = (
@@ -164,6 +170,139 @@ const [active, setActive] = useState("1");
         />
       </Section>
 
+      <Section title={t("tabview.usage.disableTabState.title")}>
+        <p>{t("tabbedPanel.usage.disableTabState.subTitle")}</p>
+        <TabView
+          visibleTabs={customVisibleTabs}
+          tabs={tabs}
+          activeKey="1"
+          id="tabview-3"
+          persistState={false}
+          onVisibleTabsChange={setCustomVisibleTabs}
+        />
+        <CodeBlock
+          exampleCode='
+const tabs = [
+ { label: "Description", children: "Description", key: "1" },
+ { label: "Reviews", children: "Reviews", key: "2", closable: true },
+ { label: "Specifications", children: "Specifications", key: "3", closable: true },
+ { label: "Pricing", children: "Pricing", key: "4", closable: true },
+ { label: "Installation", children: "Installation Instructions", key: "5" },
+ { label: "Certifications", children: "Certifications", key: "6" },
+];
+
+const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
+
+<TabView
+  visibleTabs={customVisibleTabs}
+  tabs={tabs}
+  activeKey="1"
+  id="tabview-3"
+  persistState={false}
+  onVisibleTabsChange={setCustomVisibleTabs}
+/>'
+        />
+      </Section>
+
+      <Section title={t("tabview.usage.positionBottom")}>
+        <TabView
+          visibleTabs={customVisibleTabs}
+          tabs={tabs}
+          activeKey="1"
+          id="tabview-4"
+          position="bottom"
+          onVisibleTabsChange={setCustomVisibleTabs}
+        />
+        <CodeBlock
+          exampleCode='
+const tabs = [
+ { label: "Description", children: "Description", key: "1" },
+ { label: "Reviews", children: "Reviews", key: "2", closable: true },
+ { label: "Specifications", children: "Specifications", key: "3", closable: true },
+ { label: "Pricing", children: "Pricing", key: "4", closable: true },
+ { label: "Installation", children: "Installation Instructions", key: "5" },
+ { label: "Certifications", children: "Certifications", key: "6" },
+];
+
+const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
+
+<TabView
+  visibleTabs={customVisibleTabs}
+  tabs={tabs}
+  activeKey="1"
+  id="tabview-4"
+  position="bottom"
+  onVisibleTabsChange={setCustomVisibleTabs}
+/>'
+        />
+      </Section>
+
+      <Section title={t("tabview.usage.positionLeft")}>
+        <TabView
+          visibleTabs={customVisibleTabs}
+          tabs={tabs}
+          activeKey="1"
+          id="tabview-5"
+          position="left"
+          onVisibleTabsChange={setCustomVisibleTabs}
+        />
+        <CodeBlock
+          exampleCode='
+const tabs = [
+ { label: "Description", children: "Description", key: "1" },
+ { label: "Reviews", children: "Reviews", key: "2", closable: true },
+ { label: "Specifications", children: "Specifications", key: "3", closable: true },
+ { label: "Pricing", children: "Pricing", key: "4", closable: true },
+ { label: "Installation", children: "Installation Instructions", key: "5" },
+ { label: "Certifications", children: "Certifications", key: "6" },
+];
+
+const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
+       
+<TabView
+  visibleTabs={customVisibleTabs}
+  tabs={tabs}
+  activeKey="1"
+  id="tabview-5"
+  position="left"
+  onVisibleTabsChange={setCustomVisibleTabs}
+/>'
+        />
+      </Section>
+
+      <Section title={t("tabview.usage.positionRight")}>
+        <TabView
+          visibleTabs={customVisibleTabs}
+          tabs={tabs}
+          activeKey={active}
+          id="tabview-6"
+          position="right"
+          onVisibleTabsChange={setCustomVisibleTabs}
+        />
+        <CodeBlock
+          exampleCode='
+const tabs = [
+ { label: "Description", children: "Description", key: "1" },
+ { label: "Reviews", children: "Reviews", key: "2", closable: true },
+ { label: "Specifications", children: "Specifications", key: "3", closable: true },
+ { label: "Pricing", children: "Pricing", key: "4", closable: true },
+ { label: "Installation", children: "Installation Instructions", key: "5" },
+ { label: "Certifications", children: "Certifications", key: "6" },
+];
+
+const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
+       
+<TabView
+  visibleTabs={customVisibleTabs}
+  tabs={tabs}
+  activeKey="1"
+  id="tabview-6"
+  position="right"
+  onVisibleTabsChange={setCustomVisibleTabs}
+/>'
+        />
+      </Section>
+
       <Section
         title={t("headers.propertiesValue", {
           value: "Properties",
@@ -190,6 +329,21 @@ const [active, setActive] = useState("1");
           ]}
           data={data}
           paginated={false}
+        />
+      </Section>
+      <Section title="Type">
+        <CodeBlock
+          exampleCode="
+tabs = {
+  children: React.ReactNode;
+  closable?: boolean;
+  icon?: string;
+  key: string;
+  label: string;
+}[];
+
+visibleTabs: string[]
+"
         />
       </Section>
     </Page>
