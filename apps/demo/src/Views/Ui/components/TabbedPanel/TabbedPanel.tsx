@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page } from "@dzangolab/react-ui";
+import { Message } from "@dzangolab/react-ui";
 
 import {
   Basic,
@@ -17,6 +18,7 @@ export const TabbedPanelDemo = () => {
 
   return (
     <Page title={t("tabbedPanel.title")}>
+      <Message message="@deprecated: Use TabView component from the ui package instead" />
       <Section title={t("tabbedPanel.usage.basic")}>
         <Basic />
         <CodeBlock
