@@ -11,6 +11,7 @@ export const signup = async (
 
   try {
     response = await register(signupData);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     throw new Error();
   }

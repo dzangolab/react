@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 import { DEFAULT_PATHS } from "@/constants";

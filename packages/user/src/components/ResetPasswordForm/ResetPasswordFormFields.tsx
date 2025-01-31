@@ -10,9 +10,10 @@ const ResetPasswordFormFields = ({ loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    formState: { errors, submitCount, isDirty },
     register,
     getFieldState,
-    formState: { errors, submitCount, isDirty },
   } = useFormContext();
 
   return (
