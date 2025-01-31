@@ -7,7 +7,7 @@ import { signup } from "@/supertokens";
 import { LinkType } from "@/types/types";
 
 import { AuthLinks } from "../AuthLinks";
-import SignupForm from "./SignupForm";
+import { SignupForm } from "./SignupForm";
 import { useConfig, useUser } from "../../hooks";
 
 import type { LoginCredentials, SignInUpPromise } from "../../types";

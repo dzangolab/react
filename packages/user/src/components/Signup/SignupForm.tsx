@@ -15,7 +15,7 @@ interface Properties {
   loading?: boolean;
 }
 
-const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
+export const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
   const { t, i18n } = useTranslation("user");
   const config = useConfig();
 
@@ -71,5 +71,3 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
     </Provider>
   );
 };
-
-export default SignupForm;

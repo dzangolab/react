@@ -8,7 +8,7 @@ interface Properties {
   redirectUrl: string;
 }
 
-const GoogleLogin = ({ label, redirectUrl }: Properties) => {
+export const GoogleLogin = ({ label, redirectUrl }: Properties) => {
   const onGoogleSignin = async () => {
     await googleLogin(redirectUrl);
   };
@@ -17,5 +17,3 @@ const GoogleLogin = ({ label, redirectUrl }: Properties) => {
     <GoogleButton handleClick={onGoogleSignin} title={label} variant="dark" />
   );
 };
-
-export { GoogleLogin };

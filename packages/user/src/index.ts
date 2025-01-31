@@ -1,9 +1,4 @@
 import { disableUser, enableUser } from "./api/user";
-import { DEFAULT_PATHS } from "./constants";
-import UserProvider, { userContext } from "./context/UserProvider";
-import { UserWrapper } from "./main";
-
-import "./assets/css/index.css";
 import {
   AllUsersTable,
   AuthGoogleCallback,
@@ -18,6 +13,11 @@ import {
   UsersTable,
   UsersTableProperties,
 } from "./components";
+import { DEFAULT_PATHS } from "./constants";
+import UserProvider, { userContext } from "./context/UserProvider";
+import { UserWrapper } from "./main";
+
+import "./assets/css/index.css";
 
 export {
   // constants
