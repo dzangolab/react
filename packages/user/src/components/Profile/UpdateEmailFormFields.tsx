@@ -11,7 +11,8 @@ export const UpdateEmailFormFields = ({
   setModalVisible,
 }: Properties) => {
   const {
-    formState: { errors, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    formState: { errors, isDirty },
   } = useFormContext();
 
   const { t } = useTranslation("user");
