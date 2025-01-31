@@ -4,12 +4,11 @@ export const addTab = (
   setVisibleTabs: any,
   setActive: any,
 ) => {
-  const newTab = { key };
-  const existingTab = visibleTabs.find((tab) => tab.key === key);
+  const existingTab = visibleTabs.find((tab) => tab === key);
   if (existingTab) {
-    setActive(existingTab.key);
+    setActive(existingTab);
   } else {
-    setVisibleTabs([...visibleTabs, newTab]);
-    setActive(newTab.key);
+    setVisibleTabs([...visibleTabs, key]);
+    setActive(key);
   }
 };

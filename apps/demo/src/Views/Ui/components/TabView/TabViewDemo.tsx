@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
 import { Button } from "@dzangolab/react-ui";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { addTab } from "./utils";
 import { CodeBlock, Section } from "../../../../components/Demo";
@@ -11,43 +11,59 @@ const data = [
     id: 1,
     prop: "tabs",
     type: "array",
-    default: "null",
-    description: "Array of tabs.",
+    default: "-",
+    description: "Array of tab object.",
   },
   {
     id: 2,
     prop: "visibleTabs",
     type: "array",
-    default: "null",
-    description: "Array of visible tabs.",
+    default: "-",
+    description: "Array of visible tab object.",
   },
   {
     id: 3,
     prop: "position",
-    type: "string",
+    type: '"top" | "left" | "bottom" | "right"',
     default: "top",
     description: "Position of the tab panel header relative to its content.",
   },
   {
     id: 4,
-    prop: "onTabClose",
-    type: "() => void",
-    default: "null",
-    description: "Function to be called when tab is closed.",
+    prop: "activeKey",
+    type: "string",
+    default: "-",
+    description: "Active key of TabView.",
   },
   {
     id: 5,
-    prop: "activeTab",
-    type: "string",
-    default: "null",
-    description: "Active index of TabView.",
+    prop: "persistState",
+    type: "boolean",
+    default: "true",
+    description:
+      "If true, tab state is saved either in localStorage or sessionStorage.",
   },
   {
     id: 6,
-    prop: "setActiveTab",
-    type: "() => void",
-    default: "null",
-    description: "Function to be called when tab state is changed.",
+    prop: "persistStateStorage",
+    type: '"localStorage" | "sessionStorage"',
+    default: "localStorage",
+    description: "Storage to save tab state.",
+  },
+  {
+    id: 7,
+    prop: "id",
+    type: "string",
+    default: "-",
+    description:
+      "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
+  },
+  {
+    id: 8,
+    prop: "onTabClose",
+    type: "(key: string) => void",
+    default: "-",
+    description: "Function to be called when tab is closed.",
   },
 ];
 
@@ -63,48 +79,10 @@ const tabs = [
   { label: "Pricing", children: "Pricing", key: "4", closable: true },
 ];
 
-const _visibleTabs = [{ key: "1" }];
-
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
-  const tabId = "tabview-1";
-  const [visibleTabs, setVisibleTabs] = useState(() => {
-    const savedTabs = localStorage.getItem(tabId);
-    return savedTabs ? JSON.parse(savedTabs).visibleTabs : _visibleTabs;
-  });
-  const [active, setActive] = useState(() => {
-    const savedActiveTab = localStorage.getItem(tabId);
-    return savedActiveTab !== null ? JSON.parse(savedActiveTab).activeTab : "1";
-  });
-
-  useEffect(() => {
-    localStorage.setItem(
-      tabId,
-      JSON.stringify({
-        activeTab: active,
-        visibleTabs: visibleTabs,
-      }),
-    );
-  }, [visibleTabs, active]);
-
-  const handleTabClose = (key: any) => {
-    if (visibleTabs.length <= 1) {
-      return;
-    }
-
-    const tabIndex = visibleTabs.findIndex((tab: any) => tab.key === key);
-    const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
-    let newActiveTab = "";
-
-    if (tabIndex > 0) {
-      newActiveTab = newVisibleTabs[tabIndex - 1]?.key;
-    } else {
-      newActiveTab = newVisibleTabs[0].key;
-    }
-    setActive(newActiveTab);
-
-    setVisibleTabs(newVisibleTabs);
-  };
+  const [visibleTabs, setVisibleTabs] = useState(["1"]);
+  const [active, setActive] = useState("1");
 
   return (
     <Page title={t("tabview.title")} className="tab-view">
@@ -130,9 +108,9 @@ export const TabViewDemo = () => {
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
-          onTabClose={handleTabClose}
-          activeTab={active}
-          setActiveTab={setActive}
+          activeKey={active}
+          id="tabview-1"
+          onVisibleTabsChange={setVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -142,68 +120,46 @@ const tabs = [
  { label: "Specifications", children: "Specifications", key: "3", closable: true },
  { label: "Pricing", children: "Pricing", key: "4", closable: true },
 ];
-          
-const _visibleTabs = [{ key: "1" }];
 
-const tabId = "tabview-1";
-
-const [visibleTabs, setVisibleTabs] = useState(() => {
-  const savedTabs = localStorage.getItem(tabId);
-  return savedTabs ? JSON.parse(savedTabs).visibleTabs : _visibleTabs;
-});
-
-const [active, setActive] = useState(() => {
-  const savedActiveTab = localStorage.getItem(tabId);
-  return savedActiveTab !== null ? JSON.parse(savedActiveTab).activeTab : "1";
-});
-
-const handleTabClose = (key: any) => {
-  if (visibleTabs.length <= 1) {
-    return;
-  }
+export const addTab = (
+  key: string,
+  visibleTabs: any[],
+  setVisibleTabs: any,
+  setActive: any,
+) => {
+  const existingTab = visibleTabs.find((tab) => tab === key);
   
-  const tabIndex = visibleTabs.findIndex((tab: any) => tab.key === key);
-  const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
-  let newActiveTab = "";
-
-  if(tabIndex > 0) {
-    newActiveTab = newVisibleTabs[tabIndex -1]?.key
-  }else {
-    newActiveTab = newVisibleTabs[0].key
+  if (existingTab) {
+    setActive(existingTab);
+  } else {
+    setVisibleTabs([...visibleTabs, key]);
+    setActive(key);
   }
-  setActive(newActiveTab);
-
-  setVisibleTabs(newVisibleTabs);
 };
+          
+const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
+const [active, setActive] = useState("1");
 
-useEffect(() => {
-  localStorage.setItem(
-    tabId,
-    JSON.stringify({
-      activeTab: active,
-      visibleTabs: visibleTabs,
-    }),
-  );
-}, [visibleTabs, active]);
-
-<Button
+<div className="tab-button-group">
+  <Button
   label="Add specifications tab"
   onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
-/>
-<Button 
+  />
+  <Button 
   label="Add reviews tab" 
   onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
-/>
-<Button 
+  />
+  <Button 
   label="Add pricing tab" 
   onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
-/>
+  />
+</div>
 <TabView
   visibleTabs={visibleTabs}
   tabs={tabs}
-  activeTab={active}
-  setActiveTab={setActive}
-  onTabClose={handleTabClose}
+  activeKey={active}
+  id="tabview-1"
+  onVisibleTabsChange={setVisibleTabs}
 />'
         />
       </Section>
