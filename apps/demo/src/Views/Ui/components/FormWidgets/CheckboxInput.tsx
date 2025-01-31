@@ -2,6 +2,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TDataTable } from "@dzangolab/react-ui";
 
 import {
+  CustomLabelMultiCheckboxDemo,
+  CustomLabelSingleCheckboxDemo,
   DisabledDemo,
   MultiCheckboxDemo,
   SingleCheckboxDemo,
@@ -54,7 +56,7 @@ const data = [
   {
     id: 7,
     name: "inputLabel",
-    type: "string",
+    type: "string | React.ReactNode",
     default: "-",
     description: "Label for the single checkbox.",
   },
@@ -100,6 +102,13 @@ const data = [
     default: "[]",
     description: "Array of selected values for multiple checkboxes.",
   },
+  {
+    id: 14,
+    name: "renderOptionsLabel",
+    type: "(option: Option<T>) => React.ReactNode",
+    default: "-",
+    description: "Custom render label for multiple checkboxes.",
+  },
 ];
 
 export const CheckboxInputDemo = () => {
@@ -123,10 +132,29 @@ export const CheckboxInputDemo = () => {
         ></CodeBlock>
       </Section>
 
+      <Section title={t("checkboxInput.usage.customLabel")}>
+        <CustomLabelSingleCheckboxDemo />
+        <CodeBlock
+          exampleCode={
+            CustomLabelSingleCheckboxDemo({ isString: true }) as string
+          }
+        ></CodeBlock>
+      </Section>
+
       <Section title={t("checkboxInput.usage.multiple")}>
         <MultiCheckboxDemo />
         <CodeBlock
           exampleCode={MultiCheckboxDemo({ isString: true }) as string}
+        ></CodeBlock>
+      </Section>
+
+      <Section title={t("checkboxInput.usage.customOptionsLabel")}>
+        <p>{t("checkboxInput.usage.customOptionsLabelDescription")}</p>
+        <CustomLabelMultiCheckboxDemo />
+        <CodeBlock
+          exampleCode={
+            CustomLabelMultiCheckboxDemo({ isString: true }) as string
+          }
         ></CodeBlock>
       </Section>
 

@@ -10,6 +10,7 @@ export const ForgotPasswordFormFields = ({ loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors, submitCount, isDirty },
   } = useFormContext();
 

@@ -5,11 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { getIsFirstUser, signUpFirstUser } from "@/api/user";
-import SignupForm from "@/components/SignupForm";
 import { DEFAULT_PATHS } from "@/constants";
 import { useConfig, useUser } from "@/hooks";
 
-import { login } from "..";
+import { login, SignupForm } from "..";
 
 import type { LoginCredentials } from "@/types";
 

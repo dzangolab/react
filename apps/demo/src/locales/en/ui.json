@@ -40,7 +40,10 @@
     "subtitle": "The CheckboxInput component is a versatile and reusable component that supports both single and multiple checkbox selections. It allows for customization through a variety of props and handles validation, error messages, and helper texts.",
     "usage": {
       "basic": "Basic",
+      "customLabel": "Custom label for single checkbox input",
       "multiple": "Multiple checkbox input",
+      "customOptionsLabel": "Custom label for multiple checkbox input",
+      "customOptionsLabelDescription": "The `renderOptionsLabel` function in a checkbox group allows custom rendering of options label. You can use it to display rich content like icons, descriptions, or formatted text.",
       "disabled": "Disabled"
     }
   },

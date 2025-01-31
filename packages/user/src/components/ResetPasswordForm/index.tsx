@@ -4,14 +4,14 @@ import React from "react";
 import * as zod from "zod";
 
 import ResetPasswordFormFields from "./ResetPasswordFormFields";
-import { PasswordConfirmationSchema } from "./schemas";
+import { PasswordConfirmationSchema } from "../schemas";
 
 interface Properties {
   handleSubmit: (newPassword: string) => void;
   loading?: boolean;
 }
 
-const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
+export const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t, i18n } = useTranslation("user");
 
   const ResetPasswordFormSchema = zod
@@ -48,5 +48,3 @@ const ResetPasswordForm = ({ handleSubmit, loading }: Properties) => {
     </Provider>
   );
 };
-
-export default ResetPasswordForm;

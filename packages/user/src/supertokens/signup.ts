@@ -1,29 +1,17 @@
 import { emailPasswordSignUp as register } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import type { LoginCredentials, SignInUpPromise, UserType } from "../types";
+import type { SignInUpPromise, UserSignupPayload, UserType } from "../types";
 
 export const signup = async (
-  credentials: LoginCredentials,
+  signupData: UserSignupPayload,
 ): Promise<SignInUpPromise | void> => {
   let user: UserType;
   let status: string;
   let response;
 
-  const data = {
-    formFields: [
-      {
-        id: "email",
-        value: credentials.email,
-      },
-      {
-        id: "password",
-        value: credentials.password,
-      },
-    ],
-  };
-
   try {
-    response = await register(data);
+    response = await register(signupData);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     throw new Error();
   }

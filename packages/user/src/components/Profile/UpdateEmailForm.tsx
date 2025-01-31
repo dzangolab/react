@@ -80,6 +80,7 @@ export const UpdateEmailForm = ({
       }
 
       setLoading(false);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error(t("profile.accountInfo.messages.error"));
 

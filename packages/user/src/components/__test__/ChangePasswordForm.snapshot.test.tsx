@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import React from "react";
 import { expect, test } from "vitest";
 
-import ChangePasswordForm from "../ChangePasswordForm";
+import { ChangePasswordForm } from "../ChangePasswordForm";
 
 test("Component matches snapshot", () => {
   const { container } = render(

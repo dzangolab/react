@@ -5,11 +5,10 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { acceptInvitation, getInvitationByToken } from "@/api/invitation";
-import SignupForm from "@/components/SignupForm";
 import { useConfig, useUser } from "@/hooks";
 import { Invitation, LoginCredentials } from "@/types";
 
-import { login } from "..";
+import { login, SignupForm } from "..";
 
 export const AcceptInvitation = ({
   centered = true,

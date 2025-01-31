@@ -1,19 +1,18 @@
 import { disableUser, enableUser } from "./api/user";
-import { AuthGoogleCallback } from "./components/AuthGoogleCallback";
 import {
+  AllUsersTable,
+  AuthGoogleCallback,
   InvitationForm,
   InvitationModal,
   InvitationsTable,
-} from "./components/Invitation";
-import { LoginForm, LoginWrapper } from "./components/Login";
-import SignupForm from "./components/SignupForm";
-import { SignupWrapper } from "./components/SignupWrapper";
-import TermsAndConditions from "./components/TermsAndConditions";
-import {
-  AllUsersTable,
+  LoginForm,
+  LoginWrapper,
+  SignupForm,
+  SignupWrapper,
+  TermsAndConditions,
   UsersTable,
   UsersTableProperties,
-} from "./components/UsersTable";
+} from "./components";
 import { DEFAULT_PATHS } from "./constants";
 import UserProvider, { userContext } from "./context/UserProvider";
 import { UserWrapper } from "./main";

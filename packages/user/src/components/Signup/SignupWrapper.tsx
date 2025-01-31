@@ -6,14 +6,14 @@ import { DEFAULT_PATHS } from "@/constants";
 import { signup } from "@/supertokens";
 import { LinkType } from "@/types/types";
 
-import { AuthLinks } from "./AuthLinks";
-import SignupForm from "./SignupForm";
-import { useConfig, useUser } from "../hooks";
+import { AuthLinks } from "../AuthLinks";
+import { SignupForm } from "./SignupForm";
+import { useConfig, useUser } from "../../hooks";
 
-import type { LoginCredentials, SignInUpPromise } from "../types";
+import type { LoginCredentials, SignInUpPromise } from "../../types";
 
 interface IProperties {
-  handleSubmit?: (credentials: LoginCredentials) => void;
+  handleSubmit?: (formData: LoginCredentials) => void;
   onSignupFailed?: (error: Error) => void;
   onSignupSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
@@ -22,12 +22,12 @@ interface IProperties {
 }
 
 export const SignupWrapper: React.FC<IProperties> = ({
-  handleSubmit,
-  onSignupFailed,
-  onSignupSuccess,
   loading,
   showLoginLink = true,
   showForgotPasswordLink = true,
+  handleSubmit,
+  onSignupFailed,
+  onSignupSuccess,
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
@@ -52,16 +52,30 @@ export const SignupWrapper: React.FC<IProperties> = ({
     },
   ];
 
-  const handleSignupSubmit = async (credentials: LoginCredentials) => {
+  const handleSignupSubmit = async (formData: LoginCredentials) => {
     if (handleSubmit) {
-      handleSubmit(credentials);
+      handleSubmit(formData);
     } else {
       setSignupLoading(true);
 
-      await signup(credentials)
+      const payload = {
+        formFields: [
+          {
+            id: "email" as const,
+            value: formData.email,
+          },
+          {
+            id: "password" as const,
+            value: formData.password,
+          },
+        ],
+      };
+
+      await signup(payload)
         .then(async (result) => {
           if (result?.user) {
             await setUser(result.user);
+
             onSignupSuccess && (await onSignupSuccess(result));
 
             toast.success(`${t("signup.messages.success")}`);

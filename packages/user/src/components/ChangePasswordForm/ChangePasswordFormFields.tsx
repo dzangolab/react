@@ -6,34 +6,43 @@ interface Properties {
   loading?: boolean;
 }
 
-const ResetPasswordFormFields = ({ loading }: Properties) => {
+const ChangePasswordFormFields = ({ loading }: Properties) => {
   const { t } = useTranslation("user");
 
   const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    formState: { errors, submitCount, isDirty },
     register,
     getFieldState,
-    formState: { errors, submitCount, isDirty },
   } = useFormContext();
 
   return (
     <>
       <Password
-        label={t("resetPassword.form.newPassword.label")}
+        autoComplete="current-password"
+        label={t("changePassword.form.oldPassword.label")}
+        name="oldPassword"
+        register={register}
+        getFieldState={getFieldState}
+      />
+      <Password
+        label={t("changePassword.form.newPassword.label")}
         name="password"
         register={register}
         getFieldState={getFieldState}
       />
       <Password
-        label={t("resetPassword.form.confirmPassword.label")}
+        label={t("changePassword.form.confirmPassword.label")}
         name="confirmPassword"
         register={register}
         getFieldState={getFieldState}
       />
+
       <FormActions
         actions={[
           {
             id: "submit",
-            label: t("resetPassword.form.actions.submit"),
+            label: t("changePassword.form.actions.submit"),
           },
         ]}
         loading={loading}
@@ -43,4 +52,4 @@ const ResetPasswordFormFields = ({ loading }: Properties) => {
   );
 };
 
-export default ResetPasswordFormFields;
+export default ChangePasswordFormFields;

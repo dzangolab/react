@@ -3,11 +3,11 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
 
-import { PasswordConfirmationSchema } from "./schemas";
+import { PasswordConfirmationSchema } from "../schemas";
 import SignupFormFields from "./SignupFormFields";
-import { useConfig } from "../hooks";
+import { useConfig } from "../../hooks";
 
-import type { LoginCredentials } from "../types";
+import type { LoginCredentials } from "../../types";
 
 interface Properties {
   email?: string;
@@ -15,7 +15,7 @@ interface Properties {
   loading?: boolean;
 }
 
-const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
+export const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
   const { t, i18n } = useTranslation("user");
   const config = useConfig();
 
@@ -71,5 +71,3 @@ const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
     </Provider>
   );
 };
-
-export default SignupForm;

@@ -14,10 +14,11 @@ export interface ICheckboxInputProperties<T> {
   disabled?: boolean;
   errorMessage?: string;
   helperText?: string;
-  inputLabel?: string;
+  inputLabel?: string | React.ReactNode;
   label?: string | React.ReactNode;
   name: string;
   onChange?: (newValue: T[] | boolean) => void;
+  renderOptionsLabel?: (option: Option<T>) => React.ReactNode;
   options?: Option<T>[];
   placeholder?: string;
   value?: T[];
@@ -36,6 +37,7 @@ export const CheckboxInput = <T extends string | number>({
   onChange,
   options = [],
   value = [],
+  renderOptionsLabel,
 }: ICheckboxInputProperties<T>) => {
   const [selectedValues, setSelectedValues] = useState<T[]>(value);
   const [singleChecked, setSingleChecked] = useState<boolean>(checked);
@@ -74,15 +76,17 @@ export const CheckboxInput = <T extends string | number>({
       {label && <legend>{label}</legend>}
       {hasOptions ? (
         <div className={`checkbox-group direction-${direction}`}>
-          {options.map(({ label: optionLabel, value: optionValue }, index) => (
+          {options.map((option, index) => (
             <Checkbox
-              key={optionValue}
+              key={option.value}
               disabled={disabled}
-              label={optionLabel}
-              checked={isOptionChecked(optionValue)}
-              value={optionValue}
+              label={
+                renderOptionsLabel ? renderOptionsLabel(option) : option.label
+              }
+              checked={isOptionChecked(option.value)}
+              value={option.value}
               name={`${name}-${index}`}
-              onChange={() => handleSelectOption(optionValue)}
+              onChange={() => handleSelectOption(option.value)}
             />
           ))}
         </div>

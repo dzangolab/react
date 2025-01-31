@@ -1,24 +1,9 @@
-import { CheckboxInput as BasicCheckboxInput } from "@dzangolab/react-ui";
+import {
+  CheckboxInput as BasicCheckboxInput,
+  ICheckboxInputProperties,
+} from "@dzangolab/react-ui";
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-
-type Option<T> = {
-  value: T;
-  label: string;
-};
-
-export type ICheckboxInputProperties<T> = {
-  className?: string;
-  direction?: "horizontal" | "vertical";
-  disabled?: boolean;
-  checked?: boolean;
-  helperText?: string;
-  inputLabel?: string;
-  label?: string | React.ReactNode;
-  name: string;
-  options: Option<T>[];
-  placeholder?: string;
-};
 
 export const CheckboxInput = <T extends string | number>({
   className,
@@ -30,6 +15,7 @@ export const CheckboxInput = <T extends string | number>({
   checked,
   helperText,
   inputLabel,
+  ...others
 }: ICheckboxInputProperties<T>) => {
   const { control, getFieldState } = useFormContext();
 
@@ -54,6 +40,7 @@ export const CheckboxInput = <T extends string | number>({
           onChange={field.onChange}
           options={options}
           value={field.value}
+          {...others}
         />
       )}
     />

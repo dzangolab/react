@@ -41,6 +41,7 @@ const UserProvider = ({ children }: Properties) => {
 
           setUser(userInfo);
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         //
       } finally {

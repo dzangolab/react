@@ -74,3 +74,12 @@ export type UserWrapperProperties = {
   config: UserConfig;
   children?: React.ReactNode;
 };
+
+export type UserSignupPayload = {
+  formFields: Array<{
+    id: "email" | "password";
+    value: string;
+  }>;
+} & {
+  [key: string]: Array<{ id: string; value: string | number | null }>;
+};

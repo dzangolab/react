@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { TabbedPanel, Page, SubPane } from "@dzangolab/react-ui";
+import { Page } from "@dzangolab/react-ui";
 import { Message } from "@dzangolab/react-ui";
 
 import {
