@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { afterEach, describe, expect, test, vi } from "vitest";
 
 import { RadioInput } from "..";
 
@@ -10,52 +10,54 @@ const options = [
 ];
 
 describe("RadioInput", () => {
+  const onChangeMock = vi.fn();
+
+  const renderRadioInput = (properties = {}) => {
+    return render(
+      <RadioInput options={options} onChange={onChangeMock} {...properties} />
+    );
+  };
+
+  afterEach(() => {
+    onChangeMock.mockClear();
+  });
+
   test("should match snapshot with options", () => {
-    const { container } = render(<RadioInput options={options} />);
+    const { container } = renderRadioInput();
+
     expect(container).toMatchSnapshot();
   });
 
   test("should match snapshot with disabled set to true", () => {
-    const { container } = render(
-      <RadioInput options={options} disabled={true} />,
-    );
+    const { container } = renderRadioInput({ disabled: true });
 
     expect(container).toMatchSnapshot();
   });
 
   test("should match snapshot with custom className", () => {
-    const { container } = render(
-      <RadioInput options={options} className="custom-class" />,
-    );
+    const { container } = renderRadioInput({ className: "custom-class" });
 
     expect(container).toMatchSnapshot();
   });
 
   test("should match snapshot with a custom label", () => {
-    const { container } = render(
-      <RadioInput options={options} label="Custom label" />,
-    );
+    const { container } = renderRadioInput({ label: "Custom label" });
 
     expect(container).toMatchSnapshot();
   });
 
   test("should match snapshot with a custom name", () => {
-    const { container } = render(
-      <RadioInput options={options} name="radioInput" />,
-    );
+    const { container } = renderRadioInput({ name: "radioInput" });
 
     expect(container).toMatchSnapshot();
   });
 
   test("should match snapshot with all props set", () => {
-    const { container } = render(
-      <RadioInput
-        className="radio-input"
-        name="radioInput"
-        label="Custom Label"
-        options={options}
-      />,
-    );
+    const { container } = renderRadioInput({
+      className: "radio-input",
+      name: "radioInput",
+      label: "Custom Label",
+    });
 
     expect(container).toMatchSnapshot();
   });
