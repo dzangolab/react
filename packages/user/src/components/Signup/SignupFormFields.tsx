@@ -8,8 +8,8 @@ import {
 import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 
-import TermsAndConditions from "./TermsAndConditions";
-import { useConfig } from "../hooks";
+import { TermsAndConditions } from "./TermsAndConditions";
+import { useConfig } from "../../hooks";
 
 interface IProperties {
   loading?: boolean;
@@ -69,8 +69,6 @@ const SignupFormFields: React.FC<IProperties> = ({
           hasCheckbox={showCheckbox}
           label={label}
           name="termsAndConditions"
-          register={register}
-          getFieldState={getFieldState}
         />
       ) : null}
 

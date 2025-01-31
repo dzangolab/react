@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 
-import { AuthGoogleCallback } from "@/components/AuthGoogleCallback";
+import { AuthGoogleCallback } from "@/components";
 import { DEFAULT_PATHS } from "@/constants";
 import { useConfig } from "@/hooks";
 import { PublicRoutesProperties } from "@/types/routes";

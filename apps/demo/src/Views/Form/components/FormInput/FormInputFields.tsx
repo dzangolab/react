@@ -175,6 +175,16 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         ]}
         direction={"horizontal"}
       />
+      <CheckboxInput
+        inputLabel={
+          <span>
+            <b>{t("formInput.label.terms")}</b>
+            <br />
+            {t("formInput.label.termsInfo")}
+          </span>
+        }
+        name="terms"
+      />
       <FormActions
         actions={[
           {

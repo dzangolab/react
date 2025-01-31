@@ -38,6 +38,8 @@
       "required": "Required field"
     },
     "label": {
+      "terms": "I agree to the Terms and Conditions.",
+      "termsInfo": "By checking this box, I confirm that I have read, understood, and agree to the Terms and Conditions. I acknowledge that my use of the services is subject to these terms, including any updates or modifications made by the company.",
       "checkboxInput": "Checkbox input",
       "dateInput": "Date input",
       "disabled": "Disabled input",

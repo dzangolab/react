@@ -44,6 +44,9 @@ export const FormInputDemo = () => {
     date: zod.string().date(),
     radioInput: zod.string(),
     checkboxInput: zod.string().array(),
+    terms: zod.boolean().refine((value) => value === true, {
+      message: t("formInput.message.required"),
+    }),
   });
 
   const handleSubmit = (_formData: any) => {

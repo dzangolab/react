@@ -28,7 +28,7 @@ code {
 }
 
 @media screen and (min-width: 576px) {
-  .dz-layout>main {
+  .dz-layout > main {
     padding: 0;
   }
 }
