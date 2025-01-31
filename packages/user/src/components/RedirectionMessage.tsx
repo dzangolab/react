@@ -6,7 +6,7 @@ interface IProperties {
   hideRedirectionMessage: () => void;
 }
 
-const RedirectionMessage: React.FC<IProperties> = ({
+export const RedirectionMessage: React.FC<IProperties> = ({
   appLink,
   appName,
   hideRedirectionMessage,
@@ -46,5 +46,3 @@ const RedirectionMessage: React.FC<IProperties> = ({
     </div>
   );
 };
-
-export { RedirectionMessage };
