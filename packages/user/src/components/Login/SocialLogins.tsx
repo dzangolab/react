@@ -2,7 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 
 import { useConfig } from "@/hooks";
 
-import GoogleLogin from "../GoogleLogin";
+import { GoogleLogin } from "../GoogleLogin";
 
 export const SUPPORTED_SOCIAL_LOGIN_PROVIDERS = [
   "google" as const,

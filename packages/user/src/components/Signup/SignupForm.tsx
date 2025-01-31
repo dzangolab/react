@@ -3,11 +3,11 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import React from "react";
 import * as zod from "zod";
 
-import { PasswordConfirmationSchema } from "./schemas";
+import { PasswordConfirmationSchema } from "../schemas";
 import SignupFormFields from "./SignupFormFields";
-import { useConfig } from "../hooks";
+import { useConfig } from "../../hooks";
 
-import type { LoginCredentials } from "../types";
+import type { LoginCredentials } from "../../types";
 
 interface Properties {
   email?: string;

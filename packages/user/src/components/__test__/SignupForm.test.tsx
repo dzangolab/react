@@ -6,7 +6,7 @@ import { expect, test, vi } from "vitest";
 import ConfigProvider from "@/context/ConfigProvider";
 import { UserConfig } from "@/types";
 
-import SignupForm from "../SignupForm";
+import { SignupForm } from "../Signup";
 
 const config = {
   supportedRoles: ["USER"],

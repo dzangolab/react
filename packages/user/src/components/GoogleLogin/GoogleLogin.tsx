@@ -18,4 +18,4 @@ const GoogleLogin = ({ label, redirectUrl }: Properties) => {
   );
 };
 
-export default GoogleLogin;
+export { GoogleLogin };

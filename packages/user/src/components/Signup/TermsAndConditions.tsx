@@ -25,4 +25,4 @@ const TermsAndConditions: React.FC<IProperties> = ({
   );
 };
 
-export default TermsAndConditions;
+export { TermsAndConditions };

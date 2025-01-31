@@ -3,7 +3,7 @@ import { userEvent } from "@testing-library/user-event";
 import React, { act } from "react";
 import { expect, test, vi } from "vitest";
 
-import ResetPasswordForm from "../ResetPasswordForm";
+import { ResetPasswordForm } from "../ResetPasswordForm";
 
 const setup = (component: React.ReactElement) => {
   return {

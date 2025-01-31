@@ -47,4 +47,4 @@ const RedirectionMessage: React.FC<IProperties> = ({
   );
 };
 
-export default RedirectionMessage;
+export { RedirectionMessage };

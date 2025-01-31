@@ -6,7 +6,7 @@ import * as zod from "zod";
 import { ChangePasswordFormData } from "@/views/ChangePassword";
 
 import ChangePasswordFormFields from "./ChangePasswordFormFields";
-import { PasswordConfirmationSchema } from "./schemas";
+import { PasswordConfirmationSchema } from "../schemas";
 
 interface Properties {
   handleSubmit: (
@@ -16,7 +16,7 @@ interface Properties {
   loading?: boolean;
 }
 
-const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
+export const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
   const { t, i18n } = useTranslation("user");
 
   const ChangePasswordFormSchema = zod
@@ -61,5 +61,3 @@ const ChangePasswordForm = ({ handleSubmit, loading }: Properties) => {
     </Provider>
   );
 };
-
-export default ChangePasswordForm;

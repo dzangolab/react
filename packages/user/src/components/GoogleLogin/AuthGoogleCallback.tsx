@@ -8,9 +8,9 @@ import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemail
 import { DEFAULT_PATHS } from "@/constants";
 import { verifySessionRoles } from "@/supertokens";
 
-import { useConfig, useUser } from "../hooks";
+import { useConfig, useUser } from "../../hooks";
 
-import type { UserType } from "../types";
+import type { UserType } from "../../types";
 
 export const AuthGoogleCallback = () => {
   const { t } = useTranslation("user");
