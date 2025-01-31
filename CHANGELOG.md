@@ -1,5 +1,20 @@
 # [0.54.0](https://github.com/dzangolab/react/compare/v0.53.0...v0.54.0) (2025-01-31)
 
+### Breaking Changes
+
+* **layout:** move navigation menu components to ui package so they are no longer exported from layout package. update your app to import them from ui package `import type { NavGroupType, NavItemType } from "@dzangolab/react-ui";`
+* **layout:** update css var names for navigation menu related components
+```
+--dz-layout-nav-item-padding-h → --dz-nav-item-padding-h
+
+--dz-layout-nav-item-padding-v → --dz-nav-item-padding-v
+
+--dz-layout-nav-menu-padding-h → --dz-nav-menu-padding-h
+
+--dz-layout-nav-menu-padding-v → --dz-nav-menu-padding-v
+```
+* **user:** update signup function to no longer parse the form data. The data needs to be parsed before passing it to the signup page.
+
 
 ### Bug Fixes
 
