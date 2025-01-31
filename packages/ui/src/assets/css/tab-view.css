@@ -2,7 +2,13 @@
   align-items: center;
   display: flex;
   gap: 1rem;
-  width: max-content;
+  max-width: 250px;
+}
+
+.tabbed-panel > div[role=tablist] > button span {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .tabbed-panel > div[role=tablist] > button i {

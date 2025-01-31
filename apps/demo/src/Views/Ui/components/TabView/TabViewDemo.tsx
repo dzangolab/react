@@ -30,10 +30,10 @@ const data = [
   },
   {
     id: 4,
-    prop: "defaultActiveIndex",
+    prop: "activeKey",
     type: "string",
     default: "-",
-    description: "Default active index of TabView.",
+    description: "Active key of TabView.",
   },
   {
     id: 5,
@@ -81,14 +81,8 @@ const tabs = [
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
-  const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
+  const [visibleTabs, setVisibleTabs] = useState(["1"]);
   const [active, setActive] = useState("1");
-
-  const handleTabClose = (key: any) => {
-    const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
-
-    setVisibleTabs(newVisibleTabs);
-  };
 
   return (
     <Page title={t("tabview.title")} className="tab-view">
@@ -114,9 +108,9 @@ export const TabViewDemo = () => {
         <TabView
           visibleTabs={visibleTabs}
           tabs={tabs}
-          onTabClose={handleTabClose}
-          defaultActiveIndex={active}
+          activeKey={active}
           id="tabview-1"
+          onVisibleTabsChange={setVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -133,20 +127,18 @@ export const addTab = (
   setVisibleTabs: any,
   setActive: any,
 ) => {
-  const newTab = { key };
-
-  setVisibleTabs([...visibleTabs, newTab]);
-  setActive(newTab.key);
+  const existingTab = visibleTabs.find((tab) => tab === key);
+  
+  if (existingTab) {
+    setActive(existingTab);
+  } else {
+    setVisibleTabs([...visibleTabs, key]);
+    setActive(key);
+  }
 };
           
 const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
 const [active, setActive] = useState("1");
-
-const handleTabClose = (key: any) => {
-  const newVisibleTabs = visibleTabs.filter((tab: any) => tab.key !== key);
-
-  setVisibleTabs(newVisibleTabs);
-};
 
 <div className="tab-button-group">
   <Button
@@ -165,9 +157,9 @@ const handleTabClose = (key: any) => {
 <TabView
   visibleTabs={visibleTabs}
   tabs={tabs}
-  onTabClose={handleTabClose}
+  activeKey={active}
   id="tabview-1"
-  defaultActiveIndex={active}
+  onVisibleTabsChange={setVisibleTabs}
 />'
         />
       </Section>

@@ -1,34 +1,23 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import { getStorage } from "../utils";
-import { getOrientation, onTabDown } from "./utils";
+import { getOrientation } from "./utils";
 
 import type { Properties, Tab } from "./types";
 
 const TabView: React.FC<Properties> = ({
-  defaultActiveIndex,
-  position = "top",
-  tabs,
-  visibleTabs: _visibleTabs,
-  onTabClose,
+  activeKey,
   id = "",
   persistState = true,
   persistStateStorage = "localStorage",
+  position = "top",
+  tabs,
+  visibleTabs: _visibleTabs,
+  onVisibleTabsChange,
 }) => {
-  const [mounted, setMounted] = useState(false);
-  const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const isValidDefaultActiveTab = _visibleTabs?.some(
-    (tab) => tab.key === defaultActiveIndex,
-  );
-  const initialActiveTab = isValidDefaultActiveTab
-    ? defaultActiveIndex
-    : _visibleTabs && _visibleTabs[0]?.key;
-
-  const [tabState, setTabState] = useState<{
-    visibleTabs: { key: string }[];
-    activeTab: string | undefined;
-  }>({ visibleTabs: _visibleTabs, activeTab: initialActiveTab });
+  const [initialized, setInitialized] = useState(false);
+  const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
+  const [activeTab, setActiveTab] = useState(activeKey);
 
   const storage = useMemo(
     () => getStorage(persistStateStorage),
@@ -36,161 +25,109 @@ const TabView: React.FC<Properties> = ({
   );
 
   useEffect(() => {
-    setMounted(true);
+    onVisibleTabsChange(visibleTabs);
+  }, [visibleTabs]);
+
+  useEffect(() => {
     if (persistState && id) {
       const storedState = storage.getItem(id);
+
       if (storedState) {
         const parsedState = JSON.parse(storedState);
-        setTabState({
-          visibleTabs: parsedState.visibleTabs || _visibleTabs,
-          activeTab: parsedState.activeTab || initialActiveTab,
-        });
+
+        setActiveTab(parsedState.activeTab || activeKey);
+        setVisibleTabs(parsedState.visibleTabs || _visibleTabs);
       }
     }
+
+    setInitialized(true);
   }, []);
 
   useEffect(() => {
-    if (mounted) {
-      const tabs = _visibleTabs?.filter(
-        (tab) =>
-          !tabState.visibleTabs?.some(
-            (visibleTab) => visibleTab.key === tab.key,
-          ),
-      );
-      if (tabs.length === 0) {
-        return;
-      }
-
-      setTabState({
-        activeTab: tabs[0].key,
-        visibleTabs: [...tabState.visibleTabs, ...tabs],
-      });
+    if (initialized) {
+      setVisibleTabs(_visibleTabs);
     }
   }, [_visibleTabs]);
 
   useEffect(() => {
-    if (mounted) {
-      setTabState((previousTab) => ({
-        ...previousTab,
-        activeTab: defaultActiveIndex,
-      }));
+    if (initialized) {
+      setActiveTab(activeKey);
     }
-  }, [defaultActiveIndex]);
+  }, [activeKey]);
 
   useEffect(() => {
     if (id && persistState) {
       storage.setItem(
         id,
         JSON.stringify({
-          activeTab: tabState.activeTab,
-          visibleTabs: tabState.visibleTabs,
+          activeTab: activeTab,
+          visibleTabs: visibleTabs,
         }),
       );
     }
-  }, [tabState.visibleTabs, tabState.activeTab, id, persistState, storage]);
+  }, [visibleTabs, activeTab, id, persistState, storage]);
 
-  if (!tabState.visibleTabs || !tabs) {
-    throw new Error("Tabview needs at least one tab");
-  }
-
-  const filteredTabs = tabState.visibleTabs
+  const filteredTabs = visibleTabs
     .map((visibleTab) => {
-      return tabs.find((tab) => tab.key === visibleTab.key);
+      return tabs.find((tab) => tab.key === visibleTab);
     })
     .filter((tab): tab is Tab => tab !== undefined);
 
   const handleTabClose = (key: string) => {
-    const tabIndex = tabState.visibleTabs.findIndex((tab) => tab.key === key);
-    const newVisibleTabs = tabState.visibleTabs.filter(
-      (tab) => tab.key !== key,
-    );
+    const tabIndex = visibleTabs.findIndex((tab) => tab === key);
+    const newVisibleTabs = visibleTabs.filter((tab) => tab !== key);
 
     let newActiveTab = "";
     if (tabIndex > 0) {
-      newActiveTab = newVisibleTabs[tabIndex - 1]?.key;
+      newActiveTab = newVisibleTabs[tabIndex - 1];
     } else {
-      newActiveTab = newVisibleTabs[0].key;
+      newActiveTab = newVisibleTabs[0];
     }
 
-    setTabState({
-      activeTab: newActiveTab,
-      visibleTabs: newVisibleTabs,
-    });
-
-    if (onTabClose) {
-      onTabClose(key);
-    }
+    setActiveTab(newActiveTab);
+    setVisibleTabs(newVisibleTabs);
   };
 
-  const handleFocus = (index: number) => {
-    const tab = tabReferences.current[index];
-    if (tab) {
-      tab.focus();
-    }
-  };
+  if (!initialized) return null;
 
   return (
-    mounted && (
-      <div className={`tabbed-panel ${position}`}>
-        <div role="tablist" aria-orientation={getOrientation(position)}>
-          {filteredTabs.map((item, index) => {
-            const isActive = tabState.activeTab === item.key;
-            const title = item.label;
-            const icon = item.icon;
-            const key = index;
+    <div className={`tabbed-panel ${position}`}>
+      <div role="tablist" aria-orientation={getOrientation(position)}>
+        {filteredTabs.map((item, index) => {
+          const isActive = activeTab === item.key;
+          const title = item.label;
+          const icon = item.icon;
+          const key = index;
 
-            return (
-              <button
-                onKeyDown={(event) => {
-                  onTabDown(
-                    index,
-                    event,
-                    filteredTabs.length,
-                    handleFocus,
-                    getOrientation(position),
-                  );
-                }}
-                onFocus={() =>
-                  setTabState((previous) => {
-                    return { ...previous, activeTab: item.key };
-                  })
-                }
-                ref={(element) => (tabReferences.current[index] = element)}
-                onClick={() =>
-                  setTabState((previous) => {
-                    return { ...previous, activeTab: item.key };
-                  })
-                }
-                key={key}
-                role="tab"
-                aria-label={title}
-                aria-disabled={isActive}
-                aria-selected={isActive}
-                tabIndex={isActive ? 0 : -1}
-                className={isActive ? "active" : ""}
-              >
-                {icon ? (
-                  <img src={icon} alt="title icon" aria-hidden="true" />
-                ) : null}
-                <span>{title}</span>
-                {item.closable ? (
-                  <i
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      handleTabClose(item.key);
-                    }}
-                    className="pi pi-times"
-                  ></i>
-                ) : null}
-              </button>
-            );
-          })}
-        </div>
-        <div role="tabpanel">
-          {filteredTabs.find((tab) => tab.key === tabState.activeTab)?.children}
-        </div>
+          return (
+            <button
+              onClick={() => setActiveTab(item.key)}
+              key={key}
+              role="tab"
+              aria-label={title}
+              aria-selected={isActive}
+              tabIndex={0}
+              className={isActive ? "active" : ""}
+            >
+              {icon && <i className={icon} />}
+              <span title={title}>{title}</span>
+              {item.closable ? (
+                <i
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    handleTabClose(item.key);
+                  }}
+                  className="pi pi-times"
+                ></i>
+              ) : null}
+            </button>
+          );
+        })}
       </div>
-    )
+      <div role="tabpanel">
+        {filteredTabs.find((tab) => tab.key === activeTab)?.children}
+      </div>
+    </div>
   );
 };
 

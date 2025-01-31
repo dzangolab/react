@@ -1,5 +1,3 @@
-import type { ReactElement } from "react";
-
 type TKeymap = {
   [key: string]: () => void;
 };
@@ -19,16 +17,14 @@ type Tab = {
 };
 
 type Properties = {
-  defaultActiveIndex?: string;
+  activeKey?: string;
   id?: string;
   persistState?: boolean;
-  position?: TPosition;
-  visibleTabs: {
-    key: string;
-  }[];
-  tabs?: Tab[];
-  onTabClose: (key: string) => void;
   persistStateStorage?: StorageType;
+  position?: TPosition;
+  tabs: Tab[];
+  visibleTabs: string[];
+  onVisibleTabsChange: (visibleTabs: string[]) => void;
 };
 
 export type { TKeymap, TOrientation, TPosition, Properties, StorageType, Tab };
