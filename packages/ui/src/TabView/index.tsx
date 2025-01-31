@@ -1,41 +1,94 @@
-import React, { useRef } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
-import { getOrientation, onTabDown } from "./utils";
+import { getStorage } from "../utils";
+import { getOrientation } from "./utils";
 
 import type { Properties, Tab } from "./types";
 
 const TabView: React.FC<Properties> = ({
+  activeKey,
+  id = "",
+  persistState = true,
+  persistStateStorage = "localStorage",
   position = "top",
   tabs,
-  visibleTabs,
-  onTabClose,
-  activeTab,
-  setActiveTab,
+  visibleTabs: _visibleTabs,
+  onVisibleTabsChange,
 }) => {
-  const tabReferences = useRef<(HTMLButtonElement | null)[]>([]);
+  const [initialized, setInitialized] = useState(false);
+  const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
+  const [activeTab, setActiveTab] = useState(activeKey);
 
-  if (!visibleTabs || !tabs) {
-    throw new Error("Tabview needs at least one tab");
-  }
+  const storage = useMemo(
+    () => getStorage(persistStateStorage),
+    [persistStateStorage],
+  );
+
+  useEffect(() => {
+    onVisibleTabsChange(visibleTabs);
+  }, [visibleTabs]);
+
+  useEffect(() => {
+    if (persistState && id) {
+      const storedState = storage.getItem(id);
+
+      if (storedState) {
+        const parsedState = JSON.parse(storedState);
+
+        setActiveTab(parsedState.activeTab || activeKey);
+        setVisibleTabs(parsedState.visibleTabs || _visibleTabs);
+      }
+    }
+
+    setInitialized(true);
+  }, []);
+
+  useEffect(() => {
+    if (initialized) {
+      setVisibleTabs(_visibleTabs);
+    }
+  }, [_visibleTabs]);
+
+  useEffect(() => {
+    if (initialized) {
+      setActiveTab(activeKey);
+    }
+  }, [activeKey]);
+
+  useEffect(() => {
+    if (id && persistState) {
+      storage.setItem(
+        id,
+        JSON.stringify({
+          activeTab: activeTab,
+          visibleTabs: visibleTabs,
+        }),
+      );
+    }
+  }, [visibleTabs, activeTab, id, persistState, storage]);
 
   const filteredTabs = visibleTabs
     .map((visibleTab) => {
-      return tabs.find((tab) => tab.key === visibleTab.key);
+      return tabs.find((tab) => tab.key === visibleTab);
     })
     .filter((tab): tab is Tab => tab !== undefined);
 
   const handleTabClose = (key: string) => {
-    if (onTabClose) {
-      onTabClose(key);
+    const tabIndex = visibleTabs.findIndex((tab) => tab === key);
+    const newVisibleTabs = visibleTabs.filter((tab) => tab !== key);
+
+    let newActiveTab = "";
+    if (tabIndex > 0) {
+      newActiveTab = newVisibleTabs[tabIndex - 1];
+    } else {
+      newActiveTab = newVisibleTabs[0];
     }
+
+    setActiveTab(newActiveTab);
+    setVisibleTabs(newVisibleTabs);
   };
 
-  const handleFocus = (index: number) => {
-    const tab = tabReferences.current[index];
-    if (tab) {
-      tab.focus();
-    }
-  };
+  if (!initialized) return null;
 
   return (
     <div className={`tabbed-panel ${position}`}>
@@ -48,30 +101,16 @@ const TabView: React.FC<Properties> = ({
 
           return (
             <button
-              onKeyDown={(event) => {
-                onTabDown(
-                  index,
-                  event,
-                  filteredTabs.length,
-                  handleFocus,
-                  getOrientation(position),
-                );
-              }}
-              onFocus={() => setActiveTab(item.key)}
-              ref={(element) => (tabReferences.current[index] = element)}
               onClick={() => setActiveTab(item.key)}
               key={key}
               role="tab"
               aria-label={title}
-              aria-disabled={isActive}
               aria-selected={isActive}
-              tabIndex={isActive ? 0 : -1}
+              tabIndex={0}
               className={isActive ? "active" : ""}
             >
-              {icon ? (
-                <img src={icon} alt="title icon" aria-hidden="true" />
-              ) : null}
-              <span>{title}</span>
+              {icon && <i className={icon} />}
+              <span title={title}>{title}</span>
               {item.closable ? (
                 <i
                   onClick={(event) => {
