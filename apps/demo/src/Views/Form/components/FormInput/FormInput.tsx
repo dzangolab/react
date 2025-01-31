@@ -68,6 +68,7 @@ export const FormInputDemo = () => {
           valid: false,
           invalid: false,
           typeahead: "string",
+          radioInput: "value 1",
         }}
         validationTriggerKey={i18n.language}
       >

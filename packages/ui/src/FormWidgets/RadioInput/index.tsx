@@ -37,7 +37,13 @@ export const RadioInput: React.FC<IRadioInputProperties> = ({
         <div className="radio-button-wrapper" key={optionValue}>
           <input
             aria-invalid={hasError}
-            checked={optionValue === value}
+            {...(onChange
+              ? {
+                  checked: optionValue === value,
+                }
+              : {
+                  defaultChecked: optionValue === value,
+                })}
             disabled={disabled}
             id={`choice-${optionValue}`}
             name={name}
