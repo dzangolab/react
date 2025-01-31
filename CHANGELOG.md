@@ -1,3 +1,57 @@
+# [0.54.0](https://github.com/dzangolab/react/compare/v0.53.0...v0.54.0) (2025-01-31)
+
+
+### Bug Fixes
+
+* **demo/layout:** update the ui of sticky footer positioned at viewport ([#1337](https://github.com/dzangolab/react/issues/1337)) ([eec9d46](https://github.com/dzangolab/react/commit/eec9d46686a61d856cee961c16a0ea5a921c01ea))
+* **demo:** arrange select components options in ascending order ([#1331](https://github.com/dzangolab/react/issues/1331)) ([ec5d518](https://github.com/dzangolab/react/commit/ec5d5181045d243423b1130c89c56ecba8fc6cb2))
+* **demo:** update typo in checkbox input demo ([#1363](https://github.com/dzangolab/react/issues/1363)) ([772c89c](https://github.com/dzangolab/react/commit/772c89cf320b723f835d59e0fd36408a4a257f11))
+* **deps:** update dependency react-i18next to v15.4.0 ([#1259](https://github.com/dzangolab/react/issues/1259)) ([be23ba1](https://github.com/dzangolab/react/commit/be23ba1db25c9a2c25e86c02a85eaedf7bc072cc))
+* **layout:** adjust sticky footer position ([#1332](https://github.com/dzangolab/react/issues/1332)) ([c1f0e73](https://github.com/dzangolab/react/commit/c1f0e73d90d68717a512a7a05e0b4878defa70f3))
+* **layout:** make the hover area match the component's size ([#1329](https://github.com/dzangolab/react/issues/1329)) ([62f0153](https://github.com/dzangolab/react/commit/62f01534602f44efe43bc9c1478e913f84be3cb6))
+* **layout:** remove cursor pointer style from sticky collapsible footer ([#1339](https://github.com/dzangolab/react/issues/1339)) ([6da3dd1](https://github.com/dzangolab/react/commit/6da3dd1f2baa10ea7c1447b6d9e9998d77806663))
+* **ui:** fix tabbed pannel UI for all placements ([#1307](https://github.com/dzangolab/react/issues/1307)) ([a5071c3](https://github.com/dzangolab/react/commit/a5071c3f0f700166cb1b4dfc481eeb3ff015951f))
+* update demo ui ([#1336](https://github.com/dzangolab/react/issues/1336)) ([548a6ce](https://github.com/dzangolab/react/commit/548a6ceb6c9b132b40620f3db77c5fd55ad350c0))
+* **user:** update checkbox alignment in terms and conditions ([#1334](https://github.com/dzangolab/react/issues/1334)) ([ac5730c](https://github.com/dzangolab/react/commit/ac5730c03499d8cec5d825ccd82afd0aca937b88))
+
+
+### Features
+
+* add response for success update email ([#1318](https://github.com/dzangolab/react/issues/1318)) ([3f5ab4e](https://github.com/dzangolab/react/commit/3f5ab4ec4f6640856252187c2fbe5826bf47d756))
+* **demo:** add code example for submit button  ([#1356](https://github.com/dzangolab/react/issues/1356)) ([f5d92ab](https://github.com/dzangolab/react/commit/f5d92ab65e57ee47ddc77f95b021c8704a09f464))
+* **demo:** improve tabview demo ([#1330](https://github.com/dzangolab/react/issues/1330)) ([b2916df](https://github.com/dzangolab/react/commit/b2916df5e9886340a0447a2dffcd7c47f450535b))
+* **demo:** use collapsible menu component in demo ([#1310](https://github.com/dzangolab/react/issues/1310)) ([0d03ea7](https://github.com/dzangolab/react/commit/0d03ea7599d58313dc2824084eec0a9c663ad936))
+* **form:** add CheckboxInput form component ([#1349](https://github.com/dzangolab/react/issues/1349)) ([a357304](https://github.com/dzangolab/react/commit/a3573047f43699507017cf8857982fc312f4546b))
+* **form:** update CheckboxInput type ([#1367](https://github.com/dzangolab/react/issues/1367)) ([4951f94](https://github.com/dzangolab/react/commit/4951f94d65f924ba432cc622c65508b60cb229f2))
+* **layout:** add collapsible menu in layout ([#1319](https://github.com/dzangolab/react/issues/1319)) ([006fcd5](https://github.com/dzangolab/react/commit/006fcd515a747376adffa7c0a4519198097f9da8))
+* **layout:** add sticky collapsible footer component ([#1326](https://github.com/dzangolab/react/issues/1326)) ([de722fb](https://github.com/dzangolab/react/commit/de722fb2acd9d517a7da22689f41da1d4b6408af))
+* **table:** add multiselect component for filter ([#1341](https://github.com/dzangolab/react/issues/1341)) ([afe8000](https://github.com/dzangolab/react/commit/afe80004832b2551a25d28136ac4427c064d817a))
+* **tabview:** move persistence logic inside TabView ([#1365](https://github.com/dzangolab/react/issues/1365)) ([348508f](https://github.com/dzangolab/react/commit/348508ff66362759d092fa3ea97b4b6de589a57d))
+* **ui/CheckboxInput:** support single checkbox ([#1361](https://github.com/dzangolab/react/issues/1361)) ([0d5c291](https://github.com/dzangolab/react/commit/0d5c291bd34b0727299f5788161d083935f0a7a5))
+* **ui/table:** add client side multiselect filter ([#1345](https://github.com/dzangolab/react/issues/1345)) ([19ca567](https://github.com/dzangolab/react/commit/19ca5675fd2b6e6b2e4981c7c6f27785393fb933))
+* **ui:** add collapsible navigation menu component ([#1308](https://github.com/dzangolab/react/issues/1308)) ([536c74a](https://github.com/dzangolab/react/commit/536c74a34ec657fd2cfe714a2a209423d397ae45))
+* **ui:** add direction prop for CheckboxInput component ([#1352](https://github.com/dzangolab/react/issues/1352)) ([2340825](https://github.com/dzangolab/react/commit/2340825ea3208736bbf2277df548d6673f0a6969))
+* **ui:** add InlineLink component ([#1350](https://github.com/dzangolab/react/issues/1350)) ([acd39e8](https://github.com/dzangolab/react/commit/acd39e872548ad746fa6be8698a84a02d9d6c610))
+* **ui:** add new TabView component ([#1358](https://github.com/dzangolab/react/issues/1358)) ([4e3144b](https://github.com/dzangolab/react/commit/4e3144b59e4cfa497212fb4df3602f5ed14b59c1))
+* **ui:** add reset all button in table toolbar ([#1327](https://github.com/dzangolab/react/issues/1327)) ([6ecc8a6](https://github.com/dzangolab/react/commit/6ecc8a6e987ebb124f4f54c667af46eb80c90cf2))
+* **ui:** add search feature on select and multiselect widget ([#1302](https://github.com/dzangolab/react/issues/1302)) ([9083731](https://github.com/dzangolab/react/commit/9083731347855f495e411a6a053919d17a70be95))
+* **ui:** add server side multiselect filtering support in table ([#1344](https://github.com/dzangolab/react/issues/1344)) ([29f9cc9](https://github.com/dzangolab/react/commit/29f9cc9caef286e69ef38427a6fe9502c598b30e))
+* **ui:** add support for custom label in checkbox input ([#1368](https://github.com/dzangolab/react/issues/1368)) ([7989f64](https://github.com/dzangolab/react/commit/7989f6430e7e5a2d1c877557d307f14710617d8b))
+* **ui:** allow both string and number type for radio input options ([#1360](https://github.com/dzangolab/react/issues/1360)) ([47c363d](https://github.com/dzangolab/react/commit/47c363dff31d05bf89b790fabf2a994e929deed8))
+* **ui:** improve checkbox ui on mobile view ([#1354](https://github.com/dzangolab/react/issues/1354)) ([419c8fe](https://github.com/dzangolab/react/commit/419c8fef76465597b868c8fc13d7df7a156d10e2))
+* **ui:** persist tab state by default ([#1305](https://github.com/dzangolab/react/issues/1305)) ([cacc3bc](https://github.com/dzangolab/react/commit/cacc3bcc5282af964caf612a4cea90137db68ddb))
+* **ui:** remove useManipulatedColumns hook ([#1314](https://github.com/dzangolab/react/issues/1314)) ([a2a89bf](https://github.com/dzangolab/react/commit/a2a89bf67cf90a5055e5138276e0041a25e7ed1d))
+* update modal close icon ([#1301](https://github.com/dzangolab/react/issues/1301)) ([0386f5a](https://github.com/dzangolab/react/commit/0386f5ac4785461b5131bf3f131c072ff155fe30))
+* **user/profile:** allow to update email address ([#1299](https://github.com/dzangolab/react/issues/1299)) ([ff86c8b](https://github.com/dzangolab/react/commit/ff86c8b9bc6618e1998d0af8e03484f512c3811f))
+* **user:** add update email endpoint ([#1300](https://github.com/dzangolab/react/issues/1300)) ([324e27f](https://github.com/dzangolab/react/commit/324e27f34ca37c6bb590b4f193dc8d26da25ab0e))
+* **user:** allow access to profile routes even if email not verified ([#1325](https://github.com/dzangolab/react/issues/1325)) ([6c098ca](https://github.com/dzangolab/react/commit/6c098ca4ad56fbbbb097350221897cf9ee856f2d))
+* **user:** allow user to update email when email verification is enabled ([#1304](https://github.com/dzangolab/react/issues/1304)) ([fe6928e](https://github.com/dzangolab/react/commit/fe6928ee0dffc49d04f435e1a9d211404e447037))
+* **user:** restrict email update for third party user ([#1309](https://github.com/dzangolab/react/issues/1309)) ([6acfb5d](https://github.com/dzangolab/react/commit/6acfb5de3b049ea753b3c4d66ed75145202d5d46))
+* **user:** update existing links to use InlineLink component ([#1353](https://github.com/dzangolab/react/issues/1353)) ([0fd0084](https://github.com/dzangolab/react/commit/0fd008429a909b0a6b7da00861e2d312e587f922))
+* **user:** use in-house checkbox input component in signup form ([#1369](https://github.com/dzangolab/react/issues/1369)) ([ec0b7cf](https://github.com/dzangolab/react/commit/ec0b7cf867b51f8d548227bbfccb097334814f10))
+
+
+
 # [0.53.0](https://github.com/dzangolab/react/compare/v0.52.0...v0.53.0) (2024-12-19)
 
 
