@@ -12,6 +12,11 @@
   width: 100%;
 }
 
+.dz-select ul[aria-multiselectable="true"] > li {
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
 .input-field-select {
   align-items: center;
   background-color: var(--_field-bg-color);
