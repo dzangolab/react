@@ -307,10 +307,13 @@ export const Select = <T extends string | number>({
   }
 
   return (
-    <div ref={selectReference} className={`dz-select ${className}`.trimEnd()}>
-      {label && <label htmlFor={name}>{label}</label>}
-      {renderSelect()}
-      {shouldAutoSelect ? null : showOptions && renderOptions()}
+    <div ref={selectReference} className={`field ${className}`.trimEnd()}>
+      {label && <label>{label}</label>}
+      <div className="dz-select">
+        {renderSelect()}
+        {shouldAutoSelect ? null : showOptions && renderOptions()}
+      </div>
+
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
