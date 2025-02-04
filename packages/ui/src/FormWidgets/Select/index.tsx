@@ -26,18 +26,10 @@ type ISelectProperties<T> = {
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
   searchPlaceholder?: string;
-} & (
-  | {
-      multiple: true;
-      value: T[];
-      onChange: (newValue: T[]) => void;
-    }
-  | {
-      multiple: false;
-      value: T;
-      onChange: (newValue: T) => void;
-    }
-);
+  value: T | T[];
+  onChange: (newValue: T | T[]) => void;
+  multiple?: boolean;
+};
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
@@ -49,7 +41,7 @@ export const Select = <T extends string | number>({
   helperText,
   hideIfSingleOption = false,
   label = "",
-  multiple,
+  multiple = false,
   name,
   options,
   placeholder,
@@ -61,9 +53,11 @@ export const Select = <T extends string | number>({
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [focused, setFocused] = useState(false);
 
   const selectReference = useRef<HTMLDivElement>(null);
-  const [focused, setFocused] = useState(false);
+
+  const isArray = Array.isArray(value);
 
   const filteredOptions = useMemo(() => {
     if (!searchInput) return options;
@@ -112,7 +106,7 @@ export const Select = <T extends string | number>({
   }, [selectReference]);
 
   const handleSelectedOption = (option: T) => {
-    if (multiple) {
+    if (multiple && isArray) {
       const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
@@ -128,7 +122,7 @@ export const Select = <T extends string | number>({
   ) => {
     event.stopPropagation();
 
-    if (multiple) {
+    if (multiple && isArray) {
       const updatedOptions = value.filter((_value) => _value !== option);
 
       onChange(updatedOptions);
@@ -150,7 +144,7 @@ export const Select = <T extends string | number>({
   };
 
   const hasValue = useMemo(() => {
-    if ((multiple && !value.length) || !value) {
+    if ((multiple && isArray && !value.length) || !value) {
       return false;
     }
 
@@ -173,6 +167,7 @@ export const Select = <T extends string | number>({
           let isChecked = false;
 
           multiple &&
+            isArray &&
             value.forEach((_value) => {
               if (_value === option.value) {
                 isChecked = true;
@@ -225,7 +220,7 @@ export const Select = <T extends string | number>({
 
       return (
         <>
-          {multiple ? (
+          {multiple && isArray ? (
             <div className="selected-options">
               {value.map((_value, index) => {
                 const option = options.find((opt) => opt.value === _value);
@@ -308,7 +303,7 @@ export const Select = <T extends string | number>({
 
   return (
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
-      {label && <label>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
       <div className="dz-select">
         {renderSelect()}
         {shouldAutoSelect ? null : showOptions && renderOptions()}
