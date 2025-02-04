@@ -12,6 +12,27 @@
 --dz-layout-nav-menu-padding-h → --dz-nav-menu-padding-h
 
 --dz-layout-nav-menu-padding-v → --dz-nav-menu-padding-v
+
+--dz-layout-nav-menu-separator-color → --dz-nav-menu-separator-color
+
+--dz-layout-nav-item-hover-bg → --dz-nav-item-hover-bg
+
+--dz-layout-nav-item-active-bg → --dz-nav-item-active-bg
+
+--dz-layout-nav-item-color → --dz-nav-item-color
+
+--dz-layout-nav-item-active-color → --dz-nav-item-active-color
+
+--dz-layout-nav-item-hover-color → --dz-nav-item-hover-color
+
+--dz-layout-nav-menu-label-color → --dz-nav-menu-label-color
+
+```
+* **layout:** add css var for submenu background
+```
+
+--dz-nav-collapsible-reverse-submenu-bg;
+
 ```
 * **user:** update signup function to no longer parse the form data. The data needs to be parsed before passing it to the signup page.
 
