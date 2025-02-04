@@ -68,7 +68,6 @@ export const SelectDemo = () => {
           value={singleSelectValue}
           onChange={(value: number | number[]) => setSingleSelectValue(value)}
           placeholder={t("select.placeholder")}
-          multiple={false}
         />
       </Section>
       <Section>
@@ -108,7 +107,6 @@ export const SelectDemo = () => {
           hasError={true}
           errorMessage="Required field"
           placeholder={t("select.placeholder")}
-          multiple={false}
         />
       </Section>
       <Section>
@@ -179,7 +177,6 @@ export const SelectDemo = () => {
           }
           placeholder={t("select.placeholder")}
           searchPlaceholder={t("select.searchPlaceholder")}
-          multiple={false}
         />
       </Section>
       <Section>

@@ -24,7 +24,6 @@
   border-radius: var(--field-border-radius);
   display: flex;
   flex-wrap: wrap;
-  margin-top: 0.75rem;
   min-height: 45px;
   padding: 0.5rem 0.65rem;
 }

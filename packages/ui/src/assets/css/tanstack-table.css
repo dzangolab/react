@@ -179,10 +179,6 @@
   font-weight: normal;
 }
 
-.table-wrapper > table tr.filters > th.multiselect > div .input-field-select {
-  margin-top: 0;
-}
-
 .dz-table-container .table-wrapper > table > tbody > tr > td,
 .dz-table-container .table-wrapper > table > thead > tr > th {
   padding: var(--dz-table-column-padding);
