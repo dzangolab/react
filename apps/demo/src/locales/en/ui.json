@@ -65,7 +65,7 @@
   },
   "data": {
     "title": "Data",
-    "subtitle": "The Data component is a reusable React component designed to display a labeled value. It supports both static values and dynamic values derived from object properties using a dataKey.",
+    "subtitle": "The Data component is a reusable React component designed to display a labeled value.",
     "usage": {
       "basic": "Basic",
       "displayObject": "Display value from object",
