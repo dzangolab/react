@@ -106,8 +106,8 @@
         "placeholder": ""
       },
       "password": {
-        "label": "Your password",
-        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase"
+        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
+        "label": "Your password"
       },
       "confirmPassword": {
         "label": "Confirm password"
