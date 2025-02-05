@@ -120,9 +120,10 @@
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
-        "email": "Email is required",
-        "password": "Password is required",
         "confirmPassword": "Confirm password is required",
+        "email": "Email is required",
+        "mustMatch": "Passwords must match",
+        "password": "Password is required",
         "termsAndConditions": "Please agree to the terms and conditions",
         "validationMessage": "Please enter a valid password"
       }

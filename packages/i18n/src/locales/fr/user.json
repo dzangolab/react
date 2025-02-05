@@ -140,9 +140,10 @@
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
-        "email": "Email is required (fr)",
-        "password": "Password is required (fr)",
         "confirmPassword": "ConfirmPassword is required (fr)",
+        "email": "Email is required (fr)",
+        "mustMatch": "Passwords must match (fr)",
+        "password": "Password is required (fr)",
         "termsAndConditions": "Please agree to the terms and conditions (fr)",
         "validationMessage": "Please enter a valid password (fr)"
       }
