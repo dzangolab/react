@@ -159,7 +159,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul className="select-field-options" aria-multiselectable={multiple}>
+      <ul className="options">
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -194,6 +194,7 @@ export const Select = <T extends string | number>({
                   disabled={disabled}
                 />
               ) : null}
+
               <span
                 onClick={() => {
                   if (!disabled) {
@@ -288,7 +289,7 @@ export const Select = <T extends string | number>({
               <span className="select-field-placeholder">{placeholder}</span>
             )}
         <span
-          className="select-menu-toggle"
+          className="menu-toggle"
           onClick={() => {
             if (!disabled) {
               setShowOptions(!showOptions);
@@ -309,7 +310,8 @@ export const Select = <T extends string | number>({
   return (
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
       {label && <label>{label}</label>}
-      <div className="dz-select">
+
+      <div className="select" aria-multiselectable={multiple}>
         {renderSelect()}
         {shouldAutoSelect ? null : showOptions && renderOptions()}
       </div>

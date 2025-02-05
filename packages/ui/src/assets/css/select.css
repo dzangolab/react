@@ -7,14 +7,29 @@
   --field-option-hover-color: #e5e5e5;
 }
 
-.dz-select {
+.select {
   position: relative;
   width: 100%;
 }
 
-.dz-select ul[aria-multiselectable="true"] > li {
+.select[aria-multiselectable="true"] ul > li {
   gap: 0.5rem;
   align-items: baseline;
+}
+
+.select .error-message {
+  color: var(--_field-error-message-color);
+  display: inline-block;
+  font-size: 0.8em;
+  margin-top: 0.75rem;
+}
+
+.select > .input-field-select > i {
+  color: var(--field-icon-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  position: absolute;
+  right: 2.5rem;
 }
 
 .input-field-select {
@@ -38,7 +53,7 @@
   opacity: 0.8;
 }
 
-.input-field-select .select-menu-toggle {
+.input-field-select .menu-toggle {
   color: var(--field-icon-color);
   cursor: pointer;
   padding: 0.75rem;
@@ -66,7 +81,7 @@
   font-size: 0.75rem;
 }
 
-.select-field-options {
+.select ul.options {
   background-color: var(--field-option-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
@@ -82,7 +97,7 @@
   z-index: 1000;
 }
 
-.select-field-options > .option {
+.select ul.options > .option {
   border-radius: 0.2rem;
   cursor: pointer;
   display: flex;
@@ -90,48 +105,33 @@
   transition: all var(--transition-duration) ease;
 }
 
-.select-field-options > .option:hover {
+.select ul.options > .option:hover {
   background-color: var(--field-option-hover-color);
 }
 
-.select-field-options > .option.selected {
+.select ul.options > .option.selected {
   font-weight: bold;
 }
 
-.select-field-options > .option > span {
+.select ul.options > .option > span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
 }
 
-.select-field-options[aria-multiselectable="false"] > .option {
+.select[aria-multiselectable="false"] ul.options > .option {
   padding: 0;
 }
 
-.select-field-options[aria-multiselectable="false"] > .option > span {
+.select[aria-multiselectable="false"] ul.options > .option > span {
   padding: 0.5rem 0.65rem;
 }
 
-.select-field-options > .option > .disabled {
+.select ul.options > .option > .disabled {
   color: var(--field-option-disabled-color);
 }
 
 .select-field-placeholder {
   color: var(--field-placeholder-color, #7b7676);
-}
-
-.dz-select .error-message {
-  color: var(--_field-error-message-color);
-  display: inline-block;
-  font-size: 0.8em;
-  margin-top: 0.75rem;
-}
-
-.dz-select > .input-field-select > i {
-  color: var(--field-icon-color);
-  cursor: pointer;
-  font-size: 0.9rem;
-  position: absolute;
-  right: 2.5rem;
 }
