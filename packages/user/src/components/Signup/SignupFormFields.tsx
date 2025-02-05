@@ -56,6 +56,7 @@ const SignupFormFields: React.FC<IProperties> = ({
         register={register}
         getFieldState={getFieldState}
         submitCount={submitCount}
+        helperText={t("signup.form.password.helperText")}
       />
       <Password
         label={t("signup.form.confirmPassword.label")}

@@ -126,7 +126,8 @@
         "placeholder": ""
       },
       "password": {
-        "label": "Votre mot de passe"
+        "label": "Votre mot de passe",
+        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)"
       },
       "confirmPassword": {
         "label": "Confirm password (fr)"
