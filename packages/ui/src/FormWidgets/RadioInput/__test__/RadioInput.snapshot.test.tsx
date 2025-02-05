@@ -14,7 +14,7 @@ describe("RadioInput", () => {
 
   const renderRadioInput = (properties = {}) => {
     return render(
-      <RadioInput options={options} onChange={onChangeMock} {...properties} />
+      <RadioInput options={options} onChange={onChangeMock} {...properties} />,
     );
   };
 
