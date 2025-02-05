@@ -97,6 +97,14 @@
   z-index: 1000;
 }
 
+.select ul.options > .debounced-input {
+  align-items: unset;
+}
+
+.select ul.options > .debounced-input input {
+  padding: 0.5rem 0.65rem;
+}
+
 .select ul.options > .option {
   border-radius: 0.2rem;
   cursor: pointer;
@@ -128,8 +136,9 @@
   padding: 0.5rem 0.65rem;
 }
 
-.select ul.options > .option > .disabled {
+.select ul.options > .option.disabled {
   color: var(--field-option-disabled-color);
+  cursor: not-allowed;
 }
 
 .select-field-placeholder {

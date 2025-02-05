@@ -168,28 +168,21 @@ export const Select = <T extends string | number>({
             }}
           />
         ) : null}
+
         {filteredOptions?.map((option, index) => {
           const { disabled, label } = option;
-          let isChecked = false;
-
-          multiple &&
-            value.forEach((_value) => {
-              if (_value === option.value) {
-                isChecked = true;
-              }
-            });
 
           return (
             <li
               key={index}
               className={`option ${
-                !disabled && value === option.value ? "selected" : ""
-              }`.trimEnd()}
+                !multiple && value === option.value ? "selected" : ""
+              } ${disabled ? "disabled" : ""}`.trimEnd()}
             >
               {multiple ? (
                 <Checkbox
                   name={label}
-                  checked={isChecked}
+                  checked={value.some((_value) => _value === option.value)}
                   onChange={() => handleSelectedOption(option.value)}
                   disabled={disabled}
                 />
@@ -201,11 +194,10 @@ export const Select = <T extends string | number>({
                     handleSelectedOption(option.value);
                   }
 
-                  if (!multiple) {
+                  if (!multiple && !disabled) {
                     setShowOptions(false);
                   }
                 }}
-                className={disabled ? "disabled" : ""}
               >
                 {renderOption ? renderOption(option) : label}
               </span>
