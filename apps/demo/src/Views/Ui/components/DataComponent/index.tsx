@@ -97,7 +97,7 @@ export const DataDemo = () => {
 
       <Section title={t("data.usage.basic")}>
         <Data label="Name" value="John Doe" />
-        <CodeBlock exampleCode="<Data label='Name' value='John Doe' />" />
+        <CodeBlock exampleCode='<Data label="Name" value="John Doe" />' />
       </Section>
 
       <Section title={t("data.usage.displayObject")}>
@@ -107,11 +107,11 @@ export const DataDemo = () => {
           dataKey="email"
         />
         <CodeBlock
-          exampleCode="<Data
-  label='User Email'
-  value={{ email: 'john.doe@example.com', id: 1 }}
-  dataKey='email'
-/>"
+          exampleCode='<Data
+  label="User Email"
+  value={{ email: "john.doe@example.com", id: 1 }}
+  dataKey="email"
+/>'
         />
       </Section>
 
@@ -122,30 +122,30 @@ export const DataDemo = () => {
           ))}
         </GridContainer>
         <CodeBlock
-          exampleCode="const testData = [
+          exampleCode='const testData = [
     {
-      label: 'Name',
-      value: 'John Doe',
+      label: "Name",
+      value: "John Doe",
     },
     {
-      label: 'Age',
+      label: "Age",
       value: 30,
     },
     {
-      label: 'Email',
+      label: "Email",
       value: { 
-        email: 'john.doe@example.com',
-        user: 'John Doe' 
+        email: "john.doe@example.com",
+        user: "John Doe"
       },
-      dataKey: 'email',
+      dataKey: "email",
     },
     {
-      label: 'Address',
-      value: '123 Main St, Springfield, USA',
+      label: "Address",
+      value: "123 Main St, Springfield, USA",
     },
     {
-      label: 'Status',
-      value: 'Active',
+      label: "Status",
+      value: "Active",
     },
   ];
 
@@ -154,7 +154,7 @@ return (
     {testData.map((data, index) => (
       <Data key={index} {...data} />
     ))}
-  </GridContainer>);"
+  </GridContainer>);'
         />
       </Section>
     </Page>
