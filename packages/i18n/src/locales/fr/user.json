@@ -126,6 +126,7 @@
         "placeholder": ""
       },
       "password": {
+        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
         "label": "Votre mot de passe"
       },
       "confirmPassword": {
@@ -139,10 +140,12 @@
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
-        "email": "Email is required (fr)",
-        "password": "Password is required (fr)",
         "confirmPassword": "ConfirmPassword is required (fr)",
-        "termsAndConditions": "Please agree to the terms and conditions (fr)"
+        "email": "Email is required (fr)",
+        "mustMatch": "Passwords must match (fr)",
+        "password": "Password is required (fr)",
+        "termsAndConditions": "Please agree to the terms and conditions (fr)",
+        "validationMessage": "Please enter a valid password (fr)"
       }
     },
     "title": "Inscription"

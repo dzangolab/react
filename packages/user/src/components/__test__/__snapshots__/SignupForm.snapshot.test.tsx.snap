@@ -50,6 +50,11 @@ exports[`Component matches snapshot 1`] = `
           />
         </span>
       </div>
+      <span
+        class="helper-text"
+      >
+        signup.form.password.helperText
+      </span>
     </div>
     <div
       class="field"

@@ -106,6 +106,7 @@
         "placeholder": ""
       },
       "password": {
+        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
         "label": "Your password"
       },
       "confirmPassword": {
@@ -119,10 +120,12 @@
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
-        "email": "Email is required",
-        "password": "Password is required",
         "confirmPassword": "Confirm password is required",
-        "termsAndConditions": "Please agree to the terms and conditions"
+        "email": "Email is required",
+        "mustMatch": "Passwords must match",
+        "password": "Password is required",
+        "termsAndConditions": "Please agree to the terms and conditions",
+        "validationMessage": "Please enter a valid password"
       }
     },
     "title": "Sign up"
