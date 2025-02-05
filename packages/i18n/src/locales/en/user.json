@@ -123,7 +123,8 @@
         "email": "Email is required",
         "password": "Password is required",
         "confirmPassword": "Confirm password is required",
-        "termsAndConditions": "Please agree to the terms and conditions"
+        "termsAndConditions": "Please agree to the terms and conditions",
+        "validationMessage": "Please enter a valid password"
       }
     },
     "title": "Sign up"
