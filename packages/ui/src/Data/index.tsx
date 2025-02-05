@@ -6,17 +6,21 @@ type DataProperties = {
   caption: ReactNode;
   className?: string;
   value: ReactNode;
+  mode?: "attr" | "stat";
 };
 
 export const Data: FC<DataProperties> = ({
   className = "",
   caption,
   value,
+  mode = "attr",
 }) => {
   return (
-    <div className={`dz-data ${className}`.trim()}>
-      <div className="dz-data-label">{caption}</div>
-      <div className="dz-data-value">{value}</div>
+    <div
+      className={`data ${mode === "attr" ? "data-attr" : "data-stat"} ${className}`.trim()}
+    >
+      <div className="label">{caption}</div>
+      <div className="value">{value}</div>
     </div>
   );
 };

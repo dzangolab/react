@@ -9,22 +9,28 @@ const data = [
     prop: "caption",
     type: "ReactNode",
     default: "-",
-    description: "The caption displayed alongside the value. Required.",
+    description: "The caption displayed alongside the value.",
   },
   {
     id: 2,
     prop: "value",
     type: "ReactNode",
     default: "-",
-    description: "The value to display. Required.",
+    description: "The value to display.",
   },
   {
     id: 3,
+    prop: "mode",
+    type: '"attr" | "stat"',
+    default: "attr",
+    description: "Defines which styling to apply to the component.",
+  },
+  {
+    id: 4,
     prop: "className",
     type: "string",
     default: "-",
-    description:
-      "Additional CSS classes to apply to the outer container. Optional.",
+    description: "Additional CSS classes to apply to the outer container.",
   },
 ];
 
@@ -66,7 +72,7 @@ export const DataDemo = () => {
       </Section>
 
       <Section title={t("data.usage.basic")}>
-        <Data caption="Name" value="John Doe" />
+        <Data caption="Name" value="John Doe" mode="stat" />
         <CodeBlock exampleCode='<Data caption="Name" value="John Doe" />' />
       </Section>
 
