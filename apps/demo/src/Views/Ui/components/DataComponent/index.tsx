@@ -19,7 +19,7 @@ const data = [
     description: "The value to display. Required.",
   },
   {
-    id: 4,
+    id: 3,
     prop: "className",
     type: "string",
     default: "-",
