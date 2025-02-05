@@ -159,7 +159,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul className="options">
+      <ul>
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -175,9 +175,11 @@ export const Select = <T extends string | number>({
           return (
             <li
               key={index}
-              className={`option ${
-                !multiple && value === option.value ? "selected" : ""
-              } ${disabled ? "disabled" : ""}`.trimEnd()}
+              className={
+                `${!multiple && value === option.value ? "selected" : ""} ${
+                  disabled ? "disabled" : ""
+                }`.trim() || undefined
+              }
             >
               {multiple ? (
                 <Checkbox
@@ -216,45 +218,41 @@ export const Select = <T extends string | number>({
 
       const selectedOption = options.find((opt) => opt.value === value);
 
-      return (
-        <>
-          {multiple ? (
-            <div className="selected-options">
-              {value.map((_value, index) => {
-                const option = options.find((opt) => opt.value === _value);
-                if (!option) return null;
+      return multiple ? (
+        <div className="selected-options">
+          {value.map((_value, index) => {
+            const option = options.find((opt) => opt.value === _value);
+            if (!option) return null;
 
-                return (
-                  <Tag
-                    key={index}
-                    renderContent={() => (
-                      <>
-                        <span>{option.label}</span>
-                        {!disabled && (
-                          <i
-                            className="pi pi-times"
-                            onClick={(event) =>
-                              handleRemoveOption(option.value, event)
-                            }
-                          ></i>
-                        )}
-                      </>
+            return (
+              <Tag
+                key={index}
+                renderContent={() => (
+                  <>
+                    <span>{option.label}</span>
+                    {!disabled && (
+                      <i
+                        className="pi pi-times"
+                        onClick={(event) =>
+                          handleRemoveOption(option.value, event)
+                        }
+                      ></i>
                     )}
-                    rounded
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <>
-              <span>{selectedOption?.label}</span>
-              {selectedOption && !disabled && (
-                <i
-                  className="pi pi-times"
-                  onClick={(event) => handleRemoveOption(undefined, event)}
-                ></i>
-              )}
-            </>
+                  </>
+                )}
+                rounded
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <>
+          <span>{selectedOption?.label}</span>
+          {selectedOption && !disabled && (
+            <i
+              className="pi pi-times"
+              onClick={(event) => handleRemoveOption(undefined, event)}
+            ></i>
           )}
         </>
       );
@@ -262,7 +260,7 @@ export const Select = <T extends string | number>({
 
     return (
       <div
-        className={`input-field-select ${disabled ? "disabled" : ""} ${
+        className={`label-container ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
@@ -277,11 +275,9 @@ export const Select = <T extends string | number>({
       >
         {hasValue
           ? renderSelectValue()
-          : placeholder && (
-              <span className="select-field-placeholder">{placeholder}</span>
-            )}
+          : placeholder && <span className="placeholder">{placeholder}</span>}
         <span
-          className="menu-toggle"
+          className="menu-trigger"
           onClick={() => {
             if (!disabled) {
               setShowOptions(!showOptions);
