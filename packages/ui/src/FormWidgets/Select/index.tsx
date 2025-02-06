@@ -61,9 +61,9 @@ export const Select = <T extends string | number>({
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [focused, setFocused] = useState(false);
 
   const selectReference = useRef<HTMLDivElement>(null);
-  const [focused, setFocused] = useState(false);
 
   const filteredOptions = useMemo(() => {
     if (!searchInput) return options;
@@ -104,6 +104,7 @@ export const Select = <T extends string | number>({
         setFocused(false);
       }
     };
+
     document.addEventListener("mousedown", handleMouseDown);
 
     return () => {
@@ -116,6 +117,7 @@ export const Select = <T extends string | number>({
       const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
+
       onChange(newValue);
     } else {
       onChange(option);
@@ -184,7 +186,7 @@ export const Select = <T extends string | number>({
               {multiple ? (
                 <Checkbox
                   name={label}
-                  checked={value.some((_value) => _value === option.value)}
+                  checked={value.includes(option.value)}
                   onChange={() => handleSelectedOption(option.value)}
                   disabled={disabled}
                 />
