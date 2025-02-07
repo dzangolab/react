@@ -48,6 +48,7 @@ const TabView: React.FC<Properties> = ({
         setVisibleTabs(parsedState.visibleTabs || _visibleTabs);
       }
     }
+
     setInitialized(true);
   }, []);
 
