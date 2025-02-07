@@ -1,3 +1,7 @@
+:root {
+  --variable-width: max-content;
+}
+
 .data {
   display: flex;
   flex-direction: column;
@@ -16,8 +20,10 @@
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
+  min-width: max-content;
+  padding-block: var(--data-stat-padding-v, 0.5rem);
+  padding-inline: var(--data-stat-padding-h, .75rem);
+  width: var(--data-stat-width, 13rem);
 }
 
 .data.data-stat .value {
