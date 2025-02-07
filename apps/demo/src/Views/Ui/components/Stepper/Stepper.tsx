@@ -1,9 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Stepper, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./index.css";
-import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../../components/Demo";
 

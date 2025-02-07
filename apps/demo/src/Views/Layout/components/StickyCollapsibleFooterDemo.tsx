@@ -90,7 +90,7 @@ export const StickyCollapsibleFooterDemo = () => {
   <Button
     label='Submit'
     size='small'
-    onClick={() => alert(`${inputValue}`)}
+    onClick={() => alert(inputValue)}
   />
   <Button
     label='Cancel'
@@ -109,7 +109,7 @@ export const StickyCollapsibleFooterDemo = () => {
           <Button
             label="Submit"
             size="small"
-            onClick={() => alert(`${inputValue}`)}
+            onClick={() => alert(inputValue)}
           />
           <Button
             label="Cancel"

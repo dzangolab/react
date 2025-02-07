@@ -1,9 +1,9 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Tooltip, Page, Button } from "@dzangolab/react-ui";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./index.css";
-import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../../components/Demo";
 

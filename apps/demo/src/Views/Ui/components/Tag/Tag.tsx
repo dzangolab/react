@@ -1,10 +1,10 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Page, Tag } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../../components/Demo";
 
 import "./index.css";
-import { useNavigate } from "react-router-dom";
 
 export const TagDemo = () => {
   const [t] = useTranslation("ui");
