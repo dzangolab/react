@@ -4,6 +4,11 @@
   gap: 0.25rem;
 }
 
+.data > .label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 .data.data-stat {
   background-color: transparent;
   border: 1px solid #ccc;
@@ -16,9 +21,4 @@
   display: flex;
   font-size: 2rem;
   justify-content: flex-end;
-}
-
-.data > .label {
-  font-size: 0.875rem;
-  font-weight: 500;
 }
