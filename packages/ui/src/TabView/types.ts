@@ -17,14 +17,15 @@ type Tab = {
 };
 
 type Properties = {
-  activeKey?: string;
+  activeKey: string;
   id?: string;
   persistState?: boolean;
   persistStateStorage?: StorageType;
   position?: TPosition;
   tabs: Tab[];
   visibleTabs: string[];
-  onVisibleTabsChange: (visibleTabs: string[]) => void;
+  onActiveTabChange?: (activeTab: string) => void;
+  onVisibleTabsChange?: (visibleTabs: string[]) => void;
 };
 
 export type { TKeymap, TOrientation, TPosition, Properties, StorageType, Tab };

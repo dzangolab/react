@@ -13,6 +13,7 @@ const TabView: React.FC<Properties> = ({
   position = "top",
   tabs,
   visibleTabs: _visibleTabs,
+  onActiveTabChange,
   onVisibleTabsChange,
 }) => {
   const [initialized, setInitialized] = useState(false);
@@ -25,8 +26,16 @@ const TabView: React.FC<Properties> = ({
   );
 
   useEffect(() => {
-    onVisibleTabsChange(visibleTabs);
+    if (onVisibleTabsChange) {
+      onVisibleTabsChange(visibleTabs);
+    }
   }, [visibleTabs]);
+
+  useEffect(() => {
+    if (onActiveTabChange) {
+      onActiveTabChange(activeTab);
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     if (persistState && id) {
@@ -39,7 +48,6 @@ const TabView: React.FC<Properties> = ({
         setVisibleTabs(parsedState.visibleTabs || _visibleTabs);
       }
     }
-
     setInitialized(true);
   }, []);
 

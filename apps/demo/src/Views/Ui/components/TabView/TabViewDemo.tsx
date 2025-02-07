@@ -65,6 +65,13 @@ const data = [
     default: "-",
     description: "Function to be called when visible tabs change.",
   },
+  {
+    id: 9,
+    prop: "onActiveTabChange",
+    type: "(activeTab: string) => void",
+    default: "-",
+    description: "Function to be called when active tab change.",
+  },
 ];
 
 const tabs = [
@@ -85,7 +92,6 @@ export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const [visibleTabs, setVisibleTabs] = useState(["1"]);
   const [active, setActive] = useState("1");
-  const [customVisibleTabs, setCustomVisibleTabs] = useState(["1", "5", "6"]);
 
   return (
     <Page title={t("tabview.title")} className="tab-view">
@@ -115,6 +121,7 @@ export const TabViewDemo = () => {
           activeKey={active}
           id="tabview-1"
           onVisibleTabsChange={setVisibleTabs}
+          onActiveTabChange={setActive}
         />
         <CodeBlock
           exampleCode='
@@ -173,12 +180,11 @@ const [active, setActive] = useState("1");
       <Section title={t("tabview.usage.disableTabState.title")}>
         <p>{t("tabbedPanel.usage.disableTabState.subTitle")}</p>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey="1"
           id="tabview-3"
           persistState={false}
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -191,27 +197,23 @@ const tabs = [
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
 
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-3"
   persistState={false}
-  onVisibleTabsChange={setCustomVisibleTabs}
 />'
         />
       </Section>
 
       <Section title={t("tabview.usage.positionBottom")}>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey="1"
           id="tabview-4"
           position="bottom"
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -224,27 +226,23 @@ const tabs = [
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
 
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-4"
   position="bottom"
-  onVisibleTabsChange={setCustomVisibleTabs}
 />'
         />
       </Section>
 
       <Section title={t("tabview.usage.positionLeft")}>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey="1"
           id="tabview-5"
           position="left"
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -256,11 +254,9 @@ const tabs = [
  { label: "Installation", children: "Installation Instructions", key: "5" },
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
-
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-       
+    
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-5"
@@ -272,12 +268,11 @@ const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
 
       <Section title={t("tabview.usage.positionRight")}>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey={active}
           id="tabview-6"
           position="right"
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -289,16 +284,13 @@ const tabs = [
  { label: "Installation", children: "Installation Instructions", key: "5" },
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
-
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-       
+    
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-6"
   position="right"
-  onVisibleTabsChange={setCustomVisibleTabs}
 />'
         />
       </Section>
