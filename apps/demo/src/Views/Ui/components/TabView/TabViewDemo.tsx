@@ -270,7 +270,7 @@ const tabs = [
         <TabView
           visibleTabs={["1", "5", "6"]}
           tabs={tabs}
-          activeKey={active}
+          activeKey="1"
           id="tabview-6"
           position="right"
         />
