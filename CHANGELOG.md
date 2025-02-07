@@ -1,3 +1,19 @@
+# [0.55.0](https://github.com/dzangolab/react/compare/v0.54.0...v0.55.0) (2025-02-07)
+
+
+### Bug Fixes
+
+* **demo:** improve TabView demo ([#1373](https://github.com/dzangolab/react/issues/1373)) ([a88bc3e](https://github.com/dzangolab/react/commit/a88bc3ef9c623e6d3854ce073eeaf51792768fda))
+* **ui:** fix blur issue in select widget ([#1378](https://github.com/dzangolab/react/issues/1378)) ([2d7f9de](https://github.com/dzangolab/react/commit/2d7f9dea82ab1176d86bf24c7419e37f595abddf))
+* **ui:** fix TabView navigation ([#1382](https://github.com/dzangolab/react/issues/1382)) ([f1aa300](https://github.com/dzangolab/react/commit/f1aa300aafa938bb90058cd5d4779ec4a4aab5e1))
+
+
+### Features
+
+* **signup:** add helpertext for password field ([#1380](https://github.com/dzangolab/react/issues/1380)) ([8d6c6d1](https://github.com/dzangolab/react/commit/8d6c6d1a037fc3e4f3d528b0d9e6bd455e73142d))
+
+
+
 # [0.54.0](https://github.com/dzangolab/react/compare/v0.53.0...v0.54.0) (2025-01-31)
 
 ### Breaking Changes
