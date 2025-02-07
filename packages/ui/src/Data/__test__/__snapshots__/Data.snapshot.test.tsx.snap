@@ -1,0 +1,81 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Data Component > Component matches snapshot with all props 1`] = `
+<div>
+  <div
+    class="data"
+  >
+    <div
+      class="label"
+    >
+      Name
+    </div>
+    <div
+      class="value"
+    >
+      John
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Data Component > matches the snapshot with 'stat' mode 1`] = `
+<div>
+  <div
+    class="data data-stat"
+  >
+    <div
+      class="label"
+    >
+      Name
+    </div>
+    <div
+      class="value"
+    >
+      John
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Data Component > matches the snapshot with ReactNode as caption and value 1`] = `
+<div>
+  <div
+    class="data"
+  >
+    <div
+      class="label"
+    >
+      <span>
+        Name
+      </span>
+    </div>
+    <div
+      class="value"
+    >
+      <strong>
+        John
+      </strong>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Data Component > matches the snapshot with custom className 1`] = `
+<div>
+  <div
+    class="data  custom-class"
+  >
+    <div
+      class="label"
+    >
+      Name
+    </div>
+    <div
+      class="value"
+    >
+      John
+    </div>
+  </div>
+</div>
+`;

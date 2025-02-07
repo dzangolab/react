@@ -6,6 +6,9 @@
 
 .data .label {
   font-size: 0.875rem;
+}
+
+.data .value {
   font-weight: 500;
 }
 
