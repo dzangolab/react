@@ -17,7 +17,7 @@ export const Data: FC<DataProperties> = ({
 }) => {
   return (
     <div
-      className={`data ${mode === "attr" ? "data-attr" : "data-stat"} ${className}`.trim()}
+      className={`data ${mode === "attr" ? "" : "data-stat"} ${className}`.trim()}
     >
       <div className="label">{caption}</div>
       <div className="value">{value}</div>
