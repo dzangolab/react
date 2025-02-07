@@ -68,6 +68,7 @@
     "subtitle": "The Data component is a reusable React component designed to display a labeled value. (fr)",
     "usage": {
       "basic": "Basic (fr)",
+      "mode": "Stat mode (fr)",
       "displayObject": "Display value from object (fr)",
       "example": "Example (fr)"
     }

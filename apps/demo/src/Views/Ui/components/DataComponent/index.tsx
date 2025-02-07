@@ -13,10 +13,10 @@ const data = [
   },
   {
     id: 2,
-    prop: "value",
-    type: "ReactNode",
+    prop: "className",
+    type: "string",
     default: "-",
-    description: "The value to display.",
+    description: "Additional CSS classes to apply to the outer container.",
   },
   {
     id: 3,
@@ -27,10 +27,10 @@ const data = [
   },
   {
     id: 4,
-    prop: "className",
-    type: "string",
+    prop: "value",
+    type: "ReactNode",
     default: "-",
-    description: "Additional CSS classes to apply to the outer container.",
+    description: "The value to display.",
   },
 ];
 
@@ -72,8 +72,13 @@ export const DataDemo = () => {
       </Section>
 
       <Section title={t("data.usage.basic")}>
-        <Data caption="Name" value="John Doe" mode="stat" />
+        <Data caption="Name" value="John Doe" />
         <CodeBlock exampleCode='<Data caption="Name" value="John Doe" />' />
+      </Section>
+
+      <Section title={t("data.usage.mode")}>
+        <Data caption="Name" value="John Doe" mode="stat" />
+        <CodeBlock exampleCode='<Data caption="Name" value="John Doe" mode="stat"/>' />
       </Section>
 
       <Section title={t("data.usage.example")}>
