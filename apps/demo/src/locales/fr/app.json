@@ -28,6 +28,21 @@
   "pages": {
     "home": {
       "title": "Dzangolab packages demo (fr)"
+    },
+    "ui": {
+      "title": "UI library (fr)"
+    },
+    "user": {
+      "title": "User library (fr)"
+    },
+    "form": {
+      "title": "Form library (fr)"
+    },
+    "layout": {
+      "title": "Layout library (fr)"
+    },
+    "i18n": {
+      "title": "I18n library (fr)"
     }
   },
   "loading": "Loading (fr) ...",
