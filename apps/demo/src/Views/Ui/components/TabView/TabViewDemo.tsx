@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
 import { Button } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { addTab } from "./utils";
 import { CodeBlock, Section } from "../../../../components/Demo";
@@ -83,12 +84,25 @@ const tabs = [
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
+
   const [visibleTabs, setVisibleTabs] = useState(["1"]);
   const [active, setActive] = useState("1");
   const [customVisibleTabs, setCustomVisibleTabs] = useState(["1", "5", "6"]);
 
   return (
-    <Page title={t("tabview.title")} className="tab-view">
+    <Page
+      title={t("tabview.title")}
+      className="tab-view"
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "TabView" })}</p>
         <CodeBlock exampleCode="import { TabView } from 'dzangolab/react-ui';" />

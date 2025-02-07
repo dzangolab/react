@@ -3,10 +3,13 @@ import { Button, Stepper, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
 
 import "./index.css";
+import { useNavigate } from "react-router-dom";
+
 import { Section } from "../../../../components/Demo";
 
 export const StepperDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   const [activeIndex, setActiveIndex] = useState(0);
   const list = [
@@ -55,7 +58,17 @@ export const StepperDemo = () => {
   };
 
   return (
-    <Page title={t("stepper.title")}>
+    <Page
+      title={t("stepper.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <Stepper
           steps={list}

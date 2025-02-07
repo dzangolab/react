@@ -1,4 +1,7 @@
 {
+  "buttons": {
+    "back": "Back"
+  },
   "confirmation": {
     "header": "Confirmation",
     "confirm": {

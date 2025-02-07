@@ -1,13 +1,25 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { FilesTable, Page } from "@dzangolab/react-ui";
+import { Button, FilesTable, Page } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../components/Demo";
 
 export const FilesTableDemo = () => {
   const { t } = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("filesTable.title")}>
+    <Page
+      title={t("filesTable.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <FilesTable
           onFileDelete={() => {}}

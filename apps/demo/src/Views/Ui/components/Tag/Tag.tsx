@@ -1,14 +1,27 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, Tag } from "@dzangolab/react-ui";
+import { Button, Page, Tag } from "@dzangolab/react-ui";
 
 import { Section } from "../../../../components/Demo";
+
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 export const TagDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("tag.title")}>
+    <Page
+      title={t("tag.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("tag.usage.basic")}>
         <div className="demo-tag-container">
           <Tag label="default" />

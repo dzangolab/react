@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, Typeahead } from "@dzangolab/react-ui";
+import { Button, Page, Typeahead } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../../components/Demo";
 
@@ -48,6 +49,8 @@ const suggestionItems = [
 
 export const TypeaheadDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
+
   const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState<any>([]);
   const [suggestions, setSuggestions] = useState([]);
@@ -102,7 +105,17 @@ export const TypeaheadDemo = () => {
   };
 
   return (
-    <Page title={t("typeahead.title")}>
+    <Page
+      title={t("typeahead.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <Typeahead
           placeholder={t("typeahead.placeholder")}

@@ -1,5 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Data, GridContainer, Page, TDataTable } from "@dzangolab/react-ui";
+import {
+  Button,
+  Data,
+  GridContainer,
+  Page,
+  TDataTable,
+} from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../../components/Demo";
 
@@ -58,12 +65,21 @@ export const DataDemo = () => {
   ];
 
   const { t } = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
     <Page
       className="demo-data-component"
       title={t("data.title")}
       subtitle={t("data.subtitle")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Data" })}</p>

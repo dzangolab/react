@@ -1,10 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, GridContainer } from "@dzangolab/react-ui";
+import { Page, GridContainer, Button } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { Package } from "../../Home/components/Package";
 
 export const GridContainerDemo = () => {
   const { t } = useTranslation("ui");
+  const navigate = useNavigate();
 
   const packages = [
     {
@@ -31,7 +33,18 @@ export const GridContainerDemo = () => {
   ];
 
   return (
-    <Page title={t("gridContainer.title")} className="home">
+    <Page
+      title={t("gridContainer.title")}
+      className="home"
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <GridContainer>
         {packages.map((package_) => {
           return (

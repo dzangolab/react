@@ -1,13 +1,25 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { SortableList, Page } from "@dzangolab/react-ui";
+import { SortableList, Page, Button } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../components/Demo";
 
 export const SortableListDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("sortableList.title")}>
+    <Page
+      title={t("sortableList.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <SortableList
           items={[

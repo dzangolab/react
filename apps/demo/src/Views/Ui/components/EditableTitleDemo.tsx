@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
+  Button,
   Card,
   CardBody,
   EditableTitle,
@@ -7,6 +8,7 @@ import {
   TDataTable,
 } from "@dzangolab/react-ui";
 import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
@@ -75,6 +77,8 @@ const PROPERTIES_DATA = [
 
 export const EditableTitleDemo = () => {
   const { t } = useTranslation("ui");
+  const navigate = useNavigate();
+
   const [value, setValue] = useState("");
 
   const handleTitleUpdate = (title: string) => {
@@ -90,6 +94,14 @@ export const EditableTitleDemo = () => {
     <Page
       title={t("editableTitle.title")}
       subtitle={t("editableTitle.subtitle")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "EditableTitle" })}</p>

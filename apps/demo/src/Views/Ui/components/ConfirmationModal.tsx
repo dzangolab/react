@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, ConfirmationModal, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../components/Demo";
 
@@ -8,9 +9,20 @@ export const ConfirmationModalDemo = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("confirmationModal.title")}>
+    <Page
+      title={t("confirmationModal.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <Button
           onClick={() => setShowModal(true)}
