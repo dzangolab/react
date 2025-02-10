@@ -58,11 +58,6 @@ export const DataDemo = () => {
     },
   ];
 
-  const userData = {
-    revenue: "$1,030,217",
-    visitors: "3,825",
-  };
-
   const { t } = useTranslation("ui");
 
   return (
@@ -82,17 +77,11 @@ export const DataDemo = () => {
       </Section>
 
       <Section title={t("data.usage.mode")}>
-        <Data caption="Visitors" value={userData.visitors} mode="stat" />
-        <Data caption="Revenue" value={userData.revenue} mode="stat" />
+        <Data caption="Visitors" value="3,825" mode="stat" />
+        <Data caption="Revenue" value="$1,030,217" mode="stat" />
         <CodeBlock
-          exampleCode='
-const userData = {
-  revenue:"$1,030,217",
-  visitors: "3,825"
-}
-
-<Data caption="Visitors" value={userData.visitors} mode="stat"/>
-<Data caption="Revenue" value={userData.revenue} mode="stat"/>'
+          exampleCode='<Data caption="Visitors" value="3,825" mode="stat"/>
+<Data caption="Revenue" value="$1,030,217" mode="stat"/>'
         />
       </Section>
 
