@@ -29,7 +29,6 @@ export const BasicLayout = (): JSX.Element => {
       navigationMenu={{
         menu: menu,
       }}
-      customFooter={<></>}
     />
   );
 };

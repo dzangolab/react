@@ -8,6 +8,9 @@
       "error": "Oops! Something went wrong."
     }
   },
+  "buttons": {
+    "back": "Back"
+  },
   "changePassword": {
     "form": {
       "actions": {

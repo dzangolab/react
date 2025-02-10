@@ -1,12 +1,15 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Tooltip, Page } from "@dzangolab/react-ui";
+import { Tooltip, Page, Button } from "@dzangolab/react-ui";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./index.css";
+
 import { Section } from "../../../../components/Demo";
 
 export const TooltipDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   const rightReference = useRef(null);
   const leftReference = useRef(null);
@@ -17,7 +20,17 @@ export const TooltipDemo = () => {
   const mouseTrackReference = useRef(null);
 
   return (
-    <Page title={t("tooltip.title")}>
+    <Page
+      title={t("tooltip.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <div className="tooltip-component">
           <Tooltip

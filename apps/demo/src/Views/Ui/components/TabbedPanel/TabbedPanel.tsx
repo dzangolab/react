@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { Button, Page } from "@dzangolab/react-ui";
 import { Message } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import {
   Basic,
@@ -15,9 +16,20 @@ import { Section } from "../../../../components/Demo";
 
 export const TabbedPanelDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("tabbedPanel.title")}>
+    <Page
+      title={t("tabbedPanel.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Message message="@deprecated: Use TabView component from the ui package instead" />
       <Section title={t("tabbedPanel.usage.basic")}>
         <Basic />

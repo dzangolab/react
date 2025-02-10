@@ -1,4 +1,7 @@
-{  
+{
+  "buttons": {
+    "back": "Back"
+  },
   "common": {
     "usage": "To use the {{component}} component, simply import it into your React file"
   },

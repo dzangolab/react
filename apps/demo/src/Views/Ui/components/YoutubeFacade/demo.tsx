@@ -1,14 +1,26 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { Button, Page } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import YoutubeFacade from "./YoutubeFacade";
 import { Section } from "../../../../components/Demo";
 
 export const YoutubeFacadeDemo = () => {
   const { t } = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("youtubeFacade.title")}>
+    <Page
+      title={t("youtubeFacade.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <div style={{ width: "50%" }}>
           <YoutubeFacade
