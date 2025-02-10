@@ -1,9 +1,10 @@
 :root {
   --border-color: #b5b5b5;
   --color: rgb(84, 84, 84);
+  --data-caption-color: #333;
   --data-stat-padding-v: 0.5rem;
   --data-stat-padding-h: 0.75rem;
-  --data-stat-width: 13rem;
+  --data-stat-min-width: 13rem;
   --dz-alternate-color: #0284c7;
   --dz-danger-color: #dc3545;
   --dz-input-fill-color: transparent;

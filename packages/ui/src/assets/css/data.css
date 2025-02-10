@@ -1,0 +1,33 @@
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  line-height: 1.15;
+}
+
+.data .label {
+  --_caption-color: var(--data-caption-color, #333);
+  
+  color: var(--_caption-color);
+  font-size: 0.875rem;
+}
+
+.data.data-stat {
+  --_min-width: var(--data-stat-min-width, 13rem);
+  --_padding-h: var(--data-stat-padding-h, 0.75rem);
+  --_padding-v: var(--data-stat-padding-v, 0.5rem);
+
+  background-color: transparent;
+  border: 1px solid #555;
+  border-radius: 0.5rem;
+  min-width: var(--_min-width);
+  padding-block: var(--_padding-v);
+  padding-inline: var(--_padding-h);
+  width: max-content;
+}
+
+.data.data-stat .value {
+  display: flex;
+  font-size: 2rem;
+  justify-content: flex-end;
+}

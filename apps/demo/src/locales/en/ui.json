@@ -70,6 +70,7 @@
       "basic": "Basic",
       "mode": "Stat mode",
       "displayObject": "Display value from object",
+      "structuredData": "Rendering structured data",
       "example": "Example"
     }
   },

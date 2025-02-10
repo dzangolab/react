@@ -38,7 +38,7 @@ export const DataDemo = () => {
   const testData = [
     {
       caption: "Name",
-      value: "John Doe",
+      value: "John Smith",
     },
     {
       caption: "Age",
@@ -46,7 +46,7 @@ export const DataDemo = () => {
     },
     {
       caption: "Email",
-      value: "john.doe@example.com",
+      value: "john.smith@example.com",
     },
     {
       caption: "Address",
@@ -57,6 +57,11 @@ export const DataDemo = () => {
       value: "Active",
     },
   ];
+
+  const userData = {
+    revenue: "$1,030,217",
+    visitors: "3,825",
+  };
 
   const { t } = useTranslation("ui");
 
@@ -72,16 +77,26 @@ export const DataDemo = () => {
       </Section>
 
       <Section title={t("data.usage.basic")}>
-        <Data caption="Name" value="John Doe" />
-        <CodeBlock exampleCode='<Data caption="Name" value="John Doe" />' />
+        <Data caption="Name" value="John Smith" />
+        <CodeBlock exampleCode='<Data caption="Name" value="John Smith"/>' />
       </Section>
 
       <Section title={t("data.usage.mode")}>
-        <Data caption="Name" value="John Doe" mode="stat" />
-        <CodeBlock exampleCode='<Data caption="Name" value="John Doe" mode="stat"/>' />
+        <Data caption="Visitors" value={userData.visitors} mode="stat" />
+        <Data caption="Revenue" value={userData.revenue} mode="stat" />
+        <CodeBlock
+          exampleCode='
+const userData = {
+  revenue:"$1,030,217",
+  visitors: "3,825"
+}
+
+<Data caption="Visitors" value={userData.visitors} mode="stat"/>
+<Data caption="Revenue" value={userData.revenue} mode="stat"/>'
+        />
       </Section>
 
-      <Section title={t("data.usage.example")}>
+      <Section title={t("data.usage.structuredData")}>
         <GridContainer>
           {testData.map((data, index) => (
             <Data key={index} {...data} />
@@ -91,7 +106,7 @@ export const DataDemo = () => {
           exampleCode='const testData = [
   {
     caption: "Name",
-    value: "John Doe",
+    value: "John Smith",
   },
   {
     caption: "Age",
@@ -99,7 +114,7 @@ export const DataDemo = () => {
   },
   {
     caption: "Email",
-    value: "john.doe@example.com",
+    value: "john.smith@example.com",
   },
   {
     caption: "Address",

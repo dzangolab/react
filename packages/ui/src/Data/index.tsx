@@ -1,7 +1,5 @@
 import { FC, ReactNode } from "react";
 
-import "./index.css";
-
 type DataProperties = {
   caption: ReactNode;
   className?: string;
