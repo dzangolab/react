@@ -98,6 +98,7 @@ export const Select = <T extends string | number>({
         setFocused(false);
       }
     };
+
     document.addEventListener("mousedown", handleMouseDown);
 
     return () => {
@@ -110,6 +111,7 @@ export const Select = <T extends string | number>({
       const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
+
       onChange(newValue);
     } else {
       onChange(option);
@@ -153,7 +155,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul className="select-field-options" aria-multiselectable={multiple}>
+      <ul>
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -162,44 +164,38 @@ export const Select = <T extends string | number>({
             }}
           />
         ) : null}
+
         {filteredOptions?.map((option, index) => {
           const { disabled, label } = option;
-          let isChecked = false;
-
-          multiple &&
-            isArray &&
-            value.forEach((_value) => {
-              if (_value === option.value) {
-                isChecked = true;
-              }
-            });
 
           return (
             <li
               key={index}
-              className={`option ${
-                !disabled && value === option.value ? "selected" : ""
-              }`.trimEnd()}
+              className={
+                `${!multiple && value === option.value ? "selected" : ""} ${
+                  disabled ? "disabled" : ""
+                }`.trim() || undefined
+              }
             >
-              {multiple ? (
+              {multiple && isArray ? (
                 <Checkbox
                   name={label}
-                  checked={isChecked}
+                  checked={value.includes(option.value)}
                   onChange={() => handleSelectedOption(option.value)}
                   disabled={disabled}
                 />
               ) : null}
+
               <span
                 onClick={() => {
                   if (!disabled) {
                     handleSelectedOption(option.value);
                   }
 
-                  if (!multiple) {
+                  if (!multiple && !disabled) {
                     setShowOptions(false);
                   }
                 }}
-                className={disabled ? "disabled" : ""}
               >
                 {renderOption ? renderOption(option) : label}
               </span>
@@ -218,45 +214,41 @@ export const Select = <T extends string | number>({
 
       const selectedOption = options.find((opt) => opt.value === value);
 
-      return (
-        <>
-          {multiple && isArray ? (
-            <div className="selected-options">
-              {value.map((_value, index) => {
-                const option = options.find((opt) => opt.value === _value);
-                if (!option) return null;
+      return multiple && isArray ? (
+        <div className="selected-options">
+          {value.map((_value, index) => {
+            const option = options.find((opt) => opt.value === _value);
+            if (!option) return null;
 
-                return (
-                  <Tag
-                    key={index}
-                    renderContent={() => (
-                      <>
-                        <span>{option.label}</span>
-                        {!disabled && (
-                          <i
-                            className="pi pi-times"
-                            onClick={(event) =>
-                              handleRemoveOption(option.value, event)
-                            }
-                          ></i>
-                        )}
-                      </>
+            return (
+              <Tag
+                key={index}
+                renderContent={() => (
+                  <>
+                    <span>{option.label}</span>
+                    {!disabled && (
+                      <i
+                        className="pi pi-times"
+                        onClick={(event) =>
+                          handleRemoveOption(option.value, event)
+                        }
+                      ></i>
                     )}
-                    rounded
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <>
-              <span>{selectedOption?.label}</span>
-              {selectedOption && !disabled && (
-                <i
-                  className="pi pi-times"
-                  onClick={(event) => handleRemoveOption(undefined, event)}
-                ></i>
-              )}
-            </>
+                  </>
+                )}
+                rounded
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <>
+          <span>{selectedOption?.label}</span>
+          {selectedOption && !disabled && (
+            <i
+              className="pi pi-times"
+              onClick={(event) => handleRemoveOption(undefined, event)}
+            ></i>
           )}
         </>
       );
@@ -264,7 +256,7 @@ export const Select = <T extends string | number>({
 
     return (
       <div
-        className={`input-field-select ${disabled ? "disabled" : ""} ${
+        className={`label-container ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
@@ -279,11 +271,9 @@ export const Select = <T extends string | number>({
       >
         {hasValue
           ? renderSelectValue()
-          : placeholder && (
-              <span className="select-field-placeholder">{placeholder}</span>
-            )}
+          : placeholder && <span className="placeholder">{placeholder}</span>}
         <span
-          className="select-menu-toggle"
+          className="menu-trigger"
           onClick={() => {
             if (!disabled) {
               setShowOptions(!showOptions);
@@ -303,8 +293,9 @@ export const Select = <T extends string | number>({
 
   return (
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
-      {label && <label htmlFor={name}>{label}</label>}
-      <div className="dz-select">
+      {label && <label>{label}</label>}
+
+      <div className="select" aria-multiselectable={multiple}>
         {renderSelect()}
         {shouldAutoSelect ? null : showOptions && renderOptions()}
       </div>
