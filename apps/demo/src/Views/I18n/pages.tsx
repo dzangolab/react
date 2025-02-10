@@ -13,14 +13,14 @@ export const Pages = () => {
   const [t] = useTranslation("i18n");
 
   const subnav = [
-    { route: "/i18n", label: t("app:getStarted") },
+    { label: t("app:getStarted"), route: I18n_ROUTES.GET_STARTED },
     ...routes.map(({ path, key }) => {
       return { route: path, label: t(key) };
     }),
   ];
 
   return (
-    <Demo subnav={subnav}>
+    <Demo subnav={subnav} isGrouped>
       <Outlet />
     </Demo>
   );
