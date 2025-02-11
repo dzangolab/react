@@ -15,20 +15,16 @@ export const SelectDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
 
-  const [multiselectValue, setMultiselectValue] = useState<string | string[]>(
-    [],
-  );
+  const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
   const [searchableMultiselectValue, setSearchableMultiselectValue] = useState<
-    string | string[]
+    string[]
   >([]);
   const [searchableSingleSelectValue, setSearchableSingleSelectValue] =
-    useState<string | string[]>("");
-  const [singleSelectValue, setSingleSelectValue] = useState<number | number[]>(
-    0,
-  );
-  const [selectedValue, setSelectedValue] = useState<string | string[]>("");
-  const [renderedValue, setRenderedValue] = useState<string | string[]>([]);
-  const [renderedOption, setRenderedOption] = useState<string | string[]>([]);
+    useState<string>("");
+  const [singleSelectValue, setSingleSelectValue] = useState<number>(0);
+  const [selectedValue, setSelectedValue] = useState<string>("");
+  const [renderedValue, setRenderedValue] = useState<string[]>([]);
+  const [renderedOption, setRenderedOption] = useState<string[]>([]);
 
   const renderSelectedValue = (
     value?: string | string[],
@@ -78,7 +74,7 @@ export const SelectDemo = () => {
             { value: 27, label: "option 3" },
           ]}
           value={singleSelectValue}
-          onChange={(value: number | number[]) => setSingleSelectValue(value)}
+          onChange={(value: number) => setSingleSelectValue(value)}
           placeholder={t("select.placeholder")}
         />
       </Section>
@@ -100,7 +96,7 @@ export const SelectDemo = () => {
           ]}
           multiple={true}
           value={multiselectValue}
-          onChange={(value: string | string[]) => setMultiselectValue(value)}
+          onChange={(value: string[]) => setMultiselectValue(value)}
           placeholder={t("select.placeholder")}
         />
       </Section>
@@ -115,7 +111,7 @@ export const SelectDemo = () => {
             { value: "FR", label: "FR" },
           ]}
           value={selectedValue}
-          onChange={(value: string | string[]) => setSelectedValue(value)}
+          onChange={(value: string) => setSelectedValue(value)}
           hasError={true}
           errorMessage="Required field"
           placeholder={t("select.placeholder")}
@@ -133,7 +129,7 @@ export const SelectDemo = () => {
             { value: "RE", label: "RE" },
           ]}
           value={renderedValue}
-          onChange={(value: string | string[]) => setRenderedValue(value)}
+          onChange={(value: string[]) => setRenderedValue(value)}
           renderValue={renderSelectedValue}
           multiple={true}
           placeholder={t("select.placeholder")}
@@ -149,7 +145,7 @@ export const SelectDemo = () => {
             { value: "SA", label: "option 3" },
           ]}
           value={renderedOption}
-          onChange={(value: string | string[]) => setRenderedOption(value)}
+          onChange={(value: string[]) => setRenderedOption(value)}
           renderOption={renderOption}
           multiple={true}
           placeholder={t("select.placeholder")}
@@ -184,9 +180,7 @@ export const SelectDemo = () => {
             { value: "SN", label: "SUDAN" },
           ]}
           value={searchableSingleSelectValue}
-          onChange={(value: string | string[]) =>
-            setSearchableSingleSelectValue(value)
-          }
+          onChange={(value: string) => setSearchableSingleSelectValue(value)}
           placeholder={t("select.placeholder")}
           searchPlaceholder={t("select.searchPlaceholder")}
         />
@@ -210,9 +204,7 @@ export const SelectDemo = () => {
           ]}
           multiple={true}
           value={searchableMultiselectValue}
-          onChange={(value: string | string[]) =>
-            setSearchableMultiselectValue(value)
-          }
+          onChange={(value: string[]) => setSearchableMultiselectValue(value)}
           placeholder={t("select.placeholder")}
           searchPlaceholder={t("select.searchPlaceholder")}
         />

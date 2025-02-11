@@ -5,9 +5,9 @@ import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
 type Option<T> = {
-  value: T;
-  label: string;
   disabled?: boolean;
+  label: string;
+  value: T;
 };
 
 type ISelectProperties<T> = {
@@ -20,16 +20,25 @@ type ISelectProperties<T> = {
   helperText?: string;
   hideIfSingleOption?: boolean;
   label?: string | React.ReactNode;
+  multiple?: boolean;
   name: string;
   options: Option<T>[];
   placeholder?: string;
+  searchPlaceholder?: string;
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
-  searchPlaceholder?: string;
-  value: T | T[];
-  onChange: (newValue: T | T[]) => void;
-  multiple?: boolean;
-};
+} & (
+  | {
+      multiple: true;
+      value: T[];
+      onChange: (newValue: T[]) => void;
+    }
+  | {
+      multiple?: false;
+      value: T;
+      onChange: (newValue: T) => void;
+    }
+);
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
@@ -41,7 +50,7 @@ export const Select = <T extends string | number>({
   helperText,
   hideIfSingleOption = false,
   label = "",
-  multiple = false,
+  multiple,
   name,
   options,
   placeholder,
@@ -56,8 +65,6 @@ export const Select = <T extends string | number>({
   const [focused, setFocused] = useState(false);
 
   const selectReference = useRef<HTMLDivElement>(null);
-
-  const isMultipleValue = Array.isArray(value);
 
   const filteredOptions = useMemo(() => {
     if (!searchInput) return options;
@@ -107,7 +114,7 @@ export const Select = <T extends string | number>({
   }, [selectReference]);
 
   const handleSelectedOption = (option: T) => {
-    if (multiple && isMultipleValue) {
+    if (multiple) {
       const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
@@ -124,7 +131,7 @@ export const Select = <T extends string | number>({
   ) => {
     event.stopPropagation();
 
-    if (multiple && isMultipleValue) {
+    if (multiple) {
       const updatedOptions = value.filter((_value) => _value !== option);
 
       onChange(updatedOptions);
@@ -146,7 +153,7 @@ export const Select = <T extends string | number>({
   };
 
   const hasValue = useMemo(() => {
-    if ((multiple && isMultipleValue && !value.length) || !value) {
+    if ((multiple && !value.length) || !value) {
       return false;
     }
 
@@ -177,7 +184,7 @@ export const Select = <T extends string | number>({
                 }`.trim() || undefined
               }
             >
-              {multiple && isMultipleValue ? (
+              {multiple ? (
                 <Checkbox
                   name={label}
                   checked={value.includes(option.value)}
@@ -214,7 +221,7 @@ export const Select = <T extends string | number>({
 
       const selectedOption = options.find((opt) => opt.value === value);
 
-      return multiple && isMultipleValue ? (
+      return multiple ? (
         <div className="selected-options">
           {value.map((_value, index) => {
             const option = options.find((opt) => opt.value === _value);
