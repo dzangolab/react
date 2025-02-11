@@ -1,0 +1,4 @@
+.demo-data-component .demo-section .demo-section-content .data-group {
+  display: flex;
+  gap: 1rem;
+}

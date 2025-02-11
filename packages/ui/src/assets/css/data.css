@@ -1,7 +1,7 @@
 .data {
-  --_padding-inline: 0;
-  --_padding-block: 0;
   --_min-width: 0;
+  --_padding-block: 0;
+  --_padding-inline: 0;
 
   background-color: transparent;
   display: flex;
@@ -14,7 +14,7 @@
   width: max-content;
 }
 
-.data .label {
+.data > .label {
   --_caption-color: var(--data-caption-color, #333);
   
   color: var(--_caption-color);
@@ -22,9 +22,9 @@
 }
 
 .data.data-stat {
-  --_padding-inline: var(--data-stat-padding-inline, 0.75rem);
-  --_padding-block: var(--data-stat-padding-block, 0.5rem);
   --_min-width: var(--data-stat-min-width, 13rem);
+  --_padding-block: var(--data-stat-padding-block, 0.5rem);
+  --_padding-inline: var(--data-stat-padding-inline, 0.75rem);
 
   border: 1px solid #555;
   border-radius: 0.5rem;
