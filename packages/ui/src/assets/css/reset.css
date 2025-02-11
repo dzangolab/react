@@ -56,6 +56,7 @@ a[target="_blank"]:hover {
 
 a[target="_blank"]::after {
   content: url('https://api.iconify.design/tabler/external-link.svg');
+  opacity: 0.6;
   padding-left: 0.25rem;
   padding-right: 0;
   padding-top: 0.1rem;

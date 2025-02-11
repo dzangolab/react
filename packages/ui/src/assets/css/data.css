@@ -1,8 +1,17 @@
 .data {
+  --_padding-inline: 0;
+  --_padding-block: 0;
+  --_min-width: 0;
+
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  line-height: 1.15;
+  
+  min-width: var(--_min-width);
+  padding-inline: var(--_padding-inline);
+  padding-block: var(--_padding-block);
+  width: max-content;
 }
 
 .data .label {
@@ -13,17 +22,12 @@
 }
 
 .data.data-stat {
+  --_padding-inline: var(--data-stat-padding-inline, 0.75rem);
+  --_padding-block: var(--data-stat-padding-block, 0.5rem);
   --_min-width: var(--data-stat-min-width, 13rem);
-  --_padding-h: var(--data-stat-padding-h, 0.75rem);
-  --_padding-v: var(--data-stat-padding-v, 0.5rem);
 
-  background-color: transparent;
   border: 1px solid #555;
   border-radius: 0.5rem;
-  min-width: var(--_min-width);
-  padding-block: var(--_padding-v);
-  padding-inline: var(--_padding-h);
-  width: max-content;
 }
 
 .data.data-stat .value {
