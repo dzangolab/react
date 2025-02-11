@@ -2,6 +2,7 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
 import { Button } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { addTab } from "./utils";
 import { CodeBlock, Section } from "../../../../components/Demo";
@@ -9,49 +10,13 @@ import { CodeBlock, Section } from "../../../../components/Demo";
 const data = [
   {
     id: 1,
-    prop: "tabs",
-    type: "array",
-    default: "-",
-    description: "Array of tab object.",
-  },
-  {
-    id: 2,
-    prop: "visibleTabs",
-    type: "array",
-    default: "-",
-    description: "Array of visible tabs.",
-  },
-  {
-    id: 3,
-    prop: "position",
-    type: '"top" | "left" | "bottom" | "right"',
-    default: "top",
-    description: "Position of the tab panel header relative to its content.",
-  },
-  {
-    id: 4,
     prop: "activeKey",
     type: "string",
     default: "-",
     description: "Active key of TabView.",
   },
   {
-    id: 5,
-    prop: "persistState",
-    type: "boolean",
-    default: "true",
-    description:
-      "If true, tab state is saved either in localStorage or sessionStorage.",
-  },
-  {
-    id: 6,
-    prop: "persistStateStorage",
-    type: '"localStorage" | "sessionStorage"',
-    default: "localStorage",
-    description: "Storage to save tab state.",
-  },
-  {
-    id: 7,
+    id: 2,
     prop: "id",
     type: "string",
     default: "-",
@@ -59,7 +24,50 @@ const data = [
       "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
   },
   {
+    id: 3,
+    prop: "persistState",
+    type: "boolean",
+    default: "true",
+    description:
+      "If true, tab state is saved either in localStorage or sessionStorage.",
+  },
+  {
+    id: 4,
+    prop: "persistStateStorage",
+    type: '"localStorage" | "sessionStorage"',
+    default: "localStorage",
+    description: "Storage to save tab state.",
+  },
+  {
+    id: 5,
+    prop: "position",
+    type: '"top" | "left" | "bottom" | "right"',
+    default: "top",
+    description: "Position of the tab panel header relative to its content.",
+  },
+  {
+    id: 6,
+    prop: "tabs",
+    type: "array",
+    default: "-",
+    description: "Array of tab object.",
+  },
+  {
+    id: 7,
+    prop: "visibleTabs",
+    type: "array",
+    default: "-",
+    description: "Array of visible tabs.",
+  },
+  {
     id: 8,
+    prop: "onActiveTabChange",
+    type: "(activeTab: string) => void",
+    default: "-",
+    description: "Function to be called when active tab change.",
+  },
+  {
+    id: 9,
     prop: "onVisibleTabsChange",
     type: "(visibleTabs: string[]) => void",
     default: "-",
@@ -83,12 +91,24 @@ const tabs = [
 
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
+
   const [visibleTabs, setVisibleTabs] = useState(["1"]);
   const [active, setActive] = useState("1");
-  const [customVisibleTabs, setCustomVisibleTabs] = useState(["1", "5", "6"]);
 
   return (
-    <Page title={t("tabview.title")} className="tab-view">
+    <Page
+      title={t("tabview.title")}
+      className="tab-view"
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "TabView" })}</p>
         <CodeBlock exampleCode="import { TabView } from 'dzangolab/react-ui';" />
@@ -115,6 +135,7 @@ export const TabViewDemo = () => {
           activeKey={active}
           id="tabview-1"
           onVisibleTabsChange={setVisibleTabs}
+          onActiveTabChange={setActive}
         />
         <CodeBlock
           exampleCode='
@@ -173,12 +194,11 @@ const [active, setActive] = useState("1");
       <Section title={t("tabview.usage.disableTabState.title")}>
         <p>{t("tabbedPanel.usage.disableTabState.subTitle")}</p>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey="1"
           id="tabview-3"
           persistState={false}
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -191,27 +211,23 @@ const tabs = [
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
 
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-3"
   persistState={false}
-  onVisibleTabsChange={setCustomVisibleTabs}
 />'
         />
       </Section>
 
       <Section title={t("tabview.usage.positionBottom")}>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey="1"
           id="tabview-4"
           position="bottom"
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -224,27 +240,23 @@ const tabs = [
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
 
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-4"
   position="bottom"
-  onVisibleTabsChange={setCustomVisibleTabs}
 />'
         />
       </Section>
 
       <Section title={t("tabview.usage.positionLeft")}>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey="1"
           id="tabview-5"
           position="left"
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -256,11 +268,9 @@ const tabs = [
  { label: "Installation", children: "Installation Instructions", key: "5" },
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
-
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-       
+    
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-5"
@@ -272,12 +282,11 @@ const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
 
       <Section title={t("tabview.usage.positionRight")}>
         <TabView
-          visibleTabs={customVisibleTabs}
+          visibleTabs={["1", "5", "6"]}
           tabs={tabs}
-          activeKey={active}
+          activeKey="1"
           id="tabview-6"
           position="right"
-          onVisibleTabsChange={setCustomVisibleTabs}
         />
         <CodeBlock
           exampleCode='
@@ -289,16 +298,13 @@ const tabs = [
  { label: "Installation", children: "Installation Instructions", key: "5" },
  { label: "Certifications", children: "Certifications", key: "6" },
 ];
-
-const [customVisibleTabs, setCustomVisibleTabs] = useState(["1","5","6"]);
-       
+    
 <TabView
-  visibleTabs={customVisibleTabs}
+  visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
   id="tabview-6"
   position="right"
-  onVisibleTabsChange={setCustomVisibleTabs}
 />'
         />
       </Section>

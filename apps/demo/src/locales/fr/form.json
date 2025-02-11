@@ -1,4 +1,7 @@
 {
+  "buttons": {
+    "back": "Back (fr)"
+  },
   "loginForm": {
     "title": "Login form (fr)",
     "label": {

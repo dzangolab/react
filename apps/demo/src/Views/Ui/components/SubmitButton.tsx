@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, SubmitButton } from "@dzangolab/react-ui";
+import { Button, Page, SubmitButton } from "@dzangolab/react-ui";
 import { TDataTable } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
@@ -28,9 +29,20 @@ const data = [
 
 export const SubmitButtonDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("submitButton.title")}>
+    <Page
+      title={t("submitButton.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "SubmitButton" })}</p>
         <CodeBlock exampleCode="import { SubmitButton } from '@dzangolab/react-ui';" />

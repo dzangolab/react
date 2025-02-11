@@ -4,5 +4,5 @@ import { Page } from "@dzangolab/react-ui";
 export const UserPage = () => {
   const [t] = useTranslation("app");
 
-  return <Page title={t("header.menu.user")}></Page>;
+  return <Page title={t("pages.user.title")}></Page>;
 };

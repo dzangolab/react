@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { TDataTable, Page } from "@dzangolab/react-ui";
+import { TDataTable, Page, Button } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { Basic, Icons, Link, Severity, Size, Variant } from "./components";
 import { CodeBlock, Section } from "../../../../components/Demo";
@@ -100,12 +101,21 @@ const data = [
 
 export const ButtonDemo = () => {
   const { t } = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
     <Page
       className="demo-button"
       title={t("button.title")}
       subtitle={t("button.subtitle")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Button" })}</p>

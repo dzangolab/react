@@ -1,6 +1,8 @@
 import { Provider, emailSchema, passwordSchema } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Button, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as zod from "zod";
 
 import { FormInputFields } from "./FormInputFields";
@@ -8,6 +10,8 @@ import { CodeBlock, Section } from "../../../../components/Demo";
 
 export const FormInputDemo = () => {
   const { t, i18n } = useTranslation("form");
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState("");
   const [filledInput, setFilledInput] = useState(false);
 
@@ -58,29 +62,41 @@ export const FormInputDemo = () => {
   };
 
   return (
-    <Section>
-      <Provider
-        validationSchema={FormSchema}
-        onSubmit={handleSubmit}
-        className={filledInput ? "filled" : ""}
-        defaultValues={{
-          filled: false,
-          valid: false,
-          invalid: false,
-          typeahead: "string",
-          radioInput: "value 1",
-        }}
-        validationTriggerKey={i18n.language}
-      >
-        <FormInputFields checkFilledState={checkFilledState} />
-      </Provider>
-      {formData && (
-        <CodeBlock
-          autoFocus
-          title={t("formInput.submittedValue")}
-          exampleCode={formData}
+    <Page
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
         />
-      )}
-    </Section>
+      }
+    >
+      <Section>
+        <Provider
+          validationSchema={FormSchema}
+          onSubmit={handleSubmit}
+          className={filledInput ? "filled" : ""}
+          defaultValues={{
+            filled: false,
+            valid: false,
+            invalid: false,
+            typeahead: "string",
+            radioInput: "value 1",
+            select: ["FR"],
+          }}
+          validationTriggerKey={i18n.language}
+        >
+          <FormInputFields checkFilledState={checkFilledState} />
+        </Provider>
+        {formData && (
+          <CodeBlock
+            autoFocus
+            title={t("formInput.submittedValue")}
+            exampleCode={formData}
+          />
+        )}
+      </Section>
+    </Page>
   );
 };
