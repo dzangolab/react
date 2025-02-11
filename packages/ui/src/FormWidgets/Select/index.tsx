@@ -5,9 +5,9 @@ import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
 type Option<T> = {
-  value: T;
-  label: string;
   disabled?: boolean;
+  label: string;
+  value: T;
 };
 
 type ISelectProperties<T> = {
@@ -20,12 +20,13 @@ type ISelectProperties<T> = {
   helperText?: string;
   hideIfSingleOption?: boolean;
   label?: string | React.ReactNode;
+  multiple?: boolean;
   name: string;
   options: Option<T>[];
   placeholder?: string;
+  searchPlaceholder?: string;
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
-  searchPlaceholder?: string;
 } & (
   | {
       multiple: true;
@@ -33,7 +34,7 @@ type ISelectProperties<T> = {
       onChange: (newValue: T[]) => void;
     }
   | {
-      multiple: false;
+      multiple?: false;
       value: T;
       onChange: (newValue: T) => void;
     }
@@ -299,7 +300,7 @@ export const Select = <T extends string | number>({
 
   return (
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
-      {label && <label>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
 
       <div className="select" aria-multiselectable={multiple}>
         {renderSelect()}
