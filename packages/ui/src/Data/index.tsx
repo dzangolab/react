@@ -1,40 +1,24 @@
 import { FC, ReactNode } from "react";
 
-import "./index.css";
-
-type DataValueType =
-  | {
-      value: ReactNode;
-    }
-  | {
-      value: object;
-      dataKey: string;
-    };
-
 type DataProperties = {
-  label: ReactNode;
+  caption: ReactNode;
   className?: string;
-} & DataValueType;
+  value: ReactNode;
+  mode?: "attr" | "stat";
+};
 
 export const Data: FC<DataProperties> = ({
   className = "",
-  label,
+  caption,
   value,
-  ...others
+  mode = "attr",
 }) => {
-  const displayValue =
-    "dataKey" in others &&
-    value &&
-    typeof value === "object" &&
-    others.dataKey in value
-      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (value[others.dataKey as keyof typeof value] as any)
-      : value;
-
   return (
-    <div className={`dz-data ${className}`.trim()}>
-      <span className="dz-data-label">{label}</span>
-      <span className="dz-data-value">{displayValue}</span>
+    <div
+      className={`data ${mode === "stat" ? "data-stat" : ""} ${className}`.trim()}
+    >
+      <div className="label">{caption}</div>
+      <div className="value">{value}</div>
     </div>
   );
 };

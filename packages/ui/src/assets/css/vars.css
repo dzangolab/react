@@ -1,8 +1,10 @@
 :root {
-  --color: rgb(84, 84, 84);
   --border-color: #b5b5b5;
-  --error-message-color: var(--dz-danger-color);
-  --error-message-font-size: 0.8em;
+  --color: rgb(84, 84, 84);
+  --data-caption-color: #333;
+  --data-stat-padding-block: 0.5rem;
+  --data-stat-padding-inline: 0.75rem;
+  --data-stat-min-width: 13rem;
   --dz-alternate-color: #0284c7;
   --dz-danger-color: #dc3545;
   --dz-input-fill-color: transparent;
@@ -26,6 +28,8 @@
   --dz-secondary-color: #475569;
   --dz-success-color: #22c55e;
   --dz-warning-color: #ea580c;
+  --error-message-color: var(--dz-danger-color);
+  --error-message-font-size: 0.8em;
   --field-autofill-color: #ffffff;
   --field-background-color: var(--dz-primary-color);
   --field-border-color: #ccc;
@@ -39,6 +43,4 @@
   --menu-border-color: #555;
   --submit-button-bg-color: var(--dz-primary-color);
   --transition-duration: 300ms;
-
-  
 }
