@@ -57,7 +57,7 @@ export const Select = <T extends string | number>({
 
   const selectReference = useRef<HTMLDivElement>(null);
 
-  const isArray = Array.isArray(value);
+  const isMultipleValue = Array.isArray(value);
 
   const filteredOptions = useMemo(() => {
     if (!searchInput) return options;
@@ -107,7 +107,7 @@ export const Select = <T extends string | number>({
   }, [selectReference]);
 
   const handleSelectedOption = (option: T) => {
-    if (multiple && isArray) {
+    if (multiple && isMultipleValue) {
       const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
@@ -124,7 +124,7 @@ export const Select = <T extends string | number>({
   ) => {
     event.stopPropagation();
 
-    if (multiple && isArray) {
+    if (multiple && isMultipleValue) {
       const updatedOptions = value.filter((_value) => _value !== option);
 
       onChange(updatedOptions);
@@ -146,7 +146,7 @@ export const Select = <T extends string | number>({
   };
 
   const hasValue = useMemo(() => {
-    if ((multiple && isArray && !value.length) || !value) {
+    if ((multiple && isMultipleValue && !value.length) || !value) {
       return false;
     }
 
@@ -177,7 +177,7 @@ export const Select = <T extends string | number>({
                 }`.trim() || undefined
               }
             >
-              {multiple && isArray ? (
+              {multiple && isMultipleValue ? (
                 <Checkbox
                   name={label}
                   checked={value.includes(option.value)}
@@ -214,7 +214,7 @@ export const Select = <T extends string | number>({
 
       const selectedOption = options.find((opt) => opt.value === value);
 
-      return multiple && isArray ? (
+      return multiple && isMultipleValue ? (
         <div className="selected-options">
           {value.map((_value, index) => {
             const option = options.find((opt) => opt.value === _value);
@@ -293,7 +293,7 @@ export const Select = <T extends string | number>({
 
   return (
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
-      {label && <label>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
 
       <div className="select" aria-multiselectable={multiple}>
         {renderSelect()}
