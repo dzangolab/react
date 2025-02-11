@@ -1,0 +1,5 @@
+.demo .data-stat-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}

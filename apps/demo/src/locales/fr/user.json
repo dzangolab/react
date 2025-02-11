@@ -8,6 +8,9 @@
       "error": "Oops! Something went wrong. (fr)"
     }
   },
+  "buttons": {
+    "back": "Back (fr)"
+  },
   "changePassword": {
     "form": {
       "actions": {

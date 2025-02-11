@@ -8,6 +8,7 @@ import {
   DebouncedInput,
 } from "@dzangolab/react-ui";
 import { FilterFunction } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import {
   HORIZONTAL_CSS_CODE,
@@ -26,6 +27,7 @@ declare module "@dzangolab/react-ui" {
 
 export const TableDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   const columns: Array<TableColumnDefinition<any>> = [
     {
@@ -80,7 +82,18 @@ export const TableDemo = () => {
   };
 
   return (
-    <Page title={t("table.title")} className="demo-data-tables-page">
+    <Page
+      title={t("table.title")}
+      className="demo-data-tables-page"
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("table.usage.basic")}>
         <TDataTable
           columns={columns}

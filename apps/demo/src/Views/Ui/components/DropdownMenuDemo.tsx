@@ -1,10 +1,12 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { DropdownMenu, Page } from "@dzangolab/react-ui";
+import { Button, DropdownMenu, Page } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../components/Demo";
 
 export const DropdownMenuDemo = () => {
   const [t] = useTranslation(["ui", "user"]);
+  const navigate = useNavigate();
 
   const menuItems = [
     {
@@ -30,7 +32,17 @@ export const DropdownMenuDemo = () => {
   };
 
   return (
-    <Page title={t("dropdownMenu.title")}>
+    <Page
+      title={t("dropdownMenu.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("dropdownMenu.usage.leftAlign")}>
         <DropdownMenu
           label={t("dropdownMenu.label.setting")}

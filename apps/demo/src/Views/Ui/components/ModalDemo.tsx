@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Button, Modal, Page } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../components/Demo";
 
@@ -16,9 +17,20 @@ export const ModalDemo = () => {
   const [isOpen3, setIsOpen3] = useState<boolean>(false);
 
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("modal.title")}>
+    <Page
+      title={t("modal.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("modal.usage.withoutHeader")}>
         <Button
           label={t("modal.showButton")}

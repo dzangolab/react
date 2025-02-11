@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Select, Page } from "@dzangolab/react-ui";
+import { Select, Page, Button } from "@dzangolab/react-ui";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Section } from "../../../../components/Demo";
 
@@ -12,6 +13,7 @@ type Option = {
 
 export const SelectDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   const [multiselectValue, setMultiselectValue] = useState<string | string[]>(
     [],
@@ -55,7 +57,17 @@ export const SelectDemo = () => {
   };
 
   return (
-    <Page title={t("select.title")}>
+    <Page
+      title={t("select.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section>
         <Select
           label={t("select.label.single")}

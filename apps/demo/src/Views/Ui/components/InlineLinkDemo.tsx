@@ -1,5 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, InlineLink, TDataTable } from "@dzangolab/react-ui";
+import { Page, InlineLink, TDataTable, Button } from "@dzangolab/react-ui";
+import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
@@ -46,9 +47,20 @@ const data = [
 
 export const InlineLinkDemo = () => {
   const [t] = useTranslation("ui");
+  const navigate = useNavigate();
 
   return (
-    <Page title={t("inlineLink.title")}>
+    <Page
+      title={t("inlineLink.title")}
+      toolbar={
+        <Button
+          label={t("buttons.back")}
+          variant="textOnly"
+          iconLeft={<i className="pi pi-chevron-left"></i>}
+          onClick={() => navigate("..")}
+        />
+      }
+    >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Inline link" })}</p>
         <CodeBlock exampleCode="import { InlineLink } from 'dzangolab/react-ui';" />

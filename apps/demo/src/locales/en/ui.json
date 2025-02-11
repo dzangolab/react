@@ -1,4 +1,7 @@
 {
+  "buttons": {
+    "back": "Back"
+  },
   "common": {
     "usage": "To use the {{component}} component, simply import it into your React file:"
   },
@@ -65,10 +68,12 @@
   },
   "data": {
     "title": "Data",
-    "subtitle": "The Data component is a reusable React component designed to display a labeled value. It supports both static values and dynamic values derived from object properties using a dataKey.",
+    "subtitle": "The Data component is a reusable React component designed to display a labeled value.",
     "usage": {
       "basic": "Basic",
+      "mode": "Stat mode",
       "displayObject": "Display value from object",
+      "structuredData": "Rendering structured data",
       "example": "Example"
     }
   },
