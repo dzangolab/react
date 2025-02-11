@@ -93,7 +93,7 @@ export const DataDemo = () => {
       </Section>
 
       <Section title={t("data.usage.mode")}>
-        <div className="data-group">
+        <div className="data-stat-group">
           <Data caption="Visitors" value="3,825" mode="stat" />
           <Data caption="Revenue" value="$1,030,217" mode="stat" />
         </div>

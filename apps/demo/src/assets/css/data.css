@@ -1,4 +1,5 @@
-.demo-data-component .demo-section .demo-section-content .data-group {
+.demo .data-stat-group {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
