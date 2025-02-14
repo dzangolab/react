@@ -126,7 +126,7 @@ export const Select = <T extends string | number>({
   };
 
   const handleRemoveOption = (
-    option: T | T[] | undefined,
+    option: T | undefined,
     event: React.MouseEvent,
   ) => {
     event.stopPropagation();
