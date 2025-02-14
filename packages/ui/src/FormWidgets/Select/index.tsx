@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { Tag } from "../../Tag";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
@@ -11,6 +10,7 @@ type Option<T> = {
 };
 
 type ISelectProperties<T> = {
+  allowRemoveOption?: boolean;
   autoSelectSingleOption?: boolean;
   className?: string;
   disabled?: boolean;
@@ -41,6 +41,7 @@ type ISelectProperties<T> = {
 );
 
 export const Select = <T extends string | number>({
+  allowRemoveOption = true,
   autoSelectSingleOption = false,
   className = "",
   disabled: selectFieldDisabled,
@@ -126,23 +127,18 @@ export const Select = <T extends string | number>({
   };
 
   const handleRemoveOption = (
-    option: T | undefined,
+    option: T | T[] | undefined,
     event: React.MouseEvent,
   ) => {
     event.stopPropagation();
 
     if (multiple) {
-      const updatedOptions = value.filter((_value) => _value !== option);
-
-      onChange(updatedOptions);
-
-      if (updatedOptions.length === 0) {
-        setShowOptions(false);
-      }
+      onChange([]);
     } else {
       onChange(option as T);
-      setShowOptions(false);
     }
+
+    setShowOptions(false);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -222,36 +218,26 @@ export const Select = <T extends string | number>({
       const selectedOption = options.find((opt) => opt.value === value);
 
       return multiple ? (
-        <div className="selected-options">
-          {value.map((_value, index) => {
-            const option = options.find((opt) => opt.value === _value);
-            if (!option) return null;
-
-            return (
-              <Tag
-                key={index}
-                renderContent={() => (
-                  <>
-                    <span>{option.label}</span>
-                    {!disabled && (
-                      <i
-                        className="pi pi-times"
-                        onClick={(event) =>
-                          handleRemoveOption(option.value, event)
-                        }
-                      ></i>
-                    )}
-                  </>
-                )}
-                rounded
-              />
-            );
-          })}
-        </div>
+        <>
+          <div className="selected-options">
+            {value
+              .map(
+                (_value) => options.find((opt) => opt.value === _value)?.label,
+              )
+              .filter((label) => label !== undefined)
+              .join(", ")}
+          </div>
+          {!disabled && allowRemoveOption && (
+            <i
+              className="pi pi-times"
+              onClick={(event) => handleRemoveOption(value, event)}
+            ></i>
+          )}
+        </>
       ) : (
         <>
-          <span>{selectedOption?.label}</span>
-          {selectedOption && !disabled && (
+          <span className="selected-option">{selectedOption?.label}</span>
+          {selectedOption && !disabled && allowRemoveOption && (
             <i
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(undefined, event)}
