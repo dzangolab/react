@@ -220,15 +220,12 @@ export const Select = <T extends string | number>({
       return multiple ? (
         <>
           <div className="selected-options">
-            <span>
-              {value
-                .map(
-                  (_value) =>
-                    options.find((opt) => opt.value === _value)?.label,
-                )
-                .filter((label) => label !== undefined)
-                .join(", ")}
-            </span>
+            {value
+              .map(
+                (_value) => options.find((opt) => opt.value === _value)?.label,
+              )
+              .filter((label) => label !== undefined)
+              .join(", ")}
           </div>
           {!disabled && allowRemoveOption && (
             <i
