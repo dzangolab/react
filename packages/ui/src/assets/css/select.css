@@ -5,6 +5,7 @@
   --_field-error-message-color: var(--error-message-color);
   --field-option-disabled-color: #7b7676;
   --field-option-hover-color: #e5e5e5;
+  --field-option-selected-color: #e5e5e5;
 }
 
 .select {
@@ -109,7 +110,7 @@
 }
 
 .select ul > li.selected {
-  font-weight: bold;
+  background-color: var(--field-option-selected-color);
 }
 
 .select ul > li.disabled {
