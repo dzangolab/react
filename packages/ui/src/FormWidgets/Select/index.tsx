@@ -223,30 +223,14 @@ export const Select = <T extends string | number>({
 
       return multiple ? (
         <div className="selected-options">
-          {value.map((_value, index) => {
-            const option = options.find((opt) => opt.value === _value);
-            if (!option) return null;
-
-            return (
-              <Tag
-                key={index}
-                renderContent={() => (
-                  <>
-                    <span>{option.label}</span>
-                    {!disabled && (
-                      <i
-                        className="pi pi-times"
-                        onClick={(event) =>
-                          handleRemoveOption(option.value, event)
-                        }
-                      ></i>
-                    )}
-                  </>
-                )}
-                rounded
-              />
-            );
-          })}
+          <span>
+            {value
+              .map(
+                (_value) => options.find((opt) => opt.value === _value)?.label,
+              )
+              .filter((label) => label !== undefined)
+              .join(", ")}
+          </span>
         </div>
       ) : (
         <>
