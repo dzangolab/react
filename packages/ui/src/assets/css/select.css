@@ -9,6 +9,8 @@
 }
 
 .select {
+  display: block;
+  max-width: 500px;
   position: relative;
   width: 100%;
 }
@@ -19,9 +21,11 @@
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   min-height: 45px;
+  overflow: hidden;
   padding: 0.5rem 0.65rem;
+  width: 100%;
 }
 
 .select > .label-container.focused {
@@ -57,11 +61,13 @@
   right: 0;
 }
 
-.select > .label-container .selected-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 95%;
+.select > .label-container .selected-options, 
+.select > .label-container .selected-option {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: auto;
+  margin-right: 3rem;
 }
 
 .select > .label-container .selected-options > .dz-tag > i {
@@ -143,4 +149,10 @@
   display: inline-block;
   font-size: 0.8em;
   margin-top: 0.75rem;
+}
+
+@media screen and (min-width: 576px) {
+.select {
+    max-width: 100%;
+  }
 }
