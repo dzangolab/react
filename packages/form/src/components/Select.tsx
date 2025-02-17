@@ -11,7 +11,7 @@ type Option = {
 };
 
 interface ISelect {
-  allowRemoveOption?: boolean;
+  allowClearSelection?: boolean;
   autoSelectSingleOption?: boolean;
   className?: string;
   disabled?: boolean;
@@ -33,7 +33,7 @@ interface ISelect {
 }
 
 export const Select: React.FC<ISelect> = ({
-  allowRemoveOption = true,
+  allowClearSelection = true,
   autoSelectSingleOption = false,
   className,
   disabled,
@@ -78,7 +78,7 @@ export const Select: React.FC<ISelect> = ({
       defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
-          allowRemoveOption={allowRemoveOption}
+          allowClearSelection={allowClearSelection}
           autoSelectSingleOption={autoSelectSingleOption}
           className={className}
           helperText={helperText}

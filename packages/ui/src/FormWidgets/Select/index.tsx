@@ -10,7 +10,7 @@ type Option<T> = {
 };
 
 type ISelectProperties<T> = {
-  allowRemoveOption?: boolean;
+  allowClearSelection?: boolean;
   autoSelectSingleOption?: boolean;
   className?: string;
   disabled?: boolean;
@@ -41,7 +41,7 @@ type ISelectProperties<T> = {
 );
 
 export const Select = <T extends string | number>({
-  allowRemoveOption = true,
+  allowClearSelection = true,
   autoSelectSingleOption = false,
   className = "",
   disabled: selectFieldDisabled,
@@ -227,7 +227,7 @@ export const Select = <T extends string | number>({
               .filter((label) => label !== undefined)
               .join(", ")}
           </div>
-          {!disabled && allowRemoveOption && (
+          {!disabled && allowClearSelection && (
             <i
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(value, event)}
@@ -237,7 +237,7 @@ export const Select = <T extends string | number>({
       ) : (
         <>
           <span className="selected-option">{selectedOption?.label}</span>
-          {selectedOption && !disabled && allowRemoveOption && (
+          {selectedOption && !disabled && allowClearSelection && (
             <i
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(undefined, event)}
