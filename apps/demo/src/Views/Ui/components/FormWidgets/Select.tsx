@@ -555,6 +555,18 @@ const [selectedValue, setSelectedValue] = useState<string>("");
           paginated={false}
         />
       </Section>
+
+      <Section title="Type">
+        <CodeBlock
+          exampleCode="
+type Option<T extends string | number> = {
+  disabled?: boolean;
+  label: string;
+  value: T;
+};
+"
+        />
+      </Section>
     </Page>
   );
 };
