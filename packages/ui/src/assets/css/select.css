@@ -5,9 +5,11 @@
   --_field-error-message-color: var(--error-message-color);
   --field-option-disabled-color: #7b7676;
   --field-option-hover-color: #e5e5e5;
+  --field-option-selected-color: #e5e5e5;
 }
 
 .select {
+  display: inline-block;
   position: relative;
   width: 100%;
 }
@@ -18,9 +20,10 @@
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   min-height: 45px;
   padding: 0.5rem 0.65rem;
+  justify-content: space-between;
 }
 
 .select > .label-container.focused {
@@ -43,7 +46,7 @@
 .select > .label-container > i {
   color: var(--field-icon-color);
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   position: absolute;
   right: 2.5rem;
 }
@@ -51,16 +54,16 @@
 .select > .label-container .menu-trigger {
   color: var(--field-icon-color);
   cursor: pointer;
-  padding: 0.75rem;
-  position: absolute;
-  right: 0;
+  min-width: 1.5rem;
 }
 
-.select > .label-container .selected-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 95%;
+.select > .label-container .selected-options, 
+.select > .label-container .selected-option,
+.select > .label-container .placeholder {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 2rem;
 }
 
 .select > .label-container .selected-options > .dz-tag > i {
@@ -109,7 +112,7 @@
 }
 
 .select ul > li.selected {
-  font-weight: bold;
+  background-color: var(--field-option-selected-color);
 }
 
 .select ul > li.disabled {
