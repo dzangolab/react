@@ -309,8 +309,8 @@
   },
   "select": {
     "label": "language (fr)",
-    "multisSlectPlaceholder": "Select languages",
-    "placeholder": "-- select value -- (fr)",
+    "multisSlectPlaceholder": "Select languages (fr)",
+    "placeholder": "Select a language (fr)",
     "searchPlaceholder": "Search... (fr)",
     "title": "Select (fr)",
     "usage": {

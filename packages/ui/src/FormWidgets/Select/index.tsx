@@ -10,7 +10,6 @@ type Option<T> = {
 };
 
 type ISelectProperties<T> = {
-  allowClearSelection?: boolean;
   autoSelectSingleOption?: boolean;
   className?: string;
   disabled?: boolean;
@@ -25,6 +24,7 @@ type ISelectProperties<T> = {
   options: Option<T>[];
   placeholder?: string;
   searchPlaceholder?: string;
+  showRemoveSelection?: boolean;
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
 } & (
@@ -41,7 +41,6 @@ type ISelectProperties<T> = {
 );
 
 export const Select = <T extends string | number>({
-  allowClearSelection = true,
   autoSelectSingleOption = false,
   className = "",
   disabled: selectFieldDisabled,
@@ -56,6 +55,7 @@ export const Select = <T extends string | number>({
   options,
   placeholder,
   searchPlaceholder,
+  showRemoveSelection = true,
   value,
   renderOption,
   renderValue,
@@ -227,7 +227,7 @@ export const Select = <T extends string | number>({
               .filter((label) => label !== undefined)
               .join(", ")}
           </div>
-          {!disabled && allowClearSelection && (
+          {!disabled && showRemoveSelection && (
             <i
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(value, event)}
@@ -237,7 +237,7 @@ export const Select = <T extends string | number>({
       ) : (
         <>
           <span className="selected-option">{selectedOption?.label}</span>
-          {selectedOption && !disabled && allowClearSelection && (
+          {selectedOption && !disabled && showRemoveSelection && (
             <i
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(undefined, event)}

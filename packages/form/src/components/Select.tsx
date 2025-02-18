@@ -11,7 +11,6 @@ type Option = {
 };
 
 interface ISelect {
-  allowClearSelection?: boolean;
   autoSelectSingleOption?: boolean;
   className?: string;
   disabled?: boolean;
@@ -22,9 +21,10 @@ interface ISelect {
   name: string;
   options: Option[];
   placeholder?: string;
-  submitCount?: number;
+  showRemoveSelection?: boolean;
   showValidState?: boolean;
   showInvalidState?: boolean;
+  submitCount?: number;
   renderOption?: (option: Option) => React.ReactNode;
   renderValue?: (
     value?: Value | Value[],
@@ -33,7 +33,6 @@ interface ISelect {
 }
 
 export const Select: React.FC<ISelect> = ({
-  allowClearSelection = true,
   autoSelectSingleOption = false,
   className,
   disabled,
@@ -44,9 +43,10 @@ export const Select: React.FC<ISelect> = ({
   name,
   options,
   placeholder,
-  submitCount = 0,
+  showRemoveSelection = true,
   showInvalidState = true,
   showValidState = true,
+  submitCount = 0,
   renderOption,
   renderValue,
 }) => {
@@ -78,7 +78,7 @@ export const Select: React.FC<ISelect> = ({
       defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
-          allowClearSelection={allowClearSelection}
+          showRemoveSelection={showRemoveSelection}
           autoSelectSingleOption={autoSelectSingleOption}
           className={className}
           helperText={helperText}
