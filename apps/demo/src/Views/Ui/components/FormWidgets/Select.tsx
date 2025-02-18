@@ -102,7 +102,7 @@ const data = [
   {
     id: 13,
     prop: "options",
-    type: "Option<T>[]",
+    type: "Option[]",
     default: "-",
     description: "Options to pass in the select component.",
   },
@@ -123,21 +123,21 @@ const data = [
   {
     id: 16,
     prop: "value",
-    type: "T | T[]",
+    type: "Value",
     default: "-",
     description: "Selected values of the component.",
   },
   {
     id: 17,
     prop: "renderOption",
-    type: "(option: Option<T>) => React.ReactNode",
+    type: "(option: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select options.",
   },
   {
     id: 18,
     prop: "renderValue",
-    type: "(value?: T | T[], options?: Option<T>[]) => React.ReactNode",
+    type: "(value?: Value, options?: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select value.",
   },
@@ -564,6 +564,8 @@ type Option<T extends string | number> = {
   label: string;
   value: T;
 };
+
+type Value = string | number | (string | number)[]
 "
         />
       </Section>
