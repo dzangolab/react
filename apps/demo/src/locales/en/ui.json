@@ -322,7 +322,6 @@
       "renderOption": "Select with custom option",
       "renderValue": "Select with custom selected value",
       "search": "Select with search",
-      "language": "Language",
       "singleSearch": "Single select with search"
     }
   },

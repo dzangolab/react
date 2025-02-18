@@ -308,7 +308,7 @@
     }
   },
   "select": {
-    "label": "language",
+    "label": "language (fr)",
     "multisSlectPlaceholder": "Select languages",
     "placeholder": "-- select value -- (fr)",
     "searchPlaceholder": "Search... (fr)",
