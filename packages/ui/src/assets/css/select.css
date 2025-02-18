@@ -9,8 +9,7 @@
 }
 
 .select {
-  display: block;
-  max-width: 500px;
+  display: inline-block;
   position: relative;
   width: 100%;
 }
@@ -23,9 +22,8 @@
   display: flex;
   flex-wrap: nowrap;
   min-height: 45px;
-  overflow: hidden;
   padding: 0.5rem 0.65rem;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .select > .label-container.focused {
@@ -56,18 +54,16 @@
 .select > .label-container .menu-trigger {
   color: var(--field-icon-color);
   cursor: pointer;
-  padding: 0.75rem;
-  position: absolute;
-  right: 0;
+  min-width: 1.5rem;
 }
 
 .select > .label-container .selected-options, 
-.select > .label-container .selected-option {
+.select > .label-container .selected-option,
+.select > .label-container .placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: auto;
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
 .select > .label-container .selected-options > .dz-tag > i {
@@ -149,10 +145,4 @@
   display: inline-block;
   font-size: 0.8em;
   margin-top: 0.75rem;
-}
-
-@media screen and (min-width: 576px) {
-.select {
-    max-width: 100%;
-  }
 }

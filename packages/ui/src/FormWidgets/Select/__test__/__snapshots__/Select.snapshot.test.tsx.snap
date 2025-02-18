@@ -1,0 +1,304 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Select Component > should render correctly when auto-select single option is enabled 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        class="label-container"
+        tabindex="0"
+      >
+        <span
+          class="selected-option"
+        >
+          Nepali
+        </span>
+        <i
+          class="pi pi-times"
+        />
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly when disabled 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        class="label-container disabled"
+        tabindex="0"
+      >
+        <span
+          class="selected-option"
+        >
+          English
+        </span>
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly when hide if single option is enabled 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        class="label-container"
+        tabindex="0"
+      >
+        <span
+          class="selected-option"
+        >
+          Nepali
+        </span>
+        <i
+          class="pi pi-times"
+        />
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly with a placeholder 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        class="label-container"
+        tabindex="0"
+      >
+        <span
+          class="placeholder"
+        >
+          Select a language
+        </span>
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly with an error message 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        aria-invalid="true"
+        class="label-container"
+        tabindex="0"
+      >
+        <span
+          class="selected-option"
+        >
+          English
+        </span>
+        <i
+          class="pi pi-times"
+        />
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+    <span
+      class="error-message"
+    >
+      This field is required
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly with helper text 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        class="label-container"
+        tabindex="0"
+      >
+        <span
+          class="selected-option"
+        >
+          Nepali
+        </span>
+        <i
+          class="pi pi-times"
+        />
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+    <span
+      class="helper-text"
+    >
+      Please select an option
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly with multiple selection 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      aria-multiselectable="true"
+      class="select"
+    >
+      <div
+        class="label-container"
+        tabindex="0"
+      >
+        <div
+          class="selected-options"
+        >
+          Nepali, English
+        </div>
+        <i
+          class="pi pi-times"
+        />
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly with search enabled 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        class="label-container"
+        tabindex="0"
+      >
+        <span
+          class="selected-option"
+        >
+          Nepali
+        </span>
+        <i
+          class="pi pi-times"
+        />
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Component > should render correctly with single selection 1`] = `
+<div>
+  <div
+    class="field"
+  >
+    <div
+      class="select"
+    >
+      <div
+        class="label-container"
+        tabindex="0"
+      >
+        <span
+          class="selected-option"
+        >
+          English
+        </span>
+        <i
+          class="pi pi-times"
+        />
+        <span
+          class="menu-trigger"
+        >
+          <i
+            class="pi pi-chevron-down"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
