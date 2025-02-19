@@ -21,9 +21,10 @@ interface ISelect {
   name: string;
   options: Option[];
   placeholder?: string;
-  submitCount?: number;
+  showRemoveSelection?: boolean;
   showValidState?: boolean;
   showInvalidState?: boolean;
+  submitCount?: number;
   renderOption?: (option: Option) => React.ReactNode;
   renderValue?: (
     value?: Value | Value[],
@@ -42,9 +43,10 @@ export const Select: React.FC<ISelect> = ({
   name,
   options,
   placeholder,
-  submitCount = 0,
+  showRemoveSelection = true,
   showInvalidState = true,
   showValidState = true,
+  submitCount = 0,
   renderOption,
   renderValue,
 }) => {
@@ -76,6 +78,7 @@ export const Select: React.FC<ISelect> = ({
       defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
+          showRemoveSelection={showRemoveSelection}
           autoSelectSingleOption={autoSelectSingleOption}
           className={className}
           helperText={helperText}
