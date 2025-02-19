@@ -308,7 +308,12 @@
     }
   },
   "select": {
-    "label": {
+    "label": "language (fr)",
+    "multisSlectPlaceholder": "Select languages (fr)",
+    "placeholder": "Select a language (fr)",
+    "searchPlaceholder": "Search... (fr)",
+    "title": "Select (fr)",
+    "usage": {
       "disabled": "Disabled (fr)",
       "invalid": "Invalid (fr)",
       "multiple": "Multiple select (fr)",
@@ -318,10 +323,7 @@
       "search": "Select with search (fr)",
       "single": "Single select (fr)",
       "singleSearch": "Single select with search (fr)"
-    },
-    "placeholder": "-- select value -- (fr)",
-    "searchPlaceholder": "Search... (fr)",
-    "title": "Select (fr)"
+    }
   },
   "switchInput": {
     "basic": "Basic (fr)",
