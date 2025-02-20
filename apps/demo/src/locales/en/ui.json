@@ -308,7 +308,13 @@
     }
   },
   "select": {
-    "label": {
+    "label": "language",
+    "multisSlectPlaceholder": "Select languages",
+    "placeholder": "Select a language",
+    "searchPlaceholder": "Search...",
+    "title": "Select",
+    "usage": {
+      "basic": "Basic",
       "disabled": "Disabled",
       "invalid": "Invalid",
       "multiple": "Multiple select",
@@ -316,12 +322,8 @@
       "renderOption": "Select with custom option",
       "renderValue": "Select with custom selected value",
       "search": "Select with search",
-      "single": "Single select",
       "singleSearch": "Single select with search"
-    },
-    "placeholder": "-- select value --",
-    "searchPlaceholder": "Search...",
-    "title": "Select"
+    }
   },
   "switchInput": {
     "basic": "Basic",
