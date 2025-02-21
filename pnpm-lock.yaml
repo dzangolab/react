@@ -303,7 +303,7 @@ importers:
         version: 8.24.1(eslint@8.57.1)(typescript@5.7.3)
       '@vitejs/plugin-react':
         specifier: 4.3.4
-        version: 4.3.4(vite@5.4.11(@types/node@22.13.4)(terser@5.36.0))
+        version: 4.3.4(vite@6.1.0(@types/node@22.13.4)(jiti@1.21.6)(terser@5.36.0))
       '@vitest/coverage-v8':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.9(@types/node@22.13.4)(jsdom@25.0.1)(terser@5.36.0))
@@ -350,8 +350,8 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
       vite:
-        specifier: 5.4.11
-        version: 5.4.11(@types/node@22.13.4)(terser@5.36.0)
+        specifier: 6.1.0
+        version: 6.1.0(@types/node@22.13.4)(jiti@1.21.6)(terser@5.36.0)
       vitest:
         specifier: 2.1.9
         version: 2.1.9(@types/node@22.13.4)(jsdom@25.0.1)(terser@5.36.0)
@@ -8562,17 +8562,6 @@ snapshots:
       eslint-visitor-keys: 4.2.0
 
   '@ungap/structured-clone@1.2.0': {}
-
-  '@vitejs/plugin-react@4.3.4(vite@5.4.11(@types/node@22.13.4)(terser@5.36.0))':
-    dependencies:
-      '@babel/core': 7.26.0
-      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
-      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
-      '@types/babel__core': 7.20.5
-      react-refresh: 0.14.2
-      vite: 5.4.11(@types/node@22.13.4)(terser@5.36.0)
-    transitivePeerDependencies:
-      - supports-color
 
   '@vitejs/plugin-react@4.3.4(vite@5.4.11(@types/node@22.8.1)(terser@5.36.0))':
     dependencies:
