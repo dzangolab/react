@@ -2,12 +2,13 @@
   "name": "@dzangolab/react-user",
   "version": "0.55.0",
   "description": "React User Plugin",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/DzangolabReactUser.es.js",
       "require": "./dist/DzangolabReactUser.umd.js"
     },
-    "./dist/DzangolabReactUser.css": "./dist/style.css"
+    "./dist/DzangolabReactUser.css": "./dist/react-user.css"
   },
   "main": "dist//DzangolabReactUser.umd.js",
   "module": "dist//DzangolabReactUser.es.js",
@@ -64,7 +65,7 @@
     "react-router-dom": "6.28.0",
     "react-toastify": "10.0.6",
     "typescript": "5.7.3",
-    "vite": "5.4.11",
+    "vite": "6.1.0",
     "vitest": "2.1.9"
   },
   "peerDependencies": {
