@@ -270,7 +270,7 @@ importers:
     devDependencies:
       '@12deg/eslint-config':
         specifier: 0.1.11
-        version: 0.1.11(@typescript-eslint/eslint-plugin@8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3))(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.7.3))(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.0))(eslint-import-resolver-typescript@3.8.2)(eslint@8.57.1)(typescript@5.7.3))(eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.31.0))(eslint-import-resolver-typescript@3.8.2)(eslint-plugin-cypress@3.6.0(eslint@8.57.1))(eslint-plugin-import@2.31.0)(eslint-plugin-prettier@5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.1))(eslint-plugin-unicorn@56.0.1(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.1)(typescript@5.7.3)
+        version: 0.1.11(@typescript-eslint/eslint-plugin@8.24.1(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3))(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3))(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3))(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@1.21.6)))(eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.26.0(@babel/core@7.26.0))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.0))(eslint-import-resolver-typescript@3.8.2)(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3))(eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.31.0))(eslint-import-resolver-typescript@3.8.2)(eslint-plugin-cypress@3.6.0(eslint@9.20.1(jiti@1.21.6)))(eslint-plugin-import@2.31.0)(eslint-plugin-prettier@5.2.3(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@1.21.6)))(eslint@9.20.1(jiti@1.21.6))(prettier@3.5.1))(eslint-plugin-unicorn@56.0.1(eslint@9.20.1(jiti@1.21.6)))(eslint@9.20.1(jiti@1.21.6))(prettier@3.5.1)(typescript@5.7.3)
       '@12deg/tsconfig':
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.4)
@@ -297,10 +297,10 @@ importers:
         version: 13.12.2
       '@typescript-eslint/eslint-plugin':
         specifier: 8.24.1
-        version: 8.24.1(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
+        version: 8.24.1(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3))(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3)
       '@typescript-eslint/parser':
         specifier: 8.24.1
-        version: 8.24.1(eslint@8.57.1)(typescript@5.7.3)
+        version: 8.24.1(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3)
       '@vitejs/plugin-react':
         specifier: 4.3.4
         version: 4.3.4(vite@6.1.0(@types/node@22.13.4)(jiti@1.21.6)(terser@5.36.0))
@@ -308,29 +308,29 @@ importers:
         specifier: 3.0.5
         version: 3.0.5(vitest@3.0.5(@types/node@22.13.4)(jiti@1.21.6)(jsdom@25.0.1)(terser@5.36.0))
       eslint:
-        specifier: 8.57.1
-        version: 8.57.1
+        specifier: 9.20.1
+        version: 9.20.1(jiti@1.21.6)
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 10.0.1
+        version: 10.0.1(eslint@9.20.1(jiti@1.21.6))
       eslint-import-resolver-alias:
         specifier: 1.1.2
         version: 1.1.2(eslint-plugin-import@2.31.0)
       eslint-import-resolver-typescript:
         specifier: 3.8.2
-        version: 3.8.2(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+        version: 3.8.2(eslint-plugin-import@2.31.0)(eslint@9.20.1(jiti@1.21.6))
       eslint-plugin-import:
         specifier: 2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.2)(eslint@8.57.1)
+        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.2)(eslint@9.20.1(jiti@1.21.6))
       eslint-plugin-prettier:
         specifier: 5.2.3
-        version: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.1)
+        version: 5.2.3(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@1.21.6)))(eslint@9.20.1(jiti@1.21.6))(prettier@3.5.1)
       eslint-plugin-react:
         specifier: 7.37.4
-        version: 7.37.4(eslint@8.57.1)
+        version: 7.37.4(eslint@9.20.1(jiti@1.21.6))
       eslint-plugin-unicorn:
         specifier: 56.0.1
-        version: 56.0.1(eslint@8.57.1)
+        version: 56.0.1(eslint@9.20.1(jiti@1.21.6))
       jsdom:
         specifier: 25.0.1
         version: 25.0.1
@@ -7617,7 +7617,7 @@ snapshots:
   '@eslint/config-array@0.19.2':
     dependencies:
       '@eslint/object-schema': 2.1.6
-      debug: 4.3.7
+      debug: 4.4.0
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -7643,7 +7643,7 @@ snapshots:
   '@eslint/eslintrc@3.2.0':
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.7
+      debug: 4.4.0
       espree: 10.3.0
       globals: 14.0.0
       ignore: 5.3.2
@@ -10886,7 +10886,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
-      debug: 4.3.7
+      debug: 4.4.0
       escape-string-regexp: 4.0.0
       eslint-scope: 8.2.0
       eslint-visitor-keys: 4.2.0
