@@ -26,11 +26,13 @@ export default defineConfig(({ mode }) => {
           exports: "named",
           globals: {
             "@dzangolab/react-config": "DzangolabReactConfig",
+            "@dzangolab/react-ui": "DzangolabReactUi",
             "@hookform/error-message": "HookFormErrorMessage",
             "@hookform/resolvers": "HookFormResolvers",
             react: "React",
             "react-debounce-input": "ReactDebounceInput",
             "react-dom": "ReactDom",
+            "react-dropzone": "reactDropzone",
             "react-hook-form": "ReactHookForm",
             "react-router-dom": "ReactRouterDom",
             validator: "Validator",
