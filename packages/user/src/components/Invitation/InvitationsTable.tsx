@@ -9,7 +9,6 @@ import {
   Tag,
   formatDateTime,
 } from "@dzangolab/react-ui";
-import { useCallback } from "react";
 import { toast } from "react-toastify";
 
 import {
@@ -260,7 +259,7 @@ export const InvitationsTable = ({
     },
   ];
 
-  const renderToolbar = useCallback(() => {
+  const renderToolbar = () => {
     if (showInviteAction) {
       return (
         <div className="table-actions">
@@ -276,7 +275,7 @@ export const InvitationsTable = ({
         </div>
       );
     }
-  }, [showInviteAction]);
+  };
 
   return (
     <DataTable
