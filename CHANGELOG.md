@@ -1,3 +1,18 @@
+# [0.56.0](https://github.com/dzangolab/react/compare/v0.55.0...v0.56.0) (2025-03-04)
+
+
+### Bug Fixes
+
+* **ui:** improve select componenet ui ([#1387](https://github.com/dzangolab/react/issues/1387)) ([3ebbc4e](https://github.com/dzangolab/react/commit/3ebbc4e0b56326e7fd05abec68e0085a0ed361c2))
+* **user:** fix app and role fields not rendering in invitation form ([#1418](https://github.com/dzangolab/react/issues/1418)) ([ec18e3f](https://github.com/dzangolab/react/commit/ec18e3f579d767ab4c200453a7721b3e849585a9))
+
+
+### Features
+
+* **ui:** update data component to support dashboard/statistics style  ([#1381](https://github.com/dzangolab/react/issues/1381)) ([6861134](https://github.com/dzangolab/react/commit/6861134f4620d880f5c86fcea0c6210a6c963315))
+
+
+
 # [0.55.0](https://github.com/dzangolab/react/compare/v0.54.0...v0.55.0) (2025-02-07)
 
 
