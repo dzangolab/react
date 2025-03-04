@@ -1,6 +1,6 @@
 {
   "name": "@dzangolab/react-user",
-  "version": "0.55.0",
+  "version": "0.56.0",
   "description": "React User Plugin",
   "type": "module",
   "exports": {
@@ -13,7 +13,9 @@
   "main": "dist//DzangolabReactUser.umd.js",
   "module": "dist//DzangolabReactUser.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
@@ -33,10 +35,10 @@
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
     "@12deg/tsconfig": "0.1.11",
-    "@dzangolab/react-form": "0.55.0",
-    "@dzangolab/react-i18n": "0.55.0",
-    "@dzangolab/react-layout": "0.55.0",
-    "@dzangolab/react-ui": "0.55.0",
+    "@dzangolab/react-form": "0.56.0",
+    "@dzangolab/react-i18n": "0.56.0",
+    "@dzangolab/react-layout": "0.56.0",
+    "@dzangolab/react-ui": "0.56.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.2.0",
     "@testing-library/user-event": "14.6.1",
@@ -69,10 +71,10 @@
     "vitest": "2.1.8"
   },
   "peerDependencies": {
-    "@dzangolab/react-form": "0.55.0",
-    "@dzangolab/react-i18n": "0.55.0",
-    "@dzangolab/react-layout": "0.55.0",
-    "@dzangolab/react-ui": "0.55.0",
+    "@dzangolab/react-form": "0.56.0",
+    "@dzangolab/react-i18n": "0.56.0",
+    "@dzangolab/react-layout": "0.56.0",
+    "@dzangolab/react-ui": "0.56.0",
     "axios": "1.7.9",
     "primeicons": "7.0.0",
     "react": ">=18.2",
