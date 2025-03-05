@@ -135,7 +135,7 @@ export const Select = <T extends string | number>({
     if (multiple) {
       onChange([]);
     } else {
-      onChange(option as T);
+      onChange(null as any); // eslint-disable-line @typescript-eslint/no-explicit-any
     }
 
     setShowOptions(false);
