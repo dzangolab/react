@@ -1,3 +1,12 @@
+## [0.56.1](https://github.com/dzangolab/react/compare/v0.56.0...v0.56.1) (2025-03-07)
+
+
+### Bug Fixes
+
+* **ui:** update handleRemoveOption callback ([#1420](https://github.com/dzangolab/react/issues/1420)) ([fe7e390](https://github.com/dzangolab/react/commit/fe7e3904cb10fbd1afdfb9d0a85f7dbb0abbccc5))
+
+
+
 # [0.56.0](https://github.com/dzangolab/react/compare/v0.55.0...v0.56.0) (2025-03-04)
 
 
