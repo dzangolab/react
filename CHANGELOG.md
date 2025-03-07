@@ -1,3 +1,12 @@
+## [0.56.2](https://github.com/dzangolab/react/compare/v0.56.1...v0.56.2) (2025-03-07)
+
+
+### Bug Fixes
+
+* **ui:** use default export of file-saver ([#1425](https://github.com/dzangolab/react/issues/1425)) ([9c030fd](https://github.com/dzangolab/react/commit/9c030fdf0c7a5b9f603231e0e66cc5dd95b9ee85))
+
+
+
 ## [0.56.1](https://github.com/dzangolab/react/compare/v0.56.0...v0.56.1) (2025-03-07)
 
 
