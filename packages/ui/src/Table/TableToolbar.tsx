@@ -5,7 +5,7 @@ import { Popup } from "../Popup";
 import { SortableList } from "../SortableList";
 
 import type { TDataTableProperties } from "./types";
-import type { Table } from "@tanstack/react-table";
+import type { RowData, Table } from "@tanstack/react-table";
 
 interface TToolbar<T>
   extends Pick<
@@ -22,7 +22,7 @@ interface TToolbar<T>
   table: Table<T>;
 }
 
-export const TableToolbar = <TData extends { id: string | number }>({
+export const TableToolbar = <TData extends RowData>({
   columnActionButtonLabel,
   dataActionsMenu,
   enableRowSelection,

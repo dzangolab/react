@@ -17,7 +17,7 @@ export interface DataActionsMenuItem
 
 export interface DataActionsMenuProperties<TData> {
   actions?: DataActionsMenuItem[];
-  data?: object;
+  data?: TData;
   displayActionMenu?: boolean;
   displayActions?: boolean | ((data: TData) => boolean);
 }

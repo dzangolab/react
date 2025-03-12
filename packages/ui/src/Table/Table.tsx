@@ -34,9 +34,9 @@ import LoadingIcon from "../LoadingIcon";
 import { Pagination } from "../Pagination";
 
 import type { PersistentTableState, TDataTableProperties } from "./types";
-import type { ColumnDef } from "@tanstack/react-table";
+import type { ColumnDef, RowData } from "@tanstack/react-table";
 
-const DataTable = <TData extends { id: string | number }>({
+const DataTable = <TData extends RowData>({
   className = "",
   columnActionBtnLabel: columnActionButtonLabel = "Columns",
   columns = [],
@@ -45,22 +45,17 @@ const DataTable = <TData extends { id: string | number }>({
   dataActionsMenu,
   emptyTableMessage,
   enableRowSelection = false,
-  fetchData,
   id,
   initialFilters = [],
   initialSorting = [],
   inputDebounceTime,
   isLoading = false,
-  onRowSelectChange,
   paginated = true,
   paginationOptions,
   persistState = false,
   persistStateStorage = "localStorage",
-  renderCustomPagination,
-  renderSortIcons,
-  renderTableFooterContent,
-  renderToolbarItems,
   resetStateActionBtnLabel: resetStateActionButtonLabel = "Reset all",
+  rowClassName,
   rowPerPage,
   rowPerPageOptions = DEFAULT_PAGE_PER_OPTIONS,
   showColumnsAction = false,
@@ -68,6 +63,12 @@ const DataTable = <TData extends { id: string | number }>({
   title,
   totalRecords = 0,
   visibleColumns = [],
+  fetchData,
+  onRowSelectChange,
+  renderCustomPagination,
+  renderSortIcons,
+  renderTableFooterContent,
+  renderToolbarItems,
   ...tableOptions
 }: TDataTableProperties<TData>) => {
   const persistentStateReference = useRef<PersistentTableState>({
@@ -203,7 +204,7 @@ const DataTable = <TData extends { id: string | number }>({
     return parsedColumns;
   }, [visibleColumns, columns]);
 
-  const table = useReactTable({
+  const table = useReactTable<TData>({
     data,
     columns: parsedColumns,
     getCoreRowModel: getCoreRowModel(),
@@ -356,11 +357,12 @@ const DataTable = <TData extends { id: string | number }>({
         />
 
         <TableBody
-          table={table}
-          parsedColumnsLength={parsedColumns.length}
+          customFormatters={customFormatters}
           emptyTableMessage={emptyTableMessage}
           enableRowSelection={enableRowSelection}
-          customFormatters={customFormatters}
+          parsedColumnsLength={parsedColumns.length}
+          rowClassName={rowClassName}
+          table={table}
         />
 
         {renderTableFooterContent ? (

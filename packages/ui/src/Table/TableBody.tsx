@@ -1,4 +1,11 @@
-import { Cell, flexRender, Table, NoInfer } from "@tanstack/react-table";
+import {
+  Cell,
+  flexRender,
+  Table,
+  NoInfer,
+  Row,
+  RowData,
+} from "@tanstack/react-table";
 import React from "react";
 
 import { formatDate, formatDateTime } from "..";
@@ -12,22 +19,24 @@ import { formatNumber, getAlignValue } from "./utils";
 
 import type { TDataTableProperties } from "./types";
 
-interface THeaderProperty<T>
+interface TableBodyProperties<TData extends RowData>
   extends Pick<
-    TDataTableProperties<T>,
+    TDataTableProperties<TData>,
     "enableRowSelection" | "customFormatters" | "emptyTableMessage"
   > {
   parsedColumnsLength: number;
-  table: Table<T>;
+  rowClassName?: string | ((options: { row: Row<TData> }) => string);
+  table: Table<TData>;
 }
 
-export const TableBody = <TData extends { id: string | number }>({
+export const TableBody = <TData extends RowData>({
   customFormatters = {},
   emptyTableMessage = "No results.",
   enableRowSelection,
   parsedColumnsLength,
+  rowClassName,
   table,
-}: THeaderProperty<TData>) => {
+}: TableBodyProperties<TData>) => {
   const renderTooltipContent = (
     cell: Cell<TData, unknown>,
   ): React.ReactNode => {
@@ -42,16 +51,27 @@ export const TableBody = <TData extends { id: string | number }>({
     return cell.getValue() as string;
   };
 
+  const getRowClassName = (row: Row<TData>) => {
+    if (!rowClassName) return "";
+
+    if (typeof rowClassName === "string") {
+      return rowClassName;
+    }
+
+    return rowClassName({ row });
+  };
+
   return (
     <TTableBody>
       {table.getRowModel().rows?.length ? (
         table.getRowModel().rows.map((row) => (
           <TableRow
+            className={getRowClassName(row)}
+            data-id={(row.original as any).id ?? row.id} // eslint-disable-line @typescript-eslint/no-explicit-any
             key={row.id}
             {...(enableRowSelection && {
               "data-selected": row.getIsSelected(),
             })}
-            data-id={row.original.id ?? row.id}
           >
             {row.getVisibleCells().map((cell) => {
               const getFormattedValueContext: typeof cell.getContext = () => {

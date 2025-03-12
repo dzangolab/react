@@ -4,10 +4,8 @@ import { Tooltip } from "../Tooltip";
 
 import type {
   Cell,
-  ColumnDef,
   ColumnFilter,
   PaginationState,
-  Table as ReactTable,
   SortDirection,
   Table,
   TableOptions,
@@ -16,15 +14,16 @@ import type {
   RowData,
   SortingState,
   VisibilityState,
+  Row,
 } from "@tanstack/react-table";
 import type { ComponentProps, ReactNode } from "react";
 
 declare module "@tanstack/react-table" {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   interface ColumnMeta<TData extends RowData, TValue> {
-    serverFilterFn?: TFilterFn;
-    filterVariant?: TFilterVariant;
     filterOptions?: FilterOption[];
+    filterVariant?: TFilterVariant;
+    serverFilterFn?: TFilterFn;
   }
 
   // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/no-unused-vars
@@ -32,17 +31,17 @@ declare module "@tanstack/react-table" {
     align?: CellAlignmentType;
     dataType?: CellDataType;
     className?: string;
-    customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
+    dateOptions?: Omit<FormatDateType, "date">;
     filterPlaceholder?: string;
+    maxWidth?: string;
+    minWidth?: string;
+    numberOptions?: Omit<FormatNumberType, "value">;
     tooltip?: boolean | string | ((cell: Cell<TData, TValue>) => ReactNode);
     tooltipOptions?: Partial<
       Omit<ComponentProps<typeof Tooltip>, "elementRef">
     >;
     width?: string;
-    maxWidth?: string;
-    minWidth?: string;
-    dateOptions?: Omit<FormatDateType, "date">;
-    numberOptions?: Omit<FormatNumberType, "value">;
+    customFilterComponent?: (column: Column<TData, TValue>) => ReactNode;
   }
 
   interface ColumnFilter {
@@ -112,46 +111,6 @@ export type TSortIcons = {
   desc: string;
   default: string;
 };
-
-export interface TableProviderProperties<T> {
-  children?: ReactNode;
-  actionsHeader?: ReactNode;
-  columns: ColumnDef<T>[];
-  data: T[];
-  fetcher: (requestJSON: TRequestJSON) => void;
-  filterMenuToggleIcon?: string;
-  enableMultiSort?: boolean;
-  inputDebounceTime?: number;
-  fixedHeader?: boolean;
-  filterIcons?: {
-    expanded: string;
-    notExpanded: string;
-  };
-  hideScrollBar?: boolean;
-  isLoading?: boolean;
-  paginated?: boolean;
-  paginationIcons?: {
-    start: string;
-    previous: string;
-    next: string;
-    end: string;
-  };
-  rowsPerPageOptions?: number[];
-  showPageControl?: boolean;
-  showTotalNumber?: boolean;
-  sortable?: boolean;
-  sortIcons?: TSortIcons;
-  tableClassName?: string;
-  title?: string;
-  totalItems: number;
-  visibleColumns?: string[];
-}
-
-export interface TableContextProperties<T>
-  extends Partial<TableProviderProperties<T>> {
-  table?: ReactTable<T>;
-  paginationState?: PaginationState;
-}
 
 export interface TBaseTable {
   header: ReactNode;
@@ -249,7 +208,7 @@ export type FormatDateType = {
 
 export type StorageType = "localStorage" | "sessionStorage";
 
-export interface TDataTableProperties<TData>
+export interface TDataTableProperties<TData extends RowData>
   extends Partial<Omit<TableOptions<TData>, "getCoreRowModel" | "data">> {
   className?: string;
   columnActionBtnLabel?: string;
@@ -266,14 +225,11 @@ export interface TDataTableProperties<TData>
     value: string;
     placeholder: string;
   };
-  fetchData?: (data: TRequestJSON) => void;
-  handleResetState?: () => void;
   id?: string;
   initialFilters?: ColumnFiltersState;
   initialSorting?: SortingState;
   isLoading?: boolean;
   inputDebounceTime?: number;
-  onRowSelectChange?: (table: Table<TData>) => void;
   paginated?: boolean;
   paginationOptions?: Omit<
     ComponentProps<typeof Pagination>,
@@ -286,11 +242,8 @@ export interface TDataTableProperties<TData>
   >;
   persistState?: boolean;
   persistStateStorage?: StorageType;
-  renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
-  renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
-  renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
-  renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
   resetStateActionBtnLabel?: string;
+  rowClassName?: string | ((options: { row: Row<TData> }) => string);
   rowPerPage?: number;
   rowPerPageOptions?: number[];
   showResetStateAction?: boolean;
@@ -310,6 +263,13 @@ export interface TDataTableProperties<TData>
    * @default false
    */
   showColumnsAction?: boolean;
+  fetchData?: (data: TRequestJSON) => void;
+  handleResetState?: () => void;
+  onRowSelectChange?: (table: Table<TData>) => void;
+  renderCustomPagination?: (table: Table<TData>) => React.ReactNode;
+  renderSortIcons?: (direction: false | SortDirection) => React.ReactNode;
+  renderTableFooterContent?: (table: Table<TData>) => React.ReactNode;
+  renderToolbarItems?: (table: Table<TData>) => React.ReactNode;
 }
 
 export type {

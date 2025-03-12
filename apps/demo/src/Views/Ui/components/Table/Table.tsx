@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 import {
   HORIZONTAL_CSS_CODE,
+  TData,
   VERTICAL_CSS_CODE,
   data,
   formatDemoData,
@@ -29,7 +30,7 @@ export const TableDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
 
-  const columns: Array<TableColumnDefinition<any>> = [
+  const columns: Array<TableColumnDefinition<TData>> = [
     {
       accessorKey: "email",
       header: "Email",
@@ -102,6 +103,9 @@ export const TableDemo = () => {
           showResetStateAction
           initialFilters={[{ id: "email", value: "O" }]}
           initialSorting={[{ id: "email", desc: false }]}
+          rowClassName={({ row: { original } }) => {
+            return `row-${original.id}`;
+          }}
         ></TDataTable>
       </Section>
 
