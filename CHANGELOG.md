@@ -1,3 +1,12 @@
+# [0.57.0](https://github.com/dzangolab/react/compare/v0.56.2...v0.57.0) (2025-03-12)
+
+
+### Features
+
+* **ui:** support custom row class names in table ([#1428](https://github.com/dzangolab/react/issues/1428)) ([b8b5bfd](https://github.com/dzangolab/react/commit/b8b5bfd09ca2f0b23b2eb35ba4675a54b0451da0))
+
+
+
 ## [0.56.2](https://github.com/dzangolab/react/compare/v0.56.1...v0.56.2) (2025-03-07)
 
 

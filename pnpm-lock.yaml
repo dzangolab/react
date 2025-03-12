@@ -275,7 +275,7 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.4)
       '@dzangolab/react-ui':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../ui
       '@testing-library/react':
         specifier: 16.2.0
@@ -359,7 +359,7 @@ importers:
   packages/i18n:
     dependencies:
       '@dzangolab/react-ui':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../ui
       i18next:
         specifier: 24.2.2
@@ -384,7 +384,7 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.4)
       '@dzangolab/react-config':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../config
       '@testing-library/react':
         specifier: 16.2.0
@@ -465,13 +465,13 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.4)
       '@dzangolab/react-config':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../config
       '@dzangolab/react-i18n':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../i18n
       '@dzangolab/react-ui':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../ui
       '@testing-library/react':
         specifier: 16.2.0
@@ -677,16 +677,16 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@22.13.4)
       '@dzangolab/react-form':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../form
       '@dzangolab/react-i18n':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../i18n
       '@dzangolab/react-layout':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../layout
       '@dzangolab/react-ui':
-        specifier: 0.56.2
+        specifier: 0.57.0
         version: link:../ui
       '@testing-library/dom':
         specifier: 10.4.0
