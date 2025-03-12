@@ -1,4 +1,4 @@
-import { flexRender, Table } from "@tanstack/react-table";
+import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
 import { DebouncedInput, Select } from "@/FormWidgets";
@@ -20,7 +20,7 @@ interface THeaderProperty<T>
   table: Table<T>;
 }
 
-export const TableHeader = <TData extends { id: string | number }>({
+export const TableHeader = <TData extends RowData>({
   inputDebounceTime,
   renderSortIcons,
   table,

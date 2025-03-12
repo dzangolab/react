@@ -1,4 +1,12 @@
-const data = [
+export type TData = {
+  id: number;
+  name: string;
+  email: string;
+  age: number;
+  city: string;
+};
+
+const data: TData[] = [
   {
     id: 1,
     name: "John Doe",
