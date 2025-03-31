@@ -86,27 +86,33 @@ export const EditableTitle = ({
       });
 
       return (
-        <div className={`dz-editable-title ${className}`.trimEnd()}>
+        <>
           {titleElement}
           {togglerElement}
-        </div>
+        </>
       );
     }
 
     return titleElement;
   };
 
-  return isEditModeOn ? (
-    <Input
-      autoFocus
-      name="title"
-      placeholder={placeholder}
-      defaultValue={onChange ? title : titleValue}
-      onChange={onChange}
-      onBlur={handleBlur}
-      onKeyUp={handleKeyPress}
-    />
-  ) : (
-    renderTitle()
+  return (
+    <div
+      className={`dz-editable-title ${className} ${isEditModeOn && "edit"}`.trimEnd()}
+    >
+      {isEditModeOn ? (
+        <Input
+          autoFocus
+          name="title"
+          placeholder={placeholder}
+          defaultValue={onChange ? title : titleValue}
+          onChange={onChange}
+          onBlur={handleBlur}
+          onKeyUp={handleKeyPress}
+        />
+      ) : (
+        renderTitle()
+      )}
+    </div>
   );
 };
