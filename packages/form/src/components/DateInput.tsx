@@ -4,31 +4,35 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 import { ErrorMessage } from "./ErrorMessage";
 
 interface IDateInput {
-  label?: string | React.ReactNode;
-  name: string;
   className?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getFieldState?: UseFormGetFieldState<any>;
-  helperText?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register?: UseFormRegister<any>;
   disabled?: boolean;
+  helperText?: string;
+  label?: string | React.ReactNode;
+  max?: string | number | Date;
+  min?: string | number | Date;
+  name: string;
   showInvalidState?: boolean;
   showValidState?: boolean;
   submitCount?: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getFieldState?: UseFormGetFieldState<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register?: UseFormRegister<any>;
 }
 
 export const DateInput: React.FC<IDateInput> = ({
   className = "",
   disabled,
-  register,
-  getFieldState,
   helperText,
   label = "",
+  max,
+  min,
   name,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
+  register,
+  getFieldState,
 }) => {
   if (!register || !getFieldState) return null;
 
@@ -50,6 +54,18 @@ export const DateInput: React.FC<IDateInput> = ({
     }
   };
 
+  const convertToDateString = (value: string | number | Date | undefined) => {
+    if (!value) return undefined;
+
+    const date = new Date(value);
+
+    if (isNaN(date.getTime())) {
+      return undefined;
+    }
+
+    return date.toISOString().split("T")[0];
+  };
+
   return (
     <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
@@ -64,6 +80,8 @@ export const DateInput: React.FC<IDateInput> = ({
           ref(event);
           inputReference.current = event;
         }}
+        min={convertToDateString(min)}
+        max={convertToDateString(max)}
       />
       {helperText && <span className="helper-text">{helperText}</span>}
       {error?.message && <ErrorMessage message={error.message} />}

@@ -142,6 +142,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
+        max={new Date()}
       />
       <Typeahead
         placeholder={t("formInput.placeHolder.typeahead")}
