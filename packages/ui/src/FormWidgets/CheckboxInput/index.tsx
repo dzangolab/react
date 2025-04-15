@@ -43,6 +43,10 @@ export const CheckboxInput = <T extends string | number>({
   const [singleChecked, setSingleChecked] = useState<boolean>(checked);
 
   const hasOptions = Array.isArray(options) && options.length > 0;
+  console.log("value", selectedValues);
+  useEffect(() => {
+    setSelectedValues(value);
+  }, [value]);
 
   useEffect(() => {
     if (!onChange) {
