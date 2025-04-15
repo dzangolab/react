@@ -4,6 +4,7 @@
 
 .radio-button-wrapper input[type="radio"] {
   cursor: pointer;
+  width: max-content;
   outline: none;
   transform: scale(1.5);
 }
