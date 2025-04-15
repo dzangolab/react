@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import { Checkbox } from "../Checkbox";
 
 interface Option<T> {
@@ -8,7 +6,7 @@ interface Option<T> {
 }
 
 export interface ICheckboxInputProperties<T> {
-  checked?: boolean;
+  checked?: boolean; // for single checkbox mode
   className?: string;
   direction?: "horizontal" | "vertical";
   disabled?: boolean;
@@ -21,7 +19,7 @@ export interface ICheckboxInputProperties<T> {
   renderOptionsLabel?: (option: Option<T>) => React.ReactNode;
   options?: Option<T>[];
   placeholder?: string;
-  value?: T[];
+  value?: T[]; // for multi-checkbox mode
 }
 
 export const CheckboxInput = <T extends string | number>({
@@ -39,49 +37,30 @@ export const CheckboxInput = <T extends string | number>({
   value = [],
   renderOptionsLabel,
 }: ICheckboxInputProperties<T>) => {
-  const [selectedValues, setSelectedValues] = useState<T[]>(value);
-  const [singleChecked, setSingleChecked] = useState<boolean>(checked);
-
   const hasOptions = Array.isArray(options) && options.length > 0;
-  console.log("value", selectedValues);
-  useEffect(() => {
-    setSelectedValues(value);
-  }, [value]);
 
-  useEffect(() => {
-    if (!onChange) {
-      return;
-    }
-
-    if (hasOptions) {
-      if (JSON.stringify(value) !== JSON.stringify(selectedValues)) {
-        onChange(selectedValues);
-      }
-    } else {
-      if (checked !== singleChecked) {
-        onChange(singleChecked);
-      }
-    }
-  }, [selectedValues, singleChecked]);
+  const selectedValues = value ?? [];
+  const singleChecked = checked ?? false;
 
   const isOptionChecked = (optionValue: T) =>
     selectedValues.includes(optionValue);
 
   const handleSelectOption = (option: T) => {
     const newValue = selectedValues.includes(option)
-      ? selectedValues.filter((value) => value !== option)
+      ? selectedValues.filter((v) => v !== option)
       : [...selectedValues, option];
 
-    setSelectedValues(newValue);
+    onChange?.(newValue);
   };
 
   const handleSingleCheckboxChange = () => {
-    setSingleChecked(!singleChecked);
+    onChange?.(!singleChecked);
   };
 
   return (
     <fieldset className={`field checkbox ${className}`.trim()}>
       {label && <legend>{label}</legend>}
+
       {hasOptions ? (
         <div className={`checkbox-group direction-${direction}`}>
           {options.map((option, index) => (
@@ -109,6 +88,7 @@ export const CheckboxInput = <T extends string | number>({
           />
         </div>
       )}
+
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </fieldset>
