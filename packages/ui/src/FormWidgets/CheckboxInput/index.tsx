@@ -54,9 +54,13 @@ export const CheckboxInput = <T extends string | number>({
     }
 
     if (hasOptions) {
-      onChange(selectedValues);
+      if (JSON.stringify(value) !== JSON.stringify(selectedValues)) {
+        onChange(selectedValues);
+      }
     } else {
-      onChange(singleChecked);
+      if (checked !== singleChecked) {
+        onChange(singleChecked);
+      }
     }
   }, [selectedValues, singleChecked]);
 
