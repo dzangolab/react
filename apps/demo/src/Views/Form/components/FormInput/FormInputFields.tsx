@@ -143,6 +143,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         showValidState={valid}
         showInvalidState={invalid}
         max={new Date()}
+        min="2025-04-01"
       />
       <Typeahead
         placeholder={t("formInput.placeHolder.typeahead")}
