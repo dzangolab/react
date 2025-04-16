@@ -70,7 +70,6 @@ export const CheckboxInput = <T extends string | number>({
   return (
     <fieldset className={`field checkbox ${className}`.trim()}>
       {label && <legend>{label}</legend>}
-
       {hasOptions ? (
         <div className={`checkbox-group direction-${direction}`}>
           {options.map((option, index) => (
@@ -98,7 +97,6 @@ export const CheckboxInput = <T extends string | number>({
           />
         </div>
       )}
-
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </fieldset>
