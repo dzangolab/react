@@ -8,7 +8,7 @@ interface Option<T> {
 }
 
 export interface ICheckboxInputProperties<T> {
-  checked?: boolean; // for single checkbox mode
+  checked?: boolean;
   className?: string;
   direction?: "horizontal" | "vertical";
   disabled?: boolean;
@@ -21,7 +21,7 @@ export interface ICheckboxInputProperties<T> {
   renderOptionsLabel?: (option: Option<T>) => React.ReactNode;
   options?: Option<T>[];
   placeholder?: string;
-  value?: T[]; // for multi-checkbox mode
+  value?: T[];
 }
 
 export const CheckboxInput = <T extends string | number>({
