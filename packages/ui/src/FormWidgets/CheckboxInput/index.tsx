@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { Checkbox } from "../Checkbox";
 
 interface Option<T> {
@@ -37,24 +39,32 @@ export const CheckboxInput = <T extends string | number>({
   value = [],
   renderOptionsLabel,
 }: ICheckboxInputProperties<T>) => {
+  const [selectedValues, setSelectedValues] = useState<T[]>(value);
+  const [singleChecked, setSingleChecked] = useState<boolean>(checked);
+
   const hasOptions = Array.isArray(options) && options.length > 0;
 
-  const selectedValues = value ?? [];
-  const singleChecked = checked ?? false;
+  useEffect(() => {
+    setSelectedValues(value);
+  }, [value]);
 
   const isOptionChecked = (optionValue: T) =>
     selectedValues.includes(optionValue);
 
   const handleSelectOption = (option: T) => {
     const newValue = selectedValues.includes(option)
-      ? selectedValues.filter((v) => v !== option)
+      ? selectedValues.filter((value) => value !== option)
       : [...selectedValues, option];
 
+    setSelectedValues(newValue);
     onChange?.(newValue);
   };
 
   const handleSingleCheckboxChange = () => {
-    onChange?.(!singleChecked);
+    const newChecked = !singleChecked;
+
+    setSingleChecked(newChecked);
+    onChange?.(newChecked);
   };
 
   return (
