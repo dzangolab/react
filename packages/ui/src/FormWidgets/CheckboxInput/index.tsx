@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
 import { Checkbox } from "../Checkbox";
 
@@ -39,37 +39,34 @@ export const CheckboxInput = <T extends string | number>({
   value = [],
   renderOptionsLabel,
 }: ICheckboxInputProperties<T>) => {
-  const [selectedValues, setSelectedValues] = useState<T[]>(value);
-  const [singleChecked, setSingleChecked] = useState<boolean>(checked);
-
   const hasOptions = Array.isArray(options) && options.length > 0;
 
-  useEffect(() => {
-    setSelectedValues(value);
-  }, [value]);
-
-  const isOptionChecked = (optionValue: T) =>
-    selectedValues.includes(optionValue);
+  const isOptionChecked = (optionValue: T) => value?.includes(optionValue);
 
   const handleSelectOption = (option: T) => {
-    const newValue = selectedValues.includes(option)
-      ? selectedValues.filter((value) => value !== option)
-      : [...selectedValues, option];
+    if (!onChange) {
+      return;
+    }
 
-    setSelectedValues(newValue);
-    onChange?.(newValue);
+    const newValue = value?.includes(option)
+      ? value.filter((value_) => value_ !== option)
+      : [...(value || []), option];
+
+    onChange(newValue);
   };
 
   const handleSingleCheckboxChange = () => {
-    const newChecked = !singleChecked;
+    if (!onChange) {
+      return;
+    }
 
-    setSingleChecked(newChecked);
-    onChange?.(newChecked);
+    onChange(!checked);
   };
 
   return (
     <fieldset className={`field checkbox ${className}`.trim()}>
       {label && <legend>{label}</legend>}
+
       {hasOptions ? (
         <div className={`checkbox-group direction-${direction}`}>
           {options.map((option, index) => (
@@ -91,12 +88,13 @@ export const CheckboxInput = <T extends string | number>({
           <Checkbox
             disabled={disabled}
             label={inputLabel}
-            checked={singleChecked}
+            checked={checked}
             name={name}
             onChange={handleSingleCheckboxChange}
           />
         </div>
       )}
+
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </fieldset>
