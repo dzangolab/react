@@ -49,7 +49,7 @@ export const CheckboxInput = <T extends string | number>({
     }
 
     const newValue = value?.includes(option)
-      ? value.filter((value_) => value_ !== option)
+      ? value.filter((_value) => _value !== option)
       : [...value, option];
 
     onChange(newValue);
