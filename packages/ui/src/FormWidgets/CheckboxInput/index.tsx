@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
 import { Checkbox } from "../Checkbox";
 
@@ -39,41 +39,34 @@ export const CheckboxInput = <T extends string | number>({
   value = [],
   renderOptionsLabel,
 }: ICheckboxInputProperties<T>) => {
-  const [selectedValues, setSelectedValues] = useState<T[]>(value);
-  const [singleChecked, setSingleChecked] = useState<boolean>(checked);
-
   const hasOptions = Array.isArray(options) && options.length > 0;
 
-  useEffect(() => {
+  const isOptionChecked = (optionValue: T) => value?.includes(optionValue);
+
+  const handleSelectOption = (option: T) => {
     if (!onChange) {
       return;
     }
 
-    if (hasOptions) {
-      onChange(selectedValues);
-    } else {
-      onChange(singleChecked);
-    }
-  }, [selectedValues, singleChecked]);
+    const newValue = value?.includes(option)
+      ? value.filter((_value) => _value !== option)
+      : [...value, option];
 
-  const isOptionChecked = (optionValue: T) =>
-    selectedValues.includes(optionValue);
-
-  const handleSelectOption = (option: T) => {
-    const newValue = selectedValues.includes(option)
-      ? selectedValues.filter((value) => value !== option)
-      : [...selectedValues, option];
-
-    setSelectedValues(newValue);
+    onChange(newValue);
   };
 
   const handleSingleCheckboxChange = () => {
-    setSingleChecked(!singleChecked);
+    if (!onChange) {
+      return;
+    }
+
+    onChange(!checked);
   };
 
   return (
     <fieldset className={`field checkbox ${className}`.trim()}>
       {label && <legend>{label}</legend>}
+
       {hasOptions ? (
         <div className={`checkbox-group direction-${direction}`}>
           {options.map((option, index) => (
@@ -91,16 +84,15 @@ export const CheckboxInput = <T extends string | number>({
           ))}
         </div>
       ) : (
-        <div className="single-checkbox">
-          <Checkbox
-            disabled={disabled}
-            label={inputLabel}
-            checked={singleChecked}
-            name={name}
-            onChange={handleSingleCheckboxChange}
-          />
-        </div>
+        <Checkbox
+          disabled={disabled}
+          label={inputLabel}
+          checked={checked}
+          name={name}
+          onChange={handleSingleCheckboxChange}
+        />
       )}
+
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </fieldset>

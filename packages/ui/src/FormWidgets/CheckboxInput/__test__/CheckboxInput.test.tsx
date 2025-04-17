@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from "@testing-library/react";
-import React from "react";
+import React, { useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { CheckboxInput } from "../index";
@@ -54,7 +54,23 @@ describe("CheckboxInput", () => {
   });
 
   it("toggles multiple checkboxes and calls onChange with the selected values", () => {
-    renderCheckboxInput();
+    const Wrapper = () => {
+      const [selectedValues, setSelectedValues] = useState<string[]>([]);
+
+      return (
+        <CheckboxInput
+          name="test-checkbox"
+          options={options}
+          value={selectedValues}
+          onChange={(newValue) => {
+            setSelectedValues(newValue as string[]);
+            onChangeMock(newValue);
+          }}
+        />
+      );
+    };
+
+    render(<Wrapper />);
 
     const [checkbox1, checkbox2] = screen.getAllByRole("checkbox");
 
