@@ -10,6 +10,8 @@ const SingleCheckboxDemo = ({
 
   if (isString) {
     return `
+    const [checked, setChecked] = useState(false);
+
     <CheckboxInput
       name="single-checkbox"
       inputLabel="Accept terms and conditions"
@@ -37,6 +39,8 @@ const CustomLabelSingleCheckboxDemo = ({
 
   if (isString) {
     return `
+    const [checked, setChecked] = useState(false);
+    
     <CheckboxInput
       name="single-checkbox"
       inputLabel={

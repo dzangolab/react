@@ -84,15 +84,13 @@ export const CheckboxInput = <T extends string | number>({
           ))}
         </div>
       ) : (
-        <div className="single-checkbox">
-          <Checkbox
-            disabled={disabled}
-            label={inputLabel}
-            checked={checked}
-            name={name}
-            onChange={handleSingleCheckboxChange}
-          />
-        </div>
+        <Checkbox
+          disabled={disabled}
+          label={inputLabel}
+          checked={checked}
+          name={name}
+          onChange={handleSingleCheckboxChange}
+        />
       )}
 
       {helperText && <span className="helper-text">{helperText}</span>}

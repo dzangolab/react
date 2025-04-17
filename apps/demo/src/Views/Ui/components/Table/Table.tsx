@@ -131,12 +131,12 @@ export const TableDemo = () => {
                     label: "Atlanta",
                   },
                   {
-                    value: "Boston",
-                    label: "Boston",
-                  },
-                  {
                     value: "Chicago",
                     label: "Chicago",
+                  },
+                  {
+                    value: "Boston",
+                    label: "Boston",
                   },
                   {
                     value: "Denver",

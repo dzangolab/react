@@ -12,7 +12,6 @@ export const CheckboxInput = <T extends string | number>({
   label,
   name,
   options,
-  checked,
   helperText,
   inputLabel,
   ...others
@@ -21,14 +20,16 @@ export const CheckboxInput = <T extends string | number>({
 
   const { error } = getFieldState(name);
 
+  const isMultiCheckbox = Array.isArray(options) && options.length > 0;
+
   return (
     <Controller
       name={name}
       control={control}
-      defaultValue={[]}
+      defaultValue={isMultiCheckbox ? [] : false}
       render={({ field }) => (
         <BasicCheckboxInput
-          checked={checked}
+          checked={!isMultiCheckbox ? field.value : undefined}
           className={className}
           direction={direction}
           disabled={disabled}
@@ -39,7 +40,7 @@ export const CheckboxInput = <T extends string | number>({
           name={field.name}
           onChange={field.onChange}
           options={options}
-          value={field.value}
+          value={isMultiCheckbox ? field.value : undefined}
           {...others}
         />
       )}
