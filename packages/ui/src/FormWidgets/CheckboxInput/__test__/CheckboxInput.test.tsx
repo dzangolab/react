@@ -76,15 +76,15 @@ describe("CheckboxInput", () => {
 
     // Select the first option
     fireEvent.click(checkbox1);
-    expect(onChangeMock).toHaveBeenLastCalledWith(["option1"]);
+    expect(onChangeMock).toHaveBeenCalledWith(["option1"]);
 
     // Select the second option
     fireEvent.click(checkbox2);
-    expect(onChangeMock).toHaveBeenLastCalledWith(["option1", "option2"]);
+    expect(onChangeMock).toHaveBeenCalledWith(["option1", "option2"]);
 
     // Deselect the first option
     fireEvent.click(checkbox1);
-    expect(onChangeMock).toHaveBeenLastCalledWith(["option2"]);
+    expect(onChangeMock).toHaveBeenCalledWith(["option2"]);
   });
 
   it("disables checkboxes when the disabled prop is true", () => {

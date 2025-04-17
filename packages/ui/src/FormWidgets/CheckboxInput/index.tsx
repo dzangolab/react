@@ -50,7 +50,7 @@ export const CheckboxInput = <T extends string | number>({
 
     const newValue = value?.includes(option)
       ? value.filter((value_) => value_ !== option)
-      : [...(value || []), option];
+      : [...value, option];
 
     onChange(newValue);
   };
