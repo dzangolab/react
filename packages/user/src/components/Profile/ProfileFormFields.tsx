@@ -51,20 +51,20 @@ export const ProfileFormFields = ({
       <FormActions
         actions={[
           {
+            id: "submit",
+            label: t("profile.button.update"),
+            disabled: !isDirty,
+          },
+          {
             id: "cancel",
             label: t("profile.button.cancel"),
             type: "button",
             disabled: !isDirty,
             onClick: () => reset(),
           },
-          {
-            id: "submit",
-            label: t("profile.button.update"),
-            disabled: !isDirty,
-          },
         ]}
         loading={submitting}
-        alignment="fill"
+        alignment="left"
       />
     </>
   );
