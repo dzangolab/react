@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
-    "@babel/core": "7.26.9",
+    "@babel/core": "7.26.10",
     "@babel/plugin-syntax-flow": "7.26.0",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@testing-library/react": "16.2.0",
