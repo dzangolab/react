@@ -11,6 +11,7 @@ type Option<T> = {
 
 type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
+  autoSortOptions?: boolean;
   className?: string;
   disabled?: boolean;
   enableSearch?: boolean;
@@ -42,6 +43,7 @@ type ISelectProperties<T> = {
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
+  autoSortOptions = true,
   className = "",
   disabled: selectFieldDisabled,
   enableSearch = false,
@@ -67,13 +69,19 @@ export const Select = <T extends string | number>({
 
   const selectReference = useRef<HTMLDivElement>(null);
 
-  const filteredOptions = useMemo(() => {
-    if (!searchInput) return options;
+  const sortedOptions = useMemo(() => {
+    return !autoSortOptions
+      ? options
+      : options.sort((a, b) => a.label.localeCompare(b.label));
+  }, [options]);
 
-    return options.filter((option) =>
+  const filteredOptions = useMemo(() => {
+    if (!searchInput) return sortedOptions;
+
+    return sortedOptions.filter((option) =>
       option.label.toLowerCase().includes(searchInput.toLowerCase()),
     );
-  }, [searchInput, options]);
+  }, [searchInput, sortedOptions]);
 
   const shouldAutoSelect = useMemo(() => {
     return (
