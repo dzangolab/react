@@ -22,9 +22,7 @@ jobs:
         name: Use node ${{ matrix.node-version }}
 
       - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        with:
-          version: 9.12.3
+        name: Setup pnpm and install dependencies
           
       - name: Get current package version
         id: package-version
