@@ -4,9 +4,10 @@ import React, { useMemo } from "react";
 interface FormActionsProperties {
   actions?: IButtonProperties[];
   alignment?: "center" | "left" | "right" | "fill";
-  flowDirection?: "horizontal" | "vertical";
   className?: string;
+  flowDirection?: "horizontal" | "vertical";
   loading?: boolean;
+  reverse?: boolean;
 }
 
 export const FormActions = ({
@@ -15,20 +16,21 @@ export const FormActions = ({
   className,
   flowDirection = "horizontal",
   loading,
+  reverse = false,
 }: FormActionsProperties) => {
   const defaultActions: IButtonProperties[] = [
+    {
+      id: "submit",
+      label: "Submit",
+      loading: loading,
+      type: "submit",
+    },
     {
       id: "cancel",
       label: "Cancel",
       loading: loading,
       severity: "secondary",
       variant: "outlined",
-    },
-    {
-      id: "submit",
-      label: "Submit",
-      loading: loading,
-      type: "submit",
     },
   ];
 
@@ -64,6 +66,7 @@ export const FormActions = ({
       className={`dz-form-actions ${className || ""}`.trimEnd()}
       data-alignment={alignment}
       data-direction={flowDirection}
+      data-reverse={reverse}
     >
       {parsedActions.map((action) => {
         return <Button key={action.id || action.label} {...action} />;

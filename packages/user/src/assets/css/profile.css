@@ -7,26 +7,26 @@
   margin-bottom: 1rem;
 }
 
-.profile .account-info .dz-data .dz-data-label {
+.profile .account-info .data.update-email label {
   font-size: 1rem;
 }
 
-.profile .account-info .dz-data .dz-data-value {
+.profile .account-info .data.update-email .value {
   align-items: center;
   display: flex;
   gap: 0.45rem;
-  margin-top: -0.65rem;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.profile .account-info .dz-data {
+.profile .account-info .data.update-email {
   gap: 0.75rem;
 }
 
-.profile .account-info .dz-data.update-email {
+.profile .account-info .data.update-email {
   gap: 0.15rem;
 }
 
-.profile .account-info .dz-data.update-email .dz-data-value {
+.profile .account-info .data.update-email .value {
   margin-bottom: 0;
 }

@@ -10,21 +10,9 @@ form {
 .dz-form-actions {
   align-items: stretch;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1em;
   justify-content: stretch;
-}
-
-.dz-form-actions[data-alignment="fill"] button {
-  flex: 1;
-}
-
-.dz-form-actions[data-direction="vertical"] {
-  flex-direction: column;
-}
-
-.dz-form-actions[data-alignment="right"] {
-  justify-content: flex-end;
 }
 
 fieldset {
@@ -142,8 +130,34 @@ form input:autofill:active {
   transition: background-color 5000s;
 }
 
-@media screen and (max-width: 576px) {
-  form .dz-form-actions {
+@media screen and (min-width: 576px) {
+  .dz-form-actions {
+    flex-direction: row;
+  }
+
+  .dz-form-actions[data-direction="vertical"] {
+    flex-direction: column;
+  }
+
+  .dz-form-actions[data-alignment="right"] {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+  }
+
+  .dz-form-actions[data-reverse="true"] {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+  }
+
+  .dz-form-actions[data-direction="vertical"][data-reverse="true"] {
     flex-direction: column-reverse;
+  }
+  .dz-form-actions[data-alignment="right"][data-reverse="true"] {
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+
+  .dz-form-actions[data-alignment="fill"] button {
+    flex: 1;
   }
 }
