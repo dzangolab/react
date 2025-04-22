@@ -1,4 +1,4 @@
-import { useTranslation } from "@dzangolab/react-i18n";
+import { Trans, useTranslation } from "@dzangolab/react-i18n";
 import { Select, Page, Button } from "@dzangolab/react-ui";
 import { TDataTable } from "@dzangolab/react-ui";
 import { useState } from "react";
@@ -15,6 +15,14 @@ type Option = {
 const data = [
   {
     id: 1,
+    prop: "autoSortOptions",
+    type: "boolean",
+    default: "true",
+    description:
+      "By default, options are sorted alphabetically by label. If set to false, the order of options is preserved.",
+  },
+  {
+    id: 2,
     prop: "autoSelectSingleOption",
     type: "boolean",
     default: "false",
@@ -22,49 +30,49 @@ const data = [
       "If true, in case of single option it automatically gets selected.",
   },
   {
-    id: 2,
+    id: 3,
     prop: "className",
     type: "string",
     default: "-",
     description: "Additional CSS classes for styling.",
   },
   {
-    id: 3,
+    id: 4,
     prop: "disabled",
     type: "boolean",
     default: "-",
     description: "Disables the select component.",
   },
   {
-    id: 4,
+    id: 5,
     prop: "enableSearch",
     type: "boolean",
     default: "false",
     description: "If true, search is enabled.",
   },
   {
-    id: 5,
+    id: 6,
     prop: "errorMessage",
     type: "string",
     default: "-",
     description: "Displays an error message below the component.",
   },
   {
-    id: 6,
+    id: 7,
     prop: "hasError",
     type: "boolean",
     default: "-",
     description: "If true, error in component.",
   },
   {
-    id: 7,
+    id: 8,
     prop: "helperText",
     type: "string",
     default: "-",
     description: "Displays an error message below the component.",
   },
   {
-    id: 8,
+    id: 9,
     prop: "hideIfSingleOption",
     type: "boolean",
     default: "false",
@@ -72,77 +80,77 @@ const data = [
       "If there is only one option, and multiple is false, the Select component will not render the dropdown at all when set to true.",
   },
   {
-    id: 9,
+    id: 10,
     prop: "label",
     type: "string",
     default: "-",
     description: "Label of the component.",
   },
   {
-    id: 10,
+    id: 11,
     prop: "multiple",
     type: "boolean",
     default: "false",
     description: "If true, multiple selection is enabled.",
   },
   {
-    id: 11,
+    id: 12,
     prop: "name",
     type: "string",
     default: "-",
     description: "Name of the component.",
   },
   {
-    id: 12,
+    id: 13,
     prop: "options",
     type: "Option[]",
     default: "-",
     description: "Options to pass in the select component.",
   },
   {
-    id: 13,
+    id: 14,
     prop: "placeholder",
     type: "string",
     default: "-",
     description: "Placeholder in the component.",
   },
   {
-    id: 14,
+    id: 15,
     prop: "searchPlaceholder",
     type: "string",
     default: "-",
     description: "Placeholder in search field of the component.",
   },
   {
-    id: 15,
+    id: 16,
     prop: "showRemoveSelection",
     type: "boolean",
     default: "true",
     description: "If true, icon to remove selected options is visible.",
   },
   {
-    id: 16,
+    id: 17,
     prop: "value",
     type: "Value",
     default: "-",
     description: "Selected values of the component.",
   },
   {
-    id: 17,
+    id: 18,
     prop: "renderOption",
     type: "(option: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select options.",
   },
   {
-    id: 18,
+    id: 19,
     prop: "renderValue",
     type: "(value?: Value, options?: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select value.",
   },
   {
-    id: 19,
+    id: 20,
     prop: "onChange",
     type: " (newValue: T | T[]) => void",
     default: "-",
@@ -242,6 +250,12 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
   placeholder={t("select.placeholder")}
 />'
         />
+        <p>
+          <Trans
+            i18nKey={"ui:select.autoSortOptionsInfo"}
+            components={{ code: <code /> }}
+          ></Trans>
+        </p>
       </Section>
       <Section title={t("select.usage.disabled")}>
         <Select
