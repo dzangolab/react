@@ -4,50 +4,55 @@
       "actions": {
         "submit": "Change password (fr)"
       },
-      "oldPassword": {
-        "label": "Old password (fr)"
+      "confirmPassword": {
+        "label": "Confirm password (fr)"
       },
       "newPassword": {
         "label": "New password (fr)"
       },
-      "confirmPassword": {
-        "label": "Confirm password (fr)"
+      "oldPassword": {
+        "label": "Old password (fr)"
       }
     },
     "messages": {
       "success": "Your password was successfully changed. (fr)",
       "validation": {
-        "oldPassword": "Old password is required (fr)",
-        "newPassword": "New password is required (fr)",
         "confirmPassword": "Confirm password is required (fr)",
-        "mustMatch": "Passwords must match (fr)"
+        "mustMatch": "Passwords must match (fr)",
+        "newPassword": "New password is required (fr)",
+        "oldPassword": "Old password is required (fr)"
       }
     },
     "title": "Change password (fr)"
   },
-  "forgotPassword": {
-    "links": {
-      "login": "Back to login (fr)"
+  "emailVerification": {
+    "button": {
+      "resendEmail": "Resend (fr)",
+      "resendLink": "Resend verification link (fr)",
+      "signin": "Signin (fr)"
     },
     "messages": {
-      "success": "Email sent sucessfully (fr)",
-      "validation": {
-        "email": "Email is required (fr)"
-      }
+      "alreadyVerified": "Email is already verified. Please try refreshing the page (fr).",
+      "error": "Something went wrong. Please try again (fr)",
+      "invalidToken": "The token is invalid (fr)",
+      "resendEmailInfo": "Not received yet? (fr)",
+      "success": "Email verified successfully (fr).",
+      "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox. (fr)",
+      "unauthenticated": "User session expired. Please signin to continue (fr)"
     },
-    "form": {
-      "actions": {
-        "submit": "Email me (fr)"
-      },
-      "email": {
-        "label": "Your email (fr)",
-        "placeholder": ""
-      }
+    "title": "Please verify your email address (fr)",
+    "toastMessages": {
+      "alreadyVerified": "Email is already verified (fr)",
+      "error": "Something went wrong. Please try again (fr)",
+      "invalidToken": "The token is invalid (fr)",
+      "resendError": "Something went wrong. Please try again (fr)",
+      "resendSuccess": "Email resent successfully (fr)",
+      "success": "Email verified successfully (fr)",
+      "updateSuccess": "Email updated sucessfully (fr)"
     },
-    "title": "Forgot password (fr)"
+    "verifyEmail": "Verifying your email address (fr)"
   },
   "firstUser": {
-    "title": "Register first user (fr)",
     "login": {
       "messages": {
         "error": "Automatic login failed. Redirecting to login page for manual login (fr)"
@@ -58,7 +63,29 @@
         "error": "Error signing up first user (fr)",
         "success": "Succefully added first user. Automatically logging in ... (fr)"
       }
-    }
+    },
+    "title": "Register first user (fr)"
+  },
+  "forgotPassword": {
+    "form": {
+      "actions": {
+        "submit": "Email me (fr)"
+      },
+      "email": {
+        "label": "Your email (fr)",
+        "placeholder": ""
+      }
+    },
+    "links": {
+      "login": "Back to login (fr)"
+    },
+    "messages": {
+      "success": "Email sent sucessfully (fr)",
+      "validation": {
+        "email": "Email is required (fr)"
+      }
+    },
+    "title": "Forgot password (fr)"
   },
   "login": {
     "form": {
@@ -73,6 +100,7 @@
         "label": "votre mot de passe"
       }
     },
+    "instructions": "Enter your credentials to continue (fr)",
     "links": {
       "forgotPassword": "Mot de passe oublié",
       "signup": "Inscription"
@@ -92,23 +120,87 @@
   "logout": {
     "message": "Successfully logged out (fr)"
   },
+  "menu": {
+    "signin": "Connexion",
+    "signup": "Inscription"
+  },
+  "profile": {
+    "accountInfo": {
+      "label": "Email (fr)",
+      "messages": {
+        "alreadyExist": "Email already exists. (fr)",
+        "duplicate": "Email is same as the current one. (fr)",
+        "disabled": "Update email feature is currently disabled. (fr)",
+        "email": "Email is required. (fr)",
+        "error": "An error occurred while updating the email. (fr)",
+        "invalid": "Invalid email. (fr)",
+        "success": "Email updated successfully. (fr)",
+        "verify": "Verify email to complete the email update. (fr)"
+      },
+      "newEmail": "New Email (fr)",
+      "title": "Update email (fr)"
+    },
+    "button": {
+      "cancel": "Cancel (fr)",
+      "update": "Update (fr)"
+    },
+    "form": {
+      "email": {
+        "label": "Email (fr)",
+        "placeholder": ""
+      },
+      "firstName": {
+        "label": "First name (fr)",
+        "placeholder": "Enter your first name (fr)"
+      },
+      "lastName": {
+        "label": "Last name (fr)",
+        "placeholder": "Enter your last name (fr)"
+      },
+      "validations": {
+        "email": {
+          "required": "Email is required (fr)"
+        },
+        "firstName": {
+          "required": "First name is required (fr)"
+        },
+        "lastName": {
+          "required": "Last name is required (fr)"
+        }
+      }
+    },
+    "title": "Profile (fr)",
+    "toastMessages": {
+      "error": "Something went wrong. Please try again (fr)",
+      "success": "Profile updated successfully (fr)"
+    }
+  },
+  "profileCompletion": {
+    "buttons": {
+      "gotoProfile": "Go to profile (fr)"
+    },
+    "messages": {
+      "reminder": "Please complete your profile to access this page. (fr)"
+    },
+    "title": "Complete your profile (fr)"
+  },
   "resetPassword": {
     "form": {
       "actions": {
         "submit": "Reset password (fr)"
       },
-      "newPassword": {
-        "label": "New password (fr)"
-      },
       "confirmPassword": {
         "label": "Confirm password is required (fr)"
+      },
+      "newPassword": {
+        "label": "New password (fr)"
       }
     },
     "messages": {
       "success": "Reset password successfully (fr)",
       "validation": {
-        "newPassword": "New password is required (fr)",
-        "confirmPassword": "Confirm password is required (fr)"
+        "confirmPassword": "Confirm password is required (fr)",
+        "newPassword": "New password is required (fr)"
       }
     },
     "title": "Reset password (fr)"
@@ -150,108 +242,17 @@
     },
     "title": "Inscription"
   },
-  "menu": {
-    "signin": "Connexion",
-    "signup": "Inscription"
-  },
   "userMenu": {
-    "profile": "Profile (fr)",
-    "logout": "Logout (fr)"
+    "logout": "Logout (fr)",
+    "profile": "Profile (fr)"
   },
   "validation": {
     "messages": {
       "email": "Email is required (fr)",
-      "validEmail": "Email must be a valid email (fr)",
-      "requiredField": "This field is required (fr)",
+      "mustMatch": "Passwords must match (fr)",
       "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
-      "mustMatch": "Passwords must match (fr)"
-    }
-  },
-  "emailVerification": {
-    "messages": {
-      "alreadyVerified": "Email is already verified. Please try refreshing the page (fr).",
-      "error": "Something went wrong. Please try again (fr)",
-      "invalidToken": "The token is invalid (fr)",
-      "resendEmailInfo": "Not received yet? (fr)",
-      "success": "Email verified successfully (fr).",
-      "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox. (fr)",
-      "unauthenticated": "User session expired. Please signin to continue (fr)"
-    },
-    "button": {
-      "resendEmail": "Resend (fr)",
-      "resendLink": "Resend verification link (fr)",
-      "signin": "Signin (fr)"
-    },
-    "title": "Please verify your email address (fr)",
-    "toastMessages": {
-      "success": "Email verified successfully (fr)",
-      "alreadyVerified": "Email is already verified (fr)",
-      "invalidToken": "The token is invalid (fr)",
-      "error": "Something went wrong. Please try again (fr)",
-      "resendSuccess": "Email resent successfully (fr)",
-      "resendError": "Something went wrong. Please try again (fr)",
-      "updateSuccess": "Email updated sucessfully (fr)"
-    },
-    "verifyEmail": "Verifying your email address (fr)"
-  },
-  "profile": {
-    "accountInfo": {
-      "label": "Email (fr)",
-      "newEmail": "New Email (fr)",
-      "messages": {
-        "alreadyExist": "Email already exists. (fr)",
-        "duplicate": "Email is same as the current one. (fr)",
-        "disabled": "Update email feature is currently disabled. (fr)",
-        "email": "Email is required. (fr)",
-        "error": "An error occurred while updating the email. (fr)",
-        "invalid": "Invalid email. (fr)",
-        "success": "Email updated successfully. (fr)",
-        "verify": "Verify email to complete the email update. (fr)"
-      },
-      "title": "Update email (fr)"
-    },
-    "form": {
-      "email": {
-        "label": "Email (fr)",
-        "placeholder": ""
-      },
-      "firstName": {
-        "label": "First name (fr)",
-        "placeholder": "Enter your first name (fr)"
-      },
-      "lastName": {
-        "label": "Last name (fr)",
-        "placeholder": "Enter your last name (fr)"
-      },
-      "validations": {
-        "email": {
-          "required": "Email is required (fr)"
-        },
-        "firstName": {
-          "required": "First name is required (fr)"
-        },
-        "lastName": {
-          "required": "Last name is required (fr)"
-        }
-      }
-    },
-    "button": {
-      "update": "Update (fr)",
-      "cancel": "Cancel (fr)"
-    },
-    "title": "Profile (fr)",
-    "toastMessages": {
-      "success": "Profile updated successfully (fr)",
-      "error": "Something went wrong. Please try again (fr)"
-    }
-  },
-  "profileCompletion": {
-    "title": "Complete your profile (fr)",
-    "messages": {
-      "reminder": "Please complete your profile to access this page. (fr)"
-    },
-    "buttons": {
-      "gotoProfile": "Go to profile (fr)"
+      "requiredField": "This field is required (fr)",
+      "validEmail": "Email must be a valid email (fr)"
     }
   }
 }

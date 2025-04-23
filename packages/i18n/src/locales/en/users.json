@@ -1,16 +1,15 @@
 {
   "table": {
     "actions": {
-      "invite": "Invite user",
+      "disable": "Disable user",
       "enable": "Enable user",
-      "disable": "Disable user"
+      "invite": "Invite user"
     },
-    "title": "Users",
     "defaultColumns": {
-      "actions":"Actions",
+      "actions": "Actions",
       "email": "Email",
-      "roles": "Roles",
       "name": "Name",
+      "roles": "Roles",
       "signedUpOn": "Signed up on",
       "status": "Status"
     },
@@ -18,7 +17,8 @@
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
     },
-    "searchPlaceholder": "Search"
+    "searchPlaceholder": "Search",
+    "title": "Users"
   },
   "status": {
     "active": "Active",
@@ -27,22 +27,22 @@
     "invited": "Invited"
   },
   "confirmation": {
-    "header": "Confirmation",
+    "disable": {
+      "message": "Are you sure you want to disable this user?"
+    },
     "enable": {
       "message": "Are you sure you want to enable this user?"
     },
-    "disable": {
-      "message": "Are you sure you want to disable this user?"
-    }
+    "header": "Confirmation"
   },
   "messages": {
-    "enable": {
-      "success": "User enabled successfully",
-      "error": "Error enabling user"
-    },
     "disable": {
-      "success": "User disabled successfully",
-      "error": "Error disabling user"
+      "error": "Error disabling user",
+      "success": "User disabled successfully"
+    },
+    "enable": {
+      "error": "Error enabling user",
+      "success": "User enabled successfully"
     }
   }
 }

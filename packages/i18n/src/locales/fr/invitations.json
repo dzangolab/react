@@ -1,6 +1,5 @@
 {
   "confirmation": {
-    "header": "Confirmation (fr)",
     "confirm": {
       "delete": {
         "message": "Are you sure you want to delete? (fr)"
@@ -11,7 +10,8 @@
       "revoke": {
         "message": "Are you sure you want to revoke? (fr)"
       }
-    }
+    },
+    "header": "Confirmation (fr)"
   },
   "form": {
     "actions": {
@@ -21,7 +21,7 @@
     "fields": {
       "app": {
         "label": "App (fr)",
-        "placeholder": "Select app (fr)"
+        "placeholder": "Select an app (fr)"
       },
       "email": {
         "label": "Email (fr)",
@@ -57,20 +57,20 @@
   },
   "messages": {
     "delete": {
-      "success": "Successfully deleted invitation (fr)",
-      "error": "Error deleting invitation (fr)"
+      "error": "Error deleting invitation (fr)",
+      "success": "Successfully deleted invitation (fr)"
     },
     "invite": {
-      "success": "Successfully invited user (fr)",
-      "error": "Error inviting user (fr)"
+      "error": "Error inviting user (fr)",
+      "success": "Successfully invited user (fr)"
     },
     "resend": {
-      "success": "Successfully resent invitation (fr)",
-      "error": "Error resending invitation (fr)"
+      "error": "Error resending invitation (fr)",
+      "success": "Successfully resent invitation (fr)"
     },
     "revoke": {
-      "success": "Successfully revoked invitation (fr)",
-      "error": "Error revoking invitation (fr)"
+      "error": "Error revoking invitation (fr)",
+      "success": "Successfully revoked invitation (fr)"
     }
   },
   "modal": {
@@ -78,17 +78,17 @@
       "label": "Invite user (fr)"
     },
     "dialog": {
-      "header": "Invite a user (fr)"
+      "header": "Invite an user (fr)"
     }
   },
   "table": {
     "defaultColumns": {
-      "email": "Email (fr)",
-      "role": "Role (fr)",
-      "invitedBy": "Invited by (fr)",
-      "expiresAt": "Expires at (fr)",
       "actions": "Actions (fr)",
       "app": "App (fr)",
+      "email": "Email (fr)",
+      "expiresAt": "Expires at (fr)",
+      "invitedBy": "Invited by (fr)",
+      "role": "Role (fr)",
       "status": "Status (fr)"
     },
     "emptyMessage": "Table is empty (fr)",
