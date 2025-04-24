@@ -1,16 +1,15 @@
 {
   "table": {
     "actions": {
-      "invite": "Invite user (fr)",
+      "disable": "Disable user (fr)",
       "enable": "Enable user (fr)",
-      "disable": "Disable user (fr)"
+      "invite": "Invite user (fr)"
     },
-    "title": "Users (fr)",
     "defaultColumns": {
       "actions": "Actions (fr)",
       "email": "Email (fr)",
-      "roles": "Roles (fr)",
       "name": "Name (fr)",
+      "roles": "Roles (fr)",
       "signedUpOn": "Signed up on (fr)",
       "status": "Status (fr)"
     },
@@ -18,7 +17,8 @@
       "pageControl": "Go to (fr)",
       "rowsPerPage": "Rows (fr)"
     },
-    "searchPlaceholder": "Search (fr)"
+    "searchPlaceholder": "Search (fr)",
+    "title": "Users (fr)"
   },
   "status": {
     "active": "Active (fr)",
@@ -27,22 +27,22 @@
     "invited": "Invited (fr)"
   },
   "confirmation": {
-    "header": "Confirmation (fr)",
     "disable": {
       "message": "Are you sure you want to disable this user? (fr)"
     },
     "enable": {
       "message": "Are you sure you want to enable this user? (fr)"
-    }
+    },
+    "header": "Confirmation (fr)"
   },
   "messages": {
-    "enable": {
-      "success": "User enabled successfully (fr)",
-      "error": "Error enabling user (fr)"
-    },
     "disable": {
-      "success": "User disabled successfully (fr)",
-      "error": "Error disabling user (fr)"
+      "error": "Error disabling user. (fr)",
+      "success": "User disabled successfully. (fr)"
+    },
+    "enable": {
+      "error": "Error enabling user. (fr)",
+      "success": "User enabled successfully. (fr)"
     }
   }
 }

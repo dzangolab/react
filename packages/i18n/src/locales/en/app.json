@@ -1,15 +1,15 @@
 {
+  "footer": {
+    "copyright": "All rights reserved"
+  },
   "header": {
     "menu": {
       "about": "About",
       "home": "Home",
-      "profile": "Profile",
       "login": "Login",
-      "logout": "Logout"
+      "logout": "Logout",
+      "profile": "Profile"
     }
-  },
-  "footer": {
-    "copyright": "All rights reserved"
   },
   "loading": "Loading ...",
   "thisApp": "This app"

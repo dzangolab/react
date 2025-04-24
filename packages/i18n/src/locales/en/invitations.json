@@ -1,6 +1,5 @@
 {
   "confirmation": {
-    "header": "Confirmation",
     "confirm": {
       "delete": {
         "message": "Are you sure you want to delete?"
@@ -11,7 +10,8 @@
       "revoke": {
         "message": "Are you sure you want to revoke?"
       }
-    }
+    },
+    "header": "Confirmation"
   },
   "form": {
     "actions": {
@@ -21,7 +21,7 @@
     "fields": {
       "app": {
         "label": "App",
-        "placeholder": "Select app"
+        "placeholder": "Select an app"
       },
       "email": {
         "label": "Email",
@@ -49,28 +49,28 @@
     },
     "title": "Invitation",
     "messages": {
-      "acceptedInvitation": "Invitation already accepted",
+      "acceptedInvitation": "You have already accepted this invitation.",
       "errorFetchingInvitation": "Invalid token. Please contact your administrator.",
       "errorAcceptingInvitation": "Error accepting invitation.",
-      "invalidInvitation": "Invitation is no longer valid"
+      "invalidInvitation": "Invitation is no longer valid."
     }
   },
   "messages": {
     "delete": {
-      "success": "Successfully deleted invitation",
-      "error": "Error deleting invitation"
+      "error": "Error deleting invitation.",
+      "success": "Invitation deleted successfully."
     },
     "invite": {
-      "success": "Successfully invited user",
-      "error": "Error inviting user"
+      "error": "Error inviting user.",
+      "success": "User invited successfully."
     },
     "resend": {
-      "success": "Successfully resent invitation",
-      "error": "Error resending invitation"
+      "error": "Error resending invitation.",
+      "success": "Invitation resent successfully."
     },
     "revoke": {
-      "success": "Successfully revoked invitation",
-      "error": "Error revoking invitation"
+      "error": "Error revoking invitation.",
+      "success": "Invitation revoked successfully."
     }
   },
   "modal": {
@@ -78,17 +78,17 @@
       "label": "Invite user"
     },
     "dialog": {
-      "header": "Invite a user"
+      "header": "Invite an user"
     }
   },
   "table": {
     "defaultColumns": {
-      "email": "Email",
-      "role": "Role",
-      "invitedBy": "Invited by",
-      "expiresAt": "Expires at",
       "actions": "Actions",
       "app": "App",
+      "email": "Email",
+      "expiresAt": "Expires at",
+      "invitedBy": "Invited by",
+      "role": "Role",
       "status": "Status"
     },
     "emptyMessage": "Table is empty",
@@ -107,12 +107,12 @@
   },
   "validation": {
     "messages": {
-      "app": "App is required",
-      "email": "Email is required",
-      "expiresAt": "Expiry date is required",
-      "validEmail": "Email must be a valid email",
-      "requiredField": "This field is required",
-      "role": "Role is required"
+      "app": "App is required.",
+      "email": "Email is required.",
+      "expiresAt": "Expiry date is required.",
+      "requiredField": "This field is required.",
+      "role": "Role is required.",
+      "validEmail": "Email must be a valid email."
     }
   }
 }

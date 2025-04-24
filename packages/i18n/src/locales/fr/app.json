@@ -1,15 +1,15 @@
 {
+  "footer": {
+    "copyright": "Tous droits réservés"
+  },
   "header": {
     "menu": {
       "about": "A propos de nous",
       "home": "Accueil",
-      "profile": "Profil",
       "login": "Connexion",
-      "logout": "Déconnexion"
+      "logout": "Déconnexion",
+      "profile": "Profil"
     }
-  },
-  "footer": {
-    "copyright": "Tous droits réservés"
   },
   "loading": "Loading (fr) ...",
   "thisApp": "This app (fr)"

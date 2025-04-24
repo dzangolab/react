@@ -4,37 +4,69 @@
       "actions": {
         "submit": "Change password"
       },
-      "oldPassword": {
-        "label": "Old password"
+      "confirmPassword": {
+        "label": "Confirm password"
       },
       "newPassword": {
         "label": "New password"
       },
-      "confirmPassword": {
-        "label": "Confirm password is required"
+      "oldPassword": {
+        "label": "Old password"
       }
     },
     "messages": {
-      "success": "Your password was successfully changed.",
+      "success": "You have successfully changed your password.",
       "validation": {
-        "oldPassword": "Old password is required",
-        "newPassword": "New password is required",
-        "confirmPassword": "Confirm password",
-        "mustMatch": "Passwords must match"
+        "confirmPassword": "Confirm password.",
+        "mustMatch": "Passwords must match.",
+        "newPassword": "New password is required.",
+        "oldPassword": "Old password is required."
       }
     },
     "title": "Change password"
   },
-  "forgotPassword": {
-    "links": {
-      "login": "Back to login"
+  "emailVerification": {
+    "button": {
+      "resendEmail": "Resend",
+      "resendLink": "Resend verification link",
+      "signin": "Signin"
     },
     "messages": {
-      "success": "Email sent sucessfully",
-      "validation": {
-        "email": "Email is required"
+      "alreadyVerified": "Email is already verified. Please try refreshing the page.",
+      "error": "Something went wrong. Please try again.",
+      "invalidToken": "The token is invalid.",
+      "resendEmailInfo": "Not received yet?",
+      "success": "Email verified successfully.",
+      "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox.",
+      "unauthenticated": "User session expired. Please signin to continue."
+    },
+    "title": "Please verify your email address.",
+    "toastMessages": {
+      "alreadyVerified": "Email is already verified.",
+      "error": "Something went wrong. Please try again.",
+      "invalidToken": "The token is invalid.",
+      "resendError": "Something went wrong. Please try again.",
+      "resendSuccess": "Email resent successfully.",
+      "success": "Email verified successfully.",
+      "updateSuccess": "Email updated sucessfully."
+    },
+    "verifyEmail": "Verifying your email address."
+  },
+  "firstUser": {
+    "login": {
+      "messages": {
+        "error": "Automatic login failed. Redirecting to login page for manual login."
       }
     },
+    "signup": {
+      "messages": {
+        "error": "Error signing up first user.",
+        "success": "Succefully added first user. Automatically logging in ..."
+      }
+    },
+    "title": "Register first user"
+  },
+  "forgotPassword": {
     "form": {
       "actions": {
         "submit": "Email me"
@@ -44,21 +76,16 @@
         "placeholder": ""
       }
     },
-    "title": "Forgot password"
-  },
-  "firstUser": {
-    "title": "Register first user",
-    "login": {
-      "messages": {
-        "error": "Automatic login failed. Redirecting to login page for manual login"
+    "links": {
+      "login": "Back to login"
+    },
+    "messages": {
+      "success": "Email sent sucessfully.",
+      "validation": {
+        "email": "Email is required."
       }
     },
-    "signup": {
-      "messages": {
-        "error": "Error signing up first user",
-        "success": "Succefully added first user. Automatically logging in ..."
-      }
-    }
+    "title": "Forgot password"
   },
   "login": {
     "form": {
@@ -73,16 +100,16 @@
         "label": "Your password"
       }
     },
-    "instructions": "Enter your credentials to continue",
+    "instructions": "Enter your credentials to continue.",
     "links": {
       "forgotPassword": "Forgot password",
       "signup": "Sign up"
     },
     "messages": {
-      "success": "Logged in successfully",
+      "success": "Logged in successfully.",
       "validation": {
-        "email": "Email is required",
-        "password": "Password is required"
+        "email": "Email is required.",
+        "password": "Password is required."
       }
     },
     "social": {
@@ -91,125 +118,31 @@
     "title": "Log in"
   },
   "logout": {
-    "message": "Successfully logged out"
-  },
-  "signup": {
-    "form": {
-      "actions": {
-        "submit": "Create my account"
-      },
-      "confirmation": {
-        "label": "Confirm password"
-      },
-      "email": {
-        "label": "Your email",
-        "placeholder": ""
-      },
-      "password": {
-        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
-        "label": "Your password"
-      },
-      "confirmPassword": {
-        "label": "Confirm password"
-      }
-    },
-    "links": {
-      "forgotPassword": "Forgot password",
-      "login": "Log in"
-    },
-    "messages": {
-      "success": "Signed up successfully.",
-      "validation": {
-        "confirmPassword": "Confirm password is required",
-        "email": "Email is required",
-        "mustMatch": "Passwords must match",
-        "password": "Password is required",
-        "termsAndConditions": "Please agree to the terms and conditions",
-        "validationMessage": "Please enter a valid password"
-      }
-    },
-    "title": "Sign up"
+    "message": "Logged out successfully."
   },
   "menu": {
     "signin": "Log in",
     "signup": "Sign up"
   },
-  "resetPassword": {
-    "form": {
-      "actions": {
-        "submit": "Reset password"
-      },
-      "newPassword": {
-        "label": "New password"
-      },
-      "confirmPassword": {
-        "label": "Confirm password is required"
-      }
-    },
-    "messages": {
-      "success": "Reset password successfully",
-      "validation": {
-        "newPassword": "New password is required",
-        "confirmPassword": "Confirm password is required"
-      }
-    },
-    "title": "Reset password"
-  },
-  "userMenu": {
-    "profile": "Profile",
-    "logout": "Logout"
-  },
-  "validation": {
-    "messages": {
-      "email": "Email is required",
-      "validEmail": "Email must be a valid email",
-      "requiredField": "This field is required",
-      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
-      "mustMatch": "Passwords must match"
-    }
-  },
-  "emailVerification": {
-    "messages": {
-      "alreadyVerified": "Email is already verified. Please try refreshing the page.",
-      "error": "Something went wrong. Please try again",
-      "invalidToken": "The token is invalid",
-      "resendEmailInfo": "Not received yet?",
-      "success": "Email verified successfully.",
-      "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox.",
-      "unauthenticated": "User session expired. Please signin to continue"
-    },
-    "button": {
-      "resendEmail": "Resend",
-      "resendLink": "Resend verification link",
-      "signin": "Signin"
-    },
-    "title": "Please verify your email address",
-    "toastMessages": {
-      "success": "Email verified successfully",
-      "alreadyVerified": "Email is already verified",
-      "invalidToken": "The token is invalid",
-      "error": "Something went wrong. Please try again",
-      "resendSuccess": "Email resent successfully",
-      "resendError": "Something went wrong. Please try again",
-      "updateSuccess": "Email updated sucessfully"
-    },
-    "verifyEmail": "Verifying your email address"
-  },
   "profile": {
     "accountInfo": {
       "label": "Email",
-      "newEmail": "New Email",
       "messages": {
         "alreadyExist": "Email already exists.",
         "duplicate": "Email is same as the current one.",
         "disabled": "Update email feature is currently disabled.",
         "email": "Email is required.",
         "error": "An error occurred while updating the email.",
-        "invalid": "Invalid email",
+        "invalid": "Invalid email.",
         "success": "Email updated successfully.",
         "verify": "Verify email to complete the email update."
       },
+      "newEmail": "New Email",
       "title": "Update email"
+    },
+    "button": {
+      "cancel": "Cancel",
+      "update": "Update"
     },
     "form": {
       "email": {
@@ -236,23 +169,90 @@
         }
       }
     },
-    "button": {
-      "update": "Update",
-      "cancel": "Cancel"
-    },
     "title": "Profile",
     "toastMessages": {
-      "success": "Profile updated successfully",
-      "error": "Something went wrong. Please try again"
+      "error": "Something went wrong. Please try again.",
+      "success": "Profile updated successfully."
     }
   },
   "profileCompletion": {
-    "title": "Complete your profile",
+    "buttons": {
+      "gotoProfile": "Go to profile"
+    },
     "messages": {
       "reminder": "Please complete your profile to access this page."
     },
-    "buttons": {
-      "gotoProfile": "Go to profile"
+    "title": "Complete your profile"
+  },
+  "resetPassword": {
+    "form": {
+      "actions": {
+        "submit": "Reset password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password is required."
+      },
+      "newPassword": {
+        "label": "New password"
+      }
+    },
+    "messages": {
+      "success": "Password reset successfully.",
+      "validation": {
+        "confirmPassword": "Confirm password is required.",
+        "newPassword": "New password is required."
+      }
+    },
+    "title": "Reset password"
+  },
+  "signup": {
+    "form": {
+      "actions": {
+        "submit": "Create my account"
+      },
+      "confirmation": {
+        "label": "Confirm password"
+      },
+      "confirmPassword": {
+        "label": "Confirm password"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": ""
+      },
+      "password": {
+        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase.",
+        "label": "Your password"
+      }
+    },
+    "links": {
+      "forgotPassword": "Forgot password",
+      "login": "Log in"
+    },
+    "messages": {
+      "success": "Signed up successfully.",
+      "validation": {
+        "confirmPassword": "Confirm password is required.",
+        "email": "Email is required.",
+        "mustMatch": "Passwords must match.",
+        "password": "Password is required.",
+        "termsAndConditions": "Please agree to the terms and conditions.",
+        "validationMessage": "Please enter a valid password."
+      }
+    },
+    "title": "Sign up"
+  },
+  "userMenu": {
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "validation": {
+    "messages": {
+      "email": "Email is required.",
+      "mustMatch": "Passwords must match.",
+      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase.",
+      "requiredField": "This field is required.",
+      "validEmail": "Email must be a valid email."
     }
   }
 }
