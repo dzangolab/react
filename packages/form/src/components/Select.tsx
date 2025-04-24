@@ -1,41 +1,23 @@
-import { Select as BasicSelect } from "@dzangolab/react-ui";
+import { Select as BasicSelect, ISelectProperties } from "@dzangolab/react-ui";
 import React, { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-type Value = string | number;
-
-type Option = {
-  value: Value;
-  label: string;
-  disabled?: boolean;
-};
-
-interface ISelect {
-  autoSelectSingleOption?: boolean;
-  className?: string;
-  disabled?: boolean;
-  helperText?: string;
-  hideIfSingleOption?: boolean;
-  label?: string | React.ReactNode;
-  multiple?: boolean;
-  name: string;
-  options: Option[];
-  placeholder?: string;
-  showRemoveSelection?: boolean;
+interface ISelect<T extends string | number>
+  extends Omit<
+    ISelectProperties<T>,
+    "onChange" | "value" | "hasError" | "errorMessage"
+  > {
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitCount?: number;
-  renderOption?: (option: Option) => React.ReactNode;
-  renderValue?: (
-    value?: Value | Value[],
-    options?: Option[],
-  ) => React.ReactNode;
 }
 
-export const Select: React.FC<ISelect> = ({
+export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
+  autoSortOptions = true,
   className,
   disabled,
+  enableSearch,
   helperText,
   hideIfSingleOption = false,
   label = "",
@@ -43,13 +25,14 @@ export const Select: React.FC<ISelect> = ({
   name,
   options,
   placeholder,
+  renderOption,
+  renderValue,
+  searchPlaceholder,
   showRemoveSelection = true,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
-  renderOption,
-  renderValue,
-}) => {
+}: ISelect<T>) => {
   const { control, getFieldState, setValue } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
@@ -78,23 +61,26 @@ export const Select: React.FC<ISelect> = ({
       defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
-          showRemoveSelection={showRemoveSelection}
           autoSelectSingleOption={autoSelectSingleOption}
+          autoSortOptions={autoSortOptions}
           className={className}
+          disabled={disabled}
+          enableSearch={enableSearch}
+          errorMessage={error?.message}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
           helperText={helperText}
           hideIfSingleOption={hideIfSingleOption}
           label={label}
-          name={name}
           multiple={multiple}
-          disabled={disabled}
+          name={name}
           options={options}
-          placeholder={placeholder}
-          value={field.value}
           onChange={field.onChange}
+          placeholder={placeholder}
           renderOption={renderOption}
           renderValue={renderValue}
-          hasError={submitCount > 0 ? checkInvalidState() : undefined}
-          errorMessage={error?.message}
+          showRemoveSelection={showRemoveSelection}
+          searchPlaceholder={searchPlaceholder}
+          value={field.value}
         />
       )}
     />
