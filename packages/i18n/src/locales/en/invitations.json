@@ -49,28 +49,28 @@
     },
     "title": "Invitation",
     "messages": {
-      "acceptedInvitation": "Invitation already accepted",
+      "acceptedInvitation": "You have already accepted this invitation.",
       "errorFetchingInvitation": "Invalid token. Please contact your administrator.",
       "errorAcceptingInvitation": "Error accepting invitation.",
-      "invalidInvitation": "Invitation is no longer valid"
+      "invalidInvitation": "Invitation is no longer valid."
     }
   },
   "messages": {
     "delete": {
-      "error": "Error deleting invitation",
-      "success": "Successfully deleted invitation"
+      "error": "Error deleting invitation.",
+      "success": "Invitation deleted successfully."
     },
     "invite": {
-      "error": "Error inviting user",
-      "success": "Successfully invited user"
+      "error": "Error inviting user.",
+      "success": "User invited successfully."
     },
     "resend": {
-      "error": "Error resending invitation",
-      "success": "Successfully resent invitation"
+      "error": "Error resending invitation.",
+      "success": "Invitation resent successfully."
     },
     "revoke": {
-      "error": "Error revoking invitation",
-      "success": "Successfully revoked invitation"
+      "error": "Error revoking invitation.",
+      "success": "Invitation revoked successfully."
     }
   },
   "modal": {
@@ -107,12 +107,12 @@
   },
   "validation": {
     "messages": {
-      "app": "App is required",
-      "email": "Email is required",
-      "expiresAt": "Expiry date is required",
-      "requiredField": "This field is required",
-      "role": "Role is required",
-      "validEmail": "Email must be a valid email"
+      "app": "App is required.",
+      "email": "Email is required.",
+      "expiresAt": "Expiry date is required.",
+      "requiredField": "This field is required.",
+      "role": "Role is required.",
+      "validEmail": "Email must be a valid email."
     }
   }
 }

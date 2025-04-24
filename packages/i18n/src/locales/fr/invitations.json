@@ -49,28 +49,28 @@
     },
     "title": "Invitation (fr)",
     "messages": {
-      "acceptedInvitation": "Invitation already accepted (fr)",
-      "errorFetchingInvitation": "Invalid token. Please contact your administrator (fr)",
-      "errorAcceptingInvitation": "Error accepting invitation (fr)",
-      "invalidInvitation": "Invitation is no longer valid (fr)"
+      "acceptedInvitation": "You have already accepted this invitation. (fr)",
+      "errorFetchingInvitation": "Invalid token. Please contact your administrator. (fr)",
+      "errorAcceptingInvitation": "Error accepting invitation. (fr)",
+      "invalidInvitation": "Invitation is no longer valid. (fr)"
     }
   },
   "messages": {
     "delete": {
-      "error": "Error deleting invitation (fr)",
-      "success": "Successfully deleted invitation (fr)"
+      "error": "Error deleting invitation. (fr)",
+      "success": "Invitation deleted successfully. (fr)"
     },
     "invite": {
-      "error": "Error inviting user (fr)",
-      "success": "Successfully invited user (fr)"
+      "error": "Error inviting user. (fr)",
+      "success": "User invited successfully. (fr)"
     },
     "resend": {
-      "error": "Error resending invitation (fr)",
-      "success": "Successfully resent invitation (fr)"
+      "error": "Error resending invitation. (fr)",
+      "success": "Invitation resent successfully. (fr)"
     },
     "revoke": {
-      "error": "Error revoking invitation (fr)",
-      "success": "Successfully revoked invitation (fr)"
+      "error": "Error revoking invitation. (fr)",
+      "success": "Invitation revoked successfully. (fr)"
     }
   },
   "modal": {
@@ -107,12 +107,12 @@
   },
   "validation": {
     "messages": {
-      "app": "App is required (fr)",
-      "email": "Email is required (fr)",
-      "expiresAt": "Expiry date is required (fr)",
-      "validEmail": "Email must be a valid email (fr)",
-      "requiredField": "This field is required (fr)",
-      "role": "Role is required (fr)"
+      "app": "App is required. (fr)",
+      "email": "Email is required. (fr)",
+      "expiresAt": "Expiry date is required. (fr)",
+      "validEmail": "Email must be a valid email. (fr)",
+      "requiredField": "This field is required. (fr)",
+      "role": "Role is required. (fr)"
     }
   }
 }

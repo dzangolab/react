@@ -37,12 +37,12 @@
   },
   "messages": {
     "disable": {
-      "error": "Error disabling user",
-      "success": "User disabled successfully"
+      "error": "Error disabling user.",
+      "success": "User disabled successfully."
     },
     "enable": {
-      "error": "Error enabling user",
-      "success": "User enabled successfully"
+      "error": "Error enabling user.",
+      "success": "User enabled successfully."
     }
   }
 }

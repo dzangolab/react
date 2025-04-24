@@ -15,12 +15,12 @@
       }
     },
     "messages": {
-      "success": "Your password was successfully changed. (fr)",
+      "success": "You have successfully changed your password. (fr)",
       "validation": {
-        "confirmPassword": "Confirm password is required (fr)",
-        "mustMatch": "Passwords must match (fr)",
-        "newPassword": "New password is required (fr)",
-        "oldPassword": "Old password is required (fr)"
+        "confirmPassword": "Confirm password is required. (fr)",
+        "mustMatch": "Passwords must match. (fr)",
+        "newPassword": "New password is required. (fr)",
+        "oldPassword": "Old password is required. (fr)"
       }
     },
     "title": "Change password (fr)"
@@ -32,35 +32,35 @@
       "signin": "Signin (fr)"
     },
     "messages": {
-      "alreadyVerified": "Email is already verified. Please try refreshing the page (fr).",
-      "error": "Something went wrong. Please try again (fr)",
-      "invalidToken": "The token is invalid (fr)",
+      "alreadyVerified": "Email is already verified. Please try refreshing the page. (fr)",
+      "error": "Something went wrong. Please try again. (fr)",
+      "invalidToken": "The token is invalid. (fr)",
       "resendEmailInfo": "Not received yet? (fr)",
-      "success": "Email verified successfully (fr).",
+      "success": "Email verified successfully. (fr)",
       "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox. (fr)",
-      "unauthenticated": "User session expired. Please signin to continue (fr)"
+      "unauthenticated": "User session expired. Please signin to continue. (fr)"
     },
-    "title": "Please verify your email address (fr)",
+    "title": "Please verify your email address. (fr)",
     "toastMessages": {
-      "alreadyVerified": "Email is already verified (fr)",
-      "error": "Something went wrong. Please try again (fr)",
-      "invalidToken": "The token is invalid (fr)",
-      "resendError": "Something went wrong. Please try again (fr)",
-      "resendSuccess": "Email resent successfully (fr)",
-      "success": "Email verified successfully (fr)",
-      "updateSuccess": "Email updated sucessfully (fr)"
+      "alreadyVerified": "Email is already verified. (fr)",
+      "error": "Something went wrong. Please try again. (fr)",
+      "invalidToken": "The token is invalid. (fr)",
+      "resendError": "Something went wrong. Please try again. (fr)",
+      "resendSuccess": "Email resent successfully. (fr)",
+      "success": "Email verified successfully. (fr)",
+      "updateSuccess": "Email updated sucessfully. (fr)"
     },
-    "verifyEmail": "Verifying your email address (fr)"
+    "verifyEmail": "Verifying your email address. (fr)"
   },
   "firstUser": {
     "login": {
       "messages": {
-        "error": "Automatic login failed. Redirecting to login page for manual login (fr)"
+        "error": "Automatic login failed. Redirecting to login page for manual login. (fr)"
       }
     },
     "signup": {
       "messages": {
-        "error": "Error signing up first user (fr)",
+        "error": "Error signing up first user. (fr)",
         "success": "Succefully added first user. Automatically logging in ... (fr)"
       }
     },
@@ -80,9 +80,9 @@
       "login": "Back to login (fr)"
     },
     "messages": {
-      "success": "Email sent sucessfully (fr)",
+      "success": "Email sent sucessfully. (fr)",
       "validation": {
-        "email": "Email is required (fr)"
+        "email": "Email is required. (fr)"
       }
     },
     "title": "Forgot password (fr)"
@@ -100,7 +100,7 @@
         "label": "votre mot de passe"
       }
     },
-    "instructions": "Enter your credentials to continue (fr)",
+    "instructions": "Enter your credentials to continue. (fr)",
     "links": {
       "forgotPassword": "Mot de passe oublié",
       "signup": "Inscription"
@@ -108,8 +108,8 @@
     "messages": {
       "success": "Logged in successfully.",
       "validation": {
-        "email": "Email is required (fr)",
-        "password": "Password is required (fr)"
+        "email": "Email is required. (fr)",
+        "password": "Password is required. (fr)"
       }
     },
     "social": {
@@ -118,7 +118,7 @@
     "title": "Connexion"
   },
   "logout": {
-    "message": "Successfully logged out (fr)"
+    "message": "Logged out successfully. (fr)"
   },
   "menu": {
     "signin": "Connexion",
@@ -159,20 +159,20 @@
       },
       "validations": {
         "email": {
-          "required": "Email is required (fr)"
+          "required": "Email is required. (fr)"
         },
         "firstName": {
-          "required": "First name is required (fr)"
+          "required": "First name is required. (fr)"
         },
         "lastName": {
-          "required": "Last name is required (fr)"
+          "required": "Last name is required. (fr)"
         }
       }
     },
     "title": "Profile (fr)",
     "toastMessages": {
-      "error": "Something went wrong. Please try again (fr)",
-      "success": "Profile updated successfully (fr)"
+      "error": "Something went wrong. Please try again. (fr)",
+      "success": "Profile updated successfully. (fr)"
     }
   },
   "profileCompletion": {
@@ -190,17 +190,17 @@
         "submit": "Reset password (fr)"
       },
       "confirmPassword": {
-        "label": "Confirm password is required (fr)"
+        "label": "Confirm password is required. (fr)"
       },
       "newPassword": {
         "label": "New password (fr)"
       }
     },
     "messages": {
-      "success": "Reset password successfully (fr)",
+      "success": "Password reset successfully. (fr)",
       "validation": {
-        "confirmPassword": "Confirm password is required (fr)",
-        "newPassword": "New password is required (fr)"
+        "confirmPassword": "Confirm password is required. (fr)",
+        "newPassword": "New password is required. (fr)"
       }
     },
     "title": "Reset password (fr)"
@@ -218,7 +218,7 @@
         "placeholder": ""
       },
       "password": {
-        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
+        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase. (fr)",
         "label": "Votre mot de passe"
       },
       "confirmPassword": {
@@ -232,12 +232,12 @@
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
-        "confirmPassword": "ConfirmPassword is required (fr)",
-        "email": "Email is required (fr)",
-        "mustMatch": "Passwords must match (fr)",
-        "password": "Password is required (fr)",
-        "termsAndConditions": "Please agree to the terms and conditions (fr)",
-        "validationMessage": "Please enter a valid password (fr)"
+        "confirmPassword": "ConfirmPassword is required. (fr)",
+        "email": "Email is required. (fr)",
+        "mustMatch": "Passwords must match. (fr)",
+        "password": "Password is required. (fr)",
+        "termsAndConditions": "Please agree to the terms and conditions. (fr)",
+        "validationMessage": "Please enter a valid password. (fr)"
       }
     },
     "title": "Inscription"
@@ -248,11 +248,11 @@
   },
   "validation": {
     "messages": {
-      "email": "Email is required (fr)",
-      "mustMatch": "Passwords must match (fr)",
-      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase (fr)",
-      "requiredField": "This field is required (fr)",
-      "validEmail": "Email must be a valid email (fr)"
+      "email": "Email is required. (fr)",
+      "mustMatch": "Passwords must match. (fr)",
+      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase. (fr)",
+      "requiredField": "This field is required. (fr)",
+      "validEmail": "Email must be a valid email. (fr)"
     }
   }
 }

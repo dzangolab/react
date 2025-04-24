@@ -15,12 +15,12 @@
       }
     },
     "messages": {
-      "success": "Your password was successfully changed.",
+      "success": "You have successfully changed your password.",
       "validation": {
-        "confirmPassword": "Confirm password",
-        "mustMatch": "Passwords must match",
-        "newPassword": "New password is required",
-        "oldPassword": "Old password is required"
+        "confirmPassword": "Confirm password.",
+        "mustMatch": "Passwords must match.",
+        "newPassword": "New password is required.",
+        "oldPassword": "Old password is required."
       }
     },
     "title": "Change password"
@@ -33,34 +33,34 @@
     },
     "messages": {
       "alreadyVerified": "Email is already verified. Please try refreshing the page.",
-      "error": "Something went wrong. Please try again",
-      "invalidToken": "The token is invalid",
+      "error": "Something went wrong. Please try again.",
+      "invalidToken": "The token is invalid.",
       "resendEmailInfo": "Not received yet?",
       "success": "Email verified successfully.",
       "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox.",
-      "unauthenticated": "User session expired. Please signin to continue"
+      "unauthenticated": "User session expired. Please signin to continue."
     },
-    "title": "Please verify your email address",
+    "title": "Please verify your email address.",
     "toastMessages": {
-      "alreadyVerified": "Email is already verified",
-      "error": "Something went wrong. Please try again",
-      "invalidToken": "The token is invalid",
-      "resendError": "Something went wrong. Please try again",
-      "resendSuccess": "Email resent successfully",
-      "success": "Email verified successfully",
-      "updateSuccess": "Email updated sucessfully"
+      "alreadyVerified": "Email is already verified.",
+      "error": "Something went wrong. Please try again.",
+      "invalidToken": "The token is invalid.",
+      "resendError": "Something went wrong. Please try again.",
+      "resendSuccess": "Email resent successfully.",
+      "success": "Email verified successfully.",
+      "updateSuccess": "Email updated sucessfully."
     },
-    "verifyEmail": "Verifying your email address"
+    "verifyEmail": "Verifying your email address."
   },
   "firstUser": {
     "login": {
       "messages": {
-        "error": "Automatic login failed. Redirecting to login page for manual login"
+        "error": "Automatic login failed. Redirecting to login page for manual login."
       }
     },
     "signup": {
       "messages": {
-        "error": "Error signing up first user",
+        "error": "Error signing up first user.",
         "success": "Succefully added first user. Automatically logging in ..."
       }
     },
@@ -80,9 +80,9 @@
       "login": "Back to login"
     },
     "messages": {
-      "success": "Email sent sucessfully",
+      "success": "Email sent sucessfully.",
       "validation": {
-        "email": "Email is required"
+        "email": "Email is required."
       }
     },
     "title": "Forgot password"
@@ -100,16 +100,16 @@
         "label": "Your password"
       }
     },
-    "instructions": "Enter your credentials to continue",
+    "instructions": "Enter your credentials to continue.",
     "links": {
       "forgotPassword": "Forgot password",
       "signup": "Sign up"
     },
     "messages": {
-      "success": "Logged in successfully",
+      "success": "Logged in successfully.",
       "validation": {
-        "email": "Email is required",
-        "password": "Password is required"
+        "email": "Email is required.",
+        "password": "Password is required."
       }
     },
     "social": {
@@ -118,7 +118,7 @@
     "title": "Log in"
   },
   "logout": {
-    "message": "Successfully logged out"
+    "message": "Logged out successfully."
   },
   "menu": {
     "signin": "Log in",
@@ -133,7 +133,7 @@
         "disabled": "Update email feature is currently disabled.",
         "email": "Email is required.",
         "error": "An error occurred while updating the email.",
-        "invalid": "Invalid email",
+        "invalid": "Invalid email.",
         "success": "Email updated successfully.",
         "verify": "Verify email to complete the email update."
       },
@@ -171,8 +171,8 @@
     },
     "title": "Profile",
     "toastMessages": {
-      "error": "Something went wrong. Please try again",
-      "success": "Profile updated successfully"
+      "error": "Something went wrong. Please try again.",
+      "success": "Profile updated successfully."
     }
   },
   "profileCompletion": {
@@ -190,17 +190,17 @@
         "submit": "Reset password"
       },
       "confirmPassword": {
-        "label": "Confirm password is required"
+        "label": "Confirm password is required."
       },
       "newPassword": {
         "label": "New password"
       }
     },
     "messages": {
-      "success": "Reset password successfully",
+      "success": "Password reset successfully.",
       "validation": {
-        "confirmPassword": "Confirm password is required",
-        "newPassword": "New password is required"
+        "confirmPassword": "Confirm password is required.",
+        "newPassword": "New password is required."
       }
     },
     "title": "Reset password"
@@ -221,7 +221,7 @@
         "placeholder": ""
       },
       "password": {
-        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
+        "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase.",
         "label": "Your password"
       }
     },
@@ -232,12 +232,12 @@
     "messages": {
       "success": "Signed up successfully.",
       "validation": {
-        "confirmPassword": "Confirm password is required",
-        "email": "Email is required",
-        "mustMatch": "Passwords must match",
-        "password": "Password is required",
-        "termsAndConditions": "Please agree to the terms and conditions",
-        "validationMessage": "Please enter a valid password"
+        "confirmPassword": "Confirm password is required.",
+        "email": "Email is required.",
+        "mustMatch": "Passwords must match.",
+        "password": "Password is required.",
+        "termsAndConditions": "Please agree to the terms and conditions.",
+        "validationMessage": "Please enter a valid password."
       }
     },
     "title": "Sign up"
@@ -248,11 +248,11 @@
   },
   "validation": {
     "messages": {
-      "email": "Email is required",
-      "mustMatch": "Passwords must match",
-      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase",
-      "requiredField": "This field is required",
-      "validEmail": "Email must be a valid email"
+      "email": "Email is required.",
+      "mustMatch": "Passwords must match.",
+      "passwordValidation": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase.",
+      "requiredField": "This field is required.",
+      "validEmail": "Email must be a valid email."
     }
   }
 }
