@@ -26,7 +26,6 @@ export const UpdateEmailFormFields = ({
             id: "cancel",
             label: t("profile.button.cancel"),
             type: "button",
-            disabled: !isDirty,
             onClick: () => setModalVisible(false),
           },
           {
