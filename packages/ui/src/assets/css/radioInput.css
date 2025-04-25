@@ -5,7 +5,6 @@
 }
 
 .radio-button-wrapper input[type="radio"] {
-  flex: 1;
   outline: none;
   transform: scale(1.5);
   width: auto;
