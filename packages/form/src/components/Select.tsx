@@ -14,24 +14,13 @@ interface ISelect<T extends string | number>
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
-  autoSortOptions = true,
-  className,
-  disabled,
-  enableSearch,
-  helperText,
-  hideIfSingleOption = false,
-  label = "",
   multiple = false,
   name,
   options,
-  placeholder,
-  renderOption,
-  renderValue,
-  searchPlaceholder,
-  showRemoveSelection = true,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
+  ...others
 }: ISelect<T>) => {
   const { control, getFieldState, setValue } = useFormContext();
 
@@ -62,25 +51,14 @@ export const Select = <T extends string | number>({
       render={({ field }) => (
         <BasicSelect
           autoSelectSingleOption={autoSelectSingleOption}
-          autoSortOptions={autoSortOptions}
-          className={className}
-          disabled={disabled}
-          enableSearch={enableSearch}
           errorMessage={error?.message}
           hasError={submitCount > 0 ? checkInvalidState() : undefined}
-          helperText={helperText}
-          hideIfSingleOption={hideIfSingleOption}
-          label={label}
           multiple={multiple}
           name={name}
           options={options}
           onChange={field.onChange}
-          placeholder={placeholder}
-          renderOption={renderOption}
-          renderValue={renderValue}
-          showRemoveSelection={showRemoveSelection}
-          searchPlaceholder={searchPlaceholder}
           value={field.value}
+          {...others}
         />
       )}
     />
