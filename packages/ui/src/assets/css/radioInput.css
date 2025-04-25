@@ -8,4 +8,5 @@
   flex: 1;
   outline: none;
   transform: scale(1.5);
+  width: auto;
 }
