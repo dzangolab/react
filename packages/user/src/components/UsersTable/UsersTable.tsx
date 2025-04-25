@@ -117,11 +117,12 @@ export const UsersTable = ({
 
         return value;
       },
+      enableSorting: true,
       enableColumnFilter: true,
     },
     {
       align: "center",
-      id: "roles",
+      accessorKey: "roles",
       header: t("table.defaultColumns.roles"),
       cell: ({ getValue, row: { original } }) => {
         const roles = (original as unknown as { roles: string[] })?.roles;
@@ -153,6 +154,7 @@ export const UsersTable = ({
           </>
         );
       },
+      enableSorting: true,
     },
     {
       accessorKey: "signedUpAt",
@@ -164,6 +166,7 @@ export const UsersTable = ({
 
         return "-";
       },
+      enableSorting: true,
     },
     {
       align: "center",
