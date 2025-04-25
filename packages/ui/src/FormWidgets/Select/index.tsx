@@ -9,7 +9,7 @@ type Option<T> = {
   value: T;
 };
 
-type ISelectProperties<T> = {
+export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
   className?: string;

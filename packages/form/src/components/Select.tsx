@@ -1,55 +1,27 @@
-import { Select as BasicSelect } from "@dzangolab/react-ui";
+import { Select as BasicSelect, ISelectProperties } from "@dzangolab/react-ui";
 import React, { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-type Value = string | number;
-
-type Option = {
-  value: Value;
-  label: string;
-  disabled?: boolean;
-};
-
-interface ISelect {
-  autoSelectSingleOption?: boolean;
-  className?: string;
-  disabled?: boolean;
-  helperText?: string;
-  hideIfSingleOption?: boolean;
-  label?: string | React.ReactNode;
-  multiple?: boolean;
-  name: string;
-  options: Option[];
-  placeholder?: string;
-  showRemoveSelection?: boolean;
+interface ISelect<T extends string | number>
+  extends Omit<
+    ISelectProperties<T>,
+    "onChange" | "value" | "hasError" | "errorMessage"
+  > {
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitCount?: number;
-  renderOption?: (option: Option) => React.ReactNode;
-  renderValue?: (
-    value?: Value | Value[],
-    options?: Option[],
-  ) => React.ReactNode;
 }
 
-export const Select: React.FC<ISelect> = ({
+export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
-  className,
-  disabled,
-  helperText,
-  hideIfSingleOption = false,
-  label = "",
   multiple = false,
   name,
   options,
-  placeholder,
-  showRemoveSelection = true,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
-  renderOption,
-  renderValue,
-}) => {
+  ...others
+}: ISelect<T>) => {
   const { control, getFieldState, setValue } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
@@ -78,23 +50,15 @@ export const Select: React.FC<ISelect> = ({
       defaultValue={multiple ? [] : undefined}
       render={({ field }) => (
         <BasicSelect
-          showRemoveSelection={showRemoveSelection}
           autoSelectSingleOption={autoSelectSingleOption}
-          className={className}
-          helperText={helperText}
-          hideIfSingleOption={hideIfSingleOption}
-          label={label}
-          name={name}
-          multiple={multiple}
-          disabled={disabled}
-          options={options}
-          placeholder={placeholder}
-          value={field.value}
-          onChange={field.onChange}
-          renderOption={renderOption}
-          renderValue={renderValue}
-          hasError={submitCount > 0 ? checkInvalidState() : undefined}
           errorMessage={error?.message}
+          hasError={submitCount > 0 ? checkInvalidState() : undefined}
+          multiple={multiple}
+          name={name}
+          options={options}
+          onChange={field.onChange}
+          value={field.value}
+          {...others}
         />
       )}
     />
