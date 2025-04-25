@@ -170,21 +170,22 @@ export const UsersTable = ({
     },
     {
       align: "center",
-      accessorKey: "status",
+      id: "status",
       header: t("table.defaultColumns.status"),
-      cell: ({ row: { original } }) => {
-        const color = original.disabled ? "red" : "green";
+      accessorFn: (original) => original.disabled,
+      cell: ({ getValue }) => {
+        const disabled = getValue();
+        const color = disabled ? "red" : "green";
 
         return (
           <Tag
-            label={
-              original.disabled ? t("status.disabled") : t("status.enabled")
-            }
+            label={disabled ? t("status.disabled") : t("status.enabled")}
             color={color}
             fullWidth
           />
         );
       },
+      enableSorting: true,
     },
   ];
 
