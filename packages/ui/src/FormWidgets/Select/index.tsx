@@ -41,7 +41,7 @@ export type ISelectProperties<T> = {
     }
 );
 
-export const Select = <T extends string | number | boolean>({
+export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
   autoSortOptions = true,
   className = "",

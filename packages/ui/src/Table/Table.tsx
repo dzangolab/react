@@ -194,14 +194,28 @@ const DataTable = <TData extends RowData>({
             return row;
           }
 
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const updatedFilterValue = filterValue.map((value: any) => {
+            switch (value) {
+              case "true":
+                return true;
+              case "false":
+                return false;
+              default:
+                return value;
+            }
+          });
+
           const cellValue = row.getValue<unknown[]>(columnId);
 
           if (Array.isArray(cellValue)) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            return filterValue.some((value: any) => cellValue.includes(value));
+            return updatedFilterValue.some((value: any) =>
+              cellValue.includes(value),
+            );
           }
 
-          return filterValue.includes(cellValue);
+          return updatedFilterValue.includes(cellValue);
         };
       }
     });

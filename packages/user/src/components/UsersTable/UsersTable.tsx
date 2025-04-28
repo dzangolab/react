@@ -190,11 +190,11 @@ export const UsersTable = ({
         filterVariant: "multiselect",
         filterOptions: [
           {
-            value: false,
+            value: "false",
             label: t("status.enabled"),
           },
           {
-            value: true,
+            value: "true",
             label: t("status.disabled"),
           },
         ],
