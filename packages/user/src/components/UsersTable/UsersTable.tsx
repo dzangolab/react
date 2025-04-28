@@ -83,7 +83,7 @@ export const UsersTable = ({
     "name",
     "roles",
     "signedUpAt",
-    "status",
+    "disabled",
     "actions",
   ],
   ...tableProperties
@@ -169,16 +169,16 @@ export const UsersTable = ({
     },
     {
       align: "center",
-      id: "status",
+      accessorKey: "disabled",
       header: t("table.defaultColumns.status"),
-      accessorFn: (original) => original.disabled,
-      cell: ({ getValue }) => {
-        const disabled = getValue();
-        const color = disabled ? "red" : "green";
+      cell: ({ row: { original } }) => {
+        const color = original.disabled ? "red" : "green";
 
         return (
           <Tag
-            label={disabled ? t("status.disabled") : t("status.enabled")}
+            label={
+              original.disabled ? t("status.disabled") : t("status.enabled")
+            }
             color={color}
             fullWidth
           />
