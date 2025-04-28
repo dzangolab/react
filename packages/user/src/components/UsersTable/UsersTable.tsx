@@ -83,7 +83,7 @@ export const UsersTable = ({
     "name",
     "roles",
     "signedUpAt",
-    "status",
+    "disabled",
     "actions",
   ],
   ...tableProperties
@@ -121,7 +121,7 @@ export const UsersTable = ({
     },
     {
       align: "center",
-      id: "roles",
+      accessorKey: "roles",
       header: t("table.defaultColumns.roles"),
       cell: ({ getValue, row: { original } }) => {
         const roles = (original as unknown as { roles: string[] })?.roles;
@@ -153,6 +153,7 @@ export const UsersTable = ({
           </>
         );
       },
+      enableSorting: true,
     },
     {
       accessorKey: "signedUpAt",
@@ -164,10 +165,11 @@ export const UsersTable = ({
 
         return "-";
       },
+      enableSorting: true,
     },
     {
       align: "center",
-      accessorKey: "status",
+      accessorKey: "disabled",
       header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
         const color = original.disabled ? "red" : "green";
@@ -182,6 +184,7 @@ export const UsersTable = ({
           />
         );
       },
+      enableSorting: true,
     },
   ];
 

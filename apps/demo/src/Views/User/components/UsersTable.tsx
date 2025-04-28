@@ -31,7 +31,7 @@ export const UsersTableDemo = () => {
             "name",
             "roles",
             "signedUpAt",
-            "status",
+            "disabled",
             "actions",
           ]}
           columns={[
