@@ -193,10 +193,15 @@ const DataTable = <TData extends RowData>({
           if (!filterValue || filterValue.length === 0) {
             return row;
           }
+  
+          const cellValue =  row.getValue<unknown[]>(columnId);
+
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          return filterValue.some((value: any) =>
-            row.getValue<unknown[]>(columnId)?.includes(value),
-          );
+          if (Array.isArray(cellValue)) {
+            return filterValue.some((value: any) => cellValue.includes(value));
+          }
+
+          return filterValue.includes(cellValue);
         };
       }
     });

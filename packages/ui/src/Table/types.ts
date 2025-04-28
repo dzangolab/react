@@ -95,7 +95,7 @@ type TOffset = number | null;
 type TSortRequest = TSingleSort[] | null;
 
 type FilterOption = {
-  value: string;
+  value: string | number | boolean;
   label: string;
 };
 

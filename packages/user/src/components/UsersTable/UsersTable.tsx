@@ -185,6 +185,20 @@ export const UsersTable = ({
         );
       },
       enableSorting: true,
+      enableColumnFilter: true,
+      meta: {
+        filterVariant: "multiselect",
+        filterOptions: [
+          {
+            value: false,
+            label: t("status.enabled"),
+          },
+          {
+            value: true,
+            label:t("status.disabled"),
+          },
+        ]
+      },
     },
   ];
 
