@@ -2,7 +2,7 @@ import { Select as BasicSelect, ISelectProperties } from "@dzangolab/react-ui";
 import React, { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-interface ISelect<T extends string | number>
+interface ISelect<T extends string | number | boolean>
   extends Omit<
     ISelectProperties<T>,
     "onChange" | "value" | "hasError" | "errorMessage"
@@ -12,7 +12,7 @@ interface ISelect<T extends string | number>
   submitCount?: number;
 }
 
-export const Select = <T extends string | number>({
+export const Select = <T extends string | number | boolean>({
   autoSelectSingleOption = false,
   multiple = false,
   name,

@@ -195,9 +195,9 @@ export const UsersTable = ({
           },
           {
             value: true,
-            label:t("status.disabled"),
+            label: t("status.disabled"),
           },
-        ]
+        ],
       },
     },
   ];

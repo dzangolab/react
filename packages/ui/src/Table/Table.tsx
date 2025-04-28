@@ -193,11 +193,11 @@ const DataTable = <TData extends RowData>({
           if (!filterValue || filterValue.length === 0) {
             return row;
           }
-  
-          const cellValue =  row.getValue<unknown[]>(columnId);
 
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const cellValue = row.getValue<unknown[]>(columnId);
+
           if (Array.isArray(cellValue)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return filterValue.some((value: any) => cellValue.includes(value));
           }
 
