@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      port: Number(process.env.VITE_APP_PORT) || 20072,
+      allowedHosts: true,
     },
     optimizeDeps: {
       include: ["react/jsx-runtime"],
