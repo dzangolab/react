@@ -117,7 +117,6 @@ export const UsersTable = ({
 
         return value;
       },
-      enableSorting: true,
       enableColumnFilter: true,
     },
     {
