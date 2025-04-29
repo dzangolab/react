@@ -188,34 +188,15 @@ const DataTable = <TData extends RowData>({
     }
 
     parsedColumns.forEach((column) => {
-      if (column.meta?.filterVariant === "multiselect") {
+      if (column.meta?.filterVariant === "multiselect" && !column.filterFn) {
         column.filterFn = (row, columnId, filterValue) => {
           if (!filterValue || filterValue.length === 0) {
             return row;
           }
-
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const updatedFilterValue = filterValue.map((value: any) => {
-            switch (value) {
-              case "true":
-                return true;
-              case "false":
-                return false;
-              default:
-                return value;
-            }
-          });
-
-          const cellValue = row.getValue<unknown[]>(columnId);
-
-          if (Array.isArray(cellValue)) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            return updatedFilterValue.some((value: any) =>
-              cellValue.includes(value),
-            );
-          }
-
-          return updatedFilterValue.includes(cellValue);
+          return filterValue.some((value: any) =>
+            row.getValue<unknown[]>(columnId)?.includes(value),
+          );
         };
       }
     });

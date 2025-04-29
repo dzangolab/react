@@ -186,6 +186,27 @@ export const UsersTable = ({
       },
       enableSorting: true,
       enableColumnFilter: true,
+      filterFn: (row, columnId, filterValue) => {
+        if (!filterValue || filterValue.length === 0) {
+          return true;
+        }
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const updatedFilterValue = filterValue.map((value: any) => {
+          switch (value) {
+            case "true":
+              return true;
+            case "false":
+              return false;
+            default:
+              return value;
+          }
+        });
+
+        const cellValue = row.getValue(columnId);
+
+        return updatedFilterValue.includes(cellValue);
+      },
       meta: {
         filterVariant: "multiselect",
         filterOptions: [
