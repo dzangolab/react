@@ -131,7 +131,7 @@ export const getRequestJSON = (
       }),
     };
   };
-  console.log("getfilter", getFilter());
+
   const getLimit = () => {
     if (
       !paginationState ||
