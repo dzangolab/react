@@ -188,7 +188,7 @@ const DataTable = <TData extends RowData>({
     }
 
     parsedColumns.forEach((column) => {
-      if (column.meta?.filterVariant === "multiselect") {
+      if (column.meta?.filterVariant === "multiselect" && !column.filterFn) {
         column.filterFn = (row, columnId, filterValue) => {
           if (!filterValue || filterValue.length === 0) {
             return row;

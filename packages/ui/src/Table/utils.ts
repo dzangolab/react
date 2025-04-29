@@ -101,7 +101,7 @@ export const getRequestJSON = (
       if (Array.isArray(updatedFilterState[0].value)) {
         return {
           key: updatedFilterState[0].id,
-          ...getFilterOperator("in"),
+          ...getFilterOperator(updatedFilterState[0].filterFn || "in"),
           value: updatedFilterState[0].value.join(","),
         };
       }
@@ -118,7 +118,7 @@ export const getRequestJSON = (
         if (Array.isArray(filter.value)) {
           return {
             key: filter.id,
-            ...getFilterOperator("in"),
+            ...getFilterOperator(filter.filterFn || "in"),
             value: filter.value.join(","),
           };
         }
