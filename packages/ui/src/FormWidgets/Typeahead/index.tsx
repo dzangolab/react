@@ -182,23 +182,26 @@ export const Typeahead = <T extends Suggestion>({
   };
 
   return (
-    <div className={`dz-typeahead ${className}`.trimEnd()}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div
-        className={`input-field-typeahead ${disabled ? "disabled" : ""}`}
-        aria-invalid={hasError}
-      >
-        <DebouncedInput
-          type={type}
-          defaultValue={inputValue}
-          debounceTime={debounceTime}
-          onInputChange={handleInputChange}
-          placeholder={placeholder}
-          disabled={disabled}
-        />
-        {loading && <LoadingIcon color="#ccc" />}
+      <div className="dz-typeahead ">
+        <div
+          className={`input-field-typeahead ${disabled ? "disabled" : ""}`}
+          aria-invalid={hasError}
+        >
+          <DebouncedInput
+            name={name}
+            type={type}
+            defaultValue={inputValue}
+            debounceTime={debounceTime}
+            onInputChange={handleInputChange}
+            placeholder={placeholder}
+            disabled={disabled}
+          />
+          {loading && <LoadingIcon color="#ccc" />}
+        </div>
+        {renderSuggestions()}
       </div>
-      {renderSuggestions()}
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>
