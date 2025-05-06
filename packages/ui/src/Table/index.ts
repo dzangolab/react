@@ -10,6 +10,7 @@ export type {
   TDataTableProperties,
   FilterFunction,
   FilterFunctions,
+  FilterOption,
 } from "./types";
 
 export type { DataActionsMenuProperties } from "./TableDataActions";

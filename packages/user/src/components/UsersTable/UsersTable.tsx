@@ -9,6 +9,7 @@ import {
   Tag,
   formatDate,
   type DataActionsMenuProperties,
+  type FilterOption,
 } from "@dzangolab/react-ui";
 
 import { useUserActions } from "./useUserActionsMethods";
@@ -56,6 +57,7 @@ export type UsersTableProperties = Partial<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
   roles?: Array<InvitationRoleOption>;
+  roleFilterOptions?: FilterOption[];
   showInviteAction?: boolean;
   users: Array<UserType>;
   visibleColumns?: VisibleColumn[];
@@ -75,6 +77,7 @@ export const UsersTable = ({
   onUserEnabled,
   prepareInvitationData,
   roles,
+  roleFilterOptions,
   showInviteAction = true,
   totalRecords = 0,
   users,
@@ -154,6 +157,11 @@ export const UsersTable = ({
         );
       },
       enableSorting: true,
+      enableColumnFilter: true,
+      meta: {
+        filterVariant: "multiselect",
+        filterOptions: roleFilterOptions,
+      },
     },
     {
       accessorKey: "signedUpAt",
