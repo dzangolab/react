@@ -642,6 +642,9 @@ importers:
       prettier:
         specifier: 3.5.3
         version: 3.5.3
+      primereact:
+        specifier: 9.6.1
+        version: 9.6.1(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -10328,7 +10331,7 @@ snapshots:
 
   react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.27.0
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1

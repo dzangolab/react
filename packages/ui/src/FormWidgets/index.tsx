@@ -1,5 +1,6 @@
 export * from "./Checkbox";
 export * from "./CheckboxInput";
+export * from "./DatePicker";
 export * from "./DebouncedInput";
 export * from "./Input";
 export * from "./RadioInput";

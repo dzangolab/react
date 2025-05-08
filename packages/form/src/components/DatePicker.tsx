@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { DatePickerBasic } from "./DatePickerBasic";
+import { DatePicker as DatePickerBasic } from "@dzangolab/react-ui";
 
 export interface DatePicker {
   className?: string;
@@ -40,7 +40,7 @@ export const DatePicker: FC<DatePicker> = ({
             maxDate={maxDate}
             minDate={minDate}
             onChange={field.onChange}
-            error={error}
+            error={error?.message}
             label={label}
             panelClassName={panelClassName}
             placeholder={placeholder}

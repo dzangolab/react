@@ -3,14 +3,10 @@ import { Nullable } from "primereact/ts-helpers";
 import { classNames } from "primereact/utils";
 import { FC } from "react";
 
-import { ErrorMessage } from "../ErrorMessage";
-
-import type { ErrorOption } from "react-hook-form";
-
-export interface DatePickerBasicProperties {
+export interface DatePickerProperties {
   className?: string;
   dateFormat?: string;
-  error?: ErrorOption;
+  error?: string;
   inputRef: React.Ref<HTMLInputElement>;
   label?: string;
   maxDate?: Date;
@@ -22,7 +18,7 @@ export interface DatePickerBasicProperties {
   value: Date;
 }
 
-export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
+export const DatePicker: FC<DatePickerProperties> = ({
   className = "",
   dateFormat = "dd/mm/yy",
   error,
@@ -53,7 +49,7 @@ export const DatePickerBasic: FC<DatePickerBasicProperties> = ({
         dateFormat={dateFormat}
       />
 
-      {error?.message && <ErrorMessage message={error.message} />}
+      {error && <span className="error-message">{error}</span>}
     </div>
   );
 };

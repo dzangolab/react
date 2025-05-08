@@ -1,4 +1,3 @@
-import { DatePickerBasic } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 import {
   TDataTable,
@@ -7,7 +6,7 @@ import {
   TableColumnDefinition,
   DebouncedInput,
 } from "@dzangolab/react-ui";
-import { FilterFunction } from "@dzangolab/react-ui";
+import { FilterFunction, DatePicker } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -739,7 +738,7 @@ export const TableDemo = () => {
               customFilterComponent(column) {
                 return (
                   <div className="filter-date">
-                    <DatePickerBasic
+                    <DatePicker
                       inputRef={null}
                       name="start-date"
                       onChange={(date) =>
@@ -751,7 +750,7 @@ export const TableDemo = () => {
                       value={(column.getFilterValue() as [Date, Date])?.[0]}
                       placeholder={t("table.placeholder.startDate")}
                     />
-                    <DatePickerBasic
+                    <DatePicker
                       inputRef={null}
                       name="end-date"
                       onChange={(date) =>
