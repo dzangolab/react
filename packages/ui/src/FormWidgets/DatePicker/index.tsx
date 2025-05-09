@@ -4,10 +4,9 @@ import { classNames } from "primereact/utils";
 import { FC } from "react";
 
 export interface DatePickerProperties
-  extends Omit<CalendarProps, "value" | "onChange" | "inputRef"> {
+  extends Omit<CalendarProps, "value" | "onChange"> {
   className?: string;
   error?: string;
-  inputRef: React.Ref<HTMLInputElement>;
   label?: string;
   name: string;
   onChange: (value: Nullable<string | Date | Date[]>) => void;
@@ -18,7 +17,6 @@ export const DatePicker: FC<DatePickerProperties> = ({
   className = "",
   dateFormat = "dd/mm/yy",
   error,
-  inputRef,
   label,
   name,
   onChange,
@@ -32,7 +30,6 @@ export const DatePicker: FC<DatePickerProperties> = ({
       <Calendar
         id={name}
         value={value}
-        inputRef={inputRef}
         onChange={(event) => onChange(event.value)}
         className={classNames({ "p-invalid": error })}
         dateFormat={dateFormat}
