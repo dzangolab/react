@@ -37,6 +37,24 @@ export const TableHeader = <TData extends RowData>({
     [],
   );
 
+  const getFormattedDate = (date: Date | null) => {
+    if (!date) return null;
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  };
+
+  const convertFilterValueToDate = (filterValue: string[] | null) => {
+    if (filterValue) {
+      return filterValue.filter(Boolean).map((d) => new Date(d));
+    }
+
+    return filterValue ? new Date(filterValue) : null;
+  };
+
   return (
     <TTableHeader>
       {table.getHeaderGroups().map((headerGroup) => (
@@ -171,31 +189,16 @@ export const TableHeader = <TData extends RowData>({
                     inputRef={null}
                     name="date-range"
                     onChange={(date) => {
-                      if (Array.isArray(date)) {
-                        const normalizedRange = date.map((d) => {
-                          if (!d) return null;
-
-                          const year = d.getFullYear();
-                          const month = String(d.getMonth() + 1).padStart(
-                            2,
-                            "0",
-                          );
-                          const day = String(d.getDate()).padStart(2, "0");
-
-                          return `${year}-${month}-${day}`;
-                        });
-                        column.setFilterValue(normalizedRange);
-                      } else {
-                        column.setFilterValue(date);
+                      if (date) {
+                        const _date = (date as Date[])
+                          .map(getFormattedDate)
+                          .filter((d) => d !== null);
+                        column.setFilterValue(_date);
                       }
                     }}
-                    value={
-                      Array.isArray(column.getFilterValue())
-                        ? (column.getFilterValue() as string[])
-                            .filter((d): d is string => Boolean(d))
-                            .map((d) => new Date(d))
-                        : (column.getFilterValue() as Date | null)
-                    }
+                    value={convertFilterValueToDate(
+                      column.getFilterValue() as string[] | null,
+                    )}
                     selectionMode="range"
                   />
                 ) : (
