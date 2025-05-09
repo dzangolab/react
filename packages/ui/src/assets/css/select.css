@@ -87,6 +87,7 @@
   overflow: auto;
   padding: 0.75rem 0.65rem;
   position: absolute;
+  text-align: left;
   width: 100%;
   z-index: 1000;
 }

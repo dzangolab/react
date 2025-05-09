@@ -41,6 +41,11 @@ export const UsersTableDemo = () => {
             },
           ]}
           initialSorting={[{ id: "email", desc: false }]}
+          roleFilterOptions={[
+            { value: "ADMIN", label: "ADMIN" },
+            { value: "SUPERADMIN", label: "SUPERADMIN" },
+            { value: "USER", label: "USER" },
+          ]}
         />
       </Section>
     </Page>
