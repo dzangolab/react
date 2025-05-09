@@ -94,7 +94,7 @@ type TOffset = number | null;
 
 type TSortRequest = TSingleSort[] | null;
 
-type FilterOption = {
+export type FilterOption = {
   value: string;
   label: string;
 };
