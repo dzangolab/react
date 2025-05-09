@@ -1,7 +1,7 @@
 import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DebouncedInput, Select } from "@/FormWidgets";
+import { DatePicker, DebouncedInput, Select } from "@/FormWidgets";
 
 import {
   ColumnHeader,
@@ -165,6 +165,38 @@ export const TableHeader = <TData extends RowData>({
                       column.setFilterValue(value);
                     }}
                     multiple={true}
+                  />
+                ) : column.columnDef.meta?.filterVariant === "dateRange" ? (
+                  <DatePicker
+                    inputRef={null}
+                    name="date-range"
+                    onChange={(date) => {
+                      if (Array.isArray(date)) {
+                        const normalizedRange = date.map((d) => {
+                          if (!d) return null;
+
+                          const year = d.getFullYear();
+                          const month = String(d.getMonth() + 1).padStart(
+                            2,
+                            "0",
+                          );
+                          const day = String(d.getDate()).padStart(2, "0");
+
+                          return `${year}-${month}-${day}`;
+                        });
+                        column.setFilterValue(normalizedRange);
+                      } else {
+                        column.setFilterValue(date);
+                      }
+                    }}
+                    value={
+                      Array.isArray(column.getFilterValue())
+                        ? (column.getFilterValue() as string[])
+                            .filter((d): d is string => Boolean(d))
+                            .map((d) => new Date(d))
+                        : (column.getFilterValue() as Date | null)
+                    }
+                    selectionMode="range"
                   />
                 ) : (
                   <DebouncedInput
