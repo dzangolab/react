@@ -66,8 +66,8 @@ importers:
         specifier: 7.0.0
         version: 7.0.0
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -338,8 +338,8 @@ importers:
         specifier: 3.5.3
         version: 3.5.3
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -643,8 +643,8 @@ importers:
         specifier: 3.5.3
         version: 3.5.3
       primereact:
-        specifier: 9.6.1
-        version: 9.6.1(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 9.6.4
+        version: 9.6.4(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -4579,8 +4579,8 @@ packages:
   primeicons@7.0.0:
     resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
-  primereact@9.6.1:
-    resolution: {integrity: sha512-MRmloop4tJgvqB5v3kIlgAseQzCAQMfY8mo/KVCvRtj2Pn15dpwLLchsbTCZw3t6nxAs3AZ+CK9MENJQU5Lh7w==}
+  primereact@9.6.4:
+    resolution: {integrity: sha512-jW5t1Ct1coMGi1e+GWyLgVmxHQpEGtP3Pu2S/zsX8/yUgzDvn/ef0gaQ8l9/gihSnt/n4z4lFsHmn8Vb3j89yg==}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
       react: ^17.0.0 || ^18.0.0
@@ -10210,7 +10210,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primereact@9.6.1(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  primereact@9.6.4(@types/react@18.3.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@types/react-transition-group': 4.4.11
       react: 18.3.1
