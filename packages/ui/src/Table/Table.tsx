@@ -198,6 +198,28 @@ const DataTable = <TData extends RowData>({
             row.getValue<unknown[]>(columnId)?.includes(value),
           );
         };
+      } else if (
+        column.meta?.filterVariant === "dateRange" &&
+        !column.filterFn
+      ) {
+        column.filterFn = (row, columnId, filterValue) => {
+          if (!filterValue || filterValue.length === 0) {
+            return true;
+          }
+
+          const rowValue = row.getValue<string | Date>(columnId);
+          if (!rowValue) return false;
+
+          const rowData = (
+            rowValue instanceof Date ? rowValue.toISOString() : rowValue
+          ).split("T")[0];
+
+          const [startDate, endDate] = filterValue.map(
+            (date: string) => date.split("T")[0],
+          );
+
+          return rowData >= startDate && rowData <= endDate;
+        };
       }
     });
 

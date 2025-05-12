@@ -174,6 +174,11 @@ export const UsersTable = ({
         return "-";
       },
       enableSorting: true,
+      enableColumnFilter: true,
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
+      },
     },
     {
       align: "center",
