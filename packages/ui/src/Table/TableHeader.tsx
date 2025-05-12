@@ -48,11 +48,11 @@ export const TableHeader = <TData extends RowData>({
   };
 
   const convertFilterValueToDate = (filterValue: string[] | null) => {
-    if (filterValue) {
-      return filterValue.filter(Boolean).map((d) => new Date(d));
+    if (Array.isArray(filterValue)) {
+      return filterValue.filter(Boolean).map((value) => new Date(value));
     }
 
-    return filterValue ? new Date(filterValue) : null;
+    return null;
   };
 
   return (
@@ -197,7 +197,7 @@ export const TableHeader = <TData extends RowData>({
                       }
                     }}
                     value={convertFilterValueToDate(
-                      column.getFilterValue() as string[] | null,
+                      column.getFilterValue() as string[],
                     )}
                     selectionMode="range"
                   />
