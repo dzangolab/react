@@ -10,7 +10,7 @@ export interface DatePickerProperties
   label?: string;
   name: string;
   onChange: (value: Nullable<string | Date | Date[]>) => void;
-  value: Date | Date[] | null;
+  value: Date | Date[] | string | null;
 }
 
 export const DatePicker: FC<DatePickerProperties> = ({
