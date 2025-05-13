@@ -54,6 +54,7 @@ export const TableHeader = <TData extends RowData>({
 
     return null;
   };
+
   const renderHeaderRow = () =>
     table.getHeaderGroups().map((headerGroup) => (
       <TableRow key={headerGroup.id} className="header-row">
@@ -168,6 +169,8 @@ export const TableHeader = <TData extends RowData>({
                 .map(getFormattedDate)
                 .filter((d) => d !== null);
               column.setFilterValue(_date);
+            } else {
+              column.setFilterValue(null);
             }
           }}
           value={convertFilterValueToDate(column.getFilterValue() as string[])}
