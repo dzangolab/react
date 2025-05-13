@@ -9,7 +9,7 @@
   background-color: var(--dz-input-fill-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
-  padding: 0.75rem 0.65rem;
+  padding: 0.65rem;
 }
 
 .input-field[aria-invalid="true"] {
