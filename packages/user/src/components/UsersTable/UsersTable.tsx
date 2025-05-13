@@ -110,6 +110,7 @@ export const UsersTable = ({
       header: t("table.defaultColumns.name"),
       enableColumnFilter: true,
       enableSorting: true,
+      sortingFn: "text",
     },
     {
       align: "center",
