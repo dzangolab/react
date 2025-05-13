@@ -41,6 +41,7 @@ export const allUsers = [
     invitedBy: null,
     signedUpAt: "2023-08-10T08:00:00Z",
     disabled: false,
+    name: "John Doe",
   },
   {
     id: "invitation-123",
@@ -60,6 +61,7 @@ export const allUsers = [
       isActiveUser: true,
     },
     disabled: true,
+    name: "Jane Smith",
   },
   {
     id: "user-3",
@@ -72,6 +74,7 @@ export const allUsers = [
     invitedBy: null,
     signedUpAt: "2023-08-08T10:30:00Z",
     disabled: false,
+    name: "Alice Johnson",
   },
   {
     id: "invitation-456",
@@ -91,6 +94,7 @@ export const allUsers = [
       username: "charlieb",
       isActiveUser: true,
     },
+    name: "Bob Williams",
   },
   {
     id: "user-6",
@@ -103,6 +107,7 @@ export const allUsers = [
     invitedBy: null,
     signedUpAt: "2023-10-10T08:00:00Z",
     disabled: true,
+    name: "George Williams",
   },
 ];
 

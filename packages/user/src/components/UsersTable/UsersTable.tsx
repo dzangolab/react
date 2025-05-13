@@ -106,21 +106,10 @@ export const UsersTable = ({
       enableColumnFilter: true,
     },
     {
-      id: "name",
+      accessorKey: "name",
       header: t("table.defaultColumns.name"),
-      accessorFn: (original) => {
-        return (
-          (original.givenName ? original.givenName : "") +
-            (original.middleNames ? " " + original.middleNames : "") +
-            (original.surname ? " " + original.surname : "") || "-"
-        );
-      },
-      cell: ({ getValue }) => {
-        const value = getValue();
-
-        return value;
-      },
       enableColumnFilter: true,
+      enableSorting: true,
     },
     {
       align: "center",
