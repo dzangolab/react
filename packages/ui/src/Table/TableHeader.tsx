@@ -168,6 +168,8 @@ export const TableHeader = <TData extends RowData>({
                 .map(getFormattedDate)
                 .filter((d) => d !== null);
               column.setFilterValue(_date);
+            } else {
+              column.setFilterValue(null);
             }
           }}
           value={convertFilterValueToDate(column.getFilterValue() as string[])}
