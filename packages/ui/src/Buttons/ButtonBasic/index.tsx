@@ -42,10 +42,10 @@ export const Button: FC<IButtonProperties> = ({
     "dz-button",
     className,
     severity,
-    variant,
+    variant === "textOnly" ? "text-only" : variant,
     size,
-    !(label || children) && "dz-icon-only",
-    rounded && "dz-rounded",
+    !(label || children) && "icon-only",
+    rounded && "rounded",
   ]
     .filter(Boolean)
     .join(" ");

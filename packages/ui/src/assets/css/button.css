@@ -1,30 +1,31 @@
 :root {
+  --button-border-radius: 0.375rem;
+
   --button-text-color: #ffffff;
+
   --button-primary-color: var(--dz-primary-color);
   --button-secondary-color: var(--dz-secondary-color);
   --button-alternate-color: var(--dz-alternate-color);
   --button-success-color: var(--dz-success-color);
   --button-danger-color: var(--dz-danger-color);
   --button-warning-color: var(--dz-warning-color);
-  --button-small-font-size: 0.875rem;
-  --button-small-icon-size: 0.875rem;
-  --button-medium-icon-size: 1rem;
-  --button-medium-font-size: 1rem;
-  --button-large-icon-size: 1.125rem;
-  --button-large-font-size: 1.125rem;
-  --button-small-padding: 0.65625rem 1.09375rem;
-  --button-medium-padding: 0.75rem 1.25rem;
-  --button-large-padding: 0.9375rem 1.5625rem;
+
+  --button-small-padding: 0.375rem 0.75rem;
+  --button-medium-padding: 0.5rem 1.25rem;
+  --button-large-padding: 0.75rem 1.75rem;
+
   --button-small-width: 2.438rem;
   --button-medium-width: 2.75rem;
   --button-large-width: 3.313rem;
+
   --button-primary-outlined-hover-color: #eef6fe;
   --button-secondary-outlined-hover-color: #f3f4f5;
   --button-alternate-outlined-hover-color: #f1f9fc;
   --button-success-outlined-hover-color: #f0fcf6;
   --button-danger-outlined-hover-color: #fef1f1;
   --button-warning-outlined-hover-color: #fef7f5;
-  --button-transition-duration: var(--transition-duration);
+
+  --button-transition-duration: var(--transition-duration, 150ms);
 }
 
 .dz-button-link {
@@ -33,40 +34,57 @@
 
 .dz-button {
   --_button-color: var(--button-color);
+  --_button-text-color: var(--button-text-color);
   --_button-outlined-hover-color: var(--button-outlined-hover-color);
-  --_button-font-size: var(--button-font-size);
-  --_button-icon-size: var(--button-icon-size);
+  --_button-font-size: 1rem;
   --_button-padding: var(--button-padding);
   --_button-width: var(--button-width);
-  background-color: var(--_button-color);
-  border-radius: 0.5rem;
-  border: none;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  vertical-align: bottom;
-  user-select: none;
+  --_button-border-radius: var(--button-border-radius);
+
   align-items: center;
-  padding: var(--_button-padding);
-  gap: 0.5rem;
-  font-weight: 700;
+  background-color: var(--_button-color);
+  border-radius: var(--_button-border-radius);
+  border: none;
+  color: var(--_button-text-color);
   cursor: pointer;
-  color: var(--_button-color);
+  display: flex;
+  font-size: var(--_button-font-size);
+  font-weight: 500;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: var(--_button-padding);
+  text-align: center;
   transition: all var(--button-transition-duration) ease;
+  user-select: none;
+  vertical-align: bottom;
 }
 
-.dz-button.dz-rounded {
+.dz-button > span > i {
+  font-size: var(--_button-font-size);
+}
+
+.dz-button.rounded {
   border-radius: 2rem;
 }
 
-.dz-button.dz-icon-only {
-  width: var(--_button-width);
-  height: var(--_button-width);
+.dz-button.icon-only {
+  width: 2.625rem;
+  height: 2.625rem;
+  padding: 0;
 }
 
-.dz-button.dz-icon-only.rounded {
+.dz-button.icon-only.small {
+  width: 2rem;
+  height: 2rem;
+}
+
+.dz-button.icon-only.large {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.dz-button.icon-only.rounded {
   border-radius: 50%;
-  padding: 1.25rem;
 }
 
 .dz-button:focus {
@@ -80,16 +98,15 @@
 }
 
 .dz-button.filled {
-  color: var(--button-text-color);
   border: 1px solid var(--_button-color);
 }
 
 .dz-button.filled:hover {
-  filter: brightness(0.8);
+  background-color: color-mix(in srgb, var(--_button-color) 75%, black);
 }
 
 .dz-button.filled:active {
-  filter: brightness(1);
+  background-color: color-mix(in srgb, var(--_button-color) 60%, black);
 }
 
 .dz-button.filled:disabled:hover {
@@ -97,6 +114,7 @@
 }
 
 .dz-button.outlined {
+  color: var(--_button-color);
   background: transparent;
   border: 1px solid var(--_button-color);
 }
@@ -114,83 +132,70 @@
   filter: none;
 }
 
-.dz-button.textOnly {
+.dz-button.text-only {
+  color: var(--_button-color);
   background: transparent;
   font-weight: normal;
 }
 
-.dz-button.textOnly:hover {
+.dz-button.text-only:hover {
   background: var(--_button-outlined-hover-color);
 }
 
-.dz-button.textOnly:active {
+.dz-button.text-only:active {
   filter: brightness(1.05);
 }
 
-.dz-button.textOnly:focus {
+.dz-button.text-only:focus {
   background: var(--_button-outlined-hover-color);
 }
 
-.dz-button.textOnly:disabled:hover {
+.dz-button.text-only:disabled:hover {
   background: none;
   filter: none;
 }
 
 .dz-button.primary {
-  --button-color: var(--button-primary-color);
-  --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
+  --_button-color: var(--button-primary-color);
+  --_button-outlined-hover-color: var(--button-primary-outlined-hover-color);
 }
 
 .dz-button.secondary {
-  --button-color: var(--button-secondary-color);
-  --button-outlined-hover-color: var(--button-secondary-outlined-hover-color);
+  --_button-color: var(--button-secondary-color);
+  --_button-outlined-hover-color: var(--button-secondary-outlined-hover-color);
 }
 
 .dz-button.alternate {
-  --button-color: var(--button-alternate-color);
-  --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
+  --_button-color: var(--button-alternate-color);
+  --_button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
 }
 
 .dz-button.success {
-  --button-color: var(--button-success-color);
-  --button-outlined-hover-color: var(--button-success-outlined-hover-color);
+  --_button-color: var(--button-success-color);
+  --_button-outlined-hover-color: var(--button-success-outlined-hover-color);
 }
 
 .dz-button.danger {
-  --button-color: var(--button-danger-color);
-  --button-outlined-hover-color: var(--button-danger-outlined-hover-color);
+  --_button-color: var(--button-danger-color);
+  --_button-outlined-hover-color: var(--button-danger-outlined-hover-color);
 }
 
 .dz-button.warning {
-  --button-color: var(--button-warning-color);
-  --button-outlined-hover-color: var(--button-warning-outlined-hover-color);
+  --_button-color: var(--button-warning-color);
+  --_button-outlined-hover-color: var(--button-warning-outlined-hover-color);
 }
 
 .dz-button.small {
-  --button-icon-size: var(--button-small-icon-size);
-  --button-font-size: var(--button-small-font-size);
-  --button-padding: var(--button-small-padding);
-  --button-width: var(--button-small-width);
+  --_button-font-size: 0.875rem;
+  --_button-padding: var(--button-small-padding);
 }
 
 .dz-button.medium {
-  --button-icon-size: var(--button-medium-icon-size);
-  --button-font-size: var(--button-medium-font-size);
-  --button-padding: var(--button-medium-padding);
-  --button-width: var(--button-medium-width);
+  --_button-font-size: 1rem;
+  --_button-padding: var(--button-medium-padding);
 }
 
 .dz-button.large {
-  --button-icon-size: var(--button-large-icon-size);
-  --button-font-size: var(--button-large-font-size);
-  --button-padding: var(--button-large-padding);
-  --button-width: var(--button-large-width);
-}
-
-.dz-button > span > i {
-  font-size: var(--_button-icon-size);
-}
-
-.dz-button > span.label {
-  font-size: var(--_button-font-size);
+  --_button-font-size: 1.25rem;
+  --_button-padding: var(--button-large-padding);
 }
