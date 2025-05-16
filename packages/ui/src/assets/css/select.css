@@ -22,7 +22,7 @@
   display: flex;
   flex-wrap: nowrap;
   min-height: 45px;
-  padding: 0.65rem;
+  padding: 0.5rem 0.65rem;
   justify-content: space-between;
 }
 
@@ -88,6 +88,7 @@
   padding: 0.75rem 0.65rem;
   position: absolute;
   text-align: left;
+  width: 100%;
   z-index: 1000;
 }
 

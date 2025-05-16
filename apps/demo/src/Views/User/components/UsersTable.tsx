@@ -34,6 +34,12 @@ export const UsersTableDemo = () => {
             "disabled",
             "actions",
           ]}
+          columns={[
+            {
+              accessorKey: "email",
+              enableColumnFilter: false,
+            },
+          ]}
           initialSorting={[{ id: "email", desc: false }]}
           roleFilterOptions={[
             { value: "ADMIN", label: "ADMIN" },
