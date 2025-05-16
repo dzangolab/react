@@ -22,12 +22,12 @@
   display: flex;
   flex-wrap: nowrap;
   min-height: 45px;
-  padding: 0.5rem 0.65rem;
+  padding: 0.75rem 0.65rem;
   justify-content: space-between;
 }
 
 .select > .label-container.focused {
-  border: 2px solid var(--field-focus-border-color);
+  outline: 2px solid var(--field-focus-border-color);
 }
 
 .select > .label-container.disabled {
@@ -82,11 +82,13 @@
   box-shadow: 1px 1px 5px 1px var(--field-border-color);
   display: flex;
   flex-direction: column;
-  row-gap: 0.3rem;
+  margin-top: 0.1rem;
   max-height: 10rem;
+  min-width: 11rem;
   overflow: auto;
   padding: 0.75rem 0.65rem;
   position: absolute;
+  row-gap: 0.3rem;
   text-align: left;
   width: 100%;
   z-index: 1000;
