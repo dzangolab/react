@@ -1,196 +1,153 @@
-:root {
-  --button-text-color: #ffffff;
-  --button-primary-color: var(--dz-primary-color);
-  --button-secondary-color: var(--dz-secondary-color);
-  --button-alternate-color: var(--dz-alternate-color);
-  --button-success-color: var(--dz-success-color);
-  --button-danger-color: var(--dz-danger-color);
-  --button-warning-color: var(--dz-warning-color);
-  --button-small-font-size: 0.875rem;
-  --button-small-icon-size: 0.875rem;
-  --button-medium-icon-size: 1rem;
-  --button-medium-font-size: 1rem;
-  --button-large-icon-size: 1.125rem;
-  --button-large-font-size: 1.125rem;
-  --button-small-padding: 0.65625rem 1.09375rem;
-  --button-medium-padding: 0.75rem 1.25rem;
-  --button-large-padding: 0.9375rem 1.5625rem;
-  --button-small-width: 2.438rem;
-  --button-medium-width: 2.75rem;
-  --button-large-width: 3.313rem;
-  --button-primary-outlined-hover-color: #eef6fe;
-  --button-secondary-outlined-hover-color: #f3f4f5;
-  --button-alternate-outlined-hover-color: #f1f9fc;
-  --button-success-outlined-hover-color: #f0fcf6;
-  --button-danger-outlined-hover-color: #fef1f1;
-  --button-warning-outlined-hover-color: #fef7f5;
-  --button-transition-duration: var(--transition-duration);
+.dz-button {
+  --_button-border-radius: var(--button-border-radius);
+  --_button-color: var(--button-color);
+  --_button-font-size: 1rem;
+  --_button-padding: var(--button-padding);
+  --_button-width: var(--button-width);
+
+  align-items: center;
+  background-color: var(--_button-color);
+  border-radius: var(--_button-border-radius);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-size: var(--_button-font-size);
+  font-weight: 500;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: var(--_button-padding);
+  text-align: center;
+  transition: all var(--button-transition-duration) ease;
+  user-select: none;
+  vertical-align: bottom;
+}
+
+.dz-button > span > i {
+  font-size: var(--_button-font-size);
+}
+
+.dz-button.rounded {
+  border-radius: 2rem;
+}
+
+.dz-button.icon-only {
+  height: 2.625rem;
+  padding: 0;
+  width: 2.625rem;
+}
+
+.dz-button.icon-only.small {
+  height: 2rem;
+  width: 2rem;
+}
+
+.dz-button.icon-only.large {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.dz-button.icon-only.rounded {
+  border-radius: 50%;
+}
+
+.dz-button:focus {
+  outline-offset: 2px;
+  outline: 2px solid var(--_button-color);
+}
+
+.dz-button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.dz-button.filled {
+  border: 1px solid var(--_button-color);
+}
+.dz-button.filled:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 75%, black);
+}
+.dz-button.filled:focus:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 75%, black);
+}
+.dz-button.filled:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 50%, black);
+}
+
+.dz-button.outlined {
+  background-color: transparent;
+  border: 1px solid var(--_button-color);
+  color: var(--_button-color);
+}
+.dz-button.outlined:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 10%, white);
+}
+.dz-button.outlined:focus:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 10%, white);
+}
+.dz-button.outlined:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 20%, white);
+}
+
+.dz-button.text-only {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: var(--_button-color);
+  font-weight: normal;
+}
+.dz-button.text-only:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 10%, white);
+  border: 1px solid color-mix(in srgb, var(--_button-color) 10%, white);
+}
+.dz-button.text-only:focus:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 10%, white);
+  border: 1px solid color-mix(in srgb, var(--_button-color) 10%, white);
+}
+.dz-button.text-only:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--_button-color) 20%, white);
+  border: 1px solid color-mix(in srgb, var(--_button-color) 20%, white);
+}
+
+.dz-button.primary {
+  --_button-color: var(--button-primary-color);
+}
+
+.dz-button.secondary {
+  --_button-color: var(--button-secondary-color);
+}
+
+.dz-button.alternate {
+  --_button-color: var(--button-alternate-color);
+}
+
+.dz-button.success {
+  --_button-color: var(--button-success-color);
+}
+
+.dz-button.danger {
+  --_button-color: var(--button-danger-color);
+}
+
+.dz-button.warning {
+  --_button-color: var(--button-warning-color);
+}
+
+.dz-button.small {
+  --_button-font-size: 0.875rem;
+  --_button-padding: var(--button-small-padding);
+}
+
+.dz-button.medium {
+  --_button-font-size: 1rem;
+  --_button-padding: var(--button-medium-padding);
+}
+
+.dz-button.large {
+  --_button-font-size: 1.25rem;
+  --_button-padding: var(--button-large-padding);
 }
 
 .dz-button-link {
   text-decoration: none;
-}
-
-.dz-button {
-  --_button-color: var(--button-color);
-  --_button-outlined-hover-color: var(--button-outlined-hover-color);
-  --_button-font-size: var(--button-font-size);
-  --_button-icon-size: var(--button-icon-size);
-  --_button-padding: var(--button-padding);
-  --_button-width: var(--button-width);
-  background-color: var(--_button-color);
-  border-radius: 0.5rem;
-  border: none;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  vertical-align: bottom;
-  user-select: none;
-  align-items: center;
-  padding: var(--_button-padding);
-  gap: 0.5rem;
-  font-weight: 700;
-  cursor: pointer;
-  color: var(--_button-color);
-  transition: all var(--button-transition-duration) ease;
-}
-
-.dz-button.dz-rounded {
-  border-radius: 2rem;
-}
-
-.dz-button.dz-icon-only {
-  width: var(--_button-width);
-  height: var(--_button-width);
-}
-
-.dz-button.dz-icon-only.rounded {
-  border-radius: 50%;
-  padding: 1.25rem;
-}
-
-.dz-button:focus {
-  outline: 2px solid var(--_button-color);
-  outline-offset: 2px;
-}
-
-.dz-button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-.dz-button.filled {
-  color: var(--button-text-color);
-  border: 1px solid var(--_button-color);
-}
-
-.dz-button.filled:hover {
-  filter: brightness(0.8);
-}
-
-.dz-button.filled:active {
-  filter: brightness(1);
-}
-
-.dz-button.filled:disabled:hover {
-  filter: none;
-}
-
-.dz-button.outlined {
-  background: transparent;
-  border: 1px solid var(--_button-color);
-}
-
-.dz-button.outlined:hover {
-  background: var(--_button-outlined-hover-color);
-}
-
-.dz-button.outlined:active {
-  filter: brightness(1.05);
-}
-
-.dz-button.outlined:disabled:hover {
-  background: none;
-  filter: none;
-}
-
-.dz-button.textOnly {
-  background: transparent;
-  font-weight: normal;
-}
-
-.dz-button.textOnly:hover {
-  background: var(--_button-outlined-hover-color);
-}
-
-.dz-button.textOnly:active {
-  filter: brightness(1.05);
-}
-
-.dz-button.textOnly:focus {
-  background: var(--_button-outlined-hover-color);
-}
-
-.dz-button.textOnly:disabled:hover {
-  background: none;
-  filter: none;
-}
-
-.dz-button.primary {
-  --button-color: var(--button-primary-color);
-  --button-outlined-hover-color: var(--button-primary-outlined-hover-color);
-}
-
-.dz-button.secondary {
-  --button-color: var(--button-secondary-color);
-  --button-outlined-hover-color: var(--button-secondary-outlined-hover-color);
-}
-
-.dz-button.alternate {
-  --button-color: var(--button-alternate-color);
-  --button-outlined-hover-color: var(--button-alternate-outlined-hover-color);
-}
-
-.dz-button.success {
-  --button-color: var(--button-success-color);
-  --button-outlined-hover-color: var(--button-success-outlined-hover-color);
-}
-
-.dz-button.danger {
-  --button-color: var(--button-danger-color);
-  --button-outlined-hover-color: var(--button-danger-outlined-hover-color);
-}
-
-.dz-button.warning {
-  --button-color: var(--button-warning-color);
-  --button-outlined-hover-color: var(--button-warning-outlined-hover-color);
-}
-
-.dz-button.small {
-  --button-icon-size: var(--button-small-icon-size);
-  --button-font-size: var(--button-small-font-size);
-  --button-padding: var(--button-small-padding);
-  --button-width: var(--button-small-width);
-}
-
-.dz-button.medium {
-  --button-icon-size: var(--button-medium-icon-size);
-  --button-font-size: var(--button-medium-font-size);
-  --button-padding: var(--button-medium-padding);
-  --button-width: var(--button-medium-width);
-}
-
-.dz-button.large {
-  --button-icon-size: var(--button-large-icon-size);
-  --button-font-size: var(--button-large-font-size);
-  --button-padding: var(--button-large-padding);
-  --button-width: var(--button-large-width);
-}
-
-.dz-button > span > i {
-  font-size: var(--_button-icon-size);
-}
-
-.dz-button > span.label {
-  font-size: var(--_button-font-size);
 }
