@@ -1,31 +1,4 @@
 {
-  "table": {
-    "actions": {
-      "invite": "Invite user (fr)",
-      "enable": "Enable user (fr)",
-      "disable": "Disable user (fr)"
-    },
-    "title": "Users (fr)",
-    "defaultColumns": {
-      "actions": "Actions (fr)",
-      "email": "Email (fr)",
-      "roles": "Roles (fr)",
-      "name": "Name (fr)",
-      "signedUpOn": "Signed up on (fr)",
-      "status": "Status (fr)"
-    },
-    "pagination": {
-      "pageControl": "Go to (fr)",
-      "rowsPerPage": "Rows (fr)"
-    },
-    "searchPlaceholder": "Search (fr)"
-  },
-  "status": {
-    "active": "Active (fr)",
-    "disabled": "Disabled (fr)",
-    "enabled": "Enabled (fr)",
-    "invited": "Invited (fr)"
-  },
   "confirmation": {
     "header": "Confirmation (fr)",
     "disable": {
@@ -44,5 +17,38 @@
       "success": "User disabled successfully (fr)",
       "error": "Error disabling user (fr)"
     }
+  },
+  "status": {
+    "active": "Active (fr)",
+    "disabled": "Disabled (fr)",
+    "enabled": "Enabled (fr)",
+    "invited": "Invited (fr)"
+  },
+  "table": {
+    "actions": {
+      "invite": "Invite user (fr)",
+      "enable": "Enable user (fr)",
+      "disable": "Disable user (fr)"
+    },
+    "defaultColumns": {
+      "actions": "Actions (fr)",
+      "email": "Email (fr)",
+      "roles": "Roles (fr)",
+      "name": "Name (fr)",
+      "signedUpOn": "Signed up on (fr)",
+      "status": "Status (fr)"
+    },
+    "pagination": {
+      "pageControl": "Go to (fr)",
+      "rowsPerPage": "Rows (fr)"
+    },
+    "placeholders": {
+      "date": "Select date (fr)",
+      "roles": "Select roles (fr)",
+      "search": "Search (fr)",
+      "status": "Select status (fr)"
+    },
+    "searchPlaceholder": "Search (fr)",
+    "title": "Users (fr)"
   }
 }

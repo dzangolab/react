@@ -99,7 +99,7 @@
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
     },
-    "searchPlaceholder": "",
+    "searchPlaceholder": "Search",
     "status": {
       "accepted": "Accepted",
       "expired": "Expired",

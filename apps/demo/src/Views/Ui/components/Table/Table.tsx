@@ -116,12 +116,12 @@ export const TableDemo = () => {
             {
               accessorKey: "email",
               enableColumnFilter: true,
-              filterPlaceholder: "Search by email...",
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "city",
               enableColumnFilter: true,
-              filterPlaceholder: "Select city",
+              filterPlaceholder: t("table.placeholder.select"),
               meta: {
                 filterVariant: "multiselect",
                 filterOptions: [
@@ -184,6 +184,7 @@ export const TableDemo = () => {
             {
               accessorKey: "email",
               enableColumnFilter: true,
+              filterPlaceholder: t("table.placeholder.search"),
             },
           ]}
           data={data}
@@ -571,7 +572,7 @@ export const TableDemo = () => {
                   onInputChange={(value) => {
                     column.setFilterValue(value);
                   }}
-                  placeholder={"Custom filter..."}
+                  placeholder={t("table.placeholder.search")}
                   debounceTime={200}
                 ></DebouncedInput>
               ),
@@ -596,6 +597,7 @@ export const TableDemo = () => {
               meta: {
                 serverFilterFn: "equals",
               },
+              filterPlaceholder: t("table.placeholder.search"),
             },
           ]}
           fetchData={() => {}}
@@ -707,7 +709,7 @@ export const TableDemo = () => {
               header: "Description",
               filterFn: "customEqualStringFilter",
               enableColumnFilter: true,
-              filterPlaceholder: "Match description ..",
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "quantity",
