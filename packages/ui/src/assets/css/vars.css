@@ -9,6 +9,18 @@
   --dz-danger-color: #dc3545;
   --dz-input-fill-color: transparent;
 
+  --button-border-radius: 0.375rem;
+  --button-primary-color: var(--dz-primary-color);
+  --button-secondary-color: var(--dz-secondary-color);
+  --button-alternate-color: var(--dz-alternate-color);
+  --button-success-color: var(--dz-success-color);
+  --button-danger-color: var(--dz-danger-color);
+  --button-warning-color: var(--dz-warning-color);
+  --button-small-padding: 0.375rem 0.75rem;
+  --button-medium-padding: 0.5rem 1.25rem;
+  --button-large-padding: 0.6125rem 1.75rem;
+  --button-transition-duration: var(--transition-duration, 150ms);
+
   --dz-nav-item-active-bg: rgba(45, 45, 45, 0.125);
   --dz-nav-item-active-color: var(--dz-nav-item-color);
   --dz-nav-item-border-radius: 0;
