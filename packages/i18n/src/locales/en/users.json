@@ -1,31 +1,4 @@
 {
-  "table": {
-    "actions": {
-      "disable": "Disable user",
-      "enable": "Enable user",
-      "invite": "Invite user"
-    },
-    "defaultColumns": {
-      "actions": "Actions",
-      "email": "Email",
-      "name": "Name",
-      "roles": "Roles",
-      "signedUpOn": "Signed up on",
-      "status": "Status"
-    },
-    "pagination": {
-      "pageControl": "Go to",
-      "rowsPerPage": "Rows"
-    },
-    "searchPlaceholder": "Search",
-    "title": "Users"
-  },
-  "status": {
-    "active": "Active",
-    "disabled": "Disabled",
-    "enabled": "Enabled",
-    "invited": "Invited"
-  },
   "confirmation": {
     "disable": {
       "message": "Are you sure you want to disable this user?"
@@ -44,5 +17,37 @@
       "error": "Error enabling user.",
       "success": "User enabled successfully."
     }
+  },
+  "status": {
+    "active": "Active",
+    "disabled": "Disabled",
+    "enabled": "Enabled",
+    "invited": "Invited"
+  },
+  "table": {
+    "actions": {
+      "disable": "Disable user",
+      "enable": "Enable user",
+      "invite": "Invite user"
+    },
+    "defaultColumns": {
+      "actions": "Actions",
+      "email": "Email",
+      "name": "Name",
+      "roles": "Roles",
+      "signedUpOn": "Signed up on",
+      "status": "Status"
+    },
+    "pagination": {
+      "pageControl": "Go to",
+      "rowsPerPage": "Rows"
+    },
+    "placeholders": {
+      "date": "Select date",
+      "roles": "Select roles",
+      "search": "Search",
+      "status": "Select status"
+    },
+    "title": "Users"
   }
 }

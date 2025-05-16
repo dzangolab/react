@@ -174,6 +174,7 @@ export const TableHeader = <TData extends RowData>({
           }}
           value={convertFilterValueToDate(column.getFilterValue() as string[])}
           selectionMode="range"
+          placeholder={column.columnDef.filterPlaceholder || ""}
         />
       );
     }

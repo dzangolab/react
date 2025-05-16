@@ -109,12 +109,14 @@ export const AllUsersTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: t("table.placeholders.search"),
     },
     {
       accessorKey: "email",
       header: t("table.defaultColumns.email"),
       enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: t("table.placeholders.search"),
     },
     {
       accessorKey: "app",

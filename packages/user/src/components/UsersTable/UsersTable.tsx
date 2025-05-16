@@ -104,12 +104,14 @@ export const UsersTable = ({
       header: t("table.defaultColumns.email"),
       enableSorting: true,
       enableColumnFilter: true,
+      filterPlaceholder: t("table.placeholders.search"),
     },
     {
       accessorKey: "name",
       header: t("table.defaultColumns.name"),
       enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: t("table.placeholders.search"),
     },
     {
       align: "center",
@@ -151,6 +153,7 @@ export const UsersTable = ({
         filterVariant: "multiselect",
         filterOptions: roleFilterOptions,
       },
+      filterPlaceholder: t("table.placeholders.roles"),
     },
     {
       accessorKey: "signedUpAt",
@@ -168,6 +171,7 @@ export const UsersTable = ({
         filterVariant: "dateRange",
         serverFilterFn: "between",
       },
+      filterPlaceholder: t("table.placeholders.date"),
     },
     {
       align: "center",
@@ -222,6 +226,7 @@ export const UsersTable = ({
           },
         ],
       },
+      filterPlaceholder: t("table.placeholders.status"),
     },
   ];
 

@@ -165,6 +165,7 @@ export const InvitationsTable = ({
       enableSorting: true,
       enableColumnFilter: true,
       enableGlobalFilter: true,
+      filterPlaceholder: t("table.searchPlaceholder"),
     },
     {
       align: "center",

@@ -7,6 +7,7 @@ import {
   DebouncedInput,
 } from "@dzangolab/react-ui";
 import { FilterFunction, DatePicker } from "@dzangolab/react-ui";
+import { Tag } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -116,12 +117,12 @@ export const TableDemo = () => {
             {
               accessorKey: "email",
               enableColumnFilter: true,
-              filterPlaceholder: "Search by email...",
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "city",
               enableColumnFilter: true,
-              filterPlaceholder: "Select city",
+              filterPlaceholder: t("table.placeholder.select"),
               meta: {
                 filterVariant: "multiselect",
                 filterOptions: [
@@ -184,6 +185,7 @@ export const TableDemo = () => {
             {
               accessorKey: "email",
               enableColumnFilter: true,
+              filterPlaceholder: t("table.placeholder.search"),
             },
           ]}
           data={data}
@@ -571,7 +573,7 @@ export const TableDemo = () => {
                   onInputChange={(value) => {
                     column.setFilterValue(value);
                   }}
-                  placeholder={"Custom filter..."}
+                  placeholder={t("table.placeholder.search")}
                   debounceTime={200}
                 ></DebouncedInput>
               ),
@@ -596,6 +598,7 @@ export const TableDemo = () => {
               meta: {
                 serverFilterFn: "equals",
               },
+              filterPlaceholder: t("table.placeholder.search"),
             },
           ]}
           fetchData={() => {}}
@@ -707,7 +710,7 @@ export const TableDemo = () => {
               header: "Description",
               filterFn: "customEqualStringFilter",
               enableColumnFilter: true,
-              filterPlaceholder: "Match description ..",
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "quantity",
@@ -797,10 +800,6 @@ export const TableDemo = () => {
             {
               accessorKey: "name",
               header: "Name",
-              align: "center",
-              cell: ({ row: { original } }) => (
-                <div className="cell-name">{original.name}</div>
-              ),
             },
             {
               accessorKey: "age",
@@ -810,6 +809,22 @@ export const TableDemo = () => {
             {
               accessorKey: "city",
               header: () => <span>City</span>,
+            },
+            {
+              accessorKey: "disabled",
+              header: "Status",
+              cell: ({ row: { original } }) => {
+                const color = original.disabled ? "red" : "green";
+
+                return (
+                  <Tag
+                    label={original.disabled ? "Disabled" : "Enabled"}
+                    color={color}
+                    fullWidth
+                  />
+                );
+              },
+              align: "center",
             },
           ]}
           data={data.slice(10, 15)}

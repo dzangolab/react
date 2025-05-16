@@ -4,6 +4,7 @@ export type TData = {
   email: string;
   age: number;
   city: string;
+  disabled?: boolean;
 };
 
 const data: TData[] = [
@@ -83,6 +84,7 @@ const data: TData[] = [
     email: "ryan.cooper@example.com",
     age: 34,
     city: "Boston",
+    disabled: true,
   },
   {
     id: 12,
@@ -90,6 +92,7 @@ const data: TData[] = [
     email: "emily.d@example.com",
     age: 33,
     city: "Phoenix",
+    disabled: true,
   },
   {
     id: 13,
@@ -97,6 +100,7 @@ const data: TData[] = [
     email: "daniel.white@example.com",
     age: 28,
     city: "Philadelphia",
+    disabled: true,
   },
   {
     id: 14,
@@ -104,6 +108,7 @@ const data: TData[] = [
     email: "ava.m@example.com",
     age: 24,
     city: "Austin",
+    disabled: false,
   },
   {
     id: 15,
@@ -111,6 +116,7 @@ const data: TData[] = [
     email: "nicholas.h@example.com",
     age: 27,
     city: "San Diego",
+    disabled: false,
   },
   {
     id: 16,
