@@ -9,19 +9,19 @@
 }
 
 .table-users .column-roles {
-  width: 10rem;
-  max-width: 10rem;
-  min-width: 10rem;
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
 }
 
 .table-users .column-signedUpAt {
-  width: 10rem;
-  max-width: 10rem;
-  min-width: 10rem;
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
 }
 
 .table-users .column-disabled {
-  width: 10rem;
-  max-width: 10rem;
-  min-width: 10rem;
+  width: 13rem;
+  max-width: 13rem;
+  min-width: 13rem;
 }

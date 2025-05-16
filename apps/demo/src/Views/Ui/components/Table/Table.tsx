@@ -7,6 +7,7 @@ import {
   DebouncedInput,
 } from "@dzangolab/react-ui";
 import { FilterFunction, DatePicker } from "@dzangolab/react-ui";
+import { Tag } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -799,10 +800,6 @@ export const TableDemo = () => {
             {
               accessorKey: "name",
               header: "Name",
-              align: "center",
-              cell: ({ row: { original } }) => (
-                <div className="cell-name">{original.name}</div>
-              ),
             },
             {
               accessorKey: "age",
@@ -812,6 +809,22 @@ export const TableDemo = () => {
             {
               accessorKey: "city",
               header: () => <span>City</span>,
+            },
+            {
+              accessorKey: "disabled",
+              header: "Status",
+              cell: ({ row: { original } }) => {
+                const color = original.disabled ? "red" : "green";
+
+                return (
+                  <Tag
+                    label={original.disabled ? "Disabled" : "Enabled"}
+                    color={color}
+                    fullWidth
+                  />
+                );
+              },
+              align: "center",
             },
           ]}
           data={data.slice(10, 15)}
