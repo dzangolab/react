@@ -107,7 +107,7 @@ export const allUsers = [
     invitedBy: null,
     signedUpAt: "2023-10-10T08:00:00Z",
     disabled: true,
-    name: "george Williams",
+    name: "George Williams",
   },
 ];
 
