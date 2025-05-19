@@ -45,6 +45,7 @@ const DataTable = <TData extends RowData>({
   dataActionsMenu,
   emptyTableMessage,
   enableRowSelection = false,
+  enableSortingRemoval = false,
   id,
   initialFilters = [],
   initialSorting = [],
@@ -245,6 +246,7 @@ const DataTable = <TData extends RowData>({
       rowSelection,
       sorting,
     },
+    enableSortingRemoval: enableSortingRemoval,
     manualFiltering: !!fetchData,
     manualSorting: !!fetchData,
     manualPagination: !!fetchData,
@@ -385,6 +387,7 @@ const DataTable = <TData extends RowData>({
           parsedColumnsLength={parsedColumns.length}
           rowClassName={rowClassName}
           table={table}
+          isLoading={isLoading}
         />
 
         {renderTableFooterContent ? (
