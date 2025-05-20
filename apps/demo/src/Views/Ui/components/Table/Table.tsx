@@ -39,15 +39,18 @@ export const TableDemo = () => {
     {
       accessorKey: "name",
       header: () => <span>Full name</span>,
+      enableSorting: true,
     },
     {
       accessorKey: "age",
       header: "Age",
       align: "right",
+      enableSorting: true,
     },
     {
       accessorKey: "city",
       header: () => <span>City</span>,
+      enableSorting: true,
     },
   ];
 
@@ -613,6 +616,7 @@ export const TableDemo = () => {
             {
               accessorKey: "description",
               header: "Description",
+              enableSorting: true,
             },
             {
               accessorKey: "quantity",
@@ -627,6 +631,7 @@ export const TableDemo = () => {
               accessorKey: "amount",
               header: "Amount",
               dataType: "currency",
+              enableSorting: true,
               numberOptions: {
                 locale: "en-US",
                 formatOptions: {
@@ -638,11 +643,13 @@ export const TableDemo = () => {
               accessorKey: "date",
               header: "Date",
               dataType: "date",
+              enableSorting: true,
             },
             {
               accessorKey: "datetime",
               header: "Datetime",
               dataType: "datetime",
+              enableSorting: true,
             },
             {
               id: "action",
@@ -665,6 +672,7 @@ export const TableDemo = () => {
             {
               accessorKey: "description",
               header: "Description",
+              enableSorting: true,
             },
             {
               accessorKey: "quantity",
@@ -676,11 +684,13 @@ export const TableDemo = () => {
               accessorKey: "amount",
               header: "Amount",
               dataType: "currency",
+              enableSorting: true,
             },
             {
               accessorKey: "date",
               header: "Date",
               dataType: "date",
+              enableSorting: true,
             },
             {
               id: "action",
@@ -710,6 +720,7 @@ export const TableDemo = () => {
               header: "Description",
               filterFn: "customEqualStringFilter",
               enableColumnFilter: true,
+              enableSorting: true,
               filterPlaceholder: t("table.placeholder.search"),
             },
             {
@@ -725,6 +736,7 @@ export const TableDemo = () => {
               accessorKey: "amount",
               header: "Amount",
               dataType: "currency",
+              enableSorting: true,
               numberOptions: {
                 locale: "en-US",
                 formatOptions: {
@@ -737,6 +749,7 @@ export const TableDemo = () => {
               header: "Date",
               dataType: "date",
               enableColumnFilter: true,
+              enableSorting: true,
               filterFn: "inDateRangeFilter",
               customFilterComponent(column) {
                 return (
@@ -800,19 +813,23 @@ export const TableDemo = () => {
             {
               accessorKey: "name",
               header: "Name",
+              enableSorting: true,
             },
             {
               accessorKey: "age",
               header: "Age",
               align: "right",
+              enableSorting: true,
             },
             {
               accessorKey: "city",
               header: () => <span>City</span>,
+              enableSorting: true,
             },
             {
               accessorKey: "disabled",
               header: "Status",
+              enableSorting: true,
               cell: ({ row: { original } }) => {
                 const color = original.disabled ? "red" : "green";
 
