@@ -869,8 +869,8 @@ export const TableDemo = () => {
                   />
                 );
               },
-              enableSorting: true,
               enableColumnFilter: true,
+              enableSorting: true,
               filterFn: (row, columnId, filterValue) => {
                 if (!filterValue || filterValue.length === 0) {
                   return true;
