@@ -191,10 +191,12 @@
       "tableBorderVertical": "Table with custom style for vertical border"
     },
     "placeholder": {
+      "date": "Select date",
       "endDate": "End date",
       "startDate": "Start date",
       "search": "Search",
-      "select": "Select city"
+      "select": "Select city",
+      "status": "Select status"
     }
   },
   "message": {

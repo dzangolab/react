@@ -2,10 +2,33 @@ export type TData = {
   id: number;
   name: string;
   email: string;
-  age: number;
+  age: number | string;
   city: string;
   disabled?: boolean;
 };
+
+const city = [
+  { value: "Atlanta", label: "Atlanta" },
+  { value: "Austin", label: "Austin" },
+  { value: "Boston", label: "Boston" },
+  { value: "Charlotte", label: "Charlotte" },
+  { value: "Chicago", label: "Chicago" },
+  { value: "Dallas-Fort Worth", label: "Dallas-Fort Worth" },
+  { value: "Denver", label: "Denver" },
+  { value: "Detroit", label: "Detroit" },
+  { value: "Houston", label: "Houston" },
+  { value: "Los Angeles", label: "Los Angeles" },
+  { value: "Miami Beach", label: "Miami Beach" },
+  { value: "Minneapolis", label: "Minneapolis" },
+  { value: "Nashville", label: "Nashville" },
+  { value: "New York", label: "New York" },
+  { value: "Philadelphia", label: "Philadelphia" },
+  { value: "Phoenix", label: "Phoenix" },
+  { value: "Portland", label: "Portland" },
+  { value: "San Diego", label: "San Diego" },
+  { value: "San Francisco Bay Area", label: "San Francisco Bay Area" },
+  { value: "Seattle", label: "Seattle" },
+];
 
 const data: TData[] = [
   {
@@ -106,7 +129,7 @@ const data: TData[] = [
     id: 14,
     name: "Ava Rose Moore",
     email: "ava.m@example.com",
-    age: 24,
+    age: "24",
     city: "Austin",
     disabled: false,
   },
@@ -255,4 +278,4 @@ const HORIZONTAL_CSS_CODE = `.dz-table-container.horizontal .table-wrapper > tab
   border: none;
 }`;
 
-export { data, formatDemoData, HORIZONTAL_CSS_CODE, VERTICAL_CSS_CODE };
+export { city, data, formatDemoData, HORIZONTAL_CSS_CODE, VERTICAL_CSS_CODE };
