@@ -192,7 +192,7 @@ const formatDemoData = [
     amount: 987_654.32,
     quantity: 175,
     date: new Date("2023-12-01T12:30:00"),
-    datetime: "2023-12-01T11:00:00",
+    datetime: new Date("2023-12-01T11:00:00"),
     description: "Office rent payment",
   },
   {
@@ -216,7 +216,7 @@ const formatDemoData = [
     amount: 789_012.34,
     quantity: 53210,
     date: new Date("2023-12-05T09:15:00"),
-    datetime: "2023-12-05T09:15:00",
+    datetime: new Date("2023-12-05T09:15:00"),
     description: "Travel and accommodation",
   },
   {
