@@ -2,7 +2,7 @@ export type TData = {
   id: number;
   name: string;
   email: string;
-  age: number | string;
+  age: number;
   city: string;
   disabled?: boolean;
 };
@@ -129,7 +129,7 @@ const data: TData[] = [
     id: 14,
     name: "Ava Rose Moore",
     email: "ava.m@example.com",
-    age: "24",
+    age: 24,
     city: "Austin",
     disabled: false,
   },
