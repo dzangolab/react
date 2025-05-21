@@ -74,14 +74,16 @@ export const TableDemo = () => {
       return true;
     }
 
-    if (
-      value[0].getTime() <= (row.original.date as Date).getTime() &&
-      (row.original.date as Date).getTime() < value[1].getTime()
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    const rowData = row.getValue(columnId);
+
+    const date = new Date(rowData as Date);
+
+    if (isNaN(date.getTime())) return false;
+
+    return (
+      value[0].getTime() <= date.getTime() &&
+      date.getTime() < value[1].getTime()
+    );
   };
 
   const customEqualStringFilter: FilterFunction<any> = (
@@ -115,7 +117,6 @@ export const TableDemo = () => {
           data={data}
           id="invitations-table"
           showResetStateAction
-          initialFilters={[{ id: "email", value: "e" }]}
           initialSorting={[{ id: "email", desc: false }]}
           rowClassName={({ row: { original } }) => {
             return `row-${original.id}`;
