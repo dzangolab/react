@@ -53,7 +53,13 @@
 }
 
 .center-aligned-content-table .column-city {
-  width: 8rem;
-  max-width: 8rem;
-  min-width: 8rem;
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
+}
+
+.center-aligned-content-table .column-disabled {
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
 }

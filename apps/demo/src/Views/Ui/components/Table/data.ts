@@ -7,6 +7,29 @@ export type TData = {
   disabled?: boolean;
 };
 
+const city = [
+  { value: "Atlanta", label: "Atlanta" },
+  { value: "Austin", label: "Austin" },
+  { value: "Boston", label: "Boston" },
+  { value: "Charlotte", label: "Charlotte" },
+  { value: "Chicago", label: "Chicago" },
+  { value: "Dallas-Fort Worth", label: "Dallas-Fort Worth" },
+  { value: "Denver", label: "Denver" },
+  { value: "Detroit", label: "Detroit" },
+  { value: "Houston", label: "Houston" },
+  { value: "Los Angeles", label: "Los Angeles" },
+  { value: "Miami Beach", label: "Miami Beach" },
+  { value: "Minneapolis", label: "Minneapolis" },
+  { value: "Nashville", label: "Nashville" },
+  { value: "New York", label: "New York" },
+  { value: "Philadelphia", label: "Philadelphia" },
+  { value: "Phoenix", label: "Phoenix" },
+  { value: "Portland", label: "Portland" },
+  { value: "San Diego", label: "San Diego" },
+  { value: "San Francisco Bay Area", label: "San Francisco Bay Area" },
+  { value: "Seattle", label: "Seattle" },
+];
+
 const data: TData[] = [
   {
     id: 1,
@@ -169,7 +192,7 @@ const formatDemoData = [
     amount: 987_654.32,
     quantity: 175,
     date: new Date("2023-12-01T12:30:00"),
-    datetime: "2023-12-01T11:00:00",
+    datetime: new Date("2023-12-01T11:00:00"),
     description: "Office rent payment",
   },
   {
@@ -193,7 +216,7 @@ const formatDemoData = [
     amount: 789_012.34,
     quantity: 53210,
     date: new Date("2023-12-05T09:15:00"),
-    datetime: "2023-12-05T09:15:00",
+    datetime: new Date("2023-12-05T09:15:00"),
     description: "Travel and accommodation",
   },
   {
@@ -255,4 +278,4 @@ const HORIZONTAL_CSS_CODE = `.dz-table-container.horizontal .table-wrapper > tab
   border: none;
 }`;
 
-export { data, formatDemoData, HORIZONTAL_CSS_CODE, VERTICAL_CSS_CODE };
+export { city, data, formatDemoData, HORIZONTAL_CSS_CODE, VERTICAL_CSS_CODE };

@@ -16,6 +16,7 @@ import {
   VERTICAL_CSS_CODE,
   data,
   formatDemoData,
+  city,
 } from "./data";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
@@ -34,12 +35,16 @@ export const TableDemo = () => {
     {
       accessorKey: "email",
       header: "Email",
+      enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: t("table.placeholder.search"),
     },
     {
       accessorKey: "name",
       header: () => <span>Full name</span>,
+      enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: t("table.placeholder.search"),
     },
     {
       accessorKey: "age",
@@ -50,7 +55,13 @@ export const TableDemo = () => {
     {
       accessorKey: "city",
       header: () => <span>City</span>,
+      enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: t("table.placeholder.select"),
+      meta: {
+        filterVariant: "multiselect",
+        filterOptions: city,
+      },
     },
   ];
 
@@ -63,14 +74,16 @@ export const TableDemo = () => {
       return true;
     }
 
-    if (
-      value[0].getTime() <= (row.original.date as Date).getTime() &&
-      (row.original.date as Date).getTime() < value[1].getTime()
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    const rowData = row.getValue(columnId);
+
+    const date = new Date(rowData as Date);
+
+    if (isNaN(date.getTime())) return false;
+
+    return (
+      value[0].getTime() <= date.getTime() &&
+      date.getTime() < value[1].getTime()
+    );
   };
 
   const customEqualStringFilter: FilterFunction<any> = (
@@ -104,7 +117,6 @@ export const TableDemo = () => {
           data={data}
           id="invitations-table"
           showResetStateAction
-          initialFilters={[{ id: "email", value: "O" }]}
           initialSorting={[{ id: "email", desc: false }]}
           rowClassName={({ row: { original } }) => {
             return `row-${original.id}`;
@@ -123,29 +135,17 @@ export const TableDemo = () => {
               filterPlaceholder: t("table.placeholder.search"),
             },
             {
+              accessorKey: "name",
+              enableColumnFilter: true,
+              filterPlaceholder: t("table.placeholder.search"),
+            },
+            {
               accessorKey: "city",
               enableColumnFilter: true,
               filterPlaceholder: t("table.placeholder.select"),
               meta: {
                 filterVariant: "multiselect",
-                filterOptions: [
-                  {
-                    value: "Atlanta",
-                    label: "Atlanta",
-                  },
-                  {
-                    value: "Chicago",
-                    label: "Chicago",
-                  },
-                  {
-                    value: "Boston",
-                    label: "Boston",
-                  },
-                  {
-                    value: "Denver",
-                    label: "Denver",
-                  },
-                ],
+                filterOptions: city,
               },
             },
           ]}
@@ -616,7 +616,9 @@ export const TableDemo = () => {
             {
               accessorKey: "description",
               header: "Description",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "quantity",
@@ -643,13 +645,23 @@ export const TableDemo = () => {
               accessorKey: "date",
               header: "Date",
               dataType: "date",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.date"),
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               accessorKey: "datetime",
               header: "Datetime",
               dataType: "datetime",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.date"),
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               id: "action",
@@ -672,7 +684,9 @@ export const TableDemo = () => {
             {
               accessorKey: "description",
               header: "Description",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "quantity",
@@ -690,7 +704,12 @@ export const TableDemo = () => {
               accessorKey: "date",
               header: "Date",
               dataType: "date",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.date"),
+              meta: {
+                filterVariant: "dateRange",
+              },
             },
             {
               id: "action",
@@ -808,12 +827,16 @@ export const TableDemo = () => {
             {
               accessorKey: "email",
               header: "Email",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "name",
               header: "Name",
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.search"),
             },
             {
               accessorKey: "age",
@@ -824,12 +847,18 @@ export const TableDemo = () => {
             {
               accessorKey: "city",
               header: () => <span>City</span>,
+              enableColumnFilter: true,
               enableSorting: true,
+              filterPlaceholder: t("table.placeholder.select"),
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: city,
+              },
             },
             {
+              align: "center",
               accessorKey: "disabled",
               header: "Status",
-              enableSorting: true,
               cell: ({ row: { original } }) => {
                 const color = original.disabled ? "red" : "green";
 
@@ -841,7 +870,43 @@ export const TableDemo = () => {
                   />
                 );
               },
-              align: "center",
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: (row, columnId, filterValue) => {
+                if (!filterValue || filterValue.length === 0) {
+                  return true;
+                }
+
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const updatedFilterValue = filterValue.map((value: any) => {
+                  switch (value) {
+                    case "true":
+                      return true;
+                    case "false":
+                      return false;
+                    default:
+                      return value;
+                  }
+                });
+
+                const cellValue = row.getValue(columnId);
+
+                return updatedFilterValue.includes(cellValue);
+              },
+              meta: {
+                filterVariant: "multiselect",
+                filterOptions: [
+                  {
+                    value: "false",
+                    label: "Enabled",
+                  },
+                  {
+                    value: "true",
+                    label: "Disabled",
+                  },
+                ],
+              },
+              filterPlaceholder: t("table.placeholder.status"),
             },
           ]}
           data={data.slice(10, 15)}
