@@ -26,6 +26,7 @@ export const TableHeader = <TData extends RowData>({
   table,
 }: THeaderProperty<TData>) => {
   const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
+  const [dates, setDates] = useState<string[] | null>(null);
 
   const handleSort = useCallback(
     (event: SyntheticEvent, sortHandler?: (event: SyntheticEvent) => void) => {
@@ -54,6 +55,7 @@ export const TableHeader = <TData extends RowData>({
 
     return null;
   };
+
   const renderHeaderRow = () =>
     table.getHeaderGroups().map((headerGroup) => (
       <TableRow key={headerGroup.id} className="header-row">
@@ -163,16 +165,23 @@ export const TableHeader = <TData extends RowData>({
           inputRef={null}
           name="date-range"
           onChange={(date) => {
-            if (date) {
-              const _date = (date as Date[])
-                .map(getFormattedDate)
-                .filter((d) => d !== null);
-              column.setFilterValue(_date);
-            } else {
+            if (!date) {
+              setDates(null);
               column.setFilterValue(null);
+
+              return;
             }
+
+            const formatteddates = (date as Date[])
+              .map(getFormattedDate)
+              .filter((d) => d !== null);
+
+            setDates(formatteddates as string[]);
+            column.setFilterValue(
+              formatteddates.length === 2 ? formatteddates : null,
+            );
           }}
-          value={convertFilterValueToDate(column.getFilterValue() as string[])}
+          value={convertFilterValueToDate(dates as string[])}
           selectionMode="range"
           placeholder={column.columnDef.filterPlaceholder || ""}
         />
