@@ -216,12 +216,15 @@ export const Select = <T extends string | number>({
   const renderOptions = () => {
     return (
       <ul role="listbox">
-        {enableSearch && (
+        {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
-            onInputChange={(value_) => setSearchInput(value_ as string)}
+            onInputChange={(debouncedValue) => {
+              setSearchInput(debouncedValue as string);
+            }}
           />
-        )}
+        ) : null}
+
         {filteredOptions.map((option, index) => {
           const isSelected = multiple
             ? value.includes(option.value)
@@ -258,7 +261,7 @@ export const Select = <T extends string | number>({
                   }
                 }}
               >
-                {renderOption ? renderOption(option) : label}
+                {renderOption ? renderOption(option) : option.label}
               </span>
             </li>
           );
@@ -331,8 +334,16 @@ export const Select = <T extends string | number>({
         {hasValue
           ? renderSelectValue()
           : placeholder && <span className="placeholder">{placeholder}</span>}
-        <span className="menu-trigger">
-          <i className="pi pi-chevron-down" />
+        <span
+          className="menu-trigger"
+          onClick={() => {
+            if (!disabled) {
+              setShowOptions(!showOptions);
+              setFocused(true);
+            }
+          }}
+        >
+          <i className="pi pi-chevron-down"></i>
         </span>
       </div>
     );
