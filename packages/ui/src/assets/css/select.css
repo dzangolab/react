@@ -110,7 +110,7 @@
   transition: all var(--transition-duration) ease;
 }
 
-.select ul > li:hover {
+.select ul > li:hover, .select ul > li.focused {
   background-color: var(--field-option-hover-color);
 }
 

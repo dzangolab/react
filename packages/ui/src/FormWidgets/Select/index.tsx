@@ -66,7 +66,9 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [focused, setFocused] = useState(false);
-
+  const [focusedOptionIndex, setFocusedOptionIndex] = useState<number | null>(
+    null,
+  );
   const selectReference = useRef<HTMLDivElement>(null);
 
   const sortedOptions = useMemo(() => {
@@ -122,6 +124,21 @@ export const Select = <T extends string | number>({
     };
   }, [selectReference]);
 
+  const getNextFocusableIndex = (current: number | null, direction: 1 | -1) => {
+    console.log("current", current);
+    if (!filteredOptions.length) return null;
+    let index = current ?? (direction === 1 ? 0 : filteredOptions.length - 1);
+    let attempts = 0;
+
+    while (attempts < filteredOptions.length) {
+      index =
+        (index + direction + filteredOptions.length) % filteredOptions.length;
+      if (!filteredOptions[index].disabled) return index;
+      attempts++;
+    }
+    return null;
+  };
+
   const handleSelectedOption = (option: T) => {
     if (multiple) {
       const newValue = value.includes(option)
@@ -150,9 +167,37 @@ export const Select = <T extends string | number>({
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter" && !disabled) {
-      setShowOptions(true);
-      setFocused(true);
+    if (disabled) return;
+
+    switch (event.key) {
+      case "Enter":
+      case " ":
+        event.preventDefault();
+        if (!showOptions) {
+          setShowOptions(true);
+          setFocused(true);
+        } else if (focusedOptionIndex !== null) {
+          handleSelectedOption(filteredOptions[focusedOptionIndex].value);
+        }
+        break;
+
+      case "ArrowDown":
+        event.preventDefault();
+        setFocusedOptionIndex((previous) => getNextFocusableIndex(previous, 1));
+        break;
+
+      case "ArrowUp":
+        event.preventDefault();
+        setFocusedOptionIndex((previous) =>
+          getNextFocusableIndex(previous, -1),
+        );
+        break;
+
+      case "Escape":
+        event.preventDefault();
+        setShowOptions(false);
+        setFocused(false);
+        break;
     }
   };
 
@@ -166,37 +211,38 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul>
-        {enableSearch ? (
+      <ul role="listbox">
+        {enableSearch && (
           <DebouncedInput
             placeholder={searchPlaceholder}
-            onInputChange={(debouncedValue) => {
-              setSearchInput(debouncedValue as string);
-            }}
+            onInputChange={(value_) => setSearchInput(value_ as string)}
           />
-        ) : null}
-
-        {filteredOptions?.map((option, index) => {
-          const { disabled, label } = option;
+        )}
+        {filteredOptions.map((option, index) => {
+          const isSelected = multiple
+            ? value.includes(option.value)
+            : value === option.value;
 
           return (
             <li
+              id={`option-${index}`}
               key={index}
-              className={
-                `${!multiple && value === option.value ? "selected" : ""} ${
-                  disabled ? "disabled" : ""
-                }`.trim() || undefined
-              }
+              role="option"
+              aria-selected={isSelected}
+              className={`
+              ${isSelected ? "selected" : ""}
+              ${option.disabled ? "disabled" : ""}
+              ${index === focusedOptionIndex ? "focused" : ""}
+            `.trim()}
             >
               {multiple ? (
                 <Checkbox
-                  name={label}
+                  name={option.label}
                   checked={value.includes(option.value)}
                   onChange={() => handleSelectedOption(option.value)}
-                  disabled={disabled}
+                  disabled={option.disabled}
                 />
               ) : null}
-
               <span
                 onClick={() => {
                   if (!disabled) {
@@ -260,7 +306,16 @@ export const Select = <T extends string | number>({
         className={`label-container ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
         }`.trimEnd()}
+        role="combobox"
+        aria-haspopup="listbox"
+        aria-expanded={showOptions}
+        aria-activedescendant={
+          focusedOptionIndex !== null
+            ? `option-${focusedOptionIndex}`
+            : undefined
+        }
         aria-invalid={hasError}
+        tabIndex={0}
         onClick={() => {
           if (!disabled) {
             setShowOptions(!showOptions);
@@ -268,21 +323,12 @@ export const Select = <T extends string | number>({
           }
         }}
         onKeyDown={handleKeyDown}
-        tabIndex={0}
       >
         {hasValue
           ? renderSelectValue()
           : placeholder && <span className="placeholder">{placeholder}</span>}
-        <span
-          className="menu-trigger"
-          onClick={() => {
-            if (!disabled) {
-              setShowOptions(!showOptions);
-              setFocused(true);
-            }
-          }}
-        >
-          <i className="pi pi-chevron-down"></i>
+        <span className="menu-trigger">
+          <i className="pi pi-chevron-down" />
         </span>
       </div>
     );
