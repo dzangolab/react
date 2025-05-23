@@ -9,10 +9,7 @@ exports[`Select Component > should render correctly when auto-select single opti
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <span
@@ -45,10 +42,7 @@ exports[`Select Component > should render correctly when disabled 1`] = `
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container disabled"
-        role="combobox"
         tabindex="0"
       >
         <span
@@ -78,10 +72,7 @@ exports[`Select Component > should render correctly when hide if single option i
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <span
@@ -114,10 +105,7 @@ exports[`Select Component > should render correctly with a placeholder 1`] = `
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <span
@@ -147,11 +135,8 @@ exports[`Select Component > should render correctly with an error message 1`] = 
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         aria-invalid="true"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <span
@@ -189,10 +174,7 @@ exports[`Select Component > should render correctly with helper text 1`] = `
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <span
@@ -231,10 +213,7 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <div
@@ -267,10 +246,7 @@ exports[`Select Component > should render correctly with search enabled 1`] = `
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <span
@@ -303,10 +279,7 @@ exports[`Select Component > should render correctly with single selection 1`] = 
       class="select"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
         class="label-container"
-        role="combobox"
         tabindex="0"
       >
         <span

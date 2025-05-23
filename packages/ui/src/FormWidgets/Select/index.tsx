@@ -215,7 +215,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul role="listbox">
+      <ul>
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -226,28 +226,24 @@ export const Select = <T extends string | number>({
         ) : null}
 
         {filteredOptions.map((option, index) => {
-          const isSelected = multiple
-            ? value.includes(option.value)
-            : value === option.value;
+          const { disabled, label } = option;
 
           return (
             <li
-              id={`option-${index}`}
               key={index}
-              role="option"
-              aria-selected={isSelected}
-              className={`
-              ${isSelected ? "selected" : ""}
-              ${option.disabled ? "disabled" : ""}
+              className={
+                `${!multiple && value === option.value ? "selected" : ""}
+              ${disabled ? "disabled" : ""}
               ${index === focusedOptionIndex ? "focused" : ""}
-            `.trim()}
+            `.trim() || undefined
+              }
             >
               {multiple ? (
                 <Checkbox
-                  name={option.label}
+                  name={label}
                   checked={value.includes(option.value)}
                   onChange={() => handleSelectedOption(option.value)}
-                  disabled={option.disabled}
+                  disabled={disabled}
                 />
               ) : null}
               <span
@@ -261,7 +257,7 @@ export const Select = <T extends string | number>({
                   }
                 }}
               >
-                {renderOption ? renderOption(option) : option.label}
+                {renderOption ? renderOption(option) : label}
               </span>
             </li>
           );
@@ -313,16 +309,7 @@ export const Select = <T extends string | number>({
         className={`label-container ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
         }`.trimEnd()}
-        role="combobox"
-        aria-haspopup="listbox"
-        aria-expanded={showOptions}
-        aria-activedescendant={
-          focusedOptionIndex !== null
-            ? `option-${focusedOptionIndex}`
-            : undefined
-        }
         aria-invalid={hasError}
-        tabIndex={0}
         onClick={() => {
           if (!disabled) {
             setShowOptions(!showOptions);
@@ -330,6 +317,7 @@ export const Select = <T extends string | number>({
           }
         }}
         onKeyDown={handleKeyDown}
+        tabIndex={0}
       >
         {hasValue
           ? renderSelectValue()
