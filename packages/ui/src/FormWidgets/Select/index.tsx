@@ -124,18 +124,22 @@ export const Select = <T extends string | number>({
     };
   }, [selectReference]);
 
-  const getNextFocusableIndex = (current: number | null, direction: 1 | -1) => {
-    console.log("current", current);
-    if (!filteredOptions.length) return null;
-    let index = current ?? (direction === 1 ? 0 : filteredOptions.length - 1);
-    let attempts = 0;
+  const getNextFocusableIndex = (
+    currentIndex: number | null,
+    direction: 1 | -1,
+  ): number | null => {
+    const total = filteredOptions.length;
+    if (total === 0) return null;
 
-    while (attempts < filteredOptions.length) {
-      index =
-        (index + direction + filteredOptions.length) % filteredOptions.length;
-      if (!filteredOptions[index].disabled) return index;
-      attempts++;
+    const startIndex = currentIndex ?? (direction === 1 ? 0 : total - 1);
+
+    for (let i = 0; i < total; i++) {
+      const nextIndex = (startIndex + direction * (i + 1) + total) % total;
+      if (!filteredOptions[nextIndex].disabled) {
+        return nextIndex;
+      }
     }
+
     return null;
   };
 
