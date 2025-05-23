@@ -66,7 +66,9 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [focused, setFocused] = useState(false);
-
+  const [focusedOptionIndex, setFocusedOptionIndex] = useState<number | null>(
+    null,
+  );
   const selectReference = useRef<HTMLDivElement>(null);
 
   const sortedOptions = useMemo(() => {
@@ -122,6 +124,25 @@ export const Select = <T extends string | number>({
     };
   }, [selectReference]);
 
+  const getNextFocusableIndex = (
+    currentIndex: number | null,
+    direction: 1 | -1,
+  ): number | null => {
+    const total = filteredOptions.length;
+    if (total === 0) return null;
+
+    const startIndex = currentIndex ?? (direction === 1 ? 0 : total - 1);
+
+    for (let i = 0; i < total; i++) {
+      const nextIndex = (startIndex + direction * (i + 1) + total) % total;
+      if (!filteredOptions[nextIndex].disabled) {
+        return nextIndex;
+      }
+    }
+
+    return null;
+  };
+
   const handleSelectedOption = (option: T) => {
     if (multiple) {
       const newValue = value.includes(option)
@@ -150,9 +171,37 @@ export const Select = <T extends string | number>({
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter" && !disabled) {
-      setShowOptions(true);
-      setFocused(true);
+    if (disabled) return;
+
+    switch (event.key) {
+      case "Enter":
+      case " ":
+        event.preventDefault();
+        if (!showOptions) {
+          setShowOptions(true);
+          setFocused(true);
+        } else if (focusedOptionIndex !== null) {
+          handleSelectedOption(filteredOptions[focusedOptionIndex].value);
+        }
+        break;
+
+      case "ArrowDown":
+        event.preventDefault();
+        setFocusedOptionIndex((previous) => getNextFocusableIndex(previous, 1));
+        break;
+
+      case "ArrowUp":
+        event.preventDefault();
+        setFocusedOptionIndex((previous) =>
+          getNextFocusableIndex(previous, -1),
+        );
+        break;
+
+      case "Escape":
+        event.preventDefault();
+        setShowOptions(false);
+        setFocused(false);
+        break;
     }
   };
 
@@ -176,16 +225,17 @@ export const Select = <T extends string | number>({
           />
         ) : null}
 
-        {filteredOptions?.map((option, index) => {
+        {filteredOptions.map((option, index) => {
           const { disabled, label } = option;
 
           return (
             <li
               key={index}
               className={
-                `${!multiple && value === option.value ? "selected" : ""} ${
-                  disabled ? "disabled" : ""
-                }`.trim() || undefined
+                `${!multiple && value === option.value ? "selected" : ""}
+              ${disabled ? "disabled" : ""}
+              ${index === focusedOptionIndex ? "focused" : ""}
+            `.trim() || undefined
               }
             >
               {multiple ? (
@@ -196,7 +246,6 @@ export const Select = <T extends string | number>({
                   disabled={disabled}
                 />
               ) : null}
-
               <span
                 onClick={() => {
                   if (!disabled) {
