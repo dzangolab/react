@@ -70,7 +70,7 @@ export const Select = <T extends string | number>({
     null,
   );
   const selectReference = useRef<HTMLDivElement>(null);
-  const optionReferences = useRef<Record<number, HTMLLIElement | null>>({});
+  const optionReference = useRef<Record<number, HTMLLIElement | null>>({});
 
   const sortedOptions = useMemo(() => {
     return !autoSortOptions
@@ -128,9 +128,9 @@ export const Select = <T extends string | number>({
   useEffect(() => {
     if (
       focusedOptionIndex !== null &&
-      optionReferences.current[focusedOptionIndex]
+      optionReference.current[focusedOptionIndex]
     ) {
-      optionReferences.current[focusedOptionIndex]?.scrollIntoView({
+      optionReference.current[focusedOptionIndex]?.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
       });
@@ -173,26 +173,57 @@ export const Select = <T extends string | number>({
     }
 
     setShowOptions(false);
+    setFocused(false);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleRemoveOptionKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleRemoveOption(undefined, event);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
     if (disabled) return;
+
+    const openDropdown = () => {
+      setShowOptions(true);
+      setFocused(true);
+    };
+
+    const selectFocusedOption = () => {
+      if (focusedOptionIndex !== null) {
+        handleSelectedOption(filteredOptions[focusedOptionIndex].value);
+        if (!multiple) {
+          setShowOptions(false);
+        }
+      } else {
+        setShowOptions(false);
+      }
+    };
+
+    const focusFirstEnabledOption = () => {
+      const index = filteredOptions.findIndex((opt) => !opt.disabled);
+
+      if (index !== -1) {
+        setFocusedOptionIndex(index);
+      }
+    };
+
+    const focusLastEnabled = () => {
+      for (let i = filteredOptions.length - 1; i >= 0; i--) {
+        if (!filteredOptions[i].disabled) {
+          setFocusedOptionIndex(i);
+          break;
+        }
+      }
+    };
 
     switch (event.key) {
       case "Enter":
       case " ":
         event.preventDefault();
-        if (!showOptions) {
-          setShowOptions(true);
-          setFocused(true);
-        } else if (focusedOptionIndex !== null) {
-          handleSelectedOption(filteredOptions[focusedOptionIndex].value);
-
-          if (!multiple) {
-            setShowOptions(false);
-            setFocused(false);
-          }
-        }
+        showOptions ? selectFocusedOption() : openDropdown();
         break;
 
       case "ArrowDown":
@@ -208,29 +239,18 @@ export const Select = <T extends string | number>({
       case "Escape":
         event.preventDefault();
         setShowOptions(false);
-        setFocused(false);
         break;
 
       case "Home":
       case "PageUp":
         event.preventDefault();
-        for (let i = 0; i < filteredOptions.length; i++) {
-          if (!filteredOptions[i].disabled) {
-            setFocusedOptionIndex(i);
-            break;
-          }
-        }
+        focusFirstEnabledOption();
         break;
 
       case "End":
       case "PageDown":
         event.preventDefault();
-        for (let i = filteredOptions.length - 1; i >= 0; i--) {
-          if (!filteredOptions[i].disabled) {
-            setFocusedOptionIndex(i);
-            break;
-          }
-        }
+        focusLastEnabled();
         break;
     }
   };
@@ -262,7 +282,7 @@ export const Select = <T extends string | number>({
           return (
             <li
               key={index}
-              ref={(element) => (optionReferences.current[index] = element)}
+              ref={(element) => (optionReference.current[index] = element)}
               className={
                 `${!multiple && value === option.value ? "selected" : ""}
               ${disabled ? "disabled" : ""}
@@ -321,12 +341,7 @@ export const Select = <T extends string | number>({
               tabIndex={0}
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(value, event)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  handleRemoveOption(undefined, event);
-                }
-              }}
+              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
             ></i>
           )}
         </>
@@ -338,12 +353,7 @@ export const Select = <T extends string | number>({
               tabIndex={0}
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(undefined, event)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  handleRemoveOption(undefined, event);
-                }
-              }}
+              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
             ></i>
           )}
         </>
