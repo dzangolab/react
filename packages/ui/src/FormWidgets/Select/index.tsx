@@ -148,6 +148,17 @@ export const Select = <T extends string | number>({
     return index;
   };
 
+  const previousIndex = (startIndex: number): number => {
+    const total = filteredOptions.length;
+
+    let index = (startIndex - 1 + total) % total;
+    while (filteredOptions[index]?.disabled && index !== startIndex) {
+      index = (index - 1 + total) % total;
+    }
+
+    return index;
+  };
+
   const handleSelectedOption = (option: T) => {
     if (multiple) {
       const newValue = value.includes(option)
@@ -233,7 +244,7 @@ export const Select = <T extends string | number>({
 
       case "ArrowUp":
         event.preventDefault();
-        setFocusedOptionIndex((previous) => nextIndex(previous as number));
+        setFocusedOptionIndex((previous) => previousIndex(previous as number));
         break;
 
       case "Escape":
