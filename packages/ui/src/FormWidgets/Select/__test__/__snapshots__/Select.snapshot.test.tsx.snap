@@ -19,6 +19,7 @@ exports[`Select Component > should render correctly when auto-select single opti
         </span>
         <i
           class="pi pi-times"
+          tabindex="0"
         />
         <span
           class="menu-trigger"
@@ -82,6 +83,7 @@ exports[`Select Component > should render correctly when hide if single option i
         </span>
         <i
           class="pi pi-times"
+          tabindex="0"
         />
         <span
           class="menu-trigger"
@@ -146,6 +148,7 @@ exports[`Select Component > should render correctly with an error message 1`] = 
         </span>
         <i
           class="pi pi-times"
+          tabindex="0"
         />
         <span
           class="menu-trigger"
@@ -184,6 +187,7 @@ exports[`Select Component > should render correctly with helper text 1`] = `
         </span>
         <i
           class="pi pi-times"
+          tabindex="0"
         />
         <span
           class="menu-trigger"
@@ -223,6 +227,7 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
         </div>
         <i
           class="pi pi-times"
+          tabindex="0"
         />
         <span
           class="menu-trigger"
@@ -256,6 +261,7 @@ exports[`Select Component > should render correctly with search enabled 1`] = `
         </span>
         <i
           class="pi pi-times"
+          tabindex="0"
         />
         <span
           class="menu-trigger"
@@ -289,6 +295,7 @@ exports[`Select Component > should render correctly with single selection 1`] = 
         </span>
         <i
           class="pi pi-times"
+          tabindex="0"
         />
         <span
           class="menu-trigger"

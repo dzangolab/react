@@ -66,8 +66,11 @@ export const Select = <T extends string | number>({
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [focused, setFocused] = useState(false);
-
+  const [focusedOptionIndex, setFocusedOptionIndex] = useState<number | null>(
+    null,
+  );
   const selectReference = useRef<HTMLDivElement>(null);
+  const optionReference = useRef<Record<number, HTMLLIElement | null>>({});
 
   const sortedOptions = useMemo(() => {
     return !autoSortOptions
@@ -122,6 +125,40 @@ export const Select = <T extends string | number>({
     };
   }, [selectReference]);
 
+  useEffect(() => {
+    if (
+      focusedOptionIndex !== null &&
+      optionReference.current[focusedOptionIndex]
+    ) {
+      optionReference.current[focusedOptionIndex]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }
+  }, [focusedOptionIndex]);
+
+  const nextIndex = (startIndex: number): number => {
+    const total = filteredOptions.length;
+
+    let index = (startIndex + 1) % total;
+    while (filteredOptions[index]?.disabled && index !== startIndex) {
+      index = (index + 1) % total;
+    }
+
+    return index;
+  };
+
+  const previousIndex = (startIndex: number): number => {
+    const total = filteredOptions.length;
+
+    let index = (startIndex - 1 + total) % total;
+    while (filteredOptions[index]?.disabled && index !== startIndex) {
+      index = (index - 1 + total) % total;
+    }
+
+    return index;
+  };
+
   const handleSelectedOption = (option: T) => {
     if (multiple) {
       const newValue = value.includes(option)
@@ -136,7 +173,7 @@ export const Select = <T extends string | number>({
 
   const handleRemoveOption = (
     option: T | T[] | undefined,
-    event: React.MouseEvent,
+    event: React.MouseEvent | React.KeyboardEvent,
   ) => {
     event.stopPropagation();
 
@@ -147,12 +184,85 @@ export const Select = <T extends string | number>({
     }
 
     setShowOptions(false);
+    setFocused(false);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter" && !disabled) {
+  const handleRemoveOptionKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleRemoveOption(undefined, event);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (disabled) return;
+
+    const openDropdown = () => {
       setShowOptions(true);
       setFocused(true);
+    };
+
+    const selectFocusedOption = () => {
+      if (focusedOptionIndex !== null) {
+        handleSelectedOption(filteredOptions[focusedOptionIndex].value);
+        if (!multiple) {
+          setShowOptions(false);
+        }
+      } else {
+        setShowOptions(false);
+      }
+    };
+
+    const focusFirstEnabledOption = () => {
+      const index = filteredOptions.findIndex((opt) => !opt.disabled);
+
+      if (index !== -1) {
+        setFocusedOptionIndex(index);
+      }
+    };
+
+    const focusLastEnabled = () => {
+      for (let i = filteredOptions.length - 1; i >= 0; i--) {
+        if (!filteredOptions[i].disabled) {
+          setFocusedOptionIndex(i);
+          break;
+        }
+      }
+    };
+
+    switch (event.key) {
+      case "Enter":
+      case " ":
+        event.preventDefault();
+        showOptions ? selectFocusedOption() : openDropdown();
+        break;
+
+      case "ArrowDown":
+        event.preventDefault();
+        setFocusedOptionIndex((previous) => nextIndex(previous as number));
+        break;
+
+      case "ArrowUp":
+        event.preventDefault();
+        setFocusedOptionIndex((previous) => previousIndex(previous as number));
+        break;
+
+      case "Escape":
+        event.preventDefault();
+        setShowOptions(false);
+        break;
+
+      case "Home":
+      case "PageUp":
+        event.preventDefault();
+        focusFirstEnabledOption();
+        break;
+
+      case "End":
+      case "PageDown":
+        event.preventDefault();
+        focusLastEnabled();
+        break;
     }
   };
 
@@ -173,6 +283,7 @@ export const Select = <T extends string | number>({
             onInputChange={(debouncedValue) => {
               setSearchInput(debouncedValue as string);
             }}
+            tabIndex={0}
           />
         ) : null}
 
@@ -182,10 +293,12 @@ export const Select = <T extends string | number>({
           return (
             <li
               key={index}
+              ref={(element) => (optionReference.current[index] = element)}
               className={
-                `${!multiple && value === option.value ? "selected" : ""} ${
-                  disabled ? "disabled" : ""
-                }`.trim() || undefined
+                `${!multiple && value === option.value ? "selected" : ""}
+              ${disabled ? "disabled" : ""}
+              ${index === focusedOptionIndex ? "focused" : ""}
+            `.trim() || undefined
               }
             >
               {multiple ? (
@@ -196,7 +309,6 @@ export const Select = <T extends string | number>({
                   disabled={disabled}
                 />
               ) : null}
-
               <span
                 onClick={() => {
                   if (!disabled) {
@@ -237,8 +349,10 @@ export const Select = <T extends string | number>({
           </div>
           {!disabled && showRemoveSelection && (
             <i
+              tabIndex={0}
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(value, event)}
+              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
             ></i>
           )}
         </>
@@ -247,8 +361,10 @@ export const Select = <T extends string | number>({
           <span className="selected-option">{selectedOption?.label}</span>
           {selectedOption && !disabled && showRemoveSelection && (
             <i
+              tabIndex={0}
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(undefined, event)}
+              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
             ></i>
           )}
         </>
