@@ -144,7 +144,7 @@ export const TableDemo = () => {
               enableColumnFilter: true,
               filterPlaceholder: t("table.placeholder.select"),
               meta: {
-                filterVariant: "multiselect",
+                filterVariant: "select",
                 filterOptions: city,
               },
             },
