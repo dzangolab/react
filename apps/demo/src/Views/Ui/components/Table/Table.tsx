@@ -17,6 +17,7 @@ import {
   data,
   formatDemoData,
   city,
+  country,
 } from "./data";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
@@ -62,6 +63,17 @@ export const TableDemo = () => {
         filterVariant: "multiselect",
         filterOptions: city,
       },
+    },
+    {
+      accessorKey: "country",
+      header: "Country",
+      enableColumnFilter: true,
+      enableSorting: true,
+      meta: {
+        filterVariant: "select",
+        filterOptions: country,
+      },
+      filterPlaceholder: t("table.placeholder.country"),
     },
   ];
 
@@ -147,24 +159,6 @@ export const TableDemo = () => {
                 filterVariant: "multiselect",
                 filterOptions: city,
               },
-            },
-            {
-              accessorKey: "country",
-              header: "Country",
-              enableColumnFilter: true,
-              enableSorting: true,
-              meta: {
-                filterVariant: "select",
-                filterOptions: [
-                  { label: "Estonia", value: "Estonia" },
-                  { label: "France", value: "France" },
-                  {
-                    label: "United State of America",
-                    value: "United State of America",
-                  },
-                ],
-              },
-              filterPlaceholder: t("table.placeholder.country"),
             },
           ]}
           data={data}

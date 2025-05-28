@@ -31,6 +31,15 @@ const city = [
   { value: "Seattle", label: "Seattle" },
 ];
 
+const country = [
+  { label: "Estonia", value: "Estonia" },
+  { label: "France", value: "France" },
+  {
+    label: "United State of America",
+    value: "United State of America",
+  },
+];
+
 const data: TData[] = [
   {
     id: 1,
@@ -314,4 +323,11 @@ const HORIZONTAL_CSS_CODE = `.dz-table-container.horizontal .table-wrapper > tab
   border: none;
 }`;
 
-export { city, data, formatDemoData, HORIZONTAL_CSS_CODE, VERTICAL_CSS_CODE };
+export {
+  city,
+  country,
+  data,
+  formatDemoData,
+  HORIZONTAL_CSS_CODE,
+  VERTICAL_CSS_CODE,
+};
