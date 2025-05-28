@@ -126,7 +126,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.filterable")}>
         <TDataTable
-          visibleColumns={["email", "name", "age", "city", "disabled"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={[
             ...columns,
             {
@@ -149,59 +149,22 @@ export const TableDemo = () => {
               },
             },
             {
-              align: "center",
-              accessorKey: "disabled",
-              header: "Status",
-              cell: ({ row: { original } }) => {
-                const color = original.disabled ? "red" : "green";
-
-                return (
-                  <Tag
-                    label={original.disabled ? "Disabled" : "Enabled"}
-                    color={color}
-                    fullWidth
-                  />
-                );
-              },
+              accessorKey: "country",
+              header: "Country",
               enableColumnFilter: true,
               enableSorting: true,
-              filterFn: (row, columnId, filterValue) => {
-                if (!filterValue || filterValue.length === 0) {
-                  return true;
-                }
-
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                let updatedFilterValue;
-
-                switch (filterValue) {
-                  case "true":
-                    updatedFilterValue = true;
-                    break;
-                  case "false":
-                    updatedFilterValue = false;
-                    break;
-                  default:
-                    updatedFilterValue = filterValue;
-                }
-
-                const cellValue = row.getValue(columnId);
-
-                return cellValue === updatedFilterValue;
-              },
               meta: {
                 filterVariant: "select",
                 filterOptions: [
+                  { label: "Estonia", value: "Estonia" },
+                  { label: "France", value: "France" },
                   {
-                    value: "false",
-                    label: "Enabled",
-                  },
-                  {
-                    value: "true",
-                    label: "Disabled",
+                    label: "United State of America",
+                    value: "United State of America",
                   },
                 ],
               },
-              filterPlaceholder: t("table.placeholder.status"),
+              filterPlaceholder: t("table.placeholder.country"),
             },
           ]}
           data={data}

@@ -191,6 +191,7 @@
       "tableBorderVertical": "Table with custom style for vertical border"
     },
     "placeholder": {
+      "country": "Select country",
       "date": "Select date",
       "endDate": "End date",
       "startDate": "Start date",
