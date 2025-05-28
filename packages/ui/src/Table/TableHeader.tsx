@@ -1,8 +1,6 @@
 import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DebouncedInput, Select } from "@/FormWidgets";
-
 import { TableDateFilter } from "./TableDateFilter";
 import {
   ColumnHeader,
@@ -12,6 +10,8 @@ import {
 import { getAlignValue } from "./utils";
 
 import type { TDataTableProperties } from "./types";
+
+import { DebouncedInput, Select } from "@/FormWidgets";
 
 interface THeaderProperty<T>
   extends Pick<
@@ -127,6 +127,18 @@ export const TableHeader = <TData extends RowData>({
 
     const columnFilterValue = column.getFilterValue();
     const variant = column.columnDef.meta?.filterVariant;
+
+    if (variant === "select") {
+      return (
+        <Select
+          name="select"
+          placeholder={column.columnDef.filterPlaceholder || ""}
+          options={column.columnDef.meta?.filterOptions || []}
+          value={(columnFilterValue as string) || ""}
+          onChange={(value) => column.setFilterValue(value)}
+        />
+      );
+    }
 
     if (variant === "multiselect") {
       return (

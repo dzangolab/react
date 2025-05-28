@@ -17,6 +17,7 @@ import {
   data,
   formatDemoData,
   city,
+  country,
 } from "./data";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
@@ -62,6 +63,17 @@ export const TableDemo = () => {
         filterVariant: "multiselect",
         filterOptions: city,
       },
+    },
+    {
+      accessorKey: "country",
+      header: "Country",
+      enableColumnFilter: true,
+      enableSorting: true,
+      meta: {
+        filterVariant: "select",
+        filterOptions: country,
+      },
+      filterPlaceholder: t("table.placeholder.country"),
     },
   ];
 
@@ -126,7 +138,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.filterable")}>
         <TDataTable
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={[
             ...columns,
             {
@@ -156,7 +168,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.sortable")}>
         <TDataTable
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={columns.map((column) => ({
             ...column,
             enableSorting: true,
@@ -327,7 +339,7 @@ export const TableDemo = () => {
           showColumnsAction={true}
           columnActionBtnLabel="Columns"
           className="vertical"
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={[...columns]}
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
@@ -354,7 +366,7 @@ export const TableDemo = () => {
           showColumnsAction={true}
           columnActionBtnLabel="Columns"
           className="horizontal"
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={[...columns]}
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
@@ -854,6 +866,17 @@ export const TableDemo = () => {
                 filterVariant: "multiselect",
                 filterOptions: city,
               },
+            },
+            {
+              accessorKey: "country",
+              header: "Country",
+              enableColumnFilter: true,
+              enableSorting: true,
+              meta: {
+                filterVariant: "select",
+                filterOptions: country,
+              },
+              filterPlaceholder: t("table.placeholder.country"),
             },
             {
               align: "center",

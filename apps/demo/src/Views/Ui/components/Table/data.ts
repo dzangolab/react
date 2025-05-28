@@ -4,6 +4,7 @@ export type TData = {
   email: string;
   age: number;
   city: string;
+  country: string;
   disabled?: boolean;
 };
 
@@ -30,6 +31,15 @@ const city = [
   { value: "Seattle", label: "Seattle" },
 ];
 
+const country = [
+  { label: "Estonia", value: "Estonia" },
+  { label: "France", value: "France" },
+  {
+    label: "United State of America",
+    value: "United State of America",
+  },
+];
+
 const data: TData[] = [
   {
     id: 1,
@@ -37,6 +47,8 @@ const data: TData[] = [
     email: "john.doe@example.com",
     age: 28,
     city: "New York",
+    country: "France",
+    disabled: true,
   },
   {
     id: 2,
@@ -44,6 +56,8 @@ const data: TData[] = [
     email: "jane.smith@example.com",
     age: 32,
     city: "Los Angeles",
+    country: "France",
+    disabled: true,
   },
   {
     id: 3,
@@ -51,13 +65,17 @@ const data: TData[] = [
     email: "bob.j@example.com",
     age: 25,
     city: "Chicago",
+    country: "United State of America",
+    disabled: false,
   },
   {
     id: 4,
     name: "Alice Brown",
     email: "alice.brown@example.com",
     age: 22,
-    city: "San Francisco Bay Area",
+    city: "San Franceancisco Bay Area",
+    country: "United State of America",
+    disabled: true,
   },
   {
     id: 5,
@@ -65,6 +83,8 @@ const data: TData[] = [
     email: "charlie.w@example.com",
     age: 35,
     city: "Houston",
+    country: "United State of America",
+    disabled: false,
   },
   {
     id: 6,
@@ -72,6 +92,8 @@ const data: TData[] = [
     email: "eva.martinez@example.com",
     age: 30,
     city: "Miami Beach",
+    country: "United State of America",
+    disabled: false,
   },
   {
     id: 7,
@@ -79,6 +101,8 @@ const data: TData[] = [
     email: "david.lee@example.com",
     age: 27,
     city: "Seattle",
+    country: "United State of America",
+    disabled: false,
   },
   {
     id: 8,
@@ -86,6 +110,8 @@ const data: TData[] = [
     email: "sophie.t@example.com",
     age: 29,
     city: "Atlanta",
+    country: "United State of America",
+    disabled: false,
   },
   {
     id: 9,
@@ -93,6 +119,8 @@ const data: TData[] = [
     email: "michael.a@example.com",
     age: 31,
     city: "Dallas-Fort Worth",
+    country: "United State of America",
+    disabled: true,
   },
   {
     id: 10,
@@ -100,6 +128,8 @@ const data: TData[] = [
     email: "olivia.carter@example.com",
     age: 26,
     city: "Denver",
+    country: "United State of America",
+    disabled: false,
   },
   {
     id: 11,
@@ -107,6 +137,7 @@ const data: TData[] = [
     email: "ryan.cooper@example.com",
     age: 34,
     city: "Boston",
+    country: "United State of America",
     disabled: true,
   },
   {
@@ -115,6 +146,7 @@ const data: TData[] = [
     email: "emily.d@example.com",
     age: 33,
     city: "Phoenix",
+    country: "United State of America",
     disabled: true,
   },
   {
@@ -123,6 +155,7 @@ const data: TData[] = [
     email: "daniel.white@example.com",
     age: 28,
     city: "Philadelphia",
+    country: "United State of America",
     disabled: true,
   },
   {
@@ -131,6 +164,7 @@ const data: TData[] = [
     email: "ava.m@example.com",
     age: 24,
     city: "Austin",
+    country: "France",
     disabled: false,
   },
   {
@@ -139,6 +173,7 @@ const data: TData[] = [
     email: "nicholas.h@example.com",
     age: 27,
     city: "San Diego",
+    country: "United State of America",
     disabled: false,
   },
   {
@@ -147,6 +182,8 @@ const data: TData[] = [
     email: "emma.t@example.com",
     age: 29,
     city: "Portland",
+    country: "France",
+    disabled: true,
   },
   {
     id: 17,
@@ -154,6 +191,8 @@ const data: TData[] = [
     email: "william.l@example.com",
     age: 32,
     city: "Detroit",
+    country: "France",
+    disabled: true,
   },
   {
     id: 18,
@@ -161,6 +200,8 @@ const data: TData[] = [
     email: "grace.murphy@example.com",
     age: 26,
     city: "Minneapolis",
+    country: "Estonia",
+    disabled: true,
   },
   {
     id: 19,
@@ -168,6 +209,8 @@ const data: TData[] = [
     email: "matthew.w@example.com",
     age: 30,
     city: "Charlotte",
+    country: "Estonia",
+    disabled: false,
   },
   {
     id: 20,
@@ -175,6 +218,8 @@ const data: TData[] = [
     email: "lily.adams@example.com",
     age: 31,
     city: "Nashville",
+    country: "Estonia",
+    disabled: false,
   },
 ];
 
@@ -278,4 +323,11 @@ const HORIZONTAL_CSS_CODE = `.dz-table-container.horizontal .table-wrapper > tab
   border: none;
 }`;
 
-export { city, data, formatDemoData, HORIZONTAL_CSS_CODE, VERTICAL_CSS_CODE };
+export {
+  city,
+  country,
+  data,
+  formatDemoData,
+  HORIZONTAL_CSS_CODE,
+  VERTICAL_CSS_CODE,
+};

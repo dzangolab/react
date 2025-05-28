@@ -96,12 +96,8 @@
   overflow: hidden;
 }
 
-.dz-table-container
-  .table-wrapper
-  > table
-  > thead
-  > tr
-  > th.filter.multiselect {
+.dz-table-container .table-wrapper > table > thead > tr > th.filter.multiselect,
+.dz-table-container .table-wrapper > table > thead > tr > th.filter.select {
   overflow: visible;
 }
 
@@ -179,7 +175,8 @@
   background: #ffffff;
 }
 
-.table-wrapper > table tr.filters > th.multiselect > div {
+.table-wrapper > table tr.filters > th.multiselect > div,
+.table-wrapper > table tr.filters > th.select > div {
   background: #ffffff;
   font-weight: normal;
 }

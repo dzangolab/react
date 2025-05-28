@@ -191,6 +191,7 @@
       "tableBorderVertical": "Table with custom style for vertical border (fr)"
     },
     "placeholder": {
+      "country": "Select country (fr)",
       "date": "Select date (fr)",
       "endDate": "End date (fr)",
       "startDate": "Start date (fr)",

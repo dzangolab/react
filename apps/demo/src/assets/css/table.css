@@ -16,6 +16,12 @@
   min-width: 13rem;
 }
 
+.demo-data-tables-page .column-country {
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
+}
+
 .demo-data-tables-page .column-quantity,
 .demo-data-tables-page .column-date,
 .demo-data-tables-page .column-amount {
