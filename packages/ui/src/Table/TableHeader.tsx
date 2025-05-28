@@ -1,8 +1,9 @@
 import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DatePicker, DebouncedInput, Select } from "@/FormWidgets";
+import { DebouncedInput, Select } from "@/FormWidgets";
 
+import { TableDateFilter } from "./TableDateFilter";
 import {
   ColumnHeader,
   TableHeader as TTableHeader,
@@ -26,7 +27,6 @@ export const TableHeader = <TData extends RowData>({
   table,
 }: THeaderProperty<TData>) => {
   const [isFilterRowVisible, setIsFilterRowVisible] = useState(false);
-  const [dates, setDates] = useState<string[] | null>(null);
 
   const handleSort = useCallback(
     (event: SyntheticEvent, sortHandler?: (event: SyntheticEvent) => void) => {
@@ -37,24 +37,6 @@ export const TableHeader = <TData extends RowData>({
     },
     [],
   );
-
-  const getFormattedDate = (date: Date | null) => {
-    if (!date) return null;
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-  };
-
-  const convertFilterValueToDate = (filterValue: string[] | null) => {
-    if (Array.isArray(filterValue)) {
-      return filterValue.filter(Boolean).map((value) => new Date(value));
-    }
-
-    return null;
-  };
 
   const renderHeaderRow = () =>
     table.getHeaderGroups().map((headerGroup) => (
@@ -160,32 +142,7 @@ export const TableHeader = <TData extends RowData>({
     }
 
     if (variant === "dateRange") {
-      return (
-        <DatePicker
-          inputRef={null}
-          name="date-range"
-          onChange={(date) => {
-            if (!date) {
-              setDates(null);
-              column.setFilterValue(null);
-
-              return;
-            }
-
-            const formatteddates = (date as Date[])
-              .map(getFormattedDate)
-              .filter((d) => d !== null);
-
-            setDates(formatteddates as string[]);
-            column.setFilterValue(
-              formatteddates.length === 2 ? formatteddates : null,
-            );
-          }}
-          value={convertFilterValueToDate(dates as string[])}
-          selectionMode="range"
-          placeholder={column.columnDef.filterPlaceholder || ""}
-        />
-      );
+      return <TableDateFilter column={column} />;
     }
 
     return (
