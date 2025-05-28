@@ -1,8 +1,9 @@
 import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DatePicker, DebouncedInput, Select } from "@/FormWidgets";
+import { DebouncedInput, Select } from "@/FormWidgets";
 
+import { TableDateFilter } from "./TableDateFilter";
 import {
   ColumnHeader,
   TableHeader as TTableHeader,
@@ -37,23 +38,6 @@ export const TableHeader = <TData extends RowData>({
     [],
   );
 
-  const getFormattedDate = (date: Date | null) => {
-    if (!date) return null;
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-  };
-
-  const convertFilterValueToDate = (filterValue: string[] | null) => {
-    if (Array.isArray(filterValue)) {
-      return filterValue.filter(Boolean).map((value) => new Date(value));
-    }
-
-    return null;
-  };
   const renderHeaderRow = () =>
     table.getHeaderGroups().map((headerGroup) => (
       <TableRow key={headerGroup.id} className="header-row">
@@ -158,25 +142,7 @@ export const TableHeader = <TData extends RowData>({
     }
 
     if (variant === "dateRange") {
-      return (
-        <DatePicker
-          inputRef={null}
-          name="date-range"
-          onChange={(date) => {
-            if (date) {
-              const _date = (date as Date[])
-                .map(getFormattedDate)
-                .filter((d) => d !== null);
-              column.setFilterValue(_date);
-            } else {
-              column.setFilterValue(null);
-            }
-          }}
-          value={convertFilterValueToDate(column.getFilterValue() as string[])}
-          selectionMode="range"
-          placeholder={column.columnDef.filterPlaceholder || ""}
-        />
-      );
+      return <TableDateFilter column={column} />;
     }
 
     return (
