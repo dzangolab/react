@@ -2,9 +2,16 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { HeaderLayout } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
-import { logout, useUser } from "..";
+import { DEFAULT_PATHS } from "@/constants";
 
-import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-ui";
+import { logout, useConfig, useUser } from "..";
+
+import type {
+  NavMenuItemType,
+  NavMenuType,
+  NavGroupType,
+  NavItemType,
+} from "@dzangolab/react-ui";
 
 interface IProperties {
   authNavigationMenu?: NavMenuItemType;
@@ -45,6 +52,13 @@ export const UserEnabledHeaderLayout = ({
 
   const { user, setUser } = useUser();
 
+  const config = useConfig();
+
+  const changePasswordPath =
+    config.customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD;
+
+  const isSocialLogin = !!user?.thirdParty;
+
   const getUserNavigationMenu = () => {
     if (!user) {
       return authNavigationMenu;
@@ -70,9 +84,19 @@ export const UserEnabledHeaderLayout = ({
       return { menu: [signoutRoute] };
     }
 
+    const userNavigationMenuWithOutChangePassword =
+      userNavigationMenu.menu.filter(
+        (item: NavItemType | NavGroupType) =>
+          !(
+            isSocialLogin &&
+            "route" in item &&
+            item.route === changePasswordPath
+          ),
+      );
+
     return {
       ...userNavigationMenu,
-      menu: [...userNavigationMenu.menu, signoutRoute],
+      menu: [...userNavigationMenuWithOutChangePassword, signoutRoute],
     };
   };
 

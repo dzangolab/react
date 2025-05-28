@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 
 import { DEFAULT_PATHS } from "@/constants";
-import { useConfig, useEmailVerification } from "@/hooks";
+import { useConfig, useEmailVerification, useUser } from "@/hooks";
 import { ProtectedRoutesProperties } from "@/types/routes";
 import {
   ChangePassword,
@@ -12,6 +12,9 @@ import {
 
 export const getUserProtectedRoutes = (options?: ProtectedRoutesProperties) => {
   const config = useConfig();
+
+  const { user } = useUser();
+
   const [emailVerificationEnabled] = useEmailVerification();
 
   const {
@@ -23,10 +26,13 @@ export const getUserProtectedRoutes = (options?: ProtectedRoutesProperties) => {
 
   const { customPaths } = config;
 
+  const isSocialLogin = !!user?.thirdParty;
+
   const protectedRoutes = [
     {
       path: customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD,
       element: changePassword?.element || <ChangePassword />,
+      disabled: isSocialLogin,
     },
     {
       path:

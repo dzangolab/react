@@ -2,11 +2,16 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { SidebarOnlyLayout } from "@dzangolab/react-layout";
 import { toast } from "react-toastify";
 
-import { useUser } from "@/hooks";
+import { DEFAULT_PATHS } from "@/constants";
+import { useConfig, useUser } from "@/hooks";
 import { logout } from "@/supertokens";
 
 import type { SidebarOnlyLayoutProperties } from "@dzangolab/react-layout";
-import type { NavMenuItemType } from "@dzangolab/react-ui";
+import type {
+  NavMenuItemType,
+  NavGroupType,
+  NavItemType,
+} from "@dzangolab/react-ui";
 
 interface Properties extends Omit<SidebarOnlyLayoutProperties, "userMenu"> {
   authNavigationMenu?: NavMenuItemType;
@@ -33,6 +38,13 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   const { t } = useTranslation("user");
 
   const { user, setUser } = useUser();
+
+  const config = useConfig();
+
+  const changePasswordPath =
+    config.customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD;
+
+  const isSocialLogin = !!user?.thirdParty;
 
   const getUserNavigationMenu = () => {
     if (!user) {
@@ -69,9 +81,19 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       };
     }
 
+    const userNavigationMenuWithOutChangePassword =
+      userNavigationMenu.menu.filter(
+        (item: NavItemType | NavGroupType) =>
+          !(
+            isSocialLogin &&
+            "route" in item &&
+            item.route === changePasswordPath
+          ),
+      );
+
     return {
       ...userNavigationMenu,
-      menu: [...userNavigationMenu.menu, signoutRoute],
+      menu: [...userNavigationMenuWithOutChangePassword, signoutRoute],
       className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
     };
   };
