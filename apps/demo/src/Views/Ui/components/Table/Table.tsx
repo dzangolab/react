@@ -126,7 +126,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.filterable")}>
         <TDataTable
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "disabled"]}
           columns={[
             ...columns,
             {
@@ -144,9 +144,64 @@ export const TableDemo = () => {
               enableColumnFilter: true,
               filterPlaceholder: t("table.placeholder.select"),
               meta: {
-                filterVariant: "select",
+                filterVariant: "multiselect",
                 filterOptions: city,
               },
+            },
+            {
+              align: "center",
+              accessorKey: "disabled",
+              header: "Status",
+              cell: ({ row: { original } }) => {
+                const color = original.disabled ? "red" : "green";
+
+                return (
+                  <Tag
+                    label={original.disabled ? "Disabled" : "Enabled"}
+                    color={color}
+                    fullWidth
+                  />
+                );
+              },
+              enableColumnFilter: true,
+              enableSorting: true,
+              filterFn: (row, columnId, filterValue) => {
+                if (!filterValue || filterValue.length === 0) {
+                  return true;
+                }
+
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                let updatedFilterValue;
+
+                switch (filterValue) {
+                  case "true":
+                    updatedFilterValue = true;
+                    break;
+                  case "false":
+                    updatedFilterValue = false;
+                    break;
+                  default:
+                    updatedFilterValue = filterValue;
+                }
+
+                const cellValue = row.getValue(columnId);
+
+                return cellValue === updatedFilterValue;
+              },
+              meta: {
+                filterVariant: "select",
+                filterOptions: [
+                  {
+                    value: "false",
+                    label: "Enabled",
+                  },
+                  {
+                    value: "true",
+                    label: "Disabled",
+                  },
+                ],
+              },
+              filterPlaceholder: t("table.placeholder.status"),
             },
           ]}
           data={data}

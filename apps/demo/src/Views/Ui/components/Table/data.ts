@@ -37,6 +37,7 @@ const data: TData[] = [
     email: "john.doe@example.com",
     age: 28,
     city: "New York",
+    disabled: true,
   },
   {
     id: 2,
@@ -44,6 +45,7 @@ const data: TData[] = [
     email: "jane.smith@example.com",
     age: 32,
     city: "Los Angeles",
+    disabled: true,
   },
   {
     id: 3,
@@ -51,6 +53,7 @@ const data: TData[] = [
     email: "bob.j@example.com",
     age: 25,
     city: "Chicago",
+    disabled: false,
   },
   {
     id: 4,
@@ -58,6 +61,7 @@ const data: TData[] = [
     email: "alice.brown@example.com",
     age: 22,
     city: "San Francisco Bay Area",
+    disabled: true,
   },
   {
     id: 5,
@@ -65,6 +69,7 @@ const data: TData[] = [
     email: "charlie.w@example.com",
     age: 35,
     city: "Houston",
+    disabled: false,
   },
   {
     id: 6,
@@ -72,6 +77,7 @@ const data: TData[] = [
     email: "eva.martinez@example.com",
     age: 30,
     city: "Miami Beach",
+    disabled: false,
   },
   {
     id: 7,
@@ -79,6 +85,7 @@ const data: TData[] = [
     email: "david.lee@example.com",
     age: 27,
     city: "Seattle",
+    disabled: false,
   },
   {
     id: 8,
@@ -86,6 +93,7 @@ const data: TData[] = [
     email: "sophie.t@example.com",
     age: 29,
     city: "Atlanta",
+    disabled: false,
   },
   {
     id: 9,
@@ -93,6 +101,7 @@ const data: TData[] = [
     email: "michael.a@example.com",
     age: 31,
     city: "Dallas-Fort Worth",
+    disabled: true,
   },
   {
     id: 10,
@@ -100,6 +109,7 @@ const data: TData[] = [
     email: "olivia.carter@example.com",
     age: 26,
     city: "Denver",
+    disabled: false,
   },
   {
     id: 11,
@@ -147,6 +157,7 @@ const data: TData[] = [
     email: "emma.t@example.com",
     age: 29,
     city: "Portland",
+    disabled: true,
   },
   {
     id: 17,
@@ -154,6 +165,7 @@ const data: TData[] = [
     email: "william.l@example.com",
     age: 32,
     city: "Detroit",
+    disabled: true,
   },
   {
     id: 18,
@@ -161,6 +173,7 @@ const data: TData[] = [
     email: "grace.murphy@example.com",
     age: 26,
     city: "Minneapolis",
+    disabled: true,
   },
   {
     id: 19,
@@ -168,6 +181,7 @@ const data: TData[] = [
     email: "matthew.w@example.com",
     age: 30,
     city: "Charlotte",
+    disabled: false,
   },
   {
     id: 20,
@@ -175,6 +189,7 @@ const data: TData[] = [
     email: "lily.adams@example.com",
     age: 31,
     city: "Nashville",
+    disabled: false,
   },
 ];
 

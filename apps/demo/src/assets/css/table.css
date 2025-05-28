@@ -16,6 +16,12 @@
   min-width: 13rem;
 }
 
+.demo-data-tables-page .column-disabled {
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
+}
+
 .demo-data-tables-page .column-quantity,
 .demo-data-tables-page .column-date,
 .demo-data-tables-page .column-amount {
