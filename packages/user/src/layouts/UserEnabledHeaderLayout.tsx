@@ -21,9 +21,9 @@ export const UserEnabledHeaderLayout = ({
   const { user } = useUser();
 
   const userMenu = useUserNavigationMenu({
-    userNavigationMenu,
-    layout: "UserEnabledHeaderLayout",
     authNavigationMenu,
+    layout: "UserEnabledHeaderLayout",
+    userNavigationMenu,
     onLogout,
   });
 

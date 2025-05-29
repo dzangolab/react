@@ -32,9 +32,9 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   const { user } = useUser();
 
   const userMenu = useUserNavigationMenu({
-    userNavigationMenu,
-    layout: "UserEnabledSidebarOnlyLayout",
     authNavigationMenu,
+    layout: "UserEnabledSidebarOnlyLayout",
+    userNavigationMenu,
     onLogout,
   });
 

@@ -17,7 +17,8 @@ interface Properties {
   authNavigationMenu?: NavMenuItemType;
   layout: string;
   userNavigationMenu?: NavMenuItemType;
-  onLogout?: () => Promise<void>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onLogout?: () => Promise<any>;
 }
 
 export const useUserNavigationMenu = ({
@@ -27,9 +28,11 @@ export const useUserNavigationMenu = ({
   onLogout,
 }: Properties) => {
   const { t } = useTranslation("user");
+
   const { user, setUser } = useUser();
+
   const config = useConfig();
-  console.log("config", config);
+
   const changePasswordPath =
     config.customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD;
 
