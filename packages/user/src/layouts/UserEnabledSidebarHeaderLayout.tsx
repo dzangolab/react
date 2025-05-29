@@ -68,19 +68,18 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       };
     }
 
-    const userNavigationMenuWithOutChangePassword =
-      userNavigationMenu.menu.filter(
-        (item: NavItemType | NavGroupType) =>
-          !(
-            isSocialLogin &&
-            "route" in item &&
-            item.route === changePasswordPath
-          ),
-      );
+    const _userNavigationMenu = userNavigationMenu.menu.filter(
+      (item: NavItemType | NavGroupType) =>
+        !(
+          isSocialLogin &&
+          "route" in item &&
+          item.route === changePasswordPath
+        ),
+    );
 
     return {
       ...userNavigationMenu,
-      menu: [...userNavigationMenuWithOutChangePassword, signoutRoute],
+      menu: [..._userNavigationMenu, signoutRoute],
       className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
     };
   };

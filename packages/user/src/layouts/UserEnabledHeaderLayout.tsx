@@ -84,19 +84,18 @@ export const UserEnabledHeaderLayout = ({
       return { menu: [signoutRoute] };
     }
 
-    const userNavigationMenuWithOutChangePassword =
-      userNavigationMenu.menu.filter(
-        (item: NavItemType | NavGroupType) =>
-          !(
-            isSocialLogin &&
-            "route" in item &&
-            item.route === changePasswordPath
-          ),
-      );
+    const _userNavigationMenu = userNavigationMenu.menu.filter(
+      (item: NavItemType | NavGroupType) =>
+        !(
+          isSocialLogin &&
+          "route" in item &&
+          item.route === changePasswordPath
+        ),
+    );
 
     return {
       ...userNavigationMenu,
-      menu: [...userNavigationMenuWithOutChangePassword, signoutRoute],
+      menu: [..._userNavigationMenu, signoutRoute],
     };
   };
 
