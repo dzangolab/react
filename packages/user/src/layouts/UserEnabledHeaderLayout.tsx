@@ -1,17 +1,8 @@
-import { useTranslation } from "@dzangolab/react-i18n";
 import { HeaderLayout } from "@dzangolab/react-layout";
-import { toast } from "react-toastify";
 
-import { DEFAULT_PATHS } from "@/constants";
+import { useUser, useUserNavigationMenu } from "..";
 
-import { logout, useConfig, useUser } from "..";
-
-import type {
-  NavMenuItemType,
-  NavMenuType,
-  NavGroupType,
-  NavItemType,
-} from "@dzangolab/react-ui";
+import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-ui";
 
 interface IProperties {
   authNavigationMenu?: NavMenuItemType;
@@ -48,56 +39,14 @@ export const UserEnabledHeaderLayout = ({
   title,
   onLogout,
 }: IProperties) => {
-  const { t } = useTranslation("user");
+  const { user } = useUser();
 
-  const { user, setUser } = useUser();
-
-  const config = useConfig();
-
-  const changePasswordPath =
-    config.customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD;
-
-  const isSocialLogin = !!user?.thirdParty;
-
-  const getUserNavigationMenu = () => {
-    if (!user) {
-      return authNavigationMenu;
-    }
-
-    const signout = async () => {
-      if (await logout()) {
-        await setUser(null);
-
-        onLogout && (await onLogout());
-
-        toast.success(t("logout.message"));
-      }
-    };
-
-    const signoutRoute = {
-      icon: "pi pi-power-off",
-      label: t("userMenu.logout"),
-      onClick: signout,
-    };
-
-    if (!userNavigationMenu) {
-      return { menu: [signoutRoute] };
-    }
-
-    const _userNavigationMenu = userNavigationMenu.menu.filter(
-      (item: NavItemType | NavGroupType) =>
-        !(
-          isSocialLogin &&
-          "route" in item &&
-          item.route === changePasswordPath
-        ),
-    );
-
-    return {
-      ...userNavigationMenu,
-      menu: [..._userNavigationMenu, signoutRoute],
-    };
-  };
+  const _userNavigationMenu = useUserNavigationMenu({
+    userNavigationMenu,
+    layout: "UserEnabledHeaderLayout",
+    authNavigationMenu,
+    onLogout,
+  });
 
   return (
     <HeaderLayout
@@ -111,7 +60,7 @@ export const UserEnabledHeaderLayout = ({
         headerAddon,
         navigationMenu,
         title,
-        menu: getUserNavigationMenu(),
+        menu: _userNavigationMenu,
         noLogo,
         noLocaleSwitcher,
         noToggle,
