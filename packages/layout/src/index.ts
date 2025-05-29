@@ -21,6 +21,7 @@ import {
 } from "./context/LayoutProvider";
 import {
   HeaderLayout,
+  HeaderLayoutProperties,
   SidebarHeaderLayout,
   SidebarHeaderLayoutProperties,
   SidebarOnlyLayout,
@@ -65,4 +66,8 @@ export {
 
 export type { DzangolabReactLayoutConfig } from "./types";
 
-export type { SidebarHeaderLayoutProperties, SidebarOnlyLayoutProperties };
+export type {
+  HeaderLayoutProperties,
+  SidebarHeaderLayoutProperties,
+  SidebarOnlyLayoutProperties,
+};

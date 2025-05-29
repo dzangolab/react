@@ -31,7 +31,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 }) => {
   const { user } = useUser();
 
-  const _userNavigationMenu = useUserNavigationMenu({
+  const userMenu = useUserNavigationMenu({
     userNavigationMenu,
     layout: "UserEnabledSidebarOnlyLayout",
     authNavigationMenu,
@@ -49,7 +49,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
       noLocaleSwitcher={noLocaleSwitcher}
-      userMenu={user ? _userNavigationMenu : undefined}
+      userMenu={user ? userMenu : undefined}
       userMenuMode={userMenuMode}
     />
   );

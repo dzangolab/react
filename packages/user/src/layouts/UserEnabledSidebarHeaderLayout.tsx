@@ -29,7 +29,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
 }) => {
   const { user } = useUser();
 
-  const _userNavigationMenu = useUserNavigationMenu({
+  const userMenu = useUserNavigationMenu({
     userNavigationMenu,
     layout: "UserEnabledSidebarHeaderLayout",
     authNavigationMenu,
@@ -42,7 +42,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       className={className}
       collapsible={collapsible}
       navigationMenu={user ? navigationMenu : authNavigationMenu}
-      userMenu={user ? _userNavigationMenu : undefined}
+      userMenu={user ? userMenu : undefined}
       userMenuLocation={userMenuLocation}
       {...otherProperties}
     />

@@ -2,8 +2,8 @@ import { useTranslation } from "@dzangolab/react-i18n";
 import { toast } from "react-toastify";
 
 import { DEFAULT_PATHS } from "@/constants";
+import { logout } from "@/supertokens";
 
-import { logout } from "..";
 import { useConfig } from "./useConfig";
 import { useUser } from "./useUser";
 
@@ -29,7 +29,7 @@ export const useUserNavigationMenu = ({
   const { t } = useTranslation("user");
   const { user, setUser } = useUser();
   const config = useConfig();
-
+  console.log("config", config);
   const changePasswordPath =
     config.customPaths?.changePassword || DEFAULT_PATHS.CHANGE_PASSWORD;
 
