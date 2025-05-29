@@ -25,7 +25,7 @@ const SignupFormFields: React.FC<IProperties> = ({
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount, isSubmitted, dirtyFields },
+    formState: { errors, submitCount, isSubmitted },
     control,
     trigger,
     watch,
