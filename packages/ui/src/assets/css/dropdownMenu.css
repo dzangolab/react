@@ -1,6 +1,18 @@
+.dropdown-menu {
+  --_width: var(--dropdown-menu-width, 100%);
+  width: var(--_width);
+}
+
+.dropdown-menu .dz-dropdown-menu-trigger > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .dz-dropdown-menu-trigger {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0.65rem;
   transition: all var(--transition-duration) ease 0s;
 }
@@ -10,6 +22,7 @@
   transition: transform 0.3s ease;
   transform-origin: center;
   margin-left: 0.5rem;
+  min-width: fit-content;
 }
 
 .popup-trigger[aria-expanded="true"]

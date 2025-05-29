@@ -35,7 +35,7 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
 
   return (
     <Popup
-      className={menuOptions.className}
+      className={`dropdown-menu ${menuOptions.className || ""}`.trimEnd()}
       trigger={trigger || defaultTrigger}
       content={<Menu {...menuOptions} />}
       position={position}
