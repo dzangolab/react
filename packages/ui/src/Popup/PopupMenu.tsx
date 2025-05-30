@@ -4,7 +4,6 @@ import { FC, LegacyRef, ReactNode, useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
-// PopupMenu.tsx Component
 interface PopupMenuProperties {
   referenceElement: Element | null;
   content: ReactNode;
@@ -16,7 +15,7 @@ interface PopupMenuProperties {
 export const PopupMenu: FC<PopupMenuProperties> = ({
   referenceElement,
   content,
-  position,
+  position = "bottom-start",
   offset = 10,
   toggle,
 }) => {
