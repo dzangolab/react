@@ -28,7 +28,7 @@ exports[`Component matches snapshot 1`] = `
       class="field"
     >
       <label
-        for="input-field-password"
+        for="password"
       >
         login.form.password.label
       </label>
@@ -37,7 +37,7 @@ exports[`Component matches snapshot 1`] = `
       >
         <input
           autocomplete="current-password"
-          id="input-field-password"
+          id="password"
           name="password"
           placeholder=""
           type="password"

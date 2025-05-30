@@ -1,0 +1,43 @@
+.field {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.field > label {
+  font-weight: 500;
+}
+
+.field .error-message {
+  color: var(--dz-danger-color);
+  display: inline-block;
+  font-size: 0.75em;
+}
+
+.field .helper-text {
+  color: var(--dz-secondary-color);
+  font-size: 0.75em;
+}
+
+.field input[readonly] {
+  border: none;
+  font-weight: 500;
+  padding: 0;
+}
+
+.field input[readonly]:focus {
+  outline: none;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset legend {
+  font-size: var(--form-label-font-size, 1em);
+  margin-bottom: 0.75rem;
+}

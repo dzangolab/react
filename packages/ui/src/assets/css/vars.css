@@ -1,13 +1,6 @@
 :root {
-  --border-color: #b5b5b5;
-  --color: rgb(84, 84, 84);
-  --data-caption-color: #333;
-  --data-stat-padding-block: 0.5rem;
-  --data-stat-padding-inline: 0.75rem;
-  --data-stat-min-width: 13rem;
-  --dz-alternate-color: #0284c7;
-  --dz-danger-color: #dc3545;
-  --dz-input-fill-color: transparent;
+  --border-color: #dbdbdb;
+  --border-radius: 0.375rem;
 
   --button-border-radius: 0.375rem;
   --button-primary-color: var(--dz-primary-color);
@@ -20,6 +13,20 @@
   --button-medium-padding: 0.5rem 1.25rem;
   --button-large-padding: 0.6125rem 1.75rem;
   --button-transition-duration: var(--transition-duration, 150ms);
+
+  --color: #444444;
+
+  --data-caption-color: #333;
+  --data-stat-padding-block: 0.5rem;
+  --data-stat-padding-inline: 0.75rem;
+  --data-stat-min-width: 13rem;
+
+  --dz-primary-color: #007aff;
+  --dz-secondary-color: #475569;
+  --dz-alternate-color: #0284c7;
+  --dz-danger-color: #dc3545;
+  --dz-success-color: #22c55e;
+  --dz-warning-color: #ea580c;
 
   --dz-nav-item-active-bg: rgba(45, 45, 45, 0.125);
   --dz-nav-item-active-color: var(--dz-nav-item-color);
@@ -36,23 +43,20 @@
 
   --dz-page-gap: 0.5rem;
   --dz-page-max-width: 550px;
-  --dz-primary-color: #007aff;
-  --dz-secondary-color: #475569;
-  --dz-success-color: #22c55e;
-  --dz-warning-color: #ea580c;
-  --error-message-color: var(--dz-danger-color);
-  --error-message-font-size: 0.8em;
-  --field-autofill-color: #ffffff;
-  --field-background-color: var(--dz-primary-color);
-  --field-border-color: #ccc;
-  --field-border-radius: 0.25em;
-  --field-bg-color-disabled: #f7f7f7;
-  --field-focus-border-color: var(--dz-primary-color);
-  --field-invalid-border-color: var(--dz-danger-color);
-  --field-outline-color: var(--dz-primary-color);
-  --field-padding-height: 0.5em;
-  --field-valid-border-color: var(--dz-success-color);
-  --menu-border-color: #555;
+
+  --field-bg-color-disabled: #f8f8f8;
+  --field-bg-color: transparent;
+  --field-icon-color: #7b7676;
+  --field-padding-block: 0.5rem;
+  --field-padding-inline: 0.75rem;
+  --field-placeholder-color: #7b7676;
+
+  --list-menu-bg-color: #ffffff;
+  --list-item-bg-hover: #ededed;
+  --list-item-bg-active: #ededed;
+
+  --menu-border-color: var(--border-color);
   --submit-button-bg-color: var(--dz-primary-color);
-  --transition-duration: 300ms;
+
+  --transition-duration: 150ms;
 }

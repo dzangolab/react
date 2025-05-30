@@ -1,16 +1,15 @@
 import {
+  CheckboxInput,
+  DateInput,
   Email,
   FormActions,
-  TextInput,
+  NumberInput,
   Password,
   RadioInput,
-  Input,
-  useFormContext,
-  NumberInput,
   Select,
+  TextInput,
   Typeahead,
-  DateInput,
-  CheckboxInput,
+  useFormContext,
 } from "@dzangolab/react-form";
 import { Textarea } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
@@ -78,17 +77,6 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
-      />
-      <Input
-        getFieldState={getFieldState}
-        label={t("formInput.label.input")}
-        name="surname"
-        placeholder={t("formInput.placeHolder.input")}
-        register={register}
-        submitCount={submitCount}
-        showValidState={valid}
-        showInvalidState={invalid}
-        type="text"
       />
       <NumberInput
         name="number"
