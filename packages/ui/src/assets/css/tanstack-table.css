@@ -187,7 +187,7 @@
 }
 
 .table-wrapper > table tr.filters > th.range > .number-range-filter .field {
-  min-width: 70px;
+  min-width: 100px;
 }
 
 .table-wrapper > table tr.filters > th.range > .number-range-filter .field input {

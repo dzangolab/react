@@ -5,9 +5,9 @@
 }
 
 .demo-data-tables-page .column-age {
-  width: 11rem;
-  max-width: 11rem;
-  min-width: 11rem;
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
 }
 
 .demo-data-tables-page .column-city {
@@ -25,9 +25,9 @@
 .demo-data-tables-page .column-quantity,
 .demo-data-tables-page .column-date,
 .demo-data-tables-page .column-amount {
-  width: 10rem;
-  max-width: 10rem;
-  min-width: 10rem;
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
 }
 
 .demo-data-tables-page .column-datetime {
@@ -53,9 +53,9 @@
 }
 
 .center-aligned-content-table .column-age {
-  width: 6rem;
-  max-width: 6rem;
-  min-width: 6rem;
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
 }
 
 .center-aligned-content-table .column-city {
