@@ -1,15 +1,17 @@
 import { Placement } from "@popperjs/core";
 import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
-import { FC, LegacyRef, ReactNode, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
+
+import type { FC, LegacyRef, ReactNode } from "react";
 
 interface PopupMenuProperties {
   className?: string;
   content: ReactNode;
+  matchReferenceWidth?: boolean;
   offset?: number;
   position?: Placement;
-  matchReferenceWidth?: boolean;
   referenceElement: Element | null;
   toggle?: () => void;
 }
@@ -17,9 +19,9 @@ interface PopupMenuProperties {
 export const PopupMenu: FC<PopupMenuProperties> = ({
   className = "",
   content,
+  matchReferenceWidth = false,
   offset = 10,
   position = "bottom-start",
-  matchReferenceWidth = false,
   referenceElement,
   toggle,
 }) => {

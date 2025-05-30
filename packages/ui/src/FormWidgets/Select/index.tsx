@@ -430,9 +430,9 @@ export const Select = <T extends string | number>({
           ? null
           : showOptions && (
               <PopupMenu
-                referenceElement={referenceElement}
                 content={renderOptions()}
                 matchReferenceWidth
+                referenceElement={referenceElement}
               />
             )}
       </div>
