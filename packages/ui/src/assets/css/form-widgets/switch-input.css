@@ -3,9 +3,9 @@
   background-color: #ccc;
   border-radius: 1.25rem;
   cursor: pointer;
-  height: 2.18rem;
+  height: 2rem;
   position: relative;
-  width: 3.75rem;
+  width: 4rem;
 }
 
 .switch-toggle input[aria-invalid="true"] {
@@ -17,23 +17,23 @@
   border-radius: 50%;
   bottom: 0.25rem;
   content: "";
-  height: 1.6rem;
+  height: 1.5rem;
   left: 0.25rem;
   position: absolute;
   transition:
-    transform 0.3s,
-    background-color 0.3s;
-  width: 1.6rem;
+    transform 150ms,
+    background-color 150ms;
+  width: 1.5rem;
 }
 
 .switch-toggle input:disabled {
-  opacity: 0.5 ;
+  opacity: 0.5;
 }
 
 .switch-toggle input:checked:before {
-  transform: translateX(24px);
+  transform: translateX(2rem);
 }
 
 .switch-toggle input:checked {
-  background-color: #007aff;
+  background-color: var(--dz-primary-color);
 }

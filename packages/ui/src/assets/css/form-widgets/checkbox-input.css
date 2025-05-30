@@ -1,5 +1,4 @@
 .field.checkbox > legend {
-  font-size: var(--form-label-font-size, 1em);
   margin-bottom: 0.75rem;
 }
 

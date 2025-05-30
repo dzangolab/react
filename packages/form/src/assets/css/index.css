@@ -1,9 +1,6 @@
-@import "./vars.css";
 @import "./form.css";
-@import "./fileInput.css";
-@import "./fileUpload.css";
-@import "./switchInput.css";
+
+@import "./date-input.css";
+@import "./file-input.css";
+@import "./file-upload.css";
 @import "./password.css";
-@import "./select.css";
-@import "./textarea.css";
-@import "./dateInput.css";
