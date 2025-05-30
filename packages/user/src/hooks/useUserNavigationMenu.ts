@@ -15,11 +15,7 @@ import type {
 
 interface Properties {
   authNavigationMenu?: NavMenuItemType;
-  layout:
-    | "UserEnabledHeaderLayout"
-    | "UserEnabledSidebarHeaderLayout"
-    | "UserEnabledSidebarOnlyLayout";
-
+  addAuthNavigationMenu: boolean;
   userNavigationMenu?: NavMenuItemType;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onLogout?: () => Promise<any>;
@@ -27,7 +23,7 @@ interface Properties {
 
 export const useUserNavigationMenu = ({
   authNavigationMenu,
-  layout,
+  addAuthNavigationMenu,
   userNavigationMenu,
   onLogout,
 }: Properties) => {
@@ -42,17 +38,7 @@ export const useUserNavigationMenu = ({
 
   const isSocialLogin = !!user?.thirdParty;
 
-  if (!user && layout === "UserEnabledSidebarOnlyLayout") {
-    return authNavigationMenu
-      ? {
-          ...authNavigationMenu,
-          className:
-            `dz-auth-menu ${authNavigationMenu.className || ""}`.trim(),
-        }
-      : undefined;
-  }
-
-  if (!user && layout === "UserEnabledHeaderLayout") {
+  if (!user && addAuthNavigationMenu) {
     return authNavigationMenu;
   }
 
@@ -75,7 +61,7 @@ export const useUserNavigationMenu = ({
   if (!userNavigationMenu) {
     return {
       menu: [signoutRoute],
-      className: layout === "UserEnabledHeaderLayout" ? "" : "dz-user-menu",
+      className: "dz-user-menu",
     };
   }
 
@@ -87,9 +73,6 @@ export const useUserNavigationMenu = ({
   return {
     ...userNavigationMenu,
     menu: [..._userNavigationMenu, signoutRoute],
-    className:
-      layout === "UserEnabledHeaderLayout"
-        ? ""
-        : `dz-user-menu ${userNavigationMenu.className || ""}`.trim(),
+    className: `dz-user-menu ${userNavigationMenu.className || ""}`.trim(),
   };
 };

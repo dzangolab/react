@@ -22,7 +22,7 @@ export const UserEnabledHeaderLayout = ({
 
   const userMenu = useUserNavigationMenu({
     authNavigationMenu,
-    layout: "UserEnabledHeaderLayout",
+    addAuthNavigationMenu: true,
     userNavigationMenu,
     onLogout,
   });

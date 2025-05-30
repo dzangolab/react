@@ -31,7 +31,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
 
   const userMenu = useUserNavigationMenu({
     authNavigationMenu,
-    layout: "UserEnabledSidebarHeaderLayout",
+    addAuthNavigationMenu: false,
     userNavigationMenu,
     onLogout,
   });

@@ -33,7 +33,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
 
   const userMenu = useUserNavigationMenu({
     authNavigationMenu,
-    layout: "UserEnabledSidebarOnlyLayout",
+    addAuthNavigationMenu: true,
     userNavigationMenu,
     onLogout,
   });
@@ -44,7 +44,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       className={className}
       collapsible={collapsible}
       displayNavIcons={displayNavIcons}
-      navigationMenu={user ? navigationMenu : authNavigationMenu} //use userMenu instead of authNavigation
+      navigationMenu={user ? navigationMenu : authNavigationMenu}
       customSidebar={customSidebar}
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
