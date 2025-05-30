@@ -221,6 +221,25 @@ const DataTable = <TData extends RowData>({
 
           return rowData >= startDate && rowData <= endDate;
         };
+      } else if (column.meta?.filterVariant === "range") {
+        column.filterFn = (row, columnId, filterValue) => {
+          if (!Array.isArray(filterValue)) {
+            return true;
+          }
+
+          const [min, max] = filterValue;
+          const value = row.getValue(columnId) as number;
+
+          if (min && max) {
+            return value >= min && value <= max;
+          } else if (min) {
+            return value >= min;
+          } else if (max) {
+            return value <= max;
+          }
+
+          return true;
+        };
       }
     });
 
