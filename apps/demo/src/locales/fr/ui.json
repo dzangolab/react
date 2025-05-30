@@ -194,6 +194,8 @@
       "country": "Select country (fr)",
       "date": "Select date (fr)",
       "endDate": "End date (fr)",
+      "max": "Max (fr)",
+      "min": "Min (fr)",
       "startDate": "Start date (fr)",
       "search": "Search (fr)",
       "select": "Select city (fr)",
