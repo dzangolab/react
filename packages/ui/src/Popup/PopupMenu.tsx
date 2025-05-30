@@ -5,18 +5,20 @@ import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
 interface PopupMenuProperties {
-  referenceElement: Element | null;
+  className?: string;
   content: ReactNode;
-  position?: Placement;
   offset?: number;
+  position?: Placement;
+  referenceElement: Element | null;
   toggle?: () => void;
 }
 
 export const PopupMenu: FC<PopupMenuProperties> = ({
-  referenceElement,
+  className = "",
   content,
-  position = "bottom-start",
   offset = 10,
+  position = "bottom-start",
+  referenceElement,
   toggle,
 }) => {
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
@@ -43,9 +45,13 @@ export const PopupMenu: FC<PopupMenuProperties> = ({
 
   return createPortal(
     <div
-      className="popup-content"
+      className={`popup-menu ${className}`.trim()}
       ref={setPopperElement as LegacyRef<HTMLDivElement>}
-      style={styles.popper}
+      style={{
+        ...styles.popper,
+        ...styles,
+        width: referenceElement?.getBoundingClientRect().width,
+      }}
       onClick={toggle}
       {...attributes.popper}
     >
