@@ -33,6 +33,10 @@ release:
 	@printf "\033[0;32m>>> Prepare packages for release033[0m\n"
 	npx shipjs prepare
 
+snapshot-update:
+	@printf "\033[0;32m>>> Update snapshot files\033[0m\n"
+	pnpm -r run snapshot:update
+
 sort-package:
 	@printf "\033[0;32m>>> Format package.json\033[0m\n"
 	pnpm sort-package

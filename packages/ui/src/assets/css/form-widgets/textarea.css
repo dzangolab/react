@@ -1,0 +1,38 @@
+.field {
+  --_background-color: var(--field-bg-color, transparent);
+  --_border-color: var(--border-color);
+  --_border-radius: var(--border-radius);
+  --_padding-block: var(--field-padding-block, 0.5rem);
+  --_padding-inline: var(--field-padding-inline, 0.75rem);
+}
+
+.textarea-field {
+  background-color: var(--_background-color);
+  border: 1px solid var(--_border-color);
+  border-radius: var(--_border-radius);
+  padding-block: var(--_padding-block);
+  padding-inline: var(--_padding-inline);
+  width: 100%;
+}
+
+.textarea-field:focus-within {
+  outline: 2px solid var(--dz-primary-color);
+}
+
+.textarea-field[aria-invalid="true"] {
+  --_border-color: var(--dz-danger-color);
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right calc(0.75 * var(--_padding-inline, 0.5rem)) center;
+  background-size: 1rem;
+}
+
+.textarea-field[aria-invalid="false"] {
+  --_border-color: var(--dz-success-color);
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right calc(0.75 * var(--_padding-inline, 0.5rem)) center;
+  background-size: 1rem;
+}

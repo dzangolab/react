@@ -31,7 +31,7 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
 
   return (
     <div className={`field ${className}`.trimEnd()}>
-      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
       <div
         className="input-field-password"
         aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
@@ -39,7 +39,8 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
         <input
           {...others}
           {...register(name)}
-          id={`input-field-${name}`}
+          name={name}
+          id={name}
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}

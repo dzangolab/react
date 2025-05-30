@@ -18,6 +18,7 @@
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "snapshot:update": "vitest --environment jsdom run --update",
     "sort-package": "npx sort-package-json",
     "test": "vitest --environment jsdom run --coverage",
     "test:component": "vitest --environment jsdom run component/",

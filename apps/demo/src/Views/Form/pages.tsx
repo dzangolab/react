@@ -1,7 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Outlet } from "react-router-dom";
 
-import { ConfirmPasswordForm } from "./components/ConfirmPasswordForm";
 import { FileInputDemo } from "./components/FileInput";
 import { FormInputDemo } from "./components/FormInput";
 import { LoginForm } from "./components/LoginForm/LoginForm";
@@ -12,7 +11,6 @@ export const FORM_ROUTES = {
   FILE_INPUT: "/form/file-input",
   FORM_INPUT: "/form/form-input",
   LOGIN_FORM: "/form/login",
-  CONFIRM_PASSWORD_FORM: "/form/confirmpassword",
 };
 
 export const routes = [
@@ -30,11 +28,6 @@ export const routes = [
     path: FORM_ROUTES.LOGIN_FORM,
     key: "loginForm.title",
     element: <LoginForm />,
-  },
-  {
-    path: FORM_ROUTES.CONFIRM_PASSWORD_FORM,
-    key: "confirmPasswordForm.title",
-    element: <ConfirmPasswordForm />,
   },
 ];
 

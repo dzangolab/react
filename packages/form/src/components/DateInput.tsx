@@ -20,6 +20,7 @@ interface IDateInput {
   register?: UseFormRegister<any>;
 }
 
+// TODO use Input component from @dzangolab/react-ui
 export const DateInput: React.FC<IDateInput> = ({
   className = "",
   disabled,
@@ -72,10 +73,11 @@ export const DateInput: React.FC<IDateInput> = ({
 
   return (
     <div className={`field ${className}`.trimEnd()}>
-      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
       <input
         {...rest}
-        id={`input-field-${name}`}
+        name={name}
+        id={name}
         aria-invalid={submitCount > 0 ? checkInvalidState() : undefined}
         type="date"
         disabled={disabled}

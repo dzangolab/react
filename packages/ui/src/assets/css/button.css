@@ -1,9 +1,8 @@
 .dz-button {
-  --_button-border-radius: var(--button-border-radius);
-  --_button-color: var(--button-color);
+  --_button-border-radius: var(--border-radius, 0.375rem);
+  --_button-color: var(--dz-primary-color);
   --_button-font-size: 1rem;
-  --_button-padding: var(--button-padding);
-  --_button-width: var(--button-width);
+  --_button-padding: var(--button-padding, "0.5rem 1.25rem");
 
   align-items: center;
   background-color: var(--_button-color);
