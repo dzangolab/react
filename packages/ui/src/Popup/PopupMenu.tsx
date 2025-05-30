@@ -9,6 +9,7 @@ interface PopupMenuProperties {
   content: ReactNode;
   offset?: number;
   position?: Placement;
+  matchReferenceWidth?: boolean;
   referenceElement: Element | null;
   toggle?: () => void;
 }
@@ -18,6 +19,7 @@ export const PopupMenu: FC<PopupMenuProperties> = ({
   content,
   offset = 10,
   position = "bottom-start",
+  matchReferenceWidth = false,
   referenceElement,
   toggle,
 }) => {
@@ -50,7 +52,9 @@ export const PopupMenu: FC<PopupMenuProperties> = ({
       style={{
         ...styles.popper,
         ...styles,
-        width: referenceElement?.getBoundingClientRect().width,
+        width: matchReferenceWidth
+          ? referenceElement?.getBoundingClientRect().width
+          : "auto",
       }}
       onClick={toggle}
       {...attributes.popper}

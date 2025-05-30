@@ -432,6 +432,7 @@ export const Select = <T extends string | number>({
               <PopupMenu
                 referenceElement={referenceElement}
                 content={renderOptions()}
+                matchReferenceWidth
               />
             )}
       </div>
