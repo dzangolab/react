@@ -244,7 +244,11 @@ const DataTable = <TData extends RowData>({
 
           return rowData >= startDate && rowData <= endDate;
         };
-      } else if (column.meta?.filterVariant === "range" && !column.filterFn) {
+      } else if (
+        (column.meta?.filterVariant === "range" ||
+          column.dataType === "number") &&
+        !column.filterFn
+      ) {
         column.filterFn = (row, columnId, filterValue) => {
           if (!Array.isArray(filterValue)) {
             return true;
