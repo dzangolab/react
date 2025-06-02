@@ -83,7 +83,6 @@
   box-shadow: 1px 1px 5px 1px var(--field-border-color);
   display: flex;
   flex-direction: column;
-  margin-top: 0.1rem;
   max-height: 10rem;
   min-width: 11rem;
   overflow: auto;
