@@ -51,7 +51,10 @@ export const TableDemo = () => {
       accessorKey: "age",
       header: "Age",
       align: "right",
+      dataType: "number",
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     },
     {
       accessorKey: "city",
@@ -640,6 +643,8 @@ export const TableDemo = () => {
               numberOptions: {
                 locale: "en-IN",
               },
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "amount",
@@ -652,6 +657,11 @@ export const TableDemo = () => {
                   currency: "EUR",
                 },
               },
+              enableColumnFilter: true,
+              meta: {
+                filterVariant: "range",
+              },
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "date",
@@ -705,12 +715,19 @@ export const TableDemo = () => {
               header: () => "Quantity",
               enableSorting: true,
               dataType: "number",
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "amount",
               header: "Amount",
               dataType: "currency",
               enableSorting: true,
+              enableColumnFilter: true,
+              meta: {
+                filterVariant: "range",
+              },
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "date",
@@ -762,6 +779,8 @@ export const TableDemo = () => {
               numberOptions: {
                 locale: "en-IN",
               },
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "amount",
@@ -774,6 +793,11 @@ export const TableDemo = () => {
                   currency: "EUR",
                 },
               },
+              enableColumnFilter: true,
+              meta: {
+                filterVariant: "range",
+              },
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "date",
@@ -854,7 +878,10 @@ export const TableDemo = () => {
               accessorKey: "age",
               header: "Age",
               align: "right",
+              dataType: "number",
               enableSorting: true,
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "city",

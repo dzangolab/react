@@ -1,17 +1,18 @@
 import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
+import { DebouncedInput, Select } from "@/FormWidgets";
+
 import { TableDateFilter } from "./TableDateFilter";
 import {
   ColumnHeader,
   TableHeader as TTableHeader,
   TableRow,
 } from "./TableElements";
+import { TableRangeFilter } from "./TableRangeFilter";
 import { getAlignValue } from "./utils";
 
 import type { TDataTableProperties } from "./types";
-
-import { DebouncedInput, Select } from "@/FormWidgets";
 
 interface THeaderProperty<T>
   extends Pick<
@@ -155,6 +156,15 @@ export const TableHeader = <TData extends RowData>({
 
     if (variant === "dateRange") {
       return <TableDateFilter column={column} />;
+    }
+
+    if (variant === "range" || column.columnDef.dataType === "number") {
+      return (
+        <TableRangeFilter
+          column={column}
+          inputDebounceTime={inputDebounceTime}
+        />
+      );
     }
 
     return (
