@@ -181,16 +181,16 @@
   font-weight: normal;
 }
 
-.table-wrapper > table tr.filters > th.range > .number-range-filter {
+.table-wrapper > table tr.filters > th > .number-range-filter {
   display: flex;
   gap: 0.25rem;
 }
 
-.table-wrapper > table tr.filters > th.range > .number-range-filter .field {
-  min-width: 100px;
+.table-wrapper > table tr.filters > th > .number-range-filter .field {
+  min-width: 80px;
 }
 
-.table-wrapper > table tr.filters > th.range > .number-range-filter .field input {
+.table-wrapper > table tr.filters > th > .number-range-filter .field input {
   background: #ffffff;
   font-weight: normal;
   width: 100%;

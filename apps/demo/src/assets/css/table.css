@@ -25,9 +25,9 @@
 .demo-data-tables-page .column-quantity,
 .demo-data-tables-page .column-date,
 .demo-data-tables-page .column-amount {
-  width: 15rem;
-  max-width: 15rem;
-  min-width: 15rem;
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
 }
 
 .demo-data-tables-page .column-datetime {
@@ -53,9 +53,9 @@
 }
 
 .center-aligned-content-table .column-age {
-  width: 15rem;
-  max-width: 15rem;
-  min-width: 15rem;
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
 }
 
 .center-aligned-content-table .column-city {

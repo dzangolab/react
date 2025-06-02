@@ -51,11 +51,9 @@ export const TableDemo = () => {
       accessorKey: "age",
       header: "Age",
       align: "right",
+      dataType: "number",
       enableSorting: true,
       enableColumnFilter: true,
-      meta: {
-        filterVariant: "range",
-      },
       filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     },
     {
@@ -646,9 +644,6 @@ export const TableDemo = () => {
                 locale: "en-IN",
               },
               enableColumnFilter: true,
-              meta: {
-                filterVariant: "range",
-              },
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
@@ -721,9 +716,6 @@ export const TableDemo = () => {
               enableSorting: true,
               dataType: "number",
               enableColumnFilter: true,
-              meta: {
-                filterVariant: "range",
-              },
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
@@ -788,9 +780,6 @@ export const TableDemo = () => {
                 locale: "en-IN",
               },
               enableColumnFilter: true,
-              meta: {
-                filterVariant: "range",
-              },
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
@@ -889,11 +878,9 @@ export const TableDemo = () => {
               accessorKey: "age",
               header: "Age",
               align: "right",
+              dataType: "number",
               enableSorting: true,
               enableColumnFilter: true,
-              meta: {
-                filterVariant: "range",
-              },
               filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {

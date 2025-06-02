@@ -1,7 +1,7 @@
-import { Column, flexRender, RowData, Table } from "@tanstack/react-table";
+import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DebouncedInput, Select, Input } from "@/FormWidgets";
+import { DebouncedInput, Select } from "@/FormWidgets";
 
 import { TableDateFilter } from "./TableDateFilter";
 import {
@@ -9,6 +9,7 @@ import {
   TableHeader as TTableHeader,
   TableRow,
 } from "./TableElements";
+import { TableRangeFilter } from "./TableRangeFilter";
 import { getAlignValue } from "./utils";
 
 import type { TDataTableProperties } from "./types";
@@ -37,26 +38,6 @@ export const TableHeader = <TData extends RowData>({
     },
     [],
   );
-
-  const updateRangeFilter = (
-    column: Column<unknown, unknown>,
-    index: number,
-    event: React.ChangeEvent<HTMLInputElement>,
-  ): void => {
-    const inputValue = event.target.value;
-    const filterValue = column.getFilterValue();
-    const currentFilter: (number | undefined)[] = Array.isArray(filterValue)
-      ? [...filterValue]
-      : [undefined, undefined];
-
-    currentFilter[index] = inputValue !== "" ? Number(inputValue) : undefined;
-
-    const isFilterActive = currentFilter.some(
-      (filterInput) => filterInput !== undefined,
-    );
-
-    column.setFilterValue(isFilterActive ? currentFilter : []);
-  };
 
   const renderHeaderRow = () =>
     table.getHeaderGroups().map((headerGroup) => (
@@ -177,41 +158,8 @@ export const TableHeader = <TData extends RowData>({
       return <TableDateFilter column={column} />;
     }
 
-    if (variant === "range") {
-      return (
-        <div className="number-range-filter">
-          <Input
-            name={`range-${column.columnDef.accessorKey}-start`}
-            placeholder={
-              column.columnDef.filterPlaceholder?.split(",")[0] ??
-              column.columnDef.filterPlaceholder
-            }
-            type="number"
-            value={
-              Array.isArray(column.getFilterValue()) &&
-              column.getFilterValue()[0] !== undefined
-                ? column.getFilterValue()[0]
-                : undefined
-            }
-            onChange={(event) => updateRangeFilter(column, 0, event)}
-          />
-          <Input
-            name={`range-${column.columnDef.accessorKey}-end`}
-            placeholder={
-              column.columnDef.filterPlaceholder?.split(",")[1] ??
-              column.columnDef.filterPlaceholder
-            }
-            type="number"
-            value={
-              Array.isArray(column.getFilterValue()) &&
-              column.getFilterValue()[1] !== undefined
-                ? column.getFilterValue()[1]
-                : undefined
-            }
-            onChange={(event) => updateRangeFilter(column, 1, event)}
-          />
-        </div>
-      );
+    if (variant === "range" || column.columnDef.dataType === "number") {
+      return <TableRangeFilter column={column} />;
     }
 
     return (
