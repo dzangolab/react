@@ -159,7 +159,12 @@ export const TableHeader = <TData extends RowData>({
     }
 
     if (variant === "range" || column.columnDef.dataType === "number") {
-      return <TableRangeFilter column={column} />;
+      return (
+        <TableRangeFilter
+          column={column}
+          inputDebounceTime={inputDebounceTime}
+        />
+      );
     }
 
     return (
