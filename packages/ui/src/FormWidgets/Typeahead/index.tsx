@@ -167,7 +167,7 @@ export const Typeahead = <T extends Suggestion>({
           !isSuggestionSelected.current &&
           (suggestions.length > 0 ? (
             <PopupMenu
-              className="dz-typeahead-menu"
+              className="typeahead-menu"
               content={
                 <ul ref={suggestionReference}>
                   {suggestions.map((suggestion, index) => (

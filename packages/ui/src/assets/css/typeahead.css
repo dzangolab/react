@@ -51,7 +51,7 @@
   background-color: var(--field-disabled-color);
 }
 
-.dz-typeahead-menu > ul {
+.typeahead-menu > ul {
   background-color: var(--field-suggestion-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
@@ -63,17 +63,17 @@
   overflow-y: auto;
 }
 
-.dz-typeahead-menu > ul > li {
+.typeahead-menu > ul > li {
   border-radius: 0.2rem;
   padding: 0.25rem 0.25rem;
 }
 
-.dz-typeahead-menu > ul > li:hover {
+.typeahead-menu > ul > li:hover {
   background-color: var(--field-option-hover-color);
   cursor: pointer;
 }
 
-.dz-typeahead-menu > ul > li:focus {
+.typeahead-menu > ul > li:focus {
   background-color: var(--field-option-hover-color);
   outline: none;
 }
