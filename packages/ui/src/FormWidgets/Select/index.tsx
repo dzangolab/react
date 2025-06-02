@@ -284,7 +284,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul>
+      <ul aria-multiselectable={multiple}>
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -426,7 +426,7 @@ export const Select = <T extends string | number>({
           ? null
           : showOptions && (
               <PopupMenu
-                className={`select-menu ${multiple ? "multiselect" : ""}`}
+                className="select-menu"
                 content={renderOptions()}
                 matchReferenceWidth
                 offset={0}
