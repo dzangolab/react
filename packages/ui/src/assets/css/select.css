@@ -123,12 +123,12 @@
   cursor: not-allowed;
 }
 
-.select-menu[aria-multiselectable="true"] ul > li {
+.select-menu.multiselect ul > li {
   gap: 0.5rem;
   align-items: baseline;
 }
 
-.select-menu[aria-multiselectable="false"] ul > li {
+.select-menu:not(.multiselect) ul > li {
   padding: 0;
 }
 
@@ -139,7 +139,7 @@
   width: 100%;
 }
 
-.select-menu[aria-multiselectable="false"] ul > li > span {
+.select-menu:not(.multiselect) ul > li > span {
   padding: 0.5rem 0.65rem;
 }
 

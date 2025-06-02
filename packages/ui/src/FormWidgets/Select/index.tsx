@@ -420,17 +420,13 @@ export const Select = <T extends string | number>({
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
 
-      <div
-        className="select"
-        ref={setReferenceElement}
-        aria-multiselectable={multiple}
-      >
+      <div className="select" ref={setReferenceElement}>
         {renderSelect()}
         {shouldAutoSelect
           ? null
           : showOptions && (
               <PopupMenu
-                className="select-menu"
+                className={`select-menu ${multiple ? "multiselect" : ""}`}
                 content={renderOptions()}
                 matchReferenceWidth
                 offset={0}
