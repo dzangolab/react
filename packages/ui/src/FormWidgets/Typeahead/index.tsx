@@ -182,6 +182,7 @@ export const Typeahead = <T extends Suggestion>({
                 </ul>
               }
               matchReferenceWidth
+              offset={0}
               referenceElement={referenceElement}
             />
           ) : emptyMessage ? (
