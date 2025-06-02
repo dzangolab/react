@@ -108,10 +108,7 @@ const DataTable = <TData extends RowData>({
       const column = table.getColumn(filter.id);
 
       if (column?.columnDef.meta?.filterVariant === "range") {
-        const [min, max] = filter.value as [
-          number | undefined,
-          number | undefined,
-        ];
+        const [min, max] = filter.value as [number, number];
 
         let filterOperator:
           | "between"
@@ -256,11 +253,11 @@ const DataTable = <TData extends RowData>({
           const [min, max] = filterValue;
           const value = row.getValue(columnId) as number;
 
-          if (min && max) {
+          if (min !== undefined && max !== undefined) {
             return value >= min && value <= max;
-          } else if (min) {
+          } else if (min !== undefined) {
             return value >= min;
-          } else if (max) {
+          } else if (max !== undefined) {
             return value <= max;
           }
 
