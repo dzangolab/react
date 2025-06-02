@@ -58,7 +58,7 @@ export const Popup: FC<PopupProperties> = ({
         return;
       }
 
-      const popperElement = document.querySelector(".popup-content");
+      const popperElement = document.querySelector(".popup-menu");
 
       if (
         popperElement &&
