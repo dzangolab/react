@@ -77,7 +77,22 @@
 }
 
 .select-menu ul {
+  background-color: var(--field-option-bg-color);
+  border: 1px solid var(--field-border-color);
+  border-radius: var(--field-border-radius);
   box-shadow: 1px 1px 5px 1px var(--field-border-color);
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.1rem;
+  max-height: 10rem;
+  min-width: 11rem;
+  overflow: auto;
+  padding: 0.75rem 0.65rem;
+  position: absolute;
+  row-gap: 0.3rem;
+  text-align: left;
+  width: 100%;
+  z-index: 1000;
 }
 
 .select-menu ul > .debounced-input {
