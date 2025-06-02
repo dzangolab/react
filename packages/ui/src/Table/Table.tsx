@@ -107,6 +107,32 @@ const DataTable = <TData extends RowData>({
     const updatedFilters = updatedColumnFilter.map((filter) => {
       const column = table.getColumn(filter.id);
 
+      if (column?.columnDef.meta?.filterVariant === "range") {
+        const [min, max] = filter.value as [
+          number | undefined,
+          number | undefined,
+        ];
+
+        let filterOperator:
+          | "between"
+          | "greaterThanOrEqual"
+          | "lessThanOrEqual"
+          | undefined;
+
+        if (min !== undefined && max !== undefined) {
+          filterOperator = "between";
+        } else if (min !== undefined) {
+          filterOperator = "greaterThanOrEqual";
+        } else if (max !== undefined) {
+          filterOperator = "lessThanOrEqual";
+        }
+
+        return {
+          ...filter,
+          filterFn: filterOperator,
+        };
+      }
+
       return {
         ...filter,
         filterFn: column?.columnDef.meta?.serverFilterFn,
