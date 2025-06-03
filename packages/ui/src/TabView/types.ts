@@ -23,7 +23,7 @@ type Properties = {
   persistStateStorage?: StorageType;
   position?: TPosition;
   tabs: Tab[];
-  visibleTabs: string[];
+  visibleTabs?: string[];
   onActiveTabChange?: (activeTab: string) => void;
   onVisibleTabsChange?: (visibleTabs: string[]) => void;
 };

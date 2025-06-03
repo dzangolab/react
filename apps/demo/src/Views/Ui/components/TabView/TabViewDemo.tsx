@@ -115,78 +115,39 @@ export const TabViewDemo = () => {
       </Section>
 
       <Section title={t("tabview.usage.basic")}>
-        <div className="tab-button-group">
-          <Button
-            label="Add specifications tab"
-            onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
-          />
-          <Button
-            label="Add reviews tab"
-            onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
-          />
-          <Button
-            label="Add pricing tab"
-            onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
-          />
-        </div>
         <TabView
-          visibleTabs={visibleTabs}
-          tabs={tabs}
-          activeKey={active}
+          tabs={[
+            { label: "Description", children: "Description", key: "1" },
+            { label: "Reviews", children: "Reviews", key: "2" },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "3",
+            },
+            { label: "Pricing", children: "Pricing", key: "4" },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "5",
+            },
+            { label: "Certifications", children: "Certifications", key: "6" },
+          ]}
+          activeKey="1"
           id="tabview-1"
-          onVisibleTabsChange={setVisibleTabs}
-          onActiveTabChange={setActive}
         />
         <CodeBlock
           exampleCode='
-const tabs = [
- { label: "Description", children: "Description", key: "1" },
- { label: "Reviews", children: "Reviews", key: "2", closable: true },
- { label: "Specifications", children: "Specifications", key: "3", closable: true },
- { label: "Pricing", children: "Pricing", key: "4", closable: true },
- { label: "Installation", children: "Installation Instructions", key: "5" },
- { label: "Certifications", children: "Certifications", key: "6" },
-];
-
-export const addTab = (
-  key: string,
-  visibleTabs: any[],
-  setVisibleTabs: any,
-  setActive: any,
-) => {
-  const existingTab = visibleTabs.find((tab) => tab === key);
-  
-  if (existingTab) {
-    setActive(existingTab);
-  } else {
-    setVisibleTabs([...visibleTabs, key]);
-    setActive(key);
-  }
-};
-          
-const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
-const [active, setActive] = useState("1");
-
-<div className="tab-button-group">
-  <Button
-  label="Add specifications tab"
-  onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
-  />
-  <Button 
-  label="Add reviews tab" 
-  onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
-  />
-  <Button 
-  label="Add pricing tab" 
-  onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
-  />
-</div>
 <TabView
-  visibleTabs={visibleTabs}
-  tabs={tabs}
-  activeKey={active}
+  tabs={[
+    { label: "Description", children: "Description", key: "1" },
+    { label: "Reviews", children: "Reviews", key: "2" },
+    { label: "Specifications", children: "Specifications", key: "3" },
+    { label: "Pricing", children: "Pricing", key: "4" },
+    { label: "Installation", children: "Installation Instructions", key: "5" },
+    { label: "Certifications", children: "Certifications", key: "6" },
+  ]}
+  activeKey="1"
   id="tabview-1"
-  onVisibleTabsChange={setVisibleTabs}
 />'
         />
       </Section>
@@ -197,7 +158,7 @@ const [active, setActive] = useState("1");
           visibleTabs={["1", "5", "6"]}
           tabs={tabs}
           activeKey="1"
-          id="tabview-3"
+          id="tabview-2"
           persistState={false}
         />
         <CodeBlock
@@ -215,7 +176,7 @@ const tabs = [
   visibleTabs={["1","5","6"]}
   tabs={tabs}
   activeKey="1"
-  id="tabview-3"
+  id="tabview-2"
   persistState={false}
 />'
         />
@@ -305,6 +266,83 @@ const tabs = [
   activeKey="1"
   id="tabview-6"
   position="right"
+/>'
+        />
+      </Section>
+
+      <Section title={t("tabview.usage.closable")}>
+        <div className="tab-button-group">
+          <Button
+            label="Add specifications tab"
+            onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+          />
+          <Button
+            label="Add reviews tab"
+            onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+          />
+          <Button
+            label="Add pricing tab"
+            onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+          />
+        </div>
+        <TabView
+          visibleTabs={visibleTabs}
+          tabs={tabs}
+          activeKey={active}
+          id="tabview-3"
+          onVisibleTabsChange={setVisibleTabs}
+          onActiveTabChange={setActive}
+        />
+        <CodeBlock
+          exampleCode='
+const tabs = [
+ { label: "Description", children: "Description", key: "1" },
+ { label: "Reviews", children: "Reviews", key: "2", closable: true },
+ { label: "Specifications", children: "Specifications", key: "3", closable: true },
+ { label: "Pricing", children: "Pricing", key: "4", closable: true },
+ { label: "Installation", children: "Installation Instructions", key: "5" },
+ { label: "Certifications", children: "Certifications", key: "6" },
+];
+
+export const addTab = (
+  key: string,
+  visibleTabs: any[],
+  setVisibleTabs: any,
+  setActive: any,
+) => {
+  const existingTab = visibleTabs.find((tab) => tab === key);
+  
+  if (existingTab) {
+    setActive(existingTab);
+  } else {
+    setVisibleTabs([...visibleTabs, key]);
+    setActive(key);
+  }
+};
+          
+const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
+const [active, setActive] = useState("1");
+
+<div className="tab-button-group">
+  <Button
+  label="Add specifications tab"
+  onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+  />
+  <Button 
+  label="Add reviews tab" 
+  onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+  />
+  <Button 
+  label="Add pricing tab" 
+  onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+  />
+</div>
+<TabView
+  visibleTabs={visibleTabs}
+  tabs={tabs}
+  activeKey={active}
+  id="tabview-3"
+  onVisibleTabsChange={setVisibleTabs}
 />'
         />
       </Section>
