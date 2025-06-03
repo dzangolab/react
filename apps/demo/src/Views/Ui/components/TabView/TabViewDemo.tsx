@@ -132,7 +132,6 @@ export const TabViewDemo = () => {
             },
             { label: "Certifications", children: "Certifications", key: "6" },
           ]}
-          activeKey="1"
           id="tabview-1"
         />
         <CodeBlock
@@ -146,7 +145,6 @@ export const TabViewDemo = () => {
     { label: "Installation", children: "Installation Instructions", key: "5" },
     { label: "Certifications", children: "Certifications", key: "6" },
   ]}
-  activeKey="1"
   id="tabview-1"
 />'
         />
