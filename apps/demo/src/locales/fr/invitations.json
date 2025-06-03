@@ -81,6 +81,12 @@
       "header": "Invite a user (fr)"
     }
   },
+  "status": {
+    "active": "Active (fr)",
+    "disabled": "Disabled (fr)",
+    "enabled": "Enabled (fr)",
+    "invited": "Invited (fr)"
+  },
   "table": {
     "defaultColumns": {
       "email": "Email (fr)",
@@ -95,6 +101,13 @@
     "pagination": {
       "pageControl": "Go to (fr)",
       "rowsPerPage": "Rows (fr)"
+    },
+    "placeholders": {
+      "app": "Select app (fr)",
+      "date": "Select date (fr)",
+      "roles": "Select roles (fr)",
+      "search": "Search (fr)",
+      "status": "Select status (fr)"
     },
     "searchPlaceholder": "Search (fr)",
     "status": {

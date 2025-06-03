@@ -35,6 +35,16 @@ export const InvitationsTableDemo = () => {
               width: "20rem",
             },
           ]}
+          // appFilterOptions={[
+          //   { value: 2, label: "2" },
+          //   { value: 3, label: "3" },
+          //   { value: 1, label: "1" },
+          // ]}
+          roleFilterOptions={[
+            { value: "ADMIN", label: "ADMIN" },
+            { value: "SUPERADMIN", label: "SUPERADMIN" },
+            { value: "USER", label: "USER" },
+          ]}
         />
       </Section>
     </Page>

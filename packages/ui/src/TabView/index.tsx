@@ -17,8 +17,16 @@ const TabView: React.FC<Properties> = ({
   onVisibleTabsChange,
 }) => {
   const [initialized, setInitialized] = useState(false);
-  const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
-  const [activeTab, setActiveTab] = useState(activeKey);
+  const [visibleTabs, setVisibleTabs] = useState(
+    _visibleTabs?.length ? _visibleTabs : tabs.map((tab) => tab.key),
+  );
+  const [activeTab, setActiveTab] = useState(() => {
+    if (activeKey) return activeKey;
+
+    if (_visibleTabs?.length) return _visibleTabs[0];
+
+    return tabs[0]?.key;
+  });
 
   const storage = useMemo(
     () => getStorage(persistStateStorage),
@@ -43,9 +51,8 @@ const TabView: React.FC<Properties> = ({
 
       if (storedState) {
         const parsedState = JSON.parse(storedState);
-
-        setActiveTab(parsedState.activeTab || activeKey);
-        setVisibleTabs(parsedState.visibleTabs || _visibleTabs);
+        setActiveTab(parsedState.activeTab);
+        setVisibleTabs(parsedState.visibleTabs);
       }
     }
 
@@ -53,13 +60,13 @@ const TabView: React.FC<Properties> = ({
   }, []);
 
   useEffect(() => {
-    if (initialized) {
+    if (initialized && _visibleTabs?.length) {
       setVisibleTabs(_visibleTabs);
     }
   }, [_visibleTabs]);
 
   useEffect(() => {
-    if (initialized) {
+    if (initialized && activeKey) {
       setActiveTab(activeKey);
     }
   }, [activeKey]);
@@ -76,11 +83,11 @@ const TabView: React.FC<Properties> = ({
     }
   }, [visibleTabs, activeTab, id, persistState, storage]);
 
-  const filteredTabs = visibleTabs
-    .map((visibleTab) => {
-      return tabs.find((tab) => tab.key === visibleTab);
-    })
-    .filter((tab): tab is Tab => tab !== undefined);
+  const filteredTabs = visibleTabs?.length
+    ? visibleTabs
+        .map((key) => tabs.find((tab) => tab.key === key))
+        .filter((tab): tab is Tab => tab !== undefined)
+    : tabs;
 
   const handleTabClose = (key: string) => {
     const tabIndex = visibleTabs.findIndex((tab) => tab === key);

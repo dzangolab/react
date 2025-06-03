@@ -17,13 +17,13 @@ type Tab = {
 };
 
 type Properties = {
-  activeKey: string;
+  activeKey?: string;
   id?: string;
   persistState?: boolean;
   persistStateStorage?: StorageType;
   position?: TPosition;
   tabs: Tab[];
-  visibleTabs: string[];
+  visibleTabs?: string[];
   onActiveTabChange?: (activeTab: string) => void;
   onVisibleTabsChange?: (visibleTabs: string[]) => void;
 };

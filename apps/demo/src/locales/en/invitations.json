@@ -84,6 +84,12 @@
       "header": "Invite a user"
     }
   },
+  "status": {
+    "active": "Active",
+    "disabled": "Disabled",
+    "enabled": "Enabled",
+    "invited": "Invited"
+  },
   "table": {
     "defaultColumns": {
       "email": "Email",
@@ -98,6 +104,13 @@
     "pagination": {
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
+    },
+    "placeholders": {
+      "app": "Select app",
+      "date": "Select date",
+      "roles": "Select roles",
+      "search": "Search",
+      "status": "Select status"
     },
     "searchPlaceholder": "Search",
     "status": {
