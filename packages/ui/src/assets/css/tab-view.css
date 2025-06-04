@@ -21,10 +21,10 @@
   color: var(--dz-primary-color);
 }
 
-.tab-panel {
+.tab-panel-content {
   display: none;
 }
 
-.tab-panel.active {
+.tab-panel-content.active {
   display: block;
 }

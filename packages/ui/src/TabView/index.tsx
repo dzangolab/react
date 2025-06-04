@@ -141,15 +141,15 @@ const TabView: React.FC<Properties> = ({
           );
         })}
       </div>
-      <div role="tabpanel" className="tab-content">
+      <div role="tabpanel">
         {unmountOnTabChange
           ? filteredTabs.find((tab) => tab.key === activeTab)?.children
           : filteredTabs.map((tab) => (
               <div
                 key={tab.key}
-                className={`tab-panel ${
-                  tab.key === activeTab ? "active" : "hidden"
-                }`}
+                className={`tab-panel-content ${
+                  tab.key === activeTab ? "active" : ""
+                }`.trimEnd()}
               >
                 {tab.children}
               </div>
