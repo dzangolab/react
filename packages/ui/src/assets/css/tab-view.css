@@ -20,3 +20,11 @@
 .tabbed-panel > div > button.active i {
   color: var(--dz-primary-color);
 }
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}

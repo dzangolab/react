@@ -12,6 +12,7 @@ const TabView: React.FC<Properties> = ({
   persistStateStorage = "localStorage",
   position = "top",
   tabs,
+  unmountOnTabChange = true,
   visibleTabs: _visibleTabs,
   onActiveTabChange,
   onVisibleTabsChange,
@@ -140,8 +141,19 @@ const TabView: React.FC<Properties> = ({
           );
         })}
       </div>
-      <div role="tabpanel">
-        {filteredTabs.find((tab) => tab.key === activeTab)?.children}
+      <div role="tabpanel" className="tab-content">
+        {unmountOnTabChange
+          ? filteredTabs.find((tab) => tab.key === activeTab)?.children
+          : filteredTabs.map((tab) => (
+              <div
+                key={tab.key}
+                className={`tab-panel ${
+                  tab.key === activeTab ? "active" : "hidden"
+                }`}
+              >
+                {tab.children}
+              </div>
+            ))}
       </div>
     </div>
   );
