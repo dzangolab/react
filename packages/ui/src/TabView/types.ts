@@ -25,6 +25,7 @@ type Properties = {
   position?: TPosition;
   tabs: Tab[];
   visibleTabs?: string[];
+  beforeTabChange?: (confirm: () => void) => void;
   onActiveTabChange?: (activeTab: string) => void;
   onVisibleTabsChange?: (visibleTabs: string[]) => void;
 };

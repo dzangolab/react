@@ -14,6 +14,7 @@ const TabView: React.FC<Properties> = ({
   position = "top",
   tabs,
   visibleTabs: _visibleTabs,
+  beforeTabChange,
   onActiveTabChange,
   onVisibleTabsChange,
 }) => {
@@ -90,6 +91,16 @@ const TabView: React.FC<Properties> = ({
         .filter((tab): tab is Tab => tab !== undefined)
     : tabs;
 
+  const handleTabSwitch = (key: string) => {
+    if (activeTab === key) return;
+
+    if (beforeTabChange) {
+      beforeTabChange(() => setActiveTab(key));
+    } else {
+      setActiveTab(key);
+    }
+  };
+
   const handleTabClose = (key: string) => {
     const tabIndex = visibleTabs.findIndex((tab) => tab === key);
     const newVisibleTabs = visibleTabs.filter((tab) => tab !== key);
@@ -118,7 +129,7 @@ const TabView: React.FC<Properties> = ({
 
           return (
             <button
-              onClick={() => setActiveTab(item.key)}
+              onClick={() => handleTabSwitch(item.key)}
               key={key}
               role="tab"
               aria-label={title}
