@@ -142,18 +142,22 @@ const TabView: React.FC<Properties> = ({
         })}
       </div>
       <div role="tabpanel">
-        {lazy
-          ? filteredTabs.find((tab) => tab.key === activeTab)?.children
-          : filteredTabs.map((tab) => (
-              <div
-                key={tab.key}
-                className={`tab-panel-content ${
-                  tab.key === activeTab ? "active" : ""
-                }`.trimEnd()}
-              >
-                {tab.children}
-              </div>
-            ))}
+        {lazy ? (
+          <div className="tab-panel-content">
+            {filteredTabs.find((tab) => tab.key === activeTab)?.children}
+          </div>
+        ) : (
+          filteredTabs.map((tab) => (
+            <div
+              key={tab.key}
+              className={`tab-panel-content ${
+                tab.key === activeTab ? "active" : "hidden"
+              }`.trimEnd()}
+            >
+              {tab.children}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
