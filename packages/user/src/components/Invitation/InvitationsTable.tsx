@@ -177,6 +177,24 @@ export const InvitationsTable = ({
       accessorKey: "app",
       enableSorting: true,
       enableColumnFilter: true,
+      filterFn: (row, columnId, filterValue) => {
+        if (!filterValue || filterValue.length === 0) {
+          return true;
+        }
+
+        const updatedFilterValue = filterValue.map((value: string) => {
+          switch (value) {
+            case "1":
+              return 1;
+            case "2":
+              return 2;
+            default:
+              return 3;
+          }
+        });
+
+        return updatedFilterValue.includes(row.original.appId);
+      },
       header: t("table.defaultColumns.app"),
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
