@@ -1,5 +1,4 @@
 import { Placement } from "@popperjs/core";
-import { OffsetsFunction } from "@popperjs/core/lib/modifiers/offset";
 import {
   FC,
   LegacyRef,
@@ -8,8 +7,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import { createPortal } from "react-dom";
-import { usePopper } from "react-popper";
+
+import { PopupMenu } from "./PopupMenu";
 
 interface UncontrolledProperties {
   trigger: ReactNode;
@@ -41,12 +40,6 @@ export const Popup: FC<PopupProperties> = ({
   const [referenceElement, setReferenceElement] = useState<Element | null>(
     null,
   );
-  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-
-  const setOffset: OffsetsFunction = useCallback(() => {
-    return [0, offset];
-  }, []);
-
   const togglePopup = isControlled
     ? toggle
     : () => {
@@ -59,15 +52,24 @@ export const Popup: FC<PopupProperties> = ({
         setIsOpen(false);
       };
 
-  const handleOutsideClick = (event: MouseEvent) => {
-    if (popperElement && referenceElement) {
+  const handleOutsideClick = useCallback(
+    (event: MouseEvent) => {
+      if (!referenceElement) {
+        return;
+      }
+
+      const popperElement = document.querySelector(".popup-menu");
+
       if (
+        popperElement &&
         !popperElement.contains(event.target as Node) &&
         !referenceElement.contains(event.target as Node)
-      )
+      ) {
         closePopup?.();
-    }
-  };
+      }
+    },
+    [referenceElement, closePopup],
+  );
 
   useEffect(() => {
     document.addEventListener("click", handleOutsideClick);
@@ -76,38 +78,6 @@ export const Popup: FC<PopupProperties> = ({
       document.removeEventListener("click", handleOutsideClick);
     };
   }, [handleOutsideClick]);
-
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: setOffset,
-        },
-      },
-      {
-        name: "hide",
-      },
-    ],
-    placement: position,
-  });
-
-  const portalRoot = document.getElementById("portal-root") || document.body;
-
-  const renderPopupContent = () => {
-    return createPortal(
-      <div
-        className={`popup-content`}
-        ref={setPopperElement as LegacyRef<HTMLDivElement>}
-        style={styles.popper}
-        onClick={togglePopup}
-        {...attributes.popper}
-      >
-        {content}
-      </div>,
-      portalRoot,
-    );
-  };
 
   return (
     <div className={`popup-container ${className}`.trim()}>
@@ -120,7 +90,15 @@ export const Popup: FC<PopupProperties> = ({
       >
         {trigger}
       </div>
-      {(isControlled ? isOpenControlled : isOpen) ? renderPopupContent() : null}
+      {(isControlled ? isOpenControlled : isOpen) ? (
+        <PopupMenu
+          referenceElement={referenceElement}
+          content={content}
+          position={position}
+          offset={offset}
+          toggle={togglePopup}
+        />
+      ) : null}
     </div>
   );
 };

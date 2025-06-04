@@ -213,7 +213,6 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
     class="field"
   >
     <div
-      aria-multiselectable="true"
       class="select"
     >
       <div

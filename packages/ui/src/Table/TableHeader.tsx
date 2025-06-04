@@ -1,13 +1,15 @@
 import { flexRender, RowData, Table } from "@tanstack/react-table";
 import React, { SyntheticEvent, useCallback, useState } from "react";
 
-import { DatePicker, DebouncedInput, Select } from "@/FormWidgets";
+import { DebouncedInput, Select } from "@/FormWidgets";
 
+import { TableDateFilter } from "./TableDateFilter";
 import {
   ColumnHeader,
   TableHeader as TTableHeader,
   TableRow,
 } from "./TableElements";
+import { TableRangeFilter } from "./TableRangeFilter";
 import { getAlignValue } from "./utils";
 
 import type { TDataTableProperties } from "./types";
@@ -37,23 +39,6 @@ export const TableHeader = <TData extends RowData>({
     [],
   );
 
-  const getFormattedDate = (date: Date | null) => {
-    if (!date) return null;
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-  };
-
-  const convertFilterValueToDate = (filterValue: string[] | null) => {
-    if (Array.isArray(filterValue)) {
-      return filterValue.filter(Boolean).map((value) => new Date(value));
-    }
-
-    return null;
-  };
   const renderHeaderRow = () =>
     table.getHeaderGroups().map((headerGroup) => (
       <TableRow key={headerGroup.id} className="header-row">
@@ -144,6 +129,18 @@ export const TableHeader = <TData extends RowData>({
     const columnFilterValue = column.getFilterValue();
     const variant = column.columnDef.meta?.filterVariant;
 
+    if (variant === "select") {
+      return (
+        <Select
+          name="select"
+          placeholder={column.columnDef.filterPlaceholder || ""}
+          options={column.columnDef.meta?.filterOptions || []}
+          value={(columnFilterValue as string) || ""}
+          onChange={(value) => column.setFilterValue(value)}
+        />
+      );
+    }
+
     if (variant === "multiselect") {
       return (
         <Select
@@ -158,23 +155,14 @@ export const TableHeader = <TData extends RowData>({
     }
 
     if (variant === "dateRange") {
+      return <TableDateFilter column={column} />;
+    }
+
+    if (variant === "range" || column.columnDef.dataType === "number") {
       return (
-        <DatePicker
-          inputRef={null}
-          name="date-range"
-          onChange={(date) => {
-            if (date) {
-              const _date = (date as Date[])
-                .map(getFormattedDate)
-                .filter((d) => d !== null);
-              column.setFilterValue(_date);
-            } else {
-              column.setFilterValue(null);
-            }
-          }}
-          value={convertFilterValueToDate(column.getFilterValue() as string[])}
-          selectionMode="range"
-          placeholder={column.columnDef.filterPlaceholder || ""}
+        <TableRangeFilter
+          column={column}
+          inputDebounceTime={inputDebounceTime}
         />
       );
     }

@@ -1,9 +1,8 @@
-import { useTranslation } from "@dzangolab/react-i18n";
 import { SidebarOnlyLayout } from "@dzangolab/react-layout";
-import { toast } from "react-toastify";
 
 import { useUser } from "@/hooks";
-import { logout } from "@/supertokens";
+
+import { useUserNavigationMenu } from "..";
 
 import type { SidebarOnlyLayoutProperties } from "@dzangolab/react-layout";
 import type { NavMenuItemType } from "@dzangolab/react-ui";
@@ -30,51 +29,14 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
   userMenuMode,
   onLogout,
 }) => {
-  const { t } = useTranslation("user");
+  const { user } = useUser();
 
-  const { user, setUser } = useUser();
-
-  const getUserNavigationMenu = () => {
-    if (!user) {
-      return authNavigationMenu
-        ? {
-            ...authNavigationMenu,
-            className: `dz-auth-menu ${
-              authNavigationMenu?.className || ""
-            }`.trim(),
-          }
-        : undefined;
-    }
-
-    const signout = async () => {
-      if (await logout()) {
-        await setUser(null);
-
-        onLogout && (await onLogout());
-
-        toast.success(t("logout.message"));
-      }
-    };
-
-    const signoutRoute = {
-      icon: "pi pi-power-off",
-      label: t("userMenu.logout"),
-      onClick: signout,
-    };
-
-    if (!userNavigationMenu) {
-      return {
-        menu: [signoutRoute],
-        className: "dz-user-menu",
-      };
-    }
-
-    return {
-      ...userNavigationMenu,
-      menu: [...userNavigationMenu.menu, signoutRoute],
-      className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
-    };
-  };
+  const userMenu = useUserNavigationMenu({
+    authNavigationMenu,
+    addAuthNavigationMenu: true,
+    userNavigationMenu,
+    onLogout,
+  });
 
   return (
     <SidebarOnlyLayout
@@ -87,7 +49,7 @@ export const UserEnabledSidebarOnlyLayout: React.FC<Properties> = ({
       noSidebarHeader={noSidebarHeader}
       noSidebarFooter={noSidebarFooter}
       noLocaleSwitcher={noLocaleSwitcher}
-      userMenu={user ? getUserNavigationMenu() : undefined}
+      userMenu={user ? userMenu : undefined}
       userMenuMode={userMenuMode}
     />
   );

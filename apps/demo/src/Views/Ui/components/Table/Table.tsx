@@ -17,6 +17,7 @@ import {
   data,
   formatDemoData,
   city,
+  country,
 } from "./data";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
@@ -50,7 +51,10 @@ export const TableDemo = () => {
       accessorKey: "age",
       header: "Age",
       align: "right",
+      dataType: "number",
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
     },
     {
       accessorKey: "city",
@@ -62,6 +66,17 @@ export const TableDemo = () => {
         filterVariant: "multiselect",
         filterOptions: city,
       },
+    },
+    {
+      accessorKey: "country",
+      header: "Country",
+      enableColumnFilter: true,
+      enableSorting: true,
+      meta: {
+        filterVariant: "select",
+        filterOptions: country,
+      },
+      filterPlaceholder: t("table.placeholder.country"),
     },
   ];
 
@@ -126,7 +141,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.filterable")}>
         <TDataTable
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={[
             ...columns,
             {
@@ -156,7 +171,7 @@ export const TableDemo = () => {
 
       <Section title={t("table.usage.sortable")}>
         <TDataTable
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={columns.map((column) => ({
             ...column,
             enableSorting: true,
@@ -327,7 +342,7 @@ export const TableDemo = () => {
           showColumnsAction={true}
           columnActionBtnLabel="Columns"
           className="vertical"
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={[...columns]}
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
@@ -354,7 +369,7 @@ export const TableDemo = () => {
           showColumnsAction={true}
           columnActionBtnLabel="Columns"
           className="horizontal"
-          visibleColumns={["email", "name", "age", "city"]}
+          visibleColumns={["email", "name", "age", "city", "country"]}
           columns={[...columns]}
           data={data}
           initialSorting={[{ id: "email", desc: false }]}
@@ -628,6 +643,8 @@ export const TableDemo = () => {
               numberOptions: {
                 locale: "en-IN",
               },
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "amount",
@@ -640,6 +657,11 @@ export const TableDemo = () => {
                   currency: "EUR",
                 },
               },
+              enableColumnFilter: true,
+              meta: {
+                filterVariant: "range",
+              },
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "date",
@@ -693,12 +715,19 @@ export const TableDemo = () => {
               header: () => "Quantity",
               enableSorting: true,
               dataType: "number",
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "amount",
               header: "Amount",
               dataType: "currency",
               enableSorting: true,
+              enableColumnFilter: true,
+              meta: {
+                filterVariant: "range",
+              },
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "date",
@@ -750,6 +779,8 @@ export const TableDemo = () => {
               numberOptions: {
                 locale: "en-IN",
               },
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "amount",
@@ -762,6 +793,11 @@ export const TableDemo = () => {
                   currency: "EUR",
                 },
               },
+              enableColumnFilter: true,
+              meta: {
+                filterVariant: "range",
+              },
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "date",
@@ -842,7 +878,10 @@ export const TableDemo = () => {
               accessorKey: "age",
               header: "Age",
               align: "right",
+              dataType: "number",
               enableSorting: true,
+              enableColumnFilter: true,
+              filterPlaceholder: `${t("table.placeholder.min")},${t("table.placeholder.max")}`,
             },
             {
               accessorKey: "city",
@@ -854,6 +893,17 @@ export const TableDemo = () => {
                 filterVariant: "multiselect",
                 filterOptions: city,
               },
+            },
+            {
+              accessorKey: "country",
+              header: "Country",
+              enableColumnFilter: true,
+              enableSorting: true,
+              meta: {
+                filterVariant: "select",
+                filterOptions: country,
+              },
+              filterPlaceholder: t("table.placeholder.country"),
             },
             {
               align: "center",

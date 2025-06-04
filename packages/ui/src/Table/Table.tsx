@@ -107,6 +107,29 @@ const DataTable = <TData extends RowData>({
     const updatedFilters = updatedColumnFilter.map((filter) => {
       const column = table.getColumn(filter.id);
 
+      if (column?.columnDef.meta?.filterVariant === "range") {
+        const [min, max] = filter.value as [number, number];
+
+        let filterOperator:
+          | "between"
+          | "greaterThanOrEqual"
+          | "lessThanOrEqual"
+          | undefined;
+
+        if (min !== undefined && max !== undefined) {
+          filterOperator = "between";
+        } else if (min !== undefined) {
+          filterOperator = "greaterThanOrEqual";
+        } else if (max !== undefined) {
+          filterOperator = "lessThanOrEqual";
+        }
+
+        return {
+          ...filter,
+          filterFn: filterOperator,
+        };
+      }
+
       return {
         ...filter,
         filterFn: column?.columnDef.meta?.serverFilterFn,
@@ -220,6 +243,29 @@ const DataTable = <TData extends RowData>({
           );
 
           return rowData >= startDate && rowData <= endDate;
+        };
+      } else if (
+        (column.meta?.filterVariant === "range" ||
+          column.dataType === "number") &&
+        !column.filterFn
+      ) {
+        column.filterFn = (row, columnId, filterValue) => {
+          if (!Array.isArray(filterValue)) {
+            return true;
+          }
+
+          const [min, max] = filterValue;
+          const value = row.getValue(columnId) as number;
+
+          if (min !== undefined && max !== undefined) {
+            return value >= min && value <= max;
+          } else if (min !== undefined) {
+            return value >= min;
+          } else if (max !== undefined) {
+            return value <= max;
+          }
+
+          return true;
         };
       }
     });
