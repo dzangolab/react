@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import { PopupMenu } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
@@ -71,6 +72,9 @@ export const Select = <T extends string | number>({
   );
   const selectReference = useRef<HTMLDivElement>(null);
   const optionReference = useRef<Record<number, HTMLLIElement | null>>({});
+  const [referenceElement, setReferenceElement] = useState<Element | null>(
+    null,
+  );
 
   const sortedOptions = useMemo(() => {
     return !autoSortOptions
@@ -109,9 +113,13 @@ export const Select = <T extends string | number>({
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
+      const popupMenuContent = document.querySelector(".popup-menu");
+
       if (
         selectReference.current &&
-        !selectReference.current.contains(event.target as HTMLElement)
+        !selectReference.current.contains(event.target as HTMLElement) &&
+        (!popupMenuContent ||
+          !popupMenuContent.contains(event.target as HTMLElement))
       ) {
         setShowOptions(false);
         setFocused(false);
@@ -276,7 +284,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul>
+      <ul aria-multiselectable={multiple} role="listbox">
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -294,6 +302,7 @@ export const Select = <T extends string | number>({
             <li
               key={index}
               ref={(element) => (optionReference.current[index] = element)}
+              role="option"
               className={
                 `${!multiple && value === option.value ? "selected" : ""}
               ${disabled ? "disabled" : ""}
@@ -412,9 +421,19 @@ export const Select = <T extends string | number>({
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
 
-      <div className="select" aria-multiselectable={multiple}>
+      <div className="select" ref={setReferenceElement}>
         {renderSelect()}
-        {shouldAutoSelect ? null : showOptions && renderOptions()}
+        {shouldAutoSelect
+          ? null
+          : showOptions && (
+              <PopupMenu
+                className="select-menu"
+                content={renderOptions()}
+                matchReferenceWidth
+                offset={0}
+                referenceElement={referenceElement}
+              />
+            )}
       </div>
 
       {helperText && <span className="helper-text">{helperText}</span>}
