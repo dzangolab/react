@@ -19,6 +19,7 @@ type Tab = {
 type Properties = {
   activeKey?: string;
   id?: string;
+  lazy?: boolean;
   persistState?: boolean;
   persistStateStorage?: StorageType;
   position?: TPosition;

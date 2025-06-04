@@ -8,6 +8,7 @@ import type { Properties, Tab } from "./types";
 const TabView: React.FC<Properties> = ({
   activeKey,
   id = "",
+  lazy = true,
   persistState = true,
   persistStateStorage = "localStorage",
   position = "top",
@@ -141,7 +142,22 @@ const TabView: React.FC<Properties> = ({
         })}
       </div>
       <div role="tabpanel">
-        {filteredTabs.find((tab) => tab.key === activeTab)?.children}
+        {lazy ? (
+          <div className="tab-panel-content">
+            {filteredTabs.find((tab) => tab.key === activeTab)?.children}
+          </div>
+        ) : (
+          filteredTabs.map((tab) => (
+            <div
+              key={tab.key}
+              className={`tab-panel-content ${
+                tab.key === activeTab ? "active" : "hidden"
+              }`.trimEnd()}
+            >
+              {tab.children}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
