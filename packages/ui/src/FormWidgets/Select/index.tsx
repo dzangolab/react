@@ -284,7 +284,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul aria-multiselectable={multiple}>
+      <ul aria-multiselectable={multiple} role="listbox">
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -302,6 +302,7 @@ export const Select = <T extends string | number>({
             <li
               key={index}
               ref={(element) => (optionReference.current[index] = element)}
+              role="option"
               className={
                 `${!multiple && value === option.value ? "selected" : ""}
               ${disabled ? "disabled" : ""}
