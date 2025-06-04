@@ -8,11 +8,11 @@ import type { Properties, Tab } from "./types";
 const TabView: React.FC<Properties> = ({
   activeKey,
   id = "",
+  lazy = true,
   persistState = true,
   persistStateStorage = "localStorage",
   position = "top",
   tabs,
-  unmountOnTabChange = true,
   visibleTabs: _visibleTabs,
   onActiveTabChange,
   onVisibleTabsChange,
@@ -142,7 +142,7 @@ const TabView: React.FC<Properties> = ({
         })}
       </div>
       <div role="tabpanel">
-        {unmountOnTabChange
+        {lazy
           ? filteredTabs.find((tab) => tab.key === activeTab)?.children
           : filteredTabs.map((tab) => (
               <div
