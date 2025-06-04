@@ -76,14 +76,13 @@
   color: var(--field-placeholder-color, #7b7676);
 }
 
-.select ul {
+.select-menu ul {
   background-color: var(--field-option-bg-color);
   border: 1px solid var(--field-border-color);
   border-radius: var(--field-border-radius);
   box-shadow: 1px 1px 5px 1px var(--field-border-color);
   display: flex;
   flex-direction: column;
-  margin-top: 0.1rem;
   max-height: 10rem;
   min-width: 11rem;
   overflow: auto;
@@ -95,15 +94,15 @@
   z-index: 1000;
 }
 
-.select ul > .debounced-input {
+.select-menu ul > .debounced-input {
   align-items: unset;
 }
 
-.select ul > .debounced-input input {
+.select-menu ul > .debounced-input input {
   padding: 0.5rem 0.65rem;
 }
 
-.select ul > li {
+.select-menu ul > li {
   border-radius: var(--field-border-radius);
   cursor: pointer;
   display: flex;
@@ -111,36 +110,36 @@
   transition: all var(--transition-duration) ease;
 }
 
-.select ul > li:hover, .select ul > li.focused {
+.select-menu ul > li:hover, .select-menu ul > li.focused {
   background-color: var(--field-option-hover-color);
 }
 
-.select ul > li.selected {
+.select-menu ul > li.selected {
   background-color: var(--field-option-selected-color);
 }
 
-.select ul > li.disabled {
+.select-menu ul > li.disabled {
   color: var(--field-option-disabled-color);
   cursor: not-allowed;
 }
 
-.select[aria-multiselectable="true"] ul > li {
+.select-menu ul[aria-multiselectable="true"] > li {
   gap: 0.5rem;
   align-items: baseline;
 }
 
-.select[aria-multiselectable="false"] ul > li {
+.select-menu ul[aria-multiselectable="false"] > li {
   padding: 0;
 }
 
-.select ul > li > span {
+.select-menu ul > li > span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
 }
 
-.select[aria-multiselectable="false"] ul > li > span {
+.select-menu ul[aria-multiselectable="false"] > li > span {
   padding: 0.5rem 0.65rem;
 }
 

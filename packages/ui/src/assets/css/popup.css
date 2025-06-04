@@ -7,7 +7,7 @@
   display: inline-block;
 }
 
-.popup-content {
+.popup-menu {
   position: absolute;
   z-index: 1000;
   border: 1px solid #ccc;
