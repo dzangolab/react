@@ -19,7 +19,7 @@ type Tab = {
 type Properties = {
   activeKey?: string;
   id?: string;
-  isControlled?: boolean;
+  interceptTabChange?: boolean;
   lazy?: boolean;
   persistState?: boolean;
   persistStateStorage?: StorageType;

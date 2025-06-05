@@ -8,7 +8,7 @@ import type { Properties, Tab } from "./types";
 const TabView: React.FC<Properties> = ({
   activeKey,
   id = "",
-  isControlled = false,
+  interceptTabChange = false,
   lazy = true,
   persistState = true,
   persistStateStorage = "localStorage",
@@ -30,7 +30,7 @@ const TabView: React.FC<Properties> = ({
 
     return tabs[0]?.key;
   });
-  const currentActiveKey = !isControlled ? activeTab : activeKey;
+  const currentActiveKey = !interceptTabChange ? activeTab : activeKey;
 
   const storage = useMemo(
     () => getStorage(persistStateStorage),
@@ -44,13 +44,13 @@ const TabView: React.FC<Properties> = ({
   }, [visibleTabs]);
 
   useEffect(() => {
-    if (onActiveTabChange && !isControlled) {
+    if (onActiveTabChange && !interceptTabChange) {
       onActiveTabChange(activeTab);
     }
   }, [activeTab]);
 
   useEffect(() => {
-    if (persistState && id && !isControlled) {
+    if (persistState && id && !interceptTabChange) {
       const storedState = storage.getItem(id);
 
       if (storedState) {
@@ -64,19 +64,19 @@ const TabView: React.FC<Properties> = ({
   }, []);
 
   useEffect(() => {
-    if (initialized && _visibleTabs?.length && !isControlled) {
+    if (initialized && _visibleTabs?.length && !interceptTabChange) {
       setVisibleTabs(_visibleTabs);
     }
   }, [_visibleTabs]);
 
   useEffect(() => {
-    if (initialized && activeKey && !isControlled) {
+    if (initialized && activeKey && !interceptTabChange) {
       setActiveTab(activeKey);
     }
   }, [activeKey]);
 
   useEffect(() => {
-    if (id && persistState && !isControlled) {
+    if (id && persistState && !interceptTabChange) {
       storage.setItem(
         id,
         JSON.stringify({
@@ -87,7 +87,7 @@ const TabView: React.FC<Properties> = ({
     }
   }, [visibleTabs, activeTab, id, persistState, storage]);
 
-  const visibletabkeys = !isControlled ? visibleTabs : _visibleTabs;
+  const visibletabkeys = !interceptTabChange ? visibleTabs : _visibleTabs;
 
   const filteredTabs = visibletabkeys?.length
     ? visibletabkeys
@@ -98,7 +98,7 @@ const TabView: React.FC<Properties> = ({
   const handleTabSwitch = (key: string) => {
     if (currentActiveKey === key) return;
 
-    if (isControlled) {
+    if (interceptTabChange) {
       onActiveTabChange?.(key);
     } else {
       setActiveTab(key);
@@ -106,7 +106,7 @@ const TabView: React.FC<Properties> = ({
   };
 
   const handleTabClose = (key: string) => {
-    if (isControlled && onTabClose) {
+    if (interceptTabChange && onTabClose) {
       onTabClose(key);
 
       return;
