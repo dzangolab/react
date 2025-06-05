@@ -98,12 +98,6 @@ export const InvitationsTableDemo = () => {
             { value: "SUPERADMIN", label: "SUPERADMIN" },
             { value: "USER", label: "USER" },
           ]}
-          statusFilterOptions={[
-            { value: "accepted", label: "Accepted" },
-            { value: "expired", label: "Expired" },
-            { value: "pending", label: "Pending" },
-            { value: "revoked", label: "Revoked" },
-          ]}
         />
       </Section>
     </Page>
