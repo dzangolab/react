@@ -102,7 +102,7 @@ export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
 
-  const [visibleTabs, setVisibleTabs] = useState(["1", "2", "3"]);
+  const [visibleTabs, setVisibleTabs] = useState(["1"]);
   const [active, setActive] = useState("1");
   const [controlledVisibleTabs, setControlledVisibleTabs] = useState([
     "1",
