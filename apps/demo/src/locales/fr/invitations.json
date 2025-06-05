@@ -81,12 +81,6 @@
       "header": "Invite a user (fr)"
     }
   },
-  "status": {
-    "active": "Active (fr)",
-    "disabled": "Disabled (fr)",
-    "enabled": "Enabled (fr)",
-    "invited": "Invited (fr)"
-  },
   "table": {
     "defaultColumns": {
       "email": "Email (fr)",

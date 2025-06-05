@@ -113,12 +113,6 @@
       "status": "Select status"
     },
     "searchPlaceholder": "Search",
-    "status": {
-      "accepted": "Accepted",
-      "expired": "Expired",
-      "pending": "Pending",
-      "revoked": "Revoked"
-    },
     "title": "Invitations"
   },
   "validation": {
