@@ -175,8 +175,8 @@ export const InvitationsTable = ({
       filterPlaceholder: t("table.searchPlaceholder"),
     },
     {
-      accessorKey: "appId",
       align: "center",
+      accessorKey: "appId",
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
@@ -185,13 +185,14 @@ export const InvitationsTable = ({
       filterPlaceholder: t("table.placeholders.app"),
       header: t("table.defaultColumns.app"),
       meta: {
-        filterOptions: appFilterOptions,
         filterVariant: "multiselect",
+        filterOptions: appFilterOptions,
       },
     },
     {
-      accessorKey: "role",
       align: "center",
+      accessorKey: "role",
+      header: t("table.defaultColumns.role"),
       cell: ({ getValue, row: { original } }) => {
         const roles = (original as unknown as { roles: string[] })?.roles;
 
@@ -220,17 +221,17 @@ export const InvitationsTable = ({
           />
         );
       },
-      enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: t("table.placeholders.roles"),
-      header: t("table.defaultColumns.role"),
+      enableColumnFilter: true,
       meta: {
-        filterOptions: roleFilterOptions,
         filterVariant: "multiselect",
+        filterOptions: roleFilterOptions,
       },
+      filterPlaceholder: t("table.placeholders.roles"),
     },
     {
       accessorKey: "invitedBy",
+      header: t("table.defaultColumns.invitedBy"),
       cell: ({ getValue }) => {
         const invitedBy = getValue() as UserType;
 
@@ -244,11 +245,11 @@ export const InvitationsTable = ({
 
         return invitedBy?.email;
       },
-      header: t("table.defaultColumns.invitedBy"),
     },
     {
-      accessorKey: "status",
       align: "center",
+      accessorKey: "status",
+      header: t("table.defaultColumns.status"),
       cell: ({ row: { original } }) => {
         const { acceptedAt, revokedAt, expiresAt } = original;
 
@@ -270,28 +271,69 @@ export const InvitationsTable = ({
 
         return <Tag label={getLabel()} color={getColor()} fullWidth />;
       },
-      enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: t("table.placeholders.status"),
-      header: t("table.defaultColumns.status"),
-      meta: {
-        filterOptions: statusFilterOptions,
-        filterVariant: "multiselect",
+      enableColumnFilter: true,
+      filterFn: (row, columnId, filterValue) => {
+        if (!filterValue || filterValue.length === 0) {
+          return true;
+        }
+
+        const { acceptedAt, revokedAt, expiresAt } = row.original;
+
+        const getCellValue = () => {
+          if (acceptedAt) {
+            return "accepted";
+          }
+
+          if (revokedAt) {
+            return "revoked";
+          }
+
+          if (isExpired(expiresAt)) {
+            return "expired";
+          }
+
+          return "pending";
+        };
+
+        return filterValue.includes(getCellValue());
       },
+      meta: {
+        filterVariant: "multiselect",
+        filterOptions: [
+          {
+            value: "accepted",
+            label: t("table.status.accepted"),
+          },
+          {
+            value: "revoked",
+            label: t("table.status.revoked"),
+          },
+          {
+            value: "expired",
+            label: t("table.status.expired"),
+          },
+          {
+            value: "pending",
+            label: t("table.status.pending"),
+          },
+        ],
+      },
+      filterPlaceholder: t("table.placeholders.status"),
     },
     {
       accessorKey: "expiresAt",
-      enableColumnFilter: true,
+      header: t("table.defaultColumns.expiresAt"),
       enableSorting: true,
+      enableColumnFilter: true,
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as string);
       },
-      filterPlaceholder: t("table.placeholders.date"),
-      header: t("table.defaultColumns.expiresAt"),
       meta: {
         filterVariant: "dateRange",
         serverFilterFn: "between",
       },
+      filterPlaceholder: t("table.placeholders.date"),
     },
   ];
 
@@ -302,8 +344,8 @@ export const InvitationsTable = ({
           <InvitationModal
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            expiryDateField={invitationExpiryDateField}
             invitationButtonOptions={invitationButtonOptions}
+            expiryDateField={invitationExpiryDateField}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}
