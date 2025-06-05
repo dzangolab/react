@@ -272,9 +272,16 @@ export const InvitationsTable = ({
     },
     {
       accessorKey: "expiresAt",
-      header: t("table.defaultColumns.expiresAt"),
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as string);
+      },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.date"),
+      header: t("table.defaultColumns.expiresAt"),
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
       },
     },
   ];
