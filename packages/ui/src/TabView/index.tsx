@@ -17,7 +17,6 @@ const TabView: React.FC<Properties> = ({
   visibleTabs: _visibleTabs,
   onActiveTabChange,
   onVisibleTabsChange,
-  onTabChange,
   onTabClose,
 }) => {
   const [initialized, setInitialized] = useState(false);
@@ -45,7 +44,7 @@ const TabView: React.FC<Properties> = ({
   }, [visibleTabs]);
 
   useEffect(() => {
-    if (onActiveTabChange) {
+    if (onActiveTabChange && !isControlled) {
       onActiveTabChange(activeTab);
     }
   }, [activeTab]);
@@ -100,7 +99,7 @@ const TabView: React.FC<Properties> = ({
     if (currentActiveKey === key) return;
 
     if (isControlled) {
-      onTabChange?.(key);
+      onActiveTabChange?.(key);
     } else {
       setActiveTab(key);
     }

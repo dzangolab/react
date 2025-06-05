@@ -1,6 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
 import { Button } from "@dzangolab/react-ui";
+import { ConfirmationModal } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -101,8 +102,51 @@ export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
 
-  const [visibleTabs, setVisibleTabs] = useState(["1"]);
+  const [visibleTabs, setVisibleTabs] = useState(["1", "2", "3"]);
   const [active, setActive] = useState("1");
+  const [interceptVisibleTabs, setInterceptVisibleTabs] = useState([
+    "1",
+    "2",
+    "4",
+  ]);
+  const [interceptActiveTab, setInterceptActiveTab] = useState("1");
+  const [showModal, setShowModal] = useState(false);
+  const [requestedTab, setRequestedTab] = useState<string | null>(null);
+
+  const handleTabChange = (key: string) => {
+    if (key !== interceptActiveTab) {
+      setRequestedTab(key);
+      setShowModal(true);
+    }
+  };
+
+  const confirmTabSwitch = () => {
+    if (requestedTab) {
+      setInterceptActiveTab(requestedTab);
+      setRequestedTab(null);
+    }
+    setShowModal(false);
+  };
+
+  const cancelTabSwitch = () => {
+    setRequestedTab(null);
+    setShowModal(false);
+  };
+
+  const handleTabClose = (key: string) => {
+    const tabIndex = interceptVisibleTabs.findIndex((tab) => tab === key);
+    const newVisibleTabs = interceptVisibleTabs.filter((tab) => tab !== key);
+
+    let newActiveTab = "";
+    if (tabIndex > 0) {
+      newActiveTab = newVisibleTabs[tabIndex - 1];
+    } else {
+      newActiveTab = newVisibleTabs[0];
+    }
+
+    setInterceptActiveTab(newActiveTab);
+    setInterceptVisibleTabs(newVisibleTabs);
+  };
 
   return (
     <Page
@@ -349,6 +393,166 @@ const [active, setActive] = useState("1");
   activeKey={active}
   id="tabview-3"
   onVisibleTabsChange={setVisibleTabs}
+/>'
+        />
+      </Section>
+
+      <Section title={t("tabview.usage.intercept")}>
+        <div className="tab-button-group">
+          <Button
+            label="Add installation tab"
+            onClick={() =>
+              addTab(
+                "5",
+                interceptVisibleTabs,
+                setInterceptVisibleTabs,
+                setInterceptActiveTab,
+              )
+            }
+          />
+          <Button
+            label="Add pricing tab"
+            onClick={() =>
+              addTab(
+                "4",
+                interceptVisibleTabs,
+                setInterceptVisibleTabs,
+                setInterceptActiveTab,
+              )
+            }
+          />
+        </div>
+        <TabView
+          tabs={[
+            { label: "Description", children: "Description", key: "1" },
+            { label: "Reviews", children: "Reviews", key: "2" },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "3",
+            },
+            { label: "Pricing", children: "Pricing", key: "4" },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "5",
+              closable: true,
+            },
+            { label: "Certifications", children: "Certifications", key: "6" },
+          ]}
+          id="tabview-7"
+          activeKey={interceptActiveTab}
+          visibleTabs={interceptVisibleTabs}
+          isControlled={true}
+          onActiveTabChange={handleTabChange}
+          onTabClose={handleTabClose}
+        />
+        <ConfirmationModal
+          message="Are you sure you want to proceed?"
+          visible={showModal}
+          onHide={cancelTabSwitch}
+          accept={confirmTabSwitch}
+        />
+
+        <CodeBlock
+          exampleCode='
+const [interceptVisibleTabs, setInterceptVisibleTabs] = useState(["1", "2", "4"])
+const [interceptActiveTab, setInterceptActiveTab] = useState("1")
+const [showModal, setShowModal] = useState(false);
+const [requestedTab, setRequestedTab] = useState<string | null>(null);
+
+const handleTabChange = (key: string) => {
+  if (key !== interceptActiveTab) {
+    setRequestedTab(key);
+    setShowModal(true);
+  }
+};
+
+const confirmTabSwitch = () => {
+  if (requestedTab) {
+    setInterceptActiveTab(requestedTab);
+    setRequestedTab(null);
+  }
+  setShowModal(false);
+};
+
+const cancelTabSwitch = () => {
+  setRequestedTab(null);
+  setShowModal(false);
+};
+
+const handleTabClose = (key: string) => {
+  const tabIndex = interceptVisibleTabs.findIndex((tab) => tab === key);
+  const newVisibleTabs = interceptVisibleTabs.filter((tab) => tab !== key);
+
+  let newActiveTab = "";
+  if (tabIndex > 0) {
+    newActiveTab = newVisibleTabs[tabIndex - 1];
+  } else {
+    newActiveTab = newVisibleTabs[0];
+  }
+
+  setInterceptActiveTab(newActiveTab);
+  setInterceptVisibleTabs(newVisibleTabs);
+}
+
+export const addTab = (
+  key: string,
+  visibleTabs: any[],
+  setVisibleTabs: any,
+  setActive: any,
+) => {
+  const existingTab = visibleTabs.find((tab) => tab === key);
+  
+  if (existingTab) {
+    setActive(existingTab);
+  } else {
+    setVisibleTabs([...visibleTabs, key]);
+    setActive(key);
+  }
+};
+
+<div className="tab-button-group">
+<Button
+  label="Add installation tab"
+  onClick={() => addTab("5", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
+/>
+<Button
+  label="Add pricing tab"
+  onClick={() => addTab("4", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
+/>
+</div>
+
+<TabView
+  tabs={[
+    { label: "Description", children: "Description", key: "1" },
+    { label: "Reviews", children: "Reviews", key: "2" },
+    {
+      label: "Specifications",
+      children: "Specifications",
+      key: "3",
+    },
+    { label: "Pricing", children: "Pricing", key: "4" },
+    {
+      label: "Installation",
+      children: "Installation Instructions",
+      key: "5",
+      closable: true
+    },
+    { label: "Certifications", children: "Certifications", key: "6" },
+  ]}
+  id="tabview-7"
+  activeKey={interceptActiveTab}
+  visibleTabs={interceptVisibleTabs}
+  isControlled={true}
+  onActiveTabChange={handleTabChange}
+  onTabClose={handleTabClose}
+/>
+<ConfirmationModal
+  message="Are you sure you want to proceed?"
+  visible={showModal}
+  onHide={cancelTabSwitch}
+  accept={confirmTabSwitch}
 />'
         />
       </Section>
