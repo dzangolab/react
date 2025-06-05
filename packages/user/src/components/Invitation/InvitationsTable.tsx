@@ -175,8 +175,11 @@ export const InvitationsTable = ({
     {
       align: "center",
       accessorKey: "appId",
-      enableSorting: true,
+      cell: ({ row: { original } }) => {
+        return <span>{original.appId || "-"} </span>;
+      },
       enableColumnFilter: true,
+      enableSorting: true,
       filterFn: (row, columnId, filterValue) => {
         if (!filterValue || filterValue.length === 0) {
           return true;
@@ -197,9 +200,6 @@ export const InvitationsTable = ({
       },
       filterPlaceholder: t("table.placeholders.app"),
       header: t("table.defaultColumns.app"),
-      cell: ({ row: { original } }) => {
-        return <span>{original.appId || "-"} </span>;
-      },
       meta: {
         filterVariant: "multiselect",
         filterOptions: appFilterOptions,

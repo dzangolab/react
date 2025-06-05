@@ -2,16 +2,16 @@
   min-width: 15rem;
 }
 
-.table-invitations .column-app {
+.table-invitations .column-appId {
   width: 10rem;
   max-width: 10rem;
   min-width: 10rem;
 }
 
 .table-invitations .column-role {
-  width: 10rem;
-  max-width: 10rem;
-  min-width: 10rem;
+  width: 12rem;
+  max-width: 12rem;
+  min-width: 12rem;
 }
 
 .table-invitations .column-invitedBy {
