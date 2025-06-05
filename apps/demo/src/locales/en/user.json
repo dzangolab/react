@@ -95,7 +95,13 @@
         "role": "Role"
       },
       "emptyMessage": "Table is empty",
-      "searchPlaceholder": ""
+      "searchPlaceholder": "",
+      "status": {
+        "accepted": "Accepted",
+        "expired": "Expired",
+        "pending": "Pending",
+        "revoked": "Revoked"
+      }
     },
     "title": "Invitations"
   },

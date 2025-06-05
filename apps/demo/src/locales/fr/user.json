@@ -95,7 +95,13 @@
         "role": "Role (fr)"
       },
       "emptyMessage": "Table is empty (fr)",
-      "searchPlaceholder": ""
+      "searchPlaceholder": "",
+      "status": {
+        "accepted": "Accepted (fr)",
+        "expired": "Expired (fr)",
+        "pending": "Pending (fr)",
+        "revoked": "Revoked (fr)"
+      }
     },
     "title": "Invitations (fr)"
   },
