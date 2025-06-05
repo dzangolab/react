@@ -104,17 +104,17 @@ export const TabViewDemo = () => {
 
   const [visibleTabs, setVisibleTabs] = useState(["1", "2", "3"]);
   const [active, setActive] = useState("1");
-  const [interceptVisibleTabs, setInterceptVisibleTabs] = useState([
+  const [controlledVisibleTabs, setControlledVisibleTabs] = useState([
     "1",
     "2",
     "4",
   ]);
-  const [interceptActiveTab, setInterceptActiveTab] = useState("1");
+  const [controlledActiveTab, setControlledActiveTab] = useState("1");
   const [showModal, setShowModal] = useState(false);
   const [requestedTab, setRequestedTab] = useState<string | null>(null);
 
   const handleTabChange = (key: string) => {
-    if (key !== interceptActiveTab) {
+    if (key !== controlledActiveTab) {
       setRequestedTab(key);
       setShowModal(true);
     }
@@ -122,7 +122,7 @@ export const TabViewDemo = () => {
 
   const confirmTabSwitch = () => {
     if (requestedTab) {
-      setInterceptActiveTab(requestedTab);
+      setControlledActiveTab(requestedTab);
       setRequestedTab(null);
     }
     setShowModal(false);
@@ -134,8 +134,8 @@ export const TabViewDemo = () => {
   };
 
   const handleTabClose = (key: string) => {
-    const tabIndex = interceptVisibleTabs.findIndex((tab) => tab === key);
-    const newVisibleTabs = interceptVisibleTabs.filter((tab) => tab !== key);
+    const tabIndex = controlledVisibleTabs.findIndex((tab) => tab === key);
+    const newVisibleTabs = controlledVisibleTabs.filter((tab) => tab !== key);
 
     let newActiveTab = "";
     if (tabIndex > 0) {
@@ -144,8 +144,8 @@ export const TabViewDemo = () => {
       newActiveTab = newVisibleTabs[0];
     }
 
-    setInterceptActiveTab(newActiveTab);
-    setInterceptVisibleTabs(newVisibleTabs);
+    setControlledActiveTab(newActiveTab);
+    setControlledVisibleTabs(newVisibleTabs);
   };
 
   return (
@@ -404,9 +404,9 @@ const [active, setActive] = useState("1");
             onClick={() =>
               addTab(
                 "5",
-                interceptVisibleTabs,
-                setInterceptVisibleTabs,
-                setInterceptActiveTab,
+                controlledVisibleTabs,
+                setControlledVisibleTabs,
+                setControlledActiveTab,
               )
             }
           />
@@ -415,9 +415,9 @@ const [active, setActive] = useState("1");
             onClick={() =>
               addTab(
                 "4",
-                interceptVisibleTabs,
-                setInterceptVisibleTabs,
-                setInterceptActiveTab,
+                controlledVisibleTabs,
+                setControlledVisibleTabs,
+                setControlledActiveTab,
               )
             }
           />
@@ -441,8 +441,8 @@ const [active, setActive] = useState("1");
             { label: "Certifications", children: "Certifications", key: "6" },
           ]}
           id="tabview-7"
-          activeKey={interceptActiveTab}
-          visibleTabs={interceptVisibleTabs}
+          activeKey={controlledActiveTab}
+          visibleTabs={controlledVisibleTabs}
           isControlled={true}
           onActiveTabChange={handleTabChange}
           onTabClose={handleTabClose}
