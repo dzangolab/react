@@ -99,6 +99,13 @@
       "pageControl": "Go to",
       "rowsPerPage": "Rows"
     },
+    "placeholders": {
+      "app": "Select app",
+      "date": "Select date",
+      "roles": "Select roles",
+      "search": "Search",
+      "status": "Select status"
+    },
     "searchPlaceholder": "Search",
     "status": {
       "accepted": "Accepted",
