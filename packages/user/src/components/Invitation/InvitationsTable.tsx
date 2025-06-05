@@ -269,55 +269,6 @@ export const InvitationsTable = ({
 
         return <Tag label={getLabel()} color={getColor()} fullWidth />;
       },
-      enableSorting: true,
-      enableColumnFilter: true,
-      filterFn: (row, columnId, filterValue) => {
-        if (!filterValue || filterValue.length === 0) {
-          return true;
-        }
-
-        const { acceptedAt, revokedAt, expiresAt } = row.original;
-
-        const getCellValue = () => {
-          if (acceptedAt) {
-            return "accepted";
-          }
-
-          if (revokedAt) {
-            return "revoked";
-          }
-
-          if (isExpired(expiresAt)) {
-            return "expired";
-          }
-
-          return "pending";
-        };
-
-        return filterValue.includes(getCellValue());
-      },
-      meta: {
-        filterOptions: [
-          {
-            value: "accepted",
-            label: t("table.status.accepted"),
-          },
-          {
-            value: "revoked",
-            label: t("table.status.revoked"),
-          },
-          {
-            value: "expired",
-            label: t("table.status.expired"),
-          },
-          {
-            value: "pending",
-            label: t("table.status.pending"),
-          },
-        ],
-        filterVariant: "multiselect",
-      },
-      filterPlaceholder: t("table.placeholders.status"),
     },
     {
       accessorKey: "expiresAt",
