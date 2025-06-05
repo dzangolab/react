@@ -34,6 +34,37 @@ export const InvitationsTableDemo = () => {
               minWidth: "20rem",
               width: "20rem",
             },
+            {
+              accessorKey: "appId",
+              filterFn: (row, columnId, filterValue) => {
+                if (!filterValue || filterValue.length === 0) {
+                  return true;
+                }
+
+                const updatedFilterValue = filterValue.map((value: string) => {
+                  switch (value) {
+                    case "1":
+                      return 1;
+                    case "2":
+                      return 2;
+                    default:
+                      return 3;
+                  }
+                });
+
+                return updatedFilterValue.includes(row.original.appId);
+              },
+            },
+          ]}
+          appFilterOptions={[
+            { value: "1", label: "1" },
+            { value: "2", label: "2" },
+            { value: "3", label: "3" },
+          ]}
+          roleFilterOptions={[
+            { value: "ADMIN", label: "ADMIN" },
+            { value: "SUPERADMIN", label: "SUPERADMIN" },
+            { value: "USER", label: "USER" },
           ]}
         />
       </Section>
