@@ -443,7 +443,7 @@ const [active, setActive] = useState("1");
           id="tabview-7"
           activeKey={controlledActiveTab}
           visibleTabs={controlledVisibleTabs}
-          isControlled={true}
+          interceptTabChange={true}
           onActiveTabChange={handleTabChange}
           onTabClose={handleTabClose}
         />
