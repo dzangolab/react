@@ -180,24 +180,6 @@ export const InvitationsTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
-      filterFn: (row, columnId, filterValue) => {
-        if (!filterValue || filterValue.length === 0) {
-          return true;
-        }
-
-        const updatedFilterValue = filterValue.map((value: string) => {
-          switch (value) {
-            case "1":
-              return 1;
-            case "2":
-              return 2;
-            default:
-              return 3;
-          }
-        });
-
-        return updatedFilterValue.includes(row.original.appId);
-      },
       filterPlaceholder: t("table.placeholders.app"),
       header: t("table.defaultColumns.app"),
       meta: {
