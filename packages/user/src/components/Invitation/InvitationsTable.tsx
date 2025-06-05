@@ -66,7 +66,6 @@ export type InvitationsTableProperties = Partial<
   roleFilterOptions?: FilterOption[];
   showAppColumn?: boolean;
   showInviteAction?: boolean;
-  statusFilterOptions?: FilterOption[];
   visibleColumns?: VisibleColumn[];
 };
 
@@ -88,7 +87,6 @@ export const InvitationsTable = ({
   roles,
   roleFilterOptions,
   showInviteAction = true,
-  statusFilterOptions,
   totalRecords = 0,
   visibleColumns = [
     "email",
@@ -299,7 +297,6 @@ export const InvitationsTable = ({
         return filterValue.includes(getCellValue());
       },
       meta: {
-        filterVariant: "multiselect",
         filterOptions: [
           {
             value: "accepted",
@@ -318,6 +315,7 @@ export const InvitationsTable = ({
             label: t("table.status.pending"),
           },
         ],
+        filterVariant: "multiselect",
       },
       filterPlaceholder: t("table.placeholders.status"),
     },
