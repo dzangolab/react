@@ -8,16 +8,9 @@ import {
   TableColumnDefinition,
   Tag,
   formatDateTime,
+  FilterOption,
 } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
-
-import {
-  deleteInvitation,
-  resendInvitation,
-  revokeInvitation,
-} from "@/api/invitation";
-import { useConfig } from "@/hooks";
-import { DeleteInvitationResponse } from "@/types/invitation";
 
 import { InvitationModal } from "./InvitationModal";
 
@@ -32,9 +25,17 @@ import type {
   UserType,
 } from "../../types";
 
+import {
+  deleteInvitation,
+  resendInvitation,
+  revokeInvitation,
+} from "@/api/invitation";
+import { useConfig } from "@/hooks";
+import { DeleteInvitationResponse } from "@/types/invitation";
+
 type VisibleColumn =
   | "email"
-  | "app"
+  | "appId"
   | "role"
   | "invitedBy"
   | "expiresAt"
@@ -49,6 +50,7 @@ export type InvitationsTableProperties = Partial<
   >
 > & {
   additionalInvitationFields?: AdditionalFormFields;
+  appFilterOptions?: FilterOption[];
   apps?: Array<InvitationAppOption>;
   fetchInvitations?: (arguments_: TRequestJSON) => void;
   invitationButtonOptions?: IButtonProperties;
@@ -60,6 +62,7 @@ export type InvitationsTableProperties = Partial<
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
+  roleFilterOptions?: FilterOption[];
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
   showInviteAction?: boolean;
@@ -68,6 +71,7 @@ export type InvitationsTableProperties = Partial<
 
 export const InvitationsTable = ({
   additionalInvitationFields,
+  appFilterOptions,
   apps,
   className = "table-invitations",
   columns = [],
@@ -80,12 +84,13 @@ export const InvitationsTable = ({
   onInvitationResent,
   onInvitationRevoked,
   prepareInvitationData,
+  roleFilterOptions,
   roles,
   showInviteAction = true,
   totalRecords = 0,
   visibleColumns = [
     "email",
-    "app",
+    "appId",
     "role",
     "invitedBy",
     "expiresAt",
@@ -161,24 +166,30 @@ export const InvitationsTable = ({
   const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
       accessorKey: "email",
-      header: t("table.defaultColumns.email"),
-      enableSorting: true,
       enableColumnFilter: true,
       enableGlobalFilter: true,
+      enableSorting: true,
       filterPlaceholder: t("table.searchPlaceholder"),
+      header: t("table.defaultColumns.email"),
     },
     {
+      accessorKey: "appId",
       align: "center",
-      accessorKey: "app",
-      header: t("table.defaultColumns.app"),
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.app"),
+      header: t("table.defaultColumns.app"),
+      meta: {
+        filterOptions: appFilterOptions,
+        filterVariant: "multiselect",
+      },
     },
     {
-      align: "center",
       accessorKey: "role",
-      header: t("table.defaultColumns.role"),
+      align: "center",
       cell: ({ getValue, row: { original } }) => {
         const roles = (original as unknown as { roles: string[] })?.roles;
 
@@ -206,6 +217,14 @@ export const InvitationsTable = ({
             fullWidth
           />
         );
+      },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.roles"),
+      header: t("table.defaultColumns.role"),
+      meta: {
+        filterOptions: roleFilterOptions,
+        filterVariant: "multiselect",
       },
     },
     {
