@@ -66,6 +66,7 @@ export type InvitationsTableProperties = Partial<
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
   showInviteAction?: boolean;
+  statusFilterOptions?: FilterOption[];
   visibleColumns?: VisibleColumn[];
 };
 
@@ -87,6 +88,7 @@ export const InvitationsTable = ({
   roleFilterOptions,
   roles,
   showInviteAction = true,
+  statusFilterOptions,
   totalRecords = 0,
   visibleColumns = [
     "email",
@@ -229,7 +231,6 @@ export const InvitationsTable = ({
     },
     {
       accessorKey: "invitedBy",
-      header: t("table.defaultColumns.invitedBy"),
       cell: ({ getValue }) => {
         const invitedBy = getValue() as UserType;
 
@@ -243,11 +244,11 @@ export const InvitationsTable = ({
 
         return invitedBy?.email;
       },
+      header: t("table.defaultColumns.invitedBy"),
     },
     {
-      align: "center",
       accessorKey: "status",
-      header: t("table.defaultColumns.status"),
+      align: "center",
       cell: ({ row: { original } }) => {
         const { acceptedAt, revokedAt, expiresAt } = original;
 
@@ -268,6 +269,14 @@ export const InvitationsTable = ({
         };
 
         return <Tag label={getLabel()} color={getColor()} fullWidth />;
+      },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.status"),
+      header: t("table.defaultColumns.status"),
+      meta: {
+        filterOptions: statusFilterOptions,
+        filterVariant: "multiselect",
       },
     },
     {
