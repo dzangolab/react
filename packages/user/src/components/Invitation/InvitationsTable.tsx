@@ -173,8 +173,8 @@ export const InvitationsTable = ({
       filterPlaceholder: t("table.searchPlaceholder"),
     },
     {
-      align: "center",
       accessorKey: "appId",
+      align: "center",
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
@@ -183,14 +183,13 @@ export const InvitationsTable = ({
       filterPlaceholder: t("table.placeholders.app"),
       header: t("table.defaultColumns.app"),
       meta: {
-        filterVariant: "multiselect",
         filterOptions: appFilterOptions,
+        filterVariant: "multiselect",
       },
     },
     {
-      align: "center",
       accessorKey: "role",
-      header: t("table.defaultColumns.role"),
+      align: "center",
       cell: ({ getValue, row: { original } }) => {
         const roles = (original as unknown as { roles: string[] })?.roles;
 
@@ -219,17 +218,17 @@ export const InvitationsTable = ({
           />
         );
       },
-      enableSorting: true,
       enableColumnFilter: true,
-      meta: {
-        filterVariant: "multiselect",
-        filterOptions: roleFilterOptions,
-      },
+      enableSorting: true,
       filterPlaceholder: t("table.placeholders.roles"),
+      header: t("table.defaultColumns.role"),
+      meta: {
+        filterOptions: roleFilterOptions,
+        filterVariant: "multiselect",
+      },
     },
     {
       accessorKey: "invitedBy",
-      header: t("table.defaultColumns.invitedBy"),
       cell: ({ getValue }) => {
         const invitedBy = getValue() as UserType;
 
@@ -243,11 +242,11 @@ export const InvitationsTable = ({
 
         return invitedBy?.email;
       },
+      header: t("table.defaultColumns.invitedBy"),
     },
     {
-      align: "center",
       accessorKey: "status",
-      header: t("table.defaultColumns.status"),
+      align: "center",
       cell: ({ row: { original } }) => {
         const { acceptedAt, revokedAt, expiresAt } = original;
 
@@ -269,35 +268,11 @@ export const InvitationsTable = ({
 
         return <Tag label={getLabel()} color={getColor()} fullWidth />;
       },
-      enableSorting: true,
       enableColumnFilter: true,
-      filterFn: (row, columnId, filterValue) => {
-        if (!filterValue || filterValue.length === 0) {
-          return true;
-        }
-
-        const { acceptedAt, revokedAt, expiresAt } = row.original;
-
-        const getCellValue = () => {
-          if (acceptedAt) {
-            return "accepted";
-          }
-
-          if (revokedAt) {
-            return "revoked";
-          }
-
-          if (isExpired(expiresAt)) {
-            return "expired";
-          }
-
-          return "pending";
-        };
-
-        return filterValue.includes(getCellValue());
-      },
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.status"),
+      header: t("table.defaultColumns.status"),
       meta: {
-        filterVariant: "multiselect",
         filterOptions: [
           {
             value: "accepted",
@@ -316,22 +291,22 @@ export const InvitationsTable = ({
             label: t("table.status.pending"),
           },
         ],
+        filterVariant: "multiselect",
       },
-      filterPlaceholder: t("table.placeholders.status"),
     },
     {
       accessorKey: "expiresAt",
-      header: t("table.defaultColumns.expiresAt"),
-      enableSorting: true,
       enableColumnFilter: true,
+      enableSorting: true,
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as string);
       },
+      filterPlaceholder: t("table.placeholders.date"),
+      header: t("table.defaultColumns.expiresAt"),
       meta: {
         filterVariant: "dateRange",
         serverFilterFn: "between",
       },
-      filterPlaceholder: t("table.placeholders.date"),
     },
   ];
 
@@ -342,8 +317,8 @@ export const InvitationsTable = ({
           <InvitationModal
             additionalInvitationFields={additionalInvitationFields}
             apps={apps}
-            invitationButtonOptions={invitationButtonOptions}
             expiryDateField={invitationExpiryDateField}
+            invitationButtonOptions={invitationButtonOptions}
             onSubmitted={onInvitationAdded}
             prepareData={prepareInvitationData}
             roles={roles}
