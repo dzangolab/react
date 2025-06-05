@@ -19,14 +19,16 @@ type Tab = {
 type Properties = {
   activeKey?: string;
   id?: string;
+  isControlled?: boolean;
   lazy?: boolean;
   persistState?: boolean;
   persistStateStorage?: StorageType;
   position?: TPosition;
   tabs: Tab[];
   visibleTabs?: string[];
-  beforeTabChange?: (confirm: () => void) => void;
   onActiveTabChange?: (activeTab: string) => void;
+  onTabChange?: (activeTab: string) => void;
+  onTabClose?: (activeTab: string) => void;
   onVisibleTabsChange?: (visibleTabs: string[]) => void;
 };
 
