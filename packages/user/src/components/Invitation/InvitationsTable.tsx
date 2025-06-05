@@ -90,7 +90,7 @@ export const InvitationsTable = ({
   totalRecords = 0,
   visibleColumns = [
     "email",
-    "app",
+    "appId",
     "role",
     "invitedBy",
     "expiresAt",
@@ -174,7 +174,7 @@ export const InvitationsTable = ({
     },
     {
       align: "center",
-      accessorKey: "app",
+      accessorKey: "appId",
       enableSorting: true,
       enableColumnFilter: true,
       filterFn: (row, columnId, filterValue) => {
@@ -195,6 +195,7 @@ export const InvitationsTable = ({
 
         return updatedFilterValue.includes(row.original.appId);
       },
+      filterPlaceholder: t("table.placeholders.app"),
       header: t("table.defaultColumns.app"),
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
@@ -246,8 +247,6 @@ export const InvitationsTable = ({
     },
     {
       accessorKey: "invitedBy",
-      enableSorting: true,
-      enableColumnFilter: true,
       header: t("table.defaultColumns.invitedBy"),
       cell: ({ getValue }) => {
         const invitedBy = getValue() as UserType;
