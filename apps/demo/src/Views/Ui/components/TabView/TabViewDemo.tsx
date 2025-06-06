@@ -18,19 +18,19 @@ const data = [
   },
   {
     id: 2,
+    prop: "controlled",
+    type: "boolean",
+    default: "false",
+    description:
+      "If true, TabView becomes a controlled component. Tab switching and closing are delegated to the parent via 'onActiveTabChange' and 'onTabClose'. Internal state updates and persistence are disabled.",
+  },
+  {
+    id: 3,
     prop: "id",
     type: "string",
     default: "-",
     description:
       "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
-  },
-  {
-    id: 3,
-    prop: "interceptTabChange",
-    type: "boolean",
-    default: "false",
-    description:
-      "If true, TabView becomes a controlled component. Tab switching and closing are delegated to the parent via 'onActiveTabChange' and 'onTabClose'. Internal state updates and persistence are disabled.",
   },
   {
     id: 4,
@@ -451,7 +451,7 @@ const [active, setActive] = useState("1");
           id="tabview-7"
           activeKey={controlledActiveTab}
           visibleTabs={controlledVisibleTabs}
-          interceptTabChange={true}
+          controlled={true}
           onActiveTabChange={handleTabChange}
           onTabClose={handleTabClose}
         />
