@@ -7,6 +7,8 @@ interface ISelect<T extends string | number>
     ISelectProperties<T>,
     "onChange" | "value" | "hasError" | "errorMessage"
   > {
+  minSelection?: number;
+  maxSelection?: number;
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitCount?: number;
@@ -14,6 +16,8 @@ interface ISelect<T extends string | number>
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
+  minSelection,
+  maxSelection,
   multiple = false,
   name,
   options,
@@ -22,13 +26,40 @@ export const Select = <T extends string | number>({
   submitCount = 0,
   ...others
 }: ISelect<T>) => {
-  const { control, getFieldState, setValue } = useFormContext();
+  const { control, setValue, setError, clearErrors, getFieldState } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
 
   const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
     if (showValidState && !invalid) return false;
+  };
+
+  const handleChange = (value: T | T[]) => {
+    console.log("value", value)
+    const values = multiple ? (value as T[]) : [value as T];
+
+
+    let errorMessage: string | null = null;
+
+    // Validation logic
+   
+  if (minSelection && values.length < minSelection) {
+    errorMessage = `Please select at least ${minSelection} option(s).`;
+  } else if (maxSelection && values.length > maxSelection) {
+    errorMessage = `You can select up to ${maxSelection} option(s) only.`;
+  }
+
+  if (errorMessage) {
+    setError(name, {
+      type: "manual",
+      message: errorMessage,
+    });
+  } else {
+    clearErrors(name);
+  }
+
+  setValue(name, multiple ? values : values[0], { shouldValidate: !errorMessage });
   };
 
   //TODO [MA 2024-05-31]: remove this redundant useEffect for auto selecting single option
@@ -42,7 +73,7 @@ export const Select = <T extends string | number>({
       setValue(name, options[0].value);
     }
   }, [options]);
-
+  console.log("error", error)
   return (
     <Controller
       name={name}
@@ -56,7 +87,7 @@ export const Select = <T extends string | number>({
           multiple={multiple}
           name={name}
           options={options}
-          onChange={field.onChange}
+          onChange={handleChange}
           value={field.value}
           {...others}
         />
