@@ -110,14 +110,14 @@ export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
 
-  const [visibleTabs, setVisibleTabs] = useState(["1"]);
-  const [active, setActive] = useState("1");
+  const [visibleTabs, setVisibleTabs] = useState(["30"]);
+  const [active, setActive] = useState("30");
   const [controlledVisibleTabs, setControlledVisibleTabs] = useState([
-    "1",
-    "2",
-    "4",
+    "36",
+    "37",
+    "38",
   ]);
-  const [controlledActiveTab, setControlledActiveTab] = useState("1");
+  const [controlledActiveTab, setControlledActiveTab] = useState("36");
   const [showModal, setShowModal] = useState(false);
   const [requestedTab, setRequestedTab] = useState<string | null>(null);
 
@@ -213,27 +213,48 @@ export const TabViewDemo = () => {
       <Section title={t("tabview.usage.disableTabState.title")}>
         <p>{t("tabbedPanel.usage.disableTabState.subTitle")}</p>
         <TabView
-          visibleTabs={["1", "5", "6"]}
-          tabs={tabs}
-          activeKey="1"
+          visibleTabs={["7", "11", "12"]}
+          tabs={[
+            { label: "Description", children: "Description", key: "7" },
+            { label: "Reviews", children: "Reviews", key: "8" },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "9",
+            },
+            { label: "Pricing", children: "Pricing", key: "10" },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "11",
+            },
+            { label: "Certifications", children: "Certifications", key: "12" },
+          ]}
+          activeKey="7"
           id="tabview-2"
           persistState={false}
         />
         <CodeBlock
           exampleCode='
-const tabs = [
- { label: "Description", children: "Description", key: "1" },
- { label: "Reviews", children: "Reviews", key: "2", closable: true },
- { label: "Specifications", children: "Specifications", key: "3", closable: true },
- { label: "Pricing", children: "Pricing", key: "4", closable: true },
- { label: "Installation", children: "Installation Instructions", key: "5" },
- { label: "Certifications", children: "Certifications", key: "6" },
-];
-
 <TabView
-  visibleTabs={["1","5","6"]}
-  tabs={tabs}
-  activeKey="1"
+visibleTabs={["7", "11", "12"]}
+tabs={[
+  { label: "Description", children: "Description", key: "7" },
+  { label: "Reviews", children: "Reviews", key: "8" },
+  {
+    label: "Specifications",
+    children: "Specifications",
+    key: "9",
+  },
+  { label: "Pricing", children: "Pricing", key: "10" },
+  {
+    label: "Installation",
+    children: "Installation Instructions",
+    key: "11",
+  },
+  { label: "Certifications", children: "Certifications", key: "12" },
+]}
+  activeKey="7"
   id="tabview-2"
   persistState={false}
 />'
@@ -242,27 +263,48 @@ const tabs = [
 
       <Section title={t("tabview.usage.positionBottom")}>
         <TabView
-          visibleTabs={["1", "5", "6"]}
-          tabs={tabs}
-          activeKey="1"
+          visibleTabs={["13", "16", "17"]}
+          tabs={[
+            { label: "Description", children: "Description", key: "13" },
+            { label: "Reviews", children: "Reviews", key: "14" },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "15",
+            },
+            { label: "Pricing", children: "Pricing", key: "16" },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "17",
+            },
+            { label: "Certifications", children: "Certifications", key: "18" },
+          ]}
+          activeKey="13"
           id="tabview-4"
           position="bottom"
         />
         <CodeBlock
           exampleCode='
-const tabs = [
- { label: "Description", children: "Description", key: "1" },
- { label: "Reviews", children: "Reviews", key: "2", closable: true },
- { label: "Specifications", children: "Specifications", key: "3", closable: true },
- { label: "Pricing", children: "Pricing", key: "4", closable: true },
- { label: "Installation", children: "Installation Instructions", key: "5" },
- { label: "Certifications", children: "Certifications", key: "6" },
-];
-
 <TabView
-  visibleTabs={["1","5","6"]}
-  tabs={tabs}
-  activeKey="1"
+visibleTabs={["13", "16", "17"]}
+tabs={[
+  { label: "Description", children: "Description", key: "13" },
+  { label: "Reviews", children: "Reviews", key: "14" },
+  {
+    label: "Specifications",
+    children: "Specifications",
+    key: "15",
+  },
+  { label: "Pricing", children: "Pricing", key: "16" },
+  {
+    label: "Installation",
+    children: "Installation Instructions",
+    key: "17",
+  },
+  { label: "Certifications", children: "Certifications", key: "18" },
+]}
+  activeKey="13"
   id="tabview-4"
   position="bottom"
 />'
@@ -271,27 +313,48 @@ const tabs = [
 
       <Section title={t("tabview.usage.positionLeft")}>
         <TabView
-          visibleTabs={["1", "5", "6"]}
-          tabs={tabs}
-          activeKey="1"
+          visibleTabs={["18", "22", "23"]}
+          tabs={[
+            { label: "Description", children: "Description", key: "18" },
+            { label: "Reviews", children: "Reviews", key: "19" },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "20",
+            },
+            { label: "Pricing", children: "Pricing", key: "21" },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "22",
+            },
+            { label: "Certifications", children: "Certifications", key: "23" },
+          ]}
+          activeKey="18"
           id="tabview-5"
           position="left"
         />
         <CodeBlock
-          exampleCode='
-const tabs = [
- { label: "Description", children: "Description", key: "1" },
- { label: "Reviews", children: "Reviews", key: "2", closable: true },
- { label: "Specifications", children: "Specifications", key: "3", closable: true },
- { label: "Pricing", children: "Pricing", key: "4", closable: true },
- { label: "Installation", children: "Installation Instructions", key: "5" },
- { label: "Certifications", children: "Certifications", key: "6" },
-];
-    
+          exampleCode=' 
 <TabView
-  visibleTabs={["1","5","6"]}
-  tabs={tabs}
-  activeKey="1"
+visibleTabs={["18", "22", "23"]}
+tabs={[
+  { label: "Description", children: "Description", key: "18" },
+  { label: "Reviews", children: "Reviews", key: "19" },
+  {
+    label: "Specifications",
+    children: "Specifications",
+    key: "20",
+  },
+  { label: "Pricing", children: "Pricing", key: "21" },
+  {
+    label: "Installation",
+    children: "Installation Instructions",
+    key: "22",
+  },
+  { label: "Certifications", children: "Certifications", key: "23" },
+]}
+  activeKey="18"
   id="tabview-5"
   position="left"
   onVisibleTabsChange={setCustomVisibleTabs}
@@ -301,27 +364,48 @@ const tabs = [
 
       <Section title={t("tabview.usage.positionRight")}>
         <TabView
-          visibleTabs={["1", "5", "6"]}
-          tabs={tabs}
-          activeKey="1"
+          visibleTabs={["24", "26", "29"]}
+          tabs={[
+            { label: "Description", children: "Description", key: "24" },
+            { label: "Reviews", children: "Reviews", key: "25" },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "26",
+            },
+            { label: "Pricing", children: "Pricing", key: "27" },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "28",
+            },
+            { label: "Certifications", children: "Certifications", key: "29" },
+          ]}
+          activeKey="24"
           id="tabview-6"
           position="right"
         />
         <CodeBlock
           exampleCode='
-const tabs = [
- { label: "Description", children: "Description", key: "1" },
- { label: "Reviews", children: "Reviews", key: "2", closable: true },
- { label: "Specifications", children: "Specifications", key: "3", closable: true },
- { label: "Pricing", children: "Pricing", key: "4", closable: true },
- { label: "Installation", children: "Installation Instructions", key: "5" },
- { label: "Certifications", children: "Certifications", key: "6" },
-];
-    
 <TabView
-  visibleTabs={["1","5","6"]}
-  tabs={tabs}
-  activeKey="1"
+visibleTabs={["24", "26", "29"]}
+tabs={[
+  { label: "Description", children: "Description", key: "24" },
+  { label: "Reviews", children: "Reviews", key: "25" },
+  {
+    label: "Specifications",
+    children: "Specifications",
+    key: "26",
+  },
+  { label: "Pricing", children: "Pricing", key: "27" },
+  {
+    label: "Installation",
+    children: "Installation Instructions",
+    key: "28",
+  },
+  { label: "Certifications", children: "Certifications", key: "29" },
+]}
+  activeKey="24"
   id="tabview-6"
   position="right"
 />'
@@ -332,20 +416,46 @@ const tabs = [
         <div className="tab-button-group">
           <Button
             label="Add specifications tab"
-            onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+            onClick={() => addTab("32", visibleTabs, setVisibleTabs, setActive)}
           />
           <Button
             label="Add reviews tab"
-            onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+            onClick={() => addTab("31", visibleTabs, setVisibleTabs, setActive)}
           />
           <Button
             label="Add pricing tab"
-            onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+            onClick={() => addTab("33", visibleTabs, setVisibleTabs, setActive)}
           />
         </div>
         <TabView
           visibleTabs={visibleTabs}
-          tabs={tabs}
+          tabs={[
+            { label: "Description", children: "Description", key: "30" },
+            {
+              label: "Reviews",
+              children: "Reviews",
+              key: "31",
+              closable: true,
+            },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "32",
+              closable: true,
+            },
+            {
+              label: "Pricing",
+              children: "Pricing",
+              key: "33",
+              closable: true,
+            },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "34",
+            },
+            { label: "Certifications", children: "Certifications", key: "35" },
+          ]}
           activeKey={active}
           id="tabview-3"
           onVisibleTabsChange={setVisibleTabs}
@@ -353,15 +463,6 @@ const tabs = [
         />
         <CodeBlock
           exampleCode='
-const tabs = [
- { label: "Description", children: "Description", key: "1" },
- { label: "Reviews", children: "Reviews", key: "2", closable: true },
- { label: "Specifications", children: "Specifications", key: "3", closable: true },
- { label: "Pricing", children: "Pricing", key: "4", closable: true },
- { label: "Installation", children: "Installation Instructions", key: "5" },
- { label: "Certifications", children: "Certifications", key: "6" },
-];
-
 export const addTab = (
   key: string,
   visibleTabs: any[],
@@ -378,26 +479,42 @@ export const addTab = (
   }
 };
           
-const [visibleTabs, setVisibleTabs] = useState([{ key: "1" }]);
-const [active, setActive] = useState("1");
+const [visibleTabs, setVisibleTabs] = useState([{ key: "30" }]);
+const [active, setActive] = useState("30");
 
 <div className="tab-button-group">
   <Button
   label="Add specifications tab"
-  onClick={() => addTab("3", visibleTabs, setVisibleTabs, setActive)}
+  onClick={() => addTab("32", visibleTabs, setVisibleTabs, setActive)}
   />
   <Button 
   label="Add reviews tab" 
-  onClick={() => addTab("2", visibleTabs, setVisibleTabs, setActive)}
+  onClick={() => addTab("31", visibleTabs, setVisibleTabs, setActive)}
   />
   <Button 
   label="Add pricing tab" 
-  onClick={() => addTab("4", visibleTabs, setVisibleTabs, setActive)}
+  onClick={() => addTab("33", visibleTabs, setVisibleTabs, setActive)}
   />
 </div>
 <TabView
-  visibleTabs={visibleTabs}
-  tabs={tabs}
+visibleTabs={visibleTabs}
+ tabs={[
+   { label: "Description", children: "Description", key: "30" },
+   { label: "Reviews", children: "Reviews", key: "31", closable: true },
+   {
+     label: "Specifications",
+     children: "Specifications",
+     key: "32",
+     closable: true
+   },
+   { label: "Pricing", children: "Pricing", key: "33", closable: true },
+   {
+     label: "Installation",
+     children: "Installation Instructions",
+     key: "34",
+   },
+   { label: "Certifications", children: "Certifications", key: "35" },
+ ]}
   activeKey={active}
   id="tabview-3"
   onVisibleTabsChange={setVisibleTabs}
@@ -411,7 +528,7 @@ const [active, setActive] = useState("1");
             label="Add installation tab"
             onClick={() =>
               addTab(
-                "5",
+                "40",
                 controlledVisibleTabs,
                 setControlledVisibleTabs,
                 setControlledActiveTab,
@@ -422,7 +539,7 @@ const [active, setActive] = useState("1");
             label="Add pricing tab"
             onClick={() =>
               addTab(
-                "4",
+                "39",
                 controlledVisibleTabs,
                 setControlledVisibleTabs,
                 setControlledActiveTab,
@@ -432,21 +549,26 @@ const [active, setActive] = useState("1");
         </div>
         <TabView
           tabs={[
-            { label: "Description", children: "Description", key: "1" },
-            { label: "Reviews", children: "Reviews", key: "2" },
+            { label: "Description", children: "Description", key: "36" },
+            { label: "Reviews", children: "Reviews", key: "37" },
             {
               label: "Specifications",
               children: "Specifications",
-              key: "3",
+              key: "38",
             },
-            { label: "Pricing", children: "Pricing", key: "4" },
+            {
+              label: "Pricing",
+              children: "Pricing",
+              key: "39",
+              closable: true,
+            },
             {
               label: "Installation",
               children: "Installation Instructions",
-              key: "5",
+              key: "40",
               closable: true,
             },
-            { label: "Certifications", children: "Certifications", key: "6" },
+            { label: "Certifications", children: "Certifications", key: "41" },
           ]}
           id="tabview-7"
           activeKey={controlledActiveTab}
@@ -464,8 +586,12 @@ const [active, setActive] = useState("1");
 
         <CodeBlock
           exampleCode='
-const [interceptVisibleTabs, setInterceptVisibleTabs] = useState(["1", "2", "4"])
-const [interceptActiveTab, setInterceptActiveTab] = useState("1")
+const [controlledVisibleTabs, setControlledVisibleTabs] = useState([
+"36",
+"37",
+"38",
+]);
+const [controlledActiveTab, setControlledActiveTab] = useState("36");
 const [showModal, setShowModal] = useState(false);
 const [requestedTab, setRequestedTab] = useState<string | null>(null);
 
@@ -523,32 +649,32 @@ export const addTab = (
 <div className="tab-button-group">
 <Button
   label="Add installation tab"
-  onClick={() => addTab("5", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
+  onClick={() => addTab("40", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
 />
 <Button
   label="Add pricing tab"
-  onClick={() => addTab("4", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
+  onClick={() => addTab("39", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
 />
 </div>
 
 <TabView
-  tabs={[
-    { label: "Description", children: "Description", key: "1" },
-    { label: "Reviews", children: "Reviews", key: "2" },
-    {
-      label: "Specifications",
-      children: "Specifications",
-      key: "3",
-    },
-    { label: "Pricing", children: "Pricing", key: "4" },
-    {
-      label: "Installation",
-      children: "Installation Instructions",
-      key: "5",
-      closable: true
-    },
-    { label: "Certifications", children: "Certifications", key: "6" },
-  ]}
+tabs={[
+  { label: "Description", children: "Description", key: "36" },
+  { label: "Reviews", children: "Reviews", key: "37" },
+  {
+    label: "Specifications",
+    children: "Specifications",
+    key: "38",
+  },
+  { label: "Pricing", children: "Pricing", key: "39", closable: true},
+  {
+    label: "Installation",
+    children: "Installation Instructions",
+    key: "40",
+    closable: true,
+  },
+  { label: "Certifications", children: "Certifications", key: "41" },
+]}
   id="tabview-7"
   activeKey={interceptActiveTab}
   visibleTabs={interceptVisibleTabs}
