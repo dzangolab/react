@@ -90,6 +90,13 @@ const data = [
     default: "-",
     description: "Function to be called when visible tabs change.",
   },
+  {
+    id: 12,
+    prop: "onTabClose",
+    type: "(activeTab: string) => void",
+    default: "-",
+    description: "Function to be called when tab close.",
+  },
 ];
 
 export const TabViewDemo = () => {
