@@ -92,20 +92,6 @@ const data = [
   },
 ];
 
-const tabs = [
-  { label: "Description", children: "Description", key: "1" },
-  { label: "Reviews", children: "Reviews", key: "2", closable: true },
-  {
-    label: "Specifications",
-    children: "Specifications",
-    key: "3",
-    closable: true,
-  },
-  { label: "Pricing", children: "Pricing", key: "4", closable: true },
-  { label: "Installation", children: "Installation Instructions", key: "5" },
-  { label: "Certifications", children: "Certifications", key: "6" },
-];
-
 export const TabViewDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
@@ -131,6 +117,8 @@ export const TabViewDemo = () => {
   const confirmTabSwitch = () => {
     if (requestedTab) {
       setControlledActiveTab(requestedTab);
+      window.location.hash = requestedTab;
+
       setRequestedTab(null);
     }
     setShowModal(false);
@@ -154,6 +142,8 @@ export const TabViewDemo = () => {
 
     setControlledActiveTab(newActiveTab);
     setControlledVisibleTabs(newVisibleTabs);
+
+    window.location.hash = newActiveTab;
   };
 
   return (
@@ -473,9 +463,11 @@ export const addTab = (
   
   if (existingTab) {
     setActive(existingTab);
+    window.location.hash = existingTab;
   } else {
     setVisibleTabs([...visibleTabs, key]);
     setActive(key);
+    window.location.hash = key;
   }
 };
           
@@ -605,6 +597,8 @@ const handleTabChange = (key: string) => {
 const confirmTabSwitch = () => {
   if (requestedTab) {
     setInterceptActiveTab(requestedTab);
+    window.location.hash = requestedTab;
+
     setRequestedTab(null);
   }
   setShowModal(false);
@@ -628,6 +622,8 @@ const handleTabClose = (key: string) => {
 
   setInterceptActiveTab(newActiveTab);
   setInterceptVisibleTabs(newVisibleTabs);
+
+  window.location.hash = newActiveTab;
 }
 
 export const addTab = (

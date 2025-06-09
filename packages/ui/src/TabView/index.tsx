@@ -77,11 +77,10 @@ const TabView: React.FC<Properties> = ({
       }
     }
 
-    setInitialized(true);
-
     setHashTab();
     window.addEventListener("hashchange", setHashTab);
 
+    setInitialized(true);
     return () => window.removeEventListener("hashchange", setHashTab);
   }, []);
 
@@ -123,9 +122,6 @@ const TabView: React.FC<Properties> = ({
     if (shouldUpdateTab) {
       setActiveTab(hash);
     }
-
-    const element = document.getElementById(hash);
-    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleTabSwitch = (key: string) => {
@@ -135,9 +131,8 @@ const TabView: React.FC<Properties> = ({
       onActiveTabChange?.(key);
     } else {
       setActiveTab(key);
+      window.location.hash = key;
     }
-
-    window.location.hash = key;
   };
 
   const handleTabClose = (key: string) => {
@@ -159,6 +154,8 @@ const TabView: React.FC<Properties> = ({
 
     setActiveTab(newActiveTab);
     setVisibleTabs(newVisibleTabs);
+
+    window.location.hash = newActiveTab;
   };
 
   if (!initialized) return null;
@@ -176,7 +173,6 @@ const TabView: React.FC<Properties> = ({
             <button
               onClick={() => handleTabSwitch(item.key)}
               key={key}
-              id={item.key}
               role="tab"
               aria-label={title}
               aria-selected={isActive}
