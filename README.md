@@ -2,7 +2,7 @@
 A set of React libraries to be used in our monorepo apps.
 
 ## Demo app
-Please find our [demo app](https://dzangolab.github.io/react/) for examples.
+Please find our [demo app](https://app-5mgwtd.ws0.12deg.io/react/) for examples.
 
 ## Packages
   - @dzangolab/react-config (https://www.npmjs.com/package/@dzangolab/react-config)

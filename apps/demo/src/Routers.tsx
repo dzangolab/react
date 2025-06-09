@@ -1,4 +1,4 @@
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { BasicLayout } from "./layouts/BasicLayout";
 import ErrorBoundary from "./Views/ErrorBoundary";
@@ -25,8 +25,8 @@ import {
   routes as userRoutes,
 } from "./Views/User";
 
-const routes = () => {
-  return createHashRouter([
+const router = createBrowserRouter(
+  [
     {
       path: "/",
       element: <BasicLayout />,
@@ -93,11 +93,12 @@ const routes = () => {
         },
       ],
     },
-  ]);
-};
+  ],
+  { basename: import.meta.env.BASE_URL },
+);
 
 const Routers = () => {
-  return <RouterProvider router={routes()} />;
+  return <RouterProvider router={router} />;
 };
 
 export default Routers;

@@ -39,6 +39,16 @@ const TabView: React.FC<Properties> = ({
     [currentVisibleTabs, tabs],
   );
 
+  const filteredTabs = useMemo(() => {
+    if (currentVisibleTabs?.length) {
+      return currentVisibleTabs
+        .map((key) => tabs.find((t) => t.key === key))
+        .filter((tab): tab is Tab => !!tab);
+    }
+
+    return tabs;
+  }, [currentVisibleTabs, tabs]);
+
   const storage = useMemo(
     () => getStorage(persistStateStorage),
     [persistStateStorage],
@@ -57,9 +67,7 @@ const TabView: React.FC<Properties> = ({
   }, [activeTab]);
 
   useEffect(() => {
-    const hash = window.location.hash;
-
-    if (persistState && id && !controlled && !hash) {
+    if (persistState && id && !controlled) {
       const storedState = storage.getItem(id);
 
       if (storedState) {
@@ -90,9 +98,7 @@ const TabView: React.FC<Properties> = ({
   }, [activeKey]);
 
   useEffect(() => {
-    const hash = window.location.hash;
-
-    if (id && persistState && !controlled && !hash) {
+    if (id && persistState && !controlled) {
       storage.setItem(
         id,
         JSON.stringify({
@@ -105,6 +111,7 @@ const TabView: React.FC<Properties> = ({
 
   const setHashTab = () => {
     const hash = window.location.hash?.split("#").pop();
+
     if (!hash || hash?.includes("/")) {
       return;
     }
@@ -120,12 +127,6 @@ const TabView: React.FC<Properties> = ({
     const element = document.getElementById(hash);
     element?.scrollIntoView({ behavior: "smooth" });
   };
-
-  const filteredTabs = currentVisibleTabs?.length
-    ? currentVisibleTabs
-        .map((key) => tabs.find((tab) => tab.key === key))
-        .filter((tab): tab is Tab => tab !== undefined)
-    : tabs;
 
   const handleTabSwitch = (key: string) => {
     if (currentActiveKey === key) return;
