@@ -66,6 +66,7 @@ export type InvitationsTableProperties = Partial<
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
   showInviteAction?: boolean;
+  statusFilterOptions?: FilterOption[];
   visibleColumns?: VisibleColumn[];
 };
 
@@ -87,6 +88,7 @@ export const InvitationsTable = ({
   roleFilterOptions,
   roles,
   showInviteAction = true,
+  statusFilterOptions,
   totalRecords = 0,
   visibleColumns = [
     "email",
@@ -242,6 +244,8 @@ export const InvitationsTable = ({
 
         return invitedBy?.email;
       },
+      enableColumnFilter: true,
+      enableSorting: true,
       header: t("table.defaultColumns.invitedBy"),
     },
     {
@@ -269,6 +273,11 @@ export const InvitationsTable = ({
         return <Tag label={getLabel()} color={getColor()} fullWidth />;
       },
       header: t("table.defaultColumns.status"),
+      enableColumnFilter: true,
+      meta: {
+        filterOptions: statusFilterOptions,
+        filterVariant: "multiselect",
+      },
     },
     {
       accessorKey: "expiresAt",
