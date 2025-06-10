@@ -246,6 +246,7 @@ export const InvitationsTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: t("table.placeholders.invitedBy"),
       header: t("table.defaultColumns.invitedBy"),
     },
     {
@@ -272,8 +273,9 @@ export const InvitationsTable = ({
 
         return <Tag label={getLabel()} color={getColor()} fullWidth />;
       },
-      header: t("table.defaultColumns.status"),
       enableColumnFilter: true,
+      filterPlaceholder: t("table.placeholders.status"),
+      header: t("table.defaultColumns.status"),
       meta: {
         filterOptions: statusFilterOptions,
         filterVariant: "multiselect",
