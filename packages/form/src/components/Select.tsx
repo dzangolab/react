@@ -26,7 +26,7 @@ export const Select = <T extends string | number>({
   submitCount = 0,
   ...others
 }: ISelect<T>) => {
-  const { control, setValue, getFieldState } = useFormContext();
+  const { control, getFieldState, setValue } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
 
