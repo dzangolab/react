@@ -70,6 +70,42 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         showValidState={valid}
         showInvalidState={invalid}
       />
+      <Password
+        getFieldState={getFieldState}
+        label={t("formInput.label.password")}
+        name="password"
+        register={register}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+      />
+      <Input
+        getFieldState={getFieldState}
+        label={t("formInput.label.input")}
+        name="surname"
+        placeholder={t("formInput.placeHolder.input")}
+        register={register}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+        type="text"
+      />
+      <NumberInput
+        name="number"
+        label={t("formInput.label.number")}
+        placeholder={t("formInput.placeHolder.number")}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+      />
+      <Textarea
+        name="text"
+        label={t("formInput.label.text")}
+        placeholder={t("formInput.placeHolder.text")}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+      />
       <Select
         label={t("formInput.label.select")}
         name="select"
@@ -85,10 +121,72 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
-        maxSelection={3}
-        minSelection={2}
       />
-    
+      <Email
+        label={t("formInput.label.disabled")}
+        name="disabled"
+        disabled={true}
+        defaultValue="monorepo@gmail.com"
+      />
+      <Email
+        label={t("formInput.label.readOnly")}
+        name="readOnly"
+        readOnly={true}
+        defaultValue="monorepo@gmail.com"
+      />
+      <DateInput
+        label={t("formInput.label.dateInput")}
+        name="date"
+        register={register}
+        getFieldState={getFieldState}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+        max={new Date()}
+        min="2025-04-01"
+      />
+      <Typeahead
+        placeholder={t("formInput.placeHolder.typeahead")}
+        label={t("formInput.label.typeahead")}
+        name="typeahead"
+        data={options}
+        suggestionLabel="title"
+        loading={isLoading}
+        onSearch={handleDataFetch}
+        debounceTime={500}
+        submitCount={submitCount}
+        showValidState={valid}
+        showInvalidState={invalid}
+      />
+      <RadioInput
+        label={t("formInput.label.radioInput")}
+        name="radioInput"
+        options={[
+          { label: "One", value: "value 1" },
+          { label: "Two", value: "value 2" },
+          { label: "Three", value: "value 3" },
+        ]}
+      />
+      <CheckboxInput
+        label={t("formInput.label.checkboxInput")}
+        name="checkboxInput"
+        options={[
+          { label: "One", value: "value 1" },
+          { label: "Two", value: "value 2" },
+          { label: "Three", value: "value 3" },
+        ]}
+        direction={"horizontal"}
+      />
+      <CheckboxInput
+        inputLabel={
+          <span>
+            <b>{t("formInput.label.terms")}</b>
+            <br />
+            {t("formInput.label.termsInfo")}
+          </span>
+        }
+        name="terms"
+      />
       <FormActions
         actions={[
           {

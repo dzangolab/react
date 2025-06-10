@@ -26,40 +26,13 @@ export const Select = <T extends string | number>({
   submitCount = 0,
   ...others
 }: ISelect<T>) => {
-  const { control, setValue, setError, clearErrors, getFieldState } = useFormContext();
+  const { control, setValue, getFieldState } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
 
   const checkInvalidState = () => {
     if (showInvalidState && invalid) return true;
     if (showValidState && !invalid) return false;
-  };
-
-  const handleChange = (value: T | T[]) => {
-    console.log("value", value)
-    const values = multiple ? (value as T[]) : [value as T];
-
-
-    let errorMessage: string | null = null;
-
-    // Validation logic
-   
-  if (minSelection && values.length < minSelection) {
-    errorMessage = `Please select at least ${minSelection} option(s).`;
-  } else if (maxSelection && values.length > maxSelection) {
-    errorMessage = `You can select up to ${maxSelection} option(s) only.`;
-  }
-
-  if (errorMessage) {
-    setError(name, {
-      type: "manual",
-      message: errorMessage,
-    });
-  } else {
-    clearErrors(name);
-  }
-
-  setValue(name, multiple ? values : values[0], { shouldValidate: !errorMessage });
   };
 
   //TODO [MA 2024-05-31]: remove this redundant useEffect for auto selecting single option
@@ -73,12 +46,27 @@ export const Select = <T extends string | number>({
       setValue(name, options[0].value);
     }
   }, [options]);
-  console.log("error", error)
+
   return (
     <Controller
       name={name}
       control={control}
       defaultValue={multiple ? [] : undefined}
+      rules={{
+        validate: (value: T[] | T) => {
+          if (!multiple || !Array.isArray(value)) return;
+
+          if (minSelection && value.length < minSelection) {
+            return `Please select at least ${minSelection} option(s).`;
+          }
+
+          if (maxSelection && value.length > maxSelection) {
+            return `You can select up to ${maxSelection} option(s) only.`;
+          }
+
+          return true;
+        },
+      }}
       render={({ field }) => (
         <BasicSelect
           autoSelectSingleOption={autoSelectSingleOption}
@@ -87,7 +75,7 @@ export const Select = <T extends string | number>({
           multiple={multiple}
           name={name}
           options={options}
-          onChange={handleChange}
+          onChange={field.onChange}
           value={field.value}
           {...others}
         />
