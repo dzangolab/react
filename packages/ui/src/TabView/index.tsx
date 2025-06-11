@@ -61,13 +61,13 @@ const TabView: React.FC<Properties> = ({
   }, [visibleTabs]);
 
   useEffect(() => {
-    if (onActiveTabChange && !controlled) {
+    if (!controlled && onActiveTabChange) {
       onActiveTabChange(activeTab);
     }
   }, [activeTab]);
 
   useEffect(() => {
-    if (persistState && id && !controlled) {
+    if (!controlled && persistState && id) {
       const storedState = storage.getItem(id);
 
       if (storedState) {
@@ -81,23 +81,24 @@ const TabView: React.FC<Properties> = ({
     window.addEventListener("hashchange", setHashTab);
 
     setInitialized(true);
+
     return () => window.removeEventListener("hashchange", setHashTab);
   }, []);
 
   useEffect(() => {
-    if (initialized && _visibleTabs?.length && !controlled) {
+    if (!controlled && initialized && _visibleTabs?.length) {
       setVisibleTabs(_visibleTabs);
     }
   }, [_visibleTabs]);
 
   useEffect(() => {
-    if (initialized && activeKey && !controlled) {
+    if (!controlled && initialized && activeKey) {
       setActiveTab(activeKey);
     }
   }, [activeKey]);
 
   useEffect(() => {
-    if (id && persistState && !controlled) {
+    if (!controlled && id && persistState) {
       storage.setItem(
         id,
         JSON.stringify({
