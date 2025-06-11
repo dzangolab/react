@@ -460,6 +460,10 @@ tabs={[
         />
         <CodeBlock
           exampleCode='
+          
+const [visibleTabs, setVisibleTabs] = useState([{ key: "30" }]);
+const [active, setActive] = useState("30");
+
 export const addTab = (
   key: string,
   visibleTabs: any[],
@@ -477,9 +481,6 @@ export const addTab = (
     window.location.hash = key;
   }
 };
-          
-const [visibleTabs, setVisibleTabs] = useState([{ key: "30" }]);
-const [active, setActive] = useState("30");
 
 <div className="tab-button-group">
   <Button
@@ -517,11 +518,12 @@ visibleTabs={visibleTabs}
   activeKey={active}
   id="tabview-3"
   onVisibleTabsChange={setVisibleTabs}
+  onActiveTabChange={setActive}
 />'
         />
       </Section>
 
-      <Section title={t("tabview.usage.intercept")}>
+      <Section title={t("tabview.usage.control")}>
         <div className="tab-button-group">
           <Button
             label="Add installation tab"
@@ -595,7 +597,7 @@ const [showModal, setShowModal] = useState(false);
 const [requestedTab, setRequestedTab] = useState<string | null>(null);
 
 const handleTabChange = (key: string) => {
-  if (key !== interceptActiveTab) {
+  if (key !== controlledActiveTab) {
     setRequestedTab(key);
     setShowModal(true);
   }
@@ -603,7 +605,7 @@ const handleTabChange = (key: string) => {
 
 const confirmTabSwitch = () => {
   if (requestedTab) {
-    setInterceptActiveTab(requestedTab);
+    setControlledActiveTab(requestedTab);
     window.location.hash = requestedTab;
 
     setRequestedTab(null);
@@ -617,8 +619,8 @@ const cancelTabSwitch = () => {
 };
 
 const handleTabClose = (key: string) => {
-  const tabIndex = interceptVisibleTabs.findIndex((tab) => tab === key);
-  const newVisibleTabs = interceptVisibleTabs.filter((tab) => tab !== key);
+  const tabIndex = controlledVisibleTabs.findIndex((tab) => tab === key);
+  const newVisibleTabs = controlledVisibleTabs.filter((tab) => tab !== key);
 
   let newActiveTab = "";
   if (tabIndex > 0) {
@@ -627,11 +629,11 @@ const handleTabClose = (key: string) => {
     newActiveTab = newVisibleTabs[0];
   }
 
-  setInterceptActiveTab(newActiveTab);
-  setInterceptVisibleTabs(newVisibleTabs);
+  setControlledActiveTab(newActiveTab);
+  setControlledVisibleTabs(newVisibleTabs);
 
   window.location.hash = newActiveTab;
-}
+};
 
 export const addTab = (
   key: string,
@@ -640,24 +642,39 @@ export const addTab = (
   setActive: any,
 ) => {
   const existingTab = visibleTabs.find((tab) => tab === key);
-  
   if (existingTab) {
     setActive(existingTab);
+
+    window.location.hash = existingTab;
   } else {
     setVisibleTabs([...visibleTabs, key]);
     setActive(key);
+
+    window.location.hash = key;
   }
 };
 
 <div className="tab-button-group">
-<Button
-  label="Add installation tab"
-  onClick={() => addTab("40", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
-/>
-<Button
-  label="Add pricing tab"
-  onClick={() => addTab("39", interceptVisibleTabs, setInterceptVisibleTabs, setInterceptActiveTab)}
-/>
+  <Button
+    label="Add installation tab"
+    onClick={() =>
+      addTab(
+        "40",
+        controlledVisibleTabs,
+        setControlledVisibleTabs,
+        setControlledActiveTab,
+    )}
+  />
+  <Button
+    label="Add pricing tab"
+    onClick={() =>
+      addTab(
+        "39",
+        controlledVisibleTabs,
+        setControlledVisibleTabs,
+        setControlledActiveTab,
+      )}
+  />
 </div>
 
 <TabView
@@ -678,12 +695,12 @@ tabs={[
   },
   { label: "Certifications", children: "Certifications", key: "41" },
 ]}
-  id="tabview-7"
-  activeKey={interceptActiveTab}
-  visibleTabs={interceptVisibleTabs}
-  isControlled={true}
-  onActiveTabChange={handleTabChange}
-  onTabClose={handleTabClose}
+id="tabview-7"
+activeKey={controlledActiveTab}
+visibleTabs={controlledVisibleTabs}
+controlled={true}
+onActiveTabChange={handleTabChange}
+onTabClose={handleTabClose}
 />
 <ConfirmationModal
   message="Are you sure you want to proceed?"

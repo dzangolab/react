@@ -261,11 +261,11 @@
     "usage": {
       "basic": "Basic (fr)",
       "closable": "Closable tabs (fr)",
+      "control": "Controlled tab navigation (fr)",
       "disableTabState": {
         "subTitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing persistState={false} prop to the component (fr)",
         "title": "State persistence disabled (fr)"
       },
-      "intercept": "With interception before tab change (fr)",
       "positionBottom": "Bottom tabs (fr)",
       "positionLeft": "Left tabs (fr)",
       "positionRight": "Right tabs (fr)"
