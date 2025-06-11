@@ -246,7 +246,7 @@ export const InvitationsTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: t("table.placeholders.invitedBy"),
+      filterPlaceholder: t("table.placeholders.search"),
       header: t("table.defaultColumns.invitedBy"),
     },
     {
