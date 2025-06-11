@@ -2,32 +2,35 @@ import { Select as BasicSelect, ISelectProperties } from "@dzangolab/react-ui";
 import React, { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
+interface ValidationMessages {
+  maxSelection?: string;
+  minSelection?: string;
+}
+
 interface ISelect<T extends string | number>
   extends Omit<
     ISelectProperties<T>,
     "onChange" | "value" | "hasError" | "errorMessage"
   > {
   maxSelection?: number;
-  maxSelectionMessage?: string;
   minSelection?: number;
-  minSelectionMessage?: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitCount?: number;
+  validationMessages?: ValidationMessages;
 }
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
   maxSelection,
-  maxSelectionMessage,
   minSelection,
-  minSelectionMessage,
   multiple = false,
   name,
   options,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
+  validationMessages,
   ...others
 }: ISelect<T>) => {
   const { control, getFieldState, setValue } = useFormContext();
@@ -64,14 +67,14 @@ export const Select = <T extends string | number>({
 
           if (minSelection && count < minSelection) {
             return (
-              minSelectionMessage ||
+              validationMessages?.minSelection ||
               `Please select at least ${minSelection} option(s).`
             );
           }
 
           if (maxSelection && count > maxSelection) {
             return (
-              maxSelectionMessage ||
+              validationMessages?.maxSelection ||
               `You can select up to ${maxSelection} option(s) only.`
             );
           }
