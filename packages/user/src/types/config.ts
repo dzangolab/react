@@ -23,7 +23,7 @@ export interface UserConfig {
     signupFirstUser?: boolean;
     termsAndConditions?: {
       display: boolean;
-      label: ReactNode;
+      route: string;
       showCheckbox?: boolean;
     };
     updateEmail?: boolean;

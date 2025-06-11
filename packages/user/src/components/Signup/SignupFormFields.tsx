@@ -6,6 +6,7 @@ import {
   useWatch,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { InlineLink } from "@dzangolab/react-ui";
 import React, { useEffect } from "react";
 
 import { TermsAndConditions } from "./TermsAndConditions";
@@ -34,12 +35,26 @@ const SignupFormFields: React.FC<IProperties> = ({
   const {
     display: showTermsAndConditions,
     showCheckbox,
-    label,
+    route,
   } = config.features?.termsAndConditions || {};
 
   let isChecked = false;
 
   const passwordFieldValue = watch("password");
+
+  const termsAndConditionsLabel = (
+    <>
+      {t("signup.form.termsAndConditions.prefix")}{" "}
+      {route && (
+        <InlineLink
+          to={route}
+          label={t("signup.form.termsAndConditions.infix")}
+          underlined
+        />
+      )}{" "}
+      {t("signup.form.termsAndConditions.suffix")}
+    </>
+  );
 
   useEffect(() => {
     if (!isSubmitted) {
@@ -80,7 +95,7 @@ const SignupFormFields: React.FC<IProperties> = ({
       {showTermsAndConditions ? (
         <TermsAndConditions
           hasCheckbox={showCheckbox}
-          label={label}
+          label={termsAndConditionsLabel}
           name="termsAndConditions"
         />
       ) : null}
