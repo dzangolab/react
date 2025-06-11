@@ -55,7 +55,7 @@ export const Select = <T extends string | number>({
       rules={{
         validate: (value: T[] | T) => {
           if (!multiple || !Array.isArray(value)) return;
-          console.log("value", value);
+
           if (minSelection && value.length < minSelection) {
             return `Please select at least ${minSelection} option(s).`;
           }
