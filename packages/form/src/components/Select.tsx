@@ -7,8 +7,10 @@ interface ISelect<T extends string | number>
     ISelectProperties<T>,
     "onChange" | "value" | "hasError" | "errorMessage"
   > {
-  minSelection?: number;
   maxSelection?: number;
+  maxSelectionMessage?: string;
+  minSelection?: number;
+  minSelectionMessage?: string;
   showValidState?: boolean;
   showInvalidState?: boolean;
   submitCount?: number;
@@ -16,8 +18,10 @@ interface ISelect<T extends string | number>
 
 export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
-  minSelection,
   maxSelection,
+  maxSelectionMessage,
+  minSelection,
+  minSelectionMessage,
   multiple = false,
   name,
   options,
@@ -56,12 +60,20 @@ export const Select = <T extends string | number>({
         validate: (value: T[] | T) => {
           if (!multiple || !Array.isArray(value)) return;
 
-          if (minSelection && value.length < minSelection) {
-            return `Please select at least ${minSelection} option(s).`;
+          const count = value.length;
+
+          if (minSelection && count < minSelection) {
+            return (
+              minSelectionMessage ||
+              `Please select at least ${minSelection} option(s).`
+            );
           }
 
-          if (maxSelection && value.length > maxSelection) {
-            return `You can select up to ${maxSelection} option(s) only.`;
+          if (maxSelection && count > maxSelection) {
+            return (
+              maxSelectionMessage ||
+              `You can select up to ${maxSelection} option(s) only.`
+            );
           }
 
           return true;
