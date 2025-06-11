@@ -182,7 +182,7 @@ export const InvitationsTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: t("table.placeholders.app"),
+      filterPlaceholder: t("table.placeholders.appId"),
       header: t("table.defaultColumns.app"),
       meta: {
         filterOptions: appFilterOptions,
@@ -222,7 +222,7 @@ export const InvitationsTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: t("table.placeholders.roles"),
+      filterPlaceholder: t("table.placeholders.role"),
       header: t("table.defaultColumns.role"),
       meta: {
         filterOptions: roleFilterOptions,
@@ -246,7 +246,7 @@ export const InvitationsTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: t("table.placeholders.search"),
+      filterPlaceholder: t("table.placeholders.invitedBy"),
       header: t("table.defaultColumns.invitedBy"),
     },
     {
@@ -288,7 +288,7 @@ export const InvitationsTable = ({
       },
       enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: t("table.placeholders.date"),
+      filterPlaceholder: t("table.placeholders.expiresAt"),
       header: t("table.defaultColumns.expiresAt"),
       meta: {
         filterVariant: "dateRange",

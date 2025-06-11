@@ -100,10 +100,11 @@
       "rowsPerPage": "Rows"
     },
     "placeholders": {
-      "app": "Select app",
-      "date": "Select date",
-      "roles": "Select roles",
-      "search": "Search",
+      "appId": "Select app",
+      "email": "Search",
+      "expiresAt": "Select date",
+      "invitedBy": "Search",
+      "role": "Select roles",
       "status": "Select status"
     },
     "searchPlaceholder": "Search",

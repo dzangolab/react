@@ -97,10 +97,11 @@
       "rowsPerPage": "Rows (fr)"
     },
     "placeholders": {
-      "app": "Select app (fr)",
-      "date": "Select date (fr)",
-      "roles": "Select roles (fr)",
-      "search": "Search (fr)",
+      "appId": "Select app (fr)",
+      "email": "Search (fr)",
+      "expiresAt": "Select date (fr)",
+      "invitedBy": "Search (fr)",
+      "role": "Select roles (fr)",
       "status": "Select status (fr)"
     },
     "searchPlaceholder": "Search (fr)",
