@@ -18,6 +18,7 @@ type Tab = {
 
 type Properties = {
   activeKey?: string;
+  controlled?: boolean;
   id?: string;
   lazy?: boolean;
   persistState?: boolean;
@@ -26,6 +27,7 @@ type Properties = {
   tabs: Tab[];
   visibleTabs?: string[];
   onActiveTabChange?: (activeTab: string) => void;
+  onTabClose?: (activeTab: string) => void;
   onVisibleTabsChange?: (visibleTabs: string[]) => void;
 };
 
