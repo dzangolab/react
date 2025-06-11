@@ -1,0 +1,15 @@
+.currency-label {
+  align-items: baseline;
+  display: flex;
+  gap: .5rem;
+  width: 100%;
+}
+
+.currency-label .code {
+  color: var(--dz-secondary-color, #475569);
+  font-size: .9rem;
+}
+
+.currency-label .currency-symbol {
+  margin-left: auto;
+}

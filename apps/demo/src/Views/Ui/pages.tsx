@@ -15,6 +15,7 @@ import { FilesTableDemo } from "./components/FilesTable";
 import {
   CheckboxDemo,
   CheckboxInputDemo,
+  CurrencySelectorDemo,
   InputDemo,
   SelectDemo,
   SwitchInputDemo,
@@ -45,6 +46,7 @@ export const UI_ROUTES = {
   CHECKBOX: "/ui/checkbox",
   CHECKBOX_INPUT: "/ui/checkbox-input",
   CONFIRMATION_MODAL: "/ui/confirmation-modal",
+  CURRENCY_SELECTOR: "/ui/currency-selector",
   DATA_COMPONENT: "/ui/data-component",
   DROPDOWN_MENU: "/ui/dropdown-menu",
   EDITABLE_TITLE: "/ui/editable-title",
@@ -143,6 +145,11 @@ const FORM_WIDGETS_ROUTES = [
     path: UI_ROUTES.CHECKBOX_INPUT,
     key: "checkboxInput.title",
     element: <CheckboxInputDemo />,
+  },
+  {
+    path: UI_ROUTES.CURRENCY_SELECTOR,
+    key: "currencySelector.title",
+    element: <CurrencySelectorDemo />,
   },
   {
     path: UI_ROUTES.INPUT,
