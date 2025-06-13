@@ -67,7 +67,12 @@
     "message": "Are you sure you want to proceed? (fr)"
   },
   "currencySelector": {
-    "title": "CurrencySelector (fr)"
+    "label": "Currency (fr)",
+    "placeholder": "Select a currency (fr)",
+    "title": "CurrencySelector (fr)",
+    "usage": {
+      "basic": "Basic (fr)"
+    }
   },
   "data": {
     "title": "Data (fr)",

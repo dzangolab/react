@@ -1,4 +1,4 @@
-import { Trans, useTranslation } from "@dzangolab/react-i18n";
+import { useTranslation } from "@dzangolab/react-i18n";
 import { CurrencySelector, Page, Button } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,10 +28,10 @@ export const CurrencySelectorDemo = () => {
         <CodeBlock exampleCode='import { CurrencySelector } from "@dzangolab/react-ui"' />
       </Section>
 
-      <Section title={t("select.usage.basic")}>
+      <Section title={t("currencySelector.usage.basic")}>
         <CurrencySelector
-          label={t("select.label")}
-          name="select"
+          label={t("currencySelector.label")}
+          name="currencySelector"
           currencyOptions={[
             {
               code: "AUD",
@@ -46,7 +46,7 @@ export const CurrencySelectorDemo = () => {
           ]}
           value={singleSelectValue}
           onChange={(value: string) => setSingleSelectValue(value)}
-          placeholder={t("select.placeholder")}
+          placeholder={t("currencySelector.placeholder")}
         />
       </Section>
     </Page>
