@@ -44,6 +44,17 @@
   --dz-page-gap: 0.5rem;
   --dz-page-max-width: 550px;
 
+  --dz-table-border: 1px solid rgb(226, 226, 226);
+  --dz-table-header-bg: #f0f2f7ad;
+  --dz-table-overlay-bg: rgba(255, 255, 255, 0.6);
+  --dz-table-header-active-bg: rgb(232, 240, 255);
+  --dz-table-row-hover-bg: #318aff0f;
+  --dz-table-column-padding: 0.75rem;
+  --dz-table-row-selected-bg: rgb(240, 245, 255);
+  --dz-table-body-bg: transparent;
+  --dz-table-stripe-color: transparent;
+  --dz-table-actions-column-width: 4rem;
+
   --field-bg-color-disabled: #f8f8f8;
   --field-bg-color: transparent;
   --field-icon-color: #7b7676;

@@ -11,7 +11,7 @@ form {
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1rem;
   justify-content: stretch;
 }
 
