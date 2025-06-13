@@ -19,6 +19,6 @@
 }
 
 #popper[data-popper-reference-hidden] {
-  visibility: hidden;
   pointer-events: none;
+  visibility: hidden;
 }

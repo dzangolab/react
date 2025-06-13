@@ -1,17 +1,10 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   --layout-max-width: 100%;
   --logo-width: 150px;
-  --color: rgb(84, 84, 84);
 }
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  color: var(--color);
-  line-height: 1.5;
 }
 
 .main-menu > ul > li:hover,
