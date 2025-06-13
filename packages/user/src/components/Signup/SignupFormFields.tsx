@@ -47,16 +47,14 @@ const SignupFormFields: React.FC<IProperties> = ({
 
   const termsAndConditionsLabel = (
     <>
-      {t("signup.form.termsAndConditions.prefix")}{" "}
-      {url && (
-        <InlineLink
-          to={url}
-          label={t("signup.form.termsAndConditions.infix")}
-          external={external}
-          underlined
-        />
-      )}{" "}
-      {t("signup.form.termsAndConditions.suffix")}
+      {t("signup.form.termsAndConditions.prefix", { defaultValue: "" })}{" "}
+      <InlineLink
+        to={url || ""}
+        label={t("signup.form.termsAndConditions.infix")}
+        external={external}
+        underlined
+      />{" "}
+      {t("signup.form.termsAndConditions.suffix", { defaultValue: "" })}
     </>
   );
 
