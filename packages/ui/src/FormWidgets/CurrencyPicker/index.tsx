@@ -15,7 +15,7 @@ export type CurrencyOption = {
   value: string;
 };
 
-export type CurrencySelectorProperties<T extends string | number> = Omit<
+export type CurrencyPickerProperties<T extends string | number> = Omit<
   ISelectProperties<T>,
   "options"
 > & {
@@ -33,10 +33,10 @@ export type CurrencySelectorProperties<T extends string | number> = Omit<
       }
   );
 
-export const CurrencySelector = <T extends string | number = string>({
+export const CurrencyPicker = <T extends string | number = string>({
   currencyOptions,
   ...properties
-}: CurrencySelectorProperties<T>) => {
+}: CurrencyPickerProperties<T>) => {
   const selectOptions = currencyOptions.map((currency) => ({
     label: currency.label,
     value: currency.value as T,

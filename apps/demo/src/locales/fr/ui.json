@@ -66,12 +66,12 @@
     "header": "Confirmation required (fr)",
     "message": "Are you sure you want to proceed? (fr)"
   },
-  "currencySelector": {
+  "currencyPicker": {
     "label": "Currency (fr)",
     "multiSelectPlaceholder": "Select currencies (fr)",
     "placeholder": "Select a currency (fr)",
     "searchPlaceholder": "Search... (fr)",
-    "title": "CurrencySelector (fr)",
+    "title": "CurrencyPicker (fr)",
     "usage": {
       "basic": "Basic (fr)",
       "multiple": "Multiple currency select (fr)",

@@ -42,7 +42,7 @@
     },
     "label": {
       "checkboxInput": "Checkbox input (fr)",
-      "currencySelector": "Currency selector (fr)",
+      "currencyPicker": "Currency picker (fr)",
       "dateInput": "Date input (fr)",
       "disabled": "Disabled input (fr)",
       "email": "Email (fr)",
@@ -62,7 +62,7 @@
       "valid": "Show valid state (fr)"
     },
     "placeHolder": {
-      "currencySelector": "-- Select currency -- (fr)",
+      "currencyPicker": "-- Select currency -- (fr)",
       "email": "Enter email input (fr)",
       "input": "Input (fr)",
       "number": "Enter number input (fr)",

@@ -15,7 +15,7 @@ import { FilesTableDemo } from "./components/FilesTable";
 import {
   CheckboxDemo,
   CheckboxInputDemo,
-  CurrencySelectorDemo,
+  CurrencyPickerDemo,
   InputDemo,
   SelectDemo,
   SwitchInputDemo,
@@ -148,8 +148,8 @@ const FORM_WIDGETS_ROUTES = [
   },
   {
     path: UI_ROUTES.CURRENCY_SELECTOR,
-    key: "currencySelector.title",
-    element: <CurrencySelectorDemo />,
+    key: "currencyPicker.title",
+    element: <CurrencyPickerDemo />,
   },
   {
     path: UI_ROUTES.INPUT,

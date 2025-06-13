@@ -1,11 +1,11 @@
 import { Trans, useTranslation } from "@dzangolab/react-i18n";
-import { CurrencySelector, Page, Button } from "@dzangolab/react-ui";
+import { CurrencyPicker, Page, Button } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../../components/Demo";
 
-export const CurrencySelectorDemo = () => {
+export const CurrencyPickerDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ export const CurrencySelectorDemo = () => {
 
   return (
     <Page
-      title={t("currencySelector.title")}
+      title={t("currencyPicker.title")}
       toolbar={
         <Button
           label={t("buttons.back")}
@@ -45,26 +45,26 @@ export const CurrencySelectorDemo = () => {
       }
     >
       <Section title={t("headers.usage")}>
-        <p>{t("common.usage", { component: "CurrencySelector" })}</p>
-        <CodeBlock exampleCode='import { CurrencySelector } from "@dzangolab/react-ui"' />
+        <p>{t("common.usage", { component: "CurrencyPicker" })}</p>
+        <CodeBlock exampleCode='import { CurrencyPicker } from "@dzangolab/react-ui"' />
       </Section>
 
-      <Section title={t("currencySelector.usage.basic")}>
-        <CurrencySelector
-          label={t("currencySelector.label")}
-          name="currencySelector"
+      <Section title={t("currencyPicker.usage.basic")}>
+        <CurrencyPicker
+          label={t("currencyPicker.label")}
+          name="currencyPicker"
           currencyOptions={currencyOptions}
           value={singleSelectCurrencyValue}
           onChange={(value: string) => setSingleSelectCurrencyValue(value)}
-          placeholder={t("currencySelector.placeholder")}
+          placeholder={t("currencyPicker.placeholder")}
         />
         <CodeBlock
           exampleCode='
 const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<string>("");
         
-<CurrencySelector
-  label={t("currencySelector.label")}
-  name="currencySelector"
+<CurrencyPicker
+  label={t("currencyPicker.label")}
+  name="currencyPicker"
   currencyOptions={[
     { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
     { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
@@ -74,7 +74,7 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
   ]}
   value={singleSelectValue}
   onChange={(value: string) => setSingleSelectCurrencyValue(value)}
-  placeholder={t("currencySelector.placeholder")}
+  placeholder={t("currencyPicker.placeholder")}
 />'
         />
         <p>
@@ -84,26 +84,26 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
           ></Trans>
         </p>
       </Section>
-      <Section title={t("currencySelector.usage.singleSearch")}>
-        <CurrencySelector
-          label={t("currencySelector.label")}
-          name="currencySelector"
+      <Section title={t("currencyPicker.usage.singleSearch")}>
+        <CurrencyPicker
+          label={t("currencyPicker.label")}
+          name="currencyPicker"
           enableSearch
           currencyOptions={currencyOptions}
           value={searchableSingleSelectCurrencyValue}
           onChange={(value: string) =>
             setSearchableSingleSelectCurrencyValue(value)
           }
-          placeholder={t("currencySelector.placeholder")}
-          searchPlaceholder={t("currencySelector.searchPlaceholder")}
+          placeholder={t("currencyPicker.placeholder")}
+          searchPlaceholder={t("currencyPicker.searchPlaceholder")}
         />
         <CodeBlock
           exampleCode='
 const [searchableSingleSelectCurrencyValue, setSearchableSingleSelectCurrencyValue] = useState<string>("");
       
-<CurrencySelector
+<CurrencyPicker
   label={t("select.label")}
-  name="currencySelector"
+  name="currencyPicker"
   enableSearch
   currencyOptions={[
     { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
@@ -114,28 +114,28 @@ const [searchableSingleSelectCurrencyValue, setSearchableSingleSelectCurrencyVal
   ]}
   value={searchableSingleSelectCurrencyValue}
   onChange={(value: string) => setSearchableSingleSelectCurrencyValue(value)}
-  placeholder={t("currencySelector.placeholder")}
-  searchPlaceholder={t("currencySelector.searchPlaceholder")}
+  placeholder={t("currencyPicker.placeholder")}
+  searchPlaceholder={t("currencyPicker.searchPlaceholder")}
   />'
         />
       </Section>
-      <Section title={t("currencySelector.usage.multiple")}>
-        <CurrencySelector
-          label={t("currencySelector.label")}
-          name="currencySelector"
+      <Section title={t("currencyPicker.usage.multiple")}>
+        <CurrencyPicker
+          label={t("currencyPicker.label")}
+          name="currencyPicker"
           currencyOptions={currencyOptions}
           multiple={true}
           value={multiSelectCurrencyValue}
           onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
-          placeholder={t("currencySelector.multiSelectPlaceholder")}
+          placeholder={t("currencyPicker.multiSelectPlaceholder")}
         />
         <CodeBlock
           exampleCode='
 const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[]>([]);
       
-<Select
-  label={t("currencySelector.label")}
-  name="currencySelector"
+<CurrencyPicker
+  label={t("currencyPicker.label")}
+  name="currencyPicker"
   currencyOptions={[
     { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
     { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
@@ -146,7 +146,7 @@ const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[
   multiple={true}
   value={multiSelectCurrencyValue}
   onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
-  placeholder={t("currencySelector.multiSelectPlaceholder")}
+  placeholder={t("currencyPicker.multiSelectPlaceholder")}
   />'
         />
       </Section>

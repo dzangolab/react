@@ -1,6 +1,6 @@
 import {
-  CurrencySelector as BasicCurrencySelector,
-  CurrencySelectorProperties,
+  CurrencyPicker as BasicCurrencyPicker,
+  CurrencyPickerProperties,
 } from "@dzangolab/react-ui";
 import React, { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
@@ -10,9 +10,9 @@ interface ValidationMessages {
   minSelection?: string;
 }
 
-interface ICurrencySelectorProperties<T extends string | number>
+interface ICurrencyPickerProperties<T extends string | number>
   extends Omit<
-    CurrencySelectorProperties<T>,
+    CurrencyPickerProperties<T>,
     "onChange" | "value" | "hasError" | "errorMessage"
   > {
   maxSelection?: number;
@@ -23,7 +23,7 @@ interface ICurrencySelectorProperties<T extends string | number>
   validationMessages?: ValidationMessages;
 }
 
-export const CurrencySelector = <T extends string | number>({
+export const CurrencyPicker = <T extends string | number>({
   autoSelectSingleOption = false,
   maxSelection,
   minSelection,
@@ -35,7 +35,7 @@ export const CurrencySelector = <T extends string | number>({
   submitCount = 0,
   validationMessages,
   ...others
-}: ICurrencySelectorProperties<T>) => {
+}: ICurrencyPickerProperties<T>) => {
   const { control, getFieldState, setValue } = useFormContext();
 
   const { error, invalid } = getFieldState(name);
@@ -81,7 +81,7 @@ export const CurrencySelector = <T extends string | number>({
         },
       }}
       render={({ field }) => (
-        <BasicCurrencySelector
+        <BasicCurrencyPicker
           autoSelectSingleOption={autoSelectSingleOption}
           currencyOptions={currencyOptions}
           errorMessage={error?.message}

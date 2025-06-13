@@ -42,7 +42,7 @@
     },
     "label": {
       "checkboxInput": "Checkbox input",
-      "currencySelector": "Currency selector",
+      "currencyPicker": "Currency picker",
       "dateInput": "Date input",
       "disabled": "Disabled input",
       "email": "Email",
@@ -62,7 +62,7 @@
       "valid": "Show valid state"
     },
     "placeHolder": {
-      "currencySelector": "-- Select currency --",
+      "currencyPicker": "-- Select currency --",
       "email": "Enter email input",
       "input": "Input",
       "number": "Enter number input",
