@@ -24,7 +24,7 @@ export interface UserConfig {
       display: boolean;
       external?: boolean;
       showCheckbox?: boolean;
-      url: string;
+      url?: string;
     };
     updateEmail?: boolean;
   };
