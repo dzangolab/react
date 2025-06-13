@@ -127,7 +127,7 @@ const [searchableSingleSelectCurrencyValue, setSearchableSingleSelectCurrencyVal
           multiple={true}
           value={multiSelectCurrencyValue}
           onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
-          placeholder={t("currencySelector.multiSelectplaceholder")}
+          placeholder={t("currencySelector.multiSelectPlaceholder")}
         />
         <CodeBlock
           exampleCode='
@@ -146,7 +146,7 @@ const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[
   multiple={true}
   value={multiSelectCurrencyValue}
   onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
-  placeholder={t("currencySelector.multiSelectplaceholder")}
+  placeholder={t("currencySelector.multiSelectPlaceholder")}
   />'
         />
       </Section>

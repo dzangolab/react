@@ -68,7 +68,7 @@
   },
   "currencySelector": {
     "label": "Currency (fr)",
-    "multiSelectplaceholder": "Select currencies (fr)",
+    "multiSelectPlaceholder": "Select currencies (fr)",
     "placeholder": "Select a currency (fr)",
     "searchPlaceholder": "Search... (fr)",
     "title": "CurrencySelector (fr)",
