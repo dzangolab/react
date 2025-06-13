@@ -8,13 +8,14 @@
 }
 
 .popup-menu {
+  background-color: #ffffff;
+  border-radius: calc(var(--border-radius) * 1.5);
+  border: 1px solid var(--border-color);
+  box-shadow: 1px 1px 5px 1px #cccccc;
+  display: inline-block;
+  margin-top: 4px;
   position: absolute;
   z-index: 1000;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  display: inline-block;
 }
 
 #popper[data-popper-reference-hidden] {

@@ -12,6 +12,17 @@
   --_option-background-color-active: var(--list-item-bg-active, #ededed);
 }
 
+.select-menu {
+  --_border-color: var(--border-color);
+  --_border-radius: var(--border-radius);
+  --_icon-color: var(--field-icon-color, #7b7676);
+  --_padding-block: var(--field-padding-block, 0.5rem);
+  --_padding-inline: var(--field-padding-inline, 0.75rem);
+  --_options-menu-background-color: var(--list-menu-bg-color, #ffffff);
+  --_option-background-color-hover: var(--list-item-bg-hover, #ededed);
+  --_option-background-color-active: var(--list-item-bg-active, #ededed);
+}
+
 .select {
   position: relative;
   width: 100%;
@@ -80,36 +91,29 @@
   color: var(--_placeholder-color);
 }
 
-.select ul {
-  background-color: var(--_options-menu-background-color);
-  border-radius: calc(var(--_border-radius) * 1.5);
-  border: 1px solid var(--_border-color);
-  box-shadow: 1px 1px 5px 1px #cccccc;
+.select-menu ul {
   display: flex;
   flex-direction: column;
-  margin-top: 0.25rem;
   max-height: 12rem;
   min-width: 12rem;
   overflow: auto;
   padding-block: var(--_padding-block);
   padding-inline: var(--_padding-inline);
-  position: absolute;
   row-gap: 0.25rem;
   text-align: left;
   width: 100%;
-  z-index: 1000;
 }
 
-.select ul > .debounced-input {
+.select-menu ul > .debounced-input {
   align-items: unset;
 }
 
-.select ul > .debounced-input input {
+.select-menu ul > .debounced-input input {
   padding-block: var(--_padding-block);
   padding-inline: var(--_padding-inline);
 }
 
-.select ul > li {
+.select-menu ul > li {
   border-radius: var(--_border-radius);
   cursor: pointer;
   display: flex;
@@ -118,37 +122,28 @@
   transition: background-color var(--transition-duration) linear;
 }
 
-.select ul > li:hover,
-.select ul > li.focused {
+.select-menu ul > li:hover,
+.select-menu ul > li.focused {
   background-color: var(--_option-background-color-hover);
 }
 
-.select ul > li.selected {
+.select-menu ul > li.selected {
   background-color: var(--_option-background-color-active);
 }
 
-.select ul > li.disabled {
+.select-menu ul > li.disabled {
   opacity: 0.8;
   cursor: not-allowed;
 }
 
-.select[aria-multiselectable="true"] ul > li {
-  gap: 0.5rem;
+.select-menu ul[aria-multiselectable="true"] > li {
+  gap: 0.75rem;
   align-items: baseline;
 }
 
-.select[aria-multiselectable="false"] ul > li {
-  padding: 0;
-}
-
-.select ul > li > span {
+.select-menu ul > li > span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
-}
-
-.select[aria-multiselectable="false"] ul > li > span {
-  padding-block: var(--_padding-block);
-  padding-inline: var(--_padding-inline);
 }

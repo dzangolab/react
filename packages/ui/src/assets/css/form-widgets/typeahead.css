@@ -12,32 +12,36 @@
   --_option-background-color-active: var(--list-item-bg-active, #ededed);
 }
 
+.typeahead-menu {
+  --_border-color: var(--border-color);
+  --_border-radius: var(--border-radius);
+  --_icon-color: var(--field-icon-color, #7b7676);
+  --_padding-block: var(--field-padding-block, 0.5rem);
+  --_padding-inline: var(--field-padding-inline, 0.75rem);
+  --_options-menu-background-color: var(--list-menu-bg-color, #ffffff);
+  --_option-background-color-hover: var(--list-item-bg-hover, #ededed);
+  --_option-background-color-active: var(--list-item-bg-active, #ededed);
+}
+
 .typeahead {
   position: relative;
   width: 100%;
 }
 
-.typeahead > ul {
-  background-color: var(--_options-menu-background-color);
-  border: 1px solid var(--_border-color);
-  border-radius: calc(var(--_border-radius) * 1.5);
-  box-shadow: 1px 1px 5px 1px #cccccc;
+.typeahead-menu ul {
   display: flex;
   flex-direction: column;
-  margin-top: 0.25rem;
   max-height: 12rem;
   min-width: 12rem;
   overflow: auto;
   padding-block: var(--_padding-block);
   padding-inline: var(--_padding-inline);
-  position: absolute;
   row-gap: 0.25rem;
   text-align: left;
   width: 100%;
-  z-index: 1000;
 }
 
-.typeahead > ul > li {
+.typeahead-menu ul > li {
   border-radius: var(--_border-radius);
   cursor: pointer;
   display: flex;
@@ -46,12 +50,12 @@
   transition: background-color var(--transition-duration) linear;
 }
 
-.typeahead ul > li:hover,
-.typeahead ul > li.focused {
+.typeahead-menu ul > li:hover,
+.typeahead-menu ul > li.focused {
   background-color: var(--_option-background-color-hover);
 }
 
-.typeahead ul > li.disabled {
+.typeahead-menu ul > li.disabled {
   opacity: 0.8;
   cursor: not-allowed;
 }
