@@ -1,16 +1,17 @@
 import {
+  CheckboxInput,
+  CurrencySelector,
+  DateInput,
   Email,
   FormActions,
-  TextInput,
+  Input,
+  NumberInput,
   Password,
   RadioInput,
-  Input,
-  useFormContext,
-  NumberInput,
   Select,
+  TextInput,
   Typeahead,
-  DateInput,
-  CheckboxInput,
+  useFormContext,
 } from "@dzangolab/react-form";
 import { Textarea } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
@@ -121,6 +122,26 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
+      />
+      <CurrencySelector
+        currencyOptions={[
+          {
+            code: "AUD",
+            label: "Australian Dollar",
+            symbol: "$",
+            value: "AUD",
+          },
+          { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+          { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+          { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+          { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+        ]}
+        label={t("formInput.label.currencySelector")}
+        name="currencySelector"
+        placeholder={t("formInput.placeHolder.currencySelector")}
+        showInvalidState={invalid}
+        showValidState={valid}
+        submitCount={submitCount}
       />
       <Email
         label={t("formInput.label.disabled")}

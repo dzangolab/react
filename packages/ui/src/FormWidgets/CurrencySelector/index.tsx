@@ -15,7 +15,7 @@ export type CurrencyOption = {
   value: string;
 };
 
-type CurrencySelectorProperties<T extends string | number> = Omit<
+export type CurrencySelectorProperties<T extends string | number> = Omit<
   ISelectProperties<T>,
   "options"
 > & {

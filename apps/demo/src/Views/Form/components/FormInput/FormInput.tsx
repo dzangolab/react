@@ -44,6 +44,9 @@ export const FormInputDemo = () => {
       .string()
       .array()
       .nonempty({ message: t("formInput.message.required") }),
+    currencySelector: zod
+      .string()
+      .nonempty({ message: t("formInput.message.required") }),
     typeahead: zod.string().min(1, t("formInput.message.required")),
     date: zod.string().date(),
     radioInput: zod.string(),
