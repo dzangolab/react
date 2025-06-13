@@ -8,10 +8,5 @@
   cursor: pointer;
   width: auto;
   transform: scale(1.5);
-  accent-color: var(--field-background-color);
-}
-
-.error-message {
-  margin-top: 1rem;
-  color: var(--error-message-color);
+  accent-color: var(--dz-primary-color);
 }

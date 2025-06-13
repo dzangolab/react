@@ -20,7 +20,7 @@ export const PopupMenu: FC<PopupMenuProperties> = ({
   className = "",
   content,
   matchReferenceWidth = false,
-  offset = 10,
+  offset = 4,
   position = "bottom-start",
   referenceElement,
   toggle,

@@ -1,0 +1,22 @@
+.field .p-calendar .p-inputtext {
+  padding: 0;
+  padding-block: var(--_padding-block);
+  padding-inline: var(--_padding-inline);
+  transition: none;
+}
+
+.field .p-calendar .p-inputtext:hover,
+.field .p-calendar .p-inputtext:focus {
+  border-color: var(--_border-color);
+}
+
+.field .p-calendar .p-inputtext:focus-within {
+  outline: 2px solid var(--dz-primary-color);
+}
+
+.field .p-calendar .p-inputtext:disabled {
+  --_background-color: var(--field-bg-color-disabled, #f8f8f8);
+
+  opacity: 0.8;
+  cursor: not-allowed;
+}
