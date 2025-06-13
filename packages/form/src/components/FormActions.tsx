@@ -68,8 +68,8 @@ export const FormActions = ({
       data-direction={flowDirection}
       data-reverse={reverse}
     >
-      {parsedActions.map((action) => {
-        return <Button key={action.id || action.label} {...action} />;
+      {parsedActions.map(({ id, label, ...action }) => {
+        return <Button key={id || label} label={label} {...action} />;
       })}
     </div>
   );

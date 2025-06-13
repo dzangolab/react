@@ -6,7 +6,7 @@
   --dz-table-overlay-bg: rgba(255, 255, 255, 0.6);
   --dz-table-header-active-bg: rgb(232, 240, 255);
   --dz-table-row-hover-bg: #318aff0f;
-  --dz-table-column-padding: 0.8rem;
+  --dz-table-column-padding: 0.75rem;
   --dz-table-row-selected-bg: rgb(240, 245, 255);
   --dz-table-body-bg: transparent;
   --dz-table-stripe-color: transparent;
@@ -175,8 +175,20 @@
   background: #ffffff;
 }
 
-.table-wrapper > table tr.filters > th.multiselect > div,
-.table-wrapper > table tr.filters > th.select > div {
+.table-wrapper
+  > table
+  tr.filters
+  > th.multiselect
+  > div
+  > .select
+  > .label-container,
+.table-wrapper
+  > table
+  tr.filters
+  > th.select
+  > div
+  > .select
+  > .label-container {
   background: #ffffff;
   font-weight: normal;
 }
