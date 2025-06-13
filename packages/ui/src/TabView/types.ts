@@ -19,6 +19,7 @@ type Tab = {
 type Properties = {
   activeKey?: string;
   controlled?: boolean;
+  enableHashRouting?: boolean;
   id?: string;
   lazy?: boolean;
   persistState?: boolean;

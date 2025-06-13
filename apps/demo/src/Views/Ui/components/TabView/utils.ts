@@ -7,12 +7,8 @@ export const addTab = (
   const existingTab = visibleTabs.find((tab) => tab === key);
   if (existingTab) {
     setActive(existingTab);
-
-    window.location.hash = existingTab;
   } else {
     setVisibleTabs([...visibleTabs, key]);
     setActive(key);
-
-    window.location.hash = key;
   }
 };

@@ -26,6 +26,13 @@ const data = [
   },
   {
     id: 3,
+    prop: "enableHashRouting",
+    type: "boolean",
+    default: "false",
+    description: "If true, TabView uses the URL hash.",
+  },
+  {
+    id: 4,
     prop: "id",
     type: "string",
     default: "-",
@@ -33,7 +40,7 @@ const data = [
       "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
   },
   {
-    id: 4,
+    id: 5,
     prop: "lazy",
     type: "boolean",
     default: "true",
@@ -41,7 +48,7 @@ const data = [
       "The lazy prop enables lazy loading.It only loads content for the active tab.",
   },
   {
-    id: 5,
+    id: 6,
     prop: "persistState",
     type: "boolean",
     default: "true",
@@ -49,49 +56,49 @@ const data = [
       "If true, tab state is saved either in localStorage or sessionStorage.",
   },
   {
-    id: 6,
+    id: 7,
     prop: "persistStateStorage",
     type: '"localStorage" | "sessionStorage"',
     default: "localStorage",
     description: "Storage to save tab state.",
   },
   {
-    id: 7,
+    id: 8,
     prop: "position",
     type: '"top" | "left" | "bottom" | "right"',
     default: "top",
     description: "Position of the tab panel header relative to its content.",
   },
   {
-    id: 8,
+    id: 9,
     prop: "tabs",
     type: "array",
     default: "-",
     description: "Array of tab object.",
   },
   {
-    id: 9,
+    id: 10,
     prop: "visibleTabs",
     type: "array",
     default: "-",
     description: "Array of visible tabs.",
   },
   {
-    id: 10,
+    id: 11,
     prop: "onActiveTabChange",
     type: "(activeTab: string) => void",
     default: "-",
     description: "Function to be called when active tab change.",
   },
   {
-    id: 11,
+    id: 12,
     prop: "onVisibleTabsChange",
     type: "(visibleTabs: string[]) => void",
     default: "-",
     description: "Function to be called when visible tabs change.",
   },
   {
-    id: 12,
+    id: 13,
     prop: "onTabClose",
     type: "(activeTab: string) => void",
     default: "-",
@@ -124,8 +131,6 @@ export const TabViewDemo = () => {
   const confirmTabSwitch = () => {
     if (requestedTab) {
       setControlledActiveTab(requestedTab);
-      window.location.hash = requestedTab;
-
       setRequestedTab(null);
     }
     setShowModal(false);
@@ -711,6 +716,63 @@ onTabClose={handleTabClose}
         />
       </Section>
 
+      <Section title={t("tabview.usage.hashRoute")}>
+        <TabView
+          visibleTabs={["descritpion", "specification", "certifications"]}
+          tabs={[
+            {
+              label: "Description",
+              children: "Description",
+              key: "descritpion",
+            },
+            { label: "Reviews", children: "Reviews", key: "25" },
+            {
+              label: "Specifications",
+              children: "Specifications",
+              key: "specification",
+            },
+            { label: "Pricing", children: "Pricing", key: "pricing" },
+            {
+              label: "Installation",
+              children: "Installation Instructions",
+              key: "installation",
+            },
+            {
+              label: "Certifications",
+              children: "Certifications",
+              key: "certifications",
+            },
+          ]}
+          activeKey="descritpion"
+          id="tabview-8"
+          enableHashRouting={true}
+        />
+        <CodeBlock
+          exampleCode='
+<TabView
+visibleTabs={["descritpion", "specification", "certifications"]}
+tabs={[
+  { label: "Description", children: "Description", key: "descritpion" },
+  { label: "Reviews", children: "Reviews", key: "25" },
+  {
+    label: "Specifications",
+    children: "Specifications",
+    key: "specification",
+  },
+  { label: "Pricing", children: "Pricing", key: "pricing" },
+  {
+    label: "Installation",
+    children: "Installation Instructions",
+    key: "installation",
+  },
+  { label: "Certifications", children: "Certifications", key: "certifications" },
+]}
+activeKey="descritpion"
+id="tabview-8"
+enableHashRouting={true}
+/>'
+        />
+      </Section>
       <Section
         title={t("headers.propertiesValue", {
           value: "Properties",
