@@ -2,6 +2,12 @@ import React from "react";
 
 import { Select, ISelectProperties } from "../Select";
 
+type Option<T> = {
+  disabled?: boolean;
+  label: string;
+  value: T;
+};
+
 export type CurrencyOption = {
   code: string;
   label: string;
@@ -28,11 +34,7 @@ type CurrencySelectorProperties<T extends string | number> = Omit<
   );
 
 export const CurrencySelector = <T extends string | number = string>({
-  label,
-  name,
   currencyOptions,
-  placeholder,
-  renderValue,
   ...properties
 }: CurrencySelectorProperties<T>) => {
   const selectOptions = currencyOptions.map((currency) => ({
@@ -40,27 +42,25 @@ export const CurrencySelector = <T extends string | number = string>({
     value: currency.value as T,
   }));
 
+  const renderOptions = (option: Option<T>) => {
+    const currencyOption = currencyOptions.find(
+      (currency) => currency.value === option.value,
+    );
+
+    return (
+      <div className="currency-label">
+        <span className="code">{currencyOption?.code}</span>
+        <span>{currencyOption?.label}</span>
+        <span className="currency-symbol">{currencyOption?.symbol}</span>
+      </div>
+    );
+  };
+
   return (
     <Select
       className="currency-selector"
-      name={name}
-      label={label}
       options={selectOptions}
-      placeholder={placeholder}
-      renderOption={(option) => {
-        const currencyOption = currencyOptions.find(
-          (currency) => currency.value === option.value,
-        );
-
-        return (
-          <div className="currency-label">
-            <span className="code">{currencyOption?.code}</span>
-            <span>{currencyOption?.label}</span>
-            <span className="currency-symbol">{currencyOption?.symbol}</span>
-          </div>
-        );
-      }}
-      renderValue={renderValue}
+      renderOption={renderOptions}
       {...properties}
     />
   );
