@@ -13,18 +13,20 @@ import { useConfig, useUser } from "../../hooks";
 import type { LoginCredentials, SignInUpPromise } from "../../types";
 
 interface IProperties {
-  handleSubmit?: (formData: LoginCredentials) => void;
-  onSignupFailed?: (error: Error) => void;
-  onSignupSuccess?: (user: SignInUpPromise) => void;
   loading?: boolean;
   showForgotPasswordLink?: boolean;
   showLoginLink?: boolean;
+  termsAndConditions?: React.ReactNode;
+  handleSubmit?: (formData: LoginCredentials) => void;
+  onSignupFailed?: (error: Error) => void;
+  onSignupSuccess?: (user: SignInUpPromise) => void;
 }
 
 export const SignupWrapper: React.FC<IProperties> = ({
   loading,
   showLoginLink = true,
   showForgotPasswordLink = true,
+  termsAndConditions,
   handleSubmit,
   onSignupFailed,
   onSignupSuccess,
@@ -103,6 +105,7 @@ export const SignupWrapper: React.FC<IProperties> = ({
       <SignupForm
         handleSubmit={handleSignupSubmit}
         loading={handleSubmit ? loading : signupLoading}
+        termsAndConditions={termsAndConditions}
       />
       <AuthLinks className="sign-up" links={links} />
     </>

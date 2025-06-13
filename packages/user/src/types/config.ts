@@ -23,8 +23,9 @@ export interface UserConfig {
     signupFirstUser?: boolean;
     termsAndConditions?: {
       display: boolean;
-      route: string;
+      external?: boolean;
       showCheckbox?: boolean;
+      url: string;
     };
     updateEmail?: boolean;
   };

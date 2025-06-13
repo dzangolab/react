@@ -13,13 +13,15 @@ import { TermsAndConditions } from "./TermsAndConditions";
 import { useConfig } from "../../hooks";
 
 interface IProperties {
-  loading?: boolean;
   disableEmailField?: boolean;
+  loading?: boolean;
+  termsAndConditions?: React.ReactNode;
 }
 
 const SignupFormFields: React.FC<IProperties> = ({
-  loading,
   disableEmailField = false,
+  loading,
+  termsAndConditions,
 }) => {
   const { t } = useTranslation("user");
   const config = useConfig();
@@ -34,21 +36,23 @@ const SignupFormFields: React.FC<IProperties> = ({
 
   const {
     display: showTermsAndConditions,
+    external = false,
     showCheckbox,
-    route,
+    url,
   } = config.features?.termsAndConditions || {};
 
   let isChecked = false;
 
   const passwordFieldValue = watch("password");
 
-  const termsAndConditionsLabel = (
+  const _termsAndCondition = (
     <>
       {t("signup.form.termsAndConditions.prefix")}{" "}
-      {route && (
+      {url && (
         <InlineLink
-          to={route}
+          to={url}
           label={t("signup.form.termsAndConditions.infix")}
+          external={external}
           underlined
         />
       )}{" "}
@@ -95,7 +99,7 @@ const SignupFormFields: React.FC<IProperties> = ({
       {showTermsAndConditions ? (
         <TermsAndConditions
           hasCheckbox={showCheckbox}
-          label={termsAndConditionsLabel}
+          label={termsAndConditions || _termsAndCondition}
           name="termsAndConditions"
         />
       ) : null}
