@@ -1,15 +1,21 @@
-.currency-label {
+.currency-option {
   align-items: baseline;
   display: flex;
   gap: .5rem;
   width: 100%;
 }
 
-.currency-label .code {
+.currency-option .code {
   color: var(--dz-secondary-color, #475569);
   font-size: .9rem;
 }
 
-.currency-label .currency-symbol {
+.currency-option .label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.currency-option .symbol {
   margin-left: auto;
 }

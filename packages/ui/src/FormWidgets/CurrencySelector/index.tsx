@@ -48,10 +48,10 @@ export const CurrencySelector = <T extends string | number = string>({
     );
 
     return (
-      <div className="currency-label">
+      <div className="currency-option">
         <span className="code">{currencyOption?.code}</span>
-        <span>{currencyOption?.label}</span>
-        <span className="currency-symbol">{currencyOption?.symbol}</span>
+        <span className="label">{currencyOption?.label}</span>
+        <span className="symbol">{currencyOption?.symbol}</span>
       </div>
     );
   };
