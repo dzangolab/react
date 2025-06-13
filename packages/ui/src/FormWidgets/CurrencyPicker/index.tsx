@@ -1,57 +1,24 @@
 import React from "react";
 
-import { Select, ISelectProperties } from "../Select";
+import { Select, ISelectProperties, Option } from "../Select";
 
-type Option<T> = {
-  disabled?: boolean;
-  label: string;
-  value: T;
-};
-
-export type CurrencyOption = {
-  code: string;
-  label: string;
-  symbol: string;
-  value: string;
-};
-
-export type CurrencyPickerProperties<T extends string | number> = Omit<
-  ISelectProperties<T>,
-  "options"
-> & {
-  currencyOptions: CurrencyOption[];
-} & (
-    | {
-        multiple?: false;
-        value: T;
-        onChange: (value: T) => void;
-      }
-    | {
-        multiple: true;
-        value: T[];
-        onChange: (value: T[]) => void;
-      }
-  );
+export type CurrencyPickerProperties<T> = ISelectProperties<T>;
 
 export const CurrencyPicker = <T extends string | number = string>({
-  currencyOptions,
+  options,
   ...properties
 }: CurrencyPickerProperties<T>) => {
-  const selectOptions = currencyOptions.map((currency) => ({
-    label: currency.label,
-    value: currency.value as T,
+  const selectOptions = options.map((option) => ({
+    label: option.label,
+    value: option.value as T,
   }));
 
   const renderOptions = (option: Option<T>) => {
-    const currencyOption = currencyOptions.find(
-      (currency) => currency.value === option.value,
-    );
-
     return (
       <div className="currency-option">
-        <span className="code">{currencyOption?.code}</span>
-        <span className="label">{currencyOption?.label}</span>
-        <span className="symbol">{currencyOption?.symbol}</span>
+        <span className="code">{option?.code}</span>
+        <span className="label">{option?.label}</span>
+        <span className="symbol">{option?.symbol}</span>
       </div>
     );
   };

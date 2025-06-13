@@ -29,7 +29,7 @@ export const CurrencyPicker = <T extends string | number>({
   minSelection,
   multiple = false,
   name,
-  currencyOptions,
+  options,
   showInvalidState = true,
   showValidState = true,
   submitCount = 0,
@@ -47,10 +47,10 @@ export const CurrencyPicker = <T extends string | number>({
 
   //TODO [MA 2024-05-31]: remove this redundant useEffect for auto selecting single option
   useEffect(() => {
-    if (autoSelectSingleOption && !multiple && currencyOptions.length === 1) {
-      setValue(name, currencyOptions[0].value);
+    if (autoSelectSingleOption && !multiple && options.length === 1) {
+      setValue(name, options[0].value);
     }
-  }, [currencyOptions]);
+  }, [options]);
 
   return (
     <Controller
@@ -83,12 +83,12 @@ export const CurrencyPicker = <T extends string | number>({
       render={({ field }) => (
         <BasicCurrencyPicker
           autoSelectSingleOption={autoSelectSingleOption}
-          currencyOptions={currencyOptions}
           errorMessage={error?.message}
           hasError={submitCount > 0 ? checkInvalidState() : undefined}
           multiple={multiple}
           name={name}
           onChange={field.onChange}
+          options={options}
           value={field.value}
           {...others}
         />

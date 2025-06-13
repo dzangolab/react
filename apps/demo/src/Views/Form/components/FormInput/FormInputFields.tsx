@@ -124,7 +124,7 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         showInvalidState={invalid}
       />
       <CurrencyPicker
-        currencyOptions={[
+        options={[
           {
             code: "AUD",
             label: "Australian Dollar",
