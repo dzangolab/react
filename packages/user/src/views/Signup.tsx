@@ -1,7 +1,7 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { AuthPage } from "@dzangolab/react-ui";
 
-import { SignupWrapper, TermsAndConditions } from "..";
+import { SignupWrapper } from "..";
 
 import type { SignInUpPromise } from "../types";
 

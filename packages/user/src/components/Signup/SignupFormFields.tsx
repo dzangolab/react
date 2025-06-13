@@ -45,7 +45,7 @@ const SignupFormFields: React.FC<IProperties> = ({
 
   const passwordFieldValue = watch("password");
 
-  const _termsAndCondition = (
+  const termsAndConditionsLabel = (
     <>
       {t("signup.form.termsAndConditions.prefix")}{" "}
       {url && (
@@ -99,7 +99,7 @@ const SignupFormFields: React.FC<IProperties> = ({
       {showTermsAndConditions ? (
         <TermsAndConditions
           hasCheckbox={showCheckbox}
-          label={termsAndConditions || _termsAndCondition}
+          label={termsAndConditions || termsAndConditionsLabel}
           name="termsAndConditions"
         />
       ) : null}
