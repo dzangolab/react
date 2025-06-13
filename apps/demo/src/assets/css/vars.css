@@ -1,7 +1,9 @@
 :root {
+  --color: #2c2c2c;
+
   --dz-layout-header-bg: transparent;
   --dz-layout-header-border: 1px solid #dbdbdb;
-  --dz-layout-header-color: rgb(84, 84, 84);
+  --dz-layout-header-color: var(--color);
   --dz-layout-header-gap: 1.5rem;
   --dz-layout-header-logo-max-width: 150px;
   --dz-layout-header-max-width: 1920px;
