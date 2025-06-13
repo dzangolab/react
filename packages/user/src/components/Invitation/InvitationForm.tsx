@@ -8,9 +8,6 @@ import React, { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import * as zod from "zod";
 
-import { addInvitation } from "@/api/invitation";
-import { useConfig } from "@/hooks";
-
 import { InvitationFormFields } from "./InvitationFormFields";
 
 import type {
@@ -19,6 +16,9 @@ import type {
   InvitationRoleOption,
   InvitationExpiryDateField,
 } from "@/types";
+
+import { addInvitation } from "@/api/invitation";
+import { useConfig } from "@/hooks";
 
 interface Properties {
   additionalInvitationFields?: AdditionalFormFields;
