@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
@@ -23,8 +22,9 @@ export interface UserConfig {
     signupFirstUser?: boolean;
     termsAndConditions?: {
       display: boolean;
-      label: ReactNode;
+      external?: boolean;
       showCheckbox?: boolean;
+      url?: string;
     };
     updateEmail?: boolean;
   };

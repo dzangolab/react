@@ -223,6 +223,11 @@
       "password": {
         "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase.",
         "label": "Your password"
+      },
+      "termsAndConditions": {
+        "infix": "Terms and conditions",
+        "prefix": "I agree to the",
+        "suffix": "as set out by the user agreement."
       }
     },
     "links": {
