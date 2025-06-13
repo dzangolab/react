@@ -68,10 +68,14 @@
   },
   "currencySelector": {
     "label": "Currency (fr)",
+    "multiSelectplaceholder": "Select currencies (fr)",
     "placeholder": "Select a currency (fr)",
+    "searchPlaceholder": "Search... (fr)",
     "title": "CurrencySelector (fr)",
     "usage": {
-      "basic": "Basic (fr)"
+      "basic": "Basic (fr)",
+      "multiple": "Multiple currency select (fr)",
+      "singleSearch": "Single currency select with search (fr)"
     }
   },
   "data": {

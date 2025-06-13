@@ -368,6 +368,7 @@ const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
             { label: "Hindi", value: "hi" },
           ]}
           multiple={true}
+          hasError={true}
           value={searchableMultiselectValue}
           onChange={(value: string[]) => setSearchableMultiselectValue(value)}
           placeholder={t("select.multisSlectPlaceholder")}

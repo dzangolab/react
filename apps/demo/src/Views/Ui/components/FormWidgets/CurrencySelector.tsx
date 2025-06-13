@@ -1,4 +1,4 @@
-import { useTranslation } from "@dzangolab/react-i18n";
+import { Trans, useTranslation } from "@dzangolab/react-i18n";
 import { CurrencySelector, Page, Button } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,28 @@ export const CurrencySelectorDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
 
-  const [singleSelectValue, setSingleSelectValue] = useState<string>("");
+  const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] =
+    useState<string>("");
+  const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<
+    string[]
+  >([]);
+  const [
+    searchableSingleSelectCurrencyValue,
+    setSearchableSingleSelectCurrencyValue,
+  ] = useState<string>("");
+
+  const currencyOptions = [
+    {
+      code: "AUD",
+      label: "Australian Dollar",
+      symbol: "$",
+      value: "AUD",
+    },
+    { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+    { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+    { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+    { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+  ];
 
   return (
     <Page
@@ -32,21 +53,101 @@ export const CurrencySelectorDemo = () => {
         <CurrencySelector
           label={t("currencySelector.label")}
           name="currencySelector"
-          currencyOptions={[
-            {
-              code: "AUD",
-              label: "Australian Dollar",
-              symbol: "$",
-              value: "AUD",
-            },
-            { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-            { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
-            { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
-            { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
-          ]}
-          value={singleSelectValue}
-          onChange={(value: string) => setSingleSelectValue(value)}
+          currencyOptions={currencyOptions}
+          value={singleSelectCurrencyValue}
+          onChange={(value: string) => setSingleSelectCurrencyValue(value)}
           placeholder={t("currencySelector.placeholder")}
+        />
+        <CodeBlock
+          exampleCode='
+const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<string>("");
+        
+<CurrencySelector
+  label={t("currencySelector.label")}
+  name="currencySelector"
+  currencyOptions={[
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+    { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+    { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+    { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+    { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+  ]}
+  value={singleSelectValue}
+  onChange={(value: string) => setSingleSelectCurrencyValue(value)}
+  placeholder={t("currencySelector.placeholder")}
+/>'
+        />
+        <p>
+          <Trans
+            i18nKey={"ui:select.autoSortOptionsInfo"}
+            components={{ code: <code /> }}
+          ></Trans>
+        </p>
+      </Section>
+      <Section title={t("currencySelector.usage.singleSearch")}>
+        <CurrencySelector
+          label={t("currencySelector.label")}
+          name="currencySelector"
+          enableSearch
+          currencyOptions={currencyOptions}
+          value={searchableSingleSelectCurrencyValue}
+          onChange={(value: string) =>
+            setSearchableSingleSelectCurrencyValue(value)
+          }
+          placeholder={t("currencySelector.placeholder")}
+          searchPlaceholder={t("currencySelector.searchPlaceholder")}
+        />
+        <CodeBlock
+          exampleCode='
+const [searchableSingleSelectCurrencyValue, setSearchableSingleSelectCurrencyValue] = useState<string>("");
+      
+<CurrencySelector
+  label={t("select.label")}
+  name="currencySelector"
+  enableSearch
+  currencyOptions={[
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+    { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+    { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+    { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+    { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+  ]}
+  value={searchableSingleSelectCurrencyValue}
+  onChange={(value: string) => setSearchableSingleSelectCurrencyValue(value)}
+  placeholder={t("currencySelector.placeholder")}
+  searchPlaceholder={t("currencySelector.searchPlaceholder")}
+  />'
+        />
+      </Section>
+      <Section title={t("currencySelector.usage.multiple")}>
+        <CurrencySelector
+          label={t("currencySelector.label")}
+          name="currencySelector"
+          currencyOptions={currencyOptions}
+          multiple={true}
+          value={multiSelectCurrencyValue}
+          onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
+          placeholder={t("currencySelector.multiSelectplaceholder")}
+        />
+        <CodeBlock
+          exampleCode='
+const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[]>([]);
+      
+<Select
+  label={t("currencySelector.label")}
+  name="currencySelector"
+  currencyOptions={[
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+    { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+    { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+    { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+    { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+  ]}
+  multiple={true}
+  value={multiSelectCurrencyValue}
+  onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
+  placeholder={t("currencySelector.multiSelectplaceholder")}
+  />'
         />
       </Section>
     </Page>
