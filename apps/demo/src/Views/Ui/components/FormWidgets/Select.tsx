@@ -331,7 +331,7 @@ const [searchableSingleSelectValue, setSearchableSingleSelectValue] = useState<s
           multiple={true}
           value={multiselectValue}
           onChange={(value: string[]) => setMultiselectValue(value)}
-          placeholder={t("select.multisSlectPlaceholder")}
+          placeholder={t("select.multiSelectPlaceholder")}
         />
         <CodeBlock
           exampleCode='
@@ -350,7 +350,7 @@ const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
   multiple={true}
   value={multiselectValue}
   onChange={(value: string[]) => setMultiselectValue(value)}
-  placeholder={t("select.multisSlectPlaceholder")}
+  placeholder={t("select.multiSelectPlaceholder")}
 />       '
         />
       </Section>
@@ -368,9 +368,10 @@ const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
             { label: "Hindi", value: "hi" },
           ]}
           multiple={true}
+          hasError={true}
           value={searchableMultiselectValue}
           onChange={(value: string[]) => setSearchableMultiselectValue(value)}
-          placeholder={t("select.multisSlectPlaceholder")}
+          placeholder={t("select.multiSelectPlaceholder")}
           searchPlaceholder={t("select.searchPlaceholder")}
         />
         <CodeBlock
@@ -391,7 +392,7 @@ const [searchableMultiselectValue, setSearchableMultiselectValue] = useState<str
   multiple={true}
   value={searchableMultiselectValue}
   onChange={(value: string[]) => setSearchableMultiselectValue(value)}
-  placeholder={t("select.multisSlectPlaceholder")}
+  placeholder={t("select.multiSelectPlaceholder")}
   searchPlaceholder={t("select.searchPlaceholder")}
 />        '
         />
@@ -412,7 +413,7 @@ const [searchableMultiselectValue, setSearchableMultiselectValue] = useState<str
           onChange={(value: string[]) => setRenderedValue(value)}
           renderValue={renderSelectedValue}
           multiple={true}
-          placeholder={t("select.multisSlectPlaceholder")}
+          placeholder={t("select.multiSelectPlaceholder")}
         />
         <CodeBlock
           exampleCode='
@@ -449,7 +450,7 @@ const renderSelectedValue = (
   onChange={(value: string[]) => setRenderedValue(value)}
   renderValue={renderSelectedValue}
   multiple={true}
-  placeholder={t("select.multisSlectPlaceholder")}
+  placeholder={t("select.multiSelectPlaceholder")}
 />'
         />
       </Section>
@@ -468,7 +469,7 @@ const renderSelectedValue = (
           onChange={(value: string[]) => setRenderedOption(value)}
           renderOption={renderOption}
           multiple={true}
-          placeholder={t("select.multisSlectPlaceholder")}
+          placeholder={t("select.multiSelectPlaceholder")}
         />
         <CodeBlock
           exampleCode='
@@ -497,7 +498,7 @@ const renderOption = (option: Option) => {
   onChange={(value: string[]) => setRenderedOption(value)}
   renderOption={renderOption}
   multiple={true}
-  placeholder={t("select.multisSlectPlaceholder")}
+  placeholder={t("select.multiSelectPlaceholder")}
 />'
         />
       </Section>

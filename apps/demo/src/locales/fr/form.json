@@ -41,11 +41,10 @@
       "required": "Required field (fr)"
     },
     "label": {
-      "terms": "I agree to the Terms and Conditions. (fr)",
-      "termsInfo": "By checking this box, I confirm that I have read, understood, and agree to the Terms and Conditions. I acknowledge that my use of the services is subject to these terms, including any updates or modifications made by the company. (fr)",
       "checkboxInput": "Checkbox input (fr)",
-      "disabled": "Disabled input (fr)",
+      "currencyPicker": "Currency picker (fr)",
       "dateInput": "Date input (fr)",
+      "disabled": "Disabled input (fr)",
       "email": "Email (fr)",
       "filled": "Filled input (fr)",
       "input": "Input (fr)",
@@ -55,12 +54,15 @@
       "radioInput": "Radio input (fr)",
       "readOnly": "ReadOnly input (fr)",
       "select": "Select (fr)",
+      "terms": "I agree to the Terms and Conditions. (fr)",
+      "termsInfo": "By checking this box, I confirm that I have read, understood, and agree to the Terms and Conditions. I acknowledge that my use of the services is subject to these terms, including any updates or modifications made by the company. (fr)",
       "text": "Text input (fr)",
       "transparent": "Transparent input (fr)",
       "typeahead": "Typeahead (fr)",
       "valid": "Show valid state (fr)"
     },
     "placeHolder": {
+      "currencyPicker": "-- Select currency -- (fr)",
       "email": "Enter email input (fr)",
       "input": "Input (fr)",
       "number": "Enter number input (fr)",
