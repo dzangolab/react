@@ -1,14 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { PopupMenu } from "../../Popup";
+import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
-type Option<T> = {
+export type Option<T> = {
   disabled?: boolean;
   label: string;
   value: T;
 };
+
+type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
 
 export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
@@ -25,6 +27,7 @@ export type ISelectProperties<T> = {
   name: string;
   options: Option<T>[];
   placeholder?: string;
+  menuOptions?: MenuOptions;
   searchPlaceholder?: string;
   showRemoveSelection?: boolean;
   renderOption?: (option: Option<T>) => React.ReactNode;
@@ -57,6 +60,7 @@ export const Select = <T extends string | number>({
   name,
   options,
   placeholder,
+  menuOptions,
   searchPlaceholder,
   showRemoveSelection = true,
   value,
@@ -427,7 +431,7 @@ export const Select = <T extends string | number>({
           ? null
           : showOptions && (
               <PopupMenu
-                className="select-menu"
+                className={`select-menu ${menuOptions?.className}`.trim()}
                 content={renderOptions()}
                 matchReferenceWidth
                 offset={0}

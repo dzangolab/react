@@ -6,7 +6,7 @@ import { usePopper } from "react-popper";
 
 import type { FC, LegacyRef, ReactNode } from "react";
 
-interface PopupMenuProperties {
+export interface PopupMenuProperties {
   className?: string;
   content: ReactNode;
   matchReferenceWidth?: boolean;

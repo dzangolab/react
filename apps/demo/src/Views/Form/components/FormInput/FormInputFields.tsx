@@ -1,5 +1,6 @@
 import {
   CheckboxInput,
+  CurrencyPicker,
   DateInput,
   Email,
   FormActions,
@@ -109,6 +110,26 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
+      />
+      <CurrencyPicker
+        options={[
+          {
+            code: "AUD",
+            label: "Australian Dollar",
+            symbol: "$",
+            value: "AUD",
+          },
+          { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+          { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+          { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+          { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+        ]}
+        label={t("formInput.label.currencyPicker")}
+        name="currencyPicker"
+        placeholder={t("formInput.placeHolder.currencyPicker")}
+        showInvalidState={invalid}
+        showValidState={valid}
+        submitCount={submitCount}
       />
       <Email
         label={t("formInput.label.disabled")}

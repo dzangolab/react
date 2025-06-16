@@ -66,6 +66,18 @@
     "header": "Confirmation required (fr)",
     "message": "Are you sure you want to proceed? (fr)"
   },
+  "currencyPicker": {
+    "label": "Currency (fr)",
+    "multiSelectPlaceholder": "Select currencies (fr)",
+    "placeholder": "Select a currency (fr)",
+    "searchPlaceholder": "Search... (fr)",
+    "title": "CurrencyPicker (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "multiple": "Multiple currency select (fr)",
+      "singleSearch": "Single currency select with search (fr)"
+    }
+  },
   "data": {
     "title": "Data (fr)",
     "subtitle": "The Data component is a reusable React component designed to display a labeled value. (fr)",
@@ -320,7 +332,7 @@
   "select": {
     "autoSortOptionsInfo": "By default, options are sorted alphabetically. To render options in original order as provided, you can use <code>autoSortOptions={false}</code> (fr)",
     "label": "Language (fr)",
-    "multisSlectPlaceholder": "Select languages (fr)",
+    "multiSelectPlaceholder": "Select languages (fr)",
     "placeholder": "Select a language (fr)",
     "searchPlaceholder": "Search... (fr)",
     "title": "Select (fr)",
