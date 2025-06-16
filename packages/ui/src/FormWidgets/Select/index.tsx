@@ -5,10 +5,8 @@ import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
 export type Option<T> = {
-  code?: string;
   disabled?: boolean;
   label: string;
-  symbol?: string;
   value: T;
 };
 
