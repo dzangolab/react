@@ -16,6 +16,7 @@ export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
   className?: string;
+  customSearchFn?: (searchInput: string) => Option<T>[];
   disabled?: boolean;
   enableSearch?: boolean;
   errorMessage?: string;
@@ -49,6 +50,7 @@ export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
   autoSortOptions = true,
   className = "",
+  customSearchFn,
   disabled: selectFieldDisabled,
   enableSearch = false,
   errorMessage,
@@ -87,7 +89,13 @@ export const Select = <T extends string | number>({
   }, [options]);
 
   const filteredOptions = useMemo(() => {
-    if (!searchInput) return sortedOptions;
+    if (!searchInput) {
+      return sortedOptions;
+    }
+
+    if (customSearchFn) {
+      return customSearchFn(searchInput);
+    }
 
     return sortedOptions.filter((option) =>
       option.label.toLowerCase().includes(searchInput.toLowerCase()),
