@@ -8,6 +8,7 @@ import type { Properties, Tab } from "./types";
 const TabView: React.FC<Properties> = ({
   activeKey,
   controlled = false,
+  enableHashRouting = false,
   id = "",
   lazy = true,
   persistState = true,
@@ -67,7 +68,7 @@ const TabView: React.FC<Properties> = ({
   }, [activeTab]);
 
   useEffect(() => {
-    if (!controlled && persistState && id) {
+    if (!controlled && !enableHashRouting && persistState && id) {
       const storedState = storage.getItem(id);
 
       if (storedState) {
@@ -77,12 +78,18 @@ const TabView: React.FC<Properties> = ({
       }
     }
 
-    setHashTab();
-    window.addEventListener("hashchange", setHashTab);
+    if (enableHashRouting) {
+      setHashTab();
+      window.addEventListener("hashchange", setHashTab);
+    }
 
     setInitialized(true);
 
-    return () => window.removeEventListener("hashchange", setHashTab);
+    return () => {
+      if (enableHashRouting) {
+        window.removeEventListener("hashchange", setHashTab);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -98,7 +105,7 @@ const TabView: React.FC<Properties> = ({
   }, [activeKey]);
 
   useEffect(() => {
-    if (!controlled && id && persistState) {
+    if (!controlled && !enableHashRouting && persistState && id) {
       storage.setItem(
         id,
         JSON.stringify({
@@ -132,7 +139,10 @@ const TabView: React.FC<Properties> = ({
       onActiveTabChange?.(key);
     } else {
       setActiveTab(key);
-      window.location.hash = key;
+
+      if (enableHashRouting) {
+        window.location.hash = key;
+      }
     }
   };
 
@@ -156,7 +166,9 @@ const TabView: React.FC<Properties> = ({
     setActiveTab(newActiveTab);
     setVisibleTabs(newVisibleTabs);
 
-    window.location.hash = newActiveTab;
+    if (enableHashRouting) {
+      window.location.hash = newActiveTab;
+    }
   };
 
   if (!initialized) return null;
