@@ -30,7 +30,6 @@ export const FormInputDemo = () => {
         minLength: 0,
       },
     ),
-    surname: zod.string().min(1, t("formInput.message.required")),
     number: zod
       .number({
         required_error: t("formInput.message.required"),
