@@ -46,7 +46,7 @@ export const UI_ROUTES = {
   CHECKBOX: "/ui/checkbox",
   CHECKBOX_INPUT: "/ui/checkbox-input",
   CONFIRMATION_MODAL: "/ui/confirmation-modal",
-  CURRENCY_SELECTOR: "/ui/currency-selector",
+  CURRENCY_SELECTOR: "/ui/currency-picker",
   DATA_COMPONENT: "/ui/data-component",
   DROPDOWN_MENU: "/ui/dropdown-menu",
   EDITABLE_TITLE: "/ui/editable-title",

@@ -12,6 +12,10 @@ export type Option<T> = {
   value: T;
 };
 
+type PopupOption = {
+  className?: string;
+};
+
 export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
@@ -27,6 +31,7 @@ export type ISelectProperties<T> = {
   name: string;
   options: Option<T>[];
   placeholder?: string;
+  popupOption?: PopupOption;
   searchPlaceholder?: string;
   showRemoveSelection?: boolean;
   renderOption?: (option: Option<T>) => React.ReactNode;
@@ -59,6 +64,7 @@ export const Select = <T extends string | number>({
   name,
   options,
   placeholder,
+  popupOption,
   searchPlaceholder,
   showRemoveSelection = true,
   value,
@@ -429,7 +435,7 @@ export const Select = <T extends string | number>({
           ? null
           : showOptions && (
               <PopupMenu
-                className="select-menu"
+                className={`select-menu ${popupOption?.className}`.trim()}
                 content={renderOptions()}
                 matchReferenceWidth
                 offset={0}

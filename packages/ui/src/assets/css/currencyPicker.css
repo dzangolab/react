@@ -1,21 +1,21 @@
-.currency-option {
+.currency-picker-menu div {
   align-items: baseline;
   display: flex;
   gap: .5rem;
   width: 100%;
 }
 
-.currency-option .code {
+.currency-picker-menu .code {
   color: var(--dz-secondary-color, #475569);
   font-size: .9rem;
 }
 
-.currency-option .label {
+.currency-picker-menu .label {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.currency-option .symbol {
+.currency-picker-menu .symbol {
   margin-left: auto;
 }
