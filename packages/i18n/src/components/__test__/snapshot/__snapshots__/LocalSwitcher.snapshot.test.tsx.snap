@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <div
-    class="popup-container dz-locale-switcher"
+    class="popup-container dropdown-menu dz-locale-switcher"
   >
     <div
       aria-controls="popup-content"
@@ -13,7 +13,9 @@ exports[`Component matches snapshot 1`] = `
       <span
         class="dz-dropdown-menu-trigger"
       >
-        locales.en
+        <span>
+          locales.en
+        </span>
         <i
           class="dz-dropdown-icon pi pi-angle-down"
         />
