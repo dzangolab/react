@@ -2,7 +2,7 @@ import React from "react";
 
 import { Select, ISelectProperties } from "../Select";
 
-export type CurrencyPicker<T> = {
+export type CurrencyOption<T> = {
   code?: string;
   disabled?: boolean;
   label: string;
@@ -14,8 +14,8 @@ export type CurrencyPickerProperties<T> = Omit<
   ISelectProperties<T>,
   "options" | "renderOption" | "multiple" | "value" | "onChange"
 > & {
-  options: CurrencyPicker<T>[];
-  renderOption?: (option: CurrencyPicker<T>) => React.ReactNode;
+  options: CurrencyOption<T>[];
+  renderOption?: (option: CurrencyOption<T>) => React.ReactNode;
 } & (
     | {
         multiple: true;
@@ -41,7 +41,7 @@ export const CurrencyPicker = <T extends string | number>({
     value: option.value as T,
   }));
 
-  const _renderOption = (option: CurrencyPicker<T>) => {
+  const _renderOption = (option: CurrencyOption<T>) => {
     if (renderOption) {
       return renderOption(option);
     }
