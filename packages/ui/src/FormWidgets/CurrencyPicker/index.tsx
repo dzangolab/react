@@ -10,9 +10,9 @@ export const CurrencyPicker = <T extends string | number = string>({
   ...properties
 }: CurrencyPickerProperties<T>) => {
   const selectOptions = options.map((option) => ({
-    code: option.code,
+    code: option?.code,
     label: option.label,
-    symbol: option.symbol,
+    symbol: option?.symbol,
     value: option.value as T,
   }));
 
