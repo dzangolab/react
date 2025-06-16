@@ -330,7 +330,7 @@
   },
   "select": {
     "autoSortOptionsInfo": "By default, options are sorted alphabetically. To render options in original order as provided, you can use <code>autoSortOptions={false}</code> (fr)",
-    "label": "language (fr)",
+    "label": "Language (fr)",
     "multiSelectPlaceholder": "Select languages (fr)",
     "placeholder": "Select a language (fr)",
     "searchPlaceholder": "Search... (fr)",
@@ -362,11 +362,11 @@
     },
     "title": "Typeahead (fr)",
     "label": {
-      "client": "Client side Typeahead (fr)",
-      "customSuggestion": "Custom suggestion Typeahead (fr)",
+      "client": "Client side typeahead (fr)",
+      "customSuggestion": "Custom suggestion typeahead (fr)",
       "disabled": "Disabled (fr)",
-      "emptyMessage": "Empty message Typeahead (fr)",
-      "server": "Server side Typeahead (fr)",
+      "emptyMessage": "Empty message typeahead (fr)",
+      "server": "Server side typeahead (fr)",
       "invalid": "Invalid (fr)"
     },
     "placeholder": "Search... (fr)"

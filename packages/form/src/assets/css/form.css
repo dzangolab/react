@@ -11,31 +11,12 @@ form {
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1rem;
   justify-content: stretch;
-}
-
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-fieldset legend {
-  font-size: var(--form-label-font-size, 1em);
-  margin-bottom: 0.75rem;
 }
 
 form .dz-form-actions[data-alignment="center"] {
   justify-content: center;
-}
-
-form .field {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: var(--form-field-gap, 0.75rem);
-  justify-content: flex-start;
 }
 
 form .field .p-dropdown {
@@ -50,84 +31,6 @@ form .field .p-dropdown > span.p-dropdown-label {
 
 form .field .p-calendar > input {
   background-color: var(--dz-input-fill-color);
-}
-
-form .helper-text {
-  color: var(--dz-secondary-color);
-  font-size: var(--form-input-helper-text-font-size);
-}
-
-form input,
-form textarea {
-  background-color: var(--dz-input-fill-color);
-  border-radius: var(--form-input-border-radius, 0.25em);
-  border: 1px solid var(--form-input-border-color, #000);
-  font-size: 1rem;
-  padding: var(--form-input-padding-v, 0.75rem)
-    var(--form-input-padding-h, 0.65rem);
-  padding-right: calc(var(--form-input-padding-h, 0.5em) * 4);
-  width: 100%;
-}
-
-form input:focus {
-  outline: 2px solid var(--form-input-focus-color);
-}
-
-form input[aria-invalid="true"] {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right calc(0.75 * var(--form-input-padding-h, 0.5em))
-    center;
-  background-size: 1em;
-  border-color: var(--form-input-border-color-danger, #dc3545);
-}
-
-form input[aria-invalid="true"]:focus-visible {
-  box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
-}
-
-form input[aria-invalid="false"] {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right calc(0.75 * var(--form-input-padding-h, 0.5em))
-    center;
-  background-size: 1em;
-  border-color: var(--form-input-border-color-success, #198754);
-}
-
-form input[aria-invalid="false"]:focus-visible {
-  box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
-}
-
-form label {
-  font-size: var(--form-label-font-size, 1em);
-}
-
-form span[role="alert"] {
-  color: var(--form-input-border-color-danger, red);
-  font-size: var(--form-input-error-font-size, 0.8em);
-}
-
-form input[readonly] {
-  border: none;
-  font-weight: 500;
-  padding: 0;
-}
-
-form input[readonly]:focus {
-  outline: none;
-}
-
-form input[disabled] {
-  background-color: var(--form-input-bg-color-disabled);
-}
-
-form input:autofill,
-form input:autofill:hover,
-form input:autofill:focus,
-form input:autofill:active {
-  background: transparent;
-  transition: background-color 5000s;
 }
 
 @media screen and (min-width: 576px) {

@@ -28,7 +28,7 @@ exports[`Component matches snapshot 1`] = `
       class="field"
     >
       <label
-        for="input-field-password"
+        for="password"
       >
         signup.form.password.label
       </label>
@@ -37,7 +37,7 @@ exports[`Component matches snapshot 1`] = `
       >
         <input
           autocomplete="new-password"
-          id="input-field-password"
+          id="password"
           name="password"
           placeholder=""
           type="password"
@@ -60,7 +60,7 @@ exports[`Component matches snapshot 1`] = `
       class="field"
     >
       <label
-        for="input-field-confirmPassword"
+        for="confirmPassword"
       >
         signup.form.confirmPassword.label
       </label>
@@ -69,7 +69,7 @@ exports[`Component matches snapshot 1`] = `
       >
         <input
           autocomplete="new-password"
-          id="input-field-confirmPassword"
+          id="confirmPassword"
           name="confirmPassword"
           placeholder=""
           type="password"
@@ -91,7 +91,6 @@ exports[`Component matches snapshot 1`] = `
     >
       <button
         class="dz-button primary filled medium"
-        id="submit"
         role="button"
         type="submit"
       >

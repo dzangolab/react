@@ -8,4 +8,5 @@
   outline: none;
   transform: scale(1.5);
   width: auto;
+  accent-color: var(--dz-primary-color);
 }

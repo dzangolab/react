@@ -11,11 +11,17 @@ import type { LoginCredentials } from "../../types";
 
 interface Properties {
   email?: string;
-  handleSubmit: (credentials: LoginCredentials) => void;
   loading?: boolean;
+  termsAndConditions?: React.ReactNode;
+  handleSubmit: (credentials: LoginCredentials) => void;
 }
 
-export const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
+export const SignupForm = ({
+  email,
+  loading,
+  termsAndConditions,
+  handleSubmit,
+}: Properties) => {
   const { t, i18n } = useTranslation("user");
   const config = useConfig();
 
@@ -67,7 +73,11 @@ export const SignupForm = ({ email, handleSubmit, loading }: Properties) => {
       validationSchema={SignUpFormSchema}
       validationTriggerKey={i18n.language}
     >
-      <SignupFormFields disableEmailField={!!email} loading={loading} />
+      <SignupFormFields
+        disableEmailField={!!email}
+        loading={loading}
+        termsAndConditions={termsAndConditions}
+      />
     </Provider>
   );
 };
