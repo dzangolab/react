@@ -91,10 +91,15 @@ export const Select = <T extends string | number>({
   }, [options]);
 
   const filteredOptions = useMemo(() => {
-    if (!searchInput) return sortedOptions;
+    if (!searchInput) {
+      return sortedOptions;
+    }
 
-    return sortedOptions.filter((option) =>
-      option.label.toLowerCase().includes(searchInput.toLowerCase()),
+    return sortedOptions.filter(
+      (option) =>
+        option.label.toLowerCase().includes(searchInput.toLowerCase()) ||
+        option.code?.toLowerCase().includes(searchInput.toLowerCase()) ||
+        option.symbol?.toLowerCase().includes(searchInput.toLowerCase()),
     );
   }, [searchInput, sortedOptions]);
 
