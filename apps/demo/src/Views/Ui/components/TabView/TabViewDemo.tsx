@@ -757,7 +757,7 @@ tabs={[
   {
     label: "Specifications",
     children: "Specifications",
-    key: "specification",
+    key: "specifications",
   },
   { label: "Pricing", children: "Pricing", key: "pricing" },
   {
