@@ -16,13 +16,13 @@ export const CurrencyPicker = <T extends string | number = string>({
     value: option.value as T,
   }));
 
-  const renderOptions = (option: Option<T>) => {
+  const _renderOption = (option: Option<T>) => {
     if (renderOption) {
       return renderOption(option);
     }
 
     return (
-      <div>
+      <div className="currency-picker-option">
         <span className="code">{option?.code}</span>
         <span className="label">{option?.label}</span>
         <span className="symbol">{option?.symbol}</span>
@@ -33,11 +33,11 @@ export const CurrencyPicker = <T extends string | number = string>({
   return (
     <Select
       className="currency-picker"
-      popupOption={{
+      menuOptions={{
         className: "currency-picker-menu",
       }}
       options={selectOptions}
-      renderOption={renderOptions}
+      renderOption={_renderOption}
       {...properties}
     />
   );

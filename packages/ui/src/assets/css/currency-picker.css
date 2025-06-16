@@ -1,4 +1,4 @@
-.currency-picker-menu div {
+.currency-picker-menu .currency-picker-option {
   align-items: baseline;
   display: flex;
   gap: .5rem;
