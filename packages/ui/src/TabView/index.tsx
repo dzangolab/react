@@ -68,7 +68,7 @@ const TabView: React.FC<Properties> = ({
   }, [activeTab]);
 
   useEffect(() => {
-    if (!controlled && persistState && id) {
+    if (!controlled && !enableHashRouting && persistState && id) {
       const storedState = storage.getItem(id);
 
       if (storedState) {
@@ -105,7 +105,7 @@ const TabView: React.FC<Properties> = ({
   }, [activeKey]);
 
   useEffect(() => {
-    if (!controlled && id && persistState) {
+    if (!controlled && !enableHashRouting && persistState && id) {
       storage.setItem(
         id,
         JSON.stringify({

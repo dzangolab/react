@@ -22,14 +22,14 @@ const data = [
     type: "boolean",
     default: "false",
     description:
-      "If true, TabView becomes a controlled component. Tab switching and closing are delegated to the parent via 'onActiveTabChange' and 'onTabClose'. Internal state updates and persistence are disabled.",
+      "If true, TabView becomes a controlled component. In this mode, internal state, hash routing, and state persistence are disabled.",
   },
   {
     id: 3,
     prop: "enableHashRouting",
     type: "boolean",
     default: "false",
-    description: "If true, TabView uses the URL hash.",
+    description: "Enable hash routing for the tab view URL.",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const data = [
     type: "boolean",
     default: "true",
     description:
-      "If true, tab state is saved either in localStorage or sessionStorage.",
+      "If true, tab state is saved either in localStorage or sessionStorage. Ignored when 'controlled' or 'enableHashRouting' is true.",
   },
   {
     id: 7,
