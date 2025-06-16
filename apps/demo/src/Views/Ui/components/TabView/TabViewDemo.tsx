@@ -725,11 +725,11 @@ onTabClose={handleTabClose}
               children: "Description",
               key: "descritpion",
             },
-            { label: "Reviews", children: "Reviews", key: "25" },
+            { label: "Reviews", children: "Reviews", key: "reviews" },
             {
               label: "Specifications",
               children: "Specifications",
-              key: "specification",
+              key: "specifications",
             },
             { label: "Pricing", children: "Pricing", key: "pricing" },
             {
@@ -753,7 +753,7 @@ onTabClose={handleTabClose}
 visibleTabs={["descritpion", "specification", "certifications"]}
 tabs={[
   { label: "Description", children: "Description", key: "descritpion" },
-  { label: "Reviews", children: "Reviews", key: "25" },
+  { label: "Reviews", children: "Reviews", key: "reviews" },
   {
     label: "Specifications",
     children: "Specifications",
