@@ -7,7 +7,10 @@ import type { Properties, Tab } from "./types";
 
 const TabView: React.FC<Properties> = ({
   activeKey,
+  controlled = false,
+  enableHashRouting = false,
   id = "",
+  lazy = true,
   persistState = true,
   persistStateStorage = "localStorage",
   position = "top",
@@ -15,10 +18,37 @@ const TabView: React.FC<Properties> = ({
   visibleTabs: _visibleTabs,
   onActiveTabChange,
   onVisibleTabsChange,
+  onTabClose,
 }) => {
   const [initialized, setInitialized] = useState(false);
-  const [visibleTabs, setVisibleTabs] = useState(_visibleTabs);
-  const [activeTab, setActiveTab] = useState(activeKey);
+  const [visibleTabs, setVisibleTabs] = useState(
+    _visibleTabs?.length ? _visibleTabs : tabs.map((tab) => tab.key),
+  );
+  const [activeTab, setActiveTab] = useState(() => {
+    if (activeKey) return activeKey;
+
+    if (_visibleTabs?.length) return _visibleTabs[0];
+
+    return tabs[0]?.key;
+  });
+  const currentActiveKey = !controlled ? activeTab : activeKey;
+  const currentVisibleTabs = !controlled ? visibleTabs : _visibleTabs;
+
+  const visibleTabsKey = useMemo(
+    () =>
+      currentVisibleTabs?.length ? currentVisibleTabs : tabs.map((t) => t.key),
+    [currentVisibleTabs, tabs],
+  );
+
+  const filteredTabs = useMemo(() => {
+    if (currentVisibleTabs?.length) {
+      return currentVisibleTabs
+        .map((key) => tabs.find((t) => t.key === key))
+        .filter((tab): tab is Tab => !!tab);
+    }
+
+    return tabs;
+  }, [currentVisibleTabs, tabs]);
 
   const storage = useMemo(
     () => getStorage(persistStateStorage),
@@ -32,40 +62,50 @@ const TabView: React.FC<Properties> = ({
   }, [visibleTabs]);
 
   useEffect(() => {
-    if (onActiveTabChange) {
+    if (!controlled && onActiveTabChange) {
       onActiveTabChange(activeTab);
     }
   }, [activeTab]);
 
   useEffect(() => {
-    if (persistState && id) {
+    if (!controlled && !enableHashRouting && persistState && id) {
       const storedState = storage.getItem(id);
 
       if (storedState) {
         const parsedState = JSON.parse(storedState);
-
-        setActiveTab(parsedState.activeTab || activeKey);
-        setVisibleTabs(parsedState.visibleTabs || _visibleTabs);
+        setActiveTab(parsedState.activeTab);
+        setVisibleTabs(parsedState.visibleTabs);
       }
     }
 
+    if (enableHashRouting) {
+      setHashTab();
+      window.addEventListener("hashchange", setHashTab);
+    }
+
     setInitialized(true);
+
+    return () => {
+      if (enableHashRouting) {
+        window.removeEventListener("hashchange", setHashTab);
+      }
+    };
   }, []);
 
   useEffect(() => {
-    if (initialized) {
+    if (!controlled && initialized && _visibleTabs?.length) {
       setVisibleTabs(_visibleTabs);
     }
   }, [_visibleTabs]);
 
   useEffect(() => {
-    if (initialized) {
+    if (!controlled && initialized && activeKey) {
       setActiveTab(activeKey);
     }
   }, [activeKey]);
 
   useEffect(() => {
-    if (id && persistState) {
+    if (!controlled && !enableHashRouting && persistState && id) {
       storage.setItem(
         id,
         JSON.stringify({
@@ -76,13 +116,43 @@ const TabView: React.FC<Properties> = ({
     }
   }, [visibleTabs, activeTab, id, persistState, storage]);
 
-  const filteredTabs = visibleTabs
-    .map((visibleTab) => {
-      return tabs.find((tab) => tab.key === visibleTab);
-    })
-    .filter((tab): tab is Tab => tab !== undefined);
+  const setHashTab = () => {
+    const hash = window.location.hash?.split("#").pop();
+
+    if (!hash || hash?.includes("/")) {
+      return;
+    }
+
+    const isValidTab = visibleTabsKey.includes(hash);
+
+    const shouldUpdateTab = hash && hash !== currentActiveKey && isValidTab;
+
+    if (shouldUpdateTab) {
+      setActiveTab(hash);
+    }
+  };
+
+  const handleTabSwitch = (key: string) => {
+    if (currentActiveKey === key) return;
+
+    if (controlled) {
+      onActiveTabChange?.(key);
+    } else {
+      setActiveTab(key);
+
+      if (enableHashRouting) {
+        window.location.hash = key;
+      }
+    }
+  };
 
   const handleTabClose = (key: string) => {
+    if (controlled && onTabClose) {
+      onTabClose(key);
+
+      return;
+    }
+
     const tabIndex = visibleTabs.findIndex((tab) => tab === key);
     const newVisibleTabs = visibleTabs.filter((tab) => tab !== key);
 
@@ -95,6 +165,10 @@ const TabView: React.FC<Properties> = ({
 
     setActiveTab(newActiveTab);
     setVisibleTabs(newVisibleTabs);
+
+    if (enableHashRouting) {
+      window.location.hash = newActiveTab;
+    }
   };
 
   if (!initialized) return null;
@@ -103,14 +177,14 @@ const TabView: React.FC<Properties> = ({
     <div className={`tabbed-panel ${position}`}>
       <div role="tablist" aria-orientation={getOrientation(position)}>
         {filteredTabs.map((item, index) => {
-          const isActive = activeTab === item.key;
+          const isActive = currentActiveKey === item.key;
           const title = item.label;
           const icon = item.icon;
           const key = index;
 
           return (
             <button
-              onClick={() => setActiveTab(item.key)}
+              onClick={() => handleTabSwitch(item.key)}
               key={key}
               role="tab"
               aria-label={title}
@@ -134,7 +208,22 @@ const TabView: React.FC<Properties> = ({
         })}
       </div>
       <div role="tabpanel">
-        {filteredTabs.find((tab) => tab.key === activeTab)?.children}
+        {lazy ? (
+          <div className="tab-panel-content">
+            {filteredTabs.find((tab) => tab.key === currentActiveKey)?.children}
+          </div>
+        ) : (
+          filteredTabs.map((tab) => (
+            <div
+              key={tab.key}
+              className={`tab-panel-content ${
+                tab.key === currentActiveKey ? "active" : "hidden"
+              }`.trimEnd()}
+            >
+              {tab.children}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

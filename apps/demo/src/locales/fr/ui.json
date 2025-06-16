@@ -66,6 +66,18 @@
     "header": "Confirmation required (fr)",
     "message": "Are you sure you want to proceed? (fr)"
   },
+  "currencyPicker": {
+    "label": "Currency (fr)",
+    "multiSelectPlaceholder": "Select currencies (fr)",
+    "placeholder": "Select a currency (fr)",
+    "searchPlaceholder": "Search... (fr)",
+    "title": "CurrencyPicker (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "multiple": "Multiple currency select (fr)",
+      "singleSearch": "Single currency select with search (fr)"
+    }
+  },
   "data": {
     "title": "Data (fr)",
     "subtitle": "The Data component is a reusable React component designed to display a labeled value. (fr)",
@@ -191,8 +203,11 @@
       "tableBorderVertical": "Table with custom style for vertical border (fr)"
     },
     "placeholder": {
+      "country": "Select country (fr)",
       "date": "Select date (fr)",
       "endDate": "End date (fr)",
+      "max": "Max (fr)",
+      "min": "Min (fr)",
       "startDate": "Start date (fr)",
       "search": "Search (fr)",
       "select": "Select city (fr)",
@@ -257,10 +272,13 @@
     "title": "TabView (fr)",
     "usage": {
       "basic": "Basic (fr)",
+      "closable": "Closable tabs (fr)",
+      "control": "Controlled tab navigation (fr)",
       "disableTabState": {
         "subTitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing persistState={false} prop to the component (fr)",
         "title": "State persistence disabled (fr)"
       },
+      "hashRoute": "Hash routing enabled (fr)",
       "positionBottom": "Bottom tabs (fr)",
       "positionLeft": "Left tabs (fr)",
       "positionRight": "Right tabs (fr)"
@@ -313,8 +331,8 @@
   },
   "select": {
     "autoSortOptionsInfo": "By default, options are sorted alphabetically. To render options in original order as provided, you can use <code>autoSortOptions={false}</code> (fr)",
-    "label": "language (fr)",
-    "multisSlectPlaceholder": "Select languages (fr)",
+    "label": "Language (fr)",
+    "multiSelectPlaceholder": "Select languages (fr)",
     "placeholder": "Select a language (fr)",
     "searchPlaceholder": "Search... (fr)",
     "title": "Select (fr)",
@@ -345,11 +363,11 @@
     },
     "title": "Typeahead (fr)",
     "label": {
-      "client": "Client side Typeahead (fr)",
-      "customSuggestion": "Custom suggestion Typeahead (fr)",
+      "client": "Client side typeahead (fr)",
+      "customSuggestion": "Custom suggestion typeahead (fr)",
       "disabled": "Disabled (fr)",
-      "emptyMessage": "Empty message Typeahead (fr)",
-      "server": "Server side Typeahead (fr)",
+      "emptyMessage": "Empty message typeahead (fr)",
+      "server": "Server side typeahead (fr)",
       "invalid": "Invalid (fr)"
     },
     "placeholder": "Search... (fr)"

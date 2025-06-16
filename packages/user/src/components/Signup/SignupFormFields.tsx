@@ -6,36 +6,65 @@ import {
   useWatch,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
-import React from "react";
+import { InlineLink } from "@dzangolab/react-ui";
+import React, { useEffect } from "react";
 
 import { TermsAndConditions } from "./TermsAndConditions";
 import { useConfig } from "../../hooks";
 
 interface IProperties {
-  loading?: boolean;
   disableEmailField?: boolean;
+  loading?: boolean;
+  termsAndConditions?: React.ReactNode;
 }
 
 const SignupFormFields: React.FC<IProperties> = ({
-  loading,
   disableEmailField = false,
+  loading,
+  termsAndConditions,
 }) => {
   const { t } = useTranslation("user");
   const config = useConfig();
   const {
     register,
     getFieldState,
-    formState: { errors, submitCount },
+    formState: { errors, submitCount, isSubmitted },
     control,
+    trigger,
+    watch,
   } = useFormContext();
 
   const {
     display: showTermsAndConditions,
+    external = false,
     showCheckbox,
-    label,
+    url,
   } = config.features?.termsAndConditions || {};
 
   let isChecked = false;
+
+  const passwordFieldValue = watch("password");
+
+  const _termsAndConditions = (
+    <>
+      {t("signup.form.termsAndConditions.prefix")}{" "}
+      <InlineLink
+        to={url || ""}
+        label={t("signup.form.termsAndConditions.infix")}
+        external={external}
+        underlined
+      />{" "}
+      {t("signup.form.termsAndConditions.suffix")}
+    </>
+  );
+
+  useEffect(() => {
+    if (!isSubmitted) {
+      return;
+    }
+
+    trigger("confirmPassword");
+  }, [passwordFieldValue]);
 
   if (showTermsAndConditions && showCheckbox) {
     isChecked = useWatch({ control: control, name: "termsAndConditions" });
@@ -68,7 +97,7 @@ const SignupFormFields: React.FC<IProperties> = ({
       {showTermsAndConditions ? (
         <TermsAndConditions
           hasCheckbox={showCheckbox}
-          label={label}
+          label={termsAndConditions || _termsAndConditions}
           name="termsAndConditions"
         />
       ) : null}

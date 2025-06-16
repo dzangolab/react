@@ -30,7 +30,6 @@ export const FormInputDemo = () => {
         minLength: 0,
       },
     ),
-    surname: zod.string().min(1, t("formInput.message.required")),
     number: zod
       .number({
         required_error: t("formInput.message.required"),
@@ -43,6 +42,9 @@ export const FormInputDemo = () => {
     select: zod
       .string()
       .array()
+      .nonempty({ message: t("formInput.message.required") }),
+    currencyPicker: zod
+      .string()
       .nonempty({ message: t("formInput.message.required") }),
     typeahead: zod.string().min(1, t("formInput.message.required")),
     date: zod.string().date(),

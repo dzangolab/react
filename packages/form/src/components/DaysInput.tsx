@@ -44,10 +44,9 @@ export const DaysInput: React.FC<IDaysInputField> = ({
 
   return (
     <div className={`field ${className}`.trimEnd()}>
-      {label && <label htmlFor={`input-field-${name}`}>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
       <input
         {...updatedRegister}
-        id={`input-field-${name}`}
         className={inputClassName}
         type="number"
         placeholder={placeholder}

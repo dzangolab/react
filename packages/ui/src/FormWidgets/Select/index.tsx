@@ -1,18 +1,22 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
-type Option<T> = {
+export type Option<T> = {
   disabled?: boolean;
   label: string;
   value: T;
 };
 
+type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
+
 export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
   className?: string;
+  customSearchFn?: (searchInput: string) => Option<T>[];
   disabled?: boolean;
   enableSearch?: boolean;
   errorMessage?: string;
@@ -24,6 +28,7 @@ export type ISelectProperties<T> = {
   name: string;
   options: Option<T>[];
   placeholder?: string;
+  menuOptions?: MenuOptions;
   searchPlaceholder?: string;
   showRemoveSelection?: boolean;
   renderOption?: (option: Option<T>) => React.ReactNode;
@@ -45,6 +50,7 @@ export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
   autoSortOptions = true,
   className = "",
+  customSearchFn,
   disabled: selectFieldDisabled,
   enableSearch = false,
   errorMessage,
@@ -56,6 +62,7 @@ export const Select = <T extends string | number>({
   name,
   options,
   placeholder,
+  menuOptions,
   searchPlaceholder,
   showRemoveSelection = true,
   value,
@@ -71,6 +78,9 @@ export const Select = <T extends string | number>({
   );
   const selectReference = useRef<HTMLDivElement>(null);
   const optionReference = useRef<Record<number, HTMLLIElement | null>>({});
+  const [referenceElement, setReferenceElement] = useState<Element | null>(
+    null,
+  );
 
   const sortedOptions = useMemo(() => {
     return !autoSortOptions
@@ -79,7 +89,13 @@ export const Select = <T extends string | number>({
   }, [options]);
 
   const filteredOptions = useMemo(() => {
-    if (!searchInput) return sortedOptions;
+    if (!searchInput) {
+      return sortedOptions;
+    }
+
+    if (customSearchFn) {
+      return customSearchFn(searchInput);
+    }
 
     return sortedOptions.filter((option) =>
       option.label.toLowerCase().includes(searchInput.toLowerCase()),
@@ -109,9 +125,13 @@ export const Select = <T extends string | number>({
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
+      const popupMenuContent = document.querySelector(".popup-menu");
+
       if (
         selectReference.current &&
-        !selectReference.current.contains(event.target as HTMLElement)
+        !selectReference.current.contains(event.target as HTMLElement) &&
+        (!popupMenuContent ||
+          !popupMenuContent.contains(event.target as HTMLElement))
       ) {
         setShowOptions(false);
         setFocused(false);
@@ -276,7 +296,7 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul>
+      <ul aria-multiselectable={multiple} role="listbox">
         {enableSearch ? (
           <DebouncedInput
             placeholder={searchPlaceholder}
@@ -294,6 +314,7 @@ export const Select = <T extends string | number>({
             <li
               key={index}
               ref={(element) => (optionReference.current[index] = element)}
+              role="option"
               className={
                 `${!multiple && value === option.value ? "selected" : ""}
               ${disabled ? "disabled" : ""}
@@ -412,9 +433,19 @@ export const Select = <T extends string | number>({
     <div ref={selectReference} className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
 
-      <div className="select" aria-multiselectable={multiple}>
+      <div className="select" ref={setReferenceElement}>
         {renderSelect()}
-        {shouldAutoSelect ? null : showOptions && renderOptions()}
+        {shouldAutoSelect
+          ? null
+          : showOptions && (
+              <PopupMenu
+                className={`select-menu ${menuOptions?.className}`.trim()}
+                content={renderOptions()}
+                matchReferenceWidth
+                offset={0}
+                referenceElement={referenceElement}
+              />
+            )}
       </div>
 
       {helperText && <span className="helper-text">{helperText}</span>}

@@ -8,6 +8,7 @@ import {
   TableColumnDefinition,
   Tag,
   formatDateTime,
+  FilterOption,
 } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
 
@@ -34,7 +35,7 @@ import type {
 
 type VisibleColumn =
   | "email"
-  | "app"
+  | "appId"
   | "role"
   | "invitedBy"
   | "expiresAt"
@@ -49,6 +50,7 @@ export type InvitationsTableProperties = Partial<
   >
 > & {
   additionalInvitationFields?: AdditionalFormFields;
+  appFilterOptions?: FilterOption[];
   apps?: Array<InvitationAppOption>;
   fetchInvitations?: (arguments_: TRequestJSON) => void;
   invitationButtonOptions?: IButtonProperties;
@@ -60,14 +62,17 @@ export type InvitationsTableProperties = Partial<
   onInvitationRevoked?: (data: RevokeInvitationResponse) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prepareInvitationData?: (data: any) => any;
+  roleFilterOptions?: FilterOption[];
   roles?: Array<InvitationRoleOption>;
   showAppColumn?: boolean;
   showInviteAction?: boolean;
+  statusFilterOptions?: FilterOption[];
   visibleColumns?: VisibleColumn[];
 };
 
 export const InvitationsTable = ({
   additionalInvitationFields,
+  appFilterOptions,
   apps,
   className = "table-invitations",
   columns = [],
@@ -80,12 +85,14 @@ export const InvitationsTable = ({
   onInvitationResent,
   onInvitationRevoked,
   prepareInvitationData,
+  roleFilterOptions,
   roles,
   showInviteAction = true,
+  statusFilterOptions,
   totalRecords = 0,
   visibleColumns = [
     "email",
-    "app",
+    "appId",
     "role",
     "invitedBy",
     "expiresAt",
@@ -161,24 +168,30 @@ export const InvitationsTable = ({
   const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
       accessorKey: "email",
-      header: t("table.defaultColumns.email"),
-      enableSorting: true,
       enableColumnFilter: true,
       enableGlobalFilter: true,
+      enableSorting: true,
       filterPlaceholder: t("table.searchPlaceholder"),
+      header: t("table.defaultColumns.email"),
     },
     {
+      accessorKey: "appId",
       align: "center",
-      accessorKey: "app",
-      header: t("table.defaultColumns.app"),
       cell: ({ row: { original } }) => {
         return <span>{original.appId || "-"} </span>;
       },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.appId"),
+      header: t("table.defaultColumns.app"),
+      meta: {
+        filterOptions: appFilterOptions,
+        filterVariant: "multiselect",
+      },
     },
     {
-      align: "center",
       accessorKey: "role",
-      header: t("table.defaultColumns.role"),
+      align: "center",
       cell: ({ getValue, row: { original } }) => {
         const roles = (original as unknown as { roles: string[] })?.roles;
 
@@ -207,10 +220,17 @@ export const InvitationsTable = ({
           />
         );
       },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.role"),
+      header: t("table.defaultColumns.role"),
+      meta: {
+        filterOptions: roleFilterOptions,
+        filterVariant: "multiselect",
+      },
     },
     {
       accessorKey: "invitedBy",
-      header: t("table.defaultColumns.invitedBy"),
       cell: ({ getValue }) => {
         const invitedBy = getValue() as UserType;
 
@@ -224,11 +244,14 @@ export const InvitationsTable = ({
 
         return invitedBy?.email;
       },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.invitedBy"),
+      header: t("table.defaultColumns.invitedBy"),
     },
     {
-      align: "center",
       accessorKey: "status",
-      header: t("table.defaultColumns.status"),
+      align: "center",
       cell: ({ row: { original } }) => {
         const { acceptedAt, revokedAt, expiresAt } = original;
 
@@ -250,12 +273,26 @@ export const InvitationsTable = ({
 
         return <Tag label={getLabel()} color={getColor()} fullWidth />;
       },
+      enableColumnFilter: true,
+      filterPlaceholder: t("table.placeholders.status"),
+      header: t("table.defaultColumns.status"),
+      meta: {
+        filterOptions: statusFilterOptions,
+        filterVariant: "multiselect",
+      },
     },
     {
       accessorKey: "expiresAt",
-      header: t("table.defaultColumns.expiresAt"),
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as string);
+      },
+      enableColumnFilter: true,
+      enableSorting: true,
+      filterPlaceholder: t("table.placeholders.expiresAt"),
+      header: t("table.defaultColumns.expiresAt"),
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
       },
     },
   ];

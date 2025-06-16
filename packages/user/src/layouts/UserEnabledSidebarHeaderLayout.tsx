@@ -1,12 +1,11 @@
-import { useTranslation } from "@dzangolab/react-i18n";
 import {
   SidebarHeaderLayout,
   SidebarHeaderLayoutProperties,
 } from "@dzangolab/react-layout";
-import { toast } from "react-toastify";
 
 import { useUser } from "@/hooks";
-import { logout } from "@/supertokens";
+
+import { useUserNavigationMenu } from "..";
 
 import type { NavMenuItemType } from "@dzangolab/react-ui";
 
@@ -28,40 +27,14 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
   userMenuLocation = "header",
   ...otherProperties
 }) => {
-  const { t } = useTranslation("user");
+  const { user } = useUser();
 
-  const { user, setUser } = useUser();
-
-  const getUserNavigationMenu = () => {
-    const signout = async () => {
-      if (await logout()) {
-        await setUser(null);
-
-        onLogout && (await onLogout());
-
-        toast.success(t("logout.message"));
-      }
-    };
-
-    const signoutRoute = {
-      icon: "pi pi-power-off",
-      label: t("userMenu.logout"),
-      onClick: signout,
-    };
-
-    if (!userNavigationMenu) {
-      return {
-        menu: [signoutRoute],
-        className: "dz-user-menu",
-      };
-    }
-
-    return {
-      ...userNavigationMenu,
-      menu: [...userNavigationMenu.menu, signoutRoute],
-      className: `dz-user-menu ${userNavigationMenu?.className || ""}`.trim(),
-    };
-  };
+  const userMenu = useUserNavigationMenu({
+    authNavigationMenu,
+    addAuthNavigationMenu: false,
+    userNavigationMenu,
+    onLogout,
+  });
 
   return (
     <SidebarHeaderLayout
@@ -69,7 +42,7 @@ export const UserEnabledSidebarHeaderLayout: React.FC<Properties> = ({
       className={className}
       collapsible={collapsible}
       navigationMenu={user ? navigationMenu : authNavigationMenu}
-      userMenu={user ? getUserNavigationMenu() : undefined}
+      userMenu={user ? userMenu : undefined}
       userMenuLocation={userMenuLocation}
       {...otherProperties}
     />

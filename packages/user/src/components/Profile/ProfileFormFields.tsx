@@ -1,8 +1,8 @@
 import {
-  Input,
-  useFormContext,
   AdditionalFormFields,
   FormActions,
+  TextInput,
+  useFormContext,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
 
@@ -16,8 +16,6 @@ export const ProfileFormFields = ({
   additionalProfileFields,
 }: Properties) => {
   const {
-    register,
-    getFieldState,
     reset,
     formState: { errors, submitCount, isDirty }, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useFormContext();
@@ -25,23 +23,17 @@ export const ProfileFormFields = ({
   const { t } = useTranslation("user");
   return (
     <>
-      <Input
+      <TextInput
         label={t("profile.form.firstName.label")}
         name="givenName"
-        type="text"
         placeholder={t("profile.form.firstName.placeholder")}
-        register={register}
         submitCount={submitCount}
-        getFieldState={getFieldState}
       />
-      <Input
+      <TextInput
         label={t("profile.form.lastName.label")}
         name="surname"
-        type="text"
         placeholder={t("profile.form.lastName.placeholder")}
-        register={register}
         submitCount={submitCount}
-        getFieldState={getFieldState}
       />
 
       {additionalProfileFields

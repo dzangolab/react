@@ -213,6 +213,9 @@
       "confirmation": {
         "label": "Confirmez votre mot de passe"
       },
+      "confirmPassword": {
+        "label": "Confirm password (fr)"
+      },
       "email": {
         "label": "Votre adresse e-mail",
         "placeholder": ""
@@ -221,8 +224,10 @@
         "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase. (fr)",
         "label": "Votre mot de passe"
       },
-      "confirmPassword": {
-        "label": "Confirm password (fr)"
+      "termsAndConditions": {
+        "infix": "Terms and conditions (fr)",
+        "prefix": "I agree to the (fr)",
+        "suffix": "as set out by the user agreement. (fr)"
       }
     },
     "links": {

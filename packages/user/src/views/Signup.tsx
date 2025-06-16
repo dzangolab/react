@@ -7,18 +7,20 @@ import type { SignInUpPromise } from "../types";
 
 interface IProperties {
   centered?: boolean;
-  onSignupFailed?: (error: Error) => void;
-  onSignupSuccess?: (user: SignInUpPromise) => void;
   showForgotPasswordLink?: boolean;
   showLoginLink?: boolean;
+  termsAndConditions?: React.ReactNode;
+  onSignupFailed?: (error: Error) => void;
+  onSignupSuccess?: (user: SignInUpPromise) => void;
 }
 
 export const Signup: React.FC<IProperties> = ({
   centered = true,
-  onSignupFailed,
-  onSignupSuccess,
   showForgotPasswordLink,
   showLoginLink,
+  termsAndConditions,
+  onSignupFailed,
+  onSignupSuccess,
 }) => {
   const { t } = useTranslation("user");
 
@@ -29,6 +31,7 @@ export const Signup: React.FC<IProperties> = ({
         onSignupSuccess={onSignupSuccess}
         showForgotPasswordLink={showForgotPasswordLink}
         showLoginLink={showLoginLink}
+        termsAndConditions={termsAndConditions}
       />
     </AuthPage>
   );

@@ -6,7 +6,7 @@ import type {
   UserMenuModeType,
 } from "@dzangolab/react-ui";
 
-interface HeaderLayoutProperties {
+export interface HeaderLayoutProperties {
   className?: string;
   children?: React.ReactNode;
   customFooter?: React.ReactNode;

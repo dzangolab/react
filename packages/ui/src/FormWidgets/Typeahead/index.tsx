@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import LoadingIcon from "../../LoadingIcon";
+import { PopupMenu } from "../../Popup";
 import { DebouncedInput } from "../DebouncedInput";
 import { IInputProperties } from "../Input";
 
@@ -54,6 +55,9 @@ export const Typeahead = <T extends Suggestion>({
   >(value);
   const isSuggestionSelected = useRef(false);
   const suggestionReference = useRef<HTMLUListElement>(null);
+  const [referenceElement, setReferenceElement] = useState<Element | null>(
+    null,
+  );
 
   useEffect(() => {
     if (data) {
@@ -162,18 +166,26 @@ export const Typeahead = <T extends Suggestion>({
         {inputValue &&
           !isSuggestionSelected.current &&
           (suggestions.length > 0 ? (
-            <ul ref={suggestionReference}>
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSelectedSuggestion(suggestion)}
-                  onKeyDown={(event) => handleKeyDown(event, suggestion)}
-                  tabIndex={0}
-                >
-                  {renderSuggestionContent(suggestion)}
-                </li>
-              ))}
-            </ul>
+            <PopupMenu
+              className="typeahead-menu"
+              content={
+                <ul ref={suggestionReference}>
+                  {suggestions.map((suggestion, index) => (
+                    <li
+                      key={index}
+                      onClick={() => handleSelectedSuggestion(suggestion)}
+                      onKeyDown={(event) => handleKeyDown(event, suggestion)}
+                      tabIndex={0}
+                    >
+                      {renderSuggestionContent(suggestion)}
+                    </li>
+                  ))}
+                </ul>
+              }
+              matchReferenceWidth
+              offset={0}
+              referenceElement={referenceElement}
+            />
           ) : emptyMessage ? (
             renderEmptyMessage()
           ) : null)}
@@ -182,11 +194,12 @@ export const Typeahead = <T extends Suggestion>({
   };
 
   return (
-    <div className={`dz-typeahead ${className}`.trimEnd()}>
+    <div className={`field ${className}`.trimEnd()}>
       {label && <label htmlFor={name}>{label}</label>}
       <div
-        className={`input-field-typeahead ${disabled ? "disabled" : ""}`}
+        className={`typeahead ${disabled ? "disabled" : ""}`}
         aria-invalid={hasError}
+        ref={setReferenceElement}
       >
         <DebouncedInput
           type={type}
@@ -197,8 +210,8 @@ export const Typeahead = <T extends Suggestion>({
           disabled={disabled}
         />
         {loading && <LoadingIcon color="#ccc" />}
+        {renderSuggestions()}
       </div>
-      {renderSuggestions()}
       {helperText && <span className="helper-text">{helperText}</span>}
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>

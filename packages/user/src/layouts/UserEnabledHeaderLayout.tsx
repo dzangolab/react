@@ -1,99 +1,37 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { HeaderLayout } from "@dzangolab/react-layout";
-import { toast } from "react-toastify";
+import { HeaderLayout, HeaderLayoutProperties } from "@dzangolab/react-layout";
 
-import { logout, useUser } from "..";
+import { useUser, useUserNavigationMenu } from "..";
 
-import type { NavMenuItemType, NavMenuType } from "@dzangolab/react-ui";
+import type { NavMenuItemType } from "@dzangolab/react-ui";
 
-interface IProperties {
+interface IProperties
+  extends Omit<HeaderLayoutProperties, "userMenuMode" | "menu"> {
   authNavigationMenu?: NavMenuItemType;
-  className?: string;
-  children?: React.ReactNode;
-  customFooter?: React.ReactNode;
-  customHeader?: React.ReactNode;
-  displayNavIcons?: boolean;
-  fixed?: boolean;
-  headerAddon?: React.ReactNode;
   userNavigationMenu?: NavMenuItemType;
-  navigationMenu?: NavMenuType;
-  noLocaleSwitcher?: boolean;
-  noLogo?: boolean;
-  noToggle?: boolean;
-  title?: string | React.ReactNode;
-  onLogout?: () => Promise<void>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onLogout?: () => Promise<any>;
 }
 
 export const UserEnabledHeaderLayout = ({
   authNavigationMenu,
-  children,
-  className,
-  customFooter,
-  customHeader,
-  displayNavIcons,
-  fixed,
-  headerAddon,
   userNavigationMenu,
-  navigationMenu,
-  noLocaleSwitcher,
-  noLogo,
-  noToggle,
-  title,
   onLogout,
+  ...otherProperties
 }: IProperties) => {
-  const { t } = useTranslation("user");
+  const { user } = useUser();
 
-  const { user, setUser } = useUser();
-
-  const getUserNavigationMenu = () => {
-    if (!user) {
-      return authNavigationMenu;
-    }
-
-    const signout = async () => {
-      if (await logout()) {
-        await setUser(null);
-
-        onLogout && (await onLogout());
-
-        toast.success(t("logout.message"));
-      }
-    };
-
-    const signoutRoute = {
-      icon: "pi pi-power-off",
-      label: t("userMenu.logout"),
-      onClick: signout,
-    };
-
-    if (!userNavigationMenu) {
-      return { menu: [signoutRoute] };
-    }
-
-    return {
-      ...userNavigationMenu,
-      menu: [...userNavigationMenu.menu, signoutRoute],
-    };
-  };
+  const userMenu = useUserNavigationMenu({
+    authNavigationMenu,
+    addAuthNavigationMenu: true,
+    userNavigationMenu,
+    onLogout,
+  });
 
   return (
     <HeaderLayout
-      {...{
-        className,
-        children,
-        customFooter,
-        customHeader,
-        displayNavIcons,
-        fixed,
-        headerAddon,
-        navigationMenu,
-        title,
-        menu: getUserNavigationMenu(),
-        noLogo,
-        noLocaleSwitcher,
-        noToggle,
-      }}
+      menu={userMenu}
       userMenuMode={user ? "popup" : "horizontal"}
+      {...otherProperties}
     />
   );
 };

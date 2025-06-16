@@ -1,16 +1,16 @@
 import {
+  CheckboxInput,
+  CurrencyPicker,
+  DateInput,
   Email,
   FormActions,
-  TextInput,
+  NumberInput,
   Password,
   RadioInput,
-  Input,
-  useFormContext,
-  NumberInput,
   Select,
+  TextInput,
   Typeahead,
-  DateInput,
-  CheckboxInput,
+  useFormContext,
 } from "@dzangolab/react-form";
 import { Textarea } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
@@ -79,17 +79,6 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         showValidState={valid}
         showInvalidState={invalid}
       />
-      <Input
-        getFieldState={getFieldState}
-        label={t("formInput.label.input")}
-        name="surname"
-        placeholder={t("formInput.placeHolder.input")}
-        register={register}
-        submitCount={submitCount}
-        showValidState={valid}
-        showInvalidState={invalid}
-        type="text"
-      />
       <NumberInput
         name="number"
         label={t("formInput.label.number")}
@@ -121,6 +110,26 @@ export const FormInputFields = ({ checkFilledState }: Properties) => {
         submitCount={submitCount}
         showValidState={valid}
         showInvalidState={invalid}
+      />
+      <CurrencyPicker
+        options={[
+          {
+            code: "AUD",
+            label: "Australian Dollar",
+            symbol: "$",
+            value: "AUD",
+          },
+          { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
+          { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
+          { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
+          { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+        ]}
+        label={t("formInput.label.currencyPicker")}
+        name="currencyPicker"
+        placeholder={t("formInput.placeHolder.currencyPicker")}
+        showInvalidState={invalid}
+        showValidState={valid}
+        submitCount={submitCount}
       />
       <Email
         label={t("formInput.label.disabled")}

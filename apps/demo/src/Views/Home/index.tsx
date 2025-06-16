@@ -1,11 +1,13 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 import { Page, GridContainer } from "@dzangolab/react-ui";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Package } from "./components/Package";
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const packages = [
     {
@@ -45,7 +47,7 @@ const Home: React.FC = () => {
               key={package_.route}
               title={t(`header.menu.${package_.name}`)}
               description={package_.description}
-              onClick={() => (window.location.hash = package_.route)}
+              onClick={() => navigate(package_.route)}
             />
           );
         })}

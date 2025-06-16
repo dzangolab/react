@@ -66,6 +66,18 @@
     "header": "Confirmation required",
     "message": "Are you sure you want to proceed?"
   },
+  "currencyPicker": {
+    "label": "Currency",
+    "multiSelectPlaceholder": "Select currencies",
+    "placeholder": "Select a currency",
+    "searchPlaceholder": "Search...",
+    "title": "CurrencyPicker",
+    "usage": {
+      "basic": "Basic",
+      "multiple": "Multiple currency select",
+      "singleSearch": "Single currency select with search"
+    }
+  },
   "data": {
     "title": "Data",
     "subtitle": "The Data component is a reusable React component designed to display a labeled value.",
@@ -191,8 +203,11 @@
       "tableBorderVertical": "Table with custom style for vertical border"
     },
     "placeholder": {
+      "country": "Select country",
       "date": "Select date",
       "endDate": "End date",
+      "max": "Max",
+      "min": "Min",
       "startDate": "Start date",
       "search": "Search",
       "select": "Select city",
@@ -257,10 +272,13 @@
     "title": "TabView",
     "usage": {
       "basic": "Basic",
+      "closable": "Closable tabs",
+      "control": "Controlled tab navigation",
       "disableTabState": {
         "subTitle": "By default, tab state is persisted between page refresh and navigations. You can disable this feature by passing persistState={false} prop to the component",
         "title": "State persistence disabled"
       },
+      "hashRoute": "Hash routing enabled",
       "positionBottom": "Bottom tabs",
       "positionLeft": "Left tabs",
       "positionRight": "Right tabs"
@@ -313,8 +331,8 @@
   },
   "select": {
     "autoSortOptionsInfo": "By default, options are sorted alphabetically. To render options in original order as provided, you can use <code>autoSortOptions={false}</code>",
-    "label": "language",
-    "multisSlectPlaceholder": "Select languages",
+    "label": "Language",
+    "multiSelectPlaceholder": "Select languages",
     "placeholder": "Select a language",
     "searchPlaceholder": "Search...",
     "title": "Select",
@@ -345,11 +363,11 @@
     },
     "title": "Typeahead",
     "label": {
-      "client": "Client side Typeahead",
-      "customSuggestion": "Custom suggestion Typeahead",
+      "client": "Client side typeahead",
+      "customSuggestion": "Custom suggestion typeahead",
       "disabled": "Disabled",
-      "emptyMessage": "Empty message Typeahead",
-      "server": "Server side Typeahead",
+      "emptyMessage": "Empty message typeahead",
+      "server": "Server side typeahead",
       "invalid": "Invalid"
     },
     "placeholder": "Search..."
