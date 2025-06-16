@@ -55,12 +55,23 @@ export const CurrencyPicker = <T extends string | number>({
     );
   };
 
+  const _customSearch = (searchInput: string) => {
+    searchInput = searchInput.toLowerCase();
+
+    return selectOptions.filter(({ label, code, symbol }) => {
+      return [label, code, symbol].some((field) =>
+        field?.toLowerCase().includes(searchInput),
+      );
+    });
+  };
+
   return (
     <Select
       className="currency-picker"
       menuOptions={{
         className: "currency-picker-menu",
       }}
+      customSearchFn={_customSearch}
       options={selectOptions}
       renderOption={_renderOption}
       {...properties}
