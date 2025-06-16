@@ -25,7 +25,7 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   const defaultTrigger = useMemo(() => {
     return (
       <span className="dz-dropdown-menu-trigger">
-        {label || <i className="pi pi-ellipsis-h"></i>}
+        {label ? <span>{label}</span> : <i className="pi pi-ellipsis-h"></i>}
         {!hideDropdownIcon && (
           <i className="dz-dropdown-icon pi pi-angle-down"></i>
         )}

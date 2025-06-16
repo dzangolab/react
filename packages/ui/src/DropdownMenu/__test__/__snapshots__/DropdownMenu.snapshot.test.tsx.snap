@@ -3,7 +3,7 @@
 exports[`DropdownMenu > should match snapshot with a custom label 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container dropdown-menu"
   >
     <div
       aria-controls="popup-content"
@@ -13,7 +13,9 @@ exports[`DropdownMenu > should match snapshot with a custom label 1`] = `
       <span
         class="dz-dropdown-menu-trigger"
       >
-        Custom Label
+        <span>
+          Custom Label
+        </span>
         <i
           class="dz-dropdown-icon pi pi-angle-down"
         />
@@ -26,7 +28,7 @@ exports[`DropdownMenu > should match snapshot with a custom label 1`] = `
 exports[`DropdownMenu > should match snapshot with a custom position 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container dropdown-menu"
   >
     <div
       aria-controls="popup-content"
@@ -51,7 +53,7 @@ exports[`DropdownMenu > should match snapshot with a custom position 1`] = `
 exports[`DropdownMenu > should match snapshot with a custom trigger 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container dropdown-menu"
   >
     <div
       aria-controls="popup-content"
@@ -69,7 +71,7 @@ exports[`DropdownMenu > should match snapshot with a custom trigger 1`] = `
 exports[`DropdownMenu > should match snapshot with all props set 1`] = `
 <div>
   <div
-    class="popup-container dropdown-menu"
+    class="popup-container dropdown-menu dropdown-menu"
   >
     <div
       aria-controls="popup-content"
@@ -87,7 +89,7 @@ exports[`DropdownMenu > should match snapshot with all props set 1`] = `
 exports[`DropdownMenu > should match snapshot with custom className 1`] = `
 <div>
   <div
-    class="popup-container custom-class"
+    class="popup-container dropdown-menu custom-class"
   >
     <div
       aria-controls="popup-content"
@@ -112,7 +114,7 @@ exports[`DropdownMenu > should match snapshot with custom className 1`] = `
 exports[`DropdownMenu > should match snapshot with custom menu templating 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container dropdown-menu"
   >
     <div
       aria-controls="popup-content"
@@ -137,7 +139,7 @@ exports[`DropdownMenu > should match snapshot with custom menu templating 1`] = 
 exports[`DropdownMenu > should match snapshot with default props 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container dropdown-menu"
   >
     <div
       aria-controls="popup-content"
@@ -162,7 +164,7 @@ exports[`DropdownMenu > should match snapshot with default props 1`] = `
 exports[`DropdownMenu > should match snapshot with empty menu 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container dropdown-menu"
   >
     <div
       aria-controls="popup-content"
@@ -187,7 +189,7 @@ exports[`DropdownMenu > should match snapshot with empty menu 1`] = `
 exports[`DropdownMenu > should match snapshot with hideDropdownIcon set to true 1`] = `
 <div>
   <div
-    class="popup-container"
+    class="popup-container dropdown-menu"
   >
     <div
       aria-controls="popup-content"

@@ -94,6 +94,10 @@
   font-weight: 600;
 }
 
+.demo .demo-section-content .dropdown-menu {
+  --_width: fit-content;
+}
+
 @media screen and (min-width: 576px) {
   .demo > .demo-aside {
     border-right: 1px solid #ccc;
