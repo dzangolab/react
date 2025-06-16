@@ -718,7 +718,12 @@ onTabClose={handleTabClose}
 
       <Section title={t("tabview.usage.hashRoute")}>
         <TabView
-          visibleTabs={["descritpion", "specification", "certifications"]}
+          visibleTabs={[
+            "descritpion",
+            "specifications",
+            "certifications",
+            "pricing",
+          ]}
           tabs={[
             {
               label: "Description",
@@ -750,7 +755,7 @@ onTabClose={handleTabClose}
         <CodeBlock
           exampleCode='
 <TabView
-visibleTabs={["descritpion", "specification", "certifications"]}
+visibleTabs={["descritpion", "specifications", "certifications", "pricing"]}
 tabs={[
   { label: "Description", children: "Description", key: "descritpion" },
   { label: "Reviews", children: "Reviews", key: "reviews" },
