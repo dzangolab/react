@@ -22,7 +22,7 @@ const Menu: React.FC<MenuProperties> = ({
   renderOption,
 }) => {
   return (
-    <ul className={`dz-dropdown-menu ${className || ""}`.trimEnd()}>
+    <ul className={`dropdown-menu-list ${className || ""}`.trimEnd()}>
       {menu.map((item, index) => {
         const {
           className,
@@ -44,7 +44,7 @@ const Menu: React.FC<MenuProperties> = ({
             {renderOption ? (
               renderOption(item)
             ) : (
-              <span className="dz-menu-item">
+              <span className="menu-item">
                 {icon ? (
                   typeof icon === "string" ? (
                     <i className={icon}></i>
