@@ -20,14 +20,14 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
   position = "bottom-start",
   offset,
   hideDropdownIcon = false,
-  ...menuOptions
+  ...others
 }) => {
   const defaultTrigger = useMemo(() => {
     return (
-      <span className="dz-dropdown-menu-trigger">
+      <span className="dropdown-menu-trigger">
         {label ? <span>{label}</span> : <i className="pi pi-ellipsis-h"></i>}
         {!hideDropdownIcon && (
-          <i className="dz-dropdown-icon pi pi-angle-down"></i>
+          <i className="dropdown-icon pi pi-angle-down"></i>
         )}
       </span>
     );
@@ -35,9 +35,9 @@ const DropdownMenu: React.FC<DropdownMenuProperties> = ({
 
   return (
     <Popup
-      className={`dropdown-menu ${menuOptions.className || ""}`.trimEnd()}
+      className={`dropdown-menu ${others.className || ""}`.trimEnd()}
       trigger={trigger || defaultTrigger}
-      content={<Menu {...menuOptions} />}
+      content={<Menu {...others} />}
       position={position}
       isControlled={isControlled}
       toggle={toggle}

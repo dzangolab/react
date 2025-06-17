@@ -11,13 +11,13 @@ exports[`DropdownMenu > should match snapshot with a custom label 1`] = `
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <span>
           Custom Label
         </span>
         <i
-          class="dz-dropdown-icon pi pi-angle-down"
+          class="dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>
@@ -36,13 +36,13 @@ exports[`DropdownMenu > should match snapshot with a custom position 1`] = `
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <i
           class="pi pi-ellipsis-h"
         />
         <i
-          class="dz-dropdown-icon pi pi-angle-down"
+          class="dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>
@@ -97,13 +97,13 @@ exports[`DropdownMenu > should match snapshot with custom className 1`] = `
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <i
           class="pi pi-ellipsis-h"
         />
         <i
-          class="dz-dropdown-icon pi pi-angle-down"
+          class="dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>
@@ -122,13 +122,13 @@ exports[`DropdownMenu > should match snapshot with custom menu templating 1`] = 
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <i
           class="pi pi-ellipsis-h"
         />
         <i
-          class="dz-dropdown-icon pi pi-angle-down"
+          class="dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>
@@ -147,13 +147,13 @@ exports[`DropdownMenu > should match snapshot with default props 1`] = `
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <i
           class="pi pi-ellipsis-h"
         />
         <i
-          class="dz-dropdown-icon pi pi-angle-down"
+          class="dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>
@@ -172,13 +172,13 @@ exports[`DropdownMenu > should match snapshot with empty menu 1`] = `
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <i
           class="pi pi-ellipsis-h"
         />
         <i
-          class="dz-dropdown-icon pi pi-angle-down"
+          class="dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>
@@ -197,7 +197,7 @@ exports[`DropdownMenu > should match snapshot with hideDropdownIcon set to true 
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <i
           class="pi pi-ellipsis-h"
