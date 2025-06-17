@@ -1,6 +1,5 @@
 .dropdown-menu {
-  --_width: var(--dropdown-menu-width, 100%);
-  width: var(--_width);
+  width: fit-content;
 }
 
 .dropdown-menu-trigger {
@@ -20,7 +19,6 @@
 .dropdown-menu-trigger .dropdown-icon {
   display: inline-block;
   margin-left: 0.5rem;
-  min-width: fit-content;
   transition: transform 0.3s ease;
   transform-origin: center;
 }

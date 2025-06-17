@@ -29,10 +29,6 @@
   display: block;
 }
 
-.dz-layout .dz-header-menu .dropdown-menu {
-  --_width: fit-content;
-}
-
 .dz-layout .dz-header-menu > .dz-user-menu .dropdown-menu-trigger,
 .dz-layout .dz-header-menu > .dz-locale-switcher .dropdown-menu-trigger {
   display: block;
