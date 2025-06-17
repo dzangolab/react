@@ -11,13 +11,13 @@ exports[`Component matches snapshot 1`] = `
       class="popup-trigger"
     >
       <span
-        class="dz-dropdown-menu-trigger"
+        class="dropdown-menu-trigger"
       >
         <span>
           locales.en
         </span>
         <i
-          class="dz-dropdown-icon pi pi-angle-down"
+          class="dropdown-icon pi pi-angle-down"
         />
       </span>
     </div>
