@@ -1,6 +1,13 @@
 # [0.58.0](https://github.com/dzangolab/react/compare/v0.57.0...v0.58.0) (2025-06-18)
 
 
+### Breaking Changes
+
+* **user:** removed `features.termsAndConditions.label` config. Instead added `features.termsAndConditions.url` and `features.termsAndConditions.external` optional configs. If you need to overwrite TermsAndConditions component, pass it via the `termsAndConditions` prop in Signup page.
+* **user:** updated UsersTable status column's `accessorKey` from `status` to `disabled` 
+* **ui:** removed some css vars for the button and form widgets. If you were using some of the vars to overwrite the style, please check the `packages/ui/src/assets/css/vars.css` file to see if the var is still present and confirm if its being used.
+
+
 ### Bug Fixes
 
 * add sorting in demo table column ([#1469](https://github.com/dzangolab/react/issues/1469)) ([cb9ada9](https://github.com/dzangolab/react/commit/cb9ada9dc4e211153405cb470aadc0dcd0151d10))
