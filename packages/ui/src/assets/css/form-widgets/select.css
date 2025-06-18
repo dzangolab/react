@@ -40,9 +40,17 @@
   padding-inline: var(--_padding-inline);
 }
 
+.select > .label-container .debounced-input {
+  margin-right: 2rem;
+}
+
 .select > .label-container .input-field {
   border: none;
+  margin-right: 2rem;
+  overflow: hidden;
   padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .select > .label-container .input-field:focus-within {
@@ -69,26 +77,15 @@
   border-color: var(--dz-success-color);
 }
 
-.select > .label-container > i {
+.select > .label-container i {
   color: var(--_icon-color);
   cursor: pointer;
   font-size: 0.85rem;
-  position: absolute;
-  right: 2.5rem;
 }
 
-.select > .label-container .menu-trigger {
-  color: var(--_icon-color);
-  cursor: pointer;
-}
-
-.select > .label-container .selected-options,
-.select > .label-container .selected-option,
-.select > .label-container .placeholder {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-right: 2rem;
+.select > .label-container .action-items {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .select > .label-container .selected-options > .dz-tag > i {

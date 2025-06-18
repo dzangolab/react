@@ -77,6 +77,7 @@ export const Select = <T extends string | number>({
     null,
   );
   const selectReference = useRef<HTMLDivElement>(null);
+  const searchInputReference = useRef<HTMLInputElement>(null);
   const optionReference = useRef<Record<number, HTMLLIElement | null>>({});
   const [referenceElement, setReferenceElement] = useState<Element | null>(
     null,
@@ -89,11 +90,17 @@ export const Select = <T extends string | number>({
   }, [options]);
 
   const filteredOptions = useMemo(() => {
+    if (!searchInput) {
+      return sortedOptions;
+    }
+
     if (customSearchFn) {
       return customSearchFn(searchInput);
     }
 
-    return sortedOptions;
+    return sortedOptions.filter((option) =>
+      option.label.toLowerCase().includes(searchInput.toLowerCase()),
+    );
   }, [searchInput, sortedOptions]);
 
   const shouldAutoSelect = useMemo(() => {
@@ -183,6 +190,8 @@ export const Select = <T extends string | number>({
     } else {
       onChange(option);
     }
+
+    setSearchInput("");
   };
 
   const handleRemoveOption = (
@@ -199,6 +208,7 @@ export const Select = <T extends string | number>({
 
     setShowOptions(false);
     setFocused(false);
+    setSearchInput("");
   };
 
   const handleRemoveOptionKeyDown = (event: React.KeyboardEvent) => {
@@ -214,6 +224,11 @@ export const Select = <T extends string | number>({
     const openDropdown = () => {
       setShowOptions(true);
       setFocused(true);
+      setSearchInput("");
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
     };
 
     const selectFocusedOption = () => {
@@ -280,22 +295,11 @@ export const Select = <T extends string | number>({
     }
   };
 
-  const hasValue = useMemo(() => {
-    if ((multiple && !value.length) || !value) {
-      return false;
-    }
-
-    return true;
-  }, [value]);
-
   const renderOptions = () => {
     return (
       <ul aria-multiselectable={multiple} role="listbox">
         {filteredOptions?.map((option, index) => {
           const { disabled, label } = option;
-          const isMatched =
-            searchInput &&
-            label.toLowerCase().includes(searchInput.toLowerCase());
 
           return (
             <li
@@ -340,45 +344,6 @@ export const Select = <T extends string | number>({
   const renderSelect = () => {
     const selectedOption = options.find((opt) => opt.value === value);
 
-    const renderSelectValue = () => {
-      if (renderValue) {
-        return renderValue(value, options);
-      }
-
-      return multiple ? (
-        <>
-          <div className="selected-options">
-            {value
-              .map(
-                (_value) => options.find((opt) => opt.value === _value)?.label,
-              )
-              .filter((label) => label !== undefined)
-              .join(", ")}
-          </div>
-          {!disabled && showRemoveSelection && (
-            <i
-              tabIndex={0}
-              className="pi pi-times"
-              onClick={(event) => handleRemoveOption(value, event)}
-              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
-            ></i>
-          )}
-        </>
-      ) : (
-        <>
-          <span className="selected-option">{selectedOption?.label}</span>
-          {selectedOption && !disabled && showRemoveSelection && (
-            <i
-              tabIndex={0}
-              className="pi pi-times"
-              onClick={(event) => handleRemoveOption(undefined, event)}
-              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
-            ></i>
-          )}
-        </>
-      );
-    };
-
     return (
       <div
         className={`label-container ${disabled ? "disabled" : ""} ${
@@ -386,49 +351,43 @@ export const Select = <T extends string | number>({
         }`.trimEnd()}
         aria-invalid={hasError}
         onClick={() => {
-          if (!disabled && !enableSearch) {
+          if (!disabled) {
             setShowOptions(!showOptions);
             setFocused(true);
+            setSearchInput("");
           }
         }}
         onKeyDown={handleKeyDown}
-        tabIndex={enableSearch ? -1 : 0}
+        tabIndex={0}
       >
-        {enableSearch ? (
-          <DebouncedInput
-            placeholder={placeholder}
-            onInputChange={(debouncedValue) => {
-              setSearchInput(debouncedValue as string);
-            }}
-            tabIndex={0}
-            defaultValue={
-              multiple
-                ? value
-                    .map(
-                      (_value) =>
-                        options.find((opt) => opt.value === _value)?.label,
-                    )
-                    .filter((label) => label !== undefined)
-                    .join(", ")
-                : selectedOption?.label
-            }
-            onKeyDown={handleKeyDown}
-          />
-        ) : hasValue ? (
-          renderSelectValue()
-        ) : (
-          placeholder && <span className="placeholder">{placeholder}</span>
-        )}
-        <span
-          className="menu-trigger"
-          onClick={() => {
-            if (!disabled) {
-              setShowOptions(!showOptions);
-              setFocused(true);
-            }
+        <DebouncedInput
+          ref={searchInputReference}
+          placeholder={placeholder}
+          onInputChange={(debouncedValue) => {
+            setSearchInput(debouncedValue as string);
           }}
-        >
-          <i className="pi pi-chevron-down"></i>
+          defaultValue={searchInput}
+          onKeyDown={handleKeyDown}
+        />
+        <span className="action-items">
+          {selectedOption && !disabled && showRemoveSelection && (
+            <i
+              className="pi pi-times"
+              onClick={(event) => handleRemoveOption(undefined, event)}
+              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
+              tabIndex={0}
+            ></i>
+          )}
+
+          <i
+            className="pi pi-chevron-down"
+            onClick={() => {
+              if (!disabled) {
+                setShowOptions(!showOptions);
+                setFocused(true);
+              }
+            }}
+          ></i>
         </span>
       </div>
     );
