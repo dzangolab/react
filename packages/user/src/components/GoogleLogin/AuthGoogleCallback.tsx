@@ -34,14 +34,14 @@ export const AuthGoogleCallback = () => {
         ) {
           await setUser(user as UserType);
 
-          toast.success(`${t("authGoogleCallback.email.success")}`);
+          toast.success(`${t("authSocialCallback.email.success")}`);
         } else {
           toast.error(t("login.messages.permissionDenied"));
 
           navigate(loginPath);
         }
       } else {
-        toast.error(`${t("authGoogleCallback.email.error")}`);
+        toast.error(`${t("authSocialCallback.email.error")}`);
 
         navigate(loginPath);
       }
@@ -50,7 +50,7 @@ export const AuthGoogleCallback = () => {
       if (err.isSuperTokensGeneralError === true) {
         toast.error(err.message);
       } else {
-        toast.error(`${t("authGoogleCallback.message.error")}`);
+        toast.error(`${t("authSocialCallback.message.error")}`);
       }
 
       navigate(loginPath);

@@ -1,5 +1,6 @@
 export * from "./AuthLinks";
 export * from "./ChangePasswordForm";
+export * from "./FacebookLogin";
 export * from "./ForgotPasswordForm";
 export * from "./GoogleLogin";
 export * from "./Invitation";
