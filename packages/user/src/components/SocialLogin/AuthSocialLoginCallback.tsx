@@ -34,14 +34,14 @@ export const AuthSocialLoginCallback = () => {
         ) {
           await setUser(user as UserType);
 
-          toast.success(`${t("authSocialCallback.email.success")}`);
+          toast.success(`${t("authSocialLoginCallback.email.success")}`);
         } else {
           toast.error(t("login.messages.permissionDenied"));
 
           navigate(loginPath);
         }
       } else {
-        toast.error(`${t("authSocialCallback.email.error")}`);
+        toast.error(`${t("authSocialLoginCallback.email.error")}`);
 
         navigate(loginPath);
       }
@@ -50,7 +50,7 @@ export const AuthSocialLoginCallback = () => {
       if (err.isSuperTokensGeneralError === true) {
         toast.error(err.message);
       } else {
-        toast.error(`${t("authSocialCallback.message.error")}`);
+        toast.error(`${t("authSocialLoginCallback.message.error")}`);
       }
 
       navigate(loginPath);
