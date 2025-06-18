@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { EditableTitle } from "@/EditableTitle";
-
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
@@ -20,7 +18,6 @@ export type ISelectProperties<T> = {
   className?: string;
   disabled?: boolean;
   enableSearch?: boolean;
-  editable?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
@@ -55,7 +52,6 @@ export const Select = <T extends string | number>({
   className = "",
   disabled: selectFieldDisabled,
   enableSearch = false,
-  editable = true,
   errorMessage,
   hasError,
   helperText,
@@ -390,15 +386,15 @@ export const Select = <T extends string | number>({
         }`.trimEnd()}
         aria-invalid={hasError}
         onClick={() => {
-          if (!disabled && !editable) {
+          if (!disabled && !enableSearch) {
             setShowOptions(!showOptions);
             setFocused(true);
           }
         }}
         onKeyDown={handleKeyDown}
-        tabIndex={editable ? -1 : 0}
+        tabIndex={enableSearch ? -1 : 0}
       >
-        {editable ? (
+        {enableSearch ? (
           <DebouncedInput
             placeholder={placeholder}
             onInputChange={(debouncedValue) => {
