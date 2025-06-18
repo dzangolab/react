@@ -1,3 +1,57 @@
+# [0.58.0](https://github.com/dzangolab/react/compare/v0.57.0...v0.58.0) (2025-06-18)
+
+
+### Breaking Changes
+
+* **user:** removed `features.termsAndConditions.label` config. Instead added `features.termsAndConditions.url` and `features.termsAndConditions.external` optional configs. If you need to overwrite TermsAndConditions component, pass it via the `termsAndConditions` prop in Signup page.
+* **user:** updated UsersTable status column's `accessorKey` from `status` to `disabled` 
+* **ui:** removed some css vars for the button and form widgets. If you were using some of the vars to overwrite the style, please check the `packages/ui/src/assets/css/vars.css` file to see if the var is still present and confirm if its being used.
+
+
+### Bug Fixes
+
+* add sorting in demo table column ([#1469](https://github.com/dzangolab/react/issues/1469)) ([cb9ada9](https://github.com/dzangolab/react/commit/cb9ada9dc4e211153405cb470aadc0dcd0151d10))
+* allow user to clear selected date ([#1465](https://github.com/dzangolab/react/issues/1465)) ([7dd1cb8](https://github.com/dzangolab/react/commit/7dd1cb845a0c1cb98c3d24cb862286c147c2fd6b))
+* **checkbox-input:** update CheckboxInput to sync checked state with form value ([#1434](https://github.com/dzangolab/react/issues/1434)) ([d395df7](https://github.com/dzangolab/react/commit/d395df7d0bf6357ce7aa5f6d1b5fcd65af60bd1e))
+* **demo:** enable filtering in table column ([#1470](https://github.com/dzangolab/react/issues/1470)) ([b1eea37](https://github.com/dzangolab/react/commit/b1eea37db34951a353f33af61e25bf1e777d0c85))
+* **deps:** update dependency @tanstack/react-table to v8.21.3 ([#1440](https://github.com/dzangolab/react/issues/1440)) ([7a60f29](https://github.com/dzangolab/react/commit/7a60f29d6fe23c6c82960d29356c53d5b1b1438d))
+* **deps:** update dependency i18next to v24.2.3 ([#1443](https://github.com/dzangolab/react/issues/1443)) ([57d7188](https://github.com/dzangolab/react/commit/57d71883a89875bfa6ca0677fc14aab8da16b62e))
+* **deps:** update dependency i18next-browser-languagedetector to v8.0.5 ([#1423](https://github.com/dzangolab/react/issues/1423)) ([ac257a0](https://github.com/dzangolab/react/commit/ac257a094e0d2857976154dce8047e6298510007))
+* **form/password:** update error message style ([#1494](https://github.com/dzangolab/react/issues/1494)) ([27cf86d](https://github.com/dzangolab/react/commit/27cf86df3c0a451bdd8cf6d83fe18ca80fae349b))
+* **radio-input:** fix the ui in case of long string as option ([#1433](https://github.com/dzangolab/react/issues/1433)) ([8a7077d](https://github.com/dzangolab/react/commit/8a7077d78257baf03aec558d0e2c5f4a92a46383))
+* **react/i18n:** update translation and arrange key alphabetically ([#1446](https://github.com/dzangolab/react/issues/1446)) ([26825ca](https://github.com/dzangolab/react/commit/26825ca770e82a08c88212222fce06740e399c49))
+* **table:** update date filter logic to wait for full date range selection ([#1471](https://github.com/dzangolab/react/issues/1471)) ([364bdee](https://github.com/dzangolab/react/commit/364bdeec195c2b25aa55adc373c093951361559d))
+* **ui/table:** support custom filterFn for multiselect variant ([#1459](https://github.com/dzangolab/react/issues/1459)) ([ef099d8](https://github.com/dzangolab/react/commit/ef099d88ba0fff888ff8475c002e57086824e99b))
+* **ui:** fix ui of radio input ([#1451](https://github.com/dzangolab/react/issues/1451)) ([021c47c](https://github.com/dzangolab/react/commit/021c47c670b90821373c1fad1fab7e4f3da8636b))
+* **ui:** improve dropdown menu ui ([#1491](https://github.com/dzangolab/react/issues/1491)) ([5f4d3cd](https://github.com/dzangolab/react/commit/5f4d3cd5e8f49afa914f550e3a54d8d8bcb69ea7))
+* **ui:** update editable title ui ([#1431](https://github.com/dzangolab/react/issues/1431)) ([9944e0e](https://github.com/dzangolab/react/commit/9944e0ef81137dc48d7330f9631a938328647d49))
+* **ui:** update table loading state and sorting cycle behavior ([#1468](https://github.com/dzangolab/react/issues/1468)) ([362e184](https://github.com/dzangolab/react/commit/362e1844e57a1eaf9a3077cb501839668560bf77))
+* **user:**  improve table ui ([#1466](https://github.com/dzangolab/react/issues/1466)) ([5926d5a](https://github.com/dzangolab/react/commit/5926d5aea29790965ad59e097d7d6eb00565d2fd))
+* **user/profile:** update email field and form actions ui ([#1441](https://github.com/dzangolab/react/issues/1441)) ([9697aeb](https://github.com/dzangolab/react/commit/9697aebe5e814ca79bbe9fda50644a04f55b0160))
+* **user/update-email:** close update-email modal on cancel  ([#1447](https://github.com/dzangolab/react/issues/1447)) ([b2ff7be](https://github.com/dzangolab/react/commit/b2ff7be8612ca47c1d7be4b098796706ae12a227))
+* **user:** fix the signup fields validation ([#1475](https://github.com/dzangolab/react/issues/1475)) ([7f9f9d8](https://github.com/dzangolab/react/commit/7f9f9d84a98a6546424b0ba8a22f74938b249b54))
+* **user:** hide change password page for social login ([#1473](https://github.com/dzangolab/react/issues/1473)) ([3c7f33f](https://github.com/dzangolab/react/commit/3c7f33f554bff6176272085759292a1dd85a7322))
+
+
+### Features
+
+* add min and max props in DateInput  ([#1432](https://github.com/dzangolab/react/issues/1432)) ([a6c22e7](https://github.com/dzangolab/react/commit/a6c22e77e4664396c3e444fc537adefba4d96bba))
+* **form/select:** update component to support props ([#1450](https://github.com/dzangolab/react/issues/1450)) ([c8d4b4a](https://github.com/dzangolab/react/commit/c8d4b4aaf20fa7e7904c6dd80d4f2505ce32bace))
+* **form:** add validation of min max option for multiselect component ([#1485](https://github.com/dzangolab/react/issues/1485)) ([1fd3079](https://github.com/dzangolab/react/commit/1fd307998deb6856a045882dc50a8f991cf4a35d))
+* **select:** add keyboard accessibility ([#1472](https://github.com/dzangolab/react/issues/1472)) ([50072c3](https://github.com/dzangolab/react/commit/50072c34b803360806cef405ae5b2aa5dce3edb8))
+* **table:** add support for number range filter ([#1477](https://github.com/dzangolab/react/issues/1477)) ([218179b](https://github.com/dzangolab/react/commit/218179ba91385cfea4b5c37395aa7ef53420e487))
+* **ui/Select:** auto sort options alphabetically by default ([#1445](https://github.com/dzangolab/react/issues/1445)) ([0932dd7](https://github.com/dzangolab/react/commit/0932dd7d9c12358e7b9c5c64c02476e9f756e65d))
+* **ui:** add CurrencyPicker component ([#1487](https://github.com/dzangolab/react/issues/1487)) ([fd4d46a](https://github.com/dzangolab/react/commit/fd4d46a58928ec7195c2be6e6c35bebdbad7cbb8)), closes [#1484](https://github.com/dzangolab/react/issues/1484)
+* **ui:** add custom search option to select component ([#1490](https://github.com/dzangolab/react/issues/1490)) ([3a02211](https://github.com/dzangolab/react/commit/3a02211c112818fb4e4a60d693c251c487ed0566)), closes [#1484](https://github.com/dzangolab/react/issues/1484)
+* **ui:** add hash routing support for tab view for sharing open tab ([#1484](https://github.com/dzangolab/react/issues/1484)) ([3a714eb](https://github.com/dzangolab/react/commit/3a714eb82af45a75f0d9b8ab92f69c8c8671e432))
+* **ui:** add single select filter support in table ([#1474](https://github.com/dzangolab/react/issues/1474)) ([5e803dd](https://github.com/dzangolab/react/commit/5e803dd7806034833e4e2b17feaf48769f332a20))
+* **ui:** support date range filter in table ([#1463](https://github.com/dzangolab/react/issues/1463)) ([8529d0a](https://github.com/dzangolab/react/commit/8529d0a332c33601ff14bbc5d3d0cef5285ab973))
+* **users/invitations:** allow filtering and sorting on all the columns ([#1483](https://github.com/dzangolab/react/issues/1483)) ([1cd6a2b](https://github.com/dzangolab/react/commit/1cd6a2b1ad42af9e226d04140b6b2e788a31942d))
+* **users:** make roles column filterable ([#1461](https://github.com/dzangolab/react/issues/1461)) ([13c2b46](https://github.com/dzangolab/react/commit/13c2b46474e27c86ea4de03d144e78e7beb35294))
+* **user:** support sort in name column of users table ([#1464](https://github.com/dzangolab/react/issues/1464)) ([b2ab3b3](https://github.com/dzangolab/react/commit/b2ab3b305f98b3cc1ad444783d597a4ba81e929b))
+
+
+
 # [0.57.0](https://github.com/dzangolab/react/compare/v0.56.2...v0.57.0) (2025-03-12)
 
 
