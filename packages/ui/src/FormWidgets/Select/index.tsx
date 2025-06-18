@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import { EditableTitle } from "@/EditableTitle";
+
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
@@ -16,9 +18,9 @@ export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
   className?: string;
-  customSearchFn?: (searchInput: string) => Option<T>[];
   disabled?: boolean;
   enableSearch?: boolean;
+  editable?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
@@ -31,6 +33,7 @@ export type ISelectProperties<T> = {
   menuOptions?: MenuOptions;
   searchPlaceholder?: string;
   showRemoveSelection?: boolean;
+  customSearchFn?: (searchInput: string) => Option<T>[];
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
 } & (
@@ -50,9 +53,9 @@ export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
   autoSortOptions = true,
   className = "",
-  customSearchFn,
   disabled: selectFieldDisabled,
   enableSearch = false,
+  editable = true,
   errorMessage,
   hasError,
   helperText,
@@ -66,6 +69,7 @@ export const Select = <T extends string | number>({
   searchPlaceholder,
   showRemoveSelection = true,
   value,
+  customSearchFn,
   renderOption,
   renderValue,
   onChange,
@@ -89,17 +93,11 @@ export const Select = <T extends string | number>({
   }, [options]);
 
   const filteredOptions = useMemo(() => {
-    if (!searchInput) {
-      return sortedOptions;
-    }
-
     if (customSearchFn) {
       return customSearchFn(searchInput);
     }
 
-    return sortedOptions.filter((option) =>
-      option.label.toLowerCase().includes(searchInput.toLowerCase()),
-    );
+    return sortedOptions;
   }, [searchInput, sortedOptions]);
 
   const shouldAutoSelect = useMemo(() => {
@@ -297,18 +295,11 @@ export const Select = <T extends string | number>({
   const renderOptions = () => {
     return (
       <ul aria-multiselectable={multiple} role="listbox">
-        {enableSearch ? (
-          <DebouncedInput
-            placeholder={searchPlaceholder}
-            onInputChange={(debouncedValue) => {
-              setSearchInput(debouncedValue as string);
-            }}
-            tabIndex={0}
-          />
-        ) : null}
-
         {filteredOptions?.map((option, index) => {
           const { disabled, label } = option;
+          const isMatched =
+            searchInput &&
+            label.toLowerCase().includes(searchInput.toLowerCase());
 
           return (
             <li
@@ -351,12 +342,12 @@ export const Select = <T extends string | number>({
   };
 
   const renderSelect = () => {
+    const selectedOption = options.find((opt) => opt.value === value);
+
     const renderSelectValue = () => {
       if (renderValue) {
         return renderValue(value, options);
       }
-
-      const selectedOption = options.find((opt) => opt.value === value);
 
       return multiple ? (
         <>
@@ -399,17 +390,39 @@ export const Select = <T extends string | number>({
         }`.trimEnd()}
         aria-invalid={hasError}
         onClick={() => {
-          if (!disabled) {
+          if (!disabled && !editable) {
             setShowOptions(!showOptions);
             setFocused(true);
           }
         }}
         onKeyDown={handleKeyDown}
-        tabIndex={0}
+        tabIndex={editable ? -1 : 0}
       >
-        {hasValue
-          ? renderSelectValue()
-          : placeholder && <span className="placeholder">{placeholder}</span>}
+        {editable ? (
+          <DebouncedInput
+            placeholder={placeholder}
+            onInputChange={(debouncedValue) => {
+              setSearchInput(debouncedValue as string);
+            }}
+            tabIndex={0}
+            defaultValue={
+              multiple
+                ? value
+                    .map(
+                      (_value) =>
+                        options.find((opt) => opt.value === _value)?.label,
+                    )
+                    .filter((label) => label !== undefined)
+                    .join(", ")
+                : selectedOption?.label
+            }
+            onKeyDown={handleKeyDown}
+          />
+        ) : hasValue ? (
+          renderSelectValue()
+        ) : (
+          placeholder && <span className="placeholder">{placeholder}</span>
+        )}
         <span
           className="menu-trigger"
           onClick={() => {

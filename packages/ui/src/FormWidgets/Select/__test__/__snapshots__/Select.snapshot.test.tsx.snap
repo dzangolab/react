@@ -10,17 +10,20 @@ exports[`Select Component > should render correctly when auto-select single opti
     >
       <div
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="selected-option"
+        <div
+          class="field debounced-input"
         >
-          Nepali
-        </span>
-        <i
-          class="pi pi-times"
-          tabindex="0"
-        />
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="Nepali"
+          />
+        </div>
         <span
           class="menu-trigger"
         >
@@ -44,13 +47,20 @@ exports[`Select Component > should render correctly when disabled 1`] = `
     >
       <div
         class="label-container disabled"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="selected-option"
+        <div
+          class="field debounced-input"
         >
-          English
-        </span>
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="English"
+          />
+        </div>
         <span
           class="menu-trigger"
         >
@@ -74,17 +84,20 @@ exports[`Select Component > should render correctly when hide if single option i
     >
       <div
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="selected-option"
+        <div
+          class="field debounced-input"
         >
-          Nepali
-        </span>
-        <i
-          class="pi pi-times"
-          tabindex="0"
-        />
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="Nepali"
+          />
+        </div>
         <span
           class="menu-trigger"
         >
@@ -108,13 +121,21 @@ exports[`Select Component > should render correctly with a placeholder 1`] = `
     >
       <div
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="placeholder"
+        <div
+          class="field debounced-input"
         >
-          Select a language
-        </span>
+          <input
+            class="input-field "
+            id=""
+            name=""
+            placeholder="Select a language"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+        </div>
         <span
           class="menu-trigger"
         >
@@ -139,17 +160,20 @@ exports[`Select Component > should render correctly with an error message 1`] = 
       <div
         aria-invalid="true"
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="selected-option"
+        <div
+          class="field debounced-input"
         >
-          English
-        </span>
-        <i
-          class="pi pi-times"
-          tabindex="0"
-        />
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="English"
+          />
+        </div>
         <span
           class="menu-trigger"
         >
@@ -178,17 +202,20 @@ exports[`Select Component > should render correctly with helper text 1`] = `
     >
       <div
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="selected-option"
+        <div
+          class="field debounced-input"
         >
-          Nepali
-        </span>
-        <i
-          class="pi pi-times"
-          tabindex="0"
-        />
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="Nepali"
+          />
+        </div>
         <span
           class="menu-trigger"
         >
@@ -217,17 +244,20 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
     >
       <div
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
         <div
-          class="selected-options"
+          class="field debounced-input"
         >
-          Nepali, English
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="Nepali, English"
+          />
         </div>
-        <i
-          class="pi pi-times"
-          tabindex="0"
-        />
         <span
           class="menu-trigger"
         >
@@ -251,17 +281,20 @@ exports[`Select Component > should render correctly with search enabled 1`] = `
     >
       <div
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="selected-option"
+        <div
+          class="field debounced-input"
         >
-          Nepali
-        </span>
-        <i
-          class="pi pi-times"
-          tabindex="0"
-        />
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="Nepali"
+          />
+        </div>
         <span
           class="menu-trigger"
         >
@@ -285,17 +318,20 @@ exports[`Select Component > should render correctly with single selection 1`] = 
     >
       <div
         class="label-container"
-        tabindex="0"
+        tabindex="-1"
       >
-        <span
-          class="selected-option"
+        <div
+          class="field debounced-input"
         >
-          English
-        </span>
-        <i
-          class="pi pi-times"
-          tabindex="0"
-        />
+          <input
+            class="input-field "
+            id=""
+            name=""
+            tabindex="0"
+            type="text"
+            value="English"
+          />
+        </div>
         <span
           class="menu-trigger"
         >

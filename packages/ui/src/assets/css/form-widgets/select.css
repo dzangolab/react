@@ -40,6 +40,15 @@
   padding-inline: var(--_padding-inline);
 }
 
+.select > .label-container .input-field {
+  border: none;
+  padding: 0;
+}
+
+.select > .label-container .input-field:focus-within {
+  outline: none;
+}
+
 .select > .label-container.focused,
 .select > .label-container:focus {
   outline: 2px solid var(--dz-primary-color);
@@ -128,6 +137,10 @@
 
 .select-menu ul > li.selected {
   background-color: var(--_option-background-color-active);
+}
+
+.select-menu ul > li.highlight {
+  background-color: aqua;
 }
 
 .select-menu ul > li.disabled {
