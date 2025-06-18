@@ -1,11 +1,11 @@
 import { toast } from "react-toastify";
 import { getAuthorisationURLWithQueryParamsAndSetState } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-export const facebookLogin = async (redirectUrl: string) => {
+export const socialLogin = async (providerId: string, redirectUrl: string) => {
   try {
     const authUrl = await getAuthorisationURLWithQueryParamsAndSetState({
       authorisationURL: redirectUrl,
-      providerId: "facebook",
+      providerId: providerId,
     });
 
     window.location.assign(authUrl);

@@ -12,7 +12,7 @@ import type { UserType } from "../../types";
 import { DEFAULT_PATHS } from "@/constants";
 import { verifySessionRoles } from "@/supertokens";
 
-export const AuthGoogleCallback = () => {
+export const AuthSocialLoginCallback = () => {
   const { t } = useTranslation("user");
   const config = useConfig();
   const { setUser } = useUser();

@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 
-import { AuthFacebookCallback, AuthGoogleCallback } from "@/components";
+import { AuthSocialLoginCallback } from "@/components";
 import { DEFAULT_PATHS } from "@/constants";
 import { useConfig } from "@/hooks";
 import { PublicRoutesProperties } from "@/types/routes";
@@ -66,13 +66,13 @@ export const getUserPublicRoutes = (options?: PublicRoutesProperties) => {
       path:
         customPaths?.authCallbackFacebook ||
         DEFAULT_PATHS.AUTH_CALLBACK_FACEBOOK,
-      element: authCallbackFacebook?.element || <AuthFacebookCallback />,
+      element: authCallbackFacebook?.element || <AuthSocialLoginCallback />,
       disabled: !authCallbackFacebookEnabled,
     },
     {
       path:
         customPaths?.authCallbackGoogle || DEFAULT_PATHS.AUTH_CALLBACK_GOOGLE,
-      element: authCallbackGoogle?.element || <AuthGoogleCallback />,
+      element: authCallbackGoogle?.element || <AuthSocialLoginCallback />,
       disabled: !authCallbackGoogleEnabled,
     },
     {

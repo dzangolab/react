@@ -1,7 +1,6 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 
-import { FacebookLogin } from "../FacebookLogin";
-import { GoogleLogin } from "../GoogleLogin";
+import { FacebookLogin, GoogleLogin } from "../SocialLogin";
 
 import { useConfig } from "@/hooks";
 

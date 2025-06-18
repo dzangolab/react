@@ -1,7 +1,7 @@
 import { FacebookButton } from "@dzangolab/react-ui";
 import React from "react";
 
-import { facebookLogin } from "@/supertokens";
+import { socialLogin } from "@/supertokens";
 
 interface Properties {
   label: string;
@@ -10,7 +10,7 @@ interface Properties {
 
 export const FacebookLogin = ({ label, redirectUrl }: Properties) => {
   const onFacebookSignin = async () => {
-    await facebookLogin(redirectUrl);
+    await socialLogin("facebook", redirectUrl);
   };
 
   return (
