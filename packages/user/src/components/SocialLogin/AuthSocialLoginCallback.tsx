@@ -61,5 +61,5 @@ export const AuthSocialLoginCallback = () => {
     authCallback();
   }, []);
 
-  return <LoadingIcon />;
+  return <LoadingIcon color={"black"} fontSize={"0.5rem"} />;
 };
