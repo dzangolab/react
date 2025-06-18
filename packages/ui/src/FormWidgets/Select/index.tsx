@@ -136,6 +136,19 @@ export const Select = <T extends string | number>({
       ) {
         setShowOptions(false);
         setFocused(false);
+
+        if (value && !multiple) {
+          const selectedOption = options.find((opt) => opt.value === value);
+          setSearchInput(selectedOption?.label ?? "");
+        }
+
+        if (value && multiple && value.length > 0) {
+          const selectedLabels = options
+            .filter((opt) => value.includes(opt.value))
+            .map((opt) => opt.label)
+            .join(", ");
+          setSearchInput(selectedLabels);
+        }
       }
     };
 
@@ -144,7 +157,7 @@ export const Select = <T extends string | number>({
     return () => {
       document.removeEventListener("mousedown", handleMouseDown);
     };
-  }, [selectReference]);
+  }, [selectReference, value, options, multiple]);
 
   useEffect(() => {
     if (
@@ -189,9 +202,10 @@ export const Select = <T extends string | number>({
       onChange(newValue);
     } else {
       onChange(option);
-    }
 
-    setSearchInput("");
+      const selectedOption = options.find((opt) => opt.value === option);
+      setSearchInput(selectedOption?.label ?? "");
+    }
   };
 
   const handleRemoveOption = (
@@ -224,7 +238,6 @@ export const Select = <T extends string | number>({
     const openDropdown = () => {
       setShowOptions(true);
       setFocused(true);
-      setSearchInput("");
 
       setTimeout(() => {
         searchInputReference.current?.focus();
@@ -352,9 +365,27 @@ export const Select = <T extends string | number>({
         aria-invalid={hasError}
         onClick={() => {
           if (!disabled) {
-            setShowOptions(!showOptions);
-            setFocused(true);
-            setSearchInput("");
+            if (showOptions) {
+              setShowOptions(false);
+              searchInputReference.current?.blur();
+              if (multiple) {
+                if (value && value.length > 0) {
+                  const selectedLabels = options
+                    .filter((opt) => value.includes(opt.value))
+                    .map((opt) => opt.label)
+                    .join(", ");
+                  setSearchInput(selectedLabels);
+                } else {
+                  setSearchInput("");
+                }
+              }
+            } else {
+              setShowOptions(true);
+              searchInputReference.current?.focus();
+              if (multiple) {
+                setSearchInput("");
+              }
+            }
           }
         }}
         onKeyDown={handleKeyDown}
@@ -367,7 +398,6 @@ export const Select = <T extends string | number>({
             setSearchInput(debouncedValue as string);
           }}
           defaultValue={searchInput}
-          onKeyDown={handleKeyDown}
         />
         <span className="action-items">
           {selectedOption && !disabled && showRemoveSelection && (
