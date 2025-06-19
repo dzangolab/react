@@ -204,10 +204,7 @@ export const Select = <T extends string | number>({
         : [...value, option];
 
       onChange(newValue);
-
-      setTimeout(() => {
-        searchInputReference.current?.focus();
-      }, 0);
+      searchInputReference.current?.focus();
     } else {
       onChange(option);
 
@@ -240,37 +237,13 @@ export const Select = <T extends string | number>({
     }
   };
 
-  const toggleDropdown = () => {
-    if (disabled) return;
-
-    if (showOptions) {
-      if (multiple) {
-        setSearchInput(displayValue);
-      }
-      setShowOptions(false);
-      setFocused(false);
-      setTimeout(() => {
-        searchInputReference.current?.blur();
-      }, 0);
-    } else {
-      if (multiple) {
-        setSearchInput("");
-      }
-      setShowOptions(true);
-      setFocused(true);
-    }
-  };
-
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (disabled) return;
 
     const openDropdown = () => {
       setShowOptions(true);
       setFocused(true);
-
-      setTimeout(() => {
-        searchInputReference.current?.focus();
-      }, 0);
+      searchInputReference.current?.focus();
     };
 
     const selectFocusedOption = () => {
@@ -414,7 +387,22 @@ export const Select = <T extends string | number>({
           focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
-        onClick={toggleDropdown}
+        onClick={() => {
+          if (disabled) return;
+
+          if (showOptions) {
+            setSearchInput(displayValue);
+            setShowOptions(false);
+            setFocused(false);
+            searchInputReference.current?.blur();
+          } else {
+            if (multiple) {
+              setSearchInput("");
+            }
+            setShowOptions(true);
+            setFocused(true);
+          }
+        }}
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
