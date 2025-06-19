@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
-import { ErrorMessage } from "./ErrorMessage";
-
 interface IDateInput {
   className?: string;
   disabled?: boolean;
@@ -90,7 +88,9 @@ export const DateInput: React.FC<IDateInput> = ({
         max={convertToDateString(max)}
       />
       {helperText && <span className="helper-text">{helperText}</span>}
-      {error?.message && <ErrorMessage message={error.message} />}
+      {error?.message && (
+        <span className="error-message">{error?.message}</span>
+      )}
     </div>
   );
 };

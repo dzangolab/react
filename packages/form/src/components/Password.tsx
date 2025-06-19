@@ -1,7 +1,6 @@
 import { IInputProperties } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 
-import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
 export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
@@ -54,7 +53,9 @@ export const Password: React.FC<CustomInputProperties & IInputProperties> = ({
         </span>
       </div>
       {helperText && <span className="helper-text">{helperText}</span>}
-      {error?.message && <ErrorMessage message={error.message} />}
+      {error?.message && (
+        <span className="error-message">{error?.message}</span>
+      )}
     </div>
   );
 };
