@@ -118,6 +118,23 @@ export const Select = <T extends string | number>({
 
   const disabled = shouldAutoSelect || selectFieldDisabled;
 
+  const getDisplayValue = () => {
+    if (multiple) {
+      if (!value?.length) return "";
+      return options
+        .filter((opt) => value.includes(opt.value))
+        .map((opt) => opt.label)
+        .join(", ");
+    } else {
+      const opt = options.find((opt) => opt.value === value);
+      return opt?.label ?? "";
+    }
+  };
+
+  const syncInputWithValue = () => {
+    setSearchInput(getDisplayValue());
+  };
+
   useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
       handleSelectedOption(options[0].value);
@@ -134,19 +151,7 @@ export const Select = <T extends string | number>({
         (!popupMenuContent ||
           !popupMenuContent.contains(event.target as HTMLElement))
       ) {
-        if (value && !multiple) {
-          const selectedOption = options.find((opt) => opt.value === value);
-          setSearchInput(selectedOption?.label ?? "");
-        }
-
-        if (value && multiple && value.length > 0) {
-          const selectedLabels = options
-            .filter((opt) => value.includes(opt.value))
-            .map((opt) => opt.label)
-            .join(", ");
-          setSearchInput(selectedLabels);
-        }
-
+        syncInputWithValue();
         setShowOptions(false);
         setFocused(false);
       }
@@ -233,6 +238,32 @@ export const Select = <T extends string | number>({
     }
   };
 
+  const toggleDropdown = () => {
+    if (disabled) return;
+    if (showOptions) {
+      if (multiple) {
+        if (value && value.length > 0) {
+          const selectedLabels = options
+            .filter((opt) => value.includes(opt.value))
+            .map((opt) => opt.label)
+            .join(", ");
+          setSearchInput(selectedLabels);
+        } else {
+          setSearchInput("");
+        }
+      }
+      setShowOptions(false);
+      setFocused(false);
+      searchInputReference.current?.blur();
+    } else {
+      if (multiple) {
+        setSearchInput("");
+      }
+      setShowOptions(true);
+      setFocused(true);
+    }
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (disabled) return;
 
@@ -273,6 +304,17 @@ export const Select = <T extends string | number>({
       }
     };
 
+    const matchingOptions = filteredOptions.filter(
+      (opt) =>
+        !opt.disabled &&
+        opt.label.toLowerCase().startsWith(event.key.toLowerCase()),
+    );
+
+    if (!multiple && matchingOptions.length === 1) {
+      handleSelectedOption(matchingOptions[0].value);
+      return;
+    }
+
     switch (event.key) {
       case "Enter":
       case " ":
@@ -292,19 +334,7 @@ export const Select = <T extends string | number>({
 
       case "Escape":
         event.preventDefault();
-
-        if (value && !multiple) {
-          const selectedOption = options.find((opt) => opt.value === value);
-          setSearchInput(selectedOption?.label ?? "");
-        }
-
-        if (value && multiple && value.length > 0) {
-          const selectedLabels = options
-            .filter((opt) => value.includes(opt.value))
-            .map((opt) => opt.label)
-            .join(", ");
-          setSearchInput(selectedLabels);
-        }
+        syncInputWithValue();
         setShowOptions(false);
         searchInputReference.current?.blur();
 
@@ -371,40 +401,13 @@ export const Select = <T extends string | number>({
   };
 
   const renderSelect = () => {
-    const selectedOption = options.find((opt) => opt.value === value);
-
     return (
       <div
         className={`label-container ${disabled ? "disabled" : ""} ${
           focused ? "focused" : ""
         }`.trimEnd()}
         aria-invalid={hasError}
-        onClick={() => {
-          if (!disabled) {
-            if (showOptions) {
-              if (multiple) {
-                if (value && value.length > 0) {
-                  const selectedLabels = options
-                    .filter((opt) => value.includes(opt.value))
-                    .map((opt) => opt.label)
-                    .join(", ");
-                  setSearchInput(selectedLabels);
-                } else {
-                  setSearchInput("");
-                }
-              }
-              setShowOptions(false);
-              setFocused(false);
-              searchInputReference.current?.blur();
-            } else {
-              if (multiple) {
-                setSearchInput("");
-              }
-              setShowOptions(true);
-              setFocused(true);
-            }
-          }
-        }}
+        onClick={toggleDropdown}
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
@@ -415,16 +418,19 @@ export const Select = <T extends string | number>({
             setSearchInput(debouncedValue as string);
           }}
           defaultValue={searchInput}
+          tabIndex={-1}
         />
         <span className="action-items">
-          {selectedOption && !disabled && showRemoveSelection && (
-            <i
-              className="pi pi-times"
-              onClick={(event) => handleRemoveOption(undefined, event)}
-              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
-              tabIndex={0}
-            ></i>
-          )}
+          {!disabled &&
+            showRemoveSelection &&
+            searchInput?.trim()?.length > 0 && (
+              <i
+                className="pi pi-times"
+                onClick={(event) => handleRemoveOption(undefined, event)}
+                onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
+                tabIndex={0}
+              ></i>
+            )}
 
           <i
             className="pi pi-chevron-down"
