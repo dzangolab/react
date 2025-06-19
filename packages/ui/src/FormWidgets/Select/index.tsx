@@ -134,9 +134,6 @@ export const Select = <T extends string | number>({
         (!popupMenuContent ||
           !popupMenuContent.contains(event.target as HTMLElement))
       ) {
-        setShowOptions(false);
-        setFocused(false);
-
         if (value && !multiple) {
           const selectedOption = options.find((opt) => opt.value === value);
           setSearchInput(selectedOption?.label ?? "");
@@ -149,6 +146,9 @@ export const Select = <T extends string | number>({
             .join(", ");
           setSearchInput(selectedLabels);
         }
+
+        setShowOptions(false);
+        setFocused(false);
       }
     };
 
@@ -200,6 +200,7 @@ export const Select = <T extends string | number>({
         : [...value, option];
 
       onChange(newValue);
+      searchInputReference.current?.focus();
     } else {
       onChange(option);
 
@@ -291,7 +292,22 @@ export const Select = <T extends string | number>({
 
       case "Escape":
         event.preventDefault();
+
+        if (value && !multiple) {
+          const selectedOption = options.find((opt) => opt.value === value);
+          setSearchInput(selectedOption?.label ?? "");
+        }
+
+        if (value && multiple && value.length > 0) {
+          const selectedLabels = options
+            .filter((opt) => value.includes(opt.value))
+            .map((opt) => opt.label)
+            .join(", ");
+          setSearchInput(selectedLabels);
+        }
         setShowOptions(false);
+        searchInputReference.current?.blur();
+
         break;
 
       case "Home":
@@ -366,8 +382,6 @@ export const Select = <T extends string | number>({
         onClick={() => {
           if (!disabled) {
             if (showOptions) {
-              setShowOptions(false);
-              searchInputReference.current?.blur();
               if (multiple) {
                 if (value && value.length > 0) {
                   const selectedLabels = options
@@ -379,12 +393,15 @@ export const Select = <T extends string | number>({
                   setSearchInput("");
                 }
               }
+              setShowOptions(false);
+              setFocused(false);
+              searchInputReference.current?.blur();
             } else {
-              setShowOptions(true);
-              searchInputReference.current?.focus();
               if (multiple) {
                 setSearchInput("");
               }
+              setShowOptions(true);
+              setFocused(true);
             }
           }
         }}
