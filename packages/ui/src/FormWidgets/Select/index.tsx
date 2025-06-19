@@ -116,6 +116,7 @@ export const Select = <T extends string | number>({
 
   const multiSelectedLabels = useMemo(() => {
     if (!multiple || !value?.length) return "";
+
     return options
       .filter((opt) => value.includes(opt.value))
       .map((opt) => opt.label)
