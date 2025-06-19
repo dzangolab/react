@@ -1,6 +1,6 @@
 import React from "react";
 
-import FacebookIcon from "../../assets/images/facebook-icon.png";
+import FacebookIcon from "../../assets/images/facebook-icon.svg";
 import BaseButton, { BaseButtonProperties } from "../BaseButton";
 
 type IProperties = Omit<BaseButtonProperties, "imageSource" | "className">;

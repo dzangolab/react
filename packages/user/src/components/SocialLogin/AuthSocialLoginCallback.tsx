@@ -61,5 +61,9 @@ export const AuthSocialLoginCallback = () => {
     authCallback();
   }, []);
 
-  return <LoadingIcon color={"black"} fontSize={"0.5rem"} />;
+  return (
+    <div className="loading-overlay">
+      <LoadingIcon color="#55575f" fontSize={"0.5rem"} />
+    </div>
+  );
 };
