@@ -159,17 +159,16 @@ export const SelectDemo = () => {
     value?: string | string[],
     options?: Option[],
   ) => {
-    return (
-      <span>
-        {Array.isArray(value) &&
-          value
-            ?.map(
-              (value_) =>
-                options?.find((option) => option.value === value_)?.label,
-            )
-            .join(", ")}
-      </span>
-    );
+    let label = "";
+
+    if (Array.isArray(value)) {
+      label = value
+        .map((v) => options?.find((o) => o.value === v)?.label)
+        .filter(Boolean)
+        .join(", ");
+    }
+
+    return <span>{label || t("select.placeholder")}</span>;
   };
 
   const renderOption = (option: Option) => {
@@ -202,13 +201,7 @@ export const SelectDemo = () => {
         <Select
           label={t("select.label")}
           name="select"
-          options={[
-            { label: "French", value: "fr" },
-            { label: "German", value: "de" },
-            { disabled: true, label: "Dutch", value: "be" },
-            { label: "Nepali", value: "np" },
-            { label: "Hindi", value: "hi" },
-          ]}
+          options={[{ label: "French", value: "fr" }]}
           value={singleSelectValue}
           onChange={(value: string) => setSingleSelectValue(value)}
           placeholder={t("select.placeholder")}

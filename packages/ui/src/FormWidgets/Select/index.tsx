@@ -210,6 +210,7 @@ export const Select = <T extends string | number>({
 
       const selectedOption = options.find((opt) => opt.value === option);
       setSearchInput(selectedOption?.label ?? "");
+      setFocused(false);
     }
   };
 
