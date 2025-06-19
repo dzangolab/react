@@ -252,13 +252,16 @@ export const Select = <T extends string | number>({
         handleSelectedOption(filteredOptions[focusedOptionIndex].value);
         if (!multiple) {
           setShowOptions(false);
+          searchInputReference.current?.blur();
+          setFocused(false);
         }
       } else {
         setShowOptions(false);
+        searchInputReference.current?.blur();
+        setFocused(false);
       }
 
-      setFocused(false);
-      searchInputReference.current?.blur();
+      setFocusedOptionIndex(null);
     };
 
     const focusFirstEnabledOption = () => {

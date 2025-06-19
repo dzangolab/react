@@ -201,7 +201,13 @@ export const SelectDemo = () => {
         <Select
           label={t("select.label")}
           name="select"
-          options={[{ label: "French", value: "fr" }]}
+          options={[
+            { label: "French", value: "fr" },
+            { label: "German", value: "de" },
+            { disabled: true, label: "Dutch", value: "be" },
+            { label: "Nepali", value: "np" },
+            { label: "Hindi", value: "hi" },
+          ]}
           value={singleSelectValue}
           onChange={(value: string) => setSingleSelectValue(value)}
           placeholder={t("select.placeholder")}
