@@ -114,26 +114,25 @@ export const Select = <T extends string | number>({
 
   const disabled = shouldAutoSelect || selectFieldDisabled;
 
-  const getDisplayValue = () => {
-    if (multiple) {
-      if (!value?.length) return "";
-      return options
-        .filter((opt) => value.includes(opt.value))
-        .map((opt) => opt.label)
-        .join(", ");
-    } else {
-      const opt = options.find((opt) => opt.value === value);
-      return opt?.label ?? "";
-    }
-  };
+  const multiSelectedLabels = useMemo(() => {
+    if (!multiple || !value?.length) return "";
+    return options
+      .filter((opt) => value.includes(opt.value))
+      .map((opt) => opt.label)
+      .join(", ");
+  }, [multiple, value, options]);
+
+  const displayValue = multiple
+    ? multiSelectedLabels
+    : (options.find((opt) => opt.value === value)?.label ?? "");
 
   const syncInputWithValue = () => {
-    setSearchInput(getDisplayValue());
+    setSearchInput(displayValue);
   };
 
   useEffect(() => {
     syncInputWithValue();
-  }, [value, options]);
+  }, []);
 
   useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
@@ -205,7 +204,10 @@ export const Select = <T extends string | number>({
         : [...value, option];
 
       onChange(newValue);
-      searchInputReference.current?.focus();
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
     } else {
       onChange(option);
 
@@ -240,21 +242,16 @@ export const Select = <T extends string | number>({
 
   const toggleDropdown = () => {
     if (disabled) return;
+
     if (showOptions) {
       if (multiple) {
-        if (value && value.length > 0) {
-          const selectedLabels = options
-            .filter((opt) => value.includes(opt.value))
-            .map((opt) => opt.label)
-            .join(", ");
-          setSearchInput(selectedLabels);
-        } else {
-          setSearchInput("");
-        }
+        setSearchInput(displayValue);
       }
       setShowOptions(false);
       setFocused(false);
-      searchInputReference.current?.blur();
+      setTimeout(() => {
+        searchInputReference.current?.blur();
+      }, 0);
     } else {
       if (multiple) {
         setSearchInput("");
@@ -285,6 +282,9 @@ export const Select = <T extends string | number>({
       } else {
         setShowOptions(false);
       }
+
+      setFocused(false);
+      searchInputReference.current?.blur();
     };
 
     const focusFirstEnabledOption = () => {
