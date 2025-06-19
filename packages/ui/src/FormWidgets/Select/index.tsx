@@ -17,7 +17,6 @@ export type ISelectProperties<T> = {
   autoSortOptions?: boolean;
   className?: string;
   disabled?: boolean;
-  enableSearch?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
@@ -28,7 +27,6 @@ export type ISelectProperties<T> = {
   options: Option<T>[];
   placeholder?: string;
   menuOptions?: MenuOptions;
-  searchPlaceholder?: string;
   showRemoveSelection?: boolean;
   customSearchFn?: (searchInput: string) => Option<T>[];
   renderOption?: (option: Option<T>) => React.ReactNode;
@@ -51,7 +49,6 @@ export const Select = <T extends string | number>({
   autoSortOptions = true,
   className = "",
   disabled: selectFieldDisabled,
-  enableSearch = false,
   errorMessage,
   hasError,
   helperText,
@@ -62,7 +59,6 @@ export const Select = <T extends string | number>({
   options,
   placeholder,
   menuOptions,
-  searchPlaceholder,
   showRemoveSelection = true,
   value,
   customSearchFn,
@@ -304,17 +300,6 @@ export const Select = <T extends string | number>({
       }
     };
 
-    const matchingOptions = filteredOptions.filter(
-      (opt) =>
-        !opt.disabled &&
-        opt.label.toLowerCase().startsWith(event.key.toLowerCase()),
-    );
-
-    if (!multiple && matchingOptions.length === 1) {
-      handleSelectedOption(matchingOptions[0].value);
-      return;
-    }
-
     switch (event.key) {
       case "Enter":
       case " ":
@@ -401,6 +386,23 @@ export const Select = <T extends string | number>({
   };
 
   const renderSelect = () => {
+    const renderSelectValue = () => {
+      if (renderValue) {
+        return renderValue(value, options);
+      }
+
+      return (
+        <DebouncedInput
+          ref={searchInputReference}
+          placeholder={placeholder}
+          onInputChange={(debouncedValue) => {
+            setSearchInput(debouncedValue as string);
+          }}
+          defaultValue={searchInput}
+          tabIndex={-1}
+        />
+      );
+    };
     return (
       <div
         className={`label-container ${disabled ? "disabled" : ""} ${
@@ -411,15 +413,7 @@ export const Select = <T extends string | number>({
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        <DebouncedInput
-          ref={searchInputReference}
-          placeholder={placeholder}
-          onInputChange={(debouncedValue) => {
-            setSearchInput(debouncedValue as string);
-          }}
-          defaultValue={searchInput}
-          tabIndex={-1}
-        />
+        {renderSelectValue()}
         <span className="action-items">
           {!disabled &&
             showRemoveSelection &&

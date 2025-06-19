@@ -136,10 +136,6 @@
   background-color: var(--_option-background-color-active);
 }
 
-.select-menu ul > li.highlight {
-  background-color: aqua;
-}
-
 .select-menu ul > li.disabled {
   opacity: 0.8;
   cursor: not-allowed;

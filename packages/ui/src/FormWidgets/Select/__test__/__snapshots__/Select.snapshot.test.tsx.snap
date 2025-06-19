@@ -19,6 +19,7 @@ exports[`Select Component > should render correctly when auto-select single opti
             class="input-field "
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -26,10 +27,6 @@ exports[`Select Component > should render correctly when auto-select single opti
         <span
           class="action-items"
         >
-          <i
-            class="pi pi-times"
-            tabindex="0"
-          />
           <i
             class="pi pi-chevron-down"
           />
@@ -59,6 +56,7 @@ exports[`Select Component > should render correctly when disabled 1`] = `
             class="input-field "
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -95,6 +93,7 @@ exports[`Select Component > should render correctly when hide if single option i
             class="input-field "
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -102,10 +101,6 @@ exports[`Select Component > should render correctly when hide if single option i
         <span
           class="action-items"
         >
-          <i
-            class="pi pi-times"
-            tabindex="0"
-          />
           <i
             class="pi pi-chevron-down"
           />
@@ -136,6 +131,7 @@ exports[`Select Component > should render correctly with a placeholder 1`] = `
             id=""
             name=""
             placeholder="Select a language"
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -173,6 +169,7 @@ exports[`Select Component > should render correctly with an error message 1`] = 
             class="input-field "
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -180,10 +177,6 @@ exports[`Select Component > should render correctly with an error message 1`] = 
         <span
           class="action-items"
         >
-          <i
-            class="pi pi-times"
-            tabindex="0"
-          />
           <i
             class="pi pi-chevron-down"
           />
@@ -218,6 +211,7 @@ exports[`Select Component > should render correctly with helper text 1`] = `
             class="input-field "
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -225,10 +219,6 @@ exports[`Select Component > should render correctly with helper text 1`] = `
         <span
           class="action-items"
         >
-          <i
-            class="pi pi-times"
-            tabindex="0"
-          />
           <i
             class="pi pi-chevron-down"
           />
@@ -263,6 +253,7 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
             class="input-field "
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -270,46 +261,6 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
         <span
           class="action-items"
         >
-          <i
-            class="pi pi-chevron-down"
-          />
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Select Component > should render correctly with search enabled 1`] = `
-<div>
-  <div
-    class="field"
-  >
-    <div
-      class="select"
-    >
-      <div
-        class="label-container"
-        tabindex="0"
-      >
-        <div
-          class="field debounced-input"
-        >
-          <input
-            class="input-field "
-            id=""
-            name=""
-            type="text"
-            value=""
-          />
-        </div>
-        <span
-          class="action-items"
-        >
-          <i
-            class="pi pi-times"
-            tabindex="0"
-          />
           <i
             class="pi pi-chevron-down"
           />
@@ -339,6 +290,7 @@ exports[`Select Component > should render correctly with single selection 1`] = 
             class="input-field "
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value=""
           />
@@ -346,10 +298,6 @@ exports[`Select Component > should render correctly with single selection 1`] = 
         <span
           class="action-items"
         >
-          <i
-            class="pi pi-times"
-            tabindex="0"
-          />
           <i
             class="pi pi-chevron-down"
           />
