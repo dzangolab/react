@@ -132,6 +132,10 @@ export const Select = <T extends string | number>({
   };
 
   useEffect(() => {
+    syncInputWithValue();
+  }, [value, options]);
+
+  useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
       handleSelectedOption(options[0].value);
     }
@@ -400,6 +404,7 @@ export const Select = <T extends string | number>({
           }}
           defaultValue={searchInput}
           tabIndex={-1}
+          disabled={disabled}
         />
       );
     };

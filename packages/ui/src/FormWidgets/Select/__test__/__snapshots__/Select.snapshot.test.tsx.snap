@@ -21,12 +21,16 @@ exports[`Select Component > should render correctly when auto-select single opti
             name=""
             tabindex="-1"
             type="text"
-            value=""
+            value="Nepali"
           />
         </div>
         <span
           class="action-items"
         >
+          <i
+            class="pi pi-times"
+            tabindex="0"
+          />
           <i
             class="pi pi-chevron-down"
           />
@@ -54,11 +58,12 @@ exports[`Select Component > should render correctly when disabled 1`] = `
         >
           <input
             class="input-field "
+            disabled=""
             id=""
             name=""
             tabindex="-1"
             type="text"
-            value=""
+            value="English"
           />
         </div>
         <span
@@ -95,12 +100,16 @@ exports[`Select Component > should render correctly when hide if single option i
             name=""
             tabindex="-1"
             type="text"
-            value=""
+            value="Nepali"
           />
         </div>
         <span
           class="action-items"
         >
+          <i
+            class="pi pi-times"
+            tabindex="0"
+          />
           <i
             class="pi pi-chevron-down"
           />
@@ -171,12 +180,16 @@ exports[`Select Component > should render correctly with an error message 1`] = 
             name=""
             tabindex="-1"
             type="text"
-            value=""
+            value="English"
           />
         </div>
         <span
           class="action-items"
         >
+          <i
+            class="pi pi-times"
+            tabindex="0"
+          />
           <i
             class="pi pi-chevron-down"
           />
@@ -213,12 +226,16 @@ exports[`Select Component > should render correctly with helper text 1`] = `
             name=""
             tabindex="-1"
             type="text"
-            value=""
+            value="Nepali"
           />
         </div>
         <span
           class="action-items"
         >
+          <i
+            class="pi pi-times"
+            tabindex="0"
+          />
           <i
             class="pi pi-chevron-down"
           />
@@ -255,12 +272,16 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
             name=""
             tabindex="-1"
             type="text"
-            value=""
+            value="English, Nepali"
           />
         </div>
         <span
           class="action-items"
         >
+          <i
+            class="pi pi-times"
+            tabindex="0"
+          />
           <i
             class="pi pi-chevron-down"
           />
@@ -292,12 +313,16 @@ exports[`Select Component > should render correctly with single selection 1`] = 
             name=""
             tabindex="-1"
             type="text"
-            value=""
+            value="English"
           />
         </div>
         <span
           class="action-items"
         >
+          <i
+            class="pi pi-times"
+            tabindex="0"
+          />
           <i
             class="pi pi-chevron-down"
           />
