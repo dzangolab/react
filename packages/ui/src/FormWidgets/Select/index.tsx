@@ -401,9 +401,7 @@ export const Select = <T extends string | number>({
             setFocused(false);
             searchInputReference.current?.blur();
           } else {
-            if (multiple) {
-              setSearchInput("");
-            }
+            setSearchInput("");
             setShowOptions(true);
             setFocused(true);
           }
