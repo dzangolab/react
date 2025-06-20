@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
-import { Button, DropdownMenu, MenuItem } from "..";
+import { Button, DropdownMenu, IButtonProperties, MenuItem } from "..";
 import { ConfirmationModal, IModalProperties } from "../ConfirmationModal";
 
-export interface ActionsMenuItem extends MenuItem {
+export interface ActionsMenuItem
+  extends Omit<MenuItem, "onClick">,
+    Partial<IButtonProperties> {
   requireConfirmationModal?: boolean;
+  onClick?: (event?: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 export interface ToolbarActionsMenuProperties {
