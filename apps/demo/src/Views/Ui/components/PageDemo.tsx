@@ -72,23 +72,21 @@ export const PageDemo = () => {
         toolbarActionMenu={{
           actions: [
             {
-              label: "View",
+              iconLeft: <i className="pi pi-chevron-left"></i>,
+              variant: "textOnly",
+              label: t("page.breadcrumb.back"),
+            },
+            {
+              label: t("page.toolbar.button.label"),
+              severity: "secondary",
               onClick: () => {
                 console.log("view action");
               },
             },
             {
-              label: "Edit",
-              disabled: true,
+              label: t("page.toolbar.edit"),
               onClick: () => {
                 console.log("edit action");
-              },
-            },
-            {
-              label: "Delete",
-              className: "danger",
-              onClick: () => {
-                console.log("delete action");
               },
             },
           ],

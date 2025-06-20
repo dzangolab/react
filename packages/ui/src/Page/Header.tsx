@@ -46,17 +46,8 @@ export const PageHeader = ({
           </div>
         )}
       </div>
-      {/* {(breadcrumb || toolbar) && (
-        <div
-          data-testid="page-toolbar"
-          className="dz-page-toolbar"
-          data-breadcrumb={!!breadcrumb}
-        >
-          {breadcrumb}
-          {toolbar}
-        </div>
-      )} */}
-      {toolbarActionMenu && (
+
+      {toolbarActionMenu ? (
         <>
           <div
             data-testid="page-toolbar"
@@ -67,10 +58,21 @@ export const PageHeader = ({
               <Button key={action.key} {...action} />
             ))}
           </div>
-          <div className="dz-page-header-action-menu">
+          <div className="toolbar-action-menu">
             <ToolbarActions {...toolbarActionMenu} />
           </div>
         </>
+      ) : (
+        (breadcrumb || toolbar) && (
+          <div
+            data-testid="page-toolbar"
+            className="dz-page-toolbar"
+            data-breadcrumb={!!breadcrumb}
+          >
+            {breadcrumb}
+            {toolbar}
+          </div>
+        )
       )}
     </div>
   );
