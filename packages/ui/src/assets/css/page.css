@@ -6,9 +6,8 @@
 }
 
 .dz-page > .dz-page-header {
-  display: grid;
+  display: flex;
   gap: var(--_page-gap);
-  grid-template-columns: 100%;
 }
 
 .dz-page[data-centered="true"] {

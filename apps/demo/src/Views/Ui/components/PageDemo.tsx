@@ -69,6 +69,30 @@ export const PageDemo = () => {
         subtitle={<Tag label={t("page.subTitle.tag")} />}
         children={PageContent}
         breadcrumb={breadcrumb}
+        toolbarActionMenu={{
+          actions: [
+            {
+              label: "View",
+              onClick: () => {
+                console.log("view action");
+              },
+            },
+            {
+              label: "Edit",
+              disabled: true,
+              onClick: () => {
+                console.log("edit action");
+              },
+            },
+            {
+              label: "Delete",
+              className: "danger",
+              onClick: () => {
+                console.log("delete action");
+              },
+            },
+          ],
+        }}
       />
     </>
   );

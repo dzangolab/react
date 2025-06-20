@@ -1,9 +1,14 @@
+import { ToolbarActions } from "./ToolbarActions";
+
+import type { ToolbarActionsMenuProperties } from "./ToolbarActions";
+
 interface IHeaderProperties {
   breadcrumb?: React.ReactNode;
-  titleTag?: string | React.ReactNode;
   subtitle?: React.ReactNode | string;
-  toolbar?: React.ReactNode;
   title?: string | React.ReactNode;
+  titleTag?: string | React.ReactNode;
+  toolbar?: React.ReactNode;
+  toolbarActionMenu?: ToolbarActionsMenuProperties;
 }
 
 export const PageHeader = ({
@@ -12,6 +17,7 @@ export const PageHeader = ({
   subtitle,
   toolbar,
   title,
+  toolbarActionMenu,
 }: IHeaderProperties) => {
   const renderTitle = () => {
     if (!title) return null;
@@ -46,6 +52,11 @@ export const PageHeader = ({
         >
           {breadcrumb}
           {toolbar}
+        </div>
+      )}
+      {toolbarActionMenu && (
+        <div className="dz-page-header-action-menu">
+          <ToolbarActions {...toolbarActionMenu} />
         </div>
       )}
     </div>
