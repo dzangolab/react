@@ -23,7 +23,7 @@ export const FileUpload: FC<IFileUploadProperties> = ({
   onCancel,
   onFileSelect,
   onUpload,
-  reverseActions = true,
+  reverseActionsOrder = false,
   uploadButtonOptions,
   value,
 }) => {
@@ -65,6 +65,14 @@ export const FileUpload: FC<IFileUploadProperties> = ({
       <FormActions
         actions={[
           {
+            id: "upload",
+            type: "button",
+            disabled: !selectedFiles.length,
+            label: "Upload",
+            onClick: () => onUpload(selectedFiles),
+            ...uploadButtonOptions,
+          },
+          {
             id: "cancel",
             label: "Cancel",
             onClick: () => {
@@ -73,17 +81,9 @@ export const FileUpload: FC<IFileUploadProperties> = ({
             },
             ...cancelButtonOptions,
           },
-          {
-            id: "upload",
-            type: "button",
-            disabled: !selectedFiles.length,
-            label: "Upload",
-            onClick: () => onUpload(selectedFiles),
-            ...uploadButtonOptions,
-          },
         ]}
         alignment={actionsAlignment}
-        reverse={reverseActions}
+        reverse={reverseActionsOrder}
       />
     </div>
   );

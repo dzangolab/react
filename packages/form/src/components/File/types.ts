@@ -35,7 +35,7 @@ export interface IFileUploadProperties
   onCancel?: () => void;
   onFileSelect?: (files: FileExtended[]) => FileExtended[];
   onUpload: (files: FileExtended[]) => void;
-  reverseActions?: boolean;
+  reverseActionsOrder?: boolean;
   uploadButtonOptions?: IButtonProperties;
 }
 
