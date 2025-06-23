@@ -40,13 +40,8 @@
   padding-inline: var(--_padding-inline);
 }
 
-.select > .label-container .debounced-input {
-  margin-right: 2rem;
-}
-
-.select > .label-container .input-field {
+.select .debounced-input .input-field {
   border: none;
-  margin-right: 2rem;
   overflow: hidden;
   padding: 0;
   text-overflow: ellipsis;
@@ -87,15 +82,39 @@
 .select > .label-container .action-items {
   display: flex;
   gap: 0.5rem;
-}
-
-.select > .label-container .selected-options > .dz-tag > i {
-  cursor: pointer;
-  font-size: 0.85rem;
+  margin-left: 1rem;
+  min-width: fit-content;
 }
 
 .select > .label-container .placeholder {
   color: var(--_placeholder-color);
+}
+
+.select-menu .selected-options-wrapper {
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: min-height 0.3s ease, height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.select-menu .selected-options-wrapper.visible {
+  height: 3rem;
+  min-height: 3rem;
+  opacity: 1;
+  padding: 0.75rem;
+}
+
+.select-menu .selected-options, .label-container .selected-options {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select-menu .selected-options-wrapper .divider[role=separator] {
+  margin: 0.65rem 0;
 }
 
 .select-menu ul {

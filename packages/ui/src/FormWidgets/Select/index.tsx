@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import Divider from "@/Divider";
+
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
@@ -127,14 +129,6 @@ export const Select = <T extends string | number>({
     ? multiSelectedLabels
     : (options.find((opt) => opt.value === value)?.label ?? "");
 
-  const syncInputWithValue = () => {
-    setSearchInput(displayValue);
-  };
-
-  useEffect(() => {
-    syncInputWithValue();
-  }, []);
-
   useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
       handleSelectedOption(options[0].value);
@@ -151,7 +145,6 @@ export const Select = <T extends string | number>({
         (!popupMenuContent ||
           !popupMenuContent.contains(event.target as HTMLElement))
       ) {
-        syncInputWithValue();
         setShowOptions(false);
         setFocused(false);
       }
@@ -203,15 +196,15 @@ export const Select = <T extends string | number>({
       const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
-
+      console.log("here");
       onChange(newValue);
-      searchInputReference.current?.focus();
+      setSearchInput("");
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
     } else {
       onChange(option);
-
-      const selectedOption = options.find((opt) => opt.value === option);
-      setSearchInput(selectedOption?.label ?? "");
-      setFocused(false);
     }
   };
 
@@ -227,9 +220,10 @@ export const Select = <T extends string | number>({
       onChange(null as any); // eslint-disable-line @typescript-eslint/no-explicit-any
     }
 
-    setShowOptions(false);
-    setFocused(false);
     setSearchInput("");
+    setTimeout(() => {
+      searchInputReference.current?.focus();
+    }, 0);
   };
 
   const handleRemoveOptionKeyDown = (event: React.KeyboardEvent) => {
@@ -245,7 +239,10 @@ export const Select = <T extends string | number>({
     const openDropdown = () => {
       setShowOptions(true);
       setFocused(true);
-      searchInputReference.current?.focus();
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
     };
 
     const selectFocusedOption = () => {
@@ -301,7 +298,6 @@ export const Select = <T extends string | number>({
 
       case "Escape":
         event.preventDefault();
-        syncInputWithValue();
         setShowOptions(false);
         searchInputReference.current?.blur();
 
@@ -323,47 +319,60 @@ export const Select = <T extends string | number>({
 
   const renderOptions = () => {
     return (
-      <ul aria-multiselectable={multiple} role="listbox">
-        {filteredOptions?.map((option, index) => {
-          const { disabled, label } = option;
+      <>
+        <div
+          className={`selected-options-wrapper ${displayValue ? "visible" : ""}`}
+        >
+          {renderValue ? (
+            renderValue(value, options)
+          ) : (
+            <span className="selected-options">{displayValue}</span>
+          )}
+          <Divider />
+        </div>
 
-          return (
-            <li
-              key={index}
-              ref={(element) => (optionReference.current[index] = element)}
-              role="option"
-              className={
-                `${!multiple && value === option.value ? "selected" : ""}
+        <ul aria-multiselectable={multiple} role="listbox">
+          {filteredOptions?.map((option, index) => {
+            const { disabled, label } = option;
+
+            return (
+              <li
+                key={index}
+                ref={(element) => (optionReference.current[index] = element)}
+                role="option"
+                className={
+                  `${!multiple && value === option.value ? "selected" : ""}
               ${disabled ? "disabled" : ""}
               ${index === focusedOptionIndex ? "focused" : ""}
             `.trim() || undefined
-              }
-            >
-              {multiple ? (
-                <Checkbox
-                  name={label}
-                  checked={value.includes(option.value)}
-                  onChange={() => handleSelectedOption(option.value)}
-                  disabled={disabled}
-                />
-              ) : null}
-              <span
-                onClick={() => {
-                  if (!disabled) {
-                    handleSelectedOption(option.value);
-                  }
-
-                  if (!multiple && !disabled) {
-                    setShowOptions(false);
-                  }
-                }}
+                }
               >
-                {renderOption ? renderOption(option) : label}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+                {multiple ? (
+                  <Checkbox
+                    name={label}
+                    checked={value.includes(option.value)}
+                    onChange={() => handleSelectedOption(option.value)}
+                    disabled={disabled}
+                  />
+                ) : null}
+                <span
+                  onClick={() => {
+                    if (!disabled) {
+                      handleSelectedOption(option.value);
+                    }
+
+                    if (!multiple && !disabled) {
+                      setShowOptions(false);
+                    }
+                  }}
+                >
+                  {renderOption ? renderOption(option) : label}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   };
 
@@ -373,30 +382,18 @@ export const Select = <T extends string | number>({
         return renderValue(value, options);
       }
 
-      return (
-        <DebouncedInput
-          ref={searchInputReference}
-          placeholder={placeholder}
-          onInputChange={(debouncedValue) => {
-            setSearchInput(debouncedValue as string);
-          }}
-          defaultValue={searchInput}
-          tabIndex={-1}
-          disabled={disabled}
-        />
-      );
+      return <span className="selected-options">{displayValue}</span>;
     };
+
     return (
       <div
-        className={`label-container ${disabled ? "disabled" : ""} ${
-          focused ? "focused" : ""
-        }`.trimEnd()}
+        className={`label-container ${disabled ? "disabled" : ""} ${focused ? "focused" : ""}`.trimEnd()}
         aria-invalid={hasError}
+        onKeyDown={handleKeyDown}
         onClick={() => {
           if (disabled) return;
 
           if (showOptions) {
-            setSearchInput(displayValue);
             setShowOptions(false);
             setFocused(false);
             searchInputReference.current?.blur();
@@ -404,23 +401,36 @@ export const Select = <T extends string | number>({
             setSearchInput("");
             setShowOptions(true);
             setFocused(true);
+
+            setTimeout(() => {
+              searchInputReference.current?.focus();
+            }, 0);
           }
         }}
-        onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {renderSelectValue()}
+        {!displayValue.length || showOptions ? (
+          <DebouncedInput
+            ref={searchInputReference}
+            placeholder={placeholder}
+            onInputChange={(debouncedValue) => {
+              setSearchInput(debouncedValue as string);
+            }}
+            disabled={disabled}
+            defaultValue={searchInput}
+          />
+        ) : (
+          renderSelectValue()
+        )}
         <span className="action-items">
-          {!disabled &&
-            showRemoveSelection &&
-            searchInput?.trim()?.length > 0 && (
-              <i
-                className="pi pi-times"
-                onClick={(event) => handleRemoveOption(undefined, event)}
-                onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
-                tabIndex={0}
-              ></i>
-            )}
+          {!disabled && showRemoveSelection && displayValue && (
+            <i
+              className="pi pi-times"
+              onClick={(event) => handleRemoveOption(undefined, event)}
+              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
+              tabIndex={0}
+            ></i>
+          )}
 
           <i
             className="pi pi-chevron-down"
