@@ -132,11 +132,12 @@ export const TableHeader = <TData extends RowData>({
     if (variant === "select") {
       return (
         <Select
+          matchMenuTriggerWidth={false}
           name="select"
-          placeholder={column.columnDef.filterPlaceholder || ""}
-          options={column.columnDef.meta?.filterOptions || []}
-          value={(columnFilterValue as string) || ""}
           onChange={(value) => column.setFilterValue(value)}
+          options={column.columnDef.meta?.filterOptions || []}
+          placeholder={column.columnDef.filterPlaceholder || ""}
+          value={(columnFilterValue as string) || ""}
         />
       );
     }
@@ -144,12 +145,13 @@ export const TableHeader = <TData extends RowData>({
     if (variant === "multiselect") {
       return (
         <Select
-          name="multiselect"
-          placeholder={column.columnDef.filterPlaceholder || ""}
-          options={column.columnDef.meta?.filterOptions || []}
-          value={(columnFilterValue as string[]) || []}
-          onChange={(value) => column.setFilterValue(value)}
+          matchMenuTriggerWidth={false}
           multiple
+          name="multiselect"
+          onChange={(value) => column.setFilterValue(value)}
+          options={column.columnDef.meta?.filterOptions || []}
+          placeholder={column.columnDef.filterPlaceholder || ""}
+          value={(columnFilterValue as string[]) || []}
         />
       );
     }

@@ -24,6 +24,7 @@ export type ISelectProperties<T> = {
   helperText?: string;
   hideIfSingleOption?: boolean;
   label?: string | React.ReactNode;
+  matchMenuTriggerWidth?: boolean;
   multiple?: boolean;
   name: string;
   options: Option<T>[];
@@ -58,17 +59,18 @@ export const Select = <T extends string | number>({
   helperText,
   hideIfSingleOption = false,
   label = "",
+  matchMenuTriggerWidth = true,
+  menuOptions,
   multiple,
   name,
+  onChange,
   options,
   placeholder,
-  menuOptions,
+  renderOption,
+  renderValue,
   searchPlaceholder,
   showRemoveSelection = true,
   value,
-  renderOption,
-  renderValue,
-  onChange,
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
@@ -441,7 +443,7 @@ export const Select = <T extends string | number>({
               <PopupMenu
                 className={`select-menu ${menuOptions?.className}`.trim()}
                 content={renderOptions()}
-                matchReferenceWidth
+                matchReferenceWidth={matchMenuTriggerWidth}
                 offset={0}
                 referenceElement={referenceElement}
               />
