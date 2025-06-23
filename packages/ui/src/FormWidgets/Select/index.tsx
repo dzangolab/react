@@ -418,6 +418,7 @@ export const Select = <T extends string | number>({
             }}
             disabled={disabled}
             defaultValue={searchInput}
+            tabIndex={-1}
           />
         ) : (
           renderSelectValue()

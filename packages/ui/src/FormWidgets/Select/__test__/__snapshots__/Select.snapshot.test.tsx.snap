@@ -12,18 +12,11 @@ exports[`Select Component > should render correctly when auto-select single opti
         class="label-container"
         tabindex="0"
       >
-        <div
-          class="field debounced-input"
+        <span
+          class="selected-options"
         >
-          <input
-            class="input-field "
-            id=""
-            name=""
-            tabindex="-1"
-            type="text"
-            value="Nepali"
-          />
-        </div>
+          Nepali
+        </span>
         <span
           class="action-items"
         >
@@ -53,19 +46,11 @@ exports[`Select Component > should render correctly when disabled 1`] = `
         class="label-container disabled"
         tabindex="0"
       >
-        <div
-          class="field debounced-input"
+        <span
+          class="selected-options"
         >
-          <input
-            class="input-field "
-            disabled=""
-            id=""
-            name=""
-            tabindex="-1"
-            type="text"
-            value="English"
-          />
-        </div>
+          English
+        </span>
         <span
           class="action-items"
         >
@@ -91,18 +76,11 @@ exports[`Select Component > should render correctly when hide if single option i
         class="label-container"
         tabindex="0"
       >
-        <div
-          class="field debounced-input"
+        <span
+          class="selected-options"
         >
-          <input
-            class="input-field "
-            id=""
-            name=""
-            tabindex="-1"
-            type="text"
-            value="Nepali"
-          />
-        </div>
+          Nepali
+        </span>
         <span
           class="action-items"
         >
@@ -171,18 +149,11 @@ exports[`Select Component > should render correctly with an error message 1`] = 
         class="label-container"
         tabindex="0"
       >
-        <div
-          class="field debounced-input"
+        <span
+          class="selected-options"
         >
-          <input
-            class="input-field "
-            id=""
-            name=""
-            tabindex="-1"
-            type="text"
-            value="English"
-          />
-        </div>
+          English
+        </span>
         <span
           class="action-items"
         >
@@ -217,18 +188,11 @@ exports[`Select Component > should render correctly with helper text 1`] = `
         class="label-container"
         tabindex="0"
       >
-        <div
-          class="field debounced-input"
+        <span
+          class="selected-options"
         >
-          <input
-            class="input-field "
-            id=""
-            name=""
-            tabindex="-1"
-            type="text"
-            value="Nepali"
-          />
-        </div>
+          Nepali
+        </span>
         <span
           class="action-items"
         >
@@ -263,18 +227,11 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
         class="label-container"
         tabindex="0"
       >
-        <div
-          class="field debounced-input"
+        <span
+          class="selected-options"
         >
-          <input
-            class="input-field "
-            id=""
-            name=""
-            tabindex="-1"
-            type="text"
-            value="English, Nepali"
-          />
-        </div>
+          English, Nepali
+        </span>
         <span
           class="action-items"
         >
@@ -304,18 +261,11 @@ exports[`Select Component > should render correctly with single selection 1`] = 
         class="label-container"
         tabindex="0"
       >
-        <div
-          class="field debounced-input"
+        <span
+          class="selected-options"
         >
-          <input
-            class="input-field "
-            id=""
-            name=""
-            tabindex="-1"
-            type="text"
-            value="English"
-          />
-        </div>
+          English
+        </span>
         <span
           class="action-items"
         >
