@@ -39,7 +39,7 @@ export const ToolbarActions = ({ actions }: ToolbarActionsMenuProperties) => {
 
     return (
       <DropdownMenu
-        label={<i className="pi pi-cog"></i>}
+        label={<Button iconLeft="pi pi-cog" size="medium" variant="outlined" />}
         menu={actions}
         hideDropdownIcon
       />
