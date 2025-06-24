@@ -1,4 +1,3 @@
-import { ErrorMessage } from "./ErrorMessage";
 import { CustomInputProperties } from "../types";
 
 export type IDaysInputField = CustomInputProperties &
@@ -53,7 +52,9 @@ export const DaysInput: React.FC<IDaysInputField> = ({
         {...others}
       />
       {helperText && <span className="helper-text">{helperText}</span>}
-      {error?.message && <ErrorMessage message={error.message} />}
+      {error?.message && (
+        <span className="error-message">{error?.message}</span>
+      )}
     </div>
   );
 };
