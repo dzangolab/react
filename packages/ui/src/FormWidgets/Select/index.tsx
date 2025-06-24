@@ -336,12 +336,12 @@ export const Select = <T extends string | number>({
         ) : null}
 
         {multiple && (
-          <li role="option">
+          <li role="option" onClick={toggleSelectAll}>
             <Checkbox
               checked={isAllSelected}
               disabled={activeOptions.length === 0}
             />
-            <span onClick={toggleSelectAll}>Select all</span>
+            <span>Select all</span>
           </li>
         )}
 
