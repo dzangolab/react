@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from "@dzangolab/react-i18n";
-import { Select, Page, Button } from "@dzangolab/react-ui";
+import { Select, Page, Button, Tag } from "@dzangolab/react-ui";
 import { TDataTable } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -159,16 +159,19 @@ export const SelectDemo = () => {
     value?: string | string[],
     options?: Option[],
   ) => {
-    let label = "";
-
-    if (Array.isArray(value)) {
-      label = value
-        .map((v) => options?.find((o) => o.value === v)?.label)
-        .filter(Boolean)
-        .join(", ");
+    if (!value || !Array.isArray(value) || !options) {
+      return null;
     }
 
-    return <span>{label || t("select.placeholder")}</span>;
+    return (
+      <span className="selected-labels">
+        {value.map((v) => {
+          const label = options.find((o) => o.value === v)?.label;
+          if (!label) return null;
+          return <Tag key={v} label={label} />;
+        })}
+      </span>
+    );
   };
 
   const renderOption = (option: Option) => {

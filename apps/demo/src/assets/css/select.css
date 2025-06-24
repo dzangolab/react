@@ -1,0 +1,4 @@
+.selected-options-wrapper .selected-labels, .select .label-container .selected-labels{
+  display: flex;
+  gap: 0.5rem;
+}

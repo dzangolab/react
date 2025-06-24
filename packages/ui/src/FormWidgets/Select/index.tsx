@@ -222,6 +222,7 @@ export const Select = <T extends string | number>({
 
     setSearchInput("");
     setTimeout(() => {
+      setFocused(true);
       searchInputReference.current?.focus();
     }, 0);
   };
