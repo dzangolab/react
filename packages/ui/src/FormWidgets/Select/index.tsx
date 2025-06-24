@@ -414,6 +414,10 @@ export const Select = <T extends string | number>({
             placeholder={placeholder}
             onInputChange={(debouncedValue) => {
               setSearchInput(debouncedValue as string);
+
+              if (debouncedValue && !showOptions) {
+                setShowOptions(true);
+              }
             }}
             disabled={disabled}
             defaultValue={searchInput}
