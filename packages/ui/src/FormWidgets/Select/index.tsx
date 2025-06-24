@@ -155,7 +155,7 @@ export const Select = <T extends string | number>({
     return () => {
       document.removeEventListener("mousedown", handleMouseDown);
     };
-  }, [selectReference, value, options, multiple]);
+  }, [selectReference]);
 
   useEffect(() => {
     if (
@@ -196,7 +196,7 @@ export const Select = <T extends string | number>({
       const newValue = value.includes(option)
         ? value.filter((_value) => _value !== option)
         : [...value, option];
-      console.log("here");
+
       onChange(newValue);
       setSearchInput("");
 
@@ -387,7 +387,6 @@ export const Select = <T extends string | number>({
       <div
         className={`label-container ${disabled ? "disabled" : ""} ${focused ? "focused" : ""}`.trimEnd()}
         aria-invalid={hasError}
-        onKeyDown={handleKeyDown}
         onClick={() => {
           if (disabled) return;
 
@@ -405,6 +404,7 @@ export const Select = <T extends string | number>({
             }, 0);
           }
         }}
+        onKeyDown={handleKeyDown}
         tabIndex={0}
       >
         {!selectedOptions.length || showOptions ? (
