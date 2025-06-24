@@ -104,6 +104,31 @@ export const Select = <T extends string | number>({
     );
   }, [searchInput, sortedOptions]);
 
+  const enabledOptions = useMemo(
+    () => filteredOptions.filter((option) => !option.disabled),
+    [filteredOptions],
+  );
+
+  const isAllSelected = useMemo(() => {
+    return (
+      multiple &&
+      enabledOptions.length > 0 &&
+      enabledOptions.every((option) => value.includes(option.value))
+    );
+  }, [enabledOptions, value]);
+
+  const toggleSelectAll = () => {
+    if (!multiple) {
+      return;
+    }
+
+    const selectedValue = isAllSelected
+      ? []
+      : enabledOptions.map((option) => option.value);
+
+    onChange(selectedValue);
+  };
+
   const shouldAutoSelect = useMemo(() => {
     return (
       autoSelectSingleOption &&
@@ -227,6 +252,7 @@ export const Select = <T extends string | number>({
     const selectFocusedOption = () => {
       if (focusedOptionIndex !== null) {
         handleSelectedOption(filteredOptions[focusedOptionIndex].value);
+
         if (!multiple) {
           setShowOptions(false);
         }
@@ -308,6 +334,16 @@ export const Select = <T extends string | number>({
             tabIndex={0}
           />
         ) : null}
+
+        {multiple && (
+          <li role="option">
+            <Checkbox
+              checked={isAllSelected}
+              disabled={enabledOptions.length === 0}
+            />
+            <span onClick={toggleSelectAll}>Select all</span>
+          </li>
+        )}
 
         {filteredOptions?.map((option, index) => {
           const { disabled, label } = option;
