@@ -104,7 +104,7 @@ export const Select = <T extends string | number>({
     );
   }, [searchInput, sortedOptions]);
 
-  const enabledOptions = useMemo(
+  const activeOptions = useMemo(
     () => filteredOptions.filter((option) => !option.disabled),
     [filteredOptions],
   );
@@ -112,10 +112,10 @@ export const Select = <T extends string | number>({
   const isAllSelected = useMemo(() => {
     return (
       multiple &&
-      enabledOptions.length > 0 &&
-      enabledOptions.every((option) => value.includes(option.value))
+      activeOptions.length > 0 &&
+      activeOptions.every((option) => value.includes(option.value))
     );
-  }, [enabledOptions, value]);
+  }, [activeOptions, value]);
 
   const toggleSelectAll = () => {
     if (!multiple) {
@@ -124,7 +124,7 @@ export const Select = <T extends string | number>({
 
     const selectedValue = isAllSelected
       ? []
-      : enabledOptions.map((option) => option.value);
+      : activeOptions.map((option) => option.value);
 
     onChange(selectedValue);
   };
@@ -339,7 +339,7 @@ export const Select = <T extends string | number>({
           <li role="option">
             <Checkbox
               checked={isAllSelected}
-              disabled={enabledOptions.length === 0}
+              disabled={activeOptions.length === 0}
             />
             <span onClick={toggleSelectAll}>Select all</span>
           </li>
