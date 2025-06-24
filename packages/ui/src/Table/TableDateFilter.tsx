@@ -37,7 +37,7 @@ export const TableDateFilter = <TData,>({
       onChange={(date) => {
         if (!date) {
           setDates(null);
-          column.setFilterValue(null);
+          column.setFilterValue(undefined);
 
           return;
         }

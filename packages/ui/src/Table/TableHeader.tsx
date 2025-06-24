@@ -135,7 +135,7 @@ export const TableHeader = <TData extends RowData>({
           name="select"
           placeholder={column.columnDef.filterPlaceholder || ""}
           options={column.columnDef.meta?.filterOptions || []}
-          value={(columnFilterValue as string) || ""}
+          value={(columnFilterValue as string)}
           onChange={(value) => column.setFilterValue(value)}
         />
       );
@@ -148,7 +148,13 @@ export const TableHeader = <TData extends RowData>({
           placeholder={column.columnDef.filterPlaceholder || ""}
           options={column.columnDef.meta?.filterOptions || []}
           value={(columnFilterValue as string[]) || []}
-          onChange={(value) => column.setFilterValue(value)}
+          onChange={(value) => {
+            if (!value || value.length === 0) {
+              column.setFilterValue(undefined);
+            } else {
+              column.setFilterValue(value);
+            }
+          }}
           multiple
         />
       );
