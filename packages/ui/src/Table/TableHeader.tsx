@@ -137,7 +137,7 @@ export const TableHeader = <TData extends RowData>({
           onChange={(value) => column.setFilterValue(value)}
           options={column.columnDef.meta?.filterOptions || []}
           placeholder={column.columnDef.filterPlaceholder || ""}
-          value={columnFilterValue as string}
+          value={(columnFilterValue as string) || ""}
         />
       );
     }
