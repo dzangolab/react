@@ -221,8 +221,8 @@ export const Select = <T extends string | number>({
     }
 
     setSearchInput("");
+    setFocused(true);
     setTimeout(() => {
-      setFocused(true);
       searchInputReference.current?.focus();
     }, 0);
   };
@@ -239,9 +239,9 @@ export const Select = <T extends string | number>({
 
     const openDropdown = () => {
       setShowOptions(true);
+      setFocused(true);
 
       setTimeout(() => {
-        setFocused(true);
         searchInputReference.current?.focus();
       }, 0);
     };
@@ -313,6 +313,25 @@ export const Select = <T extends string | number>({
         event.preventDefault();
         focusLastEnabled();
         break;
+    }
+  };
+
+  const toggleOptionsMenu = () => {
+    if (disabled) return;
+
+    if (showOptions) {
+      setShowOptions(false);
+      setFocused(false);
+
+      searchInputReference.current?.blur();
+    } else {
+      setSearchInput("");
+      setShowOptions(true);
+      setFocused(true);
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
     }
   };
 
@@ -388,23 +407,7 @@ export const Select = <T extends string | number>({
       <div
         className={`label-container ${disabled ? "disabled" : ""} ${focused ? "focused" : ""}`.trimEnd()}
         aria-invalid={hasError}
-        onClick={() => {
-          if (disabled) return;
-
-          if (showOptions) {
-            setShowOptions(false);
-            setFocused(false);
-            searchInputReference.current?.blur();
-          } else {
-            setSearchInput("");
-            setShowOptions(true);
-
-            setTimeout(() => {
-              setFocused(true);
-              searchInputReference.current?.focus();
-            }, 0);
-          }
-        }}
+        onClick={toggleOptionsMenu}
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
