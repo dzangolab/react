@@ -145,10 +145,9 @@ export const TableHeader = <TData extends RowData>({
     if (variant === "multiselect") {
       return (
         <Select
+          matchMenuTriggerWidth={false}
+          multiple
           name="multiselect"
-          placeholder={column.columnDef.filterPlaceholder || ""}
-          options={column.columnDef.meta?.filterOptions || []}
-          value={(columnFilterValue as string[]) || []}
           onChange={(value) => {
             if (!value || value.length === 0) {
               column.setFilterValue(undefined);
@@ -156,8 +155,9 @@ export const TableHeader = <TData extends RowData>({
               column.setFilterValue(value);
             }
           }}
-          matchMenuTriggerWidth={false}
-          multiple
+          options={column.columnDef.meta?.filterOptions || []}
+          placeholder={column.columnDef.filterPlaceholder || ""}
+          value={(columnFilterValue as string[]) || []}
         />
       );
     }
