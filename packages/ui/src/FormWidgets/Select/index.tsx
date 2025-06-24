@@ -116,18 +116,18 @@ export const Select = <T extends string | number>({
 
   const disabled = shouldAutoSelect || selectFieldDisabled;
 
-  const multiSelectedLabels = useMemo(() => {
-    if (!multiple || !value?.length) return "";
+  const selectedOptions = useMemo(() => {
+    if (multiple) {
+      if (!value?.length) return "";
 
-    return options
-      .filter((opt) => value.includes(opt.value))
-      .map((opt) => opt.label)
-      .join(", ");
+      return options
+        .filter((opt) => value.includes(opt.value))
+        .map((opt) => opt.label)
+        .join(", ");
+    }
+
+    return options.find((opt) => opt.value === value)?.label ?? "";
   }, [multiple, value, options]);
-
-  const displayValue = multiple
-    ? multiSelectedLabels
-    : (options.find((opt) => opt.value === value)?.label ?? "");
 
   useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
@@ -238,9 +238,9 @@ export const Select = <T extends string | number>({
 
     const openDropdown = () => {
       setShowOptions(true);
-      setFocused(true);
 
       setTimeout(() => {
+        setFocused(true);
         searchInputReference.current?.focus();
       }, 0);
     };
@@ -255,8 +255,6 @@ export const Select = <T extends string | number>({
         }
       } else {
         setShowOptions(false);
-        searchInputReference.current?.blur();
-        setFocused(false);
       }
 
       setFocusedOptionIndex(null);
@@ -299,8 +297,8 @@ export const Select = <T extends string | number>({
       case "Escape":
         event.preventDefault();
         setShowOptions(false);
+        setFocused(false);
         searchInputReference.current?.blur();
-
         break;
 
       case "Home":
@@ -321,12 +319,12 @@ export const Select = <T extends string | number>({
     return (
       <>
         <div
-          className={`selected-options-wrapper ${displayValue ? "visible" : ""}`}
+          className={`selected-options-wrapper ${selectedOptions ? "visible" : ""}`}
         >
           {renderValue ? (
             renderValue(value, options)
           ) : (
-            <span className="selected-options">{displayValue}</span>
+            <span className="selected-options">{selectedOptions}</span>
           )}
           <Divider />
         </div>
@@ -382,7 +380,7 @@ export const Select = <T extends string | number>({
         return renderValue(value, options);
       }
 
-      return <span className="selected-options">{displayValue}</span>;
+      return <span className="selected-options">{selectedOptions}</span>;
     };
 
     return (
@@ -400,16 +398,16 @@ export const Select = <T extends string | number>({
           } else {
             setSearchInput("");
             setShowOptions(true);
-            setFocused(true);
 
             setTimeout(() => {
+              setFocused(true);
               searchInputReference.current?.focus();
             }, 0);
           }
         }}
         tabIndex={0}
       >
-        {!displayValue.length || showOptions ? (
+        {!selectedOptions.length || showOptions ? (
           <DebouncedInput
             ref={searchInputReference}
             placeholder={placeholder}
@@ -424,7 +422,7 @@ export const Select = <T extends string | number>({
           renderSelectValue()
         )}
         <span className="action-items">
-          {!disabled && showRemoveSelection && displayValue && (
+          {!disabled && showRemoveSelection && selectedOptions && (
             <i
               className="pi pi-times"
               onClick={(event) => handleRemoveOption(undefined, event)}

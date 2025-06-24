@@ -129,15 +129,6 @@
   width: 100%;
 }
 
-.select-menu ul > .debounced-input {
-  align-items: unset;
-}
-
-.select-menu ul > .debounced-input input {
-  padding-block: var(--_padding-block);
-  padding-inline: var(--_padding-inline);
-}
-
 .select-menu ul > li {
   border-radius: var(--_border-radius);
   cursor: pointer;
