@@ -244,7 +244,11 @@
     "title": "Checkbox (fr)"
   },
   "input": {
-    "title": "Input (fr)"
+    "title": "Input (fr)",
+    "usage": {
+      "basic": "Basic (fr)",
+      "invalidInput": "Invalid input (fr)"
+    }
   },
   "sortableList": {
     "title": "Sortable list (fr)"
