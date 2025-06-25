@@ -165,7 +165,7 @@ export const InvitationsTable = ({
     return !!(date && new Date(date) < new Date());
   };
 
-  const appMap = new Map(apps?.map((app) => [app.id, app.name]));
+  const appNameMap = new Map(apps?.map((app) => [app.id, app.name]));
 
   const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
@@ -180,7 +180,7 @@ export const InvitationsTable = ({
       accessorKey: "appId",
       align: "center",
       cell: ({ row: { original } }) => {
-        return <span>{appMap.get(original.appId) || "-"} </span>;
+        return <span>{appNameMap.get(original.appId) || "-"} </span>;
       },
       enableColumnFilter: true,
       enableSorting: true,
