@@ -30,6 +30,16 @@ export const CurrencyPickerDemo = () => {
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
     { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+    {
+      code: "ZAR",
+      label: "South African Rand",
+      value: "ZAR",
+    },
+    {
+      code: "NPR",
+      label: "Nepalese Rupee",
+      value: "NPR",
+    },
   ];
 
   return (
@@ -66,11 +76,13 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
   label={t("currencyPicker.label")}
   name="currencyPicker"
   options={[
-    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD"},
     { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
     { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+    { code: "ZAR", label: "South African Rand", value: "ZAR" },
+    { code: "NPR", label: "Nepalese Rupee", value: "NPR" },
   ]}
   value={singleSelectValue}
   onChange={(value: string) => setSingleSelectCurrencyValue(value)}
@@ -106,11 +118,13 @@ const [searchableSingleSelectCurrencyValue, setSearchableSingleSelectCurrencyVal
   name="currencyPicker"
   enableSearch
   options={[
-    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD"},
     { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
     { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+    { code: "ZAR", label: "South African Rand", value: "ZAR" },
+    { code: "NPR", label: "Nepalese Rupee", value: "NPR" },
   ]}
   value={searchableSingleSelectCurrencyValue}
   onChange={(value: string) => setSearchableSingleSelectCurrencyValue(value)}
@@ -137,11 +151,13 @@ const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[
   label={t("currencyPicker.label")}
   name="currencyPicker"
   options={[
-    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD"},
     { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
     { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+    { code: "ZAR", label: "South African Rand", value: "ZAR" },
+    { code: "NPR", label: "Nepalese Rupee", value: "NPR" },
   ]}
   multiple={true}
   value={multiSelectCurrencyValue}
