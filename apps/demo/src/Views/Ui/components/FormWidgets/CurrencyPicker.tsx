@@ -77,7 +77,7 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
   label={t("currencyPicker.label")}
   name="currencyPicker"
   options={[
-    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD"},
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
     { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
@@ -115,7 +115,7 @@ const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[
   label={t("currencyPicker.label")}
   name="currencyPicker"
   options={[
-    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD"},
+    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
     { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
@@ -150,7 +150,6 @@ const [extensiveOptionsCurrencyPickerValue, setExtensiveOptionsCurrencyPickerVal
 <CurrencyPicker
   label={t("select.label")}
   name="currencyPicker"
-  enableSearch
   options={currencies}
   value={extensiveOptionsCurrencyPickerValue}
   onChange={(value: string) => setExtensiveOptionsCurrencyPickerValue(value)}
