@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from "@dzangolab/react-i18n";
-import { Select, Page, Button } from "@dzangolab/react-ui";
+import { Select, Page, Button, Tag } from "@dzangolab/react-ui";
 import { TDataTable } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -45,34 +45,27 @@ const data = [
   },
   {
     id: 5,
-    prop: "enableSearch",
-    type: "boolean",
-    default: "false",
-    description: "If true, search is enabled.",
-  },
-  {
-    id: 6,
     prop: "errorMessage",
     type: "string",
     default: "-",
     description: "Displays an error message below the component.",
   },
   {
-    id: 7,
+    id: 6,
     prop: "hasError",
     type: "boolean",
     default: "-",
     description: "If true, error in component.",
   },
   {
-    id: 8,
+    id: 7,
     prop: "helperText",
     type: "string",
     default: "-",
     description: "Displays an error message below the component.",
   },
   {
-    id: 9,
+    id: 8,
     prop: "hideIfSingleOption",
     type: "boolean",
     default: "false",
@@ -80,77 +73,70 @@ const data = [
       "If there is only one option, and multiple is false, the Select component will not render the dropdown at all when set to true.",
   },
   {
-    id: 10,
+    id: 9,
     prop: "label",
     type: "string",
     default: "-",
     description: "Label of the component.",
   },
   {
-    id: 11,
+    id: 10,
     prop: "multiple",
     type: "boolean",
     default: "false",
     description: "If true, multiple selection is enabled.",
   },
   {
-    id: 12,
+    id: 11,
     prop: "name",
     type: "string",
     default: "-",
     description: "Name of the component.",
   },
   {
-    id: 13,
+    id: 12,
     prop: "options",
     type: "Option[]",
     default: "-",
     description: "Options to pass in the select component.",
   },
   {
-    id: 14,
+    id: 13,
     prop: "placeholder",
     type: "string",
     default: "-",
     description: "Placeholder in the component.",
   },
   {
-    id: 15,
-    prop: "searchPlaceholder",
-    type: "string",
-    default: "-",
-    description: "Placeholder in search field of the component.",
-  },
-  {
-    id: 16,
+    id: 14,
     prop: "showRemoveSelection",
     type: "boolean",
     default: "true",
     description: "If true, icon to remove selected options is visible.",
   },
   {
-    id: 17,
+    id: 15,
     prop: "value",
     type: "Value",
     default: "-",
     description: "Selected values of the component.",
   },
   {
-    id: 18,
+    id: 16,
     prop: "renderOption",
     type: "(option: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select options.",
   },
   {
-    id: 19,
+    id: 17,
     prop: "renderValue",
     type: "(value?: Value, options?: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select value.",
   },
   {
-    id: 20,
+    id: 18,
     prop: "onChange",
     type: " (newValue: T | T[]) => void",
     default: "-",
@@ -163,11 +149,7 @@ export const SelectDemo = () => {
   const navigate = useNavigate();
 
   const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
-  const [searchableMultiselectValue, setSearchableMultiselectValue] = useState<
-    string[]
-  >([]);
-  const [searchableSingleSelectValue, setSearchableSingleSelectValue] =
-    useState<string>("");
+
   const [singleSelectValue, setSingleSelectValue] = useState<string>("");
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
@@ -177,15 +159,17 @@ export const SelectDemo = () => {
     value?: string | string[],
     options?: Option[],
   ) => {
+    if (!value || !Array.isArray(value) || !options) {
+      return null;
+    }
+
     return (
-      <span>
-        {Array.isArray(value) &&
-          value
-            ?.map(
-              (value_) =>
-                options?.find((option) => option.value === value_)?.label,
-            )
-            .join(", ")}
+      <span className="selected-labels">
+        {value.map((v) => {
+          const label = options.find((o) => o.value === v)?.label;
+          if (!label) return null;
+          return <Tag key={v} label={label} />;
+        })}
       </span>
     );
   };
@@ -278,45 +262,6 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
 />'
         />
       </Section>
-      <Section title={t("select.usage.singleSearch")}>
-        <Select
-          label={t("select.label")}
-          name="select"
-          enableSearch
-          options={[
-            { label: "France", value: "FR" },
-            { label: "Germany", value: "DE" },
-            { disabled: true, label: "Belgium", value: "BE" },
-            { label: "Nepal", value: "NP" },
-            { label: "India", value: "IN" },
-          ]}
-          value={searchableSingleSelectValue}
-          onChange={(value: string) => setSearchableSingleSelectValue(value)}
-          placeholder={t("select.placeholder")}
-          searchPlaceholder={t("select.searchPlaceholder")}
-        />
-        <CodeBlock
-          exampleCode='
-const [searchableSingleSelectValue, setSearchableSingleSelectValue] = useState<string>("");
-
-<Select
-  label={t("select.label")}
-  name="select"
-  enableSearch
-  options={[
-    { label: "France", value: "FR" },
-    { label: "Germany", value: "DE" },
-    { disabled: true, label: "Belgium", value: "BE" },
-    { label: "Nepal", value: "NP" },
-    { label: "India", value: "IN" }
-  ]}
-  value={searchableSingleSelectValue}
-  onChange={(value: string) => setSearchableSingleSelectValue(value)}
-  placeholder={t("select.placeholder")}
-  searchPlaceholder={t("select.searchPlaceholder")}
-/>'
-        />
-      </Section>
       <Section title={t("select.usage.multiple")}>
         <Select
           label={t("select.label")}
@@ -352,49 +297,6 @@ const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
   onChange={(value: string[]) => setMultiselectValue(value)}
   placeholder={t("select.multiSelectPlaceholder")}
 />       '
-        />
-      </Section>
-
-      <Section title={t("select.usage.multipleSearch")}>
-        <Select
-          enableSearch
-          label={t("select.label")}
-          name="select"
-          options={[
-            { label: "France", value: "FR" },
-            { label: "Germany", value: "DE" },
-            { disabled: true, label: "Belgium", value: "BE" },
-            { label: "Nepal", value: "NP" },
-            { label: "India", value: "IN" },
-          ]}
-          multiple={true}
-          hasError={true}
-          value={searchableMultiselectValue}
-          onChange={(value: string[]) => setSearchableMultiselectValue(value)}
-          placeholder={t("select.multiSelectPlaceholder")}
-          searchPlaceholder={t("select.searchPlaceholder")}
-        />
-        <CodeBlock
-          exampleCode='
-const [searchableMultiselectValue, setSearchableMultiselectValue] = useState<string[]>([]);
-
-<Select
-  enableSearch
-  label={t("select.label")}
-  name="select"
-  options={[
-    { label: "France", value: "FR" },
-    { label: "Germany", value: "DE" },
-    { disabled: true, label: "Belgium", value: "BE" },
-    { label: "Nepal", value: "NP" },
-    { label: "India", value: "IN" }
-  ]}
-  multiple={true}
-  value={searchableMultiselectValue}
-  onChange={(value: string[]) => setSearchableMultiselectValue(value)}
-  placeholder={t("select.multiSelectPlaceholder")}
-  searchPlaceholder={t("select.searchPlaceholder")}
-/>        '
         />
       </Section>
 

@@ -16,10 +16,6 @@ export const CurrencyPickerDemo = () => {
     string[]
   >([]);
   const [
-    searchableSingleSelectCurrencyValue,
-    setSearchableSingleSelectCurrencyValue,
-  ] = useState<string>("");
-  const [
     extensiveOptionsCurrencyPickerValue,
     setExtensiveOptionsCurrencyPickerValue,
   ] = useState<string>("");
@@ -101,43 +97,6 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
           ></Trans>
         </p>
       </Section>
-      <Section title={t("currencyPicker.usage.singleSearch")}>
-        <CurrencyPicker
-          label={t("currencyPicker.label")}
-          name="currencyPicker"
-          enableSearch
-          options={options}
-          value={searchableSingleSelectCurrencyValue}
-          onChange={(value: string) =>
-            setSearchableSingleSelectCurrencyValue(value)
-          }
-          placeholder={t("currencyPicker.placeholder")}
-          searchPlaceholder={t("currencyPicker.searchPlaceholder")}
-        />
-        <CodeBlock
-          exampleCode='
-const [searchableSingleSelectCurrencyValue, setSearchableSingleSelectCurrencyValue] = useState<string>("");
-      
-<CurrencyPicker
-  label={t("select.label")}
-  name="currencyPicker"
-  enableSearch
-  options={[
-    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD"},
-    { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
-    { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-    { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
-    { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
-    { code: "ZAR", label: "South African Rand", value: "ZAR" },
-    { code: "NPR", label: "Nepalese Rupee", value: "NPR" },
-  ]}
-  value={searchableSingleSelectCurrencyValue}
-  onChange={(value: string) => setSearchableSingleSelectCurrencyValue(value)}
-  placeholder={t("currencyPicker.placeholder")}
-  searchPlaceholder={t("currencyPicker.searchPlaceholder")}
-  />'
-        />
-      </Section>
       <Section title={t("currencyPicker.usage.multiple")}>
         <CurrencyPicker
           label={t("currencyPicker.label")}
@@ -175,14 +134,12 @@ const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[
         <CurrencyPicker
           label={t("currencyPicker.label")}
           name="currencyPicker"
-          enableSearch
           options={currencies}
           value={extensiveOptionsCurrencyPickerValue}
           onChange={(value: string) =>
             setExtensiveOptionsCurrencyPickerValue(value)
           }
           placeholder={t("currencyPicker.placeholder")}
-          searchPlaceholder={t("currencyPicker.searchPlaceholder")}
         />
         <CodeBlock
           exampleCode='
