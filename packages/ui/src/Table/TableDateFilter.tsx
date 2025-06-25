@@ -10,7 +10,7 @@ type DateFilterProperties<TData> = {
 export const TableDateFilter = <TData,>({
   column,
 }: DateFilterProperties<TData>) => {
-  const [dates, setDates] = useState<string[] | null>(null);
+  const [dates, setDates] = useState<string[] | undefined>(undefined);
 
   const filterValue = column.getFilterValue() as string[] | null;
 
@@ -42,7 +42,7 @@ export const TableDateFilter = <TData,>({
       name="date-range"
       onChange={(date) => {
         if (!date) {
-          setDates(null);
+          setDates(undefined);
           column.setFilterValue(undefined);
 
           return;
@@ -54,7 +54,7 @@ export const TableDateFilter = <TData,>({
 
         setDates(formatteddates as string[]);
         column.setFilterValue(
-          formatteddates.length === 2 ? formatteddates : null,
+          formatteddates.length === 2 ? formatteddates : undefined,
         );
       }}
       value={convertFilterValueToDate(dates as string[])}
