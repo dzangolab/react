@@ -332,8 +332,8 @@
   "select": {
     "autoSortOptionsInfo": "By default, options are sorted alphabetically. To render options in original order as provided, you can use <code>autoSortOptions={false}</code> (fr)",
     "label": "Language (fr)",
-    "multiSelectPlaceholder": "Select languages (fr)",
-    "placeholder": "Select a language (fr)",
+    "multiSelectPlaceholder": "Select countries (fr)",
+    "placeholder": "Select a country (fr)",
     "searchPlaceholder": "Search... (fr)",
     "title": "Select (fr)",
     "usage": {
