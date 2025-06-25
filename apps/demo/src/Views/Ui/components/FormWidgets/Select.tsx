@@ -261,8 +261,8 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
         <Select
           label={t("select.label")}
           name="select"
-          options={[{ value: "np", label: "Nepali" }]}
-          value="np"
+          options={[{ value: "NP", label: "Nepal" }]}
+          value="NP"
           onChange={() => {}}
           disabled={true}
         />
@@ -272,7 +272,7 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
   label={t("select.label")}
   name="select"
   options={[{ value: "NP", label: "Nepal" }]}
-  value="np"
+  value="NP"
   onChange={() => {}}
   disabled={true}
 />'
