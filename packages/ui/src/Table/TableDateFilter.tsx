@@ -54,7 +54,7 @@ export const TableDateFilter = <TData,>({
 
         setDates(formatteddates as string[]);
         column.setFilterValue(
-          formatteddates.length === 2 ? formatteddates : undefined,
+          formatteddates.length === 2 ? formatteddates : null,
         );
       }}
       value={convertFilterValueToDate(dates as string[])}
