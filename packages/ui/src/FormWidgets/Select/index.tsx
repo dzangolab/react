@@ -366,6 +366,15 @@ export const Select = <T extends string | number>({
               ${index === focusedOptionIndex ? "focused" : ""}
             `.trim() || undefined
                 }
+                onClick={() => {
+                  if (!disabled) {
+                    handleSelectedOption(option.value);
+                  }
+
+                  if (!multiple && !disabled) {
+                    setShowOptions(false);
+                  }
+                }}
               >
                 {multiple ? (
                   <Checkbox
@@ -375,19 +384,7 @@ export const Select = <T extends string | number>({
                     disabled={disabled}
                   />
                 ) : null}
-                <span
-                  onClick={() => {
-                    if (!disabled) {
-                      handleSelectedOption(option.value);
-                    }
-
-                    if (!multiple && !disabled) {
-                      setShowOptions(false);
-                    }
-                  }}
-                >
-                  {renderOption ? renderOption(option) : label}
-                </span>
+                <span>{renderOption ? renderOption(option) : label}</span>
               </li>
             );
           })}
