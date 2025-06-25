@@ -40,6 +40,8 @@ export const UsersTableDemo = () => {
             { value: "SUPERADMIN", label: "SUPERADMIN" },
             { value: "USER", label: "USER" },
           ]}
+          id="users-table"
+          persistState
         />
       </Section>
     </Page>
