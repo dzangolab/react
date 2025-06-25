@@ -181,9 +181,7 @@ export const InvitationsTable = ({
       align: "left",
       cell: ({ row: { original } }) => {
         return (
-          <span>
-            {appNameMap.get(original.appId) || original.appId || "-"}{" "}
-          </span>
+          <span>{appNameMap.get(original.appId) || original.appId || "-"}</span>
         );
       },
       enableColumnFilter: true,
