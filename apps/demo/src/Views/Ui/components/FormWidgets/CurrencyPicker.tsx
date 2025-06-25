@@ -3,6 +3,7 @@ import { CurrencyPicker, Page, Button } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { currencies } from "./data";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 export const CurrencyPickerDemo = () => {
@@ -17,6 +18,10 @@ export const CurrencyPickerDemo = () => {
   const [
     searchableSingleSelectCurrencyValue,
     setSearchableSingleSelectCurrencyValue,
+  ] = useState<string>("");
+  const [
+    extensiveOptionsCurrencyPickerValue,
+    setExtensiveOptionsCurrencyPickerValue,
   ] = useState<string>("");
 
   const options = [
@@ -163,6 +168,37 @@ const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[
   value={multiSelectCurrencyValue}
   onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
   placeholder={t("currencyPicker.multiSelectPlaceholder")}
+  />'
+        />
+      </Section>
+      <Section title={t("currencyPicker.usage.extensiveOptions")}>
+        <CurrencyPicker
+          label={t("currencyPicker.label")}
+          name="currencyPicker"
+          enableSearch
+          options={currencies}
+          value={extensiveOptionsCurrencyPickerValue}
+          onChange={(value: string) =>
+            setExtensiveOptionsCurrencyPickerValue(value)
+          }
+          placeholder={t("currencyPicker.placeholder")}
+          searchPlaceholder={t("currencyPicker.searchPlaceholder")}
+        />
+        <CodeBlock
+          exampleCode='
+import { currencies } from "./data";
+
+const [extensiveOptionsCurrencyPickerValue, setExtensiveOptionsCurrencyPickerValue] = useState<string>("");
+      
+<CurrencyPicker
+  label={t("select.label")}
+  name="currencyPicker"
+  enableSearch
+  options={currencies}
+  value={extensiveOptionsCurrencyPickerValue}
+  onChange={(value: string) => setExtensiveOptionsCurrencyPickerValue(value)}
+  placeholder={t("currencyPicker.placeholder")}
+  searchPlaceholder={t("currencyPicker.searchPlaceholder")}
   />'
         />
       </Section>

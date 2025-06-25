@@ -74,6 +74,7 @@
     "title": "CurrencyPicker",
     "usage": {
       "basic": "Basic",
+      "extensiveOptions": "Currency picker with extensive options",
       "multiple": "Multiple currency select",
       "singleSearch": "Single currency select with search"
     }
