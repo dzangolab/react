@@ -3,6 +3,7 @@ import { CurrencyPicker, Page, Button } from "@dzangolab/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { currencies } from "./data";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 export const CurrencyPickerDemo = () => {
@@ -14,6 +15,10 @@ export const CurrencyPickerDemo = () => {
   const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<
     string[]
   >([]);
+  const [
+    extensiveOptionsCurrencyPickerValue,
+    setExtensiveOptionsCurrencyPickerValue,
+  ] = useState<string>("");
 
   const options = [
     {
@@ -26,6 +31,16 @@ export const CurrencyPickerDemo = () => {
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
     { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+    {
+      code: "ZAR",
+      label: "South African Rand",
+      value: "ZAR",
+    },
+    {
+      code: "NPR",
+      label: "Nepalese Rupee",
+      value: "NPR",
+    },
   ];
 
   return (
@@ -67,6 +82,8 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
     { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+    { code: "ZAR", label: "South African Rand", value: "ZAR" },
+    { code: "NPR", label: "Nepalese Rupee", value: "NPR" },
   ]}
   value={singleSelectValue}
   onChange={(value: string) => setSingleSelectCurrencyValue(value)}
@@ -80,7 +97,6 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
           ></Trans>
         </p>
       </Section>
-
       <Section title={t("currencyPicker.usage.multiple")}>
         <CurrencyPicker
           label={t("currencyPicker.label")}
@@ -104,11 +120,41 @@ const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<string[
     { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
     { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
     { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
+    { code: "ZAR", label: "South African Rand", value: "ZAR" },
+    { code: "NPR", label: "Nepalese Rupee", value: "NPR" },
   ]}
   multiple={true}
   value={multiSelectCurrencyValue}
   onChange={(value: string[]) => setMultiSelectCurrencyValue(value)}
   placeholder={t("currencyPicker.multiSelectPlaceholder")}
+  />'
+        />
+      </Section>
+      <Section title={t("currencyPicker.usage.extensiveOptions")}>
+        <CurrencyPicker
+          label={t("currencyPicker.label")}
+          name="currencyPicker"
+          options={currencies}
+          value={extensiveOptionsCurrencyPickerValue}
+          onChange={(value: string) =>
+            setExtensiveOptionsCurrencyPickerValue(value)
+          }
+          placeholder={t("currencyPicker.placeholder")}
+        />
+        <CodeBlock
+          exampleCode='
+import { currencies } from "./data";
+
+const [extensiveOptionsCurrencyPickerValue, setExtensiveOptionsCurrencyPickerValue] = useState<string>("");
+      
+<CurrencyPicker
+  label={t("select.label")}
+  name="currencyPicker"
+  options={currencies}
+  value={extensiveOptionsCurrencyPickerValue}
+  onChange={(value: string) => setExtensiveOptionsCurrencyPickerValue(value)}
+  placeholder={t("currencyPicker.placeholder")}
+  searchPlaceholder={t("currencyPicker.searchPlaceholder")}
   />'
         />
       </Section>
