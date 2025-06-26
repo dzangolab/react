@@ -104,6 +104,8 @@ export const InvitationsTableDemo = () => {
             { value: "pending", label: "Pending" },
             { value: "revoked", label: "Revoked" },
           ]}
+          id="invitation-table"
+          persistState
         />
       </Section>
     </Page>
