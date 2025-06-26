@@ -65,7 +65,8 @@ const SignupFormFields: React.FC<IProperties> = ({
           />
         ),
       }}
-    ></Trans>
+      t={t}
+    />
   );
 
   useEffect(() => {
