@@ -90,20 +90,20 @@ export const Select = <T extends string | number>({
 
   const normalizedOptions = useMemo(() => {
     return options.map((option) => {
-      const labelValue =
+      const _label =
         labelKey && option[labelKey] !== undefined
           ? String(option[labelKey])
           : option.label;
 
-      const valueValue =
+      const _value =
         valueKey && option[valueKey] !== undefined
           ? (option[valueKey] as T)
           : option.value;
 
       return {
         ...option,
-        label: labelValue,
-        value: valueValue,
+        label: _label,
+        value: _value,
       };
     });
   }, [options, labelKey, valueKey]);
