@@ -45,28 +45,22 @@ const SignupFormFields: React.FC<IProperties> = ({
 
   const passwordFieldValue = watch("password");
 
-  const underlined = true;
-
-  const linkClassName = `inline-link ${underlined ? "underlined" : ""}`
-    .replace(/\s\s/, " ")
-    .trim();
-
   const _termsAndConditions = (
     <Trans
       i18nKey={"signup.form.termsAndConditions"}
       components={{
-        hero: external ? (
+        Link: external ? (
           <a
             href={url}
-            target={"_blank"}
+            target="_blank"
             rel="noopener noreferrer"
-            className={linkClassName}
+            className="inline-link underlined"
             data-testid="external-link"
           />
         ) : (
           <Link
             to={url || ""}
-            className={linkClassName}
+            className="inline-link underlined"
             data-testid="internal-link"
           />
         ),
