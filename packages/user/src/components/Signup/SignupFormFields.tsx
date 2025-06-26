@@ -5,9 +5,9 @@ import {
   useFormContext,
   useWatch,
 } from "@dzangolab/react-form";
-import { useTranslation } from "@dzangolab/react-i18n";
-import { InlineLink } from "@dzangolab/react-ui";
+import { Trans, useTranslation } from "@dzangolab/react-i18n";
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { TermsAndConditions } from "./TermsAndConditions";
 import { useConfig } from "../../hooks";
@@ -45,17 +45,33 @@ const SignupFormFields: React.FC<IProperties> = ({
 
   const passwordFieldValue = watch("password");
 
+  const underlined = true;
+
+  const linkClassName = `inline-link ${underlined ? "underlined" : ""}`
+    .replace(/\s\s/, " ")
+    .trim();
+
   const _termsAndConditions = (
-    <>
-      {t("signup.form.termsAndConditions.prefix")}{" "}
-      <InlineLink
-        to={url || ""}
-        label={t("signup.form.termsAndConditions.infix")}
-        external={external}
-        underlined
-      />{" "}
-      {t("signup.form.termsAndConditions.suffix")}
-    </>
+    <Trans
+      i18nKey={"signup.form.termsAndConditions"}
+      components={{
+        hero: external ? (
+          <a
+            href={url}
+            target={"_blank"}
+            rel="noopener noreferrer"
+            className={linkClassName}
+            data-testid="external-link"
+          />
+        ) : (
+          <Link
+            to={url || ""}
+            className={linkClassName}
+            data-testid="internal-link"
+          />
+        ),
+      }}
+    ></Trans>
   );
 
   useEffect(() => {
