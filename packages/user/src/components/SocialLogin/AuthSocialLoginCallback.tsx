@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { DEFAULT_PATHS } from "@/constants";
-import { verifySessionRoles } from "@/supertokens";
-
 import { useConfig, useUser } from "../../hooks";
 
 import type { UserType } from "../../types";
 
-export const AuthGoogleCallback = () => {
+import { DEFAULT_PATHS } from "@/constants";
+import { verifySessionRoles } from "@/supertokens";
+
+export const AuthSocialLoginCallback = () => {
   const { t } = useTranslation("user");
   const config = useConfig();
   const { setUser } = useUser();
@@ -34,14 +34,14 @@ export const AuthGoogleCallback = () => {
         ) {
           await setUser(user as UserType);
 
-          toast.success(`${t("authGoogleCallback.email.success")}`);
+          toast.success(`${t("authSocialLoginCallback.email.success")}`);
         } else {
           toast.error(t("login.messages.permissionDenied"));
 
           navigate(loginPath);
         }
       } else {
-        toast.error(`${t("authGoogleCallback.email.error")}`);
+        toast.error(`${t("authSocialLoginCallback.email.error")}`);
 
         navigate(loginPath);
       }
@@ -50,7 +50,7 @@ export const AuthGoogleCallback = () => {
       if (err.isSuperTokensGeneralError === true) {
         toast.error(err.message);
       } else {
-        toast.error(`${t("authGoogleCallback.message.error")}`);
+        toast.error(`${t("authSocialLoginCallback.message.error")}`);
       }
 
       navigate(loginPath);
@@ -61,5 +61,9 @@ export const AuthGoogleCallback = () => {
     authCallback();
   }, []);
 
-  return <LoadingIcon />;
+  return (
+    <div className="loading-overlay">
+      <LoadingIcon color="#55575f" fontSize={"0.5rem"} />
+    </div>
+  );
 };

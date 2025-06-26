@@ -1,13 +1,13 @@
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-import { SocialLoginType } from "@/components/Login";
-
 import type {
   HomeRoute,
   ProtectedRouteOverwrites,
   PublicRouteOverwrites,
 } from "./routes";
+
+import { SocialLoginType } from "@/components/Login";
 
 export interface UserConfig {
   apiBaseUrl: string;
