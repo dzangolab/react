@@ -20,10 +20,10 @@ export const InputDemo = () => {
         />
       }
     >
-      <Section>
+      <Section title={t("input.usage.basic")}>
         <Input placeholder="Input placeholder" label="Input label" />
       </Section>
-      <Section>
+      <Section title={t("input.usage.invalidInput")}>
         <Input
           hasError={true}
           errorMessage="Invalid input"

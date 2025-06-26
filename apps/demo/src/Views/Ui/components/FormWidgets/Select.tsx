@@ -203,11 +203,11 @@ export const SelectDemo = () => {
           label={t("select.label")}
           name="select"
           options={[
-            { label: "French", value: "fr" },
-            { label: "German", value: "de" },
-            { disabled: true, label: "Dutch", value: "be" },
-            { label: "Nepali", value: "np" },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]}
           value={singleSelectValue}
           onChange={(value: string) => setSingleSelectValue(value)}
@@ -221,11 +221,11 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
   label={t("select.label")}
   name="select"
   options={[
-    { label: "French", value: "fr"},
-    { label: "German", value: "de"},
-    { disabled: true, label: "Dutch", value: "be", },
-    { label: "Nepali", value: "np",  },
-    { label: "Hindi", value: "hi" },
+    { label: "France", value: "FR" },
+    { label: "Germany", value: "DE" },
+    { disabled: true, label: "Belgium", value: "BE" },
+    { label: "Nepal", value: "NP" },
+    { label: "India", value: "IN" }
   ]}
   value={singleSelectValue}
   onChange={(value: string) => setSingleSelectValue(value)}
@@ -243,8 +243,8 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
         <Select
           label={t("select.label")}
           name="select"
-          options={[{ value: "np", label: "Nepali" }]}
-          value="np"
+          options={[{ value: "NP", label: "Nepal" }]}
+          value="NP"
           onChange={() => {}}
           disabled={true}
         />
@@ -253,24 +253,23 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
 <Select
   label={t("select.label")}
   name="select"
-  options={[{ value: "np", label: "Nepali" }]}
-  value="np"
+  options={[{ value: "NP", label: "Nepal" }]}
+  value="NP"
   onChange={() => {}}
   disabled={true}
 />'
         />
       </Section>
-
       <Section title={t("select.usage.multiple")}>
         <Select
           label={t("select.label")}
           name="select"
           options={[
-            { label: "French", value: "fr" },
-            { label: "German", value: "de" },
-            { disabled: true, label: "Dutch", value: "be" },
-            { label: "Nepali", value: "np" },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]}
           multiple={true}
           value={multiselectValue}
@@ -285,11 +284,11 @@ const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
   label={t("select.label")}
   name="select"
   options={[
-    { label: "French", value: "fr"},
-    { label: "German", value: "de"},
-    { disabled: true, label: "Dutch", value: "be", },
-    { label: "Nepali", value: "np",  },
-    { label: "Hindi", value: "hi" },
+    { label: "France", value: "FR" },
+    { label: "Germany", value: "DE" },
+    { disabled: true, label: "Belgium", value: "BE" },
+    { label: "Nepal", value: "NP" },
+    { label: "India", value: "IN" }
   ]}
   multiple={true}
   value={multiselectValue}
@@ -304,11 +303,11 @@ const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
           label={t("select.label")}
           name="select"
           options={[
-            { label: "French", value: "fr" },
-            { label: "German", value: "de" },
-            { disabled: true, label: "Dutch", value: "be" },
-            { label: "Nepali", value: "np" },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]}
           value={renderedValue}
           onChange={(value: string[]) => setRenderedValue(value)}
@@ -341,11 +340,11 @@ const renderSelectedValue = (
   label={t("select.label")}
   name="select"
   options={[
-    { label: "French", value: "fr"},
-    { label: "German", value: "de"},
-    { disabled: true, label: "Dutch", value: "be", },
-    { label: "Nepali", value: "np",  },
-    { label: "Hindi", value: "hi" },
+    { label: "France", value: "FR" },
+    { label: "Germany", value: "DE" },
+    { disabled: true, label: "Belgium", value: "BE" },
+    { label: "Nepal", value: "NP" },
+    { label: "India", value: "IN" }
   ]}
   value={renderedValue}
   onChange={(value: string[]) => setRenderedValue(value)}
@@ -360,11 +359,11 @@ const renderSelectedValue = (
           label={t("select.label")}
           name="select"
           options={[
-            { label: "French", value: "fr" },
-            { label: "German", value: "de" },
-            { disabled: true, label: "Dutch", value: "be" },
-            { label: "Nepali", value: "np" },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]}
           value={renderedOption}
           onChange={(value: string[]) => setRenderedOption(value)}
@@ -389,11 +388,11 @@ const renderOption = (option: Option) => {
   label={t("select.label")}
   name="select"
   options={[
-    { label: "French", value: "fr"},
-    { label: "German", value: "de"},
-    { disabled: true, label: "Dutch", value: "be", },
-    { label: "Nepali", value: "np",  },
-    { label: "Hindi", value: "hi" },
+    { label: "France", value: "FR" },
+    { label: "Germany", value: "DE" },
+    { disabled: true, label: "Belgium", value: "BE" },
+    { label: "Nepal", value: "NP" },
+    { label: "India", value: "IN" }
   ]}
   value={renderedOption}
   onChange={(value: string[]) => setRenderedOption(value)}
@@ -409,11 +408,11 @@ const renderOption = (option: Option) => {
           label={t("select.label")}
           name="select"
           options={[
-            { label: "French", value: "fr" },
-            { label: "German", value: "de" },
-            { disabled: true, label: "Dutch", value: "be" },
-            { label: "Nepali", value: "np" },
-            { label: "Hindi", value: "hi" },
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
           ]}
           value={selectedValue}
           onChange={(value: string) => setSelectedValue(value)}
@@ -429,11 +428,11 @@ const [selectedValue, setSelectedValue] = useState<string>("");
   label={t("select.label")}
   name="select"
   options={[
-    { label: "French", value: "fr"},
-    { label: "German", value: "de"},
-    { disabled: true, label: "Dutch", value: "be", },
-    { label: "Nepali", value: "np",  },
-    { label: "Hindi", value: "hi" },
+    { label: "France", value: "FR" },
+    { label: "Germany", value: "DE" },
+    { disabled: true, label: "Belgium", value: "BE" },
+    { label: "Nepal", value: "NP" },
+    { label: "India", value: "IN" }
   ]}
   value={selectedValue}
   onChange={(value: string) => setSelectedValue(value)}

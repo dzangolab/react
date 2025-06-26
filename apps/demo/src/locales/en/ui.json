@@ -73,6 +73,7 @@
     "title": "CurrencyPicker",
     "usage": {
       "basic": "Basic",
+      "extensiveOptions": "Currency picker with extensive options",
       "multiple": "Multiple currency select"
     }
   },
@@ -241,7 +242,11 @@
     "title": "Checkbox"
   },
   "input": {
-    "title": "Input"
+    "title": "Input",
+    "usage": {
+      "basic": "Basic",
+      "invalidInput": "Invalid input"
+    }
   },
   "sortableList": {
     "title": "Sortable list"
@@ -329,9 +334,9 @@
   },
   "select": {
     "autoSortOptionsInfo": "By default, options are sorted alphabetically. To render options in original order as provided, you can use <code>autoSortOptions={false}</code>",
-    "label": "Language",
-    "multiSelectPlaceholder": "Select languages",
-    "placeholder": "Select a language",
+    "label": "Country",
+    "multiSelectPlaceholder": "Select countries",
+    "placeholder": "Select a country",
     "title": "Select",
     "usage": {
       "basic": "Basic",
