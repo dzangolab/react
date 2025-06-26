@@ -23,6 +23,7 @@
 
 ### Breaking Changes
 
+* **form:** removed `Input` component. Please use `TextInput` instead
 * **user:** removed `features.termsAndConditions.label` config. Instead added `features.termsAndConditions.url` and `features.termsAndConditions.external` optional configs. If you need to overwrite TermsAndConditions component, pass it via the `termsAndConditions` prop in Signup page.
 * **user:** updated UsersTable status column's `accessorKey` from `status` to `disabled` 
 * **ui:** removed some css vars for the button and form widgets. If you were using some of the vars to overwrite the style, please check the `packages/ui/src/assets/css/vars.css` file to see if the var is still present and confirm if its being used.
