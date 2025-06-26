@@ -224,11 +224,7 @@
         "helperText": "Password must contain at least 8 characters, including a number, a lowercase and an uppercase. (fr)",
         "label": "Votre mot de passe"
       },
-      "termsAndConditions": {
-        "infix": "Terms and conditions (fr)",
-        "prefix": "I agree to the (fr)",
-        "suffix": "as set out by the user agreement. (fr)"
-      }
+      "termsAndConditions": "I agree to the <Link>Terms and conditions</Link> as set out by the user agreement. (fr)"
     },
     "links": {
       "forgotPassword": "Mot de passe oublié",
