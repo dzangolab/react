@@ -4,6 +4,8 @@ import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
+import Divider from "@/Divider";
+
 export type Option<T> = {
   disabled?: boolean;
   label: string;
@@ -16,9 +18,7 @@ export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
   className?: string;
-  customSearchFn?: (searchInput: string) => Option<T>[];
   disabled?: boolean;
-  enableSearch?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
@@ -30,8 +30,8 @@ export type ISelectProperties<T> = {
   options: Option<T>[];
   placeholder?: string;
   menuOptions?: MenuOptions;
-  searchPlaceholder?: string;
   showRemoveSelection?: boolean;
+  customSearchFn?: (searchInput: string) => Option<T>[];
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
 } & (
@@ -51,9 +51,7 @@ export const Select = <T extends string | number>({
   autoSelectSingleOption = false,
   autoSortOptions = true,
   className = "",
-  customSearchFn,
   disabled: selectFieldDisabled,
-  enableSearch = false,
   errorMessage,
   hasError,
   helperText,
@@ -63,14 +61,14 @@ export const Select = <T extends string | number>({
   menuOptions,
   multiple,
   name,
-  onChange,
   options,
   placeholder,
-  renderOption,
-  renderValue,
-  searchPlaceholder,
   showRemoveSelection = true,
   value,
+  customSearchFn,
+  onChange,
+  renderOption,
+  renderValue,
 }: ISelectProperties<T>) => {
   const [showOptions, setShowOptions] = useState(false);
   const [searchInput, setSearchInput] = useState<string>("");
@@ -79,6 +77,7 @@ export const Select = <T extends string | number>({
     null,
   );
   const selectReference = useRef<HTMLDivElement>(null);
+  const searchInputReference = useRef<HTMLInputElement>(null);
   const optionReference = useRef<Record<number, HTMLLIElement | null>>({});
   const [referenceElement, setReferenceElement] = useState<Element | null>(
     null,
@@ -143,6 +142,19 @@ export const Select = <T extends string | number>({
   }, [options, multiple, hideIfSingleOption]);
 
   const disabled = shouldAutoSelect || selectFieldDisabled;
+
+  const selectedOptions = useMemo(() => {
+    if (multiple) {
+      if (!value?.length) return "";
+
+      return options
+        .filter((opt) => value.includes(opt.value))
+        .map((opt) => opt.label)
+        .join(", ");
+    }
+
+    return options.find((opt) => opt.value === value)?.label ?? "";
+  }, [multiple, value, options]);
 
   useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
@@ -213,6 +225,11 @@ export const Select = <T extends string | number>({
         : [...value, option];
 
       onChange(newValue);
+      setSearchInput("");
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
     } else {
       onChange(option);
     }
@@ -230,8 +247,11 @@ export const Select = <T extends string | number>({
       onChange(null as any); // eslint-disable-line @typescript-eslint/no-explicit-any
     }
 
-    setShowOptions(false);
-    setFocused(false);
+    setSearchInput("");
+    setFocused(true);
+    setTimeout(() => {
+      searchInputReference.current?.focus();
+    }, 0);
   };
 
   const handleRemoveOptionKeyDown = (event: React.KeyboardEvent) => {
@@ -247,6 +267,10 @@ export const Select = <T extends string | number>({
     const openDropdown = () => {
       setShowOptions(true);
       setFocused(true);
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
     };
 
     const selectFocusedOption = () => {
@@ -255,10 +279,14 @@ export const Select = <T extends string | number>({
 
         if (!multiple) {
           setShowOptions(false);
+          searchInputReference.current?.blur();
+          setFocused(false);
         }
       } else {
         setShowOptions(false);
       }
+
+      setFocusedOptionIndex(null);
     };
 
     const focusFirstEnabledOption = () => {
@@ -298,6 +326,8 @@ export const Select = <T extends string | number>({
       case "Escape":
         event.preventDefault();
         setShowOptions(false);
+        setFocused(false);
+        searchInputReference.current?.blur();
         break;
 
       case "Home":
@@ -314,61 +344,64 @@ export const Select = <T extends string | number>({
     }
   };
 
-  const hasValue = useMemo(() => {
-    if ((multiple && !value.length) || !value) {
-      return false;
-    }
+  const toggleOptionsMenu = () => {
+    if (disabled) return;
 
-    return true;
-  }, [value]);
+    if (showOptions) {
+      setShowOptions(false);
+      setFocused(false);
+
+      searchInputReference.current?.blur();
+    } else {
+      setSearchInput("");
+      setShowOptions(true);
+      setFocused(true);
+
+      setTimeout(() => {
+        searchInputReference.current?.focus();
+      }, 0);
+    }
+  };
 
   const renderOptions = () => {
     return (
-      <ul aria-multiselectable={multiple} role="listbox">
-        {enableSearch ? (
-          <DebouncedInput
-            placeholder={searchPlaceholder}
-            onInputChange={(debouncedValue) => {
-              setSearchInput(debouncedValue as string);
-            }}
-            tabIndex={0}
-          />
-        ) : null}
+      <>
+        <div
+          className={`selected-options-wrapper ${selectedOptions ? "visible" : ""}`}
+        >
+          {renderValue ? (
+            renderValue(value, options)
+          ) : (
+            <span className="selected-options">{selectedOptions}</span>
+          )}
+          <Divider />
+        </div>
 
-        {multiple && (
-          <li role="option" onClick={toggleSelectAll}>
-            <Checkbox
-              checked={isAllSelected}
-              disabled={activeOptions.length === 0}
-            />
-            <span>Select all</span>
-          </li>
-        )}
+        <ul aria-multiselectable={multiple} role="listbox">
+          {multiple && (
+            <li role="option" onClick={toggleSelectAll}>
+              <Checkbox
+                checked={isAllSelected}
+                disabled={activeOptions.length === 0}
+              />
+              <span>Select all</span>
+            </li>
+          )}
 
-        {filteredOptions?.map((option, index) => {
-          const { disabled, label } = option;
+          {filteredOptions?.map((option, index) => {
+            const { disabled, label } = option;
 
-          return (
-            <li
-              key={index}
-              ref={(element) => (optionReference.current[index] = element)}
-              role="option"
-              className={
-                `${!multiple && value === option.value ? "selected" : ""}
+            return (
+              <li
+                key={index}
+                ref={(element) => (optionReference.current[index] = element)}
+                role="option"
+                className={
+                  `${!multiple && value === option.value ? "selected" : ""}
               ${disabled ? "disabled" : ""}
               ${index === focusedOptionIndex ? "focused" : ""}
             `.trim() || undefined
-              }
-            >
-              {multiple ? (
-                <Checkbox
-                  name={label}
-                  checked={value.includes(option.value)}
-                  onChange={() => handleSelectedOption(option.value)}
-                  disabled={disabled}
-                />
-              ) : null}
-              <span
+                }
                 onClick={() => {
                   if (!disabled) {
                     handleSelectedOption(option.value);
@@ -379,12 +412,20 @@ export const Select = <T extends string | number>({
                   }
                 }}
               >
-                {renderOption ? renderOption(option) : label}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+                {multiple ? (
+                  <Checkbox
+                    name={label}
+                    checked={value.includes(option.value)}
+                    onChange={() => handleSelectedOption(option.value)}
+                    disabled={disabled}
+                  />
+                ) : null}
+                <span>{renderOption ? renderOption(option) : label}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   };
 
@@ -394,70 +435,54 @@ export const Select = <T extends string | number>({
         return renderValue(value, options);
       }
 
-      const selectedOption = options.find((opt) => opt.value === value);
-
-      return multiple ? (
-        <>
-          <div className="selected-options">
-            {value
-              .map(
-                (_value) => options.find((opt) => opt.value === _value)?.label,
-              )
-              .filter((label) => label !== undefined)
-              .join(", ")}
-          </div>
-          {!disabled && showRemoveSelection && (
-            <i
-              tabIndex={0}
-              className="pi pi-times"
-              onClick={(event) => handleRemoveOption(value, event)}
-              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
-            ></i>
-          )}
-        </>
-      ) : (
-        <>
-          <span className="selected-option">{selectedOption?.label}</span>
-          {selectedOption && !disabled && showRemoveSelection && (
-            <i
-              tabIndex={0}
-              className="pi pi-times"
-              onClick={(event) => handleRemoveOption(undefined, event)}
-              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
-            ></i>
-          )}
-        </>
-      );
+      return <span className="selected-options">{selectedOptions}</span>;
     };
 
     return (
       <div
-        className={`label-container ${disabled ? "disabled" : ""} ${
-          focused ? "focused" : ""
-        }`.trimEnd()}
+        className={`label-container ${disabled ? "disabled" : ""} ${focused ? "focused" : ""}`.trimEnd()}
         aria-invalid={hasError}
-        onClick={() => {
-          if (!disabled) {
-            setShowOptions(!showOptions);
-            setFocused(true);
-          }
-        }}
+        onClick={toggleOptionsMenu}
         onKeyDown={handleKeyDown}
         tabIndex={0}
       >
-        {hasValue
-          ? renderSelectValue()
-          : placeholder && <span className="placeholder">{placeholder}</span>}
-        <span
-          className="menu-trigger"
-          onClick={() => {
-            if (!disabled) {
-              setShowOptions(!showOptions);
-              setFocused(true);
-            }
-          }}
-        >
-          <i className="pi pi-chevron-down"></i>
+        {!selectedOptions.length || showOptions ? (
+          <DebouncedInput
+            ref={searchInputReference}
+            placeholder={placeholder}
+            onInputChange={(debouncedValue) => {
+              setSearchInput(debouncedValue as string);
+
+              if (debouncedValue && !showOptions) {
+                setShowOptions(true);
+              }
+            }}
+            disabled={disabled}
+            defaultValue={searchInput}
+            tabIndex={-1}
+          />
+        ) : (
+          renderSelectValue()
+        )}
+        <span className="action-items">
+          {!disabled && showRemoveSelection && selectedOptions && (
+            <i
+              className="pi pi-times"
+              onClick={(event) => handleRemoveOption(undefined, event)}
+              onKeyDown={(event) => handleRemoveOptionKeyDown(event)}
+              tabIndex={0}
+            ></i>
+          )}
+
+          <i
+            className="pi pi-chevron-down"
+            onClick={() => {
+              if (!disabled) {
+                setShowOptions(!showOptions);
+                setFocused(true);
+              }
+            }}
+          ></i>
         </span>
       </div>
     );

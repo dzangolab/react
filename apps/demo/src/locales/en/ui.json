@@ -70,12 +70,10 @@
     "label": "Currency",
     "multiSelectPlaceholder": "Select currencies",
     "placeholder": "Select a currency",
-    "searchPlaceholder": "Search...",
     "title": "CurrencyPicker",
     "usage": {
       "basic": "Basic",
-      "multiple": "Multiple currency select",
-      "singleSearch": "Single currency select with search"
+      "multiple": "Multiple currency select"
     }
   },
   "data": {
@@ -334,18 +332,14 @@
     "label": "Language",
     "multiSelectPlaceholder": "Select languages",
     "placeholder": "Select a language",
-    "searchPlaceholder": "Search...",
     "title": "Select",
     "usage": {
       "basic": "Basic",
       "disabled": "Disabled",
       "invalid": "Invalid",
       "multiple": "Multiple select",
-      "multipleSearch": "Multiple select with search",
       "renderOption": "Select with custom option",
-      "renderValue": "Select with custom selected value",
-      "search": "Select with search",
-      "singleSearch": "Single select with search"
+      "renderValue": "Select with custom selected value"
     }
   },
   "switchInput": {

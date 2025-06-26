@@ -14,10 +14,6 @@ export const CurrencyPickerDemo = () => {
   const [multiSelectCurrencyValue, setMultiSelectCurrencyValue] = useState<
     string[]
   >([]);
-  const [
-    searchableSingleSelectCurrencyValue,
-    setSearchableSingleSelectCurrencyValue,
-  ] = useState<string>("");
 
   const options = [
     {
@@ -84,41 +80,7 @@ const [singleSelectCurrencyValue, setSingleSelectCurrencyValue] = useState<strin
           ></Trans>
         </p>
       </Section>
-      <Section title={t("currencyPicker.usage.singleSearch")}>
-        <CurrencyPicker
-          label={t("currencyPicker.label")}
-          name="currencyPicker"
-          enableSearch
-          options={options}
-          value={searchableSingleSelectCurrencyValue}
-          onChange={(value: string) =>
-            setSearchableSingleSelectCurrencyValue(value)
-          }
-          placeholder={t("currencyPicker.placeholder")}
-          searchPlaceholder={t("currencyPicker.searchPlaceholder")}
-        />
-        <CodeBlock
-          exampleCode='
-const [searchableSingleSelectCurrencyValue, setSearchableSingleSelectCurrencyValue] = useState<string>("");
-      
-<CurrencyPicker
-  label={t("select.label")}
-  name="currencyPicker"
-  enableSearch
-  options={[
-    { code: "AUD", label: "Australian Dollar", symbol: "$", value: "AUD" },
-    { code: "USD", label: "US Dollar", symbol: "$", value: "USD" },
-    { code: "GBP", label: "British Pound", symbol: "£", value: "GBP" },
-    { code: "EUR", label: "Euro", symbol: "€", value: "EUR" },
-    { code: "JPY", label: "Japanese Yen", symbol: "¥", value: "JPY" },
-  ]}
-  value={searchableSingleSelectCurrencyValue}
-  onChange={(value: string) => setSearchableSingleSelectCurrencyValue(value)}
-  placeholder={t("currencyPicker.placeholder")}
-  searchPlaceholder={t("currencyPicker.searchPlaceholder")}
-  />'
-        />
-      </Section>
+
       <Section title={t("currencyPicker.usage.multiple")}>
         <CurrencyPicker
           label={t("currencyPicker.label")}
