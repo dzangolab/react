@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import Divider from "@/Divider";
+
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
-
-import Divider from "@/Divider";
 
 export type Option<T> = {
   disabled?: boolean;

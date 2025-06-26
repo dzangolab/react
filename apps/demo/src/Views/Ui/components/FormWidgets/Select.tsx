@@ -82,62 +82,76 @@ const data = [
   },
   {
     id: 10,
+    prop: "labelKey",
+    type: "string",
+    default: "-",
+    description: "The key in option object to use as the display label.",
+  },
+  {
+    id: 11,
     prop: "multiple",
     type: "boolean",
     default: "false",
     description: "If true, multiple selection is enabled.",
   },
   {
-    id: 11,
+    id: 12,
     prop: "name",
     type: "string",
     default: "-",
     description: "Name of the component.",
   },
   {
-    id: 12,
+    id: 13,
     prop: "options",
     type: "Option[]",
     default: "-",
     description: "Options to pass in the select component.",
   },
   {
-    id: 13,
+    id: 14,
     prop: "placeholder",
     type: "string",
     default: "-",
     description: "Placeholder in the component.",
   },
   {
-    id: 14,
+    id: 15,
     prop: "showRemoveSelection",
     type: "boolean",
     default: "true",
     description: "If true, icon to remove selected options is visible.",
   },
   {
-    id: 15,
+    id: 16,
     prop: "value",
     type: "Value",
     default: "-",
     description: "Selected values of the component.",
   },
   {
-    id: 16,
+    id: 17,
+    prop: "valueKey",
+    type: "string",
+    default: "-",
+    description: "The key in option object to use as value.",
+  },
+  {
+    id: 18,
     prop: "renderOption",
     type: "(option: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select options.",
   },
   {
-    id: 17,
+    id: 19,
     prop: "renderValue",
     type: "(value?: Value, options?: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select value.",
   },
   {
-    id: 18,
+    id: 20,
     prop: "onChange",
     type: " (newValue: T | T[]) => void",
     default: "-",
@@ -421,7 +435,7 @@ const renderOption = (option: Option) => {
           valueKey="code"
           labelKey="country"
         />
-         <CodeBlock
+        <CodeBlock
           exampleCode='
 const [value, setValue] = useState<string>("");
 
@@ -441,7 +455,7 @@ const [value, setValue] = useState<string>("");
   valueKey="code"
   labelKey="country"
 />'
-      />
+        />
       </Section>
 
       <Section title={t("select.usage.invalid")}>
