@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import Divider from "@/Divider";
-
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
+
+import Divider from "@/Divider";
 
 export type Option<T> = {
   disabled?: boolean;
@@ -129,6 +129,31 @@ export const Select = <T extends string | number>({
       String(option.label).toLowerCase().includes(searchInput.toLowerCase()),
     );
   }, [searchInput, sortedOptions]);
+
+  const activeOptions = useMemo(
+    () => filteredOptions.filter((option) => !option.disabled),
+    [filteredOptions],
+  );
+
+  const isAllSelected = useMemo(() => {
+    return (
+      multiple &&
+      activeOptions.length > 0 &&
+      activeOptions.every((option) => value.includes(option.value as T))
+    );
+  }, [activeOptions, value]);
+
+  const toggleSelectAll = () => {
+    if (!multiple) {
+      return;
+    }
+
+    const selectedValue = isAllSelected
+      ? []
+      : activeOptions.map((option) => option.value);
+
+    onChange(selectedValue as T[]);
+  };
 
   const shouldAutoSelect = useMemo(() => {
     return (
@@ -379,6 +404,16 @@ export const Select = <T extends string | number>({
         </div>
 
         <ul aria-multiselectable={multiple} role="listbox">
+          {multiple && (
+            <li role="option" onClick={toggleSelectAll}>
+              <Checkbox
+                checked={isAllSelected}
+                disabled={activeOptions.length === 0}
+              />
+              <span>Select all</span>
+            </li>
+          )}
+
           {filteredOptions?.map((option, index) => {
             const { disabled, label } = option;
 

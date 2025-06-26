@@ -12,14 +12,6 @@ import {
 } from "@dzangolab/react-ui";
 import { toast } from "react-toastify";
 
-import {
-  deleteInvitation,
-  resendInvitation,
-  revokeInvitation,
-} from "@/api/invitation";
-import { useConfig } from "@/hooks";
-import { DeleteInvitationResponse } from "@/types/invitation";
-
 import { InvitationModal } from "./InvitationModal";
 
 import type {
@@ -32,6 +24,14 @@ import type {
   Invitation,
   UserType,
 } from "../../types";
+
+import {
+  deleteInvitation,
+  resendInvitation,
+  revokeInvitation,
+} from "@/api/invitation";
+import { useConfig } from "@/hooks";
+import { DeleteInvitationResponse } from "@/types/invitation";
 
 type VisibleColumn =
   | "email"
@@ -165,6 +165,8 @@ export const InvitationsTable = ({
     return !!(date && new Date(date) < new Date());
   };
 
+  const appNameMap = new Map(apps?.map((app) => [app.id, app.name]));
+
   const defaultColumns: Array<TableColumnDefinition<Invitation>> = [
     {
       accessorKey: "email",
@@ -176,9 +178,11 @@ export const InvitationsTable = ({
     },
     {
       accessorKey: "appId",
-      align: "center",
+      align: "left",
       cell: ({ row: { original } }) => {
-        return <span>{original.appId || "-"} </span>;
+        return (
+          <span>{appNameMap.get(original.appId) || original.appId || "-"}</span>
+        );
       },
       enableColumnFilter: true,
       enableSorting: true,
