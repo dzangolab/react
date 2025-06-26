@@ -342,6 +342,7 @@
       "basic": "Basic",
       "disabled": "Disabled",
       "invalid": "Invalid",
+      "key": "With label and value keys",
       "multiple": "Multiple select",
       "renderOption": "Select with custom option",
       "renderValue": "Select with custom selected value"

@@ -230,7 +230,7 @@ exports[`Select Component > should render correctly with multiple selection 1`] 
         <span
           class="selected-options"
         >
-          English, Nepali
+          Nepali, English
         </span>
         <span
           class="action-items"

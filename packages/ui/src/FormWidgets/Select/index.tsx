@@ -1,15 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import Divider from "@/Divider";
+
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
-import Divider from "@/Divider";
-
 export type Option<T> = {
   disabled?: boolean;
-  label: string;
-  value: T;
+  label?: string;
+  value?: T;
+  [key: string]: unknown;
 };
 
 type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
@@ -24,6 +25,7 @@ export type ISelectProperties<T> = {
   helperText?: string;
   hideIfSingleOption?: boolean;
   label?: string | React.ReactNode;
+  labelKey?: string;
   matchMenuTriggerWidth?: boolean;
   multiple?: boolean;
   name: string;
@@ -31,6 +33,7 @@ export type ISelectProperties<T> = {
   placeholder?: string;
   menuOptions?: MenuOptions;
   showRemoveSelection?: boolean;
+  valueKey?: string;
   customSearchFn?: (searchInput: string) => Option<T>[];
   renderOption?: (option: Option<T>) => React.ReactNode;
   renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
@@ -57,6 +60,7 @@ export const Select = <T extends string | number>({
   helperText,
   hideIfSingleOption = false,
   label = "",
+  labelKey,
   matchMenuTriggerWidth = true,
   menuOptions,
   multiple,
@@ -65,6 +69,7 @@ export const Select = <T extends string | number>({
   placeholder,
   showRemoveSelection = true,
   value,
+  valueKey,
   customSearchFn,
   onChange,
   renderOption,
@@ -83,11 +88,33 @@ export const Select = <T extends string | number>({
     null,
   );
 
+  const normalizedOptions = useMemo(() => {
+    return options.map((option) => {
+      const _label =
+        labelKey && option[labelKey] !== undefined
+          ? String(option[labelKey])
+          : option.label;
+
+      const _value =
+        valueKey && option[valueKey] !== undefined
+          ? (option[valueKey] as T)
+          : option.value;
+
+      return {
+        ...option,
+        label: _label,
+        value: _value,
+      };
+    });
+  }, [options, labelKey, valueKey]);
+
   const sortedOptions = useMemo(() => {
     return !autoSortOptions
-      ? options
-      : options.sort((a, b) => a.label.localeCompare(b.label));
-  }, [options]);
+      ? normalizedOptions
+      : [...normalizedOptions].sort((a, b) =>
+          String(a.label).localeCompare(String(b.label)),
+        );
+  }, [normalizedOptions]);
 
   const filteredOptions = useMemo(() => {
     if (!searchInput) {
@@ -99,7 +126,7 @@ export const Select = <T extends string | number>({
     }
 
     return sortedOptions.filter((option) =>
-      option.label.toLowerCase().includes(searchInput.toLowerCase()),
+      String(option.label).toLowerCase().includes(searchInput.toLowerCase()),
     );
   }, [searchInput, sortedOptions]);
 
@@ -112,7 +139,7 @@ export const Select = <T extends string | number>({
     return (
       multiple &&
       activeOptions.length > 0 &&
-      activeOptions.every((option) => value.includes(option.value))
+      activeOptions.every((option) => value.includes(option.value as T))
     );
   }, [activeOptions, value]);
 
@@ -125,21 +152,24 @@ export const Select = <T extends string | number>({
       ? []
       : activeOptions.map((option) => option.value);
 
-    onChange(selectedValue);
+    onChange(selectedValue as T[]);
+    setTimeout(() => {
+      searchInputReference.current?.focus();
+    }, 0);
   };
 
   const shouldAutoSelect = useMemo(() => {
     return (
       autoSelectSingleOption &&
       !multiple &&
-      options.length === 1 &&
-      !options[0].disabled
+      normalizedOptions.length === 1 &&
+      !normalizedOptions[0].disabled
     );
-  }, [options, multiple, autoSelectSingleOption]);
+  }, [normalizedOptions, multiple, autoSelectSingleOption]);
 
   const shouldHideSelect = useMemo(() => {
-    return hideIfSingleOption && !multiple && options.length === 1;
-  }, [options, multiple, hideIfSingleOption]);
+    return hideIfSingleOption && !multiple && normalizedOptions.length === 1;
+  }, [normalizedOptions, multiple, hideIfSingleOption]);
 
   const disabled = shouldAutoSelect || selectFieldDisabled;
 
@@ -147,18 +177,18 @@ export const Select = <T extends string | number>({
     if (multiple) {
       if (!value?.length) return "";
 
-      return options
-        .filter((opt) => value.includes(opt.value))
+      return normalizedOptions
+        .filter((opt) => value.includes(opt.value as T))
         .map((opt) => opt.label)
         .join(", ");
     }
 
-    return options.find((opt) => opt.value === value)?.label ?? "";
-  }, [multiple, value, options]);
+    return normalizedOptions.find((opt) => opt.value === value)?.label ?? "";
+  }, [multiple, value, normalizedOptions]);
 
   useEffect(() => {
     if (shouldAutoSelect || shouldHideSelect) {
-      handleSelectedOption(options[0].value);
+      handleSelectedOption(normalizedOptions[0].value as T);
     }
   }, [options]);
 
@@ -275,8 +305,7 @@ export const Select = <T extends string | number>({
 
     const selectFocusedOption = () => {
       if (focusedOptionIndex !== null) {
-        handleSelectedOption(filteredOptions[focusedOptionIndex].value);
-
+        handleSelectedOption(filteredOptions[focusedOptionIndex].value as T);
         if (!multiple) {
           setShowOptions(false);
           searchInputReference.current?.blur();
@@ -370,7 +399,7 @@ export const Select = <T extends string | number>({
           className={`selected-options-wrapper ${selectedOptions ? "visible" : ""}`}
         >
           {renderValue ? (
-            renderValue(value, options)
+            renderValue(value, normalizedOptions)
           ) : (
             <span className="selected-options">{selectedOptions}</span>
           )}
@@ -404,7 +433,7 @@ export const Select = <T extends string | number>({
                 }
                 onClick={() => {
                   if (!disabled) {
-                    handleSelectedOption(option.value);
+                    handleSelectedOption(option.value as T);
                   }
 
                   if (!multiple && !disabled) {
@@ -415,8 +444,8 @@ export const Select = <T extends string | number>({
                 {multiple ? (
                   <Checkbox
                     name={label}
-                    checked={value.includes(option.value)}
-                    onChange={() => handleSelectedOption(option.value)}
+                    checked={value.includes(option.value as T)}
+                    onChange={() => handleSelectedOption(option.value as T)}
                     disabled={disabled}
                   />
                 ) : null}

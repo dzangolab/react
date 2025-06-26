@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../../components/Demo";
 
-type Option = {
-  value: number | string;
-  label: string;
+type Option<T = string | number> = {
+  value?: T;
+  label?: string;
   disabled?: boolean;
+  [key: string]: unknown;
 };
 
 const data = [
@@ -81,62 +82,76 @@ const data = [
   },
   {
     id: 10,
+    prop: "labelKey",
+    type: "string",
+    default: "-",
+    description: "The key in option object to use as the display label.",
+  },
+  {
+    id: 11,
     prop: "multiple",
     type: "boolean",
     default: "false",
     description: "If true, multiple selection is enabled.",
   },
   {
-    id: 11,
+    id: 12,
     prop: "name",
     type: "string",
     default: "-",
     description: "Name of the component.",
   },
   {
-    id: 12,
+    id: 13,
     prop: "options",
     type: "Option[]",
     default: "-",
     description: "Options to pass in the select component.",
   },
   {
-    id: 13,
+    id: 14,
     prop: "placeholder",
     type: "string",
     default: "-",
     description: "Placeholder in the component.",
   },
   {
-    id: 14,
+    id: 15,
     prop: "showRemoveSelection",
     type: "boolean",
     default: "true",
     description: "If true, icon to remove selected options is visible.",
   },
   {
-    id: 15,
+    id: 16,
     prop: "value",
     type: "Value",
     default: "-",
     description: "Selected values of the component.",
   },
   {
-    id: 16,
+    id: 17,
+    prop: "valueKey",
+    type: "string",
+    default: "-",
+    description: "The key in option object to use as value.",
+  },
+  {
+    id: 18,
     prop: "renderOption",
     type: "(option: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select options.",
   },
   {
-    id: 17,
+    id: 19,
     prop: "renderValue",
     type: "(value?: Value, options?: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select value.",
   },
   {
-    id: 18,
+    id: 20,
     prop: "onChange",
     type: " (newValue: T | T[]) => void",
     default: "-",
@@ -154,10 +169,11 @@ export const SelectDemo = () => {
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
+  const [value, setValue] = useState("");
 
   const renderSelectedValue = (
     value?: string | string[],
-    options?: Option[],
+    options?: Option<string>[],
   ) => {
     if (!value || !Array.isArray(value) || !options) {
       return null;
@@ -166,7 +182,7 @@ export const SelectDemo = () => {
     return (
       <span className="selected-labels">
         {value.map((v) => {
-          const label = options.find((o) => o.value === v)?.label;
+          const label = options.find((option) => option.value === v)?.label;
           if (!label) return null;
           return <Tag key={v} label={label} />;
         })}
@@ -174,7 +190,7 @@ export const SelectDemo = () => {
     );
   };
 
-  const renderOption = (option: Option) => {
+  const renderOption = (option: Option<string>) => {
     return (
       <div>
         <i className="pi pi-user"></i>
@@ -405,6 +421,46 @@ const renderOption = (option: Option) => {
         />
       </Section>
 
+      <Section title={t("select.usage.key")}>
+        <Select
+          label={t("select.label")}
+          name="select"
+          options={[
+            { country: "France", code: "fr" },
+            { country: "Germany", code: "de" },
+            { disabled: true, country: "Belgium", code: "be" },
+            { country: "Nepal", code: "np" },
+            { country: "India", code: "hi" },
+          ]}
+          value={value}
+          onChange={(value: string) => setValue(value)}
+          placeholder={t("select.placeholder")}
+          valueKey="code"
+          labelKey="country"
+        />
+        <CodeBlock
+          exampleCode='
+const [value, setValue] = useState<string>("");
+
+<Select
+  label={t("select.label")}
+  name="select"
+  options={[
+    { country: "France", code: "fr" },
+    { country: "Germany", code: "de" },
+    { disabled: true, country: "Belgium", code: "be" },
+    { country: "Nepal", code: "np" },
+    { country: "India", code: "hi" },
+  ]}
+  value={value}
+  onChange={(value: string) => setValue(value)}
+  placeholder={t("select.placeholder")}
+  valueKey="code"
+  labelKey="country"
+/>'
+        />
+      </Section>
+
       <Section title={t("select.usage.invalid")}>
         <Select
           label={t("select.label")}
@@ -418,8 +474,8 @@ const renderOption = (option: Option) => {
           ]}
           value={selectedValue}
           onChange={(value: string) => setSelectedValue(value)}
-          hasError={true}
-          errorMessage="Required field"
+          hasError={!selectedValue}
+          errorMessage={!selectedValue ? "Required field" : ""}
           placeholder={t("select.placeholder")}
         />
         <CodeBlock
@@ -438,8 +494,8 @@ const [selectedValue, setSelectedValue] = useState<string>("");
   ]}
   value={selectedValue}
   onChange={(value: string) => setSelectedValue(value)}
-  hasError={true}
-  errorMessage="Required field"
+  hasError={!selectedValue}
+  errorMessage={!selectedValue ? "Required field" : ""}
   placeholder={t("select.placeholder")}
 />'
         />
