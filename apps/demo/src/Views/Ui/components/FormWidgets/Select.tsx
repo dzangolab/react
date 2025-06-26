@@ -426,11 +426,11 @@ const renderOption = (option: Option) => {
           label={t("select.label")}
           name="select"
           options={[
-            { country: "French", code: "fr" },
-            { country: "German", code: "de" },
-            { disabled: true, country: "Dutch", code: "be" },
-            { country: "Nepali", code: "np" },
-            { country: "Hindi", code: "hi" },
+            { country: "France", code: "fr" },
+            { country: "Germany", code: "de" },
+            { disabled: true, country: "Belgium", code: "be" },
+            { country: "Nepal", code: "np" },
+            { country: "India", code: "hi" },
           ]}
           value={value}
           onChange={(value: string) => setValue(value)}
@@ -446,11 +446,11 @@ const [value, setValue] = useState<string>("");
   label={t("select.label")}
   name="select"
   options={[
-    { country: "French", code: "fr" },
-    { country: "German", code: "de" },
-    { disabled: true, country: "Dutch", code: "be" },
-    { country: "Nepali", code: "np" },
-    { country: "Hindi", code: "hi" },
+    { country: "France", code: "fr" },
+    { country: "Germany", code: "de" },
+    { disabled: true, country: "Belgium", code: "be" },
+    { country: "Nepal", code: "np" },
+    { country: "India", code: "hi" },
   ]}
   value={value}
   onChange={(value: string) => setValue(value)}
