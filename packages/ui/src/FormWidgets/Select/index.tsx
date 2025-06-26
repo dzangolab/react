@@ -153,6 +153,9 @@ export const Select = <T extends string | number>({
       : activeOptions.map((option) => option.value);
 
     onChange(selectedValue as T[]);
+    setTimeout(() => {
+      searchInputReference.current?.focus();
+    }, 0);
   };
 
   const shouldAutoSelect = useMemo(() => {
