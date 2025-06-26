@@ -10,4 +10,5 @@ vi.mock("@dzangolab/react-i18n", () => ({
       },
     };
   },
+  Trans: ({ i18nKey }: { i18nKey: string }) => i18nKey,
 }));
