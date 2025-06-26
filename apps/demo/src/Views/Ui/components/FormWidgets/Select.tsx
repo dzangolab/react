@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { CodeBlock, Section } from "../../../../components/Demo";
 
 type Option<T = string | number> = {
-  value: T;
-  label: string;
+  value?: T;
+  label?: string;
   disabled?: boolean;
   [key: string]: unknown;
 };
@@ -171,7 +171,10 @@ export const SelectDemo = () => {
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
   const [value, setValue] = useState("");
 
-  const renderSelectedValue = (value?: string | string[], options?: any) => {
+  const renderSelectedValue = (
+    value?: string | string[],
+    options?: Option<string>[],
+  ) => {
     if (!value || !Array.isArray(value) || !options) {
       return null;
     }
@@ -179,7 +182,7 @@ export const SelectDemo = () => {
     return (
       <span className="selected-labels">
         {value.map((v) => {
-          const label = options.find((o: any) => o.value === v)?.label;
+          const label = options.find((option) => option.value === v)?.label;
           if (!label) return null;
           return <Tag key={v} label={label} />;
         })}
@@ -187,7 +190,7 @@ export const SelectDemo = () => {
     );
   };
 
-  const renderOption = (option: any) => {
+  const renderOption = (option: Option<string>) => {
     return (
       <div>
         <i className="pi pi-user"></i>
