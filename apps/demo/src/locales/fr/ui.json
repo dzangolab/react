@@ -339,8 +339,10 @@
     "placeholder": "Select a country (fr)",
     "title": "Select (fr)",
     "usage": {
+      "basic": "Basic",
       "disabled": "Disabled (fr)",
       "invalid": "Invalid (fr)",
+      "key": "With label and value keys (fr)",
       "multiple": "Multiple select (fr)",
       "renderOption": "Select with custom option (fr)",
       "renderValue": "Select with custom selected value (fr)"

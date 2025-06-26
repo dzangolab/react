@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../../components/Demo";
 
-export type Option<T = string | number> = {
+type Option<T = string | number> = {
   value: T;
   label: string;
   disabled?: boolean;
@@ -155,6 +155,7 @@ export const SelectDemo = () => {
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
+  const [value, setValue] = useState("");
 
   const renderSelectedValue = (value?: string | string[], options?: any) => {
     if (!value || !Array.isArray(value) || !options) {
@@ -403,6 +404,46 @@ const renderOption = (option: Option) => {
         />
       </Section>
 
+      <Section title={t("select.usage.key")}>
+        <Select
+          label={t("select.label")}
+          name="select"
+          options={[
+            { country: "French", code: "fr" },
+            { country: "German", code: "de" },
+            { disabled: true, country: "Dutch", code: "be" },
+            { country: "Nepali", code: "np" },
+            { country: "Hindi", code: "hi" },
+          ]}
+          value={value}
+          onChange={(value: string) => setValue(value)}
+          placeholder={t("select.placeholder")}
+          valueKey="code"
+          labelKey="country"
+        />
+         <CodeBlock
+          exampleCode='
+const [value, setValue] = useState<string>("");
+
+<Select
+  label={t("select.label")}
+  name="select"
+  options={[
+    { country: "French", code: "fr" },
+    { country: "German", code: "de" },
+    { disabled: true, country: "Dutch", code: "be" },
+    { country: "Nepali", code: "np" },
+    { country: "Hindi", code: "hi" },
+  ]}
+  value={value}
+  onChange={(value: string) => setValue(value)}
+  placeholder={t("select.placeholder")}
+  valueKey="code"
+  labelKey="country"
+/>'
+      />
+      </Section>
+
       <Section title={t("select.usage.invalid")}>
         <Select
           label={t("select.label")}
@@ -416,8 +457,8 @@ const renderOption = (option: Option) => {
           ]}
           value={selectedValue}
           onChange={(value: string) => setSelectedValue(value)}
-          hasError={true}
-          errorMessage="Required field"
+          hasError={!selectedValue}
+          errorMessage={!selectedValue ? "Required field" : ""}
           placeholder={t("select.placeholder")}
         />
         <CodeBlock
@@ -436,8 +477,8 @@ const [selectedValue, setSelectedValue] = useState<string>("");
   ]}
   value={selectedValue}
   onChange={(value: string) => setSelectedValue(value)}
-  hasError={true}
-  errorMessage="Required field"
+  hasError={!selectedValue}
+  errorMessage={!selectedValue ? "Required field" : ""}
   placeholder={t("select.placeholder")}
 />'
         />
