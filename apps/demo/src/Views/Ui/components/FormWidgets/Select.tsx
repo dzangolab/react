@@ -170,6 +170,7 @@ export const SelectDemo = () => {
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
   const [value, setValue] = useState("");
+  const [keyValue, setKeyValue] = useState("");
 
   const renderSelectedValue = (
     value?: string | string[],
@@ -432,6 +433,55 @@ const renderOption = (option: Option) => {
             { country: "Nepal", code: "np" },
             { country: "India", code: "hi" },
           ]}
+          value={keyValue}
+          onChange={(value: string) => setKeyValue(value)}
+          placeholder={t("select.placeholder")}
+          valueKey="code"
+          labelKey="country"
+        />
+        <CodeBlock
+          exampleCode='
+const [keyValue, setKeyValue] = useState<string>("");
+
+<Select
+  label={t("select.label")}
+  name="select"
+  options={[
+    { country: "France", code: "fr" },
+    { country: "Germany", code: "de" },
+    { disabled: true, country: "Belgium", code: "be" },
+    { country: "Nepal", code: "np" },
+    { country: "India", code: "hi" },
+  ]}
+  value={keyValue}
+  onChange={(value: string) => setKeyValue(value)}
+  placeholder={t("select.placeholder")}
+  valueKey="code"
+  labelKey="country"
+/>'
+        />
+      </Section>
+
+      <Section title={t("select.usage.keyWithLabel")}>
+        <Select
+          label={t("select.label")}
+          name="select"
+          options={[
+            { label: "France", code: "fr" },
+            { name: "Germany", code: "de" },
+            {
+              disabled: true,
+              country: "Belgium",
+              code: "be",
+              label: "The Kingdom of Belgium",
+            },
+            {
+              country: "Nepal",
+              code: "np",
+              label: "The Federal Democratic Republic of Nepal",
+            },
+            { country: "India", code: "hi", label: "The Republic of India" },
+          ]}
           value={value}
           onChange={(value: string) => setValue(value)}
           placeholder={t("select.placeholder")}
@@ -446,11 +496,21 @@ const [value, setValue] = useState<string>("");
   label={t("select.label")}
   name="select"
   options={[
-    { country: "France", code: "fr" },
-    { country: "Germany", code: "de" },
-    { disabled: true, country: "Belgium", code: "be" },
-    { country: "Nepal", code: "np" },
-    { country: "India", code: "hi" },
+    { label: "France", code: "fr"},
+    { name: "Germany", code: "de"},
+    { disabled: true, 
+      country: "Belgium", 
+      code: "be", 
+      label: "The Kingdom of Belgium" 
+    },
+    { country: "Nepal", 
+    code: "np", 
+    label: "The Federal Democratic Republic of Nepal" 
+    },
+    { country: "India", 
+    code: "hi", 
+    label: "The Republic of India"
+    },
   ]}
   value={value}
   onChange={(value: string) => setValue(value)}

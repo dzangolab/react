@@ -343,6 +343,7 @@
       "disabled": "Disabled (fr)",
       "invalid": "Invalid (fr)",
       "key": "With label and value keys (fr)",
+      "keyWithLabel": "With both label and labelKey",
       "multiple": "Multiple select (fr)",
       "renderOption": "Select with custom option (fr)",
       "renderValue": "Select with custom selected value (fr)"

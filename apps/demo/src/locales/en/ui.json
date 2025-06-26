@@ -343,6 +343,7 @@
       "disabled": "Disabled",
       "invalid": "Invalid",
       "key": "With label and value keys",
+      "keyWithLabel": "With both label and labelKey",
       "multiple": "Multiple select",
       "renderOption": "Select with custom option",
       "renderValue": "Select with custom selected value"
