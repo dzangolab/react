@@ -1,3 +1,23 @@
+# [0.59.0](https://github.com/dzangolab/react/compare/v0.58.0...v0.59.0) (2025-06-26)
+
+
+### Bug Fixes
+
+* fix logo not rendering issue in demo app ([#1498](https://github.com/dzangolab/react/issues/1498)) ([d587474](https://github.com/dzangolab/react/commit/d5874743f4eaeaa9ad20dd0207c869ffd888b0cb))
+* fix table select menu width ([#1499](https://github.com/dzangolab/react/issues/1499)) ([f3ebf4c](https://github.com/dzangolab/react/commit/f3ebf4c040674de4b1a8dbed1128068189f678d7))
+* **react-form:** fix buttons position in file upload modal ([#1500](https://github.com/dzangolab/react/issues/1500)) ([872476d](https://github.com/dzangolab/react/commit/872476d51cb321f2e31714f9269f0b4e4b0e325a))
+* **user:** persist filters in case of enabled persistState ([#1505](https://github.com/dzangolab/react/issues/1505)) ([f5e1789](https://github.com/dzangolab/react/commit/f5e1789d59540a5be9116cfc894c80903bb4034a))
+
+
+### Features
+
+* add facebook login support ([#1492](https://github.com/dzangolab/react/issues/1492)) ([ac6e2b5](https://github.com/dzangolab/react/commit/ac6e2b57e4eeabacf19762bef3a31d09364988dd))
+* **react-demo:** update demo examples ([#1504](https://github.com/dzangolab/react/issues/1504)) ([6366f08](https://github.com/dzangolab/react/commit/6366f083ddd6ed4fc0f60675b4133c6fd95dcb5c))
+* **react-ui:** add select all in select component ([#1502](https://github.com/dzangolab/react/issues/1502)) ([6bcd175](https://github.com/dzangolab/react/commit/6bcd1750ec2318e0899e04a075320ceb2f86999b))
+* **react-user:** display apps name instead of app id in invitations table ([#1503](https://github.com/dzangolab/react/issues/1503)) ([ba39bef](https://github.com/dzangolab/react/commit/ba39befa851c0304a83766deefa81f6ef669577d))
+
+
+
 # [0.58.0](https://github.com/dzangolab/react/compare/v0.57.0...v0.58.0) (2025-06-18)
 
 
