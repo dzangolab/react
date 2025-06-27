@@ -161,23 +161,17 @@ export const FilesTable = ({
       id: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
       accessorFn: (row) => {
-        if (row.uploadedBy.givenName || row.uploadedBy.lastName) {
-          return `${row.uploadedBy.givenName || ""} ${row.uploadedBy.lastName || ""}`.trim();
-        }
-        return row.uploadedBy.email || "";
-      },
-      cell: ({ row: { original } }) => {
-        if (!original.uploadedBy) {
-          return <code>&#8212;</code>;
+        if (!row.uploadedBy) {
+          return "_";
         }
 
-        if (original.uploadedBy.givenName || original.uploadedBy.lastName) {
-          return `${original.uploadedBy.givenName || ""} ${
-            original.uploadedBy.lastName || ""
-          }`;
+        const { givenName, lastName, email } = row.uploadedBy;
+
+        if (givenName || lastName) {
+          return `${givenName || ""} ${lastName || ""}`.trim();
         }
 
-        return original.uploadedBy.email;
+        return email;
       },
       enableSorting: true,
     },
@@ -201,11 +195,7 @@ export const FilesTable = ({
       enableColumnFilter: false,
       enableSorting: true,
       cell: ({ getValue }) => {
-        if (getValue()) {
-          return formatDateTime(getValue() as number);
-        }
-
-        return <code>&#8212;</code>;
+        return formatDateTime(getValue() as string);
       },
     },
   ];
