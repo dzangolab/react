@@ -198,7 +198,10 @@ export const FilesTable = ({
       header: messages?.downloadCountHeader || "Download count",
       enableSorting: true,
       enableColumnFilter: true,
-      filterPlaceholder: messages?.searchPlaceholder,
+      meta: {
+        filterVariant: "range",
+      },
+      filterPlaceholder: "Min, Max",
     },
     {
       accessorKey: "lastDownloadedAt",
