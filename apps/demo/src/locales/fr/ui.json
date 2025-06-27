@@ -127,6 +127,12 @@
     "pagination": {
       "pageControl": "Go to page (fr)",
       "rowsPerPage": "Items per page (fr)"
+    },
+    "placeholder": {
+      "max": "Max (fr)",
+      "min": "Min (fr)",
+      "search": "Search (fr)",
+      "select": "Select date (fr)"
     }
   },
   "gridContainer": {

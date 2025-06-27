@@ -140,7 +140,7 @@ export const FilesTable = ({
     {
       accessorKey: "originalFileName",
       header: messages?.originalFileNameHeader || "File",
-      filterPlaceholder: messages?.searchPlaceholder || "File name example",
+      filterPlaceholder: messages?.originalFileNamePlaceholder,
       enableColumnFilter: true,
       enableSorting: true,
       enableGlobalFilter: true,
@@ -152,7 +152,7 @@ export const FilesTable = ({
       enableGlobalFilter: true,
       enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: messages?.searchPlaceholder || "Search",
+      filterPlaceholder: messages?.descriptionPlaceholder,
     },
     {
       accessorKey: "size",
@@ -162,7 +162,7 @@ export const FilesTable = ({
       meta: {
         filterVariant: "range",
       },
-      filterPlaceholder: "Min, Max",
+      filterPlaceholder: messages?.fileSizePlaceholder,
     },
     {
       id: "uploadedBy",
@@ -189,7 +189,7 @@ export const FilesTable = ({
       },
       enableSorting: true,
       enableColumnFilter: true,
-      filterPlaceholder: messages?.searchPlaceholder || "Select date",
+      filterPlaceholder: messages?.uploadedAtPlaceholder,
       meta: {
         filterVariant: "dateRange",
         serverFilterFn: "between",
@@ -204,7 +204,7 @@ export const FilesTable = ({
       meta: {
         filterVariant: "range",
       },
-      filterPlaceholder: "Min, Max",
+      filterPlaceholder: messages?.downloadCountPlaceholder,
     },
     {
       accessorKey: "lastDownloadedAt",
@@ -214,7 +214,7 @@ export const FilesTable = ({
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
       },
-      filterPlaceholder: messages?.searchPlaceholder || "Select date",
+      filterPlaceholder: messages?.lastDownloadedAtPlaceholder,
       meta: {
         filterVariant: "dateRange",
         serverFilterFn: "between",
