@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { thirdPartySignInAndUp } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import { DEFAULT_PATHS } from "@/constants";
+import { verifySessionRoles } from "@/supertokens";
+
 import { useConfig, useUser } from "../../hooks";
 
 import type { UserType } from "../../types";
-
-import { DEFAULT_PATHS } from "@/constants";
-import { verifySessionRoles } from "@/supertokens";
 
 export const AuthSocialLoginCallback = () => {
   const { t } = useTranslation("user");
