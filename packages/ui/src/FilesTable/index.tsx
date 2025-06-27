@@ -159,7 +159,10 @@ export const FilesTable = ({
       header: messages?.fileSizeHeader || "Size",
       enableSorting: true,
       enableColumnFilter: true,
-      filterPlaceholder: messages?.searchPlaceholder,
+      meta: {
+        filterVariant: "range",
+      },
+      filterPlaceholder: "Min, Max",
     },
     {
       id: "uploadedBy",
