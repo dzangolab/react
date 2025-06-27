@@ -160,20 +160,19 @@ export const FilesTable = ({
     {
       id: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      accessorFn: (row) => {
-        if (!row.uploadedBy) {
-          return "_";
+      cell: ({ row: { original } }) => {
+        if (!original.uploadedBy) {
+          return <code>&#8212;</code>;
         }
 
-        const { givenName, lastName, email } = row.uploadedBy;
-
-        if (givenName || lastName) {
-          return `${givenName || ""} ${lastName || ""}`.trim();
+        if (original.uploadedBy.givenName || original.uploadedBy.lastName) {
+          return `${original.uploadedBy.givenName || ""} ${
+            original.uploadedBy.lastName || ""
+          }`;
         }
 
-        return email;
+        return original.uploadedBy.email;
       },
-      enableSorting: true,
     },
     {
       accessorKey: "uploadedAt",
