@@ -195,7 +195,7 @@ export const FilesTable = ({
       enableColumnFilter: false,
       enableSorting: true,
       cell: ({ getValue }) => {
-        return formatDateTime(getValue() as string);
+        return formatDateTime(getValue() as number);
       },
     },
   ];
