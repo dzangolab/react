@@ -140,7 +140,7 @@ export const FilesTable = ({
     {
       accessorKey: "originalFileName",
       header: messages?.originalFileNameHeader || "File",
-      filterPlaceholder: messages?.searchPlaceholder || "File name example",
+      filterPlaceholder: messages?.originalFileNamePlaceholder,
       enableColumnFilter: true,
       enableSorting: true,
       enableGlobalFilter: true,
@@ -150,12 +150,19 @@ export const FilesTable = ({
       header: messages?.descriptionHeader || "Description",
       tooltip: true,
       enableGlobalFilter: true,
+      enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: messages?.descriptionPlaceholder,
     },
     {
       accessorKey: "size",
       header: messages?.fileSizeHeader || "Size",
       enableSorting: true,
+      enableColumnFilter: true,
+      meta: {
+        filterVariant: "range",
+      },
+      filterPlaceholder: messages?.fileSizePlaceholder,
     },
     {
       id: "uploadedBy",
@@ -181,20 +188,36 @@ export const FilesTable = ({
         return formatDateTime(getValue() as number);
       },
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: messages?.uploadedAtPlaceholder,
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
+      },
     },
     {
       align: "right",
       accessorKey: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
       enableSorting: true,
+      enableColumnFilter: true,
+      meta: {
+        filterVariant: "range",
+      },
+      filterPlaceholder: messages?.downloadCountPlaceholder,
     },
     {
       accessorKey: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      enableColumnFilter: false,
+      enableColumnFilter: true,
       enableSorting: true,
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
+      },
+      filterPlaceholder: messages?.lastDownloadedAtPlaceholder,
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
       },
     },
   ];

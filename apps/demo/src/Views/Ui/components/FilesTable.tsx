@@ -28,7 +28,7 @@ export const FilesTableDemo = () => {
             {
               id: 0,
               originalFileName: "my file",
-              description: "File 1 description",
+              description: "Initial project proposal for client review",
               uploadedBy: { givenName: "Manish", lastName: "Aryal" },
               uploadedAt: new Date("2025-01-14").getTime(),
               lastDownloadedAt: new Date("2025-01-26").getTime(),
@@ -36,8 +36,8 @@ export const FilesTableDemo = () => {
             },
             {
               id: 1,
-              originalFileName: "my filev2",
-              description: "File description",
+              originalFileName: "logo",
+              description: "Final logo design for branding",
               uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
               uploadedAt: new Date("2025-02-17").getTime(),
               lastDownloadedAt: Date.now(),
@@ -68,6 +68,13 @@ export const FilesTableDemo = () => {
           paginationOptions={{
             pageInputLabel: t("filesTable.pagination.pageControl"),
             itemsPerPageControlLabel: t("filesTable.pagination.rowsPerPage"),
+          }}
+          messages={{
+            originalFileNamePlaceholder: t("filesTable.placeholder.search"),
+            descriptionPlaceholder: t("filesTable.placeholder.search"),
+            uploadedAtPlaceholder: t("filesTable.placeholder.select"),
+            downloadCountPlaceholder: `${t("filesTable.placeholder.min")}, ${t("filesTable.placeholder.max")}`,
+            lastDownloadedAtPlaceholder: t("filesTable.placeholder.select"),
           }}
         />
       </Section>
