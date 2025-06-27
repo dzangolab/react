@@ -150,12 +150,16 @@ export const FilesTable = ({
       header: messages?.descriptionHeader || "Description",
       tooltip: true,
       enableGlobalFilter: true,
+      enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: messages?.searchPlaceholder || "Search",
     },
     {
       accessorKey: "size",
       header: messages?.fileSizeHeader || "Size",
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: messages?.searchPlaceholder,
     },
     {
       id: "uploadedBy",
@@ -181,20 +185,33 @@ export const FilesTable = ({
         return formatDateTime(getValue() as number);
       },
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: messages?.searchPlaceholder || "Select date",
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
+      },
     },
     {
       align: "right",
       accessorKey: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: messages?.searchPlaceholder,
     },
     {
       accessorKey: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      enableColumnFilter: false,
+      enableColumnFilter: true,
       enableSorting: true,
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
+      },
+      filterPlaceholder: messages?.searchPlaceholder || "Select date",
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
       },
     },
   ];
