@@ -48,6 +48,9 @@ export const FilesTableDemo = () => {
             "uploadedBy",
             "uploadedAt",
             "actions",
+            "lastDownloadedAt",
+            "downloadCount",
+            "size",
           ]}
           columns={[
             {

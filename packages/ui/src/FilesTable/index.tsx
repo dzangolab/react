@@ -150,10 +150,12 @@ export const FilesTable = ({
       header: messages?.descriptionHeader || "Description",
       tooltip: true,
       enableGlobalFilter: true,
+      enableSorting: true,
     },
     {
       accessorKey: "size",
       header: messages?.fileSizeHeader || "Size",
+      enableSorting: true,
     },
     {
       id: "uploadedBy",
@@ -171,6 +173,7 @@ export const FilesTable = ({
 
         return original.uploadedBy.email;
       },
+      enableSorting: true,
     },
     {
       accessorKey: "uploadedAt",
@@ -178,11 +181,13 @@ export const FilesTable = ({
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
       },
+      enableSorting: true,
     },
     {
       align: "right",
       accessorKey: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
+      enableSorting: true,
     },
     {
       accessorKey: "lastDownloadedAt",

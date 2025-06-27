@@ -1,8 +1,8 @@
 import { useTranslation } from "@dzangolab/react-i18n";
 
-import { FacebookLogin, GoogleLogin } from "../SocialLogin";
-
 import { useConfig } from "@/hooks";
+
+import { FacebookLogin, GoogleLogin } from "../SocialLogin";
 
 export const SUPPORTED_SOCIAL_LOGIN_PROVIDERS = [
   "google" as const,
