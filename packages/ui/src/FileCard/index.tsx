@@ -31,7 +31,6 @@ export type FileMessages = {
   uploadedByPlaceholder?: string;
   uploadedAtHeader?: string;
   uploadedAtPlaceholder?: string;
-
   viewAction?: string;
 };
 
