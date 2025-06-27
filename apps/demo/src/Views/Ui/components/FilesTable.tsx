@@ -30,16 +30,18 @@ export const FilesTableDemo = () => {
               originalFileName: "my file",
               description: "File 1 description",
               uploadedBy: { givenName: "Manish", lastName: "Aryal" },
-              uploadedAt: Date.now(),
-              lastDownloadedAt: Date.now(),
+              uploadedAt: new Date("2025-01-14").getTime(),
+              lastDownloadedAt: new Date("2025-01-26").getTime(),
+              downloadCount: 10,
             },
             {
               id: 1,
               originalFileName: "my filev2",
               description: "File description",
               uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
-              uploadedAt: Date.now(),
+              uploadedAt: new Date("2025-02-17").getTime(),
               lastDownloadedAt: Date.now(),
+              downloadCount: 12,
             },
           ]}
           visibleColumns={[
@@ -47,6 +49,8 @@ export const FilesTableDemo = () => {
             "description",
             "uploadedBy",
             "uploadedAt",
+            "lastDownloadedAt",
+            "downloadCount",
             "actions",
           ]}
           columns={[

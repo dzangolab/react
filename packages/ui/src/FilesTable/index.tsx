@@ -150,10 +150,12 @@ export const FilesTable = ({
       header: messages?.descriptionHeader || "Description",
       tooltip: true,
       enableGlobalFilter: true,
+      enableSorting: true,
     },
     {
       accessorKey: "size",
       header: messages?.fileSizeHeader || "Size",
+      enableSorting: true,
     },
     {
       id: "uploadedBy",
@@ -178,23 +180,21 @@ export const FilesTable = ({
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
       },
+      enableSorting: true,
     },
     {
       align: "right",
       accessorKey: "downloadCount",
       header: messages?.downloadCountHeader || "Download count",
+      enableSorting: true,
     },
     {
       accessorKey: "lastDownloadedAt",
       header: messages?.lastDownloadedAtHeader || "Last downloaded at",
       enableColumnFilter: false,
-      enableSorting: false,
+      enableSorting: true,
       cell: ({ getValue }) => {
-        if (getValue()) {
-          return formatDateTime(getValue() as number);
-        }
-
-        return <code>&#8212;</code>;
+        return formatDateTime(getValue() as number);
       },
     },
   ];
