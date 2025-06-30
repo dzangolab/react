@@ -167,19 +167,27 @@ export const FilesTable = ({
     {
       id: "uploadedBy",
       header: messages?.uploadedByHeader || "Uploaded by",
-      cell: ({ row: { original } }) => {
-        if (!original.uploadedBy) {
-          return <code>&#8212;</code>;
+      accessorFn: (row) => {
+        if (!row.uploadedBy) {
+          return "";
         }
 
-        if (original.uploadedBy.givenName || original.uploadedBy.lastName) {
-          return `${original.uploadedBy.givenName || ""} ${
-            original.uploadedBy.lastName || ""
-          }`;
+        const { givenName, surname, email } = row.uploadedBy;
+
+        if (givenName || surname) {
+          return `${givenName || ""} ${surname || ""}`.trim();
         }
 
-        return original.uploadedBy.email;
+        return email || "";
       },
+      cell: ({ getValue }) => {
+        const value = getValue();
+
+        return value ? value : <code>&#8212;</code>;
+      },
+      enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: messages?.uploadedByPlaceholder,
     },
     {
       accessorKey: "uploadedAt",

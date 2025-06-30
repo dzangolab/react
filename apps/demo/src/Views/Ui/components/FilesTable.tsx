@@ -29,7 +29,7 @@ export const FilesTableDemo = () => {
               id: 0,
               originalFileName: "my file",
               description: "Initial project proposal for client review",
-              uploadedBy: { givenName: "Manish", lastName: "Aryal" },
+              uploadedBy: { givenName: "Manish", surname: "Aryal" },
               uploadedAt: new Date("2025-01-14").getTime(),
               lastDownloadedAt: new Date("2025-01-26").getTime(),
               downloadCount: 10,
@@ -38,7 +38,7 @@ export const FilesTableDemo = () => {
               id: 1,
               originalFileName: "logo",
               description: "Final logo design for branding",
-              uploadedBy: { givenName: "Nabin", lastName: "Dhital" },
+              uploadedBy: { givenName: "Nabin", surname: "Dhital" },
               uploadedAt: new Date("2025-02-17").getTime(),
               lastDownloadedAt: Date.now(),
               downloadCount: 12,
@@ -70,11 +70,12 @@ export const FilesTableDemo = () => {
             itemsPerPageControlLabel: t("filesTable.pagination.rowsPerPage"),
           }}
           messages={{
-            originalFileNamePlaceholder: t("filesTable.placeholder.search"),
             descriptionPlaceholder: t("filesTable.placeholder.search"),
-            uploadedAtPlaceholder: t("filesTable.placeholder.select"),
             downloadCountPlaceholder: `${t("filesTable.placeholder.min")}, ${t("filesTable.placeholder.max")}`,
             lastDownloadedAtPlaceholder: t("filesTable.placeholder.select"),
+            originalFileNamePlaceholder: t("filesTable.placeholder.search"),
+            uploadedAtPlaceholder: t("filesTable.placeholder.select"),
+            uploadedByPlaceholder: t("filesTable.placeholder.search"),
           }}
         />
       </Section>
