@@ -140,7 +140,7 @@ export const FilesTable = ({
     {
       accessorKey: "originalFileName",
       header: messages?.originalFileNameHeader || "File",
-      filterPlaceholder: messages?.originalFileNamePlaceholder,
+      filterPlaceholder: messages?.searchPlaceholder || "File name example",
       enableColumnFilter: true,
       enableSorting: true,
       enableGlobalFilter: true,
