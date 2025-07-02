@@ -69,14 +69,6 @@ export const FilesTableDemo = () => {
             pageInputLabel: t("filesTable.pagination.pageControl"),
             itemsPerPageControlLabel: t("filesTable.pagination.rowsPerPage"),
           }}
-          messages={{
-            descriptionPlaceholder: t("filesTable.placeholder.search"),
-            downloadCountPlaceholder: `${t("filesTable.placeholder.min")}, ${t("filesTable.placeholder.max")}`,
-            lastDownloadedAtPlaceholder: t("filesTable.placeholder.select"),
-            originalFileNamePlaceholder: t("filesTable.placeholder.search"),
-            uploadedAtPlaceholder: t("filesTable.placeholder.select"),
-            uploadedByPlaceholder: t("filesTable.placeholder.search"),
-          }}
         />
       </Section>
     </Page>

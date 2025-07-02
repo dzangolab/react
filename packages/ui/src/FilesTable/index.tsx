@@ -139,34 +139,34 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnDef<IFile>> = [
     {
       accessorKey: "originalFileName",
-      header: messages?.originalFileNameHeader || "File",
-      filterPlaceholder: messages?.searchPlaceholder || "File name example",
+      header: "File",
       enableColumnFilter: true,
       enableSorting: true,
       enableGlobalFilter: true,
+      filterPlaceholder: "Search",
     },
     {
       accessorKey: "description",
-      header: messages?.descriptionHeader || "Description",
+      header: "Description",
       tooltip: true,
       enableGlobalFilter: true,
       enableColumnFilter: true,
       enableSorting: true,
-      filterPlaceholder: messages?.descriptionPlaceholder,
+      filterPlaceholder: "Search",
     },
     {
       accessorKey: "size",
-      header: messages?.fileSizeHeader || "Size",
+      header: "Size",
       enableSorting: true,
       enableColumnFilter: true,
+      filterPlaceholder: "Min, Max",
       meta: {
         filterVariant: "range",
       },
-      filterPlaceholder: messages?.fileSizePlaceholder,
     },
     {
       id: "uploadedBy",
-      header: messages?.uploadedByHeader || "Uploaded by",
+      header: "Uploaded by",
       accessorFn: (row) => {
         if (!row.uploadedBy) {
           return "";
@@ -187,17 +187,17 @@ export const FilesTable = ({
       },
       enableSorting: true,
       enableColumnFilter: true,
-      filterPlaceholder: messages?.uploadedByPlaceholder,
+      filterPlaceholder: "Search",
     },
     {
       accessorKey: "uploadedAt",
-      header: messages?.uploadedAtHeader || "Uploaded at",
+      header: "Uploaded at",
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
       },
       enableSorting: true,
       enableColumnFilter: true,
-      filterPlaceholder: messages?.uploadedAtPlaceholder,
+      filterPlaceholder: "Select date",
       meta: {
         filterVariant: "dateRange",
         serverFilterFn: "between",
@@ -206,23 +206,23 @@ export const FilesTable = ({
     {
       align: "right",
       accessorKey: "downloadCount",
-      header: messages?.downloadCountHeader || "Download count",
+      header: "Download count",
       enableSorting: true,
       enableColumnFilter: true,
+      filterPlaceholder: "Min, Max",
       meta: {
         filterVariant: "range",
       },
-      filterPlaceholder: messages?.downloadCountPlaceholder,
     },
     {
       accessorKey: "lastDownloadedAt",
-      header: messages?.lastDownloadedAtHeader || "Last downloaded at",
+      header: "Last downloaded at",
       enableColumnFilter: true,
       enableSorting: true,
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
       },
-      filterPlaceholder: messages?.lastDownloadedAtPlaceholder,
+      filterPlaceholder: "Select date",
       meta: {
         filterVariant: "dateRange",
         serverFilterFn: "between",

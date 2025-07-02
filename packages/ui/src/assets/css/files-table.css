@@ -4,6 +4,12 @@
   width: 15rem;
 }
 
+.table-files .column-size {
+  max-width: 12rem;
+  min-width: 12rem;
+  width: 12rem;
+}
+
 .table-files .column-downloadCount {
   max-width: 12rem;
   min-width: 12rem;

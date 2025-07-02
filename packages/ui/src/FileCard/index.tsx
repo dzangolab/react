@@ -7,7 +7,6 @@ import { IFile } from "../FilesTable";
 import { useColumnsMap } from "../utils";
 
 export type FileMessages = {
-  actionsHeader?: string;
   archiveAction?: string;
   archiveConfirmationHeader?: string;
   archiveConfirmationMessage?: string;
@@ -16,21 +15,12 @@ export type FileMessages = {
   deleteAction?: string;
   deleteConfirmationHeader?: string;
   deleteConfirmationMessage?: string;
-  descriptionHeader?: string;
-  descriptionPlaceholder?: string;
   downloadCountHeader?: string;
-  downloadCountPlaceholder?: string;
-  fileSizePlaceholder?: string;
   lastDownloadedAtHeader?: string;
-  lastDownloadedAtPlaceholder?: string;
-  originalFileNameHeader?: string;
-  originalFileNamePlaceholder?: string;
   renameAction?: string;
   shareAction?: string;
   uploadedByHeader?: string;
-  uploadedByPlaceholder?: string;
   uploadedAtHeader?: string;
-  uploadedAtPlaceholder?: string;
   viewAction?: string;
 };
 
