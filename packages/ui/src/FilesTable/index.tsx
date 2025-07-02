@@ -139,62 +139,83 @@ export const FilesTable = ({
   const defaultColumns: Array<ColumnDef<IFile>> = [
     {
       accessorKey: "originalFileName",
-      header: messages?.originalFileNameHeader || "File",
-      filterPlaceholder: messages?.searchPlaceholder || "File name example",
+      header: "File",
       enableColumnFilter: true,
       enableSorting: true,
       enableGlobalFilter: true,
+      filterPlaceholder: "Search",
     },
     {
       accessorKey: "description",
-      header: messages?.descriptionHeader || "Description",
+      header: "Description",
       tooltip: true,
       enableGlobalFilter: true,
+      enableColumnFilter: true,
       enableSorting: true,
+      filterPlaceholder: "Search",
     },
     {
       accessorKey: "size",
-      header: messages?.fileSizeHeader || "Size",
+      header: "Size",
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: "Min, Max",
+      meta: {
+        filterVariant: "range",
+      },
     },
     {
       id: "uploadedBy",
-      header: messages?.uploadedByHeader || "Uploaded by",
+      header: "Uploaded by",
       cell: ({ row: { original } }) => {
         if (!original.uploadedBy) {
           return <code>&#8212;</code>;
         }
-
         if (original.uploadedBy.givenName || original.uploadedBy.lastName) {
           return `${original.uploadedBy.givenName || ""} ${
             original.uploadedBy.lastName || ""
           }`;
         }
-
         return original.uploadedBy.email;
       },
     },
     {
       accessorKey: "uploadedAt",
-      header: messages?.uploadedAtHeader || "Uploaded at",
+      header: "Uploaded at",
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
       },
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: "Select date",
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
+      },
     },
     {
       align: "right",
       accessorKey: "downloadCount",
-      header: messages?.downloadCountHeader || "Download count",
+      header: "Download count",
       enableSorting: true,
+      enableColumnFilter: true,
+      filterPlaceholder: "Min, Max",
+      meta: {
+        filterVariant: "range",
+      },
     },
     {
       accessorKey: "lastDownloadedAt",
-      header: messages?.lastDownloadedAtHeader || "Last downloaded at",
-      enableColumnFilter: false,
+      header: "Last downloaded at",
+      enableColumnFilter: true,
       enableSorting: true,
       cell: ({ getValue }) => {
         return formatDateTime(getValue() as number);
+      },
+      filterPlaceholder: "Select date",
+      meta: {
+        filterVariant: "dateRange",
+        serverFilterFn: "between",
       },
     },
   ];
