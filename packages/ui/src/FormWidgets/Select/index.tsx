@@ -98,7 +98,8 @@ export const Select = <T extends string | number>({
     null,
   );
 
-  const tooltipReference = useRef<HTMLSpanElement>(null);
+  const menuTooltipReference = useRef<HTMLSpanElement>(null);
+  const selectTooltipReference = useRef<HTMLSpanElement>(null);
 
   const normalizedOptions = useMemo(() => {
     return options.map((option) => {
@@ -415,11 +416,11 @@ export const Select = <T extends string | number>({
           ) : (
             <>
               {enableTooltip && (
-                <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
+                <Tooltip elementRef={menuTooltipReference} {...tooltipOptions}>
                   {selectedOptions}
                 </Tooltip>
               )}
-              <span ref={tooltipReference} className="selected-options">
+              <span ref={menuTooltipReference} className="selected-options">
                 {selectedOptions}
               </span>
             </>
@@ -488,12 +489,12 @@ export const Select = <T extends string | number>({
       return (
         <>
           {enableTooltip && (
-            <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
+            <Tooltip elementRef={selectTooltipReference} {...tooltipOptions}>
               {selectedOptions}
             </Tooltip>
           )}
 
-          <span ref={tooltipReference} className="selected-options">
+          <span ref={selectTooltipReference} className="selected-options">
             {selectedOptions}
           </span>
         </>

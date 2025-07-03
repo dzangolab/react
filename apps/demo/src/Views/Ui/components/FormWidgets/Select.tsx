@@ -491,18 +491,18 @@ const [value, setValue] = useState<string>("");
           ]}
           value={selectedCountries}
           onChange={(value: string[]) => setSelectedCountries(value)}
-          className="country-select"
+          className="country-selector"
           placeholder={t("select.placeholder")}
           multiple
           enableTooltip
           tooltipOptions={{
             position: "top",
-            offset: 20,
+            offset: 15,
           }}
         />
         <CodeBlock
           exampleCode='
-const [selectWithTooltipValue, setSelectWithTooltipValue] = useState("");
+const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
 
 <Select
   label={t("select.label")}
@@ -514,9 +514,16 @@ const [selectWithTooltipValue, setSelectWithTooltipValue] = useState("");
     { label: "Nepal", value: "NP" },
     { label: "India", value: "IN" },
   ]}
-  value={selectWithTooltipValue}
-  onChange={(value: string) => setSelectWithTooltipValue(value)}
-  className="select-with-tooltip" 
+  value={selectedCountries}
+  onChange={(value: string[]) => setSelectedCountries(value)}
+  className="country-selector"
+  placeholder={t("select.placeholder")}
+  multiple
+  enableTooltip
+  tooltipOptions={{
+    position: "top",
+    offset: 15,
+  }}
 />'
         />
       </Section>
