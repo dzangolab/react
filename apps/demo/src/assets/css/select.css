@@ -2,3 +2,7 @@
   display: flex;
   gap: 0.5rem;
 }
+
+.demo-section .demo-section-content .select-with-tooltip {
+  width: 14rem;
+}

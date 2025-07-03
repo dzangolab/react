@@ -170,6 +170,9 @@ export const SelectDemo = () => {
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
   const [value, setValue] = useState("");
+  const [selectWithTooltipValue, setSelectWithTooltipValue] = useState<
+    string[]
+  >([]);
 
   const renderSelectedValue = (
     value?: string | string[],
@@ -457,6 +460,49 @@ const [value, setValue] = useState<string>("");
   placeholder={t("select.placeholder")}
   valueKey="code"
   labelKey="country"
+/>'
+        />
+      </Section>
+
+      <Section title={t("select.usage.withTooltip")}>
+        <Select
+          label={t("select.label")}
+          name="select"
+          options={[
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
+          ]}
+          value={selectWithTooltipValue}
+          onChange={(value: string[]) => setSelectWithTooltipValue(value)}
+          className="select-with-tooltip"
+          placeholder={t("select.placeholder")}
+          multiple
+          enableTooltip
+          tooltipOptions={{
+            position: "top",
+            offset: 20,
+          }}
+        />
+        <CodeBlock
+          exampleCode='
+const [selectWithTooltipValue, setSelectWithTooltipValue] = useState("");
+
+<Select
+  label={t("select.label")}
+  name="select"
+  options={[
+    { label: "France", value: "FR" },
+    { label: "Germany", value: "DE" },
+    { disabled: true, label: "Belgium", value: "BE" },
+    { label: "Nepal", value: "NP" },
+    { label: "India", value: "IN" },
+  ]}
+  value={selectWithTooltipValue}
+  onChange={(value: string) => setSelectWithTooltipValue(value)}
+  className="select-with-tooltip" 
 />'
         />
       </Section>

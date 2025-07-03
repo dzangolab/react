@@ -414,9 +414,11 @@ export const Select = <T extends string | number>({
             renderValue(value, normalizedOptions)
           ) : (
             <>
-              <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
-                {selectedOptions}
-              </Tooltip>
+              {enableTooltip && (
+                <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
+                  {selectedOptions}
+                </Tooltip>
+              )}
               <span ref={tooltipReference} className="selected-options">
                 {selectedOptions}
               </span>
@@ -485,9 +487,12 @@ export const Select = <T extends string | number>({
 
       return (
         <>
-          <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
-            {selectedOptions}
-          </Tooltip>
+          {enableTooltip && (
+            <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
+              {selectedOptions}
+            </Tooltip>
+          )}
+
           <span ref={tooltipReference} className="selected-options">
             {selectedOptions}
           </span>
