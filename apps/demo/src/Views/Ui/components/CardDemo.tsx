@@ -6,10 +6,37 @@ import {
   CardFooter,
   CardHeader,
   Page,
+  TDataTable,
 } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
-import { Section } from "../../../components/Demo";
+import { CodeBlock, Section } from "../../../components/Demo";
+
+const data = [
+  {
+    id: 1,
+    prop: " className",
+    type: "string",
+    default: "-",
+    description: "Additional CSS classes to apply to the card.",
+  },
+  {
+    id: 2,
+    prop: "children",
+    type: "ReactNode",
+    default: "-",
+    description:
+      "The content of the card. Typically includes child components like `CardHeader`, `CardBody`, and `CardFooter`.",
+  },
+  {
+    id: 3,
+    prop: "outlined",
+    type: "boolean",
+    default: "false",
+    description:
+      "Whether to render the card in an outlined style (e.g. with a border)",
+  },
+];
 
 export const CardDemo = () => {
   const [t] = useTranslation("ui");
@@ -27,6 +54,11 @@ export const CardDemo = () => {
         />
       }
     >
+      <Section title={t("headers.usage")}>
+        <p>{t("common.usage", { component: "Card" })}</p>
+        <CodeBlock exampleCode="import { Card } from 'dzangolab/react-ui';" />
+      </Section>
+
       <Section title={t("card.usage.default")}>
         <Card>
           <CardHeader>
@@ -39,6 +71,21 @@ export const CardDemo = () => {
             <p>{t("card.footer")}</p>
           </CardFooter>
         </Card>
+
+        <CodeBlock
+          exampleCode='
+<Card>
+    <CardHeader>
+      <h3>{t("card.header")}</h3>
+    </CardHeader>
+    <CardBody>
+      <p>{t("card.body")}</p>
+    </CardBody>
+    <CardFooter>
+      <p>{t("card.footer")}</p>
+    </CardFooter>
+</Card>'
+        />
       </Section>
       <Section title={t("card.usage.outlined")}>
         <Card outlined>
@@ -52,6 +99,50 @@ export const CardDemo = () => {
             <p>{t("card.footer")}</p>
           </CardFooter>
         </Card>
+
+        <CodeBlock
+          exampleCode='
+<Card outlined>
+    <CardHeader>
+      <h3>{t("card.header")}</h3>
+    </CardHeader>
+    <CardBody>
+      <p>{t("card.body")}</p>
+    </CardBody>
+    <CardFooter>
+      <p>{t("card.footer")}</p>
+    </CardFooter>
+</Card>'
+        />
+      </Section>
+
+      <Section
+        title={t("headers.propertiesValue", {
+          value: "Properties",
+        })}
+      >
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "prop",
+              header: "Properties",
+            },
+            {
+              accessorKey: "type",
+              header: "Type",
+            },
+            {
+              accessorKey: "default",
+              header: "Default",
+            },
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+          ]}
+          data={data}
+          paginated={false}
+        />
       </Section>
     </Page>
   );
