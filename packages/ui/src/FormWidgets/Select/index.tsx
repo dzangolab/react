@@ -3,6 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import Divider from "@/Divider";
 
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
+import { Tooltip, TooltipProperties } from "../../Tooltip";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
 
@@ -15,11 +16,17 @@ export type Option<T> = {
 
 type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
 
+type TooltipOptions = Omit<
+  TooltipProperties,
+  "elementRef" | "children" | "className"
+>;
+
 export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
   className?: string;
   disabled?: boolean;
+  enableTooltip?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
@@ -27,12 +34,13 @@ export type ISelectProperties<T> = {
   label?: string | React.ReactNode;
   labelKey?: string;
   matchMenuTriggerWidth?: boolean;
+  menuOptions?: MenuOptions;
   multiple?: boolean;
   name: string;
   options: Option<T>[];
   placeholder?: string;
-  menuOptions?: MenuOptions;
   showRemoveSelection?: boolean;
+  tooltipOptions?: TooltipOptions;
   valueKey?: string;
   customSearchFn?: (searchInput: string) => Option<T>[];
   renderOption?: (option: Option<T>) => React.ReactNode;
@@ -56,6 +64,7 @@ export const Select = <T extends string | number>({
   className = "",
   disabled: selectFieldDisabled,
   errorMessage,
+  enableTooltip = false,
   hasError,
   helperText,
   hideIfSingleOption = false,
@@ -68,6 +77,7 @@ export const Select = <T extends string | number>({
   options,
   placeholder,
   showRemoveSelection = true,
+  tooltipOptions,
   value,
   valueKey,
   customSearchFn,
@@ -87,6 +97,8 @@ export const Select = <T extends string | number>({
   const [referenceElement, setReferenceElement] = useState<Element | null>(
     null,
   );
+
+  const tooltipReference = useRef<HTMLSpanElement>(null);
 
   const normalizedOptions = useMemo(() => {
     return options.map((option) => {
@@ -401,7 +413,14 @@ export const Select = <T extends string | number>({
           {renderValue ? (
             renderValue(value, normalizedOptions)
           ) : (
-            <span className="selected-options">{selectedOptions}</span>
+            <>
+              <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
+                {selectedOptions}
+              </Tooltip>
+              <span ref={tooltipReference} className="selected-options">
+                {selectedOptions}
+              </span>
+            </>
           )}
           <Divider />
         </div>
@@ -464,7 +483,16 @@ export const Select = <T extends string | number>({
         return renderValue(value, options);
       }
 
-      return <span className="selected-options">{selectedOptions}</span>;
+      return (
+        <>
+          <Tooltip elementRef={tooltipReference} {...tooltipOptions}>
+            {selectedOptions}
+          </Tooltip>
+          <span ref={tooltipReference} className="selected-options">
+            {selectedOptions}
+          </span>
+        </>
+      );
     };
 
     return (
