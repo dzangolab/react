@@ -59,7 +59,7 @@ export const CardDemo = () => {
         <CodeBlock exampleCode="import { Card } from 'dzangolab/react-ui';" />
       </Section>
 
-      <Section title={t("card.usage.default")}>
+      <Section title={t("card.usage.basic")}>
         <Card>
           <CardHeader>
             <h3>{t("card.header")}</h3>
@@ -82,15 +82,15 @@ import {
 } from "@dzangolab/react-ui";
 
 <Card>
-    <CardHeader>
-      <h3>{t("card.header")}</h3>
-    </CardHeader>
-    <CardBody>
-      <p>{t("card.body")}</p>
-    </CardBody>
-    <CardFooter>
-      <p>{t("card.footer")}</p>
-    </CardFooter>
+  <CardHeader>
+    <h3>{t("card.header")}</h3>
+  </CardHeader>
+  <CardBody>
+    <p>{t("card.body")}</p>
+  </CardBody>
+  <CardFooter>
+    <p>{t("card.footer")}</p>
+  </CardFooter>
 </Card>'
         />
       </Section>
@@ -117,22 +117,22 @@ import {
 } from "@dzangolab/react-ui";
 
 <Card outlined>
-    <CardHeader>
-      <h3>{t("card.header")}</h3>
-    </CardHeader>
-    <CardBody>
-      <p>{t("card.body")}</p>
-    </CardBody>
-    <CardFooter>
-      <p>{t("card.footer")}</p>
-    </CardFooter>
+  <CardHeader>
+    <h3>{t("card.header")}</h3>
+  </CardHeader>
+  <CardBody>
+    <p>{t("card.body")}</p>
+  </CardBody>
+  <CardFooter>
+    <p>{t("card.footer")}</p>
+  </CardFooter>
 </Card>'
         />
       </Section>
 
       <Section
         title={t("headers.propertiesValue", {
-          value: "Properties",
+          value: "CardProperties",
         })}
       >
         <TDataTable
