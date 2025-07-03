@@ -26,7 +26,7 @@ const data = [
     type: "ReactNode",
     default: "-",
     description:
-      "The content of the card. Typically includes child components like `CardHeader`, `CardBody`, and `CardFooter`.",
+      "The content of the card. Typically includes child components like `CardHeader`, `CardBody` and `CardFooter`.",
   },
   {
     id: 3,
@@ -74,6 +74,13 @@ export const CardDemo = () => {
 
         <CodeBlock
           exampleCode='
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+} from "@dzangolab/react-ui";
+
 <Card>
     <CardHeader>
       <h3>{t("card.header")}</h3>
@@ -102,6 +109,13 @@ export const CardDemo = () => {
 
         <CodeBlock
           exampleCode='
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+} from "@dzangolab/react-ui";
+
 <Card outlined>
     <CardHeader>
       <h3>{t("card.header")}</h3>
