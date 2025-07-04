@@ -56,8 +56,8 @@
     "body": "Card body",
     "footer": "Card footer",
     "usage": {
-      "default": "Default",
-      "outlined": "Outlined"
+      "basic": "Basic",
+      "outlined": "Outlined card"
     }
   },
   "confirmationModal": {
