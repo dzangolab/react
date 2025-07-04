@@ -201,7 +201,9 @@ export const SelectDemo = () => {
         {value.map((v) => {
           const label = options.find((option) => option.value === v)?.label;
 
-          if (!label) return null;
+          if (!label) {
+            return null;
+          }
 
           return <Tag key={v} label={label} />;
         })}
