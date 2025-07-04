@@ -410,10 +410,12 @@ export const Select = <T extends string | number>({
       ? renderValue(value, normalizedOptions)
       : selectedOptions;
 
+    const hasSelectedOptions = selectedOptions.trim().length > 0;
+
     return (
       <>
         <div
-          className={`selected-options-wrapper ${_options ? "visible" : ""}`}
+          className={`selected-options-wrapper ${hasSelectedOptions ? "visible" : ""}`}
         >
           {enableTooltip && (
             <Tooltip elementRef={menuTooltipReference} {...tooltipOptions}>
@@ -423,7 +425,7 @@ export const Select = <T extends string | number>({
           <span ref={menuTooltipReference} className="selected-options">
             {_options}
           </span>
-          {!!_options && <Divider />}
+          {hasSelectedOptions && <Divider />}
         </div>
         <ul aria-multiselectable={multiple} role="listbox">
           {multiple && (
