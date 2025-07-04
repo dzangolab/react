@@ -1,4 +1,8 @@
-import { Select as BasicSelect, GroupedOption, ISelectProperties, Option } from "@dzangolab/react-ui";
+import {
+  Select as BasicSelect,
+  ISelectProperties,
+  Option,
+} from "@dzangolab/react-ui";
 import React, { useEffect, useMemo } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
@@ -43,9 +47,9 @@ export const Select = <T extends string | number>({
   };
 
   const flatOptions = useMemo(() => {
-    return (options.flatMap((opt) =>
-      "options" in opt ? opt.options : [opt]
-    ) as Option<T>[]);
+    return options.flatMap((opt) =>
+      "options" in opt ? opt.options : [opt],
+    ) as Option<T>[];
   }, [options]);
 
   //TODO [MA 2024-05-31]: remove this redundant useEffect for auto selecting single option

@@ -15,8 +15,8 @@ export type Option<T> = {
 
 export type GroupedOption<T> = {
   label: string;
-  options: Option<T>[]
-}
+  options: Option<T>[];
+};
 
 type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
 
@@ -41,7 +41,10 @@ export type ISelectProperties<T> = {
   valueKey?: string;
   customSearchFn?: (searchInput: string) => Option<T>[];
   renderOption?: (option: Option<T> | GroupedOption<T>) => React.ReactNode;
-  renderValue?: (value?: T | T[], options?: Option<T>[] | GroupedOption<T>[]) => React.ReactNode;
+  renderValue?: (
+    value?: T | T[],
+    options?: Option<T>[] | GroupedOption<T>[],
+  ) => React.ReactNode;
 } & (
   | {
       multiple: true;
@@ -93,53 +96,43 @@ export const Select = <T extends string | number>({
     null,
   );
 
-  const normalizedOptions = useMemo(() => {
+  const normalizedOptions = useMemo((): (Option<T> & {
+    groupLabel?: string;
+  })[] => {
     if (!options || !options.length) {
       return [];
     }
-  
+
     const isGroupedOptionArray = (
-      options: (Option<T>[] | GroupedOption<T>[])
+      options: Option<T>[] | GroupedOption<T>[],
     ): options is GroupedOption<T>[] => {
       return (
         options.length > 0 &&
         Object.prototype.hasOwnProperty.call(options[0], "options")
       );
     };
-  
+
     if (isGroupedOptionArray(options)) {
-      return (options).flatMap((group) =>
+      return options.flatMap((group) =>
         group.options.map((option) => ({
           ...option,
           groupLabel: group.label,
-          label: (labelKey
-            ? option[labelKey]
-            : option.label
-          )?.toString(),
-          value: (valueKey
-            ? (option[valueKey] as T)
-            : (option.value as T)
-          ),
-        }))
+          label: (labelKey ? option[labelKey] : option.label)?.toString(),
+          value: valueKey ? (option[valueKey] as T) : (option.value as T),
+        })),
       );
     } else {
-      return (options).map((option) => {
+      return options.map((option) => {
         return {
           ...option,
-          label: (labelKey
-            ? option[labelKey]
-            : option.label
-          )?.toString(),
-          value: (valueKey
-            ? (option[valueKey] as T)
-            : (option.value as T)
-          ),
+          groupLabel: undefined,
+          label: (labelKey ? option[labelKey] : option.label)?.toString(),
+          value: valueKey ? (option[valueKey] as T) : (option.value as T),
         };
       });
     }
   }, [options, labelKey, valueKey]);
-  
-  console.log("normalized array", normalizedOptions)
+
   const sortedOptions = useMemo(() => {
     return !autoSortOptions
       ? normalizedOptions
@@ -423,7 +416,68 @@ export const Select = <T extends string | number>({
       }, 0);
     }
   };
- console.log("filteredvalue", filteredOptions)
+
+  const isGrouped = filteredOptions.some(
+    (option) => option.groupLabel !== undefined,
+  );
+
+  const groupedOptions = useMemo(() => {
+    if (!isGrouped) return null;
+
+    return filteredOptions.reduce(
+      (
+        accumulator: Record<string | number | symbol, typeof filteredOptions>,
+        item,
+      ) => {
+        const group = item.groupLabel as string;
+        if (!accumulator[group]) accumulator[group] = [];
+        accumulator[group].push(item);
+        return accumulator;
+      },
+      {},
+    );
+  }, [filteredOptions]);
+
+  const renderOptionItem = (
+    option: Option<T> & { groupLabel?: string },
+    index: number,
+  ) => {
+    const { disabled, label } = option;
+
+    return (
+      <li
+        key={index}
+        ref={(element) => (optionReference.current[index] = element)}
+        role="option"
+        className={
+          `${!multiple && value === option.value ? "selected" : ""}
+    ${disabled ? "disabled" : ""}
+    ${index === focusedOptionIndex ? "focused" : ""}
+  `.trim() || undefined
+        }
+        onClick={() => {
+          if (!disabled) {
+            handleSelectedOption(option.value as T);
+          }
+
+          if (!multiple && !disabled) {
+            setShowOptions(false);
+          }
+        }}
+      >
+        {multiple ? (
+          <Checkbox
+            name={label}
+            checked={value.includes(option.value as T)}
+            onChange={() => handleSelectedOption(option.value as T)}
+            disabled={disabled}
+          />
+        ) : null}
+        <span>{renderOption ? renderOption(option) : label}</span>
+      </li>
+    );
+  };
+
   const renderOptions = () => {
     return (
       <>
@@ -449,42 +503,18 @@ export const Select = <T extends string | number>({
             </li>
           )}
 
-          {filteredOptions?.map((option, index) => {
-            const { disabled, label } = option;
-
-            return (
-              <li
-                key={index}
-                ref={(element) => (optionReference.current[index] = element)}
-                role="option"
-                className={
-                  `${!multiple && value === option.value ? "selected" : ""}
-              ${disabled ? "disabled" : ""}
-              ${index === focusedOptionIndex ? "focused" : ""}
-            `.trim() || undefined
-                }
-                onClick={() => {
-                  if (!disabled) {
-                    handleSelectedOption(option.value as T);
-                  }
-
-                  if (!multiple && !disabled) {
-                    setShowOptions(false);
-                  }
-                }}
-              >
-                {multiple ? (
-                  <Checkbox
-                    name={label}
-                    checked={value.includes(option.value as T)}
-                    onChange={() => handleSelectedOption(option.value as T)}
-                    disabled={disabled}
-                  />
-                ) : null}
-                <span>{renderOption ? renderOption(option) : label}</span>
-              </li>
-            );
-          })}
+          {isGrouped && groupedOptions
+            ? Object.entries(groupedOptions).map(([groupLabel, options]) => (
+                <React.Fragment key={groupLabel}>
+                  {groupLabel && <li className="group-label">{groupLabel}</li>}
+                  {options.map((option, index) =>
+                    renderOptionItem(option, index),
+                  )}
+                </React.Fragment>
+              ))
+            : filteredOptions.map((option, index) =>
+                renderOptionItem(option, index),
+              )}
         </ul>
       </>
     );

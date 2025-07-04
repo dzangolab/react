@@ -138,8 +138,14 @@
   transition: background-color var(--transition-duration) linear;
 }
 
-.select-menu ul > li:hover,
-.select-menu ul > li.focused {
+.select-menu ul > li.group-label {
+  cursor: text;
+  font-weight: 600;
+}
+
+
+.select-menu ul > li:hover:not(.group-label),
+.select-menu ul > li.focused:not(.group-label) {
   background-color: var(--_option-background-color-hover);
 }
 
