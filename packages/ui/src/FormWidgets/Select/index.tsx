@@ -14,6 +14,11 @@ export type Option<T> = {
   [key: string]: unknown;
 };
 
+export type GroupedOption<T> = {
+  label: string;
+  options: Option<T>[]
+}
+
 type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
 
 type TooltipOptions = Omit<
@@ -37,14 +42,14 @@ export type ISelectProperties<T> = {
   menuOptions?: MenuOptions;
   multiple?: boolean;
   name: string;
-  options: Option<T>[];
+  options: Option<T>[] | GroupedOption<T>[];
   placeholder?: string;
   showRemoveSelection?: boolean;
   tooltipOptions?: TooltipOptions;
   valueKey?: string;
   customSearchFn?: (searchInput: string) => Option<T>[];
-  renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
+  renderOption?: (option: Option<T> | GroupedOption<T>) => React.ReactNode;
+  renderValue?: (value?: T | T[], options?: Option<T>[] | GroupedOption<T>[]) => React.ReactNode;
 } & (
   | {
       multiple: true;
@@ -102,25 +107,52 @@ export const Select = <T extends string | number>({
   const selectTooltipReference = useRef<HTMLSpanElement>(null);
 
   const normalizedOptions = useMemo(() => {
-    return options.map((option) => {
-      const _label =
-        labelKey && option[labelKey] !== undefined
-          ? String(option[labelKey])
-          : option.label;
-
-      const _value =
-        valueKey && option[valueKey] !== undefined
-          ? (option[valueKey] as T)
-          : option.value;
-
-      return {
-        ...option,
-        label: _label,
-        value: _value,
-      };
-    });
+    if (!options || !options.length) {
+      return [];
+    }
+  
+    const isGroupedOptionArray = (
+      options: (Option<T>[] | GroupedOption<T>[])
+    ): options is GroupedOption<T>[] => {
+      return (
+        options.length > 0 &&
+        Object.prototype.hasOwnProperty.call(options[0], "options")
+      );
+    };
+  
+    if (isGroupedOptionArray(options)) {
+      return (options).flatMap((group) =>
+        group.options.map((option) => ({
+          ...option,
+          groupLabel: group.label,
+          label: (labelKey
+            ? option[labelKey]
+            : option.label
+          )?.toString(),
+          value: (valueKey
+            ? (option[valueKey] as T)
+            : (option.value as T)
+          ),
+        }))
+      );
+    } else {
+      return (options).map((option) => {
+        return {
+          ...option,
+          label: (labelKey
+            ? option[labelKey]
+            : option.label
+          )?.toString(),
+          value: (valueKey
+            ? (option[valueKey] as T)
+            : (option.value as T)
+          ),
+        };
+      });
+    }
   }, [options, labelKey, valueKey]);
-
+  
+  console.log("normalized array", normalizedOptions)
   const sortedOptions = useMemo(() => {
     return !autoSortOptions
       ? normalizedOptions
@@ -404,7 +436,7 @@ export const Select = <T extends string | number>({
       }, 0);
     }
   };
-
+ console.log("filteredvalue", filteredOptions)
   const renderOptions = () => {
     const _options = renderValue
       ? renderValue(value, normalizedOptions)
