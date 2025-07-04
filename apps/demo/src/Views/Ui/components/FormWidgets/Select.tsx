@@ -53,20 +53,28 @@ const data = [
   },
   {
     id: 6,
+    prop: "enableTooltip",
+    type: "boolean",
+    default: "false",
+    description:
+      "When enableTooltip is true, select component renders the <Tooltip> component for the selected value.",
+  },
+  {
+    id: 7,
     prop: "hasError",
     type: "boolean",
     default: "-",
     description: "If true, error in component.",
   },
   {
-    id: 7,
+    id: 8,
     prop: "helperText",
     type: "string",
     default: "-",
     description: "Displays an error message below the component.",
   },
   {
-    id: 8,
+    id: 9,
     prop: "hideIfSingleOption",
     type: "boolean",
     default: "false",
@@ -74,84 +82,92 @@ const data = [
       "If there is only one option, and multiple is false, the Select component will not render the dropdown at all when set to true.",
   },
   {
-    id: 9,
+    id: 10,
     prop: "label",
     type: "string",
     default: "-",
     description: "Label of the component.",
   },
   {
-    id: 10,
+    id: 11,
     prop: "labelKey",
     type: "string",
     default: "-",
     description: "The key in option object to use as the display label.",
   },
   {
-    id: 11,
+    id: 12,
     prop: "multiple",
     type: "boolean",
     default: "false",
     description: "If true, multiple selection is enabled.",
   },
   {
-    id: 12,
+    id: 13,
     prop: "name",
     type: "string",
     default: "-",
     description: "Name of the component.",
   },
   {
-    id: 13,
+    id: 14,
     prop: "options",
     type: "Option[]",
     default: "-",
     description: "Options to pass in the select component.",
   },
   {
-    id: 14,
+    id: 15,
     prop: "placeholder",
     type: "string",
     default: "-",
     description: "Placeholder in the component.",
   },
   {
-    id: 15,
+    id: 16,
     prop: "showRemoveSelection",
     type: "boolean",
     default: "true",
     description: "If true, icon to remove selected options is visible.",
   },
   {
-    id: 16,
+    id: 17,
+    prop: "tooltipOptions",
+    type: "TooltipOptions",
+    default: "-",
+    description:
+      "Options to customize the tooltip’s behavior(example: position, offset).",
+  },
+  {
+    id: 18,
     prop: "value",
     type: "Value",
     default: "-",
     description: "Selected values of the component.",
   },
   {
-    id: 17,
+    id: 19,
     prop: "valueKey",
     type: "string",
     default: "-",
     description: "The key in option object to use as value.",
   },
   {
-    id: 18,
+    id: 20,
     prop: "renderOption",
     type: "(option: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select options.",
   },
   {
-    id: 19,
+    id: 21,
     prop: "renderValue",
     type: "(value?: Value, options?: Option[]) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select value.",
   },
   {
-    id: 20,
+    id: 22,
     prop: "onChange",
     type: " (newValue: T | T[]) => void",
     default: "-",
@@ -170,6 +186,7 @@ export const SelectDemo = () => {
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
   const [value, setValue] = useState("");
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
 
   const renderSelectedValue = (
     value?: string | string[],
@@ -183,7 +200,11 @@ export const SelectDemo = () => {
       <span className="selected-labels">
         {value.map((v) => {
           const label = options.find((option) => option.value === v)?.label;
-          if (!label) return null;
+
+          if (!label) {
+            return null;
+          }
+
           return <Tag key={v} label={label} />;
         })}
       </span>
@@ -461,6 +482,56 @@ const [value, setValue] = useState<string>("");
         />
       </Section>
 
+      <Section title={t("select.usage.withTooltip")}>
+        <Select
+          label={t("select.label")}
+          name="select"
+          options={[
+            { label: "France", value: "FR" },
+            { label: "Germany", value: "DE" },
+            { disabled: true, label: "Belgium", value: "BE" },
+            { label: "Nepal", value: "NP" },
+            { label: "India", value: "IN" },
+          ]}
+          value={selectedCountries}
+          onChange={(value: string[]) => setSelectedCountries(value)}
+          className="country-selector"
+          placeholder={t("select.placeholder")}
+          multiple
+          enableTooltip
+          tooltipOptions={{
+            position: "top",
+            offset: 15,
+          }}
+        />
+        <CodeBlock
+          exampleCode='
+const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+
+<Select
+  label={t("select.label")}
+  name="select"
+  options={[
+    { label: "France", value: "FR" },
+    { label: "Germany", value: "DE" },
+    { disabled: true, label: "Belgium", value: "BE" },
+    { label: "Nepal", value: "NP" },
+    { label: "India", value: "IN" },
+  ]}
+  value={selectedCountries}
+  onChange={(value: string[]) => setSelectedCountries(value)}
+  className="country-selector"
+  placeholder={t("select.placeholder")}
+  multiple
+  enableTooltip
+  tooltipOptions={{
+    position: "top",
+    offset: 15,
+  }}
+/>'
+        />
+      </Section>
+
       <Section title={t("select.usage.invalid")}>
         <Select
           label={t("select.label")}
@@ -531,7 +602,7 @@ const [selectedValue, setSelectedValue] = useState<string>("");
 
       <Section title="Type">
         <CodeBlock
-          exampleCode="
+          exampleCode='
 type Option<T extends string | number> = {
   disabled?: boolean;
   label: string;
@@ -539,7 +610,14 @@ type Option<T extends string | number> = {
 };
 
 type Value = string | number | (string | number)[]
-"
+
+type TooltipOptions = {
+  delay?: number;
+  mouseTrack?: boolean;
+  offset?: number;
+  position?: "top" | "bottom" | "right" | "left";
+}
+'
         />
       </Section>
     </Page>

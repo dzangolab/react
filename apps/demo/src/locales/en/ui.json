@@ -345,7 +345,8 @@
       "key": "With label and value keys",
       "multiple": "Multiple select",
       "renderOption": "Select with custom option",
-      "renderValue": "Select with custom selected value"
+      "renderValue": "Select with custom selected value",
+      "withTooltip": "With tooltip"
     }
   },
   "switchInput": {
