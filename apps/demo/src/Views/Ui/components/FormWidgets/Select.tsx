@@ -196,15 +196,17 @@ export const SelectDemo = () => {
       return null;
     }
 
-    return (
-      <span className="selected-labels">
-        {value.map((v) => {
-          const label = options.find((option) => option.value === v)?.label;
-          if (!label) return null;
-          return <Tag key={v} label={label} />;
-        })}
-      </span>
-    );
+    const tags = value.map((v) => {
+      const label = options.find((option) => option.value === v)?.label;
+
+      return <Tag key={v} label={label} />;
+    });
+
+    if (tags.length === 0) {
+      return null;
+    }
+
+    return <span className="selected-labels">{tags}</span>;
   };
 
   const renderOption = (option: Option<string>) => {

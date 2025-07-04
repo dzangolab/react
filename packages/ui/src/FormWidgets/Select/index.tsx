@@ -406,28 +406,25 @@ export const Select = <T extends string | number>({
   };
 
   const renderOptions = () => {
+    const _options = renderValue
+      ? renderValue(value, normalizedOptions)
+      : selectedOptions;
+
     return (
       <>
         <div
-          className={`selected-options-wrapper ${selectedOptions ? "visible" : ""}`}
+          className={`selected-options-wrapper ${_options ? "visible" : ""}`}
         >
-          {renderValue ? (
-            renderValue(value, normalizedOptions)
-          ) : (
-            <>
-              {enableTooltip && (
-                <Tooltip elementRef={menuTooltipReference} {...tooltipOptions}>
-                  {selectedOptions}
-                </Tooltip>
-              )}
-              <span ref={menuTooltipReference} className="selected-options">
-                {selectedOptions}
-              </span>
-            </>
+          {enableTooltip && (
+            <Tooltip elementRef={menuTooltipReference} {...tooltipOptions}>
+              {selectedOptions}
+            </Tooltip>
           )}
-          <Divider />
+          <span ref={menuTooltipReference} className="selected-options">
+            {_options}
+          </span>
+          {!!_options && <Divider />}
         </div>
-
         <ul aria-multiselectable={multiple} role="listbox">
           {multiple && (
             <li role="option" onClick={toggleSelectAll}>
@@ -482,10 +479,6 @@ export const Select = <T extends string | number>({
 
   const renderSelect = () => {
     const renderSelectValue = () => {
-      if (renderValue) {
-        return renderValue(value, options);
-      }
-
       return (
         <>
           {enableTooltip && (
@@ -495,7 +488,9 @@ export const Select = <T extends string | number>({
           )}
 
           <span ref={selectTooltipReference} className="selected-options">
-            {selectedOptions}
+            {renderValue
+              ? renderValue(value, normalizedOptions)
+              : selectedOptions}
           </span>
         </>
       );
