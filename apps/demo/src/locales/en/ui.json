@@ -341,6 +341,7 @@
     "usage": {
       "basic": "Basic",
       "disabled": "Disabled",
+      "group": "With grouping",
       "invalid": "Invalid",
       "key": "With label and value keys",
       "multiple": "Multiple select",
