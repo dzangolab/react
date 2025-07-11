@@ -138,6 +138,11 @@ export const TableHeader = <TData extends RowData>({
           options={column.columnDef.meta?.filterOptions || []}
           placeholder={column.columnDef.filterPlaceholder || ""}
           value={(columnFilterValue as string) || ""}
+          enableTooltip
+          tooltipOptions={{
+            position: "top",
+            offset: 15,
+          }}
         />
       );
     }
@@ -158,6 +163,11 @@ export const TableHeader = <TData extends RowData>({
           options={column.columnDef.meta?.filterOptions || []}
           placeholder={column.columnDef.filterPlaceholder || ""}
           value={(columnFilterValue as string[]) || []}
+          enableTooltip
+          tooltipOptions={{
+            position: "top",
+            offset: 15,
+          }}
         />
       );
     }

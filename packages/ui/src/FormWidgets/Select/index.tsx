@@ -1,9 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import Divider from "@/Divider";
 
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
+import { Tooltip, TooltipProperties } from "../../Tooltip";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
+
+import Divider from "@/Divider";
 
 export type Option<T> = {
   disabled?: boolean;
@@ -19,11 +21,17 @@ export type GroupedOption<T> = {
 
 type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
 
+type TooltipOptions = Omit<
+  TooltipProperties,
+  "elementRef" | "children" | "className"
+>;
+
 export type ISelectProperties<T> = {
   autoSelectSingleOption?: boolean;
   autoSortOptions?: boolean;
   className?: string;
   disabled?: boolean;
+  enableTooltip?: boolean;
   errorMessage?: string;
   hasError?: boolean;
   helperText?: string;
@@ -31,12 +39,13 @@ export type ISelectProperties<T> = {
   label?: string | React.ReactNode;
   labelKey?: string;
   matchMenuTriggerWidth?: boolean;
+  menuOptions?: MenuOptions;
   multiple?: boolean;
   name: string;
   options: Option<T>[] | GroupedOption<T>[];
   placeholder?: string;
-  menuOptions?: MenuOptions;
   showRemoveSelection?: boolean;
+  tooltipOptions?: TooltipOptions;
   valueKey?: string;
   customSearchFn?: (searchInput: string) => Option<T>[];
   renderOption?: (option: Option<T> | GroupedOption<T>) => React.ReactNode;
@@ -63,6 +72,7 @@ export const Select = <T extends string | number>({
   className = "",
   disabled: selectFieldDisabled,
   errorMessage,
+  enableTooltip = false,
   hasError,
   helperText,
   hideIfSingleOption = false,
@@ -75,6 +85,7 @@ export const Select = <T extends string | number>({
   options,
   placeholder,
   showRemoveSelection = true,
+  tooltipOptions,
   value,
   valueKey,
   customSearchFn,
@@ -94,6 +105,9 @@ export const Select = <T extends string | number>({
   const [referenceElement, setReferenceElement] = useState<Element | null>(
     null,
   );
+
+  const menuTooltipReference = useRef<HTMLSpanElement>(null);
+  const selectTooltipReference = useRef<HTMLSpanElement>(null);
 
   const normalizedOptions = useMemo((): (Option<T> & {
     groupLabel?: string;
@@ -479,19 +493,27 @@ export const Select = <T extends string | number>({
   };
 
   const renderOptions = () => {
+    const _options = renderValue
+      ? renderValue(value, normalizedOptions)
+      : selectedOptions;
+
+    const hasSelectedOptions = selectedOptions.trim().length > 0;
+
     return (
       <>
         <div
-          className={`selected-options-wrapper ${selectedOptions ? "visible" : ""}`}
+          className={`selected-options-wrapper ${hasSelectedOptions ? "visible" : ""}`}
         >
-          {renderValue ? (
-            renderValue(value, normalizedOptions)
-          ) : (
-            <span className="selected-options">{selectedOptions}</span>
+          {enableTooltip && (
+            <Tooltip elementRef={menuTooltipReference} {...tooltipOptions}>
+              {selectedOptions}
+            </Tooltip>
           )}
-          <Divider />
+          <span ref={menuTooltipReference} className="selected-options">
+            {_options}
+          </span>
+          {hasSelectedOptions && <Divider />}
         </div>
-
         <ul aria-multiselectable={multiple} role="listbox">
           {multiple && (
             <li role="option" onClick={toggleSelectAll}>
@@ -522,11 +544,21 @@ export const Select = <T extends string | number>({
 
   const renderSelect = () => {
     const renderSelectValue = () => {
-      if (renderValue) {
-        return renderValue(value, options);
-      }
+      return (
+        <>
+          {enableTooltip && (
+            <Tooltip elementRef={selectTooltipReference} {...tooltipOptions}>
+              {selectedOptions}
+            </Tooltip>
+          )}
 
-      return <span className="selected-options">{selectedOptions}</span>;
+          <span ref={selectTooltipReference} className="selected-options">
+            {renderValue
+              ? renderValue(value, normalizedOptions)
+              : selectedOptions}
+          </span>
+        </>
+      );
     };
 
     return (

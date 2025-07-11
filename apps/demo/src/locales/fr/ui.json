@@ -56,8 +56,8 @@
     "body": "Card body (fr)",
     "footer": "Card footer (fr)",
     "usage": {
-      "default": "Default (fr)",
-      "outlined": "Outlined (fr)"
+      "basic": "Basic (fr)",
+      "outlined": "Outlined card (fr)"
     }
   },
   "confirmationModal": {
@@ -346,7 +346,8 @@
       "key": "With label and value keys (fr)",
       "multiple": "Multiple select (fr)",
       "renderOption": "Select with custom option (fr)",
-      "renderValue": "Select with custom selected value (fr)"
+      "renderValue": "Select with custom selected value (fr)",
+      "withTooltip": "With tooltip (fr)"
     }
   },
   "switchInput": {

@@ -72,14 +72,14 @@ const data = [
   {
     id: 9,
     prop: "tabs",
-    type: "array",
+    type: "Tabs",
     default: "-",
     description: "Array of tab object.",
   },
   {
     id: 10,
     prop: "visibleTabs",
-    type: "array",
+    type: "VisibleTabs",
     default: "-",
     description: "Array of visible tabs.",
   },
@@ -809,7 +809,7 @@ enableHashRouting={true}
       <Section title="Type">
         <CodeBlock
           exampleCode="
-tabs = {
+Tabs = {
   children: React.ReactNode;
   closable?: boolean;
   icon?: string;
@@ -817,7 +817,7 @@ tabs = {
   label: string;
 }[];
 
-visibleTabs: string[]
+VisibleTabs: string[]
 "
         />
       </Section>
