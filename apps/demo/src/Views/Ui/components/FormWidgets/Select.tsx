@@ -571,6 +571,67 @@ const [selectedValue, setSelectedValue] = useState<string>("");
 />'
         />
       </Section>
+      <Section title={t("select.usage.group")}>
+        <Select
+          label={t("select.label")}
+          name="select"
+          options={[
+            {
+              label: "Europe",
+              options: [
+                { label: "Germany", value: "DE" },
+                { label: "France", value: "FR" },
+                { disabled: true, label: "Belgium", value: "BE" },
+              ],
+            },
+            {
+              label: "Asia",
+              options: [
+                { label: "Nepal", value: "NP" },
+                { label: "India", value: "IN" },
+              ],
+            },
+          ]}
+          value={singleSelectValue}
+          onChange={(value: string) => setSingleSelectValue(value)}
+          placeholder={t("select.placeholder")}
+        />
+        <CodeBlock
+          exampleCode='
+const [singleSelectValue, setSingleSelectValue] = useState<string>("");
+
+<Select
+  label={t("select.label")}
+  name="select"
+  options={[
+    {
+      label: "Europe",
+      options: [
+        { label: "Germany", value: "DE" },
+        { label: "France", value: "FR" },
+        { disabled: true, label: "Belgium", value: "BE" },
+      ],
+    },
+    {
+      label: "Asia",
+      options: [
+        { label: "Nepal", value: "NP" },
+        { label: "India", value: "IN" },
+      ],
+    },
+  ]}
+  value={singleSelectValue}
+  onChange={(value: string) => setSingleSelectValue(value)}
+  placeholder={t("select.placeholder")}
+/>'
+        />
+        <p>
+          <Trans
+            i18nKey={"ui:select.autoSortOptionsInfo"}
+            components={{ code: <code /> }}
+          ></Trans>
+        </p>
+      </Section>
       <Section
         title={t("headers.propertiesValue", {
           value: "ISelectProperties",
@@ -598,68 +659,6 @@ const [selectedValue, setSelectedValue] = useState<string>("");
           data={data}
           paginated={false}
         />
-      </Section>
-
-      <Section title={t("select.usage.group")}>
-        <Select
-          label={t("select.label")}
-          name="select"
-          options={[
-            {
-              label: "europe",
-              options: [
-                { label: "germany", value: "DE" },
-                { label: "france", value: "FR" },
-                { disabled: true, label: "belgium", value: "BE" },
-              ],
-            },
-            {
-              label: "asia",
-              options: [
-                { label: "nepal", value: "NP" },
-                { label: "india", value: "IN" },
-              ],
-            },
-          ]}
-          value={singleSelectValue}
-          onChange={(value: string) => setSingleSelectValue(value)}
-          placeholder={t("select.placeholder")}
-        />
-        <CodeBlock
-          exampleCode='
-const [singleSelectValue, setSingleSelectValue] = useState<string>("");
-
-<Select
-  label={t("select.label")}
-  name="select"
-  options={[
-    {
-      label: t("europe"),
-      options: [
-        { label: t("germany"), value: "DE" },
-        { label: t("france"), value: "FR" },
-        { disabled: true, label: t("belgium"), value: "BE" },
-      ],
-    },
-    {
-      label: t("asia"),
-      options: [
-        { label: t("nepal"), value: "NP" },
-        { label: t("india"), value: "IN" },
-      ],
-    },
-  ]}
-  value={singleSelectValue}
-  onChange={(value: string) => setSingleSelectValue(value)}
-  placeholder={t("select.placeholder")}
-/>'
-        />
-        <p>
-          <Trans
-            i18nKey={"ui:select.autoSortOptionsInfo"}
-            components={{ code: <code /> }}
-          ></Trans>
-        </p>
       </Section>
 
       <Section title="Type">
