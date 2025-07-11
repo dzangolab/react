@@ -1,17 +1,22 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import Divider from "@/Divider";
-
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
 import { Tooltip, TooltipProperties } from "../../Tooltip";
 import { Checkbox } from "../Checkbox";
 import { DebouncedInput } from "../DebouncedInput";
+
+import Divider from "@/Divider";
 
 export type Option<T> = {
   disabled?: boolean;
   label?: string;
   value?: T;
   [key: string]: unknown;
+};
+
+export type GroupedOption<T> = {
+  label: string;
+  options: Option<T>[];
 };
 
 type MenuOptions = Partial<Omit<PopupMenuProperties, "referenceElement">>;
@@ -37,14 +42,17 @@ export type ISelectProperties<T> = {
   menuOptions?: MenuOptions;
   multiple?: boolean;
   name: string;
-  options: Option<T>[];
+  options: Option<T>[] | GroupedOption<T>[];
   placeholder?: string;
   showRemoveSelection?: boolean;
   tooltipOptions?: TooltipOptions;
   valueKey?: string;
   customSearchFn?: (searchInput: string) => Option<T>[];
-  renderOption?: (option: Option<T>) => React.ReactNode;
-  renderValue?: (value?: T | T[], options?: Option<T>[]) => React.ReactNode;
+  renderOption?: (option: Option<T> | GroupedOption<T>) => React.ReactNode;
+  renderValue?: (
+    value?: T | T[],
+    options?: Option<T>[] | GroupedOption<T>[],
+  ) => React.ReactNode;
 } & (
   | {
       multiple: true;
@@ -101,24 +109,41 @@ export const Select = <T extends string | number>({
   const menuTooltipReference = useRef<HTMLSpanElement>(null);
   const selectTooltipReference = useRef<HTMLSpanElement>(null);
 
-  const normalizedOptions = useMemo(() => {
-    return options.map((option) => {
-      const _label =
-        labelKey && option[labelKey] !== undefined
-          ? String(option[labelKey])
-          : option.label;
+  const normalizedOptions = useMemo((): (Option<T> & {
+    groupLabel?: string;
+  })[] => {
+    if (!options || !options.length) {
+      return [];
+    }
 
-      const _value =
-        valueKey && option[valueKey] !== undefined
-          ? (option[valueKey] as T)
-          : option.value;
+    const isGroupedOptionArray = (
+      options: Option<T>[] | GroupedOption<T>[],
+    ): options is GroupedOption<T>[] => {
+      return (
+        options.length > 0 &&
+        Object.prototype.hasOwnProperty.call(options[0], "options")
+      );
+    };
 
-      return {
-        ...option,
-        label: _label,
-        value: _value,
-      };
-    });
+    if (isGroupedOptionArray(options)) {
+      return options.flatMap((group) =>
+        group.options.map((option) => ({
+          ...option,
+          groupLabel: group.label,
+          label: (labelKey ? option[labelKey] : option.label)?.toString(),
+          value: valueKey ? (option[valueKey] as T) : (option.value as T),
+        })),
+      );
+    } else {
+      return options.map((option) => {
+        return {
+          ...option,
+          groupLabel: undefined,
+          label: (labelKey ? option[labelKey] : option.label)?.toString(),
+          value: valueKey ? (option[valueKey] as T) : (option.value as T),
+        };
+      });
+    }
   }, [options, labelKey, valueKey]);
 
   const sortedOptions = useMemo(() => {
@@ -405,6 +430,68 @@ export const Select = <T extends string | number>({
     }
   };
 
+  const isGrouped = filteredOptions.some(
+    (option) => option.groupLabel !== undefined,
+  );
+
+  const groupedOptions = useMemo(() => {
+    if (!isGrouped) return null;
+
+    return filteredOptions.reduce(
+      (
+        accumulator: Record<string | number | symbol, typeof filteredOptions>,
+        item,
+      ) => {
+        const group = item.groupLabel as string;
+        if (!accumulator[group]) accumulator[group] = [];
+        accumulator[group].push(item);
+        return accumulator;
+      },
+      {},
+    );
+  }, [filteredOptions]);
+
+  const renderOptionItem = (
+    option: Option<T> & { groupLabel?: string },
+    index: number,
+  ) => {
+    const { disabled, label } = option;
+
+    return (
+      <li
+        key={index}
+        ref={(element) => (optionReference.current[index] = element)}
+        role="option"
+        className={
+          `${!multiple && value === option.value ? "selected" : ""}
+          ${isGrouped ? "group-option" : ""}
+          ${disabled ? "disabled" : ""}
+          ${index === focusedOptionIndex ? "focused" : ""}
+          `.trim() || undefined
+        }
+        onClick={() => {
+          if (!disabled) {
+            handleSelectedOption(option.value as T);
+          }
+
+          if (!multiple && !disabled) {
+            setShowOptions(false);
+          }
+        }}
+      >
+        {multiple ? (
+          <Checkbox
+            name={label}
+            checked={value.includes(option.value as T)}
+            onChange={() => handleSelectedOption(option.value as T)}
+            disabled={disabled}
+          />
+        ) : null}
+        <span>{renderOption ? renderOption(option) : label}</span>
+      </li>
+    );
+  };
+
   const renderOptions = () => {
     const _options = renderValue
       ? renderValue(value, normalizedOptions)
@@ -438,42 +525,18 @@ export const Select = <T extends string | number>({
             </li>
           )}
 
-          {filteredOptions?.map((option, index) => {
-            const { disabled, label } = option;
-
-            return (
-              <li
-                key={index}
-                ref={(element) => (optionReference.current[index] = element)}
-                role="option"
-                className={
-                  `${!multiple && value === option.value ? "selected" : ""}
-              ${disabled ? "disabled" : ""}
-              ${index === focusedOptionIndex ? "focused" : ""}
-            `.trim() || undefined
-                }
-                onClick={() => {
-                  if (!disabled) {
-                    handleSelectedOption(option.value as T);
-                  }
-
-                  if (!multiple && !disabled) {
-                    setShowOptions(false);
-                  }
-                }}
-              >
-                {multiple ? (
-                  <Checkbox
-                    name={label}
-                    checked={value.includes(option.value as T)}
-                    onChange={() => handleSelectedOption(option.value as T)}
-                    disabled={disabled}
-                  />
-                ) : null}
-                <span>{renderOption ? renderOption(option) : label}</span>
-              </li>
-            );
-          })}
+          {isGrouped && groupedOptions
+            ? Object.entries(groupedOptions).map(([groupLabel, options]) => (
+                <React.Fragment key={groupLabel}>
+                  {groupLabel && <li className="group-label">{groupLabel}</li>}
+                  {options.map((option, index) =>
+                    renderOptionItem(option, index),
+                  )}
+                </React.Fragment>
+              ))
+            : filteredOptions.map((option, index) =>
+                renderOptionItem(option, index),
+              )}
         </ul>
       </>
     );
