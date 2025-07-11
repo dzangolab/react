@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-
 import Divider from "@/Divider";
 
 import { PopupMenu, PopupMenuProperties } from "../../Popup";
@@ -451,9 +450,10 @@ export const Select = <T extends string | number>({
         role="option"
         className={
           `${!multiple && value === option.value ? "selected" : ""}
-    ${disabled ? "disabled" : ""}
-    ${index === focusedOptionIndex ? "focused" : ""}
-  `.trim() || undefined
+          ${isGrouped ? "group-option" : ""}
+          ${disabled ? "disabled" : ""}
+          ${index === focusedOptionIndex ? "focused" : ""}
+          `.trim() || undefined
         }
         onClick={() => {
           if (!disabled) {
