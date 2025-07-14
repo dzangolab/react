@@ -251,11 +251,16 @@ export const Select = <T extends string | number>({
 
   const selectedOptions = useMemo(() => {
     if (multiple) {
-      if (!value?.length) return "";
+      if (!value?.length) {
+        return "";
+      }
 
-      return normalizedOptions
-        .filter((opt) => value.includes(opt.value as T))
-        .map((opt) => opt.label)
+      return value
+        .map(
+          (value_) =>
+            normalizedOptions.find((opt) => opt.value === value_)?.label,
+        )
+        .filter(Boolean)
         .join(", ");
     }
 
