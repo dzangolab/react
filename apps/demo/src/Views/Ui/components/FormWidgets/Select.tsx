@@ -632,6 +632,64 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
           ></Trans>
         </p>
       </Section>
+      <Section title={t("select.usage.groupMultiSelect")}>
+        <Select
+          label={t("select.label")}
+          name="select"
+          options={[
+            {
+              label: "Europe",
+              options: [
+                { label: "Germany", value: "DE" },
+                { label: "France", value: "FR" },
+                { disabled: true, label: "Belgium", value: "BE" },
+              ],
+            },
+            {
+              label: "Asia",
+              options: [
+                { label: "Nepal", value: "NP" },
+                { label: "India", value: "IN" },
+              ],
+            },
+          ]}
+          multiple={true}
+          value={multiselectValue}
+          onChange={(value: string[]) => setMultiselectValue(value)}
+          placeholder={t("select.multiSelectPlaceholder")}
+        />
+        <CodeBlock
+          exampleCode='
+const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("");
+
+<Select
+  label={t("select.label")}
+  name="select"
+  options={
+    [
+      {
+        label: "Europe",
+        options: [
+          { label: "Germany", value: "DE" },
+          { label: "France", value: "FR" },
+          { disabled: true, label: "Belgium", value: "BE" },
+        ],
+      },
+      {
+        label: "Asia",
+        options: [
+          { label: "Nepal", value: "NP" },
+          { label: "India", value: "IN" },
+        ],
+      },
+    ]}
+  multiple={true}
+  value={multiselectValue}
+  onChange={(value: string[]) => setMultiselectValue(value)}
+  placeholder={t("select.multiSelectPlaceholder")}
+/>'
+        />
+      </Section>
       <Section
         title={t("headers.propertiesValue", {
           value: "ISelectProperties",

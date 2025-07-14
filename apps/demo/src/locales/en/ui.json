@@ -342,6 +342,7 @@
       "basic": "Basic",
       "disabled": "Disabled",
       "group": "With grouping",
+      "groupMultiSelect": "Multiselect with grouping",
       "invalid": "Invalid",
       "key": "With label and value keys",
       "multiple": "Multiple select",
