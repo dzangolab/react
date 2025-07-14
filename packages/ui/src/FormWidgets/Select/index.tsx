@@ -575,7 +575,7 @@ export const Select = <T extends string | number>({
                 <React.Fragment key={groupLabel}>
                   {groupLabel && multiple && !disableGroupSelect ? (
                     <li
-                      className="group-label"
+                      className="multi-select-group-label"
                       onClick={() => toggleGroupSelection(groupLabel)}
                     >
                       <Checkbox

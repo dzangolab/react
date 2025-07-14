@@ -138,7 +138,8 @@
   transition: background-color var(--transition-duration) linear;
 }
 
-.select-menu ul > li.group-label {
+.select-menu ul > li.group-label,
+.select-menu ul > li.multi-select-group-label {
   cursor: text;
   font-weight: 600;
 }
