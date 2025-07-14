@@ -19,7 +19,8 @@
     "panel": "Panel",
     "properties": "Properties (fr)",
     "propertiesValue": "Properties: {{value}}",
-    "usage": "Usage (fr)"
+    "usage": "Usage (fr)",
+    "types": "Types (fr)"
   },
   "button": {
     "title": "Button (fr)",

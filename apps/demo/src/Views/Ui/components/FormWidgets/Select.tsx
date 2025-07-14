@@ -46,13 +46,21 @@ const data = [
   },
   {
     id: 5,
+    prop: "disableGroupSelect",
+    type: "boolean",
+    default: "-",
+    description:
+      "Remove checkbox on group label for selecting all group options.",
+  },
+  {
+    id: 6,
     prop: "errorMessage",
     type: "string",
     default: "-",
     description: "Displays an error message below the component.",
   },
   {
-    id: 6,
+    id: 7,
     prop: "enableTooltip",
     type: "boolean",
     default: "false",
@@ -60,21 +68,21 @@ const data = [
       "When enableTooltip is true, select component renders the <Tooltip> component for the selected value.",
   },
   {
-    id: 7,
+    id: 8,
     prop: "hasError",
     type: "boolean",
     default: "-",
     description: "If true, error in component.",
   },
   {
-    id: 8,
+    id: 9,
     prop: "helperText",
     type: "string",
     default: "-",
     description: "Displays an error message below the component.",
   },
   {
-    id: 9,
+    id: 10,
     prop: "hideIfSingleOption",
     type: "boolean",
     default: "false",
@@ -82,56 +90,56 @@ const data = [
       "If there is only one option, and multiple is false, the Select component will not render the dropdown at all when set to true.",
   },
   {
-    id: 10,
+    id: 11,
     prop: "label",
     type: "string",
     default: "-",
     description: "Label of the component.",
   },
   {
-    id: 11,
+    id: 12,
     prop: "labelKey",
     type: "string",
     default: "-",
     description: "The key in option object to use as the display label.",
   },
   {
-    id: 12,
+    id: 13,
     prop: "multiple",
     type: "boolean",
     default: "false",
     description: "If true, multiple selection is enabled.",
   },
   {
-    id: 13,
+    id: 14,
     prop: "name",
     type: "string",
     default: "-",
     description: "Name of the component.",
   },
   {
-    id: 14,
+    id: 15,
     prop: "options",
-    type: "Option[]",
+    type: "Option[] | GroupedOption[]",
     default: "-",
     description: "Options to pass in the select component.",
   },
   {
-    id: 15,
+    id: 16,
     prop: "placeholder",
     type: "string",
     default: "-",
     description: "Placeholder in the component.",
   },
   {
-    id: 16,
+    id: 17,
     prop: "showRemoveSelection",
     type: "boolean",
     default: "true",
     description: "If true, icon to remove selected options is visible.",
   },
   {
-    id: 17,
+    id: 18,
     prop: "tooltipOptions",
     type: "TooltipOptions",
     default: "-",
@@ -139,35 +147,38 @@ const data = [
       "Options to customize the tooltip’s behavior(example: position, offset).",
   },
   {
-    id: 18,
+    id: 19,
     prop: "value",
     type: "Value",
     default: "-",
     description: "Selected values of the component.",
   },
   {
-    id: 19,
+    id: 20,
     prop: "valueKey",
     type: "string",
     default: "-",
     description: "The key in option object to use as value.",
   },
   {
-    id: 20,
+    id: 21,
     prop: "renderOption",
-    type: "(option: Option[]) => React.ReactNode",
+    type: "(option: Option<T> | GroupedOption<T>) => React.ReactNode",
     default: "-",
     description: "Function to be called to render custom select options.",
   },
   {
-    id: 21,
+    id: 22,
     prop: "renderValue",
-    type: "(value?: Value, options?: Option[]) => React.ReactNode",
+    type: `(
+      value?: T | T[],
+      options?: Option<T>[] | GroupedOption<T>[]
+    ) => React.ReactNode`,
     default: "-",
     description: "Function to be called to render custom select value.",
   },
   {
-    id: 22,
+    id: 23,
     prop: "onChange",
     type: " (newValue: T | T[]) => void",
     default: "-",
@@ -182,6 +193,15 @@ export const SelectDemo = () => {
   const [multiselectValue, setMultiselectValue] = useState<string[]>([]);
 
   const [singleSelectValue, setSingleSelectValue] = useState<string>("");
+  const [singleSelectGroupValue, setSingleSelectGroupValue] =
+    useState<string>("");
+  const [multiSelectGroupValue, setMultiSelectGroupValue] = useState<string[]>(
+    [],
+  );
+  const [
+    multiSelectGroupSelectDisableValue,
+    setMultiSelectGroupSelectDisableValue,
+  ] = useState<string[]>([]);
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [renderedValue, setRenderedValue] = useState<string[]>([]);
   const [renderedOption, setRenderedOption] = useState<string[]>([]);
@@ -592,13 +612,13 @@ const [selectedValue, setSelectedValue] = useState<string>("");
               ],
             },
           ]}
-          value={singleSelectValue}
-          onChange={(value: string) => setSingleSelectValue(value)}
+          value={singleSelectGroupValue}
+          onChange={(value: string) => setSingleSelectGroupValue(value)}
           placeholder={t("select.placeholder")}
         />
         <CodeBlock
           exampleCode='
-const [singleSelectValue, setSingleSelectValue] = useState<string>("");
+const [singleSelectGroupValue, setSingleSelectGroupValue] = useState<string>("");
 
 <Select
   label={t("select.label")}
@@ -620,8 +640,8 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
       ],
     },
   ]}
-  value={singleSelectValue}
-  onChange={(value: string) => setSingleSelectValue(value)}
+  value={singleSelectGroupValue}
+  onChange={(value: string) => setSingleSelectGroupValue(value)}
   placeholder={t("select.placeholder")}
 />'
         />
@@ -654,13 +674,13 @@ const [singleSelectValue, setSingleSelectValue] = useState<string>("");
             },
           ]}
           multiple={true}
-          value={multiselectValue}
-          onChange={(value: string[]) => setMultiselectValue(value)}
+          value={multiSelectGroupValue}
+          onChange={(value: string[]) => setMultiSelectGroupValue(value)}
           placeholder={t("select.multiSelectPlaceholder")}
         />
         <CodeBlock
           exampleCode='
-const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("");
+const [multiSelectGroupValue, setMultiSelectGroupValue] = useState<string[]>([]);
 
 <Select
   label={t("select.label")}
@@ -684,8 +704,8 @@ const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("")
       },
     ]}
   multiple={true}
-  value={multiselectValue}
-  onChange={(value: string[]) => setMultiselectValue(value)}
+  value={multiSelectGroupValue}
+  onChange={(value: string[]) => setMultiSelectGroupValue(value)}
   placeholder={t("select.multiSelectPlaceholder")}
 />'
         />
@@ -713,13 +733,15 @@ const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("")
             },
           ]}
           multiple={true}
-          value={multiselectValue}
-          onChange={(value: string[]) => setMultiselectValue(value)}
+          value={multiSelectGroupSelectDisableValue}
+          onChange={(value: string[]) =>
+            setMultiSelectGroupSelectDisableValue(value)
+          }
           placeholder={t("select.multiSelectPlaceholder")}
         />
         <CodeBlock
           exampleCode='
-const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("");
+const [multiSelectGroupSelectDisableValue, setMultiSelectGroupSelectDisableValue] = useState<string[]>([]);
 
 <Select
   label={t("select.label")}
@@ -744,8 +766,8 @@ const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("")
       },
     ]}
   multiple={true}
-  value={multiselectValue}
-  onChange={(value: string[]) => setMultiselectValue(value)}
+  value={multiSelectGroupSelectDisableValue}
+  onChange={(value: string[]) => setMultiSelectGroupSelectDisableValue(value)}
   placeholder={t("select.multiSelectPlaceholder")}
 />'
         />
@@ -779,13 +801,18 @@ const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("")
         />
       </Section>
 
-      <Section title="Type">
+      <Section title={t("headers.types")}>
         <CodeBlock
           exampleCode='
 type Option<T extends string | number> = {
   disabled?: boolean;
   label: string;
   value: T;
+};
+
+type GroupedOption<T = string | number> = {
+  label: string;
+  options: Option<T>[];
 };
 
 type Value = string | number | (string | number)[]
