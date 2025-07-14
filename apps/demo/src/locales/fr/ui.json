@@ -341,6 +341,9 @@
     "usage": {
       "basic": "Basic",
       "disabled": "Disabled (fr)",
+      "group": "With grouping (fr)",
+      "groupMultiSelect": "Multiselect with grouping (fr)",
+      "groupMultiSelectDisabled": "Multiselect with group select disabled (fr)",
       "invalid": "Invalid (fr)",
       "key": "With label and value keys (fr)",
       "multiple": "Multiple select (fr)",
