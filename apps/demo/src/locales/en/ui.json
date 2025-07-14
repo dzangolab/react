@@ -19,7 +19,8 @@
     "panel": "Panel",
     "properties": "Properties",
     "propertiesValue": "Properties: {{value}}",
-    "usage": "Usage"
+    "usage": "Usage",
+    "types": "Types"
   },
   "button": {
     "title": "Button",
