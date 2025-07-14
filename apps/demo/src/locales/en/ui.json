@@ -343,6 +343,7 @@
       "disabled": "Disabled",
       "group": "With grouping",
       "groupMultiSelect": "Multiselect with grouping",
+      "groupMultiSelectDisabled": "Multiselect with group select disabled",
       "invalid": "Invalid",
       "key": "With label and value keys",
       "multiple": "Multiple select",
