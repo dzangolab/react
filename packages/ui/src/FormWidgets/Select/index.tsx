@@ -31,6 +31,7 @@ export type ISelectProperties<T> = {
   autoSortOptions?: boolean;
   className?: string;
   disabled?: boolean;
+  disableGroupSelect?: boolean;
   enableTooltip?: boolean;
   errorMessage?: string;
   hasError?: boolean;
@@ -71,6 +72,7 @@ export const Select = <T extends string | number>({
   autoSortOptions = true,
   className = "",
   disabled: selectFieldDisabled,
+  disableGroupSelect,
   errorMessage,
   enableTooltip = false,
   hasError,
@@ -181,6 +183,20 @@ export const Select = <T extends string | number>({
     );
   }, [activeOptions, value]);
 
+  const isGroupSelected = (groupLabel: string) => {
+    const groupItems = groupedOptions?.[groupLabel];
+
+    const valuesInGroup = groupItems
+      ?.filter((option) => !option.disabled)
+      .map((option) => option.value) as T[];
+
+    return (
+      multiple &&
+      valuesInGroup.length > 0 &&
+      valuesInGroup.every((v) => value.includes(v))
+    );
+  };
+
   const toggleSelectAll = () => {
     if (!multiple) {
       return;
@@ -194,6 +210,28 @@ export const Select = <T extends string | number>({
     setTimeout(() => {
       searchInputReference.current?.focus();
     }, 0);
+  };
+
+  const toggleGroupSelection = (groupLabel: string) => {
+    if (!multiple || !groupedOptions) {
+      return;
+    }
+
+    const groupItems = groupedOptions[groupLabel];
+
+    const enabledOptions = groupItems
+      .map((option) => option)
+      .filter((option) => !option.disabled);
+
+    const valuesInGroup = enabledOptions.map((option) => option.value) as T[];
+
+    const isGroupFullySelected = valuesInGroup.every((v) => value.includes(v));
+
+    const newValue = isGroupFullySelected
+      ? value.filter((v) => !valuesInGroup.includes(v))
+      : [...value, ...valuesInGroup.filter((v) => !value.includes(v))];
+
+    onChange(newValue);
   };
 
   const shouldAutoSelect = useMemo(() => {
@@ -435,7 +473,9 @@ export const Select = <T extends string | number>({
   );
 
   const groupedOptions = useMemo(() => {
-    if (!isGrouped) return null;
+    if (!isGrouped) {
+      return null;
+    }
 
     return filteredOptions.reduce(
       (
@@ -443,8 +483,13 @@ export const Select = <T extends string | number>({
         item,
       ) => {
         const group = item.groupLabel as string;
-        if (!accumulator[group]) accumulator[group] = [];
+
+        if (!accumulator[group]) {
+          accumulator[group] = [];
+        }
+
         accumulator[group].push(item);
+
         return accumulator;
       },
       {},
@@ -528,7 +573,21 @@ export const Select = <T extends string | number>({
           {isGrouped && groupedOptions
             ? Object.entries(groupedOptions).map(([groupLabel, options]) => (
                 <React.Fragment key={groupLabel}>
-                  {groupLabel && <li className="group-label">{groupLabel}</li>}
+                  {groupLabel && multiple && !disableGroupSelect ? (
+                    <li
+                      className="group-label"
+                      onClick={() => toggleGroupSelection(groupLabel)}
+                    >
+                      <Checkbox
+                        checked={isGroupSelected(groupLabel)}
+                        disabled={options.every((option) => option.disabled)}
+                        onChange={() => toggleGroupSelection(groupLabel)}
+                      />
+                      <span>{groupLabel}</span>
+                    </li>
+                  ) : (
+                    <li className="group-label">{groupLabel}</li>
+                  )}
                   {options.map((option, index) =>
                     renderOptionItem(option, index),
                   )}
