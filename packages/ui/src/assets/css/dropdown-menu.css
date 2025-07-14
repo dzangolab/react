@@ -11,6 +11,7 @@
 }
 
 .dropdown-menu .dropdown-menu-trigger > span {
+  line-height: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

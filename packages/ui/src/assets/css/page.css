@@ -18,12 +18,7 @@
 }
 
 .dz-page > .dz-page-content > div[role="alert"].error > span {
-  color: var(--error-text-color, red);
-  font-size: var(--error-font-size, 1rem);
-}
-
-.dz-page > .dz-page-content {
-  margin-top: 1rem;
+  color: var(--dz-danger-color, red);
 }
 
 .dz-page > .dz-page-header > .dz-page-title-wrapper {
@@ -37,7 +32,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: var(--dz-page-gap);
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 

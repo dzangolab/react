@@ -21,27 +21,27 @@
   --data-stat-padding-inline: 0.75rem;
   --data-stat-min-width: 13rem;
 
-  --dz-primary-color: #007aff;
+  --dz-primary-color: #2563eb;
   --dz-secondary-color: #475569;
   --dz-alternate-color: #0284c7;
   --dz-danger-color: #dc3545;
   --dz-success-color: #22c55e;
   --dz-warning-color: #ea580c;
 
-  --dz-nav-item-active-bg: rgba(45, 45, 45, 0.125);
-  --dz-nav-item-active-color: var(--dz-nav-item-color);
+  --dz-nav-item-active-bg: #eff6ff;
+  --dz-nav-item-active-color: var(--dz-primary-color);
   --dz-nav-item-border-radius: 0;
-  --dz-nav-item-color: #ffffff;
-  --dz-nav-item-hover-bg: rgba(45, 45, 45, 0.125);
+  --dz-nav-item-color: var(--color);
+  --dz-nav-item-hover-bg: #f0f2f7ad;
   --dz-nav-item-hover-color: var(--dz-nav-item-color);
   --dz-nav-item-padding-h: 1.5rem;
-  --dz-nav-item-padding-v: 0.625rem;
+  --dz-nav-item-padding-v: 0.5rem;
   --dz-nav-menu-label-color: var(--dz-nav-item-color);
   --dz-nav-menu-padding-h: 0;
   --dz-nav-menu-padding-v: 1rem;
-  --dz-nav-menu-separator-color: #dbdbdb;
+  --dz-nav-menu-separator-color: #e5e7eb;
 
-  --dz-page-gap: 0.5rem;
+  --dz-page-gap: 1rem;
   --dz-page-max-width: 550px;
 
   --dz-table-border: 1px solid rgb(226, 226, 226);
@@ -49,7 +49,7 @@
   --dz-table-overlay-bg: rgba(255, 255, 255, 0.6);
   --dz-table-header-active-bg: rgb(232, 240, 255);
   --dz-table-row-hover-bg: #318aff0f;
-  --dz-table-column-padding: 0.75rem;
+  --dz-table-column-padding: 0.5rem 0.75rem;
   --dz-table-row-selected-bg: rgb(240, 245, 255);
   --dz-table-body-bg: transparent;
   --dz-table-stripe-color: transparent;
