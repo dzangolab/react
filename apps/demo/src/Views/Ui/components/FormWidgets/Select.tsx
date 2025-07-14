@@ -680,11 +680,7 @@ const [singleSelectGroupValue, setSingleSelectGroupValue] = useState<string>("")
         />
         <CodeBlock
           exampleCode='
-<<<<<<< HEAD
 const [multiSelectGroupValue, setMultiSelectGroupValue] = useState<string[]>([]);
-=======
-const [multiSelectPlaceholder, setMultiSelectPlaceholder] = useState<string>("");
->>>>>>> 4ddd0e9abd575df52d8e1f7a93e33f0667359528
 
 <Select
   label={t("select.label")}
