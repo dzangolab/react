@@ -26,6 +26,13 @@ export const MessageDemo = () => {
           icon={<i className="pi pi-info-circle" />}
         />
       </Section>
+
+      <Section>
+        <Message
+          message="New features just launched! Check them out."
+          icon={<i className="pi pi-android" />}
+        />
+      </Section>
     </Page>
   );
 };
