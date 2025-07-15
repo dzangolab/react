@@ -2,10 +2,11 @@ import { ReactNode, useState } from "react";
 
 type MessageProperties = {
   enableClose?: boolean;
+  icon?: string | ReactNode;
   message: string;
   onClose?: () => void;
-  icon?: string | ReactNode;
   severity?: "info" | "success" | "warning" | "danger";
+  showIcon?: boolean;
 };
 
 const Message = ({
@@ -14,8 +15,16 @@ const Message = ({
   message,
   icon,
   severity = "info",
+  showIcon = true,
 }: MessageProperties) => {
   const [showMessage, setShowMessage] = useState(true);
+
+  const defaultSeverityIcons = {
+    info: "pi pi-info-circle",
+    success: "pi pi-check-circle",
+    warning: "pi pi-exclamation-triangle",
+    danger: "pi pi-times-circle",
+  };
 
   const handleClose = () => {
     setShowMessage(false);
@@ -31,14 +40,20 @@ const Message = ({
   const renderIcon = () => {
     return (
       <span className="icon" data-testid="icon">
-        {typeof icon === "string" ? <i className={icon} /> : icon}
+        {!icon ? (
+          <i className={defaultSeverityIcons[severity]} />
+        ) : typeof icon === "string" ? (
+          <i className={icon} />
+        ) : (
+          icon
+        )}
       </span>
     );
   };
 
   return (
     <div className={`message ${severity}`}>
-      {icon && renderIcon()}
+      {showIcon && renderIcon()}
       <span className="message-content">{message}</span>
       {enableClose && (
         <span className="close-message" onClick={handleClose}>

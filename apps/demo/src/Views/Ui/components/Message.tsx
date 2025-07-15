@@ -1,8 +1,50 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Message, Page } from "@dzangolab/react-ui";
+import { Button, Message, Page, TDataTable } from "@dzangolab/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
+
+const data = [
+  {
+    default: "false",
+    description:
+      "Displays a close icon if true, allowing the message to be dismissed.",
+    prop: "enableClose",
+    type: "boolean",
+  },
+  {
+    default: "-",
+    description: "Icon to display alongside the message.",
+    prop: "icon",
+    type: "string | ReactNode	",
+  },
+  {
+    default: "-",
+    description: "The message text to display in the component.",
+    prop: "message",
+    type: "string",
+  },
+  {
+    default: "-",
+    description: "Function to be called when the message is closed.",
+    prop: "onClose",
+    type: "() => void",
+  },
+  {
+    default: "info",
+    description:
+      "Defines the styling severity of the message. Defaults to 'info'.",
+    prop: "severity",
+    type: `"info" | "success" | "warning" | "danger"`,
+  },
+  {
+    default: "true",
+    description:
+      "Show default icon based on severity or custom icon if provided.",
+    prop: "showIcon",
+    type: "boolean",
+  },
+];
 
 export const MessageDemo = () => {
   const [t] = useTranslation("ui");
@@ -78,6 +120,30 @@ export const MessageDemo = () => {
 <Message message="Success Message" severity="success" />
 <Message message="Warning Message" severity="warning" />
 <Message message="Danger Message" severity="danger" />'
+        />
+      </Section>
+      <Section
+        title={t("headers.propertiesValue", {
+          value: "IButtonProperties",
+        })}
+      >
+        <TDataTable
+          columns={[
+            {
+              accessorKey: "prop",
+              header: "Properties",
+            },
+            {
+              accessorKey: "type",
+              header: "Type",
+            },
+            {
+              accessorKey: "description",
+              header: "Description",
+            },
+          ]}
+          data={data}
+          paginated={false}
         />
       </Section>
     </Page>
