@@ -3,7 +3,7 @@ import { ReactNode, useState } from "react";
 type MessageProperties = {
   enableClose?: boolean;
   icon?: string | ReactNode;
-  message: string;
+  message: string | ReactNode;
   onClose?: () => void;
   severity?: "info" | "success" | "warning" | "danger";
   showIcon?: boolean;
@@ -51,10 +51,18 @@ const Message = ({
     );
   };
 
+  const renderMessageContent = () => {
+    if (typeof message === "string") {
+      return <span className="message-content">{message}</span>;
+    }
+
+    return message;
+  };
+
   return (
     <div className={`message ${severity}`}>
       {showIcon && renderIcon()}
-      <span className="message-content">{message}</span>
+      {renderMessageContent()}
       {enableClose && (
         <span className="close-message" onClick={handleClose}>
           <i className="pi pi-times"></i>

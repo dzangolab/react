@@ -226,6 +226,7 @@
     "title": "Message",
     "usage": {
       "basic": "Basic",
+      "customMessage": "Custom message",
       "enableClose": "Enable close",
       "hideIcon": "Hide default icon",
       "icons": {

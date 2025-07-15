@@ -226,6 +226,7 @@
     "title": "Message (fr)",
     "usage": {
       "basic": "Basic (fr)",
+      "customMessage": "Custom message (fr)",
       "enableClose": "Enable close (fr)",
       "hideIcon": "Hide default icon (fr)",
       "icons": {

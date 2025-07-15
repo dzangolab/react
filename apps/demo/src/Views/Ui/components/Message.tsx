@@ -16,13 +16,13 @@ const data = [
     default: "-",
     description: "Icon to display alongside the message.",
     prop: "icon",
-    type: "string | ReactNode	",
+    type: "string | ReactNode",
   },
   {
     default: "-",
     description: "The message text to display in the component.",
     prop: "message",
-    type: "string",
+    type: "string | ReactNode",
   },
   {
     default: "-",
@@ -66,6 +66,11 @@ export const MessageDemo = () => {
       <Section title={t("message.usage.basic")}>
         <Message message={t("message.contents.content1")} />
         <CodeBlock exampleCode='<Message message="Season sale: Up to 50% off selected items!" />' />
+      </Section>
+
+      <Section title={t("message.usage.customMessage")}>
+        <Message message={<b>{t("message.contents.content1")}</b>} />
+        <CodeBlock exampleCode="<Message message={<b>Season sale: Up to 50% off selected items!</b>} />" />
       </Section>
 
       <Section title={t("message.usage.icons.icon")}>
