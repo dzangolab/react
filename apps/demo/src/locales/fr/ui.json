@@ -227,6 +227,7 @@
     "usage": {
       "basic": "Basic (fr)",
       "enableClose": "Enable close (fr)",
+      "hideIcon": "Hide default icon (fr)",
       "icons": {
         "icon": "Icon (fr)",
         "iconSlot": "Icon slot (fr)"

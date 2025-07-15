@@ -227,6 +227,7 @@
     "usage": {
       "basic": "Basic",
       "enableClose": "Enable close",
+      "hideIcon": "Hide default icon",
       "icons": {
         "icon": "Icon",
         "iconSlot": "Icon slot"

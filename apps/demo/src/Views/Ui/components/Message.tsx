@@ -122,6 +122,10 @@ export const MessageDemo = () => {
 <Message message="Danger Message" severity="danger" />'
         />
       </Section>
+      <Section title={t("message.usage.hideIcon")}>
+        <Message message={t("message.contents.content1")} showIcon={false} />
+        <CodeBlock exampleCode='<Message message="Season sale: Up to 50% off selected items!" showIcon={false} />' />
+      </Section>
       <Section
         title={t("headers.propertiesValue", {
           value: "IButtonProperties",
