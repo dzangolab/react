@@ -25,11 +25,6 @@
   margin-bottom: 0.3rem;
 }
 
-.demo .demo-aside ul > li > a {
-  color: var(--color);
-  text-decoration: none;
-}
-
 .demo-section {
   margin-bottom: 3rem;
 }

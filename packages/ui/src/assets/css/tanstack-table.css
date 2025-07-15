@@ -1,5 +1,4 @@
 /* Table variables */
-
 :root {
   --dz-table-border: 1px solid rgb(226, 226, 226);
   --dz-table-header-bg: #f0f2f7ad;
@@ -223,4 +222,14 @@
 
 .dz-table-container .pagination .page-input-control input {
   background: #ffffff;
+}
+
+.dz-table-container
+  .table-wrapper
+  > table
+  > tbody
+  > tr
+  > td.cell-actions
+  .dropdown-menu-trigger {
+  padding: 0.5rem;
 }

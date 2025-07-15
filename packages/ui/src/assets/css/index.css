@@ -1,5 +1,4 @@
 @import "./reset.css";
-@import "./vars.css";
 
 @import "./accordion.css";
 @import "./auth-page.css";
@@ -35,6 +34,8 @@
 @import "./tag.css";
 @import "./tanstack-table.css";
 @import "./tooltip.css";
+
+@import "./vars.css";
 
 /* Theme CSS */
 @import "./accordion-theme.css";
