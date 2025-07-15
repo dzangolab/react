@@ -115,16 +115,16 @@ export const MessageDemo = () => {
       </Section>
 
       <Section title={t("message.usage.severity")}>
-        <Message message="Info Message" severity="info" />
-        <Message message="Success Message" severity="success" />
-        <Message message="Warning Message" severity="warning" />
-        <Message message="Danger Message" severity="danger" />
+        <Message message="Info message" severity="info" />
+        <Message message="Success message" severity="success" />
+        <Message message="Warning message" severity="warning" />
+        <Message message="Danger message" severity="danger" />
 
         <CodeBlock
-          exampleCode='<Message message="Info Message" severity="info" />
-<Message message="Success Message" severity="success" />
-<Message message="Warning Message" severity="warning" />
-<Message message="Danger Message" severity="danger" />'
+          exampleCode='<Message message="Info message" severity="info" />
+<Message message="Success message" severity="success" />
+<Message message="Warning message" severity="warning" />
+<Message message="Danger message" severity="danger" />'
         />
       </Section>
       <Section title={t("message.usage.hideIcon")}>
