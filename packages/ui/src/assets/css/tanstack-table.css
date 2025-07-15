@@ -1,6 +1,6 @@
 /* Table variables */
 :root {
-  --dz-table-border: 1px solid rgb(226, 226, 226);
+  --dz-table-border: 1px solid var(--border-color, #e5e7eb);
   --dz-table-header-bg: #f0f2f7ad;
   --dz-table-overlay-bg: rgba(255, 255, 255, 0.6);
   --dz-table-header-active-bg: rgb(232, 240, 255);

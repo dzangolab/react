@@ -2,26 +2,26 @@
   --dz-layout-logo-max-width: 6.75rem;
 
   --dz-layout-sidebar-bg: white;
-  --dz-layout-sidebar-border: 1px solid #e5e7eb;
+  --dz-layout-sidebar-border: 1px solid var(--border-color, #e5e7eb);
   --dz-layout-sidebar-color: var(--color, #374151);
   --dz-layout-sidebar-logo-max-width: var(--dz-layout-logo-max-width);
   --dz-layout-sidebar-padding-h: 1.5rem;
   --dz-layout-sidebar-padding-v: 0.75rem;
-  --dz-layout-sidebar-separator-color: #e5e7eb;
+  --dz-layout-sidebar-separator-color: var(--border-color, #e5e7eb);
   --dz-layout-sidebar-width: 16rem;
 
   --dz-layout-nav-item-padding-h: 1.5rem;
   --dz-layout-nav-item-padding-v: 0.5rem;
   --dz-layout-nav-menu-padding-h: 0;
   --dz-layout-nav-menu-padding-v: 1rem;
-  --dz-layout-nav-menu-separator-color: #e5e7eb;
+  --dz-layout-nav-menu-separator-color: var(--border-color, #e5e7eb);
 
   --dz-layout-main-bg: #ffffff;
   --dz-layout-main-padding-h: 1.5rem;
   --dz-layout-main-padding-v: 1.5rem;
 
   --dz-layout-header-bg: transparent;
-  --dz-layout-header-border: 1px solid #e5e7eb;
+  --dz-layout-header-border: 1px solid var(--border-color, #e5e7eb);
   --dz-layout-header-color: var(--color, #374151);
   --dz-layout-header-gap: 1.5rem;
   --dz-layout-header-logo-max-width: 120px;

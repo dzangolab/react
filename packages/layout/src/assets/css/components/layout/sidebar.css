@@ -2,7 +2,10 @@
   --_default-padding-h: 1rem;
   --_default-padding-v: 1.5rem;
   --_layout-sidebar-bg: var(--dz-layout-sidebar-bg, #ffffff);
-  --_layout-sidebar-border: var(--dz-layout-sidebar-border, none);
+  --_layout-sidebar-border: var(
+    --dz-layout-sidebar-border,
+    1px solid var(--border-color, #e5e7eb)
+  );
   --_layout-sidebar-color: var(--dz-layout-sidebar-color, #2c2c2c);
   --_layout-sidebar-collapsed-width: var(
     --dz-layout-sidebar-collapsed-width,
