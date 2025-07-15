@@ -230,8 +230,8 @@
       "enableClose": "Enable close (fr)",
       "hideIcon": "Hide default icon (fr)",
       "icons": {
-        "icon": "Icon (fr)",
-        "iconSlot": "Icon slot (fr)"
+        "customIcon": "Icon slot (fr)",
+        "icon": "Icon (fr)"
       },
       "severity": "Severity (fr)"
     }

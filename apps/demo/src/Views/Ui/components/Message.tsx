@@ -86,7 +86,7 @@ export const MessageDemo = () => {
         />
       </Section>
 
-      <Section title={t("message.usage.icons.iconSlot")}>
+      <Section title={t("message.usage.icons.customIcon")}>
         <Message
           message={t("message.contents.content3")}
           icon={<i className="pi pi-bell" />}

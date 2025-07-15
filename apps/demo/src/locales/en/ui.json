@@ -230,8 +230,8 @@
       "enableClose": "Enable close",
       "hideIcon": "Hide default icon",
       "icons": {
-        "icon": "Icon",
-        "iconSlot": "Icon slot"
+        "customIcon": "Custom icon",
+        "icon": "Icon"
       },
       "severity": "Severity"
     }
