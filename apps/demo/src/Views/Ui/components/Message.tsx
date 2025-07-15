@@ -63,6 +63,11 @@ export const MessageDemo = () => {
         />
       }
     >
+      <Section title={t("headers.usage")}>
+        <p>{t("common.usage", { component: "Message" })}</p>
+        <CodeBlock exampleCode='import { Message } from "@dzangolab/react-ui"' />
+      </Section>
+
       <Section title={t("message.usage.basic")}>
         <Message message={t("message.contents.content1")} />
         <CodeBlock exampleCode='<Message message="Season sale: Up to 50% off selected items!" />' />
@@ -133,7 +138,7 @@ export const MessageDemo = () => {
       </Section>
       <Section
         title={t("headers.propertiesValue", {
-          value: "IButtonProperties",
+          value: "MessageProperties",
         })}
       >
         <TDataTable
@@ -145,6 +150,10 @@ export const MessageDemo = () => {
             {
               accessorKey: "type",
               header: "Type",
+            },
+            {
+              accessorKey: "default",
+              header: "Default",
             },
             {
               accessorKey: "description",
