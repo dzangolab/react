@@ -1,8 +1,7 @@
 .message{
-  background-color: var(--blue-100);
+  background-color: color-mix(in srgb, var(--_background-color) 20%, #fff);
   border-radius: 0.5rem;
-  border: 1px solid var(--blue-800);
-  color: solid var(--blue-800);
+  border: 1px solid color-mix(in srgb, var(--_border-color) 60%, #0000);
   display: flex;
   gap: 1rem;
   padding: .5rem 1rem;
@@ -13,4 +12,24 @@
   height: 1.25rem;
   margin: auto 0 auto auto;
   width: 1.25rem;
+}
+
+.message.danger {
+  --_background-color: var(--dz-danger-color);
+  --_border-color: var(--dz-danger-color);
+}
+
+.message.info {
+  --_background-color: var(--dz-primary-color);
+  --_border-color: var(--dz-primary-color);
+}
+
+.message.success {
+  --_background-color: var(--dz-success-color);
+  --_border-color: var(--dz-success-color);
+}
+
+.message.warning {
+  --_background-color: var(--dz-warning-color);
+  --_border-color: var(--dz-warning-color);
 }

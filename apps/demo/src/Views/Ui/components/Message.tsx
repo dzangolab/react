@@ -66,6 +66,20 @@ export const MessageDemo = () => {
 />'
         />
       </Section>
+
+      <Section title={t("message.usage.severity")}>
+        <Message message="Info Message" severity="info" />
+        <Message message="Success Message" severity="success" />
+        <Message message="Warning Message" severity="warning" />
+        <Message message="Danger Message" severity="danger" />
+
+        <CodeBlock
+          exampleCode='<Message message="Info Message" severity="info" />
+<Message message="Success Message" severity="success" />
+<Message message="Warning Message" severity="warning" />
+<Message message="Danger Message" severity="danger" />'
+        />
+      </Section>
     </Page>
   );
 };

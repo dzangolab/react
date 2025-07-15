@@ -231,7 +231,7 @@
         "icon": "Icon",
         "iconSlot": "Icon slot"
       },
-      "withI18n": "With i18n"
+      "severity": "Severity"
     }
   },
   "modal": {

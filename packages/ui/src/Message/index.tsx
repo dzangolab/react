@@ -5,6 +5,7 @@ type MessageProperties = {
   message: string;
   onClose?: () => void;
   icon?: string | ReactNode;
+  severity?: "info" | "success" | "warning" | "danger";
 };
 
 const Message = ({
@@ -12,6 +13,7 @@ const Message = ({
   enableClose = false,
   message,
   icon,
+  severity = "info",
 }: MessageProperties) => {
   const [showMessage, setShowMessage] = useState(true);
 
@@ -35,7 +37,7 @@ const Message = ({
   };
 
   return (
-    <div className="message">
+    <div className={`message ${severity}`}>
       {icon && renderIcon()}
       <span className="message-content">{message}</span>
       {enableClose && (

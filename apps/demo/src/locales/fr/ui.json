@@ -216,22 +216,22 @@
   },
   "message": {
     "contents": {
-      "content1": "Season sale: Up to 50% off selected items!",
-      "content2": "New features just launched! Check them out!",
-      "content3": "New Year, New You: Start fresh with our services!",
-      "content4": "We value your feedback: take our quick survey!",
-      "content5": "Warning: Limited time only! Sale ends soon!"
+      "content1": "Season sale: Up to 50% off selected items! (fr)",
+      "content2": "New features just launched! Check them out! (fr)",
+      "content3": "New Year, New You: Start fresh with our services! (fr)",
+      "content4": "We value your feedback: take our quick survey! (fr)",
+      "content5": "Warning: Limited time only! Sale ends soon! (fr)"
     },
-    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
-    "title": "Message",
+    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases. (fr)",
+    "title": "Message (fr)",
     "usage": {
-      "basic": "Basic",
-      "enableClose": "Enable close",
+      "basic": "Basic (fr)",
+      "enableClose": "Enable close (fr)",
       "icons": {
-        "icon": "Icon",
-        "iconSlot": "Icon slot"
+        "icon": "Icon (fr)",
+        "iconSlot": "Icon slot (fr)"
       },
-      "withI18n": "With i18n"
+      "severity": "Severity (fr)"
     }
   },
   "modal": {
