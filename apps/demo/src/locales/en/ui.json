@@ -215,7 +215,24 @@
     }
   },
   "message": {
-    "title": "Message"
+    "contents": {
+      "content1": "Season sale: Up to 50% off selected items!",
+      "content2": "New features just launched! Check them out!",
+      "content3": "New Year, New You: Start fresh with our services!",
+      "content4": "We value your feedback: take our quick survey!",
+      "content5": "Warning: Limited time only! Sale ends soon!"
+    },
+    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
+    "title": "Message",
+    "usage": {
+      "basic": "Basic",
+      "enableClose": "Enable close",
+      "icons": {
+        "icon": "Icon",
+        "iconSlot": "Icon slot"
+      },
+      "withI18n": "With i18n"
+    }
   },
   "modal": {
     "title": "Modal",

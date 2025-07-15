@@ -1,11 +1,31 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 type MessageProperties = {
+  enableClose?: boolean;
   message: string;
+  onClose?: () => void;
   icon?: string | ReactNode;
 };
 
-const Message = ({ message, icon }: MessageProperties) => {
+const Message = ({
+  onClose,
+  enableClose = false,
+  message,
+  icon,
+}: MessageProperties) => {
+  const [showMessage, setShowMessage] = useState(true);
+
+  const handleClose = () => {
+    setShowMessage(false);
+    if (onClose) {
+      onClose();
+    }
+  };
+
+  if (!showMessage) {
+    return null;
+  }
+
   const renderIcon = () => {
     return (
       <span className="icon" data-testid="icon">
@@ -16,8 +36,13 @@ const Message = ({ message, icon }: MessageProperties) => {
 
   return (
     <div className="message">
-      {renderIcon()}
+      {icon && renderIcon()}
       <span className="message-content">{message}</span>
+      {enableClose && (
+        <span className="close-message" onClick={handleClose}>
+          <i className="pi pi-times"></i>
+        </span>
+      )}
     </div>
   );
 };

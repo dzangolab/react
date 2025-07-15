@@ -11,6 +11,7 @@ export const MessageDemo = () => {
   return (
     <Page
       title={t("message.title")}
+      subtitle={t("message.subtitle")}
       toolbar={
         <Button
           label={t("buttons.back")}
@@ -20,17 +21,29 @@ export const MessageDemo = () => {
         />
       }
     >
-      <Section>
+      <Section title={t("message.usage.basic")}>
+        <Message message={t("message.contents.content1")} />
+      </Section>
+
+      <Section title={t("message.usage.icons.icon")}>
         <Message
-          message="This is a very important message."
-          icon={<i className="pi pi-info-circle" />}
+          message={t("message.contents.content2")}
+          icon="pi pi-android"
         />
       </Section>
 
-      <Section>
+      <Section title={t("message.usage.icons.iconSlot")}>
         <Message
-          message="New features just launched! Check them out."
-          icon={<i className="pi pi-android" />}
+          message={t("message.contents.content3")}
+          icon={<i className="pi pi-bell" />}
+        />
+      </Section>
+
+      <Section title={t("message.usage.enableClose")}>
+        <Message
+          enableClose={true}
+          icon={<i className="pi pi-bell" />}
+          message={t("message.contents.content4")}
         />
       </Section>
     </Page>
