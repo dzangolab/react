@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.dz-sidebar-only-layout > header > .dz-header-container > .dz-toggle-menu {
+  margin-right: -0.75rem;
+}
+
 .dz-sidebar-only-layout > .dz-sidebar {
   grid-area: header;
 }

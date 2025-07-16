@@ -10,10 +10,7 @@
     1px solid var(--border-color, #e5e7eb)
   );
   --_layout-header-max-width: var(--dz-layout-header-max-width, 1920px);
-  --_layout-header-logo-max-width: var(
-    --dz-layout-header-logo-max-width,
-    150px
-  );
+  --_layout-header-logo-max-width: var(--dz-layout-header-logo-max-width, 8rem);
   --_layout-header-gap: var(--dz-layout-header-gap, 1.5rem);
 
   background: var(--_layout-header-bg);

@@ -9,11 +9,11 @@
   --_layout-sidebar-color: var(--dz-layout-sidebar-color, #2c2c2c);
   --_layout-sidebar-collapsed-width: var(
     --dz-layout-sidebar-collapsed-width,
-    1.2rem
+    0
   );
   --_layout-sidebar-logo-max-width: var(
     --dz-layout-sidebar-logo-max-width,
-    6.75rem
+    8rem
   );
   --_layout-sidebar-padding-h: var(--dz-layout-sidebar-padding-h, 1.5rem);
   --_layout-sidebar-padding-v: var(--dz-layout-sidebar-padding-v, 1rem);
@@ -63,8 +63,7 @@
   overflow-x: hidden;
 }
 
-.dz-layout > .dz-sidebar > :not(.dz-sidebar-header),
-.dz-layout > .dz-sidebar[data-header="false"] > :not(.dz-snavigation-menu) {
+.dz-layout > .dz-sidebar > :not(.dz-sidebar-header):not(.dz-navigation-menu) {
   border-top: 1px solid var(--_layout-sidebar-separator-color);
 }
 

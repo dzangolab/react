@@ -39,8 +39,8 @@ export const Header = ({
   const renderContent = () => {
     return (
       <>
-        {!noLogo && <Logo />}
         {!noToggle && <ToggleMenuMobile />}
+        {!noLogo && <Logo />}
         {title && <HeaderTitle title={title} />}
         {headerAddon && headerAddon}
         {navigationMenu && (

@@ -4,5 +4,6 @@
 @import "./layout.css";
 @import "./logo.css";
 @import "./sidebar.css";
+@import "./sticky-collapsible-footer.css";
+@import "./toggle-menu.css";
 @import "./vars.css";
-@import "./sticky-collapsible-footer.css"

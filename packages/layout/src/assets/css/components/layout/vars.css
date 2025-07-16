@@ -1,8 +1,9 @@
 :root {
-  --dz-layout-logo-max-width: 6.75rem;
+  --dz-layout-logo-max-width: 8rem;
 
   --dz-layout-sidebar-bg: white;
   --dz-layout-sidebar-border: 1px solid var(--border-color, #e5e7eb);
+  --dz-layout-sidebar-collapsed-width: 0;
   --dz-layout-sidebar-color: var(--color, #374151);
   --dz-layout-sidebar-logo-max-width: var(--dz-layout-logo-max-width);
   --dz-layout-sidebar-padding-h: 1.5rem;
@@ -24,7 +25,7 @@
   --dz-layout-header-border: 1px solid var(--border-color, #e5e7eb);
   --dz-layout-header-color: var(--color, #374151);
   --dz-layout-header-gap: 1.5rem;
-  --dz-layout-header-logo-max-width: 120px;
+  --dz-layout-header-logo-max-width: var(--dz-layout-logo-max-width);
   --dz-layout-header-max-width: 1920px;
   --dz-layout-header-padding-h: var(--dz-layout-main-padding-h, 1rem);
   --dz-layout-header-padding-v: 0.5rem;

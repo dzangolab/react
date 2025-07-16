@@ -11,7 +11,7 @@
   --_nav-item-padding-v: var(--dz-nav-item-padding-v, 0.5rem);
   --_nav-item-transition-duration: var(--transition-duration, 150ms);
 
-  align-items: center;
+  align-items: baseline;
   border-radius: var(--_nav-item-border-radius);
   cursor: pointer;
   color: var(--_nav-item-color);
