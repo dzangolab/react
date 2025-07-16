@@ -10,7 +10,7 @@
 .message .close-message {
   cursor: pointer;
   height: 1.25rem;
-  margin: auto 0 auto auto;
+  margin-left: auto;
   width: 1.25rem;
 }
 
