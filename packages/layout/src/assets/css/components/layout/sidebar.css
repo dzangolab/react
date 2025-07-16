@@ -42,6 +42,7 @@
   gap: 1rem;
   justify-content: space-between;
   padding: var(--_layout-sidebar-padding-v) var(--_layout-sidebar-padding-h);
+  border-bottom: var(--_layout-sidebar-border);
 }
 
 .dz-layout > .dz-sidebar > .dz-sidebar-header > .dz-logo {
@@ -62,7 +63,8 @@
   overflow-x: hidden;
 }
 
-.dz-layout > .dz-sidebar > :not(.dz-sidebar-header) {
+.dz-layout > .dz-sidebar > :not(.dz-sidebar-header),
+.dz-layout > .dz-sidebar[data-header="false"] > :not(.dz-snavigation-menu) {
   border-top: 1px solid var(--_layout-sidebar-separator-color);
 }
 

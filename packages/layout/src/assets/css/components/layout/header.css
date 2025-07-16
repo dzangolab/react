@@ -100,6 +100,11 @@
     display: none;
   }
 
+  .dz-layout > header > .dz-header-container > .dz-header-menu {
+    flex: 2;
+    justify-content: flex-end;
+  }
+
   .dz-layout[aria-expanded="false"]
     > header
     > .dz-header-container

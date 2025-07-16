@@ -56,7 +56,10 @@ export const Sidebar = ({
   };
 
   return (
-    <div className={`dz-sidebar ${!collapsible ? "fixed" : ""}`.trim()}>
+    <div
+      className={`dz-sidebar ${!collapsible ? "fixed" : ""}`.trim()}
+      data-header={!noHeader}
+    >
       {children || renderContent()}
     </div>
   );

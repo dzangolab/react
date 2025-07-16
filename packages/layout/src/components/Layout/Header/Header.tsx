@@ -40,6 +40,7 @@ export const Header = ({
     return (
       <>
         {!noLogo && <Logo />}
+        {!noToggle && <ToggleMenuMobile />}
         {title && <HeaderTitle title={title} />}
         {headerAddon && headerAddon}
         {navigationMenu && (
@@ -56,7 +57,6 @@ export const Header = ({
             userMenuMode={userMenuMode}
           />
         )}
-        {!noToggle && <ToggleMenuMobile />}
       </>
     );
   };

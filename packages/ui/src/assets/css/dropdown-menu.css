@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0.75rem;
+  text-wrap: nowrap;
   transition: all var(--transition-duration) ease 0s;
 }
 
