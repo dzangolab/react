@@ -1,20 +1,22 @@
-.message{
+.message {
   background-color: color-mix(in srgb, var(--_background-color) 20%, #fff);
   border-radius: 0.5rem;
   border: 1px solid color-mix(in srgb, var(--_border-color) 90%, #0000);
   color: color-mix(in srgb, var(--_color) 90%, #0000);
   display: flex;
+  font-weight: 500;
   gap: 1rem;
   padding: .5rem 1rem;
-  position: relative;
+}
+
+.message .message-content {
+  flex: 1;
 }
 
 .message .close-message {
   color: var(--color);
   cursor: pointer;
   height: 1.25rem;
-  position: absolute;
-  right: 1rem;
   width: 1.25rem;
 }
 
