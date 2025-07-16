@@ -120,10 +120,10 @@ export const MessageDemo = () => {
       </Section>
 
       <Section title={t("message.usage.severity")}>
-        <Message message="Info message" severity="info" />
-        <Message message="Success message" severity="success" />
-        <Message message="Warning message" severity="warning" />
-        <Message message="Danger message" severity="danger" />
+        <Message message={t("message.contents.info")} severity="info" />
+        <Message message={t("message.contents.success")} severity="success" />
+        <Message message={t("message.contents.warning")} severity="warning" />
+        <Message message={t("message.contents.danger")} severity="danger" />
 
         <CodeBlock
           exampleCode='<Message message="Info message" severity="info" />
@@ -145,19 +145,19 @@ export const MessageDemo = () => {
           columns={[
             {
               accessorKey: "prop",
-              header: "Properties",
+              header: t("message.table.header.properties"),
             },
             {
               accessorKey: "type",
-              header: "Type",
+              header: t("message.table.header.type"),
             },
             {
               accessorKey: "default",
-              header: "Default",
+              header: t("message.table.header.default"),
             },
             {
               accessorKey: "description",
-              header: "Description",
+              header: t("message.table.header.description"),
             },
           ]}
           data={propertiesData}

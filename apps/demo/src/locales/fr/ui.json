@@ -220,9 +220,21 @@
       "content2": "New features just launched! Check them out! (fr)",
       "content3": "New Year, New You: Start fresh with our services! (fr)",
       "content4": "We value your feedback: take our quick survey! (fr)",
-      "content5": "Warning: Limited time only! Sale ends soon! (fr)"
+      "content5": "Warning: Limited time only! Sale ends soon! (fr)",
+      "danger": "Danger message (fr)",
+      "info": "Info message (fr)",
+      "success": "Success message (fr)",
+      "warning": "Warning message (fr)"
     },
     "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases. (fr)",
+    "table": {
+      "header": {
+        "default": "Default (fr)",
+        "description": "Description (fr)",
+        "properties": "Properties (fr)",
+        "type": "Type (fr)"
+      }
+    },
     "title": "Message (fr)",
     "usage": {
       "basic": "Basic (fr)",
