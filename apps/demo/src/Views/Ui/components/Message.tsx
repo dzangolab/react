@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
-const data = [
+const propertiesData = [
   {
     default: "false",
     description:
@@ -160,7 +160,7 @@ export const MessageDemo = () => {
               header: "Description",
             },
           ]}
-          data={data}
+          data={propertiesData}
           paginated={false}
         />
       </Section>
