@@ -41,8 +41,8 @@
   --dz-nav-menu-padding-v: 1rem;
   --dz-nav-menu-separator-color: var(--border-color);
 
-  --dz-page-gap: 1rem;
-  --dz-page-max-width: 550px;
+  --dz-page-gap: 1.5rem;
+  --dz-page-centered-max-width: 954px;
 
   --dz-table-border: 1px solid var(--border-color);
   --dz-table-header-bg: #f0f2f7ad;
