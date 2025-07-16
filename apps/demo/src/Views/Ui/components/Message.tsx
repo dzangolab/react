@@ -25,7 +25,7 @@ export const MessageDemo = () => {
       default: "-",
       description: t("message.table.propDescription.message"),
       prop: "message",
-      type: "string | ReactNode",
+      type: "string | string[] | ReactNode",
     },
     {
       default: "-",
@@ -73,6 +73,28 @@ export const MessageDemo = () => {
       <Section title={t("message.usage.customMessage")}>
         <Message message={<b>{t("message.contents.content1")}</b>} />
         <CodeBlock exampleCode="<Message message={<b>Season sale: Up to 50% off selected items!</b>} />" />
+      </Section>
+
+      <Section title={t("message.usage.arrayMessage")}>
+        <Message
+          message={[
+            t("message.contents.content1"),
+            t("message.contents.content2"),
+            t("message.contents.content3"),
+          ]}
+          enableClose={true}
+        />
+        <CodeBlock
+          exampleCode="<Message
+  message={
+    [
+      'Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!',
+      'New features just launched! Check them out!',
+      'New Year, New You: Start fresh with our services!'
+    ]}
+    enableClose={true}
+/>"
+        />
       </Section>
 
       <Section title={t("message.usage.icons.icon")}>

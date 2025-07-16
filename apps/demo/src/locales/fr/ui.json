@@ -216,7 +216,7 @@
   },
   "message": {
     "contents": {
-      "content1": "Season sale: Up to 50% off selected items! (fr)",
+      "content1": "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers! (fr)",
       "content2": "New features just launched! Check them out! (fr)",
       "content3": "New Year, New You: Start fresh with our services! (fr)",
       "content4": "We value your feedback: take our quick survey! (fr)",
@@ -245,12 +245,13 @@
     },
     "title": "Message (fr)",
     "usage": {
+      "arrayMessage": "Array of message (fr)",
       "basic": "Basic (fr)",
       "customMessage": "Custom message (fr)",
       "enableClose": "Enable close (fr)",
       "hideIcon": "Hide default icon (fr)",
       "icons": {
-        "customIcon": "Icon slot (fr)",
+        "customIcon": "Custom icon (fr)",
         "icon": "Icon (fr)"
       },
       "severity": "Severity (fr)"

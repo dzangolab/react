@@ -12,6 +12,15 @@
   flex: 1;
 }
 
+.message-content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style-type: disc;
+  margin: 0 1rem;
+  padding: 0;
+}
+
 .message .close-message {
   color: var(--color);
   cursor: pointer;

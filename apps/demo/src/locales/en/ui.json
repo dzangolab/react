@@ -216,7 +216,7 @@
   },
   "message": {
     "contents": {
-      "content1": "Season sale: Up to 50% off selected items!",
+      "content1": "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!",
       "content2": "New features just launched! Check them out!",
       "content3": "New Year, New You: Start fresh with our services!",
       "content4": "We value your feedback: take our quick survey!",
@@ -245,6 +245,7 @@
     },
     "title": "Message",
     "usage": {
+      "arrayMessage": "Array of message",
       "basic": "Basic",
       "customMessage": "Custom message",
       "enableClose": "Enable close",

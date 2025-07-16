@@ -2,8 +2,8 @@ import { ReactNode, useState } from "react";
 
 type MessageProperties = {
   enableClose?: boolean;
-  icon?: string | ReactNode;
-  message: string | ReactNode;
+  icon?: ReactNode;
+  message: string[] | ReactNode;
   onClose?: () => void;
   severity?: "info" | "success" | "warning" | "danger";
   showIcon?: boolean;
@@ -54,7 +54,17 @@ const Message = ({
 
   const renderMessageContent = () => {
     if (typeof message === "string") {
-      return <span className="message-content">{message}</span>;
+      return <span>{message}</span>;
+    }
+
+    if (Array.isArray(message)) {
+      return (
+        <ul>
+          {message.map((message_, index) => (
+            <li key={index}>{message_}</li>
+          ))}
+        </ul>
+      );
     }
 
     return message;
@@ -63,7 +73,7 @@ const Message = ({
   return (
     <div className={`message ${severity}`}>
       {showIcon && renderIcon()}
-      {renderMessageContent()}
+      <div className="message-content">{renderMessageContent()}</div>
       {enableClose && (
         <span className="close-message" onClick={handleClose}>
           <i className="pi pi-times"></i>
