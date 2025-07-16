@@ -5,6 +5,14 @@
   "common": {
     "usage": "To use the {{component}} component, simply import it into your React file:"
   },
+  "propertiesTable": {
+    "header": {
+      "default": "Default",
+      "description": "Description",
+      "properties": "Properties",
+      "type": "Type"
+    }
+  },
   "headers": {
     "buttons": "Buttons",
     "data": "Data",
@@ -215,7 +223,39 @@
     }
   },
   "message": {
-    "title": "Message"
+    "contents": {
+      "content1": "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!",
+      "content2": "New features just launched! Check them out!",
+      "content3": "New Year, New You: Start fresh with our services!",
+      "content4": "We value your feedback: take our quick survey!",
+      "content5": "Warning: Limited time only! Sale ends soon!",
+      "danger": "Danger message",
+      "info": "Info message",
+      "success": "Success message",
+      "warning": "Warning message"
+    },
+    "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases.",
+    "propertiesDescription": {
+      "enableClose": "Displays a close icon if true, allowing the message to be dismissed.",
+      "icon": "Icon to display alongside the message.",
+      "message": "The message text to display in the component.",
+      "onClose": "Function to be called when the message is closed.",
+      "severity": "Defines the styling severity of the message. Defaults to 'info'.",
+      "showIcon": "Show default icon based on severity or custom icon if provided."
+    },
+    "title": "Message",
+    "usage": {
+      "arrayMessage": "Array of message",
+      "basic": "Basic",
+      "customMessage": "Custom message",
+      "enableClose": "Enable close",
+      "hideIcon": "Hide default icon",
+      "icons": {
+        "customIcon": "Custom icon",
+        "icon": "Icon"
+      },
+      "severity": "Severity"
+    }
   },
   "modal": {
     "title": "Modal",
