@@ -11,37 +11,37 @@ export const MessageDemo = () => {
   const propertiesData = [
     {
       default: "false",
-      description: t("message.table.propDescription.enableClose"),
+      description: t("message.propertiesDescription.enableClose"),
       prop: "enableClose",
       type: "boolean",
     },
     {
       default: "-",
-      description: t("message.table.propDescription.icon"),
+      description: t("message.propertiesDescription.icon"),
       prop: "icon",
       type: "string | ReactNode",
     },
     {
       default: "-",
-      description: t("message.table.propDescription.message"),
+      description: t("message.propertiesDescription.message"),
       prop: "message",
       type: "string | string[] | ReactNode",
     },
     {
       default: "-",
-      description: t("message.table.propDescription.onClose"),
+      description: t("message.propertiesDescription.onClose"),
       prop: "onClose",
       type: "() => void",
     },
     {
       default: "info",
-      description: t("message.table.propDescription.severity"),
+      description: t("message.propertiesDescription.severity"),
       prop: "severity",
       type: `"info" | "success" | "warning" | "danger"`,
     },
     {
       default: "true",
-      description: t("message.table.propDescription.showIcon"),
+      description: t("message.propertiesDescription.showIcon"),
       prop: "showIcon",
       type: "boolean",
     },
@@ -164,19 +164,19 @@ export const MessageDemo = () => {
           columns={[
             {
               accessorKey: "prop",
-              header: t("message.table.header.properties"),
+              header: t("propertiesTable.header.properties"),
             },
             {
               accessorKey: "type",
-              header: t("message.table.header.type"),
+              header: t("propertiesTable.header.type"),
             },
             {
               accessorKey: "default",
-              header: t("message.table.header.default"),
+              header: t("propertiesTable.header.default"),
             },
             {
               accessorKey: "description",
-              header: t("message.table.header.description"),
+              header: t("propertiesTable.header.description"),
             },
           ]}
           data={propertiesData}
