@@ -5,12 +5,14 @@
   display: flex;
   gap: 1rem;
   padding: .5rem 1rem;
+  position: relative;
 }
 
 .message .close-message {
   cursor: pointer;
   height: 1.25rem;
-  margin-left: auto;
+  position: absolute;
+  right: 1rem;
   width: 1.25rem;
 }
 

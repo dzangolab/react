@@ -28,6 +28,7 @@ const Message = ({
 
   const handleClose = () => {
     setShowMessage(false);
+
     if (onClose) {
       onClose();
     }
