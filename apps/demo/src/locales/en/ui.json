@@ -233,6 +233,14 @@
         "description": "Description",
         "properties": "Properties",
         "type": "Type"
+      },
+      "propDescription": {
+        "enableClose": "Displays a close icon if true, allowing the message to be dismissed.",
+        "icon": "Icon to display alongside the message.",
+        "message": "The message text to display in the component.",
+        "onClose": "Function to be called when the message is closed.",
+        "severity": "Defines the styling severity of the message. Defaults to 'info'.",
+        "showIcon": "Show default icon based on severity or custom icon if provided."
       }
     },
     "title": "Message",

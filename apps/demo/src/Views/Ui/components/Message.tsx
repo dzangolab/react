@@ -4,51 +4,48 @@ import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
 
-const propertiesData = [
-  {
-    default: "false",
-    description:
-      "Displays a close icon if true, allowing the message to be dismissed.",
-    prop: "enableClose",
-    type: "boolean",
-  },
-  {
-    default: "-",
-    description: "Icon to display alongside the message.",
-    prop: "icon",
-    type: "string | ReactNode",
-  },
-  {
-    default: "-",
-    description: "The message text to display in the component.",
-    prop: "message",
-    type: "string | ReactNode",
-  },
-  {
-    default: "-",
-    description: "Function to be called when the message is closed.",
-    prop: "onClose",
-    type: "() => void",
-  },
-  {
-    default: "info",
-    description:
-      "Defines the styling severity of the message. Defaults to 'info'.",
-    prop: "severity",
-    type: `"info" | "success" | "warning" | "danger"`,
-  },
-  {
-    default: "true",
-    description:
-      "Show default icon based on severity or custom icon if provided.",
-    prop: "showIcon",
-    type: "boolean",
-  },
-];
-
 export const MessageDemo = () => {
   const [t] = useTranslation("ui");
   const navigate = useNavigate();
+
+  const propertiesData = [
+    {
+      default: "false",
+      description: t("message.table.propDescription.enableClose"),
+      prop: "enableClose",
+      type: "boolean",
+    },
+    {
+      default: "-",
+      description: t("message.table.propDescription.icon"),
+      prop: "icon",
+      type: "string | ReactNode",
+    },
+    {
+      default: "-",
+      description: t("message.table.propDescription.message"),
+      prop: "message",
+      type: "string | ReactNode",
+    },
+    {
+      default: "-",
+      description: t("message.table.propDescription.onClose"),
+      prop: "onClose",
+      type: "() => void",
+    },
+    {
+      default: "info",
+      description: t("message.table.propDescription.severity"),
+      prop: "severity",
+      type: `"info" | "success" | "warning" | "danger"`,
+    },
+    {
+      default: "true",
+      description: t("message.table.propDescription.showIcon"),
+      prop: "showIcon",
+      type: "boolean",
+    },
+  ];
 
   return (
     <Page

@@ -41,7 +41,6 @@ ul.dropdown-menu-list {
   min-width: 160px;
   overflow: hidden;
   padding-inline-start: 0;
-  width: max-content;
 }
 
 ul.dropdown-menu-list li {
