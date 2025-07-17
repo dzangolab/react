@@ -34,7 +34,8 @@ export const SignupWrapper: React.FC<IProperties> = ({
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
-  const [signupError, setSignupError] = useState<string | null>(null);
+  const [signupError, setSignupError] = useState(false);
+  const [signupErrorKey, setSignupErrorKey] = useState<string | null>(null);
 
   const { setUser } = useUser();
   const config = useConfig();
@@ -89,13 +90,15 @@ export const SignupWrapper: React.FC<IProperties> = ({
         .catch(async (error) => {
           onSignupFailed && (await onSignupFailed(error));
 
+          setSignupError(true);
+
           if (error.message.includes("email already exists")) {
-            setSignupError(t("errors.emailAlreadyExists", { ns: "errors" }));
+            setSignupErrorKey("errors.emailAlreadyExists");
 
             return;
           }
 
-          setSignupError(t("errors.otherErrors", { ns: "errors" }));
+          setSignupErrorKey("errors.otherErrors");
         })
         .finally(() => {
           setSignupLoading(false);
@@ -105,11 +108,14 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   return (
     <>
-      {signupError && (
+      {signupError && signupErrorKey && (
         <Message
           enableClose={true}
-          message={signupError}
-          onClose={() => setSignupError(null)}
+          message={t(signupErrorKey, { ns: "errors" })}
+          onClose={() => {
+            setSignupError(false);
+            setSignupErrorKey(null);
+          }}
           severity="danger"
         />
       )}

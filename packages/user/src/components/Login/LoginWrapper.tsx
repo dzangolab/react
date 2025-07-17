@@ -35,7 +35,8 @@ export const LoginWrapper: FC<IProperties> = ({
   const { setUser } = useUser();
   const config = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
-  const [loginError, setLoginError] = useState<string | null>(null);
+  const [loginError, setLoginError] = useState(false);
+  const [loginErrorKey, setLoginErrorKey] = useState<string | null>(null);
 
   const links: Array<LinkType> = [
     {
@@ -72,11 +73,10 @@ export const LoginWrapper: FC<IProperties> = ({
           }
         })
         .catch(async (error) => {
-          const errorMessage = `errors.${error.message}`;
-
           onLoginFailed && (await onLoginFailed(error));
 
-          setLoginError(t(errorMessage, { ns: "errors" }));
+          setLoginError(true);
+          setLoginErrorKey(`errors.${error.message}`);
         });
 
       setLoginLoading(false);
@@ -85,11 +85,14 @@ export const LoginWrapper: FC<IProperties> = ({
 
   return (
     <>
-      {loginError && (
+      {loginError && loginErrorKey && (
         <Message
           enableClose={true}
-          message={loginError}
-          onClose={() => setLoginError(null)}
+          message={t(loginErrorKey, { ns: "errors" })}
+          onClose={() => {
+            setLoginError(false);
+            setLoginErrorKey(null);
+          }}
           severity="danger"
         />
       )}
