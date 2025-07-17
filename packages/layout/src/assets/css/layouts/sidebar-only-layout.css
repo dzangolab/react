@@ -36,6 +36,13 @@
     grid-area: sidebar;
   }
 
+  .dz-sidebar-only-layout > .dz-sidebar {
+    --_layout-sidebar-collapsed-width: var(
+      --dz-layout-sidebar-collapsed-width,
+      1.5rem
+    );
+  }
+
   .dz-sidebar-only-layout > main {
     overflow-y: auto;
   }

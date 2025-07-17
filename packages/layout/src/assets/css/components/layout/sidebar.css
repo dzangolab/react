@@ -98,13 +98,13 @@
 
   .dz-layout > .dz-sidebar > .dz-sidebar-header > .dz-toggle-menu {
     cursor: pointer;
-    display: flex;
+    display: none;
     padding: 0.4rem;
     transition: all ease-in var(--_layout-sidebar-transition-duration);
   }
 
-  .dz-layout > .dz-sidebar.fixed > .dz-sidebar-header > .dz-toggle-menu {
-    display: none;
+  .dz-layout > .dz-sidebar.collapsible > .dz-sidebar-header > .dz-toggle-menu {
+    display: flex;
   }
 
   .dz-layout[aria-expanded="false"]

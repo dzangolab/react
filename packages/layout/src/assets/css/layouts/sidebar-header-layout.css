@@ -46,7 +46,10 @@
     grid-area: header;
   }
 
-  .dz-sidebar-header-layout > header > .dz-header-container > .dz-toggle-menu {
+  .dz-sidebar-header-layout.collapsible
+    > header
+    > .dz-header-container
+    > .dz-toggle-menu {
     display: block;
     margin-left: -0.75rem;
   }
