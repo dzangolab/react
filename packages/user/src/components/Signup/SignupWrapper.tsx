@@ -1,16 +1,17 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Message } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-
-import { DEFAULT_PATHS } from "@/constants";
-import { signup } from "@/supertokens";
-import { LinkType } from "@/types/types";
 
 import { AuthLinks } from "../AuthLinks";
 import { SignupForm } from "./SignupForm";
 import { useConfig, useUser } from "../../hooks";
 
 import type { LoginCredentials, SignInUpPromise } from "../../types";
+
+import { DEFAULT_PATHS } from "@/constants";
+import { signup } from "@/supertokens";
+import { LinkType } from "@/types/types";
 
 interface IProperties {
   loading?: boolean;
@@ -33,6 +34,9 @@ export const SignupWrapper: React.FC<IProperties> = ({
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
+  const [signupError, setSignupError] = useState(false);
+  const [signupErrorKey, setSignupErrorKey] = useState<string | null>(null);
+
   const { setUser } = useUser();
   const config = useConfig();
 
@@ -84,15 +88,17 @@ export const SignupWrapper: React.FC<IProperties> = ({
           }
         })
         .catch(async (error) => {
-          const errorMessage = t("errors.otherErrors", { ns: "errors" });
-
           onSignupFailed && (await onSignupFailed(error));
 
-          if (error.status === "FIELD_ERROR") {
-            throw error as Error;
+          setSignupError(true);
+
+          if (error.message.includes("email already exists")) {
+            setSignupErrorKey("errors.emailAlreadyExists");
+
+            return;
           }
 
-          toast.error(error.message || errorMessage);
+          setSignupErrorKey("errors.otherErrors");
         })
         .finally(() => {
           setSignupLoading(false);
@@ -102,6 +108,17 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   return (
     <>
+      {signupError && signupErrorKey && (
+        <Message
+          enableClose={true}
+          message={t(signupErrorKey, { ns: "errors" })}
+          onClose={() => {
+            setSignupError(false);
+            setSignupErrorKey(null);
+          }}
+          severity="danger"
+        />
+      )}
       <SignupForm
         handleSubmit={handleSignupSubmit}
         loading={handleSubmit ? loading : signupLoading}
