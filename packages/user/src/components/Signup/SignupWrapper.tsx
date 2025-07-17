@@ -1,16 +1,17 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Message } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-
-import { DEFAULT_PATHS } from "@/constants";
-import { signup } from "@/supertokens";
-import { LinkType } from "@/types/types";
 
 import { AuthLinks } from "../AuthLinks";
 import { SignupForm } from "./SignupForm";
 import { useConfig, useUser } from "../../hooks";
 
 import type { LoginCredentials, SignInUpPromise } from "../../types";
+
+import { DEFAULT_PATHS } from "@/constants";
+import { signup } from "@/supertokens";
+import { LinkType } from "@/types/types";
 
 interface IProperties {
   loading?: boolean;
@@ -33,6 +34,8 @@ export const SignupWrapper: React.FC<IProperties> = ({
 }) => {
   const { t } = useTranslation("user");
   const [signupLoading, setSignupLoading] = useState<boolean>(false);
+  const [signupError, setSignupError] = useState<string | null>(null);
+
   const { setUser } = useUser();
   const config = useConfig();
 
@@ -84,15 +87,15 @@ export const SignupWrapper: React.FC<IProperties> = ({
           }
         })
         .catch(async (error) => {
-          const errorMessage = t("errors.otherErrors", { ns: "errors" });
-
           onSignupFailed && (await onSignupFailed(error));
 
-          if (error.status === "FIELD_ERROR") {
-            throw error as Error;
+          if (error.message.includes("email already exists")) {
+            setSignupError(t("errors.emailAlreadyExists", { ns: "errors" }));
+
+            return;
           }
 
-          toast.error(error.message || errorMessage);
+          setSignupError(t("errors.otherErrors", { ns: "errors" }));
         })
         .finally(() => {
           setSignupLoading(false);
@@ -102,6 +105,14 @@ export const SignupWrapper: React.FC<IProperties> = ({
 
   return (
     <>
+      {signupError && (
+        <Message
+          enableClose={true}
+          message={signupError}
+          onClose={() => setSignupError(null)}
+          severity="danger"
+        />
+      )}
       <SignupForm
         handleSubmit={handleSignupSubmit}
         loading={handleSubmit ? loading : signupLoading}
