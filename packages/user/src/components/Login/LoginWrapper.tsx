@@ -1,4 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Message } from "@dzangolab/react-ui";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -34,6 +35,7 @@ export const LoginWrapper: FC<IProperties> = ({
   const { setUser } = useUser();
   const config = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
 
   const links: Array<LinkType> = [
     {
@@ -74,7 +76,7 @@ export const LoginWrapper: FC<IProperties> = ({
 
           onLoginFailed && (await onLoginFailed(error));
 
-          toast.error(t(errorMessage, { ns: "errors" }));
+          setLoginError(t(errorMessage, { ns: "errors" }));
         });
 
       setLoginLoading(false);
@@ -83,6 +85,14 @@ export const LoginWrapper: FC<IProperties> = ({
 
   return (
     <>
+      {loginError && (
+        <Message
+          enableClose={true}
+          message={loginError}
+          onClose={() => setLoginError(null)}
+          severity="danger"
+        />
+      )}
       <LoginForm
         handleSubmit={handleLoginSubmit}
         loading={handleSubmit ? loading : loginLoading}
