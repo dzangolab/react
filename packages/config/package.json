@@ -32,7 +32,7 @@
     "@12deg/tsconfig": "0.1.11",
     "@types/jsdom": "21.1.7",
     "@types/node": "22.13.4",
-    "@types/react": "18.3.20",
+    "@types/react": "18.3.23",
     "@typescript-eslint/eslint-plugin": "8.24.1",
     "@typescript-eslint/parser": "8.24.1",
     "@vitejs/plugin-react": "4.4.1",
