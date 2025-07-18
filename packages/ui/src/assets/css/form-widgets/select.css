@@ -54,7 +54,7 @@
 
 .select > .label-container.focused,
 .select > .label-container:focus {
-  outline: 2px solid var(--dz-primary-color);
+  outline: 1px solid var(--dz-primary-color);
 }
 
 .select > .label-container.disabled {
