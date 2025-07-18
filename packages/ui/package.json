@@ -60,7 +60,7 @@
     "eslint-plugin-unicorn": "56.0.1",
     "jsdom": "25.0.1",
     "prettier": "3.5.3",
-    "primereact": "9.6.1",
+    "primereact": "9.6.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.28.0",
@@ -69,7 +69,7 @@
     "vitest": "3.0.8"
   },
   "peerDependencies": {
-    "primereact": "9.6.1",
+    "primereact": "9.6.5",
     "react": ">=18.2",
     "react-dom": ">=18.2",
     "react-router-dom": ">=6.9"
