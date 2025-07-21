@@ -3,16 +3,16 @@ import { Message } from "@dzangolab/react-ui";
 import { FC, useState } from "react";
 import { toast } from "react-toastify";
 
-import { DEFAULT_PATHS } from "@/constants";
-import { login } from "@/supertokens";
-import { LinkType } from "@/types/types";
-
 import { LoginForm } from "./LoginForm";
 import { useConfig, useUser } from "../../hooks";
 import { verifySessionRoles } from "../../supertokens/helpers";
 import { AuthLinks } from "../AuthLinks";
 
 import type { LoginCredentials, SignInUpPromise } from "../../types";
+
+import { DEFAULT_PATHS } from "@/constants";
+import { login } from "@/supertokens";
+import { LinkType } from "@/types/types";
 
 interface IProperties {
   handleSubmit?: (credential: LoginCredentials) => void;
@@ -35,8 +35,9 @@ export const LoginWrapper: FC<IProperties> = ({
   const { setUser } = useUser();
   const config = useConfig();
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
-  const [loginError, setLoginError] = useState(false);
-  const [loginErrorKey, setLoginErrorKey] = useState<string | null>(null);
+  const [loginError, setLoginError] = useState<
+    null | "invalidCredentials" | "other"
+  >(null);
 
   const links: Array<LinkType> = [
     {
@@ -75,23 +76,30 @@ export const LoginWrapper: FC<IProperties> = ({
         .catch(async (error) => {
           onLoginFailed && (await onLoginFailed(error));
 
-          setLoginError(true);
-          setLoginErrorKey(`errors.${error.message}`);
+          if (error.message === "401") {
+            setLoginError("invalidCredentials");
+          } else {
+            setLoginError("other");
+          }
         });
 
       setLoginLoading(false);
     }
   };
 
+  const message =
+    loginError === "invalidCredentials"
+      ? t("errors.401", { ns: "errors" })
+      : t("errors.otherErrors", { ns: "errors" });
+
   return (
     <>
-      {loginError && loginErrorKey && (
+      {loginError && (
         <Message
           enableClose={true}
-          message={t(loginErrorKey, { ns: "errors" })}
+          message={message}
           onClose={() => {
-            setLoginError(false);
-            setLoginErrorKey(null);
+            setLoginError(null);
           }}
           severity="danger"
         />
