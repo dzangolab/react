@@ -1,16 +1,16 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { Card, CardBody, Page } from "@dzangolab/react-ui";
+import { AuthPage, Card, CardBody } from "@dzangolab/react-ui";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { getIsFirstUser, signUpFirstUser } from "@/api/user";
-import { DEFAULT_PATHS } from "@/constants";
-import { useConfig, useUser } from "@/hooks";
-
 import { login, SignupForm } from "..";
 
 import type { LoginCredentials } from "@/types";
+
+import { getIsFirstUser, signUpFirstUser } from "@/api/user";
+import { DEFAULT_PATHS } from "@/constants";
+import { useConfig, useUser } from "@/hooks";
 
 export const SignUpFirstUser = ({
   centered = true,
@@ -99,13 +99,13 @@ export const SignUpFirstUser = ({
   };
 
   return (
-    <Page
-      className="signup"
-      title={t("firstUser.title")}
-      loading={loading || loginLoading}
+    <AuthPage
       centered={centered}
+      className="signup"
+      loading={loading || loginLoading}
+      title={t("firstUser.title")}
     >
       {renderPageContent()}
-    </Page>
+    </AuthPage>
   );
 };
