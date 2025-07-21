@@ -1,5 +1,5 @@
 import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Card, CardBody } from "@dzangolab/react-ui";
+import { AuthPage, Message } from "@dzangolab/react-ui";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -74,27 +74,29 @@ export const SignUpFirstUser = ({
       })
       .catch(() => {
         setSignUpFirstUserLoading(false);
-        toast.error(`${t("firstUser.signup.messages.error")}`);
+        setIsError(true);
       });
   };
 
   const renderPageContent = () => {
-    if (isError) {
-      return (
-        <Card>
-          <CardBody>
-            <p>{t(`errors:errors.otherErrors`)}</p>
-          </CardBody>
-        </Card>
-      );
-    }
-
     return (
-      <SignupForm
-        email={""}
-        handleSubmit={handleSubmit}
-        loading={signUpFirstUserLoading}
-      />
+      <>
+        {isError && (
+          <Message
+            enableClose={true}
+            message={t("firstUser.signup.messages.error")}
+            onClose={() => {
+              setIsError(false);
+            }}
+            severity="danger"
+          />
+        )}
+        <SignupForm
+          email={""}
+          handleSubmit={handleSubmit}
+          loading={signUpFirstUserLoading}
+        />
+      </>
     );
   };
 
