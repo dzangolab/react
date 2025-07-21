@@ -1,3 +1,25 @@
+# [0.60.0](https://github.com/dzangolab/react/compare/v0.59.0...v0.60.0) (2025-07-18)
+
+
+### Bug Fixes
+
+* **demo:** put changelog link in right position ([#1529](https://github.com/dzangolab/react/issues/1529)) ([e641206](https://github.com/dzangolab/react/commit/e64120625562cfb4cfd98e4876777fed931243c3))
+* **ui:** fix the width of Select component and tooltip ([#1521](https://github.com/dzangolab/react/issues/1521)) ([db0fefe](https://github.com/dzangolab/react/commit/db0fefe153a859c2ce741aca3ce41915435b54f1))
+
+
+### Features
+
+* **demo:** update documentation for select component ([#1518](https://github.com/dzangolab/react/issues/1518)) ([3d8433a](https://github.com/dzangolab/react/commit/3d8433a26bc3cd0b8fb1baaad19fedb8c073af17))
+* **files:** enable filter and sorting in uploaded by column ([#1514](https://github.com/dzangolab/react/issues/1514)) ([574b80c](https://github.com/dzangolab/react/commit/574b80cc13cc6cdc1d9e738268caa9da14b544a8))
+* **layout:** revamp ui ([#1527](https://github.com/dzangolab/react/issues/1527)) ([f917f57](https://github.com/dzangolab/react/commit/f917f57f077c60daa0d058c3a37efa42aa1acd94))
+* **ui:**  sync message component with vue ([#1522](https://github.com/dzangolab/react/issues/1522)) ([02447b2](https://github.com/dzangolab/react/commit/02447b2b1308735e00df3c5fd79b80e043cde7cd))
+* **ui:** add support to show tooltip for select input ([#1516](https://github.com/dzangolab/react/issues/1516)) ([f4fcac1](https://github.com/dzangolab/react/commit/f4fcac12da7acc6ed7f41f4ad8410b2360cc7242))
+* **ui:** enable filtering in all column of files table ([#1513](https://github.com/dzangolab/react/issues/1513)) ([a6c737e](https://github.com/dzangolab/react/commit/a6c737ea071afbd48760bed4b14c533a62532485))
+* **ui:** enable sorting in all column of files table ([#1511](https://github.com/dzangolab/react/issues/1511)) ([179092c](https://github.com/dzangolab/react/commit/179092ca11bfe6d036a190a12f5138636db2a8da))
+* **UI:** support group options in select ([#1517](https://github.com/dzangolab/react/issues/1517)) ([4ddd0e9](https://github.com/dzangolab/react/commit/4ddd0e9abd575df52d8e1f7a93e33f0667359528))
+
+
+
 # [0.59.0](https://github.com/dzangolab/react/compare/v0.58.0...v0.59.0) (2025-06-26)
 
 

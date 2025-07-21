@@ -39,6 +39,7 @@ export const Header = ({
   const renderContent = () => {
     return (
       <>
+        {!noToggle && <ToggleMenuMobile />}
         {!noLogo && <Logo />}
         {title && <HeaderTitle title={title} />}
         {headerAddon && headerAddon}
@@ -56,7 +57,6 @@ export const Header = ({
             userMenuMode={userMenuMode}
           />
         )}
-        {!noToggle && <ToggleMenuMobile />}
       </>
     );
   };
