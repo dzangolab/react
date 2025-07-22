@@ -4,6 +4,7 @@ import {
   AdditionalFormFields,
 } from "@dzangolab/react-form";
 import { useTranslation } from "@dzangolab/react-i18n";
+import { Message } from "@dzangolab/react-ui";
 import React, { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import * as zod from "zod";
@@ -45,6 +46,7 @@ export const InvitationForm = ({
   const config = useConfig();
 
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   const getDefaultValues = useCallback(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -115,7 +117,7 @@ export const InvitationForm = ({
       .then((response) => {
         if ("data" in response && response.data.status === "ERROR") {
           // TODO better handle errors
-          toast.error(t("messages.invite.error"));
+          setError(true);
         } else {
           toast.success(t("messages.invite.success"));
 
@@ -125,7 +127,7 @@ export const InvitationForm = ({
         }
       })
       .catch(() => {
-        toast.error(t("messages.invite.error"));
+        setError(true);
       })
       .finally(() => {
         setSubmitting(false);
@@ -181,6 +183,16 @@ export const InvitationForm = ({
       validationSchema={InvitationFormSchema}
       validationTriggerKey={i18n.language}
     >
+      {error && (
+        <Message
+          enableClose={true}
+          message={t("messages.invite.error")}
+          onClose={() => {
+            setError(false);
+          }}
+          severity="danger"
+        />
+      )}
       <InvitationFormFields
         renderAdditionalFields={additionalInvitationFields?.renderFields}
         apps={apps}
