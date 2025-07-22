@@ -13,7 +13,9 @@
   "main": "dist//DzangolabReactForm.umd.js",
   "module": "dist//DzangolabReactForm.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
@@ -74,7 +76,6 @@
     "zod": ">=3.21.4"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=9"
+    "node": ">=18"
   }
 }

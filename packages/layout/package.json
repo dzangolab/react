@@ -13,7 +13,9 @@
   "main": "dist//DzangolabReactLayout.umd.js",
   "module": "dist//DzangolabReactLayout.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
@@ -70,7 +72,6 @@
     "react-router-dom": ">=6.9"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=9"
+    "node": ">=18"
   }
 }
