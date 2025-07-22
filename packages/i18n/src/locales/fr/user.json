@@ -37,7 +37,7 @@
       "invalidToken": "The token is invalid. (fr)",
       "resendEmailInfo": "Not received yet? (fr)",
       "success": "Email verified successfully. (fr)",
-      "unverified": "We've sent you an email with a link to verify your email address. Please check your inbox. (fr)",
+      "unverified": "We've sent an email to <strong>{{ email }}</strong> with a link for verification. Please check your inbox. (fr)",
       "unauthenticated": "User session expired. Please signin to continue. (fr)"
     },
     "title": "Please verify your email address. (fr)",
