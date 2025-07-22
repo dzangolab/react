@@ -223,17 +223,6 @@
     }
   },
   "message": {
-    "contents": {
-      "content1": "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers! (fr)",
-      "content2": "New features just launched! Check them out! (fr)",
-      "content3": "New Year, New You: Start fresh with our services! (fr)",
-      "content4": "We value your feedback: take our quick survey! (fr)",
-      "content5": "Warning: Limited time only! Sale ends soon! (fr)",
-      "danger": "Danger message (fr)",
-      "info": "Info message (fr)",
-      "success": "Success message (fr)",
-      "warning": "Warning message (fr)"
-    },
     "subtitle": "The Message component displays contextual messages with optional icons and a closable action. It supports custom slots, making it flexible for various use cases. (fr)",
     "propertiesDescription": {
       "enableClose": "Displays a close icon if true, allowing the message to be dismissed. (fr)",
