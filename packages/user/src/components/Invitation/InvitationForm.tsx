@@ -177,12 +177,7 @@ export const InvitationForm = ({
   }
 
   return (
-    <Provider
-      onSubmit={onSubmit}
-      defaultValues={getDefaultValues()}
-      validationSchema={InvitationFormSchema}
-      validationTriggerKey={i18n.language}
-    >
+    <>
       {error && (
         <Message
           enableClose={true}
@@ -193,14 +188,21 @@ export const InvitationForm = ({
           severity="danger"
         />
       )}
-      <InvitationFormFields
-        renderAdditionalFields={additionalInvitationFields?.renderFields}
-        apps={apps}
-        expiryDateField={expiryDateField}
-        loading={submitting}
-        onCancel={onCancel}
-        roles={roles}
-      />
-    </Provider>
+      <Provider
+        onSubmit={onSubmit}
+        defaultValues={getDefaultValues()}
+        validationSchema={InvitationFormSchema}
+        validationTriggerKey={i18n.language}
+      >
+        <InvitationFormFields
+          renderAdditionalFields={additionalInvitationFields?.renderFields}
+          apps={apps}
+          expiryDateField={expiryDateField}
+          loading={submitting}
+          onCancel={onCancel}
+          roles={roles}
+        />
+      </Provider>
+    </>
   );
 };
