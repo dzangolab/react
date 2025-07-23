@@ -66,21 +66,45 @@ export const MessageDemo = () => {
       </Section>
 
       <Section title={t("message.usage.basic")}>
-        <Message message={t("message.contents.content1")} />
+        <Message message="Season sale: Up to 50% off selected items!" />
         <CodeBlock exampleCode='<Message message="Season sale: Up to 50% off selected items!" />' />
       </Section>
 
-      <Section title={t("message.usage.customMessage")}>
-        <Message message={<b>{t("message.contents.content1")}</b>} />
-        <CodeBlock exampleCode="<Message message={<b>Season sale: Up to 50% off selected items!</b>} />" />
+      <Section title={t("message.usage.severity")}>
+        <Message message="Info message" severity="info" />
+        <Message message="Success message" severity="success" />
+        <Message message="Warning message" severity="warning" />
+        <Message message="Danger message" severity="danger" />
+
+        <CodeBlock
+          exampleCode='<Message message="Info message" severity="info" />
+<Message message="Success message" severity="success" />
+<Message message="Warning message" severity="warning" />
+<Message message="Danger message" severity="danger" />'
+        />
+      </Section>
+
+      <Section title={t("message.usage.enableClose")}>
+        <Message
+          enableClose={true}
+          icon={<i className="pi pi-bell" />}
+          message="We value your feedback: take our quick survey!"
+        />
+        <CodeBlock
+          exampleCode='<Message 
+  message="We value your feedback: take our quick survey!"
+  icon={<i className="pi pi-bell" />}
+  enableClose={true}
+/>'
+        />
       </Section>
 
       <Section title={t("message.usage.arrayMessage")}>
         <Message
           message={[
-            t("message.contents.content1"),
-            t("message.contents.content2"),
-            t("message.contents.content3"),
+            "Season Sale: Enjoy massive discounts with up to 50% off on a wide range of selected items — from fashion to electronics, don’t miss out on these limited-time offers!",
+            "New features just launched! Check them out!",
+            "New Year, New You: Start fresh with our services!",
           ]}
           enableClose={true}
         />
@@ -97,9 +121,14 @@ export const MessageDemo = () => {
         />
       </Section>
 
+      <Section title={t("message.usage.customMessage")}>
+        <Message message={<b>Season sale: Up to 50% off selected items!</b>} />
+        <CodeBlock exampleCode="<Message message={<b>Season sale: Up to 50% off selected items!</b>} />" />
+      </Section>
+
       <Section title={t("message.usage.icons.icon")}>
         <Message
-          message={t("message.contents.content2")}
+          message="New features just launched! Check them out!"
           icon="pi pi-android"
         />
         <CodeBlock
@@ -112,7 +141,7 @@ export const MessageDemo = () => {
 
       <Section title={t("message.usage.icons.customIcon")}>
         <Message
-          message={t("message.contents.content3")}
+          message="New Year, New You: Start fresh with our services!"
           icon={<i className="pi pi-bell" />}
         />
         <CodeBlock
@@ -123,36 +152,11 @@ export const MessageDemo = () => {
         />
       </Section>
 
-      <Section title={t("message.usage.enableClose")}>
-        <Message
-          enableClose={true}
-          icon={<i className="pi pi-bell" />}
-          message={t("message.contents.content4")}
-        />
-        <CodeBlock
-          exampleCode='<Message 
-  message="We value your feedback: take our quick survey!"
-  icon={<i className="pi pi-bell" />}
-  enableClose={true}
-/>'
-        />
-      </Section>
-
-      <Section title={t("message.usage.severity")}>
-        <Message message={t("message.contents.info")} severity="info" />
-        <Message message={t("message.contents.success")} severity="success" />
-        <Message message={t("message.contents.warning")} severity="warning" />
-        <Message message={t("message.contents.danger")} severity="danger" />
-
-        <CodeBlock
-          exampleCode='<Message message="Info message" severity="info" />
-<Message message="Success message" severity="success" />
-<Message message="Warning message" severity="warning" />
-<Message message="Danger message" severity="danger" />'
-        />
-      </Section>
       <Section title={t("message.usage.hideIcon")}>
-        <Message message={t("message.contents.content1")} showIcon={false} />
+        <Message
+          message="Season sale: Up to 50% off selected items!"
+          showIcon={false}
+        />
         <CodeBlock exampleCode='<Message message="Season sale: Up to 50% off selected items!" showIcon={false} />' />
       </Section>
       <Section

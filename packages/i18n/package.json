@@ -12,7 +12,9 @@
   "main": "dist//DzangolabReactI18n.umd.js",
   "module": "dist//DzangolabReactI18n.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
@@ -68,7 +70,6 @@
     "react-dom": ">=18.2"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=9"
+    "node": ">=18"
   }
 }

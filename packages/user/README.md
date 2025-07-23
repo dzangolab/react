@@ -93,7 +93,7 @@ export const App = () => {
   return (
     <>
       <AppRouter />
-      <ToastContainer position="bottom-right" />
+      <ToastContainer position="top-center" />
     </>
   );
 };

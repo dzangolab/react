@@ -75,7 +75,6 @@
     "react-router-dom": ">=6.9"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=9"
+    "node": ">=18"
   }
 }
