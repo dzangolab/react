@@ -2,7 +2,7 @@
   "errors": {
     "401": "The credentials you input are invalid.",
     "emailAlreadyExists": "This email already exists. Please sign in instead.",
-    "invalidPassword": "Invalid password.",
+    "incorrectPassword": "The current password you entered is incorrect.",
     "otherErrors": "Oops! Something went wrong."
   }
 }

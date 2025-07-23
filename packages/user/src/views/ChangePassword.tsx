@@ -18,7 +18,9 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   const { t } = useTranslation("user");
   const config = useConfig();
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<"invalidPassword" | "other" | null>(null);
+  const [error, setError] = useState<"incorrectPassword" | "other" | null>(
+    null,
+  );
 
   const handleSubmit = async (
     data: ChangePasswordFormData,
@@ -39,7 +41,7 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
         options.reset();
       }
     } else if (response.status === "INVALID_PASSWORD") {
-      setError("invalidPassword");
+      setError("incorrectPassword");
     } else {
       setError("other");
     }
@@ -48,8 +50,8 @@ export const ChangePassword = ({ centered = true }: { centered?: boolean }) => {
   };
 
   const errorMessage =
-    error === "invalidPassword"
-      ? t("errors.invalidPassword", { ns: "errors" })
+    error === "incorrectPassword"
+      ? t("errors.incorrectPassword", { ns: "errors" })
       : t("errors.otherErrors", { ns: "errors" });
 
   return (

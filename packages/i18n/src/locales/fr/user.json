@@ -7,20 +7,20 @@
       "confirmPassword": {
         "label": "Confirm password (fr)"
       },
+      "currentPassword": {
+        "label": "Current password (fr)"
+      },
       "newPassword": {
         "label": "New password (fr)"
-      },
-      "oldPassword": {
-        "label": "Old password (fr)"
       }
     },
     "messages": {
       "success": "You have successfully changed your password. (fr)",
       "validation": {
         "confirmPassword": "Confirm password is required. (fr)",
+        "currentPassword": "Current password is required. (fr)",
         "mustMatch": "Passwords must match. (fr)",
-        "newPassword": "New password is required. (fr)",
-        "oldPassword": "Old password is required. (fr)"
+        "newPassword": "New password is required. (fr)"
       }
     },
     "title": "Change password (fr)"
