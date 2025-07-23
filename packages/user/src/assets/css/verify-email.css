@@ -1,3 +1,7 @@
+.email-verification .dz-auth-page-content {
+  max-width: none;
+}
+
 .email-verification button.resend-email {
   text-align: center;
 }

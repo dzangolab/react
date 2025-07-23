@@ -44,7 +44,7 @@
     "toastMessages": {
       "alreadyVerified": "Email is already verified.",
       "error": "Something went wrong. Please try again.",
-      "invalidToken": "The token is invalid.",
+      "invalidToken": "This email verification link is no more valid. Either it has been already used or has expired.",
       "resendError": "Something went wrong. Please try again.",
       "resendSuccess": "Email resent successfully.",
       "success": "Email verified successfully.",
