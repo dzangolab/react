@@ -1,6 +1,8 @@
 {
   "errors": {
     "401": "The credentials you input are invalid (fr).",
+    "emailAlreadyExists": "This email already exists. Please sign in instead. (fr)",
+    "invalidPassword": "Invalid password. (fr)",
     "otherErrors": "Oops! Something went wrong (fr)."
   }
 }
