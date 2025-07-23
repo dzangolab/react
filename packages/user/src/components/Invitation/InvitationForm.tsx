@@ -2,9 +2,9 @@ import {
   Provider,
   emailSchema,
   AdditionalFormFields,
-} from "@dzangolab/react-form";
-import { useTranslation } from "@dzangolab/react-i18n";
-import { Message } from "@dzangolab/react-ui";
+} from "@prefabs.tech/react-form";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { Message } from "@prefabs.tech/react-ui";
 import React, { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import * as zod from "zod";

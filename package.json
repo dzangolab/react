@@ -1,5 +1,5 @@
 {
-  "name": "@dzangolab/react",
+  "name": "@prefabs.tech/react",
   "version": "0.60.0",
   "scripts": {
     "build": "turbo run build",

@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabReactForm.${format}.js`,
-        name: "@dzangolab/react-form",
+        fileName: (format) => `PrefabsReactForm.${format}.js`,
+        name: "@prefabs.tech/react-form",
       },
       rollupOptions: {
         external: [
@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@dzangolab/react-config": "DzangolabReactConfig",
-            "@dzangolab/react-ui": "DzangolabReactUi",
+            "@prefabs.tech/react-config": "PrefabsReactConfig",
+            "@prefabs.tech/react-ui": "PrefabsReactUi",
             "@hookform/error-message": "HookFormErrorMessage",
             "@hookform/resolvers": "HookFormResolvers",
             react: "React",

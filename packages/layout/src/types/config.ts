@@ -1,4 +1,4 @@
-interface DzangolabReactLayoutConfig {
+interface PrefabsReactLayoutConfig {
   homeRoute?: "/" | string;
   logo?: string;
   logoAlt?: string;
@@ -9,4 +9,4 @@ interface DzangolabReactLayoutConfig {
   }[];
 }
 
-export type { DzangolabReactLayoutConfig };
+export type { PrefabsReactLayoutConfig };

@@ -1,17 +1,17 @@
 {
-  "name": "@dzangolab/react-ui",
+  "name": "@prefabs.tech/react-ui",
   "version": "0.60.0",
   "description": "React UI Component Library",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabReactUI.es.js",
-      "require": "./dist/DzangolabReactUI.umd.js"
+      "import": "./dist/PrefabsReactUI.es.js",
+      "require": "./dist/PrefabsReactUI.umd.js"
     },
-    "./dist/DzangolabReactUI.css": "./dist/react-ui.css"
+    "./dist/PrefabsReactUI.css": "./dist/react-ui.css"
   },
-  "main": "dist//DzangolabReactUI.umd.js",
-  "module": "dist//DzangolabReactUI.es.js",
+  "main": "dist//PrefabsReactUI.umd.js",
+  "module": "dist//PrefabsReactUI.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"
@@ -37,8 +37,8 @@
     "react-popper": "^2.3.0"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.11",
-    "@12deg/tsconfig": "0.1.11",
+    "@prefabs.tech/eslint-config": "0.2.0",
+    "@prefabs.tech/tsconfig": "0.2.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
     "@types/file-saver": "2.0.7",

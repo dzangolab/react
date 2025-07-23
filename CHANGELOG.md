@@ -157,7 +157,7 @@
 
 ### Breaking Changes
 
-* **layout:** move navigation menu components to ui package so they are no longer exported from layout package. update your app to import them from ui package `import type { NavGroupType, NavItemType } from "@dzangolab/react-ui";`
+* **layout:** move navigation menu components to ui package so they are no longer exported from layout package. update your app to import them from ui package `import type { NavGroupType, NavItemType } from "@prefabs.tech/react-ui";`
 * **layout:** update css var names for navigation menu related components
 ```
 --dz-layout-nav-item-padding-h → --dz-nav-item-padding-h
@@ -319,7 +319,7 @@
 ### Breaking Changes
 
 #### Update user package with new approach to routing and provider
-- **Removal of @dzangolab/react-user dependency**: User package no longer uses @dzangolab/react-config package and does not access app's global config. All necessary and customization configuration must be provided through `config` props to `UserWrapper` component. See ([README](https://github.com/dzangolab/react/blob/main/packages/user/README.md)) for more detail on how to use new user package.
+- **Removal of @prefabs.tech/react-config dependency**: User package no longer uses @prefabs.tech/react-config package and does not access app's global config. All necessary and customization configuration must be provided through `config` props to `UserWrapper` component. See ([README](https://github.com/dzangolab/react/blob/main/packages/user/README.md)) for more detail on how to use new user package.
 
 
 ### Bug Fixes
@@ -454,9 +454,9 @@
 
 #### Removal of deprecated `primereact/datatable`
 
-- **Removal of deprecated `primereact/datatable`**: The deprecated `primereact/datatable` is now completed removed from our `@dzangolab/react-ui` package.
-- **Affected Component**: Applications using `DataTable` from `@dzangolab/react-ui` package.
-- **Migration Steps**: Use `TDataTable` from `@dzangolab/react-ui` package. For examples refer to our demo page at https://dzangolab.github.io/react/#/ui/table
+- **Removal of deprecated `primereact/datatable`**: The deprecated `primereact/datatable` is now completed removed from our `@prefabs.tech/react-ui` package.
+- **Affected Component**: Applications using `DataTable` from `@prefabs.tech/react-ui` package.
+- **Migration Steps**: Use `TDataTable` from `@prefabs.tech/react-ui` package. For examples refer to our demo page at https://dzangolab.github.io/react/#/ui/table
 
 
 ### Bug Fixes
@@ -486,15 +486,15 @@
 
 ### Breaking Changes
 
-#### 1. Removal of `@dzangolab/react-form` CSS from `@dzangolab/react-user` Package
+#### 1. Removal of `@prefabs.tech/react-form` CSS from `@prefabs.tech/react-user` Package
 
-- **Removed Form CSS from User Package**: The default import of `@dzangolab/react-form` CSS has been removed from the `@dzangolab/react-user` package. The `@dzangolab/react-form` package is now a peer dependency of the `@dzangolab/react-user` package.
-- **Affected Component**: Applications using the `@dzangolab/react-user` package.
+- **Removed Form CSS from User Package**: The default import of `@prefabs.tech/react-form` CSS has been removed from the `@prefabs.tech/react-user` package. The `@prefabs.tech/react-form` package is now a peer dependency of the `@prefabs.tech/react-user` package.
+- **Affected Component**: Applications using the `@prefabs.tech/react-user` package.
 - **Migration Steps**:
-   1. Add `@dzangolab/react-form` as a dependency in your application.
-   2. Import the `@dzangolab/react-form` CSS into your application manually. Example:
+   1. Add `@prefabs.tech/react-form` as a dependency in your application.
+   2. Import the `@prefabs.tech/react-form` CSS into your application manually. Example:
       ```javascript
-      import "@dzangolab/react-form/dist/DzangolabReactForm.css";
+      import "@prefabs.tech/react-form/dist/PrefabsReactForm.css";
       ```
 #### 2. Make Table `Actions` Column's Visibility Configurable
 
@@ -610,9 +610,9 @@
 
 ### Breaking changes
 
-* **Removed CSS Export From @‌dzangolab/react-i18n**: The CSS exported from @dzangolab /react-i18n\ package has been removed. All the CSS related to this will be handled by the @dzangolab /react-ui package.
-* **Affected Component**: Applications importing CSS styles directly from @dzangolab /react-i18n.
-* **Migration Steps**: Applications should now remove the import of CSS from @dzangolab /react-i18n.
+* **Removed CSS Export From @‌dzangolab/react-i18n**: The CSS exported from @prefabs.tech /react-i18n\ package has been removed. All the CSS related to this will be handled by the @prefabs.tech /react-ui package.
+* **Affected Component**: Applications importing CSS styles directly from @prefabs.tech /react-i18n.
+* **Migration Steps**: Applications should now remove the import of CSS from @prefabs.tech /react-i18n.
 
 ### Bug Fixes
 

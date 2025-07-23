@@ -1,3 +1,3 @@
-import type { DzangolabReactLayoutConfig } from "./config";
+import type { PrefabsReactLayoutConfig } from "./config";
 
-export type { DzangolabReactLayoutConfig };
+export type { PrefabsReactLayoutConfig };

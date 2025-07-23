@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabReactI18n.${format}.js`,
-        name: "@dzangolab/react-i18n",
+        fileName: (format) => `PrefabsReactI18n.${format}.js`,
+        name: "@prefabs.tech/react-i18n",
       },
       rollupOptions: {
         external: [
@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@dzangolab/react-config": "DzangolabReactConfig",
-            "@dzangolab/react-ui": "DzangolabReactUI",
+            "@prefabs.tech/react-config": "PrefabsReactConfig",
+            "@prefabs.tech/react-ui": "PrefabsReactUI",
             i18next: "I18next",
             "i18next-browser-languagedetector":
               "I18nextBrowserLanguagedetector",

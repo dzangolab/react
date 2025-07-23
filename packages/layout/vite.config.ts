@@ -14,8 +14,8 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabReactLayout.${format}.js`,
-        name: "@dzangolab/react-layout",
+        fileName: (format) => `PrefabsReactLayout.${format}.js`,
+        name: "@prefabs.tech/react-layout",
       },
       rollupOptions: {
         external: [
@@ -25,10 +25,10 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@dzangolab/react-i18n": "DzangolabReactI18n",
-            "@dzangolab/react-config": "DzangolabReactConfig",
-            "@dzangolab/react-ui": "DzangolabReactUi",
-            "@dzangolab/react-user": "DzangolabReactUser",
+            "@prefabs.tech/react-i18n": "PrefabsReactI18n",
+            "@prefabs.tech/react-config": "PrefabsReactConfig",
+            "@prefabs.tech/react-ui": "PrefabsReactUi",
+            "@prefabs.tech/react-user": "PrefabsReactUser",
             react: "React",
             "react-dom": "ReactDom",
             "react-router-dom": "ReactRouterDom",

@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `DzangolabReactConfig.${format}.js`,
-        name: "@dzangolab/react-config",
+        fileName: (format) => `PrefabsReactConfig.${format}.js`,
+        name: "@prefabs.tech/react-config",
       },
       rollupOptions: {
         external: ["react"],
