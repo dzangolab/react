@@ -3,11 +3,11 @@ import { AuthPage, Message } from "@dzangolab/react-ui";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-import { UserContextType, useConfig, userContext } from "..";
-
 import { getMe } from "@/api/user";
 import { EMAIL_VERIFICATION } from "@/constants";
 import { verifyEmail } from "@/supertokens";
+
+import { UserContextType, useConfig, userContext } from "..";
 
 export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
   const [verifyEmailLoading, setVerifyEmailLoading] = useState<boolean>(true);
@@ -30,7 +30,6 @@ export const VerifyEmail = ({ centered = true }: { centered?: boolean }) => {
 
             if (user.email !== userInfo.data.email) {
               toast.success(t("emailVerification.toastMessages.updateSuccess"));
-
               setIsEmailUpdated(true);
             } else {
               toast.success(t("emailVerification.toastMessages.success"));
