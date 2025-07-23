@@ -22,8 +22,11 @@
 }
 
 .message .close-message {
-  color: var(--color);
   cursor: pointer;
+}
+
+.message .close-message .pi {
+  font-size: .85rem;
 }
 
 .message.danger {
