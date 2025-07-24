@@ -10,8 +10,8 @@
     },
     "./dist/PrefabsTechReactForm.css": "./dist/react-form.css"
   },
-  "main": "dist//PrefabsTechReactForm.umd.js",
-  "module": "dist//PrefabsTechReactForm.es.js",
+  "main": "./dist/PrefabsTechReactForm.umd.js",
+  "module": "./dist/PrefabsTechReactForm.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

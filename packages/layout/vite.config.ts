@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechReactLayout.${format}.js`,
-        name: "@prefabs.tech/react-layout",
+        name: "PrefabsTechReactLayout",
       },
       rollupOptions: {
         external: [

@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechReactI18n.${format}.js`,
-        name: "@prefabs.tech/react-i18n",
+        name: "PrefabsTechReactI18n",
       },
       rollupOptions: {
         external: [

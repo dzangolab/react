@@ -10,8 +10,8 @@
       "require": "./dist/PrefabsTechReactConfig.umd.js"
     }
   },
-  "main": "dist//PrefabsTechReactConfig.umd.js",
-  "module": "dist//PrefabsTechReactConfig.es.js",
+  "main": "./dist/PrefabsTechReactConfig.umd.js",
+  "module": "./dist/PrefabsTechReactConfig.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

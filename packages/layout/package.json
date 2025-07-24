@@ -10,8 +10,8 @@
     },
     "./dist/PrefabsTechReactLayout.css": "./dist/react-layout.css"
   },
-  "main": "dist//PrefabsTechReactLayout.umd.js",
-  "module": "dist//PrefabsTechReactLayout.es.js",
+  "main": "./dist/PrefabsTechReactLayout.umd.js",
+  "module": "./dist/PrefabsTechReactLayout.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

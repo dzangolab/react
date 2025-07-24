@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
         fileName: (format) => `PrefabsTechReactUI.${format}.js`,
-        name: "@prefabs.tech/react-ui",
+        name: "PrefabsTechReactUI",
       },
       rollupOptions: {
         external: [

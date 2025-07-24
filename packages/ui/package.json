@@ -10,8 +10,8 @@
     },
     "./dist/PrefabsTechReactUI.css": "./dist/react-ui.css"
   },
-  "main": "dist//PrefabsTechReactUI.umd.js",
-  "module": "dist//PrefabsTechReactUI.es.js",
+  "main": "./dist/PrefabsTechReactUI.umd.js",
+  "module": "./dist/PrefabsTechReactUI.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"
