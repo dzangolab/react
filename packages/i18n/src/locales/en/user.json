@@ -10,17 +10,17 @@
       "newPassword": {
         "label": "New password"
       },
-      "oldPassword": {
-        "label": "Old password"
+      "currentPassword": {
+        "label": "Current password"
       }
     },
     "messages": {
       "success": "You have successfully changed your password.",
       "validation": {
         "confirmPassword": "Confirm password.",
+        "currentPassword": "Current password is required.",
         "mustMatch": "Passwords must match.",
-        "newPassword": "New password is required.",
-        "oldPassword": "Old password is required."
+        "newPassword": "New password is required."
       }
     },
     "title": "Change password"
