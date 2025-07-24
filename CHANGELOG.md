@@ -157,7 +157,7 @@
 
 ### Breaking Changes
 
-* **layout:** move navigation menu components to ui package so they are no longer exported from layout package. update your app to import them from ui package `import type { NavGroupType, NavItemType } from "@prefabs.tech/react-ui";`
+* **layout:** move navigation menu components to ui package so they are no longer exported from layout package. update your app to import them from ui package `import type { NavGroupType, NavItemType } from "@dzangolab/react-ui";`
 * **layout:** update css var names for navigation menu related components
 ```
 --dz-layout-nav-item-padding-h → --dz-nav-item-padding-h
