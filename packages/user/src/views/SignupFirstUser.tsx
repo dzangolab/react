@@ -1,5 +1,5 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { Card, CardBody, Page } from "@dzangolab/react-ui";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { Card, CardBody, Page } from "@prefabs.tech/react-ui";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

@@ -1,6 +1,6 @@
-import { FormSubmitOptions } from "@dzangolab/react-form";
-import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Message } from "@dzangolab/react-ui";
+import { FormSubmitOptions } from "@prefabs.tech/react-form";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { AuthPage, Message } from "@prefabs.tech/react-ui";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 

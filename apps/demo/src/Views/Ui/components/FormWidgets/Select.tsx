@@ -1,6 +1,6 @@
-import { Trans, useTranslation } from "@dzangolab/react-i18n";
-import { Select, Page, Button, Tag } from "@dzangolab/react-ui";
-import { TDataTable } from "@dzangolab/react-ui";
+import { Trans, useTranslation } from "@prefabs.tech/react-i18n";
+import { Select, Page, Button, Tag } from "@prefabs.tech/react-ui";
+import { TDataTable } from "@prefabs.tech/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -254,7 +254,7 @@ export const SelectDemo = () => {
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Select" })}</p>
-        <CodeBlock exampleCode='import { Select } from "@dzangolab/react-ui"' />
+        <CodeBlock exampleCode='import { Select } from "@prefabs.tech/react-ui"' />
       </Section>
 
       <Section title={t("select.usage.basic")}>

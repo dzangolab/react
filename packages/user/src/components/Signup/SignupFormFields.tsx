@@ -4,8 +4,8 @@ import {
   Password,
   useFormContext,
   useWatch,
-} from "@dzangolab/react-form";
-import { Trans, useTranslation } from "@dzangolab/react-i18n";
+} from "@prefabs.tech/react-form";
+import { Trans, useTranslation } from "@prefabs.tech/react-i18n";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 

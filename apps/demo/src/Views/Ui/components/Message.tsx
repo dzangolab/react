@@ -1,5 +1,5 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Message, Page, TDataTable } from "@dzangolab/react-ui";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { Button, Message, Page, TDataTable } from "@prefabs.tech/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
@@ -62,7 +62,7 @@ export const MessageDemo = () => {
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Message" })}</p>
-        <CodeBlock exampleCode='import { Message } from "@dzangolab/react-ui"' />
+        <CodeBlock exampleCode='import { Message } from "@prefabs.tech/react-ui"' />
       </Section>
 
       <Section title={t("message.usage.basic")}>
@@ -71,16 +71,28 @@ export const MessageDemo = () => {
       </Section>
 
       <Section title={t("message.usage.severity")}>
-        <Message message="Info message" severity="info" />
-        <Message message="Success message" severity="success" />
-        <Message message="Warning message" severity="warning" />
-        <Message message="Danger message" severity="danger" />
+        <Message message="Info message" severity="info" enableClose={true} />
+        <Message
+          message="Success message"
+          severity="success"
+          enableClose={true}
+        />
+        <Message
+          message="Warning message"
+          severity="warning"
+          enableClose={true}
+        />
+        <Message
+          message="Danger message"
+          severity="danger"
+          enableClose={true}
+        />
 
         <CodeBlock
-          exampleCode='<Message message="Info message" severity="info" />
-<Message message="Success message" severity="success" />
-<Message message="Warning message" severity="warning" />
-<Message message="Danger message" severity="danger" />'
+          exampleCode='<Message message="Info message" severity="info" enableClose={true} />
+<Message message="Success message" severity="success" enableClose={true} />
+<Message message="Warning message" severity="warning" enableClose={true} />
+<Message message="Danger message" severity="danger" enableClose={true} />'
         />
       </Section>
 

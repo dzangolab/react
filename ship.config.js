@@ -1,5 +1,5 @@
 module.exports = {
-  appName: "@dzangolab/react",
+  appName: "@prefabs.tech/react",
   buildCommand: ({ isYarn, version }) => {
     return "pnpm build";
   },
