@@ -16,10 +16,10 @@ import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primeicons/primeicons.css";
 
-import "@prefabs.tech/react-form/dist/PrefabsReactForm.css";
-import "@prefabs.tech/react-layout/dist/PrefabsReactLayout.css";
-import "@prefabs.tech/react-ui/dist/PrefabsReactUI.css";
-import "@prefabs.tech/react-user/dist/PrefabsReactUser.css";
+import "@prefabs.tech/react-form/dist/PrefabsTechReactForm.css";
+import "@prefabs.tech/react-layout/dist/PrefabsTechReactLayout.css";
+import "@prefabs.tech/react-ui/dist/PrefabsTechReactUI.css";
+import "@prefabs.tech/react-user/dist/PrefabsTechReactUser.css";
 
 import "./assets/css/index.css";
 

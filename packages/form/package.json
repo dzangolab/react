@@ -5,13 +5,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/PrefabsReactForm.es.js",
-      "require": "./dist/PrefabsReactForm.umd.js"
+      "import": "./dist/PrefabsTechReactForm.es.js",
+      "require": "./dist/PrefabsTechReactForm.umd.js"
     },
-    "./dist/PrefabsReactForm.css": "./dist/react-form.css"
+    "./dist/PrefabsTechReactForm.css": "./dist/react-form.css"
   },
-  "main": "dist//PrefabsReactForm.umd.js",
-  "module": "dist//PrefabsReactForm.es.js",
+  "main": "dist//PrefabsTechReactForm.umd.js",
+  "module": "dist//PrefabsTechReactForm.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

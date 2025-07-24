@@ -5,13 +5,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/PrefabsReactLayout.es.js",
-      "require": "./dist/PrefabsReactLayout.umd.js"
+      "import": "./dist/PrefabsTechReactLayout.es.js",
+      "require": "./dist/PrefabsTechReactLayout.umd.js"
     },
-    "./dist/PrefabsReactLayout.css": "./dist/react-layout.css"
+    "./dist/PrefabsTechReactLayout.css": "./dist/react-layout.css"
   },
-  "main": "dist//PrefabsReactLayout.umd.js",
-  "module": "dist//PrefabsReactLayout.es.js",
+  "main": "dist//PrefabsTechReactLayout.umd.js",
+  "module": "dist//PrefabsTechReactLayout.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `PrefabsReactUser.${format}.js`,
+        fileName: (format) => `PrefabsTechReactUser.${format}.js`,
         name: "@prefabs.tech/react-user",
       },
       rollupOptions: {
@@ -25,10 +25,10 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@prefabs.tech/react-form": "PrefabsReactForm",
-            "@prefabs.tech/react-i18n": "PrefabsReactI18n",
-            "@prefabs.tech/react-layout": "PrefabsReactLayout",
-            "@prefabs.tech/react-ui": "PrefabsReactUi",
+            "@prefabs.tech/react-form": "PrefabsTechReactForm",
+            "@prefabs.tech/react-i18n": "PrefabsTechReactI18n",
+            "@prefabs.tech/react-layout": "PrefabsTechReactLayout",
+            "@prefabs.tech/react-ui": "PrefabsTechReactUi",
             "react-dom": "ReactDom",
             "react-router-dom": "ReactRouterDom",
             "react-toastify": "ReactToastify",

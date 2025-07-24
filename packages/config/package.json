@@ -6,12 +6,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/PrefabsReactConfig.es.js",
-      "require": "./dist/PrefabsReactConfig.umd.js"
+      "import": "./dist/PrefabsTechReactConfig.es.js",
+      "require": "./dist/PrefabsTechReactConfig.umd.js"
     }
   },
-  "main": "dist//PrefabsReactConfig.umd.js",
-  "module": "dist//PrefabsReactConfig.es.js",
+  "main": "dist//PrefabsTechReactConfig.umd.js",
+  "module": "dist//PrefabsTechReactConfig.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

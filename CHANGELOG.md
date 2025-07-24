@@ -494,7 +494,7 @@
    1. Add `@prefabs.tech/react-form` as a dependency in your application.
    2. Import the `@prefabs.tech/react-form` CSS into your application manually. Example:
       ```javascript
-      import "@prefabs.tech/react-form/dist/PrefabsReactForm.css";
+      import "@prefabs.tech/react-form/dist/PrefabsTechReactForm.css";
       ```
 #### 2. Make Table `Actions` Column's Visibility Configurable
 

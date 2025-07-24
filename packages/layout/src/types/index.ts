@@ -1,3 +1,3 @@
-import type { PrefabsReactLayoutConfig } from "./config";
+import type { PrefabsTechReactLayoutConfig } from "./config";
 
-export type { PrefabsReactLayoutConfig };
+export type { PrefabsTechReactLayoutConfig };

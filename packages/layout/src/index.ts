@@ -28,11 +28,11 @@ import {
   SidebarOnlyLayoutProperties,
 } from "./layouts";
 
-import type { PrefabsReactLayoutConfig } from "./types";
+import type { PrefabsTechReactLayoutConfig } from "./types";
 
 declare module "@prefabs.tech/react-config" {
   export interface AppConfig {
-    layout?: PrefabsReactLayoutConfig;
+    layout?: PrefabsTechReactLayoutConfig;
   }
 }
 
@@ -64,7 +64,7 @@ export {
   useLayoutContext,
 };
 
-export type { PrefabsReactLayoutConfig } from "./types";
+export type { PrefabsTechReactLayoutConfig } from "./types";
 
 export type {
   HeaderLayoutProperties,

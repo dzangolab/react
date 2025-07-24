@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `PrefabsReactLayout.${format}.js`,
+        fileName: (format) => `PrefabsTechReactLayout.${format}.js`,
         name: "@prefabs.tech/react-layout",
       },
       rollupOptions: {
@@ -25,10 +25,10 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@prefabs.tech/react-i18n": "PrefabsReactI18n",
-            "@prefabs.tech/react-config": "PrefabsReactConfig",
-            "@prefabs.tech/react-ui": "PrefabsReactUi",
-            "@prefabs.tech/react-user": "PrefabsReactUser",
+            "@prefabs.tech/react-i18n": "PrefabsTechReactI18n",
+            "@prefabs.tech/react-config": "PrefabsTechReactConfig",
+            "@prefabs.tech/react-ui": "PrefabsTechReactUi",
+            "@prefabs.tech/react-user": "PrefabsTechReactUser",
             react: "React",
             "react-dom": "ReactDom",
             "react-router-dom": "ReactRouterDom",

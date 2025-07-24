@@ -5,13 +5,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/PrefabsReactUser.es.js",
-      "require": "./dist/PrefabsReactUser.umd.js"
+      "import": "./dist/PrefabsTechReactUser.es.js",
+      "require": "./dist/PrefabsTechReactUser.umd.js"
     },
-    "./dist/PrefabsReactUser.css": "./dist/react-user.css"
+    "./dist/PrefabsTechReactUser.css": "./dist/react-user.css"
   },
-  "main": "dist//PrefabsReactUser.umd.js",
-  "module": "dist//PrefabsReactUser.es.js",
+  "main": "dist//PrefabsTechReactUser.umd.js",
+  "module": "dist//PrefabsTechReactUser.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

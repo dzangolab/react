@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `PrefabsReactConfig.${format}.js`,
+        fileName: (format) => `PrefabsTechReactConfig.${format}.js`,
         name: "@prefabs.tech/react-config",
       },
       rollupOptions: {

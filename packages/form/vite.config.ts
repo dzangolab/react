@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `PrefabsReactForm.${format}.js`,
+        fileName: (format) => `PrefabsTechReactForm.${format}.js`,
         name: "@prefabs.tech/react-form",
       },
       rollupOptions: {
@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@prefabs.tech/react-config": "PrefabsReactConfig",
-            "@prefabs.tech/react-ui": "PrefabsReactUi",
+            "@prefabs.tech/react-config": "PrefabsTechReactConfig",
+            "@prefabs.tech/react-ui": "PrefabsTechReactUi",
             "@hookform/error-message": "HookFormErrorMessage",
             "@hookform/resolvers": "HookFormResolvers",
             react: "React",

@@ -5,12 +5,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/PrefabsReactI18n.es.js",
-      "require": "./dist/PrefabsReactI18n.umd.js"
+      "import": "./dist/PrefabsTechReactI18n.es.js",
+      "require": "./dist/PrefabsTechReactI18n.umd.js"
     }
   },
-  "main": "dist//PrefabsReactI18n.umd.js",
-  "module": "dist//PrefabsReactI18n.es.js",
+  "main": "dist//PrefabsTechReactI18n.umd.js",
+  "module": "dist//PrefabsTechReactI18n.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

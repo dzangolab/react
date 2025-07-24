@@ -5,13 +5,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/PrefabsReactUI.es.js",
-      "require": "./dist/PrefabsReactUI.umd.js"
+      "import": "./dist/PrefabsTechReactUI.es.js",
+      "require": "./dist/PrefabsTechReactUI.umd.js"
     },
-    "./dist/PrefabsReactUI.css": "./dist/react-ui.css"
+    "./dist/PrefabsTechReactUI.css": "./dist/react-ui.css"
   },
-  "main": "dist//PrefabsReactUI.umd.js",
-  "module": "dist//PrefabsReactUI.es.js",
+  "main": "dist//PrefabsTechReactUI.umd.js",
+  "module": "dist//PrefabsTechReactUI.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
     "dist"

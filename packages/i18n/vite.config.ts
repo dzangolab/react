@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-        fileName: (format) => `PrefabsReactI18n.${format}.js`,
+        fileName: (format) => `PrefabsTechReactI18n.${format}.js`,
         name: "@prefabs.tech/react-i18n",
       },
       rollupOptions: {
@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@prefabs.tech/react-config": "PrefabsReactConfig",
-            "@prefabs.tech/react-ui": "PrefabsReactUI",
+            "@prefabs.tech/react-config": "PrefabsTechReactConfig",
+            "@prefabs.tech/react-ui": "PrefabsTechReactUI",
             i18next: "I18next",
             "i18next-browser-languagedetector":
               "I18nextBrowserLanguagedetector",

@@ -1,4 +1,4 @@
-interface PrefabsReactLayoutConfig {
+interface PrefabsTechReactLayoutConfig {
   homeRoute?: "/" | string;
   logo?: string;
   logoAlt?: string;
@@ -9,4 +9,4 @@ interface PrefabsReactLayoutConfig {
   }[];
 }
 
-export type { PrefabsReactLayoutConfig };
+export type { PrefabsTechReactLayoutConfig };
