@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 
-vi.mock("@dzangolab/react-i18n", () => ({
+vi.mock("@prefabs.tech/react-i18n", () => ({
   useTranslation: () => {
     return {
       t: (string_) => string_,

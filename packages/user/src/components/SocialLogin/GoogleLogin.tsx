@@ -1,4 +1,4 @@
-import { GoogleButton } from "@dzangolab/react-ui";
+import { GoogleButton } from "@prefabs.tech/react-ui";
 import React from "react";
 
 import { socialLogin } from "@/supertokens";

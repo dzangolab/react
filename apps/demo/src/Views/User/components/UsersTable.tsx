@@ -1,6 +1,6 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Page } from "@dzangolab/react-ui";
-import { UsersTable } from "@dzangolab/react-user";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { Button, Page } from "@prefabs.tech/react-ui";
+import { UsersTable } from "@prefabs.tech/react-user";
 import { useNavigate } from "react-router-dom";
 
 import { allUsers } from "./data";

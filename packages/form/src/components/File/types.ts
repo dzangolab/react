@@ -1,4 +1,4 @@
-import { IButtonProperties } from "@dzangolab/react-ui";
+import { IButtonProperties } from "@prefabs.tech/react-ui";
 
 import type { DropzoneOptions } from "react-dropzone";
 
