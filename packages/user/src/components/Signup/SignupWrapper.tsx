@@ -3,15 +3,15 @@ import { Message } from "@dzangolab/react-ui";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
+import { DEFAULT_PATHS } from "@/constants";
+import { signup } from "@/supertokens";
+import { LinkType } from "@/types/types";
+
 import { AuthLinks } from "../AuthLinks";
 import { SignupForm } from "./SignupForm";
 import { useConfig, useUser } from "../../hooks";
 
 import type { LoginCredentials, SignInUpPromise } from "../../types";
-
-import { DEFAULT_PATHS } from "@/constants";
-import { signup } from "@/supertokens";
-import { LinkType } from "@/types/types";
 
 interface IProperties {
   loading?: boolean;
