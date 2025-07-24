@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@dzangolab/react-ui";
+import { useMediaQuery } from "@prefabs.tech/react-ui";
 
 import { LayoutProvider, useLayoutContext } from "../../context/LayoutProvider";
 

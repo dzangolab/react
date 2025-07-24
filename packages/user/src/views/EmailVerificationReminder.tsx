@@ -1,5 +1,5 @@
-import { Trans, useTranslation } from "@dzangolab/react-i18n";
-import { Page } from "@dzangolab/react-ui";
+import { Trans, useTranslation } from "@prefabs.tech/react-i18n";
+import { Page } from "@prefabs.tech/react-ui";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";

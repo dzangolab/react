@@ -1,7 +1,7 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { Page, TabView, TDataTable } from "@dzangolab/react-ui";
-import { Button } from "@dzangolab/react-ui";
-import { ConfirmationModal } from "@dzangolab/react-ui";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { Page, TabView, TDataTable } from "@prefabs.tech/react-ui";
+import { Button } from "@prefabs.tech/react-ui";
+import { ConfirmationModal } from "@prefabs.tech/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -173,7 +173,7 @@ export const TabViewDemo = () => {
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "TabView" })}</p>
-        <CodeBlock exampleCode="import { TabView } from 'dzangolab/react-ui';" />
+        <CodeBlock exampleCode="import { TabView } from '@prefabs.tech/react-ui';" />
       </Section>
 
       <Section title={t("tabview.usage.basic")}>
