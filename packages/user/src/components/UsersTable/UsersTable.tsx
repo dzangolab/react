@@ -1,5 +1,5 @@
-import { AdditionalFormFields } from "@dzangolab/react-form";
-import { useTranslation } from "@dzangolab/react-i18n";
+import { AdditionalFormFields } from "@prefabs.tech/react-form";
+import { useTranslation } from "@prefabs.tech/react-i18n";
 import {
   TDataTable as DataTable,
   TDataTableProperties,
@@ -10,7 +10,7 @@ import {
   formatDate,
   type DataActionsMenuProperties,
   type FilterOption,
-} from "@dzangolab/react-ui";
+} from "@prefabs.tech/react-ui";
 
 import { useUserActions } from "./useUserActionsMethods";
 import { InvitationModal } from "../Invitation";

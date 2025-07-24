@@ -1,5 +1,5 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Message } from "@dzangolab/react-ui";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { AuthPage, Message } from "@prefabs.tech/react-ui";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
