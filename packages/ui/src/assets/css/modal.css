@@ -55,11 +55,6 @@
   margin-left: auto;
 }
 
-.profile .account-info .dz-modal-overlay .update-email-modal {
-  max-width: 21.875rem;
-  width: 100%;
-}
-
 @media screen and (min-width: 576px) {
   .dz-modal {
     max-width: 430px;
