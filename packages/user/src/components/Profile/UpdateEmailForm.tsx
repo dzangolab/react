@@ -1,6 +1,6 @@
-import { Message } from "@prefabs.tech/react-ui";
 import { Provider, emailSchema } from "@prefabs.tech/react-form";
 import { useTranslation } from "@prefabs.tech/react-i18n";
+import { Message } from "@prefabs.tech/react-ui";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { z } from "zod";
