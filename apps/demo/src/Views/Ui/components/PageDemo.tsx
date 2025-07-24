@@ -1,5 +1,5 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { Button, Page, Tag } from "@dzangolab/react-ui";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { Button, Page, Tag } from "@prefabs.tech/react-ui";
 
 export const PageDemo = () => {
   const [t] = useTranslation("ui");

@@ -1,5 +1,5 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { Message } from "@dzangolab/react-ui";
+import { Message } from "@prefabs.tech/react-ui";
+import { useTranslation } from "@prefabs.tech/react-i18n";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 

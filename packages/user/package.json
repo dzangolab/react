@@ -1,19 +1,21 @@
 {
-  "name": "@dzangolab/react-user",
+  "name": "@prefabs.tech/react-user",
   "version": "0.60.0",
   "description": "React User Plugin",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/DzangolabReactUser.es.js",
-      "require": "./dist/DzangolabReactUser.umd.js"
+      "import": "./dist/PrefabsTechReactUser.es.js",
+      "require": "./dist/PrefabsTechReactUser.umd.js"
     },
-    "./dist/DzangolabReactUser.css": "./dist/react-user.css"
+    "./dist/PrefabsTechReactUser.css": "./dist/react-user.css"
   },
-  "main": "dist//DzangolabReactUser.umd.js",
-  "module": "dist//DzangolabReactUser.es.js",
+  "main": "./dist/PrefabsTechReactUser.umd.js",
+  "module": "./dist/PrefabsTechReactUser.es.js",
   "types": "./dist/src/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "eslint .",
@@ -31,12 +33,12 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@12deg/eslint-config": "0.1.11",
-    "@12deg/tsconfig": "0.1.11",
-    "@dzangolab/react-form": "0.60.0",
-    "@dzangolab/react-i18n": "0.60.0",
-    "@dzangolab/react-layout": "0.60.0",
-    "@dzangolab/react-ui": "0.60.0",
+    "@prefabs.tech/eslint-config": "0.2.0",
+    "@prefabs.tech/tsconfig": "0.2.0",
+    "@prefabs.tech/react-form": "0.60.0",
+    "@prefabs.tech/react-i18n": "0.60.0",
+    "@prefabs.tech/react-layout": "0.60.0",
+    "@prefabs.tech/react-ui": "0.60.0",
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
@@ -69,10 +71,10 @@
     "vitest": "3.0.8"
   },
   "peerDependencies": {
-    "@dzangolab/react-form": "0.60.0",
-    "@dzangolab/react-i18n": "0.60.0",
-    "@dzangolab/react-layout": "0.60.0",
-    "@dzangolab/react-ui": "0.60.0",
+    "@prefabs.tech/react-form": "0.60.0",
+    "@prefabs.tech/react-i18n": "0.60.0",
+    "@prefabs.tech/react-layout": "0.60.0",
+    "@prefabs.tech/react-ui": "0.60.0",
     "axios": "1.10.0",
     "primeicons": "7.0.0",
     "react": ">=18.2",
@@ -81,7 +83,6 @@
     "react-toastify": ">=10.0"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=9"
+    "node": ">=18"
   }
 }

@@ -1,16 +1,16 @@
-import { useTranslation } from "@dzangolab/react-i18n";
-import { AuthPage, Message } from "@dzangolab/react-ui";
+import { useTranslation } from "@prefabs.tech/react-i18n";
+import { AuthPage, Message } from "@prefabs.tech/react-ui";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { getIsFirstUser, signUpFirstUser } from "@/api/user";
-import { DEFAULT_PATHS } from "@/constants";
-import { useConfig, useUser } from "@/hooks";
-
 import { login, SignupForm } from "..";
 
 import type { LoginCredentials } from "@/types";
+
+import { getIsFirstUser, signUpFirstUser } from "@/api/user";
+import { DEFAULT_PATHS } from "@/constants";
+import { useConfig, useUser } from "@/hooks";
 
 export const SignUpFirstUser = ({
   centered = true,

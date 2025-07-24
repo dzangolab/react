@@ -2,7 +2,7 @@ import {
   Select as BasicSelect,
   ISelectProperties,
   Option,
-} from "@dzangolab/react-ui";
+} from "@prefabs.tech/react-ui";
 import React, { useEffect, useMemo } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 

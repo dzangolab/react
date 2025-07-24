@@ -1,4 +1,4 @@
-import { useTranslation } from "@dzangolab/react-i18n";
+import { useTranslation } from "@prefabs.tech/react-i18n";
 import {
   Button,
   Card,
@@ -7,7 +7,7 @@ import {
   CardHeader,
   Page,
   TDataTable,
-} from "@dzangolab/react-ui";
+} from "@prefabs.tech/react-ui";
 import { useNavigate } from "react-router-dom";
 
 import { CodeBlock, Section } from "../../../components/Demo";
@@ -56,7 +56,7 @@ export const CardDemo = () => {
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "Card" })}</p>
-        <CodeBlock exampleCode="import { Card } from 'dzangolab/react-ui';" />
+        <CodeBlock exampleCode="import { Card } from '@prefabs.tech/react-ui';" />
       </Section>
 
       <Section title={t("card.usage.basic")}>
@@ -79,7 +79,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-} from "@dzangolab/react-ui";
+} from "@prefabs.tech/react-ui";
 
 <Card>
   <CardHeader>
@@ -114,7 +114,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-} from "@dzangolab/react-ui";
+} from "@prefabs.tech/react-ui";
 
 <Card outlined>
   <CardHeader>

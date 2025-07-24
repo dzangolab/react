@@ -1,5 +1,5 @@
-import { Trans, useTranslation } from "@dzangolab/react-i18n";
-import { CurrencyPicker, Page, Button } from "@dzangolab/react-ui";
+import { Trans, useTranslation } from "@prefabs.tech/react-i18n";
+import { CurrencyPicker, Page, Button } from "@prefabs.tech/react-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -57,7 +57,7 @@ export const CurrencyPickerDemo = () => {
     >
       <Section title={t("headers.usage")}>
         <p>{t("common.usage", { component: "CurrencyPicker" })}</p>
-        <CodeBlock exampleCode='import { CurrencyPicker } from "@dzangolab/react-ui"' />
+        <CodeBlock exampleCode='import { CurrencyPicker } from "@prefabs.tech/react-ui"' />
       </Section>
 
       <Section title={t("currencyPicker.usage.basic")}>
