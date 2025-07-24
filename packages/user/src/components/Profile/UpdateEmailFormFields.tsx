@@ -34,8 +34,9 @@ export const UpdateEmailFormFields = ({
             disabled: !isDirty,
           },
         ]}
+        alignment="right"
         loading={loading}
-        alignment="fill"
+        reverse={true}
       />
     </>
   );
