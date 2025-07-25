@@ -174,8 +174,9 @@ export const InvitationFormFields: React.FC<IProperties> = ({
             disabled: !!Object.values(errors).length,
           },
         ]}
+        alignment="right"
         loading={loading}
-        alignment="fill"
+        reverse={true}
       />
     </>
   );
